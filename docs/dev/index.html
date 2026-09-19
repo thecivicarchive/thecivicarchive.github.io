@@ -396,7 +396,7 @@ section.block{padding:72px 0;scroll-margin-top:72px}
 .mapframe{position:relative;margin-top:16px}
 svg.usmap{width:100%;height:auto;display:block}
 .mapback{position:absolute;left:8px;top:8px;z-index:2;height:38px;padding:0 14px 0 8px;font-size:14px;border-color:var(--line-strong);background:var(--surface);color:var(--ink);animation:rowin .35s var(--ease) both}
-.mapback[hidden]{display:none}
+.mapback[hidden]{display:none!important}
 svg.usmap g.state{transition:opacity .55s var(--ease)}
 svg.usmap g.state.dim{opacity:.16;pointer-events:none}
 svg.usmap.blur g.state.dim{filter:blur(1.3px)}
@@ -416,7 +416,7 @@ svg.usmap text.dlab{font-family:var(--sans);font-weight:700;fill:#fff;pointer-ev
 .mapside .hint{font-size:12.5px;color:var(--muted);margin:6px 0 4px}
 /* the representative card */
 .repmodal{position:fixed;inset:0;z-index:55}
-.repmodal[hidden]{display:none}
+.repmodal[hidden]{display:none!important}
 .rep-back{position:absolute;inset:0;background:rgba(10,12,16,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .rep{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,calc(100vw - 24px));max-height:min(86vh,900px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--shadow-3);padding:26px;animation:pop .28s var(--ease)}
 @media (max-width:640px){.rep{left:0;right:0;top:auto;bottom:0;transform:none;width:100%;max-height:90vh;border-radius:24px 24px 0 0;padding:22px 18px 30px;animation:sheet .35s var(--ease)}}
@@ -548,7 +548,7 @@ footer .brand{margin-bottom:14px}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500;transition:opacity .25s,transform .3s var(--ease);pointer-events:none;z-index:60;box-shadow:var(--shadow-3)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .palette{position:fixed;inset:0;z-index:50}
-.palette[hidden]{display:none}
+.palette[hidden]{display:none!important}
 .pal-back{position:absolute;inset:0;background:rgba(10,12,16,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .pal{position:relative;width:min(640px,calc(100vw - 24px));margin:min(14vh,120px) auto 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-3);overflow:hidden;animation:pop .2s var(--ease)}
 @keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.985)}to{opacity:1;transform:none}}
