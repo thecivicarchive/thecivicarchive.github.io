@@ -1,0 +1,127 @@
+PLAIN CONGRESS  -  START HERE
+=============================
+Read this like a recipe. One step at a time. Nothing here can break your computer.
+
+WHAT THIS FOLDER DOES
+  It builds your Plain Congress website on your own computer:
+  every bill in Congress, every vote on the map, and the members' pictures.
+  Claude Code is a helper that types the computer commands for you.
+  You paste ONE message, then say "yes" when it asks. That's it.
+
+WHAT YOU NEED
+  - Your own Mac or Windows computer (not a work laptop; they block installs).
+  - The internet.
+  - A Claude Pro or Max account (Claude Code is not in the free plan).
+  - About 1 hour. The computer does most of it while you wait.
+
+-----------------------------------------------------------------
+STEP 1  -  PUT THIS FOLDER SOMEWHERE EASY
+-----------------------------------------------------------------
+  Mac:      drag the "plain-congress" folder into your home folder
+            (in Finder press Shift + Command + H to open it).
+  Windows:  move the "plain-congress" folder into C:\Users\<your name>.
+  Do not leave it in Downloads, Desktop, iCloud or OneDrive.
+
+-----------------------------------------------------------------
+STEP 2  -  INSTALL PYTHON  (one time, about 2 minutes)
+-----------------------------------------------------------------
+  1. Go to  https://www.python.org/downloads/
+  2. Click the big yellow "Download Python 3.x" button.
+  3. Open the file you downloaded.
+       Windows: on the FIRST screen, tick the box "Add python.exe to PATH".
+                Then click "Install Now".
+       Mac:     click Continue, Continue, Agree, Install. Done.
+
+-----------------------------------------------------------------
+STEP 3  -  START CLAUDE CODE  (double-click)
+-----------------------------------------------------------------
+  In this folder, double-click:
+       Mac:      "Start Claude Code (Mac).command"
+       Windows:  "Start Claude Code (Windows).bat"
+
+  A black window opens. The FIRST time it installs Claude Code for you
+  (about 1 minute), then starts it.
+
+  If your computer complains:
+       Mac says "can't be opened":  right-click the file, choose Open, then Open again.
+       Windows says "protected your PC":  click "More info", then "Run anyway".
+
+  If double-clicking does nothing, you can type it yourself:
+       Mac:      open Terminal, type   cd ~/plain-congress   press Return, type   claude   press Return.
+       Windows:  open PowerShell, type  cd $HOME\plain-congress  press Enter, type  claude  press Enter.
+
+-----------------------------------------------------------------
+STEP 4  -  SIGN IN  (first time only)
+-----------------------------------------------------------------
+  Your web browser opens. Sign in with your Claude account.
+  Go back to the black window.
+  It asks "Do you trust the files in this folder?"  ->  press Enter for Yes.
+
+-----------------------------------------------------------------
+STEP 5  -  PASTE THE MAGIC MESSAGE
+-----------------------------------------------------------------
+  1. Open the file  KICKOFF_PROMPT.txt  (double-click it).
+  2. Select all of the text (Ctrl+A on Windows, Command+A on Mac) and copy it.
+  3. Click in the black window, paste it, press Enter.
+
+-----------------------------------------------------------------
+STEP 6  -  SAY YES
+-----------------------------------------------------------------
+  Claude Code asks before it runs anything. Read it, then press Enter (or y) for Yes.
+  When it asks about "python run_all.py", pick "Yes, and don't ask again"
+  so it does not stop and ask on every step.
+
+-----------------------------------------------------------------
+STEP 7  -  WAIT
+-----------------------------------------------------------------
+  This takes 30 to 60 minutes. Keep the laptop plugged in and awake.
+  Do not close the black window. It prints what it is doing:
+       check ...... 10 seconds
+       smoke ...... 10 seconds
+       roster ..... 1 minute      (every member of Congress)
+       catalog .... 15-40 minutes (every bill, this is the long one)
+       rollcalls .. 5-15 minutes  (every vote, member by member)
+       photos ..... 1-2 minutes   (the pictures)
+       districts .. 1-2 minutes   (the district lines for the zoom-in map)
+       ratings .... 1 minute
+       build ...... 1 minute      (makes the website file)
+       verify ..... 1 minute      (checks the math)
+
+-----------------------------------------------------------------
+STEP 8  -  LOOK AT IT
+-----------------------------------------------------------------
+  When it finishes, Claude Code opens the website in your browser and
+  shows a little report.
+       PASS  = everything adds up.
+       CHECK = it explains what to look at. Usually you just say
+               "run the rollcalls step again" and it fixes itself.
+  Your website is the file:   plain-congress / site / index.html
+
+-----------------------------------------------------------------
+STEP 9  -  PUT IT ONLINE
+-----------------------------------------------------------------
+  Open your Claude chat (the Congress project), attach the file
+  site/index.html, and say:
+       "Publish this to my Plain Congress prototype link."
+  It stays private until you share the link.
+
+-----------------------------------------------------------------
+NEXT WEEK  -  REFRESH  (15-30 minutes)
+-----------------------------------------------------------------
+  Double-click "Start Claude Code" again and type:
+       Run the weekly refresh from CLAUDE.md and show me the verify summary.
+  Then do Step 9 again with the new site/index.html.
+
+-----------------------------------------------------------------
+IF SOMETHING GOES WRONG
+-----------------------------------------------------------------
+  - Just ask, in plain words:  "It stopped. What happened and what do I do?"
+  - Running the same thing twice is always safe. Nothing downloads twice.
+  - Computer fell asleep?  Start it again; it picks up where it left off.
+  - The long guide with pictures of what to expect is the doc in your
+    Claude account: "Plain Congress: full build on your computer with Claude Code".
+
+ONE MORE THING
+  Rating more bills with the Claude API costs money (about 2 cents a bill).
+  It never happens unless you run it yourself:  python run_all.py rate
+  Claude Code will not do it on its own.

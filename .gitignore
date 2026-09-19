@@ -1,0 +1,30 @@
+# Build materials - these stay on John's computer, never published.
+# Everything here is rebuilt by `python run_all.py`.
+
+# Downloaded source data (121 MB) - re-downloadable from GovInfo, the House
+# Clerk, the Senate, GitHub and the Census Bureau.
+billstatus_cache/
+rollcall_cache/
+photo_cache/
+district_cache/
+
+# The database and workbook the build produces (110 MB).
+*.sqlite
+*.sqlite-journal
+*.xlsx
+
+# The private Python environment (34 MB) - recreated on first run.
+.venv/
+__pycache__/
+*.pyc
+
+# Run logs and the offline smoke-test output.
+logs/
+smoke/
+
+# The build writes the site here; `docs/` holds the published copy.
+site/
+
+# Working files from the optional rating step.
+review.md
+ratings_export.json

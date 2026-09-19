@@ -1,0 +1,8 @@
+Read CLAUDE.md in this folder first. Then build Plain Congress on this computer:
+
+1. Run the check stage (python3 run_all.py check on a Mac, python run_all.py check on Windows). If anything says FAIL, stop and tell me in plain words what to fix.
+2. Run the smoke test and confirm it passes.
+3. Run the full build (python run_all.py). It takes a while; let it finish, and give me a one-line update after each stage.
+4. When it's done, show me the summary table from verify_report.md, explain anything marked CHECK, and open site/index.html in my browser.
+
+Ask me before anything that costs money, deletes files, or changes the rating rubric. Don't run any scoring that calls the Claude API unless I ask.

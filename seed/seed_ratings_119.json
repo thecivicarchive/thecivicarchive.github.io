@@ -1,0 +1,758 @@
+[
+ {
+  "bill_key": "hr1-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.0 applied by hand from CBO/JCT analyses - preview, not a scorer run)",
+  "income": {
+   "position": 85,
+   "position_low": 35,
+   "position_high": 90,
+   "magnitude_label": "major",
+   "magnitude_note": "Tax cuts of roughly $4.5 trillion over ten years (JCT); Medicaid and SNAP reductions of more than $1 trillion; CBO net deficit effect about $3.4 trillion. Check the figures against the CBO letter and JCT tables before publishing.",
+   "evidence_grade": "A",
+   "confidence": 0.85,
+   "justification": "CBO's August 2025 distributional analysis found the lowest-income tenth of households loses about $1,600 a year (roughly 4 percent of income), mostly from Medicaid and food-stamp changes, while the highest tenth gains about $12,000 (roughly 2 percent). A bottom group that loses while the top gains sits in the +80 to +100 band. The low end of the range (+35) is the tax title on its own, where JCT shows cuts for every income group with the largest percentage gains in the upper-middle.",
+   "sources": [
+    {
+     "type": "CBO",
+     "ref": "Distributional effects of P.L. 119-21, letter of August 2025"
+    },
+    {
+     "type": "JCT",
+     "ref": "Distribution of the tax provisions of H.R. 1, 2025"
+    }
+   ]
+  },
+  "households_business": {
+   "position": -10,
+   "position_low": -60,
+   "position_high": 30,
+   "position2": 70,
+   "business_tag": "both",
+   "magnitude_label": "major",
+   "magnitude_note": "Households: standard deduction, child credit of $2,200, tips/overtime/senior deductions; about 10 million more people uninsured by 2034 (CBO). Business: permanent 100 percent bonus depreciation, immediate write-off of domestic research costs (section 174A), the looser interest-deduction limit (section 163(j) back to an EBITDA base), permanent 20 percent pass-through deduction.",
+   "evidence_grade": "A",
+   "confidence": 0.8,
+   "justification": "Most households get a modest tax cut, which is the +30 end of the range. Households that rely on Medicaid or food stamps face new work-reporting rules and state cost shifts that CBO expects to remove coverage from millions, the -60 end. Businesses of every size gain: large corporations from permanent full expensing, research expensing and the interest-deduction change, pass-throughs from the permanent 20 percent deduction. Corporate provisions are counted 25 percent to workers and 75 percent to owners per the rubric.",
+   "sources": [
+    {
+     "type": "CBO",
+     "ref": "Cost estimate and coverage effects of P.L. 119-21"
+    },
+    {
+     "type": "bill text",
+     "ref": "Title VII (tax), Title IV (health), Title I (agriculture/SNAP)"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "A",
+   "plain_json": {
+    "effective": "Tax changes apply to tax year 2025; benefit changes start in 2027",
+    "phase_changes": [
+     {
+      "date": "2025-01-01",
+      "what": "SALT deduction cap rises to $40,000 and grows 1 percent a year"
+     },
+     {
+      "date": "2026-12-31",
+      "what": "Medicaid work-reporting rules start (states may get delays to 2028)"
+     },
+     {
+      "date": "2027-10-01",
+      "what": "States begin paying a share of food-stamp benefits, scaled to their error rates"
+     },
+     {
+      "date": "2028-12-31",
+      "what": "Deductions for tips, overtime, seniors and car-loan interest expire"
+     },
+     {
+      "date": "2030-01-01",
+      "what": "SALT cap drops back to $10,000"
+     }
+    ],
+    "sunset": "Mixed: individual rate cuts and business provisions are permanent; tips, overtime, senior and car-loan deductions end after 2028; the higher SALT cap ends after 2029",
+    "delayed_cost": "yes - the tax cuts start in 2025 while the largest benefit cuts arrive in 2027 and 2028",
+    "plain": "Most people see the tax cut on their 2025 return; the Medicaid and food-stamp changes do not bite until 2027 and 2028, and several of the new deductions disappear after 2028."
+   },
+   "justification": "Effective dates from the enacted text: section 70101 onward for tax, sections 71119 (Medicaid community engagement) and 10105 (SNAP state cost share)."
+  },
+  "rights": {
+   "evidence_grade": "A",
+   "flags": [
+    {
+     "flag": "changes_benefit_eligibility",
+     "plain": "Adds an 80-hour-a-month work or activity requirement for many adults on Medicaid, and extends food-stamp work rules to people up to 64 and to parents of children 14 and older."
+    },
+    {
+     "flag": "shifts_costs_to_states",
+     "plain": "Makes states pay part of food-stamp benefits from late 2027 and a larger share of administrative costs."
+    },
+    {
+     "flag": "delegates_to_agency",
+     "plain": "Leaves the details of the Medicaid verification process, the tip and overtime deductions and many credits to Treasury and HHS rules."
+    },
+    {
+     "flag": "expands_enforcement_power",
+     "plain": "Adds about $170 billion for immigration enforcement, including detention capacity and Border Patrol hiring."
+    }
+   ],
+   "election_rules": false,
+   "justification": "Flags taken from the enacted text; the earlier House provision limiting court contempt enforcement was removed in the Senate."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Makes the 2017 tax cuts permanent and adds new deductions for tips, overtime and seniors through 2028. Pays for part of it by cutting Medicaid and food stamps starting in 2027.",
+    "status_plain": "Became law",
+    "if_you_are": {
+     "worker": "Your tax rates stay where they are, and if you earn tips or overtime you can deduct part of that pay through 2028.",
+     "parent": "The child tax credit rises to $2,200 per child and now grows with inflation; food-stamp work rules apply once your youngest child turns 14.",
+     "retiree": "People 65 and older get an extra $6,000 deduction through 2028; it shrinks above $75,000 of income ($150,000 for couples).",
+     "small_business_owner": "The 20 percent deduction on business income is now permanent, and equipment and U.S. research costs can be written off in the year you spend them.",
+     "disability": "Medicaid's new work rules exempt people with disabilities, but proving the exemption is now on you; missing a paperwork check can end coverage."
+    },
+    "what_it_does_not_do": "It did not extend the larger Affordable Care Act premium subsidies, which expired at the end of 2025."
+   }
+  }
+ },
+ {
+  "bill_key": "s5-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.0 applied by hand from the GovInfo Bill Status file fetched 2026-09-18 - preview, not a scorer run)",
+  "income": {
+   "position": null,
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "",
+   "justification": "The act changes detention rules and who may sue; it has no tax, benefit or wage provisions, so there is no income distribution to score.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Public Law version, 2025-01-29"
+    }
+   ]
+  },
+  "households_business": {
+   "position": -15,
+   "position_low": -40,
+   "position_high": 0,
+   "position2": 0,
+   "business_tag": "n/a",
+   "magnitude_label": "large",
+   "magnitude_note": "No CBO estimate of detention costs is on file; an ICE estimate cited during Senate debate put first-year detention costs near $27 billion. Verify before publishing.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "Households with a member who lacks legal status face mandatory detention after an arrest, before any conviction, for theft, shoplifting, assault on an officer, or crimes causing death or serious injury. Most households see no direct effect, which is the 0 end of the range. The act has no provisions aimed at businesses.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Public Law version, section 2"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment (January 29, 2025)",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "Applies right away to anyone arrested after the act took effect."
+   },
+   "justification": "The text sets no start date or expiration."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [
+    {
+     "flag": "expands_detention_or_penalties",
+     "plain": "Requires the Department of Homeland Security to detain non-citizens without legal status who are charged with or arrested for theft, shoplifting, assault on a police officer, or a crime causing death or serious injury, even before a conviction."
+    },
+    {
+     "flag": "expands_lawsuits",
+     "plain": "Lets a state sue the federal government when an immigration decision, such as releasing someone or granting parole, harms the state or its residents by more than $100."
+    }
+   ],
+   "election_rules": false,
+   "justification": "Sections 2 and 3 of the enacted text as described in the CRS summary."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Requires jail for non-citizens who are in the country illegally and get arrested for theft or assault. It also lets states sue the federal government over how it enforces immigration law.",
+    "status_plain": "Became law",
+    "if_you_are": {
+     "worker": "No direct effect unless you or a family member is a non-citizen without legal status.",
+     "parent": "No direct effect unless a family member is a non-citizen without legal status; an arrest, not a conviction, now triggers detention.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "No direct effect.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not change who can be deported; it changes who must be held in custody while their case proceeds."
+   }
+  }
+ },
+ {
+  "bill_key": "hjres25-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.0 applied by hand from the GovInfo Bill Status file fetched 2026-09-18 - preview, not a scorer run)",
+  "income": {
+   "position": 30,
+   "position_low": 10,
+   "position_high": 45,
+   "magnitude_label": "small",
+   "magnitude_note": "JCT put the revenue loss at about $4 billion over ten years (cost estimate on file: CBO publication 61241). Almost all of the lost revenue is tax that would have been collected from crypto gains that now go unreported.",
+   "evidence_grade": "C",
+   "confidence": 0.55,
+   "justification": "The repeal removes IRS reporting of sales on decentralized crypto platforms, so its benefit is lower effective tax on crypto gains. Crypto ownership and especially decentralized-platform use skew toward higher-income and higher-wealth households, and capital-gain relief moves the score positive under the text rules. The effect is small in dollars and reaches a narrow group, which keeps it out of the higher bands.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Public Law version, 2025-04-10"
+    },
+    {
+     "type": "CBO",
+     "ref": "https://www.cbo.gov/publication/61241"
+    }
+   ]
+  },
+  "households_business": {
+   "position": 10,
+   "position2": 45,
+   "business_tag": "both",
+   "magnitude_label": "small",
+   "magnitude_note": "Decentralized-finance platforms avoid building broker reporting systems; users avoid new tax forms; the Treasury loses roughly $4 billion over ten years.",
+   "evidence_grade": "C",
+   "confidence": 0.55,
+   "justification": "The main beneficiaries are the platforms, which no longer have to identify users and report their sales, and the traders whose gains stay unreported. Households that use these platforms get less paperwork, a small plus; everyone else bears the revenue loss.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Public Law version"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment (April 10, 2025)",
+    "phase_changes": [],
+    "sunset": "none - the rule is void and a substantially similar rule cannot be issued without a new law",
+    "delayed_cost": "no",
+    "plain": "The reporting rule, which would have covered sales from 2027 on, never takes effect."
+   },
+   "justification": "Congressional Review Act disapproval takes effect on enactment and bars a substantially similar rule."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [
+    {
+     "flag": "blocks_agency_rule",
+     "plain": "Voids the IRS reporting rule and bars the IRS from issuing a substantially similar one without a new law."
+    }
+   ],
+   "election_rules": false,
+   "justification": "Congressional Review Act disapproval, section 801 of title 5."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Cancels an IRS rule that would have made decentralized crypto exchanges report their users' sales to the IRS starting in 2027.",
+    "status_plain": "Became law",
+    "if_you_are": {
+     "worker": "No direct effect unless you trade crypto on decentralized platforms; those platforms will not send you or the IRS a tax form.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "If you run a decentralized crypto service, you no longer have to collect customer identities and report their sales.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not make crypto gains tax-free; you still owe tax on them, the platform just will not report them."
+   }
+  }
+ },
+ {
+  "bill_key": "hjres1-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": null,
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "",
+   "justification": "A proposed constitutional amendment about the size of the Supreme Court has no income effects to distribute.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Introduced in House, 2025-01-03"
+    }
+   ]
+  },
+  "households_business": {
+   "position": null,
+   "position2": null,
+   "business_tag": "n/a",
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "",
+   "justification": "No economic provisions.",
+   "sources": []
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "Only if two-thirds of both chambers pass it and 38 states ratify it",
+    "phase_changes": [],
+    "sunset": "n/a",
+    "delayed_cost": "no",
+    "plain": "It failed in the House on September 2, 2026 (212 to 206, with two-thirds needed), so nothing changes."
+   },
+   "justification": "Article V process; House vote of 2026-09-02."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [],
+   "election_rules": false,
+   "justification": "It would fix the number of justices at nine, which is a change to the structure of a branch of government rather than to anyone's rights or remedies; the flag vocabulary has no entry for it."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Would write into the Constitution that the Supreme Court has exactly nine justices, so no future Congress could add or remove seats.",
+    "status_plain": "Failed a House vote (needed two-thirds; got 212 to 206)",
+    "if_you_are": {
+     "worker": "No direct effect.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "No direct effect.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "Even if it had passed the House, it would still have needed the Senate and 38 state legislatures."
+   }
+  }
+ },
+ {
+  "bill_key": "s100-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": 25,
+   "position_low": 10,
+   "position_high": 40,
+   "magnitude_label": "moderate",
+   "magnitude_note": "The Treasury estimated the reporting law's compliance cost at roughly $22 billion in its first year and a few billion a year after that; repeal removes that cost and the anti-money-laundering data with it.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "The savings go to owners of corporations, LLCs and similar entities, a group that skews toward higher-income households, while the public gives up a tool against money laundering. The reporting duty fell hardest on very small entities, which keeps the score out of the higher bands.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Introduced in Senate, 2025-01-15"
+    },
+    {
+     "type": "model",
+     "ref": "FinCEN regulatory impact analysis of the beneficial ownership rule, 2022"
+    }
+   ]
+  },
+  "households_business": {
+   "position": 5,
+   "position2": 45,
+   "business_tag": "small firms",
+   "magnitude_label": "moderate",
+   "magnitude_note": "About 32 million existing entities were covered by the reporting law before the Treasury exempted domestic companies by rule in March 2025; repeal would make that exemption permanent and extend it to foreign-registered companies.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "Small businesses and single-owner LLCs are the direct beneficiaries: no ownership filings, no penalties for missing them. Households see almost no direct effect. The cost is diffuse: less information for investigators tracing shell companies.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "same"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "Nothing changes until it passes; today the reporting rule is already suspended for U.S. companies by a Treasury regulation, which a future Treasury could reverse."
+   },
+   "justification": "The bill contains a repeal with no dates."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [
+    {
+     "flag": "blocks_agency_rule",
+     "plain": "Repeals the statute behind the Treasury's beneficial-ownership reporting rule, so the rule and its penalties fall with it."
+    }
+   ],
+   "election_rules": false,
+   "justification": "One-section repeal."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Repeals the law that made small companies report who really owns them to the Treasury's anti-money-laundering office.",
+    "status_plain": "Still just a proposal - most bills never get a vote",
+    "if_you_are": {
+     "worker": "No direct effect.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect unless you hold rental property or investments in an LLC.",
+     "small_business_owner": "You would never have to file an ownership report, and the penalties for missing one would disappear.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not touch the separate bank rules that ask who owns a company when it opens an account."
+   }
+  }
+ },
+ {
+  "bill_key": "hr22-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": 25,
+   "position_low": 10,
+   "position_high": 40,
+   "magnitude_label": "small",
+   "magnitude_note": "No direct federal spending; the cost is the price of documents (a passport runs about $130 to $165, a birth certificate $15 to $40) and the time to appear in person. An independent survey estimated roughly 9 percent of adult citizens, about 21 million people, do not have citizenship documents readily available.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "The bill creates no benefit to distribute; it adds a cost to registering, and that cost lands on people who lack a passport or an easily retrievable birth certificate, a group that skews lower-income, older, and includes married women whose current name differs from their birth certificate. A burden concentrated at the bottom scores positive. The effect per person is small, which keeps it out of the higher bands.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Introduced in House, 2025-01-03"
+    },
+    {
+     "type": "model",
+     "ref": "Brennan Center / University of Maryland survey on citizenship documents, 2023"
+    }
+   ]
+  },
+  "households_business": {
+   "position": -20,
+   "position_low": -35,
+   "position_high": 0,
+   "position2": 0,
+   "business_tag": "n/a",
+   "magnitude_label": "small",
+   "magnitude_note": "Applies to every new federal voter registration; no business provisions.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "Households registering or re-registering to vote must produce proof of citizenship in person or through a state-designed alternative; households that never re-register see no change, which is the 0 end of the range. No provision reaches businesses.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "same"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment, for registrations after that date",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "Would apply to anyone registering or re-registering after it became law; it has passed the House and is waiting in the Senate."
+   },
+   "justification": "The text sets no dates; states would have to build the checking programs after enactment."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [
+    {
+     "flag": "preempts_state_law",
+     "plain": "Sets a federal proof-of-citizenship requirement for registration that overrides state registration rules, including mail and online registration without documents."
+    },
+    {
+     "flag": "expands_lawsuits",
+     "plain": "Lets a private person sue an election official who registers someone without documentary proof of citizenship."
+    },
+    {
+     "flag": "expands_detention_or_penalties",
+     "plain": "Creates criminal penalties for election officials who register an applicant without the required proof."
+    },
+    {
+     "flag": "shifts_costs_to_states",
+     "plain": "Requires states to run ongoing programs to identify and remove non-citizens from voter rolls and to create an alternative documentation process."
+    }
+   ],
+   "election_rules": true,
+   "justification": "Sections 2 and 3 as described in the CRS summary; the election-rules flag is factual, with no prediction of who gains."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Requires anyone registering to vote in federal elections to show proof of citizenship, such as a passport or birth certificate, and makes states check their voter rolls for non-citizens.",
+    "status_plain": "Passed the House, waiting on the Senate",
+    "if_you_are": {
+     "worker": "If you move and register at a new address, you would need to bring proof of citizenship in person.",
+     "parent": "The same rule would apply when your children register at 18.",
+     "retiree": "A driver's license alone would not be enough unless it shows citizenship; a passport or birth certificate would.",
+     "small_business_owner": "No direct effect.",
+     "disability": "Mail-in and online registration without documents would end; your state would have to offer an alternative way to prove citizenship."
+    },
+    "what_it_does_not_do": "It does not change what ID you show at the polls on Election Day; it changes how you register."
+   }
+  }
+ },
+ {
+  "bill_key": "hr165-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": null,
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "CBO estimated no significant federal cost.",
+   "justification": "A land-status change for a 40-acre memorial site has no income effects to distribute.",
+   "sources": [
+    {
+     "type": "CBO",
+     "ref": "https://www.cbo.gov/publication/61296"
+    }
+   ]
+  },
+  "households_business": {
+   "position": null,
+   "position2": null,
+   "business_tag": "n/a",
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "",
+   "justification": "No economic provisions beyond a ban on commercial development and gaming at the site.",
+   "sources": []
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment (December 19, 2025)",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "In force now; the Interior Department carries out the land-status change."
+   },
+   "justification": "No dates in the text."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [],
+   "election_rules": false,
+   "justification": "Restricted fee status limits sale or encumbrance of the land and bars gaming; nothing in the flag vocabulary applies to the general public."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Places about 40 acres at Wounded Knee, South Dakota, into protected tribal ownership as a memorial to the 1890 massacre, with no commercial development or casinos allowed.",
+    "status_plain": "Became law",
+    "if_you_are": {
+     "worker": "No direct effect.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "No direct effect.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not transfer any other land or change tribal jurisdiction beyond this site."
+   }
+  }
+ },
+ {
+  "bill_key": "hr27-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": null,
+   "evidence_grade": "N",
+   "confidence": 0,
+   "magnitude_label": "none",
+   "magnitude_note": "",
+   "justification": "Drug-scheduling and research-registration changes; no tax, benefit or wage provisions to distribute.",
+   "sources": []
+  },
+  "households_business": {
+   "position": -10,
+   "position_low": -25,
+   "position_high": 0,
+   "position2": 5,
+   "business_tag": "n/a",
+   "magnitude_label": "small",
+   "magnitude_note": "Applies to prosecutions involving fentanyl-related substances; eases registration for research labs.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "The direct effect on households is longer prison terms for people convicted of offenses involving fentanyl-related substances, which reaches a small number of households hard. Research institutions gain a simpler registration process, a modest plus.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Introduced in House, 2025-01-03"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment",
+    "phase_changes": [],
+    "sunset": "none - permanent scheduling replaces a temporary order that had been renewed repeatedly",
+    "delayed_cost": "no",
+    "plain": "This House bill stopped in the Senate, but its text became law through the Senate's version, S. 331, in July 2025."
+   },
+   "justification": "The record notes that H.R. 27's text is contained in S. 331, Public Law 119-26."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [
+    {
+     "flag": "expands_detention_or_penalties",
+     "plain": "Puts all fentanyl-related substances in schedule I permanently and applies fentanyl-analogue penalties, including a 10-year mandatory minimum at 100 grams or more."
+    }
+   ],
+   "election_rules": false,
+   "justification": "From the CRS summary."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Permanently treats all fentanyl look-alike chemicals as the most restricted class of drugs, with the same prison terms as fentanyl itself, and eases rules for researchers who study them.",
+    "status_plain": "Passed the House; its text became law through the Senate bill S. 331",
+    "if_you_are": {
+     "worker": "No direct effect unless you work in a lab that studies these substances; registration gets easier.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "No direct effect.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not add money for treatment or overdose prevention."
+   }
+  }
+ },
+ {
+  "bill_key": "hr1002-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": -20,
+   "position_low": -35,
+   "position_high": -5,
+   "magnitude_label": "small",
+   "magnitude_note": "Unpaid leave; no federal spending. Widens who counts as family for existing leave rights and adds up to four hours a year of leave for school and family activities.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "Job-protected leave matters most to workers who cannot afford to quit or risk dismissal to care for a partner, in-law or adult child, which skews the benefit toward lower- and middle-wage workers. Because the leave is unpaid, higher earners are better placed to use it, which keeps the score from moving further.",
+   "sources": [
+    {
+     "type": "bill text",
+     "ref": "Official title; CRS summary pending"
+    }
+   ]
+  },
+  "households_business": {
+   "position": 40,
+   "position2": -25,
+   "business_tag": "large corporations",
+   "magnitude_label": "small",
+   "magnitude_note": "The Family and Medical Leave Act covers employers with 50 or more employees, so the new obligations fall on larger firms.",
+   "evidence_grade": "C",
+   "confidence": 0.5,
+   "justification": "Households gain new job-protected leave to care for domestic partners, parents-in-law, adult children and other relatives, plus short leave for children's school events. Employers already covered by the leave law take on the scheduling and coverage cost; firms under 50 employees are outside it.",
+   "sources": [
+    {
+     "type": "bill text",
+     "ref": "Amends the Family and Medical Leave Act of 1993 and title 5"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "Still in committee; nothing changes unless it passes."
+   },
+   "justification": "No dates in the title or summary."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [],
+   "election_rules": false,
+   "justification": "Expands an existing statutory right without changing courts, agencies or penalties."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Lets workers use family and medical leave to care for a domestic partner, in-law or adult child, and adds a few hours a year to attend a child's school or family events.",
+    "status_plain": "Still just a proposal - most bills never get a vote",
+    "if_you_are": {
+     "worker": "If your employer has 50 or more workers, you could take job-protected leave to care for a wider circle of family.",
+     "parent": "Up to a few hours a year of protected leave for school meetings and activities.",
+     "retiree": "No direct effect, though an adult child could take leave to care for you.",
+     "small_business_owner": "No direct effect under 50 employees; larger employers must honor the wider leave.",
+     "disability": "An adult child or partner with a serious health condition would now be covered by a caregiver's leave."
+    },
+    "what_it_does_not_do": "The leave stays unpaid; this does not create paid family leave."
+   }
+  }
+ },
+ {
+  "bill_key": "hr85-119",
+  "rater": "claude-fable-5-1 (chat session; rubric v1.1 applied by hand - preview, not a scorer run)",
+  "income": {
+   "position": 5,
+   "position_low": -10,
+   "position_high": 20,
+   "magnitude_label": "small",
+   "magnitude_note": "Moves tip income among restaurant workers; no federal budget effect.",
+   "evidence_grade": "C",
+   "confidence": 0.45,
+   "justification": "Tip pooling with back-of-house staff shifts money from servers to cooks and dishwashers, both low-wage groups, so the score stays near the middle. Employers gain flexibility that can lower what they must pay untipped staff, which nudges the score slightly positive.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "Introduced in House, 2025-01-03"
+    }
+   ]
+  },
+  "households_business": {
+   "position": -5,
+   "position_low": -20,
+   "position_high": 10,
+   "position2": 20,
+   "business_tag": "small firms",
+   "magnitude_label": "small",
+   "magnitude_note": "Restaurants and other tipped workplaces.",
+   "evidence_grade": "C",
+   "confidence": 0.45,
+   "justification": "Tipped workers could see their tips shared more widely; untipped coworkers could gain. Restaurant owners gain control over how tips are distributed.",
+   "sources": [
+    {
+     "type": "CRS summary",
+     "ref": "same"
+    }
+   ]
+  },
+  "timing": {
+   "evidence_grade": "C",
+   "plain_json": {
+    "effective": "on enactment",
+    "phase_changes": [],
+    "sunset": "none",
+    "delayed_cost": "no",
+    "plain": "In committee; no change unless it passes."
+   },
+   "justification": "No dates in the text."
+  },
+  "rights": {
+   "evidence_grade": "C",
+   "flags": [],
+   "election_rules": false,
+   "justification": "Changes a wage rule, not remedies or enforcement."
+  },
+  "plain_language": {
+   "plain_json": {
+    "one_sentence": "Lets employers pool tips between servers and kitchen or other staff who don't normally get tips, as long as everyone in the pool is paid at least minimum wage.",
+    "status_plain": "Still just a proposal - most bills never get a vote",
+    "if_you_are": {
+     "worker": "If you earn tips, more of them could be shared with coworkers; if you work in the kitchen, you could receive a share.",
+     "parent": "No direct effect.",
+     "retiree": "No direct effect.",
+     "small_business_owner": "You could set up a tip pool that includes back-of-house staff.",
+     "disability": "No direct effect."
+    },
+    "what_it_does_not_do": "It does not let owners or managers keep tips."
+   }
+  }
+ }
+]
