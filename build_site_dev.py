@@ -1161,6 +1161,33 @@ p{margin:0 0 12px}
 .ymem>span:nth-child(2) .muted{font-size:12.5px}
 .ymem .vtag{flex:none}
 .yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+/* your state, drawn: districts coloured by the roll call in focus, your district outlined, a pin where you are */
+.yours-cols{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
+@media (min-width:1000px){.yours-cols{grid-template-columns:minmax(340px,440px) minmax(0,1fr)}.ymap{position:sticky;top:78px}}
+.ymap{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px 18px;margin:12px 0}
+.ymap-head{font-size:14px;line-height:1.45;margin-bottom:8px}
+.ymap-head b{font-weight:600}
+.ymap-svg{display:block;width:100%;height:auto;max-height:440px}
+.ymap-svg path{vector-effect:non-scaling-stroke}
+.ymap-svg .yd{stroke:var(--surface);stroke-width:1.2;cursor:pointer;transition:opacity .15s}
+.ymap-svg .yd:hover,.ymap-svg .yd.hot{opacity:.78}
+.ymap-svg .yd:focus-visible{outline:none;stroke:var(--ink);stroke-width:2.5}
+.ymap-svg .yout{fill:none;stroke:var(--line-strong);stroke-width:1.4;pointer-events:none}
+.ymap-svg .ymine{fill:none;stroke:#E0B040;stroke-width:3.2;pointer-events:none;filter:drop-shadow(0 0 4px rgba(224,176,64,.7))}
+.ymap-svg .ycirc{fill:rgba(224,176,64,.20);stroke:#E0B040;stroke-width:1.6;pointer-events:none}
+.ymap-svg .ypin path{fill:#E0B040;stroke:#3A2B0D;stroke-width:1.2}
+.ymap-svg .ypin circle{fill:#3A2B0D}
+.motion .ymap-svg .ycirc{animation:ypulse 2.8s ease-in-out infinite}
+@keyframes ypulse{50%{fill:rgba(224,176,64,.34)}}
+.ymap-info{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:44px;margin-top:10px;font-size:14px}
+.ymap-info .who{display:flex;flex-direction:column;line-height:1.3;margin-right:auto}.ymap-info .who .muted{font-size:12.5px}
+.ymap-key{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.ymap-key span{display:inline-flex;align-items:center;gap:6px}
+.ymap-key i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.ymap-key i.ring{border:2px solid #E0B040;border-radius:50%;background:none}
+.ymap-note{font-size:12.5px;color:var(--muted);margin:8px 0 0;line-height:1.5}
+.ymap-note button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:2px;color:var(--ink)}
+.yvote.focus{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
 .aka{display:block;font-size:13px;color:var(--muted);margin:-2px 0 8px}
 .aka b{color:var(--ink);font-weight:600}
 .pickitem .aka{margin:2px 0 4px}
@@ -3836,32 +3863,94 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
   const sel = $("#ystate"), list = $("#ylist"), note = $("#ynote"), NAMES = BOOT.state_names || {}; if (!sel) return;
   const POS = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
   sel.innerHTML = `<option value="">Choose your state</option>` + Object.entries(NAMES).sort((a, b) => a[1].localeCompare(b[1])).map(([st, n]) => `<option value="${esc(st)}">${esc(n)}</option>`).join("");
-  let myDistrict = null, current = "";
+  let myDistrict = null, current = "", focusVote = null, myPin = null, shownVotes = [];
   const byRow = (a, b) => ((a.L.ch === "Senate" ? 0 : 1) - (b.L.ch === "Senate" ? 0 : 1)) || ((a.L.d || 0) - (b.L.d || 0)) || a.L.n.localeCompare(b.L.n);
   const mineFor = (v, ms) => (myDistrict != null && v.chamber !== "Senate") ? ms.find(m => (m.L.d || 0) === myDistrict) : null;
   const seat = (v, m) => v.chamber === "Senate" ? "Senator" : (m.L.d ? "District " + m.L.d : "At large");
   function paintState(st){
     const name = NAMES[st] || st, votes = [];
     for (const v of DATA.vote_meta) { if (positionsFor(v, st).length) votes.push(v); if (votes.length === 6) break; }
-    list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><a class="chip" href="#map">Every vote, on the map</a></div>` + (votes.map(v => {
+    shownVotes = votes; if (!focusVote || !votes.some(v => v.vote_id === focusVote)) focusVote = (votes.find(v => v.chamber !== "Senate") || votes[0] || {}).vote_id || null;
+    list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><a class="chip" href="#map">Every vote, on the map</a></div><div class="yours-cols"><div class="ymap" id="ymap" hidden><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Map of ${esc(name)} and its congressional districts"></svg><div class="ymap-info" id="ymapinfo" aria-live="polite"></div><div class="ymap-key"><span><i style="background:var(--dem)"></i>Democrat</span><span><i style="background:var(--rep)"></i>Republican</span><span><i style="background:var(--plum)"></i>Independent</span><span><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 4px)"></i>striped = voted no</span><span><i style="background:var(--line-strong)"></i>did not vote</span><span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div><div class="yours-votes">` + (votes.map(v => {
       const ms = positionsFor(v, st).sort(byRow), mine = mineFor(v, ms);
       if (mine) { ms.splice(ms.indexOf(mine), 1); ms.unshift(mine); }      // your own member comes first
-      return `<article class="yvote" data-vote="${esc(v.vote_id)}"><div class="yv-head"><b>${esc(v.bill)}</b> ${esc(v.title)}<div class="muted">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}: ${v.yeas ?? "?"}\u2013${v.nays ?? "?"}, ${esc((v.result || "").toLowerCase())}</div></div>
+      return `<article class="yvote${v.vote_id === focusVote ? " focus" : ""}" data-vote="${esc(v.vote_id)}"><div class="yv-head"><b>${esc(v.bill)}</b> ${esc(v.title)}<div class="muted">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}: ${v.yeas ?? "?"}\u2013${v.nays ?? "?"}, ${esc((v.result || "").toLowerCase())}</div></div>
         <div class="yv-members">${ms.map(m => `<button class="ymem${mine && mine.id === m.id ? " mine shimmer" : ""}" type="button" data-id="${esc(m.id)}">${avatar(m.id, m.p, "sm")}<span><b>${esc(m.L.n)}</b><span class="muted">${esc(seat(v, m))}${mine && mine.id === m.id ? " \u00b7 yours" : ""}</span></span><span class="vtag ${esc(m.pos)}">${POS[m.pos] || m.pos}</span></button>`).join("")}</div>
-        <div class="yv-acts"><button class="chip sharebtn" type="button" data-share="1">Share how ${esc(name)} voted</button><a class="chip" href="#vote=${esc(voteSlug(v.vote_id))}">Open on the map</a></div></article>`;
-    }).join("") || `<p class="muted">No roll calls with members from ${esc(name)} yet.</p>`);
+        <div class="yv-acts"><button class="chip" type="button" data-focus="1">Show on ${esc(name)}'s map</button><button class="chip sharebtn" type="button" data-share="1">Share how ${esc(name)} voted</button><a class="chip" href="#vote=${esc(voteSlug(v.vote_id))}">Open on the big map</a></div></article>`;
+    }).join("") || `<p class="muted">No roll calls with members from ${esc(name)} yet.</p>`) + `</div></div>`;
+    drawStateMap();
   }
+  /* The state, drawn from the same shapes the big map uses. A House vote colours each district by its member's
+     vote; a Senate vote splits the state between its two senators. */
+  const shapeCache = {};
+  const ringsPath = rings => rings.map(r => "M" + r.map(pt => pt[0].toFixed(2) + "," + pt[1].toFixed(2)).join("L") + "Z").join("");
+  function shapesFor(st){
+    if (shapeCache[st]) return shapeCache[st];
+    const D = DATA.districts && DATA.districts.states && DATA.districts.states[st], q = (DATA.districts && DATA.districts.q) || 50, out = {};
+    if (D) for (const [n, rings] of Object.entries(D)) out[n] = ringsPath(rings.map(r => decodeRing(r, q)));
+    return shapeCache[st] = out;
+  }
+  function drawStateMap(){
+    const box = $("#ymap"), svg = $("#ymapsvg"), st = current, shp = DATA.states && DATA.states[st]; if (!box || !svg || !shp) return;
+    const v = shownVotes.find(x => x.vote_id === focusVote); if (!v) { box.hidden = true; return; }
+    const name = NAMES[st] || st, [x0, y0, x1, y1] = shp.bbox, pad = Math.max(x1 - x0, y1 - y0) * .07, vbw = x1 - x0 + 2 * pad;
+    svg.setAttribute("viewBox", `${(x0 - pad).toFixed(1)} ${(y0 - pad).toFixed(1)} ${vbw.toFixed(1)} ${(y1 - y0 + 2 * pad).toFixed(1)}`);
+    const u = vbw / Math.max(240, svg.clientWidth || 420);                       // how many map units one screen pixel is
+    const tone = p => p === "D" ? "var(--dem)" : (p === "R" ? "var(--rep)" : "var(--plum)");
+    const fill = m => !m || (m.pos !== "Y" && m.pos !== "N") ? "var(--line-strong)" : (m.pos === "Y" ? tone(m.p) : `url(#ystripe${m.p === "D" ? "D" : (m.p === "R" ? "R" : "I")})`);
+    const stripes = ["D", "R", "I"].map(k => `<pattern id="ystripe${k}" patternUnits="userSpaceOnUse" width="${(6 * u).toFixed(3)}" height="${(6 * u).toFixed(3)}" patternTransform="rotate(45)"><rect width="${(6 * u).toFixed(3)}" height="${(6 * u).toFixed(3)}" fill="var(--surface)"/><rect width="${(3 * u).toFixed(3)}" height="${(6 * u).toFixed(3)}" fill="${tone(k)}"/></pattern>`).join("");
+    const ms = positionsFor(v, st).sort(byRow), house = v.chamber !== "Senate", shapes = shapesFor(st);
+    let body = "";
+    if (house && Object.keys(shapes).length) {
+      body = Object.entries(shapes).map(([n, d]) => { const m = ms.find(x => (x.L.d || 0) === +n);
+        return `<path class="yd" d="${d}" fill="${fill(m)}" tabindex="0" role="button" data-id="${m ? esc(m.id) : ""}" aria-label="${esc(+n ? "District " + n : "At large")}${m ? ": " + esc(m.L.n) + ", " + (POS[m.pos] || m.pos) : ""}"></path>`; }).join("");
+      if (myDistrict != null && shapes[String(myDistrict)]) body += `<path class="ymine" d="${shapes[String(myDistrict)]}"></path>`;
+    } else {
+      const mid = (x0 + x1) / 2, a = ms[0], b = ms[1] || ms[0];
+      body = `<clipPath id="yhalfA"><rect x="${x0 - pad}" y="${y0 - pad}" width="${mid - x0 + pad}" height="${y1 - y0 + 2 * pad}"/></clipPath><clipPath id="yhalfB"><rect x="${mid}" y="${y0 - pad}" width="${x1 - mid + pad}" height="${y1 - y0 + 2 * pad}"/></clipPath>
+        <path class="yd" d="${shp.d}" fill="${fill(a)}" clip-path="url(#yhalfA)" tabindex="0" role="button" data-id="${a ? esc(a.id) : ""}"></path><path class="yd" d="${shp.d}" fill="${fill(b)}" clip-path="url(#yhalfB)" tabindex="0" role="button" data-id="${b ? esc(b.id) : ""}"></path>`;
+    }
+    let pin = "";
+    if (myPin && myPin.st === st) {
+      const pt = albersUsa(myPin.lon, myPin.lat);
+      if (pt) { const miles = Math.max(3, (myPin.acc || 0) / 1609.34), r = miles * (1300 / 3958.8) * (pt[2] || 1), hgt = 30 * u;
+        pin = `<circle class="ycirc" cx="${pt[0].toFixed(2)}" cy="${pt[1].toFixed(2)}" r="${r.toFixed(2)}"></circle><g class="ypin" transform="translate(${pt[0].toFixed(2)} ${pt[1].toFixed(2)}) scale(${(hgt / 30).toFixed(4)})"><path d="M0 0C-7 -10 -10 -14 -10 -20a10 10 0 1 1 20 0c0 6 -3 10 -10 20z"></path><circle cx="0" cy="-20" r="3.6"></circle></g>`; }
+    }
+    svg.innerHTML = `<defs>${stripes}</defs>${body}<path class="yout" d="${shp.d}"></path>${pin}`;
+    $("#ymaphead").innerHTML = `<b>${esc(v.bill)}</b> ${esc(v.title)}<span class="muted"> \u00b7 ${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}. ${house ? `Each district is coloured by how its representative voted.` : `The state is split between its two senators.`} Tap ${house ? "a district" : "a side"} for the member, or pick another vote ${matchMedia("(min-width:1000px)").matches ? "on the right" : "below"}.</span>`;
+    const note = $("#ymapnote");
+    note.innerHTML = (myPin && myPin.st === st) ? `The pin is your own device's estimate of where you are (it may use GPS, Wi-Fi or cell towers), with a circle reaching ${Math.max(3, Math.round((myPin.acc || 0) / 1609.34))} miles around it. It was worked out on this device and is kept only here, rounded to about half a mile. <button type="button" id="yforget">Forget my location</button>`
+      : `Tap "Use my location" and your own spot is pinned here with a 3-mile circle. It is worked out on your device and never sent anywhere.`;
+    const fg = $("#yforget"); if (fg) fg.addEventListener("click", () => { myPin = null; myDistrict = null; try { localStorage.removeItem("pin"); localStorage.removeItem("district"); } catch (e) {} $("#ynote").textContent = "Forgotten. Your state is still remembered."; paintState(current); });
+    const mine = mineFor(v, ms); showOnMap(mine || null, v, !!mine);
+    box.hidden = false;
+  }
+  function showOnMap(m, v, yours){
+    const info = $("#ymapinfo"); if (!info) return;
+    $$("#ymapsvg .yd").forEach(pth => pth.classList.toggle("hot", !!m && pth.dataset.id === m.id));
+    info.innerHTML = m ? `${avatar(m.id, m.p, "md")}<span class="who"><b>${esc(m.L.n)}</b><span class="muted">${esc(seat(v, m))}${yours ? " \u00b7 yours" : ""}</span></span><span class="vtag ${esc(m.pos)}">${POS[m.pos] || m.pos}</span><button class="chip" type="button" data-card="${esc(m.id)}">Their card</button><button class="chip" type="button" data-profile="${esc(m.id)}">Full profile</button>` : `<span class="muted">${v && v.chamber === "Senate" ? "Tap a side of the state to see that senator and how they voted." : "Tap a district to see who represents it and how they voted."}</span>`;
+  }
+  list.addEventListener("click", e => {
+    const d = e.target.closest(".yd"), v = shownVotes.find(x => x.vote_id === focusVote);
+    if (d && v) { const m = positionsFor(v, current).find(x => x.id === d.dataset.id); showOnMap(m || null, v, !!m && mineFor(v, [m]) === m); return; }
+    const c = e.target.closest("#ymapinfo [data-card]"), f = e.target.closest("#ymapinfo [data-profile]");
+    if (c && v) { showPage("map", true); mapReady().then(() => { if (window.mapFocus) mapFocus(v.vote_id, current, c.dataset.card); }); }
+    else if (f) openMember(f.dataset.profile);
+  });
+  list.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("yd")) { e.preventDefault(); e.target.dispatchEvent(new MouseEvent("click", {bubbles: true})); } });
+  addEventListener("resize", () => { if (current && !list.hidden && $("#ymapsvg")) drawStateMap(); });
   function show(st){
     current = st; if (!st) { list.hidden = true; return; }
     try { localStorage.setItem("state", st); } catch (e) {}
     list.hidden = false; list.innerHTML = `<p class="muted loading">Loading the roll calls\u2026</p>`;
     pageview("/yours/" + st, "Your members: " + (NAMES[st] || st));
-    votesReady().then(() => { if (current === st) paintState(st); }, () => { list.innerHTML = `<p class="muted">Couldn't load the roll calls. Check your connection and try again.</p>`; });
+    Promise.all([votesReady(), need("districts").then(D => { DATA.districts = D; }, () => { DATA.districts = DATA.districts || {states: {}, q: 50}; })]).then(() => { if (current === st) paintState(st); }, () => { list.innerHTML = `<p class="muted">Couldn't load the roll calls. Check your connection and try again.</p>`; });
   }
-  sel.addEventListener("change", () => { myDistrict = null; try { localStorage.removeItem("district"); } catch (e) {} note.textContent = ""; show(sel.value); });
+  sel.addEventListener("change", () => { myDistrict = null; myPin = null; focusVote = null; try { localStorage.removeItem("district"); localStorage.removeItem("pin"); } catch (e) {} note.textContent = ""; show(sel.value); });
   list.addEventListener("click", e => {
     const art = e.target.closest(".yvote"); if (!art) return;
     const v = DATA.vote_meta.find(x => x.vote_id === art.dataset.vote); if (!v) return;
+    if (e.target.closest("[data-focus]")) { focusVote = v.vote_id; $$(".yvote", list).forEach(a => a.classList.toggle("focus", a.dataset.vote === focusVote)); drawStateMap(); const mp = $("#ymap"); if (mp && !matchMedia("(min-width:1000px)").matches) mp.scrollIntoView({block: "start", behavior: calm() ? "auto" : "smooth"}); return; }
     const mem = e.target.closest(".ymem");
     if (mem) { showPage("map", true); mapReady().then(() => { if (window.mapFocus) mapFocus(v.vote_id, current, mem.dataset.id); }); return; }
     const sb = e.target.closest(".sharebtn"); if (!sb) return;
@@ -3885,9 +3974,9 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     const lower48 = conic([29.5, 45.5], 96, [-0.6, 38.7], k, tx, ty), alaska = conic([55, 65], 154, [-2, 58.5], k * .35, tx - .307 * k, ty + .201 * k), hawaii = conic([8, 18], 157, [-3, 19.9], k, tx - .205 * k, ty + .212 * k);
     // as d3 does it going forward: each part of the map accepts only points that land inside its own frame
     const inBox = (p, x0, y0, x1, y1) => p[0] >= tx + x0 * k - E && p[0] < tx + x1 * k + E && p[1] >= ty + y0 * k - E && p[1] < ty + y1 * k + E;
-    return (lon, lat) => { let p = lower48(lon, lat); if (inBox(p, -.455, -.238, .455, .238)) return p;
-      p = alaska(lon, lat); if (inBox(p, -.425, .120, -.214, .234)) return p;
-      p = hawaii(lon, lat); if (inBox(p, -.214, .166, -.115, .234)) return p;
+    return (lon, lat) => { let p = lower48(lon, lat); if (inBox(p, -.455, -.238, .455, .238)) return [p[0], p[1], 1];
+      p = alaska(lon, lat); if (inBox(p, -.425, .120, -.214, .234)) return [p[0], p[1], .35];      // Alaska is drawn at 35% scale
+      p = hawaii(lon, lat); if (inBox(p, -.214, .166, -.115, .234)) return [p[0], p[1], 1];
       return null; };
   })();
   const inRing = (pt, ring) => { let inside = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) inside = !inside; } return inside; };
@@ -3909,15 +3998,21 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     navigator.geolocation.getCurrentPosition(pos => {
       civicLocate(pos.coords.longitude, pos.coords.latitude).then(hit => {
         if (!hit || !NAMES[hit.st]) { note.textContent = "That spot isn't inside a state on our map. Pick your state instead."; return; }
-        myDistrict = hit.d; sel.value = hit.st;
+        myDistrict = hit.d; sel.value = hit.st; focusVote = null;
+        myPin = {st: hit.st, lat: Math.round(pos.coords.latitude * 100) / 100, lon: Math.round(pos.coords.longitude * 100) / 100, acc: Math.round(pos.coords.accuracy || 0)};      // rounded: about half a mile
+        try { localStorage.setItem("pin", JSON.stringify(myPin)); } catch (e) {}
         try { if (hit.d == null) localStorage.removeItem("district"); else localStorage.setItem("district", String(hit.d)); } catch (e) {}      // kept on this device, so your own representative is marked next time too
-        note.textContent = `${NAMES[hit.st]}${hit.d ? ", and it looks like district " + hit.d : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.`;
+        note.textContent = `${NAMES[hit.st]}${hit.d ? ", and it looks like district " + hit.d : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.${(pos.coords.accuracy || 0) > 8000 ? ` Your device could only place you within about ${Math.round(pos.coords.accuracy / 1609.34)} miles, so treat the district as a rough guess.` : ""}`;
         show(hit.st); track("locate", {key: hit.st});
       }, () => { note.textContent = "Couldn't load the map lines. Check your connection, or pick your state."; });
     }, () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
   });
   let saved = null, savedD = null; try { saved = localStorage.getItem("state"); savedD = localStorage.getItem("district"); } catch (e) {}
-  if (saved && NAMES[saved]) { if (savedD !== null && savedD !== "" && !isNaN(+savedD)) myDistrict = +savedD; sel.value = saved; show(saved); }
+  if (saved && NAMES[saved]) {
+    if (savedD !== null && savedD !== "" && !isNaN(+savedD)) myDistrict = +savedD;
+    try { const pj = JSON.parse(localStorage.getItem("pin") || "null"); if (pj && pj.st === saved && isFinite(pj.lat) && isFinite(pj.lon)) myPin = pj; } catch (e) {}
+    sel.value = saved; show(saved); }
+  window.yoursStats = () => ({current, focusVote, myDistrict, myPin, votes: shownVotes.length});
 })();
 
 /* Help modal: the Fact / Analysis / Opinion guide, over a blurred page. */

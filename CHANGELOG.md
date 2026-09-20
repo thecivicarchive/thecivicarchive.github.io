@@ -10,6 +10,21 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.019 — 2026-09-20 — Your state, drawn, with you on it
+
+- Under "How did your members vote?" your state now appears as a map of its
+  congressional districts, coloured by how each member voted: solid for yes,
+  striped for no, gray for not voting. Tap a district for its representative.
+  On a Senate vote the state is split between its two senators.
+- Pick any of the roll calls listed and the map recolours to that vote ("Show
+  on the map"). On a wide screen the map stays beside the list as you scroll.
+- If you use "Use my location", your district is outlined in gold and a pin
+  marks where your device says you are, with a 3-mile circle (wider if your
+  device could only place you roughly). The spot is worked out on your device
+  and kept only there, rounded to about half a mile, so the pin is back on
+  your next visit. "Forget my location" removes it; so does choosing another
+  state.
+
 ## v4.0.018 — 2026-09-20 — Decided by a handful
 
 - New on the front page: "Decided by a handful", the recorded votes of this
