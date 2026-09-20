@@ -331,18 +331,19 @@ def welcome_picks(con, n=5):
 def read_changelog(path, limit=6):
     """Parse CHANGELOG.md into [{date, title, items}], newest first.
 
-    Kept deliberately dumb: headings are '## YYYY-MM-DD - title' and bullets are
-    '- text'. Anything else in the file is ignored, so the prose at the top of
-    the changelog can explain the format without ending up on the page.
+    Kept deliberately dumb: headings are '## v4.0.001 - YYYY-MM-DD - title' (the
+    version is optional; older entries have only a date) and bullets are '- text'.
+    Anything else in the file is ignored, so the prose at the top of the changelog
+    can explain the format without ending up on the page.
     """
     if not os.path.exists(path):
         return []
     entries, cur = [], None
     for line in open(path, encoding="utf-8"):
         line = line.rstrip()
-        m = re.match(r"^##\s+(\d{4}-\d{2}-\d{2})\s*[—\-]\s*(.+?)\s*$", line)
+        m = re.match(r"^##\s+(?:v?(\d+\.\d+\.\d+)\s*[—\-]+\s*)?(\d{4}-\d{2}-\d{2})\s*[—\-]+\s*(.+?)\s*$", line)
         if m:
-            cur = {"date": m.group(1), "title": m.group(2), "items": []}
+            cur = {"version": m.group(1) or "", "date": m.group(2), "title": m.group(3), "items": []}
             entries.append(cur)
         elif cur is not None and line.startswith("- "):
             cur["items"].append(line[2:].strip())
@@ -372,6 +373,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Civic Archive: every bill in Congress, in plain words</title>
 <meta name="description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
+<meta name="version" content="__VERSION__">
 <meta name="theme-color" content="#F5F5F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2145,13 +2147,14 @@ document.addEventListener("click", e => {
 });
 addEventListener("popstate", () => routeFromHash(false));
 
-/* Changelog badge. The version label is just the count of dated entries, so
-   adding an entry to CHANGELOG.md is the whole release process. */
+/* Changelog badge. The label is the version named by the newest changelog
+   entry (4.x.xxx); entries from before version numbers fall back to a count.
+   Adding an entry to CHANGELOG.md is still the whole release process. */
 (function(){
   const log = DATA.changelog || []; if (!log.length) return;
   const wrap = $("#cl"), tab = $("#cltab"), panel = $("#clpanel"), body = $("#clbody");
-  $("#clv").textContent = "v" + log.length;
-  body.innerHTML = log.map(e => `<div class="cl-e"><div class="d">${esc(e.date)}</div><div class="t">${esc(e.title)}</div>${e.items.length ? `<ul>${e.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}</div>`).join("");
+  $("#clv").textContent = log[0].version ? "v" + log[0].version : "v" + log.length;
+  body.innerHTML = log.map(e => `<div class="cl-e"><div class="d">${e.version ? "v" + esc(e.version) + " · " : ""}${esc(e.date)}</div><div class="t">${esc(e.title)}</div>${e.items.length ? `<ul>${e.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}</div>`).join("");
   const setOpen = on => { panel.hidden = !on; tab.setAttribute("aria-expanded", on ? "true" : "false"); };
   tab.addEventListener("click", () => setOpen(panel.hidden));
   $("#clx").addEventListener("click", () => { setOpen(false); tab.focus(); });
@@ -2228,6 +2231,7 @@ def main():
     ap.add_argument("--as-of", default="", help="date to print as the generation date (YYYY-MM-DD); default today")
     args = ap.parse_args()
     data = collect(args.db)
+    version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
     if args.as_of:
         data["generated"] = dt.datetime.strptime(args.as_of, "%Y-%m-%d").strftime("%B %d, %Y")
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
@@ -2249,7 +2253,9 @@ def main():
         foot = (f"Generated from <code>{os.path.basename(args.db)}</code> on {data['generated']}: {st['measures']:,} measures introduced "
                 f"{st['years']}, {st['roll_calls']:,} roll calls with member-level votes, {st['rated']:,} measures rated under rubric "
                 f"{data['rubric']}, and {st['members']:,} members who sponsored or cosponsored them.")
-    html = (TEMPLATE.replace("__DATA__", payload).replace("__FOOTNOTE__", foot)
+    if version:
+        foot += f" Version {version}."
+    html = (TEMPLATE.replace("__DATA__", payload).replace("__FOOTNOTE__", foot).replace("__VERSION__", version)
             .replace("__SETLABEL__", "measures in this demo set" if demo else "measures this Congress")
             .replace("__MEASURES__", str(st["measures"]))
             .replace("__LAWS__", str(st["laws"])).replace("__VOTES__", str(st["votes"])).replace("__MEMBERS__", str(st["members"]))
@@ -2261,6 +2267,7 @@ def main():
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write(html)
     size = os.path.getsize(args.out) / 1e6
+    print(f"Version {version or '(none: no version in CHANGELOG.md)'}")
     print(f"Wrote {args.out}: {st['measures']:,} measures ({st['compact']:,} compact), {st['rated']:,} rated, "
           f"{st['roll_calls']:,} roll calls with member votes, {st['members']:,} members, {len(data['photos']):,} portraits, "
           f"{sum(len(v) for v in data['districts'].get('states', {}).values()):,} district shapes, {size:.1f} MB")

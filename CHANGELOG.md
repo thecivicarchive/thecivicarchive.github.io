@@ -2,9 +2,23 @@
 
 Newest first. One entry per set of changes to the site.
 
-Format: `## YYYY-MM-DD — short title`, then bullet lines. The site reads this
-file at build time and shows the newest entries in the corner badge, so keep
-the bullets short and written for a reader, not for a developer.
+Format: `## v4.0.001 — YYYY-MM-DD — short title`, then bullet lines. The site
+reads this file at build time: the newest heading's version goes on the badge,
+the footer and the page's meta tag, and the newest entries show in the corner
+panel. Keep the bullets short and written for a reader, not for a developer.
+Versions: the last three digits go up with every saved build, the middle number
+when John signs off on a milestone. `Save this version.bat` commits and tags;
+`Go back to a version.bat` restores any saved one.
+
+## v4.0.001 — 2026-09-20 — Version numbers, and four fixes
+
+- Every build now carries a version number, shown on the corner badge and in
+  the footer. Each saved build can be brought back exactly as it was.
+- "How to read this site" can be closed again; it had been stuck open.
+- The opening screen no longer hides its own words behind a pale haze.
+- Tapping a bill under "Start here", in the hero panel or in search now opens
+  that bill. The address bar shows a link you can share, and Back returns you.
+- The vote picker and the sort menu are readable again in dark mode.
 
 ## 2026-09-19 — The Civic Archive
 
