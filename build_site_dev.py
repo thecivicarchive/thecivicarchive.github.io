@@ -1195,7 +1195,8 @@ p{margin:0 0 12px}
 @keyframes wordout{from{transform:none}to{transform:translateY(-112%)}}
 /* depth on scroll: the headline drifts and thins as the page moves under it (--par is set by the scene, 0 to 1) */
 .motion .hero h1{transform:translate3d(0,calc(var(--par,0) * 56px),0);opacity:calc(1 - var(--par,0) * .6)}
-.motion .hero .kpirail{transform:translate3d(0,calc(var(--par,0) * 24px),0)}
+/* the rail's entrance animation holds its transform, so its drift uses the separate translate property */
+.motion .hero .kpirail{translate:0 calc(var(--par,0) * 24px)}
 /* the featured bill's card leans toward the pointer */
 .hero-copy{perspective:1400px}
 .spotlight{transition:rotate .5s var(--ease)}
@@ -1418,6 +1419,9 @@ section.block{padding:72px 0;scroll-margin-top:72px}
 .ch-tip.show{opacity:1}.ch-tip b{display:block;font-weight:600}
 .ch-info{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;min-height:44px;font-size:14px}
 .ch-info[hidden]{display:none!important}
+.ch-mine{display:inline-flex;align-items:center;gap:7px;color:var(--ink);font-size:13.5px}
+.ch-mine i{width:11px;height:11px;border-radius:50%;border:2px solid #E0B040;flex:none}
+.ch-yours{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A560A;background:#F9E7B0;border-radius:999px;padding:4px 10px}
 .ch-who{display:flex;flex-direction:column;line-height:1.3;margin-right:auto}.ch-who .muted{font-size:12.5px}
 .stage.chamber-on .legend2{display:none}
 @media (max-width:560px){.chamber{aspect-ratio:4/3.4}}
@@ -2455,6 +2459,7 @@ if (featured.length) {
     night: [[0, "#05070F"], [.40, "#0B1030"], [.74, "#19174A"], [1, "#2B2060"]],
     dusk:  [[0, "#070A18"], [.38, "#12163F"], [.68, "#37236A"], [.88, "#8A3A70"], [1, "#DE6F50"]]};
   const hero = c.parentElement, isDark = () => document.documentElement.dataset.theme !== "light";
+  const drifters = [$("h1", hero), $(".kpirail", hero)].filter(Boolean);      // the two things that drift as the page scrolls
   let lay = {wide: false, base: 0, cx: 0, bw: 0};          // where the building stands; worked out in size()
   let sy = 0, mx = 0, my = 0, tmx = 0, tmy = 0, lastPar = "";   // scroll and pointer, for depth
 
@@ -2597,7 +2602,7 @@ if (featured.length) {
     sy = live ? Math.max(0, Math.min(H, scrollY)) : 0;
     mx += ((live ? tmx : 0) - mx) * .07; my += ((live ? tmy : 0) - my) * .07;
     const pv = live ? Math.min(1, scrollY / Math.max(1, innerHeight * .9)).toFixed(3) : "0";
-    if (pv !== lastPar) { lastPar = pv; hero.style.setProperty("--par", pv); }
+    if (pv !== lastPar) { lastPar = pv; drifters.forEach(el => el.style.setProperty("--par", pv)); }
     const layer = (k, m, fn) => { ctx.save(); ctx.translate(-mx * m, sy * k - my * m * .4); fn(); ctx.restore(); };
     ctx.clearRect(0, 0, W, H);
     drawSky(pal);
@@ -2792,19 +2797,25 @@ function makeChamber(canvas, onSeat){
   if (!gl) return null;
   const compile = (type, src) => { const sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh); return gl.getShaderParameter(sh, gl.COMPILE_STATUS) ? sh : null; };
   const program = (vs, fs) => { const a = compile(gl.VERTEX_SHADER, vs), b = compile(gl.FRAGMENT_SHADER, fs); if (!a || !b) return null; const pr = gl.createProgram(); gl.attachShader(pr, a); gl.attachShader(pr, b); gl.linkProgram(pr); return gl.getProgramParameter(pr, gl.LINK_STATUS) ? pr : null; };
-  const seatsPr = program(`attribute vec3 aPos; attribute vec3 aCol; attribute float aKind; attribute float aDelay; attribute float aIdx;
+  const seatsPr = program(`attribute vec3 aPos; attribute vec3 aCol; attribute float aKind; attribute float aDelay; attribute float aIdx; attribute float aMine;
     uniform mat4 uMVP; uniform float uScale; uniform float uSize; uniform float uT; uniform float uSel; uniform mediump float uGlow;
-    varying vec3 vCol; varying float vKind; varying float vSel;
+    varying vec3 vCol; varying float vKind; varying float vSel; varying float vMine;
     void main(){ vec4 q = uMVP * vec4(aPos, 1.0); gl_Position = q;
       float s = clamp((uT - aDelay) / 0.32, 0.0, 1.0); s = 1.0 - pow(1.0 - s, 3.0);
       vSel = abs(aIdx - uSel) < 0.5 ? 1.0 : 0.0;
-      float grow = uGlow > 0.5 ? (aKind < 0.5 ? 2.7 : 0.0) : 1.0;
+      vMine = uGlow > 0.5 ? 0.0 : aMine;
+      float grow = uGlow > 0.5 ? (aKind < 0.5 ? 2.7 : 0.0) : (1.0 + 0.42 * aMine);
       gl_PointSize = uSize * uScale / q.w * s * grow * (1.0 + 0.55 * vSel);
       vCol = aCol; vKind = aKind; }`,
-    `precision mediump float; varying vec3 vCol; varying float vKind; varying float vSel; uniform mediump float uGlow;
+    `precision mediump float; varying vec3 vCol; varying float vKind; varying float vSel; varying float vMine; uniform mediump float uGlow;
     void main(){ vec2 c = gl_PointCoord * 2.0 - 1.0; float r2 = dot(c, c); if (r2 > 1.0) discard;
       if (uGlow > 0.5) { float a = 1.0 - r2; gl_FragColor = vec4(vCol, a * a * 0.42); return; }
-      float r = sqrt(r2), z = sqrt(1.0 - r2), light = 0.50 + 0.50 * z;
+      float r = sqrt(r2);
+      if (vMine > 0.5) {                                   // a reader's own members: a gold ring, a gap, then the seat as usual
+        if (r > 0.82) { gl_FragColor = vec4(1.0, 0.84, 0.40, 1.0); return; }
+        if (r > 0.70) discard;
+        r = r / 0.70; r2 = r * r; }
+      float z = sqrt(1.0 - r2), light = 0.50 + 0.50 * z;
       vec3 col = vCol * light + vec3(0.30) * pow(z, 8.0);
       if (vKind > 0.5 && vKind < 1.5) { float ring = smoothstep(0.52, 0.66, r); col = mix(vCol * 0.13, vCol * 0.95, ring); }
       if (vKind > 1.5) col = vCol * (0.55 + 0.25 * z);
@@ -2814,7 +2825,7 @@ function makeChamber(canvas, onSeat){
     `precision mediump float; uniform vec4 uColor; void main(){ gl_FragColor = uColor; }`);
   if (!seatsPr || !linesPr) return null;
   const U = (pr, n) => gl.getUniformLocation(pr, n), A = (pr, n) => gl.getAttribLocation(pr, n);
-  const buf = {pos: gl.createBuffer(), col: gl.createBuffer(), kind: gl.createBuffer(), delay: gl.createBuffer(), idx: gl.createBuffer(), lines: gl.createBuffer()};
+  const buf = {pos: gl.createBuffer(), col: gl.createBuffer(), kind: gl.createBuffer(), delay: gl.createBuffer(), idx: gl.createBuffer(), mine: gl.createBuffer(), lines: gl.createBuffer()};
   const TONE = {D: [.494, .608, 1], R: [1, .482, .447], I: [.706, .608, .949], X: [.30, .33, .38]};
   let seats = [], P = new Float32Array(0), n = 0, senate = false, nLines = 0, nFloor = 0, mvp = new Float32Array(16), sizeWorld = .2, sizeNow = .2, scalePx = 1;
   let yaw = 0, pitch = .60, vyaw = 0, drag = null, moved = 0, sel = -1, t0 = performance.now(), raf = 0, idle = performance.now(), visible = true, dead = false;
@@ -2833,12 +2844,12 @@ function makeChamber(canvas, onSeat){
     const rank = m => (m.p === "D" ? 0 : (m.p === "R" ? 2 : 1));
     seats = members.slice().sort((a, b) => rank(a) - rank(b) || String(a.L.st).localeCompare(String(b.L.st)) || (a.L.d || 0) - (b.L.d || 0) || String(a.L.n).localeCompare(String(b.L.n)));
     n = seats.length; const spots = layout(n); sizeWorld = senate ? .34 : .205;
-    P = new Float32Array(n * 3); const C = new Float32Array(n * 3), K = new Float32Array(n), D = new Float32Array(n), I = new Float32Array(n);
+    P = new Float32Array(n * 3); const C = new Float32Array(n * 3), K = new Float32Array(n), D = new Float32Array(n), I = new Float32Array(n), M = new Float32Array(n);
     seats.forEach((m, i) => { const sp = spots[i]; P.set([sp.x, sp.y, sp.z], i * 3);
       const kind = m.pos === "Y" ? 0 : (m.pos === "N" ? 1 : 2), tone = kind === 2 ? TONE.X : (TONE[m.p] || TONE.I);
-      C.set(tone, i * 3); K[i] = kind; D[i] = (i / Math.max(1, n - 1)) * .62; I[i] = i; });
+      C.set(tone, i * 3); K[i] = kind; D[i] = (i / Math.max(1, n - 1)) * .62; I[i] = i; M[i] = m.mine ? 1 : 0; });
     const put = (b, data) => { gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW); };
-    put(buf.pos, P); put(buf.col, C); put(buf.kind, K); put(buf.delay, D); put(buf.idx, I);
+    put(buf.pos, P); put(buf.col, C); put(buf.kind, K); put(buf.delay, D); put(buf.idx, I); put(buf.mine, M);
     // the floor: three faint arcs, the centre aisle and the rostrum, so the seats sit in a room
     const L = [], arc = (r, y) => { for (let i = 0; i < 48; i++) { const a = Math.PI * i / 48, b = Math.PI * (i + 1) / 48; L.push(r * Math.cos(a), y, -r * Math.sin(a), r * Math.cos(b), y, -r * Math.sin(b)); } };
     const r0 = senate ? 2.7 : 2.3, r1 = senate ? 4.7 : 6.4; arc(r0 - .55, -.02); arc((r0 + r1) / 2, -.02); arc(r1 + .5, -.02);
@@ -2875,7 +2886,7 @@ function makeChamber(canvas, onSeat){
     gl.uniform4f(U(linesPr, "uColor"), .80, .84, .92, .62); gl.drawArrays(gl.LINES, nFloor, nLines - nFloor);      // the rostrum, a little brighter
     gl.useProgram(seatsPr);
     const bind = (name, b, size) => { const loc = A(seatsPr, name); if (loc < 0) return; gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0); };
-    bind("aPos", buf.pos, 3); bind("aCol", buf.col, 3); bind("aKind", buf.kind, 1); bind("aDelay", buf.delay, 1); bind("aIdx", buf.idx, 1);
+    bind("aPos", buf.pos, 3); bind("aCol", buf.col, 3); bind("aKind", buf.kind, 1); bind("aDelay", buf.delay, 1); bind("aIdx", buf.idx, 1); bind("aMine", buf.mine, 1);
     gl.uniformMatrix4fv(U(seatsPr, "uMVP"), false, mvp); gl.uniform1f(U(seatsPr, "uScale"), scalePx); gl.uniform1f(U(seatsPr, "uSize"), sizeNow);
     gl.uniform1f(U(seatsPr, "uT"), T); gl.uniform1f(U(seatsPr, "uSel"), sel);
     gl.uniform1f(U(seatsPr, "uGlow"), 1); gl.blendFunc(gl.SRC_ALPHA, gl.ONE); gl.depthMask(false); gl.drawArrays(gl.POINTS, 0, n);      // the glow under the yes votes
@@ -2909,7 +2920,7 @@ function makeChamber(canvas, onSeat){
   canvas.addEventListener("keydown", e => { if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); yaw += e.key === "ArrowLeft" ? .16 : -.16; idle = performance.now(); kick(); } });
   new IntersectionObserver(es => es.forEach(x => { visible = x.isIntersecting; if (visible) kick(); })).observe(canvas);
   addEventListener("resize", kick);
-  return {show, redraw: kick, draw, pick, select: i => { sel = i; kick(); }, stats: () => ({n, senate, lines: nLines, w: canvas.width, h: canvas.height, yaw, err: gl.getError()})};
+  return {show, redraw: kick, draw, pick, select: i => { sel = i; kick(); }, selectId: id => { sel = seats.findIndex(m => m.id === id); kick(); return sel; }, stats: () => ({n, senate, lines: nLines, w: canvas.width, h: canvas.height, yaw, err: gl.getError()})};
 }
 
 /* ---------- roll calls: one load, used by the map and by "your members" ---------- */
@@ -3116,7 +3127,20 @@ function initMap(){
   }
   chInfo.addEventListener("click", e => { const c = e.target.closest("[data-card]"), f = e.target.closest("[data-profile]");
     if (c) { const m = everyone(current.vote_id).find(x => x.id === c.dataset.card); if (m) openRep(m, m.L.st); } else if (f) openMember(f.dataset.profile); });
-  function showChamber(){ if (chamber) { chamber.show(current.chamber === "Senate", everyone(current.vote_id)); chInfo.innerHTML = CHHINT; } }
+  /* The reader's own members, if they have told the site where they live: the state they picked under "How did
+     your members vote?", and the district "Use my location" found. Both are kept on this device only. */
+  const myPlace = () => { let st = "", d = null; try { st = localStorage.getItem("state") || ""; const sd = localStorage.getItem("district"); d = (sd === null || sd === "") ? null : +sd; } catch (e) {} return {st, d}; };
+  function showChamber(){
+    if (!chamber) return;
+    const {st, d} = myPlace(), all = everyone(current.vote_id), name = (states[st] || {}).name || st;
+    all.forEach(m => { m.mine = !!st && m.L.st === st; });
+    chamber.show(current.chamber === "Senate", all);
+    const mine = all.filter(m => m.mine), own = (d != null && current.chamber !== "Senate") ? mine.find(m => (m.L.d || 0) === d) : null;
+    if (own && chamber.selectId(own.id) >= 0) { onSeat(own, 0, 0, false); chInfo.insertAdjacentHTML("afterbegin", `<span class="ch-yours">Your representative</span>`); return; }
+    const said = m => `${esc(m.L.n.split(" ").slice(-1)[0])} ${(POSW[m.pos] || m.pos).toLowerCase()}`;
+    chInfo.innerHTML = CHHINT + (mine.length ? `<span class="ch-mine"><i aria-hidden="true"></i>${esc(name)}'s ${mine.length <= 3 ? "members: " + mine.map(said).join(", ") : mine.length + " members are ringed in gold"}</span>`
+      : (st ? "" : `<span class="ch-mine"><a href="#yours">Pick your state</a>&nbsp;and its seats are ringed in gold here.</span>`));
+  }
   function setView(v){
     if (v === "chamber" && !chamber) { chamber = makeChamber(chCanvas, onSeat); if (!chamber) { viewSw.hidden = true; v = "map"; } }
     view = v; try { localStorage.setItem("mapview", v); } catch (e) {}
@@ -3622,7 +3646,7 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     pageview("/yours/" + st, "Your members: " + (NAMES[st] || st));
     votesReady().then(() => { if (current === st) paintState(st); }, () => { list.innerHTML = `<p class="muted">Couldn't load the roll calls. Check your connection and try again.</p>`; });
   }
-  sel.addEventListener("change", () => { myDistrict = null; note.textContent = ""; show(sel.value); });
+  sel.addEventListener("change", () => { myDistrict = null; try { localStorage.removeItem("district"); } catch (e) {} note.textContent = ""; show(sel.value); });
   list.addEventListener("click", e => {
     const art = e.target.closest(".yvote"); if (!art) return;
     const v = DATA.vote_meta.find(x => x.vote_id === art.dataset.vote); if (!v) return;
@@ -3674,13 +3698,14 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
       civicLocate(pos.coords.longitude, pos.coords.latitude).then(hit => {
         if (!hit || !NAMES[hit.st]) { note.textContent = "That spot isn't inside a state on our map. Pick your state instead."; return; }
         myDistrict = hit.d; sel.value = hit.st;
+        try { if (hit.d == null) localStorage.removeItem("district"); else localStorage.setItem("district", String(hit.d)); } catch (e) {}      // kept on this device, so your own representative is marked next time too
         note.textContent = `${NAMES[hit.st]}${hit.d ? ", and it looks like district " + hit.d : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.`;
         show(hit.st); track("locate", {key: hit.st});
       }, () => { note.textContent = "Couldn't load the map lines. Check your connection, or pick your state."; });
     }, () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
   });
-  let saved = null; try { saved = localStorage.getItem("state"); } catch (e) {}
-  if (saved && NAMES[saved]) { sel.value = saved; show(saved); }
+  let saved = null, savedD = null; try { saved = localStorage.getItem("state"); savedD = localStorage.getItem("district"); } catch (e) {}
+  if (saved && NAMES[saved]) { if (savedD !== null && savedD !== "" && !isNaN(+savedD)) myDistrict = +savedD; sel.value = saved; show(saved); }
 })();
 
 /* Help modal: the Fact / Analysis / Opinion guide, over a blurred page. */

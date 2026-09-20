@@ -10,6 +10,19 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.017 — 2026-09-20 — Your own seats on the chamber floor
+
+- On the chamber floor, the seats of your state's members are ringed in gold,
+  and the line under the floor says how they voted. Pick your state under "How
+  did your members vote?" and it carries over.
+- If you used "Use my location", your own representative is picked out the
+  moment the floor opens, with how they voted.
+- The site now remembers your district on this device, next to your state, so
+  your representative is marked again on your next visit. It stays on your
+  device; nothing is sent anywhere. Choosing a different state clears it.
+- The front page scrolls more smoothly: the scroll effect now touches only the
+  two things that move.
+
 ## v4.0.016 — 2026-09-20 — The front page moves
 
 - The headline is bigger and stacked, and its second line turns over a few
