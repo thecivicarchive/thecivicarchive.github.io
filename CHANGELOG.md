@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.004 — 2026-09-20 — Add it to your home screen
+
+- The site can be added to a phone's home screen like an app, and the pages
+  you have already opened stay readable without a connection.
+- Visits can be counted without cookies or personal data, once the counter's
+  address is set up. Until then nothing is counted at all.
+
 ## v4.0.003 — 2026-09-20 — Share a bill, a vote, or how your member voted
 
 - Every bill card, every roll call on the map and every member's card now has

@@ -449,12 +449,22 @@ def boot_for(data, version, base_url=""):
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"), "inline": None}
 
 
+def html_attr(text):
+    return str(text).replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
+
+
 def render_page(boot, data, version, foot):
     payload = json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     st, wc = data["stats"], data["welcome"]["counts"]
     demo = st["current"] < st["measures"]
+    gc = boot.get("analytics") or ""
+    tag = ('<script data-goatcounter="%s" data-goatcounter-settings=\'{"no_onload": true, "allow_frame": false}\' '
+           'async src="https://gc.zgo.at/count.js" onload="if(window.__gcflush)__gcflush()"></script>' % html_attr(gc)) if gc else ""
+    if gc:
+        foot += (" Visits are counted by GoatCounter, which sets no cookies and keeps no personal data; "
+                 "share taps are counted the same way.")
     return (TEMPLATE.replace("__BOOT__", payload).replace("__FOOTNOTE__", foot).replace("__VERSION__", version)
-            .replace("__BASE__", boot.get("base") or "")
+            .replace("__BASE__", boot.get("base") or "").replace("__ANALYTICS__", tag)
             .replace("__SETLABEL__", "measures in this demo set" if demo else "measures this Congress")
             .replace("__MEASURES__", str(st["measures"]))
             .replace("__LAWS__", str(st["laws"])).replace("__VOTES__", str(st["votes"])).replace("__MEMBERS__", str(st["members"]))
@@ -481,6 +491,18 @@ def write_split(folder, html, data, photo_bytes):
         sizes[rel] = len(text.encode("utf-8"))
 
     put("index.html", html)
+    version = data.get("_version") or "0"
+    put("manifest.webmanifest", json.dumps({
+        "name": "The Civic Archive", "short_name": "Civic Archive",
+        "description": "Every bill in Congress, in plain words. Every recorded vote, member by member.",
+        "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#0C0E12", "theme_color": "#0C0E12",
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}, indent=1))
+    put("sw.js", SERVICE_WORKER.replace("__VERSION__", version))
+    import share_cards
+    for name, size, maskable in (("icon-192.png", 192, False), ("icon-512.png", 512, False), ("icon-512-maskable.png", 512, True)):
+        share_cards.draw_icon(size, maskable).save(os.path.join(folder, name), optimize=True)
     put("data/bills-list.json", dump({"bills": [list_record(b) for b in data["bills"]]}))
     for name, obj in bundles(data).items():
         put(f"data/{name}.json", dump(obj))
@@ -496,6 +518,28 @@ def write_split(folder, html, data, photo_bytes):
             fh.write(blob)
     return sizes, n_detail, detail_bytes, sum(len(v) for v in photo_bytes.values())
 
+
+# The service worker keeps the site usable offline without ever serving a stale
+# page: the shell is fetched from the network first and only falls back to the
+# copy it kept; data, portraits and previews carry the version in their address,
+# so they are safe to keep and are dropped wholesale when the version changes.
+SERVICE_WORKER = r"""const V = "civic-__VERSION__";
+const SHELL = ["./", "./index.html", "./manifest.webmanifest"];
+self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
+self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
+self.addEventListener("fetch", e => {
+  const r = e.request; if (r.method !== "GET") return;
+  const u = new URL(r.url); if (u.origin !== location.origin) return;
+  if (/\/(data|photos|og)\//.test(u.pathname)) {
+    e.respondWith(caches.open(V).then(c => c.match(r).then(hit => hit || fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }))));
+    return;
+  }
+  if (r.mode === "navigate" || /\/index\.html$/.test(u.pathname)) {
+    e.respondWith(fetch(r).then(res => { if (res.ok) caches.open(V).then(c => c.put("./index.html", res.clone())); return res; })
+      .catch(() => caches.match("./index.html")));
+  }
+});
+"""
 
 TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
@@ -518,6 +562,10 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta name="twitter:title" content="The Civic Archive: every bill in Congress, in plain words">
 <meta name="twitter:description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
 <meta name="twitter:image" content="__BASE__/og/site.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+__ANALYTICS__
 <meta name="theme-color" content="#F5F5F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1756,6 +1804,7 @@ function openBill(key){
   state.q = ""; $("#q").value = ""; state.f = "all"; $$("#chips .chip").forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all")); moveChipInd();
   state.member = null; $("#mpick").textContent = "Pick a member to filter the bill list above.";
   state.pin = key; render(); state.pin = null;
+  pageview("/bill/" + key, byKey[key].id + ": " + (byKey[key].short_title || byKey[key].title));
   const card = $(`.card[data-key="${CSS.escape(key)}"]`); if (!card) return false;
   card.classList.add("in", "live");
   if (!card.classList.contains("open")) $(".more", card).click();
@@ -2030,7 +2079,15 @@ const SHARE_BASE = BOOT.base || location.href.split("#")[0].replace(/\/[^\/]*$/,
 const voteSlug = id => String(id).replace(/\|/g, "_");
 const shareUrlBill = b => b.lite ? `${SHARE_BASE}/#bill=${b.key}` : `${SHARE_BASE}/b/${b.key}.html`;
 const shareUrlVote = v => `${SHARE_BASE}/v/${voteSlug(v.vote_id)}.html`;
-function track(name, props){ try { if (window.goatcounter && goatcounter.count) goatcounter.count({path: name + (props && props.key ? "/" + props.key : ""), title: name, event: true}); } catch (e) {} }
+/* Counting, when a GoatCounter address was given at build time: page views per
+   page, bill and vote, and share taps as events. No cookies, no personal data;
+   nothing at all is sent when the address is empty. Calls made before the
+   counter script has loaded wait in a queue. */
+const gcq = [];
+function gcSend(o){ if (!BOOT.analytics) return; if (window.goatcounter && goatcounter.count) { try { goatcounter.count(o); } catch (e) {} } else gcq.push(o); }
+window.__gcflush = () => { while (gcq.length) gcSend(gcq.shift()); };
+function track(name, props){ gcSend({path: name + (props && props.key ? "/" + props.key : ""), title: name, event: true}); }
+function pageview(path, title){ gcSend({path, title: title || document.title}); }
 function copyText(text){ (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => toast("Link copied"), () => prompt("Copy this link", text)); }
 let shareMenu = null;
 function share(o, anchor){
@@ -2159,7 +2216,7 @@ function initMap(){
       ${rows.length ? `<div class="split">${rows.map(r => `<div style="--pc:var(--${r.c})"><span>${esc(r.name)}</span><span class="bar" aria-hidden="true"><i class="y" style="width:${r.yp.toFixed(1)}%"></i><i class="n" style="width:${r.np.toFixed(1)}%"></i></span><span><b>${r.y}</b> yes, <b>${r.n}</b> no</span></div>`).join("")}</div>` : ""}`;
     if (typeof yes === "number" && typeof no === "number") { tween($(".yv"), lastTally[0], yes); tween($(".nv"), lastTally[1], no); lastTally = [yes, no]; }
     $("#sharevote").addEventListener("click", e => share({title: `${current.bill}: ${current.chamber} ${current.category.toLowerCase()}, ${yes}–${no}`, text: `How every ${current.chamber} member voted on ${current.bill}, ${current.title}, state by state:`, url: shareUrlVote(current), kind: "vote", key: current.vote_id}, e.currentTarget));
-    if (page === "map") history.replaceState(history.state, "", "#vote=" + voteSlug(vid));
+    if (page === "map") { history.replaceState(history.state, "", "#vote=" + voteSlug(vid)); pageview("/vote/" + voteSlug(vid), current.bill + ": " + current.chamber + " " + current.category); }
     if (zoomed) { if (current.chamber === "Senate" && DIST.states[zoomed]) { /* keep the zoom; senators show as the split state */ } buildDistricts(zoomed); }
     if (selected) showState(selected); else side.innerHTML = `<span class="muted" style="font-size:14px">Tap a state to zoom in. On a House vote you'll see its districts; tap one for the representative.</span>`;
   }
@@ -2378,6 +2435,7 @@ function showPage(name, push){
   PAGES.forEach(p => { const el = $("#pg-" + p); if (el) el.hidden = p !== name; });
   $$(".nav a[data-go]").forEach(a => a.setAttribute("aria-current", a.dataset.go === name ? "page" : "false"));
   document.body.dataset.page = name;
+  pageview("/" + (name === "home" ? "" : name), "The Civic Archive: " + name);
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
   if (name === "members") renderMembers();
   if (name === "map") mapReady();
@@ -2477,6 +2535,8 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
 })();
 
 routeFromHash(false);
+if (!BOOT.inline && "serviceWorker" in navigator && (location.protocol === "https:" || /[?&]sw=1\b/.test(location.search)))
+  addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
 </script>
 </body>
 </html>
@@ -2493,7 +2553,14 @@ def main():
     ap.add_argument("--as-of", default="", help="date to print as the generation date (YYYY-MM-DD); default today")
     ap.add_argument("--base-url", default="https://thecivicarchive.github.io/dev",
                     help="where the fast site will live; share pages and link previews need absolute addresses")
+    ap.add_argument("--analytics", default="",
+                    help="GoatCounter endpoint, e.g. https://civicarchive.goatcounter.com/count; default: the one line of "
+                         "analytics.txt next to this script, if that file exists; empty means no analytics at all")
     args = ap.parse_args()
+    if not args.analytics:
+        cfg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "analytics.txt")
+        if os.path.exists(cfg):
+            args.analytics = open(cfg, encoding="utf-8").read().strip()
     data = collect(args.db)
     photo_bytes = data.pop("photo_bytes")
     version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
@@ -2516,6 +2583,7 @@ def main():
 
     # the one-file archive: the same shell with every bundle inlined, trimmed to the size budget
     boot = boot_for(data, version, args.base_url)
+    boot["analytics"] = args.analytics
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
         boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"]})
@@ -2538,13 +2606,14 @@ def main():
     if args.split:
         boot["inline"] = None
         shaped = trim_lite(data, args.summary_chars, 4)   # compact rows carry a short summary; the full one is on Congress.gov
+        shaped["_version"] = version
         shell = render_page(boot, shaped, version, foot)
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"
         import shutil
         shutil.copyfile(args.out, os.path.join(args.split, "offline.html"))   # the archive travels with the fast site
         print(f"Wrote {args.split}/: shell {kb(sizes['index.html'])}; "
-              + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k != "index.html")
+              + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k.startswith("data/"))
               + f"; {n_detail:,} bill files ({kb(detail_bytes)}); {len(photo_bytes):,} portraits ({kb(photo_total)})")
         import share_cards
         sh = share_cards.write_share_pages(args.split, shaped, args.base_url, data["states"])

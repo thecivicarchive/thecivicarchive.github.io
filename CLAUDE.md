@@ -125,6 +125,12 @@ site's own type (`fonts/`, Open Font License). A pasted link shows a card; a per
 bill or the vote. Images are redrawn only when what they show has changed. Absolute addresses come from
 `--base-url` (default `https://thecivicarchive.github.io/dev`); the live site would be built with the root.
 
+Counting visits is off until John creates a GoatCounter account (free, no cookies, no personal data) and puts
+its endpoint, one line like `https://civicarchive.goatcounter.com/count`, in `analytics.txt` next to the
+builder. The build then adds the counter and a sentence about it to the footer; page views, bill and vote
+views and share taps are counted, nothing else. Never create that account or ask for its credentials.
+The fast site is installable (a manifest, icons and a service worker that never serves a stale page).
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

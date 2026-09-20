@@ -490,3 +490,24 @@ def write_share_pages(folder, data, base_url, states):
     og_bytes = sum(os.path.getsize(os.path.join(folder, r)) for r in seen if os.path.exists(os.path.join(folder, r)))
     return {"bill_pages": len(data["bills"]), "vote_pages": len(data.get("vote_meta") or []),
             "cards_drawn": drawn, "cards_kept": kept, "cards_bytes": og_bytes}
+
+# --- the app icon -------------------------------------------------------------
+
+def draw_icon(size, maskable=False):
+    """A dome over a plinth, in the site's ink on its dark ground. Maskable icons keep a safe margin."""
+    s = size
+    im = Image.new("RGBA", (s, s), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    if maskable:
+        d.rectangle((0, 0, s, s), fill=BG)
+    else:
+        d.rounded_rectangle((0, 0, s - 1, s - 1), radius=int(s * .22), fill=BG)
+    m = s * (.22 if maskable else .16)          # margin
+    cx, w = s / 2, s - 2 * m
+    base = s - m - w * .06
+    d.rectangle((cx - w / 2, base - w * .10, cx + w / 2, base), fill=INK)            # plinth
+    d.rectangle((cx - w * .30, base - w * .34, cx + w * .30, base - w * .10), fill=INK)   # drum
+    d.pieslice((cx - w * .30, base - w * .64, cx + w * .30, base - w * .04), 180, 360, fill=INK)  # dome
+    d.rectangle((cx - w * .03, base - w * .78, cx + w * .03, base - w * .60), fill=INK)  # finial
+    d.rectangle((cx - w / 2, m, cx + w / 2, m + max(2, s * .035)), fill=ACCENT)      # the accent rule the cards carry
+    return im.convert("RGB") if maskable else im
