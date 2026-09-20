@@ -10,6 +10,23 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.016 — 2026-09-20 — The front page moves
+
+- The headline is bigger and stacked, and its second line turns over a few
+  times to name what is here (in plain words, bill by bill, vote by vote, seat
+  by seat) before coming to rest.
+- The Capitol behind the words now takes its colours from the page. On the dark
+  page it is a lit dome under a night sky with stars; on the light page, the
+  daytime print as before. On a wide screen it stands at the right edge where
+  you can see it, clear of the words.
+- The scene has depth: the sky, the clouds and the building move at different
+  speeds as you scroll, and shift a little with the pointer. The featured
+  bill's card leans a degree or two toward the pointer.
+- New under the headline: a moving line of the latest recorded votes. Each one
+  opens that vote on the map. Hover to pause it.
+- With Motion off, all of this holds still and the line of votes becomes a row
+  you scroll yourself.
+
 ## v4.0.015 — 2026-09-20 — The chamber floor, in 3D
 
 - Any recorded vote can now be seen a second way: the chamber floor. Every

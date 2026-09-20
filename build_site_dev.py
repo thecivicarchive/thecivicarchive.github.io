@@ -723,7 +723,11 @@ def boot_for(data, version, base_url=""):
             and (has_pos(b["ratings"].get("income")) or has_pos(b["ratings"].get("households_business")))]
     feat.sort(key=lambda b: (-int(b["congress"] or 0), 0 if ((b["ratings"].get("income") or {}).get("grade") == "A") else 1,
                              natkey(b["key"])))
+    # the newest roll calls, for the moving line under the hero (vote_meta is already newest first)
+    ticker = [{"v": m["vote_id"], "b": m["bill"], "t": trim_text(m["title"], 64), "c": m["chamber"], "d": m["date"],
+               "y": m["yeas"], "n": m["nays"], "r": m["result"]} for m in data["vote_meta"][:14]]
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
+            "ticker": ticker,
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
             "state_names": {st: s["name"] for st, s in data["states"].items()},
@@ -955,7 +959,11 @@ p{margin:0 0 12px}
 .hero .wrap{display:grid;gap:36px;grid-template-columns:1fr}
 @media (min-width:960px){.hero{padding:72px 0 64px}.hero .wrap{grid-template-columns:minmax(210px,250px) minmax(0,1fr);align-items:start;gap:44px}}
 .hero .spotlight{margin-top:34px}
-.hero h1{font-size:clamp(52px,8.4vw,108px);line-height:.96;max-width:12ch;text-wrap:balance}
+.hero h1{font-size:clamp(44px,16.2vw,118px);line-height:.94;max-width:none}
+@media (min-width:960px){.hero h1{font-size:clamp(96px,11.2vw,148px)}}
+.hero h1 .h1a,.hero h1 .h1b{display:block;white-space:nowrap}
+.hero h1 .h1b{font-style:italic;color:var(--accent)}
+.hero h1 .h1b .w{padding-right:.12em;margin-right:-.12em}
 .hero .lede{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:var(--muted);max-width:46ch;margin:22px 0 28px}
 .cta{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s var(--ease),border-color .15s,background .15s,color .15s}
@@ -1179,7 +1187,40 @@ p{margin:0 0 12px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(75% 85% at 22% 45%,var(--bg) 30%,transparent 72%)}
 .hero .wrap{position:relative;z-index:2}
-.hero.night:after{background:linear-gradient(to bottom,var(--bg) 0%,rgba(245,245,242,.95) 28%,rgba(245,245,242,.92) 58%,rgba(245,245,242,.96) 100%)}
+/* on a wide dark page the lit Capitol stands at the right edge: keep the veil behind the words, thin it over the building */
+@media (min-width:1180px){
+  :root[data-theme="dark"] .hero::after{background:linear-gradient(to bottom,var(--bg) 0%,rgba(15,17,20,0) 14%),linear-gradient(to right,rgba(15,17,20,.88) 0%,rgba(15,17,20,.80) 50%,rgba(15,17,20,.30) 80%,rgba(15,17,20,.12) 100%)}
+}
+.hero h1 .w>span.out{animation:wordout .5s var(--ease) forwards}
+@keyframes wordout{from{transform:none}to{transform:translateY(-112%)}}
+/* depth on scroll: the headline drifts and thins as the page moves under it (--par is set by the scene, 0 to 1) */
+.motion .hero h1{transform:translate3d(0,calc(var(--par,0) * 56px),0);opacity:calc(1 - var(--par,0) * .6)}
+.motion .hero .kpirail{transform:translate3d(0,calc(var(--par,0) * 24px),0)}
+/* the featured bill's card leans toward the pointer */
+.hero-copy{perspective:1400px}
+.spotlight{transition:rotate .5s var(--ease)}
+/* the latest recorded votes, as a moving line */
+.ticker{display:flex;align-items:stretch;position:relative;z-index:2;background:var(--surface);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.ticker[hidden]{display:none!important}
+.ticker-label{flex:none;display:flex;align-items:center;gap:9px;padding:0 16px 0 20px;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);border-right:1px solid var(--hair)}
+.ticker-label i{width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.ticker-view{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 26px,#000 calc(100% - 44px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 26px,#000 calc(100% - 44px),transparent 100%)}
+.ticker-track{display:flex;width:max-content;animation:tick var(--tick,70s) linear infinite}
+.ticker-track .half{display:flex;flex:none}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes tick{to{transform:translate3d(-50%,0,0)}}
+.tk{display:inline-flex;align-items:baseline;gap:9px;padding:12px 20px;font-size:13.5px;line-height:1.3;white-space:nowrap;text-decoration:none;color:var(--ink);border-right:1px solid var(--hair);transition:background .15s}
+.tk:hover{background:var(--hair)}
+.tk b{font-weight:600}
+.tk .tkt{color:var(--muted);max-width:34ch;overflow:hidden;text-overflow:ellipsis}
+.tk .tkres{font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent-ink)}
+.tk .tkres.no{color:var(--bad-ink)}
+.tk .tkd{color:var(--muted);font-size:12.5px}
+.ticker.kb .ticker-view,html.calm .ticker-view{overflow-x:auto;scrollbar-width:thin;-webkit-mask-image:none;mask-image:none}
+.ticker.kb .ticker-track,html.calm .ticker-track{animation:none}
+.ticker.kb .half+.half,html.calm .half+.half{display:none}
+@media (prefers-reduced-motion: reduce){.ticker-view{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.ticker-track{animation:none}.half+.half{display:none}}
+@media (max-width:560px){.ticker-label{padding:0 12px 0 14px;font-size:10.5px}.tk{padding:11px 16px;font-size:13px}}
 .spotlight{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-xl);padding:22px 22px 16px;box-shadow:var(--shadow-3);position:relative;animation:spotin 1.1s .55s var(--ease) both}
 @keyframes spotin{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
 .spot-spon{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.3}
@@ -1648,6 +1689,10 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 </header>
 
 <div class="page" id="pg-home" data-page="home">
+<div class="ticker" id="ticker" hidden>
+  <div class="ticker-label"><i aria-hidden="true"></i>Latest votes</div>
+  <div class="ticker-view" role="region" aria-label="The latest recorded votes"><div class="ticker-track" id="tickertrack"></div></div>
+</div>
 <section class="hero" id="top">
   <canvas id="field" aria-hidden="true"></canvas>
   <p class="wx" id="wx" hidden></p>
@@ -1665,7 +1710,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <p class="kpifoot">Counted from the congressional record.<br>Updated __GENERATED__.</p>
     </aside>
     <div class="hero-copy">
-      <h1>Congress, in plain words.</h1>
+      <h1 aria-label="Congress, in plain words."><span class="h1a">Congress,</span> <span class="h1b" id="h1rot">in plain words.</span></h1>
       <p class="lede">Thousands of bills move through Congress every year. Almost nothing reaches you unfiltered &mdash; it arrives as a press release, a cable segment, a fundraising email.</p>
       <p class="lede">This place skips all of that. Every bill and every recorded vote, straight from the official record, written so you can follow it &mdash; and decide for yourself what you think.</p>
       <div class="cta"><a class="btn primary" href="#yours">How did my members vote?</a><a class="btn" href="#nowmoving">See what's moving</a><a class="btn" href="#bills">Browse every bill</a></div>
@@ -2363,8 +2408,24 @@ if (featured.length) {
 
 /* ---------- hero: word reveal and the member field ---------- */
 (function(){
-  const h = $(".hero h1"); if (!h) return;
-  h.innerHTML = h.textContent.trim().split(/\s+/).map((w, i) => `<span class="w"><span style="animation-delay:${60 + i * 60}ms">${esc(w)}</span></span>`).join(" ");
+  /* The headline rises word by word; then its second line turns over a few times, naming what is here,
+     and comes to rest where it began. With Motion off it simply reads "in plain words." */
+  const h = $(".hero h1"), a = h && $(".h1a", h), rot = $("#h1rot"); if (!h || !a || !rot) return;
+  const words = (txt, d0, step) => txt.trim().split(/\s+/).map((w, i) => `<span class="w"><span style="animation-delay:${d0 + i * step}ms">${esc(w)}</span></span>`).join(" ");
+  const PH = ["in plain words.", "bill by bill.", "vote by vote.", "seat by seat."];
+  let i = 0, turns = 0, timer = 0, seen = true;
+  a.innerHTML = words(a.textContent, 60, 60); rot.innerHTML = words(PH[0], 120, 60);
+  const arm = () => { if (!timer && turns < 2) timer = setTimeout(next, i === 0 ? 4200 : 2400); };
+  function next(){
+    timer = 0;
+    if (calm()) { if (i) { i = 0; rot.innerHTML = words(PH[0], 0, 40); } arm(); return; }
+    if (document.hidden || !seen) { arm(); return; }
+    $$(".w>span", rot).forEach((sp, k) => { sp.style.animationDelay = (k * 40) + "ms"; sp.classList.add("out"); });
+    setTimeout(() => { i = (i + 1) % PH.length; if (!i) turns++; rot.innerHTML = words(PH[i], 0, 40); arm(); }, 560);
+  }
+  new IntersectionObserver(es => es.forEach(e => { seen = e.isIntersecting; })).observe(h);
+  arm();
+  window.headlineStats = () => ({i, turns, text: rot.textContent});
 })();
 (function(){
   /* The Capitol at the hour you are reading this, under the weather that is
@@ -2385,27 +2446,48 @@ if (featured.length) {
   const DC = {lat: 38.8899, lon: -77.0091, name: "Washington, DC"};
   let wx = {cloud: .25, rain: 0, snow: 0, fog: 0, night: null, temp: null, place: DC.name, text: "", ok: false};
 
-  const SKY_DAY = [[0, "#BBD0DB"], [.40, "#E3D8C6"], [.72, "#F0CBA6"], [1, "#E6B18C"]];
-  const SKY_NIGHT = [[0, "#121829"], [.45, "#1D2340"], [.78, "#2B2946"], [1, "#392F4C"]];
+  /* Two palettes, chosen by the page's theme so the words always read over the sky: a lit Capitol under a
+     night sky on the dark page, the screen-print day on the light one. The hour still shows. By day the dark
+     page warms to dusk along the horizon; by night the light page cools to dawn, and its orb is the moon. */
+  const SKY = {
+    day:   [[0, "#BBD0DB"], [.40, "#E3D8C6"], [.72, "#F0CBA6"], [1, "#E6B18C"]],
+    dawn:  [[0, "#BFC6DE"], [.42, "#DAD3E0"], [.74, "#ECCFC6"], [1, "#E6BCA8"]],
+    night: [[0, "#05070F"], [.40, "#0B1030"], [.74, "#19174A"], [1, "#2B2060"]],
+    dusk:  [[0, "#070A18"], [.38, "#12163F"], [.68, "#37236A"], [.88, "#8A3A70"], [1, "#DE6F50"]]};
+  const hero = c.parentElement, isDark = () => document.documentElement.dataset.theme !== "light";
+  let lay = {wide: false, base: 0, cx: 0, bw: 0};          // where the building stands; worked out in size()
+  let sy = 0, mx = 0, my = 0, tmx = 0, tmy = 0, lastPar = "";   // scroll and pointer, for depth
 
-  function drawSky(night){
-    const g = ctx.createLinearGradient(0, 0, 0, H);
-    for (const st of (night ? SKY_NIGHT : SKY_DAY)) g.addColorStop(st[0], st[1]);
+  function drawSky(pal){
+    const g = ctx.createLinearGradient(0, 0, 0, lay.base);
+    for (const st of SKY[pal]) g.addColorStop(st[0], st[1]);
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
   }
 
-  function drawOrb(t, night){
-    const d = new Date(), p = (d.getHours() + d.getMinutes() / 60) / 24;
+  const STARS = (() => { let q = 7; const r = () => (q = (q * 16807) % 2147483647) / 2147483647;
+    return Array.from({length: 120}, () => ({x: r(), y: r(), m: .5 + r() * .9, p: r() * 6.283, v: .4 + r() * 1.3})); })();
+  function drawStars(t, cover, strength){
+    const still = calm(); ctx.fillStyle = "#E8ECFF";
+    for (const st of STARS) {
+      ctx.globalAlpha = (still ? .7 : (.35 + .65 * Math.abs(Math.sin(t * st.v + st.p)))) * (1 - cover * .8) * (1 - st.y * .6) * strength;
+      ctx.beginPath(); ctx.arc(st.x * W, st.y * lay.base * .84, st.m, 0, 6.283); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawOrb(t, night, dark){
+    const d = new Date(), p = (d.getHours() + d.getMinutes() / 60) / 24, B = lay.base;
     const sweep = (p * 2 + t * .0008) % 1;
-    const x = W * (.12 + .76 * sweep), y = H * (night ? .24 : .32) - Math.sin(sweep * Math.PI) * H * .13;
-    const r = Math.max(15, Math.min(W, H) * .042);
+    const x = lay.wide ? W * (.86 + .10 * sweep) : W * (.12 + .76 * sweep);                       // wide: the top right corner, clear of the headline
+    const y = lay.wide ? B * .19 - Math.sin(sweep * Math.PI) * B * .07 : B * (night ? .24 : .32) - Math.sin(sweep * Math.PI) * B * .13;
+    const r = Math.max(15, Math.min(W, B) * .042);
     const halo = ctx.createRadialGradient(x, y, r * .2, x, y, r * 5);
-    halo.addColorStop(0, night ? "rgba(224,231,255,.28)" : "rgba(255,226,168,.50)");
+    halo.addColorStop(0, night ? (dark ? "rgba(214,224,255,.30)" : "rgba(255,255,255,.55)") : "rgba(255,226,168,.50)");
     halo.addColorStop(1, "rgba(255,255,255,0)");
     ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(x, y, r * 5, 0, 6.283); ctx.fill();
-    ctx.fillStyle = night ? "#EDF0FF" : "#FFE7B4";
+    ctx.fillStyle = night ? (dark ? "#EDF0FF" : "#FBFBFF") : "#FFE7B4";
     ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
-    if (night) { ctx.fillStyle = SKY_NIGHT[1][1]; ctx.beginPath(); ctx.arc(x + r * .38, y - r * .26, r * .92, 0, 6.283); ctx.fill(); }
+    if (night) { ctx.fillStyle = dark ? SKY.night[1][1] : SKY.dawn[1][1]; ctx.beginPath(); ctx.arc(x + r * .38, y - r * .26, r * .92, 0, 6.283); ctx.fill(); }
   }
 
   function cloudBand(t, y, speed, scale, alpha, tint){
@@ -2419,13 +2501,13 @@ if (featured.length) {
     ctx.globalAlpha = 1;
   }
 
-  function ridges(base, night){
-    const tones = night ? ["#1E2439", "#171C2C"] : ["#C7C2A6", "#B1B092"];
+  function ridges(base, dark){
+    const tones = dark ? ["#0D1129", "#080B1A"] : ["#C7C2A6", "#B1B092"];
     for (let k = 0; k < 2; k++) {
       const y = base - 6 + k * 26, amp = 12 - k * 4;
-      ctx.fillStyle = tones[k]; ctx.beginPath(); ctx.moveTo(0, y + 30);
-      for (let x = 0; x <= W; x += 24) ctx.lineTo(x, y + Math.sin(x / (170 + k * 90) + k * 2.1) * amp);
-      ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = tones[k]; ctx.beginPath(); ctx.moveTo(-80, y + 30);
+      for (let x = -80; x <= W + 80; x += 24) ctx.lineTo(x, y + Math.sin(x / (170 + k * 90) + k * 2.1) * amp);
+      ctx.lineTo(W + 80, H + 120); ctx.lineTo(-80, H + 120); ctx.closePath(); ctx.fill();
     }
   }
 
@@ -2449,16 +2531,33 @@ if (featured.length) {
     ctx.beginPath(); ctx.arc(cx, y(.815), u * .030, 0, 6.283); ctx.fill();
     ctx.fillRect(cx - u * .008, y(.868), u * .016, u * .050);
     if (!detail) return;
-    ctx.globalAlpha = .16; ctx.fillStyle = "#FFFFFF";
+    ctx.globalAlpha = detail === "lit" ? .34 : .16; ctx.fillStyle = detail === "lit" ? "#1A2050" : "#FFFFFF";
     for (let i = -4; i <= 4; i++) ctx.fillRect(cx + i * u * .030 - u * .005, y(.495), u * .009, u * .145);
     for (let i = -7; i <= 7; i++) ctx.fillRect(cx + i * u * .038 - u * .006, y(.165), u * .011, u * .062);
     ctx.globalAlpha = 1;
   }
 
-  function precip(t, night){
+  function building(dark){
+    const cx = lay.cx, base = lay.base, bw = lay.bw, u = bw / 2;
+    if (!dark) {
+      capitol(cx - bw * .014, base - 5, bw, "rgba(180,108,72,.28)", false);
+      capitol(cx, base, bw, "#493A33", true);
+      return;
+    }
+    // at night the building is lit from below: a warm wash behind it, a teal "misprint" edge, pale stone
+    const glow = ctx.createRadialGradient(cx, base - u * .40, u * .08, cx, base - u * .40, u * 1.35);
+    glow.addColorStop(0, "rgba(255,228,176,.36)"); glow.addColorStop(.5, "rgba(255,214,160,.12)"); glow.addColorStop(1, "rgba(255,214,160,0)");
+    ctx.fillStyle = glow; ctx.fillRect(cx - u * 1.4, base - u * 1.8, u * 2.8, u * 1.9);
+    capitol(cx - bw * .014, base - 5, bw, "rgba(76,197,176,.55)", false);
+    const stone = ctx.createLinearGradient(0, base - u * .9, 0, base);
+    stone.addColorStop(0, "#A9B2D4"); stone.addColorStop(.55, "#E4DDCE"); stone.addColorStop(1, "#FFF0CC");
+    capitol(cx, base, bw, stone, "lit");
+  }
+
+  function precip(t, dark){
     if (!wx.rain && !wx.snow) return;
     const n = Math.round((wx.rain ? 110 : 64) * Math.min(1, W / 900));
-    ctx.strokeStyle = night ? "rgba(198,212,240,.40)" : "rgba(116,138,170,.36)";
+    ctx.strokeStyle = dark ? "rgba(198,212,240,.40)" : "rgba(116,138,170,.36)";
     ctx.fillStyle = ctx.strokeStyle; ctx.lineWidth = 1.1;
     for (let i = 0; i < n; i++) {
       const sx = (i * 137.5) % W, sp = wx.snow ? 26 : 150, drift = wx.snow ? Math.sin(t * .8 + i) * 16 : 12;
@@ -2468,7 +2567,7 @@ if (featured.length) {
     }
   }
 
-  let grain = null, lastNight = null;
+  let grain = null;
   function makeGrain(){
     const n = 96, off = document.createElement("canvas"); off.width = off.height = n;
     const g = off.getContext("2d"), img = g.createImageData(n, n);
@@ -2477,34 +2576,46 @@ if (featured.length) {
   }
 
   function size(){
-    const r = c.parentElement.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+    const r = hero.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
     W = Math.max(1, r.width); H = Math.max(1, r.height);
     c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!grain) makeGrain();
+    /* Where the building stands. On a wide screen: at the right edge, on the line where the first screen ends
+       or the featured bill's card begins, and no taller than the room under the headline allows, so it never
+       sits behind the words. Anywhere else: at the foot of the hero, as before. */
+    const h1 = $("h1", hero), panel = $("#heropanel"), top = r.top + scrollY;
+    const fold = innerHeight - top - 6, card = panel && panel.offsetParent ? panel.getBoundingClientRect().top - r.top + 2 : 1e9;
+    const base = Math.min(H * .96, fold, card), clear = h1 ? h1.getBoundingClientRect().bottom - r.top + 14 : 0, u = Math.min(W * .30, (base - clear) / .87);
+    lay = (W >= 1180 && u >= 150) ? {wide: true, base, cx: W - u * .42, bw: u * 2}
+      : {wide: false, base: H * .96, cx: W * .5, bw: Math.max(300, Math.min(W * .88, 720))};
   }
 
-  function paint(now){
-    const t = (now - t0) / 1000, hr = new Date().getHours();
-    const night = wx.night === null ? (hr < 6 || hr >= 19) : wx.night;
-    if (night !== lastNight) { lastNight = night; c.parentElement.classList.toggle("night", night); }
+  function paint(now, once){
+    const t = (now - t0) / 1000, hr = new Date().getHours(), live = !calm();
+    const night = wx.night === null ? (hr < 6 || hr >= 19) : wx.night, dark = isDark(), pal = dark ? (night ? "night" : "dusk") : (night ? "dawn" : "day");
+    // depth: far layers keep up with the scroll (so they seem slow), near ones stay with the page; the pointer nudges them the other way
+    sy = live ? Math.max(0, Math.min(H, scrollY)) : 0;
+    mx += ((live ? tmx : 0) - mx) * .07; my += ((live ? tmy : 0) - my) * .07;
+    const pv = live ? Math.min(1, scrollY / Math.max(1, innerHeight * .9)).toFixed(3) : "0";
+    if (pv !== lastPar) { lastPar = pv; hero.style.setProperty("--par", pv); }
+    const layer = (k, m, fn) => { ctx.save(); ctx.translate(-mx * m, sy * k - my * m * .4); fn(); ctx.restore(); };
     ctx.clearRect(0, 0, W, H);
-    drawSky(night);
-    drawOrb(t, night);
-    const cover = Math.min(1, wx.cloud + wx.fog * .6);
-    const tint = night ? "rgba(203,212,238,.46)" : "rgba(255,255,255,.70)";
-    if (cover > .04) cloudBand(t, H * .26, 5.5, 1.15, .26 + cover * .40, tint);
-    if (cover > .30) cloudBand(t, H * .17, 9.0, .85, .20 + cover * .32, tint);
-    if (cover > .62) cloudBand(t, H * .36, 3.2, 1.45, .18 + cover * .28, tint);
-    const base = H * .96, bw = Math.max(300, Math.min(W * .88, 720));
-    ridges(base, night);
-    capitol(W * .5 - bw * .014, base - 5, bw, night ? "rgba(98,120,172,.28)" : "rgba(180,108,72,.28)", false);
-    capitol(W * .5, base, bw, night ? "#0C1020" : "#493A33", true);
-    precip(t, night);
-    if (grain) { ctx.globalAlpha = night ? .48 : .72; ctx.fillStyle = grain; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
+    drawSky(pal);
+    const cover = Math.min(1, wx.cloud + wx.fog * .6), B = lay.base;
+    if (dark) layer(.50, 4, () => drawStars(t, cover, night ? 1 : .55));
+    if (!dark || night) layer(.42, 6, () => drawOrb(t, night, dark));
+    const tint = dark ? "rgba(128,138,188,.34)" : "rgba(255,255,255,.70)";
+    if (cover > .04) layer(.30, 10, () => cloudBand(t, B * .26, 5.5, 1.15, .26 + cover * .40, tint));
+    if (cover > .30) layer(.36, 8, () => cloudBand(t, B * .17, 9.0, .85, .20 + cover * .32, tint));
+    if (cover > .62) layer(.24, 12, () => cloudBand(t, B * .36, 3.2, 1.45, .18 + cover * .28, tint));
+    layer(.10, 14, () => ridges(B, dark));
+    layer(.05, 20, () => { const z = 1 + (sy / Math.max(1, H)) * .05; ctx.translate(lay.cx, B); ctx.scale(z, z); ctx.translate(-lay.cx, -B); building(dark); });
+    precip(t, dark);
+    if (grain) { ctx.globalAlpha = dark ? .48 : .72; ctx.fillStyle = grain; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
     const vg = ctx.createRadialGradient(W / 2, H * .45, Math.min(W, H) * .3, W / 2, H * .5, Math.max(W, H) * .78);
-    vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, night ? "rgba(0,0,0,.40)" : "rgba(80,55,35,.18)");
+    vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, dark ? "rgba(0,0,0,.40)" : "rgba(80,55,35,.18)");
     ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
-    raf = calm() ? 0 : requestAnimationFrame(paint);
+    if (once !== true) raf = calm() ? 0 : requestAnimationFrame(paint);       // a one-off repaint leaves the loop as it found it
   }
 
   const CODE = {0: [0, "Clear"], 1: [.2, "Mostly clear"], 2: [.5, "Partly cloudy"], 3: [.9, "Overcast"],
@@ -2542,13 +2653,21 @@ if (featured.length) {
       wx.temp = Math.round(cur.temperature_2m);
       wx.place = place; wx.text = wx.temp + "\u00b0F, " + code[1].toLowerCase(); wx.ok = true;
       caption(place + " \u00b7 " + wx.text, offer);
-      if (calm()) paint(performance.now());
+      paint(performance.now(), true);
     }).catch(() => caption(place, offer));
   }
 
   size(); paint(t0);
   load(DC.lat, DC.lon, DC.name, true);
-  addEventListener("resize", () => { size(); if (calm()) paint(performance.now()); });
+  const again = () => { if (!hero.offsetHeight) return; size(); paint(performance.now(), true); };      // sizing wipes the canvas, so always draw it again
+  addEventListener("resize", again);
+  if (window.ResizeObserver) { let rh = hero.offsetHeight, rt = 0; new ResizeObserver(() => { const h = hero.offsetHeight; if (!h || h === rh) return; rh = h; clearTimeout(rt); rt = setTimeout(again, 120); }).observe(hero); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(again);
+  new MutationObserver(() => paint(performance.now(), true)).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+  hero.addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; const r = hero.getBoundingClientRect(); tmx = ((e.clientX - r.left) / r.width - .5) * 2; tmy = ((e.clientY - r.top) / Math.max(1, Math.min(r.height, innerHeight)) - .5) * 2; }, {passive: true});
+  hero.addEventListener("pointerleave", () => { tmx = tmy = 0; });
+  window.sceneStats = () => ({W, H, lay, sy, dark: isDark(), par: lastPar, night: wx.night});
+  window.sceneNight = v => { wx.night = v; paint(performance.now(), true); };      // for checking the other palette by daylight
   window.fieldResume = () => { if (!raf) raf = requestAnimationFrame(paint); };
   new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (!raf && !calm()) raf = requestAnimationFrame(paint); } else if (raf) { cancelAnimationFrame(raf); raf = 0; } })).observe(c);
 })();
@@ -2559,6 +2678,31 @@ $$("[data-count]").forEach(el => {
   const tick = now => { const p = Math.max(0, Math.min(1, (now - t0) / dur)), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(target * e).toLocaleString(); if (p < 1) requestAnimationFrame(tick); };
   requestAnimationFrame(tick);
 });
+
+/* ---------- the latest recorded votes, as a moving line under the hero ---------- */
+(function(){
+  const box = $("#ticker"), rail = $("#tickertrack"), list = BOOT.ticker || []; if (!box || !rail || !list.length) return;
+  const lost = r => /^(not|fail|reject|defeat)/i.test(r || ""), day = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "short", day: "numeric"}) : "";
+  const item = (v, dup) => `<a class="tk" href="#vote=${esc(String(v.v).replace(/\|/g, "_"))}" data-tk="${esc(v.v)}"${dup ? ' tabindex="-1" aria-hidden="true"' : ""}><b>${esc(v.b)}</b><span class="tkt">${esc(v.t)}</span><span class="tkres ${lost(v.r) ? "no" : "ok"}">${esc(v.r || "")} ${v.y ?? "?"}\u2013${v.n ?? "?"}</span><span class="tkd">${esc(v.c)}, ${esc(day(v.d))}</span></a>`;
+  rail.innerHTML = `<span class="half">${list.map(v => item(v, false)).join("")}</span><span class="half">${list.map(v => item(v, true)).join("")}</span>`;
+  rail.style.setProperty("--tick", Math.max(40, list.length * 5) + "s");
+  box.hidden = false;
+  // a keyboard reader gets a plain row they can move along, not a moving target
+  box.addEventListener("focusin", e => { if (e.target.matches && e.target.matches(":focus-visible")) box.classList.add("kb"); });
+  box.addEventListener("focusout", e => { if (!box.contains(e.relatedTarget)) box.classList.remove("kb"); });
+  box.addEventListener("click", e => { const a = e.target.closest("[data-tk]"); if (a) track("ticker", {key: a.dataset.tk.replace(/\|/g, "_")}); });
+})();
+
+/* ---------- the featured bill's card leans a degree or two toward the pointer (mouse only, Motion on) ---------- */
+(function(){
+  const card = $("#heropanel"); if (!card || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  card.addEventListener("pointermove", e => {
+    if (calm() || e.pointerType !== "mouse") return;
+    const r = card.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5, m = Math.hypot(dx, dy);
+    card.style.rotate = m < .02 ? "" : `${(-dy).toFixed(3)} ${dx.toFixed(3)} 0 ${(m * 3).toFixed(2)}deg`;
+  }, {passive: true});
+  card.addEventListener("pointerleave", () => { card.style.rotate = ""; });
+})();
 
 /* ---------- members ---------- */
 const mlist = $("#mlist");
