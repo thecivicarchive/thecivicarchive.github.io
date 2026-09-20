@@ -21,9 +21,9 @@ system-wide.
 | --- | --- | --- |
 | `python run_all.py check` | Python, packages, disk and network checks; downloads nothing | 10 s |
 | `python run_all.py smoke` | Offline test on 8 bundled bills | 10 s |
-| `python run_all.py` | Full build: check, roster, catalog, rollcalls, photos, districts, ratings, build, verify | 30 to 60 min the first time |
+| `python run_all.py` | Full build: check, roster, catalog, titles, rollcalls, photos, districts, ratings, build, verify | 30 to 60 min the first time |
 | `python run_all.py refresh` | Weekly update: re-downloads the catalog, then everything after it | 15 to 30 min |
-| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `rollcalls`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
+| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `rollcalls`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
 
 First run order: `check`, then `smoke`, then the full build. Run long stages in the foreground and let them finish;
 the catalog prints progress every 1,000 files and the roll-call loader every 50 roll calls. If anything stops
@@ -48,6 +48,8 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
   paste an API key into the chat.
 - Do not edit `rubric_v1.md` or anything in `seed/`. Ratings are judgments that show their evidence; the factual
   record is never hand-edited.
+- Do not add, change or approve entries in `nicknames.json`. Propose names in `nickname_candidates.md`, each with a
+  link showing the name in real use, and let John approve them. The record's own titles come from `load_titles.py`.
 - Do not change the database by hand to make verify pass. If numbers don't reconcile, report which votes and why.
 - Do not delete `billstatus_cache/`, `rollcall_cache/`, `congress_119.sqlite` or `logs/` without asking.
 - Keep request rates as they are (8 parallel downloads for GovInfo, 4 for roll calls). These are public servers.
@@ -85,6 +87,8 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `run_all.py` | Orchestrator: stages, private environment, logs, verify report |
 | `congress_catalog.py` | Downloads GovInfo Bill Status XML and loads the database (and Excel copy) |
 | `load_legislators.py` | Loads the member roster: age, years in Congress, phone, website, Senate ID crosswalk |
+| `load_titles.py` | Reads every title the record carries (the popular title, and the short title at each stage) from the cached Bill Status files into a `titles` table; downloads nothing |
+| `nicknames.json` | Names in common use that are not in the record, kept by hand; the draft site shows only entries John has approved |
 | `load_roll_calls.py` | Loads every linked House and Senate roll call, member by member, with a disk cache |
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |

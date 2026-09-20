@@ -10,6 +10,18 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.010 — 2026-09-20 — Bills lead with the name people know
+
+- A bill now leads with the name the record itself gives it when that is the
+  name people know. H.R. 1 reads "One Big Beautiful Bill Act", its popular
+  title in the Library of Congress record, with the formal title one tap away;
+  bills whose only title was a formal one lead with the short title they
+  carried earlier. The same name shows on the Start here lists, the vote map,
+  search, and the preview when a link is shared.
+- Names in common use that are not in the record can now appear as "commonly
+  called ...", each with a link showing the name in use. None appear until
+  they have been approved one by one.
+
 ## v4.0.009 — 2026-09-20 — Each bill gets its own vote map
 
 - Inside a bill, "Votes and path" now has a map of that bill's recorded votes

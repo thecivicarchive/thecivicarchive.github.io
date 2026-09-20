@@ -1,0 +1,11 @@
+{
+  "_about": [
+    "Names in common use that are NOT in the official record. Kept by hand; the record itself is never edited.",
+    "The site shows an entry as 'commonly called ...' under the bill's own title, and makes it searchable.",
+    "Set \"lead\": true to put the common name first, with the bill's own title beneath it.",
+    "An entry is used only when \"approved\" is true, and only John sets that. Every entry needs a \"source\":",
+    "a link showing the name in real use (a major outlet, the sponsor's office, Congress.gov, CBO).",
+    "Candidates waiting for approval are listed in nickname_candidates.md."
+  ],
+  "names": {}
+}

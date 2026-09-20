@@ -29,7 +29,7 @@ import time
 from urllib.request import Request, urlopen
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STAGES = ["check", "roster", "catalog", "rollcalls", "photos", "districts", "ratings", "build", "verify"]
+STAGES = ["check", "roster", "catalog", "titles", "rollcalls", "photos", "districts", "ratings", "build", "verify"]
 UA = "Mozilla/5.0 (compatible; congress-catalog/1.0; personal legislative research)"
 LOG = None
 
@@ -169,6 +169,11 @@ def stage_catalog(args, refresh=False):
     if refresh:
         a.append("--refresh")
     run("congress_catalog.py", *a)
+
+
+def stage_titles(args):
+    banner("Stage: titles (every title the record carries: popular, and the short title at each stage)")
+    run("load_titles.py", "--db", args.db, "--cache", os.path.join(HERE, "billstatus_cache"))
 
 
 def stage_rollcalls(args):
@@ -399,6 +404,7 @@ def main():
             raise SystemExit("\nChecks failed; nothing was downloaded. Fix the items marked FAIL and run again.")
         stage_roster(args)
         stage_catalog(args, refresh=(args.stage == "refresh"))
+        stage_titles(args)
         stage_rollcalls(args)
         stage_photos(args)
         stage_districts(args)
@@ -406,7 +412,7 @@ def main():
         stage_build(args)
         stage_verify(args)
     else:
-        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "rollcalls": stage_rollcalls, "photos": stage_photos, "districts": stage_districts,
+        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "titles": stage_titles, "rollcalls": stage_rollcalls, "photos": stage_photos, "districts": stage_districts,
          "ratings": stage_ratings, "build": stage_build, "verify": stage_verify}[args.stage](args)
     say(f"\nDone in {fmt_secs(time.time() - t0)}. Log: {LOG.name}")
 

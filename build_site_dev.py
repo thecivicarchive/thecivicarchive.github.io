@@ -108,6 +108,48 @@ def display_title(title, short):
     return t if len(t) <= 90 else t[:88].rsplit(" ", 1)[0] + "…"
 
 
+FORMAL_TITLE = re.compile(r"^(An act |To |A bill |A joint resolution|A concurrent resolution|A resolution|An original|Providing for|"
+                          r"Proposing|Making |Expressing|Recognizing|Authorizing|Designating|Disapproving|Approving|Provides for|Relating to)", re.I)
+
+
+def lead_names(con):
+    """The name to lead with, from the record alone: bill_key -> (name, kind).
+
+    The Library of Congress records a popular title for a few measures ("One Big Beautiful Bill Act"); that
+    comes first. Otherwise a measure whose only title is a formal one ("An act to provide for...") leads with
+    the short title it carried at its latest stage, if it ever had one. Needs the `titles` table that
+    `python run_all.py titles` loads from the cached Bill Status files; without it nothing changes."""
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'titles'").fetchone():
+        return {}
+    rank = lambda tt: 0 if ("Enacted" in tt or "ENR" in tt) else 1 if "Passed" in tt else 2 if ("Reported" in tt or "PCS" in tt or "RFS" in tt) else 3
+    popular, short = {}, {}
+    for key, tt, ti in con.execute("SELECT bill_key, title_type, title FROM titles"):
+        low = tt.lower()
+        if low.startswith("popular"):
+            popular.setdefault(key, ti)
+        elif low.startswith("short title") and "portions" not in low and not FORMAL_TITLE.match(ti):
+            if key not in short or rank(tt) < short[key][0]:
+                short[key] = (rank(tt), ti)
+    out = {k: (v[1], "short") for k, v in short.items()}
+    out.update({k: (v, "popular") for k, v in popular.items()})
+    return out
+
+
+def load_nicknames():
+    """Names in common use that are not in the official record, kept by hand in nicknames.json and shown as
+    "commonly called ...". Only entries John has approved ("approved": true) are used, and each needs a source."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "nicknames.json")
+    try:
+        raw = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for key, e in (raw.get("names") or {}).items():
+        if isinstance(e, dict) and e.get("approved") is True and e.get("name") and e.get("source"):
+            out[key] = {"name": str(e["name"]).strip(), "source": str(e["source"]).strip(), "lead": bool(e.get("lead"))}
+    return out
+
+
 LITE_STATUSES = {"", "Introduced", "In committee"}
 POSITION_CODE = {"Yea": "Y", "Aye": "Y", "Nay": "N", "No": "N", "Present": "P"}
 
@@ -213,6 +255,7 @@ def collect(db_path):
             dicts[kind].append(val)
         return lookup[kind][val]
 
+    leads, nicks, led = lead_names(con), load_nicknames(), {"popular": 0, "short": 0}
     full, lite, rated, years = [], [], 0, set()
     newest = con.execute("SELECT MAX(latest_action_date) FROM bills").fetchone()[0] or dt.date.today().isoformat()
     cutoff = (dt.date.fromisoformat(newest[:10]) - dt.timedelta(days=STALL_DAYS)).isoformat()
@@ -240,10 +283,17 @@ def collect(db_path):
                            "ORDER BY action_date DESC, version_code DESC LIMIT 1", (key,)).fetchone()
         subjects = [s[0] for s in con.execute("SELECT subject FROM subjects WHERE bill_key = ? ORDER BY subject LIMIT 8", (key,))]
         lens = [x.strip() for x in (b["lens_flags"] or "").split(";") if x.strip()]
+        own_short, lead_kind, lead = b["short_title"] or "", "", leads.get(key)      # the name to lead with, from the record
+        if lead and lead[1] == "popular":
+            own_short, lead_kind = lead[0], "popular"
+        elif lead and not own_short and FORMAL_TITLE.match(b["title"] or ""):
+            own_short, lead_kind = lead[0], "short"
+        if lead_kind:
+            led[lead_kind] += 1
         is_lite = (not votes and not ratings and not (b["law_number"] or "") and (b["status"] or "") in LITE_STATUSES
                    and (b["outcome"] or "Pending") == "Pending")
         if is_lite:
-            lite.append([key, display_title(b["title"] or "", b["short_title"] or ""), b["sponsor_bioguide"] or "",
+            lite.append([key, display_title(b["title"] or "", own_short), b["sponsor_bioguide"] or "",
                          b["cosponsors_active"] or 0, b["cosponsors_by_party"] or "", 1 if b["bipartisan"] else 0,
                          di("policy", b["policy_area"]), [di("subject", x) for x in subjects], di("status", b["status"]),
                          b["introduced_date"] or "", b["latest_action_date"] or "", di("action", (b["latest_action"] or "")[:220]),
@@ -255,7 +305,7 @@ def collect(db_path):
                   if real else ("Party backing computed from the roll-call record; the other ratings are not applied yet" if ratings else ""))
         full.append({
             "key": key, "id": b["display_id"], "congress": b["congress"], "title": b["title"] or "",
-            "short_title": display_title(b["title"] or "", b["short_title"] or ""),
+            "short_title": display_title(b["title"] or "", own_short),
             "kind": b["kind"] or "", "source_update": (b["source_update"] or "")[:10],
             "introduced": b["introduced_date"] or "", "origin": b["origin_chamber"] or "",
             "sponsor": ({"id": b["sponsor_bioguide"], "name": members[b["sponsor_bioguide"]]["name"], "party": members[b["sponsor_bioguide"]]["party"],
@@ -268,7 +318,8 @@ def collect(db_path):
             "votes": votes, "summary": (summ["text_plain"] or "")[:900] if summ else "",
             "summary_desc": summ["action_desc"] if summ else "", "summary_date": summ["action_date"] if summ else "",
             "related_enacted": b["related_enacted"] or "", "links": {"pdf": b["latest_text_pdf"] or ""},
-            "ratings": ratings or None, "review": review, "journey": journey_for(con, b, cutoff)})
+            "ratings": ratings or None, "review": review, "journey": journey_for(con, b, cutoff),
+            "lead_kind": lead_kind, "nick": nicks.get(key)})
 
     # position of every measure in the page's list (full records first, then compact rows)
     index = {r["key"]: i for i, r in enumerate(full)}
@@ -348,7 +399,16 @@ def collect(db_path):
     by_key = {b["key"]: b for b in full}
     for name in ("live", "laws"):
         for pick in welcome.get(name, []):
-            pick["journey"] = (by_key.get(pick["key"]) or {}).get("journey")
+            fb = by_key.get(pick["key"]) or {}
+            pick["journey"] = fb.get("journey")
+            pick["title"] = fb.get("short_title") or pick["title"]           # the Start here lists lead with the same name the bill does
+            pick["nick"] = fb.get("nick")
+    for m in vote_meta:                                                     # and so does every roll call on the map
+        fb = by_key.get(m["bill_key"])
+        if fb:
+            m["title"] = fb["short_title"] or m["title"]
+    print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['short']:,} earlier short title(s); "
+          f"{len(nicks):,} approved nickname(s) from nicknames.json")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
@@ -461,7 +521,7 @@ def trim_lite(data, n_chars, n_subjects):
 
 LIST_FIELDS = ("key", "id", "congress", "title", "short_title", "kind", "introduced", "origin", "sponsor", "cosponsors",
                "bipartisan", "policy_area", "subjects", "status", "outcome", "law", "law_kind", "latest_action_date",
-               "latest_action", "lens", "review", "links")
+               "latest_action", "lens", "review", "links", "lead_kind", "nick")
 
 
 def trim_text(text, n):
@@ -865,6 +925,9 @@ p{margin:0 0 12px}
 .ymem>span:nth-child(2) .muted{font-size:12.5px}
 .ymem .vtag{flex:none}
 .yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.aka{display:block;font-size:13px;color:var(--muted);margin:-2px 0 8px}
+.aka b{color:var(--ink);font-weight:600}
+.pickitem .aka{margin:2px 0 4px}
 .bmap{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);padding:14px 16px 16px;margin:16px 0 18px}
 .bmap-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
 .bmap-head h4{margin:0;font-size:15px}
@@ -1808,6 +1871,10 @@ function plainLine(b){
   if (b.summary) return esc(b.summary.slice(0, 220)) + (b.summary.length > 220 ? "…" : "") + ` <span class="na">(official summary; plain-language version not yet written)</span>`;
   return `<span class="na">No summary yet. New bills get a summary from the Library of Congress within a few weeks.</span>`;
 }
+/* The name to lead with. The record's popular or short title is already in short_title; a nickname John approved
+   leads only when its entry says so, and otherwise rides beneath as "commonly called". */
+const leadTitle = b => (b.nick && b.nick.lead) ? b.nick.name : (b.short_title || b.title);
+const akaHTML = b => !b.nick ? "" : (b.nick.lead ? ((b.short_title || b.title) ? `<span class="aka">officially <b>${esc(b.short_title || b.title)}</b></span>` : "") : `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>`);
 function lensChips(b){ return (b.lens || []).map(l => `<span class="pill lens">${esc(l.replace(" (subj.)", ""))}</span>`).join(""); }
 
 /* ---------- the journey: from introduction to law, or to where it fell ----------
@@ -1849,7 +1916,9 @@ function paneFor(b){
   const whyBlock = b.ratings ? `<div class="why">${why}</div><p class="note">${esc(b.review)}. Rubric ${esc((r.income || r.plain_language || r.backing || {}).version || "")}, rated ${esc(((r.income || r.plain_language || r.backing || {}).rated_at || "").slice(0, 10))}.</p>` : `<p class="na">Not rated yet. Bills are rated after their first committee action or when an official cost estimate is published.</p>`;
   const L = b.links || {};
   const links = [["page", "Congress.gov page"], ["text", "Bill text"], ["pdf", "Latest text (PDF)"], ["actions", "All actions"], ["cosponsors", "Cosponsors"], ["committees", "Committees"], ["cbo", "CBO cost estimate"]].filter(([k]) => L[k]).map(([k, lab]) => `<a href="${esc(L[k])}" target="_blank" rel="noopener">${lab}</a>`).join("");
-  const facts = `${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
+  const named = (b.lead_kind === "popular" ? `<p class="note"><b>${esc(b.short_title)}</b> is this measure's popular title in the Library of Congress record. It is not the title in the final text, which is below.</p>` : (b.lead_kind === "short" ? `<p class="note"><b>${esc(b.short_title)}</b> is the short title this measure carried at an earlier stage, per the Library of Congress record.</p>` : ""))
+    + (b.nick ? `<p class="note">Commonly called <b>${esc(b.nick.name)}</b> (<a href="${esc(b.nick.source)}" target="_blank" rel="noopener">where that name is used</a>). That is a label we keep by hand; it is not part of the official record.</p>` : "");
+  const facts = `${named}${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
   const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + billMapHTML(b) + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
   const first = isRated(b) ? 0 : (b.votes && b.votes.length ? 3 : 5);
   return `<div class="tabs" role="tablist">${tabs.map(([k, lab], i) => `<button class="tab" role="tab" data-t="${k}" aria-selected="${i === first}">${lab}</button>`).join("")}</div>${tabs.map(([k, , html], i) => `<div class="pane${i === first ? " show" : ""}" data-p="${k}">${html}</div>`).join("")}`;
@@ -1858,14 +1927,14 @@ function paneFor(b){
 /* ---------- cards ---------- */
 function cardHTML(b){
   return `<article class="card" data-key="${esc(b.key)}"><div class="head"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div>
-  <div class="title">${esc(b.short_title || b.title)}</div><p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${axes(b)}
+  <div class="title">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${axes(b)}
   <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<span class="spon">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</span>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
   <div class="detail"><div></div></div>
   <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink sharebtn" aria-label="Share ${esc(b.id)}" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
 }
 
 const grid = $("#grid"), state = { q: "", f: "all", sort: "recent", member: null, pin: null };
-const hay = b => b._hay ?? (b._hay = [b.id, b.title, b.short_title, b.policy_area, (b.subjects || []).join(" "), b.sponsor ? b.sponsor.name : "", b.law ? "p.l. " + b.law : "", b.summary].join(" ").toLowerCase());
+const hay = b => b._hay ?? (b._hay = [b.id, b.title, b.short_title, b.nick ? b.nick.name : "", b.policy_area, (b.subjects || []).join(" "), b.sponsor ? b.sponsor.name : "", b.law ? "p.l. " + b.law : "", b.summary].join(" ").toLowerCase());
 const statusText = b => statusPill(b).replace(/<[^>]+>/g, "");
 const prettyStr = s => String(s || "").replace(/\s*\[.*\]$/, "").replace(/^(Rep|Sen|Del|Res\. Comm)\.\s*/, "").replace(/^([^,]+),\s*(.+)$/, "$2 $1");
 const prettyName = m => prettyStr(m.name);
@@ -1985,7 +2054,7 @@ function showMore(){
 grid.addEventListener("click", e => {
   if (e.target.closest("#showmore")) { showMore(); return; }
   const sb = e.target.closest(".sharebtn");
-  if (sb) { const b = byKey[sb.closest(".card").dataset.key]; if (b) share({title: `${b.id}: ${b.short_title || b.title}`, text: shareTextBill(b), url: shareUrlBill(b), kind: "bill", key: b.key}, sb); return; }
+  if (sb) { const b = byKey[sb.closest(".card").dataset.key]; if (b) share({title: `${b.id}: ${leadTitle(b)}`, text: shareTextBill(b), url: shareUrlBill(b), kind: "bill", key: b.key}, sb); return; }
   const more = e.target.closest(".more"), tab = e.target.closest(".tab");
   if (tab) {
     const card = tab.closest(".card");
@@ -2002,7 +2071,7 @@ grid.addEventListener("click", e => {
     else { box.innerHTML = paneFor(b); watchTracks(box); armBillMap(card); }
   }
   card.classList.toggle("open", open);
-  const bill = byKey[card.dataset.key]; if (bill && bill.short_title && bill.short_title !== bill.title) $(".title", card).textContent = open ? bill.title : bill.short_title;
+  const bill = byKey[card.dataset.key]; if (bill && leadTitle(bill) !== bill.title) $(".title", card).textContent = open ? bill.title : leadTitle(bill);
   more.setAttribute("aria-expanded", open);
   more.firstChild.textContent = open ? "Close " : "Details ";
   if (open) setTimeout(() => card.scrollIntoView({block: "nearest", behavior: "smooth"}), 60);
@@ -2049,7 +2118,7 @@ function heroShow(i, animate){
   hi = (i + featured.length) % featured.length;
   const b = featured[hi], body = $("#herobody");
   const paint = () => {
-    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(b.short_title || b.title)}</div><p class="pplain">${plainLine(b)}</p>${trackHTML(b, "slim")}${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <b>${esc(prettyStr(b.sponsor.name))}</b>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
+    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="pplain">${plainLine(b)}</p>${trackHTML(b, "slim")}${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <b>${esc(prettyStr(b.sponsor.name))}</b>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
     body.classList.remove("out"); watchTracks(body);
     requestAnimationFrame(() => requestAnimationFrame(() => $(".axes", body).classList.add("live")));
   };
@@ -2331,7 +2400,7 @@ function share(o, anchor){
   shareMenu.style.left = Math.max(8, Math.min(r.right + scrollX - mw, innerWidth + scrollX - mw - 8)) + "px";
   shareMenu.style.top = (r.bottom + scrollY + 6) + "px";
 }
-const shareTextBill = b => { const st = statusText(b); return `${b.id}, ${b.short_title || b.title}: ${st.charAt(0).toLowerCase() + st.slice(1)}. Who backed it and how every member voted, from the record.`; };
+const shareTextBill = b => { const st = statusText(b); return `${b.id}, ${leadTitle(b)}: ${st.charAt(0).toLowerCase() + st.slice(1)}. Who backed it and how every member voted, from the record.`; };
 
 /* ---------- top bar follows the dark map section ---------- */
 (function(){
@@ -2738,7 +2807,7 @@ document.addEventListener("click", e => {
     const mems = q ? DATA.members.filter(m => m.bills.length && (m.name.toLowerCase().includes(q) || m.state.toLowerCase() === q)).sort((a, b) => b.bills.length - a.bills.length).slice(0, 4) : [];
     items = [...bills.map(b => ({kind: "bill", key: b.key})), ...mems.map(m => ({kind: "member", id: m.id}))]; idx = 0;
     let n = 0;
-    list.innerHTML = (bills.length ? `<li class="grp">${q ? "Bills" : "Rated bills"}</li>` + bills.map(b => `<li role="option" data-i="${n++}" style="--i:${n}"><span class="pill id">${esc(b.id)}</span><span class="t">${esc(b.short_title || b.title)}</span><span class="s">${esc(statusText(b))}</span></li>`).join("") : "")
+    list.innerHTML = (bills.length ? `<li class="grp">${q ? "Bills" : "Rated bills"}</li>` + bills.map(b => `<li role="option" data-i="${n++}" style="--i:${n}"><span class="pill id">${esc(b.id)}</span><span class="t">${esc(leadTitle(b))}</span><span class="s">${esc(statusText(b))}</span></li>`).join("") : "")
       + (mems.length ? `<li class="grp">Members</li>` + mems.map(m => `<li role="option" data-i="${n++}">${avatar(m.id, m.party, "sm")}<span class="t">${esc(prettyName(m))}</span><span class="s">${esc(roleOf(m))}, ${esc(m.state)}, ${m.bills.length} bill${m.bills.length === 1 ? "" : "s"}</span></li>`).join("") : "")
       || `<li class="none">Nothing matches. Try a bill number like H.R. 1, a topic like housing, or a last name.</li>`;
     mark();
@@ -2845,7 +2914,7 @@ addEventListener("popstate", () => routeFromHash(false));
       b.cos ? `<span>${b.cos} cosponsor${b.cos === 1 ? "" : "s"}</span>` : "",
       b.date ? `<span>${esc(when(b.date))}</span>` : "",
     ].filter(Boolean).join("");
-    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.title || b.id)}</span><span class="meta">${pills}</span>${b.journey ? trackHTML(b, "pick") : ""}</span></button>`;
+    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.nick && b.nick.lead ? b.nick.name : (b.title || b.id))}</span>${b.nick && !b.nick.lead ? `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>` : ""}<span class="meta">${pills}</span>${b.journey ? trackHTML(b, "pick") : ""}</span></button>`;
     li.querySelector("button").addEventListener("click", () => goToBill(b.key));
     return li;
   }
