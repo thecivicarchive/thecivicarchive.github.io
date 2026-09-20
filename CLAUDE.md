@@ -97,6 +97,28 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `schema_postgres.sql` | The same database schema for Postgres, for a hosted version later |
 | `tests/samples/` | Eight real 2025-26 bills for the offline smoke test |
 
+## The draft site (versions 4.x)
+
+The live site at thecivicarchive.github.io is built by `build_site.py`. Alongside it there is a draft, built by
+`build_site_dev.py`, where changes are tried first. From version 4.0.000 on, every build of the draft carries a
+number in the 4.x.xxx chain and every saved build can be brought back.
+
+- `Preview dev site.bat` builds the draft and opens it at http://127.0.0.1:8790/ (a small local server; the
+  draft is several files, so it cannot be opened from a double-click the way the one-file site can).
+- `Publish dev site.bat` copies the draft to `docs/dev/` and pushes it; it appears at thecivicarchive.github.io/dev/.
+- `Save this version.bat` commits everything and tags it with the version named at the top of `CHANGELOG.md`.
+  `Go back to a version.bat` restores any saved version. Both call `version.py`, which also has `current`,
+  `next`, `new` and `list`.
+- The version lives in one place: the newest heading of `CHANGELOG.md`, `## v4.0.002 — 2026-09-20 — title`.
+  The build stamps it on the badge, the footer and a meta tag. Every change gets a changelog entry written for
+  a reader; the last three digits go up with each saved build, the middle number when John signs off a milestone.
+
+The draft build writes two things. `site/dev.html` is the one-file archive (everything inline; the 16 MB rule
+in "Definition of done" applies to it). `site/dev/` is the fast site: `index.html` is a small shell, and
+`data/*.json`, `data/bill/<key>.json` and `photos/*.webp` are fetched only when a page needs them. The two share
+one page template and one code path, so a change to either is a change to both. When you change the page's
+code, test both: the fast site through the local server, the archive from its file.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

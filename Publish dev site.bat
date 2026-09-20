@@ -4,16 +4,16 @@ cd /d "%~dp0"
 echo Publishing the DRAFT site so others can look at it.
 echo Your live site is not affected.
 echo.
-if not exist "site\dev.html" (
+if not exist "site\dev\index.html" (
   echo No draft built yet. Run "Preview dev site.bat" first.
   echo.
   pause
   exit /b 1
 )
 if not exist "docs\dev" mkdir "docs\dev"
-copy /Y "site\dev.html" "docs\dev\index.html" >nul
-if errorlevel 1 (
-  echo Could not copy the draft. Is it open in a browser? Close it and retry.
+robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP >nul
+if errorlevel 8 (
+  echo Could not copy the draft. Is a file open in another program? Close it and retry.
   echo.
   pause
   exit /b 1
@@ -27,8 +27,9 @@ if not errorlevel 1 (
   pause
   exit /b 0
 )
-for /f "tokens=1-3 delims=/ " %%a in ('date /t') do set "TODAY=%%a %%b %%c"
-git commit -q -m "Draft site update %TODAY%"
+set "VER="
+for /f "usebackq delims=" %%v in (`".venv\Scripts\python.exe" version.py current`) do set "VER=%%v"
+git commit -q -m "Publish draft v%VER%"
 echo Uploading ...
 git push -q origin main
 if errorlevel 1 (

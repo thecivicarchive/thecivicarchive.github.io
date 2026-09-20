@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.002 — 2026-09-20 — A site that opens fast
+
+- The page you open is now under a fiftieth of its former size. The bill
+  list, the roll calls, the district lines and the portraits arrive only when
+  you open the page that needs them, so the site starts at once on a phone.
+- Each bill's full record loads the moment you open it.
+- The whole site is still available as one file, for reading without a
+  connection: "Download the offline copy", in the footer.
+- Picking a member of Congress now takes you to their bills.
+
 ## v4.0.001 — 2026-09-20 — Version numbers, and four fixes
 
 - Every build now carries a version number, shown on the corner badge and in

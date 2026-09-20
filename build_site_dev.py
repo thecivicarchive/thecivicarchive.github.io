@@ -243,14 +243,21 @@ def collect(db_path):
                 meta["po"] = po
             vote_meta.append(meta)
     vote_meta.sort(key=lambda v: (v["date"] or "", v["roll"] or 0), reverse=True)
+    # a bill's vote can link to the map only when that roll call carries member-level positions
+    with_members = set(mv["H"]["votes"]) | set(mv["S"]["votes"])
+    for b in full:
+        for v in b["votes"]:
+            if v["vote_id"] in with_members:
+                v["map"] = 1
     ids = set(mv["H"]["ids"]) | set(mv["S"]["ids"])
     legislators = legislator_rows(con, sorted(ids))
-    photos = {}
+    photos, photo_bytes = {}, {}
     if has("photos"):
         need = set(legislators) | {m["id"] for m in members.values() if m["bd"]}
         for bid, blob in con.execute("SELECT bioguide_id, webp FROM photos WHERE webp IS NOT NULL"):
             if bid in need:
                 photos[bid] = base64.b64encode(blob).decode("ascii")
+                photo_bytes[bid] = bytes(blob)
     ys = sorted(years)
     stats = {"measures": len(full) + len(lite), "laws": sum(1 for b in full if b["law"]),
              "votes": sum(len(b["votes"]) for b in full), "rated": rated, "members": len(members),
@@ -267,7 +274,7 @@ def collect(db_path):
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
-            "legislators": legislators, "photos": photos, "mv": mv, "vote_meta": vote_meta,
+            "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
             "welcome": welcome_picks(con),
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
@@ -364,6 +371,129 @@ def trim_lite(data, n_chars, n_subjects):
         rows.append(r)
     out["lite"] = {"rows": rows, "dict": data["lite"]["dict"]}
     return out
+
+
+# --- the split site ---------------------------------------------------------
+# The page is a small shell (markup, styles, code and the numbers the welcome
+# screen shows). Everything else arrives when a page needs it: the bill list
+# and compact rows when Bills opens, one small file per bill when its details
+# open, the roll calls when the map opens, portraits as images. The one-file
+# archive inlines the same bundles under the same names, so the page code has
+# a single path.
+
+LIST_FIELDS = ("key", "id", "congress", "title", "short_title", "kind", "introduced", "origin", "sponsor", "cosponsors",
+               "bipartisan", "policy_area", "subjects", "status", "outcome", "law", "law_kind", "latest_action_date",
+               "latest_action", "lens", "review", "links")
+
+
+def trim_text(text, n):
+    text = text or ""
+    return text if len(text) <= n else text[:n].rsplit(" ", 1)[0] + "\u2026"
+
+
+def ratings_summary(ratings):
+    """What a card needs from the ratings: positions, grades and the one-sentence plain reading. The
+    justifications and sources stay in the bill's own file."""
+    if not ratings:
+        return None
+    out = {}
+    for axis, r in ratings.items():
+        keep = {k: r.get(k) for k in ("position", "low", "high", "position2", "low2", "high2", "grade", "version", "rated_at")
+                if r.get(k) is not None}
+        fl = r.get("flags") or {}
+        flags = {k: fl[k] for k in ("label", "business_tag") if k in fl}
+        if flags:
+            keep["flags"] = flags
+        pl = r.get("plain") or {}
+        if axis == "plain_language" and pl.get("one_sentence"):
+            keep["plain"] = {"one_sentence": pl["one_sentence"]}
+        out[axis] = keep
+    return out
+
+
+def list_record(b, n_chars=220):
+    """The card view of a full record. `trim` tells the page the rest is in data/bill/<key>.json."""
+    r = {k: b[k] for k in LIST_FIELDS if k in b}
+    r["summary"] = trim_text(b.get("summary", ""), n_chars)
+    r["latest_action"] = trim_text(b.get("latest_action", ""), 110)   # the card shows 90 characters of it
+    r["nvotes"] = len(b.get("votes") or [])
+    r["ratings"] = ratings_summary(b.get("ratings"))
+    r["trim"] = 1
+    return r
+
+
+def detail_record(b):
+    # links are derived on the page from the list record; leaving them out keeps the merge from undoing that
+    return {k: v for k, v in b.items() if k != "links"}
+
+
+def bundles(data):
+    """The data files of the split site, by name. The one-file archive inlines the same set."""
+    return {"members": {"members": data["members"], "legislators": data["legislators"]},
+            "lite": data["lite"],
+            "votes": {"vote_meta": data["vote_meta"], "mv": data["mv"], "states": data["states"]},
+            "districts": data["districts"]}
+
+
+def boot_for(data, version):
+    """What the shell carries inline: the welcome screen's numbers and picks, the changelog, and the
+    rated bills the hero panel rotates through."""
+    has_pos = lambda r: bool(r) and r.get("position") is not None
+    natkey = lambda t: [int(x) if x.isdigit() else x for x in re.split(r"(\d+)", t)]
+    feat = [b for b in data["bills"] if b.get("ratings")
+            and (has_pos(b["ratings"].get("income")) or has_pos(b["ratings"].get("households_business")))]
+    feat.sort(key=lambda b: (-int(b["congress"] or 0), 0 if ((b["ratings"].get("income") or {}).get("grade") == "A") else 1,
+                             natkey(b["key"])))
+    return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
+            "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
+            "photo_ids": sorted(data["photos"]), "inline": None}
+
+
+def render_page(boot, data, version, foot):
+    payload = json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    st, wc = data["stats"], data["welcome"]["counts"]
+    demo = st["current"] < st["measures"]
+    return (TEMPLATE.replace("__BOOT__", payload).replace("__FOOTNOTE__", foot).replace("__VERSION__", version)
+            .replace("__SETLABEL__", "measures in this demo set" if demo else "measures this Congress")
+            .replace("__MEASURES__", str(st["measures"]))
+            .replace("__LAWS__", str(st["laws"])).replace("__VOTES__", str(st["votes"])).replace("__MEMBERS__", str(st["members"]))
+            .replace("__CURRENT__", str(st["current"])).replace("__RATED__", str(st["rated"])).replace("__YEARS__", st["years"])
+            .replace("__CBILL__", str(wc["committee"])).replace("__CHALF__", str(wc["half"]))
+            .replace("__CWAIT__", str(wc["awaiting"])).replace("__CFAIL__", str(wc["failed"]))
+            .replace("__GENERATED__", data["generated"]).replace("__RUBRIC__", data["rubric"]))
+
+
+def write_split(folder, html, data, photo_bytes):
+    """index.html plus data/ and photos/ under `folder`. The two subfolders are rebuilt from scratch."""
+    import shutil
+    folder = os.path.abspath(folder)
+    for sub in ("data", "photos"):
+        shutil.rmtree(os.path.join(folder, sub), ignore_errors=True)
+    os.makedirs(os.path.join(folder, "data", "bill"), exist_ok=True)
+    os.makedirs(os.path.join(folder, "photos"), exist_ok=True)
+    dump = lambda obj: json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    sizes = {}
+
+    def put(rel, text):
+        with open(os.path.join(folder, rel), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(text)
+        sizes[rel] = len(text.encode("utf-8"))
+
+    put("index.html", html)
+    put("data/bills-list.json", dump({"bills": [list_record(b) for b in data["bills"]]}))
+    for name, obj in bundles(data).items():
+        put(f"data/{name}.json", dump(obj))
+    n_detail = detail_bytes = 0
+    for b in data["bills"]:
+        text = dump(detail_record(b))
+        with open(os.path.join(folder, "data", "bill", b["key"] + ".json"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(text)
+        n_detail += 1
+        detail_bytes += len(text.encode("utf-8"))
+    for bid, blob in photo_bytes.items():
+        with open(os.path.join(folder, "photos", bid + ".webp"), "wb") as fh:
+            fh.write(blob)
+    return sizes, n_detail, detail_bytes, sum(len(v) for v in photo_bytes.values())
 
 
 TEMPLATE = r"""<!DOCTYPE html>
@@ -565,6 +695,11 @@ p{margin:0 0 12px}
 /* --- how to read this site: modal over a blurred page -------------------- */
 .hmodal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:20px}
 .hmodal[hidden]{display:none!important}
+.card.sk{min-height:150px;pointer-events:none;opacity:.7}
+.skl{height:14px;border-radius:7px;background:var(--hair);margin:14px 0;animation:skl 1.2s ease-in-out infinite}
+.skl.w3{width:30%}.skl.w8{width:82%;height:20px}.skl.w6{width:60%}
+@keyframes skl{50%{opacity:.45}}
+.loading{padding:12px 0}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -1198,6 +1333,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <div class="rv">
         <a class="brand" href="#top"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
         <p>__FOOTNOTE__</p>
+        <p class="offline" id="offline" hidden><a href="offline.html" download>Download the offline copy</a>: the whole site in one file, for reading without a connection.</p>
       </div>
       <div class="rv" style="--i:1">
         <h4>Sources</h4>
@@ -1274,7 +1410,28 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 </div>
 
 <script>
-const DATA = __DATA__;
+const BOOT = __BOOT__;
+/* Data arrives when a page needs it. `need(name)` fetches data/<name>.json once
+   and caches the promise; in the one-file archive the same bundles are inlined
+   under BOOT.inline, so nothing else on the page knows the difference. */
+const DATA = {bills: [], members: [], legislators: {}, vote_meta: [], mv: {}, states: {}, lite: null};
+const PHOTO = new Set(BOOT.photo_ids || []);
+const DATA_V = encodeURIComponent(BOOT.version || "0");
+const loads = {};
+let MEMBER = {}, byKey = {}, MEMBERS_READY = false, CATALOG_READY = false;
+const VOTE_IDS = new Set();
+function need(name){
+  if (loads[name]) return loads[name];
+  if (BOOT.inline) return loads[name] = Promise.resolve(BOOT.inline[name]);
+  return loads[name] = fetch(`data/${name}.json?v=${DATA_V}`).then(r => { if (!r.ok) throw new Error(name + " " + r.status); return r.json(); })
+    .catch(e => { delete loads[name]; throw e; });
+}
+function needBill(b){
+  if (!b.trim) return Promise.resolve(b);
+  if (b._detail) return b._detail;
+  return b._detail = fetch(`data/bill/${encodeURIComponent(b.key)}.json?v=${DATA_V}`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { Object.assign(b, d); delete b.trim; b._hay = undefined; return b; }).catch(e => { delete b._detail; throw e; });
+}
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1288,30 +1445,43 @@ const PC_TYPES = {hr: ["H.R.", "house-bill", "House", "Bill"], s: ["S.", "senate
   hconres: ["H.Con.Res.", "house-concurrent-resolution", "House", "Concurrent resolution"], sconres: ["S.Con.Res.", "senate-concurrent-resolution", "Senate", "Concurrent resolution"],
   hres: ["H.Res.", "house-resolution", "House", "Simple resolution"], sres: ["S.Res.", "senate-resolution", "Senate", "Simple resolution"]};
 const pcOrdinal = n => n + ((n % 100 >= 11 && n % 100 <= 13) ? "th" : ({1: "st", 2: "nd", 3: "rd"}[n % 10] || "th"));
-const MEMBER = Object.fromEntries(DATA.members.map(m => [m.id, m]));
-DATA.members.forEach(m => { let acc = 0; m.bills = (m.bd || []).map(d => (acc += d)); });
-(function(){
-  const L = DATA.lite; if (!L) return; const D = L.dict;
-  for (const r of L.rows) {
-    const [key, title, sp, ct, cp, bip, pol, subj, stc, intro, lad, la, lens, summ, cmt] = r;
-    const k = key.match(/^([a-z]+)(\d+)-(\d+)$/) || [key, "", "", "0"], T = PC_TYPES[k[1]] || [k[1].toUpperCase(), "", "", "Bill"], s = MEMBER[sp];
-    DATA.bills.push({key, id: `${T[0]} ${k[2]}`, congress: Number(k[3]), title, short_title: "", kind: T[3], introduced: intro, origin: T[2],
-      sponsor: s ? {id: sp, name: s.name, party: s.party, state: s.state} : null, cosponsors: {total: ct, by_party: cp}, bipartisan: !!bip,
-      policy_area: D.policy[pol] || "", subjects: subj.map(i => D.subject[i]), committees: D.committee[cmt] || "", committee_votes: "",
-      status: D.status[stc] || "", outcome: "Pending", law: "", law_kind: "", latest_action_date: lad, latest_action: D.action[la] || "",
-      lens: lens.map(i => D.lens[i]), votes: [], summary: summ, summary_desc: "", summary_date: "", related_enacted: "",
-      links: {}, ratings: null, review: "", lite: true});
-  }
-})();
-DATA.bills.forEach((b, i) => {
-  b._i = i;
-  const k = b.key.match(/^([a-z]+)(\d+)-(\d+)$/), T = k && PC_TYPES[k[1]];
-  const own = Object.fromEntries(Object.entries(b.links || {}).filter(([, v]) => v));
-  if (T) { const page = `https://www.congress.gov/bill/${pcOrdinal(Number(k[3]))}-congress/${T[1]}/${k[2]}`;
-    b.links = Object.assign({page, text: page + "/text", actions: page + "/all-actions", cosponsors: page + "/cosponsors", committees: page + "/committees"}, own); }
-  else b.links = own;
-});
-const VOTE_IDS = new Set((DATA.vote_meta || []).map(v => v.vote_id));
+function membersReady(){
+  if (loads._members) return loads._members;
+  return loads._members = need("members").then(M => {
+    DATA.members = M.members || []; DATA.legislators = M.legislators || {};
+    MEMBER = Object.fromEntries(DATA.members.map(m => [m.id, m]));
+    DATA.members.forEach(m => { let acc = 0; m.bills = (m.bd || []).map(d => (acc += d)); });
+    MEMBERS_READY = true;
+  }).catch(e => { delete loads._members; throw e; });
+}
+function catalogReady(){
+  if (loads._catalog) return loads._catalog;
+  return loads._catalog = Promise.all([membersReady(), need("bills-list"), need("lite")]).then(([, B, L]) => {
+    DATA.bills = B.bills || [];
+    if (L && L.rows) { const D = L.dict;
+      for (const r of L.rows) {
+        const [key, title, sp, ct, cp, bip, pol, subj, stc, intro, lad, la, lens, summ, cmt] = r;
+        const k = key.match(/^([a-z]+)(\d+)-(\d+)$/) || [key, "", "", "0"], T = PC_TYPES[k[1]] || [k[1].toUpperCase(), "", "", "Bill"], s = MEMBER[sp];
+        DATA.bills.push({key, id: `${T[0]} ${k[2]}`, congress: Number(k[3]), title, short_title: "", kind: T[3], introduced: intro, origin: T[2],
+          sponsor: s ? {id: sp, name: s.name, party: s.party, state: s.state} : null, cosponsors: {total: ct, by_party: cp}, bipartisan: !!bip,
+          policy_area: D.policy[pol] || "", subjects: subj.map(i => D.subject[i]), committees: D.committee[cmt] || "", committee_votes: "",
+          status: D.status[stc] || "", outcome: "Pending", law: "", law_kind: "", latest_action_date: lad, latest_action: D.action[la] || "",
+          lens: lens.map(i => D.lens[i]), votes: [], summary: summ, summary_desc: "", summary_date: "", related_enacted: "",
+          links: {}, ratings: null, review: "", lite: true});
+      }
+    }
+    DATA.bills.forEach((b, i) => {
+      b._i = i;
+      const k = b.key.match(/^([a-z]+)(\d+)-(\d+)$/), T = k && PC_TYPES[k[1]];
+      const own = Object.fromEntries(Object.entries(b.links || {}).filter(([, v]) => v));
+      if (T) { const page = `https://www.congress.gov/bill/${pcOrdinal(Number(k[3]))}-congress/${T[1]}/${k[2]}`;
+        b.links = Object.assign({page, text: page + "/text", actions: page + "/all-actions", cosponsors: page + "/cosponsors", committees: page + "/committees"}, own); }
+      else b.links = own;
+    });
+    byKey = Object.fromEntries(DATA.bills.map(b => [b.key, b]));
+    CATALOG_READY = true;
+  }).catch(e => { delete loads._catalog; throw e; });
+}
 const TYPE_ORDER = {hr: 0, s: 1, hjres: 2, sjres: 3, hconres: 4, sconres: 5, hres: 6, sres: 7};
 const keyParts = key => { const m = key.match(/^([a-z]+)(\d+)-(\d+)$/); return m ? [+m[3], TYPE_ORDER[m[1]] ?? 9, +m[2]] : [0, 9, 0]; };
 const isRated = b => !!(b.ratings && (b.ratings.income || b.ratings.households_business || b.ratings.plain_language || b.ratings.timing || b.ratings.rights));
@@ -1388,7 +1558,7 @@ function paneFor(b){
   const notdo = p && p.what_it_does_not_do ? `<p class="note">What it does not do: ${esc(p.what_it_does_not_do)}</p>` : "";
   const timeline = t ? `<p style="font-size:15px">${esc(t.plain || "")}</p><ul class="tl"><li><b>Starts</b><span>${esc(t.effective || "")}</span></li>${(t.phase_changes || []).map(c => `<li><b>${esc(c.date || "")}</b><span>${esc(c.what || "")}</span></li>`).join("")}<li><b>Ends</b><span>${esc(t.sunset || "")}</span></li></ul>${t.delayed_cost && String(t.delayed_cost).startsWith("yes") ? `<p class="note">Watch the timing: ${esc(t.delayed_cost)}</p>` : ""}` : `<p class="na">Not rated yet.</p>`;
   const flags = rf ? ((rf.flags || []).length ? rf.flags.map(f => `<div class="flag"><span class="k">${esc(f.flag.replace(/_/g, " "))}</span><span>${esc(f.plain)}</span></div>`).join("") : `<p class="muted">No changes to who can sue, which laws apply, or who decides.</p>`) + (rf.election_rules ? `<p class="note">This bill changes election rules.</p>` : "") : `<p class="na">Not rated yet.</p>`;
-  const votes = b.votes && b.votes.length ? b.votes.map(v => `<div class="vote"><span class="ch">${esc(v.chamber)}</span><span>${esc(v.category)}: ${esc(v.result || "")}${v.note ? " (" + esc(v.note) + ")" : ""}${VOTE_IDS.has(v.vote_id) ? `<a class="maplink" href="#map" data-vote="${esc(v.vote_id)}">see the map</a>` : ""}<br><span class="muted">${esc(fmtDate(v.date))}${v.split ? " · " + esc(v.split) : ""}</span></span>${v.yeas != null ? `<span class="tally">${v.yeas}–${v.nays}${v.url ? ` <a href="${esc(v.url)}" target="_blank" rel="noopener" style="font-size:12px;font-weight:400">roll call</a>` : ""}</span>` : `<span class="muted">${esc(v.method || "")}</span>`}</div>`).join("") : `<p class="muted">No floor votes yet.</p>`;
+  const votes = b.votes && b.votes.length ? b.votes.map(v => `<div class="vote"><span class="ch">${esc(v.chamber)}</span><span>${esc(v.category)}: ${esc(v.result || "")}${v.note ? " (" + esc(v.note) + ")" : ""}${(v.map || VOTE_IDS.has(v.vote_id)) ? `<a class="maplink" href="#map" data-vote="${esc(v.vote_id)}">see the map</a>` : ""}<br><span class="muted">${esc(fmtDate(v.date))}${v.split ? " · " + esc(v.split) : ""}</span></span>${v.yeas != null ? `<span class="tally">${v.yeas}–${v.nays}${v.url ? ` <a href="${esc(v.url)}" target="_blank" rel="noopener" style="font-size:12px;font-weight:400">roll call</a>` : ""}</span>` : `<span class="muted">${esc(v.method || "")}</span>`}</div>`).join("") : `<p class="muted">No floor votes yet.</p>`;
   const path = `<p style="font-size:14px"><b>Committees.</b> ${esc(b.committees || "None recorded")}</p>${b.committee_votes ? `<p style="font-size:14px"><b>Committee votes.</b> ${esc(b.committee_votes)}</p>` : ""}${b.related_enacted ? `<p class="note">Related measure became law: ${esc(b.related_enacted)}. The text may have been enacted inside another bill.</p>` : ""}`;
   const why = ["income", "households_business", "backing"].filter(a => r[a]).map(a => { const x = r[a]; return `<article><h4>${esc({income:"Who gains, by income", households_business:"Households vs. businesses", backing:"Who backed it"}[a])} <i class="grade" data-g="${esc(x.grade||"")}">${esc(x.grade||"")}</i>${x.confidence != null ? `<span class="muted" style="font-weight:400;font-size:13px">confidence ${Math.round(x.confidence * 100)}%</span>` : ""}</h4><p>${esc(x.justification || "")}</p>${x.magnitude_note ? `<p class="muted">${x.magnitude ? "<b>" + esc(x.magnitude) + ".</b> " : ""}${esc(x.magnitude_note)}</p>` : ""}${(x.sources || []).length ? `<p class="muted">Sources: ${x.sources.map(s => esc((s.type || "") + (s.ref ? ": " + s.ref : ""))).join("; ")}</p>` : ""}</article>`; }).join("");
   const whyBlock = b.ratings ? `<div class="why">${why}</div><p class="note">${esc(b.review)}. Rubric ${esc((r.income || r.plain_language || r.backing || {}).version || "")}, rated ${esc(((r.income || r.plain_language || r.backing || {}).rated_at || "").slice(0, 10))}.</p>` : `<p class="na">Not rated yet. Bills are rated after their first committee action or when an official cost estimate is published.</p>`;
@@ -1471,17 +1641,16 @@ const calm = () => !MOTION.on;
   }, {passive: true});
   watch();
 })();
-const photo = id => (id && DATA.photos && DATA.photos[id]) ? "data:image/webp;base64," + DATA.photos[id] : "";
+const photo = id => { if (!id) return ""; if (BOOT.inline) { const P = BOOT.inline.photos || {}; return P[id] ? "data:image/webp;base64," + P[id] : ""; } return PHOTO.has(id) ? `photos/${id}.webp?v=${DATA_V}` : ""; };
 function avatar(id, party, cls){
   const src = photo(id), p = esc(party || ""), pc = party === "R" ? "rep" : (party === "D" ? "dem" : (party === "L" ? "amber" : "plum"));
   let h = 0; for (const ch of String(id || "")) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   const kb = src && cls !== "sm" ? ` kb" style="--pc:var(--${pc});--kbd:${11 + h % 7}s;--kbo:-${h % 11}s;--kbx:${(h % 3) - 1 ? ((h % 3) - 1) * 3 : 2}%;--kby:${(h >> 3) % 2 ? 3 : -2}%` : `" style="--pc:var(--${pc})`;
-  return `<span class="avw ${cls || ""}${kb}"><span class="avc"><span class="avz">${src ? `<img class="av" src="${src}" alt="" decoding="async">` : `<span class="av av-txt">${p.slice(0, 1)}</span>`}</span></span><i class="pb">${p}</i></span>`;
+  return `<span class="avw ${cls || ""}${kb}"><span class="avc"><span class="avz">${src ? `<img class="av" src="${src}" alt="" decoding="async" loading="lazy">` : `<span class="av av-txt">${p.slice(0, 1)}</span>`}</span></span><i class="pb">${p}</i></span>`;
 }
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); });
 const roleOf = m => m.name.startsWith("Sen.") ? "Senator" : (m.chamber === "Senate" ? "Senator" : "Representative");
-const byKey = Object.fromEntries(DATA.bills.map(b => [b.key, b]));
 function matches(b){
   const q = state.q.trim().toLowerCase();
   if (q && !hay(b).includes(q)) return false;
@@ -1502,7 +1671,17 @@ function sorter(a, b){
 }
 const PAGE = 30;
 let listed = [], shown = 0;
+function renderLoading(){
+  $("#count").textContent = `Loading ${(BOOT.stats.measures || 0).toLocaleString()} bills\u2026`;
+  grid.innerHTML = Array.from({length: 6}, (_, i) => `<div class="card sk" style="--i:${i}"><div class="skl w3"></div><div class="skl w8"></div><div class="skl w6"></div></div>`).join("");
+}
+function renderFailed(){
+  $("#count").textContent = "The bill list didn't load.";
+  grid.innerHTML = `<div class="empty">Couldn't load the bill list. Check your connection. <button class="chip" id="retrylist">Try again</button></div>`;
+  $("#retrylist").addEventListener("click", render);
+}
 function render(){
+  if (!CATALOG_READY) { renderLoading(); catalogReady().then(render, renderFailed); return; }
   listed = DATA.bills.filter(matches).sort(sorter); shown = 0;
   if (state.pin) { const i = listed.findIndex(b => b.key === state.pin); if (i > 0) listed.unshift(listed.splice(i, 1)[0]); else if (i < 0 && byKey[state.pin]) listed.unshift(byKey[state.pin]); }
   $("#count").textContent = `${listed.length.toLocaleString()} of ${DATA.bills.length.toLocaleString()} measures${state.member ? " for " + prettyName(state.member) : ""}`;
@@ -1535,7 +1714,11 @@ grid.addEventListener("click", e => {
   }
   if (!more) return;
   const card = more.closest(".card"), open = !card.classList.contains("open");
-  if (open && !card.dataset.built) { $(".detail > div", card).innerHTML = paneFor(byKey[card.dataset.key]); card.dataset.built = "1"; }
+  if (open && !card.dataset.built) {
+    const b = byKey[card.dataset.key], box = $(".detail > div", card); card.dataset.built = "1";
+    if (b.trim) { box.innerHTML = `<p class="muted loading">Loading the full record\u2026</p>`; needBill(b).then(() => { box.innerHTML = paneFor(b); }, () => { box.innerHTML = `<p class="muted">Couldn't load this bill's details. Check your connection and open it again.</p>`; delete card.dataset.built; }); }
+    else box.innerHTML = paneFor(b);
+  }
   card.classList.toggle("open", open);
   const bill = byKey[card.dataset.key]; if (bill && bill.short_title && bill.short_title !== bill.title) $(".title", card).textContent = open ? bill.title : bill.short_title;
   more.setAttribute("aria-expanded", open);
@@ -1543,7 +1726,7 @@ grid.addEventListener("click", e => {
   if (open) setTimeout(() => card.scrollIntoView({block: "nearest", behavior: "smooth"}), 60);
 });
 let qTimer; $("#q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value; render(); }, 140); });
-if (DATA.bills.every(b => Number(b.congress) >= 119)) { const c = $('.chip[data-f="119"]'); if (c) c.remove(); }
+if ((BOOT.stats.current || 0) >= (BOOT.stats.measures || 0)) { const c = $('.chip[data-f="119"]'); if (c) c.remove(); }
 $("#sort").addEventListener("change", e => { state.sort = e.target.value; render(); });
 const chipInd = document.createElement("span"); chipInd.className = "chip-ind"; $("#chips").prepend(chipInd);
 function moveChipInd(){ const c = $('#chips .chip[aria-pressed="true"]'); if (!c) return; chipInd.style.left = c.offsetLeft + "px"; chipInd.style.width = c.offsetWidth + "px"; }
@@ -1570,7 +1753,6 @@ function openBill(key){
    has to take the reader there first. Going through the #bill= route keeps the
    address shareable and leaves a history entry, so Back returns where they were. */
 function goToBill(key){
-  if (!byKey[key]) { showPage("bills", true); return false; }
   history.pushState({page: "bills"}, "", "#bill=" + key);
   routeFromHash(false);
   return true;
@@ -1578,8 +1760,7 @@ function goToBill(key){
 
 /* ---------- hero carousel ---------- */
 const hasPos = r => r && r.position != null;
-const featured = DATA.bills.filter(b => b.ratings && (hasPos(b.ratings.income) || hasPos(b.ratings.households_business)))
-  .sort((a, b) => Number(b.congress) - Number(a.congress) || (b.ratings.income && b.ratings.income.grade === "A" ? 1 : 0) - (a.ratings.income && a.ratings.income.grade === "A" ? 1 : 0) || a.key.localeCompare(b.key, undefined, {numeric: true}));
+const featured = BOOT.featured || [];   // rated bills, sorted at build time: current Congress first, A-grade income evidence first
 let hi = 0, htimer;
 function heroShow(i, animate){
   hi = (i + featured.length) % featured.length;
@@ -1804,12 +1985,14 @@ $$("[data-count]").forEach(el => {
 /* ---------- members ---------- */
 const mlist = $("#mlist");
 function renderMembers(){
+  if (!MEMBERS_READY) { mlist.innerHTML = `<li class="empty" style="padding:24px">Loading members\u2026</li>`; membersReady().then(renderMembers, () => { mlist.innerHTML = `<li class="empty" style="padding:24px">Couldn't load the member list. Check your connection and try again.</li>`; }); return; }
   const q = $("#mq").value.trim().toLowerCase();
   const list = DATA.members.filter(m => m.bills.length && (!q || m.name.toLowerCase().includes(q) || m.state.toLowerCase() === q)).sort((a, b) => b.bills.length - a.bills.length).slice(0, 12);
   mlist.innerHTML = list.map((m, i) => `<li style="--i:${i}"><button data-m="${esc(m.id)}">${avatar(m.id, m.party, "md")}<span class="mname"><b>${esc(prettyName(m))}</b><span class="muted">${esc(roleOf(m))}, ${esc(m.state)}</span></span><span class="mcount">${m.sponsored ? m.sponsored + " sponsored" : ""}${m.sponsored && m.cosponsored ? ", " : ""}${m.cosponsored ? m.cosponsored + " cosponsored" : ""}</span></button></li>`).join("") || `<li class="empty" style="padding:24px">No member matches. Try a last name or a two-letter state.</li>`;
 }
 $("#mq").addEventListener("input", renderMembers);
 function pickMember(id){
+  if (!CATALOG_READY) { catalogReady().then(() => pickMember(id), () => {}); return; }
   const m = MEMBER[id]; if (!m) return;
   m.set = m.set || new Set(m.bills); state.member = m;
   const L = (DATA.legislators || {})[id] || {}, yrs = d => d ? Math.floor((Date.now() - new Date(d + "T12:00:00")) / 3.15576e10) : null;
@@ -1817,8 +2000,7 @@ function pickMember(id){
   const links = [L.u ? `<a href="${esc(L.u)}" target="_blank" rel="noopener">Official site</a>` : "", L.ph ? `<a href="tel:${esc(L.ph)}">${esc(L.ph)}</a>` : "", L.cf ? `<a href="${esc(L.cf)}" target="_blank" rel="noopener">Contact form</a>` : "", `<a href="https://www.congress.gov/member/${encodeURIComponent(prettyName(m).toLowerCase().replace(/[^a-z0-9]+/g, "-"))}/${esc(id)}" target="_blank" rel="noopener">Congress.gov</a>`].filter(Boolean).join("");
   $("#mpick").innerHTML = `<div class="prof">${avatar(id, m.party, "xl")}<div><b>${esc(prettyName(m))}</b><div class="muted">${esc(facts)}</div><div class="mlinks">${links}</div></div></div>
     <p><b>${m.bills.length}</b> bill${m.bills.length === 1 ? "" : "s"} in this set${m.sponsored ? `, ${m.sponsored} sponsored` : ""}${m.cosponsored ? `, ${m.cosponsored} cosponsored` : ""}. The list above now shows only theirs. <button class="chip" id="mclear">Show all bills</button></p>`;
-  render(); toast(`Showing bills for ${prettyName(m)}`);
-  document.getElementById("bills").scrollIntoView({behavior: "smooth"});
+  showPage("bills", true); render(); toast(`Showing bills for ${prettyName(m)}`);
 }
 mlist.addEventListener("click", e => { const btn = e.target.closest("button[data-m]"); if (btn) pickMember(btn.dataset.m); });
 $("#mpick").addEventListener("click", e => { if (e.target.id === "mclear") { state.member = null; $("#mpick").textContent = "Pick a member to filter the bill list above."; render(); } });
@@ -1834,9 +2016,20 @@ function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add
 })();
 
 /* ---------- vote map ---------- */
-(function(){
+let mapInit = null;
+function mapReady(){
+  if (mapInit) return mapInit;
+  const note = $("#mapnote"); if (note) note.textContent = "Loading the vote record\u2026";
+  return mapInit = Promise.all([membersReady(), need("votes")]).then(([, V]) => {
+    DATA.vote_meta = V.vote_meta || []; DATA.mv = V.mv || {}; DATA.states = V.states || {};
+    DATA.vote_meta.forEach(v => VOTE_IDS.add(v.vote_id));
+    initMap();
+  }).catch(e => { mapInit = null; if (note) note.textContent = "Couldn't load the vote record. Check your connection and open the map again."; });
+}
+function initMap(){
   const svg = $("#usmap"), sel = $("#vsel"), side = $("#mapside"), states = DATA.states || {}, LEG = DATA.legislators || {}, MVC = DATA.mv || {};
-  const DIST = DATA.districts || {states: {}, q: 50}, DQ = DIST.q || 50, VB0 = [0, 0, 975, 610];
+  let DIST = BOOT.inline ? (BOOT.inline.districts || {states: {}, q: 50}) : {states: {}, q: 50, pending: true}, DQ = DIST.q || 50;
+  const VB0 = [0, 0, 975, 610];
   let vb = VB0.slice(), zoomed = null, zoomAnim = 0;
   const votes = DATA.vote_meta || [];
   if (!votes.length || !Object.keys(states).length) { $("#map").style.display = "none"; return; }
@@ -2005,6 +2198,7 @@ function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add
     G.g.appendChild(dg); G.fill.style.display = "none";
   }
   function zoomTo(st){
+    if (DIST.pending) { need("districts").then(d => { DIST = d || {states: {}, q: 50}; DQ = DIST.q || 50; zoomTo(st); }, () => { DIST = {states: {}, q: 50}; zoomTo(st); }); return; }
     if (zoomed && zoomed !== st) clearDistricts(zoomed);
     zoomed = st; svg.classList.add("zoomed"); svg.classList.remove("blur"); $("#mapback").hidden = false;
     for (const [s2, {g}] of Object.entries(groups)) g.classList.toggle("dim", s2 !== st);
@@ -2070,11 +2264,16 @@ function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add
   sel.addEventListener("change", () => paint(sel.value));
   const step = d => { const i = sel.selectedIndex + d; if (i < 0 || i >= sel.options.length) return; sel.selectedIndex = i; paint(sel.value); };
   $("#vprev").addEventListener("click", () => step(-1)); $("#vnext").addEventListener("click", () => step(1));
-  document.addEventListener("click", e => { const a = e.target.closest("a.maplink"); if (!a) return; e.preventDefault(); zoomOut(); sel.value = a.dataset.vote; paint(sel.value); selected = null; document.getElementById("map").scrollIntoView({behavior: "smooth"}); });
-  const missing = Math.max(0, (DATA.stats.rc_total || 0) - votes.length);
+  window.mapShow = vid => { if (!VM[vid]) return; zoomOut(); sel.value = vid; paint(vid); selected = null; };
+  const missing = Math.max(0, (BOOT.stats.rc_total || 0) - votes.length);
   $("#mapnote").textContent = `${votes.length.toLocaleString()} roll calls carry member-level votes${missing ? `; ${missing.toLocaleString()} more are listed on their bills without member data yet` : ""}. Party is shown as recorded on each roll call.${DIST.vintage ? ` District lines: ${DIST.vintage}.` : ""}`;
   paint(votes[0].vote_id);
-})();
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a.maplink"); if (!a) return;
+  e.preventDefault(); showPage("map", true);
+  mapReady().then(() => { if (window.mapShow) mapShow(a.dataset.vote); });
+});
 
 /* ---------- command palette, shortcuts, deep links ---------- */
 (function(){
@@ -2084,6 +2283,7 @@ function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add
   const mark = () => { $$("li[data-i]", list).forEach(li => li.setAttribute("aria-selected", +li.dataset.i === idx)); const cur = $(`li[data-i="${idx}"]`, list); if (cur) cur.scrollIntoView({block: "nearest"}); };
   const go = i => { const it = items[i]; if (!it) return; close(); if (it.kind === "bill") goToBill(it.key); else pickMember(it.id); };
   function run(q){
+    if (!CATALOG_READY) { items = []; list.innerHTML = `<li class="none">Loading the catalog\u2026</li>`; catalogReady().then(() => { if (!pal.hidden) run(inp.value); }, () => { list.innerHTML = `<li class="none">Couldn't load the catalog. Check your connection and try again.</li>`; }); return; }
     q = q.trim().toLowerCase();
     const bills = (q ? DATA.bills.filter(b => hay(b).includes(q)) : DATA.bills.filter(isRated)).slice(0, 7);
     const mems = q ? DATA.members.filter(m => m.bills.length && (m.name.toLowerCase().includes(q) || m.state.toLowerCase() === q)).sort((a, b) => b.bills.length - a.bills.length).slice(0, 4) : [];
@@ -2118,13 +2318,16 @@ function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add
    at a time. Hashes stay what they always were (#bills, #map, #bill=hr1-119)
    so links already in the wild keep landing in the right place. */
 const PAGES = ["home", "bills", "map", "how", "members"];
-let page = "home";
+let page = "home", billsShown = false;
 function showPage(name, push){
   if (!PAGES.includes(name)) name = "home";
   page = name;
   PAGES.forEach(p => { const el = $("#pg-" + p); if (el) el.hidden = p !== name; });
   $$(".nav a[data-go]").forEach(a => a.setAttribute("aria-current", a.dataset.go === name ? "page" : "false"));
   document.body.dataset.page = name;
+  if (name === "bills" && !billsShown) { billsShown = true; render(); }
+  if (name === "members") renderMembers();
+  if (name === "map") mapReady();
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
   // The map is drawn into a sized SVG; if it was built while hidden it has no
@@ -2134,12 +2337,12 @@ function showPage(name, push){
 function routeFromHash(push){
   const h = (location.hash || "").replace(/^#/, "");
   const bill = h.match(/^bill=([a-z0-9-]+)/i);
-  if (bill) { showPage("bills", false); if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); return; }
+  if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   if (h === "nowmoving" || h === "top" || h === "") { showPage("home", false); return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
 document.addEventListener("click", e => {
-  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const a = e.target.closest('a[href^="#"]'); if (!a || a.classList.contains("maplink")) return;
   const h = a.getAttribute("href").slice(1);
   if (h === "nowmoving") { e.preventDefault(); showPage("home", true); const t = $("#nowmoving"); if (t) t.scrollIntoView({behavior: calm() ? "auto" : "smooth"}); return; }
   if (h === "top") { e.preventDefault(); showPage("home", true); return; }
@@ -2151,7 +2354,8 @@ addEventListener("popstate", () => routeFromHash(false));
    entry (4.x.xxx); entries from before version numbers fall back to a count.
    Adding an entry to CHANGELOG.md is still the whole release process. */
 (function(){
-  const log = DATA.changelog || []; if (!log.length) return;
+  if (!BOOT.inline) { const o = $("#offline"); if (o) o.hidden = false; }
+  const log = BOOT.changelog || []; if (!log.length) return;
   const wrap = $("#cl"), tab = $("#cltab"), panel = $("#clpanel"), body = $("#clbody");
   $("#clv").textContent = log[0].version ? "v" + log[0].version : "v" + log.length;
   body.innerHTML = log.map(e => `<div class="cl-e"><div class="d">${e.version ? "v" + esc(e.version) + " · " : ""}${esc(e.date)}</div><div class="t">${esc(e.title)}</div>${e.items.length ? `<ul>${e.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}</div>`).join("");
@@ -2166,7 +2370,7 @@ addEventListener("popstate", () => routeFromHash(false));
 /* Welcome-screen pick lists. Each row opens the same bill detail the rest of
    the site uses, so nothing here is a separate copy of the truth. */
 (function(){
-  const W = DATA.welcome; if (!W) return;
+  const W = BOOT.welcome; if (!W) return;
   const shortStatus = s => String(s || "")
     .replace(/^Became law.*/, "Law")
     .replace(/^Passed both chambers - differences unresolved$/, "Passed both, unresolved")
@@ -2202,7 +2406,9 @@ addEventListener("popstate", () => routeFromHash(false));
 })();
 
 $("#totop").addEventListener("click", () => scrollTo({top: 0, behavior: calm() ? "auto" : "smooth"}));
-render(); renderMembers(); reveal(document); moveChipInd();
+reveal(document); moveChipInd();
+/* Warm the list and the member roster once the page has settled, unless the visitor asked to save data. */
+if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) setTimeout(() => { need("bills-list").catch(() => {}); membersReady().catch(() => {}); }, 2500);
 
 /* Help modal: the Fact / Analysis / Opinion guide, over a blurred page. */
 (function(){
@@ -2225,24 +2431,18 @@ routeFromHash(false);
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", required=True)
-    ap.add_argument("--out", default="site.html")
-    ap.add_argument("--max-mb", type=float, default=15.0, help="size budget for the single-file page (claude.ai artifacts allow 16 MB)")
+    ap.add_argument("--out", default="site.html", help="the one-file archive (everything inline; works from a double-click)")
+    ap.add_argument("--split", default="", help="also write the fast site into this folder: index.html plus data/ and photos/")
+    ap.add_argument("--max-mb", type=float, default=15.0, help="size budget for the one-file archive (claude.ai artifacts allow 16 MB)")
     ap.add_argument("--summary-chars", type=int, default=220, help="summary length kept for introduced-only measures")
     ap.add_argument("--as-of", default="", help="date to print as the generation date (YYYY-MM-DD); default today")
     args = ap.parse_args()
     data = collect(args.db)
+    photo_bytes = data.pop("photo_bytes")
     version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
     if args.as_of:
         data["generated"] = dt.datetime.strptime(args.as_of, "%Y-%m-%d").strftime("%B %d, %Y")
-    for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
-        shaped = trim_lite(data, n_chars, n_subj)
-        payload = json.dumps(shaped, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-        mb = len(payload.encode("utf-8")) / 1e6
-        if mb <= args.max_mb - 0.3 or n_chars == 0:
-            break
-        print(f"  payload {mb:.1f} MB is over the {args.max_mb:g} MB budget; trimming summaries on introduced-only measures")
     st = data["stats"]
-    wc = data["welcome"]["counts"]
     demo = st["current"] < st["measures"]
     if demo:
         foot = (f"<b>Demo data.</b> This page was generated from <code>{os.path.basename(args.db)}</code> on {data['generated']}: "
@@ -2255,24 +2455,41 @@ def main():
                 f"{data['rubric']}, and {st['members']:,} members who sponsored or cosponsored them.")
     if version:
         foot += f" Version {version}."
-    html = (TEMPLATE.replace("__DATA__", payload).replace("__FOOTNOTE__", foot).replace("__VERSION__", version)
-            .replace("__SETLABEL__", "measures in this demo set" if demo else "measures this Congress")
-            .replace("__MEASURES__", str(st["measures"]))
-            .replace("__LAWS__", str(st["laws"])).replace("__VOTES__", str(st["votes"])).replace("__MEMBERS__", str(st["members"]))
-            .replace("__CURRENT__", str(st["current"])).replace("__RATED__", str(st["rated"])).replace("__YEARS__", st["years"])
-            .replace("__CBILL__", str(wc["committee"])).replace("__CHALF__", str(wc["half"]))
-            .replace("__CWAIT__", str(wc["awaiting"])).replace("__CFAIL__", str(wc["failed"]))
-            .replace("__GENERATED__", data["generated"]).replace("__RUBRIC__", data["rubric"]))
+    print(f"Version {version or '(none: no version in CHANGELOG.md)'}")
+
+    # the one-file archive: the same shell with every bundle inlined, trimmed to the size budget
+    boot = boot_for(data, version)
+    for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
+        shaped = trim_lite(data, n_chars, n_subj)
+        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"]})
+        html = render_page(boot, shaped, version, foot)
+        mb = len(html.encode("utf-8")) / 1e6
+        if mb <= args.max_mb - 0.3 or n_chars == 0:
+            break
+        print(f"  archive {mb:.1f} MB is over the {args.max_mb:g} MB budget; trimming summaries on introduced-only measures")
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write(html)
     size = os.path.getsize(args.out) / 1e6
-    print(f"Version {version or '(none: no version in CHANGELOG.md)'}")
     print(f"Wrote {args.out}: {st['measures']:,} measures ({st['compact']:,} compact), {st['rated']:,} rated, "
           f"{st['roll_calls']:,} roll calls with member votes, {st['members']:,} members, {len(data['photos']):,} portraits, "
           f"{sum(len(v) for v in data['districts'].get('states', {}).values()):,} district shapes, {size:.1f} MB")
     if size > 16:
         print("WARNING: over 16 MB, too large to publish as a single claude.ai artifact; lower --summary-chars or host it elsewhere")
+
+    # the fast site: a small shell, data on demand
+    if args.split:
+        boot["inline"] = None
+        shaped = trim_lite(data, args.summary_chars, 4)   # compact rows carry a short summary; the full one is on Congress.gov
+        shell = render_page(boot, shaped, version, foot)
+        sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
+        kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"
+        import shutil
+        shutil.copyfile(args.out, os.path.join(args.split, "offline.html"))   # the archive travels with the fast site
+        print(f"Wrote {args.split}/: shell {kb(sizes['index.html'])}; "
+              + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k != "index.html")
+              + f"; {n_detail:,} bill files ({kb(detail_bytes)}); {len(photo_bytes):,} portraits ({kb(photo_total)})")
+
 
 if __name__ == "__main__":
     main()
