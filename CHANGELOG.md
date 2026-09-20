@@ -10,6 +10,12 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.005 — 2026-09-20 — Dark by default
+
+- The site now opens in its dark look. The sun-and-moon button in the top bar
+  still switches, and your choice is remembered.
+- A bigger opening headline.
+
 ## v4.0.004 — 2026-09-20 — Add it to your home screen
 
 - The site can be added to a phone's home screen like an app, and the pages

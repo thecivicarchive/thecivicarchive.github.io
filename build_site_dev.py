@@ -566,8 +566,8 @@ TEMPLATE = r"""<!DOCTYPE html>
 <link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
 __ANALYTICS__
-<meta name="theme-color" content="#F5F5F2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0C0E12">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -669,7 +669,7 @@ p{margin:0 0 12px}
 .hero .wrap{display:grid;gap:36px;grid-template-columns:1fr}
 @media (min-width:960px){.hero{padding:72px 0 64px}.hero .wrap{grid-template-columns:minmax(210px,250px) minmax(0,1fr);align-items:start;gap:44px}}
 .hero .spotlight{margin-top:34px}
-.hero h1{font-size:clamp(46px,7vw,84px);line-height:.98;max-width:12ch;text-wrap:balance}
+.hero h1{font-size:clamp(52px,8.4vw,108px);line-height:.96;max-width:12ch;text-wrap:balance}
 .hero .lede{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:var(--muted);max-width:46ch;margin:22px 0 28px}
 .cta{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s var(--ease),border-color .15s,background .15s,color .15s}
@@ -788,6 +788,7 @@ p{margin:0 0 12px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(75% 85% at 22% 45%,var(--bg) 30%,transparent 72%)}
 .hero .wrap{position:relative;z-index:2}
+.hero.night:after{background:linear-gradient(to bottom,var(--bg) 0%,rgba(245,245,242,.95) 28%,rgba(245,245,242,.92) 58%,rgba(245,245,242,.96) 100%)}
 .spotlight{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-xl);padding:22px 22px 16px;box-shadow:var(--shadow-3);position:relative;animation:spotin 1.1s .55s var(--ease) both}
 @keyframes spotin{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
 .spot-spon{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.3}
@@ -1555,13 +1556,18 @@ const isRated = b => !!(b.ratings && (b.ratings.income || b.ratings.households_b
 
 /* ---------- theme ---------- */
 (function(){
+  /* Dark by default; a reader's choice, once made, wins. The same line runs in
+     the head before anything paints, so there is no flash of the other theme. */
   let saved = null; try { saved = localStorage.getItem("theme"); } catch(e) {}
-  if (saved) document.documentElement.dataset.theme = saved;
+  document.documentElement.dataset.theme = saved || "dark";
+  const tc = $('meta[name="theme-color"]');
+  const syncColor = () => { if (tc) tc.content = document.documentElement.dataset.theme === "dark" ? "#0C0E12" : "#F5F5F2"; };
+  syncColor();
   $("#theme").addEventListener("click", () => {
     const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
     const next = dark ? "light" : "dark";
     document.documentElement.classList.add("theming"); setTimeout(() => document.documentElement.classList.remove("theming"), 520);
-    document.documentElement.dataset.theme = next;
+    document.documentElement.dataset.theme = next; syncColor();
     try { localStorage.setItem("theme", next); } catch(e) {}
   });
 })();
@@ -1955,7 +1961,7 @@ if (featured.length) {
     }
   }
 
-  let grain = null;
+  let grain = null, lastNight = null;
   function makeGrain(){
     const n = 96, off = document.createElement("canvas"); off.width = off.height = n;
     const g = off.getContext("2d"), img = g.createImageData(n, n);
@@ -1973,6 +1979,7 @@ if (featured.length) {
   function paint(now){
     const t = (now - t0) / 1000, hr = new Date().getHours();
     const night = wx.night === null ? (hr < 6 || hr >= 19) : wx.night;
+    if (night !== lastNight) { lastNight = night; c.parentElement.classList.toggle("night", night); }
     ctx.clearRect(0, 0, W, H);
     drawSky(night);
     drawOrb(t, night);
