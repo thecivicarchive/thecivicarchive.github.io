@@ -419,7 +419,7 @@ def collect(db_path):
     for m in vote_meta:                                                     # and so does every roll call on the map
         fb = by_key.get(m["bill_key"])
         if fb:
-            m["title"] = fb["short_title"] or m["title"]
+            m["title"] = (fb["nick"]["name"] if (fb.get("nick") or {}).get("lead") else fb["short_title"]) or m["title"]
     print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['rewritten']:,} rewritten by the other chamber, "
           f"{led['short']:,} earlier short title(s); "
           f"{len(nicks):,} approved nickname(s) from nicknames.json")

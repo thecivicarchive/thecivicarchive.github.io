@@ -13,6 +13,9 @@ quotation marks are the wording the source itself uses.
 
 ## Candidates
 
+**All ten approved by John on 2026-09-20**, placed as suggested (2 and 3 lead; the rest sit beneath the official
+name). They are now in `nicknames.json`.
+
 | # | Bill | The site shows now | Proposed common name | Suggest | Where the name is used |
 |---|------|--------------------|----------------------|---------|------------------------|
 | 1 | H.R. 1 | One Big Beautiful Bill Act (the record's popular title) | the Big Beautiful Bill; also written OBBBA | beneath | American Immigration Council, "What's in the Big Beautiful Bill?": https://www.americanimmigrationcouncil.org/fact-sheet/big-beautiful-bill-immigration-border-security/ ; H&R Block, "One Big Beautiful Bill Act (OBBBA) Tax Impacts": https://www.hrblock.com/tax-center/irs/tax-law-and-policy/one-big-beautiful-bill-taxes/ |

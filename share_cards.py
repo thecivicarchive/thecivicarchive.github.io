@@ -175,8 +175,12 @@ def status_line(b):
 def bill_inputs(b):
     votes = b.get("votes") or []
     last = next((v for v in reversed(votes) if v.get("split")), None)
-    return {"id": b["id"], "title": b.get("short_title") or b.get("title") or "", "status": status_line(b),
-            "split": (last or {}).get("split", ""), "law": b.get("law") or ""}
+    nick, official = b.get("nick") or {}, b.get("short_title") or b.get("title") or ""
+    out = {"id": b["id"], "title": nick["name"] if nick.get("lead") else official, "status": status_line(b),
+           "split": (last or {}).get("split", ""), "law": b.get("law") or ""}
+    if nick:                                   # only present when there is one, so other cards keep their hash
+        out["aka"] = ("officially " + official) if nick.get("lead") else ("commonly called " + nick["name"])
+    return out
 
 
 def draw_bill(inp):
@@ -188,6 +192,10 @@ def draw_bill(inp):
     for line in wrap(d, inp["title"], tf, W - 120, 3):
         d.text((60, y), line, font=tf, fill=INK)
         y += 76
+    if inp.get("aka"):
+        af = font("sans", 26)
+        d.text((60, y + 8), wrap(d, inp["aka"], af, W - 120, 1)[0], font=af, fill=MUTED)
+        y += 44
     y += 16
     d.text((60, y), inp["status"], font=font("sans", 30), fill=SOFT)
     y += 66

@@ -10,6 +10,18 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.012 — 2026-09-20 — The names people actually use
+
+- Eleven bills now carry the name in common use, each with a link showing
+  where that name is used. Most read "commonly called ..." beneath the
+  official name: the Russia sanctions bill, the housing bill, the stablecoin
+  law, the NDAA, the rescissions package. Two whose official titles run to a
+  full sentence lead with the plain description instead, with the official
+  title beneath: the funding bill that ended the 2025 government shutdown,
+  and the bill that ended the 2026 Homeland Security shutdown.
+- These names are kept by hand and approved one by one. They are never part
+  of the official record, and each bill says so.
+
 ## v4.0.011 — 2026-09-20 — Bills that became something else
 
 - Two bills were rewritten wholesale by the other chamber and no longer match
