@@ -78,7 +78,7 @@ def legislator_rows(con, ids):
         m = dict(zip(cols, r))
         rows[m["bioguide_id"]] = {"n": m["official_full"], "p": m["party"], "st": m["state"], "d": m["district"],
                                   "ch": m["chamber"], "b": m["birthday"], "f": m["first_term_start"], "u": m["url"],
-                                  "ph": m["phone"], "cf": m["contact_form"], "cur": m["is_current"]}
+                                  "ph": m["phone"], "cf": m["contact_form"], "of": m["office"], "cur": m["is_current"]}
     return rows
 
 
@@ -162,6 +162,130 @@ def load_nicknames():
 
 LITE_STATUSES = {"", "Introduced", "In committee"}
 POSITION_CODE = {"Yea": "Y", "Aye": "Y", "Nay": "N", "No": "N", "Present": "P"}
+
+
+def member_profiles(con, legislators, vote_meta):
+    """Who each member is, beyond the vote in front of the reader: bioguide_id -> profile.
+
+    `service`, `committees` and `social` are facts from the roster project (the `profiles` stage loads them).
+    `votes` and `focus` are worked out here from this database by rules the page states in full: a vote is a
+    party split when most Democrats voted one way and most Republicans the other, and party is the one
+    recorded on each roll call. `wiki` is the opening of the member's Wikipedia article, which the page fences
+    off as not an official record. Nothing here characterises anyone; it counts."""
+    has = lambda t: con.execute("SELECT 1 FROM sqlite_master WHERE name = ?", (t,)).fetchone() is not None
+    out = {bio: {} for bio in legislators}
+
+    if has("member_terms"):
+        by = {}
+        for bio, typ, start, end, party, how in con.execute("SELECT bioguide_id, type, start, end, party, how FROM member_terms ORDER BY bioguide_id, seq"):
+            by.setdefault(bio, []).append({"type": typ, "start": start or "", "end": end or "", "party": party or "", "how": how or ""})
+        chamber = lambda t: "Senate" if t == "sen" else "House"
+        for bio, ts in by.items():
+            if bio not in out or not ts:
+                continue
+            run = [ts[-1]]                                   # the unbroken run of terms in the chamber they sit in now
+            for t in reversed(ts[:-1]):
+                if t["type"] != run[0]["type"]:
+                    break
+                run.insert(0, t)
+            other = [t for t in ts if t["type"] != run[0]["type"]]
+            parties = []
+            for t in ts:
+                if t["party"] and (not parties or parties[-1] != t["party"]):
+                    parties.append(t["party"])
+            end_year = int(run[-1]["end"][:4]) if run[-1]["end"][:4].isdigit() else 0
+            cur = bool((legislators.get(bio) or {}).get("cur"))
+            out[bio]["service"] = {
+                "chamber": chamber(run[0]["type"]), "since": run[0]["start"], "terms": len(run), "all_terms": len(ts),
+                "appointed": run[0]["how"] == "appointment",
+                "other": ({"chamber": chamber(other[0]["type"]), "from": min(t["start"] for t in other)[:4],
+                           "to": max(t["end"] for t in other)[:4]} if other else None),
+                "parties": parties, "next": (end_year - 1) if (cur and end_year) else None}
+
+    if has("member_committees"):
+        full, subs = {}, {}
+        for bio, name, parent, title, rank in con.execute("SELECT bioguide_id, name, parent, title, rank FROM member_committees ORDER BY rank"):
+            if bio not in out:
+                continue
+            if parent:
+                subs.setdefault((bio, parent), []).append({"name": name, "title": title or ""})
+            else:
+                full.setdefault(bio, []).append({"name": name, "title": title or ""})
+        for bio, cs in full.items():
+            for c in cs:
+                c["subs"] = sorted(subs.get((bio, c["name"]), []), key=lambda x: (not x["title"], x["name"]))
+            out[bio]["committees"] = sorted(cs, key=lambda x: (not x["title"], x["name"]))
+
+    if has("member_social"):
+        for bio, tw, fb, yt, ig in con.execute("SELECT bioguide_id, twitter, facebook, youtube, instagram FROM member_social"):
+            if bio in out:
+                out[bio]["social"] = {k: v for k, v in (("twitter", tw), ("facebook", fb), ("youtube", yt), ("instagram", ig)) if v}
+
+    if has("member_wikipedia"):
+        for bio, title, extract, url in con.execute("SELECT bioguide_id, title, extract, url FROM member_wikipedia"):
+            if bio in out and extract:
+                out[bio]["wiki"] = {"title": title, "extract": extract, "url": url}
+
+    if has("member_votes"):
+        side = {"Yea": "Y", "Aye": "Y", "Nay": "N", "No": "N"}
+        rows, tally = {}, {}
+        for vid, mk, party, pos in con.execute("SELECT vote_id, member_key, party, position FROM member_votes"):
+            p = "D" if party == "D" else ("R" if party == "R" else "")
+            s = side.get(pos or "")
+            rows.setdefault(mk, []).append((vid, p, s, pos or ""))
+            if p and s:
+                t = tally.setdefault(vid, {"D": [0, 0], "R": [0, 0]})
+                t[p][0 if s == "Y" else 1] += 1
+        lean = {}
+        for vid, t in tally.items():
+            d = "Y" if t["D"][0] > t["D"][1] else ("N" if t["D"][1] > t["D"][0] else "")
+            r = "Y" if t["R"][0] > t["R"][1] else ("N" if t["R"][1] > t["R"][0] else "")
+            lean[vid] = (d, r)
+        meta = {v["vote_id"]: v for v in vote_meta}
+        for bio, votes in rows.items():
+            if bio not in out:
+                continue
+            n = agree = split_n = split_with = missed = cast = 0
+            breaks, party = [], ""
+            for vid, p, s, pos in votes:
+                if pos == "Not Voting":
+                    missed += 1
+                if s:
+                    cast += 1                                  # a yes or a no, whatever the party
+                if not s or not p or vid not in lean:
+                    continue
+                party = p
+                mine, theirs = lean[vid][0 if p == "D" else 1], lean[vid][1 if p == "D" else 0]
+                n += 1
+                agree += 1 if (mine and s == mine) else 0
+                if mine and theirs and mine != theirs:
+                    split_n += 1
+                    if s == mine:
+                        split_with += 1
+                    elif vid in meta:
+                        breaks.append(vid)
+            breaks.sort(key=lambda v: (meta[v].get("date") or "", meta[v].get("roll") or 0), reverse=True)
+            out[bio]["votes"] = {
+                "party": party, "n": n, "cast": cast, "with": agree, "split_n": split_n, "split_with": split_with,
+                "missed": missed, "eligible": len(votes), "breaks_n": len(breaks),
+                "breaks": [{"vote_id": v, "bill": meta[v]["bill"], "title": meta[v]["title"], "date": meta[v]["date"],
+                            "category": meta[v]["category"], "pos": next(s for x, _p, s, _o in votes if x == v)} for v in breaks[:5]]}
+
+    areas, counts = {}, {}
+    for bio, area, k in con.execute("SELECT s.bioguide_id, b.policy_area, COUNT(*) FROM sponsorships s JOIN bills b ON b.bill_key = s.bill_key "
+                                    "WHERE s.role = 'sponsor' AND b.policy_area <> '' GROUP BY 1, 2 ORDER BY 3 DESC"):
+        areas.setdefault(bio, []).append([area, k])
+    for bio, role, k, laws in con.execute("SELECT s.bioguide_id, s.role, COUNT(*), SUM(CASE WHEN b.law_number IS NOT NULL AND b.law_number <> '' THEN 1 ELSE 0 END) "
+                                          "FROM sponsorships s JOIN bills b ON b.bill_key = s.bill_key GROUP BY 1, 2"):
+        c = counts.setdefault(bio, {"sponsored": 0, "cosponsored": 0, "laws": 0})
+        if role == "sponsor":
+            c["sponsored"], c["laws"] = k, laws or 0
+        else:
+            c["cosponsored"] += k
+    for bio, c in counts.items():
+        if bio in out and (c["sponsored"] or c["cosponsored"]):
+            out[bio]["focus"] = dict(c, areas=(areas.get(bio) or [])[:4])
+    return out
 
 
 STALL_DAYS = 180
@@ -423,12 +547,13 @@ def collect(db_path):
     print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['rewritten']:,} rewritten by the other chamber, "
           f"{led['short']:,} earlier short title(s); "
           f"{len(nicks):,} approved nickname(s) from nicknames.json")
+    profiles = member_profiles(con, legislators, vote_meta)
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
-            "welcome": welcome, "stall_cutoff": cutoff,
+            "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles,
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -669,6 +794,10 @@ def write_split(folder, html, data, photo_bytes):
             fh.write(text)
         n_detail += 1
         detail_bytes += len(text.encode("utf-8"))
+    os.makedirs(os.path.join(folder, "data", "member"), exist_ok=True)       # one small file per member, read when their card opens
+    for bio, prof in (data.get("_profiles") or {}).items():
+        with open(os.path.join(folder, "data", "member", bio + ".json"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(dump(prof))
     for bid, blob in photo_bytes.items():
         with open(os.path.join(folder, "photos", bid + ".webp"), "wb") as fh:
             fh.write(blob)
@@ -934,7 +1063,40 @@ p{margin:0 0 12px}
 .yv-members{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
 .ymem{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 10px;font:inherit;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;min-width:0}
 .ymem:hover{border-color:var(--line-strong)}
-.ymem.mine{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.ymem{transition:transform .25s var(--ease),box-shadow .25s}
+.ymem.mine{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft),0 12px 30px -16px color-mix(in srgb,var(--accent) 70%,transparent);transform:scale(1.045);z-index:1;background:var(--surface)}
+@keyframes sheen{0%{background-position:220% 0}60%,100%{background-position:-120% 0}}
+.shimmer{position:relative}
+.shimmer::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;pointer-events:none;background:linear-gradient(115deg,transparent 35%,color-mix(in srgb,var(--accent) 75%,#fff) 50%,transparent 65%) 0 0/220% 100% no-repeat;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:sheen 3.6s ease-in-out infinite}
+.calm .shimmer::after{animation:none;background:var(--accent)}
+.rep-top{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;padding-right:48px;margin:-2px 0 14px}
+.ract{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px 0 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:border-color .15s;white-space:nowrap}
+.ract:hover{border-color:var(--ink)}
+.ract svg,.know-line svg{width:16px;height:16px;flex:none;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rep-social{display:contents}
+@media (max-width:560px){.rep-top{justify-content:flex-start;padding-right:44px}}
+.know{margin:0 0 16px}
+.know h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 12px}
+.know-b{background:var(--bg);border-radius:var(--r-lg);padding:14px 16px;margin-bottom:12px;font-size:14px;line-height:1.55}
+.know-b h4{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.know-b p{margin:0 0 8px}.know-b p:last-child{margin-bottom:0}
+.know-line{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.know-list{margin:0;padding:0;list-style:none}
+.know-list>li{padding:7px 0;border-bottom:1px solid var(--line)}.know-list>li:last-child{border-bottom:0}
+.know-list .role{font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);padding:2px 8px;border-radius:999px;margin-left:8px}
+.know-list details{margin-top:4px;color:var(--muted);font-size:13px}.know-list details summary{cursor:pointer}
+.know-list details ul{margin:6px 0 0;padding-left:18px}.know-list details li{padding:2px 0}
+.know-list a{color:var(--ink);text-decoration:none}.know-list a:hover{text-decoration:underline}
+.know-big{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.know-big b{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1}
+.know-big span{color:var(--muted);flex:1;min-width:180px}
+.know-bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:10px 0 12px}
+.know-bar i{display:block;height:100%;background:var(--pc);border-radius:4px}
+.know-sub{font-weight:600;margin-top:10px!important}
+.know-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.know-rule{font-size:12.5px;color:var(--muted)}
+.know-wiki{border:1px dashed var(--line-strong);background:transparent}
+.tag.wiki{background:var(--hair);color:var(--muted)}
 .ymem>span:nth-child(2){flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
 .ymem>span:nth-child(2) .muted{font-size:12.5px}
 .ymem .vtag{flex:none}
@@ -1494,7 +1656,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     </div>
     <div class="yours-bar rv" style="--i:1">
       <label class="selwrap"><span>State</span><select id="ystate" aria-label="Your state"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
-      <button class="btn" id="yloc" type="button">Use my location</button>
+      <button class="btn shimmer" id="yloc" type="button">Use my location</button>
       <span class="muted ynote" id="ynote"></span>
     </div>
     <div class="yours-list" id="ylist" hidden></div>
@@ -1762,6 +1924,11 @@ function needBill(b){
   if (b._detail) return b._detail;
   return b._detail = fetch(`data/bill/${encodeURIComponent(b.key)}.json?v=${DATA_V}`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(d => { Object.assign(b, d); delete b.trim; b._hay = undefined; return b; }).catch(e => { delete b._detail; throw e; });
+}
+function needMember(id){
+  if (BOOT.inline) return Promise.resolve((BOOT.inline.profiles || {})[id] || {});
+  const k = "_m_" + id; if (loads[k]) return loads[k];
+  return loads[k] = fetch(`data/member/${encodeURIComponent(id)}.json?v=${DATA_V}`).then(r => r.ok ? r.json() : {}).catch(e => { delete loads[k]; throw e; });
 }
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
@@ -2441,6 +2608,52 @@ function positionsFor(v, st){
   return out;
 }
 
+/* ---------- who a member is: the contact row and "Get to know" ----------
+   The contact row sits at the top of the card, each entry with a symbol for what it is. There is no email:
+   Congress publishes none, so the row offers the contact form where the roster has one. "Get to know" says
+   who the member is without characterising anyone: facts from the roster, counts worked out from this site's
+   own roll calls by a rule stated on the page, and one fenced paragraph from Wikipedia for life before Congress. */
+const ICO = {
+  web: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  gov: '<path d="M3 21h18M5 21V10M9 21V10M15 21V10M19 21V10M3 10h18L12 4z"/>',
+  x: '<path d="M5 4l14 16M19 4L5 20"/>',
+  fb: '<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>',
+  yt: '<rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/>',
+  ig: '<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><path d="M17 7h.01"/>',
+  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>'
+};
+const ico = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICO[k]}</svg>`;
+const ract = (k, label, href, plain) => `<a class="ract" href="${esc(href)}"${plain ? "" : ' target="_blank" rel="noopener"'}>${ico(k)}<span>${esc(label)}</span></a>`;
+const contactRow = (L, cg, shareLabel) => `<div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.cf ? ract("mail", "Contact form", L.cf) : ""}${ract("gov", "Congress.gov", cg)}<span class="rep-social" id="repsocial"></span><button class="ract sharebtn" id="sharerep" type="button">${ico("share")}<span>${esc(shareLabel)}</span></button></div>`;
+const socialRow = S => !S ? "" : (S.twitter ? ract("x", "@" + S.twitter, "https://x.com/" + S.twitter) : "") + (S.facebook ? ract("fb", "Facebook", "https://www.facebook.com/" + S.facebook) : "")
+  + (S.youtube ? ract("yt", "YouTube", "https://www.youtube.com/" + S.youtube) : "") + (S.instagram ? ract("ig", "Instagram", "https://www.instagram.com/" + S.instagram) : "");
+function knowHTML(P, L, party){
+  const S = P.service, C = P.committees || [], V = P.votes, F = P.focus, W = P.wiki, last = L.n.split(" ").slice(-1)[0];
+  const fact = `<span class="tag fact">Fact</span>`, ana = `<span class="tag analysis">Analysis</span>`;
+  const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "";
+  const years = d => d ? Math.max(0, Math.floor((Date.now() - new Date(d + "T12:00:00")) / 3.15576e10)) : null;
+  const pctOf = (a, b) => b ? Math.round(100 * a / b) : 0, plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
+  let h = "";
+  if (S) {
+    const y = years(S.since);
+    h += `<div class="know-b"><h4>${fact} In office</h4><p>In the ${esc(S.chamber)} since <b>${esc(mon(S.since))}</b>${S.appointed ? " (first appointed to the seat)" : ""}: term ${S.terms}${y != null ? `, ${plural(y, "year")}` : ""}.${S.other ? ` Before that, in the ${esc(S.other.chamber)} from ${esc(S.other.from)} to ${esc(S.other.to)}.` : ""}${S.parties && S.parties.length > 1 ? ` Party over time: ${S.parties.map(esc).join(", then ")}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}, Washington, DC</span></p>` : ""}</div>`;
+  }
+  if (C.length) h += `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.subs && c.subs.length ? `<details><summary>${plural(c.subs.length, "subcommittee")}</summary><ul>${c.subs.map(s => `<li>${esc(s.name)}${s.title ? `<span class="role">${esc(s.title)}</span>` : ""}</li>`).join("")}</ul></details>` : ""}</li>`).join("")}</ul></div>`;
+  if (V && !V.n && V.eligible) h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4><p>${esc(last)} sits as an independent, so there is no party line to measure against. Cast a yes or a no on ${plural(V.cast || 0, "recorded vote")} and missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).</p><p class="know-rule">Counted from this Congress's recorded votes, as far as this site holds them member by member. Party is the one recorded on each roll call.</p></div>`;
+  if (V && V.n) {
+    const side = V.party === "R" ? "Republicans" : "Democrats", tone = V.party === "R" ? "rep" : "dem";
+    const head = V.split_n ? `<div class="know-big"><b>${pctOf(V.split_with, V.split_n)}%</b><span>of the ${plural(V.split_n, "vote")} where the two parties split, ${esc(last)} sided with ${side}</span></div><div class="know-bar" style="--pc:var(--${tone})"><i style="width:${pctOf(V.split_with, V.split_n)}%"></i></div>` : "";
+    const breaks = V.split_n ? (V.breaks && V.breaks.length ? `<p class="know-sub">${V.breaks_n > V.breaks.length ? `The ${V.breaks.length} most recent of ${V.breaks_n} breaks with the party` : (V.breaks_n === 1 ? "The one break with the party" : `All ${V.breaks_n} breaks with the party`)}</p><ul class="know-list">${V.breaks.map(b => `<li><a class="replink" href="#vote=${esc(voteSlug(b.vote_id))}" data-vote="${esc(b.vote_id)}"><b>${esc(b.bill)}</b> ${esc(b.title)}</a> <span class="muted">${esc(String(b.category).toLowerCase())}, ${esc(fmtDate(b.date))}: voted ${b.pos === "Y" ? "yes" : "no"}</span></li>`).join("")}</ul>` : `<p class="muted">No break with the party on a split vote in this record.</p>`) : "";
+    h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
+  }
+  if (F && (F.sponsored || F.cosponsored)) h += `<div class="know-b"><h4>${ana} What ${esc(last)} works on</h4><p>Sponsored <b>${plural(F.sponsored, "bill")}</b> this Congress${F.laws ? `; ${F.laws === 1 ? "one became law" : F.laws + " became law"}` : ""}.${F.cosponsored ? ` Cosponsored ${F.cosponsored.toLocaleString()}.` : ""}</p>${F.areas && F.areas.length ? `<div class="know-chips">${F.areas.map(a => `<span class="pill">${esc(a[0])} <b>${a[1]}</b></span>`).join("")}</div><p class="know-rule">The subjects are the Library of Congress policy areas of the bills ${esc(last)} sponsored, most frequent first.</p>` : ""}</div>`;
+  if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before Congress, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
+  return h;
+}
+
 /* ---------- a bill's own vote maps ----------
    The Vote map page lists every roll call there is. Inside a bill the same map is
    offered for that bill's roll calls only, so a reader can flip from the House vote
@@ -2729,7 +2942,9 @@ function initMap(){
   /* ---------- the representative card ---------- */
   const PARTY = {R: "Republican", D: "Democrat", I: "Independent", ID: "Independent", L: "Libertarian"};
   const POSW = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
+  let repSeq = 0;
   function openRep(m, st){
+    const token = ++repSeq;
     const L = m.L, name = (states[st] || {}).name || st, house = current.chamber !== "Senate", age = yrs(L.b), since = L.f ? L.f.slice(0, 4) : "", tenure = yrs(L.f);
     const seat = house ? (L.d ? `${name}'s ${pcOrdinal(L.d)} district` : `${name}'s at-large district`) : `Senator from ${name}`;
     const cg = `https://www.congress.gov/member/${encodeURIComponent(L.n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}/${m.id}`;
@@ -2750,21 +2965,29 @@ function initMap(){
     const recordHtml = record.length ? `<div class="rep-votes">${record.slice(0, 12).map(({v, pos}) => `<div><span><b>${esc(v.bill)}</b> <span class="muted">${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}</span><br><span class="muted">${esc(v.title)}</span></span><span class="vtag ${esc(pos)}">${POSW[pos] || pos}</span></div>`).join("")}${record.length > 12 ? `<div class="muted">and ${record.length - 12} more</div>` : ""}</div>` : `<p class="muted">No other roll calls on record here.</p>`;
     const mem = MEMBER[m.id];
     const bills = mem && mem.bills.length ? `<b>${mem.bills.length}</b> bill${mem.bills.length === 1 ? "" : "s"} in this catalog${mem.sponsored ? `, ${mem.sponsored} sponsored` : ""}${mem.cosponsored ? `, ${mem.cosponsored} cosponsored` : ""}.` : `No bills sponsored or cosponsored in this catalog.`;
-    $("#repbody").innerHTML = `<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
+    $("#repbody").innerHTML = `${contactRow(L, cg, "Share how " + L.n.split(" ").slice(-1)[0] + " voted")}<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
+      <div class="know" id="know"><h3>Get to know ${esc(L.n)}</h3><p class="muted loading">Loading\u2026</p></div>
       <div class="rep-grid">
         <div class="rep-block"><h4>This vote</h4><div class="rec"><span class="vtag ${esc(m.pos)}">${POSW[m.pos] || m.pos}</span><span>on <b>${esc(current.bill)}</b></span></div><div class="muted" style="margin-top:6px">${esc(current.title)}. ${esc(current.chamber)} ${esc(current.category.toLowerCase())}, ${esc(fmtDate(current.date))}: ${current.yeas ?? "?"} to ${current.nays ?? "?"}, ${esc((current.result || "").toLowerCase())}.</div></div>
         ${districtBlock}
         <div class="rep-block"><h4>Their votes on record here</h4>${recordHtml}</div>
         <div class="rep-block"><h4>Their bills</h4><div>${bills}</div>${mem && mem.bills.length ? `<div class="rep-links" style="margin-top:10px"><button id="repbills">Show their bills</button></div>` : ""}</div>
-      </div>
-      <div class="rep-links">${L.u ? `<a href="${esc(L.u)}" target="_blank" rel="noopener">Official site</a>` : ""}${L.ph ? `<a href="tel:${esc(L.ph)}">${esc(L.ph)}</a>` : ""}${L.cf ? `<a href="${esc(L.cf)}" target="_blank" rel="noopener">Contact form</a>` : ""}<a href="${cg}" target="_blank" rel="noopener">Congress.gov</a><button class="chip sharebtn" id="sharerep" type="button">Share how ${esc(L.n.split(" ").slice(-1)[0])} voted</button></div>`;
+      </div>`;
     $("#sharerep").addEventListener("click", e => share({title: `${L.n} voted ${(POSW[m.pos] || m.pos).toLowerCase()} on ${current.bill}`, text: `${L.n} (${m.p}-${st}) voted ${(POSW[m.pos] || m.pos).toLowerCase()} on ${current.bill}, ${current.title}. The whole ${current.chamber}, state by state:`, url: shareUrlVote(current), kind: "rep", key: m.id}, e.currentTarget));
     const modal = $("#repmodal"); modal.hidden = false; document.body.classList.add("noscroll");
+    pageview("/member/" + m.id, L.n);
+    const knowHead = `<h3>Get to know ${esc(L.n)}</h3>`;
+    needMember(m.id).then(P => {
+      if (token !== repSeq) return;                 // another card was opened while this one loaded
+      const soc = $("#repsocial"), k = $("#know"); if (soc) soc.innerHTML = socialRow(P.social);
+      if (k) k.innerHTML = knowHead + (knowHTML(P, L, m.p) || `<p class="muted">Nothing more on record for this member yet.</p>`);
+    }, () => { const k = $("#know"); if (k && token === repSeq) k.innerHTML = knowHead + `<p class="muted">Couldn't load this member's profile. Check your connection and open the card again.</p>`; });
     const rb = $("#repbills"); if (rb) rb.addEventListener("click", () => { closeRep(); pickMember(m.id); });
     requestAnimationFrame(() => $("#repclose").focus());
   }
   function closeRep(){ $("#repmodal").hidden = true; document.body.classList.remove("noscroll"); }
   $("#repclose").addEventListener("click", closeRep); $(".rep-back").addEventListener("click", closeRep);
+  $("#repbody").addEventListener("click", e => { const a = e.target.closest("a.replink"); if (!a) return; e.preventDefault(); closeRep(); mapShow(a.dataset.vote); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#repmodal").hidden) { e.stopPropagation(); closeRep(); } }, true);
   function pick(st){ if (zoomed === st) { showState(st); return; } zoomTo(st); }
   const monthOf = d => d ? new Date(d.slice(0, 7) + "-15T12:00:00").toLocaleDateString("en-US", {year: "numeric", month: "long"}) : "Undated";
@@ -2960,8 +3183,9 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     for (const v of DATA.vote_meta) { if (positionsFor(v, st).length) votes.push(v); if (votes.length === 6) break; }
     list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><a class="chip" href="#map">Every vote, on the map</a></div>` + (votes.map(v => {
       const ms = positionsFor(v, st).sort(byRow), mine = mineFor(v, ms);
+      if (mine) { ms.splice(ms.indexOf(mine), 1); ms.unshift(mine); }      // your own member comes first
       return `<article class="yvote" data-vote="${esc(v.vote_id)}"><div class="yv-head"><b>${esc(v.bill)}</b> ${esc(v.title)}<div class="muted">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}: ${v.yeas ?? "?"}\u2013${v.nays ?? "?"}, ${esc((v.result || "").toLowerCase())}</div></div>
-        <div class="yv-members">${ms.map(m => `<button class="ymem${mine && mine.id === m.id ? " mine" : ""}" type="button" data-id="${esc(m.id)}">${avatar(m.id, m.p, "sm")}<span><b>${esc(m.L.n)}</b><span class="muted">${esc(seat(v, m))}${mine && mine.id === m.id ? " \u00b7 yours" : ""}</span></span><span class="vtag ${esc(m.pos)}">${POS[m.pos] || m.pos}</span></button>`).join("")}</div>
+        <div class="yv-members">${ms.map(m => `<button class="ymem${mine && mine.id === m.id ? " mine shimmer" : ""}" type="button" data-id="${esc(m.id)}">${avatar(m.id, m.p, "sm")}<span><b>${esc(m.L.n)}</b><span class="muted">${esc(seat(v, m))}${mine && mine.id === m.id ? " \u00b7 yours" : ""}</span></span><span class="vtag ${esc(m.pos)}">${POS[m.pos] || m.pos}</span></button>`).join("")}</div>
         <div class="yv-acts"><button class="chip sharebtn" type="button" data-share="1">Share how ${esc(name)} voted</button><a class="chip" href="#vote=${esc(voteSlug(v.vote_id))}">Open on the map</a></div></article>`;
     }).join("") || `<p class="muted">No roll calls with members from ${esc(name)} yet.</p>`);
   }
@@ -3072,7 +3296,7 @@ def main():
         if os.path.exists(cfg):
             args.analytics = open(cfg, encoding="utf-8").read().strip()
     data = collect(args.db)
-    photo_bytes = data.pop("photo_bytes")
+    photo_bytes, profiles = data.pop("photo_bytes"), data.pop("profiles")
     version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
     if args.as_of:
         data["generated"] = dt.datetime.strptime(args.as_of, "%Y-%m-%d").strftime("%B %d, %Y")
@@ -3096,7 +3320,7 @@ def main():
     boot["analytics"] = args.analytics
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
-        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"]})
+        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": profiles})
         html = render_page(boot, shaped, version, foot)
         mb = len(html.encode("utf-8")) / 1e6
         if mb <= args.max_mb - 0.3 or n_chars == 0:
@@ -3116,7 +3340,7 @@ def main():
     if args.split:
         boot["inline"] = None
         shaped = trim_lite(data, args.summary_chars, 4)   # compact rows carry a short summary; the full one is on Congress.gov
-        shaped["_version"] = version
+        shaped["_version"], shaped["_profiles"] = version, profiles
         shell = render_page(boot, shaped, version, foot)
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"

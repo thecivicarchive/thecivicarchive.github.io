@@ -10,6 +10,23 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.013 — 2026-09-20 — Get to know your members
+
+- Every member's card now opens with "Get to know": how long they have held
+  the seat and what they did in Congress before it, their committees and
+  titles, how often they side with their party when the parties split (with
+  the most recent times they did not, each one a tap away), how many votes
+  they missed, and the subjects of the bills they sponsor. Every number is
+  counted from the record by a rule printed beside it. Nothing describes
+  anyone's character or beliefs.
+- Life before Congress comes from the opening of each member's Wikipedia
+  article, boxed and labelled as not an official record, with a link.
+- Website, phone, contact form, Congress.gov and official social accounts
+  now sit at the top of the card, each with a symbol for what it is.
+- "Use my location" and your own representative now carry a slow shimmer,
+  and your representative comes first, a little larger. With Motion off the
+  shimmer holds still.
+
 ## v4.0.012 — 2026-09-20 — The names people actually use
 
 - Eleven bills now carry the name in common use, each with a link showing
