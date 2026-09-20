@@ -29,7 +29,7 @@ import time
 from urllib.request import Request, urlopen
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STAGES = ["check", "roster", "catalog", "titles", "rollcalls", "profiles", "photos", "districts", "ratings", "build", "verify"]
+STAGES = ["check", "roster", "catalog", "titles", "rollcalls", "profiles", "donors", "photos", "districts", "ratings", "build", "verify"]
 UA = "Mozilla/5.0 (compatible; congress-catalog/1.0; personal legislative research)"
 LOG = None
 
@@ -184,6 +184,11 @@ def stage_rollcalls(args):
 def stage_profiles(args):
     banner("Stage: profiles (terms served, committee seats, official accounts, and Wikipedia's opening paragraph)")
     run("load_profiles.py", "--db", args.db, "--cache-dir", os.path.join(HERE, "profile_cache"))
+
+
+def stage_donors(args):
+    banner("Stage: donors (which organizations gave to each member's campaigns, and outside spending, from FEC bulk files)")
+    run("load_donors.py", "--db", args.db, "--cache-dir", os.path.join(HERE, "fec_cache"), "--cycles", "2016-2026")
 
 
 def stage_photos(args):
@@ -412,13 +417,14 @@ def main():
         stage_titles(args)
         stage_rollcalls(args)
         stage_profiles(args)
+        stage_donors(args)
         stage_photos(args)
         stage_districts(args)
         stage_ratings(args)
         stage_build(args)
         stage_verify(args)
     else:
-        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "titles": stage_titles, "rollcalls": stage_rollcalls, "profiles": stage_profiles, "photos": stage_photos, "districts": stage_districts,
+        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "titles": stage_titles, "rollcalls": stage_rollcalls, "profiles": stage_profiles, "donors": stage_donors, "photos": stage_photos, "districts": stage_districts,
          "ratings": stage_ratings, "build": stage_build, "verify": stage_verify}[args.stage](args)
     say(f"\nDone in {fmt_secs(time.time() - t0)}. Log: {LOG.name}")
 

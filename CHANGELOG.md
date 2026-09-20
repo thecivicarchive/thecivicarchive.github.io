@@ -10,6 +10,21 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.018 — 2026-09-20 — Decided by a handful
+
+- New on the front page: "Decided by a handful", the recorded votes of this
+  Congress that came down to the fewest votes, ties included. Each one opens
+  to show how every member voted, and links to the bill.
+- New on the Members page: "With their party, and against it". Every sitting
+  member, with how many party-split votes they cast, how often they sided with
+  their party, how many times they broke with it, and how often they did not
+  vote. Click any column to sort; hold Shift and click another to sort within
+  it (on a phone, turn on "Sort by several columns").
+- Breaks with the party are now a way in. Tap the count, on the table or on a
+  member's card, and you land on that member's page already narrowed to those
+  votes. Each vote opens to show how everyone else voted, and each now links
+  to the bill itself.
+
 ## v4.0.017 — 2026-09-20 — Your own seats on the chamber floor
 
 - On the chamber floor, the seats of your state's members are ringed in gold,

@@ -548,13 +548,65 @@ def collect(db_path):
           f"{led['short']:,} earlier short title(s); "
           f"{len(nicks):,} approved nickname(s) from nicknames.json")
     profiles = member_profiles(con, legislators, vote_meta)
+    for bio, prof in profiles.items():                         # the party-line table on the Members page reads these five counts
+        v = prof.get("votes")
+        if v and bio in legislators:
+            legislators[bio]["vs"] = [v["split_n"], v["split_with"], v["breaks_n"], v["missed"], v["eligible"]]
+    closest = closest_votes(con, vote_meta)
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
-            "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles,
+            "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest,
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
+
+
+def vote_needs(category, action_text):
+    """What a roll call needed in order to carry, read from the record's own words: a majority, two-thirds
+    (suspension of the rules, a veto override), or the Senate's sixty."""
+    t = (action_text or "").lower()
+    if category == "Veto override" or "2/3" in t or "two-thirds" in t:
+        return "two_thirds"
+    if category == "Cloture" or "60 votes" in t or "three-fifths" in t or "3/5" in t:
+        return "sixty"
+    return "majority"
+
+
+def closest_votes(con, vote_meta, n=12):
+    """The recorded votes that came down to the fewest votes: how far the yes count landed from what it needed.
+    A vote whose recorded result does not fit the threshold read from its text is left out rather than guessed at."""
+    meta = {v["vote_id"]: v for v in vote_meta}
+    if not meta:
+        return []
+    carried = {"Passed", "Agreed to", "Invoked", "Sustained"}
+    weight = {"Passage": 0, "Resolve differences": 0, "Veto override": 0}
+    out = []
+    for vid, category, result, yeas, nays, text in con.execute(
+            "SELECT vote_id, category, result, yeas, nays, action_text FROM floor_votes WHERE yeas IS NOT NULL AND nays IS NOT NULL"):
+        m = meta.get(vid)
+        if not m:
+            continue
+        needs = vote_needs(category, text)
+        if needs == "majority":
+            need, margin, won = None, abs(yeas - nays), yeas > nays
+            if yeas == nays:
+                won = result in carried                          # a Senate tie is settled by the Vice President
+        elif needs == "sixty":
+            need = 60
+            margin, won = abs(yeas - need), yeas >= need
+        else:
+            need = -(-2 * (yeas + nays) // 3)                   # two-thirds of those voting, rounded up
+            margin, won = abs(yeas - need), yeas >= need
+        if won != (result in carried):
+            continue
+        out.append({"vote_id": vid, "bill_key": m["bill_key"], "bill": m["bill"], "title": trim_text(m["title"], 90), "chamber": m["chamber"],
+                    "category": category, "date": m["date"], "yeas": yeas, "nays": nays, "result": result, "needs": needs,
+                    "need": need, "margin": margin, "won": won, "_w": weight.get(category, 1)})
+    out.sort(key=lambda v: (v["margin"], v["_w"], -int((v["date"] or "0000-00-00").replace("-", ""))))
+    for v in out:
+        v.pop("_w")
+    return out[:n]
 
 
 def welcome_picks(con, n=5):
@@ -727,7 +779,7 @@ def boot_for(data, version, base_url=""):
     ticker = [{"v": m["vote_id"], "b": m["bill"], "t": trim_text(m["title"], 64), "c": m["chamber"], "d": m["date"],
                "y": m["yeas"], "n": m["nays"], "r": m["result"]} for m in data["vote_meta"][:14]]
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
-            "ticker": ticker,
+            "ticker": ticker, "closest": data.get("closest") or [],
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
             "state_names": {st: s["name"] for st, s in data["states"].items()},
@@ -1638,12 +1690,58 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .mp-grid{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
 @media (min-width:980px){.mp-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mp-filters{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
-.mvrow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:14px;line-height:1.4}
-.mvrow:last-child{border-bottom:0}.mvrow:hover b{text-decoration:underline}
+.mvrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:14px;line-height:1.4}
+.mvrow:last-child{border-bottom:0}
+.mv-main{text-decoration:none;color:inherit}.mv-main:hover b{text-decoration:underline}
+.mv-side{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.mv-bill{font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.mv-bill:hover{color:var(--ink)}
+@media (max-width:560px){.mvrow{grid-template-columns:1fr}.mv-side{justify-content:flex-start}}
+.know-breaks{margin:10px 0 2px;height:32px}
+/* a table a reader can sort: click a column, shift-click another to sort within it */
+.gt-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.gt{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.35}
+.gt th{position:sticky;top:0;z-index:1;background:var(--surface);text-align:left;padding:0;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.gt th button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;width:100%;padding:10px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.gt th button:hover,.gt th[aria-sort="ascending"] button,.gt th[aria-sort="descending"] button{color:var(--ink)}
+.gt th button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.gt th.num button{justify-content:flex-end}
+.gt .srt{display:inline-flex;align-items:center;gap:1px;font-size:10px;color:var(--accent-ink);min-width:16px}
+.gt .srt sup{font-size:9px;font-weight:700}
+.gt td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.gt tr:last-child td{border-bottom:0}
+.gt td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gt tbody tr:hover,.gt tbody tr.hot{background:var(--hair)}
+.gt a{color:inherit;text-underline-offset:2px}
+.gt .pty{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:baseline}
+/* on a narrow screen the table scrolls sideways; the first column stays put so a row never loses its name */
+@media (max-width:760px){.gt th:first-child,.gt td:first-child{position:sticky;left:0;z-index:2;background:var(--surface);box-shadow:1px 0 0 var(--line);max-width:46vw}.gt th:first-child{z-index:3}}
+.gt-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.gt-tools .grow{flex:1;min-width:180px}
+.gt-tools input[type=search]{height:34px;width:100%;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);padding:0 14px;font:inherit;font-size:13.5px}
+.gt-foot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.gt-foot .chip{height:30px}
+.chip[aria-pressed="true"].gt-multi{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.partyline{margin-top:34px}
+.partyline h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.partyline .lead{color:var(--muted);max-width:70ch;margin:0 0 4px;font-size:15px}
+/* decided by a handful */
+.closest{padding:26px 0 8px}
+.closelist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
+@media (min-width:860px){.closelist{grid-template-columns:1fr 1fr}}
+.closeitem{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 16px;transition:border-color .15s,transform .15s var(--ease)}
+.closeitem:hover{border-color:var(--line-strong)}
+.closeitem .by{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid var(--line);padding-right:12px;min-height:64px}
+.closeitem .by b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.closeitem .by span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.closeitem .what{font-size:14.5px;line-height:1.4}
+.closeitem .what a.main{color:var(--ink);text-decoration:none}.closeitem .what a.main:hover b{text-decoration:underline}
+.closeitem .what .muted{display:block;font-size:12.5px;margin-top:3px}
+.closeitem .what .how{display:block;font-size:13px;margin-top:3px}
+.closeitem .what .how.won{color:var(--accent-ink)}.closeitem .what .how.lost{color:var(--bad-ink)}
 .mv-main .muted{display:block;font-size:12.5px}
 .mv-flag{font-size:11.5px;font-weight:600;color:var(--amber-ink);background:var(--amber-soft);padding:2px 8px;border-radius:999px;white-space:nowrap}
 #mpmore{margin-top:10px}
-@media (max-width:560px){.mvrow{grid-template-columns:minmax(0,1fr) auto}.mv-flag{grid-column:1;justify-self:start}.mp-head{gap:16px}.avw.xxl{width:72px;height:72px}}
+@media (max-width:560px){.mp-head{gap:16px}.avw.xxl{width:72px;height:72px}}
 .avw.xl:before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(from 0deg,var(--pc),transparent 35%,var(--pc) 65%,transparent 100%);opacity:.6;z-index:-1}
 html.motion .avw.xl:before{animation:spin 7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -1742,6 +1840,16 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <span class="muted ynote" id="ynote"></span>
     </div>
     <div class="yours-list" id="ylist" hidden></div>
+  </div>
+</section>
+
+<section class="closest" id="closest" hidden>
+  <div class="wrap">
+    <div class="sechead rv">
+      <div><h2>Decided by a handful</h2><p>The recorded votes of this Congress that came down to the fewest votes. Open one to see how every member voted, state by state or seat by seat.</p></div>
+    </div>
+    <ol class="closelist" id="closelist"></ol>
+    <p class="srcnote"><span class="tag fact">Fact</span> From the official tallies. Most votes need a majority. A few need more, and the record says so: two-thirds to pass a bill under suspension of the rules or to override a veto, sixty in the Senate to end debate. Each line counts how far the yes votes landed from what that vote needed.</p>
   </div>
 </section>
 
@@ -1893,6 +2001,17 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
           <ul class="mlist" id="mlist"></ul>
         </div>
         <div id="mpick" class="mpick rv" style="--i:1">Pick a member to filter the bill list above.</div>
+      </div>
+      <div class="partyline rv" style="--i:2" id="partyline">
+        <h3><span class="tag analysis">Analysis</span>With their party, and against it</h3>
+        <p class="lead">Every sitting member, counted from this Congress's recorded votes. Tap a number under "Broke with party" to see those votes, then open any one to see how everyone else voted, or open the bill itself.</p>
+        <div class="gt-tools" id="pltools">
+          <button class="chip" type="button" data-ch="" aria-pressed="true">Both chambers</button><button class="chip" type="button" data-ch="House" aria-pressed="false">House</button><button class="chip" type="button" data-ch="Senate" aria-pressed="false">Senate</button>
+          <button class="chip" type="button" data-pt="" aria-pressed="true">All parties</button><button class="chip" type="button" data-pt="D" aria-pressed="false">Democrats</button><button class="chip" type="button" data-pt="R" aria-pressed="false">Republicans</button>
+          <label class="grow"><span class="sr-only">Filter by name or state</span><input id="plq" type="search" placeholder="Filter by name or state" autocomplete="off"></label>
+        </div>
+        <div id="pltable"></div>
+        <p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. "Broke with party" counts the split votes on which a member voted against most of their own party. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member. Independents have no party line to measure against.</p>
       </div>
     </div>
   </section>
@@ -2961,7 +3080,7 @@ ICO.user = '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>';
 const contactRow = (L, cg, shareLabel, pre, profileId) => `<div class="rep-top">${profileId ? `<button class="ract" type="button" data-profile="${esc(profileId)}">${ico("user")}<span>Full profile</span></button>` : ""}${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.cf ? ract("mail", "Contact form", L.cf) : ""}${ract("gov", "Congress.gov", cg)}<span class="rep-social" id="${pre}social"></span><button class="ract sharebtn" id="share${pre}" type="button">${ico("share")}<span>${esc(shareLabel)}</span></button></div>`;
 const socialRow = S => !S ? "" : (S.twitter ? ract("x", "@" + S.twitter, "https://x.com/" + S.twitter) : "") + (S.facebook ? ract("fb", "Facebook", "https://www.facebook.com/" + S.facebook) : "")
   + (S.youtube ? ract("yt", "YouTube", "https://www.youtube.com/" + S.youtube) : "") + (S.instagram ? ract("ig", "Instagram", "https://www.instagram.com/" + S.instagram) : "");
-function knowHTML(P, L, party){
+function knowHTML(P, L, party, id){
   const S = P.service, C = P.committees || [], V = P.votes, F = P.focus, W = P.wiki, last = L.n.split(" ").slice(-1)[0];
   const fact = `<span class="tag fact">Fact</span>`, ana = `<span class="tag analysis">Analysis</span>`;
   const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "";
@@ -2978,7 +3097,8 @@ function knowHTML(P, L, party){
     const side = V.party === "R" ? "Republicans" : "Democrats", tone = V.party === "R" ? "rep" : "dem";
     const head = V.split_n ? `<div class="know-big"><b>${pctOf(V.split_with, V.split_n)}%</b><span>of the ${plural(V.split_n, "vote")} where the two parties split, ${esc(last)} sided with ${side}</span></div><div class="know-bar" style="--pc:var(--${tone})"><i style="width:${pctOf(V.split_with, V.split_n)}%"></i></div>` : "";
     const breaks = V.split_n ? (V.breaks && V.breaks.length ? `<p class="know-sub">${V.breaks_n > V.breaks.length ? `The ${V.breaks.length} most recent of ${V.breaks_n} breaks with the party` : (V.breaks_n === 1 ? "The one break with the party" : `All ${V.breaks_n} breaks with the party`)}</p><ul class="know-list">${V.breaks.map(b => `<li><a class="replink" href="#vote=${esc(voteSlug(b.vote_id))}" data-vote="${esc(b.vote_id)}"><b>${esc(b.bill)}</b> ${esc(b.title)}</a> <span class="muted">${esc(String(b.category).toLowerCase())}, ${esc(fmtDate(b.date))}: voted ${b.pos === "Y" ? "yes" : "no"}</span></li>`).join("")}</ul>` : `<p class="muted">No break with the party on a split vote in this record.</p>`) : "";
-    h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
+    const allBreaks = (id && V.breaks_n) ? `<a class="chip know-breaks" href="#member=${esc(id)}/breaks" data-profile="${esc(id)}" data-show="breaks">See ${V.breaks_n === 1 ? "that vote" : "all " + V.breaks_n.toLocaleString() + " of those votes"}, and how everyone else voted</a>` : "";
+    h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}${allBreaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
   }
   if (F && (F.sponsored || F.cosponsored)) h += `<div class="know-b"><h4>${ana} What ${esc(last)} works on</h4><p>Sponsored <b>${plural(F.sponsored, "bill")}</b> this Congress${F.laws ? `; ${F.laws === 1 ? "one became law" : F.laws + " became law"}` : ""}.${F.cosponsored ? ` Cosponsored ${F.cosponsored.toLocaleString()}.` : ""}</p>${F.areas && F.areas.length ? `<div class="know-chips">${F.areas.map(a => `<span class="pill">${esc(a[0])} <b>${a[1]}</b></span>`).join("")}</div><p class="know-rule">The subjects are the Library of Congress policy areas of the bills ${esc(last)} sponsored, most frequent first.</p>` : ""}</div>`;
   if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before Congress, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
@@ -3351,7 +3471,7 @@ function initMap(){
     needMember(m.id).then(P => {
       if (token !== repSeq) return;                 // another card was opened while this one loaded
       const soc = $("#repsocial"), k = $("#know"); if (soc) soc.innerHTML = socialRow(P.social);
-      if (k) k.innerHTML = knowHead + (knowHTML(P, L, m.p) || `<p class="muted">Nothing more on record for this member yet.</p>`);
+      if (k) k.innerHTML = knowHead + (knowHTML(P, L, m.p, m.id) || `<p class="muted">Nothing more on record for this member yet.</p>`);
     }, () => { const k = $("#know"); if (k && token === repSeq) k.innerHTML = knowHead + `<p class="muted">Couldn't load this member's profile. Check your connection and open the card again.</p>`; });
     const rb = $("#repbills"); if (rb) rb.addEventListener("click", () => { closeRep(); pickMember(m.id); });
     requestAnimationFrame(() => $("#repclose").focus());
@@ -3359,7 +3479,7 @@ function initMap(){
   function closeRep(){ $("#repmodal").hidden = true; document.body.classList.remove("noscroll"); }
   $("#repclose").addEventListener("click", closeRep); $(".rep-back").addEventListener("click", closeRep);
   $("#repbody").addEventListener("click", e => {
-    const pf = e.target.closest("[data-profile]"); if (pf) { closeRep(); openMember(pf.dataset.profile); return; }
+    const pf = e.target.closest("[data-profile]"); if (pf) { e.preventDefault(); closeRep(); openMember(pf.dataset.profile, pf.dataset.show); return; }
     const a = e.target.closest("a.replink"); if (!a) return; e.preventDefault(); closeRep(); mapShow(a.dataset.vote);
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#repmodal").hidden) { e.stopPropagation(); closeRep(); } }, true);
@@ -3406,14 +3526,90 @@ document.addEventListener("click", e => {
   mapReady().then(() => { if (window.mapShow) mapShow(a.dataset.vote); });
 });
 
+/* ---------- a table a reader can sort ----------
+   Click a column to sort by it, click again to turn it round. Shift-click another column to sort within the
+   first, and another within that, the way a spreadsheet does; a third shift-click lets a column go. On a
+   touch screen there is no Shift key, so a "several columns" switch does the same job. Only the rows on
+   show are built, so the same table serves five hundred members or a hundred thousand payments.
+     cols: [{key, label, num, val: row => what to sort by, html: row => what to show, title}] */
+function gridTable(host, opt){
+  const cols = opt.cols, col = Object.fromEntries(cols.map(c => [c.key, c])), page = opt.page || 50;
+  let rows = opt.rows || [], sort = (opt.sort || []).slice(), shown = page, multi = false;
+  host.innerHTML = `<div class="gt-wrap"><table class="gt"><thead><tr>${cols.map(c => `<th scope="col" class="${c.num ? "num" : ""}"${c.title ? ` title="${esc(c.title)}"` : ""}><button type="button" data-k="${esc(c.key)}">${esc(c.label)}<span class="srt" aria-hidden="true"></span></button></th>`).join("")}</tr></thead><tbody></tbody></table></div>
+    <div class="gt-foot"><span class="gt-count"></span><span><button class="chip gt-multi" type="button" aria-pressed="false" title="Or hold Shift while you click a column">Sort by several columns</button> <button class="chip gt-more" type="button" hidden></button></span></div>`;
+  const head = $("thead", host), body = $("tbody", host), more = $(".gt-more", host), count = $(".gt-count", host), mbtn = $(".gt-multi", host);
+  const cmp = (a, b) => {
+    for (const st of sort) {
+      const c = col[st.key]; if (!c) continue;
+      const x = c.val(a), y = c.val(b);
+      if (x == null || y == null) { if (x == null && y == null) continue; return x == null ? 1 : -1; }      // blanks always sink
+      const d = (typeof x === "number" && typeof y === "number") ? x - y : String(x).localeCompare(String(y), "en", {numeric: true, sensitivity: "base"});
+      if (d) return st.dir === "desc" ? -d : d;
+    }
+    return 0;
+  };
+  function draw(){
+    if (sort.length) rows.sort(cmp);
+    $$("th", head).forEach((th, i) => { const k = cols[i].key, at = sort.findIndex(x => x.key === k), st = sort[at];
+      th.setAttribute("aria-sort", st ? (st.dir === "asc" ? "ascending" : "descending") : "none");
+      $(".srt", th).innerHTML = st ? (st.dir === "asc" ? "\u25B2" : "\u25BC") + (sort.length > 1 ? `<sup>${at + 1}</sup>` : "") : ""; });
+    body.innerHTML = rows.slice(0, shown).map((r, i) => `<tr data-i="${i}">${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.html ? c.html(r) : esc(c.val(r) ?? "")}</td>`).join("")}</tr>`).join("")
+      || `<tr><td colspan="${cols.length}" class="muted" style="padding:18px">${esc(opt.empty || "Nothing matches.")}</td></tr>`;
+    const left = rows.length - shown; more.hidden = left <= 0; if (left > 0) more.textContent = `Show ${Math.min(page, left).toLocaleString()} more (${left.toLocaleString()} left)`;
+    count.textContent = (opt.count ? opt.count(rows) : `${rows.length.toLocaleString()} row${rows.length === 1 ? "" : "s"}`) + (sort.length > 1 ? " \u00b7 sorted by " + sort.map(x => col[x.key].label.toLowerCase()).join(", then ") : "");
+    if (opt.after) opt.after(rows.slice(0, shown));
+  }
+  head.addEventListener("click", e => {
+    const b = e.target.closest("button[data-k]"); if (!b) return;
+    const k = b.dataset.k, i = sort.findIndex(x => x.key === k), first = col[k].num ? "desc" : "asc", flip = d => d === "asc" ? "desc" : "asc";
+    if (e.shiftKey || multi) { if (i < 0) sort.push({key: k, dir: first}); else if (sort[i].dir === first) sort[i].dir = flip(first); else sort.splice(i, 1); }
+    else sort = [{key: k, dir: (i === 0 && sort.length === 1) ? flip(sort[0].dir) : first}];
+    shown = page; draw();
+  });
+  mbtn.addEventListener("click", () => { multi = !multi; mbtn.setAttribute("aria-pressed", multi); });
+  more.addEventListener("click", () => { shown += page; draw(); });
+  if (opt.onHover) { body.addEventListener("pointerover", e => { const tr = e.target.closest("tr[data-i]"); opt.onHover(tr ? rows[+tr.dataset.i] : null); }); body.addEventListener("pointerleave", () => opt.onHover(null)); }
+  draw();
+  return {setRows(r){ rows = r; shown = page; draw(); }, setSort(x){ sort = x.slice(); draw(); }, get sort(){ return sort.slice(); }, get rows(){ return rows; },
+    mark(test){ $$("tr[data-i]", body).forEach(tr => tr.classList.toggle("hot", !!test && test(rows[+tr.dataset.i]))); }, redraw: draw};
+}
+
+/* ---------- with their party, and against it: every sitting member's party-line record ---------- */
+let partyTable = null;
+function renderPartyLine(){
+  const host = $("#pltable"); if (!host) return;
+  if (!MEMBERS_READY) { host.innerHTML = `<p class="muted">Loading members\u2026</p>`; membersReady().then(renderPartyLine, () => { host.innerHTML = `<p class="muted">Couldn't load the member list. Check your connection and try again.</p>`; }); return; }
+  const NAMES = BOOT.state_names || {}, tone = {D: "var(--dem)", R: "var(--rep)"}, PW = {D: "Democrat", R: "Republican", I: "Independent", ID: "Independent", L: "Libertarian"};
+  const lastName = n => { const t = String(n).replace(/,?\s+(Jr\.|Sr\.|II|III|IV)$/, "").split(" "); return t[t.length - 1] + " " + n; };
+  const all = Object.entries(DATA.legislators).filter(([, L]) => L.cur && L.vs).map(([id, L]) => ({id, L, sn: L.vs[0], sw: L.vs[1], bn: L.vs[2], ms: L.vs[3], el: L.vs[4]}));
+  const pct = (a, b) => b ? Math.round(1000 * a / b) / 10 : null;
+  const cols = [
+    {key: "name", label: "Member", val: r => lastName(r.L.n), html: r => `<span class="pty" style="background:${tone[r.L.p] || "var(--plum)"}"></span><a href="#member=${esc(r.id)}"><b>${esc(r.L.n)}</b></a>`},
+    {key: "party", label: "Party", val: r => PW[r.L.p] || r.L.p},
+    {key: "state", label: "State", val: r => NAMES[r.L.st] || r.L.st, html: r => esc(NAMES[r.L.st] || r.L.st) + (r.L.ch !== "Senate" && r.L.d ? ` <span class="muted">${esc(String(r.L.d))}</span>` : "")},
+    {key: "chamber", label: "Chamber", val: r => r.L.ch},
+    {key: "split", label: "Party-split votes", num: true, val: r => r.sn, title: "Votes this member cast where most Democrats went one way and most Republicans the other"},
+    {key: "with", label: "With party", num: true, val: r => pct(r.sw, r.sn), html: r => r.sn ? pct(r.sw, r.sn).toFixed(1) + "%" : `<span class="muted">n/a</span>`},
+    {key: "broke", label: "Broke with party", num: true, val: r => r.sn ? r.bn : null, html: r => r.sn ? (r.bn ? `<a href="#member=${esc(r.id)}/breaks" title="See these votes"><b>${r.bn.toLocaleString()}</b></a>` : "0") : `<span class="muted">n/a</span>`},
+    {key: "missed", label: "Did not vote", num: true, val: r => pct(r.ms, r.el), html: r => r.el ? (r.ms ? `<a href="#member=${esc(r.id)}/missed" title="See these roll calls">${pct(r.ms, r.el).toFixed(1)}%</a>` : "0%") : ""}];
+  const f = {ch: "", pt: "", q: ""};
+  const rowsNow = () => { const q = f.q.trim().toLowerCase(); return all.filter(r => (!f.ch || r.L.ch === f.ch) && (!f.pt || r.L.p === f.pt) && (!q || r.L.n.toLowerCase().includes(q) || (NAMES[r.L.st] || "").toLowerCase().includes(q) || r.L.st.toLowerCase() === q)); };
+  partyTable = gridTable(host, {cols, rows: rowsNow(), sort: [{key: "broke", dir: "desc"}, {key: "with", dir: "asc"}], page: 25, empty: "No member matches.",
+    count: rows => `${rows.length.toLocaleString()} member${rows.length === 1 ? "" : "s"}`});
+  if (!renderPartyLine.wired) { renderPartyLine.wired = true;
+    $("#pltools").addEventListener("click", e => { const b = e.target.closest("button.chip"); if (!b) return; const kind = "ch" in b.dataset ? "ch" : "pt"; f[kind] = b.dataset[kind];
+      $$(`#pltools button[data-${kind}]`).forEach(x => x.setAttribute("aria-pressed", x === b)); partyTable.setRows(rowsNow()); });
+    $("#plq").addEventListener("input", e => { f.q = e.target.value; partyTable.setRows(rowsNow()); }); }
+}
+
 /* ---------- a member's own page ----------
    The card on the map answers "how did they vote on this"; the page answers "who is this". It carries the
    same Get to know sections, then every recorded vote the member took part in, newest first, which can be
    narrowed to the votes where they broke with their party or did not vote. Its address (#member=C001119)
    has a share page of its own, so a link to someone's record shows a proper preview. */
-function openMember(id){ history.pushState({page: "member"}, "", "#member=" + id); routeFromHash(false); }
+function openMember(id, show){ history.pushState({page: "member"}, "", "#member=" + id + (show ? "/" + show : "")); routeFromHash(false); }
 let mpSeq = 0;
-function renderMemberPage(id){
+function renderMemberPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
   box.innerHTML = `<p class="muted loading">Loading\u2026</p>`;
   Promise.all([membersReady(), needMember(id), votesReady()]).then(([, P]) => {
@@ -3441,11 +3637,11 @@ function renderMemberPage(id){
       rec.push({v, pos, broke: !!(mine && other && mine !== other && (pos === "Y" || pos === "N") && pos !== mine)});
     }
     const counts = {all: rec.length, broke: rec.filter(r => r.broke).length, missed: rec.filter(r => r.pos === "X").length};
-    let filter = "all", shown = 25;
+    let filter = show === "breaks" ? "broke" : (show === "missed" ? "missed" : "all"), shown = 25;
     const rowsFor = () => rec.filter(r => filter === "all" || (filter === "broke" ? r.broke : r.pos === "X"));
     const drawVotes = () => {
       const rows = rowsFor(), list = $("#mpvotes");
-      list.innerHTML = rows.slice(0, shown).map(r => `<a class="mvrow" href="#vote=${esc(voteSlug(r.v.vote_id))}"><span class="mv-main"><b>${esc(r.v.bill)}</b> ${esc(r.v.title)}<span class="muted">${esc(r.v.chamber)} ${esc(String(r.v.category).toLowerCase())}, ${esc(fmtDate(r.v.date))}: ${r.v.yeas ?? "?"}\u2013${r.v.nays ?? "?"}, ${esc(String(r.v.result || "").toLowerCase())}</span></span>${r.broke ? `<span class="mv-flag">broke with party</span>` : ""}<span class="vtag ${esc(r.pos)}">${POSW[r.pos] || r.pos}</span></a>`).join("")
+      list.innerHTML = rows.slice(0, shown).map(r => `<div class="mvrow"><a class="mv-main" href="#vote=${esc(voteSlug(r.v.vote_id))}" title="How everyone voted"><b>${esc(r.v.bill)}</b> ${esc(r.v.title)}<span class="muted">${esc(r.v.chamber)} ${esc(String(r.v.category).toLowerCase())}, ${esc(fmtDate(r.v.date))}: ${r.v.yeas ?? "?"}\u2013${r.v.nays ?? "?"}, ${esc(String(r.v.result || "").toLowerCase())}</span></a><span class="mv-side">${r.broke ? `<span class="mv-flag">broke with party</span>` : ""}<span class="vtag ${esc(r.pos)}">${POSW[r.pos] || r.pos}</span>${r.v.bill_key ? `<a class="mv-bill" href="#bill=${esc(r.v.bill_key)}">The bill</a>` : ""}</span></div>`).join("")
         || `<p class="muted">${filter === "broke" ? "No breaks with the party on a split vote in this record." : (filter === "missed" ? "No missed roll calls in this record." : "No recorded votes here yet.")}</p>`;
       const more = $("#mpmore"); more.hidden = rows.length <= shown; more.textContent = `Show ${Math.min(25, rows.length - shown)} more (${(rows.length - shown).toLocaleString()} left)`;
       $$("#mpfilters .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === filter));
@@ -3454,17 +3650,18 @@ function renderMemberPage(id){
     box.innerHTML = `<div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(PARTYW[L.p] || L.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}</div></div></div>
       ${contactRow(L, cg, "Share this profile", "mp", null)}
       <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(P, L, L.p) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
+        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(P, L, L.p, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
         <div class="mp-side">
           <div class="know-b"><h4><span class="tag fact">Fact</span> Every recorded vote</h4>
             <div class="mp-filters" id="mpfilters" role="group" aria-label="Narrow the votes"><button class="chip" data-f="all" aria-pressed="true">All ${counts.all.toLocaleString()}</button><button class="chip" data-f="broke">Broke with party ${counts.broke.toLocaleString()}</button><button class="chip" data-f="missed">Did not vote ${counts.missed.toLocaleString()}</button></div>
             <div id="mpvotes"></div><button class="chip" id="mpmore" type="button" hidden></button>
-            <p class="know-rule">Each line opens that vote on the map. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>
+            <p class="know-rule">Each line opens that vote, where you can see how everyone else voted; "The bill" opens the bill itself. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>
           <div class="know-b"><h4><span class="tag fact">Fact</span> Their bills</h4><p>${bills}</p>${mem && mem.bills.length ? `<button class="chip" id="mpbills" type="button">Show ${esc(last)}'s bills</button>` : ""}</div>
         </div>
       </div>`;
     $("#mpsocial").innerHTML = socialRow(P.social);
     drawVotes();
+    if (show) setTimeout(() => { const t = $("#mpfilters"); if (t) t.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -80); }, 60);
     $("#mpfilters").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; filter = c.dataset.f; shown = 25; drawVotes(); });
     $("#mpmore").addEventListener("click", () => { shown += 25; drawVotes(); });
     const mb = $("#mpbills"); if (mb) mb.addEventListener("click", () => pickMember(id));
@@ -3529,7 +3726,7 @@ function showPage(name, push){
   document.body.dataset.page = name;
   pageview("/" + (name === "home" ? "" : name), "The Civic Archive: " + name);
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
-  if (name === "members") renderMembers();
+  if (name === "members") { renderMembers(); if (!partyTable) renderPartyLine(); }
   if (name === "map") mapReady();
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
@@ -3543,8 +3740,8 @@ function routeFromHash(push){
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   const vote = h.match(/^vote=(.+)$/);
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
-  const mem = h.match(/^member=([A-Za-z]\d{6})$/);
-  if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase()); return; }
+  const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed))?$/);
+  if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
@@ -3612,6 +3809,21 @@ addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(
   };
   fill("#picklive", W.live || [], false);
   fill("#picklaws", W.laws || [], true);
+})();
+
+/* ---------- decided by a handful: the closest recorded votes ---------- */
+(function(){
+  const list = BOOT.closest || [], box = $("#closest"), ol = $("#closelist"); if (!box || !ol || !list.length) return;
+  const votes = n => `${n} vote${n === 1 ? "" : "s"}`;
+  const how = v => {
+    const tally = `${v.yeas}\u2013${v.nays}`;
+    if (v.needs === "majority") return v.margin === 0 ? `${v.result} on a tie, ${tally}${v.chamber === "Senate" && v.won ? ". The Vice President's vote settles a Senate tie" : ""}` : `${v.result} by ${votes(v.margin)}, ${tally}`;
+    const needed = v.needs === "sixty" ? "the 60 votes it needed" : `the two-thirds it needed (${v.need})`;
+    return v.won ? (v.margin === 0 ? `${v.result} with exactly ${needed}, ${tally}` : `${v.result}, clearing ${needed} by ${v.margin}, ${tally}`) : `${v.result}, ${votes(v.margin)} short of ${needed}, ${tally}`;
+  };
+  ol.innerHTML = list.map(v => `<li class="closeitem rv"><div class="by"><b>${v.margin === 0 && v.needs === "majority" ? "Tie" : v.margin}</b><span>${v.margin === 0 ? (v.needs === "majority" ? `${v.yeas}\u2013${v.nays}` : "to spare") : (v.needs === "majority" ? (v.margin === 1 ? "vote" : "votes") : (v.won ? "to spare" : "short"))}</span></div>
+    <div class="what"><a class="main" href="#vote=${esc(String(v.vote_id).replace(/\|/g, "_"))}"><b>${esc(v.bill)}</b> ${esc(v.title)}</a><span class="how ${v.won ? "won" : "lost"}">${esc(how(v))}</span><span class="muted">${esc(v.chamber)} ${esc(String(v.category).toLowerCase())}, ${esc(fmtDate(v.date))} \u00b7 <a href="#vote=${esc(String(v.vote_id).replace(/\|/g, "_"))}">how everyone voted</a> \u00b7 <a href="#bill=${esc(v.bill_key)}">the bill</a></span></div></li>`).join("");
+  box.hidden = false;
 })();
 
 $("#totop").addEventListener("click", () => scrollTo({top: 0, behavior: calm() ? "auto" : "smooth"}));
