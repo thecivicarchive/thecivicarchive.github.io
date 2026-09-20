@@ -48,8 +48,9 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
   paste an API key into the chat.
 - Do not edit `rubric_v1.md` or anything in `seed/`. Ratings are judgments that show their evidence; the factual
   record is never hand-edited.
-- Do not add, change or approve entries in `nicknames.json`. Propose names in `nickname_candidates.md`, each with a
-  link showing the name in real use, and let John approve them. The record's own titles come from `load_titles.py`.
+- `nicknames.json` holds names that are not in the record, so John approves each one. Propose names in
+  `nickname_candidates.md`, each with a link showing the name in real use; add an entry, or set `"approved": true`,
+  only for a name John has approved in the conversation. The record's own titles come from `load_titles.py`.
 - Do not change the database by hand to make verify pass. If numbers don't reconcile, report which votes and why.
 - Do not delete `billstatus_cache/`, `rollcall_cache/`, `congress_119.sqlite` or `logs/` without asking.
 - Keep request rates as they are (8 parallel downloads for GovInfo, 4 for roll calls). These are public servers.

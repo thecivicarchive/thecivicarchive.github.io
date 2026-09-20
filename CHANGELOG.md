@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.011 — 2026-09-20 — Bills that became something else
+
+- Two bills were rewritten wholesale by the other chamber and no longer match
+  their original names. S. 1383 began as the Veterans Accessibility Advisory
+  Committee Act and now carries the SAVE America Act; S. 1318 began as the
+  Fallen Servicemembers Religious Heritage Restoration Act and now carries the
+  Foreign Intelligence Accountability Act. Both lead with what they became,
+  say what they began as, and note that earlier votes were on the original
+  bill. All of it comes from the Library of Congress record.
+
 ## v4.0.010 — 2026-09-20 — Bills lead with the name people know
 
 - A bill now leads with the name the record itself gives it when that is the

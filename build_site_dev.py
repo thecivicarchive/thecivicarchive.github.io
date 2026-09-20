@@ -112,26 +112,36 @@ FORMAL_TITLE = re.compile(r"^(An act |To |A bill |A joint resolution|A concurren
                           r"Proposing|Making |Expressing|Recognizing|Authorizing|Designating|Disapproving|Approving|Provides for|Relating to)", re.I)
 
 
-def lead_names(con):
-    """The name to lead with, from the record alone: bill_key -> (name, kind).
+def same_name(a, b):
+    """True when two titles are the same name give or take a year, "Act", "of", "the"."""
+    norm = lambda t: re.sub(r"[^a-z]", "", re.sub(r"\b(of|act|the|and)\b|\d{4}", "", (t or "").lower()))
+    x, y = norm(a), norm(b)
+    return bool(x and y) and (x == y or x in y or y in x)
 
-    The Library of Congress records a popular title for a few measures ("One Big Beautiful Bill Act"); that
-    comes first. Otherwise a measure whose only title is a formal one ("An act to provide for...") leads with
-    the short title it carried at its latest stage, if it ever had one. Needs the `titles` table that
-    `python run_all.py titles` loads from the cached Bill Status files; without it nothing changes."""
+
+def lead_names(con):
+    """The names the record itself offers to lead with: bill_key -> {"popular", "short", "amend"}.
+
+    `popular` is the popular title the Library of Congress records for a few measures ("One Big Beautiful
+    Bill Act"). `short` is the short title a measure carried at its latest stage, for measures whose only
+    other title is a formal one ("An act to provide for..."). `amend` lists the short titles the other
+    chamber's amendment gave the bill, as (chamber, title): when none of them is the name the bill is known
+    by, that chamber replaced the bill's text with something else (the Veterans Accessibility Advisory
+    Committee Act became the SAVE America Act), and the bill should lead with what it became.
+    Needs the `titles` table that `python run_all.py titles` loads; without it nothing changes."""
     if not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'titles'").fetchone():
         return {}
     rank = lambda tt: 0 if ("Enacted" in tt or "ENR" in tt) else 1 if "Passed" in tt else 2 if ("Reported" in tt or "PCS" in tt or "RFS" in tt) else 3
-    popular, short = {}, {}
-    for key, tt, ti in con.execute("SELECT bill_key, title_type, title FROM titles"):
-        low = tt.lower()
+    out, best = {}, {}
+    for key, tt, ti in con.execute("SELECT bill_key, title_type, title FROM titles ORDER BY rowid"):
+        low, e = tt.lower(), out.setdefault(key, {})
         if low.startswith("popular"):
-            popular.setdefault(key, ti)
-        elif low.startswith("short title") and "portions" not in low and not FORMAL_TITLE.match(ti):
-            if key not in short or rank(tt) < short[key][0]:
-                short[key] = (rank(tt), ti)
-    out = {k: (v[1], "short") for k, v in short.items()}
-    out.update({k: (v, "popular") for k, v in popular.items()})
+            e.setdefault("popular", ti)
+        elif low.startswith("short title") and "portions" not in low:
+            if "engrossed amendment" in low and "bill text" in low:
+                e.setdefault("amend", []).append(("House" if "House" in tt else "Senate", ti))
+            if not FORMAL_TITLE.match(ti) and (key not in best or rank(tt) < best[key]):
+                best[key], e["short"] = rank(tt), ti
     return out
 
 
@@ -255,7 +265,7 @@ def collect(db_path):
             dicts[kind].append(val)
         return lookup[kind][val]
 
-    leads, nicks, led = lead_names(con), load_nicknames(), {"popular": 0, "short": 0}
+    leads, nicks, led = lead_names(con), load_nicknames(), {"popular": 0, "short": 0, "rewritten": 0}
     full, lite, rated, years = [], [], 0, set()
     newest = con.execute("SELECT MAX(latest_action_date) FROM bills").fetchone()[0] or dt.date.today().isoformat()
     cutoff = (dt.date.fromisoformat(newest[:10]) - dt.timedelta(days=STALL_DAYS)).isoformat()
@@ -283,11 +293,14 @@ def collect(db_path):
                            "ORDER BY action_date DESC, version_code DESC LIMIT 1", (key,)).fetchone()
         subjects = [s[0] for s in con.execute("SELECT subject FROM subjects WHERE bill_key = ? ORDER BY subject LIMIT 8", (key,))]
         lens = [x.strip() for x in (b["lens_flags"] or "").split(";") if x.strip()]
-        own_short, lead_kind, lead = b["short_title"] or "", "", leads.get(key)      # the name to lead with, from the record
-        if lead and lead[1] == "popular":
-            own_short, lead_kind = lead[0], "popular"
-        elif lead and not own_short and FORMAL_TITLE.match(b["title"] or ""):
-            own_short, lead_kind = lead[0], "short"
+        own_short, lead_kind, names, was, by = b["short_title"] or "", "", leads.get(key) or {}, "", ""   # the name to lead with, from the record
+        if names.get("popular"):
+            own_short, lead_kind = names["popular"], "popular"
+        elif names.get("amend") and not any(same_name(t, own_short or b["title"]) for _c, t in names["amend"]):
+            was = display_title(b["title"] or "", own_short)          # the other chamber replaced the text: lead with what it became
+            (by, own_short), lead_kind = names["amend"][0], "rewritten"
+        elif names.get("short") and not own_short and FORMAL_TITLE.match(b["title"] or ""):
+            own_short, lead_kind = names["short"], "short"
         if lead_kind:
             led[lead_kind] += 1
         is_lite = (not votes and not ratings and not (b["law_number"] or "") and (b["status"] or "") in LITE_STATUSES
@@ -319,7 +332,7 @@ def collect(db_path):
             "summary_desc": summ["action_desc"] if summ else "", "summary_date": summ["action_date"] if summ else "",
             "related_enacted": b["related_enacted"] or "", "links": {"pdf": b["latest_text_pdf"] or ""},
             "ratings": ratings or None, "review": review, "journey": journey_for(con, b, cutoff),
-            "lead_kind": lead_kind, "nick": nicks.get(key)})
+            "lead_kind": lead_kind, "was": was, "rewritten_by": by, "nick": nicks.get(key)})
 
     # position of every measure in the page's list (full records first, then compact rows)
     index = {r["key"]: i for i, r in enumerate(full)}
@@ -402,12 +415,13 @@ def collect(db_path):
             fb = by_key.get(pick["key"]) or {}
             pick["journey"] = fb.get("journey")
             pick["title"] = fb.get("short_title") or pick["title"]           # the Start here lists lead with the same name the bill does
-            pick["nick"] = fb.get("nick")
+            pick["nick"], pick["was"] = fb.get("nick"), fb.get("was")
     for m in vote_meta:                                                     # and so does every roll call on the map
         fb = by_key.get(m["bill_key"])
         if fb:
             m["title"] = fb["short_title"] or m["title"]
-    print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['short']:,} earlier short title(s); "
+    print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['rewritten']:,} rewritten by the other chamber, "
+          f"{led['short']:,} earlier short title(s); "
           f"{len(nicks):,} approved nickname(s) from nicknames.json")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
@@ -521,7 +535,7 @@ def trim_lite(data, n_chars, n_subjects):
 
 LIST_FIELDS = ("key", "id", "congress", "title", "short_title", "kind", "introduced", "origin", "sponsor", "cosponsors",
                "bipartisan", "policy_area", "subjects", "status", "outcome", "law", "law_kind", "latest_action_date",
-               "latest_action", "lens", "review", "links", "lead_kind", "nick")
+               "latest_action", "lens", "review", "links", "lead_kind", "was", "rewritten_by", "nick")
 
 
 def trim_text(text, n):
@@ -1874,7 +1888,8 @@ function plainLine(b){
 /* The name to lead with. The record's popular or short title is already in short_title; a nickname John approved
    leads only when its entry says so, and otherwise rides beneath as "commonly called". */
 const leadTitle = b => (b.nick && b.nick.lead) ? b.nick.name : (b.short_title || b.title);
-const akaHTML = b => !b.nick ? "" : (b.nick.lead ? ((b.short_title || b.title) ? `<span class="aka">officially <b>${esc(b.short_title || b.title)}</b></span>` : "") : `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>`);
+const wasHTML = b => b.was ? `<span class="aka">began as <b>${esc(b.was)}</b>; the ${esc(b.rewritten_by || "other chamber")} replaced its text</span>` : "";
+const akaHTML = b => wasHTML(b) + (!b.nick ? "" : (b.nick.lead ? ((b.short_title || b.title) ? `<span class="aka">officially <b>${esc(b.short_title || b.title)}</b></span>` : "") : `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>`));
 function lensChips(b){ return (b.lens || []).map(l => `<span class="pill lens">${esc(l.replace(" (subj.)", ""))}</span>`).join(""); }
 
 /* ---------- the journey: from introduction to law, or to where it fell ----------
@@ -1916,7 +1931,7 @@ function paneFor(b){
   const whyBlock = b.ratings ? `<div class="why">${why}</div><p class="note">${esc(b.review)}. Rubric ${esc((r.income || r.plain_language || r.backing || {}).version || "")}, rated ${esc(((r.income || r.plain_language || r.backing || {}).rated_at || "").slice(0, 10))}.</p>` : `<p class="na">Not rated yet. Bills are rated after their first committee action or when an official cost estimate is published.</p>`;
   const L = b.links || {};
   const links = [["page", "Congress.gov page"], ["text", "Bill text"], ["pdf", "Latest text (PDF)"], ["actions", "All actions"], ["cosponsors", "Cosponsors"], ["committees", "Committees"], ["cbo", "CBO cost estimate"]].filter(([k]) => L[k]).map(([k, lab]) => `<a href="${esc(L[k])}" target="_blank" rel="noopener">${lab}</a>`).join("");
-  const named = (b.lead_kind === "popular" ? `<p class="note"><b>${esc(b.short_title)}</b> is this measure's popular title in the Library of Congress record. It is not the title in the final text, which is below.</p>` : (b.lead_kind === "short" ? `<p class="note"><b>${esc(b.short_title)}</b> is the short title this measure carried at an earlier stage, per the Library of Congress record.</p>` : ""))
+  const named = (b.lead_kind === "popular" ? `<p class="note"><b>${esc(b.short_title)}</b> is this measure's popular title in the Library of Congress record. It is not the title in the final text, which is below.</p>` : (b.lead_kind === "short" ? `<p class="note"><b>${esc(b.short_title)}</b> is the short title this measure carried at an earlier stage, per the Library of Congress record.</p>` : (b.lead_kind === "rewritten" ? `<p class="note">This measure began as <b>${esc(b.was)}</b>. The ${esc(b.rewritten_by || "other chamber")} replaced its text; its amendment carries the short title <b>${esc(b.short_title)}</b>, per the Library of Congress record. Earlier votes on this number were on the original bill.</p>` : "")))
     + (b.nick ? `<p class="note">Commonly called <b>${esc(b.nick.name)}</b> (<a href="${esc(b.nick.source)}" target="_blank" rel="noopener">where that name is used</a>). That is a label we keep by hand; it is not part of the official record.</p>` : "");
   const facts = `${named}${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
   const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + billMapHTML(b) + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
@@ -2914,7 +2929,7 @@ addEventListener("popstate", () => routeFromHash(false));
       b.cos ? `<span>${b.cos} cosponsor${b.cos === 1 ? "" : "s"}</span>` : "",
       b.date ? `<span>${esc(when(b.date))}</span>` : "",
     ].filter(Boolean).join("");
-    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.nick && b.nick.lead ? b.nick.name : (b.title || b.id))}</span>${b.nick && !b.nick.lead ? `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>` : ""}<span class="meta">${pills}</span>${b.journey ? trackHTML(b, "pick") : ""}</span></button>`;
+    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.nick && b.nick.lead ? b.nick.name : (b.title || b.id))}</span>${b.was ? `<span class="aka">began as <b>${esc(b.was)}</b></span>` : ""}${b.nick && !b.nick.lead ? `<span class="aka">commonly called <b>${esc(b.nick.name)}</b></span>` : ""}<span class="meta">${pills}</span>${b.journey ? trackHTML(b, "pick") : ""}</span></button>`;
     li.querySelector("button").addEventListener("click", () => goToBill(b.key));
     return li;
   }
