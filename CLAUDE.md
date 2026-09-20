@@ -21,9 +21,9 @@ system-wide.
 | --- | --- | --- |
 | `python run_all.py check` | Python, packages, disk and network checks; downloads nothing | 10 s |
 | `python run_all.py smoke` | Offline test on 8 bundled bills | 10 s |
-| `python run_all.py` | Full build: check, roster, catalog, titles, rollcalls, profiles, photos, districts, ratings, build, verify | 30 to 60 min the first time |
+| `python run_all.py` | Full build: check, roster, catalog, titles, rollcalls, profiles, donors, photos, districts, ratings, build, verify | 30 to 60 min the first time |
 | `python run_all.py refresh` | Weekly update: re-downloads the catalog, then everything after it | 15 to 30 min |
-| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `rollcalls`, `profiles`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
+| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `rollcalls`, `profiles`, `donors`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
 
 First run order: `check`, then `smoke`, then the full build. Run long stages in the foreground and let them finish;
 the catalog prints progress every 1,000 files and the roll-call loader every 50 roll calls. If anything stops
@@ -54,6 +54,11 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 - Never write a description of a member's character, beliefs or politics. "Get to know" shows the record (terms,
   committees, how they voted, what they sponsor) and lets the reader judge. The one piece of outside prose is
   Wikipedia's opening paragraph, fenced off and labelled as not an official record.
+- Donor lists name organizations only: PACs, party committees, other candidates' committees (John's decision,
+  2026-09-20). People who gave are public record at the FEC, but here they appear only as totals; don't add their
+  names, or "employees of X" groupings, unless John asks. Outside spending (super PACs and the like) is always shown
+  apart from donations, with a sentence saying the campaign never received it. Joint fundraising committees and a
+  member's own committees are not donors; what they pass along is reported as "moved in".
 - Do not change the database by hand to make verify pass. If numbers don't reconcile, report which votes and why.
 - Do not delete `billstatus_cache/`, `rollcall_cache/`, `congress_119.sqlite` or `logs/` without asking.
 - Keep request rates as they are (8 parallel downloads for GovInfo, 4 for roll calls). These are public servers.
@@ -82,6 +87,9 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 - **Site over 16 MB**: `python build_site.py --db congress_119.sqlite --out site/index.html --summary-chars 80`
   (shortens summaries on introduced-only bills; the full summary stays one tap away on Congress.gov).
 - **Excel stage slow or memory-hungry**: re-run the catalog with `python run_all.py catalog --skip-excel`.
+- **`getaddrinfo failed` during `donors`**: the FEC's bulk files sit on a storage host with a long name, and some
+  home routers drop one address lookup in three. `load_donors.py` already asks again patiently; if it still gives
+  up, wait a minute and re-run `python run_all.py donors`. Files already fetched are kept in `fec_cache/`.
 
 ## Files
 
@@ -95,6 +103,8 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `nicknames.json` | Names in common use that are not in the record, kept by hand; the draft site shows only entries John has approved |
 | `load_roll_calls.py` | Loads every linked House and Senate roll call, member by member, with a disk cache |
 | `load_profiles.py` | What the member cards say about who someone is: every term served, committee seats and official social accounts from the roster project, and the opening paragraph of their Wikipedia article (cached in `profile_cache/`, one polite request a second). The Wikipedia text is not a government record; the site fences it off, says so, credits it and links to it |
+| `load_donors.py` | Campaign money from the Federal Election Commission's public bulk files, 2016 through 2026 (about 170 MB, cached in `fec_cache/`, no key): which FEC candidate numbers belong to which member, each campaign's own totals, and every itemized payment by a committee to, for, or against a member. Organizations only; memo lines are left out, as the FEC's totals leave them out |
+| `money_views.py` | Shapes those tables for the site: each member's top donors by cycle and office, every payment behind them, and outside spending kept apart. `build_site_dev.py` calls it; it downloads nothing |
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |
 | `us_districts_albers.json` | The district lines the site embeds (the kit ships the 2016 fallback; the districts stage replaces it with the current Census lines) |
@@ -124,7 +134,9 @@ number in the 4.x.xxx chain and every saved build can be brought back.
 
 The draft build writes two things. `site/dev.html` is the one-file archive (everything inline; the 16 MB rule
 in "Definition of done" applies to it). `site/dev/` is the fast site: `index.html` is a small shell, and
-`data/*.json`, `data/bill/<key>.json` and `photos/*.webp` are fetched only when a page needs them. The two share
+`data/*.json`, `data/bill/<key>.json`, `data/member/<bioguide>.json`, `data/donors/<bioguide>.json` (a member's top
+hundred donors, every payment, and outside spending; about 42 MB across all members) and `photos/*.webp` are
+fetched only when a page needs them. The one-file archive carries each member's top ten donors only. The two share
 one page template and one code path, so a change to either is a change to both. When you change the page's
 code, test both: the fast site through the local server, the archive from its file.
 

@@ -553,12 +553,18 @@ def collect(db_path):
         if v and bio in legislators:
             legislators[bio]["vs"] = [v["split_n"], v["split_with"], v["breaks_n"], v["missed"], v["eligible"]]
     closest = closest_votes(con, vote_meta)
+    import money_views                                          # who gave to each campaign, and who spent for or against it (FEC bulk files)
+    money = money_views.build_money(con, legislators)
+    for bio, m in money["profiles"].items():
+        if bio in profiles:
+            profiles[bio]["money"] = m
+    print(f"    Money: {len(money['members']):,} members with FEC records over cycles {', '.join(str(c) for c in money['cycles']) or 'none'}")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
-            "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest,
+            "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest, "money_members": money["members"], "money_kinds": money["kinds"],
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -779,7 +785,7 @@ def boot_for(data, version, base_url=""):
     ticker = [{"v": m["vote_id"], "b": m["bill"], "t": trim_text(m["title"], 64), "c": m["chamber"], "d": m["date"],
                "y": m["yeas"], "n": m["nays"], "r": m["result"]} for m in data["vote_meta"][:14]]
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
-            "ticker": ticker, "closest": data.get("closest") or [],
+            "ticker": ticker, "closest": data.get("closest") or [], "kinds": data.get("money_kinds") or {},
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
             "state_names": {st: s["name"] for st, s in data["states"].items()},
@@ -854,6 +860,14 @@ def write_split(folder, html, data, photo_bytes):
     for bio, prof in (data.get("_profiles") or {}).items():
         with open(os.path.join(folder, "data", "member", bio + ".json"), "w", encoding="utf-8", newline="\n") as fh:
             fh.write(dump(prof))
+    os.makedirs(os.path.join(folder, "data", "donors"), exist_ok=True)       # a member's top donors and outside spending, read by their page
+    donor_bytes = 0
+    for bio, m in (data.get("_donors") or {}).items():
+        text = dump(m)
+        with open(os.path.join(folder, "data", "donors", bio + ".json"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(text)
+        donor_bytes += len(text.encode("utf-8"))
+    sizes["data/donors (all members).json"] = donor_bytes
     for bid, blob in photo_bytes.items():
         with open(os.path.join(folder, "photos", bid + ".webp"), "wb") as fh:
             fh.write(blob)
@@ -1162,7 +1176,7 @@ p{margin:0 0 12px}
 .ymem .vtag{flex:none}
 .yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 /* your state, drawn: districts coloured by the roll call in focus, your district outlined, a pin where you are */
-.yours-cols{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
+.yours-cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);align-items:start}
 @media (min-width:1000px){.yours-cols{grid-template-columns:minmax(340px,440px) minmax(0,1fr)}.ymap{position:sticky;top:78px}}
 .ymap{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px 18px;margin:12px 0}
 .ymap-head{font-size:14px;line-height:1.45;margin-bottom:8px}
@@ -1751,6 +1765,82 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .partyline{margin-top:34px}
 .partyline h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .partyline .lead{color:var(--muted);max-width:70ch;margin:0 0 4px;font-size:15px}
+/* money: who gave to the campaign, and who spent on their own */
+:root{--k-corp:#E8B44A;--k-trade:#4CC5B0;--k-labor:#B49BF2;--k-memb:#7E9BFF;--k-coop:#C5C96A;--k-cws:#D9A679;--k-pac:#F2994A;--k-lead:#F28DB2;--k-cand:#8BD17C;--k-party:#9BA1A9;--k-super:#E8706A;--k-ie:#C58B6A;--k-comm:#8FB8C9;--k-joint:#B8BCC2;--k-other:#B8BCC2;
+  --m-people:#4CC5B0;--m-orgs:#E8B44A;--m-party:#9BA1A9;--m-self:#B49BF2;--m-moved:#7E9BFF;--m-other:#6B7079}
+.mny-views{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.mny-views .chip{height:30px;font-size:13px}
+.mny-race{color:var(--muted);font-size:13px;margin:0 0 10px}
+.mny-bar{display:flex;height:14px;border-radius:999px;overflow:hidden;background:var(--line)}
+.mny-bar i{display:block;height:100%;min-width:2px}
+.mny-bar.big{height:26px;border-radius:8px}
+.mny-bar.big i{cursor:pointer;transition:opacity .15s}.mny-bar.big:hover i{opacity:.5}.mny-bar.big i:hover,.mny-bar.big i.on{opacity:1}
+.mny-leg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 0;font-size:12.5px;color:var(--muted)}
+.mny-leg span{display:inline-flex;align-items:center;gap:6px}
+.mny-leg i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.mny-leg b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.mny-top{list-style:none;margin:12px 0 0;padding:0;counter-reset:mny}
+.mny-top li{counter-increment:mny;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px;position:relative}
+.mny-top li:last-child{border-bottom:0}
+.mny-top li::before{content:counter(mny);color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.mny-top .nm a{color:var(--ink);text-decoration:none}.mny-top .nm a:hover{text-decoration:underline}
+.kd{font-size:11.5px;color:var(--muted);white-space:nowrap}.mny-top .kd{display:block;white-space:normal}
+.kd i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
+.mny-top .amt{font-variant-numeric:tabular-nums;font-weight:600}
+.mny-top .meter{position:absolute;left:30px;bottom:-1px;height:2px;background:var(--m-orgs);opacity:.8}
+.mny-more{margin:12px 0 4px}
+.mny-out{font-size:13px;margin:10px 0 0}
+.mny-page{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px}
+.mny-page[hidden]{display:none!important}
+@media (max-width:560px){.mny-page{padding:16px 12px;border-radius:var(--r-lg)}.mny-chart{padding:12px}.tmap button{font-size:10.5px;padding:4px}}
+.mny-page h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:0 0 4px}
+.mny-page .lead{color:var(--muted);max-width:74ch;margin:0 0 8px;font-size:14.5px;line-height:1.5}
+.mny-headrow{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+.mny-layout{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.mny-layout button{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.mny-layout button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.mny-layout button:focus-visible{outline:2px solid var(--accent)}
+.mny-layout svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.mny-grid{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);margin-top:14px;align-items:start}
+.mny-grid>*{min-width:0}
+@media (min-width:1100px){.mny-grid[data-layout="side"]{grid-template-columns:minmax(320px,38%) minmax(0,1fr)}.mny-grid[data-layout="side"] .mny-chart{position:sticky;top:78px}}
+@media (max-width:1099px){.mny-layout{display:none}}
+.mny-chart{background:var(--bg);border-radius:var(--r-lg);padding:16px;min-width:0}
+.mny-chart h4{margin:14px 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mny-chart h4:first-child{margin-top:0}
+.mny-say{min-height:38px;font-size:13px;color:var(--muted);margin:8px 0 0;line-height:1.45}
+.mny-say b{color:var(--ink)}
+.tmap{position:relative;width:100%;aspect-ratio:16/6.4;border-radius:10px;overflow:hidden;background:var(--line)}
+.mny-grid[data-layout="side"] .tmap{aspect-ratio:4/3.4}
+@media (max-width:700px){.tmap,.mny-grid[data-layout="side"] .tmap{aspect-ratio:1/1}}
+.tmap button{all:unset;box-sizing:border-box;position:absolute;overflow:hidden;cursor:pointer;border:1px solid var(--bg);color:#15171B;font-size:11.5px;line-height:1.2;padding:5px 6px;transition:filter .15s}
+.tmap button b{display:block;font-weight:700;font-variant-numeric:tabular-nums}
+.tmap button:hover,.tmap button.hot,.tmap button:focus-visible{filter:brightness(1.2);z-index:1;outline:2px solid var(--ink);outline-offset:-2px}
+.mny-kinds{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.mny-kinds .chip{height:28px;font-size:12px;gap:6px;padding:0 10px}
+.mny-kinds .chip i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.mny-kinds .chip[aria-pressed="true"]{background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+.mny-kinds .chip[aria-pressed="false"]{opacity:.4}
+.mny-years{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:6px}
+.mny-years button{all:unset;cursor:pointer;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%;font-size:11.5px;color:var(--muted)}
+.mny-years button i{display:block;width:100%;border-radius:6px 6px 0 0;background:var(--m-orgs);opacity:.5;min-height:2px;transition:opacity .15s}
+.mny-years button:hover i,.mny-years button[aria-pressed="true"] i{opacity:1}
+.mny-years button[aria-pressed="true"]{color:var(--ink);font-weight:700}
+.mny-years button:focus-visible{outline:2px solid var(--accent);border-radius:6px}
+.mny-years .v{font-variant-numeric:tabular-nums;font-size:11px}
+.gt tr.open td{border-bottom-color:transparent}
+.gt tr.gt-detail td{background:var(--bg);padding:10px 14px 14px}
+.gt tr.gt-detail:hover{background:none}
+.gt .xbtn{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:2px;font-variant-numeric:tabular-nums}
+.gt .xbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pays{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 22px;font-size:12.5px;list-style:none;margin:0;padding:0}
+.pays li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line);padding:3px 0;font-variant-numeric:tabular-nums}
+.pays li span:last-child{color:var(--muted)}
+.mny-outside{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.mny-outside h4{font-family:var(--serif);font-weight:400;font-size:24px;margin:0 0 6px}
+.mny-two{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);margin-top:12px}
+@media (min-width:1000px){.mny-two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.mny-two h5{margin:0 0 8px;font-size:14px}.mny-two>div{min-width:0}
 /* decided by a handful */
 .closest{padding:26px 0 8px}
 .closelist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
@@ -3128,6 +3218,7 @@ function knowHTML(P, L, party, id){
     h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}${allBreaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
   }
   if (F && (F.sponsored || F.cosponsored)) h += `<div class="know-b"><h4>${ana} What ${esc(last)} works on</h4><p>Sponsored <b>${plural(F.sponsored, "bill")}</b> this Congress${F.laws ? `; ${F.laws === 1 ? "one became law" : F.laws + " became law"}` : ""}.${F.cosponsored ? ` Cosponsored ${F.cosponsored.toLocaleString()}.` : ""}</p>${F.areas && F.areas.length ? `<div class="know-chips">${F.areas.map(a => `<span class="pill">${esc(a[0])} <b>${a[1]}</b></span>`).join("")}</div><p class="know-rule">The subjects are the Library of Congress policy areas of the bills ${esc(last)} sponsored, most frequent first.</p>` : ""}</div>`;
+  if (P.money && id && P.money.cycles && P.money.cycles.length) { MONEY[id] = {M: P.money}; h += moneyCard(id); }
   if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before Congress, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
   return h;
 }
@@ -3562,6 +3653,7 @@ document.addEventListener("click", e => {
 function gridTable(host, opt){
   const cols = opt.cols, col = Object.fromEntries(cols.map(c => [c.key, c])), page = opt.page || 50;
   let rows = opt.rows || [], sort = (opt.sort || []).slice(), shown = page, multi = false;
+  const open = new Set(), idOf = (r, i) => opt.rowId ? opt.rowId(r) : i;            // rows whose detail is showing
   host.innerHTML = `<div class="gt-wrap"><table class="gt"><thead><tr>${cols.map(c => `<th scope="col" class="${c.num ? "num" : ""}"${c.title ? ` title="${esc(c.title)}"` : ""}><button type="button" data-k="${esc(c.key)}">${esc(c.label)}<span class="srt" aria-hidden="true"></span></button></th>`).join("")}</tr></thead><tbody></tbody></table></div>
     <div class="gt-foot"><span class="gt-count"></span><span><button class="chip gt-multi" type="button" aria-pressed="false" title="Or hold Shift while you click a column">Sort by several columns</button> <button class="chip gt-more" type="button" hidden></button></span></div>`;
   const head = $("thead", host), body = $("tbody", host), more = $(".gt-more", host), count = $(".gt-count", host), mbtn = $(".gt-multi", host);
@@ -3580,7 +3672,8 @@ function gridTable(host, opt){
     $$("th", head).forEach((th, i) => { const k = cols[i].key, at = sort.findIndex(x => x.key === k), st = sort[at];
       th.setAttribute("aria-sort", st ? (st.dir === "asc" ? "ascending" : "descending") : "none");
       $(".srt", th).innerHTML = st ? (st.dir === "asc" ? "\u25B2" : "\u25BC") + (sort.length > 1 ? `<sup>${at + 1}</sup>` : "") : ""; });
-    body.innerHTML = rows.slice(0, shown).map((r, i) => `<tr data-i="${i}">${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.html ? c.html(r) : esc(c.val(r) ?? "")}</td>`).join("")}</tr>`).join("")
+    body.innerHTML = rows.slice(0, shown).map((r, i) => { const isOpen = opt.detail && open.has(idOf(r, i));
+      return `<tr data-i="${i}"${isOpen ? ' class="open"' : ""}>${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.html ? c.html(r) : esc(c.val(r) ?? "")}</td>`).join("")}</tr>` + (isOpen ? `<tr class="gt-detail"><td colspan="${cols.length}">${opt.detail(r)}</td></tr>` : ""); }).join("")
       || `<tr><td colspan="${cols.length}" class="muted" style="padding:18px">${esc(opt.empty || "Nothing matches.")}</td></tr>`;
     const left = rows.length - shown; more.hidden = left <= 0; if (left > 0) more.textContent = `Show ${Math.min(page, left).toLocaleString()} more (${left.toLocaleString()} left)`;
     count.textContent = (opt.count ? opt.count(rows) : `${rows.length.toLocaleString()} row${rows.length === 1 ? "" : "s"}`) + (sort.length > 1 ? " \u00b7 sorted by " + sort.map(x => col[x.key].label.toLowerCase()).join(", then ") : "");
@@ -3588,17 +3681,172 @@ function gridTable(host, opt){
   }
   head.addEventListener("click", e => {
     const b = e.target.closest("button[data-k]"); if (!b) return;
-    const k = b.dataset.k, i = sort.findIndex(x => x.key === k), first = col[k].num ? "desc" : "asc", flip = d => d === "asc" ? "desc" : "asc";
+    const k = b.dataset.k, i = sort.findIndex(x => x.key === k), first = col[k].first || (col[k].num ? "desc" : "asc"), flip = d => d === "asc" ? "desc" : "asc";
     if (e.shiftKey || multi) { if (i < 0) sort.push({key: k, dir: first}); else if (sort[i].dir === first) sort[i].dir = flip(first); else sort.splice(i, 1); }
     else sort = [{key: k, dir: (i === 0 && sort.length === 1) ? flip(sort[0].dir) : first}];
     shown = page; draw();
   });
   mbtn.addEventListener("click", () => { multi = !multi; mbtn.setAttribute("aria-pressed", multi); });
   more.addEventListener("click", () => { shown += page; draw(); });
+  body.addEventListener("click", e => { const x = e.target.closest("[data-x]"), tr = x && x.closest("tr[data-i]"); if (!tr || !opt.detail) return; const i = +tr.dataset.i, id = idOf(rows[i], i); open.has(id) ? open.delete(id) : open.add(id); draw(); });
   if (opt.onHover) { body.addEventListener("pointerover", e => { const tr = e.target.closest("tr[data-i]"); opt.onHover(tr ? rows[+tr.dataset.i] : null); }); body.addEventListener("pointerleave", () => opt.onHover(null)); }
   draw();
   return {setRows(r){ rows = r; shown = page; draw(); }, setSort(x){ sort = x.slice(); draw(); }, get sort(){ return sort.slice(); }, get rows(){ return rows; },
-    mark(test){ $$("tr[data-i]", body).forEach(tr => tr.classList.toggle("hot", !!test && test(rows[+tr.dataset.i]))); }, redraw: draw};
+    mark(test){ $$("tr[data-i]", body).forEach(tr => tr.classList.toggle("hot", !!test && test(rows[+tr.dataset.i]))); }, redraw: draw,
+    openRow(id){ const i = rows.findIndex((r, k) => idOf(r, k) === id); if (i < 0) return; if (i >= shown) shown = Math.ceil((i + 1) / page) * page; open.add(id); draw();
+      const tr = $(`tr[data-i="${i}"]`, body); if (tr) tr.scrollIntoView({block: "center", behavior: calm() ? "auto" : "smooth"}); }};
+}
+
+/* ---------- money: who gave to the campaign, and who spent on their own ----------
+   Everything here is the FEC's public record, added up. Donors are organizations only: PACs, party committees,
+   other politicians' committees. Money from individual people appears as a total, never as names. Outside
+   spending is kept apart: the campaign never received it. */
+const KINDW = BOOT.kinds || {}, MONEY = {};
+const usd = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
+const usdShort = n => { const a = Math.abs(n); return (n < 0 ? "\u2212$" : "$") + (a >= 1e9 ? (a / 1e9).toFixed(1) + "B" : a >= 1e6 ? (a / 1e6).toFixed(a >= 1e7 ? 0 : 1) + "M" : a >= 1e4 ? Math.round(a / 1e3) + "K" : a >= 1e3 ? (a / 1e3).toFixed(1) + "K" : String(Math.round(a))); };
+const dayDate = d => (d == null || d < 0) ? "" : new Date(Date.UTC(2015, 0, 1) + d * 864e5).toLocaleDateString("en-US", {year: "numeric", month: "short", day: "numeric", timeZone: "UTC"});
+const fecLink = id => `https://www.fec.gov/data/committee/${encodeURIComponent(id)}/`;
+const kindTag = k => `<span class="kd"><i style="background:var(--k-${esc(k)})"></i>${esc(KINDW[k] || k)}</span>`;
+const SRC = [["people", "People", "individual donors. The FEC publishes their names; this site shows only the total"], ["orgs", "Organizations", "PACs and other committees, the ones listed here"],
+  ["party", "Party", "party committees"], ["self", "Own money", "the candidate's own money and loans"],
+  ["moved", "Moved in", "transfers from the candidate's other committees, mostly joint fundraising with other candidates. It was raised from donors there first"], ["other", "Other", "interest, refunds, other loans and the rest"]];
+const ELECT = {P: "primary", G: "general", R: "runoff", S: "special", C: "convention", E: "recount", O: "other"};
+function raceLine(M, view){
+  if (view === "all") return `${M.cycles.length === 1 ? "One election cycle" : M.cycles.length + " election cycles"}, ${Math.min(...M.cycles) - 1} through ${Math.max(...M.cycles)}, added together.`;
+  const r = (M.races || {})[view], y = +view, OFF = {H: "the House", S: "the Senate", P: "President"}, NAMES = BOOT.state_names || {}; if (!r || !OFF[r.o]) return `The ${y - 1}\u2013${y} cycle.`;
+  const where = r.o === "H" ? ` (${esc(NAMES[r.st] || r.st)}${+r.d ? "'s " + pcOrdinal(+r.d) + " district" : ", at large"})` : (r.o === "S" ? ` (${esc(NAMES[r.st] || r.st)})` : "");
+  const as = {I: " as the incumbent", C: " as a challenger", O: " for an open seat"}[r.ici] || "", now = new Date().getFullYear();
+  const race = (r.y && r.y > y) ? `Raising money toward the ${r.y} race for ${OFF[r.o]}${where}` : `${y >= now ? "Running" : "Ran"} for ${OFF[r.o]}${where}${as}`;
+  return `${y - 1}\u2013${y}: ${race}${r.held ? `, while serving in ${OFF[r.held]}` : ", before serving in Congress"}.${r.also && r.also.length ? ` Also kept a campaign account for ${r.also.map(o => OFF[o] || o).join(" and ")}.` : ""}`;
+}
+function sourceBar(M, view, big){
+  const t = (M.totals || {})[view]; if (!t || !t.receipts) return "";
+  const parts = SRC.map(([k, label, what]) => ({k, label, what, v: Math.max(0, t[k] || 0)})).filter(x => x.v > 0), sum = parts.reduce((a, b) => a + b.v, 0) || 1;
+  return `<div class="mny-bar${big ? " big" : ""}" role="img" aria-label="Where the campaign's money came from">${parts.map(x => `<i style="width:${(100 * x.v / sum).toFixed(2)}%;background:var(--m-${x.k})" data-src="${x.k}" title="${esc(x.label)}: ${usd(x.v)}"></i>`).join("")}</div>
+    <div class="mny-leg">${parts.map(x => `<span><i style="background:var(--m-${x.k})"></i>${esc(x.label)} <b>${usdShort(x.v)}</b> ${Math.round(100 * x.v / sum)}%</span>`).join("")}</div>`;
+}
+function moneyCardBody(id, view){
+  const rec = MONEY[id]; if (!rec) return ""; const M = rec.M, top = (M.top || {})[view] || [], sum = (M.sum || {})[view] || [0, 0], out = (M.outside || {})[view] || [0, 0], max = top.length ? top[0][3] : 1;
+  const t = (M.totals || {})[view];
+  return `<p class="mny-race">${raceLine(M, view)}</p>${t ? `<p style="margin:0 0 8px">The campaign took in <b>${usd(t.receipts)}</b>${t.through && view !== "all" ? ` <span class="muted">(reports through ${esc(fmtDate(t.through))})</span>` : ""}. Where it came from:</p>${sourceBar(M, view, false)}` : ""}
+    ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organizations that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm"><a href="${fecLink(d[0])}" target="_blank" rel="noopener">${esc(d[1])}</a>${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this cycle"}.</p>`}
+    ${(out[0] || out[1]) ? `<p class="mny-out">Separately, outside groups spent <b>${usd(out[0])}</b> to support and <b>${usd(out[1])}</b> to oppose. None of that went to the campaign.</p>` : ""}`;
+}
+function moneyCard(id){
+  const M = MONEY[id].M, views = ["all"].concat(M.cycles.map(String)).filter(v => (M.top || {})[v] || (!M.lite && (M.totals || {})[v])), start = "all";
+  return `<div class="know-b money" data-money="${esc(id)}"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4>
+    <div class="mny-views" role="group" aria-label="Election cycle">${views.map(v => `<button class="chip" type="button" data-mview="${v}" aria-pressed="${v === start}">${v === "all" ? `${Math.min(...M.cycles) - 1}\u2013${Math.max(...M.cycles)}` : v}</button>`).join("")}</div>
+    <div class="mny-body">${moneyCardBody(id, start)}</div>
+    <a class="chip mny-more" href="#member=${esc(id)}/money" data-profile="${esc(id)}" data-show="money">The top 100, every payment, and outside spending</a>
+    <p class="know-rule">From the Federal Election Commission's public files. Organizations here are PACs, party committees and other candidates' committees; the law caps what each may give (for most PACs, $5,000 per election). Individual donors are counted in the totals and never named on this site. Joint fundraising committees and the member's own committees are left out of the list: what they pass along was raised from donors there first.</p></div>`;
+}
+document.addEventListener("click", e => {
+  const c = e.target.closest("[data-mview]"), box = c && c.closest("[data-money]"); if (!box) return;
+  $$("[data-mview]", box).forEach(b => b.setAttribute("aria-pressed", b === c)); $(".mny-body", box).innerHTML = moneyCardBody(box.dataset.money, c.dataset.mview);
+});
+function needDonors(id){
+  if (BOOT.inline) return Promise.resolve(null);               // the one-file archive carries the summaries only
+  const k = "donors:" + id; if (loads[k]) return loads[k];
+  return loads[k] = fetch(`data/donors/${encodeURIComponent(id)}.json?v=${DATA_V}`).then(r => r.ok ? r.json() : null).catch(e => { delete loads[k]; throw e; });
+}
+/* a squarified treemap: rectangles whose areas are the amounts, kept as square as they will go */
+function squarify(items, W, H){
+  const total = items.reduce((a, b) => a + b.v, 0), out = []; if (!(total > 0) || W <= 0 || H <= 0) return out;
+  const k = W * H / total, rest = items.map(i => ({i, a: i.v * k})); let row = [], X = 0, Y = 0, w = W, h = H;
+  const worst = (r, side) => { const sum = r.reduce((a, b) => a + b.a, 0), mx = Math.max(...r.map(b => b.a)), mn = Math.min(...r.map(b => b.a)); return Math.max(side * side * mx / (sum * sum), sum * sum / (side * side * mn)); };
+  const lay = () => { const sum = row.reduce((a, b) => a + b.a, 0);
+    if (w >= h) { const cw = sum / h; let y = Y; for (const b of row) { const bh = b.a / cw; out.push({x: X, y, w: cw, h: bh, item: b.i}); y += bh; } X += cw; w -= cw; }
+    else { const ch = sum / w; let x = X; for (const b of row) { const bw = b.a / ch; out.push({x, y: Y, w: bw, h: ch, item: b.i}); x += bw; } Y += ch; h -= ch; }
+    row = []; };
+  while (rest.length) { const side = Math.min(w, h); if (!row.length || worst(row.concat(rest[0]), side) <= worst(row, side)) row.push(rest.shift()); else lay(); }
+  if (row.length) lay();
+  return out;
+}
+/* the member page's money section: a picture of the money that talks to a table of it */
+function renderMoney(id, M, L, show){
+  const box = $("#mpmoney"); if (!box || !M) return;
+  const last = L.n.split(" ").slice(-1)[0], views = ["all"].concat(M.cycles.map(String)).filter(v => !M.lite || (M.top || {})[v]);
+  let view = "all", layout = "top", D = null, table = null, tFor = null, tAgainst = null, curRows = []; const off = new Set();
+  try { layout = localStorage.getItem("moneyLayout") === "side" ? "side" : "top"; } catch (e) {}
+  box.hidden = false;
+  box.innerHTML = `<div class="mny-headrow"><div><h3>Money: who gave, and who spent</h3><p class="lead">The organizations that gave to ${esc(L.n)}'s campaigns, from the Federal Election Commission's public files. Pick a cycle, point at the picture, sort the table by any column (hold Shift for a second column), and open a row to see each payment.</p></div>
+      <div class="mny-layout" role="group" aria-label="Where the picture sits"><button type="button" data-lay="top" aria-pressed="${layout === "top"}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/></svg>Picture on top</button><button type="button" data-lay="side" aria-pressed="${layout === "side"}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="18" rx="1.5"/><rect x="14" y="3" width="7" height="18" rx="1.5"/></svg>Picture at the side</button></div></div>
+    <div class="mny-views" role="group" aria-label="Election cycle">${views.map(v => `<button class="chip" type="button" data-pv="${v}" aria-pressed="${v === view}">${v === "all" ? `All years, ${Math.min(...M.cycles) - 1}\u2013${Math.max(...M.cycles)}` : v}</button>`).join("")}</div>
+    <p class="mny-race" id="mnyrace"></p>
+    <div class="mny-grid" id="mnygrid" data-layout="${layout}"><div class="mny-chart" id="mnychart"></div><div id="mnytablebox"><p class="muted loading">Loading the donors\u2026</p></div></div>
+    <div class="mny-outside" id="mnyoutside"></div>`;
+  const amountOf = (d, v) => v === "all" ? Object.values(d.c).reduce((a, c) => a + c[0], 0) : ((d.c[v] || [0])[0]);
+  const shape = (list, v) => list.map(d => { const cs = v === "all" ? Object.values(d.c) : (d.c[v] ? [d.c[v]] : []); if (!cs.length) return null;
+      const f = cs.map(c => c[2]).filter(x => x != null), l = cs.map(c => c[3]).filter(x => x != null);
+      return Object.assign({}, d, {_t: cs.reduce((a, c) => a + c[0], 0), _n: cs.reduce((a, c) => a + c[1], 0), _f: f.length ? Math.min(...f) : null, _l: l.length ? Math.max(...l) : null, _p: cs.reduce((a, c) => a + c[4], 0), _g: cs.reduce((a, c) => a + c[5], 0)}); })
+    .filter(d => d && d._t > 0).sort((a, b) => b._t - a._t).map((d, i) => (d._rank = i + 1, d));
+  const pays = (d, v) => { const ps = (d.p || []).filter(x => v === "all" || String(x[2]) === v);
+    return `<ul class="pays">${ps.map(x => `<li><span>${esc(dayDate(x[0]) || "no date")} \u00b7 <b>${usd(x[1])}</b></span><span>${esc(ELECT[x[3]] || "other")} ${x[2]}</span></li>`).join("")}</ul>${d.more && v === "all" ? `<p class="muted" style="margin:8px 0 0;font-size:12.5px">and ${d.more.toLocaleString()} earlier payment${d.more === 1 ? "" : "s"} not listed.</p>` : ""}
+      <p class="muted" style="margin:8px 0 0;font-size:12.5px">Same-day payments are added together. <a href="${fecLink(d.id)}" target="_blank" rel="noopener">This committee at the FEC</a></p>`; };
+  const colsFor = (v, who) => [
+    {key: "rank", label: "#", num: true, first: "asc", val: r => r._rank},
+    {key: "name", label: who, val: r => r.n, html: r => `<a href="${fecLink(r.id)}" target="_blank" rel="noopener"><b>${esc(r.n)}</b></a>${r.o ? `<div class="muted" style="font-size:12px">${esc(r.o)}</div>` : ""}`},
+    {key: "kind", label: "Kind", val: r => KINDW[r.k] || r.k, html: r => kindTag(r.k)},
+    {key: "total", label: v === "all" ? "Total" : "Total " + v, num: true, val: r => r._t, html: r => `<b>${usd(r._t)}</b>`},
+    {key: "n", label: "Payments", num: true, val: r => r._n, html: r => `<button class="xbtn" type="button" data-x="1" title="Show each payment">${r._n.toLocaleString()}</button>`},
+    {key: "first", label: "First", num: true, val: r => r._f, html: r => esc(dayDate(r._f))},
+    {key: "last", label: "Latest", num: true, val: r => r._l, html: r => esc(dayDate(r._l))}];
+  function drawChart(rows){
+    const chart = $("#mnychart"), t = (M.totals || {})[view], shownRows = rows.filter(r => !off.has(r.k)), kinds = [...new Set(rows.map(r => r.k))];
+    const max = Math.max(1, ...M.cycles.map(y => ((M.sum || {})[y] || [0])[0]));
+    chart.innerHTML = `${t ? `<h4>Where the campaign's ${usdShort(t.receipts)} came from</h4>${sourceBar(M, view, true)}` : ""}
+      <h4>The organizations, sized by what they gave</h4><div class="tmap" id="tmap" role="group" aria-label="Donors sized by amount"></div>
+      <div class="mny-kinds" role="group" aria-label="Show or hide kinds of organization">${kinds.map(k => `<button class="chip" type="button" data-kind="${esc(k)}" aria-pressed="${!off.has(k)}"><i style="background:var(--k-${esc(k)})"></i>${esc(KINDW[k] || k)}</button>`).join("")}</div>
+      <p class="mny-say" id="mnysay">Point at a block, or a part of the bar, to read it. Click a block to open its payments in the table.</p>
+      <h4>Organizations' money, cycle by cycle</h4><div class="mny-years" role="group" aria-label="Pick a cycle">${M.cycles.slice().reverse().map(y => { const v = ((M.sum || {})[y] || [0])[0]; return `<button type="button" data-pv="${y}" aria-pressed="${String(y) === view}"><span class="v">${usdShort(v)}</span><i style="height:${Math.max(2, Math.round(78 * v / max))}%"></i><span>${y}</span></button>`; }).join("")}</div>`;
+    const tm = $("#tmap"), W = tm.clientWidth || 640, H = tm.clientHeight || 320, most = W < 420 ? 12 : (W < 760 ? 24 : 40), cells = squarify(shownRows.slice(0, most).map(r => ({v: r._t, r})), W, H);
+    tm.innerHTML = cells.map(c => `<button type="button" data-id="${esc(c.item.r.id)}" style="left:${(100 * c.x / W).toFixed(3)}%;top:${(100 * c.y / H).toFixed(3)}%;width:${(100 * c.w / W).toFixed(3)}%;height:${(100 * c.h / H).toFixed(3)}%;background:var(--k-${esc(c.item.r.k)})" aria-label="${esc(c.item.r.n)}, ${usd(c.item.r._t)}">${c.w > 58 && c.h > 30 ? `${esc(c.item.r.n)}<b>${usdShort(c.item.r._t)}</b>` : ""}</button>`).join("") || `<p class="muted" style="padding:14px">Nothing to draw for this choice.</p>`;
+    if (shownRows.length > most) $("#mnysay").innerHTML += ` The picture shows the ${most} largest of ${shownRows.length.toLocaleString()}.`;
+  }
+  function draw(){
+    $$("[data-pv]", box).forEach(b => b.setAttribute("aria-pressed", b.dataset.pv === view));
+    $("#mnyrace").innerHTML = raceLine(M, view);
+    const host = $("#mnytablebox");
+    if (!D) {                                                    // the one-file archive: the summary only
+      host.innerHTML = `<ol class="mny-top">${(((M.top || {})[view]) || []).map(d => `<li><span class="nm"><a href="${fecLink(d[0])}" target="_blank" rel="noopener">${esc(d[1])}</a>${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span></li>`).join("")}</ol><p class="muted" style="font-size:13px">This offline copy carries the top ten. The top hundred, every payment and outside spending are on the online site${BOOT.base ? `: <a href="${esc(BOOT.base)}/#member=${esc(id)}/money">${esc(BOOT.base.replace(/^https?:\/\//, ""))}</a>` : ""}.</p>`;
+      $("#mnychart").innerHTML = (M.totals || {})[view] ? `<h4>Where the campaign's money came from</h4>${sourceBar(M, view, true)}<p class="mny-say" id="mnysay"></p>` : ""; return; }
+    const rows = shape(D.donors, view), sum = (M.sum || {})[view] || [0, 0];
+    curRows = rows; drawChart(rows);
+    const cols = colsFor(view, "Organization").concat(view === "all" ? M.cycles.map(y => ({key: "y" + y, label: String(y), num: true, val: r => (r.c[y] || [0])[0] || null, html: r => r.c[y] ? usd(r.c[y][0]) : ""}))
+      : [{key: "prim", label: "Primary", num: true, val: r => r._p || null, html: r => r._p ? usd(r._p) : ""}, {key: "gen", label: "General", num: true, val: r => r._g || null, html: r => r._g ? usd(r._g) : ""}]);
+    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${sum[1] > rows.length ? `The ${rows.length.toLocaleString()} largest of ${sum[1].toLocaleString()} organizations that gave ${usd(sum[0])} in all. ` : ""}${(() => { const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => [a[0] + b[0], a[1] + b[1]], [0, 0]) : ((D.moved || {})[view] || [0, 0]); return (mv[0] || mv[1]) ? `Not counted as donors: ${usd(mv[0])} moved in from joint fundraising committees and ${usd(mv[1])} from ${esc(last)}'s own other committees. ` : ""; })()}${(() => { const co = view === "all" ? Object.values(D.coordinated || {}).reduce((a, b) => a + b, 0) : ((D.coordinated || {})[view] || 0); return co ? `The party also spent ${usd(co)} in coordination with the campaign. ` : ""; })()}Refunds are subtracted. "Primary" and "General" are the election each payment was given toward.</p>`;
+    table = gridTable($("#mnytable"), {cols, rows: rows.filter(r => !off.has(r.k)), sort: [{key: "total", dir: "desc"}], page: 25, rowId: r => r.id, detail: r => pays(r, view), empty: "No organization's gift is on file for this choice.",
+      count: rs => `${rs.length.toLocaleString()} organization${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r._t, 0))}`,
+      onHover: r => { $$("#tmap button").forEach(b => b.classList.toggle("hot", !!r && b.dataset.id === r.id)); }});
+    drawOutside();
+  }
+  function drawOutside(){
+    const host = $("#mnyoutside"), f = shape(D.for || [], view), a = shape(D.against || [], view), o = (M.outside || {})[view] || [0, 0];
+    if (!f.length && !a.length) { host.innerHTML = `<h4>Outside spending</h4><p class="muted">No outside group reported spending for or against ${esc(L.n)} ${view === "all" ? "in these years" : "in this cycle"}.</p>`; return; }
+    host.innerHTML = `<h4>Outside spending: not a donation</h4><p class="lead">Groups that spent on their own to help or hurt ${esc(L.n)}'s election: <b>${usd(o[0])}</b> to support, <b>${usd(o[1])}</b> to oppose. The campaign never received this money. Nearly all of it is independent spending, which by law may not be coordinated with the campaign; super PACs may raise and spend without limit. A small part is membership groups' messages to their own members.</p>
+      <div class="mny-two"><div><h5>Spent to support</h5><div id="mnyfor"></div></div><div><h5>Spent to oppose</h5><div id="mnyagainst"></div></div></div>`;
+    const mk = (el, rows) => gridTable(el, {cols: colsFor(view, "Group"), rows, sort: [{key: "total", dir: "desc"}], page: 10, rowId: r => r.id, detail: r => pays(r, view), empty: "None on file.",
+      count: rs => `${rs.length.toLocaleString()} group${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((x, r) => x + r._t, 0))}`});
+    tFor = mk($("#mnyfor"), f); tAgainst = mk($("#mnyagainst"), a);
+  }
+  box.addEventListener("click", e => {
+    const pv = e.target.closest("[data-pv]"); if (pv) { view = pv.dataset.pv; draw(); return; }
+    const lay = e.target.closest("[data-lay]"); if (lay) { layout = lay.dataset.lay; try { localStorage.setItem("moneyLayout", layout); } catch (x) {} $("#mnygrid").dataset.layout = layout; $$("[data-lay]", box).forEach(b => b.setAttribute("aria-pressed", b === lay)); if (D) draw(); return; }
+    const kd = e.target.closest("[data-kind]"); if (kd) { off.has(kd.dataset.kind) ? off.delete(kd.dataset.kind) : off.add(kd.dataset.kind); draw(); return; }
+    const cell = e.target.closest("#tmap button"); if (cell && table) { table.openRow(cell.dataset.id); return; }
+    const seg = e.target.closest(".mny-bar.big i"); if (seg) say(seg);
+  });
+  const say = el => { const t = (M.totals || {})[view], s = SRC.find(x => x[0] === el.dataset.src); if (!t || !s) return; $$(".mny-bar.big i", box).forEach(i => i.classList.toggle("on", i === el));
+    $("#mnysay").innerHTML = `<b>${esc(s[1])}: ${usd(t[s[0]])}</b>, ${Math.round(100 * t[s[0]] / Math.max(1, t.receipts))}% of what came in. That is ${s[2]}.`; };
+  box.addEventListener("pointerover", e => {
+    const cell = e.target.closest("#tmap button"), seg = e.target.closest(".mny-bar.big i");
+    if (seg) { say(seg); return; }
+    if (cell && D) { const r = curRows.find(x => x.id === cell.dataset.id); if (!r) return; if (table) table.mark(x => x.id === r.id);
+      $("#mnysay").innerHTML = `<b>${esc(r.n)}</b> \u00b7 ${esc(KINDW[r.k] || r.k)}: <b>${usd(r._t)}</b> in ${r._n.toLocaleString()} payment${r._n === 1 ? "" : "s"}, ${esc(dayDate(r._f))}${r._l !== r._f ? " to " + esc(dayDate(r._l)) : ""}. Number ${r._rank} on the list.`; }
+  });
+  addEventListener("resize", () => { if (D && !box.hidden && document.body.contains(box) && $("#tmap")) drawChart(curRows); });
+  needDonors(id).then(d => { D = d; draw(); if (show === "money") setTimeout(() => { box.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -70); }, 80); },
+    () => { $("#mnytablebox").innerHTML = `<p class="muted">Couldn't load the donors. Check your connection and try again.</p>`; });
 }
 
 /* ---------- with their party, and against it: every sitting member's party-line record ---------- */
@@ -3685,10 +3933,12 @@ function renderMemberPage(id, show){
             <p class="know-rule">Each line opens that vote, where you can see how everyone else voted; "The bill" opens the bill itself. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>
           <div class="know-b"><h4><span class="tag fact">Fact</span> Their bills</h4><p>${bills}</p>${mem && mem.bills.length ? `<button class="chip" id="mpbills" type="button">Show ${esc(last)}'s bills</button>` : ""}</div>
         </div>
-      </div>`;
+      </div>
+      <div class="mny-page" id="mpmoney" hidden></div>`;
     $("#mpsocial").innerHTML = socialRow(P.social);
     drawVotes();
-    if (show) setTimeout(() => { const t = $("#mpfilters"); if (t) t.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -80); }, 60);
+    if (show && show !== "money") setTimeout(() => { const t = $("#mpfilters"); if (t) t.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -80); }, 60);
+    if (P.money && P.money.cycles && P.money.cycles.length) renderMoney(id, P.money, L, show);
     $("#mpfilters").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; filter = c.dataset.f; shown = 25; drawVotes(); });
     $("#mpmore").addEventListener("click", () => { shown += 25; drawVotes(); });
     const mb = $("#mpbills"); if (mb) mb.addEventListener("click", () => pickMember(id));
@@ -3767,7 +4017,7 @@ function routeFromHash(push){
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   const vote = h.match(/^vote=(.+)$/);
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
-  const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed))?$/);
+  const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed|money))?$/);
   if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
   showPage(PAGES.includes(h) ? h : "home", false);
@@ -4054,7 +4304,7 @@ def main():
         if os.path.exists(cfg):
             args.analytics = open(cfg, encoding="utf-8").read().strip()
     data = collect(args.db)
-    photo_bytes, profiles = data.pop("photo_bytes"), data.pop("profiles")
+    photo_bytes, profiles, donors = data.pop("photo_bytes"), data.pop("profiles"), data.pop("money_members", {})
     version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
     if args.as_of:
         data["generated"] = dt.datetime.strptime(args.as_of, "%Y-%m-%d").strftime("%B %d, %Y")
@@ -4073,12 +4323,23 @@ def main():
         foot += f" Version {version}."
     print(f"Version {version or '(none: no version in CHANGELOG.md)'}")
 
+    def lighter(prof):
+        """The archive's copy of a member's money: all years and the newest cycle. The rest is on the fast site."""
+        m = prof.get("money")
+        if not m:
+            return prof
+        keep = ["all"] + [str(c) for c in m["cycles"][:1]]
+        only = lambda d: {k: v for k, v in (d or {}).items() if k in keep}
+        slim = dict(m, top=only(m["top"]), races=only(m["races"]), totals=only(m["totals"]), sum=only(m["sum"]), outside=only(m["outside"]), lite=True)
+        return dict(prof, money=slim)
+    archive_profiles = {bio: lighter(prof) for bio, prof in profiles.items()}
+
     # the one-file archive: the same shell with every bundle inlined, trimmed to the size budget
     boot = boot_for(data, version, args.base_url)
     boot["analytics"] = args.analytics
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
-        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": profiles})
+        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": archive_profiles})
         html = render_page(boot, shaped, version, foot)
         mb = len(html.encode("utf-8")) / 1e6
         if mb <= args.max_mb - 0.3 or n_chars == 0:
@@ -4098,7 +4359,7 @@ def main():
     if args.split:
         boot["inline"] = None
         shaped = trim_lite(data, args.summary_chars, 4)   # compact rows carry a short summary; the full one is on Congress.gov
-        shaped["_version"], shaped["_profiles"] = version, profiles
+        shaped["_version"], shaped["_profiles"], shaped["_donors"] = version, profiles, donors
         shell = render_page(boot, shaped, version, foot)
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"

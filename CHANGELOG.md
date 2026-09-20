@@ -10,6 +10,29 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.020 — 2026-09-20 — Who funds the campaign
+
+- Every member's "Get to know" now has "Who funds the campaign": the ten
+  organizations that gave the most, with a bar showing how much of the
+  campaign's money came from people, from organizations, from the party and
+  from the candidate's own pocket. Pick a cycle, 2016 through 2026, and it
+  says what office the money was raised for and what seat they held then.
+- Every member's page now has "Money: who gave, and who spent": the top
+  hundred organizations in a table you can sort by any column (hold Shift and
+  click to sort within a sort), each row opening to every payment with its
+  date and the election it was given toward.
+- Above the table, a picture of the same money: blocks sized by what each
+  organization gave, coloured by kind. Point at a block and the table lights
+  up; click it and its payments open. A switch puts the picture above the
+  table or beside it.
+- Outside spending has its own section, apart from donations: what super PACs
+  and other groups spent on their own to support or oppose the member. The
+  campaign never received that money, and the page says so.
+- Donors here are organizations only: PACs, party committees, other
+  candidates' committees. People who gave are counted in the totals and never
+  named. Everything comes from the Federal Election Commission's public files
+  (a new "donors" stage downloads them, about 170 MB).
+
 ## v4.0.019 — 2026-09-20 — Your state, drawn, with you on it
 
 - Under "How did your members vote?" your state now appears as a map of its
