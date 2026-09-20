@@ -10,6 +10,18 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.014 — 2026-09-20 — A page for every member
+
+- Every senator and representative now has a page of their own. It opens with
+  "Get to know", then lists every recorded vote they took part in, newest
+  first, which you can narrow to the votes where they broke with their party
+  or did not vote. Each line opens that vote on the map.
+- A member's page can be shared, and the link shows a proper preview: their
+  name and portrait, their seat, and how often they side with their party
+  when the parties split.
+- You reach a member's page from "Full profile" on their card, from the Your
+  members list, and from search.
+
 ## v4.0.013 — 2026-09-20 — Get to know your members
 
 - Every member's card now opens with "Get to know": how long they have held

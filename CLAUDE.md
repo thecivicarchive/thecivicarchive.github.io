@@ -129,7 +129,7 @@ one page template and one code path, so a change to either is a change to both. 
 code, test both: the fast site through the local server, the archive from its file.
 
 The fast site also carries share pages, written by `share_cards.py`: `b/<key>.html` for every bill with a full
-record and `v/<vote>.html` for every roll call, each with a 1200 by 630 preview image under `og/` drawn in the
+record, `v/<vote>.html` for every roll call and `m/<bioguide>.html` for every member, each with a 1200 by 630 preview image under `og/` drawn in the
 site's own type (`fonts/`, Open Font License). A pasted link shows a card; a person who follows it lands on the
 bill or the vote. Images are redrawn only when what they show has changed. Absolute addresses come from
 `--base-url` (default `https://thecivicarchive.github.io/dev`); the live site would be built with the root.

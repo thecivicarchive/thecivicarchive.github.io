@@ -1568,6 +1568,23 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .avw.md{width:36px;height:36px}.avw.md .pb{width:16px;height:16px;font-size:9px;right:-3px;bottom:-3px}
 .avw.sm{width:22px;height:22px}.avw.sm .pb{display:none}.avw.sm .avc{box-shadow:0 0 0 1.5px var(--pc)}.avw.sm .av-txt{font-size:10px}
 .avw.xl{width:56px;height:56px}
+.avw.xxl{width:92px;height:92px}
+.avw.xxl:before{content:"";position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(from 0deg,var(--pc),transparent 35%,var(--pc) 65%,transparent 100%);opacity:.6;z-index:-1}
+.mp-head{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin:14px 0 18px}
+.mp-name{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5.4vw,60px);line-height:1.02;margin:0;letter-spacing:-.012em}
+.mp-head .seat{font-size:16px;color:var(--muted);margin-top:8px}.mp-head .seat b{color:var(--ink);font-weight:600}
+#pg-member .rep-top{justify-content:flex-start;padding-right:0;margin:0 0 22px}
+#pg-member .know-b{background:var(--surface);border:1px solid var(--line)}
+#pg-member .know-wiki{background:transparent;border-style:dashed}
+.mp-grid{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
+@media (min-width:980px){.mp-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.mp-filters{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
+.mvrow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:14px;line-height:1.4}
+.mvrow:last-child{border-bottom:0}.mvrow:hover b{text-decoration:underline}
+.mv-main .muted{display:block;font-size:12.5px}
+.mv-flag{font-size:11.5px;font-weight:600;color:var(--amber-ink);background:var(--amber-soft);padding:2px 8px;border-radius:999px;white-space:nowrap}
+#mpmore{margin-top:10px}
+@media (max-width:560px){.mvrow{grid-template-columns:minmax(0,1fr) auto}.mv-flag{grid-column:1;justify-self:start}.mp-head{gap:16px}.avw.xxl{width:72px;height:72px}}
 .avw.xl:before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(from 0deg,var(--pc),transparent 35%,var(--pc) 65%,transparent 100%);opacity:.6;z-index:-1}
 html.motion .avw.xl:before{animation:spin 7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -1798,7 +1815,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
   <section class="block" id="members">
     <div class="wrap">
       <div class="sechead rv">
-        <div><h2>Your members</h2><p>Find a senator or representative to see which bills they sponsored or cosponsored, then read how they voted on the map.</p></div>
+        <div><h2>Your members</h2><p>Find a senator or representative and get to know them: how long they have served, how they vote, what they work on, and every recorded vote they have cast.</p></div>
       </div>
       <div class="members">
         <div class="rv">
@@ -1811,6 +1828,12 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     </div>
   </section>
   </div><!-- /members -->
+
+  <div class="page" id="pg-member" data-page="member" hidden>
+  <section class="block" id="member">
+    <div class="wrap"><div id="mpage"></div></div>
+  </section>
+  </div><!-- /member -->
 </main>
 
 <footer>
@@ -2537,7 +2560,7 @@ function pickMember(id){
     <p><b>${m.bills.length}</b> bill${m.bills.length === 1 ? "" : "s"} in this set${m.sponsored ? `, ${m.sponsored} sponsored` : ""}${m.cosponsored ? `, ${m.cosponsored} cosponsored` : ""}. The list above now shows only theirs. <button class="chip" id="mclear">Show all bills</button></p>`;
   showPage("bills", true); render(); toast(`Showing bills for ${prettyName(m)}`);
 }
-mlist.addEventListener("click", e => { const btn = e.target.closest("button[data-m]"); if (btn) pickMember(btn.dataset.m); });
+mlist.addEventListener("click", e => { const btn = e.target.closest("button[data-m]"); if (btn) openMember(btn.dataset.m); });
 $("#mpick").addEventListener("click", e => { if (e.target.id === "mclear") { state.member = null; $("#mpick").textContent = "Pick a member to filter the bill list above."; render(); } });
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("show"), 2200); }
 
@@ -2627,7 +2650,8 @@ const ICO = {
 };
 const ico = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICO[k]}</svg>`;
 const ract = (k, label, href, plain) => `<a class="ract" href="${esc(href)}"${plain ? "" : ' target="_blank" rel="noopener"'}>${ico(k)}<span>${esc(label)}</span></a>`;
-const contactRow = (L, cg, shareLabel) => `<div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.cf ? ract("mail", "Contact form", L.cf) : ""}${ract("gov", "Congress.gov", cg)}<span class="rep-social" id="repsocial"></span><button class="ract sharebtn" id="sharerep" type="button">${ico("share")}<span>${esc(shareLabel)}</span></button></div>`;
+ICO.user = '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>';
+const contactRow = (L, cg, shareLabel, pre, profileId) => `<div class="rep-top">${profileId ? `<button class="ract" type="button" data-profile="${esc(profileId)}">${ico("user")}<span>Full profile</span></button>` : ""}${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.cf ? ract("mail", "Contact form", L.cf) : ""}${ract("gov", "Congress.gov", cg)}<span class="rep-social" id="${pre}social"></span><button class="ract sharebtn" id="share${pre}" type="button">${ico("share")}<span>${esc(shareLabel)}</span></button></div>`;
 const socialRow = S => !S ? "" : (S.twitter ? ract("x", "@" + S.twitter, "https://x.com/" + S.twitter) : "") + (S.facebook ? ract("fb", "Facebook", "https://www.facebook.com/" + S.facebook) : "")
   + (S.youtube ? ract("yt", "YouTube", "https://www.youtube.com/" + S.youtube) : "") + (S.instagram ? ract("ig", "Instagram", "https://www.instagram.com/" + S.instagram) : "");
 function knowHTML(P, L, party){
@@ -2965,7 +2989,7 @@ function initMap(){
     const recordHtml = record.length ? `<div class="rep-votes">${record.slice(0, 12).map(({v, pos}) => `<div><span><b>${esc(v.bill)}</b> <span class="muted">${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}</span><br><span class="muted">${esc(v.title)}</span></span><span class="vtag ${esc(pos)}">${POSW[pos] || pos}</span></div>`).join("")}${record.length > 12 ? `<div class="muted">and ${record.length - 12} more</div>` : ""}</div>` : `<p class="muted">No other roll calls on record here.</p>`;
     const mem = MEMBER[m.id];
     const bills = mem && mem.bills.length ? `<b>${mem.bills.length}</b> bill${mem.bills.length === 1 ? "" : "s"} in this catalog${mem.sponsored ? `, ${mem.sponsored} sponsored` : ""}${mem.cosponsored ? `, ${mem.cosponsored} cosponsored` : ""}.` : `No bills sponsored or cosponsored in this catalog.`;
-    $("#repbody").innerHTML = `${contactRow(L, cg, "Share how " + L.n.split(" ").slice(-1)[0] + " voted")}<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
+    $("#repbody").innerHTML = `${contactRow(L, cg, "Share how " + L.n.split(" ").slice(-1)[0] + " voted", "rep", m.id)}<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
       <div class="know" id="know"><h3>Get to know ${esc(L.n)}</h3><p class="muted loading">Loading\u2026</p></div>
       <div class="rep-grid">
         <div class="rep-block"><h4>This vote</h4><div class="rec"><span class="vtag ${esc(m.pos)}">${POSW[m.pos] || m.pos}</span><span>on <b>${esc(current.bill)}</b></span></div><div class="muted" style="margin-top:6px">${esc(current.title)}. ${esc(current.chamber)} ${esc(current.category.toLowerCase())}, ${esc(fmtDate(current.date))}: ${current.yeas ?? "?"} to ${current.nays ?? "?"}, ${esc((current.result || "").toLowerCase())}.</div></div>
@@ -2987,7 +3011,10 @@ function initMap(){
   }
   function closeRep(){ $("#repmodal").hidden = true; document.body.classList.remove("noscroll"); }
   $("#repclose").addEventListener("click", closeRep); $(".rep-back").addEventListener("click", closeRep);
-  $("#repbody").addEventListener("click", e => { const a = e.target.closest("a.replink"); if (!a) return; e.preventDefault(); closeRep(); mapShow(a.dataset.vote); });
+  $("#repbody").addEventListener("click", e => {
+    const pf = e.target.closest("[data-profile]"); if (pf) { closeRep(); openMember(pf.dataset.profile); return; }
+    const a = e.target.closest("a.replink"); if (!a) return; e.preventDefault(); closeRep(); mapShow(a.dataset.vote);
+  });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#repmodal").hidden) { e.stopPropagation(); closeRep(); } }, true);
   function pick(st){ if (zoomed === st) { showState(st); return; } zoomTo(st); }
   const monthOf = d => d ? new Date(d.slice(0, 7) + "-15T12:00:00").toLocaleDateString("en-US", {year: "numeric", month: "long"}) : "Undated";
@@ -3031,13 +3058,82 @@ document.addEventListener("click", e => {
   mapReady().then(() => { if (window.mapShow) mapShow(a.dataset.vote); });
 });
 
+/* ---------- a member's own page ----------
+   The card on the map answers "how did they vote on this"; the page answers "who is this". It carries the
+   same Get to know sections, then every recorded vote the member took part in, newest first, which can be
+   narrowed to the votes where they broke with their party or did not vote. Its address (#member=C001119)
+   has a share page of its own, so a link to someone's record shows a proper preview. */
+function openMember(id){ history.pushState({page: "member"}, "", "#member=" + id); routeFromHash(false); }
+let mpSeq = 0;
+function renderMemberPage(id){
+  const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  box.innerHTML = `<p class="muted loading">Loading\u2026</p>`;
+  Promise.all([membersReady(), needMember(id), votesReady()]).then(([, P]) => {
+    if (token !== mpSeq) return;
+    const L = DATA.legislators[id];
+    if (!L) { box.innerHTML = `<div class="empty">That member isn't in this catalog. <a href="#members">See all members</a></div>`; return; }
+    const PARTYW = {R: "Republican", D: "Democrat", I: "Independent", ID: "Independent", L: "Libertarian"}, POSW = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
+    const stName = (BOOT.state_names || {})[L.st] || L.st, house = L.ch !== "Senate", last = L.n.split(" ").slice(-1)[0], mem = MEMBER[id];
+    const seat = house ? (L.d ? `${stName}'s ${pcOrdinal(L.d)} district` : `${stName}'s at-large district`) : `Senator from ${stName}`;
+    const cg = `https://www.congress.gov/member/${encodeURIComponent(L.n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}/${id}`;
+    pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
+    // how each party leaned on a roll call, worked out once per vote from the same strings the map draws
+    const lean = v => {
+      if (v._lean) return v._lean;
+      const C = DATA.mv[v.chamber === "Senate" ? "S" : "H"] || {ids: [], votes: {}}, str = C.votes[v.vote_id] || "", po = v.po || {}, t = {D: [0, 0], R: [0, 0]};
+      for (let i = 0; i < str.length; i++) { const s = str[i]; if (s !== "Y" && s !== "N") continue; const Lg = DATA.legislators[C.ids[i]], p = po[i] || (Lg && Lg.p); if (p === "D" || p === "R") t[p][s === "Y" ? 0 : 1]++; }
+      const side = a => a[0] > a[1] ? "Y" : (a[1] > a[0] ? "N" : "");
+      return v._lean = {D: side(t.D), R: side(t.R)};
+    };
+    const at = {H: DATA.mv.H ? DATA.mv.H.ids.indexOf(id) : -1, S: DATA.mv.S ? DATA.mv.S.ids.indexOf(id) : -1}, rec = [];
+    for (const v of DATA.vote_meta) {
+      const c = v.chamber === "Senate" ? "S" : "H", i = at[c]; if (i < 0) continue;
+      const pos = ((DATA.mv[c].votes[v.vote_id] || "")[i]) || "."; if (pos === ".") continue;
+      const p = (v.po || {})[i] || L.p, ln = lean(v), mine = ln[p], other = ln[p === "D" ? "R" : "D"];
+      rec.push({v, pos, broke: !!(mine && other && mine !== other && (pos === "Y" || pos === "N") && pos !== mine)});
+    }
+    const counts = {all: rec.length, broke: rec.filter(r => r.broke).length, missed: rec.filter(r => r.pos === "X").length};
+    let filter = "all", shown = 25;
+    const rowsFor = () => rec.filter(r => filter === "all" || (filter === "broke" ? r.broke : r.pos === "X"));
+    const drawVotes = () => {
+      const rows = rowsFor(), list = $("#mpvotes");
+      list.innerHTML = rows.slice(0, shown).map(r => `<a class="mvrow" href="#vote=${esc(voteSlug(r.v.vote_id))}"><span class="mv-main"><b>${esc(r.v.bill)}</b> ${esc(r.v.title)}<span class="muted">${esc(r.v.chamber)} ${esc(String(r.v.category).toLowerCase())}, ${esc(fmtDate(r.v.date))}: ${r.v.yeas ?? "?"}\u2013${r.v.nays ?? "?"}, ${esc(String(r.v.result || "").toLowerCase())}</span></span>${r.broke ? `<span class="mv-flag">broke with party</span>` : ""}<span class="vtag ${esc(r.pos)}">${POSW[r.pos] || r.pos}</span></a>`).join("")
+        || `<p class="muted">${filter === "broke" ? "No breaks with the party on a split vote in this record." : (filter === "missed" ? "No missed roll calls in this record." : "No recorded votes here yet.")}</p>`;
+      const more = $("#mpmore"); more.hidden = rows.length <= shown; more.textContent = `Show ${Math.min(25, rows.length - shown)} more (${(rows.length - shown).toLocaleString()} left)`;
+      $$("#mpfilters .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === filter));
+    };
+    const bills = mem && mem.bills.length ? `<b>${mem.bills.length.toLocaleString()}</b> bill${mem.bills.length === 1 ? "" : "s"} in this catalog${mem.sponsored ? `, ${mem.sponsored} sponsored` : ""}${mem.cosponsored ? `, ${mem.cosponsored} cosponsored` : ""}.` : "No bills sponsored or cosponsored in this catalog.";
+    box.innerHTML = `<div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(PARTYW[L.p] || L.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}</div></div></div>
+      ${contactRow(L, cg, "Share this profile", "mp", null)}
+      <div class="mp-grid">
+        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(P, L, L.p) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
+        <div class="mp-side">
+          <div class="know-b"><h4><span class="tag fact">Fact</span> Every recorded vote</h4>
+            <div class="mp-filters" id="mpfilters" role="group" aria-label="Narrow the votes"><button class="chip" data-f="all" aria-pressed="true">All ${counts.all.toLocaleString()}</button><button class="chip" data-f="broke">Broke with party ${counts.broke.toLocaleString()}</button><button class="chip" data-f="missed">Did not vote ${counts.missed.toLocaleString()}</button></div>
+            <div id="mpvotes"></div><button class="chip" id="mpmore" type="button" hidden></button>
+            <p class="know-rule">Each line opens that vote on the map. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>
+          <div class="know-b"><h4><span class="tag fact">Fact</span> Their bills</h4><p>${bills}</p>${mem && mem.bills.length ? `<button class="chip" id="mpbills" type="button">Show ${esc(last)}'s bills</button>` : ""}</div>
+        </div>
+      </div>`;
+    $("#mpsocial").innerHTML = socialRow(P.social);
+    drawVotes();
+    $("#mpfilters").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; filter = c.dataset.f; shown = 25; drawVotes(); });
+    $("#mpmore").addEventListener("click", () => { shown += 25; drawVotes(); });
+    const mb = $("#mpbills"); if (mb) mb.addEventListener("click", () => pickMember(id));
+    const V = P.votes || {}, side = V.party === "R" ? "Republicans" : "Democrats";
+    const text = V.split_n ? `${L.n} sided with ${side} on ${Math.round(100 * V.split_with / V.split_n)}% of the ${V.split_n} votes where the two parties split. Every recorded vote, from the public record:` : `How ${L.n} votes and what ${last} works on, from the public record:`;
+    $("#sharemp").addEventListener("click", e => share({title: `Get to know ${L.n}`, text, url: `${SHARE_BASE}/m/${id}.html`, kind: "member", key: id}, e.currentTarget));
+    watchTracks(box);
+  }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this member. Check your connection and try again.</div>`; });
+}
+
 /* ---------- command palette, shortcuts, deep links ---------- */
 (function(){
   const pal = $("#palette"), inp = $("#palq"), list = $("#pallist"); let items = [], idx = 0;
   const open = () => { pal.hidden = false; document.body.classList.add("noscroll"); inp.value = ""; run(""); requestAnimationFrame(() => inp.focus()); };
   const close = () => { pal.hidden = true; document.body.classList.remove("noscroll"); };
   const mark = () => { $$("li[data-i]", list).forEach(li => li.setAttribute("aria-selected", +li.dataset.i === idx)); const cur = $(`li[data-i="${idx}"]`, list); if (cur) cur.scrollIntoView({block: "nearest"}); };
-  const go = i => { const it = items[i]; if (!it) return; close(); if (it.kind === "bill") goToBill(it.key); else pickMember(it.id); };
+  const go = i => { const it = items[i]; if (!it) return; close(); if (it.kind === "bill") goToBill(it.key); else openMember(it.id); };
   function run(q){
     if (!CATALOG_READY) { items = []; list.innerHTML = `<li class="none">Loading the catalog\u2026</li>`; catalogReady().then(() => { if (!pal.hidden) run(inp.value); }, () => { list.innerHTML = `<li class="none">Couldn't load the catalog. Check your connection and try again.</li>`; }); return; }
     q = q.trim().toLowerCase();
@@ -3073,13 +3169,15 @@ document.addEventListener("click", e => {
    data is loaded once and bill links keep working; only one page is visible
    at a time. Hashes stay what they always were (#bills, #map, #bill=hr1-119)
    so links already in the wild keep landing in the right place. */
-const PAGES = ["home", "bills", "map", "how", "members"];
+const PAGES = ["home", "bills", "map", "how", "members", "member"];
+const BASE_TITLE = document.title;
 let page = "home", billsShown = false;
 function showPage(name, push){
   if (!PAGES.includes(name)) name = "home";
   page = name;
   PAGES.forEach(p => { const el = $("#pg-" + p); if (el) el.hidden = p !== name; });
-  $$(".nav a[data-go], .tabbar a[data-go]").forEach(a => a.setAttribute("aria-current", a.dataset.go === name ? "page" : "false"));
+  $$(".nav a[data-go], .tabbar a[data-go]").forEach(a => a.setAttribute("aria-current", (a.dataset.go === name || (name === "member" && a.dataset.go === "members")) ? "page" : "false"));
+  if (name !== "member") document.title = BASE_TITLE;
   document.body.dataset.page = name;
   pageview("/" + (name === "home" ? "" : name), "The Civic Archive: " + name);
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
@@ -3097,6 +3195,8 @@ function routeFromHash(push){
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   const vote = h.match(/^vote=(.+)$/);
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
+  const mem = h.match(/^member=([A-Za-z]\d{6})$/);
+  if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase()); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
@@ -3108,6 +3208,8 @@ document.addEventListener("click", e => {
   if (PAGES.includes(h)) { e.preventDefault(); showPage(h, true); }
 });
 addEventListener("popstate", () => routeFromHash(false));
+/* A plain link such as #vote=... or #member=... changes the address without going through the router; follow it. */
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(vote|member|bill)=/.test(h)) routeFromHash(false); });
 
 /* Changelog badge. The label is the version named by the newest changelog
    entry (4.x.xxx); entries from before version numbers fall back to a count.
@@ -3350,8 +3452,8 @@ def main():
               + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k.startswith("data/"))
               + f"; {n_detail:,} bill files ({kb(detail_bytes)}); {len(photo_bytes):,} portraits ({kb(photo_total)})")
         import share_cards
-        sh = share_cards.write_share_pages(args.split, shaped, args.base_url, data["states"])
-        print(f"Share pages: {sh['bill_pages']:,} bills, {sh['vote_pages']:,} votes; preview images: {sh['cards_drawn']:,} drawn, "
+        sh = share_cards.write_share_pages(args.split, shaped, args.base_url, data["states"], photo_bytes)
+        print(f"Share pages: {sh['bill_pages']:,} bills, {sh['vote_pages']:,} votes, {sh['member_pages']:,} members; preview images: {sh['cards_drawn']:,} drawn, "
               f"{sh['cards_kept']:,} unchanged, {kb(sh['cards_bytes'])} in all")
 
 

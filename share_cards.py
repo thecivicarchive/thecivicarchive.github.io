@@ -20,6 +20,7 @@ Everything here is derived from the record and says so on the card.
 """
 import hashlib
 import html
+import io
 import json
 import os
 import re
@@ -377,6 +378,83 @@ def draw_site(stats):
     return im
 
 
+# --- members ------------------------------------------------------------------
+
+def ordinal(n):
+    return f"{n}{'th' if 11 <= n % 100 <= 13 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def member_inputs(bio, L, P, state_name, has_photo):
+    party = {"R": "Republican", "D": "Democrat"}.get(L.get("p"), "Independent")
+    if L.get("ch") == "Senate":
+        seat = f"Senator from {state_name}"
+    else:
+        seat = f"{state_name}'s {ordinal(int(L['d']))} district" if L.get("d") else f"{state_name}, at large"
+    S, V = P.get("service") or {}, P.get("votes") or {}
+    since = (S.get("since") or "")[:4]
+    line = f"{party} \u00b7 {seat}" + (f" \u00b7 in the {S.get('chamber')} since {since}" if since else "")
+    chair = next((f"{c['title']}, {c['name']}" for c in (P.get("committees") or []) if c.get("title")), "")
+    return {"name": L.get("n") or bio, "party": L.get("p") or "", "line": line, "chair": chair, "photo": bool(has_photo),
+            "votes": {k: V.get(k) for k in ("party", "cast", "split_n", "split_with", "missed", "eligible")} if V else {}}
+
+
+def member_sentence(inp):
+    V = inp["votes"]
+    if V.get("split_n"):
+        side = "Republicans" if V.get("party") == "R" else "Democrats"
+        return f"Sided with {side} on {round(100 * V['split_with'] / V['split_n'])}% of the {V['split_n']:,} votes where the two parties split."
+    if V.get("eligible"):
+        return f"Cast {V.get('cast') or 0:,} recorded votes and missed {V.get('missed') or 0:,} of {V['eligible']:,} roll calls."
+    return ""
+
+
+def draw_member(inp, photo_blob=None):
+    im, d = base_canvas()
+    brand(d)
+    x, color = 60, party_color(inp["party"])
+    if photo_blob:
+        try:
+            ph = Image.open(io.BytesIO(photo_blob)).convert("RGB")
+            side = min(ph.size)
+            left, top = (ph.width - side) // 2, max(0, int((ph.height - side) * .2))
+            ph = ph.crop((left, top, left + side, top + side)).resize((150, 150), Image.LANCZOS)
+            mask = Image.new("L", (150, 150), 0)
+            ImageDraw.Draw(mask).ellipse((0, 0, 149, 149), fill=255)
+            im.paste(ph, (60, 122), mask)
+            d.ellipse((53, 115, 217, 279), outline=color, width=4)
+            x = 250
+        except Exception:
+            x = 60
+    nf, y = font("serif", 76), 118
+    for line in wrap(d, inp["name"], nf, W - x - 60, 2):
+        d.text((x, y), line, font=nf, fill=INK)
+        y += 80
+    sf = font("sans", 28)
+    for line in wrap(d, inp["line"], sf, W - x - 60, 2):
+        d.text((x, y + 4), line, font=sf, fill=SOFT)
+        y += 36
+    V, y = inp["votes"], max(y + 36, 330)
+    if V.get("split_n"):
+        pct, big = round(100 * V["split_with"] / V["split_n"]), font("serif", 140)
+        side = "Republicans" if V.get("party") == "R" else "Democrats"
+        d.text((56, y - 24), f"{pct}%", font=big, fill=color)
+        bx, cf = 56 + d.textlength(f"{pct}%", font=big) + 32, font("sans", 30)
+        for i, line in enumerate(wrap(d, f"of the {V['split_n']:,} votes where the two parties split, sided with {side}", cf, W - bx - 60, 3)):
+            d.text((bx, y + 8 + i * 40), line, font=cf, fill=SOFT)
+        d.rounded_rectangle((60, y + 140, W - 60, y + 152), radius=6, fill=LINE)
+        d.rounded_rectangle((60, y + 140, 60 + (W - 120) * pct / 100, y + 152), radius=6, fill=color)
+        tail = f"Missed {V.get('missed') or 0:,} of {V.get('eligible') or 0:,} roll calls" + (f" \u00b7 {inp['chair']}" if inp["chair"] else "")
+        tf = font("sans", 24)
+        d.text((60, y + 170), wrap(d, tail, tf, W - 120, 1)[0], font=tf, fill=MUTED)
+    else:
+        tf = font("sans", 30)
+        text = member_sentence(inp) or inp["chair"] or "How they vote and what they work on, from the record."
+        for i, line in enumerate(wrap(d, text, tf, W - 120, 3)):
+            d.text((60, y + i * 42), line, font=tf, fill=SOFT)
+    footer(d)
+    return im
+
+
 # --- pages ------------------------------------------------------------------
 
 def slug(vote_id):
@@ -427,13 +505,13 @@ def bill_description(b):
     return f"{st}. {text}".strip() if text else f"{st}. Who backed it and how every member voted, from the official record."
 
 
-def write_share_pages(folder, data, base_url, states):
+def write_share_pages(folder, data, base_url, states, photo_bytes=None):
     """Write b/, v/, og/, sitemap.xml and robots.txt under `folder`. Returns a summary dict."""
     import shutil
     base = base_url.rstrip("/")
-    for sub in ("b", "v"):
+    for sub in ("b", "v", "m"):
         shutil.rmtree(os.path.join(folder, sub), ignore_errors=True)
-    for sub in ("b", "v", "og/b", "og/v"):
+    for sub in ("b", "v", "m", "og/b", "og/v", "og/m"):
         os.makedirs(os.path.join(folder, sub), exist_ok=True)
     cache_path = os.path.join(folder, "og", "cards.json")
     try:
@@ -481,6 +559,17 @@ def write_share_pages(folder, data, base_url, states):
         with open(os.path.join(folder, "v", sl + ".html"), "w", encoding="utf-8", newline="\n") as fh:
             fh.write(stub(title, desc, url, f"{base}/og/v/{sl}.png", f"../#vote={sl}", body))
         urls.append(url)
+    profiles, photo_bytes, n_members = data.get("_profiles") or {}, photo_bytes or {}, 0
+    for bio, L in (data.get("legislators") or {}).items():
+        inp = member_inputs(bio, L, profiles.get(bio) or {}, (states.get(L.get("st")) or {}).get("name") or L.get("st") or "", bio in photo_bytes)
+        card(f"og/m/{bio}.png", dict(inp, v=1), lambda inp=inp, bio=bio: draw_member(inp, photo_bytes.get(bio)))
+        url, title = f"{base}/m/{bio}.html", f"Get to know {inp['name']}"
+        desc = " ".join(x for x in (inp["line"] + ".", member_sentence(inp), "Every recorded vote, from the public record.") if x)
+        body = f"<h1>{html.escape(inp['name'])}</h1><p>{html.escape(inp['line'])}</p><p>{html.escape(desc)}</p>"
+        with open(os.path.join(folder, "m", bio + ".html"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(stub(title, desc, url, f"{base}/og/m/{bio}.png", f"../#member={bio}", body))
+        urls.append(url)
+        n_members += 1
     # forget cards that no longer exist
     for rel in [r for r in cache if r not in seen]:
         cache.pop(rel, None)
@@ -496,7 +585,7 @@ def write_share_pages(folder, data, base_url, states):
     with open(os.path.join(folder, "robots.txt"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
     og_bytes = sum(os.path.getsize(os.path.join(folder, r)) for r in seen if os.path.exists(os.path.join(folder, r)))
-    return {"bill_pages": len(data["bills"]), "vote_pages": len(data.get("vote_meta") or []),
+    return {"bill_pages": len(data["bills"]), "vote_pages": len(data.get("vote_meta") or []), "member_pages": n_members,
             "cards_drawn": drawn, "cards_kept": kept, "cards_bytes": og_bytes}
 
 # --- the app icon -------------------------------------------------------------
