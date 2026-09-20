@@ -119,6 +119,12 @@ in "Definition of done" applies to it). `site/dev/` is the fast site: `index.htm
 one page template and one code path, so a change to either is a change to both. When you change the page's
 code, test both: the fast site through the local server, the archive from its file.
 
+The fast site also carries share pages, written by `share_cards.py`: `b/<key>.html` for every bill with a full
+record and `v/<vote>.html` for every roll call, each with a 1200 by 630 preview image under `og/` drawn in the
+site's own type (`fonts/`, Open Font License). A pasted link shows a card; a person who follows it lands on the
+bill or the vote. Images are redrawn only when what they show has changed. Absolute addresses come from
+`--base-url` (default `https://thecivicarchive.github.io/dev`); the live site would be built with the root.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

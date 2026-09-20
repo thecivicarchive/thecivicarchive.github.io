@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.003 — 2026-09-20 — Share a bill, a vote, or how your member voted
+
+- Every bill card, every roll call on the map and every member's card now has
+  a Share button. On a phone it opens the usual share sheet; on a computer it
+  offers a copied link, X, Bluesky, Threads, Facebook or email.
+- A shared link now shows a proper preview: the bill's title and status, or
+  the vote map coloured the way the site colours it, drawn in the site's own
+  type.
+- The address bar follows the vote you are looking at, so any vote can be
+  linked to directly.
+
 ## v4.0.002 — 2026-09-20 — A site that opens fast
 
 - The page you open is now under a fiftieth of its former size. The bill

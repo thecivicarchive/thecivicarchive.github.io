@@ -435,7 +435,7 @@ def bundles(data):
             "districts": data["districts"]}
 
 
-def boot_for(data, version):
+def boot_for(data, version, base_url=""):
     """What the shell carries inline: the welcome screen's numbers and picks, the changelog, and the
     rated bills the hero panel rotates through."""
     has_pos = lambda r: bool(r) and r.get("position") is not None
@@ -446,7 +446,7 @@ def boot_for(data, version):
                              natkey(b["key"])))
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
-            "photo_ids": sorted(data["photos"]), "inline": None}
+            "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"), "inline": None}
 
 
 def render_page(boot, data, version, foot):
@@ -454,6 +454,7 @@ def render_page(boot, data, version, foot):
     st, wc = data["stats"], data["welcome"]["counts"]
     demo = st["current"] < st["measures"]
     return (TEMPLATE.replace("__BOOT__", payload).replace("__FOOTNOTE__", foot).replace("__VERSION__", version)
+            .replace("__BASE__", boot.get("base") or "")
             .replace("__SETLABEL__", "measures in this demo set" if demo else "measures this Congress")
             .replace("__MEASURES__", str(st["measures"]))
             .replace("__LAWS__", str(st["laws"])).replace("__VOTES__", str(st["votes"])).replace("__MEMBERS__", str(st["members"]))
@@ -504,6 +505,19 @@ TEMPLATE = r"""<!DOCTYPE html>
 <title>The Civic Archive: every bill in Congress, in plain words</title>
 <meta name="description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
 <meta name="version" content="__VERSION__">
+<link rel="canonical" href="__BASE__/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Civic Archive">
+<meta property="og:title" content="The Civic Archive: every bill in Congress, in plain words">
+<meta property="og:description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
+<meta property="og:url" content="__BASE__/">
+<meta property="og:image" content="__BASE__/og/site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Civic Archive: every bill in Congress, in plain words">
+<meta name="twitter:description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
+<meta name="twitter:image" content="__BASE__/og/site.png">
 <meta name="theme-color" content="#F5F5F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -700,6 +714,11 @@ p{margin:0 0 12px}
 .skl.w3{width:30%}.skl.w8{width:82%;height:20px}.skl.w6{width:60%}
 @keyframes skl{50%{opacity:.45}}
 .loading{padding:12px 0}
+.sharemenu{position:absolute;z-index:95;min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column}
+.sharemenu[hidden]{display:none!important}
+.sharemenu a,.sharemenu button{display:block;text-align:left;padding:9px 12px;border:0;background:none;font:inherit;font-size:14px;color:var(--ink);border-radius:8px;cursor:pointer;text-decoration:none}
+.sharemenu a:hover,.sharemenu button:hover{background:var(--hair)}
+.tally .sharebtn{margin-left:auto}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -1576,7 +1595,7 @@ function cardHTML(b){
   <div class="title">${esc(b.short_title || b.title)}</div><p class="plain">${plainLine(b)}</p>${axes(b)}
   <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<span class="spon">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</span>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
   <div class="detail"><div></div></div>
-  <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink" aria-label="Copy a link to ${esc(b.id)}" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
+  <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink sharebtn" aria-label="Share ${esc(b.id)}" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
 }
 
 const grid = $("#grid"), state = { q: "", f: "all", sort: "recent", member: null, pin: null };
@@ -1699,12 +1718,8 @@ function showMore(){
 }
 grid.addEventListener("click", e => {
   if (e.target.closest("#showmore")) { showMore(); return; }
-  const cl = e.target.closest(".copylink");
-  if (cl) {
-    const url = location.href.split("#")[0] + "#bill=" + cl.closest(".card").dataset.key;
-    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast("Link copied"), () => prompt("Copy this link", url));
-    return;
-  }
+  const sb = e.target.closest(".sharebtn");
+  if (sb) { const b = byKey[sb.closest(".card").dataset.key]; if (b) share({title: `${b.id}: ${b.short_title || b.title}`, text: shareTextBill(b), url: shareUrlBill(b), kind: "bill", key: b.key}, sb); return; }
   const more = e.target.closest(".more"), tab = e.target.closest(".tab");
   if (tab) {
     const card = tab.closest(".card");
@@ -2006,6 +2021,41 @@ mlist.addEventListener("click", e => { const btn = e.target.closest("button[data
 $("#mpick").addEventListener("click", e => { if (e.target.id === "mclear") { state.member = null; $("#mpick").textContent = "Pick a member to filter the bill list above."; render(); } });
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("show"), 2200); }
 
+/* ---------- sharing ----------
+   Every bill with a full record and every roll call has its own small page
+   (b/<key>.html, v/<vote>.html) that carries the link preview and sends the
+   reader on to the site, so a pasted link shows a card. On a phone the
+   system share sheet opens; on a desktop a small menu of places to post. */
+const SHARE_BASE = BOOT.base || location.href.split("#")[0].replace(/\/[^\/]*$/, "");
+const voteSlug = id => String(id).replace(/\|/g, "_");
+const shareUrlBill = b => b.lite ? `${SHARE_BASE}/#bill=${b.key}` : `${SHARE_BASE}/b/${b.key}.html`;
+const shareUrlVote = v => `${SHARE_BASE}/v/${voteSlug(v.vote_id)}.html`;
+function track(name, props){ try { if (window.goatcounter && goatcounter.count) goatcounter.count({path: name + (props && props.key ? "/" + props.key : ""), title: name, event: true}); } catch (e) {} }
+function copyText(text){ (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => toast("Link copied"), () => prompt("Copy this link", text)); }
+let shareMenu = null;
+function share(o, anchor){
+  track("share", o);
+  if (navigator.share && matchMedia("(pointer: coarse)").matches) { navigator.share({title: o.title, text: o.text, url: o.url}).catch(() => {}); return; }
+  if (!shareMenu) {
+    shareMenu = document.createElement("div"); shareMenu.className = "sharemenu"; shareMenu.setAttribute("role", "menu"); shareMenu.hidden = true; document.body.appendChild(shareMenu);
+    document.addEventListener("click", e => { if (!shareMenu.hidden && !shareMenu.contains(e.target) && !e.target.closest(".sharebtn")) shareMenu.hidden = true; });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !shareMenu.hidden) shareMenu.hidden = true; });
+  }
+  const text = o.text || o.title, u = encodeURIComponent(o.url), t = encodeURIComponent(text), tu = encodeURIComponent(text + " " + o.url);
+  shareMenu.innerHTML = `<button class="sm-copy" role="menuitem">Copy link</button>
+    <a role="menuitem" href="https://twitter.com/intent/tweet?text=${t}&url=${u}" target="_blank" rel="noopener">Post on X</a>
+    <a role="menuitem" href="https://bsky.app/intent/compose?text=${tu}" target="_blank" rel="noopener">Post on Bluesky</a>
+    <a role="menuitem" href="https://www.threads.net/intent/post?text=${tu}" target="_blank" rel="noopener">Post on Threads</a>
+    <a role="menuitem" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">Share on Facebook</a>
+    <a role="menuitem" href="mailto:?subject=${encodeURIComponent(o.title)}&body=${encodeURIComponent(text + "\n\n" + o.url)}">Email</a>`;
+  shareMenu.querySelector(".sm-copy").addEventListener("click", () => { copyText(o.url); shareMenu.hidden = true; });
+  shareMenu.hidden = false;
+  const r = anchor.getBoundingClientRect(), mw = shareMenu.offsetWidth;
+  shareMenu.style.left = Math.max(8, Math.min(r.right + scrollX - mw, innerWidth + scrollX - mw - 8)) + "px";
+  shareMenu.style.top = (r.bottom + scrollY + 6) + "px";
+}
+const shareTextBill = b => { const st = statusText(b); return `${b.id}, ${b.short_title || b.title}: ${st.charAt(0).toLowerCase() + st.slice(1)}. Who backed it and how every member voted, from the record.`; };
+
 /* ---------- top bar follows the dark map section ---------- */
 (function(){
   const bar = $(".top"), th = $("#map"); if (!bar || !th) return;
@@ -2104,10 +2154,12 @@ function initMap(){
     void svg.offsetWidth; svg.classList.remove("swap");
     const yes = (current.yeas ?? "?"), no = (current.nays ?? "?");
     const passed = /passed|agreed|invoked|adopted|confirmed/i.test(current.result || ""), rows = parseSplit(current.split);
-    $("#mapsub").innerHTML = `<div class="tally"><b class="num"><span class="v yv">${esc(String(yes))}</span><span>–</span><span class="v nv">${esc(String(no))}</span></b><span class="res ${passed ? "pass" : "fail"}">${esc(current.result || "")}</span></div>
+    $("#mapsub").innerHTML = `<div class="tally"><b class="num"><span class="v yv">${esc(String(yes))}</span><span>–</span><span class="v nv">${esc(String(no))}</span></b><span class="res ${passed ? "pass" : "fail"}">${esc(current.result || "")}</span><button class="chip sharebtn" id="sharevote" type="button">Share this vote</button></div>
       <div class="tsub"><b>${esc(current.bill)}</b> ${esc(current.title)}. ${esc(current.chamber)} ${esc(current.category.toLowerCase())}, ${esc(fmtDate(current.date))}.${current.url ? ` <a href="${esc(current.url)}" target="_blank" rel="noopener">Official roll call</a>` : ""}</div>
       ${rows.length ? `<div class="split">${rows.map(r => `<div style="--pc:var(--${r.c})"><span>${esc(r.name)}</span><span class="bar" aria-hidden="true"><i class="y" style="width:${r.yp.toFixed(1)}%"></i><i class="n" style="width:${r.np.toFixed(1)}%"></i></span><span><b>${r.y}</b> yes, <b>${r.n}</b> no</span></div>`).join("")}</div>` : ""}`;
     if (typeof yes === "number" && typeof no === "number") { tween($(".yv"), lastTally[0], yes); tween($(".nv"), lastTally[1], no); lastTally = [yes, no]; }
+    $("#sharevote").addEventListener("click", e => share({title: `${current.bill}: ${current.chamber} ${current.category.toLowerCase()}, ${yes}–${no}`, text: `How every ${current.chamber} member voted on ${current.bill}, ${current.title}, state by state:`, url: shareUrlVote(current), kind: "vote", key: current.vote_id}, e.currentTarget));
+    if (page === "map") history.replaceState(history.state, "", "#vote=" + voteSlug(vid));
     if (zoomed) { if (current.chamber === "Senate" && DIST.states[zoomed]) { /* keep the zoom; senators show as the split state */ } buildDistricts(zoomed); }
     if (selected) showState(selected); else side.innerHTML = `<span class="muted" style="font-size:14px">Tap a state to zoom in. On a House vote you'll see its districts; tap one for the representative.</span>`;
   }
@@ -2249,7 +2301,8 @@ function initMap(){
         <div class="rep-block"><h4>Their votes on record here</h4>${recordHtml}</div>
         <div class="rep-block"><h4>Their bills</h4><div>${bills}</div>${mem && mem.bills.length ? `<div class="rep-links" style="margin-top:10px"><button id="repbills">Show their bills</button></div>` : ""}</div>
       </div>
-      <div class="rep-links">${L.u ? `<a href="${esc(L.u)}" target="_blank" rel="noopener">Official site</a>` : ""}${L.ph ? `<a href="tel:${esc(L.ph)}">${esc(L.ph)}</a>` : ""}${L.cf ? `<a href="${esc(L.cf)}" target="_blank" rel="noopener">Contact form</a>` : ""}<a href="${cg}" target="_blank" rel="noopener">Congress.gov</a></div>`;
+      <div class="rep-links">${L.u ? `<a href="${esc(L.u)}" target="_blank" rel="noopener">Official site</a>` : ""}${L.ph ? `<a href="tel:${esc(L.ph)}">${esc(L.ph)}</a>` : ""}${L.cf ? `<a href="${esc(L.cf)}" target="_blank" rel="noopener">Contact form</a>` : ""}<a href="${cg}" target="_blank" rel="noopener">Congress.gov</a><button class="chip sharebtn" id="sharerep" type="button">Share how ${esc(L.n.split(" ").slice(-1)[0])} voted</button></div>`;
+    $("#sharerep").addEventListener("click", e => share({title: `${L.n} voted ${(POSW[m.pos] || m.pos).toLowerCase()} on ${current.bill}`, text: `${L.n} (${m.p}-${st}) voted ${(POSW[m.pos] || m.pos).toLowerCase()} on ${current.bill}, ${current.title}. The whole ${current.chamber}, state by state:`, url: shareUrlVote(current), kind: "rep", key: m.id}, e.currentTarget));
     const modal = $("#repmodal"); modal.hidden = false; document.body.classList.add("noscroll");
     const rb = $("#repbills"); if (rb) rb.addEventListener("click", () => { closeRep(); pickMember(m.id); });
     requestAnimationFrame(() => $("#repclose").focus());
@@ -2338,6 +2391,8 @@ function routeFromHash(push){
   const h = (location.hash || "").replace(/^#/, "");
   const bill = h.match(/^bill=([a-z0-9-]+)/i);
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
+  const vote = h.match(/^vote=(.+)$/);
+  if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
   if (h === "nowmoving" || h === "top" || h === "") { showPage("home", false); return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
@@ -2436,6 +2491,8 @@ def main():
     ap.add_argument("--max-mb", type=float, default=15.0, help="size budget for the one-file archive (claude.ai artifacts allow 16 MB)")
     ap.add_argument("--summary-chars", type=int, default=220, help="summary length kept for introduced-only measures")
     ap.add_argument("--as-of", default="", help="date to print as the generation date (YYYY-MM-DD); default today")
+    ap.add_argument("--base-url", default="https://thecivicarchive.github.io/dev",
+                    help="where the fast site will live; share pages and link previews need absolute addresses")
     args = ap.parse_args()
     data = collect(args.db)
     photo_bytes = data.pop("photo_bytes")
@@ -2458,7 +2515,7 @@ def main():
     print(f"Version {version or '(none: no version in CHANGELOG.md)'}")
 
     # the one-file archive: the same shell with every bundle inlined, trimmed to the size budget
-    boot = boot_for(data, version)
+    boot = boot_for(data, version, args.base_url)
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
         boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"]})
@@ -2489,6 +2546,10 @@ def main():
         print(f"Wrote {args.split}/: shell {kb(sizes['index.html'])}; "
               + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k != "index.html")
               + f"; {n_detail:,} bill files ({kb(detail_bytes)}); {len(photo_bytes):,} portraits ({kb(photo_total)})")
+        import share_cards
+        sh = share_cards.write_share_pages(args.split, shaped, args.base_url, data["states"])
+        print(f"Share pages: {sh['bill_pages']:,} bills, {sh['vote_pages']:,} votes; preview images: {sh['cards_drawn']:,} drawn, "
+              f"{sh['cards_kept']:,} unchanged, {kb(sh['cards_bytes'])} in all")
 
 
 if __name__ == "__main__":
