@@ -565,6 +565,7 @@ def collect(db_path):
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
             "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest, "money_members": money["members"], "money_kinds": money["kinds"],
+            "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {},
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -587,6 +588,8 @@ def closest_votes(con, vote_meta, n=12):
         return []
     carried = {"Passed", "Agreed to", "Invoked", "Sustained"}
     weight = {"Passage": 0, "Resolve differences": 0, "Veto override": 0}
+    seats = {vid: (y or 0, n or 0) for vid, y, n in con.execute(
+        "SELECT vote_id, SUM(position IN ('Yea', 'Aye')), SUM(position IN ('Nay', 'No')) FROM member_votes GROUP BY vote_id")}
     out = []
     for vid, category, result, yeas, nays, text in con.execute(
             "SELECT vote_id, category, result, yeas, nays, action_text FROM floor_votes WHERE yeas IS NOT NULL AND nays IS NOT NULL"):
@@ -606,7 +609,10 @@ def closest_votes(con, vote_meta, n=12):
             margin, won = abs(yeas - need), yeas >= need
         if won != (result in carried):
             continue
-        out.append({"vote_id": vid, "bill_key": m["bill_key"], "bill": m["bill"], "title": trim_text(m["title"], 90), "chamber": m["chamber"],
+        broke = None                                             # the senators tied and the Vice President's vote decided it
+        if needs == "majority" and m["chamber"] == "Senate" and abs(yeas - nays) == 1 and vid in seats and seats[vid][0] == seats[vid][1]:
+            broke, margin = list(seats[vid]), 0
+        out.append({"broke": broke, "vote_id": vid, "bill_key": m["bill_key"], "bill": m["bill"], "title": trim_text(m["title"], 90), "chamber": m["chamber"],
                     "category": category, "date": m["date"], "yeas": yeas, "nays": nays, "result": result, "needs": needs,
                     "need": need, "margin": margin, "won": won, "_w": weight.get(category, 1)})
     out.sort(key=lambda v: (v["margin"], v["_w"], -int((v["date"] or "0000-00-00").replace("-", ""))))
@@ -868,6 +874,13 @@ def write_split(folder, html, data, photo_bytes):
             fh.write(text)
         donor_bytes += len(text.encode("utf-8"))
     sizes["data/donors (all members).json"] = donor_bytes
+    os.makedirs(os.path.join(folder, "data", "money"), exist_ok=True)        # the Money page: an index, one file of rows per cycle, the summaries
+    ms = data.get("_master") or {}
+    if ms:
+        put("data/money/index.json", dump(ms["index"]))
+        for cyc, rows in ms["rows"].items():
+            put(f"data/money/{cyc}.json", dump(rows))
+    put("data/money/summary.json", dump(data.get("_money_summary") or {}))
     for bid, blob in photo_bytes.items():
         with open(os.path.join(folder, "photos", bid + ".webp"), "wb") as fh:
             fh.write(blob)
@@ -1841,6 +1854,92 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .mny-two{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);margin-top:12px}
 @media (min-width:1000px){.mny-two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mny-two h5{margin:0 0 8px;font-size:14px}.mny-two>div{min-width:0}
+/* the Money page */
+.mtabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);margin:22px 0 6px;flex-wrap:wrap}
+.mtab{all:unset;cursor:pointer;padding:9px 18px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--muted)}
+.mtab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.mtab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ml-cycles{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ml-cycles .chip{height:30px;font-size:13px}
+.ml-active{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.ml-active .chip{height:30px;font-size:12.5px;gap:8px;background:var(--accent-soft);border-color:var(--accent-line);color:var(--ink)}
+.ml-active .chip b{font-weight:700}
+.gt .fbtn{all:unset;cursor:pointer;margin-left:6px;color:var(--muted);font-size:11px;border:1px solid var(--line);border-radius:999px;padding:1px 7px;vertical-align:1px}
+.gt .fbtn:hover,.gt .fbtn:focus-visible{color:var(--ink);border-color:var(--line-strong)}
+.vtabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.vtab{all:unset;cursor:pointer;box-sizing:border-box;flex:1 1 200px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:3px;transition:border-color .15s,transform .15s var(--ease)}
+.vtab b{font-size:15px}.vtab span{font-size:12.5px;color:var(--muted);line-height:1.35}
+.vtab[aria-selected="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.vtab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vpanel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px;min-width:0}
+@media (max-width:560px){.vpanel{padding:16px 12px}}
+.vpanel h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:0 0 6px}
+.vpanel .lead{color:var(--muted);margin:0 0 14px;max-width:72ch;line-height:1.5}
+.vctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.vctl .chip{height:32px}
+.vctl input[type=search]{height:36px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);padding:0 14px;font:inherit;font-size:13.5px;min-width:220px}
+/* ten coins */
+.coins{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:10px;max-width:760px;margin:6px 0 18px}
+@media (max-width:620px){.coins{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.coin{all:unset;cursor:pointer;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(20px,4vw,34px);color:#15171B;background:var(--c);box-shadow:inset 0 -5px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.35),0 6px 14px -8px rgba(0,0,0,.5);animation:coinin .55s var(--ease) both;animation-delay:calc(var(--i) * 70ms);transition:transform .15s var(--ease),opacity .15s}
+.coin:hover,.coin:focus-visible{transform:translateY(-4px)}
+.coins.pick .coin:not(.on){opacity:.28}
+@keyframes coinin{from{opacity:0;transform:translateY(-38px) rotate(-25deg)}60%{transform:translateY(4px)}to{opacity:1;transform:none}}
+.coinkey{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:760px}
+.coinkey li{all:unset;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-md);cursor:pointer;font-size:16px;line-height:1.4}
+.coinkey li.on{border-color:var(--ink)}
+.coinkey li i{width:40px;height:40px;border-radius:50%;background:var(--c);display:grid;place-items:center;font-style:normal;font-weight:700;color:#15171B;font-size:17px}
+.coinkey li small{display:block;color:var(--muted);font-size:13.5px}
+.coin-say{font-size:18px;line-height:1.5;max-width:60ch;margin:0 0 14px}
+/* top givers */
+.givers{display:grid;gap:7px;margin:4px 0 0}
+.giver{all:unset;cursor:pointer;display:grid;grid-template-columns:minmax(140px,34%) minmax(0,1fr) 74px;gap:12px;align-items:center;font-size:13.5px;padding:3px 0;border-radius:8px}
+.giver:hover,.giver:focus-visible{background:var(--hair)}
+.giver .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+.giver .bar{display:flex;height:20px;border-radius:5px;overflow:hidden;background:var(--line)}
+.giver .bar i{display:block;height:100%}
+.giver .amt{font-variant-numeric:tabular-nums;font-weight:600}
+@media (max-width:620px){.giver{grid-template-columns:1fr 70px}.giver .nm{grid-column:1/-1;text-align:left;white-space:normal}}
+.vkey{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:12px 0 0}
+.vkey span{display:inline-flex;gap:6px;align-items:center}.vkey i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.vsay{min-height:24px;font-size:13.5px;color:var(--muted);margin:10px 0 0}.vsay b{color:var(--ink)}
+/* large print */
+.bigp{font-size:21px;line-height:1.55;color:var(--ink)}
+.bigp h3{font-size:34px}
+.bigp .years{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+.bigp .years button{all:unset;cursor:pointer;box-sizing:border-box;min-width:92px;min-height:56px;padding:0 18px;border:2px solid var(--line-strong);border-radius:14px;font-size:22px;font-weight:700;text-align:center;background:var(--bg)}
+.bigp .years button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bigp .years button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.bigcols{display:flex;align-items:flex-end;gap:14px;height:260px;margin:8px 0 6px;border-bottom:3px solid var(--ink);padding:0 4px}
+.bigcols div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px;font-weight:700;font-size:18px}
+.bigcols div i{display:block;width:100%;background:var(--muted);border-radius:8px 8px 0 0;min-height:4px}
+.bigcols div.on i{background:var(--accent)}
+.bigyrs{display:flex;gap:14px;padding:0 4px;font-size:19px;font-weight:700}
+.bigyrs span{flex:1;text-align:center;min-width:0}
+.bigcols div{min-width:0}
+/* large print on a small screen: still large, but six columns have to fit */
+@media (max-width:620px){.bigp{font-size:19px}.bigp h3{font-size:28px}.bigcols{gap:5px;height:220px;padding:0}.bigcols div{font-size:12.5px;letter-spacing:-.02em}.bigyrs{gap:5px;padding:0;font-size:15px}.bigtop li{grid-template-columns:34px minmax(0,1fr)}.bigtop li b{font-size:19px}.bigp .years button{min-width:78px}}
+.bigtop{list-style:none;padding:0;margin:14px 0 0;counter-reset:bt}
+.bigtop li{counter-increment:bt;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:2px solid var(--line)}
+.bigtop li::before{content:counter(bt);font-family:var(--serif);font-size:34px;line-height:1}
+.bigtop li b{display:block;font-size:22px;line-height:1.3}
+.bigbtn{all:unset;cursor:pointer;box-sizing:border-box;display:inline-flex;align-items:center;min-height:56px;padding:0 24px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:20px;font-weight:700;margin-top:18px}
+.bigbtn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media print{body[data-print="money"] header,body[data-print="money"] footer,body[data-print="money"] .tabbar,body[data-print="money"] .cl,body[data-print="money"] .mtabs,body[data-print="money"] .vtabs,body[data-print="money"] .sechead,body[data-print="money"] .bigbtn,body[data-print="money"] .ticker,body[data-print="money"]>div:first-child{display:none!important}body[data-print="money"] .vpanel{border:0;padding:0}body[data-print="money"]{background:#fff;color:#000}}
+/* the donor map */
+.dmap{position:relative;border-radius:var(--r-lg);background:var(--bg);overflow:hidden}
+.dmap svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.dmap .dot{stroke:var(--bg);stroke-width:1;cursor:pointer;transition:opacity .15s}
+.dmap.pick .dot:not(.on){opacity:.12}
+.dmap .dot.on{stroke:#E0B040;stroke-width:2.5}
+.dmap .dot:hover,.dmap .dot.me{stroke:var(--ink);stroke-width:2.5}
+.dmap .ax{stroke:var(--line-strong);stroke-width:1}
+.dmap text{fill:var(--muted);font-size:12px;font-family:var(--sans)}
+.dmap text.t{fill:var(--ink);font-weight:600}
+.dtip{position:absolute;z-index:3;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12.5px;line-height:1.4;padding:8px 11px;border-radius:10px;max-width:280px;opacity:0;transition:opacity .12s;transform:translate(-50%,calc(-100% - 12px))}
+.dtip.show{opacity:1}.dtip b{display:block;font-size:13.5px}
+.dside{font-size:13.5px;line-height:1.5;margin-top:12px}
+.dside ol{margin:6px 0 0;padding-left:20px}
 /* decided by a handful */
 .closest{padding:26px 0 8px}
 .closelist{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
@@ -1893,7 +1992,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="The Civic Archive, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#home" data-go="home">Home</a><a href="#bills" data-go="bills">Bills</a><a href="#map" data-go="map">Vote map</a><a href="#how" data-go="how">How ratings work</a><a href="#members" data-go="members">Your members</a>
+      <a href="#home" data-go="home">Home</a><a href="#bills" data-go="bills">Bills</a><a href="#map" data-go="map">Vote map</a><a href="#how" data-go="how">How ratings work</a><a href="#members" data-go="members">Your members</a><a href="#money" data-go="money">Money</a>
     </nav>
     <div class="tools">
       <button class="kbtn" id="palettebtn" aria-label="Search bills and members"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
@@ -2134,6 +2233,23 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
   </section>
   </div><!-- /members -->
 
+  <div class="page" id="pg-money" data-page="money" hidden>
+  <section class="block" id="money">
+    <div class="wrap">
+      <div class="sechead rv">
+        <div><h2>Follow the money</h2><p>The organizations behind every member's campaigns, 2016 through 2026, and the members they gave to, from the Federal Election Commission's public files. Search it, filter it, sort it by several columns at once, or see it four different ways.</p></div>
+      </div>
+      <div class="mtabs" role="tablist" aria-label="Two ways in">
+        <button class="mtab" role="tab" type="button" data-mtab="list" aria-selected="true">The list</button>
+        <button class="mtab" role="tab" type="button" data-mtab="views" aria-selected="false">Four ways to see it</button>
+      </div>
+      <div id="moneylist" role="tabpanel"><p class="muted loading">Loading the list&hellip;</p></div>
+      <div id="moneyviews" role="tabpanel" hidden></div>
+      <p class="note">Organizations only: PACs, party committees and other candidates' committees. People who gave are counted in the campaigns' totals and never named here. The list holds each member's hundred largest donors over all years and the hundred largest of each cycle; joint fundraising committees and a member's own committees are left out, because what they pass along was raised from donors there first. Refunds are subtracted. Source: FEC bulk data (committee contributions, candidate and committee master files, campaign summaries).</p>
+    </div>
+  </section>
+  </div><!-- /money -->
+
   <div class="page" id="pg-member" data-page="member" hidden>
   <section class="block" id="member">
     <div class="wrap"><div id="mpage"></div></div>
@@ -2171,6 +2287,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
   <a href="#bills" data-go="bills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>Bills</span></a>
   <a href="#map" data-go="map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Votes</span></a>
   <a href="#members" data-go="members"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5a5 5 0 0 1 6 5"/></svg><span>Members</span></a>
+  <a href="#money" data-go="money"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.5-1-1.6-1.7-3-1.7-1.8 0-3 .9-3 2.2 0 3 6 1.5 6 4.6 0 1.3-1.3 2.2-3 2.2-1.5 0-2.7-.7-3.2-1.8"/><path d="M12 5.8v12.4"/></svg><span>Money</span></a>
   <a href="#how" data-go="how"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.4-2.8 4"/><path d="M12 17.6h.01"/></svg><span>Ratings</span></a>
 </nav>
 <div class="toast" id="toast" role="status"></div>
@@ -3729,7 +3846,7 @@ function moneyCardBody(id, view){
   const rec = MONEY[id]; if (!rec) return ""; const M = rec.M, top = (M.top || {})[view] || [], sum = (M.sum || {})[view] || [0, 0], out = (M.outside || {})[view] || [0, 0], max = top.length ? top[0][3] : 1;
   const t = (M.totals || {})[view];
   return `<p class="mny-race">${raceLine(M, view)}</p>${t ? `<p style="margin:0 0 8px">The campaign took in <b>${usd(t.receipts)}</b>${t.through && view !== "all" ? ` <span class="muted">(reports through ${esc(fmtDate(t.through))})</span>` : ""}. Where it came from:</p>${sourceBar(M, view, false)}` : ""}
-    ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organizations that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm"><a href="${fecLink(d[0])}" target="_blank" rel="noopener">${esc(d[1])}</a>${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this cycle"}.</p>`}
+    ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organizations that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm"><a href="${fecLink(d[0])}" target="_blank" rel="noopener">${esc(d[1])}</a>${kindTag(d[2])}${d[4] ? `<span class="kd">of which ${usd(d[4])} was people's gifts it passed along</span>` : ""}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this cycle"}.</p>`}
     ${(out[0] || out[1]) ? `<p class="mny-out">Separately, outside groups spent <b>${usd(out[0])}</b> to support and <b>${usd(out[1])}</b> to oppose. None of that went to the campaign.</p>` : ""}`;
 }
 function moneyCard(id){
@@ -3738,7 +3855,7 @@ function moneyCard(id){
     <div class="mny-views" role="group" aria-label="Election cycle">${views.map(v => `<button class="chip" type="button" data-mview="${v}" aria-pressed="${v === start}">${v === "all" ? `${Math.min(...M.cycles) - 1}\u2013${Math.max(...M.cycles)}` : v}</button>`).join("")}</div>
     <div class="mny-body">${moneyCardBody(id, start)}</div>
     <a class="chip mny-more" href="#member=${esc(id)}/money" data-profile="${esc(id)}" data-show="money">The top 100, every payment, and outside spending</a>
-    <p class="know-rule">From the Federal Election Commission's public files. Organizations here are PACs, party committees and other candidates' committees; the law caps what each may give (for most PACs, $5,000 per election). Individual donors are counted in the totals and never named on this site. Joint fundraising committees and the member's own committees are left out of the list: what they pass along was raised from donors there first.</p></div>`;
+    <p class="know-rule">From the Federal Election Commission's public files. Organizations here are PACs, party committees and other candidates' committees; the law caps what each may give from its own funds (for most PACs, $5,000 per election). A few committees also pass along gifts that individual people earmark for a candidate; the law counts those as the people's gifts, so a committee's total can be far above its own limit, and the part passed along is shown beside it. Individual donors are counted in the totals and never named on this site. Joint fundraising committees and the member's own committees are left out of the list: what they pass along was raised from donors there first.</p></div>`;
 }
 document.addEventListener("click", e => {
   const c = e.target.closest("[data-mview]"), box = c && c.closest("[data-money]"); if (!box) return;
@@ -3778,16 +3895,17 @@ function renderMoney(id, M, L, show){
   const amountOf = (d, v) => v === "all" ? Object.values(d.c).reduce((a, c) => a + c[0], 0) : ((d.c[v] || [0])[0]);
   const shape = (list, v) => list.map(d => { const cs = v === "all" ? Object.values(d.c) : (d.c[v] ? [d.c[v]] : []); if (!cs.length) return null;
       const f = cs.map(c => c[2]).filter(x => x != null), l = cs.map(c => c[3]).filter(x => x != null);
-      return Object.assign({}, d, {_t: cs.reduce((a, c) => a + c[0], 0), _n: cs.reduce((a, c) => a + c[1], 0), _f: f.length ? Math.min(...f) : null, _l: l.length ? Math.max(...l) : null, _p: cs.reduce((a, c) => a + c[4], 0), _g: cs.reduce((a, c) => a + c[5], 0)}); })
+      return Object.assign({}, d, {_t: cs.reduce((a, c) => a + c[0], 0), _n: cs.reduce((a, c) => a + c[1], 0), _f: f.length ? Math.min(...f) : null, _l: l.length ? Math.max(...l) : null, _p: cs.reduce((a, c) => a + c[4], 0), _g: cs.reduce((a, c) => a + c[5], 0), _pa: cs.reduce((a, c) => a + (c[7] || 0), 0)}); })
     .filter(d => d && d._t > 0).sort((a, b) => b._t - a._t).map((d, i) => (d._rank = i + 1, d));
   const pays = (d, v) => { const ps = (d.p || []).filter(x => v === "all" || String(x[2]) === v);
-    return `<ul class="pays">${ps.map(x => `<li><span>${esc(dayDate(x[0]) || "no date")} \u00b7 <b>${usd(x[1])}</b></span><span>${esc(ELECT[x[3]] || "other")} ${x[2]}</span></li>`).join("")}</ul>${d.more && v === "all" ? `<p class="muted" style="margin:8px 0 0;font-size:12.5px">and ${d.more.toLocaleString()} earlier payment${d.more === 1 ? "" : "s"} not listed.</p>` : ""}
-      <p class="muted" style="margin:8px 0 0;font-size:12.5px">Same-day payments are added together. <a href="${fecLink(d.id)}" target="_blank" rel="noopener">This committee at the FEC</a></p>`; };
+    return `<ul class="pays">${ps.map(x => `<li><span>${esc(dayDate(x[0]) || "no date")} \u00b7 <b>${usd(x[1])}</b></span><span>${x[4] ? "passed along \u00b7 " : ""}${esc(ELECT[x[3]] || "other")} ${x[2]}</span></li>`).join("")}</ul>${d.more && v === "all" ? `<p class="muted" style="margin:8px 0 0;font-size:12.5px">and ${d.more.toLocaleString()} earlier payment${d.more === 1 ? "" : "s"} not listed.</p>` : ""}
+      <p class="muted" style="margin:8px 0 0;font-size:12.5px">Same-day payments are added together.${d._pa ? ` "Passed along" marks gifts the filing calls earmarks: people's own gifts, handed on by this committee. Anything over $5,000 for one election is counted as passed along too, since a PAC cannot give more than that itself.` : ""} <a href="${fecLink(d.id)}" target="_blank" rel="noopener">This committee at the FEC</a></p>`; };
   const colsFor = (v, who) => [
     {key: "rank", label: "#", num: true, first: "asc", val: r => r._rank},
     {key: "name", label: who, val: r => r.n, html: r => `<a href="${fecLink(r.id)}" target="_blank" rel="noopener"><b>${esc(r.n)}</b></a>${r.o ? `<div class="muted" style="font-size:12px">${esc(r.o)}</div>` : ""}`},
     {key: "kind", label: "Kind", val: r => KINDW[r.k] || r.k, html: r => kindTag(r.k)},
     {key: "total", label: v === "all" ? "Total" : "Total " + v, num: true, val: r => r._t, html: r => `<b>${usd(r._t)}</b>`},
+    {key: "passed", label: "Passed along", num: true, title: "The part of the total that was individual people's gifts, earmarked for the candidate and handed on by this committee", val: r => r._pa || null, html: r => r._pa ? usd(r._pa) : ""},
     {key: "n", label: "Payments", num: true, val: r => r._n, html: r => `<button class="xbtn" type="button" data-x="1" title="Show each payment">${r._n.toLocaleString()}</button>`},
     {key: "first", label: "First", num: true, val: r => r._f, html: r => esc(dayDate(r._f))},
     {key: "last", label: "Latest", num: true, val: r => r._l, html: r => esc(dayDate(r._l))}];
@@ -3814,7 +3932,7 @@ function renderMoney(id, M, L, show){
     curRows = rows; drawChart(rows);
     const cols = colsFor(view, "Organization").concat(view === "all" ? M.cycles.map(y => ({key: "y" + y, label: String(y), num: true, val: r => (r.c[y] || [0])[0] || null, html: r => r.c[y] ? usd(r.c[y][0]) : ""}))
       : [{key: "prim", label: "Primary", num: true, val: r => r._p || null, html: r => r._p ? usd(r._p) : ""}, {key: "gen", label: "General", num: true, val: r => r._g || null, html: r => r._g ? usd(r._g) : ""}]);
-    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${sum[1] > rows.length ? `The ${rows.length.toLocaleString()} largest of ${sum[1].toLocaleString()} organizations that gave ${usd(sum[0])} in all. ` : ""}${(() => { const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => [a[0] + b[0], a[1] + b[1]], [0, 0]) : ((D.moved || {})[view] || [0, 0]); return (mv[0] || mv[1]) ? `Not counted as donors: ${usd(mv[0])} moved in from joint fundraising committees and ${usd(mv[1])} from ${esc(last)}'s own other committees. ` : ""; })()}${(() => { const co = view === "all" ? Object.values(D.coordinated || {}).reduce((a, b) => a + b, 0) : ((D.coordinated || {})[view] || 0); return co ? `The party also spent ${usd(co)} in coordination with the campaign. ` : ""; })()}Refunds are subtracted. "Primary" and "General" are the election each payment was given toward.</p>`;
+    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${sum[1] > rows.length ? `The ${rows.length.toLocaleString()} largest of ${sum[1].toLocaleString()} organizations that gave ${usd(sum[0])} in all. ` : ""}${(() => { const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => [a[0] + b[0], a[1] + b[1]], [0, 0]) : ((D.moved || {})[view] || [0, 0]); return (mv[0] || mv[1]) ? `Not counted as donors: ${usd(mv[0])} moved in from joint fundraising committees and ${usd(mv[1])} from ${esc(last)}'s own other committees. ` : ""; })()}${(() => { const co = view === "all" ? Object.values(D.coordinated || {}).reduce((a, b) => a + b, 0) : ((D.coordinated || {})[view] || 0); return co ? `The party also spent ${usd(co)} in coordination with the campaign. ` : ""; })()}Refunds are subtracted. "Primary" and "General" are the election each payment was given toward. "Passed along" is the part of a total that was individual people's gifts, earmarked for ${esc(last)} and handed on by the committee: every line the filing marks as an earmark, plus anything over the $5,000 a PAC may give for one election from its own funds.</p>`;
     table = gridTable($("#mnytable"), {cols, rows: rows.filter(r => !off.has(r.k)), sort: [{key: "total", dir: "desc"}], page: 25, rowId: r => r.id, detail: r => pays(r, view), empty: "No organization's gift is on file for this choice.",
       count: rs => `${rs.length.toLocaleString()} organization${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r._t, 0))}`,
       onHover: r => { $$("#tmap button").forEach(b => b.classList.toggle("hot", !!r && b.dataset.id === r.id)); }});
@@ -3847,6 +3965,238 @@ function renderMoney(id, M, L, show){
   addEventListener("resize", () => { if (D && !box.hidden && document.body.contains(box) && $("#tmap")) drawChart(curRows); });
   needDonors(id).then(d => { D = d; draw(); if (show === "money") setTimeout(() => { box.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -70); }, 80); },
     () => { $("#mnytablebox").innerHTML = `<p class="muted">Couldn't load the donors. Check your connection and try again.</p>`; });
+}
+
+/* ---------- the Money page: one list of donors and members, and four ways to see it ---------- */
+function needMoney(name){
+  if (BOOT.inline) return Promise.resolve(((BOOT.inline.money || {})[name]) || null);
+  const k = "money:" + name; if (loads[k]) return loads[k];
+  return loads[k] = fetch(`data/money/${encodeURIComponent(name)}.json?v=${DATA_V}`).then(r => r.ok ? r.json() : null).catch(e => { delete loads[k]; throw e; });
+}
+let moneyBuilt = false, moneyGo = null;
+function moneyPage(tab, donor){
+  if (!moneyBuilt) { moneyBuilt = true; buildMoneyPage(); }
+  if (moneyGo) moneyGo(tab, donor);
+}
+function buildMoneyPage(){
+  const listBox = $("#moneylist"), viewBox = $("#moneyviews"), NAMES = BOOT.state_names || {}, PTY = {D: "Democrat", R: "Republican", I: "Independent"}, tone = {D: "var(--dem)", R: "var(--rep)", I: "var(--plum)"};
+  const party = L => (L.p === "D" || L.p === "R") ? L.p : "I", lastName = n => { const t = String(n).replace(/,?\s+(Jr\.|Sr\.|II|III|IV)$/, "").split(" "); return t[t.length - 1] + " " + n; };
+  let IDX = null, SUM = null, table = null, listReady = null; const ROWS = {}, f = {q: "", cycles: new Set(), ch: "", pt: "", st: "", kind: "", el: "", donor: null, member: null};
+  const setTab = which => { $$(".mtab").forEach(b => b.setAttribute("aria-selected", b.dataset.mtab === which)); listBox.hidden = which !== "list"; viewBox.hidden = which !== "views"; };
+  $$(".mtab").forEach(b => b.addEventListener("click", () => { history.replaceState(history.state, "", b.dataset.mtab === "list" ? "#money/list" : "#money/" + curView); setTab(b.dataset.mtab); if (b.dataset.mtab === "views") drawView(); else startList(); }));
+
+  /* ---- the list ---- */
+  function startList(){
+    if (listReady) return listReady;
+    return listReady = Promise.all([membersReady(), needMoney("index")]).then(([, idx]) => {
+      if (!idx) { listBox.innerHTML = `<div class="vpanel"><p>The full list is on the online site${BOOT.base ? `: <a href="${esc(BOOT.base)}/#money/list">${esc(BOOT.base.replace(/^https?:\/\//, ""))}</a>` : ""}. This offline copy carries each member's top ten donors (on their page) and the four views here.</p></div>`; return; }
+      IDX = idx;
+      const D = idx.donors, M = idx.members.map(id => DATA.legislators[id] || {n: id, p: "", st: "", ch: ""});
+      const rank = (arr, key) => { const order = arr.map((x, i) => i).sort((a, b) => String(key(arr[a])).localeCompare(String(key(arr[b])), "en", {sensitivity: "base", numeric: true})), r = new Array(arr.length); order.forEach((i, k) => { r[i] = k; }); return r; };
+      const dRank = rank(D, d => d[1]), mRank = rank(M, L => lastName(L.n)), kRank = rank(D, d => KINDW[d[2]] || d[2]), sRank = rank(M, L => NAMES[L.st] || L.st);
+      IDX.dLow = D.map(d => (d[1] + " " + (d[3] || "")).toLowerCase()); IDX.mLow = M.map(L => (L.n + " " + (NAMES[L.st] || "") + " " + L.st).toLowerCase()); IDX.M = M;
+      const EL = ["Primary", "General", "Runoff", "Special", "Convention", "Recount", "Other"];
+      const cols = [
+        {key: "donor", label: "Organization", val: r => dRank[r[0]], html: r => `<a href="${fecLink(D[r[0]][0])}" target="_blank" rel="noopener"><b>${esc(D[r[0]][1])}</b></a><button class="fbtn" type="button" data-fd="${r[0]}" title="Show only this organization">only</button>`},
+        {key: "kind", label: "Kind", val: r => kRank[r[0]], html: r => kindTag(D[r[0]][2])},
+        {key: "member", label: "Member", val: r => mRank[r[1]], html: r => `<span class="pty" style="background:${tone[party(M[r[1]])]}"></span><a href="#member=${esc(idx.members[r[1]])}/money">${esc(M[r[1]].n)}</a><button class="fbtn" type="button" data-fm="${r[1]}" title="Show only this member">only</button>`},
+        {key: "party", label: "Party", val: r => "DRI".indexOf(party(M[r[1]])), html: r => esc(PTY[party(M[r[1]])])},
+        {key: "state", label: "State", val: r => sRank[r[1]], html: r => esc(NAMES[M[r[1]].st] || M[r[1]].st || "")},
+        {key: "chamber", label: "Chamber", val: r => M[r[1]].ch === "Senate" ? 1 : 0, html: r => esc(M[r[1]].ch || "")},
+        {key: "cycle", label: "Cycle", num: true, val: r => r[8]},
+        {key: "election", label: "Given toward", val: r => r[2], html: r => esc(EL[r[2]] || "Other")},
+        {key: "amount", label: "Amount", num: true, val: r => r[3], html: r => `<b>${usd(r[3])}</b>`},
+        {key: "passed", label: "Passed along", num: true, title: "The part of the amount that was individual people's gifts, earmarked for the candidate and handed on by this committee", val: r => r[7] || null, html: r => r[7] ? usd(r[7]) : ""},
+        {key: "n", label: "Payments", num: true, val: r => r[4]},
+        {key: "first", label: "First", num: true, val: r => r[5], html: r => esc(dayDate(r[5]))},
+        {key: "last", label: "Latest", num: true, val: r => r[6], html: r => esc(dayDate(r[6]))}];
+      const states = [...new Set(M.map(L => L.st).filter(Boolean))].sort((a, b) => (NAMES[a] || a).localeCompare(NAMES[b] || b)), kinds = [...new Set(D.map(d => d[2]))].sort((a, b) => (KINDW[a] || a).localeCompare(KINDW[b] || b));
+      const sel = (id, label, opts) => `<label class="selwrap compact"><span>${label}</span><select id="${id}">${opts}</select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>`;
+      listBox.innerHTML = `<div class="gt-tools"><label class="grow"><span class="sr-only">Search</span><input id="mlq" type="search" placeholder="Search an organization, a member or a state" autocomplete="off"></label>
+          <div class="ml-cycles" role="group" aria-label="Election cycles"><span class="muted" style="font-size:13px">Cycles</span>${idx.cycles.map(c => `<button class="chip" type="button" data-cyc="${c}" aria-pressed="false">${c}</button>`).join("")}</div></div>
+        <div class="gt-tools" style="margin-top:0">${sel("mlch", "Chamber", `<option value="">Both</option><option>House</option><option>Senate</option>`)}${sel("mlpt", "Party", `<option value="">All</option><option value="D">Democrats</option><option value="R">Republicans</option><option value="I">Independents</option>`)}
+          ${sel("mlst", "State", `<option value="">All</option>` + states.map(x => `<option value="${esc(x)}">${esc(NAMES[x] || x)}</option>`).join(""))}${sel("mlkind", "Kind", `<option value="">All</option>` + kinds.map(k => `<option value="${esc(k)}">${esc(KINDW[k] || k)}</option>`).join(""))}
+          ${sel("mlel", "Given toward", `<option value="">Any election</option><option value="0">Primary</option><option value="1">General</option><option value="x">Other</option>`)}<button class="chip" type="button" id="mlcsv">Download these rows</button></div>
+        <div class="ml-active" id="mlactive"></div><div id="mltable"></div>`;
+      table = gridTable($("#mltable"), {cols, rows: [], sort: [{key: "amount", dir: "desc"}], page: 50, empty: "Nothing matches. Try another cycle or a shorter search.",
+        count: rs => `${rs.length.toLocaleString()} row${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r[3], 0))}`});
+      const apply = () => {
+        const q = f.q.trim().toLowerCase(), dHit = q ? new Set(IDX.dLow.map((x, i) => x.includes(q) ? i : -1).filter(i => i >= 0)) : null, mHit = q ? new Set(IDX.mLow.map((x, i) => x.includes(q) ? i : -1).filter(i => i >= 0)) : null, out = [];
+        for (const c of f.cycles) for (const r of (ROWS[c] || [])) {
+          const L = M[r[1]];
+          if (f.donor != null && r[0] !== f.donor) continue; if (f.member != null && r[1] !== f.member) continue;
+          if (f.ch && L.ch !== f.ch) continue; if (f.pt && party(L) !== f.pt) continue; if (f.st && L.st !== f.st) continue; if (f.kind && D[r[0]][2] !== f.kind) continue;
+          if (f.el !== "" && (f.el === "x" ? r[2] < 2 : r[2] !== +f.el)) continue;
+          if (q && !dHit.has(r[0]) && !mHit.has(r[1])) continue;
+          out.push(r);
+        }
+        table.setRows(out);
+        $("#mlactive").innerHTML = (f.donor != null ? `<button class="chip" type="button" data-clear="donor">Only <b>${esc(D[f.donor][1])}</b> \u00d7</button>` : "") + (f.member != null ? `<button class="chip" type="button" data-clear="member">Only <b>${esc(M[f.member].n)}</b> \u00d7</button>` : "");
+      };
+      const loadCycle = c => ROWS[c] ? Promise.resolve() : needMoney(String(c)).then(rows => { ROWS[c] = (rows || []).map(r => (r[8] = +c, r)); });      // [donor, member, election, amount, payments, first, last, passed along] + the cycle
+      const toggleCycle = (c, on) => { const b = $(`[data-cyc="${c}"]`, listBox); if (on) { f.cycles.add(c); b.setAttribute("aria-pressed", "true"); $("#mltable .gt-count").textContent = "Loading " + c + "\u2026"; return loadCycle(c).then(apply); } f.cycles.delete(c); b.setAttribute("aria-pressed", "false"); apply(); return Promise.resolve(); };
+      listBox.addEventListener("click", e => {
+        const c = e.target.closest("[data-cyc]"); if (c) { toggleCycle(+c.dataset.cyc, c.getAttribute("aria-pressed") !== "true"); return; }
+        const fd = e.target.closest("[data-fd]"); if (fd) { f.donor = +fd.dataset.fd; apply(); return; }
+        const fm = e.target.closest("[data-fm]"); if (fm) { f.member = +fm.dataset.fm; apply(); return; }
+        const cl = e.target.closest("[data-clear]"); if (cl) { f[cl.dataset.clear] = null; apply(); return; }
+        if (e.target.closest("#mlcsv")) { const rs = table.rows.slice(0, 200000), q = x => '"' + String(x ?? "").replace(/"/g, '""') + '"';
+          const csv = ["Organization,FEC committee id,Kind,Connected organization,Member,Bioguide id,Party,State,Chamber,Cycle,Given toward,Amount,Of which passed along from individuals,Payments,First,Latest"].concat(rs.map(r => [q(D[r[0]][1]), D[r[0]][0], q(KINDW[D[r[0]][2]] || D[r[0]][2]), q(D[r[0]][3]), q(M[r[1]].n), idx.members[r[1]], PTY[party(M[r[1]])], M[r[1]].st, M[r[1]].ch, r[8], EL[r[2]] || "Other", r[3], r[7] || 0, r[4], q(dayDate(r[5])), q(dayDate(r[6]))].join(","))).join("\r\n");
+          const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], {type: "text/csv"})); a.download = "civic-archive-donors.csv"; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); track("csv", {key: "money"}); }
+      });
+      let qt = 0; $("#mlq").addEventListener("input", e => { f.q = e.target.value; clearTimeout(qt); qt = setTimeout(apply, 160); });      // a breath between keystrokes: the list can be long
+      [["mlch", "ch"], ["mlpt", "pt"], ["mlst", "st"], ["mlkind", "kind"], ["mlel", "el"]].forEach(([id, k]) => $("#" + id).addEventListener("change", e => { f[k] = e.target.value; apply(); }));
+      IDX.pickDonor = cid => { const i = D.findIndex(d => d[0] === cid); if (i >= 0) { f.donor = i; apply(); } };
+      IDX.allCycles = () => Promise.all(idx.cycles.map(c => f.cycles.has(c) ? null : toggleCycle(c, true)));
+      return toggleCycle(idx.cycles[0], true).then(() => idx.cycles[1] ? toggleCycle(idx.cycles[1], true) : null);
+    }, () => { listBox.innerHTML = `<p class="muted">Couldn't load the list. Check your connection and try again.</p>`; listReady = null; });
+  }
+
+  /* ---- four ways to see it ---- */
+  const VIEWS = [["coins", "Ten coins", "If a campaign's money were ten coins, where did they come from? The simplest picture."], ["givers", "Top givers", "Who gave the most, and how they split it between the parties."],
+    ["print", "Large print", "The main numbers in big type, with nothing to hover over. Prints cleanly."], ["map", "The donor map", "Every member placed by the donors they share. For the curious."]];
+  let curView = "coins"; const st = {coins: {who: "all", cycle: null}, givers: {cycle: "all", ch: "all", own: false}, print: {cycle: null}, map: {mode: "pca", ch: "", donor: null}};
+  function drawView(){
+    needMoney("summary").then(sum => {
+      SUM = sum; if (!SUM || !SUM.views) { viewBox.innerHTML = `<p class="muted">No campaign finance data is loaded yet. Run the donors stage.</p>`; return; }
+      const newest = SUM.views.find(v => v !== "all" && +v % 2 === 0 && +v < new Date().getFullYear()) || SUM.views[1];      // the last finished cycle
+      if (!st.coins.cycle) st.coins.cycle = newest; if (!st.print.cycle) st.print.cycle = newest;
+      viewBox.innerHTML = `<div class="vtabs" role="tablist" aria-label="Four ways to see it">${VIEWS.map(v => `<button class="vtab" role="tab" type="button" data-view="${v[0]}" aria-selected="${v[0] === curView}"><b>${v[1]}</b><span>${v[2]}</span></button>`).join("")}</div><div class="vpanel" id="vpanel"></div>`;
+      ({coins: drawCoins, givers: drawGivers, print: drawPrint, map: drawMap})[curView]();
+    }, () => { viewBox.innerHTML = `<p class="muted">Couldn't load the numbers. Check your connection and try again.</p>`; });
+  }
+  viewBox.addEventListener("click", e => { const t = e.target.closest(".vtab"); if (!t) return; curView = t.dataset.view; history.replaceState(history.state, "", "#money/" + curView); drawView(); pageview("/money/" + curView, "Money: " + curView); });
+  const cycleChips = (cur, withAll) => (withAll ? ["all"] : []).concat(SUM.views.filter(v => v !== "all")).map(v => `<button class="chip" type="button" data-cy="${v}" aria-pressed="${v === cur}">${v === "all" ? "All years" : v}</button>`).join("");
+
+  /* 1. ten coins */
+  const COIN = [["people", "People", "Regular people who chose to give some of their own money.", "P"], ["orgs", "Groups", "Clubs of people with something in common, like a company's workers or a union, who pool their money. These clubs are called PACs.", "G"],
+    ["party", "Their party", "The political party the candidate belongs to.", "T"], ["self", "Their own pocket", "The candidate's own money, or money they lent their campaign.", "O"],
+    ["moved", "Moved over", "Money the candidate raised together with other candidates, then moved into this campaign.", "M"], ["other", "Odds and ends", "Bank interest, refunds and other small things.", "+"]];
+  function drawCoins(){
+    const s0 = st.coins, panel = $("#vpanel"), GROUPS = [["all", "Everyone in Congress"], ["D", "Democrats"], ["R", "Republicans"], ["H", "The House"], ["S", "The Senate"]];
+    const paint = (t, who) => {
+      const parts = COIN.map(c => ({k: c[0], label: c[1], what: c[2], mark: c[3], v: Math.max(0, (t || {})[c[0]] || 0)})), sum = parts.reduce((a, b) => a + b.v, 0);
+      if (!sum) { $("#coinbox").innerHTML = `<p class="muted">No campaign report on file for this choice.</p>`; return; }
+      parts.forEach(x => { x.exact = 10 * x.v / sum; x.n = Math.floor(x.exact); });
+      let left = 10 - parts.reduce((a, b) => a + b.n, 0); parts.slice().sort((a, b) => (b.exact - b.n) - (a.exact - a.n)).forEach(x => { if (left > 0) { x.n++; left--; } });
+      const coins = []; parts.forEach(x => { for (let i = 0; i < x.n; i++) coins.push(x); });
+      const small = parts.filter(x => !x.n && x.v > 0);
+      $("#coinbox").innerHTML = `<p class="coin-say">Imagine all the money ${esc(who)} raised${s0.cycle === "all" ? "" : " for the " + s0.cycle + " election"} as <b>ten coins</b>. Here is where the ten coins came from. Tap a coin.</p>
+        <div class="coins" id="coins">${coins.map((x, i) => `<button class="coin" type="button" data-k="${x.k}" style="--c:var(--m-${x.k});--i:${i}" aria-label="${esc(x.label)}">${esc(x.mark)}</button>`).join("")}</div>
+        <ul class="coinkey" id="coinkey">${parts.filter(x => x.n).map(x => `<li data-k="${x.k}" tabindex="0" role="button"><i style="--c:var(--m-${x.k})">${x.n}</i><span><b>${x.n} coin${x.n === 1 ? "" : "s"}: ${esc(x.label.toLowerCase())}</b><small>${esc(x.what)} In real money: ${usdShort(x.v)}.</small></span></li>`).join("")}</ul>
+        ${small.length ? `<p class="muted" style="margin-top:12px">Too small to make a whole coin: ${small.map(x => `${esc(x.label.toLowerCase())} (${usdShort(x.v)})`).join(", ")}.</p>` : ""}`;
+    };
+    panel.innerHTML = `<h3>Ten coins</h3><p class="lead">Campaigns report where their money comes from. This turns those reports into ten coins.</p>
+      <div class="vctl" role="group" aria-label="Whose money">${GROUPS.map(g => `<button class="chip" type="button" data-who="${g[0]}" aria-pressed="${s0.who === g[0]}">${g[1]}</button>`).join("")}<input id="coinmember" type="search" list="coinnames" placeholder="Or one member: type a name" autocomplete="off"><datalist id="coinnames"></datalist></div>
+      <div class="vctl" role="group" aria-label="Which election">${cycleChips(s0.cycle, true)}</div><div id="coinbox"></div>`;
+    const go = () => {
+      $$("[data-who]", panel).forEach(b => b.setAttribute("aria-pressed", b.dataset.who === s0.who)); $$("[data-cy]", panel).forEach(b => b.setAttribute("aria-pressed", b.dataset.cy === s0.cycle));
+      if (s0.who.startsWith("m:")) { const id = s0.who.slice(2); needMember(id).then(P => paint(((P.money || {}).totals || {})[s0.cycle], (DATA.legislators[id] || {}).n || "this member")); return; }
+      const g = GROUPS.find(x => x[0] === s0.who) || GROUPS[0]; paint(((SUM.sources[s0.cycle] || {})[g[0]]), g[1].replace(/^The /, "the ").replace(/^Everyone/, "everyone"));
+    };
+    membersReady().then(() => { const names = Object.entries(DATA.legislators).filter(([, L]) => L.cur).sort((a, b) => a[1].n.localeCompare(b[1].n)); $("#coinnames").innerHTML = names.map(([, L]) => `<option value="${esc(L.n)}">`).join("");
+      $("#coinmember").addEventListener("change", e => { const hit = names.find(([, L]) => L.n.toLowerCase() === e.target.value.trim().toLowerCase()); if (hit) { s0.who = "m:" + hit[0]; go(); } }); });
+    panel.onclick = e => { const w = e.target.closest("[data-who]"), c = e.target.closest("[data-cy]"), k = e.target.closest("[data-k]");
+      if (w) { s0.who = w.dataset.who; $("#coinmember").value = ""; go(); } else if (c) { s0.cycle = c.dataset.cy; go(); }
+      else if (k) { const on = k.dataset.k, box = $("#coins"), same = box.dataset.on === on; box.dataset.on = same ? "" : on; box.classList.toggle("pick", !same); $$(".coin", box).forEach(x => x.classList.toggle("on", !same && x.dataset.k === on)); $$("#coinkey li").forEach(x => x.classList.toggle("on", !same && x.dataset.k === on)); } };
+    panel.onkeydown = e => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("#coinkey li")) { e.preventDefault(); e.target.click(); } };
+    go();
+  }
+
+  /* 2. top givers */
+  function drawGivers(){
+    const s0 = st.givers, panel = $("#vpanel"), o = s0.own ? 4 : 0, list = (((s0.own ? SUM.top_own : SUM.top)[s0.cycle] || {})[s0.ch] || []).slice(0, 15).map(d => [d[0], d[1], d[2], d[3 + o], d[4 + o], d[5 + o], d[6], (d[3] + d[4] + d[5]) - (d[7] + d[8] + d[9])]);
+    const tot = (SUM.totals[s0.cycle] || {})[s0.ch] || [0, 0, 0, 0, 0, 0], max = Math.max(1, ...list.map(d => d[3] + d[4] + d[5]));
+    const where = s0.ch === "H" ? "House members" : (s0.ch === "S" ? "senators" : "members of Congress"), when = s0.cycle === "all" ? `from ${Math.min(...SUM.views.filter(v => v !== "all").map(Number)) - 1} through ${Math.max(...SUM.views.filter(v => v !== "all").map(Number))}` : `in the ${s0.cycle} cycle`;
+    panel.innerHTML = `<h3>Top givers</h3><p class="lead"><b>${tot[1].toLocaleString()}</b> organizations gave <b>${usd(tot[0])}</b> to the campaigns of today's ${where} ${when}: ${usdShort(tot[2])} to Democrats, ${usdShort(tot[3])} to Republicans. About ${usdShort(tot[0] - (tot[5] || tot[0]))} of it was individual people's gifts that a committee passed along. These fifteen gave the most. Click one to see everyone it gave to.</p>
+      <div class="vctl" role="group" aria-label="Cycle">${cycleChips(s0.cycle, true)}</div>
+      <div class="vctl" role="group" aria-label="Chamber">${[["all", "Both chambers"], ["H", "House"], ["S", "Senate"]].map(c => `<button class="chip" type="button" data-gch="${c[0]}" aria-pressed="${s0.ch === c[0]}">${c[1]}</button>`).join("")}
+        <span style="width:10px"></span><button class="chip" type="button" data-gown="0" aria-pressed="${!s0.own}" title="Everything that reached a campaign through the committee">All money through them</button><button class="chip" type="button" data-gown="1" aria-pressed="${s0.own}" title="Leaves out individual people's gifts the committee passed along">Their own money only</button></div>
+      <div class="givers">${list.map(d => { const t = d[3] + d[4] + d[5]; return `<button class="giver" type="button" data-gid="${esc(d[0])}" data-say="${esc(d[1])}|${d[3]}|${d[4]}|${d[5]}|${d[6]}|${esc(KINDW[d[2]] || d[2])}|${d[7]}"><span class="nm">${esc(d[1])}</span><span class="bar" style="width:${(100 * t / max).toFixed(2)}%"><i style="width:${(100 * d[3] / t).toFixed(2)}%;background:var(--dem)"></i><i style="width:${(100 * d[4] / t).toFixed(2)}%;background:var(--rep)"></i><i style="width:${(100 * d[5] / t).toFixed(2)}%;background:var(--plum)"></i></span><span class="amt">${usdShort(t)}</span></button>`; }).join("") || `<p class="muted">Nothing on file for this choice.</p>`}</div>
+      <div class="vkey"><span><i style="background:var(--dem)"></i>to Democrats</span><span><i style="background:var(--rep)"></i>to Republicans</span><span><i style="background:var(--plum)"></i>to independents</span></div><p class="vsay" id="gsay">Point at a bar to read it.</p>`;
+    panel.onclick = e => { const c = e.target.closest("[data-cy]"), h = e.target.closest("[data-gch]"), g = e.target.closest("[data-gid]");
+      const ow = e.target.closest("[data-gown]");
+      if (c) { s0.cycle = c.dataset.cy; drawGivers(); } else if (h) { s0.ch = h.dataset.gch; drawGivers(); } else if (ow) { s0.own = ow.dataset.gown === "1"; drawGivers(); }
+      else if (g) { setTab("list"); history.replaceState(history.state, "", "#money/list/" + g.dataset.gid); startList().then(() => { if (!IDX) return; (s0.cycle === "all" ? IDX.allCycles() : Promise.resolve()).then(() => IDX.pickDonor(g.dataset.gid)); $("#moneylist").scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -90); }); } };
+    panel.onpointerover = e => { const g = e.target.closest("[data-say]"); if (!g) return; const [n, d, r, i, m, k, pa] = g.dataset.say.split("|"), t = +d + +r + +i;
+      $("#gsay").innerHTML = `<b>${esc(n)}</b> \u00b7 ${esc(k)}: ${usd(t)} to ${(+m).toLocaleString()} member${+m === 1 ? "" : "s"}. ${Math.round(100 * d / t)}% to Democrats, ${Math.round(100 * r / t)}% to Republicans${+i ? `, ${Math.round(100 * i / t)}% to independents` : ""}.${+pa > 0 ? ` Of everything that came through it, ${usd(+pa)} was individual people's gifts passed along${s0.own ? " (left out of this bar)" : ""}.` : ""}`; };
+  }
+
+  /* 3. large print */
+  function drawPrint(){
+    const s0 = st.print, panel = $("#vpanel"), years = SUM.views.filter(v => v !== "all").slice().reverse(), vals = years.map(y => ((SUM.totals[y] || {}).all || [0])[0]), max = Math.max(1, ...vals);
+    const tot = (SUM.totals[s0.cycle] || {}).all || [0, 0, 0, 0, 0], src = (SUM.sources[s0.cycle] || {}).all || {}, top = ((SUM.top[s0.cycle] || {}).all || []).slice(0, 5), share = src.receipts ? Math.round(100 * (src.orgs + src.party) / src.receipts) : 0;
+    const words = n => n >= 1e9 ? (n / 1e9).toFixed(1) + " billion dollars" : n >= 1e6 ? Math.round(n / 1e6).toLocaleString() + " million dollars" : usd(n);
+    panel.innerHTML = `<div class="bigp"><h3>Money in Congress, in large print</h3>
+      <p>Pick an election year.</p><div class="years" role="group" aria-label="Election year">${years.map(y => `<button type="button" data-by="${y}" aria-pressed="${y === s0.cycle}">${y}</button>`).join("")}</div>
+      <p>In the <b>${s0.cycle}</b> election cycle, <b>${tot[1].toLocaleString()} organizations</b> gave <b>${words(tot[0])}</b> to the campaigns of the people who now sit in Congress. About <b>${words(tot[2])}</b> went to Democrats and <b>${words(tot[3])}</b> to Republicans.${tot[5] && tot[0] - tot[5] > 0 ? ` Of the total, about <b>${words(tot[0] - tot[5])}</b> was individual people's gifts that a committee collected and passed along.` : ""}</p>
+      ${src.receipts ? `<p>Those campaigns took in <b>${words(src.receipts)}</b> in all. So organizations supplied about <b>${share} of every 100 dollars</b>. Most of the rest, ${Math.round(100 * src.people / src.receipts)} of every 100 dollars, came from individual people.</p>` : ""}
+      <p><b>Organizations' money, election by election</b></p>
+      <div class="bigcols" role="img" aria-label="Organizations' money by election year">${years.map((y, i) => `<div class="${y === s0.cycle ? "on" : ""}">${usdShort(vals[i])}<i style="height:${Math.max(2, Math.round(80 * vals[i] / max))}%"></i></div>`).join("")}</div><div class="bigyrs">${years.map(y => `<span>${y}</span>`).join("")}</div>
+      <p style="margin-top:22px"><b>The five organizations that gave the most in ${s0.cycle}</b></p>
+      <ol class="bigtop">${top.map(d => `<li><span><b>${esc(d[1])}</b>${usd(d[3] + d[4] + d[5])} in all: ${usd(d[3])} to Democrats, ${usd(d[4])} to Republicans. It gave to ${d[6].toLocaleString()} members.</span></li>`).join("")}</ol>
+      <button class="bigbtn" type="button" id="bigprint">Print this page</button></div>`;
+    panel.onclick = e => { const b = e.target.closest("[data-by]"); if (b) { s0.cycle = b.dataset.by; drawPrint(); return; }
+      if (e.target.closest("#bigprint")) { document.body.dataset.print = "money"; const done = () => { delete document.body.dataset.print; removeEventListener("afterprint", done); }; addEventListener("afterprint", done); print(); } };
+    panel.onpointerover = null;
+  }
+
+  /* 4. the donor map */
+  function drawMap(){
+    const s0 = st.map, panel = $("#vpanel"), MP = SUM.map || {dots: {}, axes: {}}, W = 860, H = 540, pad = 46;
+    membersReady().then(() => {
+      const pts = Object.entries(MP.dots).map(([id, d]) => ({id, d, L: DATA.legislators[id]})).filter(p => p.L && (!s0.ch || p.L.ch === s0.ch));
+      const xy = p => { if (s0.mode === "pca") return p.d.xy ? [p.d.xy[0], p.d.xy[1]] : null; const vs = p.L.vs; if (!p.d.receipts || !vs || !vs[0]) return null; return [p.d.orgs / p.d.receipts, vs[1] / vs[0]]; };
+      const shown = pts.map(p => ({p, v: xy(p)})).filter(x => x.v), xs = shown.map(x => x.v[0]), ys = shown.map(x => x.v[1]);
+      const lo = a => Math.min(...a), hi = a => Math.max(...a), gx = (hi(xs) - lo(xs)) * .05, gy = (hi(ys) - lo(ys)) * .06;
+      const x0 = s0.mode === "pca" ? lo(xs) - gx : 0, x1 = s0.mode === "pca" ? hi(xs) + gx : Math.min(1, hi(xs) * 1.05), y0 = s0.mode === "pca" ? lo(ys) - gy : Math.max(0, lo(ys) - .03), y1 = s0.mode === "pca" ? hi(ys) + gy : 1.005;
+      const X = v => pad + (v - x0) / (x1 - x0) * (W - pad - 14), Y = v => H - pad - (v - y0) / (y1 - y0) * (H - pad - 14), R = d => 3 + 8 * Math.sqrt(Math.min(1, d.orgs / 3e6));
+      const ax = MP.axes || {}, a0 = ax["0"] || {}, a1 = ax["1"] || {}, short = n => { let t = String(n).replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+(Political Action Committee|Political Victory Fund|Committee on Political Education|Political Contributions Committee|Political Education Committee|Non Partisan Political League|PAC\b|- Cope\b|Cope\b).*$/i, "").replace(/[\s,&-]+$/, "").trim() || String(n);
+        if (t.length > 32) t = t.slice(0, 32).replace(/\s+\S*$/, "") + "\u2026"; return t; };
+      const ticks = s0.mode === "pca" ? "" : [0, .25, .5, .75, 1].filter(t => t <= x1).map(t => `<text x="${X(t)}" y="${H - pad + 18}" text-anchor="middle">${Math.round(t * 100)}%</text>`).join("") + [.5, .6, .7, .8, .9, 1].filter(t => t >= y0).map(t => `<text x="${pad - 8}" y="${Y(t) + 4}" text-anchor="end">${Math.round(t * 100)}%</text><line class="ax" x1="${pad}" x2="${W - 14}" y1="${Y(t)}" y2="${Y(t)}" opacity=".35"/>`).join("");
+      const labels = s0.mode === "pca"
+        ? `<text class="t" x="${pad}" y="${H - 26}">\u2190 more from ${esc((a0.low || []).slice(0, 2).map(short).join(", "))}</text><text class="t" x="${W - 14}" y="${H - 8}" text-anchor="end">more from ${esc((a0.high || []).slice(0, 2).map(short).join(", "))} \u2192</text><text class="t" x="14" y="16">\u2191 more from ${esc((a1.high || []).slice(0, 2).map(short).join(", "))}</text><text class="t" x="14" y="${H - pad + 4}">\u2193 ${esc((a1.low || []).slice(0, 2).map(short).join(", "))}</text>`
+        : `<text class="t" x="${(W + pad) / 2}" y="${H - 6}" text-anchor="middle">Share of the campaign's money that came from organizations \u2192</text><text class="t" x="14" y="16">\u2191 Sided with their party on party-split votes</text>`;
+      panel.innerHTML = `<h3>The donor map</h3><p class="lead">${s0.mode === "pca" ? `Each dot is a member of Congress. Two members sit close together when the same organizations fund them, and far apart when different ones do. Nobody told the picture who belongs to which party: the colours were added afterwards.` : `Each dot is a member. Left to right: how much of their campaign's money came from organizations rather than people. Bottom to top: how often they vote with their party when the parties split. Two facts side by side; the picture makes no claim that one causes the other.`}</p>
+        <div class="vctl"><button class="chip" type="button" data-mode="pca" aria-pressed="${s0.mode === "pca"}">Who shares donors</button><button class="chip" type="button" data-mode="line" aria-pressed="${s0.mode === "line"}">Money and the party line</button>
+          <span style="width:10px"></span><button class="chip" type="button" data-mch="" aria-pressed="${!s0.ch}">Both chambers</button><button class="chip" type="button" data-mch="House" aria-pressed="${s0.ch === "House"}">House</button><button class="chip" type="button" data-mch="Senate" aria-pressed="${s0.ch === "Senate"}">Senate</button></div>
+        <div class="vctl"><input id="dmfind" type="search" list="dmnames" placeholder="Find a member" autocomplete="off"><datalist id="dmnames">${pts.map(p => `<option value="${esc(p.L.n)}">`).join("")}</datalist>
+          <input id="dmdonor" type="search" list="dmdonors" placeholder="Light up one organization's money" autocomplete="off" style="min-width:280px"><datalist id="dmdonors"></datalist></div>
+        <div class="dmap" id="dmap"><div class="dtip" id="dtip"></div><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${s0.mode === "pca" ? "Members of Congress placed by the donors they share" : "Members by share of money from organizations and by party-line voting"}">
+          <line class="ax" x1="${pad}" x2="${W - 14}" y1="${H - pad}" y2="${H - pad}"/><line class="ax" x1="${pad}" x2="${pad}" y1="14" y2="${H - pad}"/>${ticks}${labels}
+          ${shown.sort((a, b) => b.p.d.orgs - a.p.d.orgs).map(x => `<circle class="dot" data-id="${esc(x.p.id)}" cx="${X(x.v[0]).toFixed(1)}" cy="${Y(x.v[1]).toFixed(1)}" r="${R(x.p.d).toFixed(1)}" fill="${tone[party(x.p.L)]}" fill-opacity=".78"/>`).join("")}</svg></div>
+        <div class="vkey"><span><i style="background:var(--dem)"></i>Democrat</span><span><i style="background:var(--rep)"></i>Republican</span><span><i style="background:var(--plum)"></i>Independent</span><span>Bigger dot = more money from organizations (${MP.cycles ? MP.cycles.slice().reverse().join(" and ") : ""} cycles)</span></div>
+        <div class="dside" id="dside"></div>
+        <p class="know-rule" style="margin-top:12px">${s0.mode === "pca" ? `How it is made: a principal-component analysis of who funds whom over the ${MP.cycles ? MP.cycles.slice().reverse().join(" and ") : ""} cycles. Each of ${MP.members || 0} members is a list of what the ${MP.donors || 0} most widespread organizations gave them (in log dollars, so a $5,000 gift is not drowned by a $500,000 one). The two directions along which members differ most are drawn: the first carries ${Math.round(100 * (a0.share || 0))}% of the variation and runs from ${esc((a0.low || []).slice(0, 3).map(short).join(", "))} to ${esc((a0.high || []).slice(0, 3).map(short).join(", "))}; the second carries ${Math.round(100 * (a1.share || 0))}%. The other ${100 - Math.round(100 * ((a0.share || 0) + (a1.share || 0)))}% is not in this picture, so treat distance as a guide, not a measurement.` : `Money: the campaigns' own reports for the ${MP.cycles ? MP.cycles.slice().reverse().join(" and ") : ""} cycles; "organizations" is PAC and party money over total receipts. Votes: this Congress's recorded votes on which most Democrats went one way and most Republicans the other. Independents and members without enough of either are left off.`}</p>`;
+      const byId = Object.fromEntries(shown.map(x => [x.p.id, x])), tip = $("#dtip"), box = $("#dmap"), svg = $("svg", box);
+      const showTip = (x, extra) => { const r = box.getBoundingClientRect(), k = r.width / W; tip.style.left = (X(x.v[0]) * k) + "px"; tip.style.top = (Y(x.v[1]) * k) + "px";
+        tip.innerHTML = `<b>${esc(x.p.L.n)}</b>${esc(PTY[party(x.p.L)])}, ${esc(NAMES[x.p.L.st] || x.p.L.st)} \u00b7 ${esc(x.p.L.ch)}<br>${usd(x.p.d.orgs)} from organizations of ${usd(x.p.d.receipts)} raised${extra ? "<br>" + extra : ""}${x.p.d.top.length ? `<br>Most from: ${x.p.d.top.map(t => esc(short(t[0]))).join("; ")}` : ""}`; tip.classList.add("show"); };
+      let lit = null;                                          // member id -> amount, for the organization being lit up
+      svg.addEventListener("pointerover", e => { const c = e.target.closest(".dot"); if (!c) { tip.classList.remove("show"); return; } const x = byId[c.dataset.id]; showTip(x, lit && lit[x.p.id] ? `<b style="display:inline">${usd(lit[x.p.id])}</b> from the organization you picked` : ""); });
+      svg.addEventListener("pointerleave", () => tip.classList.remove("show"));
+      svg.addEventListener("click", e => { const c = e.target.closest(".dot"); if (c) openMember(c.dataset.id, "money"); });
+      $("#dmfind").addEventListener("change", e => { const hit = shown.find(x => x.p.L.n.toLowerCase() === e.target.value.trim().toLowerCase()); $$(".dot.me", svg).forEach(d => d.classList.remove("me")); if (hit) { const c = $(`.dot[data-id="${hit.p.id}"]`, svg); c.classList.add("me"); svg.appendChild(c); showTip(hit); } });
+      const light = cid => Promise.all([needMoney("index")].concat((MP.cycles || []).map(c => needMoney(String(c))))).then(([idx, ...sets]) => {
+        if (!idx) return; const di = idx.donors.findIndex(d => d[0] === cid); if (di < 0) return; lit = {};
+        sets.forEach(rows => (rows || []).forEach(r => { if (r[0] === di) { const id = idx.members[r[1]]; lit[id] = (lit[id] || 0) + r[3]; } }));
+        box.classList.add("pick"); $$(".dot", svg).forEach(d => d.classList.toggle("on", !!lit[d.dataset.id]));
+        const got = Object.entries(lit).filter(([id]) => byId[id]).sort((a, b) => b[1] - a[1]), by = {D: 0, R: 0, I: 0}; got.forEach(([id, v]) => { by[party(byId[id].p.L)] += v; });
+        $("#dside").innerHTML = `<b>${esc(idx.donors[di][1])}</b> (${esc(KINDW[idx.donors[di][2]] || "")}) gave ${usd(got.reduce((a, b) => a + b[1], 0))} to ${got.length.toLocaleString()} of the members drawn here: ${usdShort(by.D)} to Democrats, ${usdShort(by.R)} to Republicans. The most went to:<ol>${got.slice(0, 5).map(([id, v]) => `<li><a href="#member=${esc(id)}/money">${esc(byId[id].p.L.n)}</a>, ${usd(v)}</li>`).join("")}</ol><button class="chip" type="button" id="dmclear" style="margin-top:8px">Clear</button>`;
+        $("#dmclear").addEventListener("click", () => { lit = null; s0.donor = null; box.classList.remove("pick"); $$(".dot.on", svg).forEach(d => d.classList.remove("on")); $("#dside").innerHTML = ""; $("#dmdonor").value = ""; });
+      });
+      const dd = $("#dmdonor"); let names = null;
+      dd.addEventListener("focus", () => { if (names) return; names = []; needMoney("index").then(idx => { if (!idx) { dd.placeholder = "Available on the online site"; dd.disabled = true; return; } names = idx.donors; $("#dmdonors").innerHTML = idx.donors.slice().sort((a, b) => a[1].localeCompare(b[1])).map(d => `<option value="${esc(d[1])}">`).join(""); }); });
+      dd.addEventListener("change", e => { const hit = (names || []).find(d => d[1].toLowerCase() === e.target.value.trim().toLowerCase()); if (hit) { s0.donor = hit[0]; light(hit[0]); } });
+      if (s0.donor) light(s0.donor);
+      panel.onclick = e => { const m = e.target.closest("[data-mode]"), c = e.target.closest("[data-mch]"); if (m) { s0.mode = m.dataset.mode; drawMap(); } else if (c) { s0.ch = c.dataset.mch; drawMap(); } };
+      panel.onpointerover = null;
+    });
+  }
+
+  moneyGo = (tab, donor) => {
+    if (tab && tab !== "list") { curView = tab; setTab("views"); drawView(); return; }
+    setTab("list"); const ready = startList(); if (donor && ready) ready.then(() => { if (IDX) IDX.allCycles().then(() => IDX.pickDonor(donor)); });
+  };
 }
 
 /* ---------- with their party, and against it: every sitting member's party-line record ---------- */
@@ -3991,7 +4341,7 @@ function renderMemberPage(id, show){
    data is loaded once and bill links keep working; only one page is visible
    at a time. Hashes stay what they always were (#bills, #map, #bill=hr1-119)
    so links already in the wild keep landing in the right place. */
-const PAGES = ["home", "bills", "map", "how", "members", "member"];
+const PAGES = ["home", "bills", "map", "how", "members", "member", "money"];
 const BASE_TITLE = document.title;
 let page = "home", billsShown = false;
 function showPage(name, push){
@@ -4005,6 +4355,7 @@ function showPage(name, push){
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
   if (name === "members") { renderMembers(); if (!partyTable) renderPartyLine(); }
   if (name === "map") mapReady();
+  if (name === "money" && !/^#money\//.test(location.hash)) moneyPage();      // a deeper address (#money/coins) says which part to open; the router passes it on
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
   // The map is drawn into a sized SVG; if it was built while hidden it has no
@@ -4017,6 +4368,8 @@ function routeFromHash(push){
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   const vote = h.match(/^vote=(.+)$/);
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
+  const mon = h.match(/^money\/(list|coins|givers|print|map)(?:\/(C\d{8}))?$/);
+  if (mon) { showPage("money", false); moneyPage(mon[1], mon[2]); return; }
   const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed|money))?$/);
   if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
@@ -4031,7 +4384,7 @@ document.addEventListener("click", e => {
 });
 addEventListener("popstate", () => routeFromHash(false));
 /* A plain link such as #vote=... or #member=... changes the address without going through the router; follow it. */
-addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(vote|member|bill)=/.test(h)) routeFromHash(false); });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(vote|member|bill)=/.test(h) || /^money\//.test(h)) routeFromHash(false); });
 
 /* Changelog badge. The label is the version named by the newest changelog
    entry (4.x.xxx); entries from before version numbers fall back to a count.
@@ -4092,13 +4445,18 @@ addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(
 (function(){
   const list = BOOT.closest || [], box = $("#closest"), ol = $("#closelist"); if (!box || !ol || !list.length) return;
   const votes = n => `${n} vote${n === 1 ? "" : "s"}`;
-  const how = v => {
+  const ABOUT = {"Point of order": "The point of order against it", "Motion to waive": "The motion to waive a budget rule for it", "Motion to table": "The motion to set it aside", "Motion to proceed": "The motion to take it up",
+    "Motion to (re)commit": "The motion to send it back to committee", "Cloture": "The motion to end debate on it", "Amendment": "The amendment", "Veto override": "The override of the veto"};
+  const VERB = {"Passed": "passed", "Failed": "failed", "Agreed to": "was agreed to", "Rejected": "was rejected", "Invoked": "carried", "Not invoked": "fell short"};
+  const how = v0 => {
+    const v = ABOUT[v0.category] ? Object.assign({}, v0, {result: `${ABOUT[v0.category]} ${VERB[v0.result] || String(v0.result).toLowerCase()}`}) : v0;      // name what was voted on when it was not the bill itself
     const tally = `${v.yeas}\u2013${v.nays}`;
+    if (v.broke) return `${v.result} ${tally}. The senators split ${v.broke[0]}\u2013${v.broke[1]}, and the Vice President broke the tie`;
     if (v.needs === "majority") return v.margin === 0 ? `${v.result} on a tie, ${tally}${v.chamber === "Senate" && v.won ? ". The Vice President's vote settles a Senate tie" : ""}` : `${v.result} by ${votes(v.margin)}, ${tally}`;
     const needed = v.needs === "sixty" ? "the 60 votes it needed" : `the two-thirds it needed (${v.need})`;
     return v.won ? (v.margin === 0 ? `${v.result} with exactly ${needed}, ${tally}` : `${v.result}, clearing ${needed} by ${v.margin}, ${tally}`) : `${v.result}, ${votes(v.margin)} short of ${needed}, ${tally}`;
   };
-  ol.innerHTML = list.map(v => `<li class="closeitem rv"><div class="by"><b>${v.margin === 0 && v.needs === "majority" ? "Tie" : v.margin}</b><span>${v.margin === 0 ? (v.needs === "majority" ? `${v.yeas}\u2013${v.nays}` : "to spare") : (v.needs === "majority" ? (v.margin === 1 ? "vote" : "votes") : (v.won ? "to spare" : "short"))}</span></div>
+  ol.innerHTML = list.map(v => `<li class="closeitem rv"><div class="by"><b>${v.margin === 0 && v.needs === "majority" ? "Tie" : v.margin}</b><span>${v.margin === 0 ? (v.needs === "majority" ? (v.broke ? `${v.broke[0]}\u2013${v.broke[1]}` : `${v.yeas}\u2013${v.nays}`) : "to spare") : (v.needs === "majority" ? (v.margin === 1 ? "vote" : "votes") : (v.won ? "to spare" : "short"))}</span></div>
     <div class="what"><a class="main" href="#vote=${esc(String(v.vote_id).replace(/\|/g, "_"))}"><b>${esc(v.bill)}</b> ${esc(v.title)}</a><span class="how ${v.won ? "won" : "lost"}">${esc(how(v))}</span><span class="muted">${esc(v.chamber)} ${esc(String(v.category).toLowerCase())}, ${esc(fmtDate(v.date))} \u00b7 <a href="#vote=${esc(String(v.vote_id).replace(/\|/g, "_"))}">how everyone voted</a> \u00b7 <a href="#bill=${esc(v.bill_key)}">the bill</a></span></div></li>`).join("");
   box.hidden = false;
 })();
@@ -4305,6 +4663,7 @@ def main():
             args.analytics = open(cfg, encoding="utf-8").read().strip()
     data = collect(args.db)
     photo_bytes, profiles, donors = data.pop("photo_bytes"), data.pop("profiles"), data.pop("money_members", {})
+    master, money_summary = data.pop("money_master", {}), data.pop("money_summary", {})
     version = (data["changelog"][0].get("version") if data["changelog"] else "") or ""
     if args.as_of:
         data["generated"] = dt.datetime.strptime(args.as_of, "%Y-%m-%d").strftime("%B %d, %Y")
@@ -4339,7 +4698,7 @@ def main():
     boot["analytics"] = args.analytics
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
-        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": archive_profiles})
+        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": archive_profiles, "money": {"summary": money_summary}})
         html = render_page(boot, shaped, version, foot)
         mb = len(html.encode("utf-8")) / 1e6
         if mb <= args.max_mb - 0.3 or n_chars == 0:
@@ -4360,6 +4719,7 @@ def main():
         boot["inline"] = None
         shaped = trim_lite(data, args.summary_chars, 4)   # compact rows carry a short summary; the full one is on Congress.gov
         shaped["_version"], shaped["_profiles"], shaped["_donors"] = version, profiles, donors
+        shaped["_master"], shaped["_money_summary"] = master, money_summary
         shell = render_page(boot, shaped, version, foot)
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"

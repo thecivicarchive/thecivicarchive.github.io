@@ -10,6 +10,43 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.021 — 2026-09-20 — Follow the money
+
+- A new page, "Money". Its first tab is one list of every organization among
+  any member's top donors and the members it gave to, 2016 through 2026: the
+  cycle, the election the money was given toward, the amount, the number of
+  payments and the first and latest dates. Search it; narrow it by cycle,
+  chamber, party, state, kind of organization or election; sort by any column
+  and hold Shift to sort within a sort; "only" beside a name narrows the list
+  to that one organization or member. "Download these rows" saves what you see.
+- The second tab is "Four ways to see it":
+  - Ten coins. If a campaign's money were ten coins, where did they come from?
+    For all of Congress, a party, a chamber, or one member.
+  - Top givers. The fifteen organizations that gave the most, each bar split
+    between the parties. Click one to see everyone it gave to.
+  - Large print. The main numbers in big type with nothing to hover over, and
+    a button that prints it cleanly.
+  - The donor map. Every member placed by the donors they share, with a second
+    view of money beside the party line, a way to find a member, and a way to
+    light up one organization's money across Congress. It says how it is made.
+- New everywhere money appears: "passed along". A few committees (AIPAC's
+  PAC, WinRed, Club for Growth's PAC and others) collect gifts that individual
+  people earmark for a candidate and hand them on, which is how a PAC limited
+  to $5,000 per election can show $300,000 to one candidate. The total still
+  reads as the filing reads, and the part that was people's gifts is now shown
+  beside it, on member cards, in the tables and their payments, and in Top
+  givers, where a switch counts each committee's own money only. The rule:
+  every line the filing marks as an earmark, plus anything over $5,000 that a
+  committee other than a party or a candidate sent one candidate for one
+  election.
+- Still organizations only; people who gave are never named.
+- Fixed, in the record itself: two war-powers resolutions (S.J.Res. 98 and
+  S.J.Res. 124) were shown as "Passed Senate". They did not pass. The recorded
+  vote was on a point of order against each of them, and the point of order
+  carried; the site had read "agreed to in Senate" at the end of that line as
+  passage. Votes on points of order and on budget waivers (seven in all) now
+  carry their own labels, and the two resolutions show where they really stand.
+
 ## v4.0.020 — 2026-09-20 — Who funds the campaign
 
 - Every member's "Get to know" now has "Who funds the campaign": the ten

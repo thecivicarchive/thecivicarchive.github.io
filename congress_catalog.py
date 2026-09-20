@@ -309,6 +309,13 @@ def vote_category(text):
         return "Veto override"
     if "veto message" in t:
         return "Other"
+    # A vote on a point of order, or on waiving a budget rule, is about procedure. Such a line can end "agreed to in
+    # Senate", which means the point of order or the motion carried, not that the measure passed; read as passage it
+    # once showed two war-powers resolutions as "Passed Senate" when a sustained point of order had stopped them.
+    if re.search(r"point of order|appeal (of|from) the ruling|ruling of the chair", t):
+        return "Point of order"
+    if "motion to waive" in t:
+        return "Motion to waive"
     if "cloture" in t:
         return "Cloture"
     if "conference report" in t:

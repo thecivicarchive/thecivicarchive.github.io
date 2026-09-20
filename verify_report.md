@@ -1,4 +1,4 @@
-# Verify report, 2026-09-18 22:22
+# Verify report, 2026-09-20 15:28
 
 Database: `congress_119.sqlite`
 
@@ -11,8 +11,10 @@ Database: `congress_119.sqlite`
 | ...with member-level votes loaded | 608 (100.0%) |
 | Member votes add up to the official tally | 606 of 608 votes match |
 | Members on roll calls matched to the roster | all |
-| Party backing computed from roll calls | 330 measures (of 955 with a recorded passage vote) |
+| Party backing computed from roll calls | 330 measures (of 953 with a recorded passage vote) |
 | Measures with full ratings | 10 |
+| Campaign money (FEC bulk files), 2016 to 2026 | 1,681,215 committee payments; 537 of 539 current members have FEC records |
+| ...what committees say they gave vs. what campaigns say they received, 2024 | $420M vs. $448M (94%) |
 | Current members with a portrait | 524 of 539 |
 | District lines | 429 districts, 119th Congress lines (Census Bureau cb_2024_us_cd119_500k.zip) |
 | Site file | site/index.html, 10.4 MB (fits a claude.ai artifact) |

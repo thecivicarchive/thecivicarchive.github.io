@@ -19,7 +19,8 @@ Federal Election Commission's own bulk files (public record, no key, no sign-up)
                            talk_for / talk_against   a membership group's communication to its own members (24F, 24N)
 
 Only organizations appear here. Money from individual people is carried as totals (fec_candidate_totals), never
-as names. Rows the filer marked as memo items (MEMO_CD = X) are left out, as the FEC's own totals leave them out:
+as names. Some committees pass along gifts that people earmark for a candidate; the filer marks those lines with
+the word EARMARK and the person's name. The loader keeps a yes/no flag for such a line and throws the text away. Rows the filer marked as memo items (MEMO_CD = X) are left out, as the FEC's own totals leave them out:
 they repeat money that is already counted on another line.
 
 The four files per cycle are cn (candidates), cm (committees), weball (campaign totals) and pas2 (committee
@@ -67,7 +68,7 @@ CREATE TABLE IF NOT EXISTS fec_candidate_totals (
   cash_on_hand REAL, coverage_end TEXT, PRIMARY KEY (cand_id, cycle));
 CREATE TABLE IF NOT EXISTS fec_gifts (
   sub_id INTEGER PRIMARY KEY, cycle INTEGER NOT NULL, cmte_id TEXT NOT NULL, cand_id TEXT NOT NULL, bioguide_id TEXT NOT NULL,
-  kind TEXT NOT NULL, fec_type TEXT, election TEXT, date TEXT, amount REAL NOT NULL, image_num TEXT);
+  kind TEXT NOT NULL, fec_type TEXT, election TEXT, date TEXT, amount REAL NOT NULL, image_num TEXT, earmark INTEGER NOT NULL DEFAULT 0);
 CREATE INDEX IF NOT EXISTS idx_fec_gifts_member ON fec_gifts (bioguide_id, cycle, kind);
 CREATE INDEX IF NOT EXISTS idx_fec_gifts_cmte ON fec_gifts (cmte_id, cycle);
 """
@@ -181,8 +182,10 @@ def main():
 
     con = sqlite3.connect(args.db)
     old = con.execute("SELECT type FROM pragma_table_info('fec_gifts') WHERE name = 'sub_id'").fetchone()
-    if old and old[0].upper() != "INTEGER":                    # an earlier layout kept the FEC's row number as text, which doubled the table
+    marked = con.execute("SELECT 1 FROM pragma_table_info('fec_gifts') WHERE name = 'earmark'").fetchone()
+    if old and (old[0].upper() != "INTEGER" or not marked):    # an earlier layout: row numbers kept as text, or no earmark flag. Rebuilt from the cached files.
         con.execute("DROP TABLE fec_gifts")
+        old = ("TEXT",)
     con.executescript(SCHEMA)
     if not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'legislators'").fetchone():
         sys.exit("No roster yet. Run the roster stage first: python run_all.py roster")
@@ -244,11 +247,14 @@ def main():
             amt = money(f[14])
             if not f[21].isdigit():
                 continue
-            gifts.append((int(f[21]), cycle, f[0], f[16], whose[f[16]], kind, f[5], (f[3] or "").strip(), iso(f[13]), amt, f[4]))
+            # a gift that a person earmarked for the candidate and the committee passed along: the filer says so in the memo
+            # text, next to the person's name. Only the fact is kept; the text, and so the name, is not.
+            earmark = 1 if "EARMARK" in (f[20] or "").upper() else 0
+            gifts.append((int(f[21]), cycle, f[0], f[16], whose[f[16]], kind, f[5], (f[3] or "").strip(), iso(f[13]), amt, f[4], earmark))
             k = kinds.setdefault(kind, [0, 0.0]); k[0] += 1; k[1] += amt
         with con:
             con.execute("DELETE FROM fec_gifts WHERE cycle = ?", (cycle,))
-            con.executemany("INSERT OR REPLACE INTO fec_gifts VALUES (?,?,?,?,?,?,?,?,?,?,?)", gifts)
+            con.executemany("INSERT OR REPLACE INTO fec_gifts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", gifts)
         said = ", ".join(f"{k} {v[0]:,} rows ${v[1] / 1e6:,.1f}M" for k, v in sorted(kinds.items()))
         print(f"    {cycle}: {len(gifts):,} payments kept ({said}); {memo:,} memo lines left out", flush=True)
         summary.append((cycle, len(gifts)))

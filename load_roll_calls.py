@@ -158,6 +158,17 @@ def main():
             if done % 50 == 0 or done == len(todo) - fails:
                 print(f"  {done:,}/{len(todo):,} loaded (latest {url.rsplit('/', 1)[-1]}: {count} members, {split})")
     print(f"Loaded {done:,} roll call(s), {fails:,} failed, {len(urls) - len(todo):,} already present")
+    # The catalog stage rebuilds floor_votes and leaves party_split blank, and a vote already loaded is not loaded
+    # again, so after every catalog run the splits would stay blank. Work them out again from the member votes this
+    # database already holds: the same arithmetic as at load time, and nothing is downloaded.
+    blank = [r[0] for r in con.execute("SELECT vote_id FROM floor_votes WHERE (party_split IS NULL OR party_split = '') "
+                                       "AND vote_id IN (SELECT DISTINCT vote_id FROM member_votes)")]
+    for vid in blank:
+        rows = con.execute("SELECT party, position FROM member_votes WHERE vote_id = ?", (vid,)).fetchall()
+        con.execute("UPDATE floor_votes SET party_split = ? WHERE vote_id = ?", (party_split_text(rows), vid))
+    con.commit()
+    if blank:
+        print(f"Party splits written back for {len(blank):,} vote(s) from the member votes already loaded")
     for f in failed[:10]:
         print(f"  FAILED {f}")
     if fails:

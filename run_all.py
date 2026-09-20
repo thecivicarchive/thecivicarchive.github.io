@@ -278,6 +278,24 @@ def stage_verify(args):
         rated = one("SELECT COUNT(DISTINCT bill_key) FROM ratings WHERE axis <> 'backing' AND is_current = 1")
         lines.append(f"| Party backing computed from roll calls | {backed:,} measures (of {voted:,} with a recorded passage vote) |")
         lines.append(f"| Measures with full ratings | {rated:,} |")
+    if has("fec_gifts") and has("member_fec") and has("fec_candidate_totals"):
+        n, first, last = q("SELECT COUNT(*), MIN(cycle), MAX(cycle) FROM fec_gifts")[0]
+        cur = one("SELECT COUNT(*) FROM legislators WHERE is_current = 1") if has("legislators") else 0
+        matched = one("SELECT COUNT(DISTINCT bioguide_id) FROM member_fec WHERE bioguide_id IN (SELECT bioguide_id FROM legislators WHERE is_current = 1)") if has("legislators") else 0
+        lines.append(f"| Campaign money (FEC bulk files), {first} to {last} | {n:,} committee payments; {matched:,} of {cur:,} current members have FEC records |")
+        if cur and matched < cur - 15:
+            problems.append(f"Only {matched} of {cur} current members have FEC candidate numbers in the roster; re-run `python run_all.py donors`.")
+        done = one("SELECT MAX(cycle) FROM fec_gifts WHERE cycle < ?", dt.date.today().year)            # the last finished cycle
+        if done:
+            given = one("SELECT SUM(amount) FROM fec_gifts WHERE kind = 'gift' AND cycle = ? AND cmte_id NOT IN "
+                        "(SELECT cmte_id FROM fec_committees WHERE designation = 'J')", done) or 0
+            told = one("SELECT SUM(from_committees + from_party) FROM fec_candidate_totals WHERE cycle = ? AND cand_id IN (SELECT cand_id FROM member_fec)", done) or 0
+            ratio = given / told if told else 0
+            lines.append(f"| ...what committees say they gave vs. what campaigns say they received, {done} | ${given / 1e6:,.0f}M vs. ${told / 1e6:,.0f}M ({ratio:.0%}) |")
+            if told and not 0.8 <= ratio <= 1.2:
+                problems.append(f"Campaign money for {done}: committees report giving ${given / 1e6:,.0f}M but campaigns report receiving ${told / 1e6:,.0f}M from "
+                                f"committees and parties. The two are filed by different people and never match to the dollar, but this gap is wide; "
+                                f"re-run `python run_all.py donors` and compare again.")
     if has("photos"):
         cur = one("SELECT COUNT(*) FROM legislators WHERE is_current = 1") if has("legislators") else 0
         with_photo = one("SELECT COUNT(*) FROM legislators l JOIN photos p ON p.bioguide_id = l.bioguide_id WHERE l.is_current = 1 AND p.webp IS NOT NULL") if has("legislators") else 0
