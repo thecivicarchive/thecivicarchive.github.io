@@ -10,6 +10,22 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.022 — 2026-09-20 — Groundwork for the states: Minnesota
+
+- Nothing new to see on the site yet. This build lays the ground for bringing
+  the same record to every state legislature, beginning with Minnesota.
+- Loaded for Minnesota so far: all 200 sitting legislators (67 senators, 133
+  representatives and one vacant House seat) with their service, committees
+  and portraits; the lines of all 67 Senate and 134 House districts; and
+  campaign money from the state's Campaign Finance Board, 2016 through 2026,
+  matched to every sitting member.
+- The same rule as the federal pages: organizations that gave are named,
+  people who gave are counted in totals and never named, and spending by
+  outside groups is kept apart from donations.
+- Still to come before Minnesota opens: its bills and recorded votes, then the
+  Minnesota pages themselves, then a shared front door for the federal and
+  state sides.
+
 ## v4.0.021 — 2026-09-20 — Follow the money
 
 - A new page, "Money". Its first tab is one list of every organization among

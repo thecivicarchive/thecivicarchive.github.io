@@ -105,6 +105,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `load_profiles.py` | What the member cards say about who someone is: every term served, committee seats and official social accounts from the roster project, and the opening paragraph of their Wikipedia article (cached in `profile_cache/`, one polite request a second). The Wikipedia text is not a government record; the site fences it off, says so, credits it and links to it |
 | `load_donors.py` | Campaign money from the Federal Election Commission's public bulk files, 2016 through 2026 (about 170 MB, cached in `fec_cache/`, no key): which FEC candidate numbers belong to which member, each campaign's own totals, and every itemized payment by a committee to, for, or against a member. Organizations only; memo lines are left out, as the FEC's totals leave them out |
 | `money_views.py` | Shapes those tables for the site: each member's top donors by cycle and office, every payment behind them, and outside spending kept apart. `build_site_dev.py` calls it; it downloads nothing |
+| `run_states.py`, `states/` | The state side: `places.py` (what each state calls its chambers and parties), `net.py` (polite, patient downloads), `load_people.py`, `load_sld.py`, `load_legiscan.py`, `money_mn.py`. See "The state side" below |
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |
 | `us_districts_albers.json` | The district lines the site embeds (the kit ships the 2016 fallback; the districts stage replaces it with the current Census lines) |
@@ -151,6 +152,39 @@ its endpoint, one line like `https://civicarchive.goatcounter.com/count`, in `an
 builder. The build then adds the counter and a sentence about it to the footer; page views, bill and vote
 views and share taps are counted, nothing else. Never create that account or ask for its credentials.
 The fast site is installable (a manifest, icons and a service worker that never serves a stale page).
+
+## The state side (Minnesota first)
+
+John's plan (2026-09-20): the same record for every state legislature, Minnesota first, then outward to every state
+plus DC, Puerto Rico and Guam; after that, one shared home page with a 3D carousel of cards (one card per level of
+government) and a three-second page-turn into the chosen space.
+
+Everything goes through `run_states.py`: `python run_states.py mn` runs people, districts, bills, money and check;
+`python run_states.py mn <stage>` runs one. Each state has its own database, `state_<code>.sqlite`, laid out like
+`congress_119.sqlite` (the member id column is still called `bioguide_id` so the same code reads both), its own
+district file `state_<code>_districts.json`, and a plain report `state_<code>_report.md`. Downloads live in
+`states_cache/`. The federal database is never touched by the state pipeline.
+
+| Stage | Source | Needs |
+| --- | --- | --- |
+| `people` | Open States "people" project (CC0): members, service, committees, portraits; Wikipedia's opening paragraph, fenced off as on the federal side | nothing |
+| `districts` | Census Bureau cartographic boundary files, upper and lower chamber | nothing |
+| `bills` | LegiScan weekly datasets: bills and roll calls with every member's vote (50 states and DC) | John's free LegiScan key |
+| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads) | nothing for Minnesota |
+
+- The LegiScan key is John's. It lives as one line in `legiscan_key.txt` (ignored by git). Never ask him to paste it
+  into the chat, never print or log it, and never try to get past the bot check on legiscan.com; the API manual at
+  api.legiscan.com/dl/ is readable. The free key allows 30,000 queries a month and the bills stage uses about two
+  per state per week. LegiScan's terms ask for a credit line; the state pages must carry it.
+- The donor rule is the same as federal: organizations by name, people as totals. State files carry individual
+  donors' and lobbyists' names; the loader must add those rows into totals and never write the names anywhere.
+- Committees are matched to members by name and never guessed: a match needs the family name, a compatible given
+  name and a chamber the member has served in, and must be the only fit. The run lists anything left out.
+- Rollout rule: Minnesota is built complete, money included. Every other state goes live once people, districts,
+  bills and votes are in, with a note that campaign money is coming; money is added state by state.
+- Windows match the federal side: bills and votes from January 2025, money 2016 through 2026.
+- LegiScan and Open States do not cover Guam, and Puerto Rico's record is in Spanish with its own parties. Those two
+  come last, with their own loaders.
 
 ## Optional: rate more bills with the Claude API
 
