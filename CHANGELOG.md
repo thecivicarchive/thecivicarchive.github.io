@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.009 — 2026-09-20 — Each bill gets its own vote map
+
+- Inside a bill, "Votes and path" now has a map of that bill's recorded votes
+  only. Flip from the House vote to the Senate vote with the arrows or the
+  list, tap a state for its members' names, and share any one of them.
+- "See the map" beside a vote now shows it right there in the bill.
+- "Open on the full map" opens the big map narrowed to the same bill, for
+  district lines and member cards; one tap shows every vote again.
+
 ## v4.0.008 — 2026-09-20 — Where every bill stands
 
 - Every bill now carries a moving track of its journey: introduced, committee,

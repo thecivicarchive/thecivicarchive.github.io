@@ -865,6 +865,21 @@ p{margin:0 0 12px}
 .ymem>span:nth-child(2) .muted{font-size:12.5px}
 .ymem .vtag{flex:none}
 .yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.bmap{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);padding:14px 16px 16px;margin:16px 0 18px}
+.bmap-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.bmap-head h4{margin:0;font-size:15px}
+.bmap .mapsub{margin-top:14px}
+.bmap .tally .num{font-size:38px}
+.bmap .tsub{font-size:13.5px;color:var(--muted);margin-top:6px}
+.bmap .mapframe{max-width:780px;margin:12px auto 0}
+.bmap svg.usmap{width:100%;height:auto;display:block}
+.bmap-side{margin-top:14px;font-size:13.5px}
+.bmap-side h5{margin:0 0 8px;font-size:14px}
+.bmap-mems{display:flex;flex-wrap:wrap;gap:6px}
+.bmem{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:4px 10px 4px 4px;font-size:13px;background:var(--surface)}
+.mapfilter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-size:13.5px;color:var(--muted)}
+.mapfilter[hidden]{display:none!important}
+.mapfilter b{color:var(--ink)}
 .trk{display:block;margin:12px 0 8px;text-align:left}
 .trk .rail{display:block;position:relative;height:4px;border-radius:2px;background:var(--hair);margin:8px 8px 0}
 .trk .fill,.trk .fillbad{position:absolute;top:0;bottom:0;border-radius:2px;width:0}
@@ -1480,6 +1495,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <div class="theater-grid">
         <div class="stage rv">
           <div class="mtip" id="mtip" role="tooltip"></div>
+          <div class="mapfilter" id="mapfilter" hidden></div>
           <div class="votebar">
             <button class="iconbtn" id="vprev" aria-label="Newer vote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
             <label class="selwrap"><span class="sr-only">Vote</span><select id="vsel" aria-label="Choose a recorded vote"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
@@ -1834,7 +1850,7 @@ function paneFor(b){
   const L = b.links || {};
   const links = [["page", "Congress.gov page"], ["text", "Bill text"], ["pdf", "Latest text (PDF)"], ["actions", "All actions"], ["cosponsors", "Cosponsors"], ["committees", "Committees"], ["cbo", "CBO cost estimate"]].filter(([k]) => L[k]).map(([k, lab]) => `<a href="${esc(L[k])}" target="_blank" rel="noopener">${lab}</a>`).join("");
   const facts = `${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
-  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
+  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + billMapHTML(b) + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
   const first = isRated(b) ? 0 : (b.votes && b.votes.length ? 3 : 5);
   return `<div class="tabs" role="tablist">${tabs.map(([k, lab], i) => `<button class="tab" role="tab" data-t="${k}" aria-selected="${i === first}">${lab}</button>`).join("")}</div>${tabs.map(([k, , html], i) => `<div class="pane${i === first ? " show" : ""}" data-p="${k}">${html}</div>`).join("")}`;
 }
@@ -1975,14 +1991,15 @@ grid.addEventListener("click", e => {
     const card = tab.closest(".card");
     $$(".tab", card).forEach(t => t.setAttribute("aria-selected", t === tab));
     $$(".pane", card).forEach(p => p.classList.toggle("show", p.dataset.p === tab.dataset.t));
+    armBillMap(card);
     return;
   }
   if (!more) return;
   const card = more.closest(".card"), open = !card.classList.contains("open");
   if (open && !card.dataset.built) {
     const b = byKey[card.dataset.key], box = $(".detail > div", card); card.dataset.built = "1";
-    if (b.trim) { box.innerHTML = `<p class="muted loading">Loading the full record\u2026</p>`; needBill(b).then(() => { box.innerHTML = paneFor(b); watchTracks(box); }, () => { box.innerHTML = `<p class="muted">Couldn't load this bill's details. Check your connection and open it again.</p>`; delete card.dataset.built; }); }
-    else { box.innerHTML = paneFor(b); watchTracks(box); }
+    if (b.trim) { box.innerHTML = `<p class="muted loading">Loading the full record\u2026</p>`; needBill(b).then(() => { box.innerHTML = paneFor(b); watchTracks(box); armBillMap(card); }, () => { box.innerHTML = `<p class="muted">Couldn't load this bill's details. Check your connection and open it again.</p>`; delete card.dataset.built; }); }
+    else { box.innerHTML = paneFor(b); watchTracks(box); armBillMap(card); }
   }
   card.classList.toggle("open", open);
   const bill = byKey[card.dataset.key]; if (bill && bill.short_title && bill.short_title !== bill.title) $(".title", card).textContent = open ? bill.title : bill.short_title;
@@ -2340,6 +2357,90 @@ function positionsFor(v, st){
   return out;
 }
 
+/* ---------- a bill's own vote maps ----------
+   The Vote map page lists every roll call there is. Inside a bill the same map is
+   offered for that bill's roll calls only, so a reader can flip from the House vote
+   to the Senate vote without leaving the bill. States are drawn the way the big map
+   draws them; district lines and member cards stay on the big map, which opens from
+   here already narrowed to this bill. */
+let bmapSeq = 0;
+function billMapHTML(b){
+  const n = (b.votes || []).filter(v => v.map).length; if (!n) return "";
+  return `<div class="bmap" data-key="${esc(b.key)}"><div class="bmap-head"><h4>This bill's recorded votes, state by state</h4><button class="chip" type="button" data-full>Open on the full map</button></div><div class="bmap-body"><p class="muted loading">Loading the roll calls\u2026</p></div></div>`;
+}
+function armBillMap(card){ const bm = $(".pane.show .bmap", card); if (bm) initBillMap(bm); }
+function initBillMap(host){
+  if (host.dataset.ready) return; host.dataset.ready = "1";
+  votesReady().then(() => drawBillMap(host), () => { delete host.dataset.ready; $(".bmap-body", host).innerHTML = `<p class="muted">Couldn't load the roll calls. Check your connection and open this tab again.</p>`; });
+}
+function drawBillMap(host){
+  const key = host.dataset.key, uid = "bm" + (++bmapSeq), votes = DATA.vote_meta.filter(v => v.bill_key === key), body = $(".bmap-body", host), states = DATA.states || {};
+  if (!votes.length) { body.innerHTML = `<p class="muted">No member-level roll calls for this bill.</p>`; return; }
+  $("h4", host).textContent = votes.length === 1 ? "The recorded vote, state by state" : `This bill's ${votes.length} recorded votes, state by state`;
+  const NS = "http://www.w3.org/2000/svg", el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+  const arrow = d => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`, many = votes.length > 1, legend = $("#pg-map .legend2");
+  body.innerHTML = `<div class="votebar">${many ? `<button class="iconbtn" type="button" data-step="-1" aria-label="Newer vote">${arrow("M15 6l-6 6 6 6")}</button>` : ""}<label class="selwrap"><span class="sr-only">Vote</span><select aria-label="Choose one of this bill's recorded votes">${votes.map(v => `<option value="${esc(v.vote_id)}">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))} (${v.yeas ?? "?"}\u2013${v.nays ?? "?"})</option>`).join("")}</select>${arrow("M6 9l6 6 6-6")}</label>${many ? `<button class="iconbtn" type="button" data-step="1" aria-label="Older vote">${arrow("M9 6l6 6-6 6")}</button>` : ""}</div>
+    <div class="mapsub"></div><div class="mapframe"><svg class="usmap" viewBox="0 0 975 610" role="img" aria-label="Map of the United States colored by how each state's members voted on this bill"></svg></div>${legend ? legend.outerHTML : ""}<div class="bmap-side"><span class="muted">Tap a state for its members' names.</span></div>`;
+  const svg = $("svg.usmap", body), pick = $("select", body), sub = $(".mapsub", body), side = $(".bmap-side", body);
+  const defs = el("defs", {});
+  for (const base of ["rep", "dem", "plum"]) {
+    const pat = el("pattern", {id: `${uid}-hatch-${base}`, patternUnits: "userSpaceOnUse", width: 6, height: 6, patternTransform: "rotate(45)"});
+    const bg = el("rect", {width: 6, height: 6}); bg.setAttribute("style", `fill:var(--${base});opacity:.22`);
+    const bar = el("rect", {width: 2.4, height: 6}); bar.setAttribute("style", `fill:var(--${base})`);
+    pat.appendChild(bg); pat.appendChild(bar); defs.appendChild(pat);
+  }
+  svg.appendChild(defs);
+  const groups = {};
+  for (const [st, s] of Object.entries(states)) {
+    const g = el("g", {class: "state", "data-st": st}), cp = el("clipPath", {id: `${uid}-cp-${st}`}); cp.appendChild(el("path", {d: s.d})); g.appendChild(cp);
+    const fill = el("g", {class: "fill", "clip-path": `url(#${uid}-cp-${st})`}); g.appendChild(fill); g.appendChild(el("path", {class: "outline", d: s.d}));
+    const hit = el("path", {class: "hit", d: s.d}); hit.addEventListener("click", () => showState(st)); g.appendChild(hit);
+    const [x0, y0, x1, y1] = s.bbox;
+    if ((x1 - x0) > 24 && (y1 - y0) > 18) { const t = el("text", {class: "abbr", x: (x0 + x1) / 2, y: (y0 + y1) / 2 + 4, "text-anchor": "middle"}); t.textContent = st; g.appendChild(t); }
+    svg.appendChild(g); groups[st] = {fill, s};
+  }
+  const tone = p => p === "R" ? "rep" : (p === "D" ? "dem" : "plum");
+  const fillFor = (p, pos) => (pos === "X" || pos === "P") ? "var(--line-strong)" : (pos === "Y" ? `var(--${tone(p)})` : `url(#${uid}-hatch-${tone(p)})`);
+  const order = m => ({R: 0, D: 4, I: 2}[m.p] ?? 2) + (m.pos === "Y" ? (m.p === "D" ? 1 : 0) : (m.pos === "N" ? (m.p === "D" ? 0 : 1) : .5));
+  const POSN = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
+  let current = votes[0], picked = null;
+  function paint(vid){
+    current = votes.find(v => v.vote_id === vid) || votes[0];
+    for (const [st, {fill, s}] of Object.entries(groups)) {
+      fill.innerHTML = "";
+      const ms = positionsFor(current, st).sort((a, b) => order(a) - order(b)), [x0, y0, x1, y1] = s.bbox, w = x1 - x0, h = y1 - y0;
+      if (!ms.length) { const r = el("rect", {x: x0, y: y0, width: w, height: h}); r.setAttribute("style", "fill:var(--line-strong);opacity:.55"); fill.appendChild(r); continue; }
+      if (current.chamber === "Senate" && ms.length === 2 && fillFor(ms[0].p, ms[0].pos) !== fillFor(ms[1].p, ms[1].pos)) {
+        const a = el("polygon", {points: `${x0},${y0} ${x1},${y0} ${x0},${y1}`}); a.setAttribute("style", `fill:${fillFor(ms[0].p, ms[0].pos)}`);
+        const c = el("polygon", {points: `${x1},${y0} ${x1},${y1} ${x0},${y1}`}); c.setAttribute("style", `fill:${fillFor(ms[1].p, ms[1].pos)}`);
+        fill.appendChild(a); fill.appendChild(c); continue;
+      }
+      const bands = []; for (const m of ms) { const f = fillFor(m.p, m.pos); if (bands.length && bands[bands.length - 1].f === f) bands[bands.length - 1].n++; else bands.push({f, n: 1}); }
+      let x = x0; for (const bd of bands) { const bw = w * bd.n / ms.length, r = el("rect", {x, y: y0, width: bw, height: h}); r.setAttribute("style", `fill:${bd.f}`); fill.appendChild(r); x += bw; }
+    }
+    const rows = []; for (const m of String(current.split || "").matchAll(/\b([A-Z]+)\s+(\d+)\s*-\s*(\d+)/g)) { const q = m[1][0]; rows.push({p: q, y: +m[2], n: +m[3], name: q === "D" ? "Democrats" : (q === "R" ? "Republicans" : "Independents"), c: tone(q)}); }
+    const max = Math.max(1, ...rows.map(r => r.y + r.n)); rows.sort((a, b) => ({D: 0, I: 1, R: 2}[a.p] ?? 1) - ({D: 0, I: 1, R: 2}[b.p] ?? 1));
+    const passed = /passed|agreed|invoked|adopted|confirmed/i.test(current.result || "");
+    sub.innerHTML = `<div class="tally"><b class="num"><span class="v">${esc(String(current.yeas ?? "?"))}</span><span>\u2013</span><span class="v">${esc(String(current.nays ?? "?"))}</span></b><span class="res ${passed ? "pass" : "fail"}">${esc(current.result || "")}</span><button class="chip sharebtn" type="button" data-sharevote>Share this vote</button></div>
+      <div class="tsub">${esc(current.chamber)} ${esc(current.category.toLowerCase())}, ${esc(fmtDate(current.date))}.${current.url ? ` <a href="${esc(current.url)}" target="_blank" rel="noopener">Official roll call</a>` : ""}</div>
+      ${rows.length ? `<div class="split">${rows.map(r => `<div style="--pc:var(--${r.c})"><span>${esc(r.name)}</span><span class="bar" aria-hidden="true"><i class="y" style="width:${(100 * r.y / max).toFixed(1)}%"></i><i class="n" style="width:${(100 * r.n / max).toFixed(1)}%"></i></span><span><b>${r.y}</b> yes, <b>${r.n}</b> no</span></div>`).join("")}</div>` : ""}`;
+    if (picked) showState(picked);
+  }
+  function showState(st){
+    picked = st; $$("g.state", svg).forEach(g => g.classList.toggle("sel", g.dataset.st === st));
+    const name = (states[st] || {}).name || st, ms = positionsFor(current, st).sort((a, b) => ((a.L.d || 0) - (b.L.d || 0)) || a.L.n.localeCompare(b.L.n));
+    side.innerHTML = ms.length ? `<h5>${esc(name)}: ${esc(current.chamber)}</h5><div class="bmap-mems">${ms.map(m => `<span class="bmem">${avatar(m.id, m.p, "sm")}<b>${esc(m.L.n)}</b><span class="vtag ${esc(m.pos)}">${POSN[m.pos] || m.pos}</span></span>`).join("")}</div>`
+      : `<span class="muted">No ${esc(current.chamber)} members from ${esc(name)} appear in this roll call.</span>`;
+  }
+  pick.addEventListener("change", () => paint(pick.value));
+  body.addEventListener("click", e => {
+    const st = e.target.closest("[data-step]"); if (st) { const i = pick.selectedIndex + (+st.dataset.step); if (i >= 0 && i < pick.options.length) { pick.selectedIndex = i; paint(pick.value); } return; }
+    const sv = e.target.closest("[data-sharevote]"); if (sv) share({title: `${current.bill}: ${current.chamber} ${current.category.toLowerCase()}, ${current.yeas ?? "?"}\u2013${current.nays ?? "?"}`, text: `How every ${current.chamber} member voted on ${current.bill}, ${current.title}, state by state:`, url: shareUrlVote(current), kind: "vote", key: current.vote_id}, sv);
+  });
+  $("[data-full]", host).addEventListener("click", () => { showPage("map", true); mapReady().then(() => { if (window.mapFilter) mapFilter(key, current.vote_id); }); });
+  paint(votes[0].vote_id);
+}
+
 /* ---------- vote map ---------- */
 let mapInit = null;
 function mapReady(){
@@ -2584,11 +2685,24 @@ function initMap(){
   function pick(st){ if (zoomed === st) { showState(st); return; } zoomTo(st); }
   const monthOf = d => d ? new Date(d.slice(0, 7) + "-15T12:00:00").toLocaleDateString("en-US", {year: "numeric", month: "long"}) : "Undated";
   const vgroups = new Map(); votes.forEach(v => { const g = monthOf(v.date); if (!vgroups.has(g)) vgroups.set(g, []); vgroups.get(g).push(v); });
-  sel.innerHTML = [...vgroups].map(([g, vs]) => `<optgroup label="${esc(g)}">` + vs.map(v => `<option value="${esc(v.vote_id)}">${esc(v.bill)}: ${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))} (${v.yeas ?? "?"}–${v.nays ?? "?"})</option>`).join("") + `</optgroup>`).join("");
+  const optionFor = v => `<option value="${esc(v.vote_id)}">${esc(v.bill)}: ${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))} (${v.yeas ?? "?"}\u2013${v.nays ?? "?"})</option>`;
+  const everyOption = () => [...vgroups].map(([g, vs]) => `<optgroup label="${esc(g)}">` + vs.map(optionFor).join("") + `</optgroup>`).join("");
+  sel.innerHTML = everyOption();
   sel.addEventListener("change", () => paint(sel.value));
   const step = d => { const i = sel.selectedIndex + d; if (i < 0 || i >= sel.options.length) return; sel.selectedIndex = i; paint(sel.value); };
   $("#vprev").addEventListener("click", () => step(-1)); $("#vnext").addEventListener("click", () => step(1));
-  window.mapShow = vid => { if (!VM[vid]) return; zoomOut(); sel.value = vid; paint(vid); selected = null; };
+  let narrowed = null;
+  const widen = () => { if (!narrowed) return; narrowed = null; $("#mapfilter").hidden = true; const keep = sel.value; sel.innerHTML = everyOption(); sel.value = keep; };
+  window.mapShow = vid => { if (!VM[vid]) return; if (narrowed && VM[vid].bill_key !== narrowed) widen(); zoomOut(); sel.value = vid; paint(vid); selected = null; };
+  /* the full map, showing only one bill's roll calls; the line above the picker says so and offers the way back */
+  window.mapFilter = (billKey, vid) => {
+    const mine = votes.filter(v => v.bill_key === billKey); if (!mine.length) return;
+    narrowed = billKey; zoomOut(); sel.innerHTML = mine.map(optionFor).join("");
+    const f = $("#mapfilter"); f.hidden = false;
+    f.innerHTML = `<span>Showing only <b>${esc(mine[0].bill)}</b>: ${mine.length} recorded vote${mine.length === 1 ? "" : "s"}</span><button class="chip" type="button" id="mapfilteroff">Show every vote</button>`;
+    $("#mapfilteroff").addEventListener("click", widen);
+    sel.value = vid && mine.some(v => v.vote_id === vid) ? vid : mine[0].vote_id; paint(sel.value); selected = null;
+  };
   window.mapFocus = (vid, st, id) => {
     const ready = DIST.pending ? need("districts").then(d => { DIST = d || {states: {}, q: 50}; DQ = DIST.q || 50; }, () => { DIST = {states: {}, q: 50}; }) : Promise.resolve();
     ready.then(() => { mapShow(vid); if (!groups[st]) return; zoomTo(st); const m = id && (membersByState(vid)[st] || []).find(x => x.id === id); if (m) openRep(m, st); });
@@ -2599,7 +2713,14 @@ function initMap(){
 }
 document.addEventListener("click", e => {
   const a = e.target.closest("a.maplink"); if (!a) return;
-  e.preventDefault(); showPage("map", true);
+  e.preventDefault();
+  const host = a.closest(".card"), bm = host && $(".bmap", host);
+  if (bm) {                                     // stay in the bill: pick this vote on the bill's own map
+    initBillMap(bm);
+    votesReady().then(() => setTimeout(() => { const pick = $("select", bm); if (!pick) return; pick.value = a.dataset.vote; pick.dispatchEvent(new Event("change")); bm.scrollIntoView({block: "center", behavior: calm() ? "auto" : "smooth"}); }, 40), () => {});
+    return;
+  }
+  showPage("map", true);
   mapReady().then(() => { if (window.mapShow) mapShow(a.dataset.vote); });
 });
 
