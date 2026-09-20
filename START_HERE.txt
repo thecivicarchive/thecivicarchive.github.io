@@ -113,6 +113,26 @@ NEXT WEEK  -  REFRESH  (15-30 minutes)
   Then do Step 9 again with the new site/index.html.
 
 -----------------------------------------------------------------
+THE DRAFT SITE  -  WHERE THE NEXT VERSION IS TRIED FIRST
+-----------------------------------------------------------------
+  Your live site stays as it is. Changes are tried on a draft first, built
+  from the same database. Four double-clicks do everything:
+       Preview dev site.bat ....... builds the draft and opens it at
+                                    http://127.0.0.1:8790/  (only you can see it;
+                                    close the black window when you are done)
+       Publish dev site.bat ....... puts the draft at thecivicarchive.github.io/dev/
+       Save this version.bat ...... keeps everything as it is now, under the
+                                    version number at the top of CHANGELOG.md
+       Go back to a version.bat ... puts everything back the way a saved version was
+  Every build carries a number like 4.0.007 (the badge at the bottom right, and
+  the footer). What changed in each one is in CHANGELOG.md, written for a reader.
+
+  To count visits without cookies: make a free GoatCounter account, put its
+  address (one line, like https://YOURNAME.goatcounter.com/count) in a file
+  called analytics.txt in this folder, and build again. Until then nothing
+  is counted at all.
+
+-----------------------------------------------------------------
 IF SOMETHING GOES WRONG
 -----------------------------------------------------------------
   - Just ask, in plain words:  "It stopped. What happened and what do I do?"
