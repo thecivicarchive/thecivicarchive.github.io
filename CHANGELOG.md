@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.024 — 2026-09-20 — The front door opens
+
+- Fixed: pressing a card on the front door did nothing. A press now opens the
+  card in front, and a press on a card at the side brings it round first.
+- The ring turns much more slowly and eases to a stop, and it waits twice as
+  long before moving on by itself.
+- When a card arrives at the front and stops, a sweep of light crosses it and
+  a few stars twinkle at its corners; while it rests there, a slow gold shimmer
+  runs round its edge. With Motion off, none of that plays.
+
 ## v4.0.023 — 2026-09-20 — One front door
 
 - The Civic Archive now has a front door: a page that welcomes everyone and

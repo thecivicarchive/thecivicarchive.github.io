@@ -122,6 +122,25 @@ main{min-height:calc(100vh - 150px);display:flex;flex-direction:column}
 .lv.front .go{opacity:1;transform:none}
 .lv.soon{cursor:default}.lv.soon .tag{color:var(--muted)}.lv.soon .go{background:none;color:var(--muted);border:1px dashed var(--line-strong)}
 .lv.front{border-color:var(--line-strong)}
+/* arriving at the front: a sweep of light across the card, four star sparkles, then a slow gold shimmer round the edge */
+.lv::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;mix-blend-mode:screen;
+  background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.14) 44%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.14) 56%,transparent 62%) no-repeat;background-size:260% 100%;background-position:130% 0}
+:root[data-theme="light"] .lv::before{mix-blend-mode:normal}
+:root:not(.calm) .lv.arrived::before{animation:sheen 1.2s cubic-bezier(.3,.1,.2,1) 1}
+@keyframes sheen{0%{opacity:0;background-position:130% 0}12%{opacity:1}85%{opacity:1}100%{opacity:0;background-position:-40% 0}}
+.lv::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;opacity:0;
+  background:linear-gradient(115deg,transparent 30%,#FFE9A8 45%,#FFFFFF 50%,#FFD24A 55%,transparent 70%) 130% 0/240% 100% no-repeat;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+:root:not(.calm) .lv.front::after{opacity:1;animation:rim 3.6s ease-in-out infinite}
+@keyframes rim{0%{background-position:130% 0}65%,100%{background-position:-40% 0}}
+.spk{position:absolute;inset:0;pointer-events:none}
+.spk i{position:absolute;width:28px;height:28px;opacity:0;background:radial-gradient(circle,#fff 0 20%,#FFE27A 21% 42%,transparent 44%);
+  clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);filter:drop-shadow(0 0 7px #FFD24A)}
+.spk i:nth-child(1){left:-12px;top:-14px}.spk i:nth-child(2){right:-14px;top:16%;width:20px;height:20px}
+.spk i:nth-child(3){right:9%;bottom:-13px;width:24px;height:24px}.spk i:nth-child(4){left:9%;bottom:14%;width:15px;height:15px}
+:root:not(.calm) .lv.arrived .spk i{animation:twinkle .95s ease-in-out both}
+.lv.arrived .spk i:nth-child(1){animation-delay:.3s}.lv.arrived .spk i:nth-child(2){animation-delay:.5s}.lv.arrived .spk i:nth-child(3){animation-delay:.7s}.lv.arrived .spk i:nth-child(4){animation-delay:.9s}
+@keyframes twinkle{0%{opacity:0;transform:scale(0) rotate(0)}40%{opacity:1;transform:scale(1.3) rotate(45deg)}100%{opacity:0;transform:scale(0) rotate(90deg)}}
 .navrow{display:flex;justify-content:center;align-items:center;gap:14px;padding:6px 0 22px}
 .nav{all:unset;box-sizing:border-box;cursor:pointer;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center}
 .nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -224,8 +243,9 @@ const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { r
 /* the same two switches, and the same saved choices, as the rest of the site */
 let motionOn = store.get("motion") ? store.get("motion") === "on" : !matchMedia("(prefers-reduced-motion: reduce)").matches;
 const calm = () => !motionOn;
-$("#motion").setAttribute("aria-pressed", motionOn);
-$("#motion").addEventListener("click", () => { motionOn = !motionOn; store.set("motion", motionOn ? "on" : "off"); $("#motion").setAttribute("aria-pressed", motionOn); idle = performance.now(); kick(); });
+const showMotion = () => { $("#motion").setAttribute("aria-pressed", motionOn); document.documentElement.classList.toggle("calm", !motionOn); };
+showMotion();
+$("#motion").addEventListener("click", () => { motionOn = !motionOn; store.set("motion", motionOn ? "on" : "off"); showMotion(); idle = performance.now(); kick(); });
 $("#theme").addEventListener("click", () => { const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = next; store.set("theme", next); });
 
 /* ---------- the levels ---------- */
@@ -243,12 +263,16 @@ const LEVELS = [
 const ring = $("#ring"), stage = $("#stage"), dots = $("#dots"), N = LEVELS.length, STEP = 2 * Math.PI / N;
 ring.innerHTML = LEVELS.map((L, i) => `<button class="lv${L.soon ? " soon" : ""}" type="button" data-i="${i}" aria-label="${esc(L.tag)}: ${esc(L.title)}"${L.soon ? ' aria-disabled="true"' : ""}>
   <span class="tag">${esc(L.tag)}</span><h2>${esc(L.title)}</h2><p>${esc(L.text)}</p><span class="art">${ART[L.key] || ""}</span>
-  ${L.facts.length ? `<dl>${L.facts.map(f => `<div><dd>${f[0] == null ? "–" : Number(f[0]).toLocaleString()}</dd><dt>${esc(f[1])}</dt></div>`).join("")}</dl>` : ""}<span class="go">${esc(L.go)}</span></button>`).join("");
+  ${L.facts.length ? `<dl>${L.facts.map(f => `<div><dd>${f[0] == null ? "–" : Number(f[0]).toLocaleString()}</dd><dt>${esc(f[1])}</dt></div>`).join("")}</dl>` : ""}<span class="go">${esc(L.go)}</span><span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>`).join("");
 dots.innerHTML = LEVELS.map(() => "<i></i>").join("");
 const cards = $$(".lv", ring);
 
 /* ---------- the ring: cards ride a circle, always facing you; the nearest one is in front ---------- */
-let angle = 0, target = 0, vel = 0, drag = null, moved = 0, raf = 0, idle = performance.now(), front = 0;
+let angle = 0, target = 0, drag = null, downCard = null, moved = 0, raf = 0, idle = performance.now(), last = performance.now(), front = 0, rested = -1;
+const GLIDE = 2600, WAIT = 12000;     // milliseconds for a card to travel one place round the ring; milliseconds of stillness before the ring moves on by itself
+let from = 0, began = 0, span = 0;
+const ease = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;        // slow away, slow home
+const glideTo = t => { from = angle; target = t; began = performance.now(); span = GLIDE * Math.min(1.4, Math.max(.4, Math.abs(t - angle) / STEP)); rested = -1; };
 const radius = () => Math.min(460, Math.max(210, stage.clientWidth * .42));
 function place(){
   const R = radius(); let best = 0, bestZ = -1e9;
@@ -261,20 +285,22 @@ function place(){
 function frame(now){
   raf = 0;
   if (!drag) {
-    if (!calm() && now - idle > 6500) { target -= STEP; idle = now; }                       // when nobody is touching it, the ring moves on by itself
-    const d = target - angle; vel = vel * .78 + d * .045; angle += vel;
-    if (Math.abs(d) < .0006 && Math.abs(vel) < .0006) { angle = target; vel = 0; }
+    if (!calm() && angle === target && now - idle > WAIT) { glideTo(target - STEP); idle = now; }      // when nobody is touching it, the ring moves on by itself
+    if (angle !== target) { const p = span ? Math.min(1, (now - began) / span) : 1; angle = p >= 1 ? target : from + (target - from) * ease(p); }
   }
   place();
+  if (!drag && angle === target && rested !== front) arrive();
   if (drag || angle !== target || (!calm() && document.visibilityState !== "hidden")) kick();
 }
+/* a card has come to the front and stopped: light sweeps across it and a few stars twinkle */
+function arrive(){ rested = front; cards.forEach((c, i) => c.classList.toggle("arrived", i === front)); clearTimeout(arrive.t); arrive.t = setTimeout(() => cards.forEach(c => c.classList.remove("arrived")), 2100); }
 function kick(){ if (!raf) raf = requestAnimationFrame(frame); }
-const snap = () => { target = Math.round(angle / STEP) * STEP; idle = performance.now(); kick(); };
-const turnBy = n => { target = Math.round(target / STEP) * STEP - n * STEP; idle = performance.now(); if (calm()) { angle = target; place(); } else kick(); };
+const snap = () => { glideTo(Math.round(angle / STEP) * STEP); idle = performance.now(); kick(); };
+const turnBy = n => { glideTo(Math.round(target / STEP) * STEP - n * STEP); idle = performance.now(); if (calm()) { angle = target; place(); arrive(); } else kick(); };
 $("#prev").addEventListener("click", () => turnBy(-1)); $("#next").addEventListener("click", () => turnBy(1));
-stage.addEventListener("pointerdown", e => { drag = {x: e.clientX}; moved = 0; stage.classList.add("grab"); try { stage.setPointerCapture(e.pointerId); } catch (x) {} kick(); });
+stage.addEventListener("pointerdown", e => { downCard = e.target.closest ? e.target.closest(".lv") : null; drag = {x: e.clientX}; moved = 0; rested = -1; last = performance.now(); stage.classList.add("grab"); try { stage.setPointerCapture(e.pointerId); } catch (x) {} kick(); });
 stage.addEventListener("pointermove", e => { if (!drag) return; const dx = e.clientX - drag.x; moved += Math.abs(dx); angle += dx / radius(); target = angle; drag.x = e.clientX; idle = performance.now(); });
-const release = e => { if (!drag) return; drag = null; stage.classList.remove("grab"); if (moved < 8) { const c = e.target.closest && e.target.closest(".lv"); if (c) choose(+c.dataset.i); } snap(); };
+const release = e => { if (!drag) return; drag = null; stage.classList.remove("grab"); const c = downCard; downCard = null; last = performance.now(); snap(); if (moved < 8 && c) choose(+c.dataset.i); };
 stage.addEventListener("pointerup", release); stage.addEventListener("pointercancel", () => { drag = null; stage.classList.remove("grab"); snap(); });
 stage.addEventListener("click", e => { if (e.detail === 0) { const c = e.target.closest(".lv"); if (c) choose(+c.dataset.i); } });      // keyboard "clicks" (Enter, Space) carry no pointer
 document.addEventListener("keydown", e => { if (!$("#turn").hidden) { finish(); return; } if ($("#door").hidden) return; if (e.key === "ArrowLeft") { turnBy(-1); e.preventDefault(); } else if (e.key === "ArrowRight") { turnBy(1); e.preventDefault(); } });
