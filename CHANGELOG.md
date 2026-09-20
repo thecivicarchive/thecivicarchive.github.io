@@ -10,6 +10,22 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.023 — 2026-09-20 — One front door
+
+- The Civic Archive now has a front door: a page that welcomes everyone and
+  leads to each level of government. The cards ride a ring in 3D, forwards and
+  backwards in a loop: Federal, State, and a place held for county and city.
+  Drag them, use the arrow keys or the arrows, or tap one.
+- Choosing a card turns the page like a book, three seconds, and opens that
+  space. Click, or press any key, to skip the turn. With Motion off nothing
+  spins and there is no page-turn.
+- The State card opens a map of the country. States that are open are filled,
+  states being built are hatched and say what is loaded so far (Minnesota: its
+  200 legislators, 201 districts and campaign money), and your own state is
+  outlined in gold if you have picked one.
+- The federal side now lives one step inside, under "us", with an "All levels"
+  link in its top bar that leads back to the front door.
+
 ## v4.0.022 — 2026-09-20 — Groundwork for the states: Minnesota
 
 - Nothing new to see on the site yet. This build lays the ground for bringing

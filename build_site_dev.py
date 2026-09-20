@@ -1007,6 +1007,11 @@ p{margin:0 0 12px}
 /* top bar */
 .top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:saturate(1.5) blur(16px);-webkit-backdrop-filter:saturate(1.5) blur(16px);border-bottom:1px solid var(--hair)}
 .top .wrap{display:flex;align-items:center;gap:8px;height:62px}
+.doorlink{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px 0 8px;margin-right:4px;border-radius:999px;border:1px solid var(--line);color:var(--muted);text-decoration:none;font-size:12.5px;font-weight:600;flex:none;transition:color .15s,border-color .15s}
+.doorlink:hover{color:var(--ink);border-color:var(--line-strong)}
+.doorlink svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1100px){.doorlink span{display:none}.doorlink{padding:0 8px}}
+@media (max-width:560px){.top .brand .mark{display:none}.doorlink{margin-right:0}}
 .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:600;font-size:17px;letter-spacing:-.01em}
 .brand .mark{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .top .brand .mark path{stroke-dasharray:90;stroke-dashoffset:90;animation:draw 1.2s var(--ease) forwards}
@@ -1990,6 +1995,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 <a class="skip" href="#bills">Skip to bills</a>
 <header class="top">
   <div class="wrap">
+    <a class="doorlink" href="../" title="The front door: every level of government" aria-label="Back to the front door of The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
     <a class="brand" href="#top" aria-label="The Civic Archive, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
     <nav class="nav" aria-label="Sections">
       <a href="#home" data-go="home">Home</a><a href="#bills" data-go="bills">Bills</a><a href="#map" data-go="map">Vote map</a><a href="#how" data-go="how">How ratings work</a><a href="#members" data-go="members">Your members</a><a href="#money" data-go="money">Money</a>
@@ -4651,7 +4657,7 @@ def main():
     ap.add_argument("--max-mb", type=float, default=15.0, help="size budget for the one-file archive (claude.ai artifacts allow 16 MB)")
     ap.add_argument("--summary-chars", type=int, default=220, help="summary length kept for introduced-only measures")
     ap.add_argument("--as-of", default="", help="date to print as the generation date (YYYY-MM-DD); default today")
-    ap.add_argument("--base-url", default="https://thecivicarchive.github.io/dev",
+    ap.add_argument("--base-url", default="https://thecivicarchive.github.io/dev/us",
                     help="where the fast site will live; share pages and link previews need absolute addresses")
     ap.add_argument("--analytics", default="",
                     help="GoatCounter endpoint, e.g. https://civicarchive.goatcounter.com/count; default: the one line of "

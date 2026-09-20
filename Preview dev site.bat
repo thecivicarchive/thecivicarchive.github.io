@@ -9,7 +9,10 @@ if not exist "congress_119.sqlite" (
   pause
   exit /b 1
 )
-".venv\Scripts\python.exe" build_site_dev.py --db congress_119.sqlite --out "site\dev.html" --split "site\dev"
+".venv\Scripts\python.exe" build_site_dev.py --db congress_119.sqlite --out "site\dev.html" --split "site\dev\us"
+if errorlevel 1 goto failed
+".venv\Scripts\python.exe" build_door.py --out "site\dev\index.html" --draft
+:failed
 if errorlevel 1 (
   echo.
   echo The draft build failed. The message above says why.
@@ -24,7 +27,7 @@ start "The Civic Archive - preview server (close me when done)" ".venv\Scripts\p
 timeout /t 2 /nobreak >nul
 start "" "http://127.0.0.1:8790/"
 echo.
-echo The draft is open in your browser at http://127.0.0.1:8790/
+echo The draft is open in your browser at http://127.0.0.1:8790/ (the front door; the federal side is under /us/)
 echo This is a local preview only. Nobody else can see it.
 echo The one-file copy is at site\dev.html (opens from a double-click, slower).
 echo To let others see it, use "Publish dev site.bat".

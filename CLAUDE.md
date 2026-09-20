@@ -124,7 +124,8 @@ The live site at thecivicarchive.github.io is built by `build_site.py`. Alongsid
 number in the 4.x.xxx chain and every saved build can be brought back.
 
 - `Preview dev site.bat` builds the draft and opens it at http://127.0.0.1:8790/ (a small local server; the
-  draft is several files, so it cannot be opened from a double-click the way the one-file site can).
+  draft is several files, so it cannot be opened from a double-click the way the one-file site can). That address
+  is the front door; the federal side is at http://127.0.0.1:8790/us/.
 - `Publish dev site.bat` copies the draft to `docs/dev/` and pushes it; it appears at thecivicarchive.github.io/dev/.
 - `Save this version.bat` commits everything and tags it with the version named at the top of `CHANGELOG.md`.
   `Go back to a version.bat` restores any saved version. Both call `version.py`, which also has `current`,
@@ -133,8 +134,16 @@ number in the 4.x.xxx chain and every saved build can be brought back.
   The build stamps it on the badge, the footer and a meta tag. Every change gets a changelog entry written for
   a reader; the last three digits go up with each saved build, the middle number when John signs off a milestone.
 
-The draft build writes two things. `site/dev.html` is the one-file archive (everything inline; the 16 MB rule
-in "Definition of done" applies to it). `site/dev/` is the fast site: `index.html` is a small shell, and
+The draft has a front door and rooms behind it. `build_door.py` writes the front door, `site/dev/index.html`: a
+small page that welcomes everyone, with a ring of cards turning in 3D (one card per level of government) and a
+three-second page-turn into the chosen space; its State card opens a map of the country built from
+`states/places.py` and whatever each state's database holds. The federal side lives one step inside, in
+`site/dev/us/` (thecivicarchive.github.io/dev/us/), and each state will live in its own two-letter folder
+(`site/dev/mn/`). `Preview dev site.bat` builds the federal side and the door; `Publish dev site.bat` mirrors the
+whole of `site/dev`.
+
+The federal draft build writes two things. `site/dev.html` is the one-file archive (everything inline; the 16 MB rule
+in "Definition of done" applies to it). `site/dev/us/` is the fast site: `index.html` is a small shell, and
 `data/*.json`, `data/bill/<key>.json`, `data/member/<bioguide>.json`, `data/donors/<bioguide>.json` (a member's top
 hundred donors, every payment, and outside spending; about 42 MB across all members) and `photos/*.webp` are
 fetched only when a page needs them. The one-file archive carries each member's top ten donors only. The two share
@@ -145,7 +154,7 @@ The fast site also carries share pages, written by `share_cards.py`: `b/<key>.ht
 record, `v/<vote>.html` for every roll call and `m/<bioguide>.html` for every member, each with a 1200 by 630 preview image under `og/` drawn in the
 site's own type (`fonts/`, Open Font License). A pasted link shows a card; a person who follows it lands on the
 bill or the vote. Images are redrawn only when what they show has changed. Absolute addresses come from
-`--base-url` (default `https://thecivicarchive.github.io/dev`); the live site would be built with the root.
+`--base-url` (default `https://thecivicarchive.github.io/dev/us`); the live site would be built with its own address.
 
 Counting visits is off until John creates a GoatCounter account (free, no cookies, no personal data) and puts
 its endpoint, one line like `https://civicarchive.goatcounter.com/count`, in `analytics.txt` next to the
