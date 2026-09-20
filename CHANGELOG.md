@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.006 — 2026-09-20 — How did your members vote?
+
+- A new panel on the opening screen: pick your state, or let the site find it,
+  and see how your senators and representatives voted on the latest roll
+  calls, member by member. Tap a member for their card on the map, or share
+  the vote in one tap.
+- "Use my location" asks the browser for your position, then works out your
+  district on your own phone or computer, from the same district lines the
+  map draws. Your location never leaves it.
+
 ## v4.0.005 — 2026-09-20 — Dark by default
 
 - The site now opens in its dark look. The sun-and-moon button in the top bar

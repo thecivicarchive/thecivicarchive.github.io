@@ -446,7 +446,8 @@ def boot_for(data, version, base_url=""):
                              natkey(b["key"])))
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
-            "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"), "inline": None}
+            "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
+            "state_names": {st: s["name"] for st, s in data["states"].items()}, "inline": None}
 
 
 def html_attr(text):
@@ -767,6 +768,21 @@ p{margin:0 0 12px}
 .sharemenu a,.sharemenu button{display:block;text-align:left;padding:9px 12px;border:0;background:none;font:inherit;font-size:14px;color:var(--ink);border-radius:8px;cursor:pointer;text-decoration:none}
 .sharemenu a:hover,.sharemenu button:hover{background:var(--hair)}
 .tally .sharebtn{margin-left:auto}
+.yours{padding:10px 0 18px}
+.yours-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0 18px}
+.ynote{font-size:13.5px}
+.yours-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.yours-head h3{margin:0;font-size:18px}
+.yvote{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px 18px;margin:12px 0}
+.yv-head{font-size:15px;line-height:1.4;margin-bottom:10px}
+.yv-members{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.ymem{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 10px;font:inherit;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;min-width:0}
+.ymem:hover{border-color:var(--line-strong)}
+.ymem.mine{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.ymem>span:nth-child(2){flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.ymem>span:nth-child(2) .muted{font-size:12.5px}
+.ymem .vtag{flex:none}
+.yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -1232,7 +1248,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <h1>Congress, in plain words.</h1>
       <p class="lede">Thousands of bills move through Congress every year. Almost nothing reaches you unfiltered &mdash; it arrives as a press release, a cable segment, a fundraising email.</p>
       <p class="lede">This place skips all of that. Every bill and every recorded vote, straight from the official record, written so you can follow it &mdash; and decide for yourself what you think.</p>
-      <div class="cta"><a class="btn primary" href="#nowmoving">See what's moving</a><a class="btn" href="#bills">Browse every bill</a></div>
+      <div class="cta"><a class="btn primary" href="#yours">How did my members vote?</a><a class="btn" href="#nowmoving">See what's moving</a><a class="btn" href="#bills">Browse every bill</a></div>
       <p class="nosell">No ads. No donors. No take to sell you.</p>
       <div class="spotlight" id="heropanel" aria-live="polite">
         <div class="spot-head"><b>A rated bill</b><span>Facts from the record, ratings with their evidence</span></div>
@@ -1243,6 +1259,20 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="yours" id="yours">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div><h2>How did your members vote?</h2><p>Pick your state to see how its senators and representatives voted on the latest roll calls, member by member, from the official record. Share any one of them.</p></div>
+    </div>
+    <div class="yours-bar rv" style="--i:1">
+      <label class="selwrap"><span>State</span><select id="ystate" aria-label="Your state"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
+      <button class="btn" id="yloc" type="button">Use my location</button>
+      <span class="muted ynote" id="ynote"></span>
+    </div>
+    <div class="yours-list" id="ylist" hidden></div>
   </div>
 </section>
 
@@ -2129,16 +2159,27 @@ const shareTextBill = b => { const st = statusText(b); return `${b.id}, ${b.shor
   check();
 })();
 
+/* ---------- roll calls: one load, used by the map and by "your members" ---------- */
+function votesReady(){
+  if (loads._votes) return loads._votes;
+  return loads._votes = Promise.all([membersReady(), need("votes")]).then(([, V]) => {
+    DATA.vote_meta = V.vote_meta || []; DATA.mv = V.mv || {}; DATA.states = V.states || {};
+    DATA.vote_meta.forEach(v => VOTE_IDS.add(v.vote_id));
+  }).catch(e => { delete loads._votes; throw e; });
+}
+/* every member of `st` on roll call `v`: their position, and their party as recorded that day */
+function positionsFor(v, st){
+  const C = (DATA.mv || {})[v.chamber === "Senate" ? "S" : "H"] || {ids: [], votes: {}}, str = C.votes[v.vote_id] || "", po = v.po || {}, out = [];
+  for (let i = 0; i < str.length; i++) { const pos = str[i]; if (pos === ".") continue; const id = C.ids[i], L = DATA.legislators[id]; if (L && L.st === st) out.push({id, pos, L, p: po[i] || L.p}); }
+  return out;
+}
+
 /* ---------- vote map ---------- */
 let mapInit = null;
 function mapReady(){
   if (mapInit) return mapInit;
   const note = $("#mapnote"); if (note) note.textContent = "Loading the vote record\u2026";
-  return mapInit = Promise.all([membersReady(), need("votes")]).then(([, V]) => {
-    DATA.vote_meta = V.vote_meta || []; DATA.mv = V.mv || {}; DATA.states = V.states || {};
-    DATA.vote_meta.forEach(v => VOTE_IDS.add(v.vote_id));
-    initMap();
-  }).catch(e => { mapInit = null; if (note) note.textContent = "Couldn't load the vote record. Check your connection and open the map again."; });
+  return mapInit = votesReady().then(() => initMap()).catch(e => { mapInit = null; if (note) note.textContent = "Couldn't load the vote record. Check your connection and open the map again."; });
 }
 function initMap(){
   const svg = $("#usmap"), sel = $("#vsel"), side = $("#mapside"), states = DATA.states || {}, LEG = DATA.legislators || {}, MVC = DATA.mv || {};
@@ -2382,6 +2423,10 @@ function initMap(){
   const step = d => { const i = sel.selectedIndex + d; if (i < 0 || i >= sel.options.length) return; sel.selectedIndex = i; paint(sel.value); };
   $("#vprev").addEventListener("click", () => step(-1)); $("#vnext").addEventListener("click", () => step(1));
   window.mapShow = vid => { if (!VM[vid]) return; zoomOut(); sel.value = vid; paint(vid); selected = null; };
+  window.mapFocus = (vid, st, id) => {
+    const ready = DIST.pending ? need("districts").then(d => { DIST = d || {states: {}, q: 50}; DQ = DIST.q || 50; }, () => { DIST = {states: {}, q: 50}; }) : Promise.resolve();
+    ready.then(() => { mapShow(vid); if (!groups[st]) return; zoomTo(st); const m = id && (membersByState(vid)[st] || []).find(x => x.id === id); if (m) openRep(m, st); });
+  };
   const missing = Math.max(0, (BOOT.stats.rc_total || 0) - votes.length);
   $("#mapnote").textContent = `${votes.length.toLocaleString()} roll calls carry member-level votes${missing ? `; ${missing.toLocaleString()} more are listed on their bills without member data yet` : ""}. Party is shown as recorded on each roll call.${DIST.vintage ? ` District lines: ${DIST.vintage}.` : ""}`;
   paint(votes[0].vote_id);
@@ -2458,13 +2503,13 @@ function routeFromHash(push){
   if (bill) { showPage("bills", false); catalogReady().then(() => { if (byKey[bill[1]]) setTimeout(() => openBill(bill[1]), 60); else toast("That bill isn't in this catalog."); }, () => {}); return; }
   const vote = h.match(/^vote=(.+)$/);
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
-  if (h === "nowmoving" || h === "top" || h === "") { showPage("home", false); return; }
+  if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
 document.addEventListener("click", e => {
   const a = e.target.closest('a[href^="#"]'); if (!a || a.classList.contains("maplink")) return;
   const h = a.getAttribute("href").slice(1);
-  if (h === "nowmoving") { e.preventDefault(); showPage("home", true); const t = $("#nowmoving"); if (t) t.scrollIntoView({behavior: calm() ? "auto" : "smooth"}); return; }
+  if (h === "nowmoving" || h === "yours") { e.preventDefault(); showPage("home", true); const t = $("#" + h); if (t) setTimeout(() => t.scrollIntoView({behavior: calm() ? "auto" : "smooth"}), 30); return; }
   if (h === "top") { e.preventDefault(); showPage("home", true); return; }
   if (PAGES.includes(h)) { e.preventDefault(); showPage(h, true); }
 });
@@ -2529,6 +2574,93 @@ $("#totop").addEventListener("click", () => scrollTo({top: 0, behavior: calm() ?
 reveal(document); moveChipInd();
 /* Warm the list and the member roster once the page has settled, unless the visitor asked to save data. */
 if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) setTimeout(() => { need("bills-list").catch(() => {}); membersReady().catch(() => {}); }, 2500);
+
+/* ---------- your members: the shortest path from "who represents me" to a shareable vote ---------- */
+(function(){
+  const sel = $("#ystate"), list = $("#ylist"), note = $("#ynote"), NAMES = BOOT.state_names || {}; if (!sel) return;
+  const POS = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
+  sel.innerHTML = `<option value="">Choose your state</option>` + Object.entries(NAMES).sort((a, b) => a[1].localeCompare(b[1])).map(([st, n]) => `<option value="${esc(st)}">${esc(n)}</option>`).join("");
+  let myDistrict = null, current = "";
+  const byRow = (a, b) => ((a.L.ch === "Senate" ? 0 : 1) - (b.L.ch === "Senate" ? 0 : 1)) || ((a.L.d || 0) - (b.L.d || 0)) || a.L.n.localeCompare(b.L.n);
+  const mineFor = (v, ms) => (myDistrict != null && v.chamber !== "Senate") ? ms.find(m => (m.L.d || 0) === myDistrict) : null;
+  const seat = (v, m) => v.chamber === "Senate" ? "Senator" : (m.L.d ? "District " + m.L.d : "At large");
+  function paintState(st){
+    const name = NAMES[st] || st, votes = [];
+    for (const v of DATA.vote_meta) { if (positionsFor(v, st).length) votes.push(v); if (votes.length === 6) break; }
+    list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><a class="chip" href="#map">Every vote, on the map</a></div>` + (votes.map(v => {
+      const ms = positionsFor(v, st).sort(byRow), mine = mineFor(v, ms);
+      return `<article class="yvote" data-vote="${esc(v.vote_id)}"><div class="yv-head"><b>${esc(v.bill)}</b> ${esc(v.title)}<div class="muted">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}: ${v.yeas ?? "?"}\u2013${v.nays ?? "?"}, ${esc((v.result || "").toLowerCase())}</div></div>
+        <div class="yv-members">${ms.map(m => `<button class="ymem${mine && mine.id === m.id ? " mine" : ""}" type="button" data-id="${esc(m.id)}">${avatar(m.id, m.p, "sm")}<span><b>${esc(m.L.n)}</b><span class="muted">${esc(seat(v, m))}${mine && mine.id === m.id ? " \u00b7 yours" : ""}</span></span><span class="vtag ${esc(m.pos)}">${POS[m.pos] || m.pos}</span></button>`).join("")}</div>
+        <div class="yv-acts"><button class="chip sharebtn" type="button" data-share="1">Share how ${esc(name)} voted</button><a class="chip" href="#vote=${esc(voteSlug(v.vote_id))}">Open on the map</a></div></article>`;
+    }).join("") || `<p class="muted">No roll calls with members from ${esc(name)} yet.</p>`);
+  }
+  function show(st){
+    current = st; if (!st) { list.hidden = true; return; }
+    try { localStorage.setItem("state", st); } catch (e) {}
+    list.hidden = false; list.innerHTML = `<p class="muted loading">Loading the roll calls\u2026</p>`;
+    pageview("/yours/" + st, "Your members: " + (NAMES[st] || st));
+    votesReady().then(() => { if (current === st) paintState(st); }, () => { list.innerHTML = `<p class="muted">Couldn't load the roll calls. Check your connection and try again.</p>`; });
+  }
+  sel.addEventListener("change", () => { myDistrict = null; note.textContent = ""; show(sel.value); });
+  list.addEventListener("click", e => {
+    const art = e.target.closest(".yvote"); if (!art) return;
+    const v = DATA.vote_meta.find(x => x.vote_id === art.dataset.vote); if (!v) return;
+    const mem = e.target.closest(".ymem");
+    if (mem) { showPage("map", true); mapReady().then(() => { if (window.mapFocus) mapFocus(v.vote_id, current, mem.dataset.id); }); return; }
+    const sb = e.target.closest(".sharebtn"); if (!sb) return;
+    const name = NAMES[current] || current, ms = positionsFor(v, current).sort(byRow), mine = mineFor(v, ms);
+    const one = m => `${m.L.n.split(" ").slice(-1)[0]} ${(POS[m.pos] || m.pos).toLowerCase()}`;
+    const text = mine ? `My representative, ${mine.L.n}, voted ${(POS[mine.pos] || mine.pos).toLowerCase()} on ${v.bill}, ${v.title}. The whole ${v.chamber}, state by state:`
+      : `How ${name}'s members voted on ${v.bill}, ${v.title}: ${ms.slice(0, 6).map(one).join(", ")}${ms.length > 6 ? `, and ${ms.length - 6} more` : ""}. The whole ${v.chamber}, state by state:`;
+    share({title: `${v.bill}: how ${name} voted`, text, url: shareUrlVote(v), kind: "state", key: current}, sb);
+  });
+  /* "Use my location": the browser asks first. The position is placed on the site's own map, the same
+     Albers projection and district lines the vote map draws, so the lookup happens on this device and
+     the coordinates never leave it. */
+  const conic = (parallels, rotLon, center, scale, tx, ty) => {
+    const rad = Math.PI / 180, y0 = parallels[0] * rad, sy0 = Math.sin(y0), n = (sy0 + Math.sin(parallels[1] * rad)) / 2, c = 1 + sy0 * (2 * n - sy0), r0 = Math.sqrt(c) / n;
+    const raw = (lam, phi) => { const r = Math.sqrt(c - 2 * n * Math.sin(phi)) / n, x = lam * n; return [r * Math.sin(x), r0 - r * Math.cos(x)]; };
+    const [cx, cy] = raw(center[0] * rad, center[1] * rad), dx = tx - scale * cx, dy = ty + scale * cy;
+    return (lon, lat) => { const lam = ((((lon + rotLon + 180) % 360) + 360) % 360 - 180) * rad, [x, y] = raw(lam, lat * rad); return [scale * x + dx, dy - scale * y]; };
+  };
+  const albersUsa = (() => {
+    const k = 1300, tx = 487.5, ty = 305, E = 1e-6;
+    const lower48 = conic([29.5, 45.5], 96, [-0.6, 38.7], k, tx, ty), alaska = conic([55, 65], 154, [-2, 58.5], k * .35, tx - .307 * k, ty + .201 * k), hawaii = conic([8, 18], 157, [-3, 19.9], k, tx - .205 * k, ty + .212 * k);
+    // as d3 does it going forward: each part of the map accepts only points that land inside its own frame
+    const inBox = (p, x0, y0, x1, y1) => p[0] >= tx + x0 * k - E && p[0] < tx + x1 * k + E && p[1] >= ty + y0 * k - E && p[1] < ty + y1 * k + E;
+    return (lon, lat) => { let p = lower48(lon, lat); if (inBox(p, -.455, -.238, .455, .238)) return p;
+      p = alaska(lon, lat); if (inBox(p, -.425, .120, -.214, .234)) return p;
+      p = hawaii(lon, lat); if (inBox(p, -.214, .166, -.115, .234)) return p;
+      return null; };
+  })();
+  const inRing = (pt, ring) => { let inside = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) inside = !inside; } return inside; };
+  const inShape = (pt, rings) => rings.reduce((n, r) => n + (inRing(pt, r) ? 1 : 0), 0) % 2 === 1;
+  const pathRings = d => d.split("M").filter(Boolean).map(seg => seg.replace(/Z$/, "").split("L").map(p => p.split(",").map(Number)));
+  const decodeRing = (ring, q) => { let x = 0, y = 0; const pts = []; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; pts.push([x / q, y / q]); } return pts; };
+  function locate(lon, lat){
+    const pt = albersUsa(lon, lat); let st = null; if (!pt) return null;
+    for (const [s, shp] of Object.entries(DATA.states)) { const [x0, y0, x1, y1] = shp.bbox; if (pt[0] < x0 || pt[0] > x1 || pt[1] < y0 || pt[1] > y1) continue; if (inShape(pt, pathRings(shp.d))) { st = s; break; } }
+    if (!st) return null;
+    const D = DATA.districts && DATA.districts.states && DATA.districts.states[st], q = (DATA.districts && DATA.districts.q) || 50; let d = null;
+    if (D) for (const [n, rings] of Object.entries(D)) { if (inShape(pt, rings.map(r => decodeRing(r, q)))) { d = +n; break; } }
+    return {st, d};
+  }
+  window.civicLocate = (lon, lat) => Promise.all([votesReady(), need("districts")]).then(([, D]) => { DATA.districts = D; return locate(lon, lat); });
+  $("#yloc").addEventListener("click", () => {
+    if (!navigator.geolocation) { note.textContent = "Location isn't available in this browser. Pick your state instead."; return; }
+    note.textContent = "Finding your district\u2026";
+    navigator.geolocation.getCurrentPosition(pos => {
+      civicLocate(pos.coords.longitude, pos.coords.latitude).then(hit => {
+        if (!hit || !NAMES[hit.st]) { note.textContent = "That spot isn't inside a state on our map. Pick your state instead."; return; }
+        myDistrict = hit.d; sel.value = hit.st;
+        note.textContent = `${NAMES[hit.st]}${hit.d ? ", district " + hit.d : ""}. Worked out on your device; your location never leaves it.`;
+        show(hit.st); track("locate", {key: hit.st});
+      }, () => { note.textContent = "Couldn't load the map lines. Check your connection, or pick your state."; });
+    }, () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
+  });
+  let saved = null; try { saved = localStorage.getItem("state"); } catch (e) {}
+  if (saved && NAMES[saved]) { sel.value = saved; show(saved); }
+})();
 
 /* Help modal: the Fact / Analysis / Opinion guide, over a blurred page. */
 (function(){
