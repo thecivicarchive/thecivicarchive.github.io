@@ -112,6 +112,77 @@ LITE_STATUSES = {"", "Introduced", "In committee"}
 POSITION_CODE = {"Yea": "Y", "Aye": "Y", "Nay": "N", "No": "N", "Present": "P"}
 
 
+STALL_DAYS = 180
+
+
+def journey_for(con, b, cutoff):
+    """Where a measure stands on the road from introduction to law, from the record alone.
+
+    Six stops: introduced, committee, the chamber it started in, the other chamber, the President, law
+    (a constitutional amendment goes to the states instead of the President). `at` is the furthest stop
+    reached; `dates` holds the day each stop was reached when the record says; `fail` marks the stop it
+    fell at and why; `st` flags a measure nothing has happened to for STALL_DAYS, counted from the newest
+    action anywhere in the data rather than from today, so an old copy of the database still reads sensibly.
+    """
+    key = b["bill_key"]
+    first, second = ("Senate", "House") if (b["origin_chamber"] or "") == "Senate" else ("House", "Senate")
+    amend = (b["title"] or "").startswith("Proposing an amendment to the Constitution")
+    status, law = b["status"] or "", b["law_number"] or ""
+    dates = [b["introduced_date"] or "", "", "", "", "", ""]
+    row = con.execute("SELECT MIN(action_date) FROM committee_actions WHERE bill_key = ? AND action_date <> ''", (key,)).fetchone()
+    dates[1] = (row[0] or "") if row else ""
+    voted = {}                                   # the day each chamber passed it: an outright "Passed" beats "Agreed to", latest wins
+    for ch, res, day in con.execute("SELECT chamber, result, MAX(vote_date) FROM floor_votes WHERE bill_key = ? AND category = 'Passage' "
+                                    "AND result IN ('Passed', 'Agreed to') GROUP BY chamber, result", (key,)):
+        if res == "Passed" or ch not in voted:
+            voted[ch] = day or ""
+    texts = dict(con.execute("SELECT version_type, MIN(version_date) FROM text_versions WHERE bill_key = ? AND version_date <> '' "
+                             "GROUP BY version_type", (key,)))
+    passed_on = lambda ch: voted.get(ch) or texts.get(f"Engrossed in {ch}") or texts.get(f"Considered and Passed {ch}") or ""
+    got = {"House": bool(b["passed_house"]), "Senate": bool(b["passed_senate"])}
+    at = 0 if status == "Introduced" else 1
+    if got[first] or got[second]:
+        at, dates[2] = 2, passed_on(first)
+    if got[second]:
+        at, dates[3] = 3, passed_on(second)
+    if status == "Presented to President" or status.startswith("Vetoed") or law:
+        at = 4
+        dates[4] = texts.get("Enrolled Bill") or (b["latest_action_date"] if status == "Presented to President" else "") or ""
+    if law:
+        at = 5
+        dates[5] = (b["latest_action_date"] if (b["latest_action"] or "").startswith("Became") else "") or texts.get("Public Law") or b["latest_action_date"] or ""
+    fail = None
+    if status.startswith("Failed floor vote in"):
+        ch = "House" if "in House" in status else "Senate"
+        i = 2 if ch == first else 3
+        r = con.execute("SELECT vote_date, yeas, nays FROM floor_votes WHERE bill_key = ? AND chamber = ? AND result IN ('Failed', 'Rejected', "
+                        "'Not invoked') ORDER BY vote_date DESC LIMIT 1", (key, ch)).fetchone()
+        tally = f", {r[1]}\u2013{r[2]}" if r and r[1] is not None else ""
+        fail = {"i": i, "why": f"Failed a floor vote in the {ch}{tally}", "d": (r[0] if r else "") or b["latest_action_date"] or ""}
+        at = i - 1
+    elif status.startswith("Vetoed"):
+        fail = {"i": 4, "why": "Vetoed by the President" + ("; the override failed" if "override failed" in status else ""),
+                "d": b["latest_action_date"] or ""}
+        at = 3
+    if fail:
+        note = fail["why"]
+    elif law:
+        note = f"Became law: {'Private' if (b['law_kind'] or '') == 'Private' else 'Public'} Law {law}"
+    elif at == 4:
+        note = "Passed both chambers; waiting on the President"
+    elif at == 3:
+        note = ("Passed both chambers in different forms; the differences are not settled yet" if "unresolved" in status
+                else ("Passed both chambers; it goes to the states next" if amend else "Passed both chambers; on its way to the President"))
+    elif at == 2:
+        note = f"Passed the {first}; waiting on the {second}"
+    elif at == 1:
+        note = "Reported by committee; waiting for a floor vote" if status.startswith("Reported") else "In committee"
+    else:
+        note = "Introduced; not yet sent to a committee"
+    stalled = not fail and not law and (b["latest_action_date"] or "") < cutoff
+    return {"at": at, "o": first[0], "am": 1 if amend else 0, "fail": fail, "st": 1 if stalled else 0, "note": note, "dates": dates}
+
+
 def collect(db_path):
     """Everything the page needs. Measures with any floor vote, law, rating or committee report get a full
     record; introduced-only measures (most of a Congress) get a compact row the page expands on load."""
@@ -143,6 +214,8 @@ def collect(db_path):
         return lookup[kind][val]
 
     full, lite, rated, years = [], [], 0, set()
+    newest = con.execute("SELECT MAX(latest_action_date) FROM bills").fetchone()[0] or dt.date.today().isoformat()
+    cutoff = (dt.date.fromisoformat(newest[:10]) - dt.timedelta(days=STALL_DAYS)).isoformat()
     for b in con.execute("SELECT * FROM bills ORDER BY congress DESC, bill_type, number"):
         key = b["bill_key"]
         if b["introduced_date"]:
@@ -195,7 +268,7 @@ def collect(db_path):
             "votes": votes, "summary": (summ["text_plain"] or "")[:900] if summ else "",
             "summary_desc": summ["action_desc"] if summ else "", "summary_date": summ["action_date"] if summ else "",
             "related_enacted": b["related_enacted"] or "", "links": {"pdf": b["latest_text_pdf"] or ""},
-            "ratings": ratings or None, "review": review})
+            "ratings": ratings or None, "review": review, "journey": journey_for(con, b, cutoff)})
 
     # position of every measure in the page's list (full records first, then compact rows)
     index = {r["key"]: i for i, r in enumerate(full)}
@@ -271,12 +344,17 @@ def collect(db_path):
     if not os.path.exists(dist):
         dist = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_districts_albers.json")
     districts = json.load(open(dist, encoding="utf-8")) if os.path.exists(dist) else {"states": {}, "q": 50, "vintage": ""}
+    welcome = welcome_picks(con)
+    by_key = {b["key"]: b for b in full}
+    for name in ("live", "laws"):
+        for pick in welcome.get(name, []):
+            pick["journey"] = (by_key.get(pick["key"]) or {}).get("journey")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "bills": full, "lite": {"rows": lite, "dict": dicts},
             "members": sorted(members.values(), key=lambda m: m["name"] or ""), "stats": stats,
             "rubric": next((r["version"] for b in full for a, r in (b["ratings"] or {}).items() if a != "backing"), "v1.1"),
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
-            "welcome": welcome_picks(con),
+            "welcome": welcome, "stall_cutoff": cutoff,
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -418,6 +496,8 @@ def list_record(b, n_chars=220):
     r["latest_action"] = trim_text(b.get("latest_action", ""), 110)   # the card shows 90 characters of it
     r["nvotes"] = len(b.get("votes") or [])
     r["ratings"] = ratings_summary(b.get("ratings"))
+    if b.get("journey"):                                  # the dates under each stop stay in the bill's own file
+        r["journey"] = {k: v for k, v in b["journey"].items() if k != "dates"}
     r["trim"] = 1
     return r
 
@@ -447,7 +527,8 @@ def boot_for(data, version, base_url=""):
     return {"version": version, "generated": data["generated"], "stats": data["stats"], "rubric": data["rubric"],
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
-            "state_names": {st: s["name"] for st, s in data["states"].items()}, "inline": None}
+            "state_names": {st: s["name"] for st, s in data["states"].items()},
+            "stall_cutoff": data.get("stall_cutoff", ""), "inline": None}
 
 
 def html_attr(text):
@@ -784,6 +865,45 @@ p{margin:0 0 12px}
 .ymem>span:nth-child(2) .muted{font-size:12.5px}
 .ymem .vtag{flex:none}
 .yv-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.trk{display:block;margin:12px 0 8px;text-align:left}
+.trk .rail{display:block;position:relative;height:4px;border-radius:2px;background:var(--hair);margin:8px 8px 0}
+.trk .fill,.trk .fillbad{position:absolute;top:0;bottom:0;border-radius:2px;width:0}
+.trk .fill{left:0;background:var(--accent);transition:width 1.5s var(--ease) .15s}
+.trk.go .fill{width:calc(var(--a) * 100%)}
+.trk .fillbad{left:calc(var(--a) * 100%);background:var(--rep);transition:width .6s var(--ease) 1.5s}
+.trk.go .fillbad{width:calc((var(--p) - var(--a)) * 100%)}
+.trk .stop{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);transition:background .3s,border-color .3s;transition-delay:calc(.15s + var(--t) * 1.5s)}
+.trk.go .stop.done,.trk.go .stop.now{background:var(--accent);border-color:var(--accent)}
+.trk.go .stop.fail{background:var(--rep);border-color:var(--rep)}
+.trk .run{position:absolute;top:50%;left:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent);opacity:0;transition:left 1.5s var(--ease) .15s,opacity .3s}
+.trk.go .run{left:calc(var(--p) * 100%);opacity:1}
+.trk.active.go .run{animation:trkpulse 2.4s ease-in-out 1.9s infinite}
+@keyframes trkpulse{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 0%,transparent)}}
+.trk.failed .run{background:var(--rep);box-shadow:0 0 0 4px color-mix(in srgb,var(--rep) 28%,transparent)}
+.trk.stalled .fill,.trk.stalled.go .stop.done,.trk.stalled.go .stop.now{background:var(--line-strong);border-color:var(--line-strong)}
+.trk.stalled .run{background:var(--muted);box-shadow:none}
+.trk-labels{display:block;position:relative;height:18px;margin:12px 8px 0}
+.trk.full .trk-labels{height:36px}
+.trk-labels>span{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;font-size:11.5px;line-height:1.35;color:var(--muted);white-space:nowrap}
+.trk-labels>span:first-child{transform:none;align-items:flex-start;margin-left:-8px}
+.trk-labels>span:last-child{transform:translateX(-100%);align-items:flex-end;margin-left:8px}
+.trk-labels b{font-weight:600}
+.trk-labels .done b,.trk-labels .now b{color:var(--ink)}
+.trk-labels .fail b{color:var(--bad-ink)}
+.trk-labels em{font-style:normal;font-size:11px}
+.trk-cap{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);font-weight:500}
+.trk.failed .trk-cap{color:var(--bad-ink)}
+.trk-cap .quiet{font-weight:400}
+.trk.slim{margin:10px 0 12px}
+.pickitem .trk{margin:12px 0 2px}
+.calm .trk .fill,.calm .trk .fillbad,.calm .trk .run,.calm .trk .stop{transition:none}
+.calm .trk.active.go .run{animation:none}
+@media (max-width:560px){
+  .trk.pick .trk-labels>span:not(.now):not(.fail):not(:first-child):not(:last-child){display:none}
+  .trk.full .trk-labels{position:static;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;margin:12px 0 0}
+  .trk.full .trk-labels>span{position:static;transform:none;flex-direction:row;gap:6px;align-items:baseline;margin:0}
+  .trk.full .trk-labels>span:last-child{transform:none}
+}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -1674,6 +1794,32 @@ function plainLine(b){
 }
 function lensChips(b){ return (b.lens || []).map(l => `<span class="pill lens">${esc(l.replace(" (subj.)", ""))}</span>`).join(""); }
 
+/* ---------- the journey: from introduction to law, or to where it fell ----------
+   Six stops. The build works out where each full record stands, with a date for every
+   stop the record dates; introduced-only measures are worked out here from their status.
+   "slim" rides on every bill card, "pick" on the Start here lists, "full" (with dates)
+   heads the Votes and path tab. The marker travels to its stop when the track scrolls
+   into view, then keeps a slow pulse while the measure is still alive. */
+function journeyOf(b){
+  if (b.journey) return b.journey;
+  const at = b.status === "Introduced" ? 0 : 1, when = b.latest_action_date || "";
+  return b.journey = {at, o: b.origin === "Senate" ? "S" : "H", am: /^Proposing an amendment to the Constitution/.test(b.title || "") ? 1 : 0, fail: null,
+    st: when && BOOT.stall_cutoff && when < BOOT.stall_cutoff ? 1 : 0, note: at ? "In committee" : "Introduced; not yet sent to a committee", dates: [b.introduced || "", "", "", "", "", ""]};
+}
+const journeyStops = j => { const c = j.o === "S" ? ["Senate", "House"] : ["House", "Senate"]; return ["Introduced", "Committee", c[0], c[1], j.am ? "To the states" : "President", j.am ? "Ratified" : "Law"]; };
+function trackHTML(b, mode){
+  const j = journeyOf(b), names = journeyStops(j), n = names.length - 1, f = j.fail, a = j.at / n, p = (f ? f.i : j.at) / n;
+  const state = i => f && i === f.i ? "fail" : (i < j.at || (i === j.at && j.at === n) ? "done" : (i === j.at ? "now" : "todo"));
+  const dots = names.map((nm, i) => `<i class="stop ${state(i)}" style="left:${(100 * i / n).toFixed(1)}%;--t:${p ? Math.min(1, (i / n) / p).toFixed(2) : 0}"></i>`).join("");
+  const labels = mode === "slim" ? "" : `<span class="trk-labels">${names.map((nm, i) => { const d = f && i === f.i ? f.d : (j.dates || [])[i]; return `<span class="${state(i)}" style="left:${(100 * i / n).toFixed(1)}%"><b>${esc(nm)}</b>${mode === "full" && d ? `<em>${esc(fmtDate(d))}</em>` : ""}</span>`; }).join("")}</span>`;
+  const since = b.latest_action_date || b.date || "";
+  const cap = `<span class="trk-cap">${esc(j.note)}${j.st && since ? `<span class="quiet"> \u00b7 no action since ${esc(fmtDate(since))}</span>` : ""}</span>`;
+  const cls = `trk ${mode}${f ? " failed" : ""}${j.st ? " stalled" : ""}${!f && !j.st && j.at < n ? " active" : ""}${!f && j.at === n ? " complete" : ""}`;
+  return `<span class="${cls}" style="--a:${a.toFixed(3)};--p:${p.toFixed(3)}" role="img" aria-label="${esc(`Where it stands: ${j.note}. Stop ${(f ? f.i : j.at) + 1} of ${names.length}.`)}"><span class="rail"><span class="fill"></span>${f ? `<span class="fillbad"></span>` : ""}${dots}<span class="run"></span></span>${labels}${cap}</span>`;
+}
+const trkIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("go"); trkIO.unobserve(e.target); } }), {threshold: .35});
+function watchTracks(root){ $$(".trk:not(.w)", root || document).forEach(el => { el.classList.add("w"); trkIO.observe(el); }); }
+
 /* ---------- detail panes ---------- */
 function paneFor(b){
   const r = b.ratings || {}, p = r.plain_language && r.plain_language.plain, t = r.timing && r.timing.plain, rf = r.rights && r.rights.flags;
@@ -1681,14 +1827,14 @@ function paneFor(b){
   const notdo = p && p.what_it_does_not_do ? `<p class="note">What it does not do: ${esc(p.what_it_does_not_do)}</p>` : "";
   const timeline = t ? `<p style="font-size:15px">${esc(t.plain || "")}</p><ul class="tl"><li><b>Starts</b><span>${esc(t.effective || "")}</span></li>${(t.phase_changes || []).map(c => `<li><b>${esc(c.date || "")}</b><span>${esc(c.what || "")}</span></li>`).join("")}<li><b>Ends</b><span>${esc(t.sunset || "")}</span></li></ul>${t.delayed_cost && String(t.delayed_cost).startsWith("yes") ? `<p class="note">Watch the timing: ${esc(t.delayed_cost)}</p>` : ""}` : `<p class="na">Not rated yet.</p>`;
   const flags = rf ? ((rf.flags || []).length ? rf.flags.map(f => `<div class="flag"><span class="k">${esc(f.flag.replace(/_/g, " "))}</span><span>${esc(f.plain)}</span></div>`).join("") : `<p class="muted">No changes to who can sue, which laws apply, or who decides.</p>`) + (rf.election_rules ? `<p class="note">This bill changes election rules.</p>` : "") : `<p class="na">Not rated yet.</p>`;
-  const votes = b.votes && b.votes.length ? b.votes.map(v => `<div class="vote"><span class="ch">${esc(v.chamber)}</span><span>${esc(v.category)}: ${esc(v.result || "")}${v.note ? " (" + esc(v.note) + ")" : ""}${(v.map || VOTE_IDS.has(v.vote_id)) ? `<a class="maplink" href="#map" data-vote="${esc(v.vote_id)}">see the map</a>` : ""}<br><span class="muted">${esc(fmtDate(v.date))}${v.split ? " · " + esc(v.split) : ""}</span></span>${v.yeas != null ? `<span class="tally">${v.yeas}–${v.nays}${v.url ? ` <a href="${esc(v.url)}" target="_blank" rel="noopener" style="font-size:12px;font-weight:400">roll call</a>` : ""}</span>` : `<span class="muted">${esc(v.method || "")}</span>`}</div>`).join("") : `<p class="muted">No floor votes yet.</p>`;
+  const votes = b.votes && b.votes.length ? b.votes.slice().reverse().map(v => `<div class="vote"><span class="ch">${esc(v.chamber)}</span><span>${esc(v.category)}: ${esc(v.result || "")}${v.note ? " (" + esc(v.note) + ")" : ""}${(v.map || VOTE_IDS.has(v.vote_id)) ? `<a class="maplink" href="#map" data-vote="${esc(v.vote_id)}">see the map</a>` : ""}<br><span class="muted">${esc(fmtDate(v.date))}${v.split ? " · " + esc(v.split) : ""}</span></span>${v.yeas != null ? `<span class="tally">${v.yeas}–${v.nays}${v.url ? ` <a href="${esc(v.url)}" target="_blank" rel="noopener" style="font-size:12px;font-weight:400">roll call</a>` : ""}</span>` : `<span class="muted">${esc(v.method || "")}</span>`}</div>`).join("") : `<p class="muted">No floor votes yet.</p>`;
   const path = `<p style="font-size:14px"><b>Committees.</b> ${esc(b.committees || "None recorded")}</p>${b.committee_votes ? `<p style="font-size:14px"><b>Committee votes.</b> ${esc(b.committee_votes)}</p>` : ""}${b.related_enacted ? `<p class="note">Related measure became law: ${esc(b.related_enacted)}. The text may have been enacted inside another bill.</p>` : ""}`;
   const why = ["income", "households_business", "backing"].filter(a => r[a]).map(a => { const x = r[a]; return `<article><h4>${esc({income:"Who gains, by income", households_business:"Households vs. businesses", backing:"Who backed it"}[a])} <i class="grade" data-g="${esc(x.grade||"")}">${esc(x.grade||"")}</i>${x.confidence != null ? `<span class="muted" style="font-weight:400;font-size:13px">confidence ${Math.round(x.confidence * 100)}%</span>` : ""}</h4><p>${esc(x.justification || "")}</p>${x.magnitude_note ? `<p class="muted">${x.magnitude ? "<b>" + esc(x.magnitude) + ".</b> " : ""}${esc(x.magnitude_note)}</p>` : ""}${(x.sources || []).length ? `<p class="muted">Sources: ${x.sources.map(s => esc((s.type || "") + (s.ref ? ": " + s.ref : ""))).join("; ")}</p>` : ""}</article>`; }).join("");
   const whyBlock = b.ratings ? `<div class="why">${why}</div><p class="note">${esc(b.review)}. Rubric ${esc((r.income || r.plain_language || r.backing || {}).version || "")}, rated ${esc(((r.income || r.plain_language || r.backing || {}).rated_at || "").slice(0, 10))}.</p>` : `<p class="na">Not rated yet. Bills are rated after their first committee action or when an official cost estimate is published.</p>`;
   const L = b.links || {};
   const links = [["page", "Congress.gov page"], ["text", "Bill text"], ["pdf", "Latest text (PDF)"], ["actions", "All actions"], ["cosponsors", "Cosponsors"], ["committees", "Committees"], ["cbo", "CBO cost estimate"]].filter(([k]) => L[k]).map(([k, lab]) => `<a href="${esc(L[k])}" target="_blank" rel="noopener">${lab}</a>`).join("");
   const facts = `${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
-  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
+  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
   const first = isRated(b) ? 0 : (b.votes && b.votes.length ? 3 : 5);
   return `<div class="tabs" role="tablist">${tabs.map(([k, lab], i) => `<button class="tab" role="tab" data-t="${k}" aria-selected="${i === first}">${lab}</button>`).join("")}</div>${tabs.map(([k, , html], i) => `<div class="pane${i === first ? " show" : ""}" data-p="${k}">${html}</div>`).join("")}`;
 }
@@ -1696,7 +1842,7 @@ function paneFor(b){
 /* ---------- cards ---------- */
 function cardHTML(b){
   return `<article class="card" data-key="${esc(b.key)}"><div class="head"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div>
-  <div class="title">${esc(b.short_title || b.title)}</div><p class="plain">${plainLine(b)}</p>${axes(b)}
+  <div class="title">${esc(b.short_title || b.title)}</div><p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${axes(b)}
   <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<span class="spon">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</span>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
   <div class="detail"><div></div></div>
   <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink sharebtn" aria-label="Share ${esc(b.id)}" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
@@ -1772,7 +1918,7 @@ function avatar(id, party, cls){
   return `<span class="avw ${cls || ""}${kb}"><span class="avc"><span class="avz">${src ? `<img class="av" src="${src}" alt="" decoding="async" loading="lazy">` : `<span class="av av-txt">${p.slice(0, 1)}</span>`}</span></span><i class="pb">${p}</i></span>`;
 }
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
-const reveal = root => $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); });
+const reveal = root => { $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); }); watchTracks(root); };
 const roleOf = m => m.name.startsWith("Sen.") ? "Senator" : (m.chamber === "Senate" ? "Senator" : "Representative");
 function matches(b){
   const q = state.q.trim().toLowerCase();
@@ -1835,8 +1981,8 @@ grid.addEventListener("click", e => {
   const card = more.closest(".card"), open = !card.classList.contains("open");
   if (open && !card.dataset.built) {
     const b = byKey[card.dataset.key], box = $(".detail > div", card); card.dataset.built = "1";
-    if (b.trim) { box.innerHTML = `<p class="muted loading">Loading the full record\u2026</p>`; needBill(b).then(() => { box.innerHTML = paneFor(b); }, () => { box.innerHTML = `<p class="muted">Couldn't load this bill's details. Check your connection and open it again.</p>`; delete card.dataset.built; }); }
-    else box.innerHTML = paneFor(b);
+    if (b.trim) { box.innerHTML = `<p class="muted loading">Loading the full record\u2026</p>`; needBill(b).then(() => { box.innerHTML = paneFor(b); watchTracks(box); }, () => { box.innerHTML = `<p class="muted">Couldn't load this bill's details. Check your connection and open it again.</p>`; delete card.dataset.built; }); }
+    else { box.innerHTML = paneFor(b); watchTracks(box); }
   }
   card.classList.toggle("open", open);
   const bill = byKey[card.dataset.key]; if (bill && bill.short_title && bill.short_title !== bill.title) $(".title", card).textContent = open ? bill.title : bill.short_title;
@@ -1886,8 +2032,8 @@ function heroShow(i, animate){
   hi = (i + featured.length) % featured.length;
   const b = featured[hi], body = $("#herobody");
   const paint = () => {
-    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(b.short_title || b.title)}</div><p class="pplain">${plainLine(b)}</p>${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <b>${esc(prettyStr(b.sponsor.name))}</b>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
-    body.classList.remove("out");
+    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(b.short_title || b.title)}</div><p class="pplain">${plainLine(b)}</p>${trackHTML(b, "slim")}${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <b>${esc(prettyStr(b.sponsor.name))}</b>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
+    body.classList.remove("out"); watchTracks(body);
     requestAnimationFrame(() => requestAnimationFrame(() => $(".axes", body).classList.add("live")));
   };
   if (animate) { body.classList.add("out"); setTimeout(paint, 360); } else paint();
@@ -2578,7 +2724,7 @@ addEventListener("popstate", () => routeFromHash(false));
       b.cos ? `<span>${b.cos} cosponsor${b.cos === 1 ? "" : "s"}</span>` : "",
       b.date ? `<span>${esc(when(b.date))}</span>` : "",
     ].filter(Boolean).join("");
-    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.title || b.id)}</span><span class="meta">${pills}</span></span></button>`;
+    li.innerHTML = `<button class="pickitem" type="button"><span class="n" aria-hidden="true"></span><span><span class="t">${esc(b.title || b.id)}</span><span class="meta">${pills}</span>${b.journey ? trackHTML(b, "pick") : ""}</span></button>`;
     li.querySelector("button").addEventListener("click", () => goToBill(b.key));
     return li;
   }

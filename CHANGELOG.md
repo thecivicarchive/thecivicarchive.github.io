@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.008 — 2026-09-20 — Where every bill stands
+
+- Every bill now carries a moving track of its journey: introduced, committee,
+  the chamber it started in, the other chamber, the President, law. The marker
+  travels to where the bill stands and keeps a slow pulse while it is still
+  alive. A bill that failed stops at a red marker that says why; one nothing
+  has happened to for six months is shown dimmed.
+- Inside a bill, "Votes and path" opens with the full track and the date each
+  stop was reached, and lists the votes newest first.
+- Constitutional amendments end at "To the states" rather than the President.
+
 ## v4.0.007 — 2026-09-20 — Five tabs on a phone
 
 - On a phone, five tabs along the bottom now reach every page: Home, Bills,
