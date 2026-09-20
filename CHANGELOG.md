@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.007 — 2026-09-20 — Five tabs on a phone
+
+- On a phone, five tabs along the bottom now reach every page: Home, Bills,
+  Votes, Members and Ratings. Before, two of those pages could not be reached
+  from a phone at all.
+- The top bar now fits on a tablet.
+- "Use my location" says when its district guess sits near a line.
+
 ## v4.0.006 — 2026-09-20 — How did your members vote?
 
 - A new panel on the opening screen: pick your state, or let the site find it,

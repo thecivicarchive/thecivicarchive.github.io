@@ -663,7 +663,8 @@ p{margin:0 0 12px}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #theme .sun{display:block}:root:not([data-theme="light"]) #theme .moon{display:none}}
 .top.over-dark{--bg:#0C0E12;--surface:#14171C;--ink:#ECEDE9;--muted:#9BA1A9;--line:#262A31;--line-strong:#3A3F48;--hair:rgba(236,237,233,.09);color:var(--ink);border-bottom-color:var(--hair)}
 .top{transition:background .25s,color .25s}
-@media (max-width:760px){.nav{display:none}.kbtn span,.kbtn kbd{display:none}.kbtn{width:38px;padding:0;justify-content:center}}
+@media (max-width:1000px){.kbtn span,.kbtn kbd{display:none}.kbtn{width:38px;padding:0;justify-content:center}.nav a{padding:8px 9px;font-size:14px}}
+@media (max-width:760px){.nav{display:none}}
 
 /* hero */
 .hero{padding:56px 0 44px;position:relative}
@@ -1144,6 +1145,18 @@ footer .brand{margin-bottom:14px}
 .totop:hover{border-color:var(--ink)}
 .totop svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500;transition:opacity .25s,transform .3s var(--ease);pointer-events:none;z-index:60;box-shadow:var(--shadow-3)}
+.tabbar{display:none}
+@media (max-width:760px){
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.5) blur(16px);-webkit-backdrop-filter:saturate(1.5) blur(16px);border-top:1px solid var(--hair)}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.01em;border-radius:12px}
+  .tabbar a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar a[aria-current="page"]{color:var(--ink)}
+  .tabbar a[aria-current="page"] svg{stroke:var(--accent)}
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
+  .cl{bottom:calc(80px + env(safe-area-inset-bottom))}
+  .totop{bottom:calc(126px + env(safe-area-inset-bottom))}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .palette{position:fixed;inset:0;z-index:50}
 .palette[hidden]{display:none!important}
@@ -1191,7 +1204,7 @@ html.motion .avw.xl:before{animation:spin 7s linear infinite}
 .mtog .sw i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .25s var(--ease);box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .mtog[aria-pressed="true"] .sw{background:var(--accent)}
 .mtog[aria-pressed="true"] .sw i{transform:translateX(12px)}
-@media (max-width:760px){.mtog .lab{display:none}.mtog{padding:0 8px}}
+@media (max-width:1000px){.mtog .lab{display:none}.mtog{padding:0 8px}}
 /* static mode: everything holds still */
 html.calm *,html.calm *:before,html.calm *:after{animation-duration:.001s!important;transition-duration:.001s!important;transition-delay:0s!important}
 html.calm{scroll-behavior:auto}
@@ -1450,6 +1463,13 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     <p class="fineprint">Motion switch (top bar): on, portraits drift and tilt toward your pointer or your phone's tilt and the page animates; off, everything holds still. Keyboard: press / to search bills, ⌘K or Ctrl+K to search everything, Esc to close.</p>
   </div>
 </footer>
+<nav class="tabbar" aria-label="Pages">
+  <a href="#home" data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
+  <a href="#bills" data-go="bills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>Bills</span></a>
+  <a href="#map" data-go="map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Votes</span></a>
+  <a href="#members" data-go="members"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5a5 5 0 0 1 6 5"/></svg><span>Members</span></a>
+  <a href="#how" data-go="how"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.4-2.8 4"/><path d="M12 17.6h.01"/></svg><span>Ratings</span></a>
+</nav>
 <div class="toast" id="toast" role="status"></div>
 <button class="totop" id="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
@@ -2485,7 +2505,7 @@ function showPage(name, push){
   if (!PAGES.includes(name)) name = "home";
   page = name;
   PAGES.forEach(p => { const el = $("#pg-" + p); if (el) el.hidden = p !== name; });
-  $$(".nav a[data-go]").forEach(a => a.setAttribute("aria-current", a.dataset.go === name ? "page" : "false"));
+  $$(".nav a[data-go], .tabbar a[data-go]").forEach(a => a.setAttribute("aria-current", a.dataset.go === name ? "page" : "false"));
   document.body.dataset.page = name;
   pageview("/" + (name === "home" ? "" : name), "The Civic Archive: " + name);
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
@@ -2653,7 +2673,7 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
       civicLocate(pos.coords.longitude, pos.coords.latitude).then(hit => {
         if (!hit || !NAMES[hit.st]) { note.textContent = "That spot isn't inside a state on our map. Pick your state instead."; return; }
         myDistrict = hit.d; sel.value = hit.st;
-        note.textContent = `${NAMES[hit.st]}${hit.d ? ", district " + hit.d : ""}. Worked out on your device; your location never leaves it.`;
+        note.textContent = `${NAMES[hit.st]}${hit.d ? ", and it looks like district " + hit.d : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.`;
         show(hit.st); track("locate", {key: hit.st});
       }, () => { note.textContent = "Couldn't load the map lines. Check your connection, or pick your state."; });
     }, () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
