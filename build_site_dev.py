@@ -1366,6 +1366,20 @@ section.block{padding:72px 0;scroll-margin-top:72px}
 .legend2 span{display:inline-flex;align-items:center;gap:6px}
 .sw{display:inline-block;width:12px;height:12px;border-radius:3px}
 .mapframe{position:relative;margin-top:16px}
+.viewsw{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.viewsw[hidden]{display:none!important}
+.viewsw .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chamber{display:block;width:100%;aspect-ratio:975/610;border-radius:var(--r-lg);background:radial-gradient(120% 90% at 50% 100%,#1A2033 0%,#0E1118 55%,#0A0C11 100%);touch-action:pan-y;cursor:grab;outline:none}
+.chamber.grabbing{cursor:grabbing}
+.chamber:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.chamber[hidden]{display:none!important}
+.ch-tip{position:absolute;z-index:3;transform:translate(-50%,calc(-100% - 14px));background:var(--ink);color:var(--bg);font-size:12.5px;line-height:1.35;padding:6px 10px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .12s}
+.ch-tip.show{opacity:1}.ch-tip b{display:block;font-weight:600}
+.ch-info{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;min-height:44px;font-size:14px}
+.ch-info[hidden]{display:none!important}
+.ch-who{display:flex;flex-direction:column;line-height:1.3;margin-right:auto}.ch-who .muted{font-size:12.5px}
+.stage.chamber-on .legend2{display:none}
+@media (max-width:560px){.chamber{aspect-ratio:4/3.4}}
 svg.usmap{width:100%;height:auto;display:block}
 .mapback{position:absolute;left:8px;top:8px;z-index:2;height:38px;padding:0 14px 0 8px;font-size:14px;border-color:var(--line-strong);background:var(--surface);color:var(--ink);animation:rowin .35s var(--ease) both}
 .mapback[hidden]{display:none!important}
@@ -1596,6 +1610,8 @@ html.motion .avw.xl:before{animation:spin 7s linear infinite}
 .mtog[aria-pressed="true"] .sw{background:var(--accent)}
 .mtog[aria-pressed="true"] .sw i{transform:translateX(12px)}
 @media (max-width:1000px){.mtog .lab{display:none}.mtog{padding:0 8px}}
+@media (max-width:560px){.top .wrap{gap:6px;padding-left:14px;padding-right:14px}.tools{gap:5px}.top .brand{font-size:15px;gap:7px}.top .brand .mark{width:24px;height:24px}.top .iconbtn,.top .kbtn{width:34px;height:34px}.top .mtog{height:34px;padding:0 6px}}
+@media (max-width:340px){.top .brand .wm{display:none}}
 /* static mode: everything holds still */
 html.calm *,html.calm *:before,html.calm *:after{animation-duration:.001s!important;transition-duration:.001s!important;transition-delay:0s!important}
 html.calm{scroll-behavior:auto}
@@ -1758,9 +1774,13 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
             <button class="iconbtn" id="vnext" aria-label="Older vote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
           <div class="mapsub" id="mapsub"></div>
+          <div class="viewsw" id="viewsw" role="group" aria-label="Two ways to see this vote" hidden><button class="chip" type="button" data-view="map" aria-pressed="true">State map</button><button class="chip" type="button" data-view="chamber" aria-pressed="false">Chamber floor, in 3D</button></div>
           <div class="mapframe">
             <button class="btn mapback" id="mapback" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>All states</button>
             <svg class="usmap" id="usmap" viewBox="0 0 975 610" role="img" aria-label="Map of the United States colored by how each state's members voted"></svg>
+            <canvas class="chamber" id="chamber" tabindex="0" role="img" aria-label="The chamber floor: one seat for every member who took part in this vote" hidden></canvas>
+            <div class="ch-tip" id="chtip" role="tooltip"></div>
+            <div class="ch-info" id="chinfo" aria-live="polite" hidden></div>
           </div>
           <div class="legend2">
             <span><i class="sw" style="background:var(--rep)"></i> Republican, yes</span><span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--rep) 0 3px,transparent 3px 6px)"></i> Republican, no</span>
@@ -2616,6 +2636,138 @@ const shareTextBill = b => { const st = statusText(b); return `${b.id}, ${leadTi
   check();
 })();
 
+/* ---------- the chamber floor, in 3D ----------
+   Every member who took part in a roll call, seated in a hemicycle: Democrats to the left, Republicans to the
+   right, independents between them, each party's seats grouped by state. A bright seat voted yes, a hollow one
+   voted no, a gray one did not vote. Drag to look around; tap a seat for the member. It is drawn with WebGL and
+   nothing else (no library to download), and where WebGL is missing the switch never appears. The seating is a
+   diagram, not a seating chart: the House has no assigned seats. */
+function makeChamber(canvas, onSeat){
+  let gl = null;
+  try { gl = canvas.getContext("webgl", {antialias: true, alpha: true, premultipliedAlpha: false, preserveDrawingBuffer: true}); } catch (e) {}
+  if (!gl) return null;
+  const compile = (type, src) => { const sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh); return gl.getShaderParameter(sh, gl.COMPILE_STATUS) ? sh : null; };
+  const program = (vs, fs) => { const a = compile(gl.VERTEX_SHADER, vs), b = compile(gl.FRAGMENT_SHADER, fs); if (!a || !b) return null; const pr = gl.createProgram(); gl.attachShader(pr, a); gl.attachShader(pr, b); gl.linkProgram(pr); return gl.getProgramParameter(pr, gl.LINK_STATUS) ? pr : null; };
+  const seatsPr = program(`attribute vec3 aPos; attribute vec3 aCol; attribute float aKind; attribute float aDelay; attribute float aIdx;
+    uniform mat4 uMVP; uniform float uScale; uniform float uSize; uniform float uT; uniform float uSel; uniform mediump float uGlow;
+    varying vec3 vCol; varying float vKind; varying float vSel;
+    void main(){ vec4 q = uMVP * vec4(aPos, 1.0); gl_Position = q;
+      float s = clamp((uT - aDelay) / 0.32, 0.0, 1.0); s = 1.0 - pow(1.0 - s, 3.0);
+      vSel = abs(aIdx - uSel) < 0.5 ? 1.0 : 0.0;
+      float grow = uGlow > 0.5 ? (aKind < 0.5 ? 2.7 : 0.0) : 1.0;
+      gl_PointSize = uSize * uScale / q.w * s * grow * (1.0 + 0.55 * vSel);
+      vCol = aCol; vKind = aKind; }`,
+    `precision mediump float; varying vec3 vCol; varying float vKind; varying float vSel; uniform mediump float uGlow;
+    void main(){ vec2 c = gl_PointCoord * 2.0 - 1.0; float r2 = dot(c, c); if (r2 > 1.0) discard;
+      if (uGlow > 0.5) { float a = 1.0 - r2; gl_FragColor = vec4(vCol, a * a * 0.42); return; }
+      float r = sqrt(r2), z = sqrt(1.0 - r2), light = 0.50 + 0.50 * z;
+      vec3 col = vCol * light + vec3(0.30) * pow(z, 8.0);
+      if (vKind > 0.5 && vKind < 1.5) { float ring = smoothstep(0.52, 0.66, r); col = mix(vCol * 0.13, vCol * 0.95, ring); }
+      if (vKind > 1.5) col = vCol * (0.55 + 0.25 * z);
+      if (vSel > 0.5) { float ring = smoothstep(0.74, 0.84, r); col = mix(col, vec3(1.0), ring); }
+      gl_FragColor = vec4(col, 1.0); }`);
+  const linesPr = program(`attribute vec3 aPos; uniform mat4 uMVP; void main(){ gl_Position = uMVP * vec4(aPos, 1.0); }`,
+    `precision mediump float; uniform vec4 uColor; void main(){ gl_FragColor = uColor; }`);
+  if (!seatsPr || !linesPr) return null;
+  const U = (pr, n) => gl.getUniformLocation(pr, n), A = (pr, n) => gl.getAttribLocation(pr, n);
+  const buf = {pos: gl.createBuffer(), col: gl.createBuffer(), kind: gl.createBuffer(), delay: gl.createBuffer(), idx: gl.createBuffer(), lines: gl.createBuffer()};
+  const TONE = {D: [.494, .608, 1], R: [1, .482, .447], I: [.706, .608, .949], X: [.30, .33, .38]};
+  let seats = [], P = new Float32Array(0), n = 0, senate = false, nLines = 0, nFloor = 0, mvp = new Float32Array(16), sizeWorld = .2, sizeNow = .2, scalePx = 1;
+  let yaw = 0, pitch = .60, vyaw = 0, drag = null, moved = 0, sel = -1, t0 = performance.now(), raf = 0, idle = performance.now(), visible = true, dead = false;
+
+  function layout(count){
+    const rows = senate ? 4 : 10, r0 = senate ? 2.7 : 2.3, r1 = senate ? 4.7 : 6.4, rise = senate ? .30 : .21, radii = [];
+    for (let k = 0; k < rows; k++) radii.push(r0 + (r1 - r0) * k / (rows - 1));
+    const total = radii.reduce((a, b) => a + b, 0), per = radii.map(r => Math.floor(count * r / total));
+    let left = count - per.reduce((a, b) => a + b, 0); for (let k = rows - 1; left > 0; k = (k - 1 + rows) % rows, left--) per[k]++;
+    const out = [];
+    per.forEach((c, k) => { for (let i = 0; i < c; i++) { const a = Math.PI * (.965 - .93 * (c === 1 ? .5 : i / (c - 1))); out.push({a, k, x: radii[k] * Math.cos(a), y: k * rise, z: -radii[k] * Math.sin(a)}); } });
+    return out.sort((p, q) => q.a - p.a || p.k - q.k);
+  }
+  function show(isSenate, members){
+    senate = isSenate; sel = -1;
+    const rank = m => (m.p === "D" ? 0 : (m.p === "R" ? 2 : 1));
+    seats = members.slice().sort((a, b) => rank(a) - rank(b) || String(a.L.st).localeCompare(String(b.L.st)) || (a.L.d || 0) - (b.L.d || 0) || String(a.L.n).localeCompare(String(b.L.n)));
+    n = seats.length; const spots = layout(n); sizeWorld = senate ? .34 : .205;
+    P = new Float32Array(n * 3); const C = new Float32Array(n * 3), K = new Float32Array(n), D = new Float32Array(n), I = new Float32Array(n);
+    seats.forEach((m, i) => { const sp = spots[i]; P.set([sp.x, sp.y, sp.z], i * 3);
+      const kind = m.pos === "Y" ? 0 : (m.pos === "N" ? 1 : 2), tone = kind === 2 ? TONE.X : (TONE[m.p] || TONE.I);
+      C.set(tone, i * 3); K[i] = kind; D[i] = (i / Math.max(1, n - 1)) * .62; I[i] = i; });
+    const put = (b, data) => { gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW); };
+    put(buf.pos, P); put(buf.col, C); put(buf.kind, K); put(buf.delay, D); put(buf.idx, I);
+    // the floor: three faint arcs, the centre aisle and the rostrum, so the seats sit in a room
+    const L = [], arc = (r, y) => { for (let i = 0; i < 48; i++) { const a = Math.PI * i / 48, b = Math.PI * (i + 1) / 48; L.push(r * Math.cos(a), y, -r * Math.sin(a), r * Math.cos(b), y, -r * Math.sin(b)); } };
+    const r0 = senate ? 2.7 : 2.3, r1 = senate ? 4.7 : 6.4; arc(r0 - .55, -.02); arc((r0 + r1) / 2, -.02); arc(r1 + .5, -.02);
+    L.push(0, -.02, -(r0 - .55), 0, -.02, -(r1 + .5)); nFloor = L.length / 3;
+    for (const [x0, x1, z0, z1] of [[-.9, .9, .35, .35], [-.9, .9, -.35, -.35], [-.9, -.9, .35, -.35], [.9, .9, .35, -.35]]) L.push(x0, .02, z0, x1, .02, z1);
+    put(buf.lines, new Float32Array(L)); nLines = L.length / 3;
+    t0 = performance.now(); idle = t0; yaw = calm() ? 0 : -.3; vyaw = 0; kick();
+  }
+  function camera(w, h){
+    const f = 1 / Math.tan(.42), asp = w / Math.max(1, h), near = .1, far = 60, ty = senate ? .7 : 1.0, tz = senate ? -2.6 : -3.3;
+    // far enough back that the ends of the back row fit across the frame, whatever its shape
+    const dist = Math.max(senate ? 8.4 : 10.6, ((senate ? 4.7 : 6.4) + (senate ? .85 : .7)) / (Math.tan(.42) * asp) + (senate ? 1.85 : 2.65));
+    sizeNow = sizeWorld * (asp < 1.3 ? 1.2 : 1);
+    const pit = asp < 1.3 ? Math.max(pitch, .92) : pitch;                  // a taller frame (a phone): look down from higher, so the seats fill it
+    const ex = Math.sin(yaw) * Math.cos(pit) * dist, ey = ty + Math.sin(pit) * dist, ez = tz + Math.cos(yaw) * Math.cos(pit) * dist;
+    let fx = -ex, fy = ty - ey, fz = tz - ez; const fl = Math.hypot(fx, fy, fz); fx /= fl; fy /= fl; fz /= fl;
+    let sx = -fz, sy = 0, sz = fx; const sl = Math.hypot(sx, sz) || 1; sx /= sl; sz /= sl;          // side = forward x up(0,1,0)
+    const ux = sy * fz - sz * fy, uy = sz * fx - sx * fz, uz = sx * fy - sy * fx;
+    const V = [sx, ux, -fx, 0, sy, uy, -fy, 0, sz, uz, -fz, 0, -(sx * ex + sy * ey + sz * ez), -(ux * ex + uy * ey + uz * ez), (fx * ex + fy * ey + fz * ez), 1];
+    const Pm = [f / asp, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) / (near - far), -1, 0, 0, 2 * far * near / (near - far), 0];
+    for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) { let t = 0; for (let k = 0; k < 4; k++) t += Pm[k * 4 + r] * V[c * 4 + k]; mvp[c * 4 + r] = t; }
+    scalePx = h * .5 * f;
+  }
+  function draw(){
+    const dpr = Math.min(2, window.devicePixelRatio || 1), w = Math.max(1, Math.round(canvas.clientWidth * dpr)), h = Math.max(1, Math.round(canvas.clientHeight * dpr));
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    gl.viewport(0, 0, w, h); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    if (!n) return;
+    camera(w, h);
+    const T = calm() ? 9 : (performance.now() - t0) / 1000;
+    gl.useProgram(linesPr); gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.uniformMatrix4fv(U(linesPr, "uMVP"), false, mvp); gl.uniform4f(U(linesPr, "uColor"), .62, .68, .78, .30);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf.lines); const lp = A(linesPr, "aPos"); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp, 3, gl.FLOAT, false, 0, 0); gl.drawArrays(gl.LINES, 0, nFloor);
+    gl.uniform4f(U(linesPr, "uColor"), .80, .84, .92, .62); gl.drawArrays(gl.LINES, nFloor, nLines - nFloor);      // the rostrum, a little brighter
+    gl.useProgram(seatsPr);
+    const bind = (name, b, size) => { const loc = A(seatsPr, name); if (loc < 0) return; gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0); };
+    bind("aPos", buf.pos, 3); bind("aCol", buf.col, 3); bind("aKind", buf.kind, 1); bind("aDelay", buf.delay, 1); bind("aIdx", buf.idx, 1);
+    gl.uniformMatrix4fv(U(seatsPr, "uMVP"), false, mvp); gl.uniform1f(U(seatsPr, "uScale"), scalePx); gl.uniform1f(U(seatsPr, "uSize"), sizeNow);
+    gl.uniform1f(U(seatsPr, "uT"), T); gl.uniform1f(U(seatsPr, "uSel"), sel);
+    gl.uniform1f(U(seatsPr, "uGlow"), 1); gl.blendFunc(gl.SRC_ALPHA, gl.ONE); gl.depthMask(false); gl.drawArrays(gl.POINTS, 0, n);      // the glow under the yes votes
+    gl.uniform1f(U(seatsPr, "uGlow"), 0); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(true); gl.enable(gl.DEPTH_TEST); gl.drawArrays(gl.POINTS, 0, n);
+  }
+  function frame(){
+    raf = 0; if (dead) return;
+    const now = performance.now(), sweeping = !calm() && (now - t0) < 1300;
+    if (!drag && !calm()) { if (Math.abs(vyaw) > .0004) { yaw += vyaw; vyaw *= .92; } else yaw += ((now - idle > 2600 ? .24 * Math.sin((now - idle - 2600) / 5200) : 0) - yaw) * .03; }
+    yaw = Math.max(-1.25, Math.min(1.25, yaw));
+    draw();
+    if (visible && (sweeping || drag || (!calm() && (Math.abs(vyaw) > .0004 || Math.abs(yaw) > .002 || now - idle > 2600)))) kick();
+  }
+  function kick(){ if (!raf && !dead) raf = requestAnimationFrame(frame); }
+  function pick(cx, cy){
+    const r = canvas.getBoundingClientRect(), dpr = canvas.width / Math.max(1, r.width), px = (cx - r.left) * dpr, py = (cy - r.top) * dpr; let best = -1, bw = 1e9;
+    for (let i = 0; i < n; i++) { const x = P[i * 3], y = P[i * 3 + 1], z = P[i * 3 + 2], w = mvp[3] * x + mvp[7] * y + mvp[11] * z + mvp[15]; if (w <= 0) continue;
+      const sx = ((mvp[0] * x + mvp[4] * y + mvp[8] * z + mvp[12]) / w * .5 + .5) * canvas.width, sy = (1 - ((mvp[1] * x + mvp[5] * y + mvp[9] * z + mvp[13]) / w * .5 + .5)) * canvas.height;
+      const rad = Math.max(sizeNow * scalePx / w * .5, 9 * dpr), d = Math.hypot(sx - px, sy - py); if (d <= rad && d < bw) { bw = d; best = i; } }      // the seat nearest the finger
+    return best;
+  }
+  canvas.addEventListener("pointerdown", e => { drag = {x: e.clientX, y: e.clientY}; moved = 0; vyaw = 0; idle = performance.now(); canvas.classList.add("grabbing"); try { canvas.setPointerCapture(e.pointerId); } catch (x) {} });
+  canvas.addEventListener("pointermove", e => {
+    if (drag) { const dx = e.clientX - drag.x, dy = e.clientY - drag.y; moved += Math.abs(dx) + Math.abs(dy); yaw -= dx * .006; vyaw = -dx * .006; if (e.pointerType === "mouse") pitch = Math.max(.22, Math.min(1.25, pitch + dy * .004)); drag = {x: e.clientX, y: e.clientY}; idle = performance.now(); kick(); return; }
+    if (e.pointerType === "mouse") { const i = pick(e.clientX, e.clientY); canvas.style.cursor = i >= 0 ? "pointer" : ""; onSeat(i >= 0 ? seats[i] : null, e.clientX, e.clientY, true); }
+  });
+  const release = e => { if (!drag) return; const tap = moved < 7; drag = null; canvas.classList.remove("grabbing"); idle = performance.now();
+    if (tap) { const i = pick(e.clientX, e.clientY); sel = i; onSeat(i >= 0 ? seats[i] : null, e.clientX, e.clientY, false); } kick(); };
+  canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", () => { drag = null; canvas.classList.remove("grabbing"); });
+  canvas.addEventListener("pointerleave", () => onSeat(null, 0, 0, true));
+  canvas.addEventListener("keydown", e => { if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); yaw += e.key === "ArrowLeft" ? .16 : -.16; idle = performance.now(); kick(); } });
+  new IntersectionObserver(es => es.forEach(x => { visible = x.isIntersecting; if (visible) kick(); })).observe(canvas);
+  addEventListener("resize", kick);
+  return {show, redraw: kick, draw, pick, select: i => { sel = i; kick(); }, stats: () => ({n, senate, lines: nLines, w: canvas.width, h: canvas.height, yaw, err: gl.getError()})};
+}
+
 /* ---------- roll calls: one load, used by the map and by "your members" ---------- */
 function votesReady(){
   if (loads._votes) return loads._votes;
@@ -2805,6 +2957,32 @@ function initMap(){
   }
   let current = null, selected = null;
   const VM = Object.fromEntries(votes.map(v => [v.vote_id, v]));
+  /* two ways to see a roll call: the state map, and the chamber floor */
+  const chCanvas = $("#chamber"), chInfo = $("#chinfo"), chTip = $("#chtip"), viewSw = $("#viewsw"); let view = "map", chamber = null;
+  const CHHINT = `<span class="muted">One seat for every member who took part. Bright is yes, hollow is no, gray did not vote. Drag to look around; tap a seat.</span>`;
+  const everyone = vid => { const v = VM[vid], C = MVC[v && v.chamber === "Senate" ? "S" : "H"] || {ids: [], votes: {}}, str = C.votes[vid] || "", po = (v && v.po) || {}, out = [];
+    for (let i = 0; i < str.length; i++) { const pos = str[i]; if (pos === ".") continue; const id = C.ids[i], L = LEG[id]; if (L) out.push({id, pos, L, p: po[i] || L.p}); } return out; };
+  function onSeat(m, x, y, hover){
+    if (hover) { if (!m) { chTip.classList.remove("show"); return; } const r = $(".stage").getBoundingClientRect(); chTip.style.left = (x - r.left) + "px"; chTip.style.top = (y - r.top) + "px";
+      chTip.innerHTML = `<b>${esc(m.L.n)}</b>${esc(m.p)}-${esc(m.L.st)}: ${{Y: "Yes", N: "No", P: "Present", X: "Not voting"}[m.pos] || esc(m.pos)}`; chTip.classList.add("show"); return; }
+    chTip.classList.remove("show");
+    if (!m) { chInfo.innerHTML = CHHINT; return; }
+    const seat = current.chamber === "Senate" ? "Senator" : (m.L.d ? `District ${m.L.d}` : "At large");
+    chInfo.innerHTML = `${avatar(m.id, m.p, "md")}<span class="ch-who"><b>${esc(m.L.n)}</b><span class="muted">${esc(PARTY[m.p] || m.p)}, ${esc((states[m.L.st] || {}).name || m.L.st)} \u00b7 ${esc(seat)}</span></span><span class="vtag ${esc(m.pos)}">${POSW[m.pos] || m.pos}</span><button class="chip" type="button" data-card="${esc(m.id)}">Their card</button><button class="chip" type="button" data-profile="${esc(m.id)}">Full profile</button>`;
+  }
+  chInfo.addEventListener("click", e => { const c = e.target.closest("[data-card]"), f = e.target.closest("[data-profile]");
+    if (c) { const m = everyone(current.vote_id).find(x => x.id === c.dataset.card); if (m) openRep(m, m.L.st); } else if (f) openMember(f.dataset.profile); });
+  function showChamber(){ if (chamber) { chamber.show(current.chamber === "Senate", everyone(current.vote_id)); chInfo.innerHTML = CHHINT; } }
+  function setView(v){
+    if (v === "chamber" && !chamber) { chamber = makeChamber(chCanvas, onSeat); if (!chamber) { viewSw.hidden = true; v = "map"; } }
+    view = v; try { localStorage.setItem("mapview", v); } catch (e) {}
+    $$("button", viewSw).forEach(b => b.setAttribute("aria-pressed", b.dataset.view === v));
+    if (v === "chamber") zoomOut();
+    svg.style.display = v === "map" ? "" : "none"; chCanvas.hidden = v !== "chamber"; chInfo.hidden = v !== "chamber"; $(".stage").classList.toggle("chamber-on", v === "chamber");
+    if (v === "chamber" && current) showChamber();
+  }
+  if (window.WebGLRenderingContext) { viewSw.hidden = false; viewSw.addEventListener("click", e => { const b = e.target.closest("button[data-view]"); if (b) setView(b.dataset.view); }); }
+  window.mapView = setView; window.chamberStats = () => chamber && chamber.stats();
   const membersByState = vid => {
     const v = VM[vid], C = MVC[v && v.chamber === "Senate" ? "S" : "H"] || {ids: [], votes: {}}, str = C.votes[vid] || "", po = (v && v.po) || {}, out = {};
     for (let i = 0; i < str.length; i++) {
@@ -2855,6 +3033,7 @@ function initMap(){
     if (page === "map") { history.replaceState(history.state, "", "#vote=" + voteSlug(vid)); pageview("/vote/" + voteSlug(vid), current.bill + ": " + current.chamber + " " + current.category); }
     if (zoomed) { if (current.chamber === "Senate" && DIST.states[zoomed]) { /* keep the zoom; senators show as the split state */ } buildDistricts(zoomed); }
     if (selected) showState(selected); else side.innerHTML = `<span class="muted" style="font-size:14px">Tap a state to zoom in. On a House vote you'll see its districts; tap one for the representative.</span>`;
+    if (view === "chamber") showChamber();
   }
   let lastTally = [0, 0];
   function tween(el, from, to){
@@ -3044,6 +3223,7 @@ function initMap(){
   const missing = Math.max(0, (BOOT.stats.rc_total || 0) - votes.length);
   $("#mapnote").textContent = `${votes.length.toLocaleString()} roll calls carry member-level votes${missing ? `; ${missing.toLocaleString()} more are listed on their bills without member data yet` : ""}. Party is shown as recorded on each roll call.${DIST.vintage ? ` District lines: ${DIST.vintage}.` : ""}`;
   paint(votes[0].vote_id);
+  try { if (localStorage.getItem("mapview") === "chamber" && window.WebGLRenderingContext) setView("chamber"); } catch (e) {}
 }
 document.addEventListener("click", e => {
   const a = e.target.closest("a.maplink"); if (!a) return;

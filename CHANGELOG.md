@@ -10,6 +10,21 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.015 — 2026-09-20 — The chamber floor, in 3D
+
+- Any recorded vote can now be seen a second way: the chamber floor. Every
+  member who took part has a seat, Democrats to the left and Republicans to
+  the right, lit by how they voted: bright for yes, hollow for no, gray for
+  not voting. Drag to look around, tap a seat for the member, and flip to
+  the next vote to watch the floor light up again.
+- The seating is a diagram, not a seating chart; the House has no assigned
+  seats. With Motion off, the floor holds still.
+- On a phone the whole chamber fits the screen, and a tap finds the seat
+  nearest your finger.
+- Fixed: on a phone the buttons at the top of the page ran a few pixels off the
+  right edge, which let the page slide sideways. They fit now, down to the
+  smallest screens.
+
 ## v4.0.014 — 2026-09-20 — A page for every member
 
 - Every senator and representative now has a page of their own. It opens with
