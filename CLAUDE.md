@@ -216,6 +216,24 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
+- States open so far (v4.0.027): Minnesota, Wisconsin, North Dakota, South Dakota, Iowa. To add a state: add it to
+  `states/places.py` (chamber names and seats, how its parties are named, Census number, map zooms; leave `"next"`
+  out unless the election year has been checked against the record, and give it by odd and even district where terms
+  are staggered), then `python run_states.py <code> people`, `districts`, `site`. `build_state_dev.py --place all`
+  builds every state that has a database; `Preview dev site.bat` uses it. John's order (2026-09-20): keep going
+  outward ring by ring at this level; campaign money follows one state at a time; bills wait.
+- Some chambers elect two members from one district (the Dakotas' Houses). The pages read how many from the seat
+  count and the district list, show every member of a district, and draw a district split between parties half and
+  half. Which lower-chamber districts sit inside which upper-chamber district is worked out from the lines at build
+  time (`nesting()`); no state's numbering scheme is assumed, and if the lines do not nest the pages say nothing.
+- Statewide officials (`officials` table, from the roster's `executive` files): Governor, Lieutenant Governor,
+  Attorney General, Secretary of State, and only an office held today. John's line for this wave (2026-09-20): the
+  offices the roster carries; an auditor, a treasurer, judges and appointed agency heads wait for a source of their
+  own. A term that ends in January was won the November before; that is how "next on the ballot" is worked out.
+- A roster date of 1 January is a real year with a placeholder day, so the page gives the year alone; up to 2011 it
+  only marks where the roster begins, and the page says "or earlier".
+- Portraits some agencies' sites refuse to our honest User-Agent stay missing (a party initial shows instead).
+  Never disguise the User-Agent to get them.
 - The two sides point at each other. The federal shell carries `state_sites` (every state in `places.py` whose
   database exists), and "How did your members vote?" links a reader of such a state through to `../<code>/`; the
   one-file archive has no neighbours, so it shows no such link. State pages link back through "All levels".

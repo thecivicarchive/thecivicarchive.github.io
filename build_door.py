@@ -59,6 +59,8 @@ def state_facts(code, site_root):
             out["loaded"].append(f"{con.execute('SELECT COUNT(DISTINCT vote_id) FROM member_votes').fetchone()[0]:,} recorded votes")
         if has("state_gifts") and con.execute("SELECT COUNT(*) FROM state_gifts").fetchone()[0]:
             out["loaded"].append("campaign money")
+        if not (has("state_gifts") and con.execute("SELECT COUNT(*) FROM state_gifts").fetchone()[0]):
+            out["coming"].append("campaign money")               # each state's own agency, added one state at a time
         if not (has("bills") and has("member_votes")):          # a state can open before its bills arrive; the card says so
             out["coming"].append("bills and recorded votes")
     if os.path.exists(shapes):

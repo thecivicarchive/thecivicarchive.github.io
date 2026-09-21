@@ -30,8 +30,9 @@ import sys
 import tarfile
 import time
 from concurrent.futures import ThreadPoolExecutor
+from http.client import HTTPException
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote
+from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 try:
     import yaml
@@ -62,6 +63,15 @@ CREATE TABLE IF NOT EXISTS photos (
   bioguide_id TEXT PRIMARY KEY, webp BLOB, width INTEGER, height INTEGER, status TEXT, source_url TEXT, fetched_at TEXT);
 """
 CHAMBER = {"lower": "House", "upper": "Senate", "legislature": "Legislature"}
+# Statewide offices the roster carries, as it names them: the label to show, and the order to show them in.
+OFFICES = {"governor": ("Governor", 0), "lt_governor": ("Lieutenant Governor", 1), "attorney general": ("Attorney General", 2),
+           "secretary of state": ("Secretary of State", 3), "chief election officer": ("Chief election officer", 4)}
+OFFICIALS_SCHEMA = """
+CREATE TABLE IF NOT EXISTS officials (
+  bioguide_id TEXT PRIMARY KEY, openstates_id TEXT, first_name TEXT, last_name TEXT, official_full TEXT, office TEXT, office_label TEXT, rank INTEGER,
+  party TEXT, party_name TEXT, state TEXT, term_start TEXT, term_end TEXT, earlier TEXT, url TEXT, email TEXT, phone TEXT, address TEXT,
+  wikipedia TEXT, image_url TEXT, updated_at TEXT);
+"""
 
 
 def short_id(ocd):
@@ -69,17 +79,17 @@ def short_id(ocd):
 
 
 def read_project(path, code):
-    """(people, committees) for one state out of the downloaded project."""
-    people, committees = [], []
-    want_p, want_c = f"/data/{code}/legislature/", f"/data/{code}/committees/"
+    """(people, committees, executives) for one state out of the downloaded project."""
+    people, committees, executives = [], [], []
+    want = {f"/data/{code}/legislature/": people, f"/data/{code}/committees/": committees, f"/data/{code}/executive/": executives}
     with tarfile.open(path, "r:gz") as tar:
         for member in tar:
             if not member.isfile() or not member.name.endswith(".yml"):
                 continue
-            if want_p in member.name or want_c in member.name:
-                doc = yaml.load(tar.extractfile(member).read(), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader))
-                (people if want_p in member.name else committees).append(doc)
-    return people, committees
+            for folder, bucket in want.items():
+                if folder in member.name:
+                    bucket.append(yaml.load(tar.extractfile(member).read(), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader)))
+    return people, committees, executives
 
 
 def main():
@@ -97,8 +107,8 @@ def main():
     tar_path = os.path.join(args.cache_dir, "openstates-people.tar.gz")
     if net.download(TARBALL, tar_path, 7):
         print(f"    fetched the Open States people project ({os.path.getsize(tar_path) / 1e6:,.1f} MB)")
-    people, committees = read_project(tar_path, code)
-    print(f"    {P['name']}: {len(people):,} sitting members on file, {len(committees):,} committees")
+    people, committees, executives = read_project(tar_path, code)
+    print(f"    {P['name']}: {len(people):,} sitting members on file, {len(committees):,} committees, {len(executives):,} statewide officials")
 
     rows, terms, wiki_jobs, photo_jobs, by_ocd = [], [], [], [], {}
     for d in people:
@@ -128,6 +138,34 @@ def main():
         if d.get("image"):
             photo_jobs.append((pid, d["image"]))
 
+    # -- statewide officials: only an office held today counts; seats they held in the legislature before are kept as history
+    import json as _json
+    officials = []
+    for d in executives:
+        pid = short_id(d.get("id"))
+        held = [r for r in d.get("roles") or [] if r.get("type") not in CHAMBER and (not r.get("end_date") or str(r["end_date"]) >= today)]
+        if not held:
+            continue
+        role = sorted(held, key=lambda r: str(r.get("start_date") or ""))[-1]
+        label, rank = OFFICES.get(role.get("type"), (str(role.get("type") or "").title(), 9))
+        pname = ((d.get("party") or [{}])[-1] or {}).get("name", "")
+        pcode, plabel = party_code(P, pname)
+        office = next((o for o in d.get("offices") or [] if o.get("classification") == "capitol"), (d.get("offices") or [{}])[0] if d.get("offices") else {})
+        links = [x.get("url", "") for x in (d.get("links") or [])]
+        sources = [x.get("url", "") for x in (d.get("sources") or [])]
+        wiki = next((unquote(u.rsplit("/wiki/", 1)[1]).replace("_", " ") for u in links + sources if "en.wikipedia.org/wiki/" in u), "")
+        earlier = [{"ch": CHAMBER[r["type"]], "d": str(r.get("district") or ""), "from": str(r.get("start_date") or "")[:4], "to": str(r.get("end_date") or "")[:4]}
+                   for r in sorted((r for r in d.get("roles") or [] if r.get("type") in CHAMBER), key=lambda r: str(r.get("end_date") or ""))]
+        own = next((u for u in links if "legis" not in u.lower() and "house" not in u.lower() and "senate" not in u.lower()), links[0] if links else "")
+        officials.append((pid, d.get("id"), d.get("given_name") or "", d.get("family_name") or "", d.get("name") or "", role.get("type") or "", label, rank,
+                          pcode, plabel, P["code"], str(role.get("start_date") or ""), str(role.get("end_date") or ""), _json.dumps(earlier), own,
+                          d.get("email") or "", office.get("voice") or "", office.get("address") or "", wiki, d.get("image") or "",
+                          dt.datetime.now().isoformat(timespec="seconds")))
+        if wiki:
+            wiki_jobs.append((pid, wiki))
+        if d.get("image"):
+            photo_jobs.append((pid, d["image"]))
+
     seats = []
     for c in committees:
         cid = short_id(c.get("id")) or re.sub(r"\W+", "-", c.get("name", "").lower())[:40]
@@ -143,7 +181,10 @@ def main():
 
     con = sqlite3.connect(args.db)
     con.executescript(SCHEMA)
+    con.executescript(OFFICIALS_SCHEMA)
     with con:
+        con.execute("DELETE FROM officials")
+        con.executemany("INSERT OR REPLACE INTO officials VALUES (" + ",".join("?" * 21) + ")", officials)
         con.execute("DELETE FROM legislators")
         con.executemany("INSERT OR REPLACE INTO legislators VALUES (" + ",".join("?" * 25) + ")", rows)
         con.execute("DELETE FROM member_terms")
@@ -154,6 +195,7 @@ def main():
     by_pt = dict(con.execute("SELECT party_name, COUNT(*) FROM legislators WHERE is_current = 1 GROUP BY 1"))
     print(f"    Stored: {sum(by_ch.values()):,} members ({', '.join(f'{k} {v}' for k, v in sorted(by_ch.items()))}; "
           f"{', '.join(f'{k} {v}' for k, v in sorted(by_pt.items()))}); {len(terms):,} seats held over time; {len(seats):,} committee seats")
+    print(f"    Statewide officials: {', '.join(f'{o[6]} {o[4]}' for o in sorted(officials, key=lambda o: o[7])) or 'none on file'}")
     for ch, key in (("House", "lower"), ("Senate", "upper")):
         if P.get(key) and by_ch.get(ch, 0) != P[key]["seats"]:
             print(f"    note: the {ch} has {P[key]['seats']} seats and {by_ch.get(ch, 0)} members on file (vacancies are usual)")
@@ -209,10 +251,15 @@ def main():
             if os.path.exists(path) and os.path.getsize(path) > 0:
                 return pid, url, open(path, "rb").read(), None
             try:
-                raw = net.get(url, timeout=60)
+                # some rosters carry addresses with spaces and commas in them ("reisch, tim rep.jpg"); write those the
+                # way a web address must be written, leaving anything already written that way alone
+                inner = re.search(r"^https?://.+?(https?://.+)$", url)       # one whole address pasted inside another: the inner one is the picture
+                parts = urlsplit(inner.group(1) if inner else url)
+                safe = urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%:@!$&'()*+,;=~-._"), parts.query, ""))
+                raw = net.get(safe, timeout=60)
                 open(path, "wb").write(raw)
                 return pid, url, raw, None
-            except (HTTPError, URLError, OSError) as e:
+            except (HTTPError, URLError, OSError, ValueError, HTTPException) as e:
                 return pid, url, None, str(e)
 
         ok = bad = 0
@@ -224,7 +271,14 @@ def main():
                     con.execute("INSERT OR REPLACE INTO photos VALUES (?,?,?,?,?,?,?)", (pid, None, None, None, err or "missing", url, now))
                     continue
                 try:
-                    im = Image.open(io.BytesIO(raw)).convert("RGB")
+                    im = Image.open(io.BytesIO(raw))
+                    if im.mode in ("P", "LA", "RGBA"):               # a cut-out portrait: stand it on white rather than on whatever lies under the transparency
+                        im = im.convert("RGBA")
+                        ground = Image.new("RGB", im.size, (255, 255, 255))
+                        ground.paste(im, mask=im.split()[-1])
+                        im = ground
+                    else:
+                        im = im.convert("RGB")
                     w, h = im.size                                   # crop to the federal portraits' shape, from the top
                     target = 120 / 146
                     if w / h > target:

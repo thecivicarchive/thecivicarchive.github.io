@@ -10,6 +10,34 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.027 — 2026-09-20 — Four neighbours, and the statewide offices
+
+- Wisconsin, North Dakota, South Dakota and Iowa are open, each with the same
+  pages as Minnesota: who represents you, the district map for both chambers,
+  every legislator's page, and a preview card for every link. 527 more
+  legislators and 449 more districts in all. The front door's map shows five
+  states open.
+- Each state is named the way it names itself: Wisconsin's lower chamber is
+  the Assembly, and North Dakota's Democrats are the Democratic-NPL.
+- In the Dakotas most House districts elect two representatives, so "who
+  represents you" there finds three legislators, not two. A district whose two
+  members come from different parties is drawn half and half on the map.
+- Which House districts sit inside which Senate district is worked out from
+  the district lines themselves, state by state, rather than assumed.
+- New on every state: the statewide offices the public roster carries, which
+  are the Governor, Lieutenant Governor, Attorney General and Secretary of
+  State. Each has a page with the office, the term, when it is next on the
+  ballot, contact details and a preview card; search finds them too. Other
+  statewide offices, such as an auditor or a treasurer, are not in the roster
+  yet, and the page says so.
+- When a seat is next on the ballot is shown only where it was checked: in
+  Wisconsin, North Dakota and Iowa odd-numbered Senate districts vote in 2026
+  and even-numbered in 2028.
+- Campaign money for the four new states is marked as coming. Every state
+  keeps its own records in its own form, so money is added one state at a time.
+- On the federal side, a reader who picks any of the five states is offered a
+  link through to that state's own legislature.
+
 ## v4.0.026 — 2026-09-20 — Minnesota, ready to share
 
 - A link to a Minnesota legislator now shows a proper preview when it is

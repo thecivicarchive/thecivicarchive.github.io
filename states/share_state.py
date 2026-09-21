@@ -87,7 +87,12 @@ def draw_districts(im, shapes, q, fills, box, highlight=None, ring_color=None, s
 
 
 def party_fills(legislators, chamber):
-    return {L["d"]: sc.party_color(L["p"]) for L in legislators.values() if L["ch"] == chamber}
+    """District -> colour. A two-member district split between parties gets the colour halfway between theirs."""
+    by = {}
+    for L in legislators.values():
+        if L["ch"] == chamber:
+            by.setdefault(L["d"], []).append(sc.party_color(L["p"]))
+    return {d: (cs[0] if len(set(cs)) == 1 else sc.mix(cs[0], next(c for c in cs if c != cs[0]), .5)) for d, cs in by.items()}
 
 
 def draw_site(P, stats, districts, legislators):
@@ -97,7 +102,8 @@ def draw_site(P, stats, districts, legislators):
     d.text((60, 150), f"{P['name']},", font=tf, fill=sc.INK)
     d.text((60, 250), "in plain words.", font=tf, fill=sc.INK)
     f1, f2 = sc.font("sans", 30), sc.font("sans", 26)
-    line = f"All {stats['members']:,} legislators, all {stats['districts']:,} districts on the map, and who funds each campaign."
+    line = (f"All {stats['members']:,} legislators, all {stats['districts']:,} districts on the map, and who funds each campaign." if stats.get("has_money")
+            else f"All {stats['members']:,} legislators and all {stats['districts']:,} districts on the map: who represents you, and what they work on.")
     y = 400
     for ln in sc.wrap(d, line, f1, 720, 2):
         d.text((60, y), ln, font=f1, fill=sc.SOFT)
@@ -105,12 +111,20 @@ def draw_site(P, stats, districts, legislators):
     d.text((60, y + 10), "From public records. No ads, no donors.", font=f2, fill=sc.MUTED)
     if districts.get("upper"):
         draw_districts(im, districts["upper"], districts.get("q", 400), party_fills(legislators, "Senate"), (810, 96, 330, 410))
-    footer(d, "Who represents you, and who funds their campaigns")
+    footer(d, "Who represents you, and who funds their campaigns" if stats.get("has_money") else "Who represents you, from public records")
     return im
 
 
 def money_words(n):
     return f"${n:,.0f}"
+
+
+def month_year(date):
+    import datetime as dt
+    try:
+        return dt.date.fromisoformat((date or "")[:10]).strftime("%B %Y")
+    except ValueError:
+        return (date or "")[:4]
 
 
 def member_inputs(P, bio, L, prof, has_photo):
@@ -135,10 +149,10 @@ def member_inputs(P, bio, L, prof, has_photo):
             "chamber": key, "district": L["d"]}
 
 
-def draw_member(inp, photo_blob, districts, fills, legislature):
+def draw_member(inp, photo_blob, districts, fills, label):
     im, d = sc.base_canvas()
     sc.brand(d)
-    sc.pill_right(d, W - 60, 40, legislature, sc.font("sans", 20), ink=sc.SOFT)
+    sc.pill_right(d, W - 60, 40, label, sc.font("sans", 20), ink=sc.SOFT)
     x, color = 60, sc.party_color(inp["party"])
     if photo_blob:
         try:
@@ -157,8 +171,9 @@ def draw_member(inp, photo_blob, districts, fills, legislature):
     right = W - 60
     if shapes:
         dim = {k: sc.mix(v, sc.BG, .72) for k, v in fills.items()}       # everyone else's district, quietly; theirs in full colour
-        dim[inp["district"]] = color
-        draw_districts(im, shapes, districts.get("q", 400), dim, (W - 60 - 220, 100, 220, 262), highlight=inp["district"], ring_color=color)
+        if inp["district"]:
+            dim[inp["district"]] = color
+        draw_districts(im, shapes, districts.get("q", 400), dim, (W - 60 - 220, 100, 220, 262), highlight=inp["district"] or None, ring_color=color)
         right = W - 60 - 220 - 36
     nf, y = sc.font("serif", 76), 118
     for line in sc.wrap(d, inp["name"], nf, right - x, 2):
@@ -170,7 +185,7 @@ def draw_member(inp, photo_blob, districts, fills, legislature):
         y += 36
     y = max(y + 26, 384 if shapes else 330)
     lf, tf = sc.font("sans", 19, 700), sc.font("sans", 26)
-    for label, text, lines in (("COMMITTEES", " · ".join(inp["committees"]), 1), ("CAMPAIGN MONEY ON FILE", inp["money"], 2)):
+    for label, text, lines in (("THE TERM", inp.get("term", ""), 2), ("COMMITTEES", " · ".join(inp["committees"]), 1), ("CAMPAIGN MONEY ON FILE", inp["money"], 2)):
         if not text or y > H - 150:
             continue
         d.text((60, y), label, font=lf, fill=sc.MUTED)
@@ -181,7 +196,8 @@ def draw_member(inp, photo_blob, districts, fills, legislature):
             d.text((60, y), ln, font=tf, fill=sc.SOFT)
             y += 33
         y += 10
-    footer(d, "Service, committees and campaign money, from public records")
+    footer(d, "A statewide office, from public records" if inp.get("official") else
+           ("Service, committees and campaign money, from public records" if inp.get("has_money") else "Service and committees, from public records"))
     return im
 
 
@@ -225,22 +241,39 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
     seats = {bio: [L["ch"], L["d"], L["p"]] for bio, L in legislators.items()}
     shape_mark = hashlib.sha1(json.dumps([districts.get("vintage"), len(districts.get("upper", {})), len(districts.get("lower", {}))]).encode()).hexdigest()[:8]
     fills = {"upper": party_fills(legislators, "Senate"), "lower": party_fills(legislators, "House")}
-    card("og/site.png", {"name": P["name"], "members": st["members"], "districts": st["districts"], "seats": sorted(seats.values()), "shapes": shape_mark, "v": 1},
+    card("og/site.png", {"name": P["name"], "members": st["members"], "districts": st["districts"], "seats": sorted(seats.values()), "shapes": shape_mark,
+                         "money": bool(st.get("has_money")), "v": 1},
          lambda: draw_site(P, st, districts, legislators))
     urls = [base + "/"]
     for bio, L in legislators.items():
         prof = data["profiles"].get(bio) or {}
         blob = original_photo(cache_dir, code, bio) or data["photos"].get(bio)
         inp = member_inputs(P, bio, L, prof, bool(blob))
+        inp["has_money"] = bool(st.get("has_money"))
         chamber_mark = sorted(v for v in seats.values() if v[0] == L["ch"])
         card(f"og/m/{bio}.png", dict(inp, shapes=shape_mark, chamber_seats=hashlib.sha1(json.dumps(chamber_mark).encode()).hexdigest()[:8], v=2),
              lambda inp=inp, blob=blob: draw_member(inp, blob, districts, fills[inp["chamber"]], P["legislature"]))
         url, title = f"{base}/m/{bio}.html", f"Get to know {inp['name']}"
         desc = " ".join(x for x in (inp["line"] + ".", ("Committees: " + ", ".join(inp["committees"][:4]) + ".") if inp["committees"] else "",
-                                    "Service, committees and who funds the campaign, from public records.") if x)
+                                    "Service, committees and who funds the campaign, from public records." if inp["has_money"] else "Service and committees, from public records.") if x)
         body = f"<h1>{html.escape(inp['name'])}</h1><p>{html.escape(inp['line'])}</p><p>{html.escape(desc)}</p>"
         with open(os.path.join(folder, "m", bio + ".html"), "w", encoding="utf-8", newline="\n") as fh:
             fh.write(sc.stub(title, desc, url, f"{base}/og/m/{bio}.png", f"../#member={bio}", body))
+        urls.append(url)
+    # statewide officials: the same card, led by the office; the state is drawn plain, since no district is theirs alone
+    for O in data.get("officials") or []:
+        blob = original_photo(cache_dir, code, O["id"]) or data["photos"].get(O["id"])
+        since = (O.get("since") or "")[:4]
+        inp = {"name": O["n"], "party": O["p"], "line": f"{O['pn']} \u00b7 {O['office']} of {P['name']}" + (f" \u00b7 since {since}" if since else ""),
+               "committees": [], "money": "", "photo": bool(blob), "chamber": "upper", "district": "", "has_money": False, "official": True,
+               "term": " ".join(x for x in (f"Runs to {month_year(O.get('until'))}." if O.get("until") else "",
+                                            f"The office is next on the ballot in November {O['next']}." if O.get("next") else "") if x)}
+        card(f"og/m/{O['id']}.png", dict(inp, shapes=shape_mark, v=2), lambda inp=inp, blob=blob: draw_member(inp, blob, districts, {}, f"State of {P['name']}"))
+        url, title = f"{base}/m/{O['id']}.html", f"{O['n']}, {O['office']} of {P['name']}"
+        desc = f"{inp['line']}. The office, the term and the record, from public sources."
+        body = f"<h1>{html.escape(O['n'])}</h1><p>{html.escape(inp['line'])}</p>"
+        with open(os.path.join(folder, "m", O["id"] + ".html"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(sc.stub(title, desc, url, f"{base}/og/m/{O['id']}.png", f"../#official={O['id']}", body))
         urls.append(url)
     for rel in [r for r in cache if r not in seen]:             # forget cards that no longer exist
         cache.pop(rel, None)
@@ -254,4 +287,4 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                  + "".join(f"<url><loc>{html.escape(u)}</loc></url>\n" for u in urls) + "</urlset>\n")
     og_bytes = sum(os.path.getsize(os.path.join(folder, r)) for r in seen if os.path.exists(os.path.join(folder, r)))
-    return {"member_pages": len(legislators), "cards_drawn": drawn, "cards_kept": kept, "cards_bytes": og_bytes}
+    return {"member_pages": len(legislators) + len(data.get("officials") or []), "cards_drawn": drawn, "cards_kept": kept, "cards_bytes": og_bytes}
