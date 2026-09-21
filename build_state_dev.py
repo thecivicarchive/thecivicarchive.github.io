@@ -176,7 +176,7 @@ def collect(P, db_path, districts_path):
     if has("member_terms"):
         by = {}
         for t in con.execute("SELECT bioguide_id, type, start, end, district FROM member_terms ORDER BY bioguide_id, seq"):
-            by.setdefault(t["bioguide_id"], []).append({"ch": "Senate" if t["type"] == "sen" else "House", "start": t["start"] or "", "end": t["end"] or "", "d": t["district"] or ""})
+            by.setdefault(t["bioguide_id"], []).append({"ch": {"sen": "Senate", "rep": "House"}.get(t["type"], "Legislature"), "start": t["start"] or "", "end": t["end"] or "", "d": t["district"] or ""})
         unknown = 0
         for bio, ts in by.items():
             if bio not in profiles or not ts:
@@ -255,7 +255,7 @@ def collect(P, db_path, districts_path):
     shapes = json.load(open(districts_path, encoding="utf-8")) if os.path.exists(districts_path) else {"q": 400, "upper": {}, "lower": {}, "vintage": ""}
     outline = state_paths(os.path.join(HERE, "us_states_albers.json")).get(P["code"]) or {"d": "", "bbox": [0, 0, 975, 610]}
     chambers, vacant, expect = {}, {}, {}
-    for ch, key in (("Senate", "upper"), ("House", "lower")):
+    for ch, key in (("Senate" if P.get("lower") else "Legislature", "upper"), ("House", "lower")):      # a one-chamber legislature files its members under "Legislature"
         if not P.get(key):
             continue
         sitting = [L for L in legislators.values() if L["ch"] == ch]
@@ -353,6 +353,9 @@ def render(P, data, version, base_url, analytics):
     # what the page says about campaign money depends on whether this state's is loaded yet
     money = st["has_money"]
     words = {
+        "__CHAMBERS_TITLE__": "The two chambers" if P.get("lower") else "The chamber",
+        "__PLACE_NOTE__": (" " + html_attr(P["note"])) if P.get("note") else "",
+        "__MAP_SWITCH__": "Switch between the two chambers, z" if P.get("lower") else "Z",
         "__DESC__": f"Who represents every district in the {P['legislature']}, what they work on{', and which organizations fund their campaigns' if money else ''}, from public records.",
         "__MONEY_CLAUSE__": ", and which organizations fund their campaigns" if money else "",
         "__AND_FUNDS__": ", their committees and who funds their campaigns" if money else " and their committees",
@@ -621,10 +624,10 @@ __ANALYTICS__
 <section class="chambers" id="chambers">
   <div class="wrap">
     <div class="sechead rv">
-      <div><h2>The two chambers</h2><p>Every seat in the __CHAMBERS__, one square each, colored by the party of the member who holds it. Tap a square for the member.</p></div>
+      <div><h2>__CHAMBERS_TITLE__</h2><p>Every seat in the __CHAMBERS__, one square each, colored by the party of the member who holds it. Tap a square for the member.</p></div>
     </div>
     <div class="chgrid" id="chgrid"></div>
-    <p class="srcnote"><span class="tag fact">Fact</span> Seats and parties from the roster kept by the Open States project, which follows the legislature's own member pages. Parties are named the way __NAME__ names them.</p>
+    <p class="srcnote"><span class="tag fact">Fact</span> Seats and parties from the roster kept by the Open States project, which follows the legislature's own member pages. Parties are named the way __NAME__ names them.__PLACE_NOTE__</p>
   </div>
 </section>
 
@@ -648,7 +651,7 @@ __ANALYTICS__
   <section class="theater block" id="map">
     <div class="wrap">
       <div class="sechead rv">
-        <div><h2>Every district, and who holds it</h2><p>Each district is colored by the party of the member who represents it. Switch between the two chambers, zoom in where the districts are small, and tap a district for its member.</p></div>
+        <div><h2>Every district, and who holds it</h2><p>Each district is colored by the party of the member who represents it. __MAP_SWITCH__oom in where the districts are small, and tap a district for its member.</p></div>
       </div>
       <div class="theater-grid">
         <div class="stage rv">
@@ -787,7 +790,9 @@ const BOOT = __BOOT__;
 /* Data arrives when a page needs it, exactly as on the federal side: `need(name)` fetches data/<name>.json once
    and caches the promise. */
 const P = BOOT.place, CH = {Senate: P.upper, House: P.lower || P.upper, Legislature: P.upper};
-const KEYOF = {Senate: "upper", House: "lower", Legislature: "upper"}, CHOF = {upper: "Senate", lower: "House"};
+const KEYOF = {Senate: "upper", House: "lower", Legislature: "upper"}, CHOF = {upper: P.lower ? "Senate" : "Legislature", lower: "House"};
+/* what a chamber calls its districts: "Senate District", "Assembly District", and in a one-chamber state "Legislative District" */
+const DN = key => (P[key] || {}).district_name || (((P[key] || {}).name || "") + " District");
 const DATA = {legislators: {}, seats: {upper: [], lower: []}, vacant: {}, expect: {}, nest: {}, districts: null, at: {upper: {}, lower: {}}};
 const PHOTO = new Set(BOOT.photo_ids || []);
 const DATA_V = encodeURIComponent(BOOT.version || "0");
@@ -980,7 +985,7 @@ const YOURS = (function(){
   const selU = $("#ysd"), selL = $("#yhd"), list = $("#ylist"), note = $("#ynote"); if (!selU) return {};
   const KEY = "sld:" + P.code.toLowerCase();
   let mine = null, myPin = null;
-  $("#ysdlab").textContent = P.upper.name + " district"; if (P.lower) $("#yhdlab").textContent = P.lower.name + " district"; else selL.closest(".selwrap").hidden = true;
+  $("#ysdlab").textContent = DN("upper").replace(/District$/, "district"); if (P.lower) $("#yhdlab").textContent = P.lower.name + " district"; else selL.closest(".selwrap").hidden = true;
   const save = () => { if (mine) store.set(KEY, JSON.stringify(mine)); else store.del(KEY); };
   function fill(){
     selU.innerHTML = `<option value="">Choose</option>` + DATA.seats.upper.map(d => `<option value="${esc(d)}">${esc(d)}</option>`).join("");
@@ -993,18 +998,18 @@ const YOURS = (function(){
     const sen = mine.u ? membersAt("upper", mine.u) : [], rep = mine.l ? membersAt("lower", mine.l) : [], maybe = (!mine.l && mine.u) ? lowersOf(mine.u) : [];
     const block = (key, d, ms, yours) => { const want = seatsIn(key, d), short = want - ms.length;
       const say = !ms.length ? "This seat is vacant, or its member is not on file yet." : (short > 0 ? `${short === 1 ? "One seat here is" : numWord(short) + " seats here are"} vacant.` : (want > 1 ? `This district elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : ""));
-      return `<article class="yvote${yours ? " focus" : ""}"><div class="yv-head"><b>${esc(P[key].name)} District ${esc(d)}</b><div class="muted">${esc(say)}</div></div>${ms.length ? `<div class="yv-members">${ms.map(L => memBtn(L, titleLine(L), yours ? "mine shimmer" : "")).join("")}</div>` : ""}
+      return `<article class="yvote${yours ? " focus" : ""}"><div class="yv-head"><b>${esc(DN(key))} ${esc(d)}</b><div class="muted">${esc(say)}</div></div>${ms.length ? `<div class="yv-members">${ms.map(L => memBtn(L, titleLine(L), yours ? "mine shimmer" : "")).join("")}</div>` : ""}
       <div class="yv-acts"><a class="chip" href="${districtHash(key, d)}">Show District ${esc(d)} on the big map</a></div></article>`; };
     list.hidden = false;
     const count = sen.length + rep.length;
-    const head = (mine.l && mine.u) ? (count === 1 ? "Your legislator" : `Your ${numWord(count)} legislators`) : (mine.u ? `Your ${P.upper.title.toLowerCase()}${maybe.length ? `, and the ${P.lower.name} districts inside ${P.upper.name} District ${mine.u}` : ""}` : `Your ${P.lower.title.toLowerCase()}${rep.length > 1 ? "s" : ""}`);
+    const head = (mine.l && mine.u) ? (count === 1 ? "Your legislator" : `Your ${numWord(count)} legislators`) : (mine.u ? `Your ${P.upper.title.toLowerCase()}${maybe.length ? `, and the ${P.lower.name} districts inside ${DN("upper")} ${mine.u}` : ""}` : `Your ${P.lower.title.toLowerCase()}${rep.length > 1 ? "s" : ""}`);
     list.innerHTML = `<div class="yours-head"><h3>${esc(head)}</h3>${count ? `<button class="chip sharebtn" id="yshare" type="button">Share, so friends can find theirs</button>` : ""}</div>
       <div class="yours-cols"><div class="ymap" id="ymap"><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Your districts"></svg>
         <div class="ymap-key">${BOOT.stats.parties.map(t => `<span><i style="background:${tone(t[1])}"></i>${esc(t[0])}</span>`).join("")}<span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div>
       <div class="yours-votes">${mine.u ? block("upper", mine.u, sen, true) : ""}${mine.l ? block("lower", mine.l, rep, true) : maybe.map(d => block("lower", d, membersAt("lower", d), false)).join("")}
         ${!mine.l && maybe.length ? `<p class="muted" style="font-size:13.5px">One of these ${maybe.length === 2 ? "two" : maybe.length} ${esc(P.lower.name)} districts is yours. Pick it above, or use your location.</p>` : ""}</div></div>`;
     const sb = $("#yshare"); if (sb) sb.addEventListener("click", e => {
-      const who = sen.map(m => `${m.n} (${P.upper.name} District ${mine.u})`).concat(rep.map(m => `${m.n} (${P.lower.name} District ${mine.l})`));
+      const who = sen.map(m => `${m.n} (${DN("upper")} ${mine.u})`).concat(rep.map(m => `${m.n} (${DN("lower")} ${mine.l})`));
       share({title: `My ${P.name} legislators`, text: `My ${P.name} legislator${who.length === 1 ? " is" : "s are"} ${listWords(who)}. Find yours${BOOT.has_money ? ", and see who funds their campaigns" : ""}:`, url: `${SHARE_BASE}/`, kind: "yours", key: P.code}, e.currentTarget); });
     need("districts").then(D => { DATA.districts = D; drawMini(); }, () => { const m = $("#ymap"); if (m) m.hidden = true; });
   }
@@ -1016,12 +1021,13 @@ const YOURS = (function(){
     const pad = Math.max(x1 - x0, y1 - y0) * .1, vbw = x1 - x0 + 2 * pad;
     svg.setAttribute("viewBox", `${(x0 - pad).toFixed(3)} ${(y0 - pad).toFixed(3)} ${vbw.toFixed(3)} ${(y1 - y0 + 2 * pad).toFixed(3)}`);
     const u = vbw / Math.max(240, svg.clientWidth || 420);
-    let body = lows.map(([d, s]) => { const ms = membersAt("lower", d); return `<path class="yd" d="${s.d}" fill="${fillOf(ms, "y") || "var(--line-strong)"}" tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(P.lower.name)} District ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ""}"><title>${esc(P.lower.name)} District ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ": vacant"}</title></path>`; }).join("");
+    let body = lows.map(([d, s]) => { const ms = membersAt("lower", d); return `<path class="yd" d="${s.d}" fill="${fillOf(ms, "y") || "var(--line-strong)"}" tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(DN("lower"))} ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ""}"><title>${esc(DN("lower"))} ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ": vacant"}</title></path>`; }).join("");
     if (!lows.length && upper) body = `<path class="yd" d="${upper.d}" fill="${fillOf(membersAt("upper", mine.u), "y") || "var(--line-strong)"}"></path>`;
     if (upper) body += `<path class="yout" d="${upper.d}"></path>`;
     const me = mine.l && shapeOf("lower", mine.l); if (me) body += `<path class="ymine" d="${me.d}"></path>`;
     svg.innerHTML = mixDefs("y") + body + (myPin ? pinSVG(myPin, u, "ypin") : "");
-    $("#ymaphead").innerHTML = `<b>${esc(P.upper.name)} District ${esc(mine.u || "")}</b>${lows.length ? `<span class="muted"> · the ${esc(P.lower.name)} district${lows.length === 1 ? "" : "s"} inside it${lows.length > 1 ? ": " + lows.map(x => esc(x[0])).join(" and ") : ""}, colored by party.${mine.l ? " Yours is outlined in gold." : ""}</span>` : ""}`;
+    const nests = lows.length && lows.every(x => upperOf(x[0]) === String(mine.u));      // only say "inside" where the lines really nest
+    $("#ymaphead").innerHTML = `<b>${esc(DN("upper"))} ${esc(mine.u || "")}</b>${lows.length ? `<span class="muted">${nests ? ` · the ${esc(P.lower.name)} district${lows.length === 1 ? "" : "s"} inside it${lows.length > 1 ? ": " + lows.map(x => esc(x[0])).join(" and ") : ""}, colored by party.` : ` and ${esc(DN("lower"))} ${esc(lows[0][0])}, each colored by party. In ${esc(P.name)} the two chambers' districts are drawn separately, so they overlap rather than nest.`}${mine.l ? ` Your ${esc(P.lower.name)} district is outlined in gold.` : ""}</span>` : ""}`;
     const n = $("#ymapnote");
     n.innerHTML = myPin ? `The pin is your own device's estimate of where you are, with a circle reaching ${milesWords(pinMiles(myPin))} around it. It was worked out on this device and is kept only here, rounded to about half a mile. <button type="button" id="yforget">Forget my location</button>`
       : `Tap "Use my location" and your own spot is pinned here. It is worked out on your device and never sent anywhere. <button type="button" id="yforget">Forget my districts</button>`;
@@ -1041,7 +1047,7 @@ const YOURS = (function(){
         mine = {u: hit.upper, l: hit.lower, from: "pin"};
         myPin = {st: P.code, lat: Math.round(pos.coords.latitude * 100) / 100, lon: Math.round(pos.coords.longitude * 100) / 100, acc: Math.round(pos.coords.accuracy || 0)};      // rounded: about half a mile
         store.set("pin", JSON.stringify(myPin)); store.set("state", P.code); save();
-        note.textContent = `It looks like ${P.upper.name} District ${hit.upper || "?"}${hit.lower ? " and " + P.lower.name + " District " + hit.lower : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.${(pos.coords.accuracy || 0) > 3000 ? ` Your device could only place you within about ${Math.max(2, Math.round(pos.coords.accuracy / 1609.34))} miles, so treat the districts as a rough guess.` : ""}`;
+        note.textContent = `It looks like ${DN("upper")} ${hit.upper || "?"}${hit.lower ? " and " + P.lower.name + " District " + hit.lower : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.${(pos.coords.accuracy || 0) > 3000 ? ` Your device could only place you within about ${Math.max(2, Math.round(pos.coords.accuracy / 1609.34))} miles, so treat the districts as a rough guess.` : ""}`;
         paint(); track("locate", {key: P.code}); if (window.mapMine) mapMine();
       }, () => { note.textContent = "Couldn't load the district lines. Check your connection, or pick your district."; });
     }, () => { note.textContent = "Location wasn't shared. Pick your district instead."; }, {timeout: 10000, maximumAge: 600000});
@@ -1103,7 +1109,7 @@ function initMap(){
   function draw(){
     const names = DATA.seats[key] || [];
     svg.innerHTML = `${mixDefs("d")}<g id="dlayer">${names.map(d => { const s = shapeOf(key, d), ms = membersAt(key, d); if (!s) return "";
-      return `<path class="dd${ms.length ? "" : " vac"}" d="${s.d}" ${ms.length ? `style="fill:${fillOf(ms, "d")}"` : ""} tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(P[key].name)} District ${esc(d)}: ${ms.length ? esc(namesOf(ms)) : "vacant"}"></path>`; }).join("")}</g>
+      return `<path class="dd${ms.length ? "" : " vac"}" d="${s.d}" ${ms.length ? `style="fill:${fillOf(ms, "d")}"` : ""} tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(DN(key))} ${esc(d)}: ${ms.length ? esc(namesOf(ms)) : "vacant"}"></path>`; }).join("")}</g>
       <path class="dout" d="${OUT.d}"></path><g id="dminelayer"></g><g id="dsellayer"></g>
       <g id="dlabels" aria-hidden="true">${names.map(d => shapeOf(key, d) ? `<text class="dl" data-d="${esc(d)}" style="display:none">${esc(d)}</text>` : "").join("")}</g><g id="dpin"></g>`;
     labels = $$("#dlabels .dl", svg).map(el => { const s = shapeOf(key, el.dataset.d); return {el, n: el.dataset.d.length, room: s.room, ok: s.inside, x: s.at[0].toFixed(3), y: s.at[1].toFixed(3)}; });
@@ -1118,17 +1124,17 @@ function initMap(){
     $("#dsellayer", svg).innerHTML = s ? `<path class="dsel" d="${s.d}"></path>` : ""; sel.value = d || "";
     if (!d) { side.innerHTML = `<span class="muted">Tap a district to see who represents it.</span>`; return; }
     const inside = key === "upper" ? lowersOf(d) : [], up = key === "lower" ? upperOf(d) : null, mineHere = YOURS.mine && (key === "upper" ? YOURS.mine.u : YOURS.mine.l) === d;
-    side.innerHTML = `<div class="side-head"><h3>${esc(P[key].name)} District ${esc(d)}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><span><button class="chip" type="button" data-zoomhere="1">Zoom here</button> <button class="chip sharebtn" type="button" data-sharedistrict="1">Share</button></span></div>
+    side.innerHTML = `<div class="side-head"><h3>${esc(DN(key))} ${esc(d)}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><span><button class="chip" type="button" data-zoomhere="1">Zoom here</button> <button class="chip sharebtn" type="button" data-sharedistrict="1">Share</button></span></div>
       ${want > 1 ? `<p class="inside" style="margin:0 0 4px">This district elects ${numWord(want)} ${esc(P[key].title.toLowerCase())}s${ms.length < want ? `; ${numWord(want - ms.length)} seat${want - ms.length === 1 ? " is" : "s are"} vacant` : ""}.</p>` : ""}
       ${ms.length ? ms.map(m => memBtn(m, titleLine(m))).join("") + (L ? `<div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}</div>` : "") : `<p class="muted">This seat is vacant, or its member is not on file yet.</p>`}
       ${inside.length ? `<p class="inside">${esc(P.lower.name)} district${inside.length === 1 ? "" : "s"} inside it: ${inside.map(l => { const rs = membersAt("lower", l); return `<button type="button" data-goto="lower:${esc(l)}">${esc(l)}</button>${rs.length ? " (" + esc(rs.map(m => m.n).join(", ")) + ")" : " (vacant)"}`; }).join("; ")}.</p>` : ""}
-      ${up && shapeOf("upper", up) ? `<p class="inside">It sits inside ${esc(P.upper.name)} District <button type="button" data-goto="upper:${esc(up)}">${esc(up)}</button>${memberAt("upper", up) ? " (" + esc(memberAt("upper", up).n) + ")" : ""}.</p>` : ""}`;
+      ${up && shapeOf("upper", up) ? `<p class="inside">It sits inside ${esc(DN("upper"))} <button type="button" data-goto="upper:${esc(up)}">${esc(up)}</button>${memberAt("upper", up) ? " (" + esc(memberAt("upper", up).n) + ")" : ""}.</p>` : ""}`;
     if (!opts.quiet) history.replaceState({page: "map"}, "", districtHash(key, d));
     if (s && (opts.zoom || (s.bbox[2] - s.bbox[0]) < view.w * .05)) zoomTo(key, d, true);
     if (opts.scroll && !matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"});
   }
   window.mapSelect = (k, d) => { if (k !== key) { key = k; draw(); } select(d, {zoom: true, quiet: true}); };
-  $("#dchips").innerHTML = ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${k}" aria-pressed="${k === key}">${esc(P[k].name)} districts</button>`).join(" ");
+  $("#dchips").innerHTML = P.lower ? ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${k}" aria-pressed="${k === key}">${esc(P[k].name)} districts</button>`).join(" ") : "";
   $("#dchips").addEventListener("click", e => { const b = e.target.closest("[data-ch]"); if (!b || b.dataset.ch === key) return; const was = picked, wasKey = key; key = b.dataset.ch; draw();
     const next = was && (key === "upper" ? (wasKey === "lower" ? upperOf(was) : null) : null); select(next && shapeOf(key, next) ? next : null, {quiet: !next}); if (!next) history.replaceState({page: "map"}, "", "#map"); });
   const zooms = (P.zooms || []).map(z => { const c = [[z.box[0], z.box[1]], [z.box[2], z.box[1]], [z.box[0], z.box[3]], [z.box[2], z.box[3]]].map(p => albersUsa(p[0], p[1])).filter(Boolean); if (c.length < 2) return null;
@@ -1141,7 +1147,7 @@ function initMap(){
   sel.addEventListener("change", () => { if (sel.value) select(sel.value, {zoom: true, scroll: true}); });
   side.addEventListener("click", e => { const z = e.target.closest("[data-zoomhere]"); if (z && picked) { zoomTo(key, picked, true); return; }
     const sd = e.target.closest("[data-sharedistrict]"); if (sd && picked) { const ms = membersAt(key, picked);
-      share({title: `${P.name} ${P[key].name} District ${picked}`, text: `${P.name} ${P[key].name} District ${picked} is ${ms.length ? "represented by " + listWords(ms.map(m => m.n + " (" + m.pn + ")")) : "vacant"}. Every district on the map${BOOT.has_money ? ", and who funds each campaign" : ""}:`, url: `${SHARE_BASE}/${districtHash(key, picked)}`, kind: "district", key: (key === "upper" ? "S-" : "H-") + picked}, sd); return; }
+      share({title: `${P.name} ${DN(key)} ${picked}`, text: `${P.name} ${DN(key)} ${picked} is ${ms.length ? "represented by " + listWords(ms.map(m => m.n + " (" + m.pn + ")")) : "vacant"}. Every district on the map${BOOT.has_money ? ", and who funds each campaign" : ""}:`, url: `${SHARE_BASE}/${districtHash(key, picked)}`, kind: "district", key: (key === "upper" ? "S-" : "H-") + picked}, sd); return; }
     const g = e.target.closest("[data-goto]"); if (g) { const [k, d] = g.dataset.goto.split(":"); key = k; draw(); select(d, {zoom: true}); } });
   /* pointer: a press that does not travel is a tap on a district; one that travels drags the map when it is zoomed in */
   let drag = null, dragged = false;
@@ -1180,8 +1186,8 @@ function renderRoster(){
       {key: "district", label: "District", num: true, first: "asc", val: r => dkey(r.d), html: r => `<a href="${districtHash(KEYOF[r.ch], r.d)}" title="Show it on the map">${esc(r.d)}</a>`},
       {key: "since", label: "In office since", num: true, first: "asc", val: r => r.f ? +r.f.slice(0, 4) : (r.fq ? (+(r.fq.match(/\d{4}/) || [0])[0] - .5 || null) : null), html: r => r.f ? esc(r.f.slice(0, 4)) : (r.fq ? `<span class="muted">${esc(r.fq)}</span>` : `<span class="muted">not on file</span>`)}];
     const rowsNow = () => { const q = f.q.trim().toLowerCase(); return all.filter(r => (!f.ch || r.ch === f.ch) && (!f.pt || r.p === f.pt) && (!q || r.n.toLowerCase().includes(q) || String(r.d).toLowerCase() === q || ("district " + r.d).toLowerCase() === q)); };
-    $("#rchips").innerHTML = `<button class="chip" type="button" data-ch="" aria-pressed="true">Both chambers</button> ` + ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${CHOF[k]}" aria-pressed="false">${esc(P[k].name)}</button>`).join(" ")
-      + ` <button class="chip" type="button" data-pt="" aria-pressed="true">All parties</button> ` + parties.map(([c, n]) => `<button class="chip" type="button" data-pt="${esc(c)}" aria-pressed="false">${esc(n)}</button>`).join(" ");
+    $("#rchips").innerHTML = (P.lower ? `<button class="chip" type="button" data-ch="" aria-pressed="true">Both chambers</button> ` + ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${CHOF[k]}" aria-pressed="false">${esc(P[k].name)}</button>`).join(" ") : "")
+      + (parties.length > 1 ? ` <button class="chip" type="button" data-pt="" aria-pressed="true">All parties</button> ` + parties.map(([c, n]) => `<button class="chip" type="button" data-pt="${esc(c)}" aria-pressed="false">${esc(n)}</button>`).join(" ") : "");
     roster = gridTable(host, {cols, rows: rowsNow(), sort: [{key: "name", dir: "asc"}], page: 25, empty: "No member matches.", count: rows => `${rows.length.toLocaleString()} member${rows.length === 1 ? "" : "s"}`});
     $("#rtools").addEventListener("click", e => { const b = e.target.closest("button.chip"); if (!b) return; const kind = "ch" in b.dataset ? "ch" : "pt"; f[kind] = b.dataset[kind];
       $$(`#rtools button[data-${kind}]`).forEach(x => x.setAttribute("aria-pressed", x === b)); roster.setRows(rowsNow()); });
@@ -1355,7 +1361,7 @@ function renderMemberPage(id, show){
     if (!L) { box.innerHTML = `<div class="empty">That member isn't in this record. <a href="#members">See all members</a></div>`; return; }
     const key = KEYOF[L.ch], up = key === "lower" ? upperOf(L.d) : null, other = up ? memberAt("upper", up) : null, insiders = key === "upper" ? lowersOf(L.d).flatMap(d => membersAt("lower", d)) : [];
     const mates = membersAt(key, L.d).filter(m => m.id !== id), others = mates.concat(other ? [other] : [], insiders), want = seatsIn(key, L.d);
-    const why = [want > 1 ? `${P[key].name} District ${L.d} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${P.upper.name} District ${up}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${P.upper.name} District ${L.d}.` : ""].filter(Boolean).join(" ");
+    const why = [want > 1 ? `${DN(key)} ${L.d} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${DN("upper")} ${up}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${DN("upper")} ${L.d}.` : ""].filter(Boolean).join(" ");
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
     box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}, ${esc(P.name)}</div></div></div>
       <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${ract("map", "District " + L.d + " on the map", districtHash(key, L.d), true)}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>

@@ -31,10 +31,60 @@ def patient_lookups(tries=24):
     socket.getaddrinfo = lookup
 
 
+_issuer_contexts = {}
+
+
+def _context_with_issuer(host):
+    """For a server that leaves its issuer's certificate out of the handshake. Browsers quietly fetch the missing
+    certificate from the address printed in the server's own certificate; Python does not, and fails with "unable to
+    get local issuer certificate". This does what a browser does, and no less strictly: the fetched certificate may
+    help build the chain, but the chain must still end at a root that certifi trusts (partial chains are switched
+    off for this context), and the host name is still checked. Returns None if it cannot be done."""
+    if host in _issuer_contexts:
+        return _issuer_contexts[host]
+    ctx = None
+    try:
+        import ssl
+        import tempfile
+        import certifi
+        pem = ssl.get_server_certificate((host, 443), timeout=20)          # an unverified look, only to read where the issuer's certificate is published
+        with tempfile.NamedTemporaryFile("w", suffix=".pem", delete=False) as fh:
+            fh.write(pem)
+        try:
+            published = ssl._ssl._test_decode_cert(fh.name).get("caIssuers") or ()
+        finally:
+            os.unlink(fh.name)
+        for address in published:
+            if not address.lower().startswith("http://"):                 # these addresses are plain http by design; the certificate proves itself by its signature
+                continue
+            with urlopen(Request(address, headers={"User-Agent": UA}), timeout=30) as r:
+                raw = r.read(65536)
+            issuer = raw.decode("ascii") if raw.lstrip().startswith(b"-----BEGIN") else ssl.DER_cert_to_PEM_cert(raw)
+            ctx = ssl.create_default_context(cafile=certifi.where())
+            ctx.verify_flags &= ~getattr(ssl, "VERIFY_X509_PARTIAL_CHAIN", 0)      # the fetched certificate can never be the end of the chain
+            ctx.load_verify_locations(cadata=issuer)
+            break
+    except Exception:  # noqa: BLE001  any trouble at all: leave it, and the ordinary failure stands
+        ctx = None
+    _issuer_contexts[host] = ctx
+    return ctx
+
+
 def get(url, timeout=120, accept="*/*"):
     patient_lookups()
-    with urlopen(Request(url, headers={"User-Agent": UA, "Accept": accept}), timeout=timeout) as r:
-        return r.read()
+    req = Request(url, headers={"User-Agent": UA, "Accept": accept})
+    try:
+        with urlopen(req, timeout=timeout) as r:
+            return r.read()
+    except URLError as e:
+        reason = getattr(e, "reason", None)
+        if getattr(reason, "verify_code", None) != 20:                     # 20: "unable to get local issuer certificate"
+            raise
+        ctx = _context_with_issuer(req.host)
+        if ctx is None:
+            raise
+        with urlopen(req, timeout=timeout, context=ctx) as r:
+            return r.read()
 
 
 def download(url, path, max_age_days, tries=6, say=print):

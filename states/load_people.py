@@ -256,7 +256,14 @@ def main():
                 inner = re.search(r"^https?://.+?(https?://.+)$", url)       # one whole address pasted inside another: the inner one is the picture
                 parts = urlsplit(inner.group(1) if inner else url)
                 safe = urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%:@!$&'()*+,;=~-._"), parts.query, ""))
-                raw = net.get(safe, timeout=60)
+                for attempt in range(3):
+                    try:
+                        raw = net.get(safe, timeout=60)
+                        break
+                    except HTTPError as e:                                 # "too many requests": wait, then ask again, more slowly each time
+                        if e.code not in (429, 503) or attempt == 2:
+                            raise
+                        time.sleep(5 * (attempt + 1))
                 open(path, "wb").write(raw)
                 return pid, url, raw, None
             except (HTTPError, URLError, OSError, ValueError, HTTPException) as e:

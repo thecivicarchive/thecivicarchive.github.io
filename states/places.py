@@ -66,6 +66,81 @@ PLACES = {
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
         "money": None,
     },
+    # The second ring (2026-09-20): every state that touches the five above. Election years checked the same day:
+    # Michigan and Missouri against the published 2026 election lists and the roster; Wyoming and Nebraska against the
+    # roster's start dates (every Wyoming senator who began in January 2025 sits in an even-numbered district, every
+    # Nebraska one in an odd-numbered district, so those seats are not up again until 2028).
+    "mi": {
+        "code": "MI", "name": "Michigan", "fips": "26",
+        "legislature": "Michigan Legislature", "session": "103rd Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.legislature.mi.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 38, "term_years": 4, "next": 2026},      # all 38 seats, with the governor's race
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 110, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Detroit", "box": [-83.55, 42.10, -82.85, 42.75]}, {"name": "Grand Rapids", "box": [-85.85, 42.80, -85.45, 43.10]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "il": {
+        "code": "IL", "name": "Illinois", "fips": "17",
+        "legislature": "Illinois General Assembly", "session": "104th General Assembly, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.ilga.gov/",
+        # Illinois senators serve two four-year terms and one two-year term in each ten years, by groups of districts,
+        # so no single rule says when a Senate seat is next up; it is left out.
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 59, "term_years": 4},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 118, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Chicago", "box": [-88.30, 41.55, -87.50, 42.20]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "mo": {
+        "code": "MO", "name": "Missouri", "fips": "29",
+        "legislature": "Missouri General Assembly", "session": "103rd General Assembly, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.mo.gov/government/legislative-branch/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 34, "term_years": 4, "next": {"even": 2026, "odd": 2028}},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 163, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "St. Louis", "box": [-90.75, 38.45, -90.10, 38.90]}, {"name": "Kansas City", "box": [-94.80, 38.85, -94.30, 39.35]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "ne": {
+        "code": "NE", "name": "Nebraska", "fips": "31",
+        "legislature": "Nebraska Legislature", "session": "109th Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://nebraskalegislature.gov/",
+        # one chamber, elected on a ballot without party labels; its members are called senators
+        "note": "Nebraska elects its one-chamber Legislature on a ballot without party labels, so every member is listed as nonpartisan.",
+        "upper": {"name": "Legislature", "title": "Senator", "short": "Sen.", "seats": 49, "term_years": 4, "district_name": "Legislative District",
+                  "next": {"even": 2026, "odd": 2028}},
+        "zooms": [{"name": "Omaha", "box": [-96.30, 41.10, -95.85, 41.40]}, {"name": "Lincoln", "box": [-96.85, 40.70, -96.55, 40.95]}],
+        "executive": "Governor",
+        "parties": {"Nonpartisan": ("I", "Nonpartisan"), "Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "wy": {
+        "code": "WY", "name": "Wyoming", "fips": "56",
+        "legislature": "Wyoming Legislature", "session": "68th Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.wyoleg.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 31, "term_years": 4, "next": {"odd": 2026, "even": 2028}},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 62, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Cheyenne", "box": [-104.95, 41.05, -104.65, 41.25]}, {"name": "Casper", "box": [-106.50, 42.75, -106.15, 42.95]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "mt": {
+        "code": "MT", "name": "Montana", "fips": "30",
+        "legislature": "Montana Legislature", "session": "69th Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.legmt.gov/",
+        # half the Senate is elected every two years, by a list of districts rather than by odd and even; left out
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 50, "term_years": 4},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 100, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Billings", "box": [-108.75, 45.65, -108.35, 45.90]}, {"name": "Missoula", "box": [-114.20, 46.75, -113.85, 47.00]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
     "ia": {
         "code": "IA", "name": "Iowa", "fips": "19",
         "legislature": "Iowa General Assembly", "session": "91st General Assembly, 2025-2026", "since": "2025-01-01",

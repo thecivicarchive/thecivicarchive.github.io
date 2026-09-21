@@ -74,7 +74,7 @@ def check(code, db, districts):
     one = lambda q, *a: con.execute(q, a).fetchone()[0]
     lines, waiting = [f"# {P['name']}: what is loaded, {dt.datetime.now():%Y-%m-%d %H:%M}\n", "| Part | Result |", "| --- | --- |"], []
     if has("legislators"):
-        for ch, key in (("Senate", "upper"), ("House", "lower")):
+        for ch, key in (("Senate" if P.get("lower") else "Legislature", "upper"), ("House", "lower")):
             if P.get(key):
                 n = one("SELECT COUNT(*) FROM legislators WHERE is_current = 1 AND chamber = ?", ch)
                 lines.append(f"| {P[key]['name']} members | {n} of {P[key]['seats']} seats{'' if n == P[key]['seats'] else ' (the rest are vacant or not yet on file)'} |")
@@ -87,7 +87,7 @@ def check(code, db, districts):
         d = json.load(open(districts, encoding="utf-8"))
         lines.append(f"| District lines | {len(d.get('upper', {}))} upper, {len(d.get('lower', {}))} lower ({d.get('vintage', '')}) |")
         if has("legislators"):
-            for ch, key in (("Senate", "upper"), ("House", "lower")):
+            for ch, key in (("Senate" if P.get("lower") else "Legislature", "upper"), ("House", "lower")):
                 lost = [r[0] for r in con.execute("SELECT district FROM legislators WHERE is_current = 1 AND chamber = ?", (ch,)) if r[0] not in d.get(key, {})]
                 if lost:
                     waiting.append(f"{len(lost)} {ch} member(s) sit in a district with no shape: {', '.join(lost[:8])}")

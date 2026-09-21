@@ -10,6 +10,31 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.028 — 2026-09-20 — The second ring: six more states
+
+- Michigan, Illinois, Missouri, Nebraska, Wyoming and Montana are open, every
+  state that touches the five before them. Eleven states now, 1,535
+  legislators in all, each with a page and a preview card, and each state with
+  its statewide offices.
+- Nebraska has one chamber, elected without party labels. Its page says "The
+  chamber", calls its districts legislative districts, lists every member as
+  nonpartisan, and says why.
+- Which House districts sit inside which Senate district is still worked out
+  from the lines themselves. That showed that Michigan, Missouri and Wyoming
+  draw their two chambers' districts separately, so their pages say the
+  districts overlap rather than nest; Illinois and Montana do nest.
+- When a seat is next on the ballot, checked before being shown: all of
+  Michigan's Senate in 2026; Missouri's even-numbered and Nebraska's
+  even-numbered districts in 2026; Wyoming's odd-numbered in 2026. Illinois's
+  and Montana's Senates follow no odd-and-even rule, so nothing is claimed.
+- Portraits: two legislatures' picture servers leave a link out of their
+  security certificate's chain, which browsers quietly repair. The downloader
+  now repairs it the same way, without loosening the check, and Illinois went
+  from 3 portraits to 178. Where a roster address is dead or a site refuses
+  automated requests, a party initial still stands in.
+- Vacant seats are shown as vacant: one Senate and five House seats in
+  Missouri, one Senate seat in Iowa, one House seat in Minnesota.
+
 ## v4.0.027 — 2026-09-20 — Four neighbours, and the statewide offices
 
 - Wisconsin, North Dakota, South Dakota and Iowa are open, each with the same

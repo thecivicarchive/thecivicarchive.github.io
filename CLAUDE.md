@@ -216,7 +216,14 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
-- States open so far (v4.0.027): Minnesota, Wisconsin, North Dakota, South Dakota, Iowa. To add a state: add it to
+- States open so far (v4.0.028): Minnesota; then Wisconsin, North Dakota, South Dakota, Iowa; then the second ring,
+  Michigan, Illinois, Missouri, Nebraska, Wyoming, Montana. A one-chamber legislature (Nebraska) has no `"lower"` in
+  `places.py`, files its members under the chamber "Legislature", and may give its districts their own name
+  (`"district_name"`) and the page a sentence of explanation (`"note"`).
+- `states/net.get` repairs one thing a browser repairs: a server that leaves its issuer's certificate out of the
+  handshake (cdn.ilga.gov, www.house.mi.gov). It fetches that certificate from the address printed in the server's
+  own certificate and still requires the chain to end at a root certifi trusts. Never turn certificate checking off
+  to get a file. To add a state: add it to
   `states/places.py` (chamber names and seats, how its parties are named, Census number, map zooms; leave `"next"`
   out unless the election year has been checked against the record, and give it by odd and even district where terms
   are staggered), then `python run_states.py <code> people`, `districts`, `site`. `build_state_dev.py --place all`

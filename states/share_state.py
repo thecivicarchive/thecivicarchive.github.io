@@ -110,7 +110,7 @@ def draw_site(P, stats, districts, legislators):
         y += 40
     d.text((60, y + 10), "From public records. No ads, no donors.", font=f2, fill=sc.MUTED)
     if districts.get("upper"):
-        draw_districts(im, districts["upper"], districts.get("q", 400), party_fills(legislators, "Senate"), (810, 96, 330, 410))
+        draw_districts(im, districts["upper"], districts.get("q", 400), party_fills(legislators, "Senate" if P.get("lower") else "Legislature"), (810, 96, 330, 410))
     footer(d, "Who represents you, and who funds their campaigns" if stats.get("has_money") else "Who represents you, from public records")
     return im
 
@@ -128,7 +128,7 @@ def month_year(date):
 
 
 def member_inputs(P, bio, L, prof, has_photo):
-    key = "upper" if L["ch"] == "Senate" else "lower"
+    key = "lower" if L["ch"] == "House" else "upper"                    # a one-chamber legislature files its members under "Legislature"
     ch = P.get(key) or {}
     S, M = prof.get("service") or {}, prof.get("money") or {}
     since = (S.get("since") or "")[:4] or S.get("vague") or ""
@@ -240,7 +240,7 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
     legislators, districts, st = data["legislators"], data["districts"], data["stats"]
     seats = {bio: [L["ch"], L["d"], L["p"]] for bio, L in legislators.items()}
     shape_mark = hashlib.sha1(json.dumps([districts.get("vintage"), len(districts.get("upper", {})), len(districts.get("lower", {}))]).encode()).hexdigest()[:8]
-    fills = {"upper": party_fills(legislators, "Senate"), "lower": party_fills(legislators, "House")}
+    fills = {"upper": party_fills(legislators, "Senate" if P.get("lower") else "Legislature"), "lower": party_fills(legislators, "House")}
     card("og/site.png", {"name": P["name"], "members": st["members"], "districts": st["districts"], "seats": sorted(seats.values()), "shapes": shape_mark,
                          "money": bool(st.get("has_money")), "v": 1},
          lambda: draw_site(P, st, districts, legislators))
