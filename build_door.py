@@ -46,7 +46,7 @@ def state_facts(code, site_root):
     P = PLACES[code]
     db, shapes = os.path.join(HERE, f"state_{code}.sqlite"), os.path.join(HERE, f"state_{code}_districts.json")
     out = {"code": P["code"], "name": P["name"], "legislature": P["legislature"], "live": os.path.exists(os.path.join(site_root, code, "index.html")),
-           "loaded": []}
+           "loaded": [], "coming": []}
     if os.path.exists(db):
         con = sqlite3.connect(db)
         has = lambda t: con.execute("SELECT 1 FROM sqlite_master WHERE name = ?", (t,)).fetchone() is not None
@@ -59,6 +59,8 @@ def state_facts(code, site_root):
             out["loaded"].append(f"{con.execute('SELECT COUNT(DISTINCT vote_id) FROM member_votes').fetchone()[0]:,} recorded votes")
         if has("state_gifts") and con.execute("SELECT COUNT(*) FROM state_gifts").fetchone()[0]:
             out["loaded"].append("campaign money")
+        if not (has("bills") and has("member_votes")):          # a state can open before its bills arrive; the card says so
+            out["coming"].append("bills and recorded votes")
     if os.path.exists(shapes):
         d = json.load(open(shapes, encoding="utf-8"))
         out["loaded"].insert(1 if out["loaded"] else 0, f"{len(d.get('upper', {})) + len(d.get('lower', {}))} districts")
@@ -342,8 +344,8 @@ function showStates(){
       return `<path class="st ${cls}${code === myState ? " mine" : ""}" d="${s.d}" data-code="${code}" ${cls ? 'tabindex="0" role="button"' : ""}><title>${esc(s.name)}${p ? (p.live ? ": open" : ": being built") : ": not started"}</title></path>`; }).join(""));
     svg.addEventListener("click", e => { const st = e.target.closest(".st"); if (st) openState(st.dataset.code); });
     svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("st")) { e.preventDefault(); openState(e.target.dataset.code); } }); }
-  $("#statecards").innerHTML = S.map(s => `<article class="scard" id="sc-${esc(s.code)}"><span class="pill">${s.live ? "Open now" : (s.loaded.length ? "Being built" : "Planned")}</span><h3>${esc(s.name)}</h3>
-    <p>${s.live ? esc(s.legislature) + ": " + esc(s.loaded.join(", ")) + "." : (s.loaded.length ? "Loaded so far: " + esc(s.loaded.join(", ")) + ". Bills and recorded votes come next, then the pages open." : "Not started.")}</p>${s.live ? `<a class="open" href="${esc(s.code.toLowerCase())}/" data-state="${esc(s.code)}">Open ${esc(s.name)}</a>` : ""}</article>`).join("");
+  $("#statecards").innerHTML = S.map(s => `<article class="scard" id="sc-${esc(s.code)}"><span class="pill">${s.live ? ((s.coming || []).length ? "Open, still filling in" : "Open now") : (s.loaded.length ? "Being built" : "Planned")}</span><h3>${esc(s.name)}</h3>
+    <p>${s.live ? esc(s.legislature) + ": " + esc(s.loaded.join(", ")) + "." + ((s.coming || []).length ? " Still to come: " + esc(s.coming.join(", ")) + "." : "") : (s.loaded.length ? "Loaded so far: " + esc(s.loaded.join(", ")) + ". Bills and recorded votes come next, then the pages open." : "Not started.")}</p>${s.live ? `<a class="open" href="${esc(s.code.toLowerCase())}/" data-state="${esc(s.code)}">Open ${esc(s.name)}</a>` : ""}</article>`).join("");
   $("#offmap").innerHTML = (DOOR.offmap || []).map(o => `<span>${esc(o[1])}: planned</span>`).join("");
 }
 function openState(code){

@@ -8,13 +8,22 @@ PLACES = {
     "mn": {
         "code": "MN", "name": "Minnesota", "fips": "27",
         "legislature": "Minnesota Legislature", "session": "94th Legislature, 2025-2026", "since": "2025-01-01",
-        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 67, "term_years": 4},
-        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 134, "term_years": 2},
+        "url": "https://www.leg.mn.gov/",
+        # "next" is the year every seat in the chamber is next on the ballot (senators elected in 2022 serve four years)
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 67, "term_years": 4, "next": 2026},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 134, "term_years": 2, "next": 2026},
+        "nested": True,                        # each Senate district is made of the House districts that share its number (45 holds 45A and 45B)
+        "zooms": [{"name": "Twin Cities", "box": [-93.75, 44.65, -92.80, 45.30]}],      # where districts are too small to tap: west, south, east, north
         "executive": "Governor",
         "parties": {"Democratic-Farmer-Labor": ("D", "DFL"), "Democratic": ("D", "DFL"), "Republican": ("R", "Republican"),
                     "Independent": ("I", "Independent")},
         "bill_prefixes": {"HF": "House File", "SF": "Senate File"},
         "money": "mn_cfb",                     # which campaign-finance loader this state uses; None until one is written
+        "money_agency": {"name": "the Minnesota Campaign Finance and Public Disclosure Board", "url": "https://cfb.mn.gov/"},
+        # the Board's own page for a committee, by kind of committee ({id} is its registration number)
+        "money_links": {"pcf": "https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/political-committee-fund/{id}/",
+                        "party": "https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/party-unit/{id}/",
+                        "cand": "https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/candidates/{id}/"},
     },
 }
 

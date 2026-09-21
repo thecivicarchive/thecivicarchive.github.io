@@ -2,8 +2,8 @@
 """
 run_states.py - the state side of The Civic Archive, one state at a time.
 
-    python run_states.py mn              # everything for Minnesota: people, districts, bills, money, check
-    python run_states.py mn people       # one stage: people | districts | bills | money | check
+    python run_states.py mn              # everything for Minnesota: people, districts, bills, money, check, site
+    python run_states.py mn people       # one stage: people | districts | bills | money | check | site
 
 It uses the same private Python environment as run_all.py (.venv) and writes a log to ./logs. Each state has its
 own database, state_<code>.sqlite, laid out like congress_119.sqlite, and its own district file,
@@ -15,6 +15,7 @@ Stages
   bills      bills and recorded votes (LegiScan weekly files; needs John's free key in legiscan_key.txt)
   money      campaign money from the state's own agency, where a loader exists (Minnesota: Campaign Finance Board)
   check      a short report: what is loaded, what is missing, what does not add up
+  site       the state's draft pages, written to site/dev/<code>/ (build_state_dev.py), and the front door beside them
 """
 
 import argparse
@@ -27,7 +28,7 @@ import sys
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STAGES = ["people", "districts", "bills", "money", "check"]
+STAGES = ["people", "districts", "bills", "money", "check", "site"]
 LOG = None
 
 
@@ -48,8 +49,9 @@ def venv_python():
 
 
 def run(module, *args, allow_fail=False):
-    cmd = [sys.executable, "-m", module] + [str(a) for a in args]
-    say(f"$ python -m {module} {' '.join(str(a) for a in args)}")
+    script = module.endswith(".py")                     # the page builders are scripts next to this one, not modules in states/
+    cmd = [sys.executable] + ([os.path.join(HERE, module)] if script else ["-m", module]) + [str(a) for a in args]
+    say(f"$ python {'' if script else '-m '}{module} {' '.join(str(a) for a in args)}")
     env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONUTF8="1")
     t0 = time.time()
     proc = subprocess.Popen(cmd, cwd=HERE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env)
@@ -149,7 +151,8 @@ def main():
             run("states.load_legiscan", "--place", code, "--db", db, "--cache-dir", cache, allow_fail=True)
         elif st == "money":
             if P.get("money") == "mn_cfb":
-                run("states.money_mn", "--db", db, "--cache-dir", cache, "--since", "2016")      # the same window as the federal donor pages
+                # the same window as the federal donor pages: the 2016 through 2026 cycles, and the 2016 cycle begins in January 2015
+                run("states.money_mn", "--db", db, "--cache-dir", cache, "--since", "2015")
             else:
                 say(f"  No campaign-money loader for {P['name']} yet; the site will say it is coming.")
         elif st == "check":
@@ -157,6 +160,10 @@ def main():
             open(os.path.join(HERE, f"state_{code}_report.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
             for ln in lines:
                 say("  " + ln)
+        elif st == "site":
+            site = os.path.join(HERE, "site", "dev")
+            run("build_state_dev.py", "--place", code, "--split", os.path.join(site, code))
+            run("build_door.py", "--out", os.path.join(site, "index.html"), "--draft")      # the front door lists which states are open
     say(f"\nDone. Log: {LOG.name}")
 
 

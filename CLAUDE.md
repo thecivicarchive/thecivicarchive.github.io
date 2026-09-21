@@ -105,7 +105,8 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `load_profiles.py` | What the member cards say about who someone is: every term served, committee seats and official social accounts from the roster project, and the opening paragraph of their Wikipedia article (cached in `profile_cache/`, one polite request a second). The Wikipedia text is not a government record; the site fences it off, says so, credits it and links to it |
 | `load_donors.py` | Campaign money from the Federal Election Commission's public bulk files, 2016 through 2026 (about 170 MB, cached in `fec_cache/`, no key): which FEC candidate numbers belong to which member, each campaign's own totals, and every itemized payment by a committee to, for, or against a member. Organizations only; memo lines are left out, as the FEC's totals leave them out |
 | `money_views.py` | Shapes those tables for the site: each member's top donors by cycle and office, every payment behind them, and outside spending kept apart. `build_site_dev.py` calls it; it downloads nothing |
-| `run_states.py`, `states/` | The state side: `places.py` (what each state calls its chambers and parties), `net.py` (polite, patient downloads), `load_people.py`, `load_sld.py`, `load_legiscan.py`, `money_mn.py`. See "The state side" below |
+| `run_states.py`, `states/` | The state side: `places.py` (what each state calls its chambers and parties, its election year, map zooms and the money agency's page addresses), `net.py` (polite, patient downloads), `load_people.py`, `load_sld.py`, `load_legiscan.py`, `money_mn.py`, `money_views.py` (shapes a state's money tables for the pages, as `money_views.py` does federally). See "The state side" below |
+| `build_state_dev.py` | Builds one state's draft pages into `site/dev/<code>/` from `state_<code>.sqlite`, the district file and `places.py`. It takes the styles and the shared parts of the page from `build_site_dev.py` at build time (the landmarks are listed in `BORROWED`), so the two sides look and behave alike; if a landmark goes missing the build stops and names it |
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |
 | `us_districts_albers.json` | The district lines the site embeds (the kit ships the 2016 fallback; the districts stage replaces it with the current Census lines) |
@@ -139,8 +140,8 @@ small page that welcomes everyone, with a ring of cards turning in 3D (one card 
 three-second page-turn into the chosen space; its State card opens a map of the country built from
 `states/places.py` and whatever each state's database holds. The federal side lives one step inside, in
 `site/dev/us/` (thecivicarchive.github.io/dev/us/), and each state will live in its own two-letter folder
-(`site/dev/mn/`). `Preview dev site.bat` builds the federal side and the door; `Publish dev site.bat` mirrors the
-whole of `site/dev`.
+(`site/dev/mn/`, written by `build_state_dev.py`). `Preview dev site.bat` builds the federal side, Minnesota and the
+door; `Publish dev site.bat` mirrors the whole of `site/dev`.
 
 The federal draft build writes two things. `site/dev.html` is the one-file archive (everything inline; the 16 MB rule
 in "Definition of done" applies to it). `site/dev/us/` is the fast site: `index.html` is a small shell, and
@@ -168,8 +169,10 @@ John's plan (2026-09-20): the same record for every state legislature, Minnesota
 plus DC, Puerto Rico and Guam; after that, one shared home page with a 3D carousel of cards (one card per level of
 government) and a three-second page-turn into the chosen space.
 
-Everything goes through `run_states.py`: `python run_states.py mn` runs people, districts, bills, money and check;
-`python run_states.py mn <stage>` runs one. Each state has its own database, `state_<code>.sqlite`, laid out like
+Everything goes through `run_states.py`: `python run_states.py mn` runs people, districts, bills, money, check and
+site; `python run_states.py mn <stage>` runs one. The `site` stage runs `build_state_dev.py` (the state's pages,
+`site/dev/mn/`) and then `build_door.py`, so the front door knows the state is open; `Preview dev site.bat` does the
+same after the federal build. Each state has its own database, `state_<code>.sqlite`, laid out like
 `congress_119.sqlite` (the member id column is still called `bioguide_id` so the same code reads both), its own
 district file `state_<code>_districts.json`, and a plain report `state_<code>_report.md`. Downloads live in
 `states_cache/`. The federal database is never touched by the state pipeline.
@@ -191,7 +194,26 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   name and a chamber the member has served in, and must be the only fit. The run lists anything left out.
 - Rollout rule: Minnesota is built complete, money included. Every other state goes live once people, districts,
   bills and votes are in, with a note that campaign money is coming; money is added state by state.
-- Windows match the federal side: bills and votes from January 2025, money 2016 through 2026.
+- Windows match the federal side: bills and votes from January 2025, money for the 2016 through 2026 cycles. A cycle
+  begins in the odd year, so Minnesota's money is loaded from January 2015 and shown in the Campaign Finance Board's
+  own two-year segments (2015-16 through 2025-26).
+- The state pages (version 4.0.025 on): home with "who represents you" (location worked out on the device, or pick a
+  district), the district map for both chambers, a roster table, a page per member (service, committees, money,
+  the fenced Wikipedia paragraph) and a Sources page. Bills, votes and a statewide Money page are marked as coming
+  until they are loaded. A state that is open without its bills shows on the front door as "Open, still filling in".
+- Say only what the record supports. The Open States roster has no start date for many long-serving members (43 in
+  Minnesota), so their pages say "before 2023" or "2009 or earlier"; never fill in a year from memory. The Board's
+  contribution file lists only givers of more than $200 a year and leaves out the public subsidy, so the pages say the
+  totals are lower than everything a campaign took in.
+- A member's own earlier committee (a House account passed to a Senate one) is "moved in", not a donor, as on the
+  federal side. The build lists every committee it treated that way by name; read that list after a money reload.
+- Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the
+  database and is never written to a page, and the contribution file's employer and in-kind description columns are
+  not loaded at all.
+- "Forget my location" on a state page clears the same `pin` the federal pages keep, plus the state's own
+  `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
+- When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
+  and look at a state page too.
 - LegiScan and Open States do not cover Guam, and Puerto Rico's record is in Spanish with its own parties. Those two
   come last, with their own loaders.
 

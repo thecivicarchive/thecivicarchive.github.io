@@ -10,6 +10,38 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.025 — 2026-09-20 — Minnesota opens
+
+- Minnesota now has pages of its own, one step inside the front door under
+  "mn", in the same look as the federal side. On the front door's map
+  Minnesota is marked "Open, still filling in".
+- Who represents you: tap "Use my location", or pick your Senate or House
+  district, and your state senator and representative appear with a small map
+  of your district. Your location is worked out on your device, kept only
+  there rounded to about half a mile, and "Forget my location" clears it on
+  the federal pages too.
+- A map of all 67 Senate and 134 House districts, colored by the party of the
+  member who holds each one. Switch chambers, zoom to the Twin Cities where
+  districts are a few blocks wide, drag the map when zoomed in, tap a district
+  for its member. The one vacant House seat (21A) is shown as vacant.
+- Every one of the 200 legislators has a page: how long they have served, the
+  committees they sit on, the organizations that fund their campaigns, and one
+  fenced paragraph from Wikipedia. The Democratic-Farmer-Labor Party is called
+  the DFL, as Minnesota calls it.
+- Campaign money, from the Campaign Finance Board's public files, is grouped
+  in two-year segments the way the Board files it, 2015-16 through 2025-26.
+  Organizations are named and link to their page at the Board; people,
+  lobbyists included, are only ever totals; outside spending is kept apart.
+  Money a member moved from an earlier committee of their own (a House account
+  passed to a Senate one) is shown as "moved in", not as a donor.
+- Said plainly where the record is thin: the roster does not record when 43
+  long-serving members began, so their pages say "before 2023" rather than
+  guess a year. The Board's file lists only givers of more than $200 a year,
+  so its totals are lower than everything a campaign took in, and the page
+  says so.
+- Still to come for Minnesota: bills and recorded votes, then a statewide
+  Money page.
+
 ## v4.0.024 — 2026-09-20 — The front door opens
 
 - Fixed: pressing a card on the front door did nothing. A press now opens the

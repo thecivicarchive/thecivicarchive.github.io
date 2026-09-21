@@ -1,4 +1,4 @@
-# Minnesota: what is loaded, 2026-09-20 17:50
+# Minnesota: what is loaded, 2026-09-20 19:45
 
 | Part | Result |
 | --- | --- |
@@ -7,7 +7,7 @@
 | Parties | DFL 101, Republican 99 |
 | Portraits / Wikipedia paragraphs | 200 / 194 |
 | District lines | 67 upper, 134 lower (2024 Census Bureau cartographic boundary files) |
-| Campaign money, 2016 to 2026 | 200 of 200 members matched to a committee; $7.6M from named organizations; $44.7M of outside spending |
+| Campaign money, 2015 to 2026 | 200 of 200 members matched to a committee; $7.8M from named organizations; $44.7M of outside spending |
 
 ## Still to do
 
