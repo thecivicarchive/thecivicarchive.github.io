@@ -10,6 +10,29 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.029 — 2026-09-20 — The third ring: ten more states
+
+- Indiana, Ohio, Kentucky, Tennessee, Arkansas, Oklahoma, Kansas, Colorado,
+  Utah and Idaho are open: twenty-one states now, 2,840 legislators, each with
+  a page and a preview card, and each state with its statewide offices.
+- Idaho elects two representatives from every district, by seat. The record
+  files them as 1A and 1B, but both answer to the whole of district 1, so the
+  pages show "District 1, Seat A" and find you three legislators, as in the
+  Dakotas.
+- Statewide offices are whatever the public roster carries for that state:
+  Arkansas's list includes its Auditor and Treasurer, Tennessee's has two
+  offices, Utah's three. The page says so rather than promising a fixed four.
+- When a seat is next on the ballot, checked before being shown: Ohio's and
+  Tennessee's odd-numbered Senate districts and Kentucky's and Oklahoma's
+  even-numbered ones vote in 2026; all of Kansas's Senate votes in 2028; all
+  of Idaho's legislature in 2026. Indiana's, Arkansas's, Colorado's and Utah's
+  Senates rotate by a list of districts, so nothing is claimed for them.
+- Worked out from the lines: Ohio and Idaho nest their House districts inside
+  Senate districts; Indiana, Kentucky, Tennessee, Arkansas, Oklahoma, Kansas,
+  Colorado and Utah do not, and their pages say the districts overlap.
+- Parties are shown as the record has them, including Utah's one senator from
+  the Forward Party.
+
 ## v4.0.028 — 2026-09-20 — The second ring: six more states
 
 - Michigan, Illinois, Missouri, Nebraska, Wyoming and Montana are open, every

@@ -132,7 +132,7 @@ def member_inputs(P, bio, L, prof, has_photo):
     ch = P.get(key) or {}
     S, M = prof.get("service") or {}, prof.get("money") or {}
     since = (S.get("since") or "")[:4] or S.get("vague") or ""
-    line = f"{L['pn']} · {ch.get('title', 'Member')} for District {L['d']}, {P['name']}" + (f" · in the {ch.get('name', L['ch'])} since {since}" if since else "")
+    line = f"{L['pn']} · {ch.get('title', 'Member')} for District {L['d']}{(', Seat ' + L['seat']) if L.get('seat') else ''}, {P['name']}" + (f" · in the {ch.get('name', L['ch'])} since {since}" if since else "")
     comms = [c["name"] + (f" ({c['title']})" if c.get("title") else "") for c in (prof.get("committees") or [])]
     money = ""
     if M.get("cycles"):

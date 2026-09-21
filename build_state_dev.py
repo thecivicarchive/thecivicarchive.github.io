@@ -253,6 +253,17 @@ def collect(P, db_path, districts_path):
                 photos[bio] = bytes(blob)
 
     shapes = json.load(open(districts_path, encoding="utf-8")) if os.path.exists(districts_path) else {"q": 400, "upper": {}, "lower": {}, "vintage": ""}
+    # Idaho files its representatives as 1A and 1B, but both are elected by the whole of district 1: the letter names a
+    # seat, not a place. Where a member's district has no shape of its own and its number does, the letter is a seat.
+    seated = 0
+    for L in legislators.values():
+        have = shapes.get(key_of.get(L["ch"], "upper")) or {}
+        m = re.match(r"^(\d+)([A-Za-z])$", L["d"])
+        if have and L["d"] not in have and m and m.group(1) in have:
+            L["d"], L["seat"] = m.group(1), m.group(2).upper()
+            seated += 1
+    if seated:
+        print(f"    seats: {seated} member(s) are filed by seat letter within a district (1A and 1B share district 1); shown as District 1, Seat A")
     outline = state_paths(os.path.join(HERE, "us_states_albers.json")).get(P["code"]) or {"d": "", "bbox": [0, 0, 975, 610]}
     chambers, vacant, expect = {}, {}, {}
     for ch, key in (("Senate" if P.get("lower") else "Legislature", "upper"), ("House", "lower")):      # a one-chamber legislature files its members under "Legislature"
@@ -273,6 +284,7 @@ def collect(P, db_path, districts_path):
         want = lambda d: expect[key].get(d, 1)
         vacant[key] = [[d, want(d) - held.get(d, 0)] for d in sorted(names, key=natural) if held.get(d, 0) < want(d)]      # [district, seats empty]
         chambers[key] = {"name": P[key]["name"], "seats": P[key]["seats"], "filled": len(sitting), "per": per,
+                         "uniform": per > 1 and all(n == per for n in expect[key].values()),      # every district elects the same number (Idaho), or most do (the Dakotas)
                          "parties": sorted(tally.values(), key=lambda t: (-t[2], t[0])), "vacant": [d for d, _n in vacant[key]]}
     seats = {key: sorted(shapes.get(key, {}), key=natural) for key in ("upper", "lower")}
     nest = nesting(shapes)
@@ -348,7 +360,8 @@ def render(P, data, version, base_url, analytics):
     both = " and ".join(P[k]["name"] for k in ("upper", "lower") if P.get(k))
     per = ((st["chambers"].get("lower") or {}).get("per") or 1) if P.get("lower") else 1
     number = {1: "one", 2: "two", 3: "three"}.get(per, str(per))
-    titles = (f"{P['upper']['title'].lower()} and, in most districts, {number} {P['lower']['title'].lower()}s" if per > 1
+    most = "" if (st["chambers"].get("lower") or {}).get("uniform") else "in most districts, "
+    titles = (f"{P['upper']['title'].lower()} and{', ' if most else ' '}{most}{number} {P['lower']['title'].lower()}s" if per > 1
               else " and one ".join(P[k]["title"].lower() for k in ("upper", "lower") if P.get(k)))
     # what the page says about campaign money depends on whether this state's is loaded yet
     money = st["has_money"]
@@ -615,7 +628,7 @@ __ANALYTICS__
 <section class="offices" id="officials" hidden>
   <div class="wrap">
     <div class="sechead rv">
-      <div><h2>Statewide offices</h2><p>The offices that answer to the whole state rather than to one district. These are the ones the public roster carries; others that __NAME__ fills statewide, such as an auditor or a treasurer, are not in it yet.</p></div>
+      <div><h2>Statewide offices</h2><p>The offices that answer to the whole state rather than to one district. These are the ones the public roster carries for __NAME__; a state may fill other offices statewide that are not in it yet.</p></div>
     </div>
     <div class="offgrid" id="offgrid"></div>
   </div>
@@ -844,7 +857,7 @@ const natural = d => { const m = String(d || "").match(/^(\d+)(.*)$/); return m 
 const byDistrict = (a, b) => { const x = natural(a), y = natural(b); return x[0] - y[0] || x[1].localeCompare(y[1]); };
 const tone = p => p === "D" ? "var(--dem)" : (p === "R" ? "var(--rep)" : "var(--plum)");
 const chName = ch => (CH[ch] || {}).name || ch;
-const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, District ${L.d}`;
+const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, District ${L.d}${L.seat ? ", Seat " + L.seat : ""}`;
 /* which upper-chamber district a lower-chamber district sits inside: worked out from the lines when the page was built */
 const upperOf = l => (DATA.nest || {})[l] || null;
 const lowersOf = u => DATA.seats.lower.filter(l => upperOf(l) === String(u));
@@ -871,7 +884,7 @@ const fillOf = (ms, pre) => !ms.length ? null : (ms.every(m => pk(m.p) === pk(ms
 const mixDefs = pre => { const out = []; for (const a of ["D", "R", "I"]) for (const b of ["D", "R", "I"]) if (a !== b) out.push(`<linearGradient id="${pre}mix-${a}-${b}" x1="0" y1="0" x2="1" y2="0"><stop offset="50%" style="stop-color:${tone(a)}"/><stop offset="50%" style="stop-color:${tone(b)}"/></linearGradient>`); return `<defs>${out.join("")}</defs>`; };
 /* When service began: a year when the roster records one; otherwise only what it supports ("before 2023"). */
 const sinceWords = L => L.f ? L.f.slice(0, 4) : (L.fq || "");
-const titleLine = L => `${(CH[L.ch] || {}).title || "Member"} · ${L.pn}${sinceWords(L) ? " · in office since " + sinceWords(L) : ""}`;
+const titleLine = L => `${(CH[L.ch] || {}).title || "Member"}${L.seat ? ", Seat " + L.seat : ""} · ${L.pn}${sinceWords(L) ? " · in office since " + sinceWords(L) : ""}`;
 const memBtn = (L, extra, cls) => `<button class="ymem${cls ? " " + cls : ""}" type="button" data-id="${esc(L.id)}">${avatar(L.id, L.p, "md")}<span><b>${esc(L.n)}</b><span class="muted">${esc(extra || `${seatOf(L)} · ${L.pn}`)}</span></span><span class="go">Profile</span></button>`;
 document.addEventListener("click", e => { const b = e.target.closest("button.ymem[data-id]"); if (b) openMember(b.dataset.id); const o = e.target.closest("button.ymem[data-oid]"); if (o) openOfficial(o.dataset.oid); });
 /* statewide officials: the same card a legislator gets, led by the office instead of a district */
@@ -1183,9 +1196,9 @@ function renderRoster(){
       {key: "name", label: "Member", val: r => (r.ln || r.n) + " " + r.n, html: r => `<span class="pty" style="background:${tone(r.p)}"></span><a href="#member=${esc(r.id)}"><b>${esc(r.n)}</b></a>`},
       {key: "party", label: "Party", val: r => r.pn},
       {key: "chamber", label: "Chamber", val: r => chName(r.ch)},
-      {key: "district", label: "District", num: true, first: "asc", val: r => dkey(r.d), html: r => `<a href="${districtHash(KEYOF[r.ch], r.d)}" title="Show it on the map">${esc(r.d)}</a>`},
+      {key: "district", label: "District", num: true, first: "asc", val: r => dkey(r.d), html: r => `<a href="${districtHash(KEYOF[r.ch], r.d)}" title="Show it on the map">${esc(r.d)}</a>${r.seat ? ` <span class="muted">Seat ${esc(r.seat)}</span>` : ""}`},
       {key: "since", label: "In office since", num: true, first: "asc", val: r => r.f ? +r.f.slice(0, 4) : (r.fq ? (+(r.fq.match(/\d{4}/) || [0])[0] - .5 || null) : null), html: r => r.f ? esc(r.f.slice(0, 4)) : (r.fq ? `<span class="muted">${esc(r.fq)}</span>` : `<span class="muted">not on file</span>`)}];
-    const rowsNow = () => { const q = f.q.trim().toLowerCase(); return all.filter(r => (!f.ch || r.ch === f.ch) && (!f.pt || r.p === f.pt) && (!q || r.n.toLowerCase().includes(q) || String(r.d).toLowerCase() === q || ("district " + r.d).toLowerCase() === q)); };
+    const rowsNow = () => { const q = f.q.trim().toLowerCase(); return all.filter(r => (!f.ch || r.ch === f.ch) && (!f.pt || r.p === f.pt) && (!q || r.n.toLowerCase().includes(q) || String(r.d).toLowerCase() === q || (r.d + (r.seat || "")).toLowerCase() === q || ("district " + r.d).toLowerCase() === q)); };
     $("#rchips").innerHTML = (P.lower ? `<button class="chip" type="button" data-ch="" aria-pressed="true">Both chambers</button> ` + ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${CHOF[k]}" aria-pressed="false">${esc(P[k].name)}</button>`).join(" ") : "")
       + (parties.length > 1 ? ` <button class="chip" type="button" data-pt="" aria-pressed="true">All parties</button> ` + parties.map(([c, n]) => `<button class="chip" type="button" data-pt="${esc(c)}" aria-pressed="false">${esc(n)}</button>`).join(" ") : "");
     roster = gridTable(host, {cols, rows: rowsNow(), sort: [{key: "name", dir: "asc"}], page: 25, empty: "No member matches.", count: rows => `${rows.length.toLocaleString()} member${rows.length === 1 ? "" : "s"}`});
@@ -1363,7 +1376,7 @@ function renderMemberPage(id, show){
     const mates = membersAt(key, L.d).filter(m => m.id !== id), others = mates.concat(other ? [other] : [], insiders), want = seatsIn(key, L.d);
     const why = [want > 1 ? `${DN(key)} ${L.d} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${DN("upper")} ${up}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${DN("upper")} ${L.d}.` : ""].filter(Boolean).join(" ");
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}, ${esc(P.name)}</div></div></div>
+    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
       <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${ract("map", "District " + L.d + " on the map", districtHash(key, L.d), true)}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
       <div class="mp-grid">
         <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(Pf, L, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
@@ -1389,7 +1402,7 @@ function renderMemberPage(id, show){
   function run(q){
     if (!MEMBERS_READY) { items = []; list.innerHTML = `<li class="none">Loading the members…</li>`; membersReady().then(() => { if (!pal.hidden) run(inp.value); }, () => { list.innerHTML = `<li class="none">Couldn't load the members. Check your connection and try again.</li>`; }); return; }
     q = q.trim().toLowerCase(); const dq = q.replace(/^district\s+/, "");
-    const all = Object.values(DATA.legislators), mems = (q ? all.filter(m => m.n.toLowerCase().includes(q) || String(m.d).toLowerCase() === dq || upperOf(m.d) === dq) : []).sort((a, b) => byDistrict(a.d, b.d) || a.n.localeCompare(b.n)).slice(0, 9);
+    const all = Object.values(DATA.legislators), mems = (q ? all.filter(m => m.n.toLowerCase().includes(q) || String(m.d).toLowerCase() === dq || (m.d + (m.seat || "")).toLowerCase() === dq || upperOf(m.d) === dq) : []).sort((a, b) => byDistrict(a.d, b.d) || a.n.localeCompare(b.n)).slice(0, 9);
     const offs = q ? (DATA.officials || []).filter(o => o.n.toLowerCase().includes(q) || o.office.toLowerCase().includes(q)).slice(0, 4) : [];
     items = offs.map(o => ({id: o.id, official: true})).concat(mems.map(m => ({id: m.id}))); idx = 0; let n = 0;
     list.innerHTML = (offs.length ? `<li class="grp">Statewide offices</li>` + offs.map(o => `<li role="option" data-i="${n++}" style="--i:${n}">${avatar(o.id, o.p, "sm")}<span class="t">${esc(o.n)}</span><span class="s">${esc(o.office)}, ${esc(o.pn)}</span></li>`).join("") : "") + (mems.length ? `<li class="grp">Legislators</li>` + mems.map(m => `<li role="option" data-i="${n++}" style="--i:${n}">${avatar(m.id, m.p, "sm")}<span class="t">${esc(m.n)}</span><span class="s">${esc(seatOf(m))}, ${esc(m.pn)}</span></li>`).join("") : "")

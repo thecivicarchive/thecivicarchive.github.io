@@ -216,8 +216,11 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
-- States open so far (v4.0.028): Minnesota; then Wisconsin, North Dakota, South Dakota, Iowa; then the second ring,
-  Michigan, Illinois, Missouri, Nebraska, Wyoming, Montana. A one-chamber legislature (Nebraska) has no `"lower"` in
+- States open so far (v4.0.029), in rings outward from Minnesota: Minnesota; Wisconsin, North Dakota, South Dakota,
+  Iowa; Michigan, Illinois, Missouri, Nebraska, Wyoming, Montana; Indiana, Ohio, Kentucky, Tennessee, Arkansas,
+  Oklahoma, Kansas, Colorado, Utah, Idaho. A roster district with no shape of its own whose number has one (Idaho's
+  1A and 1B) is a seat within that district: the builder files the member under the district and shows the seat.
+  Statewide offices are whatever the roster carries for that state (two in Tennessee, six in Arkansas). A one-chamber legislature (Nebraska) has no `"lower"` in
   `places.py`, files its members under the chamber "Legislature", and may give its districts their own name
   (`"district_name"`) and the page a sentence of explanation (`"note"`).
 - `states/net.get` repairs one thing a browser repairs: a server that leaves its issuer's certificate out of the
