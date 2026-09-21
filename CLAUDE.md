@@ -165,6 +165,34 @@ builder. The build then adds the counter and a sentence about it to the footer; 
 views and share taps are counted, nothing else. Never create that account or ask for its credentials.
 The fast site is installable (a manifest, icons and a service worker that never serves a stale page).
 
+## The districting lenses (from version 4.0.030)
+
+John's idea (2026-09-20): let people look at the district maps through four measurable lenses, then through
+rule-drawn what-if maps, so that anyone can see for themselves how the lines were drawn. His conditions: only
+sources that would survive an audit, and sources and methods shown for every figure. His order: the measures first,
+the what-if maps after; Congress as one national map, then Congress state by state, then state Senates, then state
+Houses. He allowed respected academic compilations as well as official sources, provided each says which it is.
+
+- The page never says a map is gerrymandered, and never ranks "worst" districts. It measures, labels every derived
+  figure Analysis, says what a figure cannot tell you wherever it appears, and leaves the judging to the reader.
+- Lens one, shape, is built: `district_shapes.py` measures Polsby-Popper, Reock and convex hull for every district in
+  the Census Bureau's cartographic boundary file and writes `us_district_shapes.json` and `.csv`; the `districts` stage
+  runs it (self-test first). Area is exact on the GRS80 ellipsoid and perimeter is geodesic, so no projection is
+  chosen. The file's SHA-256 travels with the results. A district is marked "shoreline" when the Bureau's own land plus
+  water area exceeds the shape's by more than 1.5 percent. The federal page is `#shapes`; `#shape=MN-5` opens one
+  district; the "Sources and methods" window is part of the page.
+- Every lens gets the same furniture: a named primary source with its address, date and fingerprint; the formula and
+  its citation; a self-test against known answers; a control total against the source's own figures; a plain list of
+  what the figure cannot tell you; a download of every number; a method version. Change a method, bump its version.
+- Sources verified 2026-09-20 for the lenses to come (all keyless files on www2.census.gov; the Census data API began
+  requiring a key in May 2026, so do not build on keyless API calls): 2020 PL 94-171 files; `cb_2020_*_tract/bg_500k`;
+  ACS 2020-2024 table-based summary files (`acsdt5y2024-b01003.dat` and the like) for congressional and legislative
+  districts; block equivalency files `cd119.zip`, `sldu24.zip`, `sldl24.zip`; `CD119_UR_POPAREA.txt` and its
+  legislative twins (population and area by district); county and place relationship files `tab20_cd11920_county20_*`.
+  Votes: the Clerk of the House's "Statistics of the Congressional Election" (PDF, 2022 and 2024), the FEC's Federal
+  Elections 2022 workbook (2024 not yet published), Minnesota's Secretary of State result files; secondary, both CC0,
+  MIT Election Data and Science Lab and Klarner's state legislative returns.
+
 ## The state side (Minnesota first)
 
 John's plan (2026-09-20): the same record for every state legislature, Minnesota first, then outward to every state

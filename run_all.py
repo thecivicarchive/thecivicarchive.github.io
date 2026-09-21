@@ -200,6 +200,14 @@ def stage_districts(args):
     banner("Stage: districts (House district lines for the map's zoom-in view)")
     run("load_districts.py", "--out", os.path.join(os.path.dirname(args.db), "us_districts_albers.json"),
         "--cache-dir", os.path.join(HERE, "district_cache"))
+    # The first districting lens: how compact each district's shape is, measured from the same Census file. The
+    # self-test (shapes whose answers are known) must pass before anything is measured.
+    census = os.path.join(HERE, "district_cache", "cb_2024_us_cd119_500k.zip")
+    if os.path.exists(census):
+        run("district_shapes.py", "--selftest")
+        run("district_shapes.py", "--zip", census, "--out", os.path.join(HERE, "us_district_shapes.json"))
+    else:
+        say("  The Census file for the current Congress is not cached, so district shapes were not measured (the Districts page stays hidden).")
 
 
 def stage_ratings(args):

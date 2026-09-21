@@ -553,6 +553,11 @@ def collect(db_path):
         if v and bio in legislators:
             legislators[bio]["vs"] = [v["split_n"], v["split_with"], v["breaks_n"], v["missed"], v["eligible"]]
     closest = closest_votes(con, vote_meta)
+    # the districting lenses: measures of every district's shape (district_shapes.py writes this file; without it the page has no Districts tab)
+    shapes_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_district_shapes.json")
+    shapes = json.load(open(shapes_path, encoding="utf-8")) if os.path.exists(shapes_path) else {}
+    if shapes:
+        shapes["at_large_paths"] = {}                           # the whole-state districts are drawn from the state outlines
     import money_views                                          # who gave to each campaign, and who spent for or against it (FEC bulk files)
     money = money_views.build_money(con, legislators)
     for bio, m in money["profiles"].items():
@@ -565,7 +570,7 @@ def collect(db_path):
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
             "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest, "money_members": money["members"], "money_kinds": money["kinds"],
-            "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {},
+            "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {}, "shapes": shapes,
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -772,7 +777,11 @@ def detail_record(b):
 
 def bundles(data):
     """The data files of the split site, by name. The one-file archive inlines the same set."""
+    shapes = dict(data.get("shapes") or {})
+    if shapes:
+        shapes["at_large_paths"] = {d["st"]: data["states"][d["st"]]["d"] for d in shapes.get("districts", []) if d.get("at_large") and d["st"] in data["states"]}
     return {"members": {"members": data["members"], "legislators": data["legislators"]},
+            "shapes": shapes,
             "lite": data["lite"],
             "votes": {"vote_meta": data["vote_meta"], "mv": data["mv"], "states": data["states"]},
             "districts": data["districts"]}
@@ -795,6 +804,7 @@ def boot_for(data, version, base_url=""):
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
             "state_names": {st: s["name"] for st, s in data["states"].items()}, "state_sites": state_sites(),
+            "has_shapes": bool((data.get("shapes") or {}).get("districts")),
             "stall_cutoff": data.get("stall_cutoff", ""), "inline": None}
 
 
@@ -866,6 +876,9 @@ def write_split(folder, html, data, photo_bytes):
     put("data/bills-list.json", dump({"bills": [list_record(b) for b in data["bills"]]}))
     for name, obj in bundles(data).items():
         put(f"data/{name}.json", dump(obj))
+    shapes_csv = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_district_shapes.csv")
+    if os.path.exists(shapes_csv):                                          # every figure on the Districts page, for anyone who wants to check them
+        shutil.copyfile(shapes_csv, os.path.join(folder, "data", "shapes.csv"))
     n_detail = detail_bytes = 0
     for b in data["bills"]:
         text = dump(detail_record(b))
@@ -1034,6 +1047,8 @@ p{margin:0 0 12px}
 .nav{margin:0 auto;display:flex;gap:2px}
 .nav a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:999px;font-size:14.5px;font-weight:500;transition:color .15s,background .15s}
 .nav a:hover{color:var(--ink);background:var(--hair)}
+.nav a{white-space:nowrap}
+@media (max-width:1400px){.nav a{padding:8px 9px;font-size:14px}}
 .tools{margin-left:auto;display:flex;gap:8px;align-items:center}
 .kbtn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 10px 0 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:14px;transition:border-color .15s,color .15s}
 .kbtn:hover{border-color:var(--line-strong);color:var(--ink)}
@@ -1979,6 +1994,36 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .avw.xl:before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(from 0deg,var(--pc),transparent 35%,var(--pc) 65%,transparent 100%);opacity:.6;z-index:-1}
 html.motion .avw.xl:before{animation:spin 7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+/* --- the districting lenses: the shape of every district --- */
+.lensbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.lensbar .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lensbar .selwrap{height:40px;border-radius:12px}
+.lenssay{font-size:14px;color:var(--muted);margin:12px 0 0;line-height:1.5;max-width:78ch}.lenssay b{color:var(--ink)}
+svg.shapemap{width:100%;height:auto;display:block;border-radius:var(--r-lg);background:radial-gradient(120% 90% at 50% 100%,#151A28 0%,#0E1118 55%,#0A0C11 100%)}
+svg.shapemap path{vector-effect:non-scaling-stroke}
+svg.shapemap .sd{stroke:#0C0E12;stroke-width:.6;cursor:pointer;transition:filter .15s}
+svg.shapemap .sd:hover,svg.shapemap .sd.hl{stroke:#fff;stroke-width:1.8;filter:brightness(1.15)}
+svg.shapemap .sd:focus-visible{outline:none;stroke:#fff;stroke-width:2.2}
+svg.shapemap .sd.dim{opacity:.22}
+.lenskey{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:12px;align-items:center}
+.lenskey span{display:inline-flex;align-items:center;gap:6px}.lenskey i{width:22px;height:11px;border-radius:3px;display:inline-block}
+.strip{position:relative;height:46px;margin:14px 0 2px;border-bottom:1px solid var(--line)}
+.strip i{position:absolute;bottom:0;width:2px;height:16px;margin-left:-1px;background:var(--line-strong);border-radius:1px}
+.strip i.sh{background:color-mix(in srgb,var(--cobalt) 60%,var(--line-strong))}
+.strip i.on{height:40px;width:3px;background:var(--accent);z-index:2}
+.strip .med{position:absolute;bottom:-18px;font-size:11px;color:var(--muted);transform:translateX(-50%);white-space:nowrap}
+.stripends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:20px}
+.lensfacts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.lensfacts div{background:var(--bg);border-radius:var(--r-md);padding:10px 12px}
+.lensfacts b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05}
+.lensfacts span{font-size:12px;color:var(--muted);line-height:1.35;display:block;margin-top:3px}
+.methods h3{margin:22px 0 8px;font-size:16px;font-weight:700}
+.methods p,.methods li{font-size:13.5px;line-height:1.6;color:var(--muted)}.methods b,.methods code{color:var(--ink)}
+.methods code{font-size:12px;word-break:break-all}
+.methods .formula{font-family:var(--serif);font-size:19px;color:var(--ink);margin:4px 0 6px}
+.methods table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0}.methods td,.methods th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.tier{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:2px 8px;border:1px solid var(--accent-line);color:var(--teal-ink);background:var(--teal-soft)}
+.tier.second{border-color:rgba(46,91,230,.35);color:var(--cobalt-ink);background:var(--cobalt-soft)}
 /* the motion switch */
 .mtog{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px 0 8px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:13.5px;font-weight:500;transition:border-color .15s,color .15s}
 .mtog:hover{border-color:var(--line-strong);color:var(--ink)}
@@ -2011,7 +2056,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     <a class="doorlink" href="../" title="The front door: every level of government" aria-label="Back to the front door of The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
     <a class="brand" href="#top" aria-label="The Civic Archive, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#home" data-go="home">Home</a><a href="#bills" data-go="bills">Bills</a><a href="#map" data-go="map">Vote map</a><a href="#how" data-go="how">How ratings work</a><a href="#members" data-go="members">Your members</a><a href="#money" data-go="money">Money</a>
+      <a href="#home" data-go="home">Home</a><a href="#bills" data-go="bills">Bills</a><a href="#map" data-go="map">Vote map</a><a href="#shapes" data-go="shapes" id="navshapes" hidden>Districts</a><a href="#how" data-go="how" title="How the ratings work">Ratings</a><a href="#members" data-go="members">Your members</a><a href="#money" data-go="money">Money</a>
     </nav>
     <div class="tools">
       <button class="kbtn" id="palettebtn" aria-label="Search bills and members"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
@@ -2155,6 +2200,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     <div class="wrap">
       <div class="sechead rv">
         <div><h2>Who voted how, state by state</h2><p>Pick a recorded vote. Each state is colored by the party of its members and how they voted: solid means yes, striped means no, gray means not voting. A split delegation shows the split. Tap a state for the names.</p></div>
+        <a class="btn" href="#shapes" id="toshapes" hidden>The shape of every district</a>
       </div>
       <div class="theater-grid">
         <div class="stage rv">
@@ -2186,6 +2232,37 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     </div>
   </section>
   </div><!-- /map -->
+
+  <div class="page" id="pg-shapes" data-page="shapes" hidden>
+  <section class="theater block" id="shapes">
+    <div class="wrap">
+      <div class="sechead rv">
+        <div><h2>The shape of every district</h2><p>All 435 congressional districts, measured the same way from the Census Bureau's own boundary file. A score describes a shape. It does not say why the shape is what it is: coasts, rivers, state lines, city limits and the Voting Rights Act all shape districts. This page measures, and leaves the judging to you.</p></div>
+        <button class="btn" id="methodsbtn" type="button">Sources and methods</button>
+      </div>
+      <div class="theater-grid">
+        <div class="stage rv">
+          <div class="mtip" id="stip" role="tooltip"></div>
+          <div class="lensbar">
+            <span id="lenschips" role="group" aria-label="Which measure of shape"></span>
+            <label class="selwrap"><span>State</span><select id="lensstate" aria-label="Look at one state's districts"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
+            <button class="chip" id="lensshore" type="button" aria-pressed="false" title="Districts on the sea, a bay or the Great Lakes: a jagged natural shore lowers a score through no one's choice">Set shoreline districts aside</button>
+          </div>
+          <p class="lenssay" id="lenssay"></p>
+          <div class="mapframe"><svg class="shapemap" id="shapemap" viewBox="0 0 975 610" role="img" aria-label="Map of every congressional district, shaded by how compact its shape is"></svg></div>
+          <div class="lenskey" id="lenskey"></div>
+        </div>
+        <aside class="mapside rv" id="lensside" aria-live="polite" style="--i:2"><span class="muted">Tap a district for its measurements.</span></aside>
+      </div>
+      <div class="rv" style="margin-top:26px">
+        <h3 style="margin-bottom:4px"><span class="tag analysis">Analysis</span> Every district, every measure</h3>
+        <p class="lenssay" style="margin-top:6px">Listed in order of state and number, not ranked. Sort any column; hold Shift for a second one. <a id="lenscsv" href="data/shapes.csv" download>Download the whole table</a> to check it yourself.</p>
+        <div id="lenstable" style="margin-top:12px"></div>
+      </div>
+      <p class="note" id="lensnote"></p>
+    </div>
+  </section>
+  </div><!-- /shapes -->
 
   <div class="page" id="pg-how" data-page="how" hidden>
   <section class="block" id="how">
@@ -2336,6 +2413,15 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       </div>
     </div>
     <p class="hm-foot">Everything factual here comes from public records published by the United States government. Nothing on this site is edited by hand.</p>
+  </div>
+</div>
+
+<div class="hmodal" id="methods" hidden>
+  <div class="hm-back" id="methodsback"></div>
+  <div class="hm-card methods" role="dialog" aria-modal="true" aria-labelledby="methodstitle">
+    <button class="hm-x" id="methodsx" aria-label="Close">&times;</button>
+    <h2 id="methodstitle">Sources and methods: the shape of a district</h2>
+    <div id="methodsbody"></div>
   </div>
 </div>
 
@@ -3780,6 +3866,116 @@ document.addEventListener("click", e => {
   mapReady().then(() => { if (window.mapShow) mapShow(a.dataset.vote); });
 });
 
+/* ---------- the districting lenses, first of four: the shape of every district ----------
+   Three published measures of compactness for all 435 districts, computed by district_shapes.py from the Census
+   Bureau's cartographic boundary file. The page measures and never concludes: every figure is labelled Analysis,
+   shoreline districts are marked because a natural coast lowers a score through no one's choice, the table is in
+   neutral order, and "Sources and methods" gives the file, its checksum, the formulas, the citations, the control
+   against the Bureau's own areas, and the limits. */
+let lensBuilt = false, lensGo = null;
+function shapesPage(pick){
+  if (lensBuilt) { if (pick && lensGo) lensGo(pick); return; }
+  lensBuilt = true;
+  const side = $("#lensside"), svg = $("#shapemap");
+  side.innerHTML = `<span class="muted">Loading the measurements\u2026</span>`;
+  Promise.all([need("shapes"), need("districts"), membersReady()]).then(([S, D]) => {
+    if (!S || !S.districts) { side.innerHTML = `<span class="muted">The measurements are not part of this build.</span>`; return; }
+    DATA.districts = D;
+    const MEAS = {pp: {name: "Polsby-Popper", say: "the district's area as a share of a circle with the same perimeter. A long, wiggly edge lowers it, whether a mapmaker drew the edge or a coastline did"},
+      reock: {name: "Reock", say: "the district's area as a share of the smallest circle that holds it. A long, thin district scores low however smooth its edge"},
+      hull: {name: "Convex hull", say: "the district's area as a share of the tightest rubber band around it. Arms and notches lower it; a plain elongated shape does not"}};
+    const NAMES = BOOT.state_names || {}, rows = S.districts, byKey = Object.fromEntries(rows.map(r => [r.key, r])), q = D.q || 50;
+    const rep = {}; for (const [id, L] of Object.entries(DATA.legislators)) if (L.cur && L.ch !== "Senate") rep[`${L.st}-${+L.d ? +L.d : "AL"}`] = Object.assign({id}, L);
+    const ramp = ["#DCEFEA", "#A9DACE", "#6FC0AF", "#389C8B", "#0F6F61"];
+    let meas = "pp", st = "", aside = false, picked = null;
+    const pool = () => rows.filter(r => !r.at_large && !(aside && r.shore));
+    const breaks = m => { const v = rows.filter(r => !r.at_large).map(r => r[m]).sort((a, b) => a - b); return [.2, .4, .6, .8].map(p => v[Math.round(p * (v.length - 1))]); };
+    const B = {pp: breaks("pp"), reock: breaks("reock"), hull: breaks("hull")};
+    const shade = (r, m) => r.at_large ? "#3A3F48" : ramp[B[m].filter(b => r[m] > b).length];
+    const ringPath = ring => { let x = 0, y = 0, d = ""; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; d += (i ? "L" : "M") + (x / q).toFixed(2) + "," + (y / q).toFixed(2); } return d + "Z"; };
+    const pathOf = r => r.at_large ? ((S.at_large_paths || {})[r.st] || "") : (((D.states || {})[r.st] || {})[String(r.d)] || []).map(ringPath).join("");
+    const label = r => r.at_large ? `${NAMES[r.st] || r.st}, at large` : `${NAMES[r.st] || r.st}, district ${r.d}`;
+    const rank = (r, m) => { const v = pool().map(x => x[m]).sort((a, b) => b - a); return [v.indexOf(r[m]) + 1, v.length]; };
+    $("#lenschips").innerHTML = Object.entries(MEAS).map(([k, v]) => `<button class="chip" type="button" data-meas="${k}" aria-pressed="${k === meas}">${v.name}</button>`).join(" ");
+    $("#lensstate").innerHTML = `<option value="">The whole country</option>` + [...new Set(rows.map(r => r.st))].sort((a, b) => (NAMES[a] || a).localeCompare(NAMES[b] || b)).map(s => `<option value="${s}">${esc(NAMES[s] || s)}</option>`).join("");
+    svg.innerHTML = rows.map(r => `<path class="sd" data-k="${r.key}" d="${pathOf(r)}" tabindex="0" role="button" aria-label="${esc(label(r))}"></path>`).join("");
+    const bboxOf = list => { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const k of list) { const el = svg.querySelector(`[data-k="${k}"]`); if (!el) continue; const b = el.getBBox(); x0 = Math.min(x0, b.x); y0 = Math.min(y0, b.y); x1 = Math.max(x1, b.x + b.width); y1 = Math.max(y1, b.y + b.height); } return [x0, y0, x1, y1]; };
+    function paint(){
+      $$("#lenschips [data-meas]").forEach(b => b.setAttribute("aria-pressed", b.dataset.meas === meas));
+      $("#lensshore").setAttribute("aria-pressed", aside);
+      $$(".sd", svg).forEach(el => { const r = byKey[el.dataset.k]; el.style.fill = shade(r, meas); el.classList.toggle("dim", !!(st && r.st !== st) || (aside && r.shore)); el.classList.toggle("hl", el.dataset.k === picked); });
+      if (st) { const b = bboxOf(rows.filter(r => r.st === st).map(r => r.key)), pad = Math.max(b[2] - b[0], b[3] - b[1]) * .08 + 2; svg.setAttribute("viewBox", `${(b[0] - pad).toFixed(1)} ${(b[1] - pad).toFixed(1)} ${(b[2] - b[0] + 2 * pad).toFixed(1)} ${(b[3] - b[1] + 2 * pad).toFixed(1)}`); }
+      else svg.setAttribute("viewBox", "0 0 975 610");
+      const P = pool().filter(r => !st || r.st === st), med = a => { const v = a.slice().sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+      const all = med(pool().map(r => r[meas])), here = med(P.map(r => r[meas]));
+      $("#lenssay").innerHTML = `<b>${MEAS[meas].name}</b> is ${MEAS[meas].say}. 1 is a perfect circle${meas === "hull" ? " or any shape with no dents" : ""}; most districts fall well below. ${st ? `${esc(NAMES[st] || st)}: ${P.length} district${P.length === 1 ? "" : "s"}${P.length ? `, median ${here.toFixed(3)} against ${all.toFixed(3)} for the country${aside ? " (shoreline districts set aside)" : ""}` : (rows.some(r => r.st === st && r.at_large) ? ", one at-large district, which is the whole state and was drawn by no one" : "")}.` : `Median for the country: ${all.toFixed(3)}${aside ? ", shoreline districts set aside" : ""}.`}`;
+      $("#lenskey").innerHTML = `<span>Less compact</span>` + ramp.map((c, i) => `<span><i style="background:${c}"></i>${i === 0 ? "up to " + B[meas][0].toFixed(2) : (i === 4 ? "over " + B[meas][3].toFixed(2) : B[meas][i - 1].toFixed(2) + "\u2013" + B[meas][i].toFixed(2))}</span>`).join("") + `<span>More compact</span><span><i style="background:#3A3F48"></i>At large: the whole state</span><span class="muted">Five equal groups of districts.</span>`;
+      table.setRows(rowsNow()); if (picked) show(picked, true);
+    }
+    const rowsNow = () => rows.filter(r => (!st || r.st === st) && !(aside && r.shore));
+    const cols = [
+      {key: "d", label: "District", val: r => (NAMES[r.st] || r.st) + " " + String(r.d).padStart(3, "0"), html: r => `<a href="#shape=${r.key}"><b>${esc(r.key)}</b></a> <span class="muted">${esc(NAMES[r.st] || r.st)}</span>`},
+      {key: "m", label: "Member", val: r => (rep[r.key] || {}).n || "", html: r => { const L = rep[r.key]; return L ? `<span class="pty" style="background:${L.p === "D" ? "var(--dem)" : (L.p === "R" ? "var(--rep)" : "var(--plum)")}"></span><a href="#member=${esc(L.id)}">${esc(L.n)}</a>` : `<span class="muted">vacant</span>`; }},
+      {key: "pp", label: "Polsby-Popper", num: true, val: r => r.at_large ? null : r.pp, html: r => r.pp.toFixed(3)},
+      {key: "reock", label: "Reock", num: true, val: r => r.at_large ? null : r.reock, html: r => r.reock.toFixed(3)},
+      {key: "hull", label: "Convex hull", num: true, val: r => r.at_large ? null : r.hull, html: r => r.hull.toFixed(3)},
+      {key: "area", label: "Area, sq mi", num: true, val: r => r.area_sqmi, html: r => r.area_sqmi.toLocaleString()},
+      {key: "perim", label: "Perimeter, mi", num: true, val: r => r.perim_mi, html: r => r.perim_mi.toLocaleString()},
+      {key: "note", label: "Note", val: r => r.at_large ? "at large" : (r.shore ? "shoreline" : ""), html: r => r.at_large ? `<span class="muted">at large: the whole state</span>` : (r.shore ? `<span class="muted" title="Fronts the sea, a bay or the Great Lakes">shoreline</span>` : "")}];
+    const table = gridTable($("#lenstable"), {cols, rows: rowsNow(), sort: [{key: "d", dir: "asc"}], page: 25, empty: "No district matches.", count: rs => `${rs.length.toLocaleString()} district${rs.length === 1 ? "" : "s"}`});
+    function show(k, quiet){
+      const r = byKey[k]; if (!r) return; picked = k; $$(".sd", svg).forEach(el => el.classList.toggle("hl", el.dataset.k === k));
+      const L = rep[k], P = pool(), lo = Math.min(...P.map(x => x[meas])), hi = Math.max(...P.map(x => x[meas])), pos = v => (100 * (v - lo) / Math.max(1e-9, hi - lo)).toFixed(2);
+      const medv = P.map(x => x[meas]).sort((a, b) => a - b)[Math.floor((P.length - 1) / 2)], rk = r.at_large ? null : rank(r, meas);
+      side.innerHTML = `<div class="side-head"><h3>${esc(label(r))}</h3><button class="chip sharebtn" type="button" id="lensshare">Share</button></div>
+        ${L ? `<p style="margin:0 0 8px;font-size:14px">Represented by <a href="#member=${esc(L.id)}"><b>${esc(L.n)}</b></a></p>` : ""}
+        ${r.at_large ? `<p class="muted">This district is the whole state. Its shape is the state's own outline, which no one drew as a district, so it is left out of the comparisons.</p>` : ""}
+        <div class="lensfacts">${Object.entries(MEAS).map(([m, v]) => `<div><b>${r[m].toFixed(3)}</b><span>${v.name}${r.at_large || (aside && r.shore) ? "" : `<br>${rank(r, m)[0]} of ${rank(r, m)[1]}, most compact first`}</span></div>`).join("")}</div>
+        ${r.at_large || (aside && r.shore) ? "" : `<div class="strip" role="img" aria-label="Where this district falls among all districts on ${MEAS[meas].name}">${P.map(x => `<i class="${x.key === k ? "on" : (x.shore ? "sh" : "")}" style="left:${pos(x[meas])}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${medv.toFixed(2)}</span></div><div class="stripends"><span>${lo.toFixed(2)}</span><span>${MEAS[meas].name}: every district is a line; this one is tall</span><span>${hi.toFixed(2)}</span></div>`}
+        <p class="muted" style="font-size:13px;margin:12px 0 0">Area ${r.area_sqmi.toLocaleString()} sq mi, perimeter ${r.perim_mi.toLocaleString()} mi${r.parts > 1 ? `, in ${r.parts} separate pieces (islands count)` : ""}.${r.shore ? ` <b>Shoreline district:</b> it fronts the sea, a bay or the Great Lakes, and a jagged natural shore lowers the Polsby-Popper score through no one's choice.` : ""}</p>
+        <p class="muted" style="font-size:12.5px;margin:8px 0 0"><span class="tag analysis">Analysis</span> A low score is a fact about a shape, not a finding about intent. <button type="button" class="wxbtn" id="lensmethods">Sources and methods</button></p>`;
+      $("#lensmethods").addEventListener("click", openMethods);
+      $("#lensshare").addEventListener("click", e => share({title: `The shape of ${r.key}`, text: `${label(r)}: Polsby-Popper ${r.pp.toFixed(3)}, Reock ${r.reock.toFixed(3)}, convex hull ${r.hull.toFixed(3)}. Every congressional district measured the same way, with sources and methods:`, url: `${SHARE_BASE}/#shape=${r.key}`, kind: "shape", key: r.key}, e.currentTarget));
+      if (!quiet) { history.replaceState({page: "shapes"}, "", "#shape=" + k); track("shape", {key: k}); }
+    }
+    lensGo = k => { const r = byKey[k]; if (!r) return; show(k, true); };
+    const tip = $("#stip"), stage = svg.closest(".stage");
+    svg.addEventListener("pointermove", e => { const p = e.target.closest && e.target.closest(".sd"); if (!p) { tip.classList.remove("show"); return; } const r = byKey[p.dataset.k], L = rep[r.key], b = stage.getBoundingClientRect();
+      tip.innerHTML = `<b>${esc(r.key)}</b>${L ? esc(L.n) + " \u00b7 " : ""}${r.at_large ? "at large" : MEAS[meas].name + " " + r[meas].toFixed(3)}`; tip.style.left = (e.clientX - b.left) + "px"; tip.style.top = (e.clientY - b.top) + "px"; tip.classList.add("show"); });
+    svg.addEventListener("pointerleave", () => tip.classList.remove("show"));
+    svg.addEventListener("click", e => { const p = e.target.closest(".sd"); if (p) { show(p.dataset.k); if (!matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); } });
+    svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("sd")) { e.preventDefault(); show(e.target.dataset.k); } });
+    $("#lenschips").addEventListener("click", e => { const b = e.target.closest("[data-meas]"); if (b) { meas = b.dataset.meas; paint(); } });
+    $("#lensstate").addEventListener("change", e => { st = e.target.value; paint(); });
+    $("#lensshore").addEventListener("click", () => { aside = !aside; paint(); });
+    const sm = S.summary, ct = S.control || {};
+    $("#lensnote").innerHTML = `<span class="tag fact">Fact</span> The lines: ${esc(S.source.publisher)}, <code>${esc(S.source.file)}</code>. <span class="tag analysis">Analysis</span> The measurements: ${sm.drawn} drawn districts and ${sm.at_large} at large; ${sm.shore} of the drawn districts front the sea, a bay or the Great Lakes. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
+    $("#methodsbody").innerHTML = `
+      <h3>The source</h3><p><span class="tier">Official, primary</span> ${esc(S.source.publisher)}, ${esc(S.source.product)}: <code>${esc(S.source.file)}</code>, the districts of the ${S.congress}th Congress, clipped to the shoreline. <a href="${esc(S.source.url)}" target="_blank" rel="noopener">The file at census.gov</a>. Fetched ${esc(S.source.fetched)}, ${Number(S.source.bytes).toLocaleString()} bytes. Its SHA-256 fingerprint, so that anyone can confirm they are measuring the same file: <code>${esc(S.source.sha256)}</code></p>
+      <h3>The three measures</h3>
+      <p class="formula">Polsby-Popper = 4\u03c0 \u00d7 area \u00f7 perimeter\u00b2</p><p>The district's area over the area of a circle with the same perimeter. Polsby and Popper, <i>Yale Law &amp; Policy Review</i> 9 (1991), 301. It is the measure most sensitive to a wiggly edge, and so to coasts and rivers.</p>
+      <p class="formula">Reock = area \u00f7 area of the smallest circle that contains the district</p><p>Reock, <i>Midwest Journal of Political Science</i> 5 (1961), 70. It looks at how spread out a district is and ignores how rough its edge is.</p>
+      <p class="formula">Convex hull = area \u00f7 area of the smallest convex shape that contains the district</p><p>Niemi, Grofman, Carlucci and Hofeller, <i>Journal of Politics</i> 52 (1990), 1155. It notices arms and notches and ignores plain elongation.</p>
+      <h3>How area and perimeter are measured</h3><p>No map projection is chosen for either, so there is none to dispute. <b>Area</b> is exact on the GRS80 ellipsoid (the one the Bureau's coordinates use): each latitude is converted to authalic latitude and the district is laid on an equal-area plane centred on itself (Snyder, <i>Map Projections: A Working Manual</i>, U.S. Geological Survey Professional Paper 1395, 1987). <b>Perimeter</b> is the sum of geodesic lengths of every boundary segment, by Vincenty's formula (<i>Survey Review</i> 23, 1975, 88); islands and holes count. The enclosing circle and the convex hull are found on the same equal-area plane, which keeps areas true and changes shapes by at most about one part in a thousand (about one in a hundred at the far ends of Alaska).</p>
+      <h3>The checks</h3><p><b>Self-test.</b> Before measuring, the program measures shapes whose answers are known: true circles on the ellipsoid at three latitudes, a rectangle, a one-degree cell whose area has a closed form, and one degree of the equator. Every answer must agree to the fourth decimal.</p>
+      <p><b>Control total.</b> The Bureau's file carries its own land and water area for each district. ${ct.within_1_percent} of ${ct.compared} of our areas fall within 1% of the Bureau's, and the median ratio is ${Number(ct.median_ratio).toFixed(4)}. The rest are lower, and they are coastal: the Bureau counts open water that a shoreline-clipped shape leaves out (the furthest: ${(ct.lowest || []).slice(0, 5).map(x => esc(x[1]) + " " + Number(x[0]).toFixed(2)).join(", ")}). That same comparison is how a district is marked "shoreline": the Bureau's area exceeds the shape's by more than 1.5%.</p>
+      <h3>What a score cannot tell you</h3><ul>
+        <li>Why a district has its shape. Coasts, rivers, state lines, county and city limits, and districts drawn to comply with the Voting Rights Act all lower scores for lawful reasons. A low score is not a finding of gerrymandering, and a high one is not a finding of fairness: a tidy shape can still divide voters unevenly.</li>
+        <li>Scores depend on the boundary file. These lines are generalized to 1:500,000, so they are smoother than the legal lines and Polsby-Popper runs a little higher than it would on full-detail lines. Never mix scores from different sources (Barnes and Solomon, <i>Political Analysis</i> 29 (2021), 448).</li>
+        <li>The six at-large districts are whole states, drawn by no one; they are shown and left out of every comparison.</li>
+        <li>Courts treat compactness as one traditional criterion among several, not as a test (see <i>Shaw v. Reno</i>, 509 U.S. 630 (1993); <i>Rucho v. Common Cause</i>, 588 U.S. 684 (2019)).</li></ul>
+      <h3>Check it yourself</h3><p><a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. The program is <code>district_shapes.py</code>; <code>python district_shapes.py --selftest</code> runs the checks and <code>python district_shapes.py</code> re-measures the file. Method version ${esc(S.method)}.</p>
+      <p class="hm-foot">This is the first of four lenses. Still to come, each with its own sources and methods: who lives in each district (Census Bureau), how votes became seats (certified results), and which counties and cities each map keeps whole (Census Bureau). Rule-drawn what-if maps follow the measures.</p>`;
+    if (BOOT.inline) $$('a[href="data/shapes.csv"]').forEach(a => { const s = document.createElement("span"); s.textContent = "The online site has the whole table to download"; a.replaceWith(s); });      // the one-file copy has no files beside it
+    paint(); if (pick) lensGo(pick);
+  }, () => { lensBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the measurements. Check your connection and try again.</span>`; });
+}
+function openMethods(){ const box = $("#methods"); box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
+(function(){ const box = $("#methods"); if (!box) return; const close = () => { box.hidden = true; document.body.classList.remove("noscroll"); };
+  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", openMethods);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) close(); });
+  if (BOOT.has_shapes) { for (const id of ["#navshapes", "#toshapes"]) { const n = $(id); if (n) n.hidden = false; } } })();
+
 /* ---------- a table a reader can sort ----------
    Click a column to sort by it, click again to turn it round. Shift-click another column to sort within the
    first, and another within that, the way a spreadsheet does; a third shift-click lets a column go. On a
@@ -4360,7 +4556,7 @@ function renderMemberPage(id, show){
    data is loaded once and bill links keep working; only one page is visible
    at a time. Hashes stay what they always were (#bills, #map, #bill=hr1-119)
    so links already in the wild keep landing in the right place. */
-const PAGES = ["home", "bills", "map", "how", "members", "member", "money"];
+const PAGES = ["home", "bills", "map", "shapes", "how", "members", "member", "money"];
 const BASE_TITLE = document.title;
 let page = "home", billsShown = false;
 function showPage(name, push){
@@ -4374,6 +4570,7 @@ function showPage(name, push){
   if (name === "bills" && !billsShown) { billsShown = true; render(); }
   if (name === "members") { renderMembers(); if (!partyTable) renderPartyLine(); }
   if (name === "map") mapReady();
+  if (name === "shapes" && !/^#shape=/.test(location.hash)) shapesPage();
   if (name === "money" && !/^#money\//.test(location.hash)) moneyPage();      // a deeper address (#money/coins) says which part to open; the router passes it on
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
@@ -4389,6 +4586,8 @@ function routeFromHash(push){
   if (vote) { showPage("map", false); mapReady().then(() => { if (window.mapShow) mapShow(decodeURIComponent(vote[1]).replace(/_/g, "|")); }); return; }
   const mon = h.match(/^money\/(list|coins|givers|print|map)(?:\/(C\d{8}))?$/);
   if (mon) { showPage("money", false); moneyPage(mon[1], mon[2]); return; }
+  const shp = h.match(/^shape=([A-Z]{2}-(?:\d{1,2}|AL))$/);
+  if (shp) { showPage("shapes", false); shapesPage(shp[1]); return; }
   const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed|money))?$/);
   if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
@@ -4403,7 +4602,7 @@ document.addEventListener("click", e => {
 });
 addEventListener("popstate", () => routeFromHash(false));
 /* A plain link such as #vote=... or #member=... changes the address without going through the router; follow it. */
-addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(vote|member|bill)=/.test(h) || /^money\//.test(h)) routeFromHash(false); });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(vote|member|bill|shape)=/.test(h) || /^money\//.test(h)) routeFromHash(false); });
 
 /* Changelog badge. The label is the version named by the newest changelog
    entry (4.x.xxx); entries from before version numbers fall back to a count.

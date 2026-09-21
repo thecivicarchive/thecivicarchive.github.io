@@ -10,6 +10,33 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.030 — 2026-09-20 — The shape of every district
+
+- A new federal page, "Districts": all 435 congressional districts measured
+  the same way for how compact their shapes are, on three published measures
+  (Polsby-Popper, Reock, convex hull), shown on a national map, state by
+  state, and in a table you can sort and download. It is the first of four
+  planned ways to look at the district maps; who lives in each district, how
+  votes became seats, and which counties each map keeps whole come next, and
+  rule-drawn what-if maps after those.
+- The page measures and never concludes. A score describes a shape, not why
+  it has that shape, and the page says so wherever a score appears. The table
+  is in order of state and number, not ranked.
+- Shoreline districts are marked, by an objective test, and can be set aside:
+  a jagged coast lowers a score through no one's choice, and the least compact
+  districts by the commonest measure turn out to be Louisiana's coast, the
+  Outer Banks, Cape Cod and Michigan's Upper Peninsula. The six at-large
+  districts are whole states, drawn by no one, and are left out of every
+  comparison.
+- "Sources and methods" opens beside it: the Census Bureau file and its
+  fingerprint, each formula with its citation, how area and perimeter are
+  measured without choosing a map projection, the self-test the program must
+  pass first (shapes whose answers are known, to the fourth decimal), the
+  control against the Bureau's own areas (308 of 435 within 1 percent; the
+  rest are coastal, as expected), and what a score cannot tell you.
+- The top bar's "How ratings work" is now "Ratings", as the phone tab bar
+  already called it, so seven items fit on one line.
+
 ## v4.0.029 — 2026-09-20 — The third ring: ten more states
 
 - Indiana, Ohio, Kentucky, Tennessee, Arkansas, Oklahoma, Kansas, Colorado,
