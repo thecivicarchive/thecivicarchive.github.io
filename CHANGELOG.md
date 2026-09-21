@@ -10,6 +10,26 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.026 — 2026-09-20 — Minnesota, ready to share
+
+- A link to a Minnesota legislator now shows a proper preview when it is
+  pasted into a message or a post: their portrait, seat and committees, the
+  campaign money on file, and where their district sits in the state (ringed
+  when it is only a few blocks wide). A link to the Minnesota front page shows
+  the state with its Senate districts colored by party.
+- New share buttons: "Share, so friends can find theirs" under your two
+  legislators, and "Share" on any district on the map.
+- The Minnesota front page now draws the state beside the welcome, Senate
+  districts colored by party; tap it to open the map.
+- The district map shows each district's number once the district is large
+  enough on screen to hold it, so the rural numbers show at once and the
+  cities' appear as you zoom in.
+- One space, not two: on the federal side, a reader who picks Minnesota under
+  "How did your members vote?" gets a link through to Minnesota's own
+  legislature; a legislator's page has a way back to the full list.
+- Small fixes: link-buttons are no longer underlined (both sides), and the
+  location circle on the big Minnesota map is drawn in gold as on the small one.
+
 ## v4.0.025 — 2026-09-20 — Minnesota opens
 
 - Minnesota now has pages of its own, one step inside the front door under

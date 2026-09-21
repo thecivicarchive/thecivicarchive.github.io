@@ -299,6 +299,17 @@ EXTRA_CSS = r"""
 @media (min-width:960px){.hero h1{font-size:calc(clamp(96px,11.2vw,148px) * var(--fit,1))}}
 .hero::after{display:none}
 .kpis dd{white-space:nowrap}
+.herocols{display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){.herocols{grid-template-columns:minmax(0,46ch) minmax(0,1fr);gap:40px;align-items:center}}
+.heromap{display:block;text-decoration:none;color:var(--muted);font-size:12.5px;text-align:center;animation:rise .9s .7s var(--ease) both}
+.heromap[hidden]{display:none}
+.heromap svg{display:block;width:100%;height:auto;max-height:430px;margin:0 auto 8px;overflow:visible}
+@media (max-width:959px){.heromap svg{max-height:300px}}
+.heromap path{stroke:var(--bg);stroke-width:.8;vector-effect:non-scaling-stroke;transition:filter .2s}
+html.motion .heromap path{animation:hmin .7s var(--ease) both;animation-delay:calc(var(--i) * 14ms + .4s)}
+@keyframes hmin{from{opacity:0}to{opacity:1}}
+.heromap:hover path{filter:brightness(1.12)}.heromap:hover .cap{color:var(--ink)}
+.heromap .cap::after{content:" \2192"}
 .chambers{padding:26px 0 30px}
 .chgrid{display:grid;gap:18px;grid-template-columns:1fr;margin-top:24px}
 @media (min-width:900px){.chgrid{grid-template-columns:1fr 1fr}}
@@ -338,11 +349,16 @@ svg.dmap .dout{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.3;pointer-e
 svg.dmap .dmine{fill:none;stroke:#E0B040;stroke-width:3;pointer-events:none;filter:drop-shadow(0 0 4px rgba(224,176,64,.7))}
 svg.dmap .dsel{fill:none;stroke:#fff;stroke-width:2.6;pointer-events:none}
 svg.dmap .dpin path{fill:#E0B040;stroke:#3A2B0D;stroke-width:1.2}svg.dmap .dpin circle{fill:#3A2B0D}
+svg.dmap .ycirc{fill:rgba(224,176,64,.20);stroke:#E0B040;stroke-width:1.6;pointer-events:none}
+svg.dmap #dlabels{font-family:var(--sans);font-size:12px;font-weight:700;fill:#fff;stroke:rgba(12,14,18,.5);stroke-width:2.2px;paint-order:stroke;stroke-linejoin:round;text-anchor:middle;dominant-baseline:central;pointer-events:none;letter-spacing:.01em}
+svg.dmap #dlabels text{vector-effect:none}
 .mapside .ymem{width:100%;margin:8px 0}
 .mapside .rep-top{justify-content:flex-start;padding-right:0;margin:10px 0 4px}
 .mapside .inside{font-size:13.5px;color:var(--muted);margin:12px 0 0;line-height:1.5}
 .mapside .inside button{all:unset;cursor:pointer;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 #mpage .rep-top{justify-content:flex-start;padding-right:0;margin:0 0 18px}
+.crumbs{margin:0 0 2px;font-size:13.5px}.crumbs a{color:var(--muted);text-decoration:none}.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.mapside .side-head>span{display:inline-flex;gap:6px;flex:none}
 .roster{margin-top:26px}
 .ymem .go{flex:none;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
 .ymem:hover .go{color:var(--ink);border-color:var(--ink)}
@@ -370,6 +386,13 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta property="og:title" content="__NAME__, in plain words: The Civic Archive">
 <meta property="og:description" content="Who represents every district in the __LEGISLATURE__, what they work on, and which organizations fund their campaigns, from public records.">
 <meta property="og:url" content="__BASE__/">
+<meta property="og:image" content="__BASE__/og/site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="__NAME__, in plain words: The Civic Archive">
+<meta name="twitter:description" content="Who represents every district in the __LEGISLATURE__, what they work on, and which organizations fund their campaigns, from public records.">
+<meta name="twitter:image" content="__BASE__/og/site.png">
 <link rel="icon" href="icon-192.png" type="image/png">
 __ANALYTICS__
 <meta name="theme-color" content="#0C0E12">
@@ -417,10 +440,15 @@ __ANALYTICS__
     </aside>
     <div class="hero-copy">
       <h1 style="--fit:__H1FIT__" aria-label="__NAME__, in plain words."><span class="h1a">__NAME__,</span> <span class="h1b">in plain words.</span></h1>
-      <p class="lede">A state legislature writes much of the law closest to daily life: schools, roads, taxes, health care. Most of what reaches you about it arrives filtered &mdash; as a press release, a mailer, a headline.</p>
-      <p class="lede">This place skips the filter. Who represents you, what they work on, and which organizations fund their campaigns, straight from public records &mdash; so you can decide for yourself what you think.</p>
-      <div class="cta"><a class="btn primary" href="#yours">Who represents me?</a><a class="btn" href="#map">See the district map</a><a class="btn" href="#members">Browse all __MEMBERS__ legislators</a></div>
-      <p class="nosell">No ads. No donors. No take to sell you.</p>
+      <div class="herocols">
+        <div>
+          <p class="lede">A state legislature writes much of the law closest to daily life: schools, roads, taxes, health care. Most of what reaches you about it arrives filtered &mdash; as a press release, a mailer, a headline.</p>
+          <p class="lede">This place skips the filter. Who represents you, what they work on, and which organizations fund their campaigns, straight from public records &mdash; so you can decide for yourself what you think.</p>
+          <div class="cta"><a class="btn primary" href="#yours">Who represents me?</a><a class="btn" href="#map">See the district map</a><a class="btn" href="#members">Browse all __MEMBERS__ legislators</a></div>
+          <p class="nosell">No ads. No donors. No take to sell you.</p>
+        </div>
+        <a class="heromap" id="heromaplink" href="#map" hidden><svg id="heromap" role="img" aria-label="__NAME__'s upper-chamber districts, colored by party"></svg><span class="cap" id="heromapcap"></span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -687,6 +715,18 @@ $$("[data-count]").forEach(el => {
   setTimeout(() => { el.textContent = target.toLocaleString(); }, 2600);      // the count-up is decoration; the real number always lands
 });
 
+/* ---------- the state, drawn beside the welcome: the upper chamber's districts by party; a tap opens the map ---------- */
+function drawHeroMap(){
+  const link = $("#heromaplink"), svg = $("#heromap"); if (!link || !svg) return;
+  Promise.all([membersReady(), need("districts")]).then(([, D]) => {
+    DATA.districts = D; const names = DATA.seats.upper || [], b = D.outline.bbox, pad = (b[2] - b[0]) * .02; if (!names.length) return;
+    svg.setAttribute("viewBox", `${(b[0] - pad).toFixed(2)} ${(b[1] - pad).toFixed(2)} ${(b[2] - b[0] + 2 * pad).toFixed(2)} ${(b[3] - b[1] + 2 * pad).toFixed(2)}`);
+    svg.innerHTML = names.map((d, i) => { const s = shapeOf("upper", d), L = memberAt("upper", d); return s ? `<path d="${s.d}" style="--i:${i};fill:${L ? tone(L.p) : "var(--line-strong)"}"></path>` : ""; }).join("");
+    $("#heromapcap").textContent = `${P.upper.name} districts, colored by the party of each ${P.upper.title.toLowerCase()}. Open the map`;
+    link.hidden = false;
+  }).catch(() => {});
+}
+
 /* ---------- the two chambers: one square a seat ---------- */
 function renderChambers(){
   const host = $("#chgrid"); if (!host) return;
@@ -713,7 +753,12 @@ function shapeOf(key, d){
   const raw = DATA.districts && DATA.districts[key] && DATA.districts[key][d]; if (!raw) return null;
   const rings = raw.map(r => decodeRing(r, DATA.districts.q || 400)); let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
   for (const r of rings) for (const [x, y] of r) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
-  return shapeCache[key][d] = {rings, d: ringsPath(rings), bbox: [x0, y0, x1, y1]};
+  /* where the district's number goes: the centre of gravity of its largest piece, and how much room there is around it */
+  let best = null, bestA = 0;
+  for (const r of rings) { let a = 0, cx = 0, cy = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const f = r[j][0] * r[i][1] - r[i][0] * r[j][1]; a += f; cx += (r[j][0] + r[i][0]) * f; cy += (r[j][1] + r[i][1]) * f; }
+    if (Math.abs(a) > bestA) { bestA = Math.abs(a); best = a ? [cx / (3 * a), cy / (3 * a)] : r[0]; } }
+  let at = best || [(x0 + x1) / 2, (y0 + y1) / 2]; if (!inShape(at, rings)) at = [(x0 + x1) / 2, (y0 + y1) / 2];
+  return shapeCache[key][d] = {rings, d: ringsPath(rings), bbox: [x0, y0, x1, y1], at, room: Math.sqrt(bestA / 2), inside: inShape(at, rings)};
 }
 function districtsAt(lon, lat){
   const pt = albersUsa(lon, lat), out = {upper: null, lower: null}; if (!pt) return out;
@@ -751,11 +796,14 @@ const YOURS = (function(){
       <div class="yv-acts"><a class="chip" href="${districtHash(key, d)}">Show District ${esc(d)} on the big map</a></div></article>`;
     list.hidden = false;
     const head = (mine.l && mine.u) ? "Your two legislators" : (mine.u ? `Your ${P.upper.title.toLowerCase()}${maybe.length ? `, and the ${P.lower.name} districts inside ${P.upper.name} District ${mine.u}` : ""}` : `Your ${P.lower.title.toLowerCase()}`);
-    list.innerHTML = `<div class="yours-head"><h3>${esc(head)}</h3></div>
+    list.innerHTML = `<div class="yours-head"><h3>${esc(head)}</h3>${sen || rep ? `<button class="chip sharebtn" id="yshare" type="button">Share, so friends can find theirs</button>` : ""}</div>
       <div class="yours-cols"><div class="ymap" id="ymap"><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Your districts"></svg>
         <div class="ymap-key">${BOOT.stats.parties.map(t => `<span><i style="background:${tone(t[1])}"></i>${esc(t[0])}</span>`).join("")}<span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div>
       <div class="yours-votes">${mine.u ? block("upper", mine.u, sen, true) : ""}${mine.l ? block("lower", mine.l, rep, true) : maybe.map(d => block("lower", d, memberAt("lower", d), false)).join("")}
         ${!mine.l && maybe.length ? `<p class="muted" style="font-size:13.5px">One of these ${maybe.length === 2 ? "two" : maybe.length} ${esc(P.lower.name)} districts is yours. Pick it above, or use your location.</p>` : ""}</div></div>`;
+    const sb = $("#yshare"); if (sb) sb.addEventListener("click", e => {
+      const who = [sen ? `${sen.n} (${P.upper.name} District ${mine.u})` : "", rep ? `${rep.n} (${P.lower.name} District ${mine.l})` : ""].filter(Boolean);
+      share({title: `My ${P.name} legislators`, text: `My ${P.name} legislator${who.length === 1 ? " is" : "s are"} ${who.join(" and ")}. Find yours, and see who funds their campaigns:`, url: `${SHARE_BASE}/`, kind: "yours", key: P.code}, e.currentTarget); });
     need("districts").then(D => { DATA.districts = D; drawMini(); }, () => { const m = $("#ymap"); if (m) m.hidden = true; });
   }
   function drawMini(){
@@ -825,7 +873,19 @@ function initMap(){
   const clamp = v => { let w = Math.min(v.w, HOME.w), h = w / RATIO; if (w < MINW) { w = MINW; h = w / RATIO; }
     return {x: Math.max(HOME.x, Math.min(HOME.x + HOME.w - w, v.x)), y: Math.max(HOME.y, Math.min(HOME.y + HOME.h - h, v.y)), w, h}; };
   const zoomed = () => view.w < HOME.w * .999;
-  function apply(){ svg.setAttribute("viewBox", `${view.x.toFixed(4)} ${view.y.toFixed(4)} ${view.w.toFixed(4)} ${view.h.toFixed(4)}`); svg.classList.toggle("zoomed", zoomed()); drawPin();
+  /* District numbers: each appears once its district is large enough on screen to hold it, so the whole state shows
+     the big rural districts' numbers and the cities' appear as the reader zooms in. */
+  let labels = [];
+  /* map units in one screen pixel; the map fits its frame by whichever side is tighter */
+  const unitPx = () => { const box = svg.getBoundingClientRect(), wide = Math.max(240, box.width || svg.clientWidth || 600), tall = box.height || wide / RATIO; return Math.max(view.w / wide, view.h / tall); };
+  function sizeLabels(){
+    const px = unitPx();
+    /* Browsers refuse to draw type below a minimum size, and in map units these numbers are a fraction of a pixel.
+       So the type stays 12px and each number is scaled down to the map instead. */
+    const k = (px * 13 / 12).toFixed(5);
+    for (const L of labels) { const show = L.ok && L.room / px >= .9 * (8.5 * L.n + 8); L.el.style.display = show ? "" : "none"; if (show) L.el.setAttribute("transform", `translate(${L.x} ${L.y}) scale(${k})`); }
+  }
+  function apply(){ svg.setAttribute("viewBox", `${view.x.toFixed(4)} ${view.y.toFixed(4)} ${view.w.toFixed(4)} ${view.h.toFixed(4)}`); svg.classList.toggle("zoomed", zoomed()); drawPin(); sizeLabels();
     $$("#zoombar [data-z]").forEach(b => { if (b.dataset.z === "home") b.setAttribute("aria-pressed", !zoomed()); }); }
   function setView(v, animate){
     v = clamp(v); cancelAnimationFrame(raf);
@@ -837,12 +897,14 @@ function initMap(){
   }
   const zoomBy = k => { const cx = view.x + view.w / 2, cy = view.y + view.h / 2, w = view.w * k; setView({x: cx - w / 2, y: cy - w / RATIO / 2, w, h: w / RATIO}, true); };
   function zoomTo(k, d, animate){ const s = shapeOf(k, d); if (!s) return; setView(fit(s.bbox[0], s.bbox[1], s.bbox[2], s.bbox[3], 3.2), animate); }
-  function drawPin(){ const g = $("#dpin", svg); if (!g) return; const pin = YOURS.pin; g.innerHTML = pin ? pinSVG(pin, view.w / Math.max(240, svg.clientWidth || 600), "dpin") : ""; }
+  function drawPin(){ const g = $("#dpin", svg); if (!g) return; const pin = YOURS.pin; g.innerHTML = pin ? pinSVG(pin, unitPx(), "dpin") : ""; }
   function draw(){
     const names = DATA.seats[key] || [];
     svg.innerHTML = `<g id="dlayer">${names.map(d => { const s = shapeOf(key, d), L = memberAt(key, d); if (!s) return "";
       return `<path class="dd${L ? "" : " vac"}" d="${s.d}" ${L ? `fill="${tone(L.p)}"` : ""} tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(P[key].name)} District ${esc(d)}: ${L ? esc(L.n) + ", " + esc(L.pn) : "vacant"}"></path>`; }).join("")}</g>
-      <path class="dout" d="${OUT.d}"></path><g id="dminelayer"></g><g id="dsellayer"></g><g id="dpin"></g>`;
+      <path class="dout" d="${OUT.d}"></path><g id="dminelayer"></g><g id="dsellayer"></g>
+      <g id="dlabels" aria-hidden="true">${names.map(d => shapeOf(key, d) ? `<text class="dl" data-d="${esc(d)}" style="display:none">${esc(d)}</text>` : "").join("")}</g><g id="dpin"></g>`;
+    labels = $$("#dlabels .dl", svg).map(el => { const s = shapeOf(key, el.dataset.d); return {el, n: el.dataset.d.length, room: s.room, ok: s.inside, x: s.at[0].toFixed(3), y: s.at[1].toFixed(3)}; });
     sel.innerHTML = `<option value="">Jump to a ${esc(P[key].name)} district…</option>` + names.map(d => { const L = memberAt(key, d); return `<option value="${esc(d)}">${esc(d)} · ${L ? esc(L.n) + " (" + esc(L.pn) + ")" : "vacant"}</option>`; }).join("");
     $$("#dchips [data-ch]").forEach(b => b.setAttribute("aria-pressed", b.dataset.ch === key));
     markMine(); apply();
@@ -854,7 +916,7 @@ function initMap(){
     $("#dsellayer", svg).innerHTML = s ? `<path class="dsel" d="${s.d}"></path>` : ""; sel.value = d || "";
     if (!d) { side.innerHTML = `<span class="muted">Tap a district to see who represents it.</span>`; return; }
     const inside = key === "upper" ? lowersOf(d) : [], up = key === "lower" ? upperOf(d) : null, mineHere = YOURS.mine && (key === "upper" ? YOURS.mine.u : YOURS.mine.l) === d;
-    side.innerHTML = `<div class="side-head"><h3>${esc(P[key].name)} District ${esc(d)}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><button class="chip" type="button" data-zoomhere="1">Zoom here</button></div>
+    side.innerHTML = `<div class="side-head"><h3>${esc(P[key].name)} District ${esc(d)}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><span><button class="chip" type="button" data-zoomhere="1">Zoom here</button> <button class="chip sharebtn" type="button" data-sharedistrict="1">Share</button></span></div>
       ${L ? memBtn(L, titleLine(L)) + `<div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}</div>` : `<p class="muted">This seat is vacant, or its member is not on file yet.</p>`}
       ${inside.length ? `<p class="inside">${esc(P.lower.name)} districts inside it: ${inside.map(l => { const R = memberAt("lower", l); return `<button type="button" data-goto="lower:${esc(l)}">${esc(l)}</button>${R ? " (" + esc(R.n) + ")" : " (vacant)"}`; }).join(", ")}.</p>` : ""}
       ${up && shapeOf("upper", up) ? `<p class="inside">It sits inside ${esc(P.upper.name)} District <button type="button" data-goto="upper:${esc(up)}">${esc(up)}</button>${memberAt("upper", up) ? " (" + esc(memberAt("upper", up).n) + ")" : ""}.</p>` : ""}`;
@@ -875,6 +937,8 @@ function initMap(){
   $("#dlegend").innerHTML = BOOT.stats.parties.map(t => `<span><i class="sw" style="background:${tone(t[1])}"></i> ${esc(t[0])}</span>`).join("") + `<span><i class="sw" style="background:#2A2E36"></i> Vacant</span><span><i class="sw" style="border:2px solid #E0B040;background:none"></i> Your district, if you have picked one</span>`;
   sel.addEventListener("change", () => { if (sel.value) select(sel.value, {zoom: true, scroll: true}); });
   side.addEventListener("click", e => { const z = e.target.closest("[data-zoomhere]"); if (z && picked) { zoomTo(key, picked, true); return; }
+    const sd = e.target.closest("[data-sharedistrict]"); if (sd && picked) { const L = memberAt(key, picked);
+      share({title: `${P.name} ${P[key].name} District ${picked}`, text: `${P.name} ${P[key].name} District ${picked} is ${L ? "represented by " + L.n + " (" + L.pn + ")" : "vacant"}. Every district on the map, and who funds each campaign:`, url: `${SHARE_BASE}/${districtHash(key, picked)}`, kind: "district", key: (key === "upper" ? "S-" : "H-") + picked}, sd); return; }
     const g = e.target.closest("[data-goto]"); if (g) { const [k, d] = g.dataset.goto.split(":"); key = k; draw(); select(d, {zoom: true}); } });
   /* pointer: a press that does not travel is a tap on a district; one that travels drags the map when it is zoomed in */
   let drag = null, dragged = false;
@@ -893,7 +957,8 @@ function initMap(){
   svg.addEventListener("click", e => { if (dragged) { dragged = false; return; } const p = e.target.closest(".dd"); if (p) select(p.dataset.d, {scroll: true}); });
   svg.addEventListener("dblclick", e => { e.preventDefault(); const r = svg.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height, cx = view.x + fx * view.w, cy = view.y + fy * view.h, w = view.w * .5; setView({x: cx - w / 2, y: cy - w / RATIO / 2, w, h: w / RATIO}, true); });
   svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("dd")) { e.preventDefault(); select(e.target.dataset.d, {scroll: true}); } });
-  addEventListener("resize", () => { if (!$("#pg-map").hidden) drawPin(); });
+  window.mapResize = () => { drawPin(); sizeLabels(); };
+  addEventListener("resize", () => { if (!$("#pg-map").hidden) mapResize(); });
   draw();
   window.mapStats = () => ({key, picked, view, zoomed: zoomed(), shapes: $$(".dd", svg).length});
 }
@@ -1087,7 +1152,7 @@ function renderMemberPage(id, show){
     if (!L) { box.innerHTML = `<div class="empty">That member isn't in this record. <a href="#members">See all members</a></div>`; return; }
     const key = KEYOF[L.ch], up = key === "lower" ? upperOf(L.d) : null, other = up ? memberAt("upper", up) : null, insiders = key === "upper" ? lowersOf(L.d).map(d => memberAt("lower", d)).filter(Boolean) : [];
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
-    box.innerHTML = `<div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}, ${esc(P.name)}</div></div></div>
+    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}, ${esc(P.name)}</div></div></div>
       <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${ract("map", "District " + L.d + " on the map", districtHash(key, L.d), true)}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
       <div class="mp-grid">
         <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(Pf, L, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
@@ -1098,7 +1163,7 @@ function renderMemberPage(id, show){
       </div>
       <div class="mny-page" id="mpmoney" hidden></div>`;
     if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) renderMoney(id, Pf.money, L, show);
-    $("#sharemp").addEventListener("click", e => share({title: `Get to know ${L.n}`, text: `${L.n}, ${seatOf(L)} in the ${P.legislature}: service, committees and who funds the campaign, from the public record:`, url: `${SHARE_BASE}/#member=${id}`, kind: "member", key: id}, e.currentTarget));
+    $("#sharemp").addEventListener("click", e => share({title: `Get to know ${L.n}`, text: `${L.n}, ${seatOf(L)} in the ${P.legislature}: service, committees and who funds the campaign, from the public record:`, url: `${SHARE_BASE}/m/${id}.html`, kind: "member", key: id}, e.currentTarget));
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this member. Check your connection and try again.</div>`; });
 }
 
@@ -1147,7 +1212,7 @@ function showPage(name, push){
   document.body.dataset.page = name;
   pageview("/" + P.code.toLowerCase() + "/" + (name === "home" ? "" : name), P.name + ": " + name);
   if (name === "members") renderRoster();
-  if (name === "map") mapReady().catch(() => {});
+  if (name === "map") mapReady().then(() => { if (window.mapResize) mapResize(); }, () => {});      // drawn while hidden, the map has no size to measure; measure it now
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
 }
@@ -1176,6 +1241,7 @@ $("#totop").addEventListener("click", () => scrollTo({top: 0, behavior: calm() ?
 renderChambers();
 reveal(document);
 routeFromHash(false);
+setTimeout(drawHeroMap, 200);
 </script>
 </body>
 </html>
@@ -1209,6 +1275,9 @@ def main():
     if left:
         raise SystemExit(f"build_state_dev: placeholders were left unfilled in the page: {', '.join(left)}")
     sizes, n_members, donor_bytes, photo_bytes = write_site(folder, html, data)
+    from states import share_state                       # a pasted link shows a card: one small page and one image per member
+    sh = share_state.write_share_pages(os.path.abspath(folder), P, data, base, os.path.join(HERE, "states_cache"))
+    print(f"    Share pages: {sh['member_pages']:,} members; preview images {sh['cards_drawn']:,} drawn, {sh['cards_kept']:,} unchanged, {sh['cards_bytes'] / 1e6:,.1f} MB")
     st = data["stats"]
     print(f"Wrote {folder}: {P['name']}, {st['members']:,} members, {st['districts']:,} district shapes, {st['portraits']:,} portraits, {st['wiki']:,} Wikipedia paragraphs; "
           f"index.html {sizes['index.html'] / 1e3:,.0f} KB, districts {sizes['data/districts.json'] / 1e3:,.0f} KB, {n_members:,} member files, "

@@ -106,6 +106,8 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `load_donors.py` | Campaign money from the Federal Election Commission's public bulk files, 2016 through 2026 (about 170 MB, cached in `fec_cache/`, no key): which FEC candidate numbers belong to which member, each campaign's own totals, and every itemized payment by a committee to, for, or against a member. Organizations only; memo lines are left out, as the FEC's totals leave them out |
 | `money_views.py` | Shapes those tables for the site: each member's top donors by cycle and office, every payment behind them, and outside spending kept apart. `build_site_dev.py` calls it; it downloads nothing |
 | `run_states.py`, `states/` | The state side: `places.py` (what each state calls its chambers and parties, its election year, map zooms and the money agency's page addresses), `net.py` (polite, patient downloads), `load_people.py`, `load_sld.py`, `load_legiscan.py`, `money_mn.py`, `money_views.py` (shapes a state's money tables for the pages, as `money_views.py` does federally). See "The state side" below |
+| `states/share_state.py` | A state's share pages (`m/<id>.html`) and 1200 by 630 preview images (`og/`), drawn with `share_cards.py`'s type and colours: portrait, seat, committees, money on file and the district picked out on the state. Redrawn only when what they show has changed. Portraits come from the originals the people stage keeps in `states_cache/photos/<code>/` |
+| `states/save_key.py`, `Save LegiScan key.bat` | John's own step for the LegiScan key: he pastes it into a window where it is not shown, and it is saved as `legiscan_key.txt`. Never run it for him with a key, and never read that file |
 | `build_state_dev.py` | Builds one state's draft pages into `site/dev/<code>/` from `state_<code>.sqlite`, the district file and `places.py`. It takes the styles and the shared parts of the page from `build_site_dev.py` at build time (the landmarks are listed in `BORROWED`), so the two sides look and behave alike; if a landmark goes missing the build stops and names it |
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |
@@ -214,6 +216,11 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
+- The two sides point at each other. The federal shell carries `state_sites` (every state in `places.py` whose
+  database exists), and "How did your members vote?" links a reader of such a state through to `../<code>/`; the
+  one-file archive has no neighbours, so it shows no such link. State pages link back through "All levels".
+- Type inside a zoomed SVG map: browsers will not draw text below a minimum size, and in map units a label is a
+  fraction of a pixel. Keep the font at 12px and scale each label with a `transform`, as the state map does.
 - LegiScan and Open States do not cover Guam, and Puerto Rico's record is in Spanish with its own parties. Those two
   come last, with their own loaders.
 

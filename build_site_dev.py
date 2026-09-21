@@ -794,8 +794,19 @@ def boot_for(data, version, base_url=""):
             "ticker": ticker, "closest": data.get("closest") or [], "kinds": data.get("money_kinds") or {},
             "welcome": data["welcome"], "changelog": data["changelog"], "featured": [list_record(b) for b in feat],
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
-            "state_names": {st: s["name"] for st, s in data["states"].items()},
+            "state_names": {st: s["name"] for st, s in data["states"].items()}, "state_sites": state_sites(),
             "stall_cutoff": data.get("stall_cutoff", ""), "inline": None}
+
+
+def state_sites():
+    """State code -> the address of that state's own pages, beside this site (../mn/), for every state whose
+    database is loaded. The front door and the state builder read the same list, states/places.py."""
+    try:
+        from states.places import PLACES
+    except Exception:  # noqa: BLE001  the federal kit works without the state side
+        return {}
+    here = os.path.dirname(os.path.abspath(__file__))
+    return {p["code"]: f"../{code}/" for code, p in sorted(PLACES.items()) if os.path.exists(os.path.join(here, f"state_{code}.sqlite"))}
 
 
 def html_attr(text):
@@ -1150,6 +1161,7 @@ p{margin:0 0 12px}
 .ynote{font-size:13.5px}
 .yours-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
 .yours-head h3{margin:0;font-size:18px}
+.yh-links{display:inline-flex;gap:8px;flex-wrap:wrap}
 .yvote{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px 18px;margin:12px 0}
 .yv-head{font-size:15px;line-height:1.4;margin-bottom:10px}
 .yv-members{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
@@ -1428,6 +1440,7 @@ section.block{padding:72px 0;scroll-margin-top:72px}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 #chips .chip[aria-pressed="true"]{background:transparent;border-color:transparent}
 .chip:active{transform:scale(.97)}
+a.chip{text-decoration:none}
 .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
 .selwrap.compact{height:36px;font-size:13.5px;padding-right:30px}
 #count{font-size:14px}
@@ -4485,7 +4498,8 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     const name = NAMES[st] || st, votes = [];
     for (const v of DATA.vote_meta) { if (positionsFor(v, st).length) votes.push(v); if (votes.length === 6) break; }
     shownVotes = votes; if (!focusVote || !votes.some(v => v.vote_id === focusVote)) focusVote = (votes.find(v => v.chamber !== "Senate") || votes[0] || {}).vote_id || null;
-    list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><a class="chip" href="#map">Every vote, on the map</a></div><div class="yours-cols"><div class="ymap" id="ymap" hidden><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Map of ${esc(name)} and its congressional districts"></svg><div class="ymap-info" id="ymapinfo" aria-live="polite"></div><div class="ymap-key"><span><i style="background:var(--dem)"></i>Democrat</span><span><i style="background:var(--rep)"></i>Republican</span><span><i style="background:var(--plum)"></i>Independent</span><span><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 4px)"></i>striped = voted no</span><span><i style="background:var(--line-strong)"></i>did not vote</span><span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div><div class="yours-votes">` + (votes.map(v => {
+    const own = (!BOOT.inline && BOOT.state_sites && BOOT.state_sites[st]) ? `<a class="chip" href="${esc(BOOT.state_sites[st])}">${esc(name)}'s own legislature</a>` : "";      // the one-file archive has no neighbours to link to
+    list.innerHTML = `<div class="yours-head"><h3>${esc(name)}'s members on the latest roll calls</h3><span class="yh-links">${own}<a class="chip" href="#map">Every vote, on the map</a></span></div><div class="yours-cols"><div class="ymap" id="ymap" hidden><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Map of ${esc(name)} and its congressional districts"></svg><div class="ymap-info" id="ymapinfo" aria-live="polite"></div><div class="ymap-key"><span><i style="background:var(--dem)"></i>Democrat</span><span><i style="background:var(--rep)"></i>Republican</span><span><i style="background:var(--plum)"></i>Independent</span><span><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 4px)"></i>striped = voted no</span><span><i style="background:var(--line-strong)"></i>did not vote</span><span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div><div class="yours-votes">` + (votes.map(v => {
       const ms = positionsFor(v, st).sort(byRow), mine = mineFor(v, ms);
       if (mine) { ms.splice(ms.indexOf(mine), 1); ms.unshift(mine); }      // your own member comes first
       return `<article class="yvote${v.vote_id === focusVote ? " focus" : ""}" data-vote="${esc(v.vote_id)}"><div class="yv-head"><b>${esc(v.bill)}</b> ${esc(v.title)}<div class="muted">${esc(v.chamber)} ${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}: ${v.yeas ?? "?"}\u2013${v.nays ?? "?"}, ${esc((v.result || "").toLowerCase())}</div></div>

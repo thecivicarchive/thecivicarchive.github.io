@@ -76,8 +76,9 @@ def main():
     key = read_key()
     if not key:
         print("    Waiting for the LegiScan key. Bills and votes cannot be loaded without it.")
-        print("    John: sign up for the free API key at legiscan.com (the LegiScan API page), then save the key as the only")
-        print("    line of a new file called legiscan_key.txt in this folder. Do not paste it into a chat.")
+        print("    John: make a free account at legiscan.com, confirm it from the email they send, then fill in the short form")
+        print("    on the LegiScan API page (https://legiscan.com/legiscan); the key appears on that same page. To save it,")
+        print("    double-click \"Save LegiScan key.bat\" in this folder and paste the key there. Do not paste it into a chat.")
         return 2
     since = int(P["since"][:4])
     con = sqlite3.connect(args.db)
