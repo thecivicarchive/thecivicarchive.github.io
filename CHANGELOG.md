@@ -10,6 +10,34 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.038 — 2026-09-24 — Texas's campaign money
+
+- Texas is the fifth state with its campaign money loaded, from the Texas
+  Ethics Commission's bulk download of every electronically filed report
+  since 2000 (one 1 GB file, 35.6 million contribution rows, read in eight
+  minutes). All 179 sitting legislators are matched to their accounts:
+  $279 million from named organizations since 2015 and $166 million from
+  people, as totals. Texas has no contribution limits, and the file shows
+  it: one committee, Texans for Lawsuit Reform PAC, gave sitting members
+  about $30 million.
+- The Commission's own filer index does the identifying. An account is
+  matched by family name, a compatible given name and the office it sought
+  or held; where the Commission's formal name does not fit the roster's
+  (Roberto D. Guerra for Bobby Guerra, Eugene Y. Wu for Gene Wu), the
+  Commission's own record of the seat the account holds settles it, and the
+  run lists all eighteen such cases. A giver's kind comes from the same
+  index: a registered committee is what it is registered as, whatever a
+  campaign called it. Texas bars corporate and union gifts, so the rest of
+  the named organizations are partnerships, law firms and associations.
+- No outside spending is shown for Texas: the Commission's bulk file lists
+  a committee's spending for a candidate on the same schedule as the gifts
+  it made, with no flag to tell them apart and none for support or
+  opposition. The money card says so.
+- Reports superseded by a later filing (117,079 rows) are skipped in favour
+  of the later one. Six committees were treated as a member's own earlier
+  committee, all city council or mayoral accounts passed on to the
+  legislative one.
+
 ## v4.0.037 — 2026-09-24 — Colorado's campaign money
 
 - Colorado is the fourth state with its campaign money loaded, from the

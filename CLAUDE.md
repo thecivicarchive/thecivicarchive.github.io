@@ -233,7 +233,7 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
 | `people` | Open States "people" project (CC0): members, service, committees, portraits; Wikipedia's opening paragraph, fenced off as on the federal side | nothing |
 | `districts` | Census Bureau cartographic boundary files, upper and lower chamber | nothing |
 | `bills` | LegiScan weekly datasets: bills and roll calls with every member's vote (50 states and DC) | John's free LegiScan key |
-| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`; `states/money_co.py` the Colorado Secretary of State's TRACER yearly bulk zips, cached in `states_cache/co_tracer/`) | nothing for Minnesota, Iowa, Washington or Colorado |
+| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`; `states/money_co.py` the Colorado Secretary of State's TRACER yearly bulk zips, cached in `states_cache/co_tracer/`; `states/money_tx.py` the Texas Ethics Commission's 1 GB bulk zip, cached in `states_cache/tx_tec/`, an eight-minute scan) | nothing for Minnesota, Iowa, Washington, Colorado or Texas |
 
 - The LegiScan key is John's. It lives as one line in `legiscan_key.txt` (ignored by git). Never ask him to paste it
   into the chat, never print or log it, and never try to get past the bot check on legiscan.com; the API manual at
@@ -276,7 +276,11 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   and a full name fitting exactly one sitting member, else the title's own words or the seat it names
   (`title_reading`); skip `Amended = Y` rows; the expenditure files do not attribute independent spending to
   candidates, so `state_outside` stays empty and the `money_rule` says so. A state's `money_rule` should say what its
-  file itemizes and what it lacks. Loaders still to write, easy first: Texas (TEC bulk zip), Florida, New York,
+  file itemizes and what it lacks. Texas's lessons: the Commission's filer index (filers.csv) carries the office
+  sought and held with district and a CURRENT_OFFICEHOLDER status, so the seat record settles a formal-name mismatch;
+  ENTITY givers' kinds come from the same index by name (a registered GPAC is a PAC whatever the campaign wrote); the
+  first six CSV fields never hold commas, so a line's filer number is read before the row is parsed; a shell heredoc
+  turns `\\b` into a backspace, so write patch scripts with the Write tool. Loaders still to write: Florida, New York,
   New Jersey, California; Oregon has no bulk file (ORESTAR export only); North Dakota 2025-26 only; Wisconsin waits
   on John's robots.txt answer; South Dakota has PDFs only.
 - Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the

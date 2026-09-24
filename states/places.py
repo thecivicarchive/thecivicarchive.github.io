@@ -361,6 +361,9 @@ PLACES = {
     },
     "tx": {
         "code": "TX", "name": "Texas", "fips": "48",
+        "money": "tx_tec",                     # states/money_tx.py: the Texas Ethics Commission's bulk download of every electronically filed report
+        "money_agency": {"name": "the Texas Ethics Commission", "url": "https://www.ethics.state.tx.us/search/cf/"},
+        "money_rule": "Campaigns list every giver whose gifts in a reporting period pass the Commission's threshold by name, and smaller gifts as one sum. Texas lets political committees, party committees, other campaigns and the partnerships, law firms and associations it allows give directly, and those are named as the campaign reported them; a corporation or union may not give to a Texas candidate. The Commission's bulk file lists a committee's spending for a candidate beside the gifts it made, with no flag to tell the two apart, so no outside spending is shown for Texas.",
         "legislature": "Texas Legislature", "session": "89th Legislature, 2025-2026", "since": "2025-01-01",
         "url": "https://capitol.texas.gov/",
         # after the 2022 election senators drew lots for two- or four-year terms, so no district-number rule says when a seat is next up
