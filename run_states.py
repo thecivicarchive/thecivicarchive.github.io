@@ -156,6 +156,8 @@ def main():
             if P.get("money") == "mn_cfb":
                 # the same window as the federal donor pages: the 2016 through 2026 cycles, and the 2016 cycle begins in January 2015
                 run("states.money_mn", "--db", db, "--cache-dir", cache, "--since", "2015")
+            elif P.get("money") == "ia_iecdb":
+                run("states.money_ia", "--db", db, "--cache-dir", cache, "--since", "2015")
             else:
                 say(f"  No campaign-money loader for {P['name']} yet; the site will say it is coming.")
         elif st == "check":

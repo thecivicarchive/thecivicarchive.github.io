@@ -233,7 +233,7 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
 | `people` | Open States "people" project (CC0): members, service, committees, portraits; Wikipedia's opening paragraph, fenced off as on the federal side | nothing |
 | `districts` | Census Bureau cartographic boundary files, upper and lower chamber | nothing |
 | `bills` | LegiScan weekly datasets: bills and roll calls with every member's vote (50 states and DC) | John's free LegiScan key |
-| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads) | nothing for Minnesota |
+| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`) | nothing for Minnesota or Iowa |
 
 - The LegiScan key is John's. It lives as one line in `legiscan_key.txt` (ignored by git). Never ask him to paste it
   into the chat, never print or log it, and never try to get past the bot check on legiscan.com; the API manual at
@@ -258,6 +258,16 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   totals are lower than everything a campaign took in.
 - A member's own earlier committee (a House account passed to a Senate one) is "moved in", not a donor, as on the
   federal side. The build lists every committee it treated that way by name; read that list after a money reload.
+- John's order (2026-09-24): money for every state from the state's own agency, one loader at a time, never a
+  compilation. A loader writes the four `state_*` tables `states/money_views.py` reads, is named in `places.py`
+  (`"money": "ia_iecdb"`), dispatched in `run_states.py`, and gives its state a `"money_rule"` sentence (what the
+  agency's file holds and leaves out) and, where a licence asks for it, a `"money_credit"` line; both appear on every
+  money card and on the Sources page. Iowa's lessons: the register (dataset 704) only lists committees still open, so
+  closed committees' candidates are read from their titles (`name_from_title`); givers without a committee number
+  are totalled as "other", never named; a member's registered committee for another office is matched only when the
+  full name fits exactly one sitting member. Loaders still to write, easy first: Washington (PDC), Oregon (ORESTAR),
+  Colorado (TRACER), Texas, Florida, New York, New Jersey, California; North Dakota 2025-26 only; Wisconsin waits on
+  John's robots.txt answer; South Dakota has PDFs only.
 - Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the
   database and is never written to a page, and the contribution file's employer and in-kind description columns are
   not loaded at all.

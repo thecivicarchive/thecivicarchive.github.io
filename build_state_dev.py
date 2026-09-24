@@ -487,7 +487,8 @@ def render(P, data, version, base_url, analytics):
     boot = {"version": version, "generated": data["generated"], "base": base_url.rstrip("/"), "analytics": analytics,
             "place": {"code": P["code"], "name": P["name"], "legislature": P["legislature"], "session": P.get("session", ""),
                       "upper": P.get("upper"), "lower": P.get("lower"), "nested": bool(P.get("nested")), "zooms": P.get("zooms") or [],
-                      "money_links": P.get("money_links") or {}, "money_agency": P.get("money_agency") or {}},
+                      "money_links": P.get("money_links") or {}, "money_agency": P.get("money_agency") or {},
+                      "money_rule": P.get("money_rule") or "", "money_credit": P.get("money_credit") or ""},
             "stats": st, "kinds": data["kinds"], "changelog": data["changelog"], "photo_ids": sorted(data["photos"]),
             "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "has_people": st.get("has_people", False), "inline": None,
             "unmapped": data.get("unmapped") or {}}
@@ -552,7 +553,7 @@ def render(P, data, version, base_url, analytics):
         "__MONEY_SOURCE_CARD__": (
             '<div class="labelcard rv" style="--i:2"><span class="tag fact">Fact</span><h3>Campaign money</h3><p><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a>\'s public downloads: gifts to candidates\' committees, '
             'and independent spending for or against candidates. Organizations are named; people who gave, lobbyists included, are only ever counted in totals. Outside spending is always shown apart from donations, '
-            'because the campaign never received it.</p></div>' if money else
+            'because the campaign never received it.' + ((" " + html_attr(P["money_credit"])) if P.get("money_credit") else "") + '</p></div>' if money else
             '<div class="labelcard rv" style="--i:2"><span class="tag analysis">Coming</span><h3>Campaign money</h3><p>Not loaded for __NAME__ yet. Every state keeps its own campaign-finance records, so they are added one state at a time, '
             'always from the state\'s own agency and always by the same rule: organizations are named, people are only ever totals, outside spending is kept apart.</p></div>'),
         "__MONEY_FOOT_LI__": '<li><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a></li>' if money else "<li>Campaign money: coming, from the state's own agency</li>",
@@ -1521,7 +1522,7 @@ function moneyCardBody(id, view){
     ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organization${top.length === 1 ? "" : "s"} that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm">${donorName(d[2], d[0], d[1])}${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this segment"}.</p>`}
     ${(out[0] || out[1]) ? `<p class="mny-out">Separately, outside groups spent <b>${usd(out[0])}</b> to support and <b>${usd(out[1])}</b> to oppose. None of that went to the campaign.</p>` : ""}`;
 }
-const MONEY_RULE = `From ${esc(AGENCY)}'s public files. Campaigns list a giver once that giver passes $200 in a year; smaller gifts are reported as one sum, and the public subsidy the state pays campaigns is reported elsewhere, so neither is in this file and the totals here are lower than everything a campaign took in. Organizations are named: political committees and funds, party units and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.`;
+const MONEY_RULE = `From ${esc(AGENCY)}'s public files. ${P.money_rule ? esc(P.money_rule) + " " : ""}Organizations are named: political committees and funds, party committees and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.${P.money_credit ? " " + esc(P.money_credit) : ""}`;
 function moneyCard(id){
   const M = MONEY[id].M, views = ["all"].concat(M.cycles.map(String)).filter(v => (M.top || {})[v] || (M.totals || {})[v]), start = "all";
   return `<div class="know-b money" data-money="${esc(id)}"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4>

@@ -20,6 +20,8 @@ PLACES = {
         "bill_prefixes": {"HF": "House File", "SF": "Senate File"},
         "money": "mn_cfb",                     # which campaign-finance loader this state uses; None until one is written
         "money_agency": {"name": "the Minnesota Campaign Finance and Public Disclosure Board", "url": "https://cfb.mn.gov/"},
+        # the sentence on every money card about what the agency's file does and does not hold (each state's rules differ)
+        "money_rule": "Campaigns list a giver once that giver passes $200 in a year; smaller gifts are reported as one sum, and the public subsidy the state pays campaigns is reported elsewhere, so neither is in this file and the totals here are lower than everything a campaign took in.",
         # the Board's own page for a committee, by kind of committee ({id} is its registration number)
         "money_links": {"pcf": "https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/political-committee-fund/{id}/",
                         "party": "https://cfb.mn.gov/reports-and-data/viewers/campaign-finance/party-unit/{id}/",
@@ -614,12 +616,15 @@ PLACES = {
         "code": "IA", "name": "Iowa", "fips": "19",
         "legislature": "Iowa General Assembly", "session": "91st General Assembly, 2025-2026", "since": "2025-01-01",
         "url": "https://www.legis.iowa.gov/",
+        "money": "ia_iecdb",                   # states/money_ia.py: the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov
+        "money_agency": {"name": "the Iowa Ethics and Campaign Disclosure Board", "url": "https://ethics.iowa.gov/"},
+        "money_rule": "Campaigns list every giver whose gifts pass $25 in a year and report smaller gifts as one sum. Iowa's file names registered committees by number; a giver it names without a number (a bank paying interest, a business, an unitemized line) is counted in the totals as other receipts and not named here.",
+        "money_credit": "The data is the Board's, published on data.iowa.gov under a Creative Commons Attribution-NonCommercial licence; this site is not commercial.",
         "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 50, "term_years": 4, "next": {"odd": 2026, "even": 2028}},
         "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 100, "term_years": 2, "next": 2026},
         "zooms": [{"name": "Des Moines", "box": [-93.92, 41.45, -93.40, 41.78]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
     },
 }
 

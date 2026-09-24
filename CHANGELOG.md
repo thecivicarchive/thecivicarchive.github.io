@@ -10,6 +10,39 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.035 — 2026-09-24 — Iowa's campaign money
+
+- Iowa is the second state with its campaign money loaded, from the Iowa
+  Ethics and Campaign Disclosure Board's own datasets on data.iowa.gov: every
+  contribution received since 2003 (3.2 million rows, of which 513,564 went
+  to House and Senate campaigns since 2015), the Board's register of
+  committees, and independent spending for or against candidates. All 149
+  sitting legislators are matched to their committees (160 of them, 952 on
+  file): $62.1 million from named organizations, $2.2 million of outside
+  spending, in the 2016 through 2026 cycles.
+- The same rule as everywhere on the site. Organizations are named: political
+  action committees, the state and county central committees of the parties,
+  and other candidates' committees, each recognised by the number the Board
+  assigned it. People are only ever totals. A giver the file names without a
+  committee number (a bank paying interest, a business, an unitemized line)
+  cannot be verified from the file, so it is counted as "other" and not
+  named either. Outside spending is kept apart, its free-text descriptions
+  never reach the page, and a member's own earlier committee (a council or
+  county race before the legislature) is "moved in", not a donor.
+- Committees are matched by name and never guessed: the Board's register
+  names the candidate for a committee still open; a closed committee's name
+  is read from its title ("Committee to Elect Zach Wahls", "Pellant for
+  Iowa House", "Cheevers4House"). A match needs the family name, a compatible
+  given name where one is written, and a chamber the member has served in,
+  and must be the only fit; the register's district settles a tie; a
+  sitting representative's registered committee for a Senate race is
+  accepted when exactly one sitting member carries the name. The one title
+  two members fit ("Johnson for State House") is left out and said so.
+- Each state's money card now carries that state's own sentence about what
+  its agency's file holds (Iowa lists gifts over $25; Minnesota over $200
+  and no public subsidy), and Iowa's carries the Board's credit line and
+  its Creative Commons Attribution-NonCommercial licence.
+
 ## v4.0.034 — 2026-09-24 — Who lives in each district
 
 - The second districting lens is built, on every level at once: all 435
