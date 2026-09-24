@@ -26,6 +26,7 @@ loaded them; until then the page says they are coming.
 import argparse
 import datetime as dt
 import json
+import io
 import os
 import re
 import shutil
@@ -70,8 +71,82 @@ def borrow(name):
 
 
 def natural(d):
-    m = re.match(r"^(\d+)(.*)$", str(d or ""))
-    return (int(m.group(1)), m.group(2)) if m else (10 ** 9, str(d))
+    """Sort key: 7 before 10 before 10A; a named district ("Belknap 7", "Chittenden-17") by its name and then its number."""
+    s = str(d or "")
+    m = re.match(r"^(\d+)(.*)$", s)
+    if m:
+        return (int(m.group(1)), m.group(2))
+    m = re.match(r"^(.*?)(\d+)$", s)
+    return (10 ** 9, m.group(1), int(m.group(2))) if m else (10 ** 9, s)
+
+
+# Some states name their districts rather than number them: Massachusetts's "First Middlesex", Vermont's "Chittenden
+# Southeast", New Hampshire's "Belknap 7". The Census file carries its own code for each (D11, CHS, 007) and the
+# Bureau's spelling of the name. The two spellings are reduced to what both would write the same way, and a match
+# has to be the only one.
+ORDINALS = {w: i for i, w in enumerate("first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth "
+                                      "fifteenth sixteenth seventeenth eighteenth nineteenth".split(), 1)}
+ORDINALS.update({"twentieth": 20, "thirtieth": 30, "fortieth": 40})
+TENS = {"twenty": 20, "thirty": 30, "forty": 40}
+KIND_WORDS = r"\b(state\s+)?(house|senate|senatorial|assembly|legislative|representative)\s+district\b|\bdistrict\b"
+
+
+def spelling(name):
+    """A district name reduced to what the roster and the Census Bureau would both write: ordinals as numbers, hyphens,
+    commas and "and" set aside, the words "State House District" and their kin dropped, no case, no spaces."""
+    s = (name or "").lower()
+    s = re.sub(KIND_WORDS, " ", s)
+    s = re.sub(r"[,&/]|\band\b", " ", s).replace("-", " ")
+    s = re.sub(r"\b(twenty|thirty|forty)\s+(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)\b", lambda m: str(TENS[m.group(1)] + ORDINALS[m.group(2)]), s)
+    s = re.sub(r"\b(" + "|".join(ORDINALS) + r")\b", lambda m: str(ORDINALS[m.group(1)]), s)
+    s = re.sub(r"\b(\d+)(st|nd|rd|th)\b", r"\1", s)
+    s = re.sub(r"\b0+(\d)", r"\1", s)
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def trimmed(name):
+    """The Bureau's name without the words that say what kind of district it is, for a shape the roster does not name."""
+    s = re.sub(KIND_WORDS, " ", name or "", flags=re.IGNORECASE)
+    s = re.sub(r"\b0+(\d)", r"\1", s)
+    return re.sub(r"\s+", " ", s).strip(" -")
+
+
+def crosswalk_names(P, shapes, legislators):
+    """Where the roster's districts are not the Census file's codes, match each to a Census name by spelling, and file the
+    shapes (and their names) under the roster's own names. A roster district that matches no shape is left as it is; the
+    caller lists those. Returns {chamber key: {census code: name}} so the Shapes page's rows can be renamed the same way."""
+    renames = {}
+    for ch, key in (("Senate", "upper"), ("Legislature", "upper"), ("House", "lower")):
+        have = shapes.get(key) or {}
+        held = sorted({L["d"] for L in legislators.values() if L["ch"] == ch})
+        if not have or not held:
+            continue
+        seat_letter = lambda d: (m := re.match(r"^(\d+)[A-Za-z]$", d)) and m.group(1) in have      # Idaho's 1A: a seat within district 1
+        missing = [d for d in held if d not in have and not seat_letter(d)]
+        if not missing:
+            continue
+        census = (shapes.get("names") or {}).get(key) or {}
+        by = {}
+        for code, nm in census.items():
+            by.setdefault(spelling(nm), []).append(code)
+        rename, left = {}, []
+        for d in missing:
+            codes = by.get(spelling(d), [])
+            if len(codes) == 1 and codes[0] not in rename and codes[0] not in held:
+                rename[codes[0]] = d
+            else:
+                left.append(d)
+        if not rename:
+            continue
+        for code, nm in census.items():          # shapes the roster leaves empty are shown by the Bureau's name, trimmed the same way
+            if code in have and code not in rename and code not in held:
+                rename[code] = trimmed(nm)
+        shapes[key] = {rename.get(c, c): v for c, v in have.items()}
+        shapes.setdefault("names", {})[key] = {rename.get(c, c): n for c, n in census.items()}
+        renames[key] = rename
+        print(f"    names: {len(rename)} {P[key]['name']} district shapes filed under the roster's own names (the Bureau codes them "
+              f"{', '.join(list(census)[:3])} and so on); " + (f"{len(left)} roster district(s) match no shape: {', '.join(left)}" if left else "every roster district matched a shape"))
+    return renames
 
 
 def gap_days(a, b):
@@ -254,6 +329,7 @@ def collect(P, db_path, districts_path):
                 photos[bio] = bytes(blob)
 
     shapes = json.load(open(districts_path, encoding="utf-8")) if os.path.exists(districts_path) else {"q": 400, "upper": {}, "lower": {}, "vintage": ""}
+    renames = crosswalk_names(P, shapes, legislators)
     # Idaho files its representatives as 1A and 1B, but both are elected by the whole of district 1: the letter names a
     # seat, not a place. Where a member's district has no shape of its own and its number does, the letter is a seat.
     seated = 0
@@ -265,12 +341,22 @@ def collect(P, db_path, districts_path):
             seated += 1
     if seated:
         print(f"    seats: {seated} member(s) are filed by seat letter within a district (1A and 1B share district 1); shown as District 1, Seat A")
+    # A district with members but no lines of its own (New Hampshire's floterial districts lie over several others, and the
+    # Census file has no separate shape for them) is listed in the roster and on member pages, but cannot be drawn or found.
+    unmapped = {key: sorted({L["d"] for L in legislators.values() if key_of.get(L["ch"]) == key and L["d"] not in (shapes.get(key) or {})}, key=natural)
+                for key in ("upper", "lower") if shapes.get(key)}
+    for key, ds in unmapped.items():
+        if ds:
+            print(f"    map: {len(ds)} {P[key]['name']} district(s) with members but no lines of their own in the Census file, listed but not drawn: {', '.join(ds)}")
     outline = state_paths(os.path.join(HERE, "us_states_albers.json")).get(P["code"]) or {"d": "", "bbox": [0, 0, 975, 610]}
     chambers, vacant, expect = {}, {}, {}
     for ch, key in (("Senate" if P.get("lower") else "Legislature", "upper"), ("House", "lower")):      # a one-chamber legislature files its members under "Legislature"
         if not P.get(key):
             continue
         sitting = [L for L in legislators.values() if L["ch"] == ch]
+        # Maine seats representatives of the Passamaquoddy Tribe and the Houlton Band of Maliseet Indians beside its 151
+        # members; places.py says so ("beyond"), and they are counted apart from the seats rather than as more than 151.
+        beyond = [L for L in sitting if P[key].get("beyond") and L["d"] in (unmapped.get(key) or [])]
         tally, held = {}, {}
         for L in sitting:
             t = tally.setdefault(L["pn"] or L["p"], [L["pn"] or L["p"], L["p"], 0])
@@ -282,9 +368,24 @@ def collect(P, db_path, districts_path):
         plain = [d for d in names if str(d).isdigit()]
         per = max(1, round((P[key]["seats"] - (len(names) - len(plain))) / len(plain))) if plain and len(names) < P[key]["seats"] else 1
         expect[key] = {d: (per if str(d).isdigit() else 1) for d in names} if per > 1 else {}
+        # Where districts elect different numbers of members (New Hampshire's House one to eleven, Maryland's one to
+        # three, Vermont's Senate one to three), no one rule gives each district's count. It is read from the roster
+        # instead, a district's seats being the members it has, and a vacancy is then counted for the chamber as a
+        # whole (its seats less its members), never guessed for one district.
+        varies = (len(names) < P[key]["seats"] and any(n > 1 for n in held.values()) and per == 1) \
+            or (per > 1 and any(held.get(d, 0) > n for d, n in expect[key].items()))
+        span = None
+        if varies:
+            expect[key] = {d: max(1, held.get(d, 0)) for d in names}
+            counts = sorted({n for n in held.values() if n})
+            span = [counts[0], counts[-1]] if counts else [1, 1]
         want = lambda d: expect[key].get(d, 1)
         vacant[key] = [[d, want(d) - held.get(d, 0)] for d in sorted(names, key=natural) if held.get(d, 0) < want(d)]      # [district, seats empty]
-        chambers[key] = {"name": P[key]["name"], "seats": P[key]["seats"], "filled": len(sitting), "per": per,
+        if varies:
+            print(f"    seats: {P[key]['name']} districts elect from {span[0]} to {span[1]} members each, read from the roster; "
+                  f"{P[key]['seats'] - len(sitting)} seat(s) of {P[key]['seats']} unfilled, by the chamber's count")
+        chambers[key] = {"name": P[key]["name"], "seats": P[key]["seats"], "filled": len(sitting) - len(beyond), "per": per, "varies": span,
+                         "beyond": [len(beyond), P[key].get("beyond") or ""] if beyond else None,
                          "uniform": per > 1 and all(n == per for n in expect[key].values()),      # every district elects the same number (Idaho), or most do (the Dakotas)
                          "parties": sorted(tally.values(), key=lambda t: (-t[2], t[0])), "vacant": [d for d, _n in vacant[key]]}
     seats = {key: sorted(shapes.get(key, {}), key=natural) for key in ("upper", "lower")}
@@ -308,11 +409,21 @@ def collect(P, db_path, districts_path):
     lens_path = os.path.join(HERE, f"state_{P['code'].lower()}_shapes.json")
     lens = json.load(open(lens_path, encoding="utf-8")) if os.path.exists(lens_path) else {}
     stats["has_shapes"] = bool(lens.get("chambers"))
+    for key, rn in renames.items():                    # the Shapes page's rows carry the roster's names too
+        chd = (lens.get("chambers") or {}).get(key) or {}
+        for row in chd.get("districts", []):
+            new = rn.get(row["d"], row["d"])
+            if row.get("key") == row["d"]:
+                row["key"] = new
+            row["d"] = new
+        chd["districts"] = sorted(chd.get("districts", []), key=lambda r: natural(r["d"]))
+        ctl = chd.get("control") or {}
+        ctl["lowest"] = [[r, rn.get(d, d)] for r, d in ctl.get("lowest", [])]
     if not lens:
         print(f"    shapes: {os.path.basename(lens_path)} is not there, so the Shapes page stays hidden (python district_shapes.py --state {P['code'].lower()})")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "legislators": legislators, "profiles": profiles, "donors": money["members"],
             "kinds": money["kinds"], "photos": photos, "stats": stats, "seats": seats, "vacant": vacant, "expect": expect, "nest": nest, "officials": officials,
-            "lens": lens,
+            "lens": lens, "unmapped": unmapped, "renames": renames,
             "districts": {"q": shapes.get("q", 400), "upper": shapes.get("upper", {}), "lower": shapes.get("lower", {}),
                           "vintage": shapes.get("vintage", ""), "outline": {"d": outline["d"], "bbox": outline["bbox"]}},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
@@ -347,7 +458,8 @@ def render(P, data, version, base_url, analytics):
                       "upper": P.get("upper"), "lower": P.get("lower"), "nested": bool(P.get("nested")), "zooms": P.get("zooms") or [],
                       "money_links": P.get("money_links") or {}, "money_agency": P.get("money_agency") or {}},
             "stats": st, "kinds": data["kinds"], "changelog": data["changelog"], "photo_ids": sorted(data["photos"]),
-            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "inline": None}
+            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "inline": None,
+            "unmapped": data.get("unmapped") or {}}
     gc = analytics or ""
     tag = ('<script data-goatcounter="%s" data-goatcounter-settings=\'{"no_onload": true, "allow_frame": false}\' '
            'async src="https://gc.zgo.at/count.js" onload="if(window.__gcflush)__gcflush()"></script>' % html_attr(gc)) if gc else ""
@@ -371,10 +483,15 @@ def render(P, data, version, base_url, analytics):
     def seat_words(key, state_word):
         c = st["chambers"].get(key) or {}
         per = c.get("per") or 1
-        number = {1: "one", 2: "two", 3: "three"}.get(per, str(per))
+        words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven"}
+        if c.get("varies"):
+            lo, hi = c["varies"]
+            span = f"{words.get(lo, lo)} or {words.get(hi, hi)}" if hi == lo + 1 else f"between {words.get(lo, lo)} and {words.get(hi, hi)}"
+            return f"{span} {state_word}{P[key]['title'].lower()}s"
+        number = words.get(per, str(per))
         most = "" if (per == 1 or c.get("uniform")) else "in most districts, "
         return f"{most}{number} {state_word}{P[key]['title'].lower()}{'s' if per > 1 else ''}"
-    titles = seat_words("upper", "state ") + (f" and{',' if 'most' in seat_words('lower', '') else ''} {seat_words('lower', '')}" if P.get("lower") else "")
+    titles = seat_words("upper", "state ") + (f" and{',' if 'most' in seat_words('lower', '') else ''} {seat_words('lower', '')}" if P.get("lower") else "")         + (", depending on the district" if any((st["chambers"].get(k) or {}).get("varies") for k in ("upper", "lower")) else "")
     # what the page says about campaign money depends on whether this state's is loaded yet
     money = st["has_money"]
     words = {
@@ -383,6 +500,9 @@ def render(P, data, version, base_url, analytics):
                                    'computed from the same Census Bureau boundary files. The files and their fingerprints, the formulas, the checks and what a score cannot tell you '
                                    'are under <a href="#shapes">Shapes</a>, "Sources and methods".</p></div>' if st.get("has_shapes") else ""),
         "__PLACE_NOTE__": (" " + html_attr(P["note"])) if P.get("note") else "",
+        "__UNMAPPED__": "".join(f'<p class="note">{len(ds)} {html_attr(P[key]["name"])} district{"s are" if len(ds) > 1 else " is"} listed but not drawn, because the Census Bureau\'s file '
+                                f'has no lines for {"them" if len(ds) > 1 else "it"}: {html_attr(", ".join(ds))}. <a href="#members">The roster</a> lists {"their" if len(ds) > 1 else "its"} members.</p>'
+                                for key, ds in (data.get("unmapped") or {}).items() if ds),
         "__MAP_SWITCH__": "Switch between the two chambers, z" if P.get("lower") else "Z",
         "__DESC__": f"Who represents every district in the {P['legislature']}, what they work on{', and which organizations fund their campaigns' if money else ''}, from public records.",
         "__MONEY_CLAUSE__": ", and which organizations fund their campaigns" if money else "",
@@ -436,13 +556,25 @@ def write_site(folder, html, data):
 
     put("index.html", html)
     put("data/members.json", dump({"legislators": data["legislators"], "seats": data["seats"], "vacant": data["vacant"],
-                                   "expect": data["expect"], "nest": data["nest"], "officials": data["officials"]}))
+                                   "expect": data["expect"], "nest": data["nest"], "officials": data["officials"], "unmapped": data.get("unmapped") or {}}))
     put("data/districts.json", dump(data["districts"]))
     if data.get("lens"):
         put("data/shapes.json", dump(data["lens"]))
         csv_path = os.path.join(HERE, f"state_{data['lens']['place'].lower()}_shapes.csv")
         if os.path.exists(csv_path):                                        # every figure on the Shapes page, for anyone who wants to check them
-            shutil.copyfile(csv_path, os.path.join(folder, "data", "shapes.csv"))
+            rn = data.get("renames") or {}
+            if rn:                                                            # the district column in the roster's names, as on the page
+                import csv
+                by_name = {c.get("name"): k for k, c in (data["lens"].get("chambers") or {}).items()}
+                with open(csv_path, encoding="utf-8", newline="") as fh:
+                    rows = list(csv.reader(fh))
+                for row in rows[1:]:
+                    row[1] = rn.get(by_name.get(row[0]), {}).get(row[1], row[1])
+                out = io.StringIO()
+                csv.writer(out, lineterminator="\n").writerows(rows)
+                put("data/shapes.csv", out.getvalue())
+            else:
+                shutil.copyfile(csv_path, os.path.join(folder, "data", "shapes.csv"))
     n = 0
     for bio, prof in data["profiles"].items():
         put(f"data/member/{bio}.json", dump(prof))
@@ -701,7 +833,7 @@ __ANALYTICS__
         </div>
         <aside class="mapside rv" id="mapside" aria-live="polite" style="--i:2"><span class="muted">Tap a district to see who represents it.</span></aside>
       </div>
-      <p class="note" id="mapnote">District lines: __VINTAGE__. When zoomed in, drag the map to move around.</p>
+      <p class="note" id="mapnote">District lines: __VINTAGE__. When zoomed in, drag the map to move around.</p>__UNMAPPED__
     </div>
   </section>
   </div><!-- /map -->
@@ -867,7 +999,10 @@ const BOOT = __BOOT__;
 const P = BOOT.place, CH = {Senate: P.upper, House: P.lower || P.upper, Legislature: P.upper};
 const KEYOF = {Senate: "upper", House: "lower", Legislature: "upper"}, CHOF = {upper: P.lower ? "Senate" : "Legislature", lower: "House"};
 /* what a chamber calls its districts: "Senate District", "Assembly District", and in a one-chamber state "Legislative District" */
-const DN = key => (P[key] || {}).district_name || (((P[key] || {}).name || "") + " District");
+const DN = key => { const c = P[key] || {}; return (c.district_name === undefined || c.district_name === null) ? ((c.name || "") + " District") : c.district_name; };      // "" where the district's name is the whole label ("First Middlesex")
+const dLabel = (key, d) => { const w = DN(key); return w ? `${w} ${d}` : String(d); };
+const onMap = (key, d) => (DATA.seats[key] || []).includes(String(d));
+const unmappedNote = () => ["upper", "lower"].filter(k => P[k] && ((BOOT.unmapped || {})[k] || []).length).map(k => { const ds = BOOT.unmapped[k], few = ds.slice(0, 6).join(", ") + (ds.length > 6 ? ` and ${ds.length - 6} more` : ""); return `<p class="muted" style="font-size:13.5px">${ds.length} ${esc(P[k].name)} district${ds.length > 1 ? "s have" : " has"} no lines in the Census Bureau's file, so ${ds.length > 1 ? "they" : "it"} cannot be found by location: ${esc(few)}. <a href="#members">The roster</a> lists ${ds.length > 1 ? "their" : "its"} members.</p>`; }).join("");
 const DATA = {legislators: {}, seats: {upper: [], lower: []}, vacant: {}, expect: {}, nest: {}, districts: null, at: {upper: {}, lower: {}}};
 const PHOTO = new Set(BOOT.photo_ids || []);
 const DATA_V = encodeURIComponent(BOOT.version || "0");
@@ -917,10 +1052,10 @@ const reveal = root => $$(".rv:not(.obs)", root || document).forEach(el => { el.
 
 /* ---------- members ---------- */
 const natural = d => { const m = String(d || "").match(/^(\d+)(.*)$/); return m ? [+m[1], m[2]] : [1e9, String(d)]; };
-const byDistrict = (a, b) => { const x = natural(a), y = natural(b); return x[0] - y[0] || x[1].localeCompare(y[1]); };
+const byDistrict = (a, b) => { const x = natural(a), y = natural(b); return x[0] - y[0] || x[1].localeCompare(y[1], undefined, {numeric: true}); };
 const tone = p => p === "D" ? "var(--dem)" : (p === "R" ? "var(--rep)" : "var(--plum)");
 const chName = ch => (CH[ch] || {}).name || ch;
-const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, District ${L.d}${L.seat ? ", Seat " + L.seat : ""}`;
+const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, ${dLabel(KEYOF[L.ch], L.d)}${L.seat ? ", Seat " + L.seat : ""}`;
 /* which upper-chamber district a lower-chamber district sits inside: worked out from the lines when the page was built */
 const upperOf = l => (DATA.nest || {})[l] || null;
 const lowersOf = u => DATA.seats.lower.filter(l => upperOf(l) === String(u));
@@ -967,7 +1102,7 @@ function renderOfficialPage(id){
     const O = (DATA.officials || []).find(o => o.id === id);
     if (!O) { box.innerHTML = `<div class="empty">That office isn't in this record. <a href="#officials">See the statewide offices</a></div>`; return; }
     const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "", W = Pf.wiki;
-    const earlier = (O.earlier || []).map(s => `${chName(s.ch)} District ${s.d}${s.to ? ", until " + s.to : ""}`).join("; ");
+    const earlier = (O.earlier || []).map(s => `${chName(s.ch)} ${dLabel(KEYOF[s.ch], s.d)}${s.to ? ", until " + s.to : ""}`).join("; ");
     const others = (DATA.officials || []).filter(o => o.id !== id);
     pageview("/official/" + id, O.n); document.title = `${O.n}: The Civic Archive`;
     box.innerHTML = `<p class="crumbs"><a href="#officials">← Statewide offices</a></p><div class="mp-head">${avatar(id, O.p, "xxl")}<div><h1 class="mp-name">${esc(O.n)}</h1><div class="seat"><b>${esc(O.pn)}</b>, ${esc(O.office)} of ${esc(P.name)}</div></div></div>
@@ -1015,10 +1150,10 @@ function renderChambers(){
       const order = C.parties.map(t => t[0]);
       ms.sort((a, b) => (order.indexOf(a.pn) - order.indexOf(b.pn)) || byDistrict(a.d, b.d));
       const vac = (DATA.vacant[k] || []), nvac = vac.reduce((a, v) => a + v[1], 0);      // [district, seats empty]
-      return `<div class="chcard rv" style="--i:${i}"><h3>${esc(P[k].full || P[k].name)} <span>${C.filled} of ${C.seats} seats filled</span></h3>
+      return `<div class="chcard rv" style="--i:${i}"><h3>${esc(P[k].full || P[k].name)} <span>${C.filled} of ${C.seats} seats filled${C.beyond ? `, and ${numWord(C.beyond[0])} ${esc(C.beyond[1])}` : ""}</span></h3>
         <div class="chbar" role="img" aria-label="${esc(C.parties.map(t => t[0] + " " + t[2]).join(", "))}">${C.parties.map(t => `<i style="width:${(100 * t[2] / C.seats).toFixed(2)}%;background:${tone(t[1])}"></i>`).join("")}</div>
         <div class="chleg">${C.parties.map(t => `<span><i style="background:${tone(t[1])}"></i>${esc(t[0])} <b>${t[2]}</b></span>`).join("")}${vac.length ? `<span><i style="border:1.5px dashed var(--line-strong)"></i>Vacant <b>${nvac}</b> <span class="muted">(${vac.map(v => esc(v[0])).join(", ")})</span></span>` : ""}</div>
-        <div class="seats">${ms.map(L => `<a href="#member=${esc(L.id)}" style="--pc:${tone(L.p)}" title="${esc(L.n)}, District ${esc(L.d)} (${esc(L.pn)})" aria-label="${esc(L.n)}, District ${esc(L.d)}, ${esc(L.pn)}"></a>`).join("")}${vac.map(v => `<a class="vac" title="District ${esc(v[0])}: vacant"></a>`.repeat(v[1])).join("")}</div></div>`;
+        <div class="seats">${ms.map(L => `<a href="#member=${esc(L.id)}" style="--pc:${tone(L.p)}" title="${esc(L.n)}, ${esc(dLabel(k, L.d))} (${esc(L.pn)})" aria-label="${esc(L.n)}, ${esc(dLabel(k, L.d))}, ${esc(L.pn)}"></a>`).join("")}${vac.map(v => `<a class="vac" title="District ${esc(v[0])}: vacant"></a>`.repeat(v[1])).join("")}</div></div>`;
     }).join("");
     reveal(host);
   }, () => { host.innerHTML = `<p class="muted">Couldn't load the members. Check your connection and try again.</p>`; });
@@ -1061,7 +1196,7 @@ const YOURS = (function(){
   const selU = $("#ysd"), selL = $("#yhd"), list = $("#ylist"), note = $("#ynote"); if (!selU) return {};
   const KEY = "sld:" + P.code.toLowerCase();
   let mine = null, myPin = null;
-  $("#ysdlab").textContent = DN("upper").replace(/District$/, "district"); if (P.lower) $("#yhdlab").textContent = P.lower.name + " district"; else selL.closest(".selwrap").hidden = true;
+  $("#ysdlab").textContent = DN("upper") ? DN("upper").replace(/District$/, "district") : P.upper.name + " district"; if (P.lower) $("#yhdlab").textContent = P.lower.name + " district"; else selL.closest(".selwrap").hidden = true;
   const save = () => { if (mine) store.set(KEY, JSON.stringify(mine)); else store.del(KEY); };
   function fill(){
     selU.innerHTML = `<option value="">Choose</option>` + DATA.seats.upper.map(d => `<option value="${esc(d)}">${esc(d)}</option>`).join("");
@@ -1074,18 +1209,18 @@ const YOURS = (function(){
     const sen = mine.u ? membersAt("upper", mine.u) : [], rep = mine.l ? membersAt("lower", mine.l) : [], maybe = (!mine.l && mine.u) ? lowersOf(mine.u) : [];
     const block = (key, d, ms, yours) => { const want = seatsIn(key, d), short = want - ms.length;
       const say = !ms.length ? "This seat is vacant, or its member is not on file yet." : (short > 0 ? `${short === 1 ? "One seat here is" : numWord(short) + " seats here are"} vacant.` : (want > 1 ? `This district elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : ""));
-      return `<article class="yvote${yours ? " focus" : ""}"><div class="yv-head"><b>${esc(DN(key))} ${esc(d)}</b><div class="muted">${esc(say)}</div></div>${ms.length ? `<div class="yv-members">${ms.map(L => memBtn(L, titleLine(L), yours ? "mine shimmer" : "")).join("")}</div>` : ""}
-      <div class="yv-acts"><a class="chip" href="${districtHash(key, d)}">Show District ${esc(d)} on the big map</a></div></article>`; };
+      return `<article class="yvote${yours ? " focus" : ""}"><div class="yv-head"><b>${esc(dLabel(key, d))}</b><div class="muted">${esc(say)}</div></div>${ms.length ? `<div class="yv-members">${ms.map(L => memBtn(L, titleLine(L), yours ? "mine shimmer" : "")).join("")}</div>` : ""}
+      <div class="yv-acts"><a class="chip" href="${districtHash(key, d)}">Show ${esc(dLabel(key, d))} on the big map</a></div></article>`; };
     list.hidden = false;
     const count = sen.length + rep.length;
-    const head = (mine.l && mine.u) ? (count === 1 ? "Your legislator" : `Your ${numWord(count)} legislators`) : (mine.u ? `Your ${P.upper.title.toLowerCase()}${maybe.length ? `, and the ${P.lower.name} districts inside ${DN("upper")} ${mine.u}` : ""}` : `Your ${P.lower.title.toLowerCase()}${rep.length > 1 ? "s" : ""}`);
+    const head = (mine.l && mine.u) ? (count === 1 ? "Your legislator" : `Your ${numWord(count)} legislators`) : (mine.u ? `Your ${P.upper.title.toLowerCase()}${maybe.length ? `, and the ${P.lower.name} districts inside ${dLabel("upper", mine.u)}` : ""}` : `Your ${P.lower.title.toLowerCase()}${rep.length > 1 ? "s" : ""}`);
     list.innerHTML = `<div class="yours-head"><h3>${esc(head)}</h3>${count ? `<button class="chip sharebtn" id="yshare" type="button">Share, so friends can find theirs</button>` : ""}</div>
       <div class="yours-cols"><div class="ymap" id="ymap"><div class="ymap-head" id="ymaphead"></div><svg class="ymap-svg" id="ymapsvg" role="img" aria-label="Your districts"></svg>
         <div class="ymap-key">${BOOT.stats.parties.map(t => `<span><i style="background:${tone(t[1])}"></i>${esc(t[0])}</span>`).join("")}<span><i class="ring"></i>you</span></div><p class="ymap-note" id="ymapnote"></p></div>
       <div class="yours-votes">${mine.u ? block("upper", mine.u, sen, true) : ""}${mine.l ? block("lower", mine.l, rep, true) : maybe.map(d => block("lower", d, membersAt("lower", d), false)).join("")}
-        ${!mine.l && maybe.length ? `<p class="muted" style="font-size:13.5px">One of these ${maybe.length === 2 ? "two" : maybe.length} ${esc(P.lower.name)} districts is yours. Pick it above, or use your location.</p>` : ""}</div></div>`;
+        ${!mine.l && maybe.length ? `<p class="muted" style="font-size:13.5px">One of these ${maybe.length === 2 ? "two" : maybe.length} ${esc(P.lower.name)} districts is yours. Pick it above, or use your location.</p>` : ""}${unmappedNote()}</div></div>`;
     const sb = $("#yshare"); if (sb) sb.addEventListener("click", e => {
-      const who = sen.map(m => `${m.n} (${DN("upper")} ${mine.u})`).concat(rep.map(m => `${m.n} (${DN("lower")} ${mine.l})`));
+      const who = sen.map(m => `${m.n} (${dLabel("upper", mine.u)})`).concat(rep.map(m => `${m.n} (${dLabel("lower", mine.l)})`));
       share({title: `My ${P.name} legislators`, text: `My ${P.name} legislator${who.length === 1 ? " is" : "s are"} ${listWords(who)}. Find yours${BOOT.has_money ? ", and see who funds their campaigns" : ""}:`, url: `${SHARE_BASE}/`, kind: "yours", key: P.code}, e.currentTarget); });
     need("districts").then(D => { DATA.districts = D; drawMini(); }, () => { const m = $("#ymap"); if (m) m.hidden = true; });
   }
@@ -1097,13 +1232,13 @@ const YOURS = (function(){
     const pad = Math.max(x1 - x0, y1 - y0) * .1, vbw = x1 - x0 + 2 * pad;
     svg.setAttribute("viewBox", `${(x0 - pad).toFixed(3)} ${(y0 - pad).toFixed(3)} ${vbw.toFixed(3)} ${(y1 - y0 + 2 * pad).toFixed(3)}`);
     const u = vbw / Math.max(240, svg.clientWidth || 420);
-    let body = lows.map(([d, s]) => { const ms = membersAt("lower", d); return `<path class="yd" d="${s.d}" fill="${fillOf(ms, "y") || "var(--line-strong)"}" tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(DN("lower"))} ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ""}"><title>${esc(DN("lower"))} ${esc(d)}${ms.length ? ": " + esc(namesOf(ms)) : ": vacant"}</title></path>`; }).join("");
+    let body = lows.map(([d, s]) => { const ms = membersAt("lower", d); return `<path class="yd" d="${s.d}" fill="${fillOf(ms, "y") || "var(--line-strong)"}" tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(dLabel("lower", d))}${ms.length ? ": " + esc(namesOf(ms)) : ""}"><title>${esc(dLabel("lower", d))}${ms.length ? ": " + esc(namesOf(ms)) : ": vacant"}</title></path>`; }).join("");
     if (!lows.length && upper) body = `<path class="yd" d="${upper.d}" fill="${fillOf(membersAt("upper", mine.u), "y") || "var(--line-strong)"}"></path>`;
     if (upper) body += `<path class="yout" d="${upper.d}"></path>`;
     const me = mine.l && shapeOf("lower", mine.l); if (me) body += `<path class="ymine" d="${me.d}"></path>`;
     svg.innerHTML = mixDefs("y") + body + (myPin ? pinSVG(myPin, u, "ypin") : "");
     const nests = lows.length && lows.every(x => upperOf(x[0]) === String(mine.u));      // only say "inside" where the lines really nest
-    $("#ymaphead").innerHTML = `<b>${esc(DN("upper"))} ${esc(mine.u || "")}</b>${lows.length ? `<span class="muted">${nests ? ` · the ${esc(P.lower.name)} district${lows.length === 1 ? "" : "s"} inside it${lows.length > 1 ? ": " + lows.map(x => esc(x[0])).join(" and ") : ""}, colored by party.` : ` and ${esc(DN("lower"))} ${esc(lows[0][0])}, each colored by party. In ${esc(P.name)} the two chambers' districts are drawn separately, so they overlap rather than nest.`}${mine.l ? ` Your ${esc(P.lower.name)} district is outlined in gold.` : ""}</span>` : ""}`;
+    $("#ymaphead").innerHTML = `<b>${esc(dLabel("upper", mine.u || ""))}</b>${lows.length ? `<span class="muted">${nests ? ` · the ${esc(P.lower.name)} district${lows.length === 1 ? "" : "s"} inside it${lows.length > 1 ? ": " + lows.map(x => esc(x[0])).join(" and ") : ""}, colored by party.` : ` and ${esc(dLabel("lower", lows[0][0]))}, each colored by party. In ${esc(P.name)} the two chambers' districts are drawn separately, so they overlap rather than nest.`}${mine.l ? ` Your ${esc(P.lower.name)} district is outlined in gold.` : ""}</span>` : ""}`;
     const n = $("#ymapnote");
     n.innerHTML = myPin ? `The pin is your own device's estimate of where you are, with a circle reaching ${milesWords(pinMiles(myPin))} around it. It was worked out on this device and is kept only here, rounded to about half a mile. <button type="button" id="yforget">Forget my location</button>`
       : `Tap "Use my location" and your own spot is pinned here. It is worked out on your device and never sent anywhere. <button type="button" id="yforget">Forget my districts</button>`;
@@ -1123,7 +1258,7 @@ const YOURS = (function(){
         mine = {u: hit.upper, l: hit.lower, from: "pin"};
         myPin = {st: P.code, lat: Math.round(pos.coords.latitude * 100) / 100, lon: Math.round(pos.coords.longitude * 100) / 100, acc: Math.round(pos.coords.accuracy || 0)};      // rounded: about half a mile
         store.set("pin", JSON.stringify(myPin)); store.set("state", P.code); save();
-        note.textContent = `It looks like ${DN("upper")} ${hit.upper || "?"}${hit.lower ? " and " + P.lower.name + " District " + hit.lower : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.${(pos.coords.accuracy || 0) > 3000 ? ` Your device could only place you within about ${Math.max(2, Math.round(pos.coords.accuracy / 1609.34))} miles, so treat the districts as a rough guess.` : ""}`;
+        note.textContent = `It looks like ${dLabel("upper", hit.upper || "?")}${hit.lower ? " and " + dLabel("lower", hit.lower) : ""}. Worked out on your device; your location never leaves it. Near a district line the guess can be off by one.${(pos.coords.accuracy || 0) > 3000 ? ` Your device could only place you within about ${Math.max(2, Math.round(pos.coords.accuracy / 1609.34))} miles, so treat the districts as a rough guess.` : ""}`;
         paint(); track("locate", {key: P.code}); if (window.mapMine) mapMine();
       }, () => { note.textContent = "Couldn't load the district lines. Check your connection, or pick your district."; });
     }, () => { note.textContent = "Location wasn't shared. Pick your district instead."; }, {timeout: 10000, maximumAge: 600000});
@@ -1185,7 +1320,7 @@ function initMap(){
   function draw(){
     const names = DATA.seats[key] || [];
     svg.innerHTML = `${mixDefs("d")}<g id="dlayer">${names.map(d => { const s = shapeOf(key, d), ms = membersAt(key, d); if (!s) return "";
-      return `<path class="dd${ms.length ? "" : " vac"}" d="${s.d}" ${ms.length ? `style="fill:${fillOf(ms, "d")}"` : ""} tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(DN(key))} ${esc(d)}: ${ms.length ? esc(namesOf(ms)) : "vacant"}"></path>`; }).join("")}</g>
+      return `<path class="dd${ms.length ? "" : " vac"}" d="${s.d}" ${ms.length ? `style="fill:${fillOf(ms, "d")}"` : ""} tabindex="0" role="button" data-d="${esc(d)}" aria-label="${esc(dLabel(key, d))}: ${ms.length ? esc(namesOf(ms)) : "vacant"}"></path>`; }).join("")}</g>
       <path class="dout" d="${OUT.d}"></path><g id="dminelayer"></g><g id="dsellayer"></g>
       <g id="dlabels" aria-hidden="true">${names.map(d => shapeOf(key, d) ? `<text class="dl" data-d="${esc(d)}" style="display:none">${esc(d)}</text>` : "").join("")}</g><g id="dpin"></g>`;
     labels = $$("#dlabels .dl", svg).map(el => { const s = shapeOf(key, el.dataset.d); return {el, n: el.dataset.d.length, room: s.room, ok: s.inside, x: s.at[0].toFixed(3), y: s.at[1].toFixed(3)}; });
@@ -1200,11 +1335,11 @@ function initMap(){
     $("#dsellayer", svg).innerHTML = s ? `<path class="dsel" d="${s.d}"></path>` : ""; sel.value = d || "";
     if (!d) { side.innerHTML = `<span class="muted">Tap a district to see who represents it.</span>`; return; }
     const inside = key === "upper" ? lowersOf(d) : [], up = key === "lower" ? upperOf(d) : null, mineHere = YOURS.mine && (key === "upper" ? YOURS.mine.u : YOURS.mine.l) === d;
-    side.innerHTML = `<div class="side-head"><h3>${esc(DN(key))} ${esc(d)}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><span><button class="chip" type="button" data-zoomhere="1">Zoom here</button> <button class="chip sharebtn" type="button" data-sharedistrict="1">Share</button></span></div>
+    side.innerHTML = `<div class="side-head"><h3>${esc(dLabel(key, d))}${mineHere ? ` <span class="ch-yours">yours</span>` : ""}</h3><span><button class="chip" type="button" data-zoomhere="1">Zoom here</button> <button class="chip sharebtn" type="button" data-sharedistrict="1">Share</button></span></div>
       ${want > 1 ? `<p class="inside" style="margin:0 0 4px">This district elects ${numWord(want)} ${esc(P[key].title.toLowerCase())}s${ms.length < want ? `; ${numWord(want - ms.length)} seat${want - ms.length === 1 ? " is" : "s are"} vacant` : ""}.</p>` : ""}
       ${ms.length ? ms.map(m => memBtn(m, titleLine(m))).join("") + (L ? `<div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}</div>` : "") : `<p class="muted">This seat is vacant, or its member is not on file yet.</p>`}
       ${inside.length ? `<p class="inside">${esc(P.lower.name)} district${inside.length === 1 ? "" : "s"} inside it: ${inside.map(l => { const rs = membersAt("lower", l); return `<button type="button" data-goto="lower:${esc(l)}">${esc(l)}</button>${rs.length ? " (" + esc(rs.map(m => m.n).join(", ")) + ")" : " (vacant)"}`; }).join("; ")}.</p>` : ""}
-      ${up && shapeOf("upper", up) ? `<p class="inside">It sits inside ${esc(DN("upper"))} <button type="button" data-goto="upper:${esc(up)}">${esc(up)}</button>${memberAt("upper", up) ? " (" + esc(memberAt("upper", up).n) + ")" : ""}.</p>` : ""}`;
+      ${up && shapeOf("upper", up) ? `<p class="inside">It sits inside ${DN("upper") ? esc(DN("upper")) + " " : ""}<button type="button" data-goto="upper:${esc(up)}">${esc(up)}</button>${memberAt("upper", up) ? " (" + esc(memberAt("upper", up).n) + ")" : ""}.</p>` : ""}`;
     if (!opts.quiet) history.replaceState({page: "map"}, "", districtHash(key, d));
     if (s && (opts.zoom || (s.bbox[2] - s.bbox[0]) < view.w * .05)) zoomTo(key, d, true);
     if (opts.scroll && !matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"});
@@ -1223,7 +1358,7 @@ function initMap(){
   sel.addEventListener("change", () => { if (sel.value) select(sel.value, {zoom: true, scroll: true}); });
   side.addEventListener("click", e => { const z = e.target.closest("[data-zoomhere]"); if (z && picked) { zoomTo(key, picked, true); return; }
     const sd = e.target.closest("[data-sharedistrict]"); if (sd && picked) { const ms = membersAt(key, picked);
-      share({title: `${P.name} ${DN(key)} ${picked}`, text: `${P.name} ${DN(key)} ${picked} is ${ms.length ? "represented by " + listWords(ms.map(m => m.n + " (" + m.pn + ")")) : "vacant"}. Every district on the map${BOOT.has_money ? ", and who funds each campaign" : ""}:`, url: `${SHARE_BASE}/${districtHash(key, picked)}`, kind: "district", key: (key === "upper" ? "S-" : "H-") + picked}, sd); return; }
+      share({title: `${P.name} ${dLabel(key, picked)}`, text: `${P.name} ${dLabel(key, picked)} is ${ms.length ? "represented by " + listWords(ms.map(m => m.n + " (" + m.pn + ")")) : "vacant"}. Every district on the map${BOOT.has_money ? ", and who funds each campaign" : ""}:`, url: `${SHARE_BASE}/${districtHash(key, picked)}`, kind: "district", key: (key === "upper" ? "S-" : "H-") + picked}, sd); return; }
     const g = e.target.closest("[data-goto]"); if (g) { const [k, d] = g.dataset.goto.split(":"); key = k; draw(); select(d, {zoom: true}); } });
   /* pointer: a press that does not travel is a tap on a district; one that travels drags the map when it is zoomed in */
   let drag = null, dragged = false;
@@ -1259,7 +1394,7 @@ function renderRoster(){
       {key: "name", label: "Member", val: r => (r.ln || r.n) + " " + r.n, html: r => `<span class="pty" style="background:${tone(r.p)}"></span><a href="#member=${esc(r.id)}"><b>${esc(r.n)}</b></a>`},
       {key: "party", label: "Party", val: r => r.pn},
       {key: "chamber", label: "Chamber", val: r => chName(r.ch)},
-      {key: "district", label: "District", num: true, first: "asc", val: r => dkey(r.d), html: r => `<a href="${districtHash(KEYOF[r.ch], r.d)}" title="Show it on the map">${esc(r.d)}</a>${r.seat ? ` <span class="muted">Seat ${esc(r.seat)}</span>` : ""}`},
+      {key: "district", label: "District", num: true, first: "asc", val: r => dkey(r.d), html: r => `${onMap(KEYOF[r.ch], r.d) ? `<a href="${districtHash(KEYOF[r.ch], r.d)}" title="Show it on the map">${esc(r.d)}</a>` : `${esc(r.d)} <span class="muted" title="This district lies over several others and has no lines of its own in the Census Bureau's file">not on the map</span>`}${r.seat ? ` <span class="muted">Seat ${esc(r.seat)}</span>` : ""}`},
       {key: "since", label: "In office since", num: true, first: "asc", val: r => r.f ? +r.f.slice(0, 4) : (r.fq ? (+(r.fq.match(/\d{4}/) || [0])[0] - .5 || null) : null), html: r => r.f ? esc(r.f.slice(0, 4)) : (r.fq ? `<span class="muted">${esc(r.fq)}</span>` : `<span class="muted">not on file</span>`)}];
     const rowsNow = () => { const q = f.q.trim().toLowerCase(); return all.filter(r => (!f.ch || r.ch === f.ch) && (!f.pt || r.p === f.pt) && (!q || r.n.toLowerCase().includes(q) || String(r.d).toLowerCase() === q || (r.d + (r.seat || "")).toLowerCase() === q || ("district " + r.d).toLowerCase() === q)); };
     $("#rchips").innerHTML = (P.lower ? `<button class="chip" type="button" data-ch="" aria-pressed="true">Both chambers</button> ` + ["upper", "lower"].filter(k => P[k]).map(k => `<button class="chip" type="button" data-ch="${CHOF[k]}" aria-pressed="false">${esc(P[k].name)}</button>`).join(" ") : "")
@@ -1415,8 +1550,8 @@ function knowHTML(Pf, L, id){
   let h = "";
   if (S) {
     const span = s => s.from ? `${esc(s.from)} to ${s.to ? esc(s.to) : "now"}` : (s.to ? `until ${esc(s.to)}` : "dates not on file");
-    const y = years(S.since), seats = (S.seats || []).map(s => `District ${esc(s.d)} (${span(s)})`).join(", then ");
-    const earlier = (S.earlier || []).map(s => `${esc(chName(s.ch))} District ${esc(s.d)}, ${span(s)}`).join("; ");
+    const y = years(S.since), seats = (S.seats || []).map(s => `${esc(dLabel(KEYOF[L.ch], s.d))} (${span(s)})`).join(", then ");
+    const earlier = (S.earlier || []).map(s => `${esc(chName(s.ch))} ${esc(dLabel(KEYOF[s.ch], s.d))}, ${span(s)}`).join("; ");
     const began = S.since ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.year_only ? S.since.slice(0, 4) : mon(S.since))}</b>${y != null ? `: ${plural(y, "year")}` : ""}.`
       : (S.vague ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.vague)}</b>. The roster this page draws on does not record when this service began.` : `Sits in the ${esc(chName(S.chamber))}. The roster this page draws on does not record when this service began.`);
     h += `<div class="know-b"><h4>${fact} In office</h4><p>${began}${seats ? ` The district's number changed along the way: ${seats}.` : ""}${earlier ? ` Earlier seats on file: ${earlier}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}</span></p>` : ""}</div>`;
@@ -1437,10 +1572,10 @@ function renderMemberPage(id, show){
     if (!L) { box.innerHTML = `<div class="empty">That member isn't in this record. <a href="#members">See all members</a></div>`; return; }
     const key = KEYOF[L.ch], up = key === "lower" ? upperOf(L.d) : null, other = up ? memberAt("upper", up) : null, insiders = key === "upper" ? lowersOf(L.d).flatMap(d => membersAt("lower", d)) : [];
     const mates = membersAt(key, L.d).filter(m => m.id !== id), others = mates.concat(other ? [other] : [], insiders), want = seatsIn(key, L.d);
-    const why = [want > 1 ? `${DN(key)} ${L.d} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${DN("upper")} ${up}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${DN("upper")} ${L.d}.` : ""].filter(Boolean).join(" ");
+    const why = [want > 1 ? `${dLabel(key, L.d)} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${dLabel("upper", up)}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${dLabel("upper", L.d)}.` : ""].filter(Boolean).join(" ");
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for District ${esc(L.d)}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
-      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${ract("map", "District " + L.d + " on the map", districtHash(key, L.d), true)}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
+    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for ${esc(dLabel(key, L.d))}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
+      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${onMap(key, L.d) ? ract("map", dLabel(key, L.d) + " on the map", districtHash(key, L.d), true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
       <div class="mp-grid">
         <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(Pf, L, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
         <div class="mp-side">
@@ -1508,7 +1643,7 @@ function shapesPage(pick){
     const breaks = m => { const v = rows().map(r => r[m]).sort((a, b) => a - b); return [.2, .4, .6, .8].map(p => v[Math.round(p * (v.length - 1))]); };
     const shade = (r, m) => ramp[B[m].filter(b => r[m] > b).length];
     const rank = (r, m) => { const v = pool().map(x => x[m]).sort((a, b) => b - a); return [v.indexOf(r[m]) + 1, v.length]; };
-    const label = r => `${DN(key)} ${r.d}`, who = r => membersAt(key, r.d), hashOf = r => `#shape=${key === "upper" ? "S" : "H"}-${encodeURIComponent(r.key)}`;
+    const label = r => `${dLabel(key, r.d)}`, who = r => membersAt(key, r.d), hashOf = r => `#shape=${key === "upper" ? "S" : "H"}-${encodeURIComponent(r.key)}`;
     const OUT = D.outline, [bx0, by0, bx1, by1] = OUT.bbox, pad = Math.max(bx1 - bx0, by1 - by0) * .04;
     svg.setAttribute("viewBox", `${(bx0 - pad).toFixed(3)} ${(by0 - pad).toFixed(3)} ${(bx1 - bx0 + 2 * pad).toFixed(3)} ${(by1 - by0 + 2 * pad).toFixed(3)}`);
     $("#lensch").innerHTML = keys.length > 1 ? keys.map(k => `<button class="chip" type="button" data-ch="${k}" aria-pressed="${k === key}">${esc(P[k].name)}</button>`).join(" ") : "";

@@ -1,0 +1,126 @@
+chamber,district,census_name,at_large,polsby_popper,reock,convex_hull,area_sq_mi,perimeter_mi,parts,census_land_plus_water_sq_mi,area_over_census_area,shoreline
+Senate,ADD,Addison Senatorial District,0,0.4389,0.5341,0.7847,907.9,161.2,1,908.2,0.9997,0
+Senate,BEN,Bennington Senatorial District,0,0.4857,0.5295,0.8539,829.8,146.5,1,829.7,1.0001,0
+Senate,CAL,Caledonia Senatorial District,0,0.2886,0.3765,0.6346,515.5,149.8,1,515.5,1.0,0
+Senate,CHC,Chittenden Central Senatorial District,0,0.1661,0.2335,0.585,25.8,44.2,1,25.8,1.0,0
+Senate,CHN,Chittenden North Senatorial District,0,0.3445,0.4742,0.7368,167.9,78.3,1,167.9,0.9999,0
+Senate,CHS,Chittenden South East Senatorial District,0,0.3489,0.4456,0.7193,364.7,114.6,1,364.8,0.9999,0
+Senate,ESX,Essex Senatorial District,0,0.246,0.3858,0.6814,875.8,211.5,1,875.8,1.0,0
+Senate,FRA,Franklin Senatorial District,0,0.3715,0.4698,0.82,602.8,142.8,1,602.9,0.9998,0
+Senate,GRI,Grand Isle Senatorial District,0,0.2444,0.2848,0.6164,203.4,102.3,1,203.4,1.0001,0
+Senate,LAM,Lamoille Senatorial District,0,0.5209,0.4601,0.8448,432.2,102.1,1,432.2,1.0001,0
+Senate,ORA,Orange Senatorial District,0,0.4942,0.5848,0.8275,505.4,113.4,1,505.2,1.0003,0
+Senate,ORL,Orleans Senatorial District,0,0.4227,0.4691,0.7997,783.3,152.6,1,783.1,1.0002,0
+Senate,RUT,Rutland Senatorial District,0,0.4544,0.6619,0.8093,925.2,160.0,1,925.0,1.0002,0
+Senate,WAS,Washington Senatorial District,0,0.3765,0.4894,0.7529,845.4,168.0,1,845.5,0.9999,0
+Senate,WDH,Windham Senatorial District,0,0.403,0.4581,0.8106,646.0,141.9,1,645.8,1.0002,0
+Senate,WSR,Windsor Senatorial District,0,0.3729,0.4359,0.7393,983.9,182.1,1,984.4,0.9995,0
+House,A-1,Addison-1 State House District,0,0.6976,0.5971,0.9517,37.9,26.1,1,37.9,0.9999,0
+House,A-2,Addison-2 State House District,0,0.3207,0.4566,0.6818,150.8,76.9,1,150.7,1.0001,0
+House,A-3,Addison-3 State House District,0,0.5758,0.5064,0.9107,158.1,58.7,1,158.3,0.9987,0
+House,A-4,Addison-4 State House District,0,0.5652,0.4659,0.8882,168.9,61.3,1,168.8,1.0005,0
+House,A-5,Addison-5 State House District,0,0.2623,0.2597,0.609,92.7,66.7,1,92.7,1.0001,0
+House,A-R,Addison-Rutland State House District,0,0.4827,0.3826,0.825,160.2,64.6,1,160.4,0.9989,0
+House,B-1,Bennington-1 State House District,0,0.4531,0.4847,0.8525,181.8,71.0,1,181.8,1.0002,0
+House,B-2,Bennington-2 State House District,0,0.5565,0.4922,0.8671,33.6,27.5,1,33.6,1.001,0
+House,B-3,Bennington-3 State House District,0,0.5816,0.4601,0.8587,127.7,52.5,1,127.8,0.9992,0
+House,B-4,Bennington-4 State House District,0,0.6264,0.4943,0.8888,132.0,51.5,1,131.9,1.001,0
+House,B-5,Bennington-5 State House District,0,0.5073,0.4475,0.8008,18.7,21.5,1,18.7,0.9997,0
+House,B-R,Bennington-Rutland State House District,0,0.6531,0.6157,0.9305,179.6,58.8,1,179.8,0.9988,0
+House,C-1,Chittenden-1 State House District,0,0.7004,0.5154,0.9525,32.9,24.3,1,32.9,1.0005,0
+House,C-2,Chittenden-2 State House District,0,0.409,0.4673,0.7778,23.9,27.1,1,23.9,1.0001,0
+House,C-3,Chittenden-3 State House District,0,0.596,0.5032,0.9078,86.9,42.8,1,86.9,0.9995,0
+House,C-4,Chittenden-4 State House District,0,0.6688,0.5791,0.948,37.5,26.6,1,37.5,0.9998,0
+House,C-5,Chittenden-5 State House District,0,0.7143,0.5836,0.9552,52.5,30.4,1,52.5,0.9999,0
+House,C-6,Chittenden-6 State House District,0,0.6589,0.5629,0.9163,32.7,25.0,1,32.7,0.9988,0
+House,C-7,Chittenden-7 State House District,0,0.5703,0.3742,0.9562,15.9,18.7,1,15.9,1.0008,0
+House,C-8,Chittenden-8 State House District,0,0.3492,0.3339,0.7145,12.2,20.9,1,12.2,0.9988,0
+House,C-9,Chittenden-9 State House District,0,0.3275,0.4775,0.6904,2.4,9.7,1,2.4,1.0038,0
+House,C-F,Chittenden-Franklin State House District,0,0.3974,0.3414,0.7933,18.3,24.0,1,18.3,0.9984,0
+House,C10,Chittenden-10 State House District,0,0.3128,0.3636,0.6964,4.3,13.2,1,4.3,0.9988,0
+House,C11,Chittenden-11 State House District,0,0.4309,0.3958,0.7096,1.7,7.1,1,1.8,0.9957,0
+House,C12,Chittenden-12 State House District,0,0.2634,0.2288,0.5129,15.7,27.3,1,15.6,1.0021,0
+House,C13,Chittenden-13 State House District,0,0.5472,0.4142,0.8973,4.1,9.7,1,4.1,1.0008,0
+House,C14,Chittenden-14 State House District,0,0.4743,0.416,0.8268,0.5,3.7,1,0.5,0.9899,0
+House,C15,Chittenden-15 State House District,0,0.5413,0.5028,0.8364,1.2,5.3,1,1.2,1.0035,0
+House,C16,Chittenden-16 State House District,0,0.328,0.3103,0.6637,0.7,5.1,1,0.7,1.0001,0
+House,C17,Chittenden-17 State House District,0,0.3181,0.5536,0.7289,6.6,16.2,1,6.6,0.9979,0
+House,C18,Chittenden-18 State House District,0,0.3119,0.3267,0.6345,2.3,9.6,1,2.3,1.0022,0
+House,C19,Chittenden-19 State House District,0,0.3017,0.375,0.7063,31.6,36.3,1,31.6,0.9999,0
+House,C20,Chittenden-20 State House District,0,0.3474,0.382,0.747,28.6,32.2,1,28.6,0.9996,0
+House,C21,Chittenden-21 State House District,0,0.5995,0.5575,0.8685,1.5,5.6,1,1.5,1.0034,0
+House,C22,Chittenden-22 State House District,0,0.3684,0.4776,0.7724,4.2,11.9,1,4.2,1.0017,0
+House,C23,Chittenden-23 State House District,0,0.2194,0.274,0.5876,7.8,21.1,1,7.8,1.0007,0
+House,C24,Chittenden-24 State House District,0,0.4731,0.5282,0.8418,27.5,27.0,1,27.5,1.0005,0
+House,C25,Chittenden-25 State House District,0,0.7034,0.5389,0.9443,54.0,31.1,1,54.0,1.0004,0
+House,CA1,Caledonia-1 State House District,0,0.3758,0.3505,0.643,120.1,63.4,1,120.2,0.9996,0
+House,CA2,Caledonia-2 State House District,0,0.6502,0.5331,0.9097,90.4,41.8,1,90.4,1.0,0
+House,CA3,Caledonia-3 State House District,0,0.3948,0.4963,0.7656,188.1,77.4,1,188.3,0.9992,0
+House,CAE,Caledonia-Essex State House District,0,0.3724,0.4296,0.6636,115.1,62.3,1,115.0,1.0004,0
+House,CAW,Caledonia-Washington State House District,0,0.5327,0.5399,0.7982,147.1,58.9,1,147.2,0.9994,0
+House,E-C,Essex-Caledonia State House District,0,0.3491,0.453,0.8059,382.8,117.4,1,382.7,1.0002,0
+House,E-O,Essex-Orleans State House District,0,0.4614,0.4283,0.8476,382.4,102.0,1,382.3,1.0002,0
+House,F-1,Franklin-1 State House District,0,0.5794,0.396,0.9488,83.6,42.6,1,83.6,0.9999,0
+House,F-2,Franklin-2 State House District,0,0.3161,0.3528,0.7444,58.3,48.1,1,58.2,1.0011,0
+House,F-3,Franklin-3 State House District,0,0.4074,0.5245,0.7508,1.3,6.4,1,1.3,0.9947,0
+House,F-4,Franklin-4 State House District,0,0.3139,0.2911,0.6014,101.0,63.6,1,100.8,1.0015,0
+House,F-5,Franklin-5 State House District,0,0.4311,0.2365,0.9287,186.0,73.6,1,186.0,0.9998,0
+House,F-6,Franklin-6 State House District,0,0.4224,0.4484,0.7322,149.2,66.6,1,149.4,0.9988,0
+House,F-7,Franklin-7 State House District,0,0.5722,0.5233,0.8784,104.5,47.9,1,104.5,0.9999,0
+House,F-8,Franklin-8 State House District,0,0.4323,0.4323,0.8182,3.2,9.7,1,3.2,0.9968,0
+House,GIC,Grand Isle-Chittenden State House District,0,0.3484,0.2749,0.7026,223.2,89.7,1,223.2,1.0002,0
+House,L-1,Lamoille-1 State House District,0,0.4367,0.5326,0.8165,69.0,44.5,1,68.9,1.0004,0
+House,L-2,Lamoille-2 State House District,0,0.3246,0.3257,0.6618,159.8,78.7,1,159.7,1.001,0
+House,L-3,Lamoille-3 State House District,0,0.4316,0.3761,0.7807,79.1,48.0,1,79.2,0.9994,0
+House,L-W,Lamoille-Washington State House District,0,0.3257,0.4036,0.7292,172.4,81.6,1,172.5,0.9995,0
+House,O-1,Orleans-1 State House District,0,0.4492,0.4899,0.9028,57.5,40.1,1,57.5,1.0004,0
+House,O-2,Orleans-2 State House District,0,0.3854,0.4556,0.7377,7.6,15.8,1,7.6,1.0032,0
+House,O-3,Orleans-3 State House District,0,0.5319,0.5427,0.9085,110.3,51.1,1,110.3,1.0,0
+House,O-4,Orleans-4 State House District,0,0.7473,0.6067,0.9738,156.7,51.3,1,156.6,1.0003,0
+House,O-L,Orleans-Lamoille State House District,0,0.5292,0.5123,0.7935,342.7,90.2,1,342.7,1.0,0
+House,OR1,Orange-1 State House District,0,0.5133,0.3935,0.7853,162.6,63.1,1,162.5,1.0002,0
+House,OR2,Orange-2 State House District,0,0.5448,0.5182,0.9144,73.8,41.3,1,73.8,1.0004,0
+House,OR3,Orange-3 State House District,0,0.3972,0.2802,0.7078,76.3,49.1,1,76.3,1.0007,0
+House,ORC,Orange-Caledonia State House District,0,0.5101,0.4424,0.8196,168.6,64.4,1,168.6,0.9999,0
+House,OWA,Orange-Washington-Addison State House District,0,0.6204,0.5901,0.9244,220.7,66.9,1,220.7,1.0,0
+House,R-1,Rutland-1 State House District,0,0.3081,0.3163,0.6445,74.7,55.2,1,74.6,1.0004,0
+House,R-2,Rutland-2 State House District,0,0.1997,0.2776,0.6865,103.9,80.9,1,103.9,1.0004,0
+House,R-3,Rutland-3 State House District,0,0.7672,0.6489,0.9727,42.4,26.3,1,42.4,0.9995,0
+House,R-4,Rutland-4 State House District,0,0.5952,0.4916,0.9234,8.8,13.7,1,8.9,0.9996,0
+House,R-5,Rutland-5 State House District,0,0.6704,0.4765,0.9176,1.9,6.0,1,1.9,0.9906,0
+House,R-6,Rutland-6 State House District,0,0.496,0.4582,0.8504,2.2,7.5,1,2.2,1.0,0
+House,R-7,Rutland-7 State House District,0,0.5774,0.5364,0.8706,2.5,7.4,1,2.5,0.9997,0
+House,R-8,Rutland-8 State House District,0,0.4014,0.4876,0.799,51.2,40.0,1,51.1,1.0009,0
+House,R-9,Rutland-9 State House District,0,0.7127,0.547,0.97,39.9,26.5,1,40.0,0.9992,0
+House,R-B,Rutland-Bennington State House District,0,0.4274,0.3535,0.77,153.8,67.2,1,153.8,1.0003,0
+House,R-W,Rutland-Windsor State House District,0,0.4786,0.3705,0.791,135.4,59.6,1,135.1,1.002,0
+House,R10,Rutland-10 State House District,0,0.3923,0.4308,0.7708,92.4,54.4,1,92.4,1.0002,0
+House,R11,Rutland-11 State House District,0,0.5598,0.5587,0.8373,180.1,63.6,1,180.1,1.0001,0
+House,W-1,Windham-1 State House District,0,0.6045,0.4335,0.9544,59.8,35.2,1,59.7,1.0015,0
+House,W-2,Windham-2 State House District,0,0.7094,0.5845,0.9356,189.1,57.9,1,189.0,1.0005,0
+House,W-3,Windham-3 State House District,0,0.3605,0.2855,0.6935,100.4,59.1,1,100.4,0.9994,0
+House,W-4,Windham-4 State House District,0,0.4945,0.3708,0.8324,57.6,38.3,1,57.7,0.9988,0
+House,W-5,Windham-5 State House District,0,0.4161,0.2996,0.8766,123.4,61.0,1,123.5,0.9988,0
+House,W-6,Windham-6 State House District,0,0.5861,0.4742,0.8553,121.5,51.0,1,121.4,1.0007,0
+House,W-7,Windham-7 State House District,0,0.6516,0.591,0.9567,21.8,20.5,1,21.7,1.0012,0
+House,W-8,Windham-8 State House District,0,0.523,0.5563,0.8679,3.2,8.7,1,3.2,1.0,0
+House,W-9,Windham-9 State House District,0,0.3903,0.3979,0.7663,7.7,15.7,1,7.7,0.9948,0
+House,WA1,Washington-1 State House District,0,0.4881,0.4517,0.8168,81.4,45.8,1,81.5,0.9994,0
+House,WA2,Washington-2 State House District,0,0.529,0.4947,0.872,185.7,66.4,1,185.8,0.9995,0
+House,WA3,Washington-3 State House District,0,0.4559,0.4847,0.8187,4.0,10.5,1,4.0,1.0025,0
+House,WA4,Washington-4 State House District,0,0.4326,0.4251,0.7848,10.2,17.2,1,10.3,0.9988,0
+House,WA5,Washington-5 State House District,0,0.3757,0.4476,0.8194,71.8,49.0,1,71.8,1.0006,0
+House,WA6,Washington-6 State House District,0,0.5719,0.4819,0.8302,103.3,47.7,1,103.3,1.0,0
+House,WAC,Washington-Chittenden State House District,0,0.2993,0.3311,0.595,135.1,75.3,1,135.1,0.9999,0
+House,WAO,Washington-Orange State House District,0,0.3419,0.5122,0.832,34.9,35.8,1,34.9,1.0001,0
+House,WWB,Windham-Windsor-Bennington State House District,0,0.3358,0.39,0.6868,145.0,73.7,1,145.0,1.0002,0
+House,Y-1,Windsor-1 State House District,0,0.6275,0.5017,0.8756,90.1,42.5,1,90.0,1.0006,0
+House,Y-2,Windsor-2 State House District,0,0.6491,0.4802,0.9597,88.3,41.3,1,88.5,0.9979,0
+House,Y-3,Windsor-3 State House District,0,0.7561,0.6207,0.965,49.7,28.7,1,49.6,1.0015,0
+House,Y-4,Windsor-4 State House District,0,0.4691,0.4223,0.8208,153.9,64.2,1,153.9,0.9999,0
+House,Y-5,Windsor-5 State House District,0,0.5305,0.4819,0.7729,134.1,56.4,1,134.4,0.9982,0
+House,Y-6,Windsor-6 State House District,0,0.4947,0.4835,0.8516,29.5,27.4,1,29.5,0.9989,0
+House,Y-A,Windsor-Addison State House District,0,0.3725,0.4279,0.7218,187.7,79.6,1,187.6,1.0006,0
+House,Y-W,Windsor-Windham State House District,0,0.4516,0.422,0.8295,134.5,61.2,1,134.4,1.0008,0
+House,YO1,Windsor-Orange-1 State House District,0,0.6629,0.4395,0.9743,85.7,40.3,1,85.7,1.0001,0
+House,YO2,Windsor-Orange-2 State House District,0,0.7483,0.5733,0.9546,173.6,54.0,1,173.7,0.9996,0

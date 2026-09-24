@@ -427,6 +427,189 @@ PLACES = {
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
         "money": None,
     },
+    # The fifth and last ring (2026-09-23): the fifteen states that touch none of the thirty-five above by land, and
+    # the two that touch nothing at all. "next" for a staggered Senate is filled in only after the roster check.
+    "ny": {
+        "code": "NY", "name": "New York", "fips": "36",
+        "legislature": "New York State Legislature", "session": "2025-2026 Legislative Session", "since": "2025-01-01",
+        "url": "https://www.nysenate.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 63, "term_years": 2, "next": 2026},
+        "lower": {"name": "Assembly", "full": "State Assembly", "title": "Assembly Member", "short": "Asm.", "seats": 150, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "New York City", "box": [-74.30, 40.48, -73.65, 40.95]}, {"name": "Long Island", "box": [-73.75, 40.55, -72.60, 41.15]}, {"name": "Buffalo", "box": [-79.00, 42.78, -78.65, 43.05]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Democratic/Working Families": ("D", "Democratic/Working Families"), "Republican": ("R", "Republican"),
+                    "Republican/Conservative": ("R", "Republican/Conservative"), "Working Families": ("I", "Working Families"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "nj": {
+        "code": "NJ", "name": "New Jersey", "fips": "34",
+        "legislature": "New Jersey Legislature", "session": "222nd Legislature, 2026-2027", "since": "2025-01-01",
+        "url": "https://www.njleg.state.nj.us/",
+        # New Jersey votes in odd years; the whole legislature was elected in November 2025. Each district elects one senator and two Assembly members
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 40, "term_years": 4, "next": 2027},
+        "lower": {"name": "General Assembly", "full": "General Assembly", "title": "Assembly Member", "short": "Asm.", "seats": 80, "term_years": 2, "next": 2027},
+        "zooms": [{"name": "North Jersey", "box": [-74.45, 40.55, -73.90, 40.98]}, {"name": "Camden and Trenton", "box": [-75.20, 39.85, -74.65, 40.30]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "de": {
+        "code": "DE", "name": "Delaware", "fips": "10",
+        "legislature": "Delaware General Assembly", "session": "153rd General Assembly, 2025-2026", "since": "2025-01-01",
+        "url": "https://legis.delaware.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 21, "term_years": 4},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 41, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Wilmington", "box": [-75.68, 39.62, -75.42, 39.88]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "md": {
+        "code": "MD", "name": "Maryland", "fips": "24",
+        "legislature": "Maryland General Assembly", "session": "2023-2026 term", "since": "2025-01-01",
+        "url": "https://mgaleg.maryland.gov/",
+        # both chambers serve four years and were elected together in 2022; House districts elect one, two or three delegates
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 47, "term_years": 4, "next": 2026},
+        "lower": {"name": "House of Delegates", "full": "House of Delegates", "title": "Delegate", "short": "Del.", "seats": 141, "term_years": 4, "next": 2026},
+        "zooms": [{"name": "Baltimore", "box": [-76.85, 39.12, -76.35, 39.48]}, {"name": "Washington suburbs", "box": [-77.30, 38.82, -76.70, 39.18]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "ct": {
+        "code": "CT", "name": "Connecticut", "fips": "09",
+        "legislature": "Connecticut General Assembly", "session": "2025-2026 term", "since": "2025-01-01",
+        "url": "https://www.cga.ct.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 36, "term_years": 2, "next": 2026},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 151, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Hartford", "box": [-72.85, 41.65, -72.50, 41.88]}, {"name": "New Haven and Bridgeport", "box": [-73.30, 41.12, -72.80, 41.42]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "ri": {
+        "code": "RI", "name": "Rhode Island", "fips": "44",
+        "legislature": "Rhode Island General Assembly", "session": "2025-2026 term", "since": "2025-01-01",
+        "url": "https://www.rilegislature.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 38, "term_years": 2, "next": 2026},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 75, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Providence", "box": [-71.55, 41.72, -71.28, 41.92]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "ma": {
+        "code": "MA", "name": "Massachusetts", "fips": "25",
+        "legislature": "Massachusetts General Court", "session": "194th General Court, 2025-2026", "since": "2025-01-01",
+        "url": "https://malegislature.gov/",
+        # districts are named, not numbered: "First Middlesex", "1st Barnstable"
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 40, "term_years": 2, "next": 2026, "district_name": ""},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 160, "term_years": 2, "next": 2026, "district_name": ""},
+        "zooms": [{"name": "Boston", "box": [-71.30, 42.22, -70.90, 42.48]}, {"name": "Worcester", "box": [-71.95, 42.20, -71.70, 42.35]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "vt": {
+        "code": "VT", "name": "Vermont", "fips": "50",
+        "legislature": "Vermont General Assembly", "session": "2025-2026 biennium", "since": "2025-01-01",
+        "url": "https://legislature.vermont.gov/",
+        # districts are named ("Chittenden-Central", "Windsor-1"); a Senate district elects one to three senators, a House district one or two
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 30, "term_years": 2, "next": 2026, "district_name": ""},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 150, "term_years": 2, "next": 2026, "district_name": ""},
+        "zooms": [{"name": "Burlington", "box": [-73.32, 44.38, -73.08, 44.58]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Progressive": ("I", "Progressive"),
+                    "Democratic/Progressive": ("D", "Democratic/Progressive"), "Progressive/Democratic": ("I", "Progressive/Democratic"),
+                    "Republican/Democratic": ("R", "Republican/Democratic"), "Democratic/Republican": ("D", "Democratic/Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "nh": {
+        "code": "NH", "name": "New Hampshire", "fips": "33",
+        "legislature": "New Hampshire General Court", "session": "169th General Court, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.gencourt.state.nh.us/",
+        # House districts are named by county and number ("Hillsborough 12") and elect from one to eleven representatives; some voters also sit in an overlapping "floterial" district
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 24, "term_years": 2, "next": 2026},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 400, "term_years": 2, "next": 2026, "district_name": ""},
+        "zooms": [{"name": "Manchester and Nashua", "box": [-71.65, 42.68, -71.32, 43.08]}],
+        "executive": "Governor",
+        "note": "New Hampshire's House districts are named by county and number and elect from one to eleven representatives each; its floterial districts, each laid over several neighbouring districts and electing representatives of their own, have no lines in the Census Bureau's file, so they are listed in the roster but not drawn on the map.",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "me": {
+        "code": "ME", "name": "Maine", "fips": "23",
+        "legislature": "Maine Legislature", "session": "132nd Legislature, 2024-2026", "since": "2025-01-01",
+        "url": "https://legislature.maine.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 35, "term_years": 2, "next": 2026},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 151, "term_years": 2, "next": 2026,
+                  "beyond": "tribal representatives"},       # members the roster lists beside the 151 seats, in a district with no lines
+        "zooms": [{"name": "Portland", "box": [-70.45, 43.58, -70.15, 43.78]}],
+        "executive": "Governor",
+        "note": "Beside its 151 members, the House seats a representative of the Passamaquoddy Tribe and one of the Houlton Band of Maliseet Indians; they sit and speak in the House but do not vote on final passage, and the roster lists each with the tribe as the district.",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "sc": {
+        "code": "SC", "name": "South Carolina", "fips": "45",
+        "legislature": "South Carolina General Assembly", "session": "126th General Assembly, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.scstatehouse.gov/",
+        # the whole Senate was elected in 2024 for four years
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 46, "term_years": 4, "next": 2028},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 124, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Columbia", "box": [-81.20, 33.92, -80.82, 34.18]}, {"name": "Charleston", "box": [-80.15, 32.68, -79.80, 32.98]}, {"name": "Greenville", "box": [-82.55, 34.72, -82.20, 34.98]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "fl": {
+        "code": "FL", "name": "Florida", "fips": "12",
+        "legislature": "Florida Legislature", "session": "2025-2026 term", "since": "2025-01-01",
+        "url": "https://www.flsenate.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 40, "term_years": 4, "next": {"even": 2026, "odd": 2028}},     # after the 2022 redistricting, even-numbered districts drew four-year terms (the roster: elected 2022) and odd-numbered ones two, then four (elected 2024)
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 120, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Miami and Fort Lauderdale", "box": [-80.50, 25.55, -80.05, 26.35]}, {"name": "Tampa Bay", "box": [-82.85, 27.60, -82.25, 28.15]},
+                  {"name": "Orlando", "box": [-81.60, 28.35, -81.15, 28.70]}, {"name": "Jacksonville", "box": [-81.90, 30.12, -81.40, 30.48]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
+    "ca": {
+        "code": "CA", "name": "California", "fips": "06",
+        "legislature": "California State Legislature", "session": "2025-2026 Regular Session", "since": "2025-01-01",
+        "url": "https://www.legislature.ca.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 40, "term_years": 4, "next": {"even": 2026, "odd": 2028}},     # after the 2022 redistricting, even-numbered districts drew four-year terms (the roster: elected 2022) and odd-numbered ones two, then four (elected 2024)
+        "lower": {"name": "Assembly", "full": "State Assembly", "title": "Assembly Member", "short": "Asm.", "seats": 80, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Los Angeles", "box": [-118.70, 33.65, -117.80, 34.30]}, {"name": "San Francisco Bay", "box": [-122.60, 37.25, -121.75, 38.00]},
+                  {"name": "San Diego", "box": [-117.35, 32.55, -116.85, 33.10]}, {"name": "Sacramento", "box": [-121.65, 38.40, -121.25, 38.75]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent"), "No Party Preference": ("I", "No party preference")},
+        "money": None,
+    },
+    "ak": {
+        "code": "AK", "name": "Alaska", "fips": "02",
+        "legislature": "Alaska State Legislature", "session": "34th Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://akleg.gov/",
+        # Senate districts are lettered A to T and elected on a rota, not by letter
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 20, "term_years": 4},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 40, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Anchorage", "box": [-150.10, 61.02, -149.60, 61.32]}, {"name": "Fairbanks", "box": [-147.95, 64.75, -147.55, 64.92]}],
+        "tolerance": 0.02,                                        # its coastline is drawn at about 250 m rather than 80 m, a fifth of the points
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent"), "Nonpartisan": ("I", "Nonpartisan"), "Undeclared": ("I", "Undeclared")},
+        "money": None,
+    },
+    "hi": {
+        "code": "HI", "name": "Hawaii", "fips": "15",
+        "legislature": "Hawaii State Legislature", "session": "33rd Legislature, 2025-2026", "since": "2025-01-01",
+        "url": "https://www.capitol.hawaii.gov/",
+        "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 25, "term_years": 4},
+        "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 51, "term_years": 2, "next": 2026},
+        "zooms": [{"name": "Honolulu", "box": [-158.15, 21.22, -157.62, 21.48]}],
+        "executive": "Governor",
+        "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
+        "money": None,
+    },
     "ia": {
         "code": "IA", "name": "Iowa", "fips": "19",
         "legislature": "Iowa General Assembly", "session": "91st General Assembly, 2025-2026", "since": "2025-01-01",
@@ -449,6 +632,13 @@ def place(code):
 
 
 def party_code(p, name):
-    """(code for colour and counting, the label to show) for a party name as the roster writes it."""
-    code, label = p["parties"].get(name or "", ("I", name or "Independent"))
-    return code, label
+    """(code for colour and counting, the label to show) for a party name as the roster writes it.
+
+    A joint nomination ("Democratic/Working Families", "Republican/Conservative/Independence") is counted with the
+    party named first, which is the member's own, and shown with the whole label as the record writes it."""
+    name = name or ""
+    if name in p["parties"]:
+        return p["parties"][name]
+    if "/" in name and name.split("/")[0].strip() in p["parties"]:
+        return p["parties"][name.split("/")[0].strip()][0], name
+    return "I", name or "Independent"

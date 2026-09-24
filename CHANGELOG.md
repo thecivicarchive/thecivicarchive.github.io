@@ -10,6 +10,58 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.033 — 2026-09-23 — The last ring: all fifty states
+
+- New York, New Jersey, Delaware, Maryland, Connecticut, Rhode Island,
+  Massachusetts, Vermont, New Hampshire, Maine, South Carolina, Florida,
+  California, Alaska and Hawaii are open, and with them every state. Fifty
+  states, 7,336 legislators and 177 statewide officials, each with a page and
+  a preview card, and every state with its Shapes page (6,775 legislative
+  districts measured in 99 chambers). The District of Columbia, Puerto Rico
+  and Guam are still to come; each needs a source of its own.
+- Some states name their districts rather than number them. Massachusetts
+  has "First Middlesex" and "Berkshire, Hampden, Franklin and Hampshire",
+  Vermont "Chittenden Southeast" and "Addison-1", New Hampshire "Belknap 7".
+  The Census Bureau's file codes them differently (D11, CHS, 007), so each
+  roster name is matched to the Bureau's own name by spelling, a match has to
+  be the only one, and the lines are filed under the names the state uses.
+  Every one of Massachusetts's 200 and Vermont's 125 matched.
+- Where districts elect different numbers of members, the pages read each
+  district's count from the roster instead of assuming one number for the
+  chamber: New Hampshire's House districts elect from one to ten
+  representatives, Maryland's from one to three delegates, Vermont's Senate
+  districts from one to three senators, its House one or two. "Who represents
+  you" says so, and a vacancy is counted for the chamber as a whole rather
+  than guessed for one district.
+- New Hampshire's 39 floterial House districts, each laid over several of its
+  neighbours, have no lines of their own in the Bureau's file. They are
+  listed, not drawn: the map and the roster say so, their members have pages
+  like everyone else's, and "who represents you" says you may have a
+  representative it cannot find. Maine seats a representative of the
+  Passamaquoddy Tribe and one of the Houlton Band of Maliseet Indians beside
+  its 151 members; they are shown with the House and counted apart from its
+  seats.
+- A joint nomination is counted with the party named first and shown with the
+  whole label, as the record writes it: New York's "Democratic/Working
+  Families" and "Republican/Conservative/Independence", Vermont's
+  "Democratic/Progressive".
+- When a seat is next on the ballot, from the record: Florida's and
+  California's even-numbered Senate districts vote in 2026 and their
+  odd-numbered ones in 2028 (elected in 2022 and 2024); New Jersey's whole
+  legislature in 2027, having voted in 2023 and 2025; South Carolina's Senate
+  in 2028; New York, Maryland, Connecticut, Rhode Island, Massachusetts,
+  Vermont, New Hampshire, Maine and Delaware's House in 2026. Delaware's,
+  Alaska's and Hawaii's Senates follow no district-number rule, so nothing
+  is claimed for those.
+- Alaska's coastline, with its fjords and islands, is drawn at about 250
+  metres rather than 80, or its district file would weigh 1.3 MB; every
+  other state keeps the finer line.
+- Portraits stay missing where a legislature's site has moved or refuses
+  them: most of New Jersey's (the old picture addresses answer 404), some of
+  Connecticut's House Republicans (the site answers with a web page), a
+  third of Maine's. The page shows a party initial in their place.
+- Vacant seats are shown as vacant, 27 across the fifteen states.
+
 ## v4.0.032 — 2026-09-23 — The fourth ring: fourteen more states
 
 - Pennsylvania, West Virginia, Virginia, North Carolina, Georgia, Alabama,

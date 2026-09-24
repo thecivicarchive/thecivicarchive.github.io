@@ -57,12 +57,13 @@ def read_chamber(path, field, proj, tol):
     base = next(n[:-4] for n in z.namelist() if n.endswith(".shp"))
     rdr = shapefile.Reader(shp=io.BytesIO(z.read(base + ".shp")), dbf=io.BytesIO(z.read(base + ".dbf")), shx=io.BytesIO(z.read(base + ".shx")))
     fields = [f[0] for f in rdr.fields[1:]]
-    out, points = {}, 0
+    out, names, points = {}, {}, 0
     for sr in rdr.iterShapeRecords():
         rec = dict(zip(fields, sr.record))
         code = str(rec.get(field) or "")
         if not code or code.upper().startswith("ZZ"):      # ZZZ is water, or land in no district
             continue
+        names[district_name(code)] = str(rec.get("NAMELSAD") or "")      # the Bureau's own name, for states whose districts are named rather than numbered
         geom = sr.shape.__geo_interface__
         polys = geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]]
         rings = []
@@ -79,7 +80,7 @@ def read_chamber(path, field, proj, tol):
         kept = [encode_ring(p, Q) for a, p in rings if a >= 0.0004 or a == biggest]
         points += sum(len(r) // 2 for r in kept)
         out[district_name(code)] = kept
-    return out, points
+    return out, names, points
 
 
 def main():
@@ -87,11 +88,13 @@ def main():
     ap.add_argument("--place", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache-dir", default="states_cache")
-    ap.add_argument("--tolerance", type=float, default=0.006, help="simplification, in map pixels (one pixel is about 4.6 km)")
+    ap.add_argument("--tolerance", type=float, default=None, help="simplification, in map pixels (one pixel is about 4.6 km); default 0.006, or the state's own \"tolerance\" in places.py")
     args = ap.parse_args()
     P = place(args.place)
+    if args.tolerance is None:
+        args.tolerance = P.get("tolerance") or 0.006             # Alaska's fjords and islands would otherwise weigh 1.3 MB
     proj = AlbersUsa()
-    result = {"q": Q, "upper": {}, "lower": {}, "vintage": ""}
+    result = {"q": Q, "upper": {}, "lower": {}, "names": {"upper": {}, "lower": {}}, "vintage": ""}
     for chamber, stem, field in (("upper", "sldu", "SLDUST"), ("lower", "sldl", "SLDLST")):
         if not P.get(chamber):
             continue
@@ -101,11 +104,12 @@ def main():
             try:
                 if net.download(f"https://www2.census.gov/geo/tiger/GENZ{year}/shp/{name}", path, 180):
                     print(f"    fetched {name} ({os.path.getsize(path) / 1e3:,.0f} KB)")
-                shapes, points = read_chamber(path, field, lambda lon, lat: proj(lon, lat), args.tolerance)
+                shapes, names, points = read_chamber(path, field, lambda lon, lat: proj(lon, lat), args.tolerance)
             except Exception as e:  # noqa: BLE001
                 print(f"    {name}: {e}")
                 continue
             result[chamber] = shapes
+            result["names"][chamber] = names
             result["vintage"] = f"{year} Census Bureau cartographic boundary files"
             print(f"    {P[chamber]['name']}: {len(shapes):,} districts ({P[chamber]['seats']} seats), {points:,} points")
             break

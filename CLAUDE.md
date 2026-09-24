@@ -250,12 +250,24 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
-- States open so far (v4.0.032), in rings outward from Minnesota: Minnesota; Wisconsin, North Dakota, South Dakota,
-  Iowa; Michigan, Illinois, Missouri, Nebraska, Wyoming, Montana; Indiana, Ohio, Kentucky, Tennessee, Arkansas,
-  Oklahoma, Kansas, Colorado, Utah, Idaho; Pennsylvania, West Virginia, Virginia, North Carolina, Georgia, Alabama,
-  Mississippi, Louisiana, Texas, New Mexico, Arizona, Nevada, Oregon, Washington. Still to come: the fifteen that
-  touch none of these yet (New York, New Jersey, Delaware, Maryland, the six New England states, South Carolina,
-  Florida, California, Alaska, Hawaii) plus the District of Columbia, Puerto Rico and Guam.
+- All fifty states are open (v4.0.033), built in rings outward from Minnesota. Still to come: the District of
+  Columbia, Puerto Rico and Guam, each with a loader of its own.
+- Named districts (Massachusetts "First Middlesex", Vermont "Chittenden Southeast", New Hampshire "Belknap 7"): the
+  Census file codes them (D11, CHS, 007) and `load_sld.py` keeps the Bureau's name for each; `crosswalk_names()` in
+  `build_state_dev.py` matches roster names to Bureau names by spelling (`spelling()`: ordinals as numbers, hyphens,
+  commas, "and" and the kind-of-district words set aside), requires a unique match, and files the shapes, the Shapes
+  page rows and the CSV under the roster's names. A chamber whose districts are named sets `"district_name": ""` in
+  `places.py`, and `dLabel()` in the page code then uses the name alone; never write "District" in front of one.
+- A roster district with no shape (New Hampshire's floterial districts, Maine's tribal representatives) is
+  `unmapped`: listed in the roster ("not on the map"), a member page without a map link, a sentence on the map page
+  and under "who represents you"; the reason belongs in the state's `"note"`. A chamber that seats members beyond
+  its seat count says so with `"beyond": "tribal representatives"` on the chamber, and those members are counted
+  apart from the seats.
+- Where districts elect different numbers of members (NH, MD, VT), `collect()` sets `varies` and reads each
+  district's seats from the roster; vacancies are then chamber-level only, and the lede says "between one and
+  three ... depending on the district". A joint nomination not listed in `parties` is counted with the party named
+  first (`party_code`), with the whole label kept. A state can set `"tolerance"` (map pixels) for its district
+  lines; Alaska uses 0.02.
 - An upper chamber can have several members per district too (West Virginia, two senators a district): the
   seats-per-district logic runs for both chambers, and the "who represents you" sentence is built per chamber
   (`seat_words` in `render()`). A joint nomination such as "Democratic/Working Families" is mapped in `places.py` to
