@@ -10,6 +10,53 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.034 — 2026-09-24 — Who lives in each district
+
+- The second districting lens is built, on every level at once: all 435
+  congressional districts and every district of all 99 state chambers, 7,210
+  districts in all. For each: the Census Bureau's 2020 count of residents
+  (the number the lines were drawn on), how far its people per seat sit from
+  the state's ideal, people per square mile, the urban share, and the
+  Bureau's 2020-2024 American Community Survey estimates with their margins
+  of error: median age, median household income, under 18, 65 and over,
+  Hispanic or Latino and each race among those who are not, born outside the
+  United States, below the poverty line, a bachelor's degree or higher,
+  owner-occupied homes.
+- The page is "People", beside "Shape" on the federal Districts page
+  (`#people`, `#people/MN`, `#people=MN-5`) and on every state's own pages
+  (`#people`, `#people=S-61`). The map shades by any figure; people per seat
+  uses fixed steps either side of the ideal in a palette that is no party's.
+  A district's panel gives every figure with its margin; the table sorts on
+  any column; the whole table downloads with margins included.
+- Everything comes from keyless files on census.gov, each fingerprinted:
+  the Bureau's own population-by-district files for the 119th Congress and
+  the 2024 legislative districts, and ten ACS tables. Derived margins use the
+  Bureau's own formulas from its handbook; the program's self-test
+  reproduces the handbook's worked examples before it reads anything, and
+  refuses to run unless every column carries the label it expects.
+- Four checks are written into the results and shown under "Sources and
+  methods": the 2020 count by district equals the apportionment resident
+  population in every state checked; the Bureau's three tabulations of the
+  same blocks (Congress, Senate, House) agree in all 50 states; the survey's
+  district populations add up to the Bureau's own state figure in all 50;
+  and the under-18 share built from the age bands equals the Bureau's own
+  table B09001 in every one of the 7,210 districts.
+- Where districts elect different numbers of members (Maryland's House of
+  Delegates, Vermont's Senate and House), people per seat divides by the
+  seats the roster shows, and the page says so. New Hampshire's floterial
+  House districts have no lines in the Bureau's file, so people per seat is
+  not computed for that chamber, and the page says why. A state with one
+  representative has no row in the congressional file; its district's
+  figures are the state's own, from the legislative tabulation of the same
+  blocks.
+- What the figures cannot tell you is on every page: residents are not
+  voters; the count is five years old and the survey a five-year average;
+  every estimate has a margin; a spread inside the range courts accept is
+  not a finding of fairness, nor outside it of wrongdoing; and states that
+  drew on counts adjusted for where people in prison lived look less equal
+  here than under the count they used. The widest congressional spreads in
+  the Bureau's unadjusted count are in such states.
+
 ## v4.0.033 — 2026-09-23 — The last ring: all fifty states
 
 - New York, New Jersey, Delaware, Maryland, Connecticut, Rhode Island,

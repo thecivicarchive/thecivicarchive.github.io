@@ -112,6 +112,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `load_photos.py` | Official member portraits (public domain, unitedstates/images) as 2 KB WebP thumbnails in the database |
 | `load_districts.py`, `albers_usa.py` | House district lines for the map's zoom-in view: Census cartographic file for the current Congress when reachable, else the 2016 lines from GitHub; projected into the map's Albers space |
 | `us_districts_albers.json` | The district lines the site embeds (the kit ships the 2016 fallback; the districts stage replaces it with the current Census lines) |
+| `district_shapes.py`, `district_people.py` | The districting lenses: the shape of every district (Polsby-Popper, Reock, convex hull) and who lives in each (2020 count, people per seat against the ideal, ACS estimates with margins), for Congress and every state chamber, each with a self-test, fingerprinted sources, control totals and a CSV of every figure |
 | `score_bills.py` | Ratings: import, party backing from roll calls (`--backing-only`, free), optional Claude API scoring |
 | `build_site.py` | Builds the one-file website from the database |
 | `rubric_v1.md` | The rating rubric (read-only) |
@@ -187,6 +188,20 @@ Houses. He allowed respected academic compilations as well as official sources, 
   state that has the file and hides it otherwise. The federal page's `#shapes/MN` opens one state, lists its districts
   side by side and links to `../mn/#shapes`; the shared wording lives in one landmarked block of `build_site_dev.py`
   (`BORROWED["LENS"]`) that the state builder borrows, so change it in one place.
+- Lens two, people, is built (v4.0.034) at every level in one run: `python district_people.py` reads the Bureau's
+  population-by-district files (`states_cache/census_rel/`: CD119, SLDU2024 and SLDL2024 UR_POPAREA) and ten ACS
+  2020-2024 table files (`states_cache/acs2024/`, about 700 MB, fetched once through `states/net.py`) and writes
+  `us_district_people.json/.csv` and `state_<code>_people.json/.csv`. `--selftest` reproduces the handbook's worked
+  examples (sum 203,119 ±5,070; proportion 0.322 ±0.008) and checks the table shells' labels. Controls: count =
+  apportionment resident population (`RESIDENT_2020`, a checked list), the three tabulations agree, ACS sums = state
+  figure, under-18 from bands = B09001. The federal page is `#people` (`#people/MN`, `#people=MN-5`); the state page
+  `#people` (`#people=S-61`); the shared words (`PEOPLE_MEAS`, `plValue`, `plFmt`, `plBreaks`, `plKey`,
+  `peopleWords`) live in the same landmarked `LENS` block as the shape words. One "Sources and methods" box serves
+  both lenses (`METHODS[kind]`, `openMethods("people")`). The state builder renames Census codes to roster names for
+  the people rows as it does for shapes, and for chambers whose seats vary (MD, VT) computes people per seat from the
+  roster's seat counts (`dev_from_roster`); a chamber with unmapped districts (NH House) gets no deviation, with the
+  reason in `why_no_dev`. People per seat is shaded in fixed steps either side of the ideal (teal below, sand above,
+  never party colours); every other figure in five equal groups.
 - Every lens gets the same furniture: a named primary source with its address, date and fingerprint; the formula and
   its citation; a self-test against known answers; a control total against the source's own figures; a plain list of
   what the figure cannot tell you; a download of every number; a method version. Change a method, bump its version.

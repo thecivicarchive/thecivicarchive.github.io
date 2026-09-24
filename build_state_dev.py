@@ -421,9 +421,40 @@ def collect(P, db_path, districts_path):
         ctl["lowest"] = [[r, rn.get(d, d)] for r, d in ctl.get("lowest", [])]
     if not lens:
         print(f"    shapes: {os.path.basename(lens_path)} is not there, so the Shapes page stays hidden (python district_shapes.py --state {P['code'].lower()})")
+    # the second lens: who lives in each district (district_people.py), filed under the roster's names like the shapes
+    people_path = os.path.join(HERE, f"state_{P['code'].lower()}_people.json")
+    people = json.load(open(people_path, encoding="utf-8")) if os.path.exists(people_path) else {}
+    stats["has_people"] = bool(people.get("chambers"))
+    for key, chd in (people.get("chambers") or {}).items():
+        rn = renames.get(key) or {}
+        for row in chd.get("districts", []):
+            row["key"] = row["d"] = rn.get(row["d"], row["d"])
+        chd["districts"] = sorted(chd.get("districts", []), key=lambda r: natural(r["d"]))
+        s = chd.get("summary") or {}
+        if s.get("per_district") is None and s.get("seats") and not unmapped.get(key) and expect.get(key):
+            # districts elect different numbers of members (Maryland's delegates, Vermont's senators and representatives):
+            # the Census file cannot say how many, so each district's seats are read from the roster and the page says so
+            ideal = s["pop2020_total"] / s["seats"]
+            devs = []
+            for row in chd["districts"]:
+                k = expect[key].get(row["d"]) or 1
+                if row.get("pop2020") is not None:
+                    row["seats"] = k
+                    row["dev_pct"] = round((row["pop2020"] / k - ideal) / ideal * 100, 2)
+                    devs.append(row["dev_pct"])
+            if devs:
+                s["dev"] = {"min": min(devs), "max": max(devs), "spread": round(max(devs) - min(devs), 2), "n": len(devs)}
+                s["dev_from_roster"] = True
+                s["why_no_dev"] = None
+                print(f"    people: {P[key]['name']} seats per district read from the roster; people per seat runs {min(devs):+.2f}% to {max(devs):+.2f}% of the ideal")
+        elif s.get("per_district") is None and unmapped.get(key):
+            s["why_no_dev"] = (f"{len(unmapped[key])} {P[key]['name']} districts lie over others and have no lines of their own in the Bureau's file, "
+                               "so people per seat cannot be read district by district")
+    if not people:
+        print(f"    people: {os.path.basename(people_path)} is not there, so the People page stays hidden (python district_people.py --state {P['code'].lower()})")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "legislators": legislators, "profiles": profiles, "donors": money["members"],
             "kinds": money["kinds"], "photos": photos, "stats": stats, "seats": seats, "vacant": vacant, "expect": expect, "nest": nest, "officials": officials,
-            "lens": lens, "unmapped": unmapped, "renames": renames,
+            "lens": lens, "people": people, "unmapped": unmapped, "renames": renames,
             "districts": {"q": shapes.get("q", 400), "upper": shapes.get("upper", {}), "lower": shapes.get("lower", {}),
                           "vintage": shapes.get("vintage", ""), "outline": {"d": outline["d"], "bbox": outline["bbox"]}},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
@@ -458,7 +489,7 @@ def render(P, data, version, base_url, analytics):
                       "upper": P.get("upper"), "lower": P.get("lower"), "nested": bool(P.get("nested")), "zooms": P.get("zooms") or [],
                       "money_links": P.get("money_links") or {}, "money_agency": P.get("money_agency") or {}},
             "stats": st, "kinds": data["kinds"], "changelog": data["changelog"], "photo_ids": sorted(data["photos"]),
-            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "inline": None,
+            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "has_people": st.get("has_people", False), "inline": None,
             "unmapped": data.get("unmapped") or {}}
     gc = analytics or ""
     tag = ('<script data-goatcounter="%s" data-goatcounter-settings=\'{"no_onload": true, "allow_frame": false}\' '
@@ -499,6 +530,9 @@ def render(P, data, version, base_url, analytics):
         "__SHAPES_SOURCE_CARD__": ('<div class="labelcard rv" style="--i:5"><span class="tag analysis">Analysis</span><h3>The shape of each district</h3><p>Three published measures of compactness, '
                                    'computed from the same Census Bureau boundary files. The files and their fingerprints, the formulas, the checks and what a score cannot tell you '
                                    'are under <a href="#shapes">Shapes</a>, "Sources and methods".</p></div>' if st.get("has_shapes") else ""),
+        "__PEOPLE_SOURCE_CARD__": ('<div class="labelcard rv" style="--i:6"><span class="tag fact">Fact</span><h3>Who lives in each district</h3><p>The Census Bureau\'s 2020 count by district and its '
+                                   '2020-2024 American Community Survey estimates, with the Bureau\'s margins of error. The files and their fingerprints, the formulas for derived '
+                                   'margins, the checks against the Bureau\'s own totals and what the figures cannot tell you are under <a href="#people">People</a>, "Sources and methods".</p></div>' if st.get("has_people") else ""),
         "__PLACE_NOTE__": (" " + html_attr(P["note"])) if P.get("note") else "",
         "__UNMAPPED__": "".join(f'<p class="note">{len(ds)} {html_attr(P[key]["name"])} district{"s are" if len(ds) > 1 else " is"} listed but not drawn, because the Census Bureau\'s file '
                                 f'has no lines for {"them" if len(ds) > 1 else "it"}: {html_attr(", ".join(ds))}. <a href="#members">The roster</a> lists {"their" if len(ds) > 1 else "its"} members.</p>'
@@ -575,6 +609,23 @@ def write_site(folder, html, data):
                 put("data/shapes.csv", out.getvalue())
             else:
                 shutil.copyfile(csv_path, os.path.join(folder, "data", "shapes.csv"))
+    if data.get("people"):
+        put("data/people.json", dump(data["people"]))
+        csv_path = os.path.join(HERE, f"state_{data['people']['place'].lower()}_people.csv")
+        if os.path.exists(csv_path):                                        # every figure on the People page, margins included
+            rn = data.get("renames") or {}
+            if rn:
+                import csv
+                by_name = {c.get("name"): k for k, c in (data["people"].get("chambers") or {}).items()}
+                with open(csv_path, encoding="utf-8", newline="") as fh:
+                    rows = list(csv.reader(fh))
+                for row in rows[1:]:
+                    row[1] = rn.get(by_name.get(row[0]), {}).get(row[1], row[1])
+                out = io.StringIO()
+                csv.writer(out, lineterminator="\n").writerows(rows)
+                put("data/people.csv", out.getvalue())
+            else:
+                shutil.copyfile(csv_path, os.path.join(folder, "data", "people.csv"))
     n = 0
     for bio, prof in data["profiles"].items():
         put(f"data/member/{bio}.json", dump(prof))
@@ -723,7 +774,7 @@ __ANALYTICS__
     <a class="doorlink" href="../" title="The front door: every level of government" aria-label="Back to the front door of The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
     <a class="brand" href="#top" aria-label="The Civic Archive, __NAME__, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#home" data-go="home">__NAME__</a><a href="#map" data-go="map">District map</a><a href="#shapes" data-go="shapes" id="navshapes" hidden>Shapes</a><a href="#members" data-go="members">Your legislators</a><a href="#sources" data-go="sources">Sources</a>
+      <a href="#home" data-go="home">__NAME__</a><a href="#map" data-go="map">District map</a><a href="#shapes" data-go="shapes" id="navshapes" hidden>Shapes</a><a href="#people" data-go="people" id="navpeople" hidden>People</a><a href="#members" data-go="members">Your legislators</a><a href="#sources" data-go="sources">Sources</a>
     </nav>
     <div class="tools">
       <button class="kbtn" id="palettebtn" aria-label="Search legislators and districts"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
@@ -874,6 +925,7 @@ __ANALYTICS__
         <div class="stage rv">
           <div class="mtip" id="stip" role="tooltip"></div>
           <div class="lensbar">
+            <span class="lensswitch" role="group" aria-label="Which lens"><a class="chip" href="#shapes" aria-pressed="true">Shape</a><a class="chip" href="#people" id="toplens" aria-pressed="false" hidden>People</a></span>
             <span id="lensch" role="group" aria-label="Which chamber"></span>
             <span id="lenschips" role="group" aria-label="Which measure of shape"></span>
             <button class="chip" id="lensshore" type="button" aria-pressed="false" hidden title="Districts on the sea, a bay or the Great Lakes: a jagged natural shore lowers a score through no one's choice">Set shoreline districts aside</button>
@@ -894,6 +946,37 @@ __ANALYTICS__
   </section>
   </div><!-- /shapes -->
 
+  <div class="page" id="pg-people" data-page="people" hidden>
+  <section class="theater block" id="people">
+    <div class="wrap">
+      <div class="sechead rv">
+        <div><h2>Who lives in each district</h2><p>Every __CHAMBERS__ district in __NAME__: how many people each holds and who they are, from the Census Bureau's 2020 count and its American Community Survey. The figures describe residents. They do not say why the lines run where they run, and a district's residents are not its voters.</p></div>
+        <button class="btn" id="plmethodsbtn" type="button">Sources and methods</button>
+      </div>
+      <div class="theater-grid">
+        <div class="stage rv">
+          <div class="mtip" id="pltip" role="tooltip"></div>
+          <div class="lensbar">
+            <span class="lensswitch" role="group" aria-label="Which lens"><a class="chip" href="#shapes" aria-pressed="false">Shape</a><a class="chip" href="#people" aria-pressed="true">People</a></span>
+            <span id="plch" role="group" aria-label="Which chamber"></span>
+            <label class="selwrap"><span>Shade by</span><select id="plmeas" aria-label="Which figure shades the map"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
+          </div>
+          <p class="lenssay" id="plsay"></p>
+          <div class="mapframe"><svg class="shapemap" id="plmap" role="img" aria-label="Map of every district in __NAME__, shaded by the chosen figure"></svg></div>
+          <div class="lenskey" id="plkey"></div>
+        </div>
+        <aside class="mapside rv" id="plside" aria-live="polite" style="--i:2"><span class="muted">Tap a district for its people.</span></aside>
+      </div>
+      <div class="rv" style="margin-top:26px">
+        <h3 style="margin-bottom:4px"><span class="tag fact">Fact</span> Every district, every figure</h3>
+        <p class="lenssay" style="margin-top:6px">In district order, not ranked. Sort any column; hold Shift for a second one. A small \u00b1 is the Bureau's margin of error at 90 percent confidence. <a href="data/people.csv" download>Download the whole table</a> to check it yourself, or <a href="../us/#people/__CODE__">compare __NAME__'s congressional districts</a> on the federal side.</p>
+        <div id="pltable" style="margin-top:12px"></div>
+      </div>
+      <p class="note" id="plnote"></p>
+    </div>
+  </section>
+  </div><!-- /people -->
+
   <div class="page" id="pg-sources" data-page="sources" hidden>
   <section class="block" id="sources">
     <div class="wrap">
@@ -904,7 +987,7 @@ __ANALYTICS__
         <div class="labelcard rv"><span class="tag fact">Fact</span><h3>Members, service and committees</h3><p>The <a href="https://github.com/openstates/people" target="_blank" rel="noopener">Open States people project</a> (public domain), which follows the <a href="__LEG_URL__" target="_blank" rel="noopener">__LEGISLATURE__</a>'s own member pages. Portraits are the official ones the chambers publish.</p></div>
         <div class="labelcard rv" style="--i:1"><span class="tag fact">Fact</span><h3>District lines</h3><p>The U.S. Census Bureau's cartographic boundary files for the upper and lower chamber (__VINTAGE__), drawn on the same map projection as the federal pages. "Use my location" is worked out against these lines on your own device.</p></div>
         __MONEY_SOURCE_CARD__
-        __SHAPES_SOURCE_CARD__
+        __SHAPES_SOURCE_CARD____PEOPLE_SOURCE_CARD__
         <div class="labelcard rv" style="--i:3"><span class="tag wiki">From Wikipedia</span><h3>Life before the legislature</h3><p>One paragraph, the opening of the member's Wikipedia article, fenced off and labelled wherever it appears. It is not an official record, anyone can edit it, and it is credited and linked every time (CC BY-SA 4.0).</p></div>
         <div class="labelcard rv" style="--i:4"><span class="tag analysis">Coming</span><h3>Bills and recorded votes</h3><p>Being added next, from LegiScan's weekly public datasets, which carry every bill and every roll call with each member's vote. When they arrive, each page will credit LegiScan as its terms ask.</p></div>
       </div>
@@ -1688,7 +1771,7 @@ function shapesPage(pick){
         ${out ? "" : `<div class="strip" role="img" aria-label="Where this district falls among the chamber's districts on ${MEAS[meas].name}">${Pl.map(x => `<i class="${x.key === k ? "on" : (x.shore ? "sh" : "")}" style="left:${pos(x[meas])}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${medv.toFixed(2)}</span></div><div class="stripends"><span>${lo.toFixed(2)}</span><span>${MEAS[meas].name}: every ${esc(P[key].name)} district is a line; this one is tall</span><span>${hi.toFixed(2)}</span></div>`}
         <p class="muted" style="font-size:13px;margin:12px 0 0">Area ${r.area_sqmi.toLocaleString()} sq mi, perimeter ${r.perim_mi.toLocaleString()} mi${r.parts > 1 ? `, in ${r.parts} separate pieces (islands count)` : ""}.${r.shore ? ` <b>Shoreline district:</b> it fronts the sea, a bay or the Great Lakes, and a jagged natural shore lowers the Polsby-Popper score through no one's choice.` : ""}</p>
         <p class="muted" style="font-size:12.5px;margin:8px 0 0"><span class="tag analysis">Analysis</span> A low score is a fact about a shape, not a finding about intent. <button type="button" class="wxbtn" id="lensmethods">Sources and methods</button></p>`;
-      $("#lensmethods").addEventListener("click", openMethods);
+      $("#lensmethods").addEventListener("click", () => openMethods("shapes"));
       $("#lensshare").addEventListener("click", e => share({title: `The shape of ${P.name} ${label(r)}`, text: `${P.name} ${label(r)}: Polsby-Popper ${r.pp.toFixed(3)}, Reock ${r.reock.toFixed(3)}, convex hull ${r.hull.toFixed(3)}. Every district measured the same way, with sources and methods:`, url: `${SHARE_BASE}/${hashOf(r)}`, kind: "shape", key: P.code + "-" + r.key}, e.currentTarget));
       if (!quiet) { history.replaceState({page: "shapes"}, "", hashOf(r)); track("shape", {key: P.code + "-" + k}); }
     }
@@ -1706,18 +1789,107 @@ function shapesPage(pick){
     const controls = keys.map(k => (keys.length > 1 ? `<p><b>The ${esc(P[k].name)}.</b></p>` : "") + W.control(S.chambers[k].control, S.chambers[k].summary.shore)).join("");
     $("#lensnote").innerHTML = `<span class="tag fact">Fact</span> The lines: ${keys.map(k => `<code>${esc(S.chambers[k].source.file)}</code>`).join(" and ")}, U.S. Census Bureau. <span class="tag analysis">Analysis</span> The measurements: ${keys.map(k => `${S.chambers[k].summary.districts} ${esc(P[k].name)} districts${S.chambers[k].summary.shore ? ` (${S.chambers[k].summary.shore} front open water)` : ""}`).join("; ")}. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
     $("#methodsbody").innerHTML = `<h3>The source${keys.length > 1 ? "s" : ""}</h3>${srcs}${W.measures}${W.how}<h3>The checks</h3>${W.selftest}${controls}${W.cannot("")}${W.program(S.method, `<a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. `, "python district_shapes.py --state " + P.code.toLowerCase())}
-      <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#shapes/${esc(P.code)}">the federal Districts page</a>. This is the first of four lenses; who lives in each district, how votes became seats, and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`;
+      <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#shapes/${esc(P.code)}">the federal Districts page</a>. This is the first of four lenses; the second, <a href="#people">who lives in each district</a>, is beside it. How votes became seats and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`;
+    METHODS.shapes = {title: "Sources and methods: the shape of a district", body: $("#methodsbody").innerHTML};
     draw(); if (pick) lensGo(pick);
   }, () => { lensBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the measurements. Check your connection and try again.</span>`; });
 }
-function openMethods(){ const box = $("#methods"); box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
+/* ---------- the second lens on this state's chambers: who lives in each district ----------
+   district_people.py tabulates the Bureau's 2020 count and 2020-2024 survey estimates for every Senate and House
+   district; the words, the figures and the formulas are the federal page's (PEOPLE_MEAS, peopleWords, borrowed above). */
+let plBuilt = false, plGo = null;
+function peoplePage(pick){
+  if (plBuilt) { if (pick && plGo) plGo(pick); return; }
+  plBuilt = true;
+  const side = $("#plside"), svg = $("#plmap");
+  side.innerHTML = `<span class="muted">Loading the figures\u2026</span>`;
+  Promise.all([need("people"), need("districts"), membersReady()]).then(([S, D]) => {
+    if (!S || !S.chambers) { side.innerHTML = `<span class="muted">The figures are not part of this build.</span>`; return; }
+    DATA.districts = D;
+    const MEAS = PEOPLE_MEAS, W = peopleWords(), keys = ["upper", "lower"].filter(k => S.chambers[k]);
+    let key = keys[0], meas = "dev", picked = null, B = {}, table = null;
+    const rows = () => S.chambers[key].districts, byKey = () => Object.fromEntries(rows().map(r => [r.key, r]));
+    const val = (r, m) => { const p = plValue(r, m); return p ? p[0] : null; };
+    const pool = () => rows().filter(r => val(r, meas) != null);
+    const breaks = m => plBreaks(m, rows().map(r => val(r, m)));
+    const shade = (r, m) => { const v = val(r, m); return v == null ? "#3A3F48" : plRamp(m)[B[m].filter(b => v > b).length]; };
+    const label = r => `${dLabel(key, r.d)}`, who = r => membersAt(key, r.d), hashOf = r => `#people=${key === "upper" ? "S" : "H"}-${encodeURIComponent(r.key)}`;
+    const med = a => { const v = a.slice().sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+    const OUT = D.outline, [bx0, by0, bx1, by1] = OUT.bbox, pad = Math.max(bx1 - bx0, by1 - by0) * .04;
+    svg.setAttribute("viewBox", `${(bx0 - pad).toFixed(3)} ${(by0 - pad).toFixed(3)} ${(bx1 - bx0 + 2 * pad).toFixed(3)} ${(by1 - by0 + 2 * pad).toFixed(3)}`);
+    $("#plch").innerHTML = keys.length > 1 ? keys.map(k => `<button class="chip" type="button" data-ch="${k}" aria-pressed="${k === key}">${esc(P[k].name)}</button>`).join(" ") : "";
+    $("#plmeas").innerHTML = Object.entries(MEAS).map(([k, v]) => `<option value="${k}">${esc(v.name)}</option>`).join("");
+    const col = m => ({key: m, label: MEAS[m].short, num: true, val: r => val(r, m), html: r => { const p = plValue(r, m); return p ? plFmt(m, p[0], p[1]) : `<span class="muted">\u2014</span>`; }});
+    const cols = () => [
+      {key: "d", label: "District", num: true, first: "asc", val: r => natural(r.d)[0] * 100 + (natural(r.d)[1] ? natural(r.d)[1].toUpperCase().charCodeAt(0) - 64 : 0), html: r => `<a href="${hashOf(r)}"><b>${esc(r.d)}</b></a>`},
+      {key: "m", label: P[key].title + (Object.values(DATA.expect[key] || {}).some(n => n > 1) ? "s" : ""), val: r => who(r).map(m => (m.ln || "") + " " + m.n).join(" "), html: r => { const ms = who(r); return ms.length ? ms.map(m => `<span class="pty" style="background:${tone(m.p)}"></span><a href="#member=${esc(m.id)}">${esc(m.n)}</a>`).join("<br>") : `<span class="muted">vacant</span>`; }},
+      col("pop"), col("dev"), col("density"), col("median_age"), col("income"), col("under18"), col("over65"), col("hispanic"), col("white"), col("black"), col("asian"), col("foreign"), col("poverty"), col("degree"), col("owner")];
+    function draw(){
+      B = {};
+      svg.innerHTML = rows().map(r => { const s = shapeOf(key, r.key); return s ? `<path class="sd" data-k="${esc(r.key)}" d="${s.d}" tabindex="0" role="button" aria-label="${esc(label(r))}"></path>` : ""; }).join("")
+        + `<path d="${OUT.d}" style="fill:none;stroke:rgba(255,255,255,.45);stroke-width:1.2;pointer-events:none;vector-effect:non-scaling-stroke"></path>`;
+      $("#pltable").innerHTML = "";
+      table = gridTable($("#pltable"), {cols: cols(), rows: rows(), sort: [{key: "d", dir: "asc"}], page: 25, empty: "No district matches.", count: rs => `${rs.length.toLocaleString()} ${esc(P[key].name)} district${rs.length === 1 ? "" : "s"}`});
+      paint();
+    }
+    function paint(){
+      B[meas] = B[meas] || breaks(meas);
+      $$("#plch [data-ch]").forEach(b => b.setAttribute("aria-pressed", b.dataset.ch === key));
+      $("#plmeas").value = meas;
+      const bk = byKey();
+      $$(".sd", svg).forEach(el => { const r = bk[el.dataset.k]; if (!r) return; el.style.fill = shade(r, meas); el.classList.toggle("hl", el.dataset.k === picked); });
+      const Pl = pool(), medv = med(Pl.map(r => val(r, meas))), M = MEAS[meas], sm = S.chambers[key].summary || {};
+      const devsay = meas !== "dev" ? "" : (sm.dev ? ` People per seat runs from ${plFmt("dev", sm.dev.min)} to ${plFmt("dev", sm.dev.max)} of the ideal (${Math.round(sm.ideal_per_seat).toLocaleString()} people a seat), a spread of ${sm.dev.spread.toFixed(2)} points${sm.dev_from_roster ? "; each district's seats are read from the roster" : ""}.` : (sm.why_no_dev ? ` Not computed here: ${esc(sm.why_no_dev)}.` : ""));
+      $("#plsay").innerHTML = `<b>${esc(M.name)}</b> is ${M.say}. ${esc(P.name)}'s ${esc(P[key].name)}: ${rows().length} district${rows().length === 1 ? "" : "s"}${medv != null ? `, median ${M.fmt(medv)}` : ""}.${devsay} ${M.count ? `<span class="tag fact">Fact</span> From the 2020 count${meas === "dev" ? `; <span class="tag analysis">Analysis</span> the ideal is arithmetic` : ""}.` : `<span class="tag fact">Fact</span> A survey estimate; each district's margin is beside its figure.`}`;
+      $("#plkey").innerHTML = plKey(meas, B[meas]);
+      table.setRows(rows());
+      if (picked && bk[picked]) show(picked, true); else { picked = null; side.innerHTML = `<span class="muted">Tap a district for its people.</span>`; }
+    }
+    function show(k, quiet){
+      const r = byKey()[k]; if (!r) return; picked = k; $$(".sd", svg).forEach(el => el.classList.toggle("hl", el.dataset.k === k));
+      const ms = who(r), Pl = pool(), vs = Pl.map(x => val(x, meas)), lo = Math.min(...vs), hi = Math.max(...vs), pos = v => (100 * (v - lo) / Math.max(1e-9, hi - lo)).toFixed(2), medv = med(vs), v = val(r, meas), M = MEAS[meas], a = r.acs || {};
+      const shareRows = PEOPLE_SHARES.map(m => { const p = plValue(r, m); const nm = MEAS[m] ? MEAS[m].name : PEOPLE_SHARE_NAMES[m]; return `<tr class="${["white", "black", "asian", "aian", "nhpi", "other", "multi"].includes(m) ? "sub" : ""}"><td>${esc(nm)}</td><td>${p ? plFmt(m, p[0], p[1]) : "\u2014"}</td></tr>`; }).join("");
+      side.innerHTML = `<div class="side-head"><h3>${esc(label(r))}</h3><span><a class="chip" href="${districtHash(key, r.key)}">District map</a> <button class="chip sharebtn" type="button" id="plshare">Share</button></span></div>
+        ${ms.length ? `<p style="margin:0 0 8px;font-size:14px">Represented by ${ms.map(m => `<a href="#member=${esc(m.id)}"><b>${esc(m.n)}</b></a>`).join(" and ")}</p>` : `<p class="muted" style="margin:0 0 8px">This seat is vacant, or its member is not on file yet.</p>`}
+        <div class="lensfacts"><div><b>${r.pop2020 == null ? "\u2014" : r.pop2020.toLocaleString()}</b><span>people, 2020 count${r.dev_pct != null ? `<br>${plFmt("dev", r.dev_pct)} from the ideal${r.seats > 1 ? `, ${r.seats} seats` : ""}` : ""}</span></div>
+          <div><b>${a.median_age ? a.median_age[0] : "\u2014"}</b><span>median age${a.median_age ? `<br>\u00b1${a.median_age[1]}` : ""}</span></div>
+          <div><b>${a.income ? "$" + Math.round(a.income[0] / 1000) + "k" : "\u2014"}</b><span>median household income${a.income ? `<br>$${Math.round(a.income[0]).toLocaleString()} \u00b1${Math.round(a.income[1]).toLocaleString()}` : ""}</span></div></div>
+        <table class="pltab"><tr><td>People per square mile</td><td>${r.density == null ? "\u2014" : Math.round(r.density).toLocaleString()}</td></tr><tr><td>Living in urban areas</td><td>${r.urban_pct == null ? "\u2014" : r.urban_pct.toFixed(1) + "%"}</td></tr>${shareRows}</table>
+        ${v == null ? "" : `<div class="strip" role="img" aria-label="Where this district falls among the chamber's districts on ${esc(M.name)}">${Pl.map(x => `<i class="${x.key === k ? "on" : ""}" style="left:${pos(val(x, meas))}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${M.fmt(medv)}</span></div><div class="stripends"><span>${M.fmt(lo)}</span><span>${esc(M.name)}, every ${esc(P[key].name)} district</span><span>${M.fmt(hi)}</span></div>`}
+        <p class="muted" style="font-size:12.5px;margin:12px 0 0"><span class="tag fact">Fact</span> The count and the survey are the Bureau's; \u00b1 is its margin at 90 percent confidence. <span class="tag analysis">Analysis</span> The ideal is arithmetic. <button type="button" class="wxbtn" id="plmethods">Sources and methods</button></p>`;
+      $("#plmethods").addEventListener("click", () => openMethods("people"));
+      $("#plshare").addEventListener("click", e => share({title: `Who lives in ${P.name} ${label(r)}`, text: `${P.name} ${label(r)}: ${r.pop2020 == null ? "" : r.pop2020.toLocaleString() + " people in 2020"}${r.dev_pct != null ? ` (${plFmt("dev", r.dev_pct)} from the ideal)` : ""}${a.median_age ? `, median age ${a.median_age[0]}` : ""}${a.income ? `, median household income $${Math.round(a.income[0]).toLocaleString()}` : ""}. Every district from the Census Bureau's own files, with sources and methods:`, url: `${SHARE_BASE}/${hashOf(r)}`, kind: "people", key: P.code + "-" + k}, e.currentTarget));
+      if (!quiet) { history.replaceState({page: "people"}, "", hashOf(r)); track("people", {key: P.code + "-" + k}); }
+    }
+    plGo = k => { const [ch, d] = k; if (S.chambers[ch] && ch !== key) { key = ch; draw(); } if (byKey()[d]) show(d, true); };
+    const tip = $("#pltip"), stage = svg.closest(".stage");
+    svg.addEventListener("pointermove", e => { const p = e.target.closest && e.target.closest(".sd"); if (!p) { tip.classList.remove("show"); return; } const r = byKey()[p.dataset.k], b = stage.getBoundingClientRect(); if (!r) return; const v = val(r, meas);
+      tip.innerHTML = `<b>${esc(r.d)}</b>${who(r).map(m => esc(m.n)).join(", ") || "vacant"}${v == null ? "" : " \u00b7 " + MEAS[meas].short + " " + MEAS[meas].fmt(v)}`; tip.style.left = (e.clientX - b.left) + "px"; tip.style.top = (e.clientY - b.top) + "px"; tip.classList.add("show"); });
+    svg.addEventListener("pointerleave", () => tip.classList.remove("show"));
+    svg.addEventListener("click", e => { const p = e.target.closest(".sd"); if (p) { show(p.dataset.k); if (!matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); } });
+    svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("sd")) { e.preventDefault(); show(e.target.dataset.k); } });
+    $("#plch").addEventListener("click", e => { const b = e.target.closest("[data-ch]"); if (b && b.dataset.ch !== key) { key = b.dataset.ch; picked = null; history.replaceState({page: "people"}, "", "#people"); draw(); } });
+    $("#plmeas").addEventListener("change", e => { meas = e.target.value; paint(); });
+    const num = n => n == null ? "\u2014" : Number(n).toLocaleString();
+    const controls = keys.map(k => { const c = S.chambers[k].control || {}, s = S.chambers[k].summary || {}; return (keys.length > 1 ? `<p><b>The ${esc(P[k].name)}.</b></p>` : "") + `<p><b>Control totals.</b> The Bureau's 2020 count by ${esc(P[k].name)} district adds up to ${num(s.pop2020_total)}${c.count_vs_resident_2020 ? `, ${c.count_matches_resident ? "equal to" : "against"} the state's resident population in the apportionment tables (${num(c.count_vs_resident_2020[1])})` : ""}${c.count_vs_congress_tabulation ? `; the Bureau's congressional tabulation of the same blocks totals ${num(c.count_vs_congress_tabulation[1])}: ${c.tabulations_agree ? "they agree" : "they differ"}` : ""}. The survey's district populations add up to ${c.acs_sum_vs_state ? `${num(c.acs_sum_vs_state[0])}; the Bureau's own state figure is ${num(c.acs_sum_vs_state[1])}: ${c.acs_sum_matches_state ? "they agree" : "they differ"}` : "a figure the file does not carry"}. The under-18 share, built here from the age bands, equals the Bureau's own table B09001 in ${c.under18_checked - (c.under18_mismatches || []).length} of ${c.under18_checked} districts.</p>`; }).join("");
+    const extra = keys.map(k => { const s = S.chambers[k].summary || {}; return (s.dev_from_roster ? `<li>${esc(P[k].name)} districts elect different numbers of members, so people per seat there divides by the seats the roster shows; a vacancy or a roster error would move the figure.</li>` : "") + (s.why_no_dev ? `<li>${esc(s.why_no_dev)}.</li>` : ""); }).join("");
+    $("#plnote").innerHTML = `<span class="tag fact">Fact</span> The count: U.S. Census Bureau, ${keys.map(k => `<code>${esc(((S.chambers[k].sources || [])[0] || {}).file || "")}</code>`).join(" and ")}; the estimates: American Community Survey 2020-2024. <span class="tag analysis">Analysis</span> ${keys.map(k => { const s = S.chambers[k].summary || {}; return s.dev ? `${esc(P[k].name)}: people per seat runs ${plFmt("dev", s.dev.min)} to ${plFmt("dev", s.dev.max)} of the ideal` : `${esc(P[k].name)}: people per seat not computed`; }).join("; ")}. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
+    METHODS.people = {title: "Sources and methods: who lives in a district", body: `<h3>The sources</h3>${W.sources((S.chambers[keys[0]].sources || []).concat(keys.length > 1 ? [(S.chambers[keys[1]].sources || [])[0]] : []).filter(Boolean))}${W.measures}${W.error}<h3>The checks</h3>${W.selftest}${controls}${W.cannot(extra)}${W.program(S.method, `<a href="data/people.csv" download>Download every figure on this page</a>, margins included. `, "python district_people.py --state " + P.code.toLowerCase())}
+      <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#people/${esc(P.code)}">the federal People page</a>. This is the second of four lenses; the first, <a href="#shapes">the shape of every district</a>, is beside it. How votes became seats and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`};
+    draw(); if (pick) plGo(pick);
+  }, () => { plBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the figures. Check your connection and try again.</span>`; });
+}
+const METHODS = {};
+function openMethods(kind){ const box = $("#methods"); if (typeof kind === "string" && METHODS[kind]) { $("#methodstitle").textContent = METHODS[kind].title; $("#methodsbody").innerHTML = METHODS[kind].body; } box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
 (function(){ const box = $("#methods"); if (!box) return; const close = () => { box.hidden = true; document.body.classList.remove("noscroll"); };
-  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", openMethods);
+  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", () => openMethods("shapes"));
+  const pb = $("#plmethodsbtn"); if (pb) pb.addEventListener("click", () => openMethods("people"));
+  if (BOOT.has_people) for (const id of ["#navpeople", "#toplens"]) { const n = $(id); if (n) n.hidden = false; }
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) close(); });
   if (BOOT.has_shapes) for (const id of ["#navshapes", "#tabshapes"]) { const n = $(id); if (n) n.hidden = false; } })();
 
 /* --- pages: one document, one page visible at a time, the same hash addresses as the federal side --- */
-const PAGES = ["home", "map", "shapes", "members", "member", "sources"];
+const PAGES = ["home", "map", "shapes", "people", "members", "member", "sources"];
 const BASE_TITLE = document.title;
 let page = "home";
 function showPage(name, push){
@@ -1730,6 +1902,7 @@ function showPage(name, push){
   pageview("/" + P.code.toLowerCase() + "/" + (name === "home" ? "" : name), P.name + ": " + name);
   if (name === "members") renderRoster();
   if (name === "shapes" && !/^#shape=/.test(location.hash)) shapesPage();
+  if (name === "people" && !/^#people=/.test(location.hash)) peoplePage();
   if (name === "map") mapReady().then(() => { if (window.mapResize) mapResize(); }, () => {});      // drawn while hidden, the map has no size to measure; measure it now
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
@@ -1740,6 +1913,8 @@ function routeFromHash(push){
   if (mem) { showPage("member", false); renderMemberPage(mem[1], mem[2]); return; }
   const shp = h.match(/^shape=([SH])-(.+)$/);
   if (shp) { showPage("shapes", false); shapesPage([shp[1] === "S" ? "upper" : "lower", decodeURIComponent(shp[2])]); return; }
+  const plp = h.match(/^people=([SH])-(.+)$/);
+  if (plp) { showPage("people", false); peoplePage([plp[1] === "S" ? "upper" : "lower", decodeURIComponent(plp[2])]); return; }
   const off = h.match(/^official=([A-Za-z0-9_-]+)$/);
   if (off) { showPage("member", false); renderOfficialPage(off[1]); return; }
   const dis = h.match(/^district=([SH])-(.+)$/);

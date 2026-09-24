@@ -558,6 +558,9 @@ def collect(db_path):
     shapes = json.load(open(shapes_path, encoding="utf-8")) if os.path.exists(shapes_path) else {}
     if shapes:
         shapes["at_large_paths"] = {}                           # the whole-state districts are drawn from the state outlines
+    # lens two: who lives in each district (district_people.py writes this file; without it the People page stays hidden)
+    people_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_district_people.json")
+    people = json.load(open(people_path, encoding="utf-8")) if os.path.exists(people_path) else {}
     import money_views                                          # who gave to each campaign, and who spent for or against it (FEC bulk files)
     money = money_views.build_money(con, legislators)
     for bio, m in money["profiles"].items():
@@ -570,7 +573,7 @@ def collect(db_path):
             "legislators": legislators, "photos": photos, "photo_bytes": photo_bytes, "mv": mv, "vote_meta": vote_meta,
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
             "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest, "money_members": money["members"], "money_kinds": money["kinds"],
-            "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {}, "shapes": shapes,
+            "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {}, "shapes": shapes, "people": people,
             "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
 
 
@@ -780,8 +783,11 @@ def bundles(data):
     shapes = dict(data.get("shapes") or {})
     if shapes:
         shapes["at_large_paths"] = {d["st"]: data["states"][d["st"]]["d"] for d in shapes.get("districts", []) if d.get("at_large") and d["st"] in data["states"]}
+    people = dict(data.get("people") or {})
+    if people:
+        people["at_large_paths"] = {d["st"]: data["states"][d["st"]]["d"] for d in people.get("districts", []) if d.get("at_large") and d["st"] in data["states"]}
     return {"members": {"members": data["members"], "legislators": data["legislators"]},
-            "shapes": shapes,
+            "shapes": shapes, "people": people,
             "lite": data["lite"],
             "votes": {"vote_meta": data["vote_meta"], "mv": data["mv"], "states": data["states"]},
             "districts": data["districts"]}
@@ -805,6 +811,7 @@ def boot_for(data, version, base_url=""):
             "photo_ids": sorted(data["photos"]), "base": base_url.rstrip("/"),
             "state_names": {st: s["name"] for st, s in data["states"].items()}, "state_sites": state_sites(),
             "has_shapes": bool((data.get("shapes") or {}).get("districts")), "state_shapes": state_shapes(),
+            "has_people": bool((data.get("people") or {}).get("districts")), "state_people": state_people(),
             "stall_cutoff": data.get("stall_cutoff", ""), "inline": None}
 
 
@@ -824,6 +831,12 @@ def state_shapes():
     Districts page can point a reader through to the same lens on that state's Senate and House."""
     here = os.path.dirname(os.path.abspath(__file__))
     return sorted(code for code in state_sites() if os.path.exists(os.path.join(here, f"state_{code.lower()}_shapes.json")))
+
+
+def state_people():
+    """State codes whose own legislative districts have the People lens (state_<code>_people.json exists)."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    return sorted(code for code in state_sites() if os.path.exists(os.path.join(here, f"state_{code.lower()}_people.json")))
 
 
 def html_attr(text):
@@ -886,6 +899,9 @@ def write_split(folder, html, data, photo_bytes):
     shapes_csv = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_district_shapes.csv")
     if os.path.exists(shapes_csv):                                          # every figure on the Districts page, for anyone who wants to check them
         shutil.copyfile(shapes_csv, os.path.join(folder, "data", "shapes.csv"))
+    people_csv = os.path.join(os.path.dirname(os.path.abspath(__file__)), "us_district_people.csv")
+    if os.path.exists(people_csv):                                          # every figure on the People page
+        shutil.copyfile(people_csv, os.path.join(folder, "data", "people.csv"))
     n_detail = detail_bytes = 0
     for b in data["bills"]:
         text = dump(detail_record(b))
@@ -2028,6 +2044,11 @@ svg.shapemap .sd.dim{opacity:.22}
 .methods p,.methods li{font-size:13.5px;line-height:1.6;color:var(--muted)}.methods b,.methods code{color:var(--ink)}
 .methods code{font-size:12px;word-break:break-all}
 .methods .formula{font-family:var(--serif);font-size:19px;color:var(--ink);margin:4px 0 6px}
+.lensswitch{display:inline-flex;gap:6px;margin-right:6px;padding-right:12px;border-right:1px solid var(--line)}
+.lensswitch a.chip{text-decoration:none}
+.pltab{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 2px}.pltab td{padding:4px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.pltab td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.pm{color:var(--muted);font-size:11.5px;font-weight:400}
+.pltab td:first-child{color:var(--muted)}.pltab tr.sub td:first-child{padding-left:14px}
 .methods table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0}.methods td,.methods th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 .tier{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:2px 8px;border:1px solid var(--accent-line);color:var(--teal-ink);background:var(--teal-soft)}
 .tier.second{border-color:rgba(46,91,230,.35);color:var(--cobalt-ink);background:var(--cobalt-soft)}
@@ -2261,6 +2282,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
         <div class="stage rv">
           <div class="mtip" id="stip" role="tooltip"></div>
           <div class="lensbar">
+            <span class="lensswitch" role="group" aria-label="Which lens"><a class="chip" href="#shapes" aria-pressed="true">Shape</a><a class="chip" href="#people" id="toplens" aria-pressed="false" hidden>People</a></span>
             <span id="lenschips" role="group" aria-label="Which measure of shape"></span>
             <label class="selwrap"><span>State</span><select id="lensstate" aria-label="Look at one state's districts"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
             <button class="chip" id="lensshore" type="button" aria-pressed="false" title="Districts on the sea, a bay or the Great Lakes: a jagged natural shore lowers a score through no one's choice">Set shoreline districts aside</button>
@@ -2282,6 +2304,39 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
     </div>
   </section>
   </div><!-- /shapes -->
+
+  <div class="page" id="pg-people" data-page="people" hidden>
+  <section class="theater block" id="people">
+    <div class="wrap">
+      <div class="sechead rv">
+        <div><h2>Who lives in each district</h2><p>All 435 congressional districts: how many people each holds and who they are, from the Census Bureau's 2020 count and its American Community Survey. The figures describe residents. They do not say why the lines run where they run, and a district's residents are not its voters.</p></div>
+        <button class="btn" id="plmethodsbtn" type="button">Sources and methods</button>
+      </div>
+      <div class="theater-grid">
+        <div class="stage rv">
+          <div class="mtip" id="pltip" role="tooltip"></div>
+          <div class="lensbar">
+            <span class="lensswitch" role="group" aria-label="Which lens"><a class="chip" href="#shapes" aria-pressed="false">Shape</a><a class="chip" href="#people" aria-pressed="true">People</a></span>
+            <label class="selwrap"><span>Shade by</span><select id="plmeas" aria-label="Which figure shades the map"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
+            <label class="selwrap"><span>State</span><select id="plstate" aria-label="Look at one state's districts"></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>
+          </div>
+          <p class="lenssay" id="plsay"></p>
+          <div class="mapframe"><svg class="shapemap" id="plmap" viewBox="0 0 975 610" role="img" aria-label="Map of every congressional district, shaded by the chosen figure"></svg></div>
+          <div class="lenskey" id="plkey"></div>
+        </div>
+        <aside class="mapside rv" id="plside" aria-live="polite" style="--i:2"><span class="muted">Tap a district for its people.</span></aside>
+      </div>
+      <div class="rv" style="margin-top:26px">
+        <h3 style="margin-bottom:4px"><span class="tag fact">Fact</span> Every district, every figure</h3>
+        <p class="lenssay" style="margin-top:6px">Listed in order of state and number, not ranked. Sort any column; hold Shift for a second one. A small ± is the Bureau's margin of error at 90 percent confidence. <a id="plcsv" href="data/people.csv" download>Download the whole table</a> to check it yourself.</p>
+        <div class="lenstoggle" id="plview" role="group" aria-label="One row per district, or one per state"><button class="chip" type="button" data-view="districts" aria-pressed="true">Every district</button><button class="chip" type="button" data-view="states" aria-pressed="false">State by state</button></div>
+        <div id="pltable" style="margin-top:12px"></div>
+        <div id="plstates" style="margin-top:12px" hidden></div>
+      </div>
+      <p class="note" id="plnote"></p>
+    </div>
+  </section>
+  </div><!-- /people -->
 
   <div class="page" id="pg-how" data-page="how" hidden>
   <section class="block" id="how">
@@ -3910,6 +3965,80 @@ function lensWords(){
   };
 }
 
+/* the second lens: who lives in each district. The figures every level shows, how each is read from a row, and the
+   words of its Sources and methods; district_people.py computes the rows the same way for Congress and every chamber. */
+const PEOPLE_MEAS = {
+  dev: {name: "People per seat, against the ideal", short: "From ideal", say: "how far the district's 2020 population per seat sits from the state's ideal, its population divided by the chamber's seats. Zero is exact equality; plus means more people share a seat than the ideal, minus fewer", fmt: v => (v > 0 ? "+" : "") + v.toFixed(2) + "%", count: true},
+  pop: {name: "People, 2020 count", short: "People, 2020", say: "residents on April 1, 2020, counted by the Census Bureau in the blocks that make up the district: the number the lines were drawn on", fmt: v => Math.round(v).toLocaleString(), count: true},
+  density: {name: "People per square mile", short: "Per sq mi", say: "the 2020 count divided by the district's land area", fmt: v => Math.round(v).toLocaleString(), count: true},
+  urban: {name: "Living in urban areas", short: "Urban", say: "the share of 2020 residents in areas the Bureau classes as urban", fmt: v => v.toFixed(1) + "%", count: true},
+  median_age: {name: "Median age", short: "Median age", say: "half the residents are older, half younger (a survey estimate, with its margin)", fmt: v => v.toFixed(1)},
+  income: {name: "Median household income", short: "Median income", say: "half the households earned more in the past twelve months, half less (a survey estimate, with its margin)", fmt: v => "$" + Math.round(v).toLocaleString()},
+  under18: {name: "Under 18", short: "Under 18", say: "the share of residents under 18, who cannot vote", fmt: v => v.toFixed(1) + "%"},
+  over65: {name: "65 and over", short: "65+", say: "the share of residents aged 65 or more", fmt: v => v.toFixed(1) + "%"},
+  hispanic: {name: "Hispanic or Latino", short: "Hispanic", say: "the share of residents who describe themselves as Hispanic or Latino, of any race", fmt: v => v.toFixed(1) + "%"},
+  white: {name: "White alone, not Hispanic", short: "White", say: "the share of residents who describe themselves as White alone and not Hispanic", fmt: v => v.toFixed(1) + "%"},
+  black: {name: "Black alone, not Hispanic", short: "Black", say: "the share of residents who describe themselves as Black or African American alone and not Hispanic", fmt: v => v.toFixed(1) + "%"},
+  asian: {name: "Asian alone, not Hispanic", short: "Asian", say: "the share of residents who describe themselves as Asian alone and not Hispanic", fmt: v => v.toFixed(1) + "%"},
+  aian: {name: "American Indian and Alaska Native alone, not Hispanic", short: "Am. Indian", say: "the share of residents who describe themselves as American Indian or Alaska Native alone and not Hispanic", fmt: v => v.toFixed(1) + "%"},
+  foreign: {name: "Born outside the United States", short: "Foreign-born", say: "the share of residents born outside the United States, citizens and non-citizens alike", fmt: v => v.toFixed(1) + "%"},
+  poverty: {name: "Below the poverty line", short: "Poverty", say: "the share of residents whose household income in the past twelve months fell below the Bureau's poverty threshold", fmt: v => v.toFixed(1) + "%"},
+  degree: {name: "Bachelor's degree or higher", short: "Degree", say: "the share of residents 25 and over with a bachelor's degree or more", fmt: v => v.toFixed(1) + "%"},
+  owner: {name: "Owner-occupied homes", short: "Owners", say: "the share of occupied homes lived in by their owners", fmt: v => v.toFixed(1) + "%"},
+  nhpi: {name: "Native Hawaiian and Pacific Islander alone, not Hispanic", short: "Pacific Isl.", say: "the share of residents who describe themselves as Native Hawaiian or Other Pacific Islander alone and not Hispanic", fmt: v => (v && Math.abs(v) < 1 ? v.toFixed(2) : v.toFixed(1)) + "%"},
+  other: {name: "Some other race alone, not Hispanic", short: "Other race", say: "the share of residents who describe themselves as some other race alone and not Hispanic", fmt: v => (v && Math.abs(v) < 1 ? v.toFixed(2) : v.toFixed(1)) + "%"},
+  multi: {name: "Two or more races, not Hispanic", short: "Two or more", say: "the share of residents who describe themselves as two or more races and not Hispanic", fmt: v => v.toFixed(1) + "%"}};
+const PEOPLE_SHARES = ["under18", "over65", "hispanic", "white", "black", "asian", "aian", "nhpi", "other", "multi", "foreign", "poverty", "degree", "owner"];
+const PEOPLE_SHARE_NAMES = {};
+/* people per seat is signed, so its map uses fixed steps either side of the ideal and a palette that is no party's:
+   teal for fewer people a seat than the ideal, sand for more. Every other figure is shaded in five equal groups. */
+const LENS_DIV = ["#1B7F79", "#8FC7C2", "#D8DCE2", "#E0B070", "#A5651E"];
+const plRamp = m => m === "dev" ? LENS_DIV : LENS_RAMP;
+function plBreaks(m, values){
+  const v = values.filter(x => x != null);
+  if (m !== "dev") { const s = v.slice().sort((a, b) => a - b); return s.length ? [.2, .4, .6, .8].map(p => s[Math.round(p * (s.length - 1))]) : [0, 0, 0, 0]; }
+  const a = v.map(Math.abs).sort((x, y) => x - y), p90 = a.length ? a[Math.round(.9 * (a.length - 1))] : 0;      // the steps suit the chamber: tenths of a percent where nine in ten districts sit within a percent or so, whole percents otherwise
+  return p90 > 1.5 ? [-5, -1, 1, 5] : [-1, -0.1, 0.1, 1];
+}
+function plKey(m, B){
+  const M = PEOPLE_MEAS[m], ramp = plRamp(m);
+  if (m === "dev") { const f = x => Math.abs(x) + "%"; return `<span>Fewer people a seat</span>` + ramp.map((c, i) => `<span><i style="background:${c}"></i>${[`more than ${f(B[0])} below the ideal`, `${f(B[0])} to ${f(B[1])} below`, `within ${f(B[1])}`, `${f(B[2])} to ${f(B[3])} above`, `more than ${f(B[3])} above`][i]}</span>`).join("") + `<span>More people a seat</span><span class="muted">Fixed steps, either side of the ideal</span>`; }
+  return `<span>Lower</span>` + ramp.map((c, i) => `<span><i style="background:${c}"></i>${i === 0 ? "up to " + M.fmt(B[0]) : (i === 4 ? "over " + M.fmt(B[3]) : M.fmt(B[i - 1]) + "\u2013" + M.fmt(B[i]))}</span>`).join("") + `<span>Higher</span><span class="muted">Five equal groups of districts</span>`;
+}
+function plValue(r, m){                                                      // [value, margin or null] for a figure, or null when the row lacks it
+  if (m === "dev") return r.dev_pct == null ? null : [r.dev_pct, null];
+  if (m === "pop") return r.pop2020 == null ? null : [r.pop2020, null];
+  if (m === "density") return r.density == null ? null : [r.density, null];
+  if (m === "urban") return r.urban_pct == null ? null : [r.urban_pct, null];
+  const a = r.acs || {}, s = r.share || {};
+  if (m === "median_age" || m === "income") return a[m] && a[m][0] != null ? a[m] : null;
+  return s[m] && s[m][0] != null ? s[m] : null;
+}
+const plFmt = (m, v, moe) => { const M = PEOPLE_MEAS[m] || {fmt: x => String(x)}; return v == null ? "\u2014" : M.fmt(v) + (moe != null ? ` <span class="pm">\u00b1${M.fmt(moe).replace(/^\+/, "")}</span>` : ""); };
+function peopleWords(){
+  return {
+    sources: list => (list || []).map(s => `<p><span class="tier">Official, primary</span> ${esc(s.publisher)}, ${esc(s.product)}: <code>${esc(s.file)}</code>. <a href="${esc(s.url)}" target="_blank" rel="noopener">The file at census.gov</a>. Fetched ${esc(s.fetched)}, ${Number(s.bytes).toLocaleString()} bytes, SHA-256 <code>${esc(s.sha256)}</code>.</p>`).join(""),
+    measures: `<h3>The figures</h3>
+      <p><b>People, 2020.</b> The Bureau's count of residents on April 1, 2020, summed by the Bureau itself from the census blocks that make up each district (its UR_POPAREA files). This is the number every district was drawn on. Land area and the urban share come from the same file.</p>
+      <p class="formula">deviation = (people per seat \u2212 ideal) \u00f7 ideal</p>
+      <p>People per seat is the count divided by the seats the district elects; the ideal is the state's count divided by the chamber's seats. A chamber's <b>spread</b> is its largest deviation minus its smallest, the "overall range" the courts use (<i>Brown v. Thomson</i>, 462 U.S. 835 (1983), on legislative districts; <i>Karcher v. Daggett</i>, 462 U.S. 725 (1983), holding congressional districts to near equality). Where districts elect different numbers of members, the seat count comes from the roster and the page says so.</p>
+      <p><b>Survey estimates.</b> Median age, median household income and the shares (under 18, 65 and over, Hispanic or Latino and each race among those who are not, born outside the United States, below the poverty line, a bachelor's degree or higher among those 25 and over, owner-occupied homes) are the American Community Survey's 2020-2024 five-year estimates for the current districts, tables B01001, B01002, B01003, B03002, B05002, B15003, B17001, B19013 and B25003. Race and Hispanic origin are as residents describe themselves, in the Bureau's categories.</p>`,
+    error: `<h3>Margins of error</h3>
+      <p>Every survey figure is published with a margin of error at 90 percent confidence (standard error = margin \u00f7 1.645). Figures added up or divided here carry margins derived by the Bureau's own formulas:</p>
+      <p class="formula">margin of a sum = \u221a(margin\u2081\u00b2 + margin\u2082\u00b2 + \u2026)</p>
+      <p class="formula">margin of a share a \u00f7 b = \u221a(margin<sub>a</sub>\u00b2 \u2212 (a \u00f7 b)\u00b2 \u00d7 margin<sub>b</sub>\u00b2) \u00f7 b</p>
+      <p>When the root would be of a negative number, the ratio form \u221a(margin<sub>a</sub>\u00b2 + (a \u00f7 b)\u00b2 \u00d7 margin<sub>b</sub>\u00b2) \u00f7 b is used instead. U.S. Census Bureau, <i>Understanding and Using American Community Survey Data: What All Data Users Need to Know</i> (September 2020), chapter 8, "Calculating Measures of Error for Derived Estimates". The Bureau notes that these approximations understate the error when the parts are correlated. A controlled estimate (one the Bureau fixes to its population estimates) has no sampling error and counts as zero.</p>`,
+    selftest: `<p><b>Self-test.</b> Before it reads anything, the program reproduces the Bureau's own worked examples from that chapter: three counties' never-married women add to 203,119 with a margin of \u00b15,070, and their share of all women is 0.322 \u00b10.008. It then reads the Bureau's table shells and refuses to run unless every column it uses carries the label it expects.</p>`,
+    cannot: extra => `<h3>What these figures cannot tell you</h3><ul>
+        <li>Who votes. Residents include children, non-citizens and people who are not registered; a district's people are not its electorate.</li>
+        <li>This year's population. The count is as of April 1, 2020, the day the lines were drawn on; the survey figures are five-year averages centred on 2022.</li>
+        <li>Exactness. Every survey figure has a margin (\u00b1); a small district's margins are wide, and two districts whose margins overlap may not differ at all.</li>
+        <li>Fairness or intent. Equal population is a legal requirement, and a spread inside the range courts accept is not a finding of fairness, nor one outside it a finding of wrongdoing; the courts weigh the reasons. Nothing here says who was placed where, or why.</li>
+        <li>Adjusted counts. Some states draw their lines on a count adjusted for where people in prison lived before; the Bureau's count here is unadjusted, so those states' districts look less equal than under the count they used.</li>${extra || ""}</ul>`,
+    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}The program is <code>district_people.py</code>; <code>python district_people.py --selftest</code> runs the checks and <code>${esc(command)}</code> reads the files again. Method version ${esc(method)}: if the method changes, the version changes.</p>`
+  };
+}
+
 /* ---------- the districting lenses, first of four: the shape of every district ----------
    Three published measures of compactness for all 435 districts, computed by district_shapes.py from the Census
    Bureau's cartographic boundary file. The page measures and never concludes: every figure is labelled Analysis,
@@ -4005,7 +4134,7 @@ function shapesPage(pick){
         ${r.at_large || (aside && r.shore) ? "" : `<div class="strip" role="img" aria-label="Where this district falls among all districts on ${MEAS[meas].name}">${P.map(x => `<i class="${x.key === k ? "on" : (st && x.st === st ? "in" : (x.shore ? "sh" : ""))}" style="left:${pos(x[meas])}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${medv.toFixed(2)}</span></div><div class="stripends"><span>${lo.toFixed(2)}</span><span>${MEAS[meas].name}: every district is a line; this one is tall${st ? `, ${esc(NAMES[st] || st)}'s are bright` : ""}</span><span>${hi.toFixed(2)}</span></div>`}
         <p class="muted" style="font-size:13px;margin:12px 0 0">Area ${r.area_sqmi.toLocaleString()} sq mi, perimeter ${r.perim_mi.toLocaleString()} mi${r.parts > 1 ? `, in ${r.parts} separate pieces (islands count)` : ""}.${r.shore ? ` <b>Shoreline district:</b> it fronts the sea, a bay or the Great Lakes, and a jagged natural shore lowers the Polsby-Popper score through no one's choice.` : ""}</p>
         <p class="muted" style="font-size:12.5px;margin:8px 0 0"><span class="tag analysis">Analysis</span> A low score is a fact about a shape, not a finding about intent. <button type="button" class="wxbtn" id="lensmethods">Sources and methods</button></p>`;
-      $("#lensmethods").addEventListener("click", openMethods);
+      $("#lensmethods").addEventListener("click", () => openMethods("shapes"));
       const lb = $("#lensback"); if (lb) lb.addEventListener("click", () => { picked = null; $$(".sd", svg).forEach(el => el.classList.remove("hl")); history.replaceState({page: "shapes"}, "", "#shapes/" + st); listState(); });
       $("#lensshare").addEventListener("click", e => share({title: `The shape of ${r.key}`, text: `${label(r)}: Polsby-Popper ${r.pp.toFixed(3)}, Reock ${r.reock.toFixed(3)}, convex hull ${r.hull.toFixed(3)}. Every congressional district measured the same way, with sources and methods:`, url: `${SHARE_BASE}/#shape=${r.key}`, kind: "shape", key: r.key}, e.currentTarget));
       if (!quiet) { history.replaceState({page: "shapes"}, "", "#shape=" + k); track("shape", {key: k}); }
@@ -4032,14 +4161,135 @@ function shapesPage(pick){
       ${W.measures}${W.how}<h3>The checks</h3>${W.selftest}${W.control(ct, sm.shore)}
       ${W.cannot(`<li>The six at-large districts are whole states, drawn by no one; they are shown and left out of every comparison.</li>`)}
       ${W.program(S.method, `<a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. `, "python district_shapes.py")}
-      <p class="hm-foot">This is the first of four lenses. Still to come, each with its own sources and methods: who lives in each district (Census Bureau), how votes became seats (certified results), and which counties and cities each map keeps whole (Census Bureau). Rule-drawn what-if maps follow the measures.${OWN.length ? ` The same lens is on ${OWN.length} states' own legislative districts: pick a state above and follow "Its legislature".` : ""}</p>`;
+      <p class="hm-foot">This is the first of four lenses; the second, <a href="#people">who lives in each district</a>, is built. Still to come, each with its own sources and methods: how votes became seats (certified results), and which counties and cities each map keeps whole (Census Bureau). Rule-drawn what-if maps follow the measures.${OWN.length ? ` The same lens is on ${OWN.length} states' own legislative districts: pick a state above and follow "Its legislature".` : ""}</p>`;
     if (BOOT.inline) $$('a[href="data/shapes.csv"]').forEach(a => { const s = document.createElement("span"); s.textContent = "The online site has the whole table to download"; a.replaceWith(s); });      // the one-file copy has no files beside it
+    METHODS.shapes = {title: "Sources and methods: the shape of a district", body: $("#methodsbody").innerHTML};
     paint(); if (pick) lensGo(pick);
   }, () => { lensBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the measurements. Check your connection and try again.</span>`; });
 }
-function openMethods(){ const box = $("#methods"); box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
+/* ---------- the districting lenses, second of four: who lives in each district ----------
+   The Bureau's 2020 count and its 2020-2024 survey estimates for all 435 districts, tabulated by district_people.py.
+   Counts are facts; estimates carry the Bureau's margins; deviation from the ideal is arithmetic on the count and is
+   labelled Analysis. The page shows and never concludes. */
+let plBuilt = false, plGo = null;
+function peoplePage(pick){
+  if (plBuilt) { if (pick && plGo) plGo(pick); return; }
+  plBuilt = true;
+  const side = $("#plside"), svg = $("#plmap");
+  side.innerHTML = `<span class="muted">Loading the figures\u2026</span>`;
+  Promise.all([need("people"), need("districts"), membersReady()]).then(([S, D]) => {
+    if (!S || !S.districts) { side.innerHTML = `<span class="muted">The figures are not part of this build.</span>`; return; }
+    DATA.districts = D;
+    const MEAS = PEOPLE_MEAS, W = peopleWords(), OWN = (BOOT.state_people || []).filter(s => !BOOT.inline && (BOOT.state_sites || {})[s]);
+    const NAMES = BOOT.state_names || {}, rows = S.districts, byKey = Object.fromEntries(rows.map(r => [r.key, r])), q = D.q || 50;
+    const rep = {}; for (const [id, L] of Object.entries(DATA.legislators)) if (L.cur && L.ch !== "Senate") rep[`${L.st}-${+L.d ? +L.d : "AL"}`] = Object.assign({id}, L);
+    let meas = "dev", st = "", picked = null, B = {};
+    const val = (r, m) => { const p = plValue(r, m); return p ? p[0] : null; };
+    const pool = () => rows.filter(r => val(r, meas) != null);
+    const breaks = m => plBreaks(m, rows.map(r => val(r, m)));
+    const shade = (r, m) => { const v = val(r, m); return v == null ? "#3A3F48" : plRamp(m)[B[m].filter(b => v > b).length]; };
+    const ringPath = ring => { let x = 0, y = 0, d = ""; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; d += (i ? "L" : "M") + (x / q).toFixed(2) + "," + (y / q).toFixed(2); } return d + "Z"; };
+    const pathOf = r => r.at_large ? ((S.at_large_paths || {})[r.st] || "") : (((D.states || {})[r.st] || {})[String(r.d)] || []).map(ringPath).join("");
+    const label = r => r.at_large ? `${NAMES[r.st] || r.st}, at large` : `${NAMES[r.st] || r.st}, district ${r.d}`;
+    const med = a => { const v = a.slice().sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+    $("#plmeas").innerHTML = Object.entries(MEAS).map(([k, v]) => `<option value="${k}">${esc(v.name)}</option>`).join("");
+    $("#plstate").innerHTML = `<option value="">The whole country</option>` + [...new Set(rows.map(r => r.st))].sort((a, b) => (NAMES[a] || a).localeCompare(NAMES[b] || b)).map(s => `<option value="${s}">${esc(NAMES[s] || s)}</option>`).join("");
+    svg.innerHTML = rows.map(r => `<path class="sd" data-k="${r.key}" d="${pathOf(r)}" tabindex="0" role="button" aria-label="${esc(label(r))}"></path>`).join("");
+    const bboxOf = list => { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const k of list) { const el = svg.querySelector(`[data-k="${k}"]`); if (!el) continue; const b = el.getBBox(); x0 = Math.min(x0, b.x); y0 = Math.min(y0, b.y); x1 = Math.max(x1, b.x + b.width); y1 = Math.max(y1, b.y + b.height); } return [x0, y0, x1, y1]; };
+    function paint(){
+      B[meas] = B[meas] || breaks(meas);
+      $("#plmeas").value = meas;
+      $$(".sd", svg).forEach(el => { const r = byKey[el.dataset.k]; el.style.fill = shade(r, meas); el.classList.toggle("dim", !!(st && r.st !== st)); el.classList.toggle("hl", el.dataset.k === picked); });
+      if (st) { const b = bboxOf(rows.filter(r => r.st === st).map(r => r.key)), pad = Math.max(b[2] - b[0], b[3] - b[1]) * .08 + 2; svg.setAttribute("viewBox", `${(b[0] - pad).toFixed(1)} ${(b[1] - pad).toFixed(1)} ${(b[2] - b[0] + 2 * pad).toFixed(1)} ${(b[3] - b[1] + 2 * pad).toFixed(1)}`); }
+      else svg.setAttribute("viewBox", "0 0 975 610");
+      const Pl = pool().filter(r => !st || r.st === st), all = med(pool().map(r => val(r, meas))), here = med(Pl.map(r => val(r, meas))), M = MEAS[meas];
+      $("#plsay").innerHTML = `<b>${esc(M.name)}</b> is ${M.say}. ${st ? `${esc(NAMES[st] || st)}: ${Pl.length} district${Pl.length === 1 ? "" : "s"}${Pl.length ? `, median ${M.fmt(here)} against ${M.fmt(all)} for the country` : ""}.` : `Median across all ${pool().length} districts: ${M.fmt(all)}.`} ${M.count ? `<span class="tag fact">Fact</span> From the 2020 count${meas === "dev" ? `; <span class="tag analysis">Analysis</span> the ideal is arithmetic` : ""}.` : `<span class="tag fact">Fact</span> A survey estimate; each district's margin is beside its figure.`}`;
+      $("#plkey").innerHTML = plKey(meas, B[meas]);
+      table.setRows(rowsNow()); stable.setRows(stateRows());
+      if (picked) show(picked, true); else if (st) listState(); else side.innerHTML = `<span class="muted">Tap a district for its people${OWN.length ? ", or a state for its districts side by side" : ""}.</span>`;
+    }
+    function listState(){
+      const Pl = rows.filter(r => r.st === st).sort((a, b) => a.d - b.d), all = pool().map(x => val(x, meas)), lo = Math.min(...all), hi = Math.max(...all), M = MEAS[meas], sm = (S.states || {})[st] || {};
+      side.innerHTML = `<div class="side-head"><h3>${esc(NAMES[st] || st)}</h3>${OWN.includes(st) ? `<a class="chip" href="${esc(BOOT.state_sites[st])}#people" title="The same figures for this state's own Senate and House districts">Its legislature \u2192</a>` : ""}</div>
+        <p class="muted" style="font-size:13px;margin:0 0 4px">${Pl.length} district${Pl.length === 1 ? "" : "s"}, in number order${sm.summary && sm.summary.dev ? `; people per seat runs from ${plFmt("dev", sm.summary.dev.min)} to ${plFmt("dev", sm.summary.dev.max)} of the ideal, a spread of ${sm.summary.dev.spread.toFixed(2)} points` : ""}. Each bar is ${esc(M.name.toLowerCase())} against the whole country's range; tap a district for its people.</p>
+        <ul class="lenslist">${Pl.map(r => { const L = rep[r.key], v = val(r, meas); return `<li data-k="${r.key}" tabindex="0"><b>${r.at_large ? "AL" : r.d}</b><span class="who">${L ? esc(L.n) : "vacant"}</span><span class="v">${v == null ? "\u2014" : `<b>${M.fmt(v)}</b>`}</span>${v == null ? "" : `<span class="bar"><i style="width:${(100 * (v - lo) / Math.max(1e-9, hi - lo)).toFixed(1)}%"></i></span>`}</li>`; }).join("")}</ul>`;
+    }
+    side.addEventListener("click", e => { const li = e.target.closest(".lenslist li[data-k]"); if (li) show(li.dataset.k); });
+    side.addEventListener("keydown", e => { const li = e.target.closest && e.target.closest(".lenslist li[data-k]"); if (li && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); show(li.dataset.k); } });
+    const rowsNow = () => rows.filter(r => !st || r.st === st);
+    const col = (m, extra) => Object.assign({key: m, label: MEAS[m].short, num: true, val: r => val(r, m), html: r => { const p = plValue(r, m); return p ? plFmt(m, p[0], p[1]) : `<span class="muted">\u2014</span>`; }}, extra || {});
+    const cols = [
+      {key: "d", label: "District", val: r => (NAMES[r.st] || r.st) + " " + String(r.d).padStart(3, "0"), html: r => `<a href="#people=${r.key}"><b>${esc(r.key)}</b></a> <span class="muted">${esc(NAMES[r.st] || r.st)}</span>`},
+      {key: "m", label: "Member", val: r => (rep[r.key] || {}).n || "", html: r => { const L = rep[r.key]; return L ? `<span class="pty" style="background:${L.p === "D" ? "var(--dem)" : (L.p === "R" ? "var(--rep)" : "var(--plum)")}"></span><a href="#member=${esc(L.id)}">${esc(L.n)}</a>` : `<span class="muted">vacant</span>`; }},
+      col("pop"), col("dev"), col("density"), col("median_age"), col("income"), col("under18"), col("over65"), col("hispanic"), col("white"), col("black"), col("asian"), col("foreign"), col("poverty"), col("degree"), col("owner")];
+    const table = gridTable($("#pltable"), {cols, rows: rowsNow(), sort: [{key: "d", dir: "asc"}], page: 25, empty: "No district matches.", count: rs => `${rs.length.toLocaleString()} district${rs.length === 1 ? "" : "s"}`});
+    const stateRows = () => { const by = {}; for (const r of rows) (by[r.st] = by[r.st] || []).push(r);
+      return Object.entries(by).map(([s, list]) => { const sm = ((S.states || {})[s] || {}).summary || {}, dv = list.filter(r => r.dev_pct != null), hi = dv.length ? dv.reduce((a, b) => a.dev_pct > b.dev_pct ? a : b) : null, lo = dv.length ? dv.reduce((a, b) => a.dev_pct < b.dev_pct ? a : b) : null;
+        return {st: s, name: NAMES[s] || s, n: list.length, al: list.some(r => r.at_large), pop: sm.pop2020_total, spread: sm.dev ? sm.dev.spread : null, hi, lo, income: med(list.map(r => val(r, "income")).filter(x => x != null)), age: med(list.map(r => val(r, "median_age")).filter(x => x != null))}; }); };
+    const scols = [
+      {key: "name", label: "State", val: r => r.name, html: r => `<button type="button" class="wxbtn" data-st="${r.st}" title="This state's districts, side by side"><b>${esc(r.name)}</b></button>` + (OWN.includes(r.st) ? ` <a href="${esc(BOOT.state_sites[r.st])}#people" class="muted" style="font-size:12px" title="The same figures for this state's own legislative districts">legislature \u2192</a>` : "")},
+      {key: "n", label: "Districts", num: true, val: r => r.n, html: r => r.al ? `<span class="muted">1, at large</span>` : String(r.n)},
+      {key: "pop", label: "People, 2020", num: true, val: r => r.pop, html: r => r.pop == null ? "" : r.pop.toLocaleString()},
+      {key: "spread", label: "Spread, points", num: true, val: r => r.spread, html: r => r.spread == null ? `<span class="muted">\u2014</span>` : r.spread.toFixed(2)},
+      {key: "hi", label: "Most people per seat", num: true, val: r => r.hi ? r.hi.dev_pct : null, html: r => r.hi ? `<a href="#people=${r.hi.key}">${esc(r.hi.key)}</a> ${plFmt("dev", r.hi.dev_pct)}` : ""},
+      {key: "lo", label: "Fewest people per seat", num: true, val: r => r.lo ? r.lo.dev_pct : null, html: r => r.lo ? `<a href="#people=${r.lo.key}">${esc(r.lo.key)}</a> ${plFmt("dev", r.lo.dev_pct)}` : ""},
+      {key: "age", label: "Median of district median ages", num: true, val: r => r.age, html: r => r.age == null ? "" : r.age.toFixed(1)},
+      {key: "income", label: "Median of district median incomes", num: true, val: r => r.income, html: r => r.income == null ? "" : "$" + Math.round(r.income).toLocaleString()}];
+    const stable = gridTable($("#plstates"), {cols: scols, rows: stateRows(), sort: [{key: "name", dir: "asc"}], page: 60, empty: "",
+      count: rs => `${rs.length} states, alphabetical. A state with one district has no spread: its district is the whole state.`});
+    $("#plview").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if (!b) return; $$("#plview .chip").forEach(x => x.setAttribute("aria-pressed", x === b)); $("#pltable").hidden = b.dataset.view !== "districts"; $("#plstates").hidden = b.dataset.view !== "states"; });
+    $("#plstates").addEventListener("click", e => { const b = e.target.closest("[data-st]"); if (!b) return; st = b.dataset.st; $("#plstate").value = st; picked = null; history.replaceState({page: "people"}, "", "#people/" + st); paint(); $("#people .stage").scrollIntoView({block: "start", behavior: calm() ? "auto" : "smooth"}); });
+    function show(k, quiet){
+      const r = byKey[k]; if (!r) return; picked = k; $$(".sd", svg).forEach(el => el.classList.toggle("hl", el.dataset.k === k));
+      const L = rep[k], Pl = pool(), vs = Pl.map(x => val(x, meas)), lo = Math.min(...vs), hi = Math.max(...vs), pos = v => (100 * (v - lo) / Math.max(1e-9, hi - lo)).toFixed(2), medv = med(vs), v = val(r, meas), M = MEAS[meas], a = r.acs || {};
+      const shareRows = PEOPLE_SHARES.map(m => { const p = plValue(r, m); const nm = MEAS[m] ? MEAS[m].name : PEOPLE_SHARE_NAMES[m]; return `<tr class="${["white", "black", "asian", "aian", "nhpi", "other", "multi"].includes(m) ? "sub" : ""}"><td>${esc(nm)}</td><td>${p ? plFmt(m, p[0], p[1]) : "\u2014"}</td></tr>`; }).join("");
+      side.innerHTML = `<div class="side-head"><h3>${esc(label(r))}</h3><button class="chip sharebtn" type="button" id="plshare">Share</button></div>
+        ${st ? `<p style="margin:-6px 0 8px"><button type="button" class="wxbtn" id="plback">\u2190 All of ${esc(NAMES[st] || st)}'s districts</button></p>` : ""}
+        ${L ? `<p style="margin:0 0 8px;font-size:14px">Represented by <a href="#member=${esc(L.id)}"><b>${esc(L.n)}</b></a></p>` : ""}
+        <div class="lensfacts"><div><b>${r.pop2020 == null ? "\u2014" : r.pop2020.toLocaleString()}</b><span>people, 2020 count${r.dev_pct != null ? `<br>${plFmt("dev", r.dev_pct)} from the state's ideal` : (r.at_large ? "<br>the whole state: one seat" : "")}</span></div>
+          <div><b>${a.median_age ? a.median_age[0] : "\u2014"}</b><span>median age${a.median_age ? `<br>\u00b1${a.median_age[1]}` : ""}</span></div>
+          <div><b>${a.income ? "$" + Math.round(a.income[0] / 1000) + "k" : "\u2014"}</b><span>median household income${a.income ? `<br>$${Math.round(a.income[0]).toLocaleString()} \u00b1${Math.round(a.income[1]).toLocaleString()}` : ""}</span></div></div>
+        <table class="pltab"><tr><td>People per square mile</td><td>${r.density == null ? "\u2014" : Math.round(r.density).toLocaleString()}</td></tr><tr><td>Living in urban areas</td><td>${r.urban_pct == null ? "\u2014" : r.urban_pct.toFixed(1) + "%"}</td></tr>${shareRows}</table>
+        ${v == null ? "" : `<div class="strip" role="img" aria-label="Where this district falls among all districts on ${esc(M.name)}">${Pl.map(x => `<i class="${x.key === k ? "on" : (st && x.st === st ? "in" : "")}" style="left:${pos(val(x, meas))}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${M.fmt(medv)}</span></div><div class="stripends"><span>${M.fmt(lo)}</span><span>${esc(M.name)}, every district</span><span>${M.fmt(hi)}</span></div>`}
+        <p class="muted" style="font-size:12.5px;margin:12px 0 0"><span class="tag fact">Fact</span> The count and the survey are the Bureau's; \u00b1 is its margin at 90 percent confidence. <span class="tag analysis">Analysis</span> The ideal is arithmetic. <button type="button" class="wxbtn" id="plmethods">Sources and methods</button></p>`;
+      $("#plmethods").addEventListener("click", () => openMethods("people"));
+      const lb = $("#plback"); if (lb) lb.addEventListener("click", () => { picked = null; $$(".sd", svg).forEach(el => el.classList.remove("hl")); history.replaceState({page: "people"}, "", "#people/" + st); listState(); });
+      $("#plshare").addEventListener("click", e => share({title: `Who lives in ${r.key}`, text: `${label(r)}: ${r.pop2020 == null ? "" : r.pop2020.toLocaleString() + " people in 2020"}${r.dev_pct != null ? ` (${plFmt("dev", r.dev_pct)} from the state's ideal)` : ""}${a.median_age ? `, median age ${a.median_age[0]}` : ""}${a.income ? `, median household income $${Math.round(a.income[0]).toLocaleString()}` : ""}. Every congressional district from the Census Bureau's own files, with sources and methods:`, url: `${SHARE_BASE}/#people=${r.key}`, kind: "people", key: r.key}, e.currentTarget));
+      if (!quiet) { history.replaceState({page: "people"}, "", "#people=" + k); track("people", {key: k}); }
+    }
+    plGo = k => {
+      if (k && k.state) { st = rows.some(r => r.st === k.state) ? k.state : ""; $("#plstate").value = st; picked = null; paint(); return; }
+      const r = byKey[k]; if (!r) return;
+      if (st && r.st !== st) { st = r.st; $("#plstate").value = st; paint(); }
+      show(k, true);
+    };
+    const tip = $("#pltip"), stage = svg.closest(".stage");
+    svg.addEventListener("pointermove", e => { const p = e.target.closest && e.target.closest(".sd"); if (!p) { tip.classList.remove("show"); return; } const r = byKey[p.dataset.k], L = rep[r.key], b = stage.getBoundingClientRect(), v = val(r, meas);
+      tip.innerHTML = `<b>${esc(r.key)}</b>${L ? esc(L.n) + " \u00b7 " : ""}${v == null ? "" : MEAS[meas].short + " " + MEAS[meas].fmt(v)}`; tip.style.left = (e.clientX - b.left) + "px"; tip.style.top = (e.clientY - b.top) + "px"; tip.classList.add("show"); });
+    svg.addEventListener("pointerleave", () => tip.classList.remove("show"));
+    svg.addEventListener("click", e => { const p = e.target.closest(".sd"); if (p) { show(p.dataset.k); if (!matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); } });
+    svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("sd")) { e.preventDefault(); show(e.target.dataset.k); } });
+    $("#plmeas").addEventListener("change", e => { meas = e.target.value; paint(); });
+    $("#plstate").addEventListener("change", e => { st = e.target.value; if (picked && byKey[picked].st !== st) picked = null; history.replaceState({page: "people"}, "", st ? "#people/" + st : "#people"); paint(); });
+    const sm = S.summary, ct = S.control || {}, srcCount = (S.sources || []).find(s => /UR_POPAREA/.test(s.file));
+    $("#plnote").innerHTML = `<span class="tag fact">Fact</span> The count: U.S. Census Bureau, <code>${esc(srcCount ? srcCount.file : "CD119_UR_POPAREA.txt")}</code>; the estimates: American Community Survey 2020-2024, ${(S.sources || []).length - 1} files. <span class="tag analysis">Analysis</span> People per seat against each state's ideal runs from ${plFmt("dev", sm.dev.min)} to ${plFmt("dev", sm.dev.max)} across the ${sm.districts} districts. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
+    const checked = ct.states_matching_resident_2020 || [];
+    METHODS.people = {title: "Sources and methods: who lives in a district", body: `
+      <h3>The sources</h3>${W.sources(S.sources)}${W.measures}${W.error}<h3>The checks</h3>${W.selftest}
+      <p><b>Control totals.</b> The Bureau's 2020 count by district adds up to each state's resident population in the apportionment tables in every state checked (${checked.join(", ")}), and its three tabulations of the same blocks (Congress, state Senate, state House) agree in ${ct.states_where_tabulations_agree} of ${sm.states} states. The survey's district populations add up to the Bureau's own state figure in ${ct.states_acs_sum_matches} of ${sm.states} states. The under-18 share, built here from the age bands, equals the Bureau's own table B09001 in every district${(ct.under18_mismatches || []).length ? ` but ${ct.under18_mismatches.length}` : ""}.</p>
+      ${W.cannot(`<li>The six at-large districts are whole states; people per seat there is the state's own figure, so they carry no deviation.</li>`)}
+      ${W.program(S.method, `<a href="data/people.csv" download>Download every figure on this page</a>, margins included. `, "python district_people.py --congress-only")}
+      <p class="hm-foot">This is the second of four lenses; the first, <a href="#shapes">the shape of every district</a>, is beside it. Still to come, each with its own sources and methods: how votes became seats (certified results) and which counties and cities each map keeps whole (Census Bureau). Rule-drawn what-if maps follow the measures.${OWN.length ? ` The same lens is on ${OWN.length} states' own legislative districts: pick a state above and follow "Its legislature".` : ""}</p>`};
+    if (BOOT.inline) $$('a[href="data/people.csv"]').forEach(a => { const s = document.createElement("span"); s.textContent = "The online site has the whole table to download"; a.replaceWith(s); });
+    paint(); if (pick) plGo(pick);
+  }, () => { plBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the figures. Check your connection and try again.</span>`; });
+}
+const METHODS = {};                                                          // each lens keeps its own "Sources and methods" text; the one box shows whichever asked
+function openMethods(kind){ const box = $("#methods"); if (typeof kind === "string" && METHODS[kind]) { $("#methodstitle").textContent = METHODS[kind].title; $("#methodsbody").innerHTML = METHODS[kind].body; } box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
 (function(){ const box = $("#methods"); if (!box) return; const close = () => { box.hidden = true; document.body.classList.remove("noscroll"); };
-  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", openMethods);
+  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", () => openMethods("shapes"));
+  const pb = $("#plmethodsbtn"); if (pb) pb.addEventListener("click", () => openMethods("people"));
+  if (BOOT.has_people) { const n = $("#toplens"); if (n) n.hidden = false; }
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) close(); });
   if (BOOT.has_shapes) { for (const id of ["#navshapes", "#toshapes"]) { const n = $(id); if (n) n.hidden = false; } } })();
 
@@ -4623,14 +4873,14 @@ function renderMemberPage(id, show){
    data is loaded once and bill links keep working; only one page is visible
    at a time. Hashes stay what they always were (#bills, #map, #bill=hr1-119)
    so links already in the wild keep landing in the right place. */
-const PAGES = ["home", "bills", "map", "shapes", "how", "members", "member", "money"];
+const PAGES = ["home", "bills", "map", "shapes", "people", "how", "members", "member", "money"];
 const BASE_TITLE = document.title;
 let page = "home", billsShown = false;
 function showPage(name, push){
   if (!PAGES.includes(name)) name = "home";
   page = name;
   PAGES.forEach(p => { const el = $("#pg-" + p); if (el) el.hidden = p !== name; });
-  $$(".nav a[data-go], .tabbar a[data-go]").forEach(a => a.setAttribute("aria-current", (a.dataset.go === name || (name === "member" && a.dataset.go === "members")) ? "page" : "false"));
+  $$(".nav a[data-go], .tabbar a[data-go]").forEach(a => a.setAttribute("aria-current", (a.dataset.go === name || (name === "member" && a.dataset.go === "members") || (name === "people" && a.dataset.go === "shapes")) ? "page" : "false"));
   if (name !== "member") document.title = BASE_TITLE;
   document.body.dataset.page = name;
   pageview("/" + (name === "home" ? "" : name), "The Civic Archive: " + name);
@@ -4638,6 +4888,7 @@ function showPage(name, push){
   if (name === "members") { renderMembers(); if (!partyTable) renderPartyLine(); }
   if (name === "map") mapReady();
   if (name === "shapes" && !/^#shape=|^#shapes\//.test(location.hash)) shapesPage();
+  if (name === "people" && !/^#people=|^#people\//.test(location.hash)) peoplePage();
   if (name === "money" && !/^#money\//.test(location.hash)) moneyPage();      // a deeper address (#money/coins) says which part to open; the router passes it on
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
@@ -4657,6 +4908,10 @@ function routeFromHash(push){
   if (shs) { showPage("shapes", false); shapesPage({state: shs[1]}); return; }
   const shp = h.match(/^shape=([A-Z]{2}-(?:\d{1,2}|AL))$/);
   if (shp) { showPage("shapes", false); shapesPage(shp[1]); return; }
+  const pls = h.match(/^people\/([A-Z]{2})$/);
+  if (pls) { showPage("people", false); peoplePage({state: pls[1]}); return; }
+  const plp = h.match(/^people=([A-Z]{2}-(?:\d{1,2}|AL))$/);
+  if (plp) { showPage("people", false); peoplePage(plp[1]); return; }
   const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed|money))?$/);
   if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
