@@ -233,7 +233,7 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
 | `people` | Open States "people" project (CC0): members, service, committees, portraits; Wikipedia's opening paragraph, fenced off as on the federal side | nothing |
 | `districts` | Census Bureau cartographic boundary files, upper and lower chamber | nothing |
 | `bills` | LegiScan weekly datasets: bills and roll calls with every member's vote (50 states and DC) | John's free LegiScan key |
-| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`) | nothing for Minnesota, Iowa or Washington |
+| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`; `states/money_co.py` the Colorado Secretary of State's TRACER yearly bulk zips, cached in `states_cache/co_tracer/`) | nothing for Minnesota, Iowa, Washington or Colorado |
 
 - The LegiScan key is John's. It lives as one line in `legiscan_key.txt` (ignored by git). Never ask him to paste it
   into the chat, never print or log it, and never try to get past the bot check on legiscan.com; the API manual at
@@ -270,9 +270,15 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   dataset (3h9x-7bvm) is the register, with `person_id` tying a candidate's campaigns together and names written
   three ways (`readings()`); the contributor `code` column names the giver's kind, and where a state lets businesses,
   unions and other organizations give directly they are named under the kinds `biz`, `union`, `org` (in
-  `states/money_views.py` KINDS and the page's SRC list and colours). Loaders still to write, easy first: Oregon
-  (ORESTAR), Colorado (TRACER), Texas, Florida, New York, New Jersey, California; North Dakota 2025-26 only;
-  Wisconsin waits on John's robots.txt answer; South Dakota has PDFs only.
+  `states/money_views.py` KINDS and the page's SRC list and colours). Colorado's lessons: TRACER's yearly zips
+  (`<year>_ContributionData.csv.zip`, UTF-16 or UTF-8 with a BOM; older years resolve though the page lists only
+  recent ones) carry no office, so a match is a STATEWIDE candidate committee with no other-office word in its title
+  and a full name fitting exactly one sitting member, else the title's own words or the seat it names
+  (`title_reading`); skip `Amended = Y` rows; the expenditure files do not attribute independent spending to
+  candidates, so `state_outside` stays empty and the `money_rule` says so. A state's `money_rule` should say what its
+  file itemizes and what it lacks. Loaders still to write, easy first: Texas (TEC bulk zip), Florida, New York,
+  New Jersey, California; Oregon has no bulk file (ORESTAR export only); North Dakota 2025-26 only; Wisconsin waits
+  on John's robots.txt answer; South Dakota has PDFs only.
 - Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the
   database and is never written to a page, and the contribution file's employer and in-kind description columns are
   not loaded at all.

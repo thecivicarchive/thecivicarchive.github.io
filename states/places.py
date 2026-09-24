@@ -229,6 +229,9 @@ PLACES = {
     },
     "co": {
         "code": "CO", "name": "Colorado", "fips": "08",
+        "money": "co_tracer",                  # states/money_co.py: the Secretary of State's TRACER bulk downloads, one contributions file a year
+        "money_agency": {"name": "the Colorado Secretary of State", "url": "https://tracer.sos.colorado.gov/"},
+        "money_rule": "TRACER, the Secretary of State's campaign-finance system, lists every giver of $20 or more by name and smaller gifts as one sum. Its bulk files name no office for a candidate, so a campaign is matched only when its candidate's full name fits exactly one sitting legislator, and they do not say which candidate an independent spender supported or opposed, so no outside spending is shown for Colorado.",
         "legislature": "Colorado General Assembly", "session": "75th General Assembly, 2025-2026", "since": "2025-01-01",
         "url": "https://leg.colorado.gov/",
         "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 35, "term_years": 4},

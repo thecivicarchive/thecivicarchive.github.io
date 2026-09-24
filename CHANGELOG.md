@@ -10,6 +10,33 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.037 — 2026-09-24 — Colorado's campaign money
+
+- Colorado is the fourth state with its campaign money loaded, from the
+  Secretary of State's TRACER bulk downloads: one contributions file a year,
+  2015 through 2026 (2.5 million rows, of which 907,055 went to statewide
+  candidate committees). All 100 sitting legislators are matched to 156
+  committees: $12.4 million from named organizations (the Colorado
+  Democratic Party first, then the small donor committees of firefighters,
+  doctors, realtors and teachers) and $12.9 million from people, as totals.
+- Colorado's files name no office for a candidate, so a campaign is matched
+  only when it is a statewide-jurisdiction candidate committee whose name
+  carries no other office and whose candidate's full name fits exactly one
+  sitting legislator. Where the state's spelling of a name does not fit
+  (Julia for Julie, Merrick for Rick), the committee's own name is read: the
+  name the member goes by before "for", or the seat it names ("Taggart for
+  House District 55"), and still only one member may fit. Every such match
+  is listed by the run. Superseded records are skipped in favour of their
+  amendments; returned and bounced gifts are left out.
+- Colorado's bulk expenditure files do not say which candidate an
+  independent spender supported or opposed, so no outside spending is shown
+  for Colorado, and the money card says so rather than showing zero.
+- Seventeen committees were treated as a member's own earlier committee
+  ("moved in", not a donor): House accounts passed to Senate ones, and
+  balances rolled over after redistricting, each listed by name in the run.
+- Oregon has no bulk dataset (its ORESTAR system offers only search
+  exports), so it is set aside for now; Texas is next.
+
 ## v4.0.036 — 2026-09-24 — Washington's campaign money
 
 - Washington is the third state with its campaign money loaded, from the
