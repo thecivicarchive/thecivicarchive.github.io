@@ -366,11 +366,15 @@ def render(P, data, version, base_url, analytics):
         page = page.replace(f"__{k}__", borrow(k))
     payload = json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     both = " and ".join(P[k]["name"] for k in ("upper", "lower") if P.get(k))
-    per = ((st["chambers"].get("lower") or {}).get("per") or 1) if P.get("lower") else 1
-    number = {1: "one", 2: "two", 3: "three"}.get(per, str(per))
-    most = "" if (st["chambers"].get("lower") or {}).get("uniform") else "in most districts, "
-    titles = (f"{P['upper']['title'].lower()} and{', ' if most else ' '}{most}{number} {P['lower']['title'].lower()}s" if per > 1
-              else " and one ".join(P[k]["title"].lower() for k in ("upper", "lower") if P.get(k)))
+    # "one state senator and one delegate", "two state senators and one delegate" (West Virginia), "one state senator
+    # and, in most districts, two representatives" (the Dakotas): each chamber's seats per district, from the record
+    def seat_words(key, state_word):
+        c = st["chambers"].get(key) or {}
+        per = c.get("per") or 1
+        number = {1: "one", 2: "two", 3: "three"}.get(per, str(per))
+        most = "" if (per == 1 or c.get("uniform")) else "in most districts, "
+        return f"{most}{number} {state_word}{P[key]['title'].lower()}{'s' if per > 1 else ''}"
+    titles = seat_words("upper", "state ") + (f" and{',' if 'most' in seat_words('lower', '') else ''} {seat_words('lower', '')}" if P.get("lower") else "")
     # what the page says about campaign money depends on whether this state's is loaded yet
     money = st["has_money"]
     words = {
@@ -629,7 +633,7 @@ __ANALYTICS__
 <section class="yours" id="yours">
   <div class="wrap">
     <div class="sechead rv">
-      <div><h2>Who represents you?</h2><p>Everyone in __NAME__ has one state __TITLES__. Find yours with your location, or pick your district if you know it. Your location is worked out on your device and never leaves it.</p></div>
+      <div><h2>Who represents you?</h2><p>Everyone in __NAME__ has __TITLES__. Find yours with your location, or pick your district if you know it. Your location is worked out on your device and never leaves it.</p></div>
     </div>
     <div class="yours-bar rv" style="--i:1">
       <button class="btn shimmer" id="yloc" type="button">Use my location</button>

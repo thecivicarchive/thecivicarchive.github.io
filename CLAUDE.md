@@ -250,9 +250,16 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   `sld:<code>` record of the reader's districts; keep it that way, so one tap forgets everywhere.
 - When you change a shared part of the federal page (anything named in `BORROWED` in `build_state_dev.py`), rebuild
   and look at a state page too.
-- States open so far (v4.0.029), in rings outward from Minnesota: Minnesota; Wisconsin, North Dakota, South Dakota,
+- States open so far (v4.0.032), in rings outward from Minnesota: Minnesota; Wisconsin, North Dakota, South Dakota,
   Iowa; Michigan, Illinois, Missouri, Nebraska, Wyoming, Montana; Indiana, Ohio, Kentucky, Tennessee, Arkansas,
-  Oklahoma, Kansas, Colorado, Utah, Idaho. A roster district with no shape of its own whose number has one (Idaho's
+  Oklahoma, Kansas, Colorado, Utah, Idaho; Pennsylvania, West Virginia, Virginia, North Carolina, Georgia, Alabama,
+  Mississippi, Louisiana, Texas, New Mexico, Arizona, Nevada, Oregon, Washington. Still to come: the fifteen that
+  touch none of these yet (New York, New Jersey, Delaware, Maryland, the six New England states, South Carolina,
+  Florida, California, Alaska, Hawaii) plus the District of Columbia, Puerto Rico and Guam.
+- An upper chamber can have several members per district too (West Virginia, two senators a district): the
+  seats-per-district logic runs for both chambers, and the "who represents you" sentence is built per chamber
+  (`seat_words` in `render()`). A joint nomination such as "Democratic/Working Families" is mapped in `places.py` to
+  the nominating party's colour with its own label kept. A roster district with no shape of its own whose number has one (Idaho's
   1A and 1B) is a seat within that district: the builder files the member under the district and shows the seat.
   Statewide offices are whatever the roster carries for that state (two in Tennessee, six in Arkansas). A one-chamber legislature (Nebraska) has no `"lower"` in
   `places.py`, files its members under the chamber "Legislature", and may give its districts their own name

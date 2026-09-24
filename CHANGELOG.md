@@ -10,6 +10,43 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.032 — 2026-09-23 — The fourth ring: fourteen more states
+
+- Pennsylvania, West Virginia, Virginia, North Carolina, Georgia, Alabama,
+  Mississippi, Louisiana, Texas, New Mexico, Arizona, Nevada, Oregon and
+  Washington are open: every state that touches the twenty-one before them.
+  Thirty-five states now, 4,902 legislators and 125 statewide officials,
+  each with a page and a preview card, and every state with its Shapes page
+  (4,717 legislative districts measured in 69 chambers).
+- Each state is named its own way: West Virginia and Virginia have a House of
+  Delegates and delegates, Nevada an Assembly. West Virginia elects two
+  senators from each of its seventeen districts, and Arizona and Washington
+  two representatives from each district, so "who represents you" there finds
+  three legislators. An Oregon member nominated jointly as
+  "Democratic/Working Families" is shown with that label, as the record has
+  it, and counted with the Democrats.
+- When a seat is next on the ballot, from the record: Pennsylvania's
+  even-numbered Senate districts vote in 2026 (the roster shows the
+  odd-numbered ones were elected in 2020 and 2024); Virginia, Mississippi and
+  Louisiana vote in 2027, having elected both chambers in 2023 or 2025; New
+  Mexico's Senate in 2028; Alabama, Georgia, North Carolina and Arizona in
+  2026. Texas's Senate drew lots for its terms, West Virginia's paired seats
+  alternate, and Oregon's, Washington's and Nevada's Senates follow no
+  district-number rule, so nothing is claimed for those.
+- Worked out from the lines: Arizona, Nevada, Oregon and Washington nest their
+  lower-chamber districts inside their Senate districts; the other ten new
+  states do not, and their pages say the districts overlap.
+- The shoreline test kept finding only real water: Puget Sound (19 of
+  Washington's 49 districts), Chesapeake Bay and the Atlantic in Virginia and
+  North Carolina, the Gulf in Texas, Louisiana, Mississippi and Alabama, the
+  Georgia and Oregon coasts, and Lake Erie in Pennsylvania. Inland chambers
+  agree with the Census Bureau's own areas to within 1 percent in every
+  district.
+- Louisiana's roster points at picture addresses its legislature has since
+  moved, so most Louisiana members show a party initial until the roster is
+  updated.
+- Vacant seats are shown as vacant, twelve across the fourteen states.
+
 ## v4.0.031 — 2026-09-23 — Every district's shape, state by state and in the legislatures
 
 - The federal Districts page now compares Congress state by state: a "State
