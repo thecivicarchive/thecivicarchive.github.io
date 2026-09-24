@@ -6,11 +6,13 @@ The first "lens" on the district maps: how compact each district's shape is, mea
 district from the Census Bureau's own boundary file. It measures; it never says why a district has the shape it has.
 
     python district_shapes.py                       # the 119th Congress: writes us_district_shapes.json and .csv
+    python district_shapes.py --state mn            # Minnesota's Senate and House districts: state_mn_shapes.json and .csv
     python district_shapes.py --selftest            # checks the geometry against shapes whose answers are known
 
-SOURCE (primary, official): U.S. Census Bureau, cartographic boundary file cb_2024_us_cd119_500k (119th Congress
-districts, 1:500,000, clipped to the shoreline), the file the districts stage already keeps in district_cache/.
-Its SHA-256 is recorded with the results, so anyone can confirm they measured the same file.
+SOURCE (primary, official): U.S. Census Bureau cartographic boundary files, 1:500,000, clipped to the shoreline:
+cb_2024_us_cd119_500k (the 119th Congress, kept in district_cache/ by the districts stage) and, for a state,
+cb_2024_<fips>_sldu_500k and _sldl_500k (its upper and lower chambers, kept in states_cache/census/ by the state
+districts stage). Each file's SHA-256 is recorded with the results, so anyone can confirm they measured the same file.
 
 MEASURES (each published, each reproducible from the file alone):
   Polsby-Popper   4 * pi * area / perimeter^2. The district's area over the area of a circle with the same
@@ -53,6 +55,7 @@ import json
 import math
 import os
 import random
+import re
 import sys
 import zipfile
 
@@ -280,6 +283,18 @@ def quantiles(values):
     return {"min": v[0], "q1": at(.25), "median": at(.5), "q3": at(.75), "max": v[-1], "n": len(v)} if v else {}
 
 
+def fields_of(m, official):
+    """The measured fields of one district, the same at every level of government."""
+    return {"pp": round(m["polsby_popper"], 4), "reock": round(m["reock"], 4), "hull": round(m["hull"], 4),
+            "area_sqmi": round(m["area_m2"] / 2589988.110336, 1), "perim_mi": round(m["perimeter_m"] / 1609.344, 1), "parts": m["parts"],
+            "census_area_sqmi": round(official / 2589988.110336, 1),
+            "area_vs_census": round(m["area_m2"] / official, 4) if official else None,
+            # Shoreline, by an objective test: the Bureau's land + water area is more than 1.5% larger than the
+            # shoreline-clipped shape, which happens where a district fronts the sea, a bay or the Great Lakes.
+            # A jagged natural shore lowers a perimeter score through no one's choice, so the page marks these.
+            "shore": bool(official and m["area_m2"] / official < .985)}
+
+
 def congress(zip_path, congress_no=119):
     field = f"CD{congress_no}FP"
     rows = []
@@ -289,17 +304,71 @@ def congress(zip_path, congress_no=119):
             continue
         m = measure(rings)
         official = float(rec["ALAND"] or 0) + float(rec["AWATER"] or 0)
-        rows.append({"key": f"{st}-{int(code) if int(code) else 'AL'}", "st": st, "d": int(code), "name": rec["NAMELSAD"], "at_large": int(code) == 0,
-                     "pp": round(m["polsby_popper"], 4), "reock": round(m["reock"], 4), "hull": round(m["hull"], 4),
-                     "area_sqmi": round(m["area_m2"] / 2589988.110336, 1), "perim_mi": round(m["perimeter_m"] / 1609.344, 1), "parts": m["parts"],
-                     "census_area_sqmi": round(official / 2589988.110336, 1),
-                     "area_vs_census": round(m["area_m2"] / official, 4) if official else None,
-                     # Shoreline, by an objective test: the Bureau's land + water area is more than 1.5% larger than the
-                     # shoreline-clipped shape, which happens where a district fronts the sea, a bay or the Great Lakes.
-                     # A jagged natural shore lowers a perimeter score through no one's choice, so the page marks these.
-                     "shore": bool(official and m["area_m2"] / official < .985)})
+        rows.append(dict({"key": f"{st}-{int(code) if int(code) else 'AL'}", "st": st, "d": int(code), "name": rec["NAMELSAD"], "at_large": int(code) == 0},
+                         **fields_of(m, official)))
     rows.sort(key=lambda r: (r["st"], r["d"]))
     return rows
+
+
+def natural(d):
+    m = re.match(r"^(\d+)(.*)$", str(d))
+    return (int(m.group(1)), m.group(2)) if m else (10 ** 9, str(d))
+
+
+def chamber(zip_path, field):
+    """Every district of one state legislative chamber in its Census file (upper chamber: field SLDUST; lower:
+    SLDLST). The keys are the district names the site uses: the Census writes 01A and 062, the roster 1A and 62."""
+    rows = []
+    for rec, rings in read_census(zip_path, ("STATEFP", field, "NAMELSAD", "ALAND", "AWATER", "GEOID")):
+        code = str(rec[field] or "").strip()
+        if not code or code.upper().startswith("ZZ"):          # ZZZ is water, or land that lies in no district
+            continue
+        name = code.lstrip("0") or "0"
+        m = measure(rings)
+        official = float(rec["ALAND"] or 0) + float(rec["AWATER"] or 0)
+        rows.append(dict({"key": name, "d": name, "name": rec["NAMELSAD"], "at_large": False}, **fields_of(m, official)))
+    rows.sort(key=lambda r: natural(r["d"]))
+    return rows
+
+
+def pack(rows, zip_path):
+    """The results for one file: where it came from and its fingerprint, the summary, the control against the
+    Bureau's own areas, and every district."""
+    drawn = [r for r in rows if not r["at_large"]]
+    ratios = sorted(r["area_vs_census"] for r in rows if r["area_vs_census"])
+    near = sum(1 for x in ratios if abs(x - 1) <= .01)
+    name = os.path.basename(zip_path)
+    year = re.search(r"cb_(\d{4})_", name)
+    return {"source": {"publisher": "U.S. Census Bureau", "product": "Cartographic Boundary Files, 1:500,000", "file": name,
+                       "url": f"https://www2.census.gov/geo/tiger/GENZ{year.group(1) if year else '2024'}/shp/{name}",
+                       "sha256": sha256(zip_path), "bytes": os.path.getsize(zip_path),
+                       "fetched": dt.date.fromtimestamp(os.path.getmtime(zip_path)).isoformat()},
+            "summary": {"districts": len(rows), "drawn": len(drawn), "at_large": len(rows) - len(drawn), "shore": sum(1 for r in drawn if r["shore"]),
+                        "inland": {k: quantiles([r[k] for r in drawn if not r["shore"]]) for k in ("pp", "reock", "hull")},
+                        "pp": quantiles([r["pp"] for r in drawn]), "reock": quantiles([r["reock"] for r in drawn]), "hull": quantiles([r["hull"] for r in drawn])},
+            "control": {"compared": len(ratios), "within_1_percent": near, "median_ratio": ratios[len(ratios) // 2] if ratios else None,
+                        "lowest": sorted(((r["area_vs_census"], r["key"]) for r in rows if r["area_vs_census"]))[:8]},
+            "districts": rows}
+
+
+def report(p, what):
+    s, c = p["summary"], p["control"]
+    print(f"  {what}: {s['districts']} districts" + (f" ({s['at_large']} at large)" if s["at_large"] else "")
+          + (f". Medians: Polsby-Popper {s['pp']['median']:.3f}, Reock {s['reock']['median']:.3f}, convex hull {s['hull']['median']:.3f}" if s["drawn"] else ""))
+    low = [(v, k) for v, k in c["lowest"] if v < .985]
+    print(f"  Control: {c['within_1_percent']} of {c['compared']} areas within 1% of the Bureau's own land + water area; median ratio {c['median_ratio']:.4f}; "
+          + (f"{s['shore']} marked shoreline, the furthest below: " + ", ".join(f"{k} {v:.2f}" for v, k in low[:5]) if s["shore"]
+             else "no district more than 1.5% below, so none is marked shoreline"))
+    print(f"  Source file {p['source']['file']}, SHA-256 {p['source']['sha256'][:16]}...")
+
+
+CSV_HEAD = ["census_name", "at_large", "polsby_popper", "reock", "convex_hull", "area_sq_mi", "perimeter_mi", "parts",
+            "census_land_plus_water_sq_mi", "area_over_census_area", "shoreline"]
+
+
+def csv_tail(r):
+    return [r["name"], int(r["at_large"]), r["pp"], r["reock"], r["hull"], r["area_sqmi"], r["perim_mi"], r["parts"],
+            r["census_area_sqmi"], r["area_vs_census"], int(r["shore"])]
 
 
 def selftest():
@@ -385,44 +454,58 @@ def main():
     ap.add_argument("--congress", type=int, default=119)
     ap.add_argument("--out", default=os.path.join(HERE, "us_district_shapes.json"))
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--state", default="", help="a state's two-letter code from states/places.py: measure its legislative chambers instead of Congress")
     args = ap.parse_args()
     if args.selftest:
         good = selftest()
         print("Self-test passed." if good else "SELF-TEST FAILED.")
         return 0 if good else 1
+    if args.state:
+        return state(args.state)
     if not os.path.exists(args.zip):
         sys.exit(f"{args.zip} is not there. Run: python run_all.py districts")
     print(f"Measuring every district of the {args.congress}th Congress in {os.path.basename(args.zip)} ...")
-    rows = congress(args.zip, args.congress)
-    drawn = [r for r in rows if not r["at_large"]]
-    ratios = sorted(r["area_vs_census"] for r in rows if r["area_vs_census"])
-    near = sum(1 for x in ratios if abs(x - 1) <= .01)
-    out = {"method": METHOD_VERSION, "generated": dt.date.today().isoformat(), "congress": args.congress,
-           "source": {"publisher": "U.S. Census Bureau", "product": "Cartographic Boundary Files, 1:500,000", "file": os.path.basename(args.zip),
-                      "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/" + os.path.basename(args.zip),
-                      "sha256": sha256(args.zip), "bytes": os.path.getsize(args.zip),
-                      "fetched": dt.date.fromtimestamp(os.path.getmtime(args.zip)).isoformat()},
-           "summary": {"districts": len(rows), "drawn": len(drawn), "at_large": len(rows) - len(drawn), "shore": sum(1 for r in drawn if r["shore"]),
-                       "inland": {k: quantiles([r[k] for r in drawn if not r["shore"]]) for k in ("pp", "reock", "hull")},
-                       "pp": quantiles([r["pp"] for r in drawn]), "reock": quantiles([r["reock"] for r in drawn]), "hull": quantiles([r["hull"] for r in drawn])},
-           "control": {"compared": len(ratios), "within_1_percent": near, "median_ratio": ratios[len(ratios) // 2] if ratios else None,
-                       "lowest": sorted(((r["area_vs_census"], r["key"]) for r in rows if r["area_vs_census"]))[:8]},
-           "districts": rows}
+    out = dict({"method": METHOD_VERSION, "generated": dt.date.today().isoformat(), "congress": args.congress}, **pack(congress(args.zip, args.congress), args.zip))
     with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, separators=(",", ":"))
     with open(os.path.splitext(args.out)[0] + ".csv", "w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["district", "state", "number", "census_name", "at_large", "polsby_popper", "reock", "convex_hull", "area_sq_mi", "perimeter_mi", "parts",
-                    "census_land_plus_water_sq_mi", "area_over_census_area", "shoreline"])
-        for r in rows:
-            w.writerow([r["key"], r["st"], r["d"], r["name"], int(r["at_large"]), r["pp"], r["reock"], r["hull"], r["area_sqmi"], r["perim_mi"], r["parts"],
-                        r["census_area_sqmi"], r["area_vs_census"], int(r["shore"])])
-    s = out["summary"]
-    print(f"  {s['districts']} districts ({s['at_large']} at large). Medians among drawn districts: Polsby-Popper {s['pp']['median']:.3f}, "
-          f"Reock {s['reock']['median']:.3f}, convex hull {s['hull']['median']:.3f}")
-    print(f"  Control: {near} of {len(ratios)} areas are within 1% of the Bureau's own land + water area; median ratio {out['control']['median_ratio']:.4f}; "
-          f"the furthest below are coastal: {', '.join(f'{k} {v:.2f}' for v, k in out['control']['lowest'][:5])}")
-    print(f"  Source file SHA-256 {out['source']['sha256'][:16]}... Wrote {args.out} and its .csv")
+        w.writerow(["district", "state", "number"] + CSV_HEAD)
+        for r in out["districts"]:
+            w.writerow([r["key"], r["st"], r["d"]] + csv_tail(r))
+    report(out, f"The {args.congress}th Congress")
+    print(f"  Wrote {args.out} and its .csv")
+    return 0
+
+
+def state(code):
+    """A state's legislative chambers, from the Census files the state districts stage keeps: state_<code>_shapes.json and .csv."""
+    sys.path.insert(0, HERE)
+    from states.places import place
+    P = place(code)
+    code = P["code"].lower()
+    chambers, csv_rows = {}, []
+    for key, stem, field in (("upper", "sldu", "SLDUST"), ("lower", "sldl", "SLDLST")):
+        if not P.get(key):
+            continue
+        path = next((p for p in (os.path.join(HERE, "states_cache", "census", f"cb_{y}_{P['fips']}_{stem}_500k.zip") for y in (2024, 2023)) if os.path.exists(p)), None)
+        if not path:
+            sys.exit(f"No Census file for {P['name']}'s {P[key]['name']} districts in states_cache/census. Run: python run_states.py {code} districts")
+        print(f"Measuring every {P[key]['name']} district of {P['name']} in {os.path.basename(path)} ...")
+        packed = pack(chamber(path, field), path)
+        packed["name"] = P[key]["name"]
+        chambers[key] = packed
+        csv_rows += [[P[key]["name"], r["key"]] + csv_tail(r) for r in packed["districts"]]
+        report(packed, f"{P['name']} {P[key]['name']}")
+    out = {"method": METHOD_VERSION, "generated": dt.date.today().isoformat(), "place": P["code"], "name": P["name"], "legislature": P["legislature"], "chambers": chambers}
+    out_path = os.path.join(HERE, f"state_{code}_shapes.json")
+    with open(out_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(out, fh, separators=(",", ":"))
+    with open(os.path.splitext(out_path)[0] + ".csv", "w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["chamber", "district"] + CSV_HEAD)
+        w.writerows(csv_rows)
+    print(f"  Wrote {out_path} and its .csv")
     return 0
 
 

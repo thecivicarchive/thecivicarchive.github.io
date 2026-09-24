@@ -10,6 +10,34 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.031 — 2026-09-23 — Every district's shape, state by state and in the legislatures
+
+- The federal Districts page now compares Congress state by state: a "State
+  by state" table with each state's median on all three measures and its
+  lowest and highest district, alphabetical unless you sort it; and, when a
+  state is picked, its districts listed side by side in number order, each
+  with its member and its score, so a state's map can be read in one glance.
+  Every state has an address of its own (for example #shapes/MN).
+- The same lens on the legislatures: every one of the 21 open states has a
+  Shapes page measuring all of its Senate and House districts (2,739 districts
+  in 41 chambers) from the Census Bureau's files for those chambers, with the
+  same map, table, download and "Sources and methods" as the federal page.
+  The two levels point at each other: a state on the federal page links to
+  its legislature, and a legislature's page links back to the state's
+  congressional districts.
+- The checks held at the state level without a hand on the scale: in every
+  inland chamber our areas agree with the Bureau's own to within 1 percent in
+  every district, and the only districts marked "shoreline" are the ones on
+  the Great Lakes (Michigan, Ohio, Illinois, Indiana, Wisconsin, Minnesota).
+- What the measures show, for the reader to weigh: state legislative
+  districts are on the whole more compact than congressional ones (a median
+  Polsby-Popper of 0.35 across all their districts against 0.25 for Congress), and
+  the spread between chambers is wide, from about 0.22 in the Illinois,
+  Tennessee and Kentucky Senates to 0.48 in the Kansas House.
+- The words the two levels share (the three formulas, how area and perimeter
+  are measured, the self-test, what a score cannot tell you) are written once
+  and used on both, so they cannot drift apart.
+
 ## v4.0.030 — 2026-09-20 — The shape of every district
 
 - A new federal page, "Districts": all 435 congressional districts measured

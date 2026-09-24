@@ -181,6 +181,12 @@ Houses. He allowed respected academic compilations as well as official sources, 
   chosen. The file's SHA-256 travels with the results. A district is marked "shoreline" when the Bureau's own land plus
   water area exceeds the shape's by more than 1.5 percent. The federal page is `#shapes`; `#shape=MN-5` opens one
   district; the "Sources and methods" window is part of the page.
+- Lens one is on the states too (v4.0.031): `python district_shapes.py --state mn` measures a state's chambers from
+  the Census ZIPs in `states_cache/census/` and writes `state_<code>_shapes.json` and `.csv`; the state `districts`
+  stage runs it after the lines download. `build_state_dev.py` puts the Shapes page (`#shapes`, `#shape=H-8B`) on any
+  state that has the file and hides it otherwise. The federal page's `#shapes/MN` opens one state, lists its districts
+  side by side and links to `../mn/#shapes`; the shared wording lives in one landmarked block of `build_site_dev.py`
+  (`BORROWED["LENS"]`) that the state builder borrows, so change it in one place.
 - Every lens gets the same furniture: a named primary source with its address, date and fingerprint; the formula and
   its citation; a self-test against known answers; a control total against the source's own figures; a plain list of
   what the figure cannot tell you; a download of every number; a method version. Change a method, bump its version.

@@ -53,6 +53,7 @@ BORROWED = {
     "GEO": ("  const conic = (parallels", "  function locate(lon, lat){"),
     "CHANGELOG": ("/* Changelog badge.", "/* Welcome-screen pick lists."),
     "HELP": ("/* Help modal:", "routeFromHash(false);"),
+    "LENS": ("/* ---------- the districting lenses: the words every level shares ----------", "/* ---------- the districting lenses, first of four"),
 }
 
 
@@ -303,8 +304,15 @@ def collect(P, db_path, districts_path):
         print(f"    money: treated as the member's own earlier committee (moved in, not a donor): {line}")
     stats["has_money"] = bool(money["summary"].get("members"))
     stats["officials"] = len(officials)
+    # the first districting lens: every district's shape, measured by district_shapes.py from the same Census files
+    lens_path = os.path.join(HERE, f"state_{P['code'].lower()}_shapes.json")
+    lens = json.load(open(lens_path, encoding="utf-8")) if os.path.exists(lens_path) else {}
+    stats["has_shapes"] = bool(lens.get("chambers"))
+    if not lens:
+        print(f"    shapes: {os.path.basename(lens_path)} is not there, so the Shapes page stays hidden (python district_shapes.py --state {P['code'].lower()})")
     return {"generated": dt.datetime.now().strftime("%B %d, %Y"), "legislators": legislators, "profiles": profiles, "donors": money["members"],
             "kinds": money["kinds"], "photos": photos, "stats": stats, "seats": seats, "vacant": vacant, "expect": expect, "nest": nest, "officials": officials,
+            "lens": lens,
             "districts": {"q": shapes.get("q", 400), "upper": shapes.get("upper", {}), "lower": shapes.get("lower", {}),
                           "vintage": shapes.get("vintage", ""), "outline": {"d": outline["d"], "bbox": outline["bbox"]}},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
@@ -339,7 +347,7 @@ def render(P, data, version, base_url, analytics):
                       "upper": P.get("upper"), "lower": P.get("lower"), "nested": bool(P.get("nested")), "zooms": P.get("zooms") or [],
                       "money_links": P.get("money_links") or {}, "money_agency": P.get("money_agency") or {}},
             "stats": st, "kinds": data["kinds"], "changelog": data["changelog"], "photo_ids": sorted(data["photos"]),
-            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "inline": None}
+            "has_votes": bool(st["roll_calls"]), "has_money": st["has_money"], "has_shapes": st.get("has_shapes", False), "inline": None}
     gc = analytics or ""
     tag = ('<script data-goatcounter="%s" data-goatcounter-settings=\'{"no_onload": true, "allow_frame": false}\' '
            'async src="https://gc.zgo.at/count.js" onload="if(window.__gcflush)__gcflush()"></script>' % html_attr(gc)) if gc else ""
@@ -367,6 +375,9 @@ def render(P, data, version, base_url, analytics):
     money = st["has_money"]
     words = {
         "__CHAMBERS_TITLE__": "The two chambers" if P.get("lower") else "The chamber",
+        "__SHAPES_SOURCE_CARD__": ('<div class="labelcard rv" style="--i:5"><span class="tag analysis">Analysis</span><h3>The shape of each district</h3><p>Three published measures of compactness, '
+                                   'computed from the same Census Bureau boundary files. The files and their fingerprints, the formulas, the checks and what a score cannot tell you '
+                                   'are under <a href="#shapes">Shapes</a>, "Sources and methods".</p></div>' if st.get("has_shapes") else ""),
         "__PLACE_NOTE__": (" " + html_attr(P["note"])) if P.get("note") else "",
         "__MAP_SWITCH__": "Switch between the two chambers, z" if P.get("lower") else "Z",
         "__DESC__": f"Who represents every district in the {P['legislature']}, what they work on{', and which organizations fund their campaigns' if money else ''}, from public records.",
@@ -401,7 +412,7 @@ def render(P, data, version, base_url, analytics):
             .replace("__VINTAGE__", html_attr(data["districts"].get("vintage") or "Census Bureau cartographic boundary files"))
             .replace("__AGENCY__", html_attr(agency.get("name") or "the state's campaign-finance agency"))
             .replace("__AGENCY_URL__", html_attr(agency.get("url") or "#"))
-            .replace("__LEG_URL__", html_attr(P.get("url") or "#")))
+            .replace("__LEG_URL__", html_attr(P.get("url") or "#")).replace("__CODE__", P["code"]))
 
 
 def write_site(folder, html, data):
@@ -423,6 +434,11 @@ def write_site(folder, html, data):
     put("data/members.json", dump({"legislators": data["legislators"], "seats": data["seats"], "vacant": data["vacant"],
                                    "expect": data["expect"], "nest": data["nest"], "officials": data["officials"]}))
     put("data/districts.json", dump(data["districts"]))
+    if data.get("lens"):
+        put("data/shapes.json", dump(data["lens"]))
+        csv_path = os.path.join(HERE, f"state_{data['lens']['place'].lower()}_shapes.csv")
+        if os.path.exists(csv_path):                                        # every figure on the Shapes page, for anyone who wants to check them
+            shutil.copyfile(csv_path, os.path.join(folder, "data", "shapes.csv"))
     n = 0
     for bio, prof in data["profiles"].items():
         put(f"data/member/{bio}.json", dump(prof))
@@ -571,7 +587,7 @@ __ANALYTICS__
     <a class="doorlink" href="../" title="The front door: every level of government" aria-label="Back to the front door of The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
     <a class="brand" href="#top" aria-label="The Civic Archive, __NAME__, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#home" data-go="home">__NAME__</a><a href="#map" data-go="map">District map</a><a href="#members" data-go="members">Your legislators</a><a href="#sources" data-go="sources">Sources</a>
+      <a href="#home" data-go="home">__NAME__</a><a href="#map" data-go="map">District map</a><a href="#shapes" data-go="shapes" id="navshapes" hidden>Shapes</a><a href="#members" data-go="members">Your legislators</a><a href="#sources" data-go="sources">Sources</a>
     </nav>
     <div class="tools">
       <button class="kbtn" id="palettebtn" aria-label="Search legislators and districts"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button>
@@ -711,6 +727,37 @@ __ANALYTICS__
   </section>
   </div><!-- /member -->
 
+  <div class="page" id="pg-shapes" data-page="shapes" hidden>
+  <section class="theater block" id="shapes">
+    <div class="wrap">
+      <div class="sechead rv">
+        <div><h2>The shape of every district</h2><p>Every __CHAMBERS__ district in __NAME__, measured the same way from the Census Bureau's own boundary files. A score describes a shape. It does not say why the shape is what it is: rivers, county and city lines, the state's borders and the Voting Rights Act all shape districts. This page measures, and leaves the judging to you.</p></div>
+        <button class="btn" id="methodsbtn" type="button">Sources and methods</button>
+      </div>
+      <div class="theater-grid">
+        <div class="stage rv">
+          <div class="mtip" id="stip" role="tooltip"></div>
+          <div class="lensbar">
+            <span id="lensch" role="group" aria-label="Which chamber"></span>
+            <span id="lenschips" role="group" aria-label="Which measure of shape"></span>
+            <button class="chip" id="lensshore" type="button" aria-pressed="false" hidden title="Districts on the sea, a bay or the Great Lakes: a jagged natural shore lowers a score through no one's choice">Set shoreline districts aside</button>
+          </div>
+          <p class="lenssay" id="lenssay"></p>
+          <div class="mapframe"><svg class="shapemap" id="shapemap" role="img" aria-label="Map of every district in __NAME__, shaded by how compact its shape is"></svg></div>
+          <div class="lenskey" id="lenskey"></div>
+        </div>
+        <aside class="mapside rv" id="lensside" aria-live="polite" style="--i:2"><span class="muted">Tap a district for its measurements.</span></aside>
+      </div>
+      <div class="rv" style="margin-top:26px">
+        <h3 style="margin-bottom:4px"><span class="tag analysis">Analysis</span> Every district, every measure</h3>
+        <p class="lenssay" style="margin-top:6px">In district order, not ranked. Sort any column; hold Shift for a second one. <a href="data/shapes.csv" download>Download the whole table</a> to check it yourself, or <a href="../us/#shapes/__CODE__">compare __NAME__'s congressional districts</a> on the federal side.</p>
+        <div id="lenstable" style="margin-top:12px"></div>
+      </div>
+      <p class="note" id="lensnote"></p>
+    </div>
+  </section>
+  </div><!-- /shapes -->
+
   <div class="page" id="pg-sources" data-page="sources" hidden>
   <section class="block" id="sources">
     <div class="wrap">
@@ -721,6 +768,7 @@ __ANALYTICS__
         <div class="labelcard rv"><span class="tag fact">Fact</span><h3>Members, service and committees</h3><p>The <a href="https://github.com/openstates/people" target="_blank" rel="noopener">Open States people project</a> (public domain), which follows the <a href="__LEG_URL__" target="_blank" rel="noopener">__LEGISLATURE__</a>'s own member pages. Portraits are the official ones the chambers publish.</p></div>
         <div class="labelcard rv" style="--i:1"><span class="tag fact">Fact</span><h3>District lines</h3><p>The U.S. Census Bureau's cartographic boundary files for the upper and lower chamber (__VINTAGE__), drawn on the same map projection as the federal pages. "Use my location" is worked out against these lines on your own device.</p></div>
         __MONEY_SOURCE_CARD__
+        __SHAPES_SOURCE_CARD__
         <div class="labelcard rv" style="--i:3"><span class="tag wiki">From Wikipedia</span><h3>Life before the legislature</h3><p>One paragraph, the opening of the member's Wikipedia article, fenced off and labelled wherever it appears. It is not an official record, anyone can edit it, and it is credited and linked every time (CC BY-SA 4.0).</p></div>
         <div class="labelcard rv" style="--i:4"><span class="tag analysis">Coming</span><h3>Bills and recorded votes</h3><p>Being added next, from LegiScan's weekly public datasets, which carry every bill and every roll call with each member's vote. When they arrive, each page will credit LegiScan as its terms ask.</p></div>
       </div>
@@ -758,6 +806,7 @@ __ANALYTICS__
 <nav class="tabbar" aria-label="Pages">
   <a href="#home" data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
   <a href="#map" data-go="map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Map</span></a>
+  <a href="#shapes" data-go="shapes" id="tabshapes" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg><span>Shapes</span></a>
   <a href="#members" data-go="members"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5a5 5 0 0 1 6 5"/></svg><span>Legislators</span></a>
   <a href="#sources" data-go="sources"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.4-2.8 4"/><path d="M12 17.6h.01"/></svg><span>Sources</span></a>
 </nav>
@@ -776,6 +825,15 @@ __ANALYTICS__
       <div class="labelcard"><span class="tag wiki">From Wikipedia</span><h3>Not an official record</h3><p>One paragraph about a member's life outside the legislature, fenced off, credited and linked. Anyone can edit Wikipedia.</p></div>
     </div>
     <p class="hm-foot">Nothing on this site is edited by hand, and nobody is characterized. The record is shown; the judging is yours.</p>
+  </div>
+</div>
+
+<div class="hmodal" id="methods" hidden>
+  <div class="hm-back" id="methodsback"></div>
+  <div class="hm-card methods" role="dialog" aria-modal="true" aria-labelledby="methodstitle">
+    <button class="hm-x" id="methodsx" aria-label="Close">&times;</button>
+    <h2 id="methodstitle">Sources and methods: the shape of a district</h2>
+    <div id="methodsbody"></div>
   </div>
 </div>
 
@@ -847,6 +905,7 @@ __GRID__
 __MONEYFMT__
 __SQUARIFY__
 __GEO__
+__LENS__
 /* ===== end of the shared parts ===== */
 
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
@@ -1425,8 +1484,101 @@ function renderMemberPage(id, show){
   if (!/Mac|iPhone|iPad/.test(navigator.platform || "")) $$(".kbtn kbd").forEach(k => k.textContent = "Ctrl K");
 })();
 
+/* ---------- the shape of every district: the federal Districts lens, on this state's own chambers ----------
+   The same three measures, computed by district_shapes.py from the Census Bureau's files for this state's upper
+   and lower chamber; the page measures and never concludes. The words it shares with the federal page (the
+   measures, the method, the self-test, the limits) are borrowed from there at build time. */
+let lensBuilt = false, lensGo = null;
+function shapesPage(pick){
+  if (lensBuilt) { if (pick && lensGo) lensGo(pick); return; }
+  lensBuilt = true;
+  const side = $("#lensside"), svg = $("#shapemap");
+  side.innerHTML = `<span class="muted">Loading the measurements\u2026</span>`;
+  Promise.all([need("shapes"), need("districts"), membersReady()]).then(([S, D]) => {
+    if (!S || !S.chambers) { side.innerHTML = `<span class="muted">The measurements are not part of this build.</span>`; return; }
+    DATA.districts = D;
+    const MEAS = LENS_MEAS, ramp = LENS_RAMP, W = lensWords(), keys = ["upper", "lower"].filter(k => S.chambers[k]);
+    let key = keys[0], meas = "pp", aside = false, picked = null, B = {}, table = null;
+    const rows = () => S.chambers[key].districts, byKey = () => Object.fromEntries(rows().map(r => [r.key, r]));
+    const pool = () => rows().filter(r => !(aside && r.shore));
+    const breaks = m => { const v = rows().map(r => r[m]).sort((a, b) => a - b); return [.2, .4, .6, .8].map(p => v[Math.round(p * (v.length - 1))]); };
+    const shade = (r, m) => ramp[B[m].filter(b => r[m] > b).length];
+    const rank = (r, m) => { const v = pool().map(x => x[m]).sort((a, b) => b - a); return [v.indexOf(r[m]) + 1, v.length]; };
+    const label = r => `${DN(key)} ${r.d}`, who = r => membersAt(key, r.d), hashOf = r => `#shape=${key === "upper" ? "S" : "H"}-${encodeURIComponent(r.key)}`;
+    const OUT = D.outline, [bx0, by0, bx1, by1] = OUT.bbox, pad = Math.max(bx1 - bx0, by1 - by0) * .04;
+    svg.setAttribute("viewBox", `${(bx0 - pad).toFixed(3)} ${(by0 - pad).toFixed(3)} ${(bx1 - bx0 + 2 * pad).toFixed(3)} ${(by1 - by0 + 2 * pad).toFixed(3)}`);
+    $("#lensch").innerHTML = keys.length > 1 ? keys.map(k => `<button class="chip" type="button" data-ch="${k}" aria-pressed="${k === key}">${esc(P[k].name)}</button>`).join(" ") : "";
+    $("#lenschips").innerHTML = Object.entries(MEAS).map(([k, v]) => `<button class="chip" type="button" data-meas="${k}" aria-pressed="${k === meas}">${v.name}</button>`).join(" ");
+    if (keys.some(k => S.chambers[k].summary.shore)) $("#lensshore").hidden = false;
+    const cols = () => [
+      {key: "d", label: "District", num: true, first: "asc", val: r => natural(r.d)[0] * 100 + (natural(r.d)[1] ? natural(r.d)[1].toUpperCase().charCodeAt(0) - 64 : 0), html: r => `<a href="${hashOf(r)}"><b>${esc(r.d)}</b></a>`},
+      {key: "m", label: P[key].title + (Object.values(DATA.expect[key] || {}).some(n => n > 1) ? "s" : ""), val: r => who(r).map(m => (m.ln || "") + " " + m.n).join(" "), html: r => { const ms = who(r); return ms.length ? ms.map(m => `<span class="pty" style="background:${tone(m.p)}"></span><a href="#member=${esc(m.id)}">${esc(m.n)}</a>`).join("<br>") : `<span class="muted">vacant</span>`; }},
+      {key: "pp", label: "Polsby-Popper", num: true, val: r => r.pp, html: r => r.pp.toFixed(3)},
+      {key: "reock", label: "Reock", num: true, val: r => r.reock, html: r => r.reock.toFixed(3)},
+      {key: "hull", label: "Convex hull", num: true, val: r => r.hull, html: r => r.hull.toFixed(3)},
+      {key: "area", label: "Area, sq mi", num: true, val: r => r.area_sqmi, html: r => r.area_sqmi.toLocaleString()},
+      {key: "perim", label: "Perimeter, mi", num: true, val: r => r.perim_mi, html: r => r.perim_mi.toLocaleString()},
+      {key: "note", label: "Note", val: r => r.shore ? "shoreline" : "", html: r => r.shore ? `<span class="muted" title="Fronts the sea, a bay or the Great Lakes">shoreline</span>` : ""}];
+    function draw(){
+      B = {pp: breaks("pp"), reock: breaks("reock"), hull: breaks("hull")};
+      svg.innerHTML = rows().map(r => { const s = shapeOf(key, r.key); return s ? `<path class="sd" data-k="${esc(r.key)}" d="${s.d}" tabindex="0" role="button" aria-label="${esc(label(r))}"></path>` : ""; }).join("")
+        + `<path d="${OUT.d}" style="fill:none;stroke:rgba(255,255,255,.45);stroke-width:1.2;pointer-events:none;vector-effect:non-scaling-stroke"></path>`;
+      $("#lenstable").innerHTML = "";
+      table = gridTable($("#lenstable"), {cols: cols(), rows: pool(), sort: [{key: "d", dir: "asc"}], page: 25, empty: "No district matches.", count: rs => `${rs.length.toLocaleString()} ${esc(P[key].name)} district${rs.length === 1 ? "" : "s"}`});
+      paint();
+    }
+    function paint(){
+      $$("#lensch [data-ch]").forEach(b => b.setAttribute("aria-pressed", b.dataset.ch === key));
+      $$("#lenschips [data-meas]").forEach(b => b.setAttribute("aria-pressed", b.dataset.meas === meas));
+      $("#lensshore").setAttribute("aria-pressed", aside);
+      const bk = byKey();
+      $$(".sd", svg).forEach(el => { const r = bk[el.dataset.k]; if (!r) return; el.style.fill = shade(r, meas); el.classList.toggle("dim", aside && r.shore); el.classList.toggle("hl", el.dataset.k === picked); });
+      const Pl = pool(), v = Pl.map(r => r[meas]).sort((a, b) => a - b), med = v.length ? v[Math.floor((v.length - 1) / 2)] : 0;
+      $("#lenssay").innerHTML = `<b>${MEAS[meas].name}</b> is ${MEAS[meas].say}. 1 is a perfect circle${meas === "hull" ? " or any shape with no dents" : ""}; most districts fall well below. ${esc(P.name)}'s ${esc(P[key].name)}: ${Pl.length} district${Pl.length === 1 ? "" : "s"}, median ${med.toFixed(3)}${aside ? " (shoreline districts set aside)" : ""}.`;
+      $("#lenskey").innerHTML = `<span>Less compact</span>` + ramp.map((c, i) => `<span><i style="background:${c}"></i>${i === 0 ? "up to " + B[meas][0].toFixed(2) : (i === 4 ? "over " + B[meas][3].toFixed(2) : B[meas][i - 1].toFixed(2) + "\u2013" + B[meas][i].toFixed(2))}</span>`).join("") + `<span>More compact</span><span class="muted">Five equal groups of this chamber's districts.</span>`;
+      table.setRows(pool());
+      if (picked && bk[picked]) show(picked, true); else { picked = null; side.innerHTML = `<span class="muted">Tap a district for its measurements.</span>`; }
+    }
+    function show(k, quiet){
+      const r = byKey()[k]; if (!r) return; picked = k; $$(".sd", svg).forEach(el => el.classList.toggle("hl", el.dataset.k === k));
+      const ms = who(r), Pl = pool(), lo = Math.min(...Pl.map(x => x[meas])), hi = Math.max(...Pl.map(x => x[meas])), pos = v => (100 * (v - lo) / Math.max(1e-9, hi - lo)).toFixed(2);
+      const medv = Pl.map(x => x[meas]).sort((a, b) => a - b)[Math.floor((Pl.length - 1) / 2)], out = aside && r.shore;
+      side.innerHTML = `<div class="side-head"><h3>${esc(label(r))}</h3><span><a class="chip" href="${districtHash(key, r.key)}">District map</a> <button class="chip sharebtn" type="button" id="lensshare">Share</button></span></div>
+        ${ms.length ? `<p style="margin:0 0 8px;font-size:14px">Represented by ${ms.map(m => `<a href="#member=${esc(m.id)}"><b>${esc(m.n)}</b></a>`).join(" and ")}</p>` : `<p class="muted" style="margin:0 0 8px">This seat is vacant, or its member is not on file yet.</p>`}
+        <div class="lensfacts">${Object.entries(MEAS).map(([m, v]) => `<div><b>${r[m].toFixed(3)}</b><span>${v.name}${out ? "" : `<br>${rank(r, m)[0]} of ${rank(r, m)[1]}, most compact first`}</span></div>`).join("")}</div>
+        ${out ? "" : `<div class="strip" role="img" aria-label="Where this district falls among the chamber's districts on ${MEAS[meas].name}">${Pl.map(x => `<i class="${x.key === k ? "on" : (x.shore ? "sh" : "")}" style="left:${pos(x[meas])}%"></i>`).join("")}<span class="med" style="left:${pos(medv)}%">median ${medv.toFixed(2)}</span></div><div class="stripends"><span>${lo.toFixed(2)}</span><span>${MEAS[meas].name}: every ${esc(P[key].name)} district is a line; this one is tall</span><span>${hi.toFixed(2)}</span></div>`}
+        <p class="muted" style="font-size:13px;margin:12px 0 0">Area ${r.area_sqmi.toLocaleString()} sq mi, perimeter ${r.perim_mi.toLocaleString()} mi${r.parts > 1 ? `, in ${r.parts} separate pieces (islands count)` : ""}.${r.shore ? ` <b>Shoreline district:</b> it fronts the sea, a bay or the Great Lakes, and a jagged natural shore lowers the Polsby-Popper score through no one's choice.` : ""}</p>
+        <p class="muted" style="font-size:12.5px;margin:8px 0 0"><span class="tag analysis">Analysis</span> A low score is a fact about a shape, not a finding about intent. <button type="button" class="wxbtn" id="lensmethods">Sources and methods</button></p>`;
+      $("#lensmethods").addEventListener("click", openMethods);
+      $("#lensshare").addEventListener("click", e => share({title: `The shape of ${P.name} ${label(r)}`, text: `${P.name} ${label(r)}: Polsby-Popper ${r.pp.toFixed(3)}, Reock ${r.reock.toFixed(3)}, convex hull ${r.hull.toFixed(3)}. Every district measured the same way, with sources and methods:`, url: `${SHARE_BASE}/${hashOf(r)}`, kind: "shape", key: P.code + "-" + r.key}, e.currentTarget));
+      if (!quiet) { history.replaceState({page: "shapes"}, "", hashOf(r)); track("shape", {key: P.code + "-" + k}); }
+    }
+    lensGo = k => { const [ch, d] = k; if (S.chambers[ch] && ch !== key) { key = ch; draw(); } if (byKey()[d]) show(d, true); };
+    const tip = $("#stip"), stage = svg.closest(".stage");
+    svg.addEventListener("pointermove", e => { const p = e.target.closest && e.target.closest(".sd"); if (!p) { tip.classList.remove("show"); return; } const r = byKey()[p.dataset.k], b = stage.getBoundingClientRect(); if (!r) return;
+      tip.innerHTML = `<b>${esc(r.d)}</b>${who(r).map(m => esc(m.n)).join(", ") || "vacant"} \u00b7 ${MEAS[meas].name} ${r[meas].toFixed(3)}`; tip.style.left = (e.clientX - b.left) + "px"; tip.style.top = (e.clientY - b.top) + "px"; tip.classList.add("show"); });
+    svg.addEventListener("pointerleave", () => tip.classList.remove("show"));
+    svg.addEventListener("click", e => { const p = e.target.closest(".sd"); if (p) { show(p.dataset.k); if (!matchMedia("(min-width:1000px)").matches) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); } });
+    svg.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("sd")) { e.preventDefault(); show(e.target.dataset.k); } });
+    $("#lensch").addEventListener("click", e => { const b = e.target.closest("[data-ch]"); if (b && b.dataset.ch !== key) { key = b.dataset.ch; picked = null; history.replaceState({page: "shapes"}, "", "#shapes"); draw(); } });
+    $("#lenschips").addEventListener("click", e => { const b = e.target.closest("[data-meas]"); if (b) { meas = b.dataset.meas; paint(); } });
+    $("#lensshore").addEventListener("click", () => { aside = !aside; paint(); });
+    const srcs = keys.map(k => { const c = S.chambers[k]; return `<p><span class="tier">Official, primary</span> ${esc(c.source.publisher)}, ${esc(c.source.product)}: <code>${esc(c.source.file)}</code>, the ${esc(P[k].name)} districts, clipped to the shoreline. <a href="${esc(c.source.url)}" target="_blank" rel="noopener">The file at census.gov</a>. Fetched ${esc(c.source.fetched)}, ${Number(c.source.bytes).toLocaleString()} bytes. Its SHA-256 fingerprint, so that anyone can confirm they are measuring the same file: <code>${esc(c.source.sha256)}</code></p>`; }).join("");
+    const controls = keys.map(k => (keys.length > 1 ? `<p><b>The ${esc(P[k].name)}.</b></p>` : "") + W.control(S.chambers[k].control, S.chambers[k].summary.shore)).join("");
+    $("#lensnote").innerHTML = `<span class="tag fact">Fact</span> The lines: ${keys.map(k => `<code>${esc(S.chambers[k].source.file)}</code>`).join(" and ")}, U.S. Census Bureau. <span class="tag analysis">Analysis</span> The measurements: ${keys.map(k => `${S.chambers[k].summary.districts} ${esc(P[k].name)} districts${S.chambers[k].summary.shore ? ` (${S.chambers[k].summary.shore} front open water)` : ""}`).join("; ")}. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
+    $("#methodsbody").innerHTML = `<h3>The source${keys.length > 1 ? "s" : ""}</h3>${srcs}${W.measures}${W.how}<h3>The checks</h3>${W.selftest}${controls}${W.cannot("")}${W.program(S.method, `<a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. `, "python district_shapes.py --state " + P.code.toLowerCase())}
+      <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#shapes/${esc(P.code)}">the federal Districts page</a>. This is the first of four lenses; who lives in each district, how votes became seats, and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`;
+    draw(); if (pick) lensGo(pick);
+  }, () => { lensBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the measurements. Check your connection and try again.</span>`; });
+}
+function openMethods(){ const box = $("#methods"); box.hidden = false; document.body.classList.add("noscroll"); $("#methodsx").focus(); }
+(function(){ const box = $("#methods"); if (!box) return; const close = () => { box.hidden = true; document.body.classList.remove("noscroll"); };
+  $("#methodsx").addEventListener("click", close); $("#methodsback").addEventListener("click", close); $("#methodsbtn").addEventListener("click", openMethods);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) close(); });
+  if (BOOT.has_shapes) for (const id of ["#navshapes", "#tabshapes"]) { const n = $(id); if (n) n.hidden = false; } })();
+
 /* --- pages: one document, one page visible at a time, the same hash addresses as the federal side --- */
-const PAGES = ["home", "map", "members", "member", "sources"];
+const PAGES = ["home", "map", "shapes", "members", "member", "sources"];
 const BASE_TITLE = document.title;
 let page = "home";
 function showPage(name, push){
@@ -1438,6 +1590,7 @@ function showPage(name, push){
   document.body.dataset.page = name;
   pageview("/" + P.code.toLowerCase() + "/" + (name === "home" ? "" : name), P.name + ": " + name);
   if (name === "members") renderRoster();
+  if (name === "shapes" && !/^#shape=/.test(location.hash)) shapesPage();
   if (name === "map") mapReady().then(() => { if (window.mapResize) mapResize(); }, () => {});      // drawn while hidden, the map has no size to measure; measure it now
   if (push) { const h = "#" + name; if (location.hash !== h) history.pushState({page: name}, "", h); }
   scrollTo({top: 0, behavior: "auto"});
@@ -1446,6 +1599,8 @@ function routeFromHash(push){
   const h = (location.hash || "").replace(/^#/, "");
   const mem = h.match(/^member=([A-Za-z0-9_-]+)(?:\/(money))?$/);
   if (mem) { showPage("member", false); renderMemberPage(mem[1], mem[2]); return; }
+  const shp = h.match(/^shape=([SH])-(.+)$/);
+  if (shp) { showPage("shapes", false); shapesPage([shp[1] === "S" ? "upper" : "lower", decodeURIComponent(shp[2])]); return; }
   const off = h.match(/^official=([A-Za-z0-9_-]+)$/);
   if (off) { showPage("member", false); renderOfficialPage(off[1]); return; }
   const dis = h.match(/^district=([SH])-(.+)$/);
@@ -1461,7 +1616,7 @@ document.addEventListener("click", e => {
   if (PAGES.includes(h)) { e.preventDefault(); showPage(h, true); }
 });
 addEventListener("popstate", () => routeFromHash(false));
-addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(member|district|official)=/.test(h)) routeFromHash(false); });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (/^(member|district|official|shape)=/.test(h)) routeFromHash(false); });
 
 __CHANGELOG__
 __HELP__

@@ -11,7 +11,7 @@ state_<code>_districts.json. Downloads are kept in states_cache/, so a re-run fe
 
 Stages
   people     sitting legislators, their service, committees, Wikipedia paragraph and portrait (Open States, CC0)
-  districts  upper- and lower-chamber district lines (Census Bureau)
+  districts  upper- and lower-chamber district lines (Census Bureau), and the shape of each district measured from them
   bills      bills and recorded votes (LegiScan weekly files; needs John's free key in legiscan_key.txt)
   money      campaign money from the state's own agency, where a loader exists (Minnesota: Campaign Finance Board)
   check      a short report: what is loaded, what is missing, what does not add up
@@ -147,6 +147,9 @@ def main():
             run("states.load_people", "--place", code, "--db", db, "--cache-dir", cache)
         elif st == "districts":
             run("states.load_sld", "--place", code, "--out", districts, "--cache-dir", cache)
+            # the first districting lens: how compact each district's shape is, from the same Census files (self-test first)
+            run("district_shapes.py", "--selftest")
+            run("district_shapes.py", "--state", code)
         elif st == "bills":
             run("states.load_legiscan", "--place", code, "--db", db, "--cache-dir", cache, allow_fail=True)
         elif st == "money":
