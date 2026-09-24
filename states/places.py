@@ -419,6 +419,10 @@ PLACES = {
     },
     "wa": {
         "code": "WA", "name": "Washington", "fips": "53",
+        "money": "wa_pdc",                     # states/money_wa.py: the Public Disclosure Commission's open data on data.wa.gov
+        "money_agency": {"name": "the Washington Public Disclosure Commission", "url": "https://www.pdc.wa.gov/"},
+        "money_rule": "Campaigns report every gift, and Washington lets businesses, unions and other organizations give to a campaign directly, so those are named here as the campaign reported them, beside political committees, party and caucus committees; a gift the campaign filed as miscellaneous or anonymous is counted as other.",
+        "money_credit": "The data is the Commission's, published on data.wa.gov in the public domain.",
         "legislature": "Washington State Legislature", "session": "69th Legislature, 2025-2026", "since": "2025-01-01",
         "url": "https://leg.wa.gov/",
         # each of the forty-nine districts elects one senator and two representatives (position 1 and position 2)

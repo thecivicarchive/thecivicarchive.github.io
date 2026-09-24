@@ -650,7 +650,7 @@ def write_site(folder, html, data):
 
 EXTRA_CSS = r"""
 /* ---- only on the state pages ---- */
-:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A}
+:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A;--k-biz:#E8B44A;--k-union:#B49BF2;--k-org:#7E9BFF;--m-biz:#E8B44A;--m-union:#B49BF2;--m-org:#7E9BFF}
 .hero h1{font-size:calc(clamp(44px,16.2vw,118px) * var(--fit,1))}
 @media (min-width:960px){.hero h1{font-size:calc(clamp(96px,11.2vw,148px) * var(--fit,1))}}
 .hero::after{display:none}
@@ -1502,7 +1502,10 @@ const kindTag = k => `<span class="kd"><i style="background:var(--k-${esc(k)})">
 const AGENCY = (P.money_agency || {}).name || "the state's campaign-finance agency";
 const SRC = [["people", "People", "individual donors. The agency publishes their names; this site shows only the total"], ["lobbyists", "Lobbyists", "registered lobbyists, who are people too: a total, never names"],
   ["orgs", "Committees and funds", "political committees and funds, the ones listed here by name"], ["party", "Party units", "party committees and caucuses, listed here by name"],
-  ["cand", "Other candidates", "other candidates' campaign committees, listed here by name"], ["self", "Own money", "the candidate's own money"],
+  ["cand", "Other candidates", "other candidates' campaign committees, listed here by name"],
+  ["biz", "Businesses", "businesses giving to the campaign directly, where the state allows it; listed here by name as the campaign reported them"],
+  ["union", "Unions", "unions giving directly, listed here by name"], ["org", "Other organizations", "associations, tribes and other organizations giving directly, listed here by name"],
+  ["self", "Own money", "the candidate's own money"],
   ["moved", "Moved in", "money from the member's own earlier committee, for example a House account passed on to a Senate one. It was raised from donors there first"],
   ["loans", "Loans", "loans to the campaign"], ["other", "Other", "everything else the file lists"]];
 function raceLine(M, view){

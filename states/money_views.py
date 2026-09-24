@@ -34,9 +34,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from states.money_mn import given_fits, norm          # noqa: E402
 
 EPOCH = dt.date(2015, 1, 1)                           # the pages count days from here, as the federal pages do
-KINDS = {"pcf": "Political committee or fund", "party": "Party unit", "cand": "Another candidate's committee"}
+KINDS = {"pcf": "Political committee or fund", "party": "Party unit", "cand": "Another candidate's committee",
+         "biz": "Business", "union": "Union", "org": "Other organization"}          # the last three where a state lets them give directly (Washington)
 SOURCE_KEYS = {"people": "people", "lobbyists": "lobbyists", "pcf": "orgs", "party": "party", "cand": "cand", "self": "self",
-               "loans": "loans", "other": "other"}
+               "biz": "biz", "union": "union", "org": "org", "loans": "loans", "other": "other"}
 MAX_PAYMENTS = 200                                    # per donor, newest first; the rest are counted, not listed
 
 

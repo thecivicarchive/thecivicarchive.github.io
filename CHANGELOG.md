@@ -10,6 +10,34 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.036 — 2026-09-24 — Washington's campaign money
+
+- Washington is the third state with its campaign money loaded, from the
+  Public Disclosure Commission's open data on data.wa.gov (public domain):
+  every gift to a House or Senate campaign since 2015 (479,008 rows), the
+  Commission's register of legislative campaigns (1,373 campaigns by 1,305
+  people, with a person number that ties one candidate's campaigns together)
+  and independent expenditures and electioneering communications for or
+  against candidates. All 147 sitting legislators are matched: $68.1 million
+  from named organizations and $21.2 million of outside spending ($9.6
+  million for sitting members, $11.6 million against), 2016 through 2026.
+- Washington lets businesses, unions and other organizations give to a
+  campaign directly, and the Commission's file carries the code each campaign
+  reported a giver under. So the site's rule reaches three more kinds of
+  organization, named as the campaign reported them: businesses, unions and
+  other organizations, each with its own colour beside political committees,
+  party and caucus committees. People stay totals. A gift filed as
+  miscellaneous or anonymous is counted as other.
+- Campaigns are matched by name and never guessed. The register writes a name
+  three ways ("CAYLOR KENNETH E", "Clifford Mark Greene", "GREGORY CAROL J
+  (CAROL GREGORY)"); each way is read, a match needs the family name, a
+  compatible given name and a chamber the member has served in, must be the
+  only fit, and the register's district settles a tie. Two representatives'
+  Senate campaigns were accepted because exactly one sitting member carries
+  the name; nothing was left ambiguous.
+- A receipt a campaign dated in the future (one is dated 2031) is filed
+  under the campaign's election year rather than inventing a segment for it.
+
 ## v4.0.035 — 2026-09-24 — Iowa's campaign money
 
 - Iowa is the second state with its campaign money loaded, from the Iowa
