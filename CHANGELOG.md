@@ -10,6 +10,36 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.040 — 2026-09-25 — Florida's campaign money
+
+- Florida is the seventh state with its campaign money loaded, from the
+  Division of Elections' campaign finance database. Florida publishes no
+  bulk file, so the loader asks the Division's own public query form, one
+  family name at a time (161 requests, a second and a half apart, kept for a
+  month), and reads the tab-separated file it answers with. All 155 sitting
+  legislators are matched to their campaign accounts, 195 in all, with
+  226,859 contributions since 2015: $73 million from named organizations,
+  $39 million from people as totals, $7 million in loans and $2 million of
+  the candidates' own money.
+- Florida campaigns itemize every contribution, so nothing is below a
+  threshold here, but the Division's records carry no code for what kind of
+  giver a row is. An organization is named when its name or its occupation
+  column says it is one: a political committee, a party, or a company by its
+  corporate words. A giver whose name shows neither is counted with people,
+  so a business written without such a word may be hidden, and a person is
+  never shown. Florida's parties fund legislative campaigns most of all: the
+  House Republican Campaign Committee, the Republican Party of Florida and
+  the Senate Republican campaign committee gave sitting members $13 million
+  between them.
+- Only the accounts a member opened for State House and Senate races count,
+  found by the Division's own candidate record. Four members changed party
+  while in office and keep both accounts; an account of another party that
+  was over before the member's first term is a namesake and is left out. A
+  political committee a legislator chairs is a separate filer and is not
+  part of the campaign. No outside spending is shown for Florida: the
+  Division's expenditure records name payees and purposes, not the candidate
+  a committee spent for or against.
+
 ## v4.0.039 — 2026-09-25 — California's campaign money
 
 - California is the sixth state with its campaign money loaded, from the

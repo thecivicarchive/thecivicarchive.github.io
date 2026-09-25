@@ -167,6 +167,8 @@ def main():
                 run("states.money_tx", "--db", db, "--cache-dir", cache, "--since", "2015")
             elif P.get("money") == "ca_calaccess":
                 run("states.money_ca", "--db", db, "--cache-dir", cache, "--since", "2015")
+            elif P.get("money") == "fl_dos":
+                run("states.money_fl", "--db", db, "--cache-dir", cache, "--since", "2015")
             else:
                 say(f"  No campaign-money loader for {P['name']} yet; the site will say it is coming.")
         elif st == "check":

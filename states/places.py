@@ -581,7 +581,9 @@ PLACES = {
                   {"name": "Orlando", "box": [-81.60, 28.35, -81.15, 28.70]}, {"name": "Jacksonville", "box": [-81.90, 30.12, -81.40, 30.48]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
+        "money": "fl_dos",                     # states/money_fl.py: the Division of Elections' campaign finance database, asked one family name at a time
+        "money_agency": {"name": "the Florida Division of Elections", "url": "https://dos.elections.myflorida.com/campaign-finance/contributions/"},
+        "money_rule": "Florida campaigns itemize every contribution, so there is no threshold, but the Division's records carry no code for what kind of giver a row is. An organization is named here when its name or its occupation column says it is one: a political committee, a party, or a company by its corporate words; a giver whose name shows neither is counted with people, so a business written without such a word may be hidden, and a person is never shown. The accounts counted are the ones the member opened for State House and Senate races; a political committee a legislator chairs is a separate filer and is not part of the campaign. The Division's expenditure records name payees and purposes but not the candidate a committee spent for or against, so no outside spending is shown for Florida.",
     },
     "ca": {
         "code": "CA", "name": "California", "fips": "06",

@@ -233,7 +233,7 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
 | `people` | Open States "people" project (CC0): members, service, committees, portraits; Wikipedia's opening paragraph, fenced off as on the federal side | nothing |
 | `districts` | Census Bureau cartographic boundary files, upper and lower chamber | nothing |
 | `bills` | LegiScan weekly datasets: bills and roll calls with every member's vote (50 states and DC) | John's free LegiScan key |
-| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`; `states/money_co.py` the Colorado Secretary of State's TRACER yearly bulk zips, cached in `states_cache/co_tracer/`; `states/money_tx.py` the Texas Ethics Commission's 1 GB bulk zip, cached in `states_cache/tx_tec/`, an eight-minute scan; `states/money_ca.py` the California Secretary of State's Cal-Access raw data export, 1.6 GB, cached in `states_cache/ca_calaccess/`, a 90-second read) | nothing for Minnesota, Iowa, Washington, Colorado, Texas or California |
+| `money` | the state's own campaign-finance agency, one loader per state (`states/money_mn.py` reads Minnesota's Campaign Finance Board downloads; `states/money_ia.py` the Iowa Ethics and Campaign Disclosure Board's datasets on data.iowa.gov, 405 MB zipped, cached in `states_cache/ia_iecdb/`; `states/money_wa.py` the Washington Public Disclosure Commission's open data on data.wa.gov, fetched by SoQL query in pages of 100,000 rows, cached in `states_cache/wa_pdc/`; `states/money_co.py` the Colorado Secretary of State's TRACER yearly bulk zips, cached in `states_cache/co_tracer/`; `states/money_tx.py` the Texas Ethics Commission's 1 GB bulk zip, cached in `states_cache/tx_tec/`, an eight-minute scan; `states/money_ca.py` the California Secretary of State's Cal-Access raw data export, 1.6 GB, cached in `states_cache/ca_calaccess/`, a 90-second read; `states/money_fl.py` the Florida Division of Elections' query service, one POST per family name, cached in `states_cache/fl_dos/` for a month) | nothing for Minnesota, Iowa, Washington, Colorado, Texas, California or Florida |
 
 - The LegiScan key is John's. It lives as one line in `legiscan_key.txt` (ignored by git). Never ask him to paste it
   into the chat, never print or log it, and never try to get past the bot check on legiscan.com; the API manual at
@@ -297,9 +297,16 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   loader reads names (the file's own given names, credentials, trusts, estates, dba, "and affiliated entities",
   "LAST, FIRST", a person beside a business) and cuts contact names off business names; a business named after its
   owner may be hidden, a person is never shown; cal-access.sos.ca.gov sits behind an Incapsula bot wall, so no donor
-  links. Loaders still to write: Florida, New York, New Jersey; Oregon has no bulk
-  file (ORESTAR export only); North Dakota 2025-26 only; Wisconsin waits on John's robots.txt answer; South Dakota
-  has PDFs only.
+  links. Florida's lessons: no bulk file; the Division's form (`/cgi-bin/contrib.exe`, POST, `queryformat=2`, blank
+  `rowlimit` = every row) returns a tab-separated file of Candidate/Committee "Last, First (PARTY)(OFFICE)", date,
+  amount, type (CHE, CAS, INK, LOA, REF, INT, COF, X), contributor name, address, city, occupation, in-kind text; it
+  gave 502 to everything one day and answered the next, so retry rather than rewrite; `CanNameSrch` 1 and 2 both match
+  the start of the family name (3 is soundex), so filter for the exact name yourself; no district in a row (query by
+  `cdistrict` when one is needed) and no giver type at all, so an organization is named only when its name or its
+  occupation column says committee, party or company, else it is counted with people; individuals are written
+  "LAST FIRST M"; expenditure records do not say which candidate a committee spent for or against, so no outside
+  spending. Loaders still to write: New York, New Jersey; Oregon has no bulk file (ORESTAR export only); North Dakota
+  2025-26 only; Wisconsin waits on John's robots.txt answer; South Dakota has PDFs only.
 - Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the
   database and is never written to a page, and the contribution file's employer and in-kind description columns are
   not loaded at all.
