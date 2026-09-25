@@ -319,9 +319,36 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
   district, election and party (one slip of spelling allowed) and every gift is divided equally among them; a member's
   own committee paying into the joint committee is "moved in"; a business coded B under a person's own name (a doctor's
   practice) is counted with people; a few dates are typed as 3026, filed under the account's election year; no outside
-  spending (expenditures name payees only, Form IND reports are PDFs). Loaders still to write: New York; Oregon has no
-  bulk file (ORESTAR export only); North Dakota 2025-26 only; Wisconsin waits on John's robots.txt answer; South Dakota
-  has PDFs only.
+  spending (expenditures name payees only, Form IND reports are PDFs). New York's lessons: publicreporting.elections.ny.gov
+  and the file host cfapp.elections.ny.gov sit behind a Cloudflare challenge that a plain fetch cannot pass and must not
+  be worked around; the Browser pane passes it, and a JavaScript result larger than the tool's limit is saved to a file
+  under the session's tool-results folder, so the Bulk Download files were carried out of the pane as base64 pieces
+  (in-page `fetch` after `POST /DownloadCampaignFinanceData/SetSessions/` {lstDateType, lstUCYearDCF, lstFilingDesc},
+  then `GET /DownloadCampaignFinanceData/DownloadZipFile?...`; 30 MB slices tagged `ZIPB64:<name>.partNN:<len>:<b64>`,
+  decoded and joined into `states_cache/ny_boe/`). `states/money_ny.py` therefore downloads nothing and reads what is
+  there: ALL_REPORTS_StateCommittee.zip (year All, type State Committee: every state-level committee's transactions
+  since 1999, 441 MB zipped, 11.9M rows), ALL_REPORTS_StateCandidate.zip, any one-year period file (2025jul.zip and the
+  like, read last so a newer copy of a transaction wins), filers.json (the List of Filers page's data, `POST
+  /ActiveDeactiveFiler/GetSearchListOfFilersData` lstDateType=All: 64,677 filers with id, name, candidate or committee,
+  office, district, status) and links.json (which candidates each authorized committee was formed for: `POST
+  /ActiveDeactiveFiler/GetSearchListOfFilersCandidateData` strFilerID=, one call per committee, run as a loop inside
+  the pane). The all-years files carry FILER_PREVIOUS_ID as their second column and the period files do not (59 against
+  58 columns); the guide's 45 named fields are followed by public-financing flags and the giver's employer, occupation
+  and address, which are never read. Every transaction has a TRANS_NUMBER (an amended report repeats it: keep the last
+  copy). Schedules: A individuals and partnerships (CNTRBR_TYPE_DESC Individual, Partnership, Candidate/Candidate Spouse,
+  Candidate Family Member, Sole Proprietorship, Unitemized), B corporations, C all other (PAC, Political Committee,
+  Union, PLLC/LLC, Association, Other), D in-kind, E other receipts, G transfers in (Type 1 from a party committee, Type
+  2 between the candidate's own committees: moved in), I loans, M contributions refunded (netted), L expenditure refunds,
+  P housekeeping, S public funds; F, H, J, K, N, O, Q, T, U are spending, liabilities and the owners behind an LLC. A
+  candidate's register row carries only their latest office, so a member is matched by name whatever the chamber, and
+  a candidacy for the member's own seat under another given name (Palmo for Paul) counts only when registered in the
+  member's own time; relatives and predecessors hold the same seats often (Weprin, Wright, Hevesi). A committee the
+  Board lists for several distinct people (the same person registered twice is one) is shared equally, as New Jersey's
+  joint committees are; rows are keyed by (filer, schedule, TRANS_NUMBER) because a transfer's two sides can share a number. Schedule R rows carry an
+  office and district but no candidate name, so no outside spending. Names come title-cased; the leadership committees
+  are spelled many ways (DACC, NYS Democratic Assembly Campaign Committee...), folded by `donor_key`. Loaders still to
+  write: Oregon has no bulk file (ORESTAR export only); North Dakota 2025-26 only; Wisconsin waits on John's robots.txt
+  answer; South Dakota has PDFs only.
 - Free text can name a person, so none of it reaches the site: outside spending's "purpose" column stays in the
   database and is never written to a page, and the contribution file's employer and in-kind description columns are
   not loaded at all.

@@ -526,7 +526,7 @@ def main():
     for jid, who in joint_members.items():
         j = joint_by_id[jid]
         for bio, office in who.items():
-            committees.append((f"nj:{jid}:{bio}", f"{j['ENTITYNAME']} · {j['ELECTIONYEAR']} {j['ELECTIONTYPE'].lower()} (joint candidates committee, {joint_shares[jid]} candidates)", office, bio))
+            committees.append((f"nj:{jid}:{bio}", f"{j['ENTITYNAME']} · {j['ELECTIONYEAR']} {j['ELECTIONTYPE'].lower()} (shared by {joint_shares[jid]} candidates)", office, bio))
     with con:
         for t in ("state_committees", "state_gifts", "state_sources", "state_outside"):
             con.execute(f"DELETE FROM {t}")

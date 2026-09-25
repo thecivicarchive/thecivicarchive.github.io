@@ -448,7 +448,9 @@ PLACES = {
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Democratic/Working Families": ("D", "Democratic/Working Families"), "Republican": ("R", "Republican"),
                     "Republican/Conservative": ("R", "Republican/Conservative"), "Working Families": ("I", "Working Families"), "Independent": ("I", "Independent")},
-        "money": None,
+        "money": "ny_boe",                     # states/money_ny.py: the State Board of Elections' bulk download, carried out of the Browser pane by hand (its site blocks scripts)
+        "money_agency": {"name": "the New York State Board of Elections", "url": "https://publicreporting.elections.ny.gov/DownloadCampaignFinanceData/DownloadCampaignFinanceData"},
+        "money_rule": "Campaigns list every giver of more than $99 by name and smaller gifts as one sum, counted here as people or other receipts. The Board codes every giver by kind, so political committees and PACs, party committees, other candidates' committees, unions, and the corporations, LLCs, partnerships and associations New York lets give directly are named here as the campaign reported them; a giver filed with no kind is read from its name. The candidate's own money and the candidate's spouse's, which the Board files under one code, count as own money. The committees counted are the ones the Board lists as authorized for the member's Senate or Assembly candidacy, plus the member's own filings as a candidate; a committee tied only to a run for another office is left out. The Board's bulk file records independent spending by office and district but not by candidate, so no outside spending is shown for New York.",
     },
     "nj": {
         "code": "NJ", "name": "New Jersey", "fips": "34",

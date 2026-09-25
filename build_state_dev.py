@@ -551,7 +551,7 @@ def render(P, data, version, base_url, analytics):
             'When __NAME__\'s is in, it follows the same rule as everywhere here: organizations are named, people are only ever totals, and outside spending is kept apart. '
             '<a href="../mn/">See how it looks for Minnesota</a></div>'),
         "__MONEY_SOURCE_CARD__": (
-            '<div class="labelcard rv" style="--i:2"><span class="tag fact">Fact</span><h3>Campaign money</h3><p><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a>\'s public downloads: gifts to candidates\' committees, '
+            '<div class="labelcard rv" style="--i:2"><span class="tag fact">Fact</span><h3>Campaign money</h3><p><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a>__AGENCY_POSS__ public downloads: gifts tocandidates\' committees, '
             'and independent spending for or against candidates. Organizations are named; people who gave, lobbyists included, are only ever counted in totals. Outside spending is always shown apart from donations, '
             'because the campaign never received it.' + ((" " + html_attr(P["money_credit"])) if P.get("money_credit") else "") + '</p></div>' if money else
             '<div class="labelcard rv" style="--i:2"><span class="tag analysis">Coming</span><h3>Campaign money</h3><p>Not loaded for __NAME__ yet. Every state keeps its own campaign-finance records, so they are added one state at a time, '
@@ -569,6 +569,7 @@ def render(P, data, version, base_url, analytics):
             .replace("__CHAMBERS__", html_attr(both)).replace("__TITLES__", html_attr(titles)).replace("__H1FIT__", f"{fit:.2f}")
             .replace("__MEMBERS__", f"{st['members']:,}").replace("__GENERATED__", data["generated"])
             .replace("__VINTAGE__", html_attr(data["districts"].get("vintage") or "Census Bureau cartographic boundary files"))
+            .replace("__AGENCY_POSS__", "'" if (agency.get("name") or "").endswith("s") else "'s")
             .replace("__AGENCY__", html_attr(agency.get("name") or "the state's campaign-finance agency"))
             .replace("__AGENCY_URL__", html_attr(agency.get("url") or "#"))
             .replace("__LEG_URL__", html_attr(P.get("url") or "#")).replace("__CODE__", P["code"]))
@@ -1525,7 +1526,7 @@ function moneyCardBody(id, view){
     ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organization${top.length === 1 ? "" : "s"} that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm">${donorName(d[2], d[0], d[1])}${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this segment"}.</p>`}
     ${(out[0] || out[1]) ? `<p class="mny-out">Separately, outside groups spent <b>${usd(out[0])}</b> to support and <b>${usd(out[1])}</b> to oppose. None of that went to the campaign.</p>` : ""}`;
 }
-const MONEY_RULE = `From ${esc(AGENCY)}'s public files. ${P.money_rule ? esc(P.money_rule) + " " : ""}Organizations are named: political committees and funds, party committees and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.${P.money_credit ? " " + esc(P.money_credit) : ""}`;
+const MONEY_RULE = `From ${esc(AGENCY)}${AGENCY.endsWith("s") ? "'" : "'s"} public files.${P.money_rule ? esc(P.money_rule) + " " : ""}Organizations are named: political committees and funds, party committees and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.${P.money_credit ? " " + esc(P.money_credit) : ""}`;
 function moneyCard(id){
   const M = MONEY[id].M, views = ["all"].concat(M.cycles.map(String)).filter(v => (M.top || {})[v] || (M.totals || {})[v]), start = "all";
   return `<div class="know-b money" data-money="${esc(id)}"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4>
@@ -1589,7 +1590,7 @@ function renderMoney(id, M, L, show){
     const cols = colsFor(view, "Organization").concat(view === "all" ? M.cycles.slice().reverse().map(y => ({key: "y" + y, label: segLabel(y), num: true, val: r => (r.c[y] || [0])[0] || null, html: r => r.c[y] ? usd(r.c[y][0]) : ""})) : []);
     const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => a + b, 0) : ((D.moved || {})[view] || 0);
     const shared = D.shared || [];
-    const sharedNote = shared.length ? `Includes ${esc(last)}'s equal share of ${shared.length === 1 ? "a joint candidates committee" : `${shared.length} joint candidates committees`} raised with running mates, divided among the candidates each was formed for: ${shared.map(s => `${esc(s.n)} (${s.k} candidates; ${s.y.join(", ")})`).join("; ")}. ` : "";
+    const sharedNote = shared.length ? `Includes ${esc(last)}'s equal share of ${shared.length === 1 ? "a committee" : `${shared.length} committees`} formed for several candidates together, divided equally among the candidates each was formed for: ${shared.map(s => `${esc(s.n)} (${s.k} candidates${s.y.length ? "; " + s.y.join(", ") : ""})`).join("; ")}. ` : "";
     host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${mv ? `Not counted as a donor: ${usd(mv)} moved in from ${esc(last)}'s own earlier committee. ` : ""}${sharedNote}Every organization on file is listed; nothing is cut off. ${MONEY_RULE}</p>`;
     table = gridTable($("#mnytable"), {cols, rows: rows.filter(r => !off.has(r.k)), sort: [{key: "total", dir: "desc"}], page: 25, rowId: r => r.id, detail: r => pays(r, view), empty: "No organization's gift is on file for this choice.",
       count: rs => `${rs.length.toLocaleString()} organization${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r._t, 0))}`,

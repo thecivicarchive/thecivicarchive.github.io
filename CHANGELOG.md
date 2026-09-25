@@ -10,6 +10,42 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.042 — 2026-09-25 — New York's campaign money
+
+- New York is the ninth state with its campaign money loaded, from the
+  State Board of Elections' public reporting system: its bulk download of
+  every itemized transaction filed since 1999, its register of every filer,
+  and its own list of the candidates each authorized committee was formed
+  for. The Board's site turns scripts away at the door, so the files were
+  carried out of the browser by hand and the loader reads them from disk;
+  a newer one-year file dropped beside them replaces what it repeats. All
+  212 sitting legislators are matched: their own candidate filings, 275
+  authorized committees, and 9 committees the Board lists for several
+  candidates, which are divided equally among them as New Jersey's joint
+  committees are. Since 2015 the campaigns took $85 million from named
+  organizations, $54 million from people as totals, and $3 million in
+  loans.
+- The Board codes every giver, so political committees and PACs, party
+  and campaign committees, other candidates' committees, unions, and the
+  corporations, LLCs, partnerships and associations New York lets give
+  directly are named as filed; the candidate's own money and the spouse's,
+  which the Board files under one code, count as own money; a professional
+  practice under a person's own name is counted with people. A transfer
+  between two of a member's own committees is "moved in", not a donor. The
+  leadership committees give most of all: the Democratic Assembly Campaign
+  Committee and the Democratic Senate Campaign Committee gave sitting
+  members more than $7 million between them, under a dozen spellings the
+  loader folds into one.
+- A member's register entry carries only their latest office, and New
+  York seats often pass between relatives and predecessors of the same
+  name (Weprin, Wright, Hevesi), so a candidacy is the member's by name
+  first, and by the seat alone only when registered in the member's own
+  time. A committee tied to a member's run for another office is left out
+  and listed. No outside spending is shown for New York: the Board's file
+  records independent spending by office and district, not by candidate.
+- The member page's sentence about shared committees now serves any state
+  whose agency lists a committee for several candidates.
+
 ## v4.0.041 — 2026-09-25 — New Jersey's campaign money
 
 - New Jersey is the eighth state with its campaign money loaded, from the

@@ -42,7 +42,7 @@ FILES = {"contributions_candidates.csv": "-2026985457", "independent_expenditure
 ORG = {"Political Committee/Fund": "pcf", "Party Unit": "party", "Candidate Committee": "cand"}
 PERSON = {"Individual": "people", "Lobbyist": "lobbyists", "Self": "self"}
 SPENDER = {"PTU": "party", "PCF": "pcf", "PCC": "cand"}
-NICK = [{"william", "bill", "will"}, {"robert", "bob", "rob", "bobby"}, {"james", "jim", "jimmy"}, {"thomas", "tom"}, {"michael", "mike"},
+NICK = [{"william", "bill", "will"}, {"robert", "bob", "rob", "bobby"}, {"james", "jim", "jimmy"}, {"thomas", "tom", "tommy"}, {"michael", "mike"},
         {"david", "dave"}, {"steven", "stephen", "steve"}, {"elizabeth", "liz", "beth", "betsy"}, {"katherine", "kathryn", "kathleen", "kathy", "kate", "katie"},
         {"patricia", "pat", "patty", "tricia"}, {"patrick", "pat"}, {"matthew", "matt"}, {"daniel", "dan", "danny"}, {"andrew", "andy", "drew"},
         {"richard", "rick", "rich", "dick"}, {"gregory", "greg"}, {"jeffrey", "jeff"}, {"ronald", "ron"}, {"timothy", "tim"}, {"samuel", "samantha", "sam"},
