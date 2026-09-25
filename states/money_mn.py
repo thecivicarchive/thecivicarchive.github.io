@@ -51,7 +51,8 @@ NICK = [{"william", "bill", "will"}, {"robert", "bob", "rob", "bobby"}, {"james"
         {"donald", "don"}, {"douglas", "doug"}, {"gerald", "jerry"}, {"john", "jon", "jack"}, {"charles", "chuck", "charlie"}, {"nathan", "nate"},
         {"zachary", "zach", "zack"}, {"joshua", "josh"}, {"jacob", "jake"}, {"alexander", "alex"}, {"rebecca", "becky"}, {"deborah", "debra", "deb"},
         {"margaret", "peggy", "maggie", "meg"}, {"pamela", "pam"}, {"cynthia", "cindy"}, {"judith", "judy"}, {"bradley", "brad"}, {"frederick", "fred"},
-        {"sandra", "sandy"}, {"bernadette", "bernard", "bernie"}, {"virginia", "ginny"}, {"patricia", "patti", "patty"}, {"james", "jamie"}]
+        {"sandra", "sandy"}, {"bernadette", "bernard", "bernie"}, {"virginia", "ginny"}, {"patricia", "patti", "patty"}, {"james", "jamie"},
+        {"alexandra", "ali", "alex", "lexi"}]
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS state_committees (reg_num TEXT PRIMARY KEY, name TEXT, office TEXT, bioguide_id TEXT);

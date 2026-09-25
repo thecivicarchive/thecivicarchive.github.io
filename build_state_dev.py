@@ -650,7 +650,7 @@ def write_site(folder, html, data):
 
 EXTRA_CSS = r"""
 /* ---- only on the state pages ---- */
-:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A;--k-biz:#E8B44A;--k-union:#B49BF2;--k-org:#7E9BFF;--m-biz:#E8B44A;--m-union:#B49BF2;--m-org:#7E9BFF}
+:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A;--k-biz:#E8B44A;--k-union:#B49BF2;--k-org:#7E9BFF;--k-unnamed:#6B7079;--m-biz:#E8B44A;--m-union:#B49BF2;--m-org:#7E9BFF}
 .hero h1{font-size:calc(clamp(44px,16.2vw,118px) * var(--fit,1))}
 @media (min-width:960px){.hero h1{font-size:calc(clamp(96px,11.2vw,148px) * var(--fit,1))}}
 .hero::after{display:none}

@@ -239,7 +239,6 @@ PLACES = {
         "zooms": [{"name": "Denver", "box": [-105.20, 39.55, -104.70, 39.95]}, {"name": "Colorado Springs", "box": [-105.00, 38.70, -104.60, 39.00]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
     },
     "ut": {
         "code": "UT", "name": "Utah", "fips": "49",
@@ -373,7 +372,6 @@ PLACES = {
                   {"name": "San Antonio", "box": [-98.80, 29.20, -98.25, 29.70]}, {"name": "Austin", "box": [-98.00, 30.05, -97.50, 30.55]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
     },
     "nm": {
         "code": "NM", "name": "New Mexico", "fips": "35",
@@ -437,7 +435,6 @@ PLACES = {
         "zooms": [{"name": "Seattle and Tacoma", "box": [-122.60, 47.15, -122.05, 47.85]}, {"name": "Spokane", "box": [-117.60, 47.52, -117.20, 47.78]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
     },
     # The fifth and last ring (2026-09-23): the fifteen states that touch none of the thirty-five above by land, and
     # the two that touch nothing at all. "next" for a staggered Senate is filled in only after the roster check.
@@ -596,7 +593,9 @@ PLACES = {
                   {"name": "San Diego", "box": [-117.35, 32.55, -116.85, 33.10]}, {"name": "Sacramento", "box": [-121.65, 38.40, -121.25, 38.75]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent"), "No Party Preference": ("I", "No party preference")},
-        "money": None,
+        "money": "ca_calaccess",               # states/money_ca.py: the Secretary of State's Cal-Access raw data export, every table as text
+        "money_agency": {"name": "the California Secretary of State", "url": "https://www.sos.ca.gov/campaign-lobbying/cal-access-resources/raw-data-campaign-finance-and-lobbying-activity"},
+        "money_rule": "Campaigns list every giver of $100 or more in a year by name on their Form 460 statements and report smaller gifts as one sum, counted here as other receipts. California lets businesses, unions, tribes and associations give to candidates directly, within limits, and Cal-Access files them all under one code, so they are named as the campaign reported them and labelled other organizations. The committees counted are the ones for the Assembly or Senate seat (candidate committees, officeholder accounts and legal defense funds); a legislator's ballot measure committee and a committee for another office are left out. The record runs through the last semi-annual or pre-election statement on file. Outside spending is read from the schedules on which a spender names the candidate; a major donor filing on its own is named only when its name shows it to be an organization, because the file does not tell a business from a person.",
     },
     "ak": {
         "code": "AK", "name": "Alaska", "fips": "02",

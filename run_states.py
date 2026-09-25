@@ -105,7 +105,8 @@ def check(code, db, districts):
         g, o = one("SELECT COALESCE(SUM(amount), 0) FROM state_gifts"), one("SELECT COALESCE(SUM(amount), 0) FROM state_outside")
         y0, y1 = con.execute("SELECT MIN(year), MAX(year) FROM state_sources").fetchone()
         lines.append(f"| Campaign money, {y0} to {y1} | {m} of {cur} members matched to a committee; ${g / 1e6:,.1f}M from named organizations; ${o / 1e6:,.1f}M of outside spending |")
-        named = one("SELECT COUNT(*) FROM state_gifts WHERE donor_kind NOT IN ('pcf', 'party', 'cand')")
+        from states.money_views import KINDS                              # the kinds a page may name; anything else must never carry a name
+        named = one(f"SELECT COUNT(*) FROM state_gifts WHERE donor_kind NOT IN ({','.join('?' * len(KINDS))}) OR donor_kind = 'unnamed'", *KINDS)
         if named:
             waiting.append(f"{named} gift row(s) carry a donor kind that should not be named; check the money loader")
     elif P.get("money"):
@@ -164,6 +165,8 @@ def main():
                 run("states.money_co", "--db", db, "--cache-dir", cache, "--since", "2015")
             elif P.get("money") == "tx_tec":
                 run("states.money_tx", "--db", db, "--cache-dir", cache, "--since", "2015")
+            elif P.get("money") == "ca_calaccess":
+                run("states.money_ca", "--db", db, "--cache-dir", cache, "--since", "2015")
             else:
                 say(f"  No campaign-money loader for {P['name']} yet; the site will say it is coming.")
         elif st == "check":

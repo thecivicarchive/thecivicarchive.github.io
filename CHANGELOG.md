@@ -10,6 +10,64 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.039 — 2026-09-25 — California's campaign money
+
+- California is the sixth state with its campaign money loaded, from the
+  Secretary of State's Cal-Access raw data export: every table of the
+  Cal-Access database as plain text (1.6 GB, refreshed daily, no account).
+  All 119 sitting legislators are matched to their committees, 453 in all,
+  with 315,090 receipts since 2015: $394 million from named organizations
+  and $82 million from people, as totals. Outside groups spent $123 million
+  to support sitting members and $34 million to oppose them; that money is
+  shown apart, because the campaigns never received it.
+- A legislator's committees are found two ways that check each other: the
+  cover page of every campaign statement names the candidate, office and
+  district, and the Secretary's own candidate records tie every committee a
+  person controls to one record, whatever the committee is called (and
+  however the Secretary spelled the name). Only the committees for the
+  Assembly or Senate seat count, and only their statements whose own cover
+  page names that seat: candidate committees, officeholder accounts and
+  legal defense funds. A legislator's ballot measure committee (75 found), a
+  general purpose committee (1) and a committee for another office (57, from
+  Insurance Commissioner to a city council, including a namesake's account
+  the Secretary had filed under the same record) are left out, and the
+  run lists every one so they can be read.
+- California lets businesses, unions, tribes and associations give to
+  candidates directly, within limits, and Cal-Access files them all under one
+  code, so they are named as the campaign reported them and labelled other
+  organizations: $114 million, led by the Pechanga Band of Indians, the Yocha
+  Dehe Wintun Nation, the Barona Band of Mission Indians, Sempra Energy and
+  Anheuser-Busch. The parties fund legislative campaigns here too: the
+  California Democratic Party gave sitting members $39 million and the
+  California Republican Party $14 million.
+- Campaigns do not always use the file's codes as meant, so names are read
+  too. A giver filed as a business or a committee whose name reads like a
+  person's, a person doing business under a name, a professional with a
+  credential, a family or living trust, an estate, a person "and affiliated
+  entities" or a major donor registered under a person's name is counted with
+  people and never named (605 rows, $0.75 million); a contact person's name
+  written after a business's name is cut off before the name is kept (about
+  1,200 such names). A business named after its owner may be hidden this way;
+  a person is never shown. Outside spenders filing on their own as major
+  donors are named only when their names show them to be organizations.
+- Money is counted once. A transfer between committees, which Cal-Access
+  attributes to the original givers, is recorded as coming from the committee
+  the money left, so money a member moved between their own committees shows
+  as "moved in" rather than as fresh gifts (14,971 transfers); a statement
+  filed twice under two filing numbers counts once (124 found); a loan from
+  the member's own committee is that committee's money, not a loan; a
+  forgiven loan is not counted again as a gift; an amended statement replaces
+  the original (222,975 rows on superseded statements were set aside).
+- What the record leaves out, and says so: gifts under $100 arrive as one
+  sum per statement (counted as other receipts), and late-contribution
+  reports are skipped because the same gifts appear on the next statement.
+- Also fixed: the state list carried a second, empty money setting after
+  Colorado's, Texas's and Washington's, so the runner's money stage and
+  report for those states said no loader existed even though their money
+  was loaded; the check stage's warning about named givers now knows the
+  business, union and organization kinds; a new kind, "Not named here",
+  pools outside spenders a file cannot tell from people.
+
 ## v4.0.038 — 2026-09-24 — Texas's campaign money
 
 - Texas is the fifth state with its campaign money loaded, from the Texas
