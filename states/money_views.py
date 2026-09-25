@@ -126,6 +126,15 @@ def build_state_money(con, legislators):
                 c[3] = n if c[3] is None else max(c[3], n)
             d["_p"][(n, seg, 0)] = d["_p"].get((n, seg, 0), 0.0) + amount
 
+    # committees a member shared with running mates (New Jersey's joint candidates committees): the loader files them as
+    # "TITLE · 2025 general (joint candidates committee, 3 candidates)", one row per member, so the page can name them
+    shared = {}
+    for reg, name, bio in con.execute("SELECT reg_num, name, bioguide_id FROM state_committees WHERE name LIKE '%(joint candidates committee, %'"):
+        m = re.match(r"(.*?) · (\d{4}) \w+ \(joint candidates committee, (\d+) candidates?\)$", name or "")
+        if m and bio in legislators:
+            s = shared.setdefault(bio, {}).setdefault(m.group(1), {"n": m.group(1), "y": set(), "k": int(m.group(3))})
+            s["y"].add(int(m.group(2)))
+
     sources, offices = {}, {}
     for bio, office, year, source, amount in con.execute("SELECT bioguide_id, office, year, source, amount FROM state_sources"):
         if bio not in legislators:
@@ -184,6 +193,8 @@ def build_state_money(con, legislators):
         profiles[bio] = m
         members[bio] = {"donors": mine, "for": side["for"], "against": side["against"],
                         "moved": {str(s): round(a, 2) for s, a in (moved.get(bio) or {}).items()}}
+        if shared.get(bio):
+            members[bio]["shared"] = [{"n": s["n"], "y": sorted(s["y"]), "k": s["k"]} for s in sorted(shared[bio].values(), key=lambda s: (-max(s["y"]), s["n"]))]
         grand["orgs"] += summ["all"][0]
         grand["org_names"] |= {d["id"] for d in mine}
         grand["for"] += out["all"][0]

@@ -10,6 +10,42 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.041 — 2026-09-25 — New Jersey's campaign money
+
+- New Jersey is the eighth state with its campaign money loaded, from the
+  Election Law Enforcement Commission's own reports and data search system.
+  The Commission publishes no bulk file any more; the loader asks its search
+  pages' data calls the way the pages themselves do, once for the register
+  of every Senate and Assembly candidacy and every joint candidates
+  committee, and once per chamber and election year for the contributions
+  (kept for a month). All 120 sitting legislators are matched: 877 of their
+  own campaign accounts with money since 2015, plus 366 joint candidates
+  committees that 78 of them raised through. $128 million came from named
+  organizations, $36 million from people as totals, and $4 million in loans.
+- New Jersey candidates raise much of their money together: a district's
+  senator and two Assembly members of one party form a joint candidates
+  committee, named for them ("Sarlo Schaer & Calabrese"), and the Commission
+  files it as a committee of its own. The loader reads which candidates a
+  joint committee was formed for from the names in its title, checked
+  against the Commission's register of that district's candidates, and
+  divides every gift equally among them. A member's page names every joint
+  committee their share came through. A member's own committee paying into
+  their joint committee, or the joint committee passing money on to the
+  member's own account, is the member's money moving and shows as
+  "moved in", not as a donor.
+- The Commission codes every giver by kind, so political committees, party
+  and legislative leadership committees, other candidates' committees, and
+  the businesses and unions New Jersey lets give directly are named as
+  filed. A giver filed with no kind is read from its name, and a business
+  filed under a person's own name (a doctor's or accountant's practice) is
+  counted with people, so that a person is never shown. New Jersey's
+  legislative leadership committees fund campaigns most of all: the
+  Democratic Assembly Campaign Committee, the Senate Democratic Majority
+  and the Republican State Committee gave sitting members $8 million between
+  them. No outside spending is shown for New Jersey: the Commission's
+  expenditure records name payees and purposes, not the candidate a
+  committee spent for or against.
+
 ## v4.0.040 — 2026-09-25 — Florida's campaign money
 
 - Florida is the seventh state with its campaign money loaded, from the

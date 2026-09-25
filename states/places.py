@@ -460,7 +460,9 @@ PLACES = {
         "zooms": [{"name": "North Jersey", "box": [-74.45, 40.55, -73.90, 40.98]}, {"name": "Camden and Trenton", "box": [-75.20, 39.85, -74.65, 40.30]}],
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent")},
-        "money": None,
+        "money": "nj_elec",                    # states/money_nj.py: the Election Law Enforcement Commission's reports and data search system, asked the way its own pages ask
+        "money_agency": {"name": "the New Jersey Election Law Enforcement Commission", "url": "https://www.njelecefilesearch.com/SearchContributionToEntity"},
+        "money_rule": "The Commission codes every giver by kind, so political committees, party and legislative leadership committees, other candidates' committees, and the businesses and unions New Jersey lets give directly are named here as the campaign reported them; a giver filed with no kind is read from its name, and counted with people when the name looks like a person's. Campaigns itemize gifts above the Commission's threshold and report smaller ones as one sum, counted here as other receipts. New Jersey's legislative candidates raise much of their money through joint candidates committees, one committee for a district's running mates: a gift to a joint committee is divided here equally among the candidates the committee was formed for, and a member's page names the joint committees their share came through. The Commission's expenditure records do not say which candidate an independent spender supported or opposed, so no outside spending is shown for New Jersey.",
     },
     "de": {
         "code": "DE", "name": "Delaware", "fips": "10",

@@ -1588,7 +1588,9 @@ function renderMoney(id, M, L, show){
     curRows = rows; drawChart(rows);
     const cols = colsFor(view, "Organization").concat(view === "all" ? M.cycles.slice().reverse().map(y => ({key: "y" + y, label: segLabel(y), num: true, val: r => (r.c[y] || [0])[0] || null, html: r => r.c[y] ? usd(r.c[y][0]) : ""})) : []);
     const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => a + b, 0) : ((D.moved || {})[view] || 0);
-    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${mv ? `Not counted as a donor: ${usd(mv)} moved in from ${esc(last)}'s own earlier committee. ` : ""}Every organization on file is listed; nothing is cut off. ${MONEY_RULE}</p>`;
+    const shared = D.shared || [];
+    const sharedNote = shared.length ? `Includes ${esc(last)}'s equal share of ${shared.length === 1 ? "a joint candidates committee" : `${shared.length} joint candidates committees`} raised with running mates, divided among the candidates each was formed for: ${shared.map(s => `${esc(s.n)} (${s.k} candidates; ${s.y.join(", ")})`).join("; ")}. ` : "";
+    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${mv ? `Not counted as a donor: ${usd(mv)} moved in from ${esc(last)}'s own earlier committee. ` : ""}${sharedNote}Every organization on file is listed; nothing is cut off. ${MONEY_RULE}</p>`;
     table = gridTable($("#mnytable"), {cols, rows: rows.filter(r => !off.has(r.k)), sort: [{key: "total", dir: "desc"}], page: 25, rowId: r => r.id, detail: r => pays(r, view), empty: "No organization's gift is on file for this choice.",
       count: rs => `${rs.length.toLocaleString()} organization${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r._t, 0))}`,
       onHover: r => { $$("#tmap button").forEach(b => b.classList.toggle("hot", !!r && b.dataset.id === r.id)); }});

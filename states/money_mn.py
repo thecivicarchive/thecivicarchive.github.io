@@ -52,7 +52,7 @@ NICK = [{"william", "bill", "will"}, {"robert", "bob", "rob", "bobby"}, {"james"
         {"zachary", "zach", "zack"}, {"joshua", "josh"}, {"jacob", "jake"}, {"alexander", "alex"}, {"rebecca", "becky"}, {"deborah", "debra", "deb"},
         {"margaret", "peggy", "maggie", "meg"}, {"pamela", "pam"}, {"cynthia", "cindy"}, {"judith", "judy"}, {"bradley", "brad"}, {"frederick", "fred"},
         {"sandra", "sandy"}, {"bernadette", "bernard", "bernie"}, {"virginia", "ginny"}, {"patricia", "patti", "patty"}, {"james", "jamie"},
-        {"alexandra", "ali", "alex", "lexi"}]
+        {"alexandra", "ali", "alex", "lexi"}, {"vincent", "vinnie", "vince", "vin"}]
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS state_committees (reg_num TEXT PRIMARY KEY, name TEXT, office TEXT, bioguide_id TEXT);
