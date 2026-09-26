@@ -10,6 +10,25 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.043 — 2026-09-26 — The local level opens: Minnesota's counties
+
+- The front door's third card, County and city, opens for the first time,
+  onto Minnesota's 87 counties: one map of every county, drawn from the
+  Census Bureau's boundary file and sitting exactly inside the state
+  outline the site already uses, a card for each county, and a page for
+  each county's offices. The page says plainly what is not loaded yet.
+- Who holds each county office will come from one source only, the
+  Secretary of State's official election results, read from the results
+  files the Secretary publishes for each election: the winner of every
+  county office on the ballot, with the votes, the election date and the
+  term the office carries. The loader for those files is written and
+  waiting; the Secretary's results site turns scripts away, so the files
+  are downloaded by hand. Every county office in Minnesota is nonpartisan
+  on the ballot, so the pages show no party and guess none.
+- New pieces: `run_local.py` (counties, results, check, site),
+  `states/load_counties.py`, `states/load_local_results.py`,
+  `build_local_dev.py`. The state pages and the money loaders are unchanged.
+
 ## v4.0.042 — 2026-09-25 — New York's campaign money
 
 - New York is the ninth state with its campaign money loaded, from the

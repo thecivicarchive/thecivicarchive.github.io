@@ -411,6 +411,35 @@ district file `state_<code>_districts.json`, and a plain report `state_<code>_re
 - LegiScan and Open States do not cover Guam, and Puerto Rico's record is in Spanish with its own parties. Those two
   come last, with their own loaders.
 
+## The local level (Minnesota's counties first, from version 4.0.043)
+
+John's plan (2026-09-24): the same record for county boards, sheriffs, county attorneys, then mayors, councils and school
+boards, Minnesota first, then outward; party only from a partisan ballot, "nonpartisan office" where the law makes it so,
+never an estimate. Everything goes through `run_local.py`: `python run_local.py mn` runs counties, results, check and
+site; one stage by name. Files next to the script: `local_<code>.sqlite`, `local_<code>_counties.json`,
+`local_<code>_report.md`; pages in `site/dev/<code>/counties/` (one page, hash-routed, `#c=<county fips>`), built by
+`build_local_dev.py`, which borrows the federal stylesheet; the front door's third card opens it (`local_facts` in
+`build_door.py`).
+
+- `states/load_counties.py`: county lines from the Census Bureau's national county file (cb_<year>_us_county_500k.zip,
+  11 MB, cached in `states_cache/census/`), projected like the state districts, with the file's SHA-256.
+- `states/load_local_results.py`: who holds each county office, from the Minnesota Secretary of State's official
+  results, read from the "media results" text files (semicolon-separated: state, county id, precinct, office id,
+  office name, district, candidate order, candidate name, suffix, incumbent, party, precincts reporting, precincts
+  total, votes, percent, office total; check this layout against the real files). **The Secretary's results sites
+  (electionresults.sos.mn.gov, electionresultsfiles.sos.mn.gov, and www.sos.mn.gov after a few requests) answer this
+  machine with a Radware CAPTCHA, in the Browser pane too. Never solve or work around a CAPTCHA, and do not keep
+  requesting those hosts.** John downloads each election's Media Files text files in his own browser into
+  `states_cache/mn_local/sos/<yyyymmdd>/` (the November 2024 and November 2022 general elections cover every county
+  seat now held), and the loader reads whatever is there. Every county office in Minnesota is nonpartisan on the
+  ballot. The record shows winners and votes only; a resignation or appointment since is not in it, and the page says
+  the county's own site is the authority for today.
+- Commissioner district lines exist only county by county (Hennepin, Aitkin, Dakota and Ramsey publish feature
+  services on gis.data.mn.gov, whose search is `/api/search/v1/collections/all/items?q=`); school district lines
+  statewide from the Department of Education there. The state portal's county website list
+  (mn.gov/portal/government/local/counties/) answered once with 87 links and then with a short page: fetch it once,
+  keep it.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

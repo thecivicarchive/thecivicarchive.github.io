@@ -69,6 +69,25 @@ def state_facts(code, site_root):
     return out
 
 
+def local_facts(site_root):
+    """The local level: the first state whose county pages exist (Minnesota first), and what is on file there."""
+    for code in sorted(PLACES):
+        page = os.path.join(site_root, code, "counties", "index.html")
+        if not os.path.exists(page):
+            continue
+        out = {"code": PLACES[code]["code"], "name": PLACES[code]["name"], "live": True, "url": f"{code}/counties/", "counties": 0, "officials": 0}
+        lines = os.path.join(HERE, f"local_{code}_counties.json")
+        if os.path.exists(lines):
+            out["counties"] = len(json.load(open(lines, encoding="utf-8")).get("counties", {}))
+        db = os.path.join(HERE, f"local_{code}.sqlite")
+        if os.path.exists(db):
+            con = sqlite3.connect(db)
+            if con.execute("SELECT 1 FROM sqlite_master WHERE name = 'officials'").fetchone():
+                out["officials"] = con.execute("SELECT COUNT(*) FROM officials").fetchone()[0]
+        return out
+    return {"live": False}
+
+
 PAGE = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -263,7 +282,9 @@ const LEVELS = [
     facts: [[F.bills, "bills"], [F.votes, "recorded votes"], [F.members, "members"]], go: "Step inside", url: "us/", under: "The U.S. Congress"},
   {key: "state", tag: "State", title: mine ? `${mine.name}, and every state` : "Your state legislature", text: "The same record for state capitols: your districts, who represents them, how they voted and who funds them. Minnesota first, then outward.",
     facts: [[(DOOR.states || []).filter(s => s.live).length, "open now"], [(DOOR.states || []).filter(s => !s.live && s.loaded.length).length, "being built"], [56, "planned"]], go: "Choose a state", view: "states", under: "The states"},
-  {key: "local", tag: "County and city", title: "Closer to home", text: "County boards and city councils are not built yet. The ring has room for them.", facts: [], go: "Not built yet", soon: true}];
+  DOOR.local && DOOR.local.live ? {key: "local", tag: "County and city", title: `${DOOR.local.name}'s counties`, text: `The local level is opening, ${DOOR.local.name} first: every county on one map, and who holds each county office as the official election results record it. Cities and school boards follow.`,
+    facts: [[DOOR.local.counties, "counties"], [DOOR.local.officials, "county offices on file"]], go: "Step inside", url: DOOR.local.url, under: `${DOOR.local.name}'s counties`}
+  : {key: "local", tag: "County and city", title: "Closer to home", text: "County boards and city councils are not built yet. The ring has room for them.", facts: [], go: "Not built yet", soon: true}];
 const ring = $("#ring"), stage = $("#stage"), dots = $("#dots"), N = LEVELS.length, STEP = 2 * Math.PI / N;
 ring.innerHTML = LEVELS.map((L, i) => `<button class="lv${L.soon ? " soon" : ""}" type="button" data-i="${i}" aria-label="${esc(L.tag)}: ${esc(L.title)}"${L.soon ? ' aria-disabled="true"' : ""}>
   <span class="tag">${esc(L.tag)}</span><h2>${esc(L.title)}</h2><p>${esc(L.text)}</p><span class="art">${ART[L.key] || ""}</span>
@@ -382,6 +403,7 @@ def main():
             "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
             "version": version}
     data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
+    data["local"] = local_facts(site_root)
     wip = ('<div class="wip">WORK IN PROGRESS &mdash; this is a draft for feedback, not the real site. '
            '<a href="https://thecivicarchive.github.io/">Go to the live site</a></div>') if args.draft else ""
     html = (PAGE.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
