@@ -44,7 +44,8 @@ BORROWED = {
     "CSS": ("<style>", "</style>"),
     "THEME": ("/* ---------- theme ---------- */", "/* ---------- pieces ---------- */"),
     "MOTION": ("/* ---------- motion preference:", "const photo = id =>"),
-    "AVATAR": ("const photo = id =>", "const rvIO ="),
+    "AVATAR": ("const photo = id =>", "/* ---------- pop-outs: the detail behind a name, a rating or a step ----------"),
+    "POP": ("/* ---------- pop-outs: the detail behind a name, a rating or a step ----------", "/* ---------- end of pop-outs ---------- */"),
     "SHARE": ("const gcq = [];", "const shareTextBill"),
     "TOPBAR": ("/* ---------- top bar follows the dark map section ---------- */", "/* ---------- the chamber floor, in 3D ----------"),
     "ICONS": ("const ICO = {", "const contactRow ="),
@@ -758,7 +759,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <link rel="icon" href="icon-192.png" type="image/png">
 __ANALYTICS__
 <meta name="theme-color" content="#0C0E12">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -1120,6 +1121,7 @@ const store = {get(k){ try { return localStorage.getItem(k); } catch (e) { retur
 __THEME__
 __MOTION__
 __AVATAR__
+__POP__
 const SHARE_BASE = BOOT.base || location.href.split("#")[0].replace(/\/[^\/]*$/, "");
 __SHARE__
 __TOPBAR__
@@ -1131,6 +1133,23 @@ __SQUARIFY__
 __GEO__
 __LENS__
 /* ===== end of the shared parts ===== */
+
+/* ---------- who someone is, in brief: the card a name opens (this state's own records) ---------- */
+function personPop(el){
+  if (el.closest(".seats")) return "";
+  const id = el.dataset.id || decodeURIComponent(((el.getAttribute("href") || "").match(/^#member=([^/?#]+)/) || [])[1] || ""); if (!id) return "";
+  return membersReady().then(() => needMember(id).catch(() => ({}))).then(pf => {
+    const L = (DATA.legislators || {})[id]; if (!L) return "";
+    const S = pf.service || {}, C = pf.committees || [], M = pf.money, rows = [], sm = M && M.sum && M.sum.all;
+    const since = S.vague ? S.vague.charAt(0).toUpperCase() + S.vague.slice(1) : (S.since ? "Since " + S.since.slice(0, 4) : (sinceWords(L) ? "Since " + sinceWords(L) : ""));
+    if (since) rows.push(["In office", esc(since + (S.next ? ` \u00b7 on the ballot next in ${S.next}` : ""))]);
+    if (C.length) rows.push(["Committees", C.slice(0, 3).map(c => esc(c.name) + (c.title ? ` (${esc(c.title)})` : "")).join("; ") + (C.length > 3 ? esc(`; and ${C.length - 3} more`) : "")]);
+    if (sm && sm[0]) rows.push(["Campaign money", esc(`${usd(sm[0])} from ${Number(sm[1] || 0).toLocaleString()} organizations on file`)]);
+    const last = L.ln || String(L.n).split(" ").slice(-1)[0];
+    return `<div class="pc"><div class="pc-head">${avatar(id, L.p, "md")}<div><b>${esc(L.n)}</b><span class="muted">${esc(seatOf(L))} \u00b7 ${esc(L.pn || "")}</span></div></div>${factsHTML(rows)}${wikiHTML(pf.wiki)}<p class="pop-links"><a href="#member=${esc(id)}">Open ${esc(last)}'s page</a>${sm && sm[0] ? `<a href="#member=${esc(id)}/money">Who funds the campaign</a>` : ""}</p></div>`;
+  });
+}
+pop.add("a[href^='#member=']:not(.chip), button.ymem[data-id]", personPop);
 
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => $$(".rv:not(.obs)", root || document).forEach(el => { el.classList.add("obs"); rvIO.observe(el); });

@@ -97,7 +97,7 @@ PAGE = r"""<!DOCTYPE html>
 <meta name="description" content="One shared place for the public record: every bill, every recorded vote, who represents you and who funds them. Federal and state.">
 <meta name="version" content="__VERSION__">
 <meta name="theme-color" content="#0C0E12">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>

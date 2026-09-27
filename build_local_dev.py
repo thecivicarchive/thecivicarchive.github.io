@@ -71,7 +71,7 @@ PAGE = r"""<!DOCTYPE html>
 <title>__NAME__ counties: The Civic Archive</title>
 <meta name="description" content="Every county in __NAME__: its board, sheriff and county attorney as the official election results record them, on one map.">
 <meta name="version" content="__VERSION__">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>__CSS__</style>

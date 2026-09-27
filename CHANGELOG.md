@@ -10,6 +10,42 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.044 — 2026-09-27 — Light pages, name cards, the reasons behind every rating, and a bill's real path
+
+- Every page now opens light, on the white background, wherever you enter:
+  the front door, the federal pages, every state and the county pages. A
+  reader who switches to dark keeps dark; the choice is remembered.
+- Rest the pointer on a member's name, anywhere a name appears, and a short
+  card opens: portrait, seat and party, how long they have served and when
+  they are next on the ballot, what they sponsor, how often they voted and
+  broke with their party, their committees, and the first sentence of their
+  Wikipedia article, fenced off and labelled as not an official record. A
+  link opens their own page. State pages do the same with the state's own
+  records, including the campaign money on file.
+- Rest on a rating, or tap it, and its whole reasoning opens beside it:
+  where this bill sits and why, the evidence grade and what that grade
+  means, the confidence, the sources, how much is at stake, what the scale
+  means from end to end, and who made the rating, when, under which version
+  of the rubric, and whether a person has reviewed it. For "Who backed it"
+  the card shows the arithmetic itself: each party's yes votes on each
+  passage vote, the yes-rates, and how they make the number. Nothing about
+  a rating is hidden anywhere else.
+- A bill's path is no longer six fixed stops. It is every step the record
+  shows, in order, drawn in three lanes (House, Senate, President), so a
+  bill that goes back and forth between the chambers is drawn going back
+  and forth. H.R. 6644, for example, passed the House, was changed by the
+  Senate, changed again by the House, changed once more by the Senate,
+  accepted by the House, and became law without the President's signature;
+  all six trips are there with their dates. Steps still ahead are drawn
+  dashed. Every dot carries its date; rest on it, or tap it, for what
+  happened, the vote count with each party's yes and no votes, the votes
+  along the way such as cloture, and a link to the official roll call.
+- The Votes and path tab lists every step in order, in plain words, each
+  with its date, its chamber and the votes that decided it, with what each
+  committee did, and ends with the steps still ahead. The steps come from a
+  new `actions` stage that reads every action in the Bill Status files
+  already on this computer (68,407 of them, downloading nothing).
+
 ## v4.0.043 — 2026-09-26 — The local level opens: Minnesota's counties
 
 - The front door's third card, County and city, opens for the first time,

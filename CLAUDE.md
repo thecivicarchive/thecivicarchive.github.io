@@ -21,9 +21,9 @@ system-wide.
 | --- | --- | --- |
 | `python run_all.py check` | Python, packages, disk and network checks; downloads nothing | 10 s |
 | `python run_all.py smoke` | Offline test on 8 bundled bills | 10 s |
-| `python run_all.py` | Full build: check, roster, catalog, titles, rollcalls, profiles, donors, photos, districts, ratings, build, verify | 30 to 60 min the first time |
+| `python run_all.py` | Full build: check, roster, catalog, titles, actions, rollcalls, profiles, donors, photos, districts, ratings, build, verify | 30 to 60 min the first time |
 | `python run_all.py refresh` | Weekly update: re-downloads the catalog, then everything after it | 15 to 30 min |
-| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `rollcalls`, `profiles`, `donors`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
+| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `actions`, `rollcalls`, `profiles`, `donors`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
 
 First run order: `check`, then `smoke`, then the full build. Run long stages in the foreground and let them finish;
 the catalog prints progress every 1,000 files and the roll-call loader every 50 roll calls. If anything stops
@@ -100,6 +100,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `congress_catalog.py` | Downloads GovInfo Bill Status XML and loads the database (and Excel copy) |
 | `load_legislators.py` | Loads the member roster: age, years in Congress, phone, website, Senate ID crosswalk |
 | `load_titles.py` | Reads every title the record carries (the popular title, and the short title at each stage) from the cached Bill Status files into a `titles` table; downloads nothing |
+| `load_actions.py` | Every action of every measure, in the order it happened, from the cached Bill Status files into an `actions` table (68,407 rows; nothing downloaded; 8 seconds). The draft builds each measure's path from it |
 | `nicknames.json` | Names in common use that are not in the record, kept by hand; the draft site shows only entries John has approved |
 | `load_roll_calls.py` | Loads every linked House and Senate roll call, member by member, with a disk cache |
 | `load_profiles.py` | What the member cards say about who someone is: every term served, committee seats and official social accounts from the roster project, and the opening paragraph of their Wikipedia article (cached in `profile_cache/`, one polite request a second). The Wikipedia text is not a government record; the site fences it off, says so, credits it and links to it |
@@ -153,6 +154,26 @@ hundred donors, every payment, and outside spending; about 42 MB across all memb
 fetched only when a page needs them. The one-file archive carries each member's top ten donors only. The two share
 one page template and one code path, so a change to either is a change to both. When you change the page's
 code, test both: the fast site through the local server, the archive from its file.
+
+From version 4.0.044 (John, 2026-09-27) every draft page opens light (`||"light"` in each page's head script and in
+the theme code; a reader's saved choice still wins), and three kinds of pop-out card open beside what they explain, on
+hover, on keyboard focus, or on a tap: a name (`[data-person]`, any `a[href^="#member="]` that is not a chip, and the
+member buttons) opens a short card of record facts, the first sentence of the fenced Wikipedia paragraph, and links to
+the member's page and money; a rating bar (`[data-axis]`, with `data-bill`) opens its whole reasoning: position and range,
+justification, magnitude, grade and what it means, confidence, sources, the scale's definition, and who rated it, when and
+under which rubric, verbatim from `ratings.rater`; for "Who backed it" it shows the yes-rate arithmetic from the roll-call
+refs; a step on a bill's path (`[data-step]` inside `[data-path]`) opens what happened that day, the deciding vote with
+each party's yes and no, the votes along the way, and links to the roll call and the map. The engine is one landmarked
+block (`/* ---------- pop-outs: ...` to `/* ---------- end of pop-outs ---------- */`) that the state builder borrows as
+`POP`; each side writes its own `personPop` and registers it with `pop.add(selector, builder, {tap})`. A bill's path
+replaced the six fixed stops: `path_for` in `build_site_dev.py` reads the `actions` table into steps (introduced,
+committee, received, passed or failed, accepted or changed the other chamber's changes, disagreed or tabled, conference
+report, presented, signed, law without signature, vetoed, override, law), each stored compact as
+`[kind, lane, date, quick count, extras]` (extras: `d2`, `rp`, `out`, `chg`, `am`, `r` the deciding roll call, `law`,
+`desk`, `tbl`, `ok`); the page draws them in three lanes (House, Senate, President; the states for a constitutional
+amendment), adds dashed steps still ahead, files the measure's key votes under their steps (`filedVotes`), and lists every
+step in plain words in the Votes and path tab. What each committee did (`cnotes`) rides in the fast site's bill files
+only; the one-file archive leaves it out to stay under its budget.
 
 The fast site also carries share pages, written by `share_cards.py`: `b/<key>.html` for every bill with a full
 record, `v/<vote>.html` for every roll call and `m/<bioguide>.html` for every member, each with a 1200 by 630 preview image under `og/` drawn in the

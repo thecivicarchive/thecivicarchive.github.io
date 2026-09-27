@@ -359,6 +359,213 @@ def journey_for(con, b, cutoff):
     return {"at": at, "o": first[0], "am": 1 if amend else 0, "fail": fail, "st": 1 if stalled else 0, "note": note, "dates": dates}
 
 
+# --- a measure's real path ----------------------------------------------------
+# The six stops above say where a measure stands. Its path says how it got there: every step the record shows, in
+# order, including each time it went back to the other chamber with changes, with a date on every step and the
+# recorded vote where there was one. Each step is {k: kind, c: lane, d: date, ...}:
+#   i introduced          c committee (d2: reported or discharged; rp: report; out: 1 reported, 2 discharged)
+#   r received, no committee (straight to the calendar or held at the desk)
+#   p passed a chamber (am: 1 with changes, when the other chamber had already passed it)   f failed in a chamber
+#   a agreed to the other chamber's changes      m agreed, with further changes of its own (it goes back again)
+#   x disagreed, asked for a conference, or set the other chamber's changes aside            k conference report adopted
+#   e presented to the President   s signed   u became law without a signature   v vetoed   o override vote   l became law
+# Lanes: H House, S Senate, P President. q is the quick count: "215–214", or how it was decided without a roll call.
+TALLY_H = re.compile(r"(?:Yeas and Nays|recorded vote)\s*:?\s*(\(2/3 required\)\s*:?\s*)?(\d+)\s*-\s*(\d+)(?:\s*,\s*(\d+)\s*Present)?", re.I)
+TALLY_S = re.compile(r"Yea-Nay(?:\s+Vote)?\.?\s*(\d+)\s*-\s*(\d+)", re.I)
+REPORT = re.compile(r"\b([HS])\. ?Rept\. ?(\d+-\d+)")
+LAWNO = re.compile(r"Became (Public|Private) Law No:\s*([\d-]+)")
+RESOLVE = re.compile(r"^Resolving differences -- (House|Senate) actions:\s*", re.I)
+PASSFAIL = re.compile(r"^(?:Passed/agreed to|Failed of passage/not agreed to) in (?:House|Senate):?\s*", re.I)
+STEP_VOTES = {"p", "f", "a", "m", "x", "k", "o"}
+
+
+def quick_count(text):
+    """'215–214' from a recorded vote, else how it was decided: voice vote, unanimous consent, deemed by a rule."""
+    m = TALLY_H.search(text)
+    if m:
+        return f"{m.group(2)}–{m.group(3)}" + (" (two-thirds needed)" if m.group(1) else "")
+    m = TALLY_S.search(text)
+    if m:
+        return f"{m.group(1)}–{m.group(2)}"
+    if re.search(r"voice vote", text, re.I):
+        return "by voice vote"
+    if re.search(r"unanimous consent|without objection", text, re.I):
+        return "by unanimous consent"
+    if re.search(r"(?:considered|deemed) (?:as )?(?:to have )?(?:been )?(?:passed|agreed to|adopted)|pursuant to H\. ?Res", text, re.I):
+        return "by a rule, without a separate vote"
+    return ""
+
+
+def resolve_kind(text):
+    """How a chamber answered the other chamber's changes."""
+    t = text.lower()
+    if "conference report" in t and re.search(r"agreed to|adopted|passed", t):
+        return "k"
+    if re.search(r"\b(disagree|insist|request(ed|s)? a conference|asked for a conference|motion to table the (house|senate) message)", t):
+        return "x"
+    if re.search(r"with an amendment|with amendment\b|with amendments", t) and not re.search(r"recede from", t):
+        return "m"
+    if re.search(r"\b(agree|agreed|concur|concurred|recede)", t):
+        return "a"
+    return ""
+
+
+def path_for(con, b, votes):
+    """The steps the record shows for one measure (see above), with the measure's key votes filed under the step each
+    belongs to: the vote that decided a step first, then the votes along the way (cloture, motions to proceed)."""
+    key = b["bill_key"]
+    origin = "S" if (b["origin_chamber"] or "") == "Senate" else "H"
+    rows = con.execute("SELECT action_date, source, action_code, chamber, text, rolls, committees FROM actions WHERE bill_key = ? ORDER BY seq",
+                       (key,)).fetchall() if con.execute("SELECT 1 FROM sqlite_master WHERE name = 'actions'").fetchone() else []
+    by_roll = {(v["chamber"][:1], str(v["roll"])): v["vote_id"] for v in votes if v.get("roll") is not None}
+    steps, seen = [], set()
+    lane = lambda ch: {"House": "H", "Senate": "S", "President": "P"}.get(ch or "", "")
+
+    def add(step):
+        sig = (step["k"], step["c"], step["d"], step.get("q", ""))
+        if sig in seen:
+            return None
+        seen.add(sig)
+        steps.append(step)
+        return step
+
+    def open_committee(c):
+        for s in reversed(steps):
+            if s["c"] == c and s["k"] == "c":
+                return s
+            if s["c"] == c or s["k"] not in ("c", "r"):
+                return None
+        return None
+
+    passed = set()
+    for d, src, code, ch, text, rolls, cms in rows:
+        c, loc = lane(ch), src == "Library of Congress"
+        if loc and code in ("1000", "Intro-H", "10000", "Intro-S", "1010"):
+            if not any(s["k"] == "i" for s in steps):
+                add({"k": "i", "c": c or origin, "d": d})
+            if code == "1010":                                     # a committee's own measure: introduced and reported the same day
+                rp = REPORT.search(text)
+                add({"k": "c", "c": "H", "d": d, "d2": d, "out": 1, "rp": (rp.group(1) + ". Rept. " + rp.group(2)) if rp else "",
+                     "cm": [re.sub(r"^The House (Committee on .+?) reported.*$", r"\1", text)]})
+            continue
+        if (src == "House floor actions" and code == "H11100") or (src == "Senate" and re.search(r"\breferred to the (Select |Special )?Committee", text)):
+            names = [n for n in (cms or "").split("; ") if n] or re.findall(r"(?:Select |Special )?Committee on [A-Z][^,;.]*?(?=,|;|\.| for | and in |$)", text)
+            s = open_committee(c)
+            if s is None:
+                s = add({"k": "c", "c": c, "d": d, "cm": []})
+            if s is not None:
+                for n in names:
+                    if n not in s["cm"]:
+                        s["cm"].append(n)
+            continue
+        if re.match(r"(Received in the (House|Senate)|Held at the desk)", text, re.I) and "referred" not in text.lower():
+            if not steps or steps[-1]["c"] != c:
+                add({"k": "r", "c": c, "d": d, "desk": 1 if "desk" in text.lower() else 0})
+            continue
+        if loc and code in ("5000", "5500", "14000", "14500"):
+            c = "H" if code in ("5000", "5500") else "S"
+            s = open_committee(c) or add({"k": "c", "c": c, "d": d, "cm": []})
+            if s is not None and not s.get("d2"):
+                rp = REPORT.search(text)
+                s.update({"d2": d, "out": 2 if code in ("5500", "14500") else 1, "rp": (rp.group(1) + ". Rept. " + rp.group(2)) if rp else ""})
+                if "Amended" in text or "with an amendment" in text or "with amendments" in text:
+                    s["chg"] = 1
+            continue
+        if loc and code in ("8000", "17000", "9000", "18000"):
+            c = "H" if code in ("8000", "9000") else "S"
+            body = PASSFAIL.sub("", text)
+            ok = code in ("8000", "17000")
+            other = "S" if c == "H" else "H"
+            step = {"k": "p" if ok else "f", "c": c, "d": d, "q": quick_count(body), "v": [], "r": next((r[1:] for r in (rolls or "").split(",") if r[:1] == c), "")}
+            if ok and other in passed and re.search(r"with an amendment|with amendments", body, re.I):
+                step["am"] = 1
+            for r in (rolls or "").split(","):
+                if r and (r[0], r[1:]) in by_roll:
+                    step["v"].append(by_roll[(r[0], r[1:])])
+            if add(step) is not None and ok:
+                passed.add(c)
+            continue
+        m = RESOLVE.match(text) if loc and code in ("19500", "20500") else None
+        if m or (src == "Senate" and not loc and re.search(r"^(Senate (agreed|concurred|disagreed|insisted|requested)|Motion to table the House message|Conference report agreed to)", text)):
+            c = ("H" if m.group(1).lower() == "house" else "S") if m else "S"
+            body = RESOLVE.sub("", text)
+            kind = resolve_kind(body)
+            if not kind:
+                continue
+            step = {"k": kind, "c": c, "d": d, "q": quick_count(body), "v": [], "r": next((r[1:] for r in (rolls or "").split(",") if r[:1] == c), "")}
+            for r in (rolls or "").split(","):
+                if r and (r[0], r[1:]) in by_roll:
+                    step["v"].append(by_roll[(r[0], r[1:])])
+            if kind == "x" and "table" in body.lower():
+                step["tbl"] = 1
+            add(step)
+            continue
+        if code in ("28000", "E20000"):
+            add({"k": "e", "c": "P", "d": d})
+            continue
+        if code == "E30000" and re.search(r"unsigned", text, re.I):
+            add({"k": "u", "c": "P", "d": d})
+            continue
+        if code in ("36000", "E30000", "41000") and text.startswith("Signed by President"):
+            add({"k": "s", "c": "P", "d": d})
+            continue
+        if code in ("31000",) or re.match(r"(Pocket )?Vetoed by President", text):
+            add({"k": "v", "c": "P", "d": d, "pocket": 1 if text.lower().startswith("pocket") else 0})
+            continue
+        lw = LAWNO.search(text)
+        if lw and code in ("36000", "E40000", "41000"):
+            law = ("Private " if lw.group(1) == "Private" else "") + lw.group(2)
+            for s in reversed(steps):
+                if s["k"] in ("s", "u"):
+                    s["law"] = law
+                    break
+            else:
+                add({"k": "l", "c": "P", "d": d, "law": law})
+            continue
+        if code == "33000" or re.search(r"over veto|objections of the President to the contrary notwithstanding", text, re.I):
+            c = c if c in ("H", "S") else ("H" if "House" in text else "S")
+            ok = not re.search(r"^Failed|failed|not agreed|rejected", text)
+            step = {"k": "o", "c": c, "d": d, "ok": 1 if ok else 0, "q": quick_count(text), "v": [], "r": next((r[1:] for r in (rolls or "").split(",") if r[:1] == c), "")}
+            for r in (rolls or "").split(","):
+                if r and (r[0], r[1:]) in by_roll:
+                    step["v"].append(by_roll[(r[0], r[1:])])
+            add(step)
+            continue
+    for s in steps:
+        s.pop("v", None)                                   # the page files the measure's votes under its steps (see filedVotes)
+        if not s.get("r"):
+            s.pop("r", None)
+        if s.get("k") == "c" and not s.get("cm"):
+            s.pop("cm", None)
+        if not s.get("q"):
+            s.pop("q", None)
+    return steps
+
+
+def committee_notes(con, key):
+    """{lane: [[date, committee, activity, tally]]}: what the committees did, for the committee steps."""
+    out = {}
+    for ch, cm, d, act, meth, y, n in con.execute("SELECT chamber, committee, action_date, activity, vote_method, yeas, nays FROM committee_actions "
+                                                   "WHERE bill_key = ? ORDER BY action_date", (key,)):
+        if not act or act == "Referred":
+            continue
+        out.setdefault((ch or "")[:1], []).append([d or "", cm or "", act, f"{y}\u2013{n}" if y is not None and n is not None else ""])
+    return out
+
+
+def compact_path(steps):
+    """A path as stored: [kind, lane, date, quick count, extras], trailing blanks dropped. The page writes the words
+    and files the measure's votes under its steps."""
+    out = []
+    for s in steps:
+        extra = {k: v for k, v in s.items() if k not in ("k", "c", "d", "q", "cm") and v not in (None, "", 0)}
+        row = [s["k"], s["c"], s["d"], s.get("q", ""), extra]
+        while row and row[-1] in ("", {}):
+            row.pop()
+        out.append(row)
+    return out
+
+
 def collect(db_path):
     """Everything the page needs. Measures with any floor vote, law, rating or committee report get a full
     record; introduced-only measures (most of a Congress) get a compact row the page expands on load."""
@@ -430,12 +637,15 @@ def collect(db_path):
         is_lite = (not votes and not ratings and not (b["law_number"] or "") and (b["status"] or "") in LITE_STATUSES
                    and (b["outcome"] or "Pending") == "Pending")
         if is_lite:
+            ref = con.execute("SELECT MIN(action_date) FROM actions WHERE bill_key = ? AND ((source = 'House floor actions' AND action_code = 'H11100') "
+                              "OR (source = 'Senate' AND text LIKE '%referred to the%Committee%'))", (key,)).fetchone() if has("actions") else None
+            ref = (ref[0] or "") if ref else ""
             lite.append([key, display_title(b["title"] or "", own_short), b["sponsor_bioguide"] or "",
                          b["cosponsors_active"] or 0, b["cosponsors_by_party"] or "", 1 if b["bipartisan"] else 0,
                          di("policy", b["policy_area"]), [di("subject", x) for x in subjects], di("status", b["status"]),
                          b["introduced_date"] or "", b["latest_action_date"] or "", di("action", (b["latest_action"] or "")[:220]),
                          [di("lens", x) for x in lens], (summ["text_plain"] or "") if summ else "",
-                         di("committee", b["committees_referred"] or "")])
+                         di("committee", b["committees_referred"] or "")] + ([] if ref in ("", b["introduced_date"] or "") else [ref]))
             continue
         rater = next((r["rater"] for r in real.values() if r["rater"]), "")
         review = (("Automated rating, not yet reviewed" if rater.startswith("model:") else "Preview rating, applied by hand, not yet reviewed")
@@ -455,7 +665,9 @@ def collect(db_path):
             "votes": votes, "summary": (summ["text_plain"] or "")[:900] if summ else "",
             "summary_desc": summ["action_desc"] if summ else "", "summary_date": summ["action_date"] if summ else "",
             "related_enacted": b["related_enacted"] or "", "links": {"pdf": b["latest_text_pdf"] or ""},
-            "ratings": ratings or None, "review": review, "journey": journey_for(con, b, cutoff),
+            "ratings": ratings or None, "review": review,
+            "journey": {k: v for k, v in journey_for(con, b, cutoff).items() if k != "dates"},
+            "path": compact_path(path_for(con, b, votes)), "cnotes": committee_notes(con, key) or None,
             "lead_kind": lead_kind, "was": was, "rewritten_by": by, "nick": nicks.get(key)})
 
     # position of every measure in the page's list (full records first, then compact rows)
@@ -769,6 +981,8 @@ def list_record(b, n_chars=220):
     r["ratings"] = ratings_summary(b.get("ratings"))
     if b.get("journey"):                                  # the dates under each stop stay in the bill's own file
         r["journey"] = {k: v for k, v in b["journey"].items() if k != "dates"}
+    if b.get("path"):
+        r["path"] = b["path"]                             # every step with its date and quick count; the words are the page's
     r["trim"] = 1
     return r
 
@@ -982,7 +1196,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <link rel="apple-touch-icon" href="icon-192.png">
 __ANALYTICS__
 <meta name="theme-color" content="#0C0E12">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -1288,45 +1502,116 @@ p{margin:0 0 12px}
 .mapfilter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-size:13.5px;color:var(--muted)}
 .mapfilter[hidden]{display:none!important}
 .mapfilter b{color:var(--ink)}
-.trk{display:block;margin:12px 0 8px;text-align:left}
-.trk .rail{display:block;position:relative;height:4px;border-radius:2px;background:var(--hair);margin:8px 8px 0}
-.trk .fill,.trk .fillbad{position:absolute;top:0;bottom:0;border-radius:2px;width:0}
-.trk .fill{left:0;background:var(--accent);transition:width 1.5s var(--ease) .15s}
-.trk.go .fill{width:calc(var(--a) * 100%)}
-.trk .fillbad{left:calc(var(--a) * 100%);background:var(--rep);transition:width .6s var(--ease) 1.5s}
-.trk.go .fillbad{width:calc((var(--p) - var(--a)) * 100%)}
-.trk .stop{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);transition:background .3s,border-color .3s;transition-delay:calc(.15s + var(--t) * 1.5s)}
-.trk.go .stop.done,.trk.go .stop.now{background:var(--accent);border-color:var(--accent)}
-.trk.go .stop.fail{background:var(--rep);border-color:var(--rep)}
-.trk .run{position:absolute;top:50%;left:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent);opacity:0;transition:left 1.5s var(--ease) .15s,opacity .3s}
-.trk.go .run{left:calc(var(--p) * 100%);opacity:1}
-.trk.active.go .run{animation:trkpulse 2.4s ease-in-out 1.9s infinite}
-@keyframes trkpulse{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 0%,transparent)}}
-.trk.failed .run{background:var(--rep);box-shadow:0 0 0 4px color-mix(in srgb,var(--rep) 28%,transparent)}
-.trk.stalled .fill,.trk.stalled.go .stop.done,.trk.stalled.go .stop.now{background:var(--line-strong);border-color:var(--line-strong)}
-.trk.stalled .run{background:var(--muted);box-shadow:none}
-.trk-labels{display:block;position:relative;height:18px;margin:12px 8px 0}
-.trk.full .trk-labels{height:36px}
-.trk-labels>span{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;font-size:11.5px;line-height:1.35;color:var(--muted);white-space:nowrap}
-.trk-labels>span:first-child{transform:none;align-items:flex-start;margin-left:-8px}
-.trk-labels>span:last-child{transform:translateX(-100%);align-items:flex-end;margin-left:8px}
-.trk-labels b{font-weight:600}
-.trk-labels .done b,.trk-labels .now b{color:var(--ink)}
-.trk-labels .fail b{color:var(--bad-ink)}
-.trk-labels em{font-style:normal;font-size:11px}
-.trk-cap{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);font-weight:500}
+/* ---------- the path a measure took, lane by lane: House, Senate, President ---------- */
+.trk.lanes{display:block;margin:12px 0 8px;text-align:left;--rh:14px;--dy:.5;--ds:9px;--pt:4px;--cw:22px}
+.trk.lanes.full{--rh:66px;--dy:.2;--ds:13px;--pt:3px;--cw:86px;margin:14px 0 6px}
+.lanes .lwrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 10px}
+.lanes .lnames{display:grid;grid-template-rows:repeat(3,var(--rh));font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lanes.full .lnames{font-size:11px}
+.lanes .lnames span{display:block;line-height:14px;padding-top:calc(var(--rh) * var(--dy) - 7px);white-space:nowrap}
+.lanes .lscroll{display:block;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding-bottom:2px}
+.lanes .lgrid{display:block;position:relative;height:calc(3 * var(--rh));min-width:calc(var(--n) * var(--cw));
+  background:linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * var(--dy)) / 100% 1px no-repeat,
+             linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * (1 + var(--dy))) / 100% 1px no-repeat,
+             linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * (2 + var(--dy))) / 100% 1px no-repeat}
+.lanes svg.lline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.lanes .lline polyline{fill:none;stroke-width:2.5px;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.lanes .lline .done{stroke:var(--accent)}
+.lanes .lline .todo{stroke:var(--line-strong);stroke-dasharray:3 5}
+.lanes.stalled .lline .done{stroke:var(--line-strong)}
+.lanes .ls{position:absolute;left:calc((var(--i) + .5) / var(--n) * 100%);top:calc((var(--r) + var(--dy)) * var(--rh));width:calc(100% / var(--n));transform:translate(-50%,calc(-1 * (var(--ds) / 2 + var(--pt))));
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:var(--pt) 2px 2px;border-radius:10px;color:var(--muted);font-size:11.5px;line-height:1.2;text-align:center}
+button.ls{cursor:pointer}
+.lanes .ls i{display:block;width:var(--ds);height:var(--ds);border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);flex:none;transition:transform .2s var(--ease),background .3s,border-color .3s,box-shadow .3s}
+.lanes .ls.done i,.lanes .ls.now i{background:var(--accent);border-color:var(--accent)}
+.lanes .ls.now i{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 24%,transparent)}
+.lanes .ls.bad i{background:var(--rep);border-color:var(--rep)}
+.lanes .ls.todo i{background:var(--surface);border-color:var(--line-strong)}
+.lanes.stalled .ls.now i{background:var(--muted);border-color:var(--muted);box-shadow:none}
+button.ls:hover i,button.ls.popping i,button.ls:focus-visible i{transform:scale(1.4)}
+button.ls:focus-visible{outline:2px solid var(--accent);outline-offset:0}
+.lanes .ls .lt{font-weight:600;color:var(--ink);max-width:100%}
+.lanes .ls.todo .lt{color:var(--muted);font-weight:500}
+.lanes .ls.bad .lt{color:var(--bad-ink)}
+.lanes .ls .ld{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.lanes.full .ls .lt,.lanes.full .ls .ld{background:var(--surface);border-radius:4px;padding:0 3px;position:relative}
+.lanes.w:not(.go) .ls{opacity:0}
+.lanes.w .ls{transition:opacity .35s var(--ease) calc(.1s + var(--i) * 80ms)}
+.lanes.w:not(.go) .lline{clip-path:inset(0 100% 0 0)}
+.lanes.w .lline{transition:clip-path 1.3s var(--ease) .1s}
+.lanes.active.go .ls.now i{animation:lpulse 2.4s ease-in-out 1.8s infinite}
+@keyframes lpulse{50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 0%,transparent)}}
+.calm .lanes .ls,.calm .lanes .lline{transition:none}.calm .lanes.active.go .ls.now i{animation:none}
+.trk-cap{display:block;margin-top:6px;font-size:12.5px;color:var(--muted);font-weight:500}
 .trk.failed .trk-cap{color:var(--bad-ink)}
 .trk-cap .quiet{font-weight:400}
 .trk.slim{margin:10px 0 12px}
-.pickitem .trk{margin:12px 0 2px}
-.calm .trk .fill,.calm .trk .fillbad,.calm .trk .run,.calm .trk .stop{transition:none}
-.calm .trk.active.go .run{animation:none}
-@media (max-width:560px){
-  .trk.pick .trk-labels>span:not(.now):not(.fail):not(:first-child):not(:last-child){display:none}
-  .trk.full .trk-labels{position:static;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;margin:12px 0 0}
-  .trk.full .trk-labels>span{position:static;transform:none;flex-direction:row;gap:6px;align-items:baseline;margin:0}
-  .trk.full .trk-labels>span:last-child{transform:none}
-}
+.pickitem .trk{margin:10px 0 2px}
+.lanetag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;line-height:1.5;white-space:nowrap}
+.lanetag.LH{background:var(--accent-soft);color:var(--accent-ink)}
+.lanetag.LS{background:var(--amber-soft);color:var(--amber-ink)}
+.lanetag.LP,.lanetag.LT{background:var(--plum-soft);color:var(--plum)}
+/* every step, in order */
+.sl-h{margin:18px 0 8px}
+.steplist{list-style:none;margin:0 0 8px 7px;padding:0;border-left:2px solid var(--line)}
+.steplist>li{position:relative;padding:0 0 16px 18px}
+.steplist>li::before{content:"";position:absolute;left:-8px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--surface);box-sizing:border-box}
+.steplist>li.bad::before{background:var(--rep)}
+.steplist>li.todo::before{background:var(--surface);border:2px dashed var(--line-strong)}
+.steplist>li.todo{color:var(--muted)}
+.sl-when{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:3px}
+.sl-what{font-size:14.5px}
+.sl-what .q{color:var(--muted)}
+.sl-notes{margin:4px 0 0;padding-left:18px;font-size:13px;color:var(--muted)}
+.sp-votes{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:13.5px}
+.sp-votes>li{padding:6px 0 0;border-top:1px dashed var(--line)}
+.sp-votes>li.main{border-top-style:solid}
+.sp-split{display:block;color:var(--muted);font-size:12.5px}
+.sp-act{display:inline-flex;gap:10px;margin-left:4px;font-size:12.5px}
+.sp-act .maplink{margin-left:0}
+/* ---------- pop-out cards: a name, a rating, a step ---------- */
+.pop{position:fixed;z-index:90;left:0;top:0;width:max-content;max-width:400px;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:var(--r-lg);box-shadow:var(--shadow-3);font-size:14px;line-height:1.5;text-align:left;opacity:0;transform:translateY(4px);transition:opacity .16s var(--ease),transform .16s var(--ease)}
+.pop[hidden]{display:none}
+.pop.show{opacity:1;transform:none}
+.pop[data-side="above"]{transform:translateY(-4px)}.pop.show[data-side="above"]{transform:none}
+.pop.pinned{border-color:var(--accent-line)}
+.pop::before{content:"";position:absolute;left:var(--ax,50%);width:11px;height:11px;background:var(--surface);border:1px solid var(--line-strong);transform:translateX(-50%) rotate(45deg)}
+.pop.pinned::before{border-color:var(--accent-line)}
+.pop[data-side="below"]::before{top:-7px;border-right:0;border-bottom:0}
+.pop[data-side="above"]::before{bottom:-7px;border-left:0;border-top:0}
+.pop-in{position:relative;max-height:min(72vh,560px);overflow:auto;padding:14px 16px 12px;overscroll-behavior:contain;border-radius:inherit}
+.pop h4{font-size:15.5px;margin:0 0 6px}
+.pop h5{margin:12px 0 4px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.pop p{margin:0 0 8px}
+.pop .pop-wait{color:var(--muted);margin:0}
+.pop .pop-links{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line);font-weight:600;font-size:13.5px}
+.pop .pop-links a{text-decoration:none}
+.pop .pop-links a:hover{text-decoration:underline}
+.calm .pop{transition:none}
+.pc-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.pc-head b{display:block;font-size:16.5px;line-height:1.25}
+.pc-head .muted{display:block;font-size:13px;line-height:1.35}
+.pc-facts{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:5px;font-size:13.5px}
+.pc-facts li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
+.pc-facts li>span:first-child{color:var(--muted)}
+.pc-wiki{margin:8px 0 0;padding:8px 10px;border-left:3px solid var(--line-strong);background:var(--hair);border-radius:0 8px 8px 0;font-size:13px}
+.pc-wiki p{margin:4px 0 2px}
+.pc-wiki a{font-size:12.5px}
+.tag.outside{background:var(--hair);color:var(--muted);border:1px dashed var(--line-strong)}
+.ap-h{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:15.5px}
+.ap-this{font-size:15px}
+.ap-math{display:grid;gap:4px;margin:0 0 8px;padding:8px 10px;background:var(--hair);border-radius:8px;font-size:13px;font-variant-numeric:tabular-nums}
+.ap-math a{font-size:12.5px;margin-left:6px}
+.ap-scale{font-size:13px;color:var(--muted)}
+.ap-src{margin:0 0 8px;padding-left:18px;font-size:13px}
+.ap-who{font-size:12.5px;color:var(--muted)}
+.sp-h{display:flex;align-items:center;gap:8px;margin-bottom:2px;font-size:15.5px}
+.sp-d{color:var(--muted);font-size:13px;margin:0 0 6px}
+[data-axis]{cursor:help;border-radius:10px;transition:background .15s,box-shadow .15s}
+[data-axis]:hover,[data-axis].popping,[data-axis]:focus-visible{background:var(--hair);box-shadow:0 0 0 6px var(--hair)}
+a.spon,.spot-spon a{color:inherit;text-decoration:none}
+a.spon:hover b,.spot-spon a:hover b,a.spon.popping b,.spot-spon a.popping b{text-decoration:underline;text-underline-offset:2px}
+.popping{--pop-on:1}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -2347,19 +2632,19 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <div class="how">
         <article class="rv" style="--i:0">
           <h3>Who gains, by income</h3>
-          <div class="axes"><div class="axis"><div class="gauge"><span class="range" style="--lo:48%;--w:30%"></span><span class="mid"></span><span class="dot" style="--pos:66%"></span></div>
+          <div class="axes"><div class="axis" data-axis="income" tabindex="0" role="button" aria-haspopup="dialog" aria-label="How the income rating is scored"><div class="gauge"><span class="range" style="--lo:48%;--w:30%"></span><span class="mid"></span><span class="dot" style="--pos:66%"></span></div>
             <div class="ends"><span>Lower-income</span><span>Broad-based</span><span>High-income</span></div></div></div>
           <p>The slope of the change in after-tax income across income groups, from official analyses when they exist. A bar shows the range for a bill that helps one group and costs another; it never averages them away.</p>
         </article>
         <article class="rv" style="--i:1">
           <h3>Who backed it</h3>
-          <div class="axes"><div class="axis"><div class="gauge backing"><span class="mid"></span><span class="dot" style="--pos:72%"></span></div>
+          <div class="axes"><div class="axis" data-axis="backing" tabindex="0" role="button" aria-haspopup="dialog" aria-label="How party backing is measured"><div class="gauge backing"><span class="mid"></span><span class="dot" style="--pos:72%"></span></div>
             <div class="ends"><span>Democrats only</span><span>Bipartisan</span><span>Republicans only</span></div></div></div>
           <p>Measured, not guessed: each party's yes-rate on the recorded passage votes. The label tells you how much of the other party came along.</p>
         </article>
         <article class="rv" style="--i:2">
           <h3>Households vs. businesses</h3>
-          <div class="axes"><div class="quad"><svg viewBox="0 0 64 64" aria-hidden="true"><rect class="q" x="1" y="1" width="62" height="62" rx="6"/><path class="q" d="M32 3v58M3 32h58"/><circle class="pt" cx="32" cy="32" r="6" style="--dx:-3px;--dy:-20px"/></svg><small><b>Right</b> helps households<br><b>Up</b> helps businesses</small></div></div>
+          <div class="axes"><div class="quad" data-axis="households_business" tabindex="0" role="button" aria-haspopup="dialog" aria-label="How the households and businesses rating is scored"><svg viewBox="0 0 64 64" aria-hidden="true"><rect class="q" x="1" y="1" width="62" height="62" rx="6"/><path class="q" d="M32 3v58M3 32h58"/><circle class="pt" cx="32" cy="32" r="6" style="--dx:-3px;--dy:-20px"/></svg><small><b>Right</b> helps households<br><b>Up</b> helps businesses</small></div></div>
           <p>Two separate scores, because a bill can help both. Corporate tax changes count 25 percent to workers and 75 percent to owners, the official convention.</p>
         </article>
       </div>
@@ -2582,14 +2867,14 @@ function catalogReady(){
     DATA.bills = B.bills || [];
     if (L && L.rows) { const D = L.dict;
       for (const r of L.rows) {
-        const [key, title, sp, ct, cp, bip, pol, subj, stc, intro, lad, la, lens, summ, cmt] = r;
+        const [key, title, sp, ct, cp, bip, pol, subj, stc, intro, lad, la, lens, summ, cmt, ref] = r;
         const k = key.match(/^([a-z]+)(\d+)-(\d+)$/) || [key, "", "", "0"], T = PC_TYPES[k[1]] || [k[1].toUpperCase(), "", "", "Bill"], s = MEMBER[sp];
         DATA.bills.push({key, id: `${T[0]} ${k[2]}`, congress: Number(k[3]), title, short_title: "", kind: T[3], introduced: intro, origin: T[2],
           sponsor: s ? {id: sp, name: s.name, party: s.party, state: s.state} : null, cosponsors: {total: ct, by_party: cp}, bipartisan: !!bip,
           policy_area: D.policy[pol] || "", subjects: subj.map(i => D.subject[i]), committees: D.committee[cmt] || "", committee_votes: "",
           status: D.status[stc] || "", outcome: "Pending", law: "", law_kind: "", latest_action_date: lad, latest_action: D.action[la] || "",
           lens: lens.map(i => D.lens[i]), votes: [], summary: summ, summary_desc: "", summary_date: "", related_enacted: "",
-          links: {}, ratings: null, review: "", lite: true});
+          links: {}, ratings: null, review: "", lite: true, referred: ref || ""});
       }
     }
     DATA.bills.forEach((b, i) => {
@@ -2610,10 +2895,10 @@ const isRated = b => !!(b.ratings && (b.ratings.income || b.ratings.households_b
 
 /* ---------- theme ---------- */
 (function(){
-  /* Dark by default; a reader's choice, once made, wins. The same line runs in
+  /* Light by default (John, 2026-09-27); a reader's choice, once made, wins. The same line runs in
      the head before anything paints, so there is no flash of the other theme. */
   let saved = null; try { saved = localStorage.getItem("theme"); } catch(e) {}
-  document.documentElement.dataset.theme = saved || "dark";
+  document.documentElement.dataset.theme = saved || "light";
   const tc = $('meta[name="theme-color"]');
   const syncColor = () => { if (tc) tc.content = document.documentElement.dataset.theme === "dark" ? "#0C0E12" : "#F5F5F2"; };
   syncColor();
@@ -2640,25 +2925,26 @@ function statusPill(b){
   return `<span class="pill ${cls}">${esc(txt)}</span>`;
 }
 function backingLabel(r){ return (r && r.flags && r.flags.label) ? r.flags.label : ""; }
-function gaugeIncome(r, rated){
-  if (!r || r.position == null) return `<div class="axis"><div class="lab"><b>Who gains, by income</b><span class="na">${rated ? "not assessable" : "not rated yet"}</span></div></div>`;
+const axAttr = (ax, key, label) => key ? ` data-axis="${ax}" data-bill="${esc(key)}" tabindex="0" role="button" aria-haspopup="dialog" aria-label="${esc(label)}. Show why"` : "";
+function gaugeIncome(r, rated, key){
+  if (!r || r.position == null) return `<div class="axis"${r ? axAttr("income", key, "Who gains, by income: not assessable") : ""}><div class="lab"><b>Who gains, by income</b><span class="na">${rated ? "not assessable" : "not rated yet"}</span></div></div>`;
   const lo = r.low != null ? r.low : r.position, hi = r.high != null ? r.high : r.position;
   const w = ((hi - lo) / 200 * 100).toFixed(1) + "%";
   const g = r.grade ? `<i class="grade" data-g="${esc(r.grade)}">${esc(r.grade)}</i>` : "";
-  return `<div class="axis"><div class="lab"><b>Who gains, by income</b><span>${esc(signed(r.position))}${r.low != null ? " (range " + signed(lo) + " to " + signed(hi) + ")" : ""} ${g}</span></div>
+  return `<div class="axis"${axAttr("income", key, "Who gains, by income: " + signed(r.position))}><div class="lab"><b>Who gains, by income</b><span>${esc(signed(r.position))}${r.low != null ? " (range " + signed(lo) + " to " + signed(hi) + ")" : ""} ${g}</span></div>
     <div class="gauge" role="img" aria-label="Income axis position ${esc(signed(r.position))} on a scale from lower-income at minus 100 to high-income at plus 100"><span class="range" style="--lo:${pct(lo)};--w:${w}"></span><span class="mid"></span><span class="dot" style="--pos:${pct(r.position)}"></span></div>
     <div class="ends" style="grid-column:1/-1"><span>Lower-income</span><span>Broad-based</span><span>High-income</span></div></div>`;
 }
-function gaugeBacking(r, rated){
-  if (!r || r.position == null) return `<div class="axis"><div class="lab"><b>Who backed it</b><span class="na">no recorded vote yet</span></div></div>`;
-  return `<div class="axis"><div class="lab"><b>Who backed it</b><span>${esc(backingLabel(r))} ${esc(signed(r.position))} <i class="grade" data-g="${esc(r.grade||"")}">${esc(r.grade||"")}</i></span></div>
+function gaugeBacking(r, rated, key){
+  if (!r || r.position == null) return `<div class="axis"${axAttr("backing", key, "Who backed it: no recorded vote yet")}><div class="lab"><b>Who backed it</b><span class="na">no recorded vote yet</span></div></div>`;
+  return `<div class="axis"${axAttr("backing", key, "Who backed it: " + backingLabel(r) + " " + signed(r.position))}><div class="lab"><b>Who backed it</b><span>${esc(backingLabel(r))} ${esc(signed(r.position))} <i class="grade" data-g="${esc(r.grade||"")}">${esc(r.grade||"")}</i></span></div>
     <div class="gauge backing" role="img" aria-label="Party backing ${esc(signed(r.position))}, from Democrats only at minus 100 to Republicans only at plus 100"><span class="mid"></span><span class="dot" style="--pos:${pct(r.position)}"></span></div>
     <div class="ends" style="grid-column:1/-1"><span>Democrats only</span><span>Bipartisan</span><span>Republicans only</span></div></div>`;
 }
-function gaugeQuad(r, rated){
-  if (!r || (r.position == null && r.position2 == null)) return `<div class="axis"><div class="lab"><b>Households vs. businesses</b><span class="na">${rated ? "not assessable" : "not rated yet"}</span></div></div>`;
+function gaugeQuad(r, rated, key){
+  if (!r || (r.position == null && r.position2 == null)) return `<div class="axis"${r ? axAttr("households_business", key, "Households vs. businesses: not assessable") : ""}><div class="lab"><b>Households vs. businesses</b><span class="na">${rated ? "not assessable" : "not rated yet"}</span></div></div>`;
   const h = r.position || 0, b = r.position2 || 0, tag = (r.flags && r.flags.business_tag && r.flags.business_tag !== "n/a") ? r.flags.business_tag : "";
-  return `<div class="axis"><div class="lab"><b>Households vs. businesses</b><span>households ${esc(signed(r.position))}, businesses ${esc(signed(r.position2))} <i class="grade" data-g="${esc(r.grade||"")}">${esc(r.grade||"")}</i></span></div>
+  return `<div class="axis"${axAttr("households_business", key, "Households " + signed(r.position) + ", businesses " + signed(r.position2))}><div class="lab"><b>Households vs. businesses</b><span>households ${esc(signed(r.position))}, businesses ${esc(signed(r.position2))} <i class="grade" data-g="${esc(r.grade||"")}">${esc(r.grade||"")}</i></span></div>
     <div class="quad" style="grid-column:1/-1"><svg viewBox="0 0 64 64" role="img" aria-label="Households ${esc(signed(h))}, businesses ${esc(signed(b))}"><rect class="q" x="1" y="1" width="62" height="62" rx="6"/><path class="q" d="M32 3v58M3 32h58"/><circle class="pt" cx="32" cy="32" r="6" style="--dx:${(h*0.27).toFixed(1)}px;--dy:${(-b*0.27).toFixed(1)}px"/></svg>
     <small><b>Right</b> helps households, <b>up</b> helps businesses${tag ? "<br>" + esc(tag === "both" ? "Small firms and large corporations" : "Mostly " + tag) : ""}</small></div></div>`;
 }
@@ -2666,9 +2952,9 @@ function axes(b){
   const r = b.ratings || {};
   if (!isRated(b)) {
     if (!r.backing) return `<div class="axes"><div class="axes-empty">Not rated yet. Ratings follow the first committee action or an official cost estimate.</div></div>`;
-    return `<div class="axes">${gaugeBacking(r.backing, false)}<div class="axes-empty">Income and household ratings not applied yet.</div></div>`;
+    return `<div class="axes">${gaugeBacking(r.backing, false, b.key)}<div class="axes-empty">Income and household ratings not applied yet.</div></div>`;
   }
-  return `<div class="axes">${gaugeIncome(r.income, true)}${gaugeBacking(r.backing, true)}${gaugeQuad(r.households_business, true)}</div>`;
+  return `<div class="axes">${gaugeIncome(r.income, true, b.key)}${gaugeBacking(r.backing, true, b.key)}${gaugeQuad(r.households_business, true, b.key)}</div>`;
 }
 function plainLine(b){
   const p = b.ratings && b.ratings.plain_language && b.ratings.plain_language.plain;
@@ -2695,17 +2981,8 @@ function journeyOf(b){
   return b.journey = {at, o: b.origin === "Senate" ? "S" : "H", am: /^Proposing an amendment to the Constitution/.test(b.title || "") ? 1 : 0, fail: null,
     st: when && BOOT.stall_cutoff && when < BOOT.stall_cutoff ? 1 : 0, note: at ? "In committee" : "Introduced; not yet sent to a committee", dates: [b.introduced || "", "", "", "", "", ""]};
 }
-const journeyStops = j => { const c = j.o === "S" ? ["Senate", "House"] : ["House", "Senate"]; return ["Introduced", "Committee", c[0], c[1], j.am ? "To the states" : "President", j.am ? "Ratified" : "Law"]; };
-function trackHTML(b, mode){
-  const j = journeyOf(b), names = journeyStops(j), n = names.length - 1, f = j.fail, a = j.at / n, p = (f ? f.i : j.at) / n;
-  const state = i => f && i === f.i ? "fail" : (i < j.at || (i === j.at && j.at === n) ? "done" : (i === j.at ? "now" : "todo"));
-  const dots = names.map((nm, i) => `<i class="stop ${state(i)}" style="left:${(100 * i / n).toFixed(1)}%;--t:${p ? Math.min(1, (i / n) / p).toFixed(2) : 0}"></i>`).join("");
-  const labels = mode === "slim" ? "" : `<span class="trk-labels">${names.map((nm, i) => { const d = f && i === f.i ? f.d : (j.dates || [])[i]; return `<span class="${state(i)}" style="left:${(100 * i / n).toFixed(1)}%"><b>${esc(nm)}</b>${mode === "full" && d ? `<em>${esc(fmtDate(d))}</em>` : ""}</span>`; }).join("")}</span>`;
-  const since = b.latest_action_date || b.date || "";
-  const cap = `<span class="trk-cap">${esc(j.note)}${j.st && since ? `<span class="quiet"> \u00b7 no action since ${esc(fmtDate(since))}</span>` : ""}</span>`;
-  const cls = `trk ${mode}${f ? " failed" : ""}${j.st ? " stalled" : ""}${!f && !j.st && j.at < n ? " active" : ""}${!f && j.at === n ? " complete" : ""}`;
-  return `<span class="${cls}" style="--a:${a.toFixed(3)};--p:${p.toFixed(3)}" role="img" aria-label="${esc(`Where it stands: ${j.note}. Stop ${(f ? f.i : j.at) + 1} of ${names.length}.`)}"><span class="rail"><span class="fill"></span>${f ? `<span class="fillbad"></span>` : ""}${dots}<span class="run"></span></span>${labels}${cap}</span>`;
-}
+/* The track on every card, every pick list and the Votes and path tab: the path in lanes (see lanesHTML). */
+function trackHTML(b, mode){ return lanesHTML(b, mode === "pick" ? "pick" : mode); }
 const trkIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("go"); trkIO.unobserve(e.target); } }), {threshold: .35});
 function watchTracks(root){ $$(".trk:not(.w)", root || document).forEach(el => { el.classList.add("w"); trkIO.observe(el); }); }
 
@@ -2724,8 +3001,8 @@ function paneFor(b){
   const links = [["page", "Congress.gov page"], ["text", "Bill text"], ["pdf", "Latest text (PDF)"], ["actions", "All actions"], ["cosponsors", "Cosponsors"], ["committees", "Committees"], ["cbo", "CBO cost estimate"]].filter(([k]) => L[k]).map(([k, lab]) => `<a href="${esc(L[k])}" target="_blank" rel="noopener">${lab}</a>`).join("");
   const named = (b.lead_kind === "popular" ? `<p class="note"><b>${esc(b.short_title)}</b> is this measure's popular title in the Library of Congress record. It is not the title in the final text, which is below.</p>` : (b.lead_kind === "short" ? `<p class="note"><b>${esc(b.short_title)}</b> is the short title this measure carried at an earlier stage, per the Library of Congress record.</p>` : (b.lead_kind === "rewritten" ? `<p class="note">This measure began as <b>${esc(b.was)}</b>. The ${esc(b.rewritten_by || "other chamber")} replaced its text; its amendment carries the short title <b>${esc(b.short_title)}</b>, per the Library of Congress record. Earlier votes on this number were on the original bill.</p>` : "")))
     + (b.nick ? `<p class="note">Commonly called <b>${esc(b.nick.name)}</b> (<a href="${esc(b.nick.source)}" target="_blank" rel="noopener">where that name is used</a>). That is a label we keep by hand; it is not part of the official record.</p>` : "");
-  const facts = `${named}${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by ${esc(b.sponsor.name)}` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
-  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + billMapHTML(b) + votes + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
+  const facts = `${named}${b.short_title && b.short_title !== b.title ? `<p style="font-size:14px"><b>Official title.</b> ${esc(b.title)}</p>` : ""}${b.source_update ? `<p class="note">Record last updated by the Library of Congress on ${esc(fmtDate(b.source_update))}.${Number(b.congress) < 119 ? " Sample files are snapshots." : ""}</p>` : ""}<p style="font-size:14px"><b>${esc(b.kind || "Bill")}</b> introduced ${esc(fmtDate(b.introduced))} in the ${esc(b.origin)}${b.sponsor ? ` by <a href="#member=${esc(b.sponsor.id)}" data-person="${esc(b.sponsor.id)}">${esc(prettyStr(b.sponsor.name))}</a>` : ""}. ${b.cosponsors && b.cosponsors.total ? `${b.cosponsors.total} cosponsors${b.cosponsors.by_party ? " (" + esc(b.cosponsors.by_party) + ")" : ""}.` : "No cosponsors."} ${b.policy_area ? "Policy area: " + esc(b.policy_area) + "." : ""}</p>${b.subjects && b.subjects.length ? `<p class="muted" style="font-size:13px">Subjects: ${b.subjects.map(esc).join(", ")}</p>` : ""}${b.summary ? `<p style="font-size:14px"><b>Official summary</b> (${esc(b.summary_desc)}, ${esc(fmtDate(b.summary_date))}): ${esc(b.summary)}</p>` : ""}`;
+  const tabs = [["you", "For you", who + notdo], ["time", "When it hits", timeline], ["rights", "Your rights", flags], ["votes", "Votes and path", trackHTML(b, "full") + stepListHTML(b, votes) + billMapHTML(b) + path], ["why", "Why this rating", whyBlock], ["facts", "Facts and links", facts + `<div class="links">${links}</div>`]];
   const first = isRated(b) ? 0 : (b.votes && b.votes.length ? 3 : 5);
   return `<div class="tabs" role="tablist">${tabs.map(([k, lab], i) => `<button class="tab" role="tab" data-t="${k}" aria-selected="${i === first}">${lab}</button>`).join("")}</div>${tabs.map(([k, , html], i) => `<div class="pane${i === first ? " show" : ""}" data-p="${k}">${html}</div>`).join("")}`;
 }
@@ -2734,7 +3011,7 @@ function paneFor(b){
 function cardHTML(b){
   return `<article class="card" data-key="${esc(b.key)}"><div class="head"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div>
   <div class="title">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${axes(b)}
-  <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<span class="spon">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</span>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
+  <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<a class="spon" href="#member=${esc(b.sponsor.id)}" data-person="${esc(b.sponsor.id)}">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</a>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
   <div class="detail"><div></div></div>
   <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink sharebtn" aria-label="Share ${esc(b.id)}" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
 }
@@ -2808,6 +3085,308 @@ function avatar(id, party, cls){
   const kb = src && cls !== "sm" ? ` kb" style="--pc:var(--${pc});--kbd:${11 + h % 7}s;--kbo:-${h % 11}s;--kbx:${(h % 3) - 1 ? ((h % 3) - 1) * 3 : 2}%;--kby:${(h >> 3) % 2 ? 3 : -2}%` : `" style="--pc:var(--${pc})`;
   return `<span class="avw ${cls || ""}${kb}"><span class="avc"><span class="avz">${src ? `<img class="av" src="${src}" alt="" decoding="async" loading="lazy">` : `<span class="av av-txt">${p.slice(0, 1)}</span>`}</span></span><i class="pb">${p}</i></span>`;
 }
+/* ---------- pop-outs: the detail behind a name, a rating or a step ---------- */
+/* A card opens beside the thing it explains: when a mouse rests on it, when the keyboard reaches it, or when it is
+   tapped (ratings and steps; a name keeps its own tap, which opens the member's page). Nothing in a card is kept
+   from the page or the record it links to; it saves a trip. Escape, a second tap, or a tap elsewhere closes it.
+   pop.add(selector, builder, {tap}) registers a kind; a builder returns the card's HTML, or a promise of it. */
+const pop = (() => {
+  const box = document.createElement("div");
+  box.className = "pop"; box.id = "popcard"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "More about this"); box.hidden = true;
+  document.body.appendChild(box);
+  const kinds = [];
+  let cur = null, pend = null, pinned = false, tOpen = 0, tClose = 0, seq = 0;
+  const hit = el => { if (!el || !el.closest || box.contains(el)) return [null, null]; for (const k of kinds) { const t = el.closest(k.sel); if (t) return [k, t]; } return [null, null]; };
+  function place(t){
+    if (!t || !t.isConnected) { close(); return; }
+    const r = t.getBoundingClientRect(), vw = document.documentElement.clientWidth || innerWidth, vh = innerHeight, m = 10;
+    box.style.maxWidth = Math.min(400, vw - 2 * m) + "px";
+    const bw = box.offsetWidth, bh = box.offsetHeight, x = Math.max(m, Math.min(vw - bw - m, r.left + r.width / 2 - bw / 2));
+    let y = r.bottom + 10, side = "below";
+    if (y + bh > vh - m && r.top - bh - 10 >= m) { y = r.top - bh - 10; side = "above"; }
+    else if (y + bh > vh - m) y = Math.max(m, vh - bh - m);
+    box.style.left = Math.round(x) + "px"; box.style.top = Math.round(y) + "px"; box.dataset.side = side;
+    box.style.setProperty("--ax", Math.round(Math.max(18, Math.min(bw - 18, r.left + r.width / 2 - x))) + "px");
+  }
+  function close(){
+    clearTimeout(tOpen); clearTimeout(tClose); seq++; pend = null;
+    if (cur) { cur.classList.remove("popping"); cur.removeAttribute("aria-expanded"); }
+    cur = null; pinned = false; box.classList.remove("show", "pinned"); box.hidden = true; box.innerHTML = "";
+  }
+  function show(k, t, pin){
+    clearTimeout(tClose); clearTimeout(tOpen); pend = null;
+    if (cur === t && !box.hidden) { if (pin) { pinned = true; box.classList.add("pinned"); } return; }
+    if (cur) { cur.classList.remove("popping"); cur.removeAttribute("aria-expanded"); }
+    cur = t; pinned = !!pin; box.classList.toggle("pinned", pinned); t.classList.add("popping"); if (k.tap) t.setAttribute("aria-expanded", "true");
+    const my = ++seq;
+    const fill = html => { if (my !== seq) return; if (!html) { close(); return; } box.innerHTML = `<div class="pop-in">${html}</div>`; box.hidden = false; place(t); requestAnimationFrame(() => { if (my === seq) box.classList.add("show"); }); };
+    let out = ""; try { out = k.html(t); } catch (e) { console.error(e); }
+    if (out && typeof out.then === "function") { fill(`<p class="pop-wait">Loading\u2026</p>`); out.then(fill, () => fill(`<p class="muted">Couldn't load this. Check your connection and try again.</p>`)); }
+    else fill(out);
+  }
+  const later = () => { clearTimeout(tClose); tClose = setTimeout(() => { if (!pinned) close(); }, 260); };
+  document.addEventListener("pointerover", e => {
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    if (box.contains(e.target) || (cur && cur.contains(e.target))) { clearTimeout(tClose); return; }
+    const [k, t] = hit(e.target); if (!t || pinned || pend === t) return;
+    clearTimeout(tOpen); pend = t; tOpen = setTimeout(() => show(k, t), cur ? 90 : 320);
+  });
+  document.addEventListener("pointerout", e => {
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    const to = e.relatedTarget;
+    if (pend && !(to && pend.contains(to))) { clearTimeout(tOpen); pend = null; }
+    if (!cur || pinned || (to && (box.contains(to) || cur.contains(to)))) return;
+    later();
+  });
+  document.addEventListener("focusin", e => {
+    if (box.contains(e.target)) return;
+    const [k, t] = hit(e.target);
+    if (t && t === e.target && e.target.matches(":focus-visible")) show(k, t);
+    else if (cur && !pinned && t !== cur) close();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) { const t = cur; close(); if (t && t.focus) t.focus({preventScroll: true}); } });
+  document.addEventListener("click", e => {
+    if (box.contains(e.target)) { if (e.target.closest("a[href], button")) setTimeout(close, 0); return; }
+    const [k, t] = hit(e.target);
+    if (t && k.tap) { e.preventDefault(); e.stopPropagation(); if (cur === t && pinned) close(); else show(k, t, true); return; }
+    if (!box.hidden) close();
+  }, true);
+  document.addEventListener("scroll", e => { if (box.hidden || (e.target && e.target.nodeType === 1 && box.contains(e.target))) return; if (pinned) place(cur); else close(); }, {passive: true, capture: true});
+  addEventListener("resize", () => { if (!box.hidden) place(cur); });
+  addEventListener("hashchange", close); addEventListener("popstate", close);
+  return {add: (sel, html, opts) => { kinds.push(Object.assign({sel, html}, opts || {})); }, close, within: el => !!(cur && el && el.contains(cur))};
+})();
+/* first sentence of a paragraph, stepping over initials and titles (U.S., Jr., Dr.) */
+function firstSentence(text){
+  const s = String(text || "").replace(/\s+/g, " ").trim(), rx = /\.(?=\s+["'(A-Z]|$)/g; let m;
+  while ((m = rx.exec(s))) { const w = (s.slice(0, m.index).match(/(\S+)$/) || ["", ""])[1];
+    if (/^(Jr|Sr|Dr|Mr|Mrs|Ms|St|Mt|No|Inc|Rep|Sen|Gov|Lt|Col|Gen|Rev|Hon|Sgt|Capt|U\.S|U\.N|D\.C|[A-Z])$/.test(w)) continue;
+    return s.slice(0, m.index + 1); }
+  return s.length > 260 ? s.slice(0, 260).replace(/\s+\S*$/, "") + "\u2026" : s;
+}
+const wikiHTML = w => w && w.extract ? `<div class="pc-wiki"><span class="tag outside">Wikipedia \u00b7 not an official record</span><p>${esc(firstSentence(w.extract))}</p><a href="${esc(w.url || "https://en.wikipedia.org/wiki/" + encodeURIComponent(String(w.title || "").replace(/ /g, "_")))}" target="_blank" rel="noopener">Read the article</a></div>` : "";
+const factsHTML = rows => rows.length ? `<ul class="pc-facts">${rows.map(([k, v]) => `<li><span>${esc(k)}</span><span>${v}</span></li>`).join("")}</ul>` : "";
+/* ---------- end of pop-outs ---------- */
+
+/* ---------- who someone is, in brief: the card a name opens ---------- */
+const PERSON_SEL = "[data-person], a[href^='#member=']:not(.chip), button[data-m], [data-card], .ymem[data-id], .mrow[data-id]";
+const personId = el => el.dataset.person || el.dataset.m || el.dataset.card || el.dataset.id || decodeURIComponent(((el.getAttribute("href") || "").match(/^#member=([^/?#]+)/) || [])[1] || "");
+const PARTY_NAME = {D: "Democrat", R: "Republican", I: "Independent", L: "Libertarian"};
+function seatWords(L){
+  const st = (BOOT.state_names || {})[L.st] || L.st;
+  if (L.ch === "Senate") return `Senator from ${st}`;
+  const terr = {DC: "Delegate for the District of Columbia", PR: "Resident Commissioner for Puerto Rico", GU: "Delegate for Guam", VI: "Delegate for the U.S. Virgin Islands", AS: "Delegate for American Samoa", MP: "Delegate for the Northern Mariana Islands"};
+  if (terr[L.st]) return terr[L.st];
+  return !L.d || String(L.d) === "0" ? `Representative for ${st}, at large` : `Representative for ${st}'s ${pcOrdinal(Number(L.d))} district`;
+}
+function personPop(el){
+  const id = personId(el); if (!id) return "";
+  return membersReady().then(() => needMember(id).catch(() => ({}))).then(pf => {
+    const L = (DATA.legislators || {})[id], M = MEMBER[id]; if (!L && !M) return "";
+    const name = L ? L.n : prettyStr(M.name), party = (L && L.p) || (M && M.party) || "";
+    const S = pf.service || {}, F = pf.focus || {}, V = pf.votes || {}, C = pf.committees || [], since = S.since || (L && L.f) || "";
+    const rows = [];
+    if (since) rows.push(["In office", esc(`${S.chamber ? "In the " + S.chamber + " since " : "Since "}${since.slice(0, 4)}${S.terms ? ` \u00b7 ${S.terms === 1 ? "first term" : pcOrdinal(S.terms) + " term"}` : ""}${S.next ? ` \u00b7 on the ballot next in ${S.next}` : ""}`)]);
+    if (F.sponsored || F.cosponsored) rows.push(["Bills", esc(`Sponsored ${F.sponsored || 0} this Congress${F.laws ? ` (${F.laws} became law)` : ""}; cosponsored ${F.cosponsored || 0}`)]);
+    if (V.eligible) rows.push(["Roll calls", esc(`Voted on ${(V.cast != null ? V.cast : V.eligible - (V.missed || 0)).toLocaleString()} of ${V.eligible.toLocaleString()}${V.split_n ? `; broke with their party on ${(V.breaks_n || 0).toLocaleString()} of the ${V.split_n.toLocaleString()} that split the parties` : ""}`)]);
+    if (C.length) rows.push(["Committees", C.slice(0, 3).map(c => esc(String(c.name).replace(/^(House|Senate|Joint) Committee on (the )?/, "")) + (c.title ? ` (${esc(c.title)})` : "")).join("; ") + (C.length > 3 ? esc(`; and ${C.length - 3} more`) : "")]);
+    const seat = L ? seatWords(L) : (M.chamber || "Member");
+    return `<div class="pc"><div class="pc-head">${avatar(id, party, "md")}<div><b>${esc(name)}</b><span class="muted">${esc(seat)} \u00b7 ${esc(PARTY_NAME[party] || party)}${L && L.cur === 0 ? " \u00b7 former member" : ""}</span></div></div>
+      ${factsHTML(rows)}${wikiHTML(pf.wiki)}
+      <p class="pop-links"><a href="#member=${esc(id)}">Open ${esc(name.split(" ").slice(-1)[0])}'s page</a>${pf.money ? `<a href="#member=${esc(id)}/money">Who funds the campaign</a>` : ""}</p></div>`;
+  });
+}
+
+/* ---------- why a rating sits where it does: the card a rating opens ---------- */
+const AXIS_T = {income: "Who gains, by income", backing: "Who backed it", households_business: "Households vs. businesses"};
+const AXIS_SCALE = {
+  income: "The scale runs from \u2212100, benefits going overwhelmingly to lower-income households, through 0, broad-based or even across incomes, to +100, benefits going overwhelmingly to high-income households. A cost is the mirror image: cutting a program used mainly by lower-income households scores toward +100, because the burden falls at the bottom. A bill that helps one group and costs another gets a range, never an average; the shaded bar shows it.",
+  backing: "Measured from the roll calls, not judged. On the final passage vote in each chamber that had a recorded vote, each party's yes-rate is worked out; the position is Republicans' yes-rate minus Democrats', times 100, averaged across the chambers. \u2212100 means only Democrats voted yes, 0 both parties alike, +100 only Republicans. Independents count with the party they caucus with. The label comes from the smaller of the two yes-rates: 50 percent or more is bipartisan, 15 to 49 percent is one party plus crossover, under 15 percent is party-line.",
+  households_business: "Two separate scores, because a bill can help both. For households, \u2212100 means it imposes costs or removes protections, 0 no direct effect, +100 a large direct benefit; businesses are scored the same way. Corporate tax changes count 25 percent to households, as workers, and 75 percent to the owners of capital, the convention the Congressional Budget Office and the Joint Committee on Taxation use."};
+const GRADE_T = {A: "Official analysis of this bill exists (the Congressional Budget Office or the Joint Committee on Taxation) and the rating follows it.",
+  B: "Independent models of this bill exist, from more than one part of the spectrum, and the rating reflects their range.",
+  C: "The rating rests on a reading of the bill's text or its official summary, using the rubric's written rules. A grade C rating is capped at 60 percent confidence.",
+  N: "Not assessable on this axis: the record gives no basis for a position, so none is given."};
+function billFor(key){ return (byKey && byKey[key]) || (typeof featured !== "undefined" ? featured.find(f => f.key === key) : null) || null; }
+function incomeWords(p){ const a = Math.abs(p); if (a <= 15) return "which is roughly even across incomes"; const side = p < 0 ? "lower-income" : "high-income"; return a >= 80 ? `which is overwhelmingly toward ${side} households` : (a >= 40 ? `which is clearly toward ${side} households` : `which leans toward ${side} households`); }
+function backingMath(b, r){
+  const rows = [], pc = x => (100 * x).toFixed(x > .9995 || x < .0005 ? 0 : 1) + "%";
+  for (const s of (r.sources || [])) { const m = String(s.ref || "").match(/(House|Senate) (\d{4}-\d\d-\d\d): R (\d+)-(\d+), D (\d+)-(\d+)/); if (!m) continue;
+    const ry = +m[3], rn = +m[4], dy = +m[5], dn = +m[6], rr = ry + rn ? ry / (ry + rn) : null, dr = dy + dn ? dy / (dy + dn) : null;
+    const v = (b.votes || []).find(v => v.chamber === m[1] && v.date === m[2] && /Passage|Resolve|Conference/.test(v.category || ""));
+    rows.push({ch: m[1], d: m[2], ry, rn, dy, dn, rr, dr, v, pos: rr != null && dr != null ? 100 * (rr - dr) : null}); }
+  if (rows.length) {
+    const ok = rows.filter(x => x.pos != null), avg = ok.reduce((a, x) => a + x.pos, 0) / (ok.length || 1);
+    return `<div class="ap-math">${rows.map(x => `<div><b>${esc(x.ch)}, ${esc(fmtDate(x.d))}.</b> Republicans ${x.ry} of ${x.ry + x.rn} voted yes (${x.rr != null ? pc(x.rr) : "n/a"}); Democrats ${x.dy} of ${x.dy + x.dn} (${x.dr != null ? pc(x.dr) : "n/a"}). 100 \u00d7 (${x.rr != null ? x.rr.toFixed(3) : "?"} \u2212 ${x.dr != null ? x.dr.toFixed(3) : "?"}) = <b>${esc(signed(x.pos))}</b>${x.v && x.v.url ? `<a href="${esc(x.v.url)}" target="_blank" rel="noopener">roll call</a>` : ""}</div>`).join("")}${ok.length > 1 ? `<div>Averaged across the chambers: <b>${esc(signed(avg))}</b></div>` : ""}</div>`;
+  }
+  const c = String(r.magnitude_note || "").match(/R (\d+), D\+I (\d+)/);
+  if (c) { const R = +c[1], D = +c[2]; return `<div class="ap-math"><div>No recorded passage vote with a party split, so the rubric's fallback is used: the cosponsors, ${R} Republican and ${D} Democratic or independent.</div><div>100 \u00d7 (${R} \u2212 ${D}) \u00f7 (${R} + ${D}) = <b>${esc(signed(R + D ? 100 * (R - D) / (R + D) : 0))}</b></div></div>`; }
+  return r.magnitude_note ? `<p class="muted">${esc(r.magnitude_note)}</p>` : "";
+}
+function axisHelpHTML(ax){
+  return `<div class="ap"><h4>${esc(AXIS_T[ax])}</h4><p class="ap-scale" style="color:inherit">${esc(AXIS_SCALE[ax])}</p><h5>Evidence grades</h5>${Object.entries(GRADE_T).map(([g, t]) => `<p><i class="grade" data-g="${g}">${g}</i> ${esc(t)}</p>`).join("")}<p class="ap-who">Every rating on this site shows its grade, its reasoning, its sources and who made it; rest on a rating, or tap it, to see them.</p></div>`;
+}
+function axisHTML(b, ax){
+  const r = (b.ratings || {})[ax];
+  if (!r) return `<div class="ap"><h4>${esc(AXIS_T[ax])}</h4><p>Not rated yet. ${ax === "backing" ? "Party backing is measured once a passage vote is recorded." : "Ratings follow the first committee action or an official cost estimate."}</p><p class="ap-scale">${esc(AXIS_SCALE[ax])}</p></div>`;
+  const g = r.grade || "", conf = r.confidence != null ? Math.round(r.confidence * 100) : null;
+  let here = "";
+  if (ax === "income") here = r.position == null ? "Not assessable for this bill." : `This bill: <b>${esc(signed(r.position))}</b>${r.low != null && r.high != null && (r.low !== r.position || r.high !== r.position) ? `, somewhere from ${esc(signed(r.low))} to ${esc(signed(r.high))}` : ""}, ${esc(incomeWords(r.position))}.`;
+  if (ax === "backing") here = `This bill: <b>${esc(signed(r.position))}</b>${backingLabel(r) ? `, ${esc(backingLabel(r))}` : ""}.`;
+  if (ax === "households_business") here = r.position == null && r.position2 == null ? "Not assessable for this bill." : `This bill: households <b>${esc(signed(r.position))}</b>, businesses <b>${esc(signed(r.position2))}</b>${r.flags && r.flags.business_tag && r.flags.business_tag !== "n/a" ? `. The businesses affected: ${esc(r.flags.business_tag === "both" ? "small firms and large corporations" : r.flags.business_tag)}` : ""}.`;
+  const gw = ax === "backing" ? (g === "A" ? "Measured from the party split of the recorded passage votes." : "No party split on a recorded passage vote was available, so the rubric's fallback was used: the cosponsors, or a passage vote with at least 85 percent in favor, which counts as bipartisan.") : (GRADE_T[g] || "");
+  const src = ax !== "backing" && (r.sources || []).length ? `<h5>Sources</h5><ul class="ap-src">${r.sources.map(s => `<li>${esc(s.type || "")}${s.ref ? ": " + esc(s.ref) : ""}${s.url ? ` <a href="${esc(s.url)}" target="_blank" rel="noopener">open</a>` : ""}</li>`).join("")}</ul>` : "";
+  const mag = ax !== "backing" && (r.magnitude || r.magnitude_note) ? `<h5>How much is at stake</h5><p>${r.magnitude ? `<b>${esc(r.magnitude[0].toUpperCase() + r.magnitude.slice(1))}.</b> ` : ""}${esc(r.magnitude_note || "")}</p>` : "";
+  return `<div class="ap"><div class="ap-h"><b>${esc(AXIS_T[ax])}</b>${g ? `<i class="grade" data-g="${esc(g)}">${esc(g)}</i>` : ""}</div>
+    <p class="ap-this">${here}</p>${ax === "backing" ? `<h5>The arithmetic</h5>${backingMath(b, r)}` : ""}
+    ${r.justification ? `<h5>Why</h5><p>${esc(r.justification)}</p>` : ""}${mag}
+    <h5>Evidence</h5><p>${g ? `<i class="grade" data-g="${esc(g)}">${esc(g)}</i> ` : ""}${esc(gw)}${conf != null ? ` Confidence: ${conf} percent.` : ""}</p>${src}
+    <h5>What the scale means</h5><p class="ap-scale">${esc(AXIS_SCALE[ax])}</p>
+    <p class="ap-who">${r.rater ? `Rated by ${esc(r.rater)}` : "Rater not recorded"}${r.rated_at ? ` on ${esc(fmtDate(String(r.rated_at).slice(0, 10)))}` : ""}${r.version ? `, under rubric ${esc(r.version)}` : ""}.${b.review ? " " + esc(b.review) + "." : ""}</p>
+    <p class="pop-links"><a href="#how">How the ratings work</a></p></div>`;
+}
+function axisPop(el){
+  const ax = el.dataset.axis, key = el.dataset.bill; if (!AXIS_T[ax]) return "";
+  if (!key) return axisHelpHTML(ax);
+  const b = billFor(key); if (!b) return "";
+  return b.trim ? needBill(b).then(() => axisHTML(b, ax)) : axisHTML(b, ax);
+}
+
+/* ---------- the path a measure took: every step, lane by lane ---------- */
+const LANE = {H: "House", S: "Senate", P: "President", T: "The states"};
+const otherLane = c => c === "H" ? "S" : "H";
+const andList = xs => xs.length < 2 ? (xs[0] || "") : xs.slice(0, -1).join(", ") + (xs.length > 2 ? "," : "") + " and " + xs[xs.length - 1];
+function ghostsOf(b, s){
+  const j = journeyOf(b), o = j.o || (b.origin === "Senate" ? "S" : "H"), K = new Set(s.map(t => t.k)), kind = b.kind || "";
+  if (j.fail || K.has("f") || K.has("s") || K.has("u") || K.has("l") || (K.has("v") && !K.has("o"))) return [];
+  const G = (k, c) => ({k, c, g: 1});
+  if (/Simple resolution/i.test(kind)) return K.has("p") ? [] : [G("p", o)];
+  const tail = /Concurrent resolution/i.test(kind) ? [] : (j.am ? [G("t", "T")] : (K.has("e") ? [G("s", "P")] : [G("e", "P"), G("s", "P")]));
+  if (K.has("e")) return tail;
+  const passed = new Set(s.filter(t => t.k === "p").map(t => t.c)), last = [...s].reverse().find(t => t.k !== "r" && t.k !== "c") || {};
+  if (passed.has("H") && passed.has("S")) { const open = (last.k === "p" && last.am) || last.k === "m" || last.k === "x"; return (open ? [G("a", otherLane(last.c))] : []).concat(tail); }
+  if (passed.size) return [G("p", passed.has(o) ? otherLane(o) : o)].concat(tail);
+  return [G("p", o), G("p", otherLane(o))].concat(tail);
+}
+/* a chamber's committees, from the record's committee field ("H-Budget Committee: Referred To ... || S-Finance Committee: ..." or "H-Budget Committee; H-Appropriations Committee") */
+const committeesIn = (b, c) => String(b.committees || "").split(/\s*(?:\|\||;)\s*/).filter(x => x.startsWith(c + "-")).map(x => x.slice(2).replace(/:.*$/, "").trim()).filter((x, i, a) => x && a.indexOf(x) === i);
+function stepsOf(b){
+  const from = b.path ? b.path : null;
+  if (b._steps && b._stepsFrom === from) return b._steps;
+  let s;
+  if (from) s = from.map(([k, c, d, q, x]) => Object.assign({k, c, d}, q ? {q} : {}, x || {}));
+  else { const o = b.origin === "Senate" ? "S" : "H"; s = b.introduced ? [{k: "i", c: o, d: b.introduced}] : [];
+    if (b.status && b.status !== "Introduced") s.push({k: "c", c: o, d: b.referred || b.introduced}); }
+  for (const t of s) if (t.k === "c" && !t.cm) t.cm = committeesIn(b, t.c);
+  s = s.concat(ghostsOf(b, s));
+  b._steps = s; b._stepsFrom = from; return s;
+}
+function stepShort(s){
+  if (s.g) return {p: `${LANE[s.c]} vote`, a: `${LANE[s.c]} agrees`, e: "To the President", s: "Law", t: "To the states"}[s.k] || "Next";
+  return {i: "Introduced", c: "Committee", r: s.desk ? "Held at the desk" : "Received", p: s.am ? "Passed, changed" : "Passed", f: "Failed",
+    a: "Accepted changes", m: "Changed it again", x: s.tbl ? "Set changes aside" : "Disagreed", k: "Final deal adopted", e: "To the President",
+    s: "Signed into law", u: "Law, unsigned", v: s.pocket ? "Pocket veto" : "Vetoed", o: s.ok ? "Veto overridden" : "Override failed", l: "Became law"}[s.k] || s.k;
+}
+function stepSentence(b, s, S){
+  const L = LANE[s.c], O = LANE[otherLane(s.c)], law = s.law ? (String(s.law).startsWith("Private") ? "Private Law " + String(s.law).replace(/^Private /, "") : "Public Law " + s.law) : "";
+  if (s.g) return {p: `Not yet: the ${L} has not voted on it.`, a: `Not yet: the ${L} has to accept the ${O}'s changes, or the two chambers have to settle them another way.`,
+    e: "Not yet: once both chambers have passed the same text, it goes to the President.", t: "Not yet: a constitutional amendment goes to the states once both chambers pass it by two-thirds, and three-quarters of the states must ratify it.",
+    s: "Not yet: it becomes law when the President signs it; when the President does not act on it within ten days (Sundays excepted) while Congress is in session; or when Congress overrides a veto."}[s.k] || "Not yet.";
+  const i = (S || []).indexOf(s), after = i >= 0 ? S.slice(i + 1).filter(t => !t.g) : [], nextHere = after.find(t => t.c === s.c);
+  switch (s.k) {
+    case "i": return `Introduced in the ${L}${b.sponsor ? ` by ${prettyStr(b.sponsor.name)}` : ""}.`;
+    case "c": { const cm = (s.cm || []).map(x => String(x).replace(/^(House |Senate )?(Select |Special )?Committee on (the )?/, "").replace(/ Committee$/, ""));
+      const to = cm.length ? `the ${L}'s ${andList(cm)} ${cm.length > 1 ? "committees" : "Committee"}` : `a ${L} committee`;
+      const out = s.d2 ? (s.out === 2 ? ` The committee was discharged on ${fmtDate(s.d2)}, so the bill moved on without its report.` : ` Reported${s.chg ? " with changes" : ""} on ${fmtDate(s.d2)}${s.rp ? " (" + s.rp + ")" : ""}.`)
+        : (nextHere && /[pf]/.test(nextHere.k) ? " It went to the floor without a committee report." : " No committee report yet.");
+      return `Sent to ${to}.${out}`; }
+    case "r": return `Arrived in the ${L}${s.desk ? " and was held at the desk" : ""}.${nextHere && /[pf]/.test(nextHere.k) ? ` It went to the ${L} floor without going to a committee.` : ""}`;
+    case "p": return `Passed the ${L}${s.am ? `, with changes, so it went back to the ${O}` : ""}.`;
+    case "f": return `Failed in the ${L}.`;
+    case "a": return `The ${L} accepted the ${O}'s changes, so both chambers had passed the same text.`;
+    case "m": return `The ${L} accepted the ${O}'s changes with further changes of its own, so it went back to the ${O}.`;
+    case "x": return s.tbl ? `The ${L} set the ${O}'s latest changes aside (a motion to table).` : `The ${L} did not accept the ${O}'s changes; the chambers had to settle them another way.`;
+    case "k": return `The ${L} adopted the conference report, the version both chambers' negotiators agreed on.`;
+    case "e": return "Sent to the President, who has ten days (Sundays excepted) to sign or veto it.";
+    case "s": return `Signed by the President${law ? `; it became ${law}` : ""}.`;
+    case "u": return `Became law${law ? ` (${law})` : ""} without the President's signature. A bill the President neither signs nor vetoes within ten days (Sundays excepted), while Congress is in session, becomes law.`;
+    case "v": return s.pocket ? "Pocket vetoed: Congress had adjourned, so the President's not signing it counted as a veto." : "Vetoed by the President. Congress can override a veto with two-thirds of each chamber.";
+    case "o": return `The ${L} voted on overriding the veto, and the override ${s.ok ? "passed" : "failed"}.`;
+    case "l": return `Became ${law || "law"}.`;
+  }
+  return "";
+}
+const qWords = q => /^\d/.test(q) ? `The vote: ${q}.` : q.charAt(0).toUpperCase() + q.slice(1) + ".";
+/* Each of a measure's votes, filed under the step it belongs to: first the vote that decided the step (its own roll
+   call, or the deciding kind of vote that day), then the votes along the way, each under the next voting step in its
+   chamber on or after its day. */
+const DECISIVE = {p: ["Passage"], f: ["Passage"], a: ["Resolve differences", "Passage"], m: ["Resolve differences"], x: ["Resolve differences"], k: ["Conference report", "Resolve differences"], o: ["Veto override"]};
+function filedVotes(b){
+  const S = stepsOf(b), votes = b.votes || [];
+  if (b._fv && b._fvN === votes.length && b._fvS === S) return b._fv;
+  const out = S.map(() => []), used = new Set(), lane = v => String(v.chamber || "").charAt(0);
+  S.forEach((s, i) => { if (s.g || !DECISIVE[s.k]) return;
+    const v = votes.find(v => !used.has(v.vote_id) && lane(v) === s.c && (s.r ? String(v.roll) === String(s.r) : (v.date === s.d && DECISIVE[s.k].includes(v.category))));
+    if (v) { out[i].push(v); out[i].main = true; used.add(v.vote_id); } });
+  for (const v of votes.slice().sort((a, c) => String(a.date || "").localeCompare(String(c.date || "")))) {
+    if (used.has(v.vote_id)) continue;
+    let home = S.findIndex(s => !s.g && s.c === lane(v) && DECISIVE[s.k] && (s.d || "") >= (v.date || ""));
+    if (home < 0) for (let i = S.length - 1; i >= 0; i--) if (!S[i].g && S[i].c === lane(v) && DECISIVE[S[i].k]) { home = i; break; }
+    if (home >= 0) { out[home].push(v); used.add(v.vote_id); }
+  }
+  b._fv = out; b._fvN = votes.length; b._fvS = S; return out;
+}
+const splitWords = sp => String(sp || "").split(/,\s*/).map(p => { const m = p.match(/^([A-Z]+)\s+(\d+)-(\d+)$/); return m ? `${({D: "Democrats", R: "Republicans", I: "Independents"})[m[1]] || m[1]} ${m[2]} yes, ${m[3]} no` : p; }).join(" \u00b7 ");
+function voteLine(v, main){
+  const tally = v.yeas != null ? `${v.yeas}\u2013${v.nays}` : (v.method || "").toLowerCase();
+  return `<li${main ? ' class="main"' : ""}><span>${esc(v.category || "Vote")}: <b>${esc(v.result || "")}</b>${tally ? ", " + esc(tally) : ""} <span class="muted">${esc(fmtDate(v.date))}</span></span>${v.split ? `<span class="sp-split">${esc(splitWords(v.split))}</span>` : ""}<span class="sp-act">${v.url ? `<a href="${esc(v.url)}" target="_blank" rel="noopener">Official roll call</a>` : ""}${(v.map || VOTE_IDS.has(v.vote_id)) ? `<a class="maplink" href="#map" data-vote="${esc(v.vote_id)}">See the map</a>` : ""}</span></li>`;
+}
+function cnotesFor(b, s){
+  const all = ((b.cnotes || {})[s.c] || []);
+  return all.map(([d, cm, act, t]) => `${fmtDate(d)}: ${String(cm).replace(/ Committee$/, "")}, ${String(act).toLowerCase()}${t ? " " + t : ""}`);
+}
+function stepHTML(b, s, S, head){
+  const vs = filedVotes(b)[S.indexOf(s)] || [], notes = s.k === "c" ? cnotesFor(b, s) : [];
+  const q = s.q && !(vs.main && vs[0].yeas != null) ? `<p class="q muted">${esc(qWords(s.q))}</p>` : "";
+  return `${head}<p>${esc(stepSentence(b, s, S))}</p>${q}${notes.length ? `<ul class="sl-notes">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}${vs.length ? `<ul class="sp-votes">${vs.map((v, i) => voteLine(v, i === 0 && vs.main)).join("")}</ul>` : ""}`;
+}
+function stepPop(el){
+  const host = el.closest("[data-path]"), b = host && billFor(host.dataset.path), i = +el.dataset.step; if (!b) return "";
+  const draw = () => { const S = stepsOf(b), s = S[i]; if (!s) return "";
+    const head = `<div class="sp-h"><span class="lanetag L${s.c}">${esc(LANE[s.c])}</span><b>${esc(stepShort(s))}</b></div><p class="sp-d">${s.d ? esc(fmtDate(s.d)) + (s.d2 && s.d2 !== s.d ? " \u2013 " + esc(fmtDate(s.d2)) : "") : "Not yet"}</p>`;
+    return `<div class="sp">${stepHTML(b, s, S, head)}${s.g ? "" : `<p class="pop-links"><a href="${esc((b.links || {}).actions || "#")}" target="_blank" rel="noopener">Every action, word for word</a></p>`}</div>`; };
+  return b.trim && ((stepsOf(b)[i] || {}).q || (stepsOf(b)[i] || {}).k === "c") ? needBill(b).then(draw) : draw();
+}
+function stepListHTML(b, fallback){
+  const S = stepsOf(b), real = S.filter(s => !s.g); if (!real.length) return fallback || "";
+  const used = new Set(), F = filedVotes(b);
+  F.forEach(vs => vs.forEach(v => used.add(v.vote_id)));
+  const items = real.map(s => {
+    const bad = s.k === "f" || s.k === "v" || (s.k === "o" && !s.ok);
+    const head = `<div class="sl-when"><span class="lanetag L${s.c}">${esc(LANE[s.c])}</span><time datetime="${esc(s.d)}">${esc(fmtDate(s.d))}${s.d2 && s.d2 !== s.d ? " \u2013 " + esc(fmtDate(s.d2)) : ""}</time><b style="color:var(--ink)">${esc(stepShort(s))}</b></div>`;
+    return `<li class="L${s.c}${bad ? " bad" : ""}">${stepHTML(b, s, S, head)}</li>`; }).join("");
+  const ghosts = S.filter(s => s.g).map(s => `<li class="todo"><div class="sl-when"><span class="lanetag L${s.c}">${esc(LANE[s.c])}</span><span>not yet</span></div><p>${esc(stepSentence(b, s, S))}</p></li>`).join("");
+  const rest = (b.votes || []).filter(v => !used.has(v.vote_id));
+  return `<h4 class="sl-h">Every step, in order</h4><ol class="steplist">${items}${ghosts}</ol>${rest.length ? `<h4 class="sl-h">Other recorded votes</h4><ul class="sp-votes">${rest.map(v => voteLine(v, false)).join("")}</ul>` : ""}${(b.links || {}).actions ? `<p class="note">Every action, word for word, is on <a href="${esc(b.links.actions)}" target="_blank" rel="noopener">Congress.gov</a>.</p>` : ""}`;
+}
+function lanesHTML(b, mode){
+  const S = stepsOf(b), n = Math.max(S.length, 2), j = journeyOf(b), full = mode === "full", live = mode !== "pick";
+  const lanes = ["H", "S", j.am ? "T" : "P"], row = c => c === "S" ? 1 : (c === "P" || c === "T" ? 2 : 0), DY = full ? .2 : .5;
+  let lastReal = -1; S.forEach((s, i) => { if (!s.g) lastReal = i; });
+  const bad = s => s.k === "f" || s.k === "v" || (s.k === "o" && !s.ok), ended = S.some(s => s.k === "s" || s.k === "u" || s.k === "l");
+  const failed = !ended && S.some(bad), P = S.map((s, i) => `${(i + .5).toFixed(2)},${(row(s.c) + DY).toFixed(2)}`);
+  const cls = (s, i) => s.g ? "todo" : (bad(s) ? "bad" : (i === lastReal && !ended ? "now" : "done"));
+  const tag = live ? "button" : "span";
+  const dots = S.map((s, i) => `<${tag}${live ? ' type="button"' : ""} class="ls ${cls(s, i)}" style="--i:${i};--r:${row(s.c)}"${live ? ` data-step="${i}" aria-label="${esc(`${LANE[s.c]}: ${stepShort(s)}, ${s.d ? fmtDate(s.d) : "not yet"}`)}"` : ""}><i></i>${full ? `<span class="lt">${esc(stepShort(s))}</span><span class="ld">${s.d ? esc(fmtDate(s.d)) : "not yet"}</span>` : ""}</${tag}>`).join("");
+  const since = b.latest_action_date || b.date || "";
+  const cap = `<span class="trk-cap">${esc(j.note)}${j.st && since ? `<span class="quiet"> \u00b7 no action since ${esc(fmtDate(since))}</span>` : ""}</span>`;
+  const k = `trk lanes ${mode}${failed ? " failed" : ""}${j.st ? " stalled" : ""}${!failed && !j.st && !ended ? " active" : ""}${ended ? " complete" : ""}`;
+  return `<span class="${k}" data-path="${esc(b.key)}" style="--n:${n}" role="group" aria-label="${esc(`The path so far. ${j.note}. ${S.filter(s => !s.g).length} steps taken.`)}"><span class="lwrap"><span class="lnames" aria-hidden="true">${lanes.map(c => `<span>${esc(LANE[c])}</span>`).join("")}</span><span class="lscroll"><span class="lgrid"><svg class="lline" viewBox="0 0 ${n} 3" preserveAspectRatio="none" aria-hidden="true">${lastReal > 0 ? `<polyline class="done" points="${P.slice(0, lastReal + 1).join(" ")}"/>` : ""}${lastReal < S.length - 1 ? `<polyline class="todo" points="${P.slice(Math.max(0, lastReal)).join(" ")}"/>` : ""}</svg>${dots}</span></span></span>${cap}</span>`;
+}
+pop.add("[data-step]", stepPop, {tap: true});
+pop.add("[data-axis]", axisPop, {tap: true});
+pop.add(PERSON_SEL, personPop);
+
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => { $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); }); watchTracks(root); };
 const roleOf = m => m.name.startsWith("Sen.") ? "Senator" : (m.chamber === "Senate" ? "Senator" : "Representative");
@@ -2924,7 +3503,7 @@ function heroShow(i, animate){
   hi = (i + featured.length) % featured.length;
   const b = featured[hi], body = $("#herobody");
   const paint = () => {
-    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="pplain">${plainLine(b)}</p>${trackHTML(b, "slim")}${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <b>${esc(prettyStr(b.sponsor.name))}</b>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
+    body.innerHTML = `<div class="pid"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div><div class="ptitle">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="pplain">${plainLine(b)}</p>${trackHTML(b, "slim")}${b.sponsor ? `<div class="spot-spon">${avatar(b.sponsor.id, b.sponsor.party, "md")}<span>Sponsored by <a href="#member=${esc(b.sponsor.id)}" data-person="${esc(b.sponsor.id)}"><b>${esc(prettyStr(b.sponsor.name))}</b></a>, ${esc(b.sponsor.party)}-${esc(b.sponsor.state)}</span></div>` : ""}${axes(b)}`;
     body.classList.remove("out"); watchTracks(body);
     requestAnimationFrame(() => requestAnimationFrame(() => $(".axes", body).classList.add("live")));
   };
@@ -2935,7 +3514,7 @@ if (featured.length) {
   $("#herodots").innerHTML = featured.map((b, i) => `<button role="tab" aria-label="Show ${esc(b.id)}" aria-current="${i === 0}"></button>`).join("");
   $("#herodots").addEventListener("click", e => { const i = $$("#herodots button").indexOf(e.target.closest("button")); if (i >= 0) { heroShow(i, true); restart(); } });
   $("#herogo").addEventListener("click", () => goToBill(featured[hi].key));
-  const restart = () => { clearInterval(htimer); if (!calm()) htimer = setInterval(() => heroShow(hi + 1, true), 9000); };
+  const restart = () => { clearInterval(htimer); if (!calm()) htimer = setInterval(() => { if (!pop.within($("#heropanel"))) heroShow(hi + 1, true); }, 9000); };
   window.heroRestart = restart; window.heroPause = () => clearInterval(htimer);
   $("#heropanel").addEventListener("mouseenter", () => clearInterval(htimer));
   $("#heropanel").addEventListener("mouseleave", restart);
@@ -3591,7 +4170,7 @@ function drawBillMap(host){
   function showState(st){
     picked = st; $$("g.state", svg).forEach(g => g.classList.toggle("sel", g.dataset.st === st));
     const name = (states[st] || {}).name || st, ms = positionsFor(current, st).sort((a, b) => ((a.L.d || 0) - (b.L.d || 0)) || a.L.n.localeCompare(b.L.n));
-    side.innerHTML = ms.length ? `<h5>${esc(name)}: ${esc(current.chamber)}</h5><div class="bmap-mems">${ms.map(m => `<span class="bmem">${avatar(m.id, m.p, "sm")}<b>${esc(m.L.n)}</b><span class="vtag ${esc(m.pos)}">${POSN[m.pos] || m.pos}</span></span>`).join("")}</div>`
+    side.innerHTML = ms.length ? `<h5>${esc(name)}: ${esc(current.chamber)}</h5><div class="bmap-mems">${ms.map(m => `<span class="bmem" data-person="${esc(m.id)}">${avatar(m.id, m.p, "sm")}<b>${esc(m.L.n)}</b><span class="vtag ${esc(m.pos)}">${POSN[m.pos] || m.pos}</span></span>`).join("")}</div>`
       : `<span class="muted">No ${esc(current.chamber)} members from ${esc(name)} appear in this roll call.</span>`;
   }
   pick.addEventListener("change", () => paint(pick.value));
@@ -5241,7 +5820,8 @@ def main():
     boot["analytics"] = args.analytics
     for n_chars, n_subj in ((args.summary_chars, 4), (140, 3), (80, 2), (0, 0)):
         shaped = trim_lite(data, n_chars, n_subj)
-        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": shaped["bills"]}, "photos": shaped["photos"], "profiles": archive_profiles, "money": {"summary": money_summary}})
+        slim_bills = [{k: v for k, v in b.items() if k != "cnotes"} for b in shaped["bills"]]      # what each committee did stays on the fast site
+        boot["inline"] = dict(bundles(shaped), **{"bills-list": {"bills": slim_bills}, "photos": shaped["photos"], "profiles": archive_profiles, "money": {"summary": money_summary}})
         html = render_page(boot, shaped, version, foot)
         mb = len(html.encode("utf-8")) / 1e6
         if mb <= args.max_mb - 0.3 or n_chars == 0:
