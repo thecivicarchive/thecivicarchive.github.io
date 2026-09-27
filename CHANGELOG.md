@@ -10,6 +10,24 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.045 — 2026-09-27 — This week's record
+
+- The federal record is up to date through September 25: 16,593 bills and
+  joint resolutions, 113 of them law, and 609 roll calls, each checked
+  member by member against the official count.
+- Five bills became law since the last update. The Lindsey O. Graham
+  Sanctioning Russia and Iran Act of 2026 (H.R. 5334) was signed on
+  September 18. Four signed on September 11 had been waiting for the record
+  to catch up: the Stop Secret Spending Act of 2025 (H.R. 2069), the
+  National Emergency Medical Services Memorial Extension Act (H.R. 2196),
+  the Doug LaMalfa Federal Disaster Tax Relief Certainty Act (H.R. 5366),
+  and H.R. 1276, which lifts restrictions on a parcel of land in Paducah,
+  Kentucky. Each one's path now ends with the President's signature.
+- Behind the scenes, the weekly update now redraws every bill's path along
+  with its status, so the two always come from the same day's record, and
+  it waits out a home connection that drops an address lookup for a few
+  seconds instead of stopping.
+
 ## v4.0.044 — 2026-09-27 — Light pages, name cards, the reasons behind every rating, and a bill's real path
 
 - Every page now opens light, on the white background, wherever you enter:

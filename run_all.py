@@ -126,16 +126,20 @@ def stage_check(args):
         headers = {"User-Agent": UA}
         if accept:
             headers["Accept"] = accept
-        try:
-            with urlopen(Request(url, headers=headers), timeout=30) as r:
-                r.read(2048)
-                say(f"  OK    {label} reachable (HTTP {r.status})")
-        except Exception as e:  # noqa: BLE001
-            if optional:
-                say(f"  WARN  {label}: {e}  (the districts stage will use the 2016 lines from GitHub instead)")
-            else:
-                say(f"  FAIL  {label}: {e}")
-                ok = False
+        for attempt in (1, 2, 3, 4):           # some home routers refuse address lookups for a few seconds at a time:
+            try:                               # ask up to four times over half a minute before calling it a failure
+                with urlopen(Request(url, headers=headers), timeout=30) as r:
+                    r.read(2048)
+                    say(f"  OK    {label} reachable (HTTP {r.status}{f', on try {attempt}' if attempt > 1 else ''})")
+                break
+            except Exception as e:  # noqa: BLE001
+                if attempt < 4:
+                    time.sleep(5 * attempt)
+                elif optional:
+                    say(f"  WARN  {label}: {e}  (the districts stage will use the 2016 lines from GitHub instead)")
+                else:
+                    say(f"  FAIL  {label}: {e}")
+                    ok = False
     say("  All checks passed." if ok else "  Some checks failed; see CLAUDE.md > Troubleshooting before continuing.")
     return ok
 
@@ -446,6 +450,7 @@ def main():
         stage_roster(args)
         stage_catalog(args, refresh=(args.stage == "refresh"))
         stage_titles(args)
+        stage_actions(args)
         stage_rollcalls(args)
         stage_profiles(args)
         stage_donors(args)

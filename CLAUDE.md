@@ -73,8 +73,9 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
   bundled certifi certificates automatically; if a script run on its own still fails, run the "Install
   Certificates.command" file in the Python folder under Applications, or set `SSL_CERT_FILE` to
   `.venv`'s certifi bundle.
-- **Check stage FAILs on a website**: confirm the machine is online; a work VPN or firewall can block government
-  sites. Try again off the VPN.
+- **Check stage FAILs on a website**: the check asks each site up to four times over half a minute, so a FAIL means
+  the site stayed out of reach. Confirm the machine is online; a work VPN or firewall can block government sites. Try
+  again off the VPN.
 - **HTTP 403 or timeouts from clerk.house.gov or senate.gov during `rollcalls`**: wait a few minutes and re-run
   `python run_all.py rollcalls`. Failed roll calls are retried; cached ones are reused.
 - **GovInfo listing errors (406, empty listing)**: `congress_catalog.list_folder` sends the Accept header GovInfo
