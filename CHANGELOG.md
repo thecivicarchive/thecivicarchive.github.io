@@ -10,6 +10,37 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.046 — 2026-09-29 — On The Ballot opens: who is running for Congress
+
+- A new switch sits at the top of the front door: On The Ballot, with the
+  days left until the November 3 election beneath it. Click it and the page
+  is pulled through a wormhole into a new space. Rest the pointer on it for
+  three seconds first and fireworks spell out ON THE BALLOT, CLICK TO SEE
+  across a night sky; a click goes through, and otherwise the sky clears.
+  With Motion off it is a plain fade.
+- The new space has its own front door, a ring of cards like the first:
+  Congress now, then governors and legislatures, then county and city.
+- Congress: every House seat and the 35 Senate races on the November 3
+  ballot, two of them special elections, with a page for each state and
+  each race. Who is running comes only from each state's own official
+  list, added one state at a time, largest first. California and Florida
+  come first: 190 candidates on the November ballot, and 441 in the
+  primaries that chose them.
+- A race's general election is an arena: one card per candidate, every
+  card the same size, in the order the state's list gives (or by surname
+  where it gives none), never by money or polls. Step into the arena and
+  the candidates line up side by side: the party as printed on the ballot,
+  their record in Congress if they serve there today, and their 2026
+  campaign money from the FEC, organizations named and people as a total,
+  with outside spending kept apart.
+- A race's primaries are fields, every candidate in a lane: California's
+  June 2 top-two primary with the official vote counts, Florida's August
+  18 party primaries with the winners marked (their vote counts come next).
+- Where a state drew new congressional lines for 2026 (nine states did),
+  the pages say so and name the source.
+- Organization names keep their capital letter after a bracket, on the
+  money pages too.
+
 ## v4.0.045 — 2026-09-27 — This week's record
 
 - The federal record is up to date through September 25: 16,593 bills and

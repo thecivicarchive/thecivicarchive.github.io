@@ -88,6 +88,9 @@ def tidy_name(name):
             "CSX", "AIPAC", "AFSCME", "SEIU", "NEA", "AFT", "NAR", "ABA", "AMA", "CPA", "CPAS", "PEOPLE", "II", "III", "IV", "DC", "NY",
             "UFCW", "IAFF", "NATCA", "ALPA", "IUOE", "LIUNA", "BAC", "SMART", "USW", "CWA", "IAM", "UNITE", "HERE", "ACEC", "NFIB", "NAHB",
             "RNC", "DNC", "DCCC", "DSCC", "NRCC", "NRSC", "JPMORGAN", "BP", "3M", "HCA", "KPMG", "PWC", "EY", "RTX", "L3HARRIS", "CVS", "AFLAC"}
+    def cap(w):      # capitalize from the first letter, so "(CALIFORNIA" becomes "(California", not "(california"
+        k = next((j for j, ch in enumerate(w) if ch.isalpha()), None)
+        return w if k is None else w[:k] + w[k:].capitalize()
     out = []
     for i, w in enumerate(n.split(" ")):
         core = w.strip("().,'\"")
@@ -96,11 +99,11 @@ def tidy_name(name):
         elif i and core.upper() in small:
             out.append(w.lower())
         elif "-" in w:
-            out.append("-".join(p.capitalize() for p in w.split("-")))
+            out.append("-".join(cap(p) for p in w.split("-")))
         elif w.upper().startswith("MC") and len(w) > 3:
             out.append("Mc" + w[2:].capitalize())
         else:
-            out.append(w.capitalize())
+            out.append(cap(w))
     return " ".join(out)
 
 

@@ -13,6 +13,10 @@ if not exist "congress_119.sqlite" (
 if errorlevel 1 goto failed
 if exist "state_mn.sqlite" ".venv\Scripts\python.exe" build_state_dev.py --place all
 if errorlevel 1 goto failed
+if exist "ballot_2026.sqlite" ".venv\Scripts\python.exe" build_ballot_dev.py
+if errorlevel 1 goto failed
+if exist "ballot_2026.sqlite" ".venv\Scripts\python.exe" build_door.py --out "site\dev\ballot\index.html" --ballot --draft
+if errorlevel 1 goto failed
 ".venv\Scripts\python.exe" build_door.py --out "site\dev\index.html" --draft
 :failed
 if errorlevel 1 (

@@ -117,6 +117,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `district_shapes.py`, `district_people.py` | The districting lenses: the shape of every district (Polsby-Popper, Reock, convex hull) and who lives in each (2020 count, people per seat against the ideal, ACS estimates with margins), for Congress and every state chamber, each with a self-test, fingerprinted sources, control totals and a CSV of every figure |
 | `score_bills.py` | Ratings: import, party backing from roll calls (`--backing-only`, free), optional Claude API scoring |
 | `build_site.py` | Builds the one-file website from the database |
+| `run_ballot.py`, `ballot/`, `build_ballot_dev.py` | On The Ballot: who is on the November ballot, race by race, from each state's official candidate list, with FEC money; builds `site/dev/ballot/`. See "On The Ballot" below |
 | `rubric_v1.md` | The rating rubric (read-only) |
 | `seed/seed_ratings_119.json` | Ten hand-applied preview ratings for current bills |
 | `us_states_albers.json` | State map shapes (public domain, from the us-atlas package) |
@@ -461,6 +462,51 @@ site; one stage by name. Files next to the script: `local_<code>.sqlite`, `local
   statewide from the Department of Education there. The state portal's county website list
   (mn.gov/portal/government/local/counties/) answered once with 87 links and then with a short page: fetch it once,
   keep it.
+
+## On The Ballot (from version 4.0.046)
+
+John's idea (2026-09-29): a switch at the top middle of the front door, "On The Ballot"; a click pulls the reader
+through a wormhole into a second space built like the first (Congress, State, County and city cards), given over to
+who is literally on the ballot in every district, primaries included, with the general election drawn as a card
+"arena" and a primary as a "field". His answers: Congress first; official lists state by state, biggest states
+first; after the three-second hover the fireworks wait for a click; polls only from pollsters in AAPOR's
+Transparency Initiative (the latest from up to five, and our own average of the ten most recent, arithmetic shown).
+Defaults he was shown and accepted: cards show record facts only, all the same size, in ballot order or by surname,
+party colour as a band, never a score; positions only in the candidates' own words (their campaign's issues page)
+plus their voting record; ads as FEC spending by kind, for and against, plus links to Google's and Meta's public ad
+libraries (never copied); the money rule as everywhere; after Election Day, the official result.
+
+- Everything goes through `run_ballot.py` (`races`, `fec`, `lists [codes]`, `match`, `check`, `site`). The database
+  is `ballot_2026.sqlite` (never congress_119.sqlite); downloads in `ballot_cache/`; the report `ballot_report.md`.
+- `ballot/races.py`: the 435 House seats (the district file plus six at-large states) and the Senate (class 2 plus a
+  special wherever an appointee holds a seat of another class: Ohio and Florida). State notes on new lines cite
+  NCSL's tracker (secondary, labelled, updated 2026-09-11): AL CA FL LA NC OH TN TX UT use new lines; Missouri is back
+  on its 2022 lines pending a November referendum; Louisiana's congressional primaries are on November 3 and its
+  general on December 12. A reader is never placed in a district from the 2024 lines in a state whose lines changed.
+- `ballot/fec26.py`: every 2026 House and Senate candidate from the cached FEC bulk files, with load_donors' rules.
+- `ballot/lists/<code>.py`, one loader per state, named in `LOADERS`. California: the Statement of Vote's "CSV Files
+  - Voter Nominated" workbook for the June 2 top-two primary (county rows summed); the top two advance. Checking them
+  against the Certified List of Candidates (a PDF) is still to do. Florida: the Candidate Tracking System download
+  (POST `extractCanList.asp`, elecID 20261103-GEN, office FED, status All, cantype STA; tab-separated; statuses
+  Qualified, Unopposed, Defeated, Withdrew, Did Not Qualify; an unopposed candidate is not printed on the ballot,
+  section 101.151). Florida's primary vote counts are not loaded yet. Addresses, phones, e-mail and treasurers' names
+  in any file are never read.
+- `ballot/match.py` ties candidates to FEC numbers and Bioguide ids: same state, office and district, the family name
+  (particles such as de, van, le set aside), a given name that fits (`given_fits`); a first-letter match only when
+  the family name is unique in the race (Ami for Amerish, Ro for Rohit). Write-ins and small campaigns often have no
+  FEC registration.
+- `build_ballot_dev.py` writes `site/dev/ballot/us/index.html` (routes `#state=FL`, `#race=2026-FL-H07`), borrowing
+  CSS, MONEYFMT and CHANGELOG by the landmarks in build_state_dev.py, and reading a sitting member's record from the
+  draft's `us/data/member/` files, so build the federal draft first. `build_door.py --ballot` writes the ballot door;
+  the main door shows the switch only when `site/dev/ballot/index.html` exists. `Preview dev site.bat` builds both.
+- The switch: a real pointer movement onto it starts a three-second charge; canvas fireworks spell ON THE BALLOT /
+  CLICK TO SEE over a blurred night sky and hold about three seconds; a click runs the wormhole (canvas tunnel, the
+  page and the words pulled into the middle, two seconds) and `sessionStorage.wormhole` plays the arrival on the
+  other side. Motion off: a plain fade. Phones: a tap goes straight through.
+- Next, in order: more states' lists, largest first (TX, NY, PA, IL, OH, GA, NC, MI ...); Florida's primary votes;
+  the California certified-list check (a small PDF reader); ads (the FEC's independent expenditure file, whose
+  purpose column gives the medium, and campaigns' operating expenditures; ad library links); polls (AAPOR's list);
+  each campaign's issues page; share pages for races; then state and local ballots.
 
 ## Optional: rate more bills with the Claude API
 

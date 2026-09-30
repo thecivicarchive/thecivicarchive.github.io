@@ -11,8 +11,19 @@ The State card opens a map of the country: finished states are lit, states being
 With Motion off (the same switch and the same saved choice as the rest of the site) nothing spins and the
 page-turn is skipped.
 
+At the top middle sits the On The Ballot switch (John, 2026-09-29). A click pulls the page into a wormhole and out
+into the On The Ballot space (ballot/); resting the pointer on it for three seconds first sets off fireworks over a
+blurred night sky that spell ON THE BALLOT, CLICK TO SEE, and a click then goes through (without one the sky
+clears and the reader stays). With Motion off there are no fireworks and the wormhole is a plain fade.
+
+    python build_door.py --out site/dev/ballot/index.html --ballot
+
+writes the On The Ballot door: the same ring, one card per level (Congress first; the states and the local level
+are marked as coming), with the switch lit; a click on it goes back through the wormhole.
+
 Everything the page shows is counted at build time from the databases on this computer: congress_119.sqlite for
-the federal card, state_<code>.sqlite and state_<code>_districts.json for each state in states/places.py.
+the federal card, state_<code>.sqlite and state_<code>_districts.json for each state in states/places.py, and
+ballot_2026.sqlite for the On The Ballot door.
 """
 
 import argparse
@@ -93,8 +104,8 @@ PAGE = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Civic Archive</title>
-<meta name="description" content="One shared place for the public record: every bill, every recorded vote, who represents you and who funds them. Federal and state.">
+<title>__TITLE__</title>
+<meta name="description" content="__DESC__">
 <meta name="version" content="__VERSION__">
 <meta name="theme-color" content="#0C0E12">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
@@ -215,12 +226,51 @@ footer{border-top:1px solid var(--hair);padding:18px clamp(16px,4vw,40px);color:
 .skip{position:absolute;right:18px;bottom:16px;z-index:3;font-size:12.5px;color:var(--muted)}
 @media (max-width:560px){.lv{padding:20px 18px 18px;border-radius:22px}.lv dd{font-size:21px}}
 @media (prefers-reduced-motion: reduce){.turn.go .leaf,.turn.go .face.front,.turn.go .gloss,.turn.go .under .shade,.turn.go .under h2,.turn.go .under p{animation:none}}
+/* On The Ballot: the switch at the top middle, the fireworks it sets off, and the wormhole it opens */
+.top{position:relative}
+.bsw{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:inherit;z-index:6;-webkit-tap-highlight-color:transparent;outline:none}
+.bsw .trk{position:relative;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 18px 0 6px;border-radius:999px;overflow:hidden;isolation:isolate;white-space:nowrap;
+  background:radial-gradient(140% 170% at 14% 0%,#27366F 0%,#0E1739 52%,#060A1E 100%);color:#FFF4D6;font-weight:700;font-size:14.5px;letter-spacing:.03em;
+  box-shadow:0 10px 26px -12px rgba(8,16,52,.85),inset 0 0 0 1px rgba(255,214,110,.45);transition:box-shadow .35s,transform .35s var(--ease)}
+.bsw .trk::before{content:"";position:absolute;inset:0;z-index:-1;animation:bstars 2.6s ease-in-out infinite alternate;
+  background-image:radial-gradient(1.3px 1.3px at 16% 30%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 34% 72%,#FFE9A8 55%,transparent 60%),radial-gradient(1.4px 1.4px at 57% 24%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 71% 66%,#CFE3FF 55%,transparent 60%),radial-gradient(1.2px 1.2px at 88% 34%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 46% 52%,#fff 55%,transparent 60%)}
+.bsw .trk::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(112deg,transparent 36%,rgba(255,226,140,.34) 47%,rgba(255,255,255,.6) 50%,rgba(255,226,140,.34) 53%,transparent 64%) 160% 0/260% 100% no-repeat;animation:bsheen 3.6s ease-in-out infinite}
+.bsw .knob{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;background:linear-gradient(150deg,#FFF1C2,#E7A928 68%,#B57708);box-shadow:0 0 14px rgba(255,205,90,.65),inset 0 -2px 3px rgba(120,70,0,.35)}
+.bsw .knob svg{width:17px;height:17px;fill:none;stroke:#3A2600;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bsw .when{font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.02em;min-height:1.2em}
+.bsw:hover .trk{transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(8,16,52,.9),inset 0 0 0 1px rgba(255,214,110,.8),0 0 0 5px rgba(255,205,90,.16)}
+.bsw:focus-visible .trk{outline:2px solid var(--gold);outline-offset:3px}
+.bsw.charge .trk{animation:bcharge 3s linear forwards}
+.bsw.on .trk{flex-direction:row-reverse;padding:0 6px 0 18px;background:radial-gradient(140% 170% at 86% 0%,#1E8574 0%,#0F5248 55%,#072722 100%);
+  box-shadow:0 10px 26px -12px rgba(5,40,34,.85),inset 0 0 0 1px rgba(160,255,230,.45),0 0 18px rgba(76,197,176,.35)}
+@keyframes bstars{from{opacity:.35}to{opacity:1}}
+@keyframes bsheen{0%{background-position:160% 0}62%,100%{background-position:-60% 0}}
+@keyframes bcharge{from{box-shadow:0 10px 26px -12px rgba(8,16,52,.85),inset 0 0 0 1px rgba(255,214,110,.8),0 0 0 0 rgba(255,205,90,0)}to{box-shadow:0 10px 26px -12px rgba(8,16,52,.85),inset 0 0 0 1px #FFF1C2,0 0 34px 10px rgba(255,205,90,.6)}}
+:root.calm .bsw .trk::before,:root.calm .bsw .trk::after,:root.calm .bsw.charge .trk{animation:none}
+@media (max-width:760px){.top{flex-wrap:wrap}.bsw{position:static;transform:none;order:3;flex-basis:100%;margin-top:12px}}
+.page{transform-origin:50% 42%}
+body.pull .page{transition:transform 1s cubic-bezier(.62,0,.88,.3),filter 1s ease-in,opacity .9s ease-in .1s;transform:scale(.05) rotate(40deg);filter:blur(7px);opacity:0}
+body.arrive .page{animation:emerge 1.05s cubic-bezier(.16,.7,.2,1) both}
+@keyframes emerge{from{transform:scale(.18) rotate(-30deg);filter:blur(8px);opacity:0}to{transform:none;filter:none;opacity:1}}
+body.fadeout .page{transition:opacity .2s;opacity:0}
+.sky canvas{transform-origin:50% 44%}
+.sky.pull canvas{transition:transform 1.1s cubic-bezier(.62,0,.88,.3),opacity 1s ease-in .15s;transform:scale(.04) rotate(40deg);opacity:0}
+.sky{position:fixed;inset:0;z-index:70;cursor:pointer;opacity:0;transition:opacity .7s ease;outline:none;
+  background:radial-gradient(130% 100% at 50% 115%,rgba(30,36,84,.7),rgba(4,6,20,.93) 62%);-webkit-backdrop-filter:blur(12px) saturate(.6);backdrop-filter:blur(12px) saturate(.6)}
+.sky.show{opacity:1}
+.sky canvas,.wh canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sky .hint{position:absolute;left:0;right:0;bottom:26px;margin:0;text-align:center;color:rgba(255,244,214,.72);font-size:13px;letter-spacing:.04em;opacity:0;transition:opacity .6s 1.2s}
+.sky.show .hint{opacity:1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wh{position:fixed;inset:0;z-index:80;cursor:pointer}
 </style>
 </head>
 <body>
+<div class="page" id="page">
 __WIP__
 <header class="top">
-  <a class="brand" href="./" aria-label="The Civic Archive, front door"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span>The Civic Archive</span></a>
+  <a class="brand" href="__HOME__" aria-label="The Civic Archive, front door"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span>The Civic Archive</span></a>
+  __SWITCH__
   <div class="tools">
     <button class="tbtn" id="motion" type="button" aria-pressed="true" title="Spinning cards and the page-turn: on or off">Motion</button>
     <button class="tbtn" id="theme" type="button" title="Light / dark">Light / dark</button>
@@ -229,8 +279,8 @@ __WIP__
 
 <main id="door">
   <section class="hello">
-    <h1>The public record, <em>for everyone.</em></h1>
-    <p>Every bill, every recorded vote, who represents you and who funds them, straight from official sources and written so you can follow it. Pick a level of government to step inside.</p>
+    <h1>__H1__</h1>
+    <p>__LEAD__</p>
   </section>
   <div class="stage" id="stage" role="group" aria-roledescription="carousel" aria-label="Levels of government">
     <div class="ring" id="ring"></div>
@@ -249,13 +299,17 @@ __WIP__
   <div class="chips" id="offmap"></div>
 </main>
 
-<footer><span>The Civic Archive __VERSIONTEXT__. Built from public records: GovInfo, the House Clerk and the Senate, the Federal Election Commission, the Census Bureau, the states' own agencies, the Open States project, and LegiScan.</span><span id="builton">Built __GENERATED__</span></footer>
+<footer><span>__FOOTER__</span><span id="builton">Built __GENERATED__</span></footer>
+</div>
 
 <div class="turn" id="turn" hidden aria-live="polite">
   <div class="under"><div><h2 id="turnunder"></h2><p id="turnsub">Opening&hellip;</p></div><div class="shade"></div></div>
   <div class="leaf"><div class="face front"><div><div class="tag" id="turntag"></div><h2 id="turntitle"></h2></div><div class="gloss"></div></div><div class="face back"></div></div>
   <div class="skip">Click, or press any key, to skip</div>
 </div>
+
+<div class="sky" id="sky" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="On The Ballot"><canvas id="skyfx" aria-hidden="true"></canvas><p class="sr">On The Ballot. Click to see.</p><p class="hint" aria-hidden="true">Click anywhere to step through. Wait, and the sky clears.</p></div>
+<div class="wh" id="wh" hidden aria-hidden="true"><canvas id="whfx"></canvas></div>
 
 <script>
 const DOOR = __DATA__;
@@ -277,7 +331,7 @@ const ART = {
   federal: `<svg viewBox="0 0 200 120" aria-hidden="true"><path class="fill" d="M20 104h160v6H20z"/><path d="M100 8v10M100 18a6 6 0 0 1 6 6v6h-12v-6a6 6 0 0 1 6-6zM76 62a24 30 0 0 1 48 0M70 62h60M74 62v18M84 62v18M94 62v18M106 62v18M116 62v18M126 62v18M58 80h84M46 80v24M154 80v24M28 92h144M28 92v12M172 92v12M20 104h160"/></svg>`,
   state: `<svg viewBox="0 0 200 120" aria-hidden="true"><path class="fill" d="M58 14h62l4 10 22 4 6 16-10 18 8 22-14 20H62l-6-26 8-16-10-22z"/><path d="M58 14h62l4 10 22 4 6 16-10 18 8 22-14 20H62l-6-26 8-16-10-22zM64 48h76M60 76h84M92 14v90M120 28v76"/></svg>`,
   local: `<svg viewBox="0 0 200 120" aria-hidden="true"><path class="fill" d="M30 104h140v6H30z"/><path d="M100 16l44 26H56zM64 42v50M84 42v50M116 42v50M136 42v50M52 92h96M40 104h120M100 16V8M100 58a7 7 0 1 1 0 .1"/></svg>`};
-const LEVELS = [
+const LEVELS = DOOR.levels || [      // the On The Ballot door brings its own cards
   {key: "federal", tag: "Federal", title: "The United States Congress", text: "Every bill and joint resolution of the 119th Congress, every recorded vote member by member, and who funds each campaign.",
     facts: [[F.bills, "bills"], [F.votes, "recorded votes"], [F.members, "members"]], go: "Step inside", url: "us/", under: "The U.S. Congress"},
   {key: "state", tag: "State", title: mine ? `${mine.name}, and every state` : "Your state legislature", text: "The same record for state capitols: your districts, who represents them, how they voted and who funds them. Minnesota first, then outward.",
@@ -328,7 +382,7 @@ stage.addEventListener("pointermove", e => { if (!drag) return; const dx = e.cli
 const release = e => { if (!drag) return; drag = null; stage.classList.remove("grab"); const c = downCard; downCard = null; last = performance.now(); snap(); if (moved < 8 && c) choose(+c.dataset.i); };
 stage.addEventListener("pointerup", release); stage.addEventListener("pointercancel", () => { drag = null; stage.classList.remove("grab"); snap(); });
 stage.addEventListener("click", e => { if (e.detail === 0) { const c = e.target.closest(".lv"); if (c) choose(+c.dataset.i); } });      // keyboard "clicks" (Enter, Space) carry no pointer
-document.addEventListener("keydown", e => { if (!$("#turn").hidden) { finish(); return; } if ($("#door").hidden) return; if (e.key === "ArrowLeft") { turnBy(-1); e.preventDefault(); } else if (e.key === "ArrowRight") { turnBy(1); e.preventDefault(); } });
+document.addEventListener("keydown", e => { if (!$("#turn").hidden) { finish(); return; } if ($("#door").hidden || !$("#sky").hidden) return; if (e.key === "ArrowLeft") { turnBy(-1); e.preventDefault(); } else if (e.key === "ArrowRight") { turnBy(1); e.preventDefault(); } });
 addEventListener("resize", () => { place(); });
 
 function choose(i){
@@ -379,8 +433,162 @@ function openState(code){
 $("#statecards").addEventListener("click", e => { const a = e.target.closest("a.open"); if (!a || calm()) return; e.preventDefault(); openState(a.dataset.state); });
 $("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("#door").hidden = false; history.replaceState(null, "", "./"); place(); kick(); });
 
+/* ---------- On The Ballot: the switch, the fireworks and the wormhole ---------- */
+const SW = $("#bsw"), sky = $("#sky"), skyfx = $("#skyfx");
+let skyRaf = 0, skyOpen = false, armed = true, chargeT = 0, going = false;
+(function when(){      /* the days left until Election Day, counted on the reader's own calendar */
+  const el = $("#bwhen"); if (!el) return;
+  const [y, m, d] = String(DOOR.election || "").split("-").map(Number); if (!y) return;
+  const day = new Date(y, m - 1, d), now = new Date(), n = Math.round((day - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 864e5);
+  el.textContent = n > 1 ? `Election Day in ${n} days` : n === 1 ? "Election Day is tomorrow" : n === 0 ? "Election Day is today"
+    : `Election Day was ${day.toLocaleDateString("en-US", {month: "long", day: "numeric"})}`;
+})();
+function glow(color){      /* one soft point of light, drawn once and stamped many times */
+  const c = document.createElement("canvas"); c.width = c.height = 32; const g = c.getContext("2d"), r = g.createRadialGradient(16, 16, 0, 16, 16, 16);
+  r.addColorStop(0, "#FFFFFF"); r.addColorStop(.2, color); r.addColorStop(.5, color + "70"); r.addColorStop(1, color + "00"); g.fillStyle = r; g.fillRect(0, 0, 32, 32); return c;
+}
+function letterPoints(W, H){      /* where each spark comes to rest: the words drawn off screen, then sampled on a grid */
+  const c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d"), FONT = '"Instrument Sans", system-ui, sans-serif';
+  let f1 = Math.max(30, Math.min(W * .11, H * .19, 150)); g.font = `700 ${f1}px ${FONT}`;
+  const w1 = g.measureText("ON THE BALLOT").width; if (w1 > W * .9) f1 *= W * .9 / w1;
+  const f2 = f1 * .5, y1 = H * .4, y2 = y1 + f1 * .5 + f2 * 1.05;
+  g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle";
+  g.font = `700 ${f1}px ${FONT}`; g.fillText("ON THE BALLOT", W / 2, y1);
+  g.font = `700 ${f2}px ${FONT}`; g.fillText("CLICK TO SEE", W / 2, y2);
+  const gap = Math.max(4, Math.round(f1 / 23)), d = g.getImageData(0, 0, W, H).data, pts = [];
+  for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) if (d[(y * W + x) * 4 + 3] > 140) pts.push({x, y, line: y < (y1 + y2) / 2 ? 0 : 1});
+  return {pts, y1, y2, gap};
+}
+function fireworks(){
+  if (skyOpen || going) return; skyOpen = true; armed = false;
+  sky.hidden = false; void sky.offsetWidth; sky.classList.add("show"); sky.focus({preventScroll: true});
+  const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight, g = skyfx.getContext("2d");
+  skyfx.width = Math.round(W * dpr); skyfx.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const COLORS = ["#FFD86B", "#FFFFFF", "#FF8A7A", "#8CC4FF", "#7CF0D0", "#FFB8E8"], SPR = Object.fromEntries(COLORS.map(c => [c, glow(c)]));
+  const stars = Array.from({length: Math.round(W * H / 8000)}, () => ({x: Math.random() * W, y: Math.random() * H * .9, r: Math.random() * 1.3 + .3, p: Math.random() * 6.28}));
+  const T = letterPoints(W, H), groups = [];
+  [[0, 4], [1, 3]].forEach(([line, n]) => {      // the first line bursts in four places, the second in three, left to right
+    const P = T.pts.filter(p => p.line === line); if (!P.length) return;
+    let lo = Infinity, hi = -Infinity; P.forEach(p => { lo = Math.min(lo, p.x); hi = Math.max(hi, p.x); });
+    for (let k = 0; k < n; k++) { const a = lo + (hi - lo) * k / n, b = lo + (hi - lo) * (k + 1) / n, Q = P.filter(p => p.x >= a && (k === n - 1 ? p.x <= b : p.x < b));
+      if (Q.length) groups.push({line, pts: Q, cx: (a + b) / 2, cy: (line ? T.y2 : T.y1) - (line ? 0 : 10)}); }
+  });
+  const LINE0 = ["#FFD86B", "#FF8A7A", "#8CC4FF", "#FFD86B"], rockets = groups.map((G, i) => ({at: 150 + i * 240 + (G.line ? 260 : 0), x0: G.cx + (Math.random() - .5) * 90, G, color: G.line ? (i % 2 ? "#7CF0D0" : "#FFFFFF") : LINE0[i % 4]}));
+  for (let k = 0; k < 7; k++) rockets.push({at: 2500 + k * 380, x0: W * (.1 + .8 * Math.random()), G: {cx: W * (.08 + .84 * Math.random()), cy: H * (.1 + .2 * Math.random()), pts: []}, color: COLORS[k % COLORS.length], deco: true});
+  const parts = [], t0 = performance.now(), HOLD = 7000, FADE = 1500; let lastT = t0;      // the words are whole by about 3.9 s and hold till 7
+  function explode(R, t){
+    const {G} = R, s = T.gap * 2.2;
+    G.pts.forEach(p => { const a = Math.random() * 6.283, v = 170 + Math.random() * 260; parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, tx: p.x, ty: p.y, born: t, s, c: R.color, tw: Math.random() * 6.28}); });
+    for (let k = 0, n = R.deco ? 120 : 70; k < n; k++) { const a = Math.random() * 6.283, v = 80 + Math.random() * (R.deco ? 330 : 250);
+      parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born: t, life: 900 + Math.random() * 1000, s: 4 + Math.random() * 6, c: R.deco ? R.color : COLORS[(Math.random() * COLORS.length) | 0]}); }
+  }
+  function step(now){
+    const t = now - t0, dt = Math.min(40, now - lastT) / 1000; lastT = now;
+    g.globalCompositeOperation = "source-over"; g.clearRect(0, 0, W, H); g.fillStyle = "#FFFFFF";
+    for (const s of stars) { g.globalAlpha = .3 + .3 * Math.sin(s.p + t / 650); g.fillRect(s.x, s.y, s.r, s.r); }
+    g.globalCompositeOperation = "lighter";
+    for (const R of rockets) {      // each rocket climbs from below the screen, trailing sparks, and bursts where its letters are
+      if (t < R.at || R.fired) continue;
+      const u = Math.min(1, (t - R.at) / 650), at = q => { const e = 1 - Math.pow(1 - Math.max(0, q), 2.2); return [R.x0 + (R.G.cx - R.x0) * e, H + 12 + (R.G.cy - H - 12) * e]; };
+      for (let k = 0; k < 7; k++) { const [x, y] = at(u - k * .035); g.globalAlpha = (1 - k / 7) * .85; g.drawImage(SPR["#FFD86B"], x - 5, y - 5, 10, 10); }
+      if (u >= 1) { R.fired = true; explode(R, t); }
+    }
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const P = parts[i], age = t - P.born;
+      if (P.tx != null) {      // a letter spark: out with the burst, then home to its place in the words
+        if (age < 420) { P.x += P.vx * dt; P.y += P.vy * dt; P.vx *= .92; P.vy = P.vy * .92 + 40 * dt; P.hx = P.x; P.hy = P.y; }
+        else { const e = 1 - Math.pow(1 - Math.min(1, (age - 420) / 950), 3); P.x = P.hx + (P.tx - P.hx) * e; P.y = P.hy + (P.ty - P.hy) * e; }
+        let a = age < 420 ? 1 : .72 + .28 * Math.sin(P.tw + t / 150);
+        if (t > HOLD) { const f = Math.min(1, (t - HOLD) / FADE); a *= 1 - f; P.ty += 22 * dt * f; }
+        if (t > HOLD + FADE) { parts.splice(i, 1); continue; }
+        g.globalAlpha = a; g.drawImage(SPR[P.c], P.x - P.s / 2, P.y - P.s / 2, P.s, P.s);
+      } else {      // a loose spark: drifts down and fades
+        const life = 1 - age / P.life; if (life <= 0) { parts.splice(i, 1); continue; }
+        P.x += P.vx * dt; P.y += P.vy * dt; P.vx *= .985; P.vy = P.vy * .985 + 70 * dt;
+        g.globalAlpha = life; g.drawImage(SPR[P.c], P.x - P.s / 2, P.y - P.s / 2, P.s, P.s);
+      }
+    }
+    g.globalAlpha = 1;
+    if (t < HOLD + FADE + 150) skyRaf = requestAnimationFrame(step); else closeSky();
+  }
+  skyRaf = requestAnimationFrame(step);
+}
+function closeSky(){
+  cancelAnimationFrame(skyRaf); skyRaf = 0; skyOpen = false; sky.classList.remove("show"); SW && SW.classList.remove("charge");
+  setTimeout(() => { if (!skyOpen) sky.hidden = true; }, 750);
+}
+/* the wormhole: rings and starlight rushing past, the page pulled into the middle; out the far side, the other space */
+function tunnel(cv, dir, dur, done){
+  const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight, g = cv.getContext("2d"), X = W / 2, Y = H * .44;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const stars = Array.from({length: 560}, () => ({a: Math.random() * 6.283, z: .05 + Math.random() * .95, w: Math.random()})), RINGS = 30, t0 = performance.now();
+  let lastT = t0, phase = 0, stop = false;
+  function frame(now){
+    if (stop) return;
+    const t = now - t0, p = Math.min(1, t / dur), dt = Math.min(40, now - lastT) / 1000; lastT = now;
+    const speed = dir > 0 ? .12 + 2.4 * p * p : .05 + 2 * (1 - p) * (1 - p), A = dir > 0 ? Math.min(1, p * 2.2) : 1 - p;
+    phase = (phase + speed * dt * .9) % (1 / RINGS);
+    g.globalCompositeOperation = "source-over"; g.clearRect(0, 0, W, H);
+    g.globalAlpha = dir > 0 ? Math.min(1, p * 1.7) : Math.max(0, 1 - p * 1.25); g.fillStyle = "#03040E"; g.fillRect(0, 0, W, H);
+    g.globalCompositeOperation = "lighter";
+    for (let k = 0; k < RINGS; k++) {      // rings at every depth, twisting, gold near and violet far
+      const z = ((k / RINGS) + 1 / RINGS - phase) || .001; if (z <= .02) continue;
+      const r = 26 / z, wob = (1 - z) * 16, cx = X + Math.cos(z * 9 + t / 260) * wob, cy = Y + Math.sin(z * 9 + t / 260) * wob * .7;
+      g.globalAlpha = A * Math.min(1, (1 - z) * 1.3) * .75; g.lineWidth = .8 + 5 * (1 - z);
+      g.strokeStyle = `hsl(${Math.round(265 - 225 * (1 - z))},95%,${Math.round(52 + 22 * (1 - z))}%)`;
+      g.beginPath(); g.ellipse(cx, cy, r, r * .82, z * 2, 0, 6.283); g.stroke();
+    }
+    g.lineCap = "round";
+    for (const s of stars) {      // starlight streaks, longer the faster we go
+      s.z -= speed * dt * .55; if (s.z <= .02) { s.z = 1; s.a = Math.random() * 6.283; }
+      const r1 = 14 / s.z, r2 = 14 / Math.min(1, s.z + speed * .045), c = Math.cos(s.a), n = Math.sin(s.a);
+      g.globalAlpha = A * Math.min(1, (1 - s.z) * 1.6); g.strokeStyle = s.w > .7 ? "#FFE9A8" : (s.w > .4 ? "#CFE3FF" : "#FFFFFF"); g.lineWidth = .6 + 1.8 * (1 - s.z);
+      g.beginPath(); g.moveTo(X + c * r2, Y + n * r2 * .82); g.lineTo(X + c * r1, Y + n * r1 * .82); g.stroke();
+    }
+    const glowR = 40 + (dir > 0 ? 520 * p * p : 260 * (1 - p)), core = g.createRadialGradient(X, Y, 0, X, Y, glowR);
+    core.addColorStop(0, "rgba(255,255,255,.95)"); core.addColorStop(.25, "rgba(255,226,150,.55)"); core.addColorStop(1, "rgba(120,90,255,0)");
+    g.globalAlpha = A * (dir > 0 ? .35 + .65 * p : .8); g.fillStyle = core; g.fillRect(0, 0, W, H);
+    if (dir > 0 && p > .86) { g.globalCompositeOperation = "source-over"; g.globalAlpha = (p - .86) / .14; g.fillStyle = "#FFFFFF"; g.fillRect(0, 0, W, H); }
+    g.globalAlpha = 1;
+    if (p < 1) requestAnimationFrame(frame); else { stop = true; done && done(); }
+  }
+  requestAnimationFrame(frame);
+  return () => { stop = true; };
+}
+function go(url){
+  if (!url) return;
+  if (going) { location.href = url; return; }      // a second click skips the ride
+  going = true; clearTimeout(chargeT);
+  try { sessionStorage.setItem("wormhole", "1"); } catch (e) {}
+  if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
+  const wh = $("#wh"); wh.hidden = false; document.body.classList.add("pull"); sky.classList.add("pull");      // the words in the sky go down the wormhole too
+  tunnel($("#whfx"), 1, 2000, () => { location.href = url; });
+  wh.addEventListener("click", () => { location.href = url; }, {once: true});
+}
+if (SW) {
+  const lit = SW.classList.contains("on");
+  SW.addEventListener("pointermove", e => {      // rest the pointer here for three seconds and the sky lights up; it takes a real
+    if (lit || e.pointerType !== "mouse" || calm() || !armed || skyOpen || going || SW.classList.contains("charge")) return;      // move onto the switch, so
+    SW.classList.add("charge"); clearTimeout(chargeT); chargeT = setTimeout(fireworks, 3000);      // a pointer already resting there when the page opens sets nothing off
+  });
+  SW.addEventListener("pointerleave", () => { clearTimeout(chargeT); SW.classList.remove("charge"); if (!skyOpen) armed = true; });
+  SW.addEventListener("click", e => { if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; e.preventDefault(); go(SW.href); });
+}
+sky.addEventListener("click", () => go(SW ? SW.href : ""));
+sky.addEventListener("keydown", e => {
+  if (e.key === "Escape") { e.preventDefault(); closeSky(); SW && SW.focus(); }
+  else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(SW ? SW.href : ""); }
+});
+(function emerge(){      /* arriving through the wormhole: the tunnel slows and the page opens out of its middle */
+  let came = null; try { came = sessionStorage.getItem("wormhole"); sessionStorage.removeItem("wormhole"); } catch (e) {}
+  if (!came || calm()) return;
+  const wh = $("#wh"); wh.hidden = false; document.body.classList.add("arrive");
+  tunnel($("#whfx"), -1, 1100, () => { wh.hidden = true; document.body.classList.remove("arrive"); });
+})();
+addEventListener("pageshow", e => { if (!e.persisted) return; going = false; document.body.classList.remove("pull", "fadeout", "arrive"); sky.classList.remove("pull"); $("#wh").hidden = true; if (skyOpen) closeSky(); });
+
 place(); kick();
-if (location.hash === "#states") showStates();
+if (location.hash === "#states" && DOOR.map) showStates();
 window.doorStats = () => ({angle, target, front, n: N, calm: calm(), turning: !$("#turn").hidden, view: $("#states").hidden ? "door" : "states"});
 window.doorKick = () => { raf = 0; kick(); };      // for checking the ring in a window that is not on screen, where the browser never fires the first frame
 </script>
@@ -389,30 +597,92 @@ window.doorKick = () => { raf = 0; kick(); };      // for checking the ring in a
 """
 
 
+ELECTION_DAY = "2026-11-03"      # the next general election; the switch counts the days to it
+BALLOT_DB = os.path.join(HERE, "ballot_2026.sqlite")
+BALLOT_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v8H4z"/><path d="M8 12V5h8v7"/>'
+               '<path d="M10 8.6l1.5 1.5 2.8-2.9"/></svg>')
+
+
+def switch(on):
+    """The On The Ballot switch: off on the front door (a click goes to the ballot), lit on the ballot door (a click goes back)."""
+    href, label = ("../", "On The Ballot is on. Back to the public record") if on else ("ballot/", "On The Ballot: who is on the ballot, race by race")
+    return (f'<a class="bsw{" on" if on else ""}" id="bsw" href="{href}" aria-label="{label}" title="{label}"><span class="trk">'
+            f'<span class="knob">{BALLOT_ICON}</span><span class="lbl">On The Ballot</span></span><span class="when" id="bwhen"></span></a>')
+
+
+def ballot_facts(db=BALLOT_DB):
+    """What the On The Ballot space holds so far, counted from ballot_2026.sqlite."""
+    if not os.path.exists(db):
+        return {}
+    con = sqlite3.connect(db)
+    one = lambda q: con.execute(q).fetchone()[0]
+    return {"races": one("SELECT COUNT(*) FROM races WHERE level = 'federal'"),
+            "candidates": one("SELECT COUNT(*) FROM candidates c JOIN races r USING (race_id) WHERE r.level = 'federal' AND c.election = 'general'"),
+            "states": one("SELECT COUNT(DISTINCT state) FROM ballot_sources WHERE level = 'federal'")}
+
+
+def ballot_levels(B):
+    """The On The Ballot door's cards: Congress first; the states and the local level are marked as coming."""
+    return [
+        {"key": "federal", "tag": "U.S. Congress", "title": "The House and the Senate",
+         "text": "Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.",
+         "facts": [[B.get("races"), "races"], [B.get("candidates"), "candidates listed"], [B.get("states"), "states' official lists"]],
+         "go": "Step inside", "url": "us/", "under": "On the ballot: Congress"},
+        {"key": "state", "tag": "State", "title": "Governors and legislatures",
+         "text": "Races for governor, the state legislatures and the other statewide offices, state by state. They come after Congress.",
+         "facts": [], "go": "Coming next", "soon": True},
+        {"key": "local", "tag": "County and city", "title": "Closer to home",
+         "text": "Sheriffs, county boards, mayors, councils and school boards, Minnesota first.", "facts": [], "go": "Coming later", "soon": True}]
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", required=True, help="where to write the page, for example site/dev/index.html")
     ap.add_argument("--db", default=os.path.join(HERE, "congress_119.sqlite"))
     ap.add_argument("--draft", action="store_true", help="show the work-in-progress strip the draft site carries")
+    ap.add_argument("--ballot", action="store_true", help="write the On The Ballot door (site/dev/ballot/index.html) instead")
     args = ap.parse_args()
     log = read_changelog(os.path.join(HERE, "CHANGELOG.md"))
     version = (log[0].get("version") if log else "") or ""
     site_root = os.path.dirname(os.path.abspath(args.out))
     import datetime as dt
-    data = {"federal": federal_facts(args.db), "states": [state_facts(code, site_root) for code in sorted(PLACES)],
-            "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
-            "version": version}
-    data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
-    data["local"] = local_facts(site_root)
+    if args.ballot:
+        B = ballot_facts()
+        data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B)}
+        words = {"__TITLE__": "On The Ballot · The Civic Archive",
+                 "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
+                 "__HOME__": "../", "__SWITCH__": switch(True), "__H1__": "Who&rsquo;s on the ballot, <em>race by race.</em>",
+                 "__LEAD__": "Every candidate the states have certified for the November 3, 2026 general election, the primaries that chose them, "
+                             "and the money behind them. Official lists only, loaded one state at a time. Pick a level of government.",
+                 "__FOOTER__": f"On The Ballot, from The Civic Archive v{version}. Candidate lists from each state&rsquo;s election office; "
+                               "campaign money from the Federal Election Commission."}
+    else:
+        data = {"federal": federal_facts(args.db), "states": [state_facts(code, site_root) for code in sorted(PLACES)],
+                "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
+                "version": version, "election": ELECTION_DAY}
+        data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
+        data["local"] = local_facts(site_root)
+        words = {"__TITLE__": "The Civic Archive",
+                 "__DESC__": "One shared place for the public record: every bill, every recorded vote, who represents you and who funds them. Federal and state.",
+                 "__HOME__": "./", "__SWITCH__": switch(False) if os.path.exists(os.path.join(site_root, "ballot", "index.html")) else "",
+                 "__H1__": "The public record, <em>for everyone.</em>",
+                 "__LEAD__": "Every bill, every recorded vote, who represents you and who funds them, straight from official sources and written so you can follow it. Pick a level of government to step inside.",
+                 "__FOOTER__": f"The Civic Archive v{version}. Built from public records: GovInfo, the House Clerk and the Senate, the Federal Election Commission, "
+                               "the Census Bureau, the states' own agencies, the Open States project, and LegiScan."}
     wip = ('<div class="wip">WORK IN PROGRESS &mdash; this is a draft for feedback, not the real site. '
            '<a href="https://thecivicarchive.github.io/">Go to the live site</a></div>') if args.draft else ""
-    html = (PAGE.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
-            .replace("__VERSIONTEXT__", f"v{version}" if version else "").replace("__VERSION__", version).replace("__WIP__", wip)
-            .replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y")))
+    html = PAGE.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
+    for key, value in words.items():
+        html = html.replace(key, value)
+    html = html.replace("__VERSION__", version).replace("__WIP__", wip).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     os.makedirs(site_root, exist_ok=True)
     with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)
+    if args.ballot:
+        print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}")
+        return
     print(f"Wrote {args.out}: the front door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; federal {data['federal']}; "
+          + ("the On The Ballot switch; " if words["__SWITCH__"] else "no ballot space yet, so no switch; ")
           + "; ".join(f"{s['name']} {'open' if s['live'] else 'being built'} ({', '.join(s['loaded']) or 'nothing yet'})" for s in data["states"]))
 
 
