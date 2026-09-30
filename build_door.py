@@ -278,6 +278,7 @@ body.arrive-bh .page{animation:whitehole 1.2s cubic-bezier(.16,.7,.2,1) both}
 .scene .door{transform-box:fill-box;transform-origin:0% 50%;animation:dooropen .85s 2.05s cubic-bezier(.3,.6,.3,1) both}
 @keyframes dooropen{to{transform:scaleX(.07) skewY(-10deg);filter:brightness(.7)}}
 .scene .glow{animation:glowup 1.2s 2.05s ease-in both}@keyframes glowup{from{opacity:.25}to{opacity:1}}
+body.leaving .page{transition:filter .35s ease;filter:brightness(.92) blur(1.5px)}
 body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opacity:0;transform:scale(1.03);filter:brightness(1.5)}to{opacity:1;transform:none;filter:none}}
 @keyframes whitehole{from{transform:scale(.04) rotate(-140deg);filter:blur(8px) brightness(3);opacity:0}to{transform:none;filter:none;opacity:1}}
 .sky.pull canvas{transition:transform 1.1s cubic-bezier(.62,0,.88,.3),opacity 1s ease-in .15s;transform:scale(.04) rotate(40deg);opacity:0}
@@ -463,6 +464,9 @@ $("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("
 /* ---------- On The Ballot: the switch, the fireworks and the wormhole ---------- */
 const SW = $("#bsw"), sky = $("#sky"), skyfx = $("#skyfx");
 let skyRaf = 0, skyOpen = false, armed = true, chargeT = 0, going = false;
+let t3 = null, lastPt = null;      /* the crossings in 3D (transit3d.js and three.js), fetched on the first hover, focus or tap */
+const load3d = () => t3 || (t3 = ["scanner", "bookshelf"].includes(DOOR.transit) ? import(DOOR.root + "transit3d.js").catch(() => null) : Promise.resolve(null));
+addEventListener("pointerdown", e => { lastPt = {x: e.clientX / innerWidth * 2 - 1, y: e.clientY / innerHeight * 2 - 1}; }, {capture: true, passive: true});
 (function when(){      /* the days left until Election Day, counted on the reader's own calendar */
   const el = $("#bwhen"); if (!el) return;
   if (DOOR.whenText) { el.textContent = DOOR.whenText; return; }
@@ -507,7 +511,7 @@ function letterPoints(W, H){      /* where each spark comes to rest: the words d
   return {pts, words, gap, f1, block};
 }
 function fireworks(){
-  if (skyOpen || going) return; skyOpen = true; armed = false;
+  if (skyOpen || going) return; skyOpen = true; armed = false; load3d();
   sky.hidden = false; void sky.offsetWidth; sky.classList.add("show"); sky.focus({preventScroll: true});
   const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight, g = skyfx.getContext("2d");
   skyfx.width = Math.round(W * dpr); skyfx.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -747,7 +751,12 @@ function go(url){
   if (style === "scanner" || style === "bookshelf") {
     try { sessionStorage.setItem("wormhole", style); } catch (e) {}
     if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
-    closeSky(); runScene(style, url); return;
+    closeSky(); document.body.classList.add("leaving");
+    let started = false;
+    const flat = () => { if (!started) { started = true; runScene(style, url); } };      // no WebGL here, or a slow line: the flat scene
+    const wait = setTimeout(flat, 2500);
+    load3d().then(m => { if (started) return; clearTimeout(wait); let ok = false; try { ok = !!(m && m.run(style, url, {pt: lastPt})); } catch (e) {} if (ok) started = true; else flat(); });
+    return;
   }
   try { sessionStorage.setItem("wormhole", style); } catch (e) {}
   if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
@@ -757,6 +766,7 @@ function go(url){
   wh.addEventListener("click", () => { location.href = url; }, {once: true});
 }
 if (SW) {
+  for (const ev of ["pointerenter", "pointerdown", "focus"]) SW.addEventListener(ev, load3d);
   SW.addEventListener("pointermove", e => {      // rest the pointer here for three seconds and the sky lights up; it takes a real
     if (e.pointerType !== "mouse" || calm() || !armed || skyOpen || going || SW.classList.contains("charge")) return;      // move onto the switch, so
     SW.classList.add("charge"); clearTimeout(chargeT); chargeT = setTimeout(fireworks, 3000);      // a pointer already resting there when the page opens sets nothing off
@@ -778,7 +788,10 @@ sky.addEventListener("keydown", e => {
   document.body.classList.add("arrive");
   tunnel($("#whfx"), -1, 1100, () => { wh.hidden = true; document.body.classList.remove("arrive"); });
 })();
-addEventListener("pageshow", e => { if (!e.persisted) return; going = false; document.body.classList.remove("pull", "fadeout", "arrive", "bh", "arrive-bh"); sky.classList.remove("pull", "bh"); $("#wh").hidden = true; if (skyOpen) closeSky(); });
+addEventListener("pageshow", e => {      /* back from the other side: the page as it was, not the crossing */
+  if (!e.persisted) return; going = false; document.body.classList.remove("pull", "fadeout", "arrive", "bh", "arrive-bh", "leaving"); sky.classList.remove("pull", "bh"); $("#wh").hidden = true;
+  const S = $("#scene"); S.hidden = true; S.classList.remove("show", "zoom"); S.innerHTML = ""; const T = $("#t3d"); if (T) T.remove(); if (skyOpen) closeSky();
+});
 
 place(); kick();
 if (location.hash === "#states" && DOOR.map) showStates();
@@ -798,6 +811,25 @@ RECORD_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4H4
                '<path d="M3 20h18"/></svg>')
 RED, WHITE, BLUE = "#FF3B3B", "#FFFFFF", "#3D7BFF"
 SKY_BACK = [[["LEGISLATION", RED], ["&", WHITE]], [["LEGISLATURES", BLUE]]]      # the fireworks on the ballot door, for the way back
+
+
+TRANSIT_FILES = {"transit3d.js": "door_transit3d.js", "vendor/three.module.min.js": "vendor/three.module.min.js"}
+
+
+def copy_transit(dev_root):
+    """The crossings in 3D and the three.js library they draw with (MIT licence), copied next to the front door; the
+    ballot door reaches them one folder up. A file is written only when it has changed."""
+    for name, src in TRANSIT_FILES.items():
+        dst = os.path.join(dev_root, *name.split("/"))
+        with open(os.path.join(HERE, *src.split("/")), "rb") as fh:
+            body = fh.read()
+        if os.path.exists(dst):
+            with open(dst, "rb") as fh:
+                if fh.read() == body:
+                    continue
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst, "wb") as fh:
+            fh.write(body)
 
 
 def switch(on):
@@ -850,7 +882,7 @@ def main():
     if args.ballot:
         B = ballot_facts()
         data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B),
-                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record", "transit": "bookshelf"}
+                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record", "transit": "bookshelf", "root": "../"}
         words = {"__TITLE__": "On The Ballot · The Civic Archive",
                  "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
                  "__HOME__": "../", "__SWITCH__": switch(True), "__SKYLABEL__": "Legislation and Legislatures",
@@ -862,7 +894,7 @@ def main():
     else:
         data = {"federal": federal_facts(args.db), "states": [state_facts(code, site_root) for code in sorted(PLACES)],
                 "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
-                "version": version, "election": ELECTION_DAY, "transit": "scanner"}      # the wormhole and black hole stay in the code as future ideas
+                "version": version, "election": ELECTION_DAY, "transit": "scanner", "root": "./"}      # the wormhole and black hole stay in the code as future ideas
         data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
         data["local"] = local_facts(site_root)
         words = {"__TITLE__": "The Civic Archive",
@@ -882,6 +914,7 @@ def main():
     os.makedirs(site_root, exist_ok=True)
     with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)
+    copy_transit(os.path.dirname(site_root) if args.ballot else site_root)
     if args.ballot:
         print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}")
         return

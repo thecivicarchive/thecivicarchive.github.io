@@ -10,6 +10,29 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.052 — 2026-09-29 — The crossings, in 3D and in your own eyes
+
+- Both crossings are now real rooms in 3D, seen as if you were standing
+  in them, with light, shadows and depth.
+- Into On The Ballot: a polling place, with voting booths, a flag and a
+  "Polling Place" sign. You step up to the scanner on the ballot box.
+  Your ballot comes up from where your hand would hold it, a little
+  unsteady, and you feed it into the slot at the front, as on the real
+  machines. The rollers take it, the screen reads it and says "Your
+  ballot was counted", and you lean in to the screen.
+- Back to Legislation & Legislatures: a study. You reach for a book, the
+  one nearest your pointer, and pull it. Something behind the shelves
+  gives, light shows at the edges, and the books tumble off toward you
+  and land in a heap. The empty bookcase pushes back into the wall and
+  swings aside, and the lit passage behind it draws you through.
+- Moving the pointer moves your head a little, as it would in a real
+  room. A click or tap skips the rest.
+- The ballot is generic: no names, no parties.
+- Where a device can't draw 3D, the flat scenes play instead; with Motion
+  off, the page simply fades. The 3D is drawn with three.js (MIT
+  licence), kept with the site and loaded only when you reach for the
+  switch.
+
 ## v4.0.051 — 2026-09-29 — Crossings that fit what each side covers
 
 - Going into On The Ballot, a hand carries a marked ballot up to a ballot

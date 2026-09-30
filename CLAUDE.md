@@ -118,6 +118,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `score_bills.py` | Ratings: import, party backing from roll calls (`--backing-only`, free), optional Claude API scoring |
 | `build_site.py` | Builds the one-file website from the database |
 | `run_ballot.py`, `ballot/`, `build_ballot_dev.py` | On The Ballot: who is on the November ballot, race by race, from each state's official candidate list, with FEC money; builds `site/dev/ballot/`. See "On The Ballot" below |
+| `door_transit3d.js`, `vendor/three.module.min.js` | The two crossings between the front door and On The Ballot, drawn in 3D in the first person with three.js (MIT); `build_door.py` copies both into `site/dev/` |
 | `rubric_v1.md` | The rating rubric (read-only) |
 | `seed/seed_ratings_119.json` | Ten hand-applied preview ratings for current bills |
 | `us_states_albers.json` | State map shapes (public domain, from the us-atlas package) |
@@ -521,10 +522,22 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
 - The ballot door's switch reads "Legislation & Legislatures" ("Back to the public record" beneath) and has the same
   three-second fireworks for the way back, drawn as the American flag (canton of stars, thirteen stripes, a ripple).
   ON THE BALLOT is red, white and blue by word; CLICK TO SEE is silver; both end with a flash and a ring of sparks.
-- The crossings (John, 2026-09-29, v4.0.051): into the ballot, a ballot fed into a scanner that confirms it was counted
-  (`scannerScene`); back to the record, books falling off a shelf and a door behind it opening (`shelfScene`). Each
-  door names its crossing in `DOOR.transit`; the wormhole (`tunnel`) and black hole (`blackhole`) stay in build_door.py
-  as future ideas. The ballot in the scanner scene is generic: no names, no parties.
+- The crossings (John, 2026-09-29, v4.0.051): into the ballot, a ballot fed into a scanner that confirms it was counted;
+  back to the record, books falling off a shelf and a door behind it opening. Each door names its crossing in
+  `DOOR.transit`; the wormhole (`tunnel`) and black hole (`blackhole`) stay in build_door.py as future ideas. The ballot
+  is generic: no names, no parties.
+- From v4.0.052 the crossings are 3D and first person (John: "3D anchored as if it were in reality right in front of
+  the person ... immersive"): `door_transit3d.js` (an ES module, copied by build_door.py to `site/dev/transit3d.js`)
+  draws them with three.js r169 (`vendor/three.module.min.js`, MIT, copied to `site/dev/vendor/`; nothing loads from
+  a CDN). The door imports it on the switch's first hover, focus or tap (`load3d`, `DOOR.root` is "./" or "../") and
+  calls `run(kind, url, {pt})`; if WebGL is missing or the file is slow (2.5 s) the flat SVG scenes play
+  (`scannerScene`, `shelfScene`), and with Motion off the page fades. The camera is the reader's eyes and the hand is
+  never drawn: the ballot rises from where a hand holds it, sways, leans toward the pointer and goes into the front slot
+  as on the real machines; the book pulled is the one nearest the pointer; the pointer moves the head a little. Books
+  tip about their front bottom edge, fall, and topple flat onto a cover (a coarse height grid lets them heap); all
+  leave the shelves before the bookcase pushes back and swings into the passage. `still(kind, seconds, w, h)` draws one
+  frame to a JPEG data URL for checking a scene; the browser pane draws no animation frames while hidden, so check with
+  it, and a timer ends the crossing even there.
 - Betting-market odds (John's answers, 2026-09-29): Polymarket and Kalshi, as information only, labelled "what
   bettors are paying: not a poll, a forecast or an official record", with trading volume and the time. A click opens a
   calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),
