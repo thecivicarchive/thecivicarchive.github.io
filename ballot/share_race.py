@@ -79,7 +79,7 @@ def write(folder, boot, say=print):
     dist = json.load(open(os.path.join(folder, "data", "districts.json"), encoding="utf-8"))
     names, drawn, kept, urls = boot["names"], 0, 0, [BASE + "/"]
     for r in boot["races"]:
-        g = r["el"].get("general") or []
+        g = r["el"].get("general") or r["el"].get("open-primary") or []
         if not g:
             continue
         g = sorted(g, key=lambda c: (c.get("o") if c.get("o") is not None else 1e9, c["n"].split()[-1].lower()))

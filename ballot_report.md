@@ -1,12 +1,12 @@
-# On The Ballot: what is loaded, 2026-09-30 11:53
+# On The Ballot: what is loaded, 2026-09-30 11:59
 
 | Part | Result |
 | --- | --- |
 | Federal races | 435 House, 35 Senate (2 special) |
-| States with an official list loaded | 41 of 50 |
-| Candidates on the November ballot | 1030 |
-| ...matched to an FEC registration | 949 |
-| Primary candidates | 1547 |
+| States with an official list loaded | 46 of 50 |
+| Candidates on the November ballot | 1089 |
+| ...matched to an FEC registration | 1006 |
+| Primary candidates | 1696 |
 | FEC 2026 registrations (House and Senate) | 4,389 |
 
 ## Sources
@@ -16,6 +16,14 @@
 - **Alaska** (official results): Alaska Division of Elections, 2026 Primary Election (August 18, 2026): Results Per Precinct. https://www.elections.alaska.gov/enr26/results/GA_ENR_Precinct_State_of_Alaska.csv (fetched 2026-09-30, 31 rows, SHA-256 7dde3df0d57b1618...)
 - **Alaska** (official results): Alaska Division of Elections, 2026 Primary Election, August 18, 2026: Election Summary Report, Official Results. https://www.elections.alaska.gov/enr26/results/ElectionSummaryReportRPT.pdf (fetched 2026-09-30, 2 rows, SHA-256 5d97a98f682a9dfa...)
 - **Alaska** (official sample ballot): Alaska Division of Elections, 2026 General Election ranked-choice sample ballot, House District 1. https://www.elections.alaska.gov/election/2026/General/SampleBallots/HD1-JD1.pdf (fetched 2026-09-30, 8 rows, SHA-256 188710841f5b8d7c...)
+- **Alabama** (official sample ballots): Alabama Secretary of State, Elections Division, 2026 General Election Sample Ballots, November 3, 2026 (federal contests, every county). https://www.sos.alabama.gov/alabama-votes/2026-general-election-sample-ballots (fetched 2026-09-30, 16 rows, SHA-256 f0ab914625a3ae0c...)
+- **Alabama** (official results): Alabama Secretary of State, Elections Division, 2026 Primary Election, May 19, 2026: precinct results by county (federal contests). https://www.sos.alabama.gov/alabama-votes/voter/election-data (fetched 2026-09-30, 29 rows, SHA-256 812eb569d37138a5...)
+- **Alabama** (official results): Alabama Secretary of State, Elections Division, 2026 Primary Runoff Election, June 16, 2026: precinct results by county (federal contests). https://www.sos.alabama.gov/alabama-votes/voter/election-data (fetched 2026-09-30, 6 rows, SHA-256 ac18e7a7681c2dc3...)
+- **Alabama** (official results): Alabama Republican Party (return of the votes certified to the Secretary of State on August 20, 2026), published by the Alabama Secretary of State, Results From The Special Congressional Election: Republican special primary, August 11, 2026. https://www.sos.alabama.gov/sites/default/files/election-data/2026-09/Republication%20Results%20From%20The%20Special%20Congressional%20Election.xlsx (fetched 2026-09-30, 14 rows, SHA-256 e166201753b221e5...)
+- **Alabama** (official sample ballots): Alabama Secretary of State, Elections Division, 2026 Special Primary Election Sample Ballots, August 11, 2026 (congressional districts 1, 2, 6 and 7). https://www.sos.alabama.gov/alabama-votes/2026-special-primary-election-sample-ballots (fetched 2026-09-30, 4 rows, SHA-256 c2432a5bf601a769...)
+- **Alabama** (official results (a check)): Alabama Democratic Party, posted by the Alabama Secretary of State, Certification of Results, Democratic Party: vote totals, 2026 Primary Election, May 19, 2026 (certified by the party June 2, 2026). https://www.sos.alabama.gov/sites/default/files/election-2026/2026%20Democratic%20Primary%20Election%20Results.xlsx (fetched 2026-09-30, 0 rows, SHA-256 b42b4171719e8346...)
+- **Alabama** (official results (a check)): Alabama Republican Party, posted by the Alabama Secretary of State, Certification of Results, Republican Party: vote totals, 2026 Primary Election, May 19, 2026 (certified by the party June 2, 2026). https://www.sos.alabama.gov/sites/default/files/05-29-2026/GOP%20Results.xlsx (fetched 2026-09-30, 0 rows, SHA-256 a15e7c055a7a6b81...)
+- **Alabama** (official results (a check)): Alabama Democratic Party, posted by the Alabama Secretary of State, Certification of Results, Democratic Party: vote totals, 2026 Primary Runoff Election, June 16, 2026 (certified by the party July 1, 2026). https://www.sos.alabama.gov/sites/default/files/election-2026/2026%20Democratic%20Primary%20Runoff%20Election%20Results.xlsx (fetched 2026-09-30, 0 rows, SHA-256 ead66748f792d10e...)
 - **Arkansas** (official candidate list): Arkansas Secretary of State, Elections Division, 2026 Candidate Search: U.S. Senate and U.S. Congress. https://candidates.arkansas.gov/ (fetched 2026-09-30, 13 rows, SHA-256 4c8e4c4ea02f16f8...)
 - **Arkansas** (official results): Arkansas Secretary of State, Elections Division, Election Results: 2026 Preferential Primary, March 3, 2026 (federal contests, official). https://arkansas.tally-enr.com/#election=7f77a178-af02-40ec-92db-c5cc50882c68 (fetched 2026-09-30, 11 rows, SHA-256 52a30c6ecea1f15d...)
 - **Arkansas** (official results): Arkansas Secretary of State, Elections Division, Election Results: 2026 Primary Runoff, March 31, 2026 (federal contests). https://arkansas.tally-enr.com/#election=b412bdef-f97a-45bc-b3ec-6761d28caf9e (fetched 2026-09-30, 0 rows, SHA-256 4c1ace094dd262d5...)
@@ -58,6 +66,9 @@
 - **Kansas** (official results): Kansas Secretary of State, Elections Division, U.S. House of Representatives 2026 Primary Election, precinct level results (workbook). https://sos.ks.gov/elections/26elec/2026-Primary-Election-United-States-House-of-Representatives-Precinct-Level-Results.xlsx (fetched 2026-09-30, 12,158 rows, SHA-256 03b0c12d64e45007...)
 - **Kentucky** (official candidate list): Kentucky Secretary of State, Candidate Filings with the Office of the Secretary of State, 2026 General Election: US Senator and US Representative. https://web.sos.ky.gov/CandidateFilings/Default.aspx?id=4 (fetched 2026-09-30, 26 rows, SHA-256 d8684e5ed021014d...)
 - **Kentucky** (official results): Kentucky State Board of Elections, Official 2026 Primary Election Results, May 19, 2026 ("2026 Primary Results - Official Certification", Certification of Vote Totals). https://elect.ky.gov/Documents/2026%20Primary%20Certification%20of%20Vote%20Totals%20Final.pdf (fetched 2026-09-30, 54 rows, SHA-256 e69458bae9bcce14...)
+- **Louisiana** (official candidate list): Louisiana Secretary of State, Candidate Inquiry: U.S. Senator and U.S. Representative, elections of May 16, June 27, November 3 and December 12, 2026. https://voterportal.sos.la.gov/candidateinquiry (fetched 2026-09-30, 52 rows, SHA-256 f98a8689ac0c7d57...)
+- **Louisiana** (official results): Louisiana Secretary of State, Official election results, 05/16/2026: U.S. Senator, closed party primaries. https://voterportal.sos.la.gov/graphical (fetched 2026-09-30, 7 rows, SHA-256 38f9852fe7fa338f...)
+- **Louisiana** (official results): Louisiana Secretary of State, Official election results, 06/27/2026: U.S. Senator, closed party primary runoffs. https://voterportal.sos.la.gov/graphical (fetched 2026-09-30, 4 rows, SHA-256 1bd7caefbcb53734...)
 - **Massachusetts** (official results): Massachusetts Secretary of the Commonwealth, Elections Division, PD43+ Certified Election Results: 2026 State Primary (September 1, 2026), U.S. House and U.S. Senate. https://electionstats.state.ma.us/elections/search/year_from:2026/year_to:2026/office_id:5 (fetched 2026-09-30, 29 rows, SHA-256 b79510c822827fe8...)
 - **Maryland** (official candidate list): Maryland State Board of Elections, 2026 Gubernatorial General Election State Candidates List: Representative in Congress (CSV). https://elections.maryland.gov/elections/2026/general_candidates/2026_GG_representativeincongressbydistrict_candidatelist.csv (fetched 2026-09-30, 27 rows, SHA-256 e4c9816f30404940...)
 - **Maryland** (official candidate list): Maryland State Board of Elections, 2026 Gubernatorial Primary Candidate List: Representative in Congress (CSV). https://elections.maryland.gov/elections/2026/primary_candidates/2026_GP_representativeincongressbydistrict_candidatelist.csv (fetched 2026-09-30, 91 rows, SHA-256 39568f90a40c5964...)
@@ -80,6 +91,10 @@
 - **Minnesota** (official candidate list): Minnesota Secretary of State, Candidate Filings: Federal, State, and County Offices (2026). https://candidates.sos.mn.gov/ (fetched 2026-09-30, 59 rows, SHA-256 87e65c667495375c...)
 - **Missouri** (official candidate list): Missouri Secretary of State, Certification of Candidates and Party Emblems, General Election, Tuesday, November 3, 2026. https://www.sos.mo.gov/CMSImages/ElectionCandidates/2026GeneralElectionCertifiedCandidates.pdf (fetched 2026-09-30, 24 rows, SHA-256 614e004d0f051d1d...)
 - **Missouri** (official candidate list): Missouri Secretary of State, Certified Candidate List, 2026 Primary Election (August 4, 2026): U.S. Representative. https://s1.sos.mo.gov/CandidatesOnWeb/DisplayCandidatesPlacement.aspx?ElectionCode=750006905 (fetched 2026-09-30, 61 rows, SHA-256 a14066bffdcf3bd2...)
+- **Mississippi** (official sample ballot): Mississippi Secretary of State, SAMPLE Official Election Ballot, State of Mississippi: Federal and Judicial Election, Tuesday, November 3, 2026. https://www.sos.ms.gov/content/documents/Elections/2026/Sample%20Ballot%209-9-26.pdf (fetched 2026-09-30, 15 rows, SHA-256 36752cfc3c7b44da...)
+- **Mississippi** (official candidate list): Mississippi Secretary of State, Candidate Qualifying List: Candidates for United States Senate and United States House of Representatives (CandidateQualifying.csv). https://sos.ms.gov/content/CandidateQualifying/default.aspx (fetched 2026-09-30, 15 rows, SHA-256 dc795d044640ad09...)
+- **Mississippi** (official results): Mississippi Secretary of State, 2026 Democratic Primary Election Results: Official Recapitulation, Federal Primary Election, March 10, 2026. https://www.sos.ms.gov/content/documents/elections/2026/Recap%20report%20Democratic%20Primary%202026.pdf (fetched 2026-09-30, 11 rows, SHA-256 270b461a23890b7b...)
+- **Mississippi** (official results): Mississippi Secretary of State, 2026 Republican Primary Election Results: Official Recapitulation, Federal Primary Election, March 10, 2026. https://www.sos.ms.gov/content/documents/elections/2026/republican%20primary%202026.pdf (fetched 2026-09-30, 6 rows, SHA-256 4710107c67435530...)
 - **Montana** (official candidate list): Montana Secretary of State, FEDERAL GENERAL 2026 Candidate List (November 3, 2026): United States Senator and United States Representative. https://candidatefiling.mt.gov/candidatefiling/CandidateList.aspx?e=450002987 (fetched 2026-09-30, 12 rows, SHA-256 555e7c76479f20d8...)
 - **Montana** (official candidate list): Montana Secretary of State, FEDERAL PRIMARY 2026 Candidate List (June 2, 2026): United States Senator and United States Representative. https://candidatefiling.mt.gov/candidatefiling/CandidateList.aspx?e=450002928 (fetched 2026-09-30, 28 rows, SHA-256 1eb37e083b8d9175...)
 - **Montana** (official results): Montana Secretary of State, 2026 Primary Election Precinct by Precinct Report (June 2, 2026). https://sosmt.gov/docs/31/post-election/76697/2026-primary-election-precinct-by-precinct-report (fetched 2026-09-30, 21 rows, SHA-256 cf5dadf7ba3b510c...)
@@ -99,6 +114,9 @@
 - **New Jersey** (official results): New Jersey Department of State, Division of Elections, Official Primary Election Results: U.S. House of Representatives (June 2, 2026). https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-primary-results-us-house.pdf (fetched 2026-09-30, 52 rows, SHA-256 a11984f032d51bf1...)
 - **New Jersey** (official candidate list): New Jersey Department of State, Division of Elections, Official Primary Election Candidates: U.S. Senate (Official List, 04/02/2026). https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-primary-candidates-us-senate.pdf (fetched 2026-09-30, 5 rows, SHA-256 63c3c12ca5b8e360...)
 - **New Jersey** (official candidate list): New Jersey Department of State, Division of Elections, Official Primary Election Candidates: U.S. House of Representatives (Official List, 04/02/2026). https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-primary-candidates-us-house.pdf (fetched 2026-09-30, 52 rows, SHA-256 00dd15ed50d9e18f...)
+- **New Mexico** (official candidate list): New Mexico Secretary of State, 2026 General Election Contest/Candidate List (November 3, 2026): United States Senator and United States Representative. https://candidateportal.servis.sos.state.nm.us/CandidateList.aspx?eid=2917&cty=99 (fetched 2026-09-30, 10 rows, SHA-256 382597c28b91b6ac...)
+- **New Mexico** (official candidate list): New Mexico Secretary of State, 2026 Primary Election Contest/Candidate List (June 2, 2026): United States Senator and United States Representative. https://candidateportal.servis.sos.state.nm.us/CandidateList.aspx?eid=2911&cty=99 (fetched 2026-09-30, 14 rows, SHA-256 2d734fe4fe83e26a...)
+- **New Mexico** (official results): New Mexico Secretary of State, 2026 Primary Election Official Results (June 2, 2026), certified by the State Canvass Board on June 23, 2026: Federal contests, the results site's CSV export. https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=2911 (fetched 2026-09-30, 4 rows, SHA-256 10727ff853f4a435...)
 - **New York** (official candidate list): New York State Board of Elections, Certification for the November 3, 2026 General Election (September 17, 2026). https://elections.ny.gov/system/files/documents/2026/09/accessible-2026-general-ballot-certification-9.17.2026.pdf (fetched 2026-09-29, 59 rows, SHA-256 b2fe84d1054db655...)
 - **Ohio** (official candidate list): Franklin County Board of Elections, 2026 General Election Candidates. https://vote.franklincountyohio.gov/getmedia/e0a4ca45-6893-45c1-8190-87696f8804b4/2026-General-Candidate-List-5 (fetched 2026-09-30, 14 rows, SHA-256 eab35eee4330e6f2...)
 - **Ohio** (official candidate list): Cuyahoga County Board of Elections, November 3, 2026 General Election Candidate List. https://boe.cuyahogacounty.gov/docs/default-source/boe/candidates-page/candidate-list.pdf (fetched 2026-09-30, 13 rows, SHA-256 5eaa1507f117fb44...)
@@ -116,6 +134,9 @@
 - **Oklahoma** (official candidate list): Oklahoma State Election Board, Candidates for Office 2026, filed in the office of the State Election Board April 1-3, 2026 (2026 Candidate List Book, compiled as of 5:00 p.m. April 3, 2026): United States Senator and United States Representative. https://oklahoma.gov/content/dam/ok/en/elections/candidate-filing-archives/2026-candidate-filing-archives/2026-candidate-list-book.pdf (fetched 2026-09-30, 45 rows, SHA-256 c5e56857e341527d...)
 - **Oklahoma** (official candidate list): Oklahoma State Election Board, 2026 Candidate Withdrawals. https://oklahoma.gov/elections/candidates/2026-candidate-filing-information/2026-candidate-withdrawals.html (fetched 2026-09-30, 2 rows, SHA-256 53b95044665a5cd8...)
 - **Oklahoma** (official candidate list): Oklahoma State Election Board, 2026 Contests of Candidacy. https://oklahoma.gov/elections/candidates/2026-candidate-filing-information/2026-contests-of-candidacy.html (fetched 2026-09-30, 0 rows, SHA-256 363c587f20ab70dc...)
+- **Oregon** (official candidate list): Oregon Secretary of State, Elections Division, ORESTAR Candidate Filings: 2026 General Election, US Senator and US Representative. https://secure.sos.state.or.us/orestar/CFSearchPage.do (fetched 2026-09-30, 27 rows, SHA-256 cb500344a423b4df...)
+- **Oregon** (official candidate list): Oregon Secretary of State, Elections Division, ORESTAR Candidate Filings: 2026 Primary Election, US Senator and US Representative. https://secure.sos.state.or.us/orestar/CFSearchPage.do (fetched 2026-09-30, 38 rows, SHA-256 cb500344a423b4df...)
+- **Oregon** (official results): Oregon Secretary of State, Elections Division, 2026 May Primary Election Official Results (May 19, 2026, Primary Election Abstract of Votes). https://records.sos.state.or.us/ORSOSCMSearch/Search/DocumentStream.ashx?uri=16180585 (fetched 2026-09-30, 34 rows, SHA-256 19e936d34a664062...)
 - **Pennsylvania** (official candidate list): Pennsylvania Department of State, PA Voter Services, Election Information: 2026 General Election. https://www.pavoterservices.pa.gov/ElectionInfo/ElectionInfo.aspx (fetched 2026-09-29, 1,307 rows, SHA-256 7b234b2d053cb13f...)
 - **Rhode Island** (official results): Rhode Island Board of Elections, 2026 Statewide Primary (September 9, 2026): official results, Senator in Congress and Representative in Congress. https://electionresults.ri.gov/results/public/RhodeIsland/elections/RI2026StatewidePrimary (fetched 2026-09-30, 9 rows, SHA-256 40fead785eb8ed22...)
 - **Rhode Island** (official results): Rhode Island Board of Elections, Summary Results Report, OFFICIAL RESULTS, Primary Election 2026, September 9, 2026 (Prim26_Summary.pdf). https://elections.ri.gov/sites/g/files/xkgbur756/files/2026-09/Prim26_Summary.pdf (fetched 2026-09-30, 9 rows, SHA-256 35af3130ea9c7a68...)
@@ -158,16 +179,11 @@
 
 ## Races with no candidate list yet, by state
 
-- Alabama: 8
 - Arizona: 9
 - Georgia: 1
-- Louisiana: 7
 - Massachusetts: 3
-- Mississippi: 5
 - New Hampshire: 3
-- New Mexico: 4
 - Nevada: 4
-- Oregon: 7
 - Rhode Island: 1
 - Tennessee: 10
 
@@ -221,6 +237,8 @@
 - 2026-MI-H13: Simone R. Coleman (Working Class Party)
 - 2026-MO-H02: Brandon Coulter Daugherty (Libertarian)
 - 2026-MO-H08: Rebecca Sharpe Lombard (Libertarian)
+- 2026-MS-H01: Johnny Baucom (Libertarian)
+- 2026-MS-H04: Carl Boyanton (Independent)
 - 2026-MT-H01: Nick Sheedy (Libertarian)
 - 2026-MT-S2: Jami Dee Woodman (Non Partisan)
 - 2026-NC-H02: Matthew Laszacs (Libertarian)

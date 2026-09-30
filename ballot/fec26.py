@@ -11,6 +11,7 @@ organizations are ever named; the treasurer and address columns of the committee
 """
 
 import os
+import re
 
 from ballot.common import HERE
 from load_donors import FEC, KIND, download, iso, money, patient_lookups, rows
@@ -30,7 +31,8 @@ def load(con, say=print):
     for f in rows(paths["cn"]):                                  # candidates registered for the 2026 cycle
         if len(f) >= 10 and f[5] in ("H", "S") and f[3] == "2026":
             dist = f[6].strip() if f[5] == "H" else ""
-            cands[f[0]] = (f[0], f[1].strip(), f[2].strip(), f[5], f[4].strip(), dist, f[7].strip(), f[8].strip(), f[9].strip())
+            name = re.sub(r"\s*[\d()\-. ]{7,}\d\s*", " ", f[1]).strip()      # a filer once typed a phone number into the name field
+            cands[f[0]] = (f[0], name, f[2].strip(), f[5], f[4].strip(), dist, f[7].strip(), f[8].strip(), f[9].strip())
     totals = []
     for f in rows(paths["weball"]):
         if len(f) >= 28 and f[0] in cands:

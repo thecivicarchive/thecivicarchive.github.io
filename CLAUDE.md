@@ -565,8 +565,8 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   release; the gaming and problem-gambling sites refuse scripts), MD (MDH: 1-800-GAMBLER answered in Maryland), LA
   (Gaming Control Board), OR (OHA), NM (Gaming Control Board, naming the Council's crisis line), MA (DPH), NJ (DMHAS:
   1-800-GAMBLER answered by the state council), SC (BHDD), CT (DMHAS), DE (Gaming Enforcement), ME (211 Maine, which the
-  Maine CDC names for gambling help "anytime"). National line only, by each state's own page: WY, CO, KY, OK, AR, KS, WV,
-  GA, AL, NV, VT, RI, NH, AK, HI, and MS (its portal names only a Gamblers Anonymous line);
+  Maine CDC names for gambling help "anytime"), CA (CDPH), NY (OASAS HOPEline), PA (DDAP), IL (IDHS), FL (Gaming Control
+  Commission). National line only, by each state's own page: WY, CO, KY, OK, AR, KS, WV, GA, AL, NV, VT, RI, NH, AK, HI, TX, and MS (its portal names only a Gamblers Anonymous line);
   Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho stays national too.
   The notice promises "day and night" only for the national line, so a state line need not state its hours.
   Polls so far (v4.0.061): members' polls for OH (Marist, Emerson x2), MT (Rutgers-Eagleton for Montana Free Press), KS
@@ -684,7 +684,20 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   one registration or member record to two candidates in a race, and uses middle initials to choose between two
   registrations (Alaska's Dan S. Sullivan and Daniel J. Sullivan Jr.). Polls: the UNH Survey Center's releases on
   scholars.unh.edu answer scripts with Cloudflare but open in the Browser pane; the PDFs were carried out into
-  ballot_cache/polls/unh/ and read there. Privacy: three agents
+  ballot_cache/polls/unh/ and read there.
+  Ring four, second half (v4.0.065): Alabama (`al.py`: the 67 counties' official sample ballots, read in drawing order and
+  only under the "NOVEMBER 3, 2026" heading; the certifications are text-less scans; primary and runoff votes from the
+  Secretary's precinct .xls zips, since the parties' certified workbooks leave out counties; the August 11 special
+  primaries replaced the May contests in districts 1 and 6). Louisiana (`la.py`): the Secretary of State's notice of May
+  14, 2026 (not NCSL) is the authority: the House's Nov 3 contest is an open primary, stored as election `open-primary`
+  dated 2026-11-03 (the page shows it as the November ballot, `openPrimary()`), with a Dec 12 runoff; the Senate held
+  closed primaries (May 16, June 27) and has a Nov 3 general; voterportal.sos.la.gov Candidate Inquiry and the graphical
+  results JSON (ResultsOfficial). races.py's `OWN_SOURCE` lets a state's own notice replace NCSL as a note's source.
+  Oregon (`or.py`: ORESTAR's candidate filing search, posted with its anti-forgery token; the official abstract PDF),
+  Mississippi (`ms.py`: sample ballots' order; official recapitulations), New Mexico (`nm.py`: candidateportal.servis
+  eid=2917). Nevada (`nv.py`): www.nvsos.gov and silverstateelection.nv.gov answer scripts with Incapsula: John saves
+  the certified list as ballot_cache/nv/nv_2026_general_candidates.html. `fec26.py` strips phone-like digit runs that
+  filers typed into the name field. Privacy: three agents
   printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
   and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`

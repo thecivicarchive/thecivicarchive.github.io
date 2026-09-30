@@ -36,7 +36,7 @@ from build_site_dev import read_changelog, state_paths                          
 from build_state_dev import borrow                                              # noqa: E402
 from money_views import KIND_LABELS, PAC_LIMIT, committee_kind, tidy_name       # noqa: E402
 
-ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary", "primary-LMN": "Legal Marijuana NOW primary",
+ELECTION_NAMES = {"general": "General election", "open-primary": "Open primary", "primary": "Top-two primary", "primary-DEM": "Democratic primary", "primary-LMN": "Legal Marijuana NOW primary",
                   "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-LIB": "Libertarian primary", "primary-GRE": "Green primary",
                   "primary-DFL": "Democratic-Farmer-Labor primary",
                   "runoff-REP": "Republican primary runoff", "runoff-DEM": "Democratic primary runoff",
@@ -180,7 +180,7 @@ def build(db, record_db, site_root, out_dir):
     notes = {r[0]: {"changed": r[1], "note": r[2], "st": r[3], "su": r[4], "asof": r[5]} for r in con.execute("SELECT * FROM state_notes")}
     sources = {r[0]: {"state": r[2], "kind": r[3], "agency": r[4], "title": r[5], "url": r[6], "fetched": r[8], "sha": r[9], "rows": r[10], "note": r[11]}
                for r in con.execute("SELECT * FROM ballot_sources")}
-    listed = {race.split("-")[1] for race, els in cands.items() if els.get("general")}      # a November list, not a primary alone (Indiana, 2026-09-30)
+    listed = {race.split("-")[1] for race, els in cands.items() if els.get("general") or els.get("open-primary")}      # a November list, not a primary alone (Indiana, 2026-09-30)
     races = []
     for race, _level, office, st, dist, cls, special, holder, hname, hparty, gdate, note in con.execute(
             "SELECT * FROM races WHERE level = 'federal' ORDER BY state, office DESC, district"):
@@ -507,7 +507,8 @@ const fmtDate = iso => { const [y, m, d] = String(iso || "").split("-").map(Numb
 const surname = n => String(n).replace(/\s+(Jr\.?|Sr\.?|II|III|IV)$/i, "").trim().split(/\s+/).pop().toLowerCase();
 const inOrder = list => [...list].sort((a, b) => (a.o ?? 1e9) - (b.o ?? 1e9) || surname(a.n).localeCompare(surname(b.n)));
 const initials = n => { const w = String(n).replace(/["“”].*?["“”]/g, "").replace(/\b(Jr|Sr|II|III|IV)\.?$/i, "").trim().split(/\s+/); return ((w[0] || "")[0] || "") + ((w.length > 1 ? w[w.length - 1] : "")[0] || ""); };
-const general = r => r.el && r.el.general ? inOrder(r.el.general) : [];
+const general = r => r.el && (r.el.general || r.el["open-primary"]) ? inOrder(r.el.general || r.el["open-primary"]) : [];      // Louisiana's House: the Nov 3 ballot is an open primary
+const openPrimary = r => !!(r.el && !r.el.general && r.el["open-primary"]);
 /* who a candidate is: age, offices held and for how long, a photo (ballot/people.py) */
 const P = c => (BOOT.people || {})[c.k] || {};
 const YEAR_MS = 365.2425 * 864e5;
@@ -568,8 +569,9 @@ function arena(r){
   const g = general(r); if (!g.length) return "";
   const parts = []; g.forEach((c, i) => { if (i) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i, g.length === 1)); });
   const lone = g.length === 1;
-  return `<section class="arena deal" id="arena" aria-label="The general election, ${esc(fmtDate(r.date))}">
-    <div class="ahead"><b>General election &middot; ${esc(fmtDate(r.date))}</b><span>${lone ? "One name for this office" : `${g.length} candidates, in the order the state's list gives, or by surname`}</span></div>
+  const op = openPrimary(r), when = op ? g[0].date : r.date;
+  return `<section class="arena deal" id="arena" aria-label="The ${op ? "open primary" : "general election"}, ${esc(fmtDate(when))}">
+    <div class="ahead"><b>${op ? "Open primary" : "General election"} &middot; ${esc(fmtDate(when))}</b><span>${lone ? "One name for this office" : `${g.length} candidates, in the order the state's list gives, or by surname`}${op ? ". Every party on one ballot: more than half the votes wins the seat; otherwise the top two meet on December 12" : ""}</span></div>
     <div class="acards" data-n="${g.length}">${parts.join("")}</div>
     <button class="aopen" id="aopen" type="button" aria-expanded="false" aria-controls="cmp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4l8 8-8 8"/></svg><span>Step into the arena: compare them side by side</span></button>
     <div class="cmp" id="cmp" hidden></div>
@@ -688,10 +690,15 @@ const HELPLINES = {      // each from the state's own page; a state not listed s
   SC: ["S.C. Gambling Helpline (Behavioral Health and Developmental Disabilities)", "1-877-452-5155", "tel:18774525155", "https://bhdd.sc.gov/office-substance-use-services/services/treatment/gambling-addiction-services"],
   CT: ["Connecticut's problem gambling help line (DMHAS)", "888-789-7777", "tel:18887897777", "https://portal.ct.gov/dmhas/programs-and-services/problem-gambling/do-i-need-help"],
   DE: ["Delaware Gambling Helpline (Division of Gaming Enforcement)", "(888) 850-8888", "tel:18888508888", "https://dge.delaware.gov/help/index.shtml"],
-  ME: ["211 Maine, a general help line the Maine CDC names for gambling help", "211, or text your ZIP code to 898-211", "tel:211", "https://www.maine.gov/dhhs/mecdc/healthy-living/substance-use-and-behavioral-health/problem-gambling"]};
+  ME: ["211 Maine, a general help line the Maine CDC names for gambling help", "211, or text your ZIP code to 898-211", "tel:211", "https://www.maine.gov/dhhs/mecdc/healthy-living/substance-use-and-behavioral-health/problem-gambling"],
+  CA: ["California Problem Gambling Helpline (Department of Public Health)", "1-800-GAMBLER (1-800-426-2537), or text SUPPORT to 53342", "tel:18004262537", "https://www.cdph.ca.gov/Programs/OPG/Pages/helpline-numbers.aspx"],
+  NY: ["HOPEline, for gambling harms and substance use (NYS Office of Addiction Services and Supports)", "1-877-8-HOPENY (1-877-846-7369), or text HOPENY (467369)", "tel:18778467369", "https://oasas.ny.gov/hopeline"],
+  PA: ["Pennsylvania's Gambling Helpline (Department of Drug and Alcohol Programs)", "1-800-426-2537, or text 800GAM", "tel:18004262537", "https://www.pa.gov/agencies/ddap/treatment-and-support/problem-gambling-services"],
+  IL: ["Illinois's gambling helpline (Department of Human Services)", "1-800-GAMBLER, or text ILGAMB to 833234", "tel:18004262537", "https://www.dhs.state.il.us/page.aspx?item=117443"],
+  FL: ["Florida's Dedicated Problem Gambling Helpline (Gaming Control Commission)", "1-833-PLAYWISE (1-833-752-9947)", "tel:18337529947", "https://flgaming.gov/gamblingresources/"]};
       // National line only, by the state's own page: WY (health.wyo.gov), CO (the Colorado Lottery), KY (CHFS), OK (ODMHSAS), AR (DFA Casino Gaming),
       // KS (KDADS), WV (Bureau for Behavioral Health), GA (DBHDD), AL (ADMH), NV (Gaming Control Board notice), MS (the state portal names only a
-      // Gamblers Anonymous line), VT, RI, NH, AK, HI (no state line on an official page). Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho is left national too.
+      // Gamblers Anonymous line), VT, RI, NH, AK, HI (no state line on an official page), TX (the Lottery points to the national line). Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho is left national too.
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
@@ -1001,7 +1008,7 @@ function holderLine(r){
 }
 function racePage(id){
   const r = R[id]; if (!r) { home(); return; }
-  const prim = Object.keys(r.el || {}).filter(k => k !== "general").sort();
+  const prim = Object.keys(r.el || {}).filter(k => k !== "general" && k !== "open-primary").sort();
   const srcs = [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean);
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
@@ -1078,7 +1085,7 @@ def main():
         fh.write(page)
     from ballot.share_race import write as write_share      # a share page and preview image for every race with a list
     write_share(os.path.dirname(args.out), boot)
-    loaded = sum(1 for r in boot["races"] if r["el"].get("general"))
+    loaded = sum(1 for r in boot["races"] if r["el"].get("general") or r["el"].get("open-primary"))
     print(f"Version {version}")
     print(f"Wrote {args.out}: {len(boot['races'])} races ({loaded} with the official list loaded), "
           f"{len(boot['listed'])} states listed, {len(boot['money'])} campaigns' money, {len(boot['members'])} members' records, "

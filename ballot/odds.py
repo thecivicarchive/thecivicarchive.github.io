@@ -51,12 +51,18 @@ MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each c
     "2026-DE-S2": {"polymarket": "delaware-senate-election-winner", "kalshi": "SENATEDE-26", "checked": "2026-09-30"},
     "2026-AK-S2": {"polymarket": "alaska-senate-election-winner", "kalshi": "SENATEAK-26", "checked": "2026-09-30"},
     "2026-AK-H00": {"kalshi": "HOUSEAKAL-26", "checked": "2026-09-30"},      # "Alaska House winner?" (at large)
+    "2026-TX-S2": {"polymarket": "texas-senate-election-winner", "kalshi": "SENATETX-26", "checked": "2026-09-30"},
+    "2026-IL-S2": {"polymarket": "illinois-senate-election-winner", "kalshi": "SENATEIL-26", "checked": "2026-09-30"},
+    "2026-FL-S3": {"polymarket": "florida-senate-election-winner", "kalshi": "SENATEFLS-26", "checked": "2026-09-30"},      # the special election
     **{f"2026-{st}-H{int(d):02d}": {"kalshi": f"HOUSE{st}{d}-26", "checked": "2026-09-30"}      # "MN-02 House winner?" and the like
        for st, d in (("MN", 2), ("WI", 1), ("WI", 3), ("IA", 1), ("IA", 3), ("MI", 3), ("MI", 4), ("MI", 7), ("MI", 8), ("MI", 10),
                                   ("OH", 1), ("OH", 9), ("OH", 13), ("IN", 1), ("NE", 2), ("MT", 1), ("CO", 3), ("CO", 8),
                                   ("NC", 1), ("VA", 1), ("VA", 2), ("VA", 7), ("WA", 3), ("AZ", 1), ("AZ", 2), ("AZ", 6), ("OR", 5),
                                   ("NV", 1), ("NV", 3), ("NV", 4), ("NM", 2),
-                                  ("NJ", 5), ("NJ", 7), ("NJ", 9), ("CT", 5), ("NH", 1), ("ME", 2))},
+                                  ("NJ", 5), ("NJ", 7), ("NJ", 9), ("CT", 5), ("NH", 1), ("ME", 2),
+                                  ("CA", 3), ("CA", 9), ("CA", 13), ("CA", 21), ("CA", 22), ("CA", 27), ("CA", 41), ("CA", 45), ("CA", 47),
+                                  ("CA", 49), ("TX", 15), ("TX", 28), ("TX", 34), ("FL", 13), ("FL", 23), ("NY", 3), ("NY", 4), ("NY", 17),
+                                  ("NY", 18), ("NY", 19), ("NY", 22), ("PA", 1), ("PA", 7), ("PA", 8), ("PA", 10), ("PA", 17), ("IL", 17))},
 }
 
 

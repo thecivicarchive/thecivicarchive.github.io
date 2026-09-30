@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.065 — 2026-09-30 — Alabama, Louisiana, Oregon, Mississippi and New Mexico
+
+- Alabama, Oregon, Mississippi and New Mexico are loaded from each state's own official list, with their primaries and official votes; Alabama's includes the August 11 special primaries held after its 2023 map came back.
+- Louisiana's House races show what is really on the November 3 ballot, following the Secretary of State's own notice: an open primary with every party on one ballot, and a December 12 runoff if nobody wins more than half. Louisiana's Senate race is an ordinary general election, after party primaries in May and June.
+- Nevada's list sits behind a check we do not get past, so its races say the list is coming.
+- What bettors are paying, as information only, for the Senate races in Texas, Illinois and Florida and twenty-seven more House races in California, Texas, Florida, New York, Pennsylvania and Illinois, with each state's own problem-gambling line where its official page names one.
+
 ## v4.0.064 — 2026-09-30 — New England, the Carolinas' neighbours, Alaska and Hawaii
 
 - New Jersey, South Carolina, Connecticut, Maine, Delaware, Vermont, Alaska and Hawaii are loaded from each state's own official list, with their primaries and official vote counts: Maine's counted by ranked choice, Alaska's a top-four primary, South Carolina's with the special primary held after Senator Lindsey Graham's death.

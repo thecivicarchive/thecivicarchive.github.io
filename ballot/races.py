@@ -19,6 +19,9 @@ import sqlite3
 from ballot.common import GENERAL, HERE, house_id, senate_id
 
 AT_LARGE = ("AK", "DE", "ND", "SD", "VT", "WY")
+OWN_SOURCE = {      # a state's own notice, where it corrects or adds to NCSL's summary
+    "LA": ("Louisiana Secretary of State, notice of May 14, 2026 on the fall U.S. House races, and NCSL's map tracker",
+           "https://www.sos.la.gov/media/dcvl5ojl/051426-fall-house-races.pdf", "2026-05-14")}
 NCSL = ("National Conference of State Legislatures, Changing the Maps: Tracking Mid-Decade Redistricting (updated September 11, 2026)",
         "https://www.ncsl.org/redistricting-and-census/changing-the-maps-tracking-mid-decade-redistricting")
 MAPS_2026 = {      # (lines differ from 2024?, what to know), from the tracker above
@@ -26,8 +29,10 @@ MAPS_2026 = {      # (lines differ from 2024?, what to know), from the tracker a
               "so some district lines differ from 2024. Districts affected by the change held special primaries on August 11."),
     "CA": (1, "California voters adopted a new congressional map on November 4, 2025 (Proposition 50). It is in effect for 2026."),
     "FL": (1, "Florida enacted a new congressional map on May 4, 2026. It is in effect for 2026; a challenge to it is pending in state court."),
-    "LA": (1, "Louisiana enacted a new congressional map on May 29, 2026. Its party primaries for Congress were moved to November 3, "
-              "and the general election for Congress is on December 12."),
+    "LA": (1, "Louisiana enacted a new congressional map on May 29, 2026. Its spring party primaries for the U.S. House were cancelled "
+              "(Act 7 of 2026): on November 3 every House candidate, of every party, is on one open primary ballot; a candidate with more "
+              "than half the votes wins, and otherwise the top two meet on December 12. The Senate race held its party primaries in May "
+              "and June, and its general election is on November 3."),
     "MO": (0, "Missouri's 2025 map is paused until voters decide a referendum on it this November, so the 2022 lines are in effect. "
               "The August primaries used the 2025 map; each nominee runs in the district with the same number under the 2022 lines."),
     "NC": (1, "North Carolina enacted a new congressional map on October 22, 2025. It is in effect for 2026."),
@@ -71,6 +76,6 @@ def build(con, record_db=os.path.join(HERE, "congress_119.sqlite")):
         con.executemany("INSERT INTO races VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", rows)
         con.execute("DELETE FROM state_notes")
         con.executemany("INSERT INTO state_notes VALUES (?,?,?,?,?,?)",
-                        [(st, changed, note, NCSL[0], NCSL[1], "2026-09-11") for st, (changed, note) in MAPS_2026.items()])
+                        [(st, changed, note, *OWN_SOURCE.get(st, (NCSL[0], NCSL[1], "2026-09-11"))) for st, (changed, note) in MAPS_2026.items()])
     house = sum(1 for r in rows if r[2] == "U.S. House")
     return house, len(rows) - house, specials
