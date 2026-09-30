@@ -390,6 +390,28 @@ def page_runs(pdf, page, res):
     return runs
 
 
+def join(runs):
+    """Runs on one printed row as text: pieces that touch are joined, a gap wider than a fifth of the type is a space."""
+    text, end = "", None
+    for x0, _y, size, t, x1 in sorted(runs, key=lambda r: r[0]):
+        if end is not None and x0 - end > 0.18 * size and not text.endswith(" ") and not t.startswith(" "):
+            text += " "
+        text += t
+        end = max(end or x1, x1)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def rows(pdf, page, res):
+    """A page's runs grouped into printed rows, top to bottom: [(y, [runs])]."""
+    out = []
+    for r in sorted(page_runs(pdf, page, res), key=lambda r: (-round(r[1], 1), r[0])):
+        if out and abs(out[-1][0] - r[1]) <= max(1.5, 0.35 * r[2]):
+            out[-1][1].append(r)
+        else:
+            out.append([r[1], [r]])
+    return out
+
+
 def lines(path, first=1, last=None):
     """(page number, y, text) for each line of text, top to bottom, left to right."""
     pdf = PDF(open(path, "rb").read())
@@ -397,22 +419,8 @@ def lines(path, first=1, last=None):
     for n, (page, res) in enumerate(pdf.pages(), start=1):
         if n < first or (last and n > last):
             continue
-        runs = sorted(page_runs(pdf, page, res), key=lambda r: (-round(r[1], 1), r[0]))
-        rows = []
-        for r in runs:
-            if rows and abs(rows[-1][0] - r[1]) <= max(1.5, 0.35 * r[2]):
-                rows[-1][1].append(r)
-            else:
-                rows.append([r[1], [r]])
-        for y, rs in rows:
-            rs.sort(key=lambda r: r[0])
-            text, end = "", None
-            for x0, _y, size, t, x1 in rs:
-                if end is not None and x0 - end > 0.18 * size and not text.endswith(" ") and not t.startswith(" "):
-                    text += " "
-                text += t
-                end = max(end or x1, x1)
-            text = re.sub(r"\s+", " ", text).strip()
+        for y, rs in rows(pdf, page, res):
+            text = join(rs)
             if text:
                 out.append((n, round(y, 1), text))
     return out

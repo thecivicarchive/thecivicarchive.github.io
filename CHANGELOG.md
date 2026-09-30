@@ -10,6 +10,21 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.048 — 2026-09-29 — New York joins On The Ballot
+
+- New York's certified list for November 3: all 26 House seats, 59
+  candidates, from the State Board of Elections' certification of
+  September 17. New York lets several parties nominate the same person, so
+  a candidate's card lists every party line they hold, in ballot order;
+  36 of the 59 hold more than one.
+- Four states' official lists are now in (California, Florida, Texas and
+  New York): 144 races and 336 candidates on the November ballot.
+- The way back is now the flag: the fireworks spell LEGISLATION &
+  LEGISLATURES with a blue canton of white stars and thirteen red and
+  white stripes, rippling as if it were flying. When the words are
+  complete, on either door, they finish with a flash of light and a ring
+  of red, white and blue sparks.
+
 ## v4.0.047 — 2026-09-29 — Texas, and faces, ages and years in office on every card
 
 - Texas joins California and Florida: its certified list for November 3,

@@ -474,7 +474,10 @@ function letterPoints(W, H){      /* where each spark comes to rest: the words d
     const wi = words.findIndex(w => Math.abs(yy - w.y) <= w.h * .72 && xx >= w.x0 - 3 && xx <= w.x1 + 3);
     if (wi >= 0) pts.push({x: xx, y: yy, w: wi});
   }
-  return {pts, words, gap, f1};
+  const main = words.filter(w => !w.sub);      // the block the big words fill, for the flag's canton and stripes
+  const block = {bx0: Math.min(...main.map(w => w.x0)), bx1: Math.max(...main.map(w => w.x1)),
+                 by0: Math.min(...main.map(w => w.y)) - f1 * .5, by1: Math.max(...main.map(w => w.y)) + f1 * .5};
+  return {pts, words, gap, f1, block};
 }
 function fireworks(){
   if (skyOpen || going) return; skyOpen = true; armed = false;
@@ -496,9 +499,31 @@ function fireworks(){
   const later = groups.length * 230 + 700;      // when the words are nearly whole, a few more bursts around them
   for (let k = 0; k < 7; k++) rockets.push({at: later + k * 380, x0: W * (.1 + .8 * Math.random()), G: {cx: W * (.08 + .84 * Math.random()), cy: H * (.1 + .2 * Math.random()), pts: []}, color: [RED, WHITE, BLUE][k % 3], deco: true});
   const parts = [], t0 = performance.now(), HOLD = 7000, FADE = 1500; let lastT = t0;      // the words are whole by about 3.9 s and hold till 7
+  /* the way back is drawn as the flag (John, 2026-09-29): a blue canton with white stars at the top left of the words,
+     thirteen red and white stripes across the rest, rippling as if it were flying */
+  const FLAG = DOOR.skyStyle === "flag", B = T.block, BW = B.bx1 - B.bx0, BH = B.by1 - B.by0;
+  function flagColor(p){
+    if (p.x < B.bx0 + BW * .4 && p.y < B.by0 + BH * .54) {
+      const cols = 6, rows = 3, cw = BW * .4 / cols, ch = BH * .54 / rows, i = Math.floor((p.x - B.bx0) / cw), j = Math.floor((p.y - B.by0) / ch);
+      const cx = B.bx0 + (i + (j % 2 ? .75 : .35)) * cw, cy = B.by0 + (j + .5) * ch;      // staggered rows of stars
+      return Math.hypot(p.x - cx, p.y - cy) < Math.min(cw, ch) * .3 ? "star" : BLUE;
+    }
+    return Math.floor((p.y - B.by0) / (BH / 13)) % 2 ? WHITE : RED;
+  }
+  const whole = Math.max(...rockets.filter(R => !R.deco && !R.G.sub).map(R => R.at)) + 650 + 1370;      // when the big words are complete
+  let popped = false;
+  function pop(t){      // the words complete: a flash of light and a ring of red, white and blue sparks
+    popped = true;
+    for (let k = 0; k < 190; k++) {
+      const a = Math.random() * 6.283, v = 220 + Math.random() * 380, ex = B.bx0 + BW / 2 + Math.cos(a) * BW * .45, ey = B.by0 + BH / 2 + Math.sin(a) * BH * .6;
+      parts.push({x: ex, y: ey, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born: t, life: 800 + Math.random() * 700, s: 5 + Math.random() * 7, c: [RED, WHITE, BLUE][k % 3]});
+    }
+  }
   function explode(R, t){
     const {G} = R, s = T.gap * 2.2;
-    G.pts.forEach(p => { const a = Math.random() * 6.283, v = 170 + Math.random() * 260; parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, tx: p.x, ty: p.y, born: t, s, c: tint(R.color), tw: Math.random() * 6.28}); });
+    G.pts.forEach(p => { const a = Math.random() * 6.283, v = 170 + Math.random() * 260, fc = FLAG && !G.sub ? flagColor(p) : null;
+      parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, tx: p.x, ty: p.y, born: t, s: fc === "star" ? s * 1.5 : s,
+                  c: fc ? (fc === "star" ? WHITE : fc) : tint(R.color), star: fc === "star", flag: !!fc, tw: Math.random() * 6.28}); });
     for (let k = 0, n = R.deco ? 120 : 70; k < n; k++) { const a = Math.random() * 6.283, v = 80 + Math.random() * (R.deco ? 330 : 250);
       parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born: t, life: 900 + Math.random() * 1000, s: 4 + Math.random() * 6, c: tint(R.color)}); }
   }
@@ -507,6 +532,12 @@ function fireworks(){
     g.globalCompositeOperation = "source-over"; g.clearRect(0, 0, W, H); g.fillStyle = "#FFFFFF";
     for (const s of stars) { g.globalAlpha = .3 + .3 * Math.sin(s.p + t / 650); g.fillRect(s.x, s.y, s.r, s.r); }
     g.globalCompositeOperation = "lighter";
+    if (!popped && t >= whole) pop(t);
+    if (popped && t < whole + 650) {      // the flash as the words complete
+      const f = 1 - (t - whole) / 650, gl = g.createRadialGradient(B.bx0 + BW / 2, B.by0 + BH / 2, 0, B.bx0 + BW / 2, B.by0 + BH / 2, BW * .75);
+      gl.addColorStop(0, "rgba(255,255,255,.55)"); gl.addColorStop(.5, "rgba(170,200,255,.18)"); gl.addColorStop(1, "rgba(255,255,255,0)");
+      g.globalAlpha = f; g.fillStyle = gl; g.fillRect(0, 0, W, H); g.fillStyle = "#FFFFFF";
+    }
     for (const R of rockets) {      // each rocket climbs from below the screen, trailing sparks, and bursts where its letters are
       if (t < R.at || R.fired) continue;
       const u = Math.min(1, (t - R.at) / 650), at = q => { const e = 1 - Math.pow(1 - Math.max(0, q), 2.2); return [R.x0 + (R.G.cx - R.x0) * e, H + 12 + (R.G.cy - H - 12) * e]; };
@@ -516,12 +547,19 @@ function fireworks(){
     for (let i = parts.length - 1; i >= 0; i--) {
       const P = parts[i], age = t - P.born;
       if (P.tx != null) {      // a letter spark: out with the burst, then home to its place in the words
+        let home = 0;
         if (age < 420) { P.x += P.vx * dt; P.y += P.vy * dt; P.vx *= .92; P.vy = P.vy * .92 + 40 * dt; P.hx = P.x; P.hy = P.y; }
-        else { const e = 1 - Math.pow(1 - Math.min(1, (age - 420) / 950), 3); P.x = P.hx + (P.tx - P.hx) * e; P.y = P.hy + (P.ty - P.hy) * e; }
-        let a = age < 420 ? 1 : .72 + .28 * Math.sin(P.tw + t / 150);
+        else { home = Math.min(1, (age - 420) / 950); const e = 1 - Math.pow(1 - home, 3); P.x = P.hx + (P.tx - P.hx) * e; P.y = P.hy + (P.ty - P.hy) * e; }
+        let a = age < 420 ? 1 : (P.star ? .6 + .4 * Math.sin(P.tw + t / 90) : .72 + .28 * Math.sin(P.tw + t / 150));
+        let wave = 0;
+        if (P.flag && home > 0) {      // the flag flies: a ripple runs along it, lighter on the crests
+          const ph = (P.tx - B.bx0) / (T.f1 * 2.4) * 6.283 - t / 320;
+          wave = Math.sin(ph) * T.f1 * .05 * home;
+          a *= .8 + .2 * Math.sin(ph + 1);
+        }
         if (t > HOLD) { const f = Math.min(1, (t - HOLD) / FADE); a *= 1 - f; P.ty += 22 * dt * f; }
         if (t > HOLD + FADE) { parts.splice(i, 1); continue; }
-        g.globalAlpha = a; g.drawImage(SPR[P.c], P.x - P.s / 2, P.y - P.s / 2, P.s, P.s);
+        g.globalAlpha = a; g.drawImage(SPR[P.c], P.x - P.s / 2, P.y + wave - P.s / 2, P.s, P.s);
       } else {      // a loose spark: drifts down and fades
         const life = 1 - age / P.life; if (life <= 0) { parts.splice(i, 1); continue; }
         P.x += P.vx * dt; P.y += P.vy * dt; P.vx *= .985; P.vy = P.vy * .985 + 70 * dt;
@@ -676,7 +714,7 @@ def main():
     if args.ballot:
         B = ballot_facts()
         data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B),
-                "sky": SKY_BACK, "whenText": "Back to the public record"}
+                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record"}
         words = {"__TITLE__": "On The Ballot · The Civic Archive",
                  "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
                  "__HOME__": "../", "__SWITCH__": switch(True), "__SKYLABEL__": "Legislation and Legislatures",
