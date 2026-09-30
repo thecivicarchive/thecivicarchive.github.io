@@ -1,4 +1,4 @@
-# On The Ballot: what is loaded, 2026-09-30 12:17
+# On The Ballot: what is loaded, 2026-09-30 12:27
 
 | Part | Result |
 | --- | --- |
@@ -28,6 +28,7 @@
 - **Arkansas** (official results): Arkansas Secretary of State, Elections Division, Election Results: 2026 Preferential Primary, March 3, 2026 (federal contests, official). https://arkansas.tally-enr.com/#election=7f77a178-af02-40ec-92db-c5cc50882c68 (fetched 2026-09-30, 11 rows, SHA-256 52a30c6ecea1f15d...)
 - **Arkansas** (official results): Arkansas Secretary of State, Elections Division, Election Results: 2026 Primary Runoff, March 31, 2026 (federal contests). https://arkansas.tally-enr.com/#election=b412bdef-f97a-45bc-b3ec-6761d28caf9e (fetched 2026-09-30, 0 rows, SHA-256 4c1ace094dd262d5...)
 - **California** (official results): California Secretary of State, Statement of Vote, June 2, 2026 Primary Election: CSV Files - Voter Nominated. https://elections.cdn.sos.ca.gov/sov/2026-primary/sov/csv-voter-nominated.xlsx (fetched 2026-09-29, 297 rows, SHA-256 d5950110771e66e0...)
+- **California** (official candidate list): California Secretary of State, Official Certified List of Candidates, General Election - November 3, 2026. https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf (fetched 2026-09-29, 104 rows, SHA-256 0e514ae7b14378b1...)
 - **Colorado** (official candidate list): Colorado Secretary of State, 2026 General Election Official Candidate List (certified to the counties September 4, 2026): US Senate and US House of Representatives. https://www.coloradosos.gov/pubs/elections/vote/generalCandidates.html (fetched 2026-09-30, 47 rows, SHA-256 78ef8b7125b20e3d...)
 - **Colorado** (official ballot order): Colorado Secretary of State, 2026 General Election Ballot Order for Major & Minor Party Candidates (lot drawing of July 28, 2026). https://www.coloradosos.gov/pubs/elections/vote/files/2026/20260728MajorMinorPartyDrawing.xlsx (fetched 2026-09-30, 9 rows, SHA-256 b1229fb46c858b2f...)
 - **Colorado** (official candidate list): Colorado Secretary of State, 2026 Official Primary Election Candidate List (certified to the counties May 1, 2026): US Senate and US House of Representatives. https://www.coloradosos.gov/pubs/elections/vote/primaryCandidates.html (fetched 2026-09-30, 29 rows, SHA-256 971528a276c09190...)

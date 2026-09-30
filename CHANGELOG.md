@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.068 — 2026-09-30 — California checked against its certified list
+
+- California's November candidates, taken from the June 2 top-two results, are now checked against the Secretary of State's Official Certified List of Candidates (August 27, 2026): all 104 names and party preferences agree, in all 52 districts.
+
 ## v4.0.067 — 2026-09-30 — The ballot door counts what the pages count
 
 - The On The Ballot door now counts the states whose November lists are loaded (41) and every candidate on a November ballot, Louisiana's open primary included, the same way the pages do.

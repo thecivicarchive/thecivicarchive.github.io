@@ -748,10 +748,15 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),
   the national problem-gambling helpline and the reader's own state's (from the state they picked or their location,
   worked out on the device), and "Go to the market" or "Stay here". No slot machine, no referral codes. Not built yet.
-- Next, in order: Minnesota's Aug 11 results files from John; ring three (TN CO KY OK UT AR KS ID WV), then the rings
-  beyond, largest first within each; Indiana's November list once in.gov fixes its link; South Dakota's certified canvass
-  and Missouri's Grand Totals when posted; campaign websites and photos once the FEC key is saved; Florida's primary
-  votes; the California certified-list check; then state and local ballots.
+- Where it stands (v4.0.067, 2026-09-30): 41 states' November lists loaded (400 of 470 races), primaries with official
+  votes nearly everywhere, polls entries for all 35 Senate races (16 with checked member polls), markets for 100 races,
+  helplines from 30 states' own pages. Waiting on John's own browser saves (bot walls or a broken link; never work
+  around them): TN (four files), KS (Candidate List page), GA (Qualified Candidates.csv), AZ (candidate listing and
+  canvass), MA (2026 State Election Candidates page), RI (Senator and Representative in Congress pages), NH (the files
+  nh.py names), NV (the certified list), IN (the Election Division's list, once its link works), OK primary votes
+  (results.okelections.us exports), and Minnesota's Aug 11 results files. Also still to come: South Dakota's certified
+  canvass and Missouri's Grand Totals when posted; campaign websites and photos once the FEC key is saved; then state
+  and local ballots (ask John about scope first).
 
 ## Optional: rate more bills with the Claude API
 
