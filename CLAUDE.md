@@ -791,6 +791,9 @@ subagents, with the rule against personal or sensitive data pushed into every ag
   CO KY UT OK AR ID WV; TN, KS and IN have races and holders but their November lists wait on John's browser saves (the
   same files as the federal side). Ohio has 60 legislative seats with no reachable list. When a state has no candidate
   list yet, the page names the state's results office, never the Open States roster or the Census Bureau.
+  v4.0.073 adds GA (primaries; list behind reCAPTCHA) NC MD WA AL OR MS NM, VA (one special), LA (odd-year legislature),
+  AZ and NV (waiting): 33 states. sl_places has no state column and is shared: county ids are 5-digit FIPS and
+  district ids carry the state ("MT-1"), or one state's rows collide with another's (Oregon's did).
 
 ## Optional: rate more bills with the Claude API
 

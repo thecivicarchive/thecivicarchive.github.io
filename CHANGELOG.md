@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.073 — 2026-09-30 — Twelve more states' state races
+
+- North Carolina, Maryland, Washington, Alabama, Oregon, Mississippi and New Mexico have their statewide, legislative and court races on the ballot pages, with official primary votes; Georgia's primaries and runoffs are in while its November list waits on a file its Secretary of State puts behind a check.
+- Virginia and Louisiana elect their legislatures in odd years, so their pages show only the few state contests on this November's ballot (Virginia's House District 20 special election). Arizona's and Nevada's wait on files their offices do not let us fetch. 33 states in all.
+
 ## v4.0.072 — 2026-09-30 — Nine more states' legislatures on the ballot
 
 - Colorado, Kentucky, Utah, Oklahoma, Arkansas, Idaho and West Virginia now have their statewide, legislative and court races on the ballot pages, from each state's own lists, with their primaries and official votes where published: 21 states in all.
