@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.049 — 2026-09-29 — Pennsylvania and Illinois
+
+- Pennsylvania's list for November 3: all 17 House seats, 34 candidates,
+  from the Department of State's own election information, with each
+  party's May 19 primary field and its winner.
+- Illinois's list: all 17 House seats and the open Senate seat, 39
+  candidates, from the State Board of Elections' candidate list; the three
+  candidates the Board removed are left off.
+- Six states' official lists are now in: 180 races and 409 candidates on
+  the November ballot, 398 of them tied to their FEC filings.
+
 ## v4.0.048 — 2026-09-29 — New York joins On The Ballot
 
 - New York's certified list for November 3: all 26 House seats, 59
