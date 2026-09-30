@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.050 — 2026-09-29 — A black hole, to compare with the wormhole
+
+- Going into On The Ballot from the front door now falls through a black
+  hole: starlight bends into arcs around it, a disc of hot gas swirls, a
+  thin bright ring marks its edge, and the black event horizon grows until
+  it swallows the screen. You come out the other side through a white
+  hole, a flash of light with the page opening out of the middle.
+- The way back still takes the wormhole, so the two can be compared.
+
 ## v4.0.049 — 2026-09-29 — Pennsylvania and Illinois
 
 - Pennsylvania's list for November 3: all 17 House seats, 34 candidates,

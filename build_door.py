@@ -254,6 +254,10 @@ body.arrive .page{animation:emerge 1.05s cubic-bezier(.16,.7,.2,1) both}
 @keyframes emerge{from{transform:scale(.18) rotate(-30deg);filter:blur(8px);opacity:0}to{transform:none;filter:none;opacity:1}}
 body.fadeout .page{transition:opacity .2s;opacity:0}
 .sky canvas{transform-origin:50% 44%}
+body.bh .page{transition:transform 1.7s cubic-bezier(.7,0,.95,.35),filter 1.5s ease-in,opacity 1.1s ease-in .4s;transform:scale(.02) rotate(170deg);filter:blur(10px) brightness(.35);opacity:0}
+.sky.bh canvas{transition:transform 1.6s cubic-bezier(.7,0,.95,.35),opacity 1.2s ease-in .25s;transform:scale(.02) rotate(170deg);opacity:0}
+body.arrive-bh .page{animation:whitehole 1.2s cubic-bezier(.16,.7,.2,1) both}
+@keyframes whitehole{from{transform:scale(.04) rotate(-140deg);filter:blur(8px) brightness(3);opacity:0}to{transform:none;filter:none;opacity:1}}
 .sky.pull canvas{transition:transform 1.1s cubic-bezier(.62,0,.88,.3),opacity 1s ease-in .15s;transform:scale(.04) rotate(40deg);opacity:0}
 .sky{position:fixed;inset:0;z-index:70;cursor:pointer;opacity:0;transition:opacity .7s ease;outline:none;
   background:radial-gradient(130% 100% at 50% 115%,rgba(30,36,84,.7),rgba(4,6,20,.93) 62%);-webkit-backdrop-filter:blur(12px) saturate(.6);backdrop-filter:blur(12px) saturate(.6)}
@@ -613,14 +617,60 @@ function tunnel(cv, dir, dur, done){
   requestAnimationFrame(frame);
   return () => { stop = true; };
 }
+/* the black hole (John, 2026-09-29, to compare with the wormhole): starlight bent into arcs round it, a swirling disc
+   of hot gas, the thin bright photon ring, and the black event horizon growing until it swallows the screen; out the
+   other side, a white hole: a flash of light and the page opening out of the middle */
+function blackhole(cv, dir, dur, done){
+  const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight, g = cv.getContext("2d"), X = W / 2, Y = H * .46, D = Math.hypot(W, H);
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const HUES = ["#FFF4D6", "#FFD27A", "#FF9A3C", "#FFFFFF", "#9FC4FF"];
+  const stars = Array.from({length: 650}, () => ({a: Math.random() * 6.283, r: 40 + Math.random() * D * .62, w: .6 + Math.random() * 1.6, c: HUES[(Math.random() * HUES.length) | 0]}));
+  const t0 = performance.now(); let last = t0;
+  function frame(now){
+    const t = now - t0, p = Math.min(1, t / dur), dt = Math.min(40, now - last) / 1000; last = now;
+    const q = dir > 0 ? p : 1 - p, rh = 18 + D * .72 * Math.pow(q, 2.6), fade = dir > 0 ? 1 : 1 - p;
+    g.globalCompositeOperation = "source-over"; g.clearRect(0, 0, W, H);
+    g.globalAlpha = dir > 0 ? Math.min(1, .2 + p * 1.2) : Math.max(0, 1 - p * 1.4); g.fillStyle = "#020207"; g.fillRect(0, 0, W, H);
+    g.globalCompositeOperation = "lighter"; g.lineCap = "round";
+    const pull = dir > 0 ? 1 + 5 * p * p : 1 + 3 * (1 - p);
+    for (const s of stars) {      // starlight bent round the hole, faster and longer the closer it orbits
+      s.a += (.25 + 90 / Math.max(rh * 1.05, s.r)) * dt * pull;
+      if (dir > 0) s.r -= (20 + 900 * p * p) * dt * (.3 + s.r / D);
+      if (s.r < rh * 1.03) { s.r = rh * 1.2 + Math.random() * D * .5; s.a = Math.random() * 6.283; }
+      const len = Math.min(2.4, .04 + 26 / Math.max(10, s.r - rh * .9));
+      g.globalAlpha = Math.min(1, .25 + 60 / Math.max(30, s.r - rh)) * fade; g.strokeStyle = s.c; g.lineWidth = s.w;
+      g.beginPath(); g.arc(X, Y, s.r, s.a - len, s.a); g.stroke();
+    }
+    for (let k = 0; k < 26; k++) {      // the accretion disc: hot gas in a flattened, tilted ring, white near the hole to orange outside
+      const f = k / 26, rx = rh * (1.35 + 1.9 * f);
+      g.globalAlpha = (1 - f) * .5 * (dir > 0 ? Math.min(1, p * 3) : fade);
+      g.strokeStyle = f < .3 ? "#FFFFFF" : (f < .6 ? "#FFD27A" : "#FF8A3C"); g.lineWidth = 1.5 + 5 * (1 - f);
+      g.beginPath(); g.ellipse(X, Y, rx, rx * .28, -.22 + t / 2400, 0, 6.283); g.stroke();
+    }
+    g.globalAlpha = .9 * fade; g.strokeStyle = "#FFE9B0"; g.lineWidth = 2.5;      // the photon ring, just outside the horizon
+    g.beginPath(); g.arc(X, Y, rh * 1.04, 0, 6.283); g.stroke();
+    g.globalCompositeOperation = "source-over"; g.globalAlpha = dir > 0 ? 1 : Math.max(0, 1 - p * 1.1); g.fillStyle = "#000";      // the event horizon
+    g.beginPath(); g.arc(X, Y, rh, 0, 6.283); g.fill();
+    if (dir < 0 && p < .35) {      // out of a white hole: a flash of light from the middle
+      const gl = g.createRadialGradient(X, Y, 0, X, Y, D * .5);
+      gl.addColorStop(0, "rgba(255,255,255,.95)"); gl.addColorStop(.3, "rgba(255,230,170,.5)"); gl.addColorStop(1, "rgba(255,255,255,0)");
+      g.globalCompositeOperation = "lighter"; g.globalAlpha = 1 - p / .35; g.fillStyle = gl; g.fillRect(0, 0, W, H);
+    }
+    g.globalAlpha = 1;
+    if (p < 1) requestAnimationFrame(frame); else done && done();
+  }
+  requestAnimationFrame(frame);
+}
 function go(url){
   if (!url) return;
   if (going) { location.href = url; return; }      // a second click skips the ride
   going = true; clearTimeout(chargeT);
-  try { sessionStorage.setItem("wormhole", "1"); } catch (e) {}
+  const style = DOOR.transit === "blackhole" ? "blackhole" : "wormhole";      // each door says how it crosses
+  try { sessionStorage.setItem("wormhole", style); } catch (e) {}
   if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
-  const wh = $("#wh"); wh.hidden = false; document.body.classList.add("pull"); sky.classList.add("pull");      // the words in the sky go down the wormhole too
-  tunnel($("#whfx"), 1, 2000, () => { location.href = url; });
+  const wh = $("#wh"); wh.hidden = false;
+  if (style === "blackhole") { document.body.classList.add("bh"); sky.classList.add("bh"); blackhole($("#whfx"), 1, 2200, () => { location.href = url; }); }
+  else { document.body.classList.add("pull"); sky.classList.add("pull"); tunnel($("#whfx"), 1, 2000, () => { location.href = url; }); }      // the words in the sky go too
   wh.addEventListener("click", () => { location.href = url; }, {once: true});
 }
 if (SW) {
@@ -639,10 +689,12 @@ sky.addEventListener("keydown", e => {
 (function emerge(){      /* arriving through the wormhole: the tunnel slows and the page opens out of its middle */
   let came = null; try { came = sessionStorage.getItem("wormhole"); sessionStorage.removeItem("wormhole"); } catch (e) {}
   if (!came || calm()) return;
-  const wh = $("#wh"); wh.hidden = false; document.body.classList.add("arrive");
+  const wh = $("#wh"); wh.hidden = false;
+  if (came === "blackhole") { document.body.classList.add("arrive-bh"); blackhole($("#whfx"), -1, 1200, () => { wh.hidden = true; document.body.classList.remove("arrive-bh"); }); return; }
+  document.body.classList.add("arrive");
   tunnel($("#whfx"), -1, 1100, () => { wh.hidden = true; document.body.classList.remove("arrive"); });
 })();
-addEventListener("pageshow", e => { if (!e.persisted) return; going = false; document.body.classList.remove("pull", "fadeout", "arrive"); sky.classList.remove("pull"); $("#wh").hidden = true; if (skyOpen) closeSky(); });
+addEventListener("pageshow", e => { if (!e.persisted) return; going = false; document.body.classList.remove("pull", "fadeout", "arrive", "bh", "arrive-bh"); sky.classList.remove("pull", "bh"); $("#wh").hidden = true; if (skyOpen) closeSky(); });
 
 place(); kick();
 if (location.hash === "#states" && DOOR.map) showStates();
@@ -714,7 +766,7 @@ def main():
     if args.ballot:
         B = ballot_facts()
         data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B),
-                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record"}
+                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record", "transit": "wormhole"}
         words = {"__TITLE__": "On The Ballot · The Civic Archive",
                  "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
                  "__HOME__": "../", "__SWITCH__": switch(True), "__SKYLABEL__": "Legislation and Legislatures",
@@ -726,7 +778,7 @@ def main():
     else:
         data = {"federal": federal_facts(args.db), "states": [state_facts(code, site_root) for code in sorted(PLACES)],
                 "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
-                "version": version, "election": ELECTION_DAY}
+                "version": version, "election": ELECTION_DAY, "transit": "blackhole"}      # John is comparing: in by black hole, back by wormhole
         data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
         data["local"] = local_facts(site_root)
         words = {"__TITLE__": "The Civic Archive",
