@@ -10,6 +10,20 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.059 — 2026-09-30 — Minnesota's primaries, and the campaigns in their own words
+
+- Each Minnesota race shows its August 11 primaries: every candidate who
+  filed for each party, from the Secretary of State's candidate filings,
+  and who won, from the November list (14 party primaries). Vote counts
+  come when the official results are loaded.
+- Campaign websites come from Minnesota's own candidate list, so the
+  cards link to each campaign's site.
+- Where a campaign has an issues page, the comparison lists its topics as
+  the campaign's own headings (nothing summarized or judged), with a link
+  to read them in their own words: seven Minnesota campaigns so far.
+- Five more candidates have a photo from their campaign's own site, each
+  looked at first and chosen only when it shows the candidate alone.
+
 ## v4.0.058 — 2026-09-30 — Minnesota's candidates
 
 - Minnesota's official candidate list is loaded, from the Secretary of

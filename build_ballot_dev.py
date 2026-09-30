@@ -192,6 +192,8 @@ def build(db, record_db, site_root, out_dir):
             "dist": district_file(out_dir, {st for st, n in notes.items() if n["changed"]}), "ads": ads(con, fec_ids),
             "odds": json.load(open(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json"), encoding="utf-8"))
                     if os.path.exists(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json")) else {},
+            "issues": {p: [u, json.loads(t)] for p, u, t in con.execute("SELECT person, url, topics FROM issues")}
+                      if con.execute("SELECT 1 FROM sqlite_master WHERE name = 'issues'").fetchone() else {},
             "polls": json.load(open(os.path.join(HERE, "ballot", "polls", "polls_2026.json"), encoding="utf-8"))["races"]
                      if os.path.exists(os.path.join(HERE, "ballot", "polls", "polls_2026.json")) else {},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
@@ -339,6 +341,7 @@ PAGE = r"""<!DOCTYPE html>
 .mnotice .mnh b{font-style:normal;color:var(--ink)}
 .mbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}.mbtns .stay{all:unset;cursor:pointer;font-weight:700;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
 .mbtns .goext{padding:9px 16px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);text-decoration:none;font-weight:600}
+.topics{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}.topics span{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;background:var(--surface)}
 /* polls */
 .ptable{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .ptable table{border-collapse:collapse;width:100%;font-size:14px}.ptable th,.ptable td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
@@ -584,7 +587,9 @@ function compare(r){
         return sv.list.map(o => `${esc(o.office)}, ${o.start ? esc(o.start.slice(0, 4)) : "start not on record"}&ndash;${o.end ? esc(o.end.slice(0, 4)) : "now"}<small>${yWords(yearsBetween(o.start, o.end), o.unsure || !o.start)}${o.terms ? `, ${o.terms} terms` : ""}; ${esc(SRC_NAME[o.src] || o.src)}</small>`).join("")
           + (sv.total != null ? `<small><b>All offices together: ${yWords(sv.total, sv.unsure)}</b></small>` : ""); })}
     ${row("Photo", c => { const p = P(c); return p.ph ? `${esc(p.pc || "")}${p.pu ? `<small><a href="${esc(p.pu)}" target="_blank" rel="noopener">Where it comes from</a></small>` : ""}` : "None yet<small>Initials stand in until a photo from an official record or the campaign's own site is found</small>"; })}
-    ${row("In their own words", c => P(c).web ? `<a href="${esc(P(c).web)}" target="_blank" rel="noopener nofollow">Their campaign's website</a><small>The address their campaign gave the FEC on its Statement of Organization</small>` : soon("A link to their campaign's own website, from its filing with the FEC"))}
+    ${row("In their own words", c => { const I = (BOOT.issues || {})[c.k];
+      if (I) return `<span class="topics">${I[1].map(t => `<span>${esc(t)}</span>`).join("")}</span><a href="${esc(I[0])}" target="_blank" rel="noopener nofollow">Read them in their own words</a><small>The topics their campaign's issues page lists, as headings; nothing is summarized</small>`;
+      return P(c).web ? `<a href="${esc(P(c).web)}" target="_blank" rel="noopener nofollow">Their campaign's website</a><small>The address the campaign gave the FEC or the state's candidate list</small>` : soon("A link to their campaign's own website"); })}
     ${grp("In office")}
     ${row("In Congress today", c => { const m = mem(c); return m ? `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? `, since ${m.since}` : ""}${m.terms ? `<small>${m.terms} term${m.terms === 1 ? "" : "s"}</small>` : ""}` : "No"; })}
     ${row("Votes this Congress", c => { const m = mem(c); return m && m.elig ? `Voted on ${Number(m.cast).toLocaleString()} of ${Number(m.elig).toLocaleString()}${m.split ? `<small>Voted against most of their party on ${m.breaks || 0} of the ${m.split} votes that split the parties</small>` : ""}` : "&ndash;"; })}

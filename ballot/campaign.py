@@ -19,6 +19,7 @@ with a note. Only a chosen photo reaches the page. Nobody's likeness is recognis
 images the candidate's own campaign labels and publishes, and the choice is only which of them shows one person.
 """
 
+import glob
 import hashlib
 import html as H
 import io
@@ -49,6 +50,27 @@ def have_key():
 
 def _key():
     return open(KEY_FILE, encoding="utf-8").read().strip()
+
+
+def list_websites(con, say=print):
+    """Campaign websites that a state's official candidate list gives (Minnesota's does), saved by the list loaders as
+    ballot_cache/lists_websites/<code>.json {"race|name": address}, put on the person the candidate was matched to."""
+    con.executescript(OPTIONS)
+    n = 0
+    for path in sorted(glob.glob(os.path.join(CACHE, "lists_websites", "*.json"))):
+        code = os.path.basename(path)[:2].upper()
+        for key, url in json.load(open(path, encoding="utf-8")).items():
+            race, name = key.split("|", 1)
+            row = con.execute("SELECT fec_id FROM candidates WHERE race_id = ? AND name = ? AND election = 'general'", (race, name)).fetchone()
+            if not row:
+                continue
+            url = url.strip()
+            url = url if re.match(r"(?i)https?://", url) else "https://" + url.lower()
+            con.execute("INSERT OR REPLACE INTO websites VALUES (?,?,?)", (row[0] or key, url, f"the {code} Secretary of State's candidate list"))
+            n += 1
+    con.commit()
+    say(f"    Campaign websites from the states' own candidate lists: {n}")
+    return n
 
 
 def websites(con, say=print, pause=4.0):
@@ -92,6 +114,62 @@ def _fetch(url, limit=4_000_000, timeout=30):
     with urlopen(req, timeout=timeout) as r:
         data = r.read(limit + 1)
         return data[:limit], r.geturl(), r.headers.get("Content-Type", "")
+
+
+ISSUES = "CREATE TABLE IF NOT EXISTS issues (person TEXT PRIMARY KEY, url TEXT, topics TEXT, fetched TEXT);"
+ISSUE_LINK = re.compile(r"^(?:the )?(issues?|priorities|where (?:i|she|he|they|we) stands?|platform|policy|policies|agenda|plans?|positions?|my plan)$", re.I)
+NOT_TOPIC = re.compile(r"donate|volunteer|sign ?up|contact|subscribe|paid for|menu|follow|join|news|events?$|about|home|shop|store|privacy|search|cookie|©|"
+                       r"copyright|rights reserved|contribut|mailed|ready to go|chip in|endorse|yard sign|press|get involved|^media$|support .*(fight|campaign)|"
+                       r"^(issues?|priorities|platform|policies|what we stand for|where (i|she|he|they|we) stands?|my plan|the plan)$", re.I)
+
+
+def topic(t):
+    """A heading as a topic: numbering like '#1' set aside, all capitals written in ordinary capitals; None when it is a
+    sentence (it ends with a full stop or runs past nine words) or is the site's furniture."""
+    t = re.sub(r"^#?\d+[.):]?\s+", "", t).strip()
+    if len(t) < 4 or t.endswith(".") or len(t.split()) > 9 or NOT_TOPIC.search(t):
+        return None
+    return t[:1] + t[1:].lower() if t.isupper() else t
+
+
+def issues(con, say=print, pause=1.5):
+    """Each campaign's own page of issues, found from its home page's links ("Issues", "Priorities", "Where I Stand" and
+    the like), and the topics it lists as headings there. Only the headings are kept, a few words each, and the page
+    links to the campaign's own words; nothing longer is copied, and nothing is summarized or characterized."""
+    con.executescript(ISSUES)
+    net.patient_lookups()      # the home router drops some address lookups; ask again rather than give up on a site
+    got, failed = 0, 0
+    for person, site, name in con.execute("SELECT person, website, name FROM people WHERE website IS NOT NULL").fetchall():
+        family = (name_parts(name)[1].split() or [""])[-1]
+        try:
+            page, final, _ = _fetch(site)
+            text = page.decode("utf-8", "replace")
+            link = None
+            for m in re.finditer(r'<a[^>]+href="([^"#]+)"[^>]*>(.*?)</a>', text, re.S | re.I):
+                label = re.sub(r"<[^>]+>|\s+", " ", H.unescape(m.group(2))).strip()
+                if label and ISSUE_LINK.match(label):
+                    link = urllib.parse.urljoin(final, H.unescape(m.group(1)))
+                    break
+            if not link:
+                continue
+            time.sleep(pause)
+            ipage, ifinal, _ = _fetch(link)
+            seen, topics = set(), []
+            for h in re.findall(r"<h[2-4][^>]*>(.*?)</h[2-4]>", ipage.decode("utf-8", "replace"), re.S | re.I):
+                t = topic(re.sub(r"<[^>]+>|\s+", " ", H.unescape(h)).strip().strip(":"))
+                if t and len(t) <= 60 and t.lower() not in seen and not (family and family.lower() in t.lower()):      # an appeal naming the candidate is not a topic
+                    seen.add(t.lower())
+                    topics.append(t)
+            if topics:
+                con.execute("INSERT OR REPLACE INTO issues VALUES (?,?,?,date('now'))", (person, ifinal, json.dumps(topics[:10], ensure_ascii=False)))
+                got += 1
+        except Exception:  # noqa: BLE001  a site that cannot be read is left without topics, never guessed
+            failed += 1
+            continue
+        time.sleep(pause)
+    con.commit()
+    say(f"    Issue pages: topics read for {got} campaigns, from their own sites ({failed} sites did not answer)")
+    return got
 
 
 def _images(page, base, family):

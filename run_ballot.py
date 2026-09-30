@@ -80,8 +80,11 @@ def stage_people(con):
 
 def stage_campaign(con):
     say("== campaign: each campaign's website (FEC Form 1) and photo options from it, to be looked at before use")
+    campaign.list_websites(con, say=say)      # the states' own lists first (Minnesota's gives each campaign's site)
     campaign.websites(con, say=say)
+    campaign.apply_choices(con, say=say)      # puts the websites on the people before their pages are read
     campaign.photos(con, say=say)
+    campaign.issues(con, say=say)
     campaign.apply_choices(con, say=say)
     sheets, index = campaign.contact_sheet(con)
     if sheets:

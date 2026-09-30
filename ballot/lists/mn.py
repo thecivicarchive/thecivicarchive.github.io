@@ -15,6 +15,7 @@ arrive: a file whose office names or parties do not read as expected stops the l
 """
 
 import glob
+import json
 import os
 import re
 
@@ -75,7 +76,29 @@ def candidate_list():
                     continue
                 race = race_of(f[3])
                 if race and f[1].strip():
-                    out[(race, re.sub(r"\s+", " ", f[1]).strip(), f[6].strip())] = [int(f[5]) if f[5].strip().isdigit() else None, None]
+                    name = re.sub(r"\s+", " ", f[1]).strip()
+                    out[(race, name, f[6].strip())] = [int(f[5]) if f[5].strip().isdigit() else None, None]
+                    if len(f) > 16 and f[16].strip():      # the campaign's own website, which the list gives (column 17)
+                        SITES[f"{race}|{name}"] = f[16].strip()
+    return out, files
+
+
+SITES = {}
+
+
+def filings():
+    """{(race, party): [names]} from the Secretary's "Candidate Filings - Federal, State, and County Offices" file: everyone
+    who filed for the office, which for the major parties is the August 11 primary's field. Its columns are the general
+    list's without the ballot order: number; name; office number; office title; county; party; then the addresses."""
+    files = sorted(glob.glob(os.path.join(FOLDER, GENERAL, "*Candidate Filings*Federal*")))
+    out = {}
+    for path in files:
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                f = line.rstrip("\r\n").split(";")
+                race = race_of(f[3]) if len(f) > 6 else None
+                if race and f[1].strip():
+                    out.setdefault((race, f[5].strip()), []).append(re.sub(r"\s+", " ", f[1]).strip())
     return out, files
 
 
@@ -98,6 +121,20 @@ def load(con, cache, say=print):
     for (race, name, p), (_o, votes) in primary.items():
         fields.setdefault((race, p), []).append((name, votes))
     nfields = 0
+    filed, ffiles = filings()
+    if not primary and filed:      # no results files yet: the filings give each field and the November list says who won it
+        for (race, p), names in filed.items():
+            if len(set(names)) < 2 or p not in PARTY:
+                continue
+            nfields += 1
+            code = {"R": "REP"}.get(p, p)
+            for name in sorted(set(names)):
+                rows.append((race, f"primary-{code}", "2026-08-11", name, PARTY.get(p, p), party_code(PARTY.get(p, p)), None, 0, 0, None, None,
+                             "advanced" if nominee.get((race, p)) == fold(name) else "lost", None, None, "mn-sos-2026-filings", None))
+    if SITES:
+        path = os.path.join(cache, "lists_websites", "mn.json")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        json.dump(SITES, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for (race, p), field in fields.items():
         if len(field) < 2:
             continue
@@ -115,6 +152,12 @@ def load(con, cache, say=print):
                       url="https://candidates.sos.mn.gov/", rows=len(general),
                       note=f"Saved by John from the Secretary of State's site (its CAPTCHA answered by him): {', '.join(os.path.basename(f) for f in gfiles)}. "
                            "Name, office, ballot order and party read; addresses, phones and e-mail never read.")
+        if ffiles and not pfiles:
+            record_source(con, "mn-sos-2026-filings", path=ffiles[0], level="federal", state="MN", kind="official candidate list",
+                          agency="Minnesota Secretary of State", title="Candidate Filings: Federal, State, and County Offices (2026)",
+                          url="https://candidates.sos.mn.gov/", rows=sum(len(v) for v in filed.values()),
+                          note="Everyone who filed; for the major parties, the August 11 primary's field. Who advanced is read from the November list; "
+                               "the primary's vote counts are not loaded. Addresses, phones and e-mail never read.")
         if pfiles:
             record_source(con, "mn-sos-2026-primary-media", path=pfiles[0], level="federal", state="MN", kind="official results",
                           agency="Minnesota Secretary of State", title="Election results media files, August 11, 2026 State Primary",
