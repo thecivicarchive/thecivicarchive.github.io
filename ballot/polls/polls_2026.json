@@ -578,6 +578,833 @@
     "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Tennessee",
     "checked": "2026-09-30"
    }
+  },
+  "2026-DE-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Delaware",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-NJ-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_New_Jersey",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-AK-S2": {
+   "polls": [],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-29",
+     "why": "Siena's own post gives only the headline; the full results are on the New York Times's site, which did not answer our check. It was asked in June, before the August 18 primary"
+    }
+   ],
+   "left_out": {
+    "n": 18,
+    "pollsters": [
+     "Alaska Survey Research (ten; its March survey also asked about the August primary)",
+     "Data for Progress (three)",
+     "Trafalgar Group",
+     "co/efficient",
+     "Rasmussen Reports",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "Public Policy Polling (for the Democratic Senatorial Campaign Committee)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Alaska",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-SC-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 32,
+    "pollsters": [
+     "Trafalgar Group (six: two of the June 9 Republican primary, two of the August 11 special primary, the runoff and November)",
+     "InsiderAdvantage (three: two of the June 9 Republican primary, one of November)",
+     "Impact Research (four, for Annie Andrews's campaign)",
+     "Public Policy Polling (two: for Andrews's campaign, and for 314 Action, which supports her)",
+     "Quantus Insights (three, the Republican primaries; two for Trending Politics)",
+     "Pulse Opinion Research (two, the June 9 Republican primary, for Mark Lynch's campaign)",
+     "Big Data Poll (two, the June 9 Republican primary, for Paul Dans's campaign)",
+     "Emerson College Polling (two, the special Republican primary only, July 14-15 for Nexstar Media and July 28-29, 2026; neither asked the November matchup)",
+     "The Citadel (the June primaries only, May 21-31, 2026)",
+     "Abacus Data",
+     "Rasmussen Reports (September 14, 2026; not on Wikipedia's list, found in a news search)",
+     "co/efficient (the special primary)",
+     "and four more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_South_Carolina",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-RI-S2": {
+   "polls": [
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-09-17",
+     "end": "2026-09-21",
+     "n": 598,
+     "pop": "likely voters",
+     "moe": 4.0,
+     "shares": {
+      "Jack Reed": 53,
+      "Raymond McKay": 33,
+      "Michael Bahry": 5
+     },
+     "rest": 9,
+     "url": "https://scholars.unh.edu/survey_center_polls/1009",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-08-20",
+     "end": "2026-08-24",
+     "n": 750,
+     "pop": "likely voters",
+     "moe": 3.6,
+     "shares": {
+      "Jack Reed": 51,
+      "Raymond McKay": 31,
+      "Michael Bahry": 4
+     },
+     "rest": 15,
+     "note": "Asked in August, before the primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/990",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-04-16",
+     "end": "2026-04-20",
+     "n": 559,
+     "pop": "likely voters",
+     "moe": 4.1,
+     "shares": {
+      "Jack Reed": 52,
+      "Raymond McKay": 34
+     },
+     "rest": 14,
+     "note": "Asked in April, before the primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/946",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "end": "2026-06-23",
+     "why": "found, and still to be checked against the Survey Center's own release"
+    }
+   ],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Embold Research (for the Pell Center at Salve Regina University; the Democratic primary)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Rhode_Island",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-MA-S2": {
+   "polls": [
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-09-17",
+     "end": "2026-09-21",
+     "n": 564,
+     "pop": "likely voters",
+     "moe": 4.1,
+     "shares": {
+      "Ed Markey": 53,
+      "John Deaton": 30,
+      "Joe Tache": 9
+     },
+     "rest": 8,
+     "url": "https://scholars.unh.edu/survey_center_polls/1008",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-08-20",
+     "end": "2026-08-24",
+     "n": 881,
+     "pop": "likely voters",
+     "moe": 2.2,
+     "shares": {
+      "Ed Markey": 49,
+      "John Deaton": 30,
+      "Joe Tache": 7
+     },
+     "rest": 13,
+     "sample": "881 likely voters; the release prints a margin of ±2.2 for them, which looks like a misprint (it gives ±3.1 for all 975 it asked)",
+     "note": "Asked in August, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/989",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-06-18",
+     "end": "2026-06-23",
+     "n": 623,
+     "pop": "likely voters",
+     "moe": 3.8,
+     "shares": {
+      "Ed Markey": 50,
+      "John Deaton": 34
+     },
+     "rest": 16,
+     "note": "Asked in June, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/973",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-04-16",
+     "end": "2026-04-20",
+     "n": 606,
+     "pop": "likely voters",
+     "moe": 4.0,
+     "shares": {
+      "Ed Markey": 55,
+      "John Deaton": 32
+     },
+     "rest": 13,
+     "note": "Asked in April, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/945",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "end": "2026-02-16",
+     "why": "found, and still to be checked against the Survey Center's own release"
+    }
+   ],
+   "left_out": {
+    "n": 12,
+    "pollsters": [
+     "Suffolk University (four, for The Boston Globe)",
+     "UMass Amherst Poll with YouGov (three, for WCVB)",
+     "MassINC Polling Group",
+     "Cygnal (for John Deaton's campaign)",
+     "SurveyUSA (for the Massachusetts Responsible Alliance)",
+     "Public Policy Polling (the Democratic primary, for The Majority Institute)",
+     "Data for Progress (the Democratic primary)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Massachusetts",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-NH-S2": {
+   "polls": [
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-03-21",
+     "end": "2026-03-23",
+     "n": 1100,
+     "pop": "likely voters",
+     "moe": 2.9,
+     "shares": {
+      "Chris Pappas": 45,
+      "John E. Sununu": 44
+     },
+     "rest": 11,
+     "note": "Asked in March as a matchup between likely nominees, more than five months before the September 8 primary. 5% chose someone else and 6% were undecided.",
+     "url": "https://emersoncollegepolling.com/new-hampshire-2026-sununu-leads-gop-nomination-ties-pappas-for-senate/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-09-17",
+     "end": "2026-09-21",
+     "n": 1418,
+     "pop": "likely voters",
+     "moe": 2.6,
+     "shares": {
+      "Chris Pappas": 50,
+      "John E. Sununu": 42,
+      "Edmond Laplante": 2
+     },
+     "rest": 6,
+     "url": "https://scholars.unh.edu/survey_center_polls/1005",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-08-20",
+     "end": "2026-08-24",
+     "n": 1878,
+     "pop": "likely voters",
+     "moe": 2.3,
+     "shares": {
+      "Chris Pappas": 43,
+      "John E. Sununu": 45
+     },
+     "rest": 12,
+     "note": "Asked in August, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/988",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-06-18",
+     "end": "2026-06-23",
+     "n": 2232,
+     "pop": "likely voters",
+     "moe": 2.1,
+     "shares": {
+      "Chris Pappas": 47,
+      "John E. Sununu": 44
+     },
+     "rest": 9,
+     "note": "Asked in June, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/974",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-04-17",
+     "end": "2026-04-21",
+     "n": 1129,
+     "pop": "likely voters",
+     "moe": 2.9,
+     "shares": {
+      "Chris Pappas": 49,
+      "John E. Sununu": 42
+     },
+     "rest": 10,
+     "note": "Asked in April, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/944",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-01-15",
+     "end": "2026-01-19",
+     "n": 2053,
+     "pop": "likely voters",
+     "moe": 2.2,
+     "shares": {
+      "Chris Pappas": 50,
+      "John E. Sununu": 45
+     },
+     "rest": 6,
+     "note": "Asked in January, before the September primary, as a matchup between the two who went on to win their parties' nominations.",
+     "url": "https://scholars.unh.edu/survey_center_polls/922",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-09-22",
+     "why": "Siena's own post gives only the headline; the full results are on the New York Times's site, which turns our check away"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "end": "2025-09-23",
+     "why": "found, and still to be checked against the Survey Center's own release"
+    }
+   ],
+   "left_out": {
+    "n": 22,
+    "pollsters": [
+     "Saint Anselm College Survey Center (five)",
+     "co/efficient (three)",
+     "Praecones Analytica (three, for NHJournal)",
+     "Trafalgar Group",
+     "InsiderAdvantage",
+     "Rasmussen Reports",
+     "Fabrizio, Lee & Associates (for the NRSC)",
+     "Peak Insights (for the NRSC)",
+     "Guidant Polling and Strategy (for One Nation, a group aligned with the Senate Leadership Fund)",
+     "1892 Polling (for One Nation)",
+     "GQR (the Democratic primary, for Pappas's campaign)",
+     "University of New Hampshire Survey Center (one, November 13-17, 2025, listed for the primaries only)",
+     "and two more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_New_Hampshire",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-ME-S2": {
+   "polls": [
+    {
+     "pollster": "UMass Lowell Center for Public Opinion (fielded by YouGov)",
+     "member": "University of Massachusetts Lowell’s Center for Public Opinion",
+     "start": "2026-08-28",
+     "end": "2026-09-14",
+     "n": 650,
+     "pop": "likely voters",
+     "moe": 4.66,
+     "shares": {
+      "Troy Jackson": 48,
+      "Susan Collins": 43
+     },
+     "rest": 8,
+     "note": "Asked as a choice between Jackson and Collins. No second choices were asked, so under Maine's ranked-choice count these are first choices. Of the rest, 1% chose another candidate, 6% were undecided and 1% would not vote. The figures add to 99 because of rounding.",
+     "url": "https://www.uml.edu/news/press-releases/2026/09242026-maine-poll.aspx",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "SSRS (for CNN)",
+     "member": "SSRS",
+     "start": "2026-08-31",
+     "end": "2026-09-06",
+     "n": 880,
+     "pop": "likely voters",
+     "moe": 3.7,
+     "shares": {
+      "Troy Jackson": 48,
+      "Susan Collins": 45
+     },
+     "rest": 7,
+     "note": "Asked as a choice between Jackson and Collins, and undecided voters were asked which way they leaned. These figures include those leaners. No second choices were asked, so under Maine's ranked-choice count these are first choices. Of the rest, 4% said neither and 3% someone else. The likely-voter figures use all 880 registered voters interviewed, each weighted by how likely they are to vote.",
+     "url": "https://s3.documentcloud.org/documents/28608783/cnn-poll-conducted-by-ssrs-maine.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-09-17",
+     "end": "2026-09-21",
+     "n": 1312,
+     "pop": "likely voters",
+     "moe": 2.7,
+     "shares": {
+      "Troy Jackson": 51,
+      "Susan Collins": 47
+     },
+     "rest": 2,
+     "url": "https://scholars.unh.edu/survey_center_polls/1007",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of New Hampshire Survey Center",
+     "member": "University of New Hampshire Survey Center",
+     "start": "2026-07-15",
+     "end": "2026-07-20",
+     "n": 1178,
+     "pop": "likely voters",
+     "moe": 2.9,
+     "shares": {
+      "Troy Jackson": 49,
+      "Susan Collins": 46
+     },
+     "rest": 5,
+     "note": "Asked in July, before the Maine Democratic Party's July 25 convention named Troy Jackson its nominee in place of Graham Platner, who had withdrawn.",
+     "url": "https://scholars.unh.edu/survey_center_polls/981",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Portland Press Herald/Siena",
+     "end": "2026-09-22",
+     "why": "Siena's own post gives only the headline; the full results are behind the New York Times's paywall"
+    }
+   ],
+   "left_out": {
+    "n": 38,
+    "pollsters": [
+     "InsiderAdvantage",
+     "Quantus Insights (three)",
+     "Rasmussen Reports",
+     "YouGov",
+     "Abacus Data",
+     "Beacon Research and Shaw & Company (two, for Fox News)",
+     "Hart Research (for Senate Majority PAC)",
+     "Z to A Research (two, for a group backing Nirav Shah and for the Progressive Change Campaign Committee)",
+     "Public Policy Polling (three, two for Graham Platner's campaign and one for Dan Kleban's)",
+     "Wedgewood Polls",
+     "Tavern Research (three)",
+     "Pan Atlantic Research (three)",
+     "and thirteen more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Maine",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-NM-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Research & Polling Inc. (two, for the Albuquerque Journal: the Democratic primary, April 17-24, 2026, and the November matchup, August 21-28, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_New_Mexico",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-OR-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Oregon",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-AL-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 23,
+    "pollsters": [
+     "The Alabama Poll (five: four of the Republican primary, one of the runoff)",
+     "Remington Research Group (five, the Republican primary and runoff; the runoff poll for the Alabama Conservatives PAC, which backed Jared Hudson)",
+     "Quantus Insights (two, the Republican primary)",
+     "Cygnal (two, the Republican primary: one for Gray Television and Alabama Daily News, one for the Business Council of Alabama)",
+     "Pulse Decision Science (two, the Republican primary and runoff, for Club for Growth, which backed Moore)",
+     "Tarrance Group (the Republican primary, for Alabama Strong, which backed Steve Marshall)",
+     "Peak Insights (the Republican primary, for Moore's campaign)",
+     "American Pulse Research (the Republican primary)",
+     "McLaughlin & Associates (the Republican primary, for Marshall's campaign)",
+     "co/efficient (the Republican runoff)",
+     "Strategy Management (the Republican runoff)",
+     "yes. every kid. foundation (Moore against Wess, July 8-11, 2026; a school-choice group that ran the survey itself)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Alabama",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-LA-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 28,
+    "pollsters": [
+     "Hart Research Associates (the November matchup, September 17-19, 2026, for Jamie Davis's campaign)",
+     "Public Policy Polling (the November matchup, July 21-22, 2026, for Jamie Davis's campaign)",
+     "Emerson College Polling (the Republican primary only, April 24-26, 2026, with KLFY News 10; it did not ask the November matchup)",
+     "JMC Analytics & Polling (six, the Republican primary and runoff, for John Fleming's campaign)",
+     "BDPC (five, the Republican primary and runoff; two for lobbyist Alton Ashy, who backs Letlow)",
+     "Quantus Insights (three, the Republican primary and runoff)",
+     "Public Opinion Strategies (two, the Republican primary, for Bill Cassidy's campaign)",
+     "Fabrizio, Lee & Associates (two, the Republican primary; one for the Accountability Project PAC, which backs Letlow)",
+     "Ragnar Research Partners (the Republican primary, for Bill Cassidy's campaign)",
+     "Trafalgar Group (the Republican primary, March 2025, for Clay Higgins)",
+     "Cor Strategies (the Republican primary, for the Pelican Institute)",
+     "Kaplan Strategies (the Republican runoff)",
+     "and three more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Louisiana",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-MS-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "Data for Progress (for Way to Lead PAC, which backs Democrats)",
+     "Impact Research (two, for the SPLC Action Fund, which opposes Hyde-Smith)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Mississippi",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-GA-S2": {
+   "polls": [
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-02-28",
+     "end": "2026-03-02",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3,
+     "shares": {
+      "Jon Ossoff": 48,
+      "Mike Collins": 43
+     },
+     "rest": 9,
+     "note": "Asked in late February and early March as one of three possible matchups, before the May 19 primary and the June 16 Republican runoff that Collins won.",
+     "url": "https://emersoncollegepolling.com/georgia-2026-poll-senator-ossoff-starts-re-election-near-50-and-outpaces-gop-field/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "left_out": {
+    "n": 39,
+    "pollsters": [
+     "InsiderAdvantage (eight, six of them the Republican primary or runoff only)",
+     "Quantus Insights (seven, four of them the Republican primary or runoff only)",
+     "Cygnal (four, one of them the Republican primary, for the Democracy Defense Project)",
+     "University of Georgia (three, for The Atlanta Journal-Constitution; two of them the Republican primary only)",
+     "Trafalgar Group (two)",
+     "Rasmussen Reports (two, one of them the Republican primary)",
+     "JMC Analytics (two, the Republican primary and the runoff)",
+     "YouGov",
+     "Big Data Poll (for the Public Polling Project)",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "Beacon Research/Shaw & Co. (for Fox News)",
+     "TIPP Insights (for the League of American Workers)",
+     "and six more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Georgia",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-VA-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "The Public Sentiment Institute (two, May 1-5 and June 12-16, 2026, the first commissioned with the Virginia Project, which the list marks Republican; both asked the Republican primary and the November matchup; fieldwork online via Pollfish)",
+     "Virginia Commonwealth University's Wilder School (Warner against Glenn Youngkin, who did not run, December 18, 2024 to January 15, 2025)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Virginia",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-NC-S2": {
+   "polls": [
+    {
+     "pollster": "High Point University",
+     "member": "High Point University Survey Research Center",
+     "start": "2026-09-09",
+     "end": "2026-09-16",
+     "n": 706,
+     "pop": "likely voters",
+     "moe": 3.9,
+     "shares": {
+      "Roy Cooper": 50,
+      "Michael Whatley": 42
+     },
+     "rest": 8,
+     "url": "https://www.highpoint.edu/src/files/2023/08/HPUPoll127MemoA-1.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "East Carolina University (Center for Survey Research)",
+     "member": "East Carolina University’s Center for Survey Research",
+     "start": "2026-08-31",
+     "end": "2026-09-03",
+     "n": 675,
+     "pop": "likely voters",
+     "moe": 4.4,
+     "shares": {
+      "Roy Cooper": 45.7,
+      "Michael Whatley": 38.5,
+      "Shannon W. Bray": 1,
+      "Michael Dublin": 0.6
+     },
+     "rest": 14.2,
+     "note": "The toplines give figures to one decimal; the rest is 13.7% undecided and 0.5% for a write-in. Pressed to choose, voters gave Cooper 51.7, Whatley 43.6, Bray 2.7, Dublin 0.9 and a write-in 1.0.",
+     "url": "https://surveyresearch-ecu.reportablenews.com/pr/ecu-poll-cooper-leads-whatley-by-7-points",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Elon University Poll (fielded by YouGov)",
+     "member": "Elon University Poll",
+     "start": "2026-08-21",
+     "end": "2026-08-31",
+     "n": 565,
+     "pop": "likely voters",
+     "moe": 5.6,
+     "shares": {
+      "Roy Cooper": 49,
+      "Michael Whatley": 38,
+      "Shannon W. Bray": 2,
+      "Michael Dublin": 2
+     },
+     "rest": 8,
+     "url": "https://eloncdn.blob.core.windows.net/eu3/sites/819/2026/09/Elon-University-Poll-Topline-Methodology-9-10-26.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "High Point University",
+     "member": "High Point University Survey Research Center",
+     "start": "2026-08-03",
+     "end": "2026-08-12",
+     "n": 660,
+     "pop": "likely voters",
+     "moe": 5.2,
+     "shares": {
+      "Roy Cooper": 50,
+      "Michael Whatley": 45
+     },
+     "rest": 6,
+     "note": "The release gives 3% for someone else and 3% unsure or would not vote; the figures add to 101 because of rounding.",
+     "url": "https://www.highpoint.edu/src/files/2023/08/HPU-Poll-126-Memo-08192026.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Change Research (for Carolina Forward)",
+     "member": "Change Research",
+     "start": "2026-08-03",
+     "end": "2026-08-06",
+     "n": 915,
+     "pop": "likely voters",
+     "moe": 3.5,
+     "shares": {
+      "Roy Cooper": 50,
+      "Michael Whatley": 43
+     },
+     "rest": 7,
+     "note": "The figures count voters leaning one way; when first asked it was Cooper 50, Whatley 42, with 8 not sure.",
+     "url": "https://docs.google.com/document/d/1LcCeYvR_7KGaHSeuZliuaEZVfY1k23d9NJRK2nrCuWw/edit",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Elon University Poll (fielded by YouGov)",
+     "member": "Elon University Poll",
+     "start": "2026-07-23",
+     "end": "2026-07-31",
+     "n": 466,
+     "pop": "likely voters",
+     "moe": 5.6,
+     "shares": {
+      "Roy Cooper": 53,
+      "Michael Whatley": 42,
+      "Shannon W. Bray": 2,
+      "Michael Dublin": 1
+     },
+     "rest": 2,
+     "url": "https://eloncdn.blob.core.windows.net/eu3/sites/819/2026/08/Elon-University-Poll-Topline-8-12-26.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Change Research (for Carolina Forward)",
+     "member": "Change Research",
+     "start": "2026-05-04",
+     "end": "2026-05-08",
+     "n": 957,
+     "pop": "likely voters",
+     "moe": 3.3,
+     "shares": {
+      "Roy Cooper": 49,
+      "Michael Whatley": 42
+     },
+     "rest": 8,
+     "note": "The figures count voters leaning one way; when first asked it was Cooper 49, Whatley 42, with 9 not sure.",
+     "url": "https://docs.google.com/document/d/1479FIRi2p6IOMOKZoOtgAZ1V0AKzkB3zmY3QyYKJZ6o/edit",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "High Point University",
+     "member": "High Point University Survey Research Center",
+     "start": "2026-03-26",
+     "end": "2026-04-06",
+     "n": 703,
+     "pop": "likely voters",
+     "moe": 4.3,
+     "shares": {
+      "Roy Cooper": 50,
+      "Michael Whatley": 42
+     },
+     "rest": 8,
+     "url": "https://www.highpoint.edu/src/files/2023/08/HPU-Poll-120-Memo-1.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Change Research (for Carolina Forward)",
+     "member": "Change Research",
+     "start": "2026-01-05",
+     "end": "2026-01-07",
+     "n": 1105,
+     "pop": "likely voters",
+     "moe": 3.5,
+     "shares": {
+      "Roy Cooper": 47,
+      "Michael Whatley": 42
+     },
+     "rest": 10,
+     "note": "Asked in January as a matchup between likely nominees, before the March 3 primaries. The figures count voters leaning one way; when first asked it was Cooper 46, Whatley 41, with 12 not sure.",
+     "url": "https://docs.google.com/document/d/1MbR9LME98av4GPiARkGdyvqYDYEzM0GzT8as1m9mpQQ/edit",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Change Research (for Carolina Forward)",
+     "member": "Change Research",
+     "start": "2025-09-02",
+     "end": "2025-09-08",
+     "n": 855,
+     "pop": "likely voters",
+     "moe": 3.6,
+     "shares": {
+      "Roy Cooper": 48,
+      "Michael Whatley": 41
+     },
+     "rest": 11,
+     "note": "Asked in September 2025 as a matchup between likely nominees, six months before the March 3, 2026 primaries. The figures count voters leaning one way; when first asked it was Cooper 47, Whatley 40, with 13 not sure.",
+     "url": "https://docs.google.com/document/d/1LKc8XiCt5wMwVBPAYgguySrljwWiSHqp/edit",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2025-07-28",
+     "end": "2025-07-30",
+     "n": 1000,
+     "pop": "registered voters",
+     "moe": 3,
+     "shares": {
+      "Roy Cooper": 47,
+      "Michael Whatley": 41
+     },
+     "rest": 12,
+     "note": "Asked in July 2025 as a matchup between likely nominees, seven months before the March 3, 2026 primaries.",
+     "url": "https://emersoncollegepolling.com/north-carolina-2026-poll-cooper-starts-us-senate-race-with-six-point-lead-and-clear-name-recognition-advantage-over-whatley/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "Change Research (for Gary Pearce and Sam Hunt)",
+     "end": "2026-08-01",
+     "why": "the sponsors' own posts give only the two leading figures, and Change Research's site sits behind a bot check"
+    },
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-27",
+     "why": "Siena's own post gives only the headline; the full results are behind the New York Times's paywall"
+    },
+    {
+     "pollster": "Change Research (for Gary Pearce and Sam Hunt)",
+     "end": "2026-02-04",
+     "why": "its toplines give no margin of error or population, and Change Research's own page sits behind a bot check"
+    }
+   ],
+   "left_out": {
+    "n": 27,
+    "pollsters": [
+     "Harper Polling (eight, most for the Carolina Journal; one of them the Republican primary)",
+     "Public Policy Polling (three, one of them Thom Tillis against Roy Cooper, March 2025)",
+     "Quantus Insights (two)",
+     "Opinion Diagnostics (two, one for Common Cause North Carolina)",
+     "Catawba College/YouGov (two)",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "Beacon Research/Shaw & Co. (for Fox News)",
+     "YouGov",
+     "InsiderAdvantage",
+     "Trafalgar Group",
+     "High Point University (the primaries only, February 6-20, 2026)",
+     "Change Research (Thom Tillis against Roy Cooper only, March 31-April 4, 2025, for Carolina Forward)",
+     "and three more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_North_Carolina",
+    "checked": "2026-09-30"
+   }
   }
  }
 }

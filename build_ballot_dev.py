@@ -40,7 +40,10 @@ ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "
                   "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-LIB": "Libertarian primary", "primary-GRE": "Green primary",
                   "primary-DFL": "Democratic-Farmer-Labor primary",
                   "runoff-REP": "Republican primary runoff", "runoff-DEM": "Democratic primary runoff",
-                  "primary-AZI": "Arizona Independent Party primary", "primary-NL": "No Labels primary"}
+                  "primary-AZI": "Arizona Independent Party primary", "primary-NL": "No Labels primary",
+                  "special-primary-REP": "Special Republican primary", "special-runoff-REP": "Special Republican primary runoff",
+                  "special-primary-DEM": "Special Democratic primary", "special-runoff-DEM": "Special Democratic primary runoff",
+                  "primary-NP": "Nonpartisan primary"}
 
 
 def money(con, ids):
@@ -489,7 +492,7 @@ $("#theme").addEventListener("click", () => { const next = document.documentElem
 /* ---------- words ---------- */
 const NAMES = BOOT.names, R = Object.fromEntries(BOOT.races.map(r => [r.id, r]));
 const byState = {}; BOOT.races.forEach(r => (byState[r.st] = byState[r.st] || []).push(r));
-const listed = new Set(BOOT.listed), GAPS = BOOT.gaps || {};
+const listed = new Set(BOOT.listed), GAPS = BOOT.gaps || {}, TOPN = {AK: "four"};      // Alaska's open primary sends four on
 const hasList = r => listed.has(r.st) && !GAPS[r.id];      // a state's list can be loaded with a race still missing (Ohio, 2026-09-30)
 const notLoaded = r => GAPS[r.id] ? `The official candidate list for this race is not loaded yet: ${esc(GAPS[r.id])}.` : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet.`;
 const ORD = n => n + (["th", "st", "nd", "rd"][((n % 100) - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
@@ -626,7 +629,7 @@ function field(r, key){
   const rows = [...list].sort((a, b) => votes ? (b.v || 0) - (a.v || 0) : surname(a.n).localeCompare(surname(b.n)));
   const date = list[0].date, topTwo = key === "primary";
   const src = BOOT.sources[list[0].src];
-  return `<section class="field run"><div class="fh"><b>${esc(BOOT.elections[key] || key)} &middot; ${esc(fmtDate(date))}</b><span>${list.length} candidates${topTwo ? ", every party on one ballot; the two with the most votes advance" : ""}</span></div>
+  return `<section class="field run"><div class="fh"><b>${esc(topTwo && TOPN[r.st] ? `Top-${TOPN[r.st]} primary` : BOOT.elections[key] || key)} &middot; ${esc(fmtDate(date))}</b><span>${list.length} candidates${topTwo ? `, every party on one ballot; the ${TOPN[r.st] || "two"} with the most votes advance` : ""}</span></div>
     <ol class="lanes">${rows.map((c, i) => `<li class="lane${c.out === "advanced" ? " won" : ""}${votes ? "" : " nobar"}" style="--pc:${pcVar(c)};--k:${i}"><span class="nm">${esc(c.n)}<small>${esc(c.p || "")}${ageOf(P(c).dob) != null ? ` &middot; age ${ageOf(P(c).dob)}` : ""}${c.inc ? " &middot; serves in this chamber today" : ""}</small></span>
       <span class="bar"><i style="--w:${votes ? (100 * (c.pct || 0) / max).toFixed(1) : 0}%"></i></span>
       <span class="vv">${votes ? `${Number(c.v).toLocaleString()} &middot; ${(c.pct || 0).toFixed(1)}%` : (c.out === "advanced" ? "Won" : "Lost")}</span></li>`).join("")}</ol>
@@ -671,9 +674,24 @@ const HELPLINES = {      // each from the state's own page; a state not listed s
   IN: ["Indiana Problem Gambling Referral Line", "800-994-8448", "tel:18009948448", "https://www.in.gov/fssa/dmha/addiction-services/problem-gambling"],
   NE: ["Nebraska Commission on Problem Gambling helpline", "1-833-238-6837, or text 402-806-7344", "tel:18332386837", "https://problemgambling.nebraska.gov/"],
   MT: ["Montana Council on Problem Gambling's 24-hour helpline (listed by the Montana Department of Justice)", "1-888-900-9979", "tel:18889009979", "https://dojmt.gov/gaming/compulsive-gambling/"],
-  TN: ["Tennessee REDLINE (Department of Mental Health and Substance Abuse Services)", "800-889-9789, call or text", "tel:18008899789", "https://www.tn.gov/behavioral-health/substance-abuse-services/treatment/problem-gambling-programs.html"]};
+  TN: ["Tennessee REDLINE (Department of Mental Health and Substance Abuse Services)", "800-889-9789, call or text", "tel:18008899789", "https://www.tn.gov/behavioral-health/substance-abuse-services/treatment/problem-gambling-programs.html"],
+  NC: ["North Carolina Problem Gambling Helpline (NCDHHS)", "877-718-5543, or text morethanagamenc to 53342", "tel:18777185543", "https://www.ncdhhs.gov/divisions/mental-health-developmental-disabilities-and-substance-use-services/nc-problem-gambling-program"],
+  VA: ["Virginia Problem Gambling Help Line (DBHDS)", "888-532-3500", "tel:18885323500", "https://dbhds.virginia.gov/problem-gambling-support/"],
+  WA: ["Washington State Problem Gambling Helpline (Health Care Authority)", "1-800-547-6133, call or text", "tel:18005476133", "https://www.hca.wa.gov/health-care-services-supports/behavioral-health-recovery/problem-gambling"],
+  AZ: ["Arizona Department of Gaming's helpline (named by the Attorney General)", "1-800-NEXT-STEP (1-800-639-8783), or text NEXTSTEP to 53342", "tel:18006398783", "https://www.azag.gov/press-release/attorney-general-mayes-warns-against-sports-betting-scams-ahead-super-bowl"],
+  MD: ["Maryland's problem gambling helpline (Maryland Department of Health)", "1-800-GAMBLER, answered in Maryland by its Center of Excellence on Problem Gambling", "tel:18004262537", "https://health.maryland.gov/bha/pages/gambling.aspx"],
+  LA: ["Louisiana Problem Gamblers Help Line (listed by the Gaming Control Board)", "1-877-770-7867", "tel:18777707867", "https://lgcb.dps.louisiana.gov/problem-gambling/"],
+  OR: ["Oregon's Problem Gambling Helpline (Oregon Health Authority)", "1-877-MY-LIMIT (1-877-695-4648); in Spanish 1-844-TU-VALES", "tel:18776954648", "https://www.oregon.gov/oha/hsd/problem-gambling/pages/index.aspx"],
+  NM: ["New Mexico Council on Problem Gambling crisis helpline (listed by the Gaming Control Board)", "1-800-572-1142", "tel:18005721142", "https://www.gcb.nm.gov/compulsive-and-problem-gambling/help-is-available/"],
+  MA: ["Massachusetts Problem Gambling Helpline (Department of Public Health)", "1-800-327-5050, or text GAMB to 800-327-5050", "tel:18003275050", "https://www.mass.gov/info-details/resources-to-get-help-for-problem-gambling"],
+  NJ: ["New Jersey's helpline, answered by the Council on Compulsive Gambling of New Jersey (DMHAS)", "1-800-GAMBLER", "tel:18004262537", "https://www.nj.gov/humanservices/dmhas/crisis/gambling"],
+  SC: ["S.C. Gambling Helpline (Behavioral Health and Developmental Disabilities)", "1-877-452-5155", "tel:18774525155", "https://bhdd.sc.gov/office-substance-use-services/services/treatment/gambling-addiction-services"],
+  CT: ["Connecticut's problem gambling help line (DMHAS)", "888-789-7777", "tel:18887897777", "https://portal.ct.gov/dmhas/programs-and-services/problem-gambling/do-i-need-help"],
+  DE: ["Delaware Gambling Helpline (Division of Gaming Enforcement)", "(888) 850-8888", "tel:18888508888", "https://dge.delaware.gov/help/index.shtml"],
+  ME: ["211 Maine, a general help line the Maine CDC names for gambling help", "211, or text your ZIP code to 898-211", "tel:211", "https://www.maine.gov/dhhs/mecdc/healthy-living/substance-use-and-behavioral-health/problem-gambling"]};
       // National line only, by the state's own page: WY (health.wyo.gov), CO (the Colorado Lottery), KY (CHFS), OK (ODMHSAS), AR (DFA Casino Gaming),
-      // KS (KDADS), WV (Bureau for Behavioral Health). Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho is left national too.
+      // KS (KDADS), WV (Bureau for Behavioral Health), GA (DBHDD), AL (ADMH), NV (Gaming Control Board notice), MS (the state portal names only a
+      // Gamblers Anonymous line), VT, RI, NH, AK, HI (no state line on an official page). Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho is left national too.
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
@@ -691,8 +709,8 @@ function marketNotice(url, name, st){
   d.innerHTML = `<h3>You are leaving for ${esc(name)}</h3>
     <p>${esc(name)} is a market where people bet money on outcomes, including elections. Prices there are bets, not facts, and anyone can lose what they put in.</p>
     <ul><li>You must be at least 18 to use it; some places set a higher age.</li><li>Whether these markets are allowed where you live is disputed in some states. Check your state's law before you use one.</li></ul>
-    <p class="mnh">If gambling is causing you or someone close to you harm, free and confidential help is there day and night:<br>
-      <b>National Problem Gambling Helpline</b>: call or text <a href="tel:18006973738">1-800-MY-RESET</a>, or <a href="https://www.ncpgambling.org/help-treatment/" target="_blank" rel="noopener">chat online</a>.${H ? `<br><b>${esc(H[0])}</b>: <a href="${H[2]}">${esc(H[1])}</a> (<a href="${H[3]}" target="_blank" rel="noopener">about it</a>)` : ""}</p>
+    <p class="mnh">If gambling is causing you or someone close to you harm, free and confidential help is there:<br>
+      <b>National Problem Gambling Helpline</b>, day and night: call or text <a href="tel:18006973738">1-800-MY-RESET</a>, or <a href="https://www.ncpgambling.org/help-treatment/" target="_blank" rel="noopener">chat online</a>.${H ? `<br><b>${esc(H[0])}</b>: <a href="${H[2]}">${esc(H[1])}</a> (<a href="${H[3]}" target="_blank" rel="noopener">about it</a>)` : ""}</p>
     <div class="mbtns"><button type="button" class="stay">Stay here</button><a class="goext" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Go to the market</a></div>`;
   document.body.appendChild(d);
   const close = () => { d.close(); d.remove(); };
@@ -992,7 +1010,7 @@ function racePage(id){
   ${pollsHTML(r)}
   ${adsHTML(r)}
   ${oddsHTML(r)}
-  ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-two: every candidate, of every party preference, on one ballot, and the two with the most votes go on to November.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
+  ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-${TOPN[r.st] || "two"}: every candidate, of every party preference, on one ballot, and the ${TOPN[r.st] || "two"} with the most votes go on to November${r.st === "AK" ? ", where the vote is counted by ranked choice" : ""}.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
   mountLocator(r);
   const sh = $("#rshare");

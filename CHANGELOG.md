@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.064 — 2026-09-30 — New England, the Carolinas' neighbours, Alaska and Hawaii
+
+- New Jersey, South Carolina, Connecticut, Maine, Delaware, Vermont, Alaska and Hawaii are loaded from each state's own official list, with their primaries and official vote counts: Maine's counted by ranked choice, Alaska's a top-four primary, South Carolina's with the special primary held after Senator Lindsey Graham's death.
+- Massachusetts's and Rhode Island's primaries are in with official votes; their November lists, and New Hampshire's files, sit behind checks we do not get past, so those races say the list is coming.
+- Polls for the Senate races in North Carolina (eleven), Georgia, New Hampshire, Massachusetts, Rhode Island and Maine, from Transparency Initiative members only, including the University of New Hampshire Survey Center's releases read from its own repository.
+- Each state's own problem-gambling line in the betting-market notice for twenty more states; only the national line is promised day and night.
+- A candidate is never matched to another candidate's FEC registration or congressional record: Alaska's Senate ballot has two Daniel Sullivans, and each now shows only his own.
+
 ## v4.0.063 — 2026-09-30 — North Carolina, Virginia, Washington and Maryland, and Georgia's primaries
 
 - North Carolina, Virginia, Washington and Maryland are loaded from each state's own official list, with every primary and the official vote counts. Washington's primary is top-two, like California's, and the page now names the right state.

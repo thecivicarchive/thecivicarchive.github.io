@@ -561,8 +561,14 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   SD (the Lottery's Responsible Play page; the DSS page is an empty shell), OH (dbh.ohio.gov, which answers scripts 404 and
   browsers normally: read in the Browser pane), IN (FSSA DMHA), NE (the Commission on Problem Gambling), MT (the Department
   of Justice's Gambling Control page, naming the Montana Council on Problem Gambling's line), TN (TDMHSAS: Tennessee REDLINE).
-  National line only, by each state's own page: WY, CO, KY, OK, AR, KS, WV; Idaho's lottery page names the 2-1-1 CareLine, a
-  general referral line open weekdays only, so Idaho stays national too (the notice promises help "day and night").
+  NC (NCDHHS), VA (DBHDS, 888-532-3500), WA (HCA), AZ (the Department of Gaming's line, named in an Attorney General
+  release; the gaming and problem-gambling sites refuse scripts), MD (MDH: 1-800-GAMBLER answered in Maryland), LA
+  (Gaming Control Board), OR (OHA), NM (Gaming Control Board, naming the Council's crisis line), MA (DPH), NJ (DMHAS:
+  1-800-GAMBLER answered by the state council), SC (BHDD), CT (DMHAS), DE (Gaming Enforcement), ME (211 Maine, which the
+  Maine CDC names for gambling help "anytime"). National line only, by each state's own page: WY, CO, KY, OK, AR, KS, WV,
+  GA, AL, NV, VT, RI, NH, AK, HI, and MS (its portal names only a Gamblers Anonymous line);
+  Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho stays national too.
+  The notice promises "day and night" only for the national line, so a state line need not state its hours.
   Polls so far (v4.0.061): members' polls for OH (Marist, Emerson x2), MT (Rutgers-Eagleton for Montana Free Press), KS
   (Emerson), TN (Targoz for the Beacon Center) and ID (Change Research for Stegner's campaign, a half-sample question); none
   by members in SD NE WY CO KY OK AR WV (WY and WV: no poll by anyone). A poll's optional `"sample"` string replaces the
@@ -661,7 +667,24 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   Arizona (`az.py`): azsos.gov serves the Browser pane, but its Candidate Listing is an app on apps.arizona.vote (not
   on the pane's allowed list) and apps.azsos.gov's canvass PDFs answer scripts 403; az.py's readers were written
   blind and must be checked against the real files. `name_parts` reads a comma followed only by a suffix
-  ("Beyer, Jr.") as a suffix. Privacy: three agents
+  ("Beyer, Jr.") as a suffix.
+  Ring five (v4.0.064): New Jersey (`nj.py`: nj.gov PDFs; the Address column sits between Name and Party, so read only
+  pieces starting at a column's edge; removals show only by comparing the July certification with the September
+  amendment), South Carolina (`sc.py`: vrems.scvotes.sc.gov Candidate Tracking System, no contact columns; enr-scvotes.org
+  Clarity, "Official Results"; the special primary after Lindsey Graham's death is `special-primary-REP` /
+  `special-runoff-REP`), Connecticut (`ct.py`: the SOTS system's official sample ballots of 19 towns; source kind
+  "official sample ballot"), Maine (`me.py`: final RCV tabulations; first-choice votes stored, the RCV winner advanced),
+  Delaware, Vermont (canvass by town, 741 columns), Alaska (`ak.py`: top-four primary, stored as election "primary";
+  TOPN in the page makes it read "top-four"), Hawaii (`hi.py`: `primary-NP` for the nonpartisan section). Massachusetts
+  (`ma.py`): primaries from electionstats.state.ma.us (certified, CSV); the November list page on www.sec.state.ma.us is
+  behind Incapsula: John saves it into ballot_cache/ma/. Rhode Island (`ri.py`): primaries loaded; vote.sos.ri.gov is
+  behind Cloudflare and not on the pane's allowed list: John saves the Senator and Representative in Congress pages into
+  ballot_cache/ri/general/. New Hampshire (`nh.py`): sos.nh.gov answers Akamai 403: John saves the files the loader
+  names into ballot_cache/nh/ (NH's results are the clerks' returns, subject to amendment). `match.py` now never gives
+  one registration or member record to two candidates in a race, and uses middle initials to choose between two
+  registrations (Alaska's Dan S. Sullivan and Daniel J. Sullivan Jr.). Polls: the UNH Survey Center's releases on
+  scholars.unh.edu answer scripts with Cloudflare but open in the Browser pane; the PDFs were carried out into
+  ballot_cache/polls/unh/ and read there. Privacy: three agents
   printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
   and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`

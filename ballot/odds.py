@@ -42,11 +42,21 @@ MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each c
     "2026-OR-S2": {"polymarket": "oregon-senate-election-winner", "kalshi": "SENATEOR-26", "checked": "2026-09-30"},
     "2026-MS-S2": {"polymarket": "mississippi-senate-election-winner", "kalshi": "SENATEMS-26", "checked": "2026-09-30"},
     "2026-NM-S2": {"polymarket": "new-mexico-senate-election-winner", "kalshi": "SENATENM-26", "checked": "2026-09-30"},
+    "2026-NJ-S2": {"polymarket": "new-jersey-senate-election-winner", "kalshi": "SENATENJ-26", "checked": "2026-09-30"},
+    "2026-MA-S2": {"polymarket": "massachusetts-senate-election-winner", "kalshi": "SENATEMA-26", "checked": "2026-09-30"},
+    "2026-SC-S2": {"polymarket": "south-carolina-senate-election-winner", "kalshi": "SENATESC-26", "checked": "2026-09-30"},
+    "2026-NH-S2": {"polymarket": "new-hampshire-senate-election-winner", "kalshi": "SENATENH-26", "checked": "2026-09-30"},
+    "2026-ME-S2": {"polymarket": "maine-senate-election-winner", "kalshi": "SENATEME-26", "checked": "2026-09-30"},
+    "2026-RI-S2": {"polymarket": "rhode-island-senate-election-winner", "kalshi": "SENATERI-26", "checked": "2026-09-30"},
+    "2026-DE-S2": {"polymarket": "delaware-senate-election-winner", "kalshi": "SENATEDE-26", "checked": "2026-09-30"},
+    "2026-AK-S2": {"polymarket": "alaska-senate-election-winner", "kalshi": "SENATEAK-26", "checked": "2026-09-30"},
+    "2026-AK-H00": {"kalshi": "HOUSEAKAL-26", "checked": "2026-09-30"},      # "Alaska House winner?" (at large)
     **{f"2026-{st}-H{int(d):02d}": {"kalshi": f"HOUSE{st}{d}-26", "checked": "2026-09-30"}      # "MN-02 House winner?" and the like
        for st, d in (("MN", 2), ("WI", 1), ("WI", 3), ("IA", 1), ("IA", 3), ("MI", 3), ("MI", 4), ("MI", 7), ("MI", 8), ("MI", 10),
                                   ("OH", 1), ("OH", 9), ("OH", 13), ("IN", 1), ("NE", 2), ("MT", 1), ("CO", 3), ("CO", 8),
                                   ("NC", 1), ("VA", 1), ("VA", 2), ("VA", 7), ("WA", 3), ("AZ", 1), ("AZ", 2), ("AZ", 6), ("OR", 5),
-                                  ("NV", 1), ("NV", 3), ("NV", 4), ("NM", 2))},
+                                  ("NV", 1), ("NV", 3), ("NV", 4), ("NM", 2),
+                                  ("NJ", 5), ("NJ", 7), ("NJ", 9), ("CT", 5), ("NH", 1), ("ME", 2))},
 }
 
 

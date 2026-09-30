@@ -44,6 +44,44 @@ def fits(cand, reg, loose=False):
     return loose and g1[0][:1] == g2[0][:1]
 
 
+def initials_clash(cand_name, reg_parts):
+    """True when the candidate's name carries a middle initial the registration contradicts (Daniel J. Sullivan Jr.
+    against SULLIVAN, DANIEL S)."""
+    mine = [w for w in name_parts(cand_name)[0][1:] if len(w) == 1]
+    theirs = [w[:1] for w in reg_parts[0][1:]]
+    return bool(mine and theirs and not set(mine) & set(theirs))
+
+
+def initials_agree(cand_name, reg_parts):
+    mine = [w for w in name_parts(cand_name)[0][1:] if len(w) == 1]
+    return bool(set(mine) & {w[:1] for w in reg_parts[0][1:]})
+
+
+def one_each(updates, reg_names, whose):
+    """Never give one FEC registration, or one member's record, to two candidates in the same election of a race (Alaska's
+    two Sullivans, 2026): the candidate whose middle initial agrees keeps it; if that does not settle it, nobody does,
+    except that a member's record stays with the candidate whose own FEC registration belongs to that member."""
+    out = list(updates)
+    for pos in (0, 1):
+        groups = collections.defaultdict(list)
+        for i, (fec, bio, race, election, name) in enumerate(out):
+            key = (fec, bio)[pos]
+            if key:
+                groups[(race, election, key)].append(i)
+        for (_race, _election, key), idx in groups.items():
+            if len(idx) < 2:
+                continue
+            if pos == 0:
+                keep = [i for i in idx if not initials_clash(out[i][4], reg_names.get(key, ([], "")))]
+            else:
+                keep = [i for i in idx if out[i][0] and whose.get(out[i][0]) == key]
+            for i in idx:
+                if len(keep) != 1 or i != keep[0]:
+                    fec, bio, race, election, name = out[i]
+                    out[i] = (None if pos == 0 else fec, None if pos == 1 or whose.get(fec) == bio else bio, race, election, name)
+    return out
+
+
 def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
     rec = sqlite3.connect(f"file:{record_db}?mode=ro", uri=True)
     whose = dict(rec.execute("SELECT cand_id, bioguide_id FROM member_fec"))
@@ -77,6 +115,9 @@ def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
             hits = [r for r in pool if fits(me, r[2])]
             if len({(h[2][1], tuple(h[2][0][:1])) for h in hits}) > 1:
                 hits = []
+        if len(hits) > 1:      # two registrations fit: set aside one whose middle initial contradicts, prefer one whose initial agrees
+            hits = [h for h in hits if not initials_clash(name, h[2])] or hits
+            hits = [h for h in hits if initials_agree(name, h[2])] or hits
         if len(hits) > 1:      # the same person registered twice: take the number with money, then the lowest
             hits = sorted(hits, key=lambda h: (h[0] not in have_money, h[0]))[:1]
         fec = hits[0][0] if hits else None
@@ -92,6 +133,7 @@ def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
         updates.append((fec, bio, race, election, name))
         if not fec:
             unmatched.append(f"{race} {name}")
+    updates = one_each(updates, {r[0]: r[2] for p in regs.values() for r in p}, whose)
     with con:
         con.executemany("UPDATE candidates SET fec_id = ?, bioguide_id = ? WHERE race_id = ? AND election = ? AND name = ?", updates)
     general = con.execute("SELECT COUNT(*), SUM(fec_id IS NOT NULL), SUM(bioguide_id IS NOT NULL) FROM candidates WHERE election = 'general'").fetchone()
