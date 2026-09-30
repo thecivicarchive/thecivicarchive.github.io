@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.056 — 2026-09-30 — Share any race
+
+- Every race with an official list has a "Share this race" button and a
+  share page of its own: a pasted link shows a card with the race, its
+  day, who holds the seat, the candidates in their party colours and
+  the district picked out on its state, and opens the race.
+- The notice before a betting market now shows Iowa's own helpline for
+  Iowa's races, beside the national one.
+
 ## v4.0.055 — 2026-09-30 — Polls for Michigan's and Iowa's Senate races
 
 - Michigan's Senate race now shows five polls by members of the

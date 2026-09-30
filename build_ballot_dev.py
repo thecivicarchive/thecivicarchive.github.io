@@ -321,6 +321,8 @@ PAGE = r"""<!DOCTYPE html>
 .loc path.lot:hover{fill:var(--line-strong)}.loc path.lme{stroke:var(--ink);stroke-width:1.8;vector-effect:non-scaling-stroke}
 .loc path.lout{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.55;pointer-events:none}
 .loc figcaption{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.4}
+.rshare{all:unset;cursor:pointer;margin-top:12px;display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);font-weight:700;font-size:14px}
+.rshare:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* betting markets: apart, quiet, behind a notice */
 .oddswrap{border:1px dashed var(--line-strong);border-radius:18px;padding:12px 16px;background:var(--surface)}
 .oddswrap summary{cursor:pointer;list-style:none}.oddswrap summary::-webkit-details-marker{display:none}
@@ -957,7 +959,7 @@ function racePage(id){
   const srcs = [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean);
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
-    ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}</div>${locatorHTML()}</section>
+    ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}${general(r).length ? `<button type="button" class="rshare" id="rshare">Share this race</button>` : ""}</div>${locatorHTML()}</section>
   ${general(r).length ? arena(r) : `<div class="notebox">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet. We add each state from its own election office, largest first.`}</div>`}
   ${pollsHTML(r)}
   ${adsHTML(r)}
@@ -965,6 +967,12 @@ function racePage(id){
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? "California's primary is top-two: every candidate, of every party preference, on one ballot." : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
   mountLocator(r);
+  const sh = $("#rshare");
+  if (sh) sh.addEventListener("click", async () => {      // the share page carries the preview card; it opens the race
+    const url = `https://thecivicarchive.github.io/dev/ballot/us/r/${r.id}.html`, title = `${raceName(r)}: who is on the ballot`;
+    try { if (navigator.share) { await navigator.share({title, url}); return; } await navigator.clipboard.writeText(url); sh.textContent = "Link copied"; }
+    catch (e) { if (e && e.name !== "AbortError") { sh.textContent = url; } }
+  });
   const b = $("#aopen");
   if (b) b.addEventListener("click", () => { const c = $("#cmp"); if (c.hidden) { c.innerHTML = compare(r); c.hidden = false; b.setAttribute("aria-expanded", "true"); b.querySelector("span").textContent = "Close the comparison"; c.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); }
     else { c.hidden = true; b.setAttribute("aria-expanded", "false"); b.querySelector("span").textContent = "Step into the arena: compare them side by side"; } });
@@ -1022,6 +1030,8 @@ def main():
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(page)
+    from ballot.share_race import write as write_share      # a share page and preview image for every race with a list
+    write_share(os.path.dirname(args.out), boot)
     loaded = sum(1 for r in boot["races"] if r["el"].get("general"))
     print(f"Version {version}")
     print(f"Wrote {args.out}: {len(boot['races'])} races ({loaded} with the official list loaded), "

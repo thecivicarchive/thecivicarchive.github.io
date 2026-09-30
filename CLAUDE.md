@@ -562,6 +562,10 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   a notice dialog: bets not facts, 18 and over, legality disputed in some states, the National Problem Gambling
   Helpline 1-800-MY-RESET (NCPG's page; 1-800-GAMBLER is no longer the number there) and the state's line (`HELPLINES`;
   Minnesota 1-800-333-HOPE, from its Department of Human Services). "Stay here" is the main button. No referral links.
+- Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`
+  for every race with a list, drawn with share_cards.py (the type has no star glyph: "serves in this seat today" is
+  written under an incumbent's name; more than four candidates show three and "and N more"); redrawn only when the
+  inputs' hash changes (bump `"v"` to force). The race page's "Share this race" uses navigator.share or copies the link.
 - John's second round (2026-09-29): photos, age and years in office on every card. `ballot/people.py` takes birth
   dates, offices and portraits from official records only (the congress-legislators roster for Congress, the Open
   States roster in `state_<code>.sqlite` for state legislators and statewide officials, matched by name, same state,
