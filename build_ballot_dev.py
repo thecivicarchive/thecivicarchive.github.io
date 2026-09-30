@@ -36,8 +36,8 @@ from build_site_dev import read_changelog, state_paths                          
 from build_state_dev import borrow                                              # noqa: E402
 from money_views import KIND_LABELS, PAC_LIMIT, committee_kind, tidy_name       # noqa: E402
 
-ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary",
-                  "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-GRE": "Green primary",
+ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary", "primary-LMN": "Legal Marijuana NOW primary",
+                  "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-LIB": "Libertarian primary", "primary-GRE": "Green primary",
                   "primary-DFL": "Democratic-Farmer-Labor primary"}
 
 
@@ -175,7 +175,7 @@ def build(db, record_db, site_root, out_dir):
     notes = {r[0]: {"changed": r[1], "note": r[2], "st": r[3], "su": r[4], "asof": r[5]} for r in con.execute("SELECT * FROM state_notes")}
     sources = {r[0]: {"state": r[2], "kind": r[3], "agency": r[4], "title": r[5], "url": r[6], "fetched": r[8], "sha": r[9], "rows": r[10], "note": r[11]}
                for r in con.execute("SELECT * FROM ballot_sources")}
-    listed = {s["state"] for s in sources.values()}
+    listed = {race.split("-")[1] for race, els in cands.items() if els.get("general")}      # a November list, not a primary alone (Indiana, 2026-09-30)
     races = []
     for race, _level, office, st, dist, cls, special, holder, hname, hparty, gdate, note in con.execute(
             "SELECT * FROM races WHERE level = 'federal' ORDER BY state, office DESC, district"):
@@ -194,6 +194,7 @@ def build(db, record_db, site_root, out_dir):
                     if os.path.exists(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json")) else {},
             "issues": {p: [u, json.loads(t)] for p, u, t in con.execute("SELECT person, url, topics FROM issues")}
                       if con.execute("SELECT 1 FROM sqlite_master WHERE name = 'issues'").fetchone() else {},
+            "gaps": {r[0]: r[1] for r in con.execute("SELECT race_id, reason FROM list_gaps")},
             "polls": json.load(open(os.path.join(HERE, "ballot", "polls", "polls_2026.json"), encoding="utf-8"))["races"]
                      if os.path.exists(os.path.join(HERE, "ballot", "polls", "polls_2026.json")) else {},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
@@ -486,7 +487,9 @@ $("#theme").addEventListener("click", () => { const next = document.documentElem
 /* ---------- words ---------- */
 const NAMES = BOOT.names, R = Object.fromEntries(BOOT.races.map(r => [r.id, r]));
 const byState = {}; BOOT.races.forEach(r => (byState[r.st] = byState[r.st] || []).push(r));
-const listed = new Set(BOOT.listed);
+const listed = new Set(BOOT.listed), GAPS = BOOT.gaps || {};
+const hasList = r => listed.has(r.st) && !GAPS[r.id];      // a state's list can be loaded with a race still missing (Ohio, 2026-09-30)
+const notLoaded = r => GAPS[r.id] ? `The official candidate list for this race is not loaded yet: ${esc(GAPS[r.id])}.` : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet.`;
 const ORD = n => n + (["th", "st", "nd", "rd"][((n % 100) - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
 const raceName = r => r.o === "S" ? `U.S. Senate, ${NAMES[r.st]}${r.sp ? " (special election)" : ""}` : (+r.d === 0 ? `${NAMES[r.st]}, at large` : `${NAMES[r.st]}'s ${ORD(+r.d)} District`);
 const raceShort = r => r.o === "S" ? `Senate${r.sp ? ", special" : ""}` : (+r.d === 0 ? "At large" : `${ORD(+r.d)} District`);
@@ -525,11 +528,11 @@ const chip = c => `<span class="chip${c.inc ? " inc" : ""}" style="--pc:${pcVar(
 function raceCard(r){
   const g = general(r);
   return `<a class="rcard" href="#race=${esc(r.id)}"><div class="rt"><b>${esc(r.o === "S" ? NAMES[r.st] : raceShort(r))}${r.sp ? '<span class="tagsp">Special</span>' : ""}</b><span>${esc(r.o === "S" ? "U.S. Senate" : NAMES[r.st])}</span></div>
-    ${g.length ? `<div class="rchips">${g.map(chip).join("")}</div>` : `<div class="soon">${listed.has(r.st) ? "No candidate on the list" : "Official list coming"}${r.h ? ` &middot; held today by ${esc(r.h[1])}` : ""}</div>`}</a>`;
+    ${g.length ? `<div class="rchips">${g.map(chip).join("")}</div>` : `<div class="soon">${hasList(r) ? "No candidate on the list" : "Official list coming"}${r.h ? ` &middot; held today by ${esc(r.h[1])}` : ""}</div>`}</a>`;
 }
 function raceRow(r){
   const g = general(r);
-  return `<a class="rrow" href="#race=${esc(r.id)}"><span class="rl">${esc(raceShort(r))}${r.sp ? '<span class="tagsp">Special</span>' : ""}</span><span class="rc">${g.length ? g.map(chip).join("") : `<span class="muted">${listed.has(r.st) ? "No candidate on the list" : "Official list coming"}${r.h ? ` &middot; held today by ${esc(r.h[1])}` : ""}</span>`}</span><span class="go" aria-hidden="true">&rsaquo;</span></a>`;
+  return `<a class="rrow" href="#race=${esc(r.id)}"><span class="rl">${esc(raceShort(r))}${r.sp ? '<span class="tagsp">Special</span>' : ""}</span><span class="rc">${g.length ? g.map(chip).join("") : `<span class="muted">${hasList(r) ? "No candidate on the list" : "Official list coming"}${r.h ? ` &middot; held today by ${esc(r.h[1])}` : ""}</span>`}</span><span class="go" aria-hidden="true">&rsaquo;</span></a>`;
 }
 function stateNote(st){
   const n = BOOT.notes[st]; if (!n) return "";
@@ -665,8 +668,10 @@ const HELPLINES = {      // each from the state's own page; a state not listed s
   OH: ["Problem Gambling Helpline of Ohio", "1-800-589-9966", "tel:18005899966", "https://dbh.ohio.gov/get-help/get-help-now/problem-gambling"],
   IN: ["Indiana Problem Gambling Referral Line", "800-994-8448", "tel:18009948448", "https://www.in.gov/fssa/dmha/addiction-services/problem-gambling"],
   NE: ["Nebraska Commission on Problem Gambling helpline", "1-833-238-6837, or text 402-806-7344", "tel:18332386837", "https://problemgambling.nebraska.gov/"],
-  MT: ["Montana Council on Problem Gambling's 24-hour helpline (listed by the Montana Department of Justice)", "1-888-900-9979", "tel:18889009979", "https://dojmt.gov/gaming/compulsive-gambling/"]};
-      // Wyoming's Department of Health points to the national helpline (health.wyo.gov/behavioralhealth/mhsa/problem-gambling/), so Wyoming shows that alone
+  MT: ["Montana Council on Problem Gambling's 24-hour helpline (listed by the Montana Department of Justice)", "1-888-900-9979", "tel:18889009979", "https://dojmt.gov/gaming/compulsive-gambling/"],
+  TN: ["Tennessee REDLINE (Department of Mental Health and Substance Abuse Services)", "800-889-9789, call or text", "tel:18008899789", "https://www.tn.gov/behavioral-health/substance-abuse-services/treatment/problem-gambling-programs.html"]};
+      // National line only, by the state's own page: WY (health.wyo.gov), CO (the Colorado Lottery), KY (CHFS), OK (ODMHSAS), AR (DFA Casino Gaming),
+      // KS (KDADS), WV (Bureau for Behavioral Health). Idaho's lottery page names the 2-1-1 CareLine, a general referral line open weekdays only, so Idaho is left national too.
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
@@ -698,15 +703,17 @@ document.addEventListener("click", e => { const b = e.target.closest(".mgo"); if
 /* ---------- polls: only pollsters in AAPOR's Transparency Initiative (John, 2026-09-29) ---------- */
 const TI_LINK = `<a href="https://aapor.org/standards-and-ethics/transparency-initiative/" target="_blank" rel="noopener">Transparency Initiative</a>`;
 const leftOutHTML = (L, other) => L && L.n ? `<p class="fnote">${L.n} ${other ? "other " : ""}published ${L.n === 1 ? "poll" : "polls"} of this race ${L.n === 1 ? "is" : "are"} from pollsters outside the Initiative and ${L.n === 1 ? "is" : "are"} not counted here: ${esc(L.pollsters.join(", "))}. Found in <a href="${esc(L.found_in)}" target="_blank" rel="noopener">Wikipedia's list of polls</a> (secondary), checked ${esc(fmtDate(L.checked))}.</p>` : "";
+const pendingHTML = (list, also) => (list || []).length ? `<p class="fnote">${also ? "Also by members" : list.length > 1 ? "By members" : "By a member"}, found but not counted until checked against the pollster's own release: ${list.map(x => `${esc(x.pollster)} (ending ${esc(fmtDate(x.end))}; ${esc(x.why)})`).join("; ")}.</p>` : "";
 function pollsHTML(r){
   const P0 = (BOOT.polls || {})[r.id]; if (!P0) return "";
-  if (!(P0.polls || []).length) return P0.left_out && P0.left_out.n ? `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">We show polls only from pollsters in the American Association for Public Opinion Research's ${TI_LINK}, who publish how each poll was done. None of them has published a poll of this race yet.</p>
-    ${leftOutHTML(P0.left_out, false)}</section>` : "";
+  if (!(P0.polls || []).length) { const L0 = P0.left_out || {}, none = !L0.n && !(P0.pending || []).length;
+    return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">We show polls only from pollsters in the American Association for Public Opinion Research's ${TI_LINK}, who publish how each poll was done. ${none ? "No poll of this race has been published by anyone, as far as we could find" + (L0.checked ? ` (checked ${esc(fmtDate(L0.checked))})` : "") + "." : "None of them has published a poll of this race that we could check yet."}</p>
+    ${pendingHTML(P0.pending)}${leftOutHTML(L0, false)}</section>`; }
   const polls = [...P0.polls].sort((a, b) => b.end.localeCompare(a.end)), seen = new Set(), latest = [];
   for (const p of polls) if (!seen.has(p.pollster) && latest.length < 5) { seen.add(p.pollster); latest.push(p); }
   const names = [...new Set(polls.flatMap(p => Object.keys(p.shares)))];
   const range = p => p.start.slice(0, 7) === p.end.slice(0, 7) ? esc(fmtDate(p.end)).replace(/ (\d+),/, (_m, d) => ` ${+p.start.slice(8)}&ndash;${d},`) : `${fmtDate(p.start).replace(/, \d{4}$/, "")}&ndash;${esc(fmtDate(p.end))}`;
-  const rows = latest.map(p => `<tr><td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.pollster)}</a><small>${range(p)} &middot; ${Number(p.n).toLocaleString()} ${esc(p.pop)}, &plusmn;${p.moe}</small></td>${names.map(n => `<td>${p.shares[n] != null ? p.shares[n] + "%" : "&ndash;"}</td>`).join("")}<td>${p.rest != null ? p.rest + "%" : ""}</td></tr>`).join("");
+  const rows = latest.map(p => `<tr><td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.pollster)}</a><small>${range(p)} &middot; ${p.sample ? esc(p.sample) : `${Number(p.n).toLocaleString()} ${esc(p.pop)}, &plusmn;${p.moe}`}</small></td>${names.map(n => `<td>${p.shares[n] != null ? p.shares[n] + "%" : "&ndash;"}</td>`).join("")}<td>${p.rest != null ? p.rest + "%" : ""}</td></tr>`).join("");
   const ten = polls.slice(0, 10);
   const avg = ten.length > 1 ? `<p class="pavg"><b>Our average of the ${ten.length} most recent:</b> ${names.map(n => { const v = ten.filter(p => p.shares[n] != null).map(p => p.shares[n]); return v.length ? `${esc(n)} (${v.join(" + ")}) &divide; ${v.length} = <b>${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%</b>` : ""; }).filter(Boolean).join("; ")}.</p>`
     : `<p class="pavg">Only one poll qualifies so far, so there is no average yet; ours will take the ten most recent from these pollsters.</p>`;
@@ -714,7 +721,7 @@ function pollsHTML(r){
   return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">Only from pollsters in the American Association for Public Opinion Research's ${TI_LINK}, who publish how each poll was done. The latest from up to five of them, each checked against the pollster's own release.</p>
     <div class="ptable"><table><thead><tr><th>Pollster and dates</th>${names.map(n => `<th>${esc(n)}</th>`).join("")}<th>Someone else or undecided</th></tr></thead><tbody>${rows}</tbody></table></div>
     ${avg}${notes ? `<ul class="pnotes">${notes}</ul>` : ""}
-    ${(P0.pending || []).length ? `<p class="fnote">Also by members, found but not counted until checked against the pollster's own release: ${P0.pending.map(x => `${esc(x.pollster)} (ending ${esc(fmtDate(x.end))}; ${esc(x.why)})`).join("; ")}.</p>` : ""}
+    ${pendingHTML(P0.pending, true)}
     ${leftOutHTML(L, true)}
     <p class="fnote">A poll is a measure of opinion when it was taken, with a margin of error, not a forecast.</p></section>`;
 }
@@ -752,7 +759,7 @@ const HOLD = r => r && r.h ? (HOLDPARTY[r.h[2]] || "I") : null;
 const PVAR = {D: "var(--pD)", R: "var(--pR)", I: "var(--pI)"};
 function seatState(r){
   if (!r || !r.h) return "vacant";
-  if (!listed.has(r.st)) return "unknown";
+  if (!hasList(r)) return "unknown";
   return general(r).some(c => c.bio === r.h[0]) ? "running" : "open";
 }
 const seatFill = (r, id) => { const h = HOLD(r); return !h ? "var(--line-strong)" : seatState(r) === "open" ? `url(#${id}-open-${h})` : PVAR[h]; };
@@ -770,7 +777,7 @@ function preview(r){      // a race in the side panel: who holds it, who is runn
   const g = general(r), h = HOLD(r);
   const who = g.length ? `<ol class="plist">${g.map(c => { const pp = P(c), age = ageOf(pp.dob);
       return `<li style="--pc:${pcVar(c)}"><span class="av">${pp.ph ? `<img src="${esc(pp.ph)}" alt="" loading="lazy" decoding="async">` : esc(initials(c.n).toUpperCase())}</span><span><b>${esc(c.n)}${c.inc ? '<span class="star" title="Serves in this chamber today">&#9733;</span>' : ""}</b><small>${esc(shortParty(c))}${age != null ? ` &middot; age ${age}` : ""}</small></span></li>`; }).join("")}</ol>`
-    : `<p class="held">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet.`}</p>`;
+    : `<p class="held">${hasList(r) ? "No candidate for this race is on the state's list." : notLoaded(r)}</p>`;
   return `<span class="kick">${r.o === "S" ? "U.S. Senate" : "U.S. House"}${r.sp ? " &middot; special election" : ""}</span>
     <h3>${r.o === "H" ? `<span class="dnum" style="--pc:${h ? PVAR[h] : "var(--line-strong)"}">${+r.d || "AL"}</span>` : ""}${esc(r.o === "S" ? NAMES[r.st] : raceShort(r))}</h3>
     <p class="held">${seatWords(r)}</p>${who}<a class="rpgo" href="#race=${esc(r.id)}">Open the race &rsaquo;</a>`;
@@ -778,10 +785,11 @@ function preview(r){      // a race in the side panel: who holds it, who is runn
 function sideSummary(st, view){
   if (view === "S") { const s = senateOf(st)[0]; return s ? preview(s) : `<p class="held">No Senate seat from ${esc(NAMES[st])} is on the ballot in 2026.</p>`; }
   const hs = houseOf(st), n = {D: 0, R: 0, I: 0}; let open = 0, vac = 0;
-  hs.forEach(r => { const h = HOLD(r); if (h) n[h]++; else vac++; if (seatState(r) === "open") open++; });
+  let unknown = 0;
+  hs.forEach(r => { const h = HOLD(r); if (h) n[h]++; else vac++; const ss = seatState(r); if (ss === "open") open++; if (ss === "unknown") unknown++; });
   const rows = ["D", "R", "I"].filter(k => n[k]).map(k => `<li><i style="background:${PVAR[k]}"></i>${n[k]} held by ${n[k] === 1 ? ONE[k] : MANY[k]}</li>`);
   if (vac) rows.push(`<li><i style="background:var(--line-strong)"></i>${vac} vacant</li>`);
-  if (listed.has(st)) rows.push(`<li><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px)"></i>${open ? `${open} open ${open === 1 ? "seat" : "seats"}: the member who holds it is not on its ballot` : "No open seat: every member is on the ballot again"}</li>`);
+  if (listed.has(st)) rows.push(`<li><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px)"></i>${open ? `${open} open ${open === 1 ? "seat" : "seats"}: the member who holds it is not on its ballot` : unknown ? "No open seat among the districts whose lists are loaded" : "No open seat: every member is on the ballot again"}${open && unknown ? ` (${unknown} ${unknown === 1 ? "district's list is" : "districts' lists are"} not loaded yet)` : ""}</li>`);
   return `<span class="kick">${esc(NAMES[st])} &middot; U.S. House</span><h3>${hs.length === 1 ? "One seat, at large" : `${hs.length} districts`}</h3>
     <ul class="tally">${rows.join("")}</ul><p class="sidehint">${matchMedia("(hover: hover)").matches ? "Point at a district to see who is running there; click to keep it here." : "Tap a district to see who is running there."}</p>`;
 }
@@ -961,7 +969,7 @@ function holderLine(r){
   if (!r.h) return `<p class="holder">The seat is vacant today.</p>`;
   const [bio, name, party] = r.h, g = general(r), runs = BOOT.runs[bio] || [];
   let tail = "";
-  if (listed.has(r.st)) {
+  if (hasList(r)) {
     if (g.some(c => c.bio === bio)) tail = ", who is on the ballot again";
     else { const lost = runs.find(x => x[0] === r.id && x[2] === "lost"), elsewhere = runs.find(x => x[0] !== r.id && x[1] === "general");
       const pn = lost ? (BOOT.elections[lost[1]] || "primary") : "", when = lost ? ((r.el[lost[1]] || [])[0] || {}).date : "";
@@ -978,7 +986,7 @@ function racePage(id){
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
     ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}${general(r).length ? `<button type="button" class="rshare" id="rshare">Share this race</button>` : ""}</div>${locatorHTML()}</section>
-  ${general(r).length ? arena(r) : `<div class="notebox">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet. We add each state from its own election office, largest first.`}</div>`}
+  ${general(r).length ? arena(r) : `<div class="notebox">${hasList(r) ? "No candidate for this race is on the state's list." : `${notLoaded(r)} We add each state from its own election office, largest first.`}</div>`}
   ${pollsHTML(r)}
   ${adsHTML(r)}
   ${oddsHTML(r)}

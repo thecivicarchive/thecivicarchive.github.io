@@ -10,6 +10,20 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.061 — 2026-09-30 — Six more states, and the primaries of Iowa and the Dakotas
+
+- Nebraska, Montana, Wyoming and Missouri are loaded from each state's own official candidate list, with their primaries: Nebraska, Montana and Wyoming with the official vote counts, Missouri with who won (its official totals are not posted yet).
+- Ohio's Senate special election and 13 of its 15 House races are loaded from its county boards' official lists (in
+  Ohio the board of each district's largest county certifies its candidates), with every May 5 primary and the
+  official vote counts from the Secretary of State's canvass. Districts 2 and 12 say plainly that their list is not
+  loaded yet: the boards that certify them do not post it where we can read it.
+- Former members of Congress running again (Sherrod Brown, Mike Rogers, Colin Allred and others) now show the offices
+  they held, from the official congressional roster.
+- Indiana's primaries are in, with the certified vote counts. Its November list waits: the Election Division's own link to it is broken, for browsers as well as for us, so Indiana's races say the list is coming.
+- Iowa's and North Dakota's primaries now show the official vote counts; South Dakota's show who won, until its certified canvass is posted.
+- Polls for the Senate races in Ohio, Nebraska, Montana and Wyoming, only from pollsters in AAPOR's Transparency Initiative and each checked against the pollster's own release. Where no such poll exists the page says so, and says how many polls by others were found and left out.
+- What bettors are paying, as information only, for the Senate races in Ohio, Nebraska, Montana, Wyoming, Tennessee, Colorado, Kentucky, Oklahoma, Arkansas, Kansas, Idaho and West Virginia, and eight more House races.
+
 ## v4.0.060 — 2026-09-30 — South Dakota's polls, and the helplines of the Dakotas and the next states
 
 - South Dakota's Senate race now says plainly that no pollster in AAPOR's Transparency Initiative has published a poll of it, and names the eight polls by others that were found and left out (Public Policy Polling, Impact Research, Public Opinion Strategies, Mason-Dixon).

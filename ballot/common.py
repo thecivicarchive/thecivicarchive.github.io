@@ -46,6 +46,8 @@ CREATE INDEX IF NOT EXISTS idx_candidates_fec ON candidates (fec_id);
 CREATE TABLE IF NOT EXISTS ballot_sources (
   source_id TEXT PRIMARY KEY, level TEXT, state TEXT, kind TEXT, agency TEXT, title TEXT, url TEXT,
   published TEXT, fetched TEXT, sha256 TEXT, rows INTEGER, note TEXT);
+CREATE TABLE IF NOT EXISTS list_gaps (
+  race_id TEXT PRIMARY KEY, state TEXT NOT NULL, reason TEXT);
 CREATE TABLE IF NOT EXISTS state_notes (
   state TEXT PRIMARY KEY, lines_changed INTEGER NOT NULL DEFAULT 0, note TEXT, source_title TEXT, source_url TEXT, as_of TEXT);
 CREATE TABLE IF NOT EXISTS fec26_candidates (
@@ -113,7 +115,7 @@ def fold(text):
     return re.sub(r"[^a-z ]+", " ", t.lower()).strip()
 
 
-SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v", "md", "phd", "esq", "dds", "dr", "mr", "mrs", "ms"}
+SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v", "2nd", "3rd", "4th", "nd", "rd", "th", "md", "phd", "esq", "dds", "dr", "mr", "mrs", "ms"}
 
 
 def name_parts(name):

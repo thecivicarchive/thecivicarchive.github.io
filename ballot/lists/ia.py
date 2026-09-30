@@ -42,7 +42,7 @@ RESULTS = "https://sos.iowa.gov/iowans/election-results-statistics"
 PRIMARY = "2026-06-02"
 THRESHOLD = 35.0
 HEADING = re.compile(r"^(?P<office>[A-Z][^,]*?) - (?P<party>[A-Z][a-z]+)\.$")
-ROW = re.compile(r"^(?:(?P<place>[A-Za-z][A-Za-z' .]*?) )?(?P<kind>Election Day|Absentee|Total) (?P<nums>\d[\d,]*(?: \d[\d,]*)*)$")
+ROW = re.compile(r"^(?:(?P<place>[A-Za-z][A-Za-z' .]*?) ?)?(?P<kind>Election Day|Absentee|Total) (?P<nums>\d[\d,]*(?: \d[\d,]*)*)$")
 COLUMNS = "Write-in Under Votes Over Votes Total"
 FURNITURE = re.compile(r"^(IOWA SECRETARY OF STATE|2026 Primary Election CANVASS SUMMARY|Page \d+ of \d+)$")
 CANVASS_PARTY = {"Rep": ("Republican", "REP"), "Dem": ("Democratic", "DEM")}
@@ -276,7 +276,7 @@ def load(con, cache, say=print):
         votes = {fold(n): v for n, v in zip(c["names"], c["votes"])}
         total = sum(c["votes"]) + c["write_in"]
         top = max(votes, key=votes.get)
-        outright = total and 100 * votes[top] / total >= THRESHOLD and sorted(votes.values())[-2:] != [votes[top]] * 2
+        outright = bool(total) and 100 * votes[top] / total >= THRESHOLD
         chosen = top if outright else nominee.get((race, party))
         note = None
         if not outright:

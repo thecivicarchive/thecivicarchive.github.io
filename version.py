@@ -14,7 +14,8 @@ any of them can be brought back.
     python version.py next patch|minor         what the next number would be
     python version.py new patch|minor "Title" [--note "bullet"]...
                                                start the next changelog entry
-    python version.py save [--trailer LINE]... commit everything and tag it with the
+    python version.py save [--trailer LINE]... [--hold PATH]...
+                                               commit everything (but the held paths) and tag it with the
                                                version at the top of the changelog
     python version.py list                     every saved version, newest first
     python version.py back 4.0.001             put every file back the way it was at
@@ -124,6 +125,11 @@ def cmd_save(a):
     if v <= highest:
         sys.exit(f"v{fmt(v)} is not newer than the last saved version v{fmt(highest)}. Fix the changelog heading.")
     git("add", "-A")
+    for path in a.hold or []:      # work still being written (a loader an agent is testing) stays out of this version
+        if subprocess.run(["git", "ls-files", "--error-unmatch", path], cwd=HERE, capture_output=True).returncode:
+            git("rm", "-q", "--cached", "--ignore-unmatch", "--", path)
+        else:
+            git("reset", "-q", "--", path)
     staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=HERE).returncode == 1
     msg = f"v{fmt(v)} — {top[2]}"
     body = [msg, ""]
@@ -169,7 +175,8 @@ def main():
     p = sub.add_parser("next"); p.add_argument("kind", choices=["patch", "minor"]); p.set_defaults(fn=cmd_next)
     p = sub.add_parser("new"); p.add_argument("kind", choices=["patch", "minor"]); p.add_argument("title")
     p.add_argument("--note", action="append"); p.set_defaults(fn=cmd_new)
-    p = sub.add_parser("save"); p.add_argument("--trailer", action="append"); p.set_defaults(fn=cmd_save)
+    p = sub.add_parser("save"); p.add_argument("--trailer", action="append"); p.add_argument("--hold", action="append")
+    p.set_defaults(fn=cmd_save)
     sub.add_parser("list").set_defaults(fn=cmd_list)
     p = sub.add_parser("back"); p.add_argument("version"); p.set_defaults(fn=cmd_back)
     a = ap.parse_args()

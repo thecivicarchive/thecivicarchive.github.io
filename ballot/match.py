@@ -5,7 +5,9 @@ card) and, when they serve in Congress today, to their Bioguide id (for their re
 A match needs the same state and office, the same family name, and a given name that fits (the same, one the start
 of the other, or a common nickname, as the state money loaders use), and it must be the only fit. A House candidate
 is looked for in their own district first, then anywhere in the state (after redistricting a campaign can be
-registered under another number), but only if the name fits exactly one registration. A name kept on the ballot that
+registered under another number), but only if the name fits exactly one registration. A former member of Congress
+(Sherrod Brown) is tied to their Bioguide id when the name fits exactly one person who served for the same state and
+party and whose service ended in 2011 or later, so their card can show the offices they held. A name kept on the ballot that
 the FEC files among the given names (a professional or maiden name: ARENHOLZ, ASHLEY HINSON for Ashley Hinson) matches
 only when it is the one such fit in the race. Anyone left unmatched is listed; nobody is guessed.
 """
@@ -48,13 +50,17 @@ def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
     members = collections.defaultdict(list)      # (state, chamber) -> current members, for incumbents without an FEC match
     for bio, first, last, full, st, ch in rec.execute("SELECT bioguide_id, first_name, last_name, official_full, state, chamber FROM legislators WHERE is_current = 1"):
         members[(st, ch)].append((bio, name_parts(full or f"{first} {last}")))
+    former = collections.defaultdict(list)      # state -> members whose service ended in 2011 or later, for a former member running again
+    for bio, first, last, full, st, party in rec.execute(
+            "SELECT bioguide_id, first_name, last_name, official_full, state, party FROM legislators WHERE is_current = 0 AND term_end >= '2011-01-01'"):
+        former[st].append((bio, name_parts(full or f"{first} {last}"), (party or "")[:1].upper()))
     regs = collections.defaultdict(list)
     have_money = {r[0] for r in con.execute("SELECT cand_id FROM fec26_totals WHERE receipts > 0")}
     for cid, name, st, office, dist in con.execute("SELECT cand_id, name, state, office, district FROM fec26_candidates"):
         regs[(st, office)].append((cid, int(dist) if (dist or "").isdigit() else 0, fec_name(name)))
     races = {r[0]: r[1:] for r in con.execute("SELECT race_id, state, office, district FROM races")}
     updates, unmatched = [], []
-    for race, election, name in con.execute("SELECT race_id, election, name FROM candidates").fetchall():
+    for race, election, name, pc in con.execute("SELECT race_id, election, name, party_code FROM candidates").fetchall():
         st, office, dist = races[race]
         code = "H" if office == "U.S. House" else "S"
         me = name_parts(name)
@@ -80,13 +86,19 @@ def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
             m = [b for b, parts in members.get((st, chamber), []) if fits(me, parts)] + \
                 [b for b, parts in members.get((st, "House" if code == "S" else "Senate"), []) if fits(me, parts)]
             bio = m[0] if len(m) == 1 else None
+        if not bio:
+            m = [b for b, parts, party in former.get(st, []) if fits(me, parts) and (party == pc or pc not in ("R", "D"))]
+            bio = m[0] if len(m) == 1 else None
         updates.append((fec, bio, race, election, name))
         if not fec:
             unmatched.append(f"{race} {name}")
     with con:
         con.executemany("UPDATE candidates SET fec_id = ?, bioguide_id = ? WHERE race_id = ? AND election = ? AND name = ?", updates)
     general = con.execute("SELECT COUNT(*), SUM(fec_id IS NOT NULL), SUM(bioguide_id IS NOT NULL) FROM candidates WHERE election = 'general'").fetchone()
-    say(f"    Matched: {general[1] or 0} of {general[0]} November candidates to an FEC registration; {general[2] or 0} serve in Congress today")
+    sitting = {r[0] for r in rec.execute("SELECT bioguide_id FROM legislators WHERE is_current = 1")}
+    now = sum(1 for (b,) in con.execute("SELECT bioguide_id FROM candidates WHERE election = 'general' AND bioguide_id IS NOT NULL") if b in sitting)
+    say(f"    Matched: {general[1] or 0} of {general[0]} November candidates to an FEC registration; {now} serve in Congress today, "
+        f"{(general[2] or 0) - now} served before")
     left = sorted({u for u in unmatched})
     if left:
         say(f"    No FEC registration found for {len(left)} (write-ins and small campaigns often have none): "

@@ -26,9 +26,17 @@ MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each c
     "2026-NE-S2": {"polymarket": "nebraska-senate-election-winner", "kalshi": "SENATENE-26", "checked": "2026-09-30"},
     "2026-MT-S2": {"polymarket": "montana-senate-election-winner", "kalshi": "SENATEMT-26", "checked": "2026-09-30"},
     "2026-WY-S2": {"polymarket": "wyoming-senate-election-winner", "kalshi": "SENATEWY-26", "checked": "2026-09-30"},
+    "2026-TN-S2": {"polymarket": "tennessee-senate-election-winner", "kalshi": "SENATETN-26", "checked": "2026-09-30"},
+    "2026-CO-S2": {"polymarket": "colorado-senate-election-winner", "kalshi": "SENATECO-26", "checked": "2026-09-30"},
+    "2026-KY-S2": {"polymarket": "kentucky-senate-election-winner", "checked": "2026-09-30"},      # Kalshi lists no Kentucky Senate market
+    "2026-OK-S2": {"polymarket": "oklahoma-senate-election-winner", "kalshi": "SENATEOK-26", "checked": "2026-09-30"},
+    "2026-AR-S2": {"polymarket": "arkansas-senate-election-winner", "kalshi": "SENATEAR-26", "checked": "2026-09-30"},
+    "2026-KS-S2": {"polymarket": "kansas-senate-election-winner", "kalshi": "SENATEKS-26", "checked": "2026-09-30"},
+    "2026-ID-S2": {"polymarket": "idaho-senate-election-winner", "kalshi": "SENATEID-26", "checked": "2026-09-30"},
+    "2026-WV-S2": {"polymarket": "west-virginia-senate-election-winner", "kalshi": "SENATEWV-26", "checked": "2026-09-30"},
     **{f"2026-{st}-H{int(d):02d}": {"kalshi": f"HOUSE{st}{d}-26", "checked": "2026-09-30"}      # "MN-02 House winner?" and the like
        for st, d in (("MN", 2), ("WI", 1), ("WI", 3), ("IA", 1), ("IA", 3), ("MI", 3), ("MI", 4), ("MI", 7), ("MI", 8), ("MI", 10),
-                                  ("OH", 1), ("OH", 9), ("OH", 13), ("IN", 1), ("NE", 2), ("MT", 1))},
+                                  ("OH", 1), ("OH", 9), ("OH", 13), ("IN", 1), ("NE", 2), ("MT", 1), ("CO", 3), ("CO", 8))},
 }
 
 

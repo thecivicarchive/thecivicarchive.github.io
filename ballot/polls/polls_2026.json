@@ -254,6 +254,330 @@
     "checked": "2026-09-30",
     "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. The September 8-9 row is labelled Silver Bulletin on the list and sourced to a post on X."
    }
+  },
+  "2026-WY-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Wyoming",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-OH-S3": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-24",
+     "end": "2026-09-27",
+     "n": 1298,
+     "pop": "registered voters",
+     "moe": 3.8,
+     "shares": {
+      "Jon Husted": 43,
+      "Sherrod Brown": 51
+     },
+     "rest": 6,
+     "note": "The table packet gives another party's candidate 1%, undecided 4% and no response 1%.",
+     "url": "https://maristpoll.marist.edu/polls/midterm-elections-in-ohio-september-2026/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2025-12-06",
+     "end": "2025-12-08",
+     "n": 850,
+     "pop": "registered voters",
+     "moe": 3.3,
+     "shares": {
+      "Jon Husted": 49,
+      "Sherrod Brown": 46
+     },
+     "rest": 5,
+     "note": "Asked in December 2025 as a matchup between likely nominees, five months before the May 5, 2026 primary.",
+     "url": "https://emersoncollegepolling.com/ohio-2026-poll-democrats-make-gains-in-races-for-governor-and-us-senate/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2025-08-18",
+     "end": "2025-08-19",
+     "n": 1000,
+     "pop": "registered voters",
+     "moe": 3,
+     "shares": {
+      "Jon Husted": 50,
+      "Sherrod Brown": 44
+     },
+     "rest": 7,
+     "note": "Asked in August 2025, just as Sherrod Brown launched his campaign, as a matchup between likely nominees, before the May 5, 2026 primary. The release gives 7% undecided; the three figures add to 101 because of rounding.",
+     "url": "https://emersoncollegepolling.com/ohio-2026/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-28",
+     "why": "Siena's own post gives only the headline; the full results are behind the New York Times's paywall"
+    }
+   ],
+   "left_out": {
+    "n": 23,
+    "pollsters": [
+     "Bowling Green State University/YouGov (five)",
+     "Quantus Insights (two)",
+     "Tulchin Research (two, for John Kulewicz's campaign for attorney general)",
+     "Beacon Research/Shaw & Co. (two, for Fox News)",
+     "Big Data Poll (for the Public Polling Project)",
+     "Suffolk University (for USA Today)",
+     "Rasmussen Reports",
+     "Trafalgar Group",
+     "InsiderAdvantage",
+     "Abacus Data",
+     "Wedgewood Polls",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "and four more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_special_election_in_Ohio",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-NE-S2": {
+   "polls": [],
+   "pending": [
+    {
+     "pollster": "Change Research (for Dan Osborn's exploratory committee)",
+     "end": "2025-04-01",
+     "why": "only reported secondhand so far; the pollster's own release is still to find. It was asked in spring 2025, before either candidate had filed"
+    }
+   ],
+   "left_out": {
+    "n": 10,
+    "pollsters": [
+     "Wedgewood Polls",
+     "SurveyUSA (for Grant Forbes, LLC)",
+     "GBAO (three, for Working Class Majority PAC, which backs Dan Osborn)",
+     "Impact Research (two, for Dan Osborn's campaign)",
+     "Tavern Research",
+     "Lake Research Partners (two)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Nebraska",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-MT-S2": {
+   "polls": [
+    {
+     "pollster": "Rutgers-Eagleton (for Montana Free Press)",
+     "member": "Rutgers University Eagleton Center for Public Interest Polling",
+     "start": "2026-08-27",
+     "end": "2026-09-07",
+     "n": 845,
+     "pop": "registered voters",
+     "moe": 4.2,
+     "shares": {
+      "Kurt Alme": 38,
+      "Seth Bodnar": 30,
+      "Alani Bankhead": 16,
+      "Kyle Austin": 5
+     },
+     "rest": 11,
+     "note": "Asked without pressing undecided voters to lean; with leaners the release gives Alme 39, Bodnar 31, Bankhead 17, Austin 5. Of the rest, 6% chose someone else and 5% said they would not vote. Rutgers-Eagleton's data tables and methodology statement are posted on the sponsor's site.",
+     "url": "https://montanafreepress.org/2026/09/11/alme-holds-an-8-point-lead-over-bodnar-in-senate-race/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "left_out": {
+    "n": 16,
+    "pollsters": [
+     "Quantus Insights",
+     "Aspect Strategic (for Montana Freedom PAC, which supports Bodnar)",
+     "Peak Insights (for Kurt Alme's campaign)",
+     "Hart Research (two: for Forward Montana and for The Majority Institute)",
+     "Tavern Research (three, one for Contours Inc.)",
+     "GQR (for Contours Inc.)",
+     "Bullfinch Group",
+     "GrayHouse",
+     "Public Opinion Strategies (for The Political Company)",
+     "American Pulse Research & Polling",
+     "Rutgers-Eagleton (the Republican primary only, April 29-May 7, for Montana Free Press)",
+     "Change Research (Alme against Bodnar only, March 17-20, for Independent Candidate Action)",
+     "and one more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Montana",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-CO-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Colorado Community Research (the Democratic primary only, May 17-28, 2026)",
+     "Data for Progress (the Democratic primary only, February 20-25, 2026, for the Working Families Party, which endorsed Julie Gonzales)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Colorado",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-OK-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "CHS & Associates",
+     "JMC Analytics",
+     "Pulse Decision Science (for Club for Growth)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Oklahoma",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-WV-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_West_Virginia",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-AR-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 4,
+    "pollsters": [
+     "J.L. Partners",
+     "Hendrix College (for Talk Business & Politics)",
+     "2040 Strategy Group (for Hallie Shoffner's campaign)",
+     "GrayHouse (for America One Policies)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Arkansas",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-KS-S2": {
+   "polls": [
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-09-15",
+     "end": "2026-09-16",
+     "n": 750,
+     "pop": "likely voters",
+     "moe": 3.6,
+     "shares": {
+      "Adam Hamilton": 45,
+      "Roger Marshall": 43,
+      "David Graham": 4
+     },
+     "rest": 8,
+     "url": "https://emersoncollegepolling.com/kansas-2026/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "left_out": {
+    "n": 9,
+    "pollsters": [
+     "Wedgewood Polls",
+     "co/efficient",
+     "Global Strategy Group (for People over Politics Action)",
+     "Public Policy Polling (for Senate Majority PAC)",
+     "GBAO (two, for Adam Hamilton's campaign; one of them the Democratic primary)",
+     "GQR (Marshall against Patrick Schmidt only, April 23-27, for Schmidt's campaign)",
+     "Tavern Research",
+     "Change Research (the Democratic primary only, June 11-15, for Civic Clarity)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Kansas",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-KY-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 24,
+    "pollsters": [
+     "UpONE Insights (nine, the Republican primary, for Andy Barr's campaign)",
+     "Public Opinion Strategies (three, the Republican primary: two for Keep America Great, a super PAC backing Barr, one for Barr's campaign)",
+     "Emerson College Polling (two, the primaries only, January 31-February 2 and March 29-31, 2026, for Nexstar Media and FOX56; neither asked the November matchup)",
+     "Fabrizio, Lee & Associates (two, the Republican primary, one for Nate Morris's campaign)",
+     "co/efficient (two, the Republican primary, one for Daniel Cameron's campaign)",
+     "Public Policy Polling (two: the Democratic primary, and Barr against Booker for Booker's campaign)",
+     "Global Strategy Group (Barr against Booker, for Booker's campaign)",
+     "OnMessage Inc. (the Republican primary, for Kentucky First Action, a super PAC backing Cameron)",
+     "McLaughlin & Associates (the Republican primary, for Cameron's campaign)",
+     "Quantus Insights (the Republican primary)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Kentucky",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-ID-S2": {
+   "polls": [
+    {
+     "pollster": "Change Research (for John Stegner's campaign for governor)",
+     "member": "Change Research",
+     "start": "2026-07-28",
+     "end": "2026-07-30",
+     "n": 1213,
+     "pop": "likely voters",
+     "moe": 3,
+     "shares": {
+      "Jim Risch": 45,
+      "Todd Achilles": 21,
+      "Natalie Fleming": 8,
+      "Matt Loesby": 2
+     },
+     "rest": 25,
+     "note": "David Roth, the Democratic nominee, ended his campaign on July 28, the day this poll began; this question left him out and went to half the voters (the other half saw a ballot still naming him). The figures count voters leaning one way; when first asked it was Risch 43, Achilles 21, Fleming 8, Loesby 2, with 27 not sure.",
+     "url": "https://docs.google.com/document/d/1u6Y5rUbSLEoS0nBgXqKarEzHEQCOzxPjj_Wm27eHKE8/edit",
+     "checked": "2026-09-30",
+     "sample": "half of 1,213 likely voters (the release does not give the number); ±3.0 is for the whole poll"
+    }
+   ],
+   "left_out": {
+    "n": 6,
+    "pollsters": [
+     "Advanced Targeting Research",
+     "Peak Insights (two, for Jim Risch's campaign)",
+     "The Bullfinch Group (two, one of them for Todd Achilles's campaign)",
+     "Public Policy Polling (for Todd Achilles's campaign)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Idaho",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-TN-S2": {
+   "polls": [
+    {
+     "pollster": "Targoz Market Research (for the Beacon Center of Tennessee)",
+     "member": "Targoz Market Research",
+     "start": "2026-08-15",
+     "end": "2026-08-26",
+     "n": 607,
+     "pop": "likely voters",
+     "moe": 2.77,
+     "shares": {
+      "Bill Hagerty": 58,
+      "Marquita Bradshaw": 33
+     },
+     "rest": 9,
+     "note": "Among all the registered voters who answered (1,157), Hagerty had 51% and Bradshaw 31%.",
+     "url": "https://tennsight.com/polls/august-2026/",
+     "checked": "2026-09-30",
+     "sample": "607 likely voters; the margin of ±2.77 the release gives is for all 1,200 registered voters"
+    }
+   ],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Tennessee",
+    "checked": "2026-09-30"
+   }
   }
  }
 }

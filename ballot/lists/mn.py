@@ -39,7 +39,8 @@ def race_of(office):
 
 def candidates(day):
     """{(race, name, party): [order, votes]} for every candidate for Congress in one election's files, and the files read."""
-    files = sorted(glob.glob(os.path.join(FOLDER, day, "*.txt")))
+    files = sorted(f for f in glob.glob(os.path.join(FOLDER, day, "*"))      # saved as .txt, or .md as John's browser saved the lists
+                   if f.lower().endswith((".txt", ".md", ".csv")) and not re.search(r"Candidate|Office of the Secretary", os.path.basename(f), re.I))
     totals, parts = {}, {}
     for path in files:
         for r in read_file(path):

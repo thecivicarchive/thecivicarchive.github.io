@@ -560,8 +560,13 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   refuses scripts), WI (dhs.wisconsin.gov/disease/gambling-disorder.htm), ND (HHS news release of 2026-03-09: GamblerND),
   SD (the Lottery's Responsible Play page; the DSS page is an empty shell), OH (dbh.ohio.gov, which answers scripts 404 and
   browsers normally: read in the Browser pane), IN (FSSA DMHA), NE (the Commission on Problem Gambling), MT (the Department
-  of Justice's Gambling Control page, naming the Montana Council on Problem Gambling's line). Wyoming's Department of Health
-  points to the national line, so WY is left out and shows the national line alone.
+  of Justice's Gambling Control page, naming the Montana Council on Problem Gambling's line), TN (TDMHSAS: Tennessee REDLINE).
+  National line only, by each state's own page: WY, CO, KY, OK, AR, KS, WV; Idaho's lottery page names the 2-1-1 CareLine, a
+  general referral line open weekdays only, so Idaho stays national too (the notice promises help "day and night").
+  Polls so far (v4.0.061): members' polls for OH (Marist, Emerson x2), MT (Rutgers-Eagleton for Montana Free Press), KS
+  (Emerson), TN (Targoz for the Beacon Center) and ID (Change Research for Stegner's campaign, a half-sample question); none
+  by members in SD NE WY CO KY OK AR WV (WY and WV: no poll by anyone). A poll's optional `"sample"` string replaces the
+  table's "n population, ±moe" line when the release's margin covers a different group than the figure shown.
 - Betting markets (v4.0.054, `ballot/odds.py`, `run_ballot.py odds`): `MARKETS` lists each race's Polymarket event slug
   and Kalshi event ticker, found and checked by hand (Kalshi's prices are `last_price_dollars`, volume `volume_fp` in
   contracts); a snapshot goes to ballot_cache/odds/odds_2026.json. The page folds them away, labelled, and "Go to" opens
@@ -578,6 +583,50 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   on the matched person; `campaign.issues` follows a home-page link labelled Issues/Priorities/Platform and keeps only
   the page's headings as topics (`topic()`: numbering off, all-caps to ordinary, sentences, furniture and appeals that
   name the candidate dropped; call net.patient_lookups first or the router's lost lookups fail whole sites).
+- The rings outward (John, 2026-09-30: "keep moving outward from Minnesota ... largest first"; v4.0.061 on). Loaders are
+  written by one agent per state, tested on a scratch copy of the database, then reviewed and run here. A state counts as
+  listed on the page only when it has November candidates (`listed` in build_ballot_dev.py), so a state with primaries
+  alone (Indiana) says its list is coming. Primary votes are stored only when official (canvassed or certified); the page
+  labels them "as certified", so election-night figures are never stored (South Dakota's results site stays
+  "Unofficial" for good; Missouri's is behind Cloudflare). Election codes: primary-REP/DEM/LIB/LMN, runoff-<party>.
+  Iowa primary: the SOS "Election Results & Statistics" table's Primary row links the "Official Canvass by County" PDF
+  (one section per office and party, county Election Day/Absentee/Total rows, statewide TOTAL; long county names touch the
+  row label; shares are of candidates plus write-ins, the 35 percent rule's base). North Dakota primary: vip.sos.nd.gov
+  eid=346; results moved to a Tally site whose keyless JSON is api.resultsnd.sos.nd.gov (cId north-dakota, electionID
+  346; `isWinner` unset even when official, write-ins a choice named "write-in"). South Dakota primary: eid=773 (status
+  sits inside the name: strip "(Withdrawn ...)"); the certified canvass is a scanned PDF on sdsos.gov's election history
+  page, not yet posted for 2026. Indiana (`in.py`, a Python keyword: import with importlib): the Election Division's
+  candidate workbooks on in.gov/sos/elections/candidate-information (OFFICE, CANDIDATE NAME, POLITICAL PARTY, DISTRICT,
+  no contact columns); the 2026 general list's link (`Candidate_List_Abbreviated_2026..9.11.xlsx`) answers a 200 "Page
+  Not Found" for scripts and browsers alike, so check the first bytes (PK); a hand-saved copy at
+  ballot_cache/in/in_candidate_list_2026_general.xlsx is read if the link stays broken; certified primary results are
+  plain JSON at enr.indianavoters.in.gov/site/data/ (settings.json, statewideElectionsC_<v>, OffCatC_<id>_<v>).
+  Missouri (`mo.py`): "Certification of Candidates and Party Emblems" PDF (party by party, "District 5, Rick Brattin", no
+  order numbers); primary lists at s1.sos.mo.gov/CandidatesOnWeb (ElectionCode 750006905, one captioned table per party;
+  the removed page runs name, "(Party)" and address together: keep what precedes the bracket); official Grand Totals
+  appear on sos.mo.gov/elections/results weeks after the canvass. Nebraska (`ne.py`): the final candidate list is a
+  sideways PDF (bands from the heading strip; only allowlisted bands become text); the canvass book is the official
+  primary result (check mark = nominee; county columns must add to the Total); "By Petition" is coloured independent; a
+  primary winner removed from the ballot (Burbank) keeps "advanced" with a note. Montana (`mt.py`): candidatefiling.mt.gov
+  Telerik grids (`CandidateList.aspx?e=450002987` general, `450002928` primary; the pager is a plain postback; party key
+  DEM REP LIB IND MP NON; write-ins marked only in the contact column, so party NON on a partisan race is read as a
+  declared write-in); the precinct workbook's sums match the State Canvass. Wyoming (`wy.py`): the roster PDF (column
+  edges from its headings; each entry two lines) and the primary zip's "Results Summaries - OFFICIAL.xlsx" (a candidate
+  who withdrew after printing is "* Withdrawn Candidate", named in a footnote; kept with a note). Ohio (`oh.py`): the
+  Secretary of State publishes no general-election list for Congress (the board of each district's most populous county
+  certifies it), so county boards' own lists are read (Franklin, Cuyahoga, Lake, Lorain, Stark, Wood, Butler, Union,
+  Hamilton), each race from the first list carrying it and checked against the rest; ohiosos.gov, publicfiles.ohiosos.gov,
+  boe.ohio.gov and votehamiltoncountyohio.gov answer scripts with a Cloudflare challenge, and the Browser pane passes it
+  like any browser, so Hamilton's 46-day notice (R.C. 3511.16; no addresses, a good fallback every board posts) and the
+  canvass workbooks ("Summary Level Official Results for 2026 Primary Election - <Party>", listed in
+  publicfiles.ohiosos.gov/election-results/files-index.json; spaces as %20, "+" literal) were carried out of the pane
+  and are read from ballot_cache/oh/. Names rotate by precinct (R.C. 3505.03): no ballot order. Districts 2 and 12 wait
+  (boe.ohio.gov answered 522 in the pane). A race a state's loader cannot load goes in `list_gaps` (race, state, reason),
+  and the page says the race's list is not loaded, with the reason, rather than "no candidate". `match.py` also ties a
+  former member (service ended 2011 or later, same state and party, one fit) to their Bioguide id. Saves while agents
+  are still writing loaders use `python version.py save --hold <path>` so unfinished files stay out. Privacy: three agents
+  printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
+  and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`
   for every race with a list, drawn with share_cards.py (the type has no star glyph: "serves in this seat today" is
   written under an incumbent's name; more than four candidates show three and "and N more"); redrawn only when the
@@ -617,11 +666,10 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),
   the national problem-gambling helpline and the reader's own state's (from the state they picked or their location,
   worked out on the device), and "Go to the market" or "Stay here". No slot machine, no referral codes. Not built yet.
-- Next, in order: Minnesota's files from John; primaries for IA, ND, SD (their primary lists: IA from the Secretary of
-  State, ND eid=346, SD eid=773); more states' lists, largest first (OH, GA, NC ...); campaign websites and photos once
-  the key is saved; betting-market odds; Florida's primary votes; the California certified-list check; ads (the FEC's
-  independent expenditure file, whose purpose column gives the medium; ad library links); polls (AAPOR's list); share
-  pages for races; then state and local ballots.
+- Next, in order: Minnesota's Aug 11 results files from John; ring three (TN CO KY OK UT AR KS ID WV), then the rings
+  beyond, largest first within each; Indiana's November list once in.gov fixes its link; South Dakota's certified canvass
+  and Missouri's Grand Totals when posted; campaign websites and photos once the FEC key is saved; Florida's primary
+  votes; the California certified-list check; then state and local ballots.
 
 ## Optional: rate more bills with the Claude API
 
