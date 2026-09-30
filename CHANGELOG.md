@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.069 — 2026-09-30 — A thousands separator on the ballot home page
+
+- The ballot home page writes its candidate count with a comma (1,128).
+
 ## v4.0.068 — 2026-09-30 — California checked against its certified list
 
 - California's November candidates, taken from the June 2 top-two results, are now checked against the Secretary of State's Official Certified List of Candidates (August 27, 2026): all 104 names and party preferences agree, in all 52 districts.

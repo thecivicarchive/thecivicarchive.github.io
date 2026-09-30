@@ -942,7 +942,7 @@ function home(anchor){
     <h1>Who&rsquo;s running for <em>Congress</em></h1>
     <p class="lede">Every House seat and 35 Senate seats are on the November 3, 2026 ballot. Who is running comes from each state&rsquo;s own official list of candidates, added one state at a time; the primaries that chose them come from the official results.</p>
     <span class="countdown"><i></i>${esc(dayWords())}</span>
-    <div class="kchips"><div class="kchip"><b>${H}</b><span>House races</span></div><div class="kchip"><b>${S.length}</b><span>Senate races</span></div><div class="kchip"><b>${listed.size} of 50</b><span>states' lists loaded</span></div><div class="kchip"><b>${cands}</b><span>candidates listed so far</span></div></div></section>
+    <div class="kchips"><div class="kchip"><b>${H}</b><span>House races</span></div><div class="kchip"><b>${S.length}</b><span>Senate races</span></div><div class="kchip"><b>${listed.size} of 50</b><span>states' lists loaded</span></div><div class="kchip"><b>${cands.toLocaleString("en-US")}</b><span>candidates listed so far</span></div></div></section>
   <section class="bsec" id="yours"><h2>Your ballot</h2><p class="sub">Pick your state and your congressional district. The choice stays on this device.</p>
     <div class="mybar"><select id="mst" aria-label="Your state"><option value="">Your state</option>${opts}</select><select id="mdi" aria-label="Your district"></select></div>
     <div class="mine" id="minelist"></div></section>
