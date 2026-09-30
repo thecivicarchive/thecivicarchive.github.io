@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.070 — 2026-09-30 — The side-by-side table fills in ads and polls
+
+- When you step into the arena to compare candidates, the rows that said "still to come" now show the real figures: each campaign's own ad spending by kind, what outside groups spent on ads for and against each candidate, links to the public ad libraries, and each candidate's latest poll from a Transparency Initiative member with our average.
+
 ## v4.0.069 — 2026-09-30 — A thousands separator on the ballot home page
 
 - The ballot home page writes its candidate count with a comma (1,128).

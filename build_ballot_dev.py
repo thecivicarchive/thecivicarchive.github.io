@@ -617,9 +617,14 @@ function compare(r){
     ${grp("Outside spending, 2026 (never received by the campaign)")}
     ${row("Spent to support", c => side(c, "for"))}
     ${row("Spent to oppose", c => side(c, "against"))}
-    ${grp("Still to come")}
-    ${row("Ads", c => soon("TV, radio, digital and mail spending for and against, and links to the public ad libraries"))}
-    ${row("Polls", c => soon("From pollsters in AAPOR's Transparency Initiative"))}
+    ${grp("Ads, 2026 (spending reported to the FEC)")}
+    ${row("Their campaign's ads", c => adCell(c, A => A.c))}
+    ${row("Outside ads for them", c => adCell(c, A => adMerge(A.o["for-general"], A.o["for-primary"])))}
+    ${row("Outside ads against them", c => adCell(c, A => adMerge(A.o["against-general"], A.o["against-primary"])))}
+    ${row("See the ads", c => `<a href="https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&q=${encodeURIComponent(c.n)}&search_type=keyword_unordered" target="_blank" rel="noopener">Meta's ad library</a> &middot; <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Google's</a><small>Search the name; the ads open there, never copied here</small>`)}
+    ${grp("Polls (Transparency Initiative members only)")}
+    ${row("Latest poll", c => pollCell(r, c, "latest"))}
+    ${row("Our average", c => pollCell(r, c, "average"))}
   </tbody></table>`;
   return html;
 }
@@ -648,6 +653,23 @@ function adBar(m, label){
   return `<div class="adrow"><div class="adl"><b>${esc(label)}</b><span>${usdShort(tot)}</span></div>
     <div class="adbar" role="img" aria-label="${esc(label)}: ${parts.map(([k, w]) => `${w} ${usdShort(m[k])}`).join(", ")}">${parts.map(([k]) => `<i class="k-${k}" style="flex:${m[k]}" title="${esc(AD_KINDS.find(x => x[0] === k)[1])}: ${usdShort(m[k])}"></i>`).join("")}</div>
     <div class="adk">${parts.map(([k, w]) => `<span><i class="k-${k}"></i>${esc(w)} ${usdShort(m[k])}</span>`).join("")}</div></div>`;
+}
+const adMerge = (...parts) => { const out = {}; parts.filter(Boolean).forEach(p => Object.entries(p).forEach(([k, v]) => { out[k] = (out[k] || 0) + v; })); return out; };
+function adCell(c, pick){      // the compare table: a total, then the kinds, largest first
+  const A = c.fec && BOOT.ads[c.fec]; if (!A) return c.fec ? "None reported" : "&ndash;<small>No FEC registration found</small>";
+  const k = Object.entries(pick({c: A.c || {}, o: A.o || {}}) || {}).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if (!k.length) return "None reported";
+  const total = k.reduce((t, [, v]) => t + v, 0);
+  return `${usdShort(total)}<small>${k.slice(0, 3).map(([m, v]) => `${esc(((AD_KINDS.find(x => x[0] === m) || [])[1]) || m)} ${usdShort(v)}`).join(" &middot; ")}</small>`;
+}
+function pollCell(r, c, what){      // the compare table: this candidate's share in the qualifying polls of this race
+  const P0 = (BOOT.polls || {})[r.id]; const polls = P0 && P0.polls ? [...P0.polls].sort((a, b) => b.end.localeCompare(a.end)) : [];
+  const key = p => Object.keys(p.shares).find(n => surname(n).toLowerCase() === surname(c.n).toLowerCase());
+  const mine = polls.filter(p => key(p) != null);
+  if (!mine.length) return polls.length ? "Not asked about<small>in the qualifying polls</small>" : (P0 ? "No qualifying poll yet" : "&ndash;");
+  if (what === "latest") { const p = mine[0]; return `${p.shares[key(p)]}%<small>${esc(p.pollster)}, ${esc(fmtDate(p.end))}</small>`; }
+  const ten = mine.slice(0, 10), v = ten.map(p => p.shares[key(p)]);
+  return ten.length > 1 ? `${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%<small>of the ${ten.length} most recent; the arithmetic is in Polls below</small>` : "&ndash;<small>One qualifying poll so far</small>";
 }
 function adsHTML(r){
   const g = general(r).filter(c => c.fec && BOOT.ads[c.fec]); if (!g.length) return "";
@@ -1042,7 +1064,7 @@ function sourcesHTML(){
       <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
       <li><b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.</li>
       <li><b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.</li>
-      <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, ads (spending by kind, for and against, and links to the public ad libraries), polls from pollsters in AAPOR's Transparency Initiative, each campaign's own issues page, and then state and local races.</li>
+      <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, the remaining states' lists, and each ad itself, linked from the public ad libraries</li>
     </ul>
     <div class="srclist">${Object.values(BOOT.sources).sort((a, b) => NAMES[a.state].localeCompare(NAMES[b.state])).map(srcItem).join("")}
       <div class="srcitem"><b>Federal Election Commission</b>: bulk data files for the 2025&ndash;2026 cycle (candidates, committees, campaign totals, committee payments)<small><span class="tag fact">Fact</span> <a href="https://www.fec.gov/data/browse-data/?tab=bulk-data" target="_blank" rel="noopener">fec.gov/data/browse-data/?tab=bulk-data</a></small></div>
