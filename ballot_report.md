@@ -1,11 +1,11 @@
-# On The Ballot: what is loaded, 2026-09-30 07:01
+# On The Ballot: what is loaded, 2026-09-30 08:47
 
 | Part | Result |
 | --- | --- |
 | Federal races | 435 House, 35 Senate (2 special) |
-| States with an official list loaded | 11 of 50 |
-| Candidates on the November ballot | 520 |
-| ...matched to an FEC registration | 503 |
+| States with an official list loaded | 12 of 50 |
+| Candidates on the November ballot | 541 |
+| ...matched to an FEC registration | 525 |
 | Primary candidates | 522 |
 | FEC 2026 registrations (House and Senate) | 4,389 |
 
@@ -17,6 +17,7 @@
 - **Illinois** (official candidate list): Illinois State Board of Elections, Website Candidate List, General Election November 3, 2026 (all candidates as printed). https://elections.il.gov/ElectionOperations/EOPDFViewer.aspx?ElectionID=sejIrI%2bQmww%3d&QueryType=xF443FTCAJbIL3atac%2fUjEg7Y4yklgT1&Status=P2wRQXkiFoo%3d (fetched 2026-09-29, 39 rows, SHA-256 4ffc499b6af61435...)
 - **Michigan** (official candidate list): Michigan Department of State, Bureau of Elections, Official Candidate Listing, General Election, Tuesday, November 3, 2026. https://mi-boe.entellitrak.com/etk-mi-boe-prod/page.request.do?page=page.miboePublicReport&electionYear=2026&electionType=GEN (fetched 2026-09-30, 72 rows, SHA-256 e3551674a96aebc1...)
 - **Michigan** (official candidate list): Michigan Department of State, Bureau of Elections, Official Candidate Listing, August Primary, August 4, 2026. https://mi-boe.entellitrak.com/etk-mi-boe-prod/page.request.do?page=page.miboePublicReport&electionYear=2026&electionType=PRI (fetched 2026-09-30, 54 rows, SHA-256 c23902ccac46667b...)
+- **Minnesota** (official candidate list): Minnesota Secretary of State, Candidates in the General Election: Federal, State, and County Offices (November 3, 2026). https://candidates.sos.mn.gov/ (fetched 2026-09-30, 21 rows, SHA-256 d0e462d6aedc561f...)
 - **North Dakota** (official candidate list): North Dakota Secretary of State, 2026 General Election Contest/Candidate List: Representative in Congress. https://vip.sos.nd.gov/candidatelist.aspx?eid=348 (fetched 2026-09-30, 4 rows, SHA-256 c64e070c958a32b5...)
 - **New York** (official candidate list): New York State Board of Elections, Certification for the November 3, 2026 General Election (September 17, 2026). https://elections.ny.gov/system/files/documents/2026/09/accessible-2026-general-ballot-certification-9.17.2026.pdf (fetched 2026-09-29, 59 rows, SHA-256 b2fe84d1054db655...)
 - **Pennsylvania** (official candidate list): Pennsylvania Department of State, PA Voter Services, Election Information: 2026 General Election. https://www.pavoterservices.pa.gov/ElectionInfo/ElectionInfo.aspx (fetched 2026-09-29, 1,307 rows, SHA-256 7b234b2d053cb13f...)
@@ -44,7 +45,6 @@
 - Massachusetts: 10
 - Maryland: 8
 - Maine: 3
-- Minnesota: 9
 - Missouri: 8
 - Mississippi: 5
 - Montana: 3
@@ -77,7 +77,6 @@
 - 2026-FL-H21: David Fabrikant (Write-In)
 - 2026-FL-S3: Neil J. Gillespie (No Party Affiliation (Partisan))
 - 2026-IA-H02: Rick Stewart (Libertarian)
-- 2026-IA-S2: Ashley Hinson (Republican)
 - 2026-MI-H01: Doc Kovaly (U.S. Taxpayers Party)
 - 2026-MI-H10: Kwabena Nkromo (Green Party)
 - 2026-MI-H13: Simone R. Coleman (Working Class Party)

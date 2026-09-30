@@ -23,7 +23,7 @@ from states.load_local_results import read_file
 
 FOLDER = os.path.join(HERE, "states_cache", "mn_local", "sos")
 GENERAL, PRIMARY = "20261103", "20260811"
-PARTY = {"DFL": "Democratic-Farmer-Labor", "R": "Republican", "LIB": "Libertarian", "GP": "Green", "LMN": "Legal Marijuana Now",
+PARTY = {"DFL": "Democratic-Farmer-Labor", "R": "Republican", "IND": "Independent", "LIB": "Libertarian", "GP": "Green", "LMN": "Legal Marijuana Now",
          "GLC": "Grassroots-Legalize Cannabis", "IA": "Independence-Alliance", "SWP": "Socialist Workers", "IP": "Independence"}
 PAGE = "https://electionresults.sos.mn.gov/"
 
@@ -60,8 +60,29 @@ def candidates(day):
     return out, files
 
 
+def candidate_list():
+    """{(race, name, party): [order, None]} from the Secretary's "Candidates in the General Election - Federal, State, and
+    County Offices" file (semicolon-separated; the Secretary's own note lists the columns): candidate number; name; office
+    number; office title; county (88 statewide or several counties); ballot order; party; then residence and campaign
+    addresses, phone, website and e-mail, which are never read."""
+    files = sorted(f for f in glob.glob(os.path.join(FOLDER, GENERAL, "*Candidates in the General Election*Federal*")))
+    out = {}
+    for path in files:
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                f = line.rstrip("\r\n").split(";")
+                if len(f) < 7:
+                    continue
+                race = race_of(f[3])
+                if race and f[1].strip():
+                    out[(race, re.sub(r"\s+", " ", f[1]).strip(), f[6].strip())] = [int(f[5]) if f[5].strip().isdigit() else None, None]
+    return out, files
+
+
 def load(con, cache, say=print):
-    general, gfiles = candidates(GENERAL)
+    general, gfiles = candidate_list()
+    if not general:      # the results files, which list every candidate once the Secretary posts them
+        general, gfiles = candidates(GENERAL)
     if not general:
         say(f"    Minnesota: waiting for the Secretary of State's November results files in {os.path.join(FOLDER, GENERAL)} "
             "(the Secretary's sites show this network a CAPTCHA, so John saves them in his own browser)")
@@ -90,8 +111,10 @@ def load(con, cache, say=print):
         con.execute("DELETE FROM candidates WHERE race_id LIKE '2026-MN-%'")
         con.executemany("INSERT OR REPLACE INTO candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", rows)
         record_source(con, "mn-sos-2026-general-media", path=gfiles[0], level="federal", state="MN", kind="official candidate list",
-                      agency="Minnesota Secretary of State", title="Election results media files, November 3, 2026 State General Election",
-                      url=PAGE, rows=len(general), note=f"Saved by John from the Media Files page: {', '.join(os.path.basename(f) for f in gfiles)}.")
+                      agency="Minnesota Secretary of State", title="Candidates in the General Election: Federal, State, and County Offices (November 3, 2026)",
+                      url="https://candidates.sos.mn.gov/", rows=len(general),
+                      note=f"Saved by John from the Secretary of State's site (its CAPTCHA answered by him): {', '.join(os.path.basename(f) for f in gfiles)}. "
+                           "Name, office, ballot order and party read; addresses, phones and e-mail never read.")
         if pfiles:
             record_source(con, "mn-sos-2026-primary-media", path=pfiles[0], level="federal", state="MN", kind="official results",
                           agency="Minnesota Secretary of State", title="Election results media files, August 11, 2026 State Primary",

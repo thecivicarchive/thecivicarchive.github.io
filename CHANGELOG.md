@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.058 — 2026-09-30 — Minnesota's candidates
+
+- Minnesota's official candidate list is loaded, from the Secretary of
+  State's "Candidates in the General Election" file: the Senate race
+  (Michele Tafoya, Peggy Flanagan, Marisa Simonetti, Rebecca Whiting)
+  and all eight House seats, 21 candidates in all, in ballot order.
+- Every Minnesota race now has its arena of cards, the money behind each
+  campaign, the ads for and against, the map, and its share card; the
+  Senate race also has its poll and the betting markets. Minnesota's
+  primary vote counts come next.
+
 ## v4.0.057 — 2026-09-30 — Each state's own gambling helpline
 
 - The notice before a betting market now gives Michigan's (1-800-270-7117)
