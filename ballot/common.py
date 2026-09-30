@@ -121,6 +121,9 @@ SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v", "2nd", "3rd", "4th", "nd", "rd",
 def name_parts(name):
     """(given names, family name) from a name written 'First M. Last', 'LAST, FIRST M' or 'Last Jr.'; suffixes set aside."""
     raw = (name or "").strip()
+    head, _, tail = raw.rpartition(",")
+    if head and tail.strip() and all(w in SUFFIXES for w in fold(tail).split()):      # "Donald S. Beyer, Jr.": a suffix, not "Last, First"
+        raw = head.strip()
     if "," in raw:
         last, _, first = raw.partition(",")
         words = [w for w in fold(first).split() if w not in SUFFIXES]

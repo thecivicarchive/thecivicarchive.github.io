@@ -647,7 +647,21 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   Browser pane: never solve it; John can save the page ("2026 General" chosen) into ballot_cache/ks/. Tennessee
   (`tn.py`): sos.tn.gov and its file host answer CloudFront 403 and the Browser pane is not allowed that site; tn.py
   reads the four files John saves into ballot_cache/tn/ (the Senate and House lists from sos.tn.gov/elections/2026-
-  candidate-lists, and 20260806RepublicanPrimarybyCounty.pdf / 20260806DemocraticPrimarybyCounty.pdf). Privacy: three agents
+  candidate-lists, and 20260806RepublicanPrimarybyCounty.pdf / 20260806DemocraticPrimarybyCounty.pdf).
+  Ring four, first half (v4.0.063): North Carolina (`nc.py`): dl.ncsbe.gov Candidate_Listing_2026.csv (one row per
+  county a contest reaches; columns by name) and the Board's official results files; no status column, so withdrawals
+  cannot be counted. Virginia (`va.py`): the Department's "November 3, 2026 - Federal Offices" page and the official
+  results of the August 4 primary (2024 lines kept; the April 21, 2026 amendment's result was not marked official).
+  Washington (`wa.py`): voter.votewa.gov CandidateList.aspx?e=899 (the Montana grid format) and the certified top-two
+  results; the page's top-two sentence now names the race's state. Maryland (`md.py`): the SBE's CSV candidate lists
+  and official results. Georgia (`ga.py`): results.sos.ga.gov is an Enhanced Voting site (API: /results/public/api/
+  jurisdictions/Georgia, elections/Georgia/<id> with isOfficialResults; "Total Votes Excel" under /cdn/results/); the
+  November list is MVP's Qualifying Candidate Information search, behind reCAPTCHA: John saves its "Qualified
+  Candidates.csv" into ballot_cache/ga/20261103/ (read by header; it carries e-mail and website columns, never read).
+  Arizona (`az.py`): azsos.gov serves the Browser pane, but its Candidate Listing is an app on apps.arizona.vote (not
+  on the pane's allowed list) and apps.azsos.gov's canvass PDFs answer scripts 403; az.py's readers were written
+  blind and must be checked against the real files. `name_parts` reads a comma followed only by a suffix
+  ("Beyer, Jr.") as a suffix. Privacy: three agents
   printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
   and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`

@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.063 — 2026-09-30 — North Carolina, Virginia, Washington and Maryland, and Georgia's primaries
+
+- North Carolina, Virginia, Washington and Maryland are loaded from each state's own official list, with every primary and the official vote counts. Washington's primary is top-two, like California's, and the page now names the right state.
+- Georgia's primaries and runoffs are in, with the official results; its November list sits behind a check we do not get past, so its races say the list is coming. Arizona's lists and results refuse our requests, so Arizona waits.
+- What bettors are paying for the Senate races in Georgia, North Carolina, Virginia, Alabama, Louisiana, Oregon, Mississippi and New Mexico, and thirteen more House races.
+- Names written with a suffix after a comma (Donald S. Beyer, Jr.) are now read correctly when candidates are matched to their records.
+
 ## v4.0.062 — 2026-09-30 — Seven more states: Colorado, Kentucky, Utah, Oklahoma, Arkansas, Idaho and West Virginia
 
 - Colorado, Kentucky, Utah, Arkansas, Idaho and West Virginia are loaded from each state's own official list, with their primaries and the official vote counts (Colorado's checked against its certified abstract; Kentucky's from the Board of Elections' certification, where Thomas Massie lost his primary).

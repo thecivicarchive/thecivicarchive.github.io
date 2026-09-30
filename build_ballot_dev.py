@@ -39,7 +39,8 @@ from money_views import KIND_LABELS, PAC_LIMIT, committee_kind, tidy_name       
 ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary", "primary-LMN": "Legal Marijuana NOW primary",
                   "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-LIB": "Libertarian primary", "primary-GRE": "Green primary",
                   "primary-DFL": "Democratic-Farmer-Labor primary",
-                  "runoff-REP": "Republican primary runoff", "runoff-DEM": "Democratic primary runoff"}
+                  "runoff-REP": "Republican primary runoff", "runoff-DEM": "Democratic primary runoff",
+                  "primary-AZI": "Arizona Independent Party primary", "primary-NL": "No Labels primary"}
 
 
 def money(con, ids):
@@ -991,7 +992,7 @@ function racePage(id){
   ${pollsHTML(r)}
   ${adsHTML(r)}
   ${oddsHTML(r)}
-  ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? "California's primary is top-two: every candidate, of every party preference, on one ballot." : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
+  ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-two: every candidate, of every party preference, on one ballot, and the two with the most votes go on to November.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
   mountLocator(r);
   const sh = $("#rshare");
