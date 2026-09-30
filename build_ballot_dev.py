@@ -115,6 +115,109 @@ def ads(con, ids):
     return out
 
 
+AD_TYPES = {"VIDEO": "video", "IMAGE": "image", "TEXT": "text"}
+
+
+def dollars(a):
+    """John's style for the label sentences: $6.0M from a million up, whole dollars below."""
+    a = round(a or 0)
+    return f"${a / 1e6:.1f}M" if a >= 1e6 else f"${a:,}"
+
+
+def and_list(items):
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def ad_library(con, races, out_dir):
+    """The ads themselves, as Google's ad library holds them (ballot/adlibrary.py): for each race with a November list,
+    one file, data/ads/<race>.json, fetched only when the race page opens. For each candidate on the list: their
+    campaign's own ads and the outside ads tied to them, newest first, each labelled from the record only. A campaign's
+    ad says "Paid for by their campaign". An outside group's ad quotes the group's own sworn FEC filings in this race
+    (the independent expenditures it reported for or against each candidate); which candidate a particular ad is about
+    is in neither record and is never guessed. The page carries only each candidate's counts."""
+    folder = os.path.join(out_dir, "data", "ads")
+    tables = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type = 'table'")}
+    if not {"ad_library", "ad_links"} <= tables:
+        return {"races": {}}
+    cols = {r[1] for r in con.execute("PRAGMA table_info(ad_links)")}
+    lib = {r[0]: r for r in con.execute(
+        "SELECT ad_id, url, ad_type, advertiser, first_shown, last_shown, spend_low, spend_high, states FROM ad_library")}
+    names, races_of = defaultdict(dict), defaultdict(set)      # race -> {fec: the name as the state's list prints it}
+    for race, fec, name in con.execute("SELECT race_id, fec_id, name FROM candidates WHERE fec_id IS NOT NULL ORDER BY election <> 'general'"):
+        names[race].setdefault(fec, name)
+        races_of[fec].add(race)
+    fec_name = dict(con.execute("SELECT cand_id, name FROM fec26_candidates"))
+    decl, when, spender_name = defaultdict(lambda: defaultdict(float)), defaultdict(set), {}
+    if "ad_spenders" in tables:
+        for cand, sp, name, stance, election, amt in con.execute("SELECT cand_id, spender, name, stance, election, amount FROM ad_spenders"):
+            for race in races_of.get(cand, ()):
+                decl[(sp, race)][(cand, stance)] += amt or 0
+                when[(sp, race)].add(election)
+            spender_name[sp] = name or ""
+    from ballot.adlibrary import norm
+
+    def said_by(sp, race, advertiser):
+        items = sorted(decl.get((sp, race), {}).items(), key=lambda kv: -kv[1])
+        items = [(c, s, a) for (c, s), a in items if a >= 1]
+        # names exactly as Google and the FEC write them (a tidier would turn DLGA into Dlga); the FEC's where it differs
+        known = f", which, as {spender_name[sp]}," if spender_name.get(sp) and norm(spender_name[sp]) != norm(advertiser) else ", which"
+        if not items:
+            return f"Paid for by {advertiser}{known} reported independent spending in this race to the FEC"
+        parts = [f"{dollars(a)} {s} {names[race].get(c) or tidy_name(fec_name.get(c, '')) or c}" for c, s, a in items[:4]]
+        if len(items) > 4:
+            parts.append(f"{len(items) - 4} smaller amount{'s' if len(items) > 5 else ''} for or against others")
+        el = when[(sp, race)]
+        tail = "in this race's primary" if el == {"primary"} else "in this race's general election" if el == {"general"} else "in this race"
+        return f"Paid for by {advertiser}{known} reported to the FEC spending {and_list(parts)} {tail}"
+
+    listed = {}
+    for r in races:
+        g = r["el"].get("general") or r["el"].get("open-primary") or []
+        fecs = [c["fec"] for c in g if c.get("fec")]
+        if fecs:
+            listed[r["id"]] = fecs
+    links = defaultdict(list)
+    q = "SELECT ad_id, cand_id, race_id, relation, " + ("spender" if "spender" in cols else "NULL") + " FROM ad_links"
+    for ad, cand, race, rel, sp in con.execute(q):
+        links[cand].append((ad, race, rel, sp))
+    os.makedirs(folder, exist_ok=True)
+    counts, written = {}, set()
+    for race, fecs in listed.items():
+        body = {}
+        for fec in fecs:
+            items = []
+            for ad, link_race, rel, sp in links.get(fec, ()):
+                if ad not in lib or (rel == "outside" and link_race != race):
+                    continue
+                _, url, kind, advertiser, first, last, lo, hi, states = lib[ad]
+                label = "Paid for by their campaign" if rel == "campaign" else said_by(sp, race, advertiser)
+                items.append({"type": AD_TYPES.get(kind, (kind or "").lower()), "first": first, "last": last, "lo": lo, "hi": hi,
+                              "by": advertiser, "rel": rel, "label": label, "states": states, "url": url})
+            if not items:
+                continue
+            items.sort(key=lambda a: (a["last"] or "", a["first"] or "", a["url"]), reverse=True)
+            body[fec] = items
+            n = [sum(1 for a in items if a["rel"] == "campaign"), sum(1 for a in items if a["rel"] == "outside")]
+            counts.setdefault(race, {})[fec] = n + [sum(1 for a in items if a["type"] == t) for t in ("video", "image", "text")]
+        if not body:
+            continue
+        text = json.dumps({"race": race, "cands": body}, ensure_ascii=False, separators=(",", ":"))
+        path = os.path.join(folder, f"{race}.json")
+        written.add(os.path.basename(path))
+        if not os.path.exists(path) or open(path, encoding="utf-8").read() != text:
+            with open(path, "w", encoding="utf-8", newline="\n") as fh:
+                fh.write(text)
+    for old in os.listdir(folder):      # a race whose ads are gone from the library: its old file goes too
+        if old.endswith(".json") and old not in written:
+            os.remove(os.path.join(folder, old))
+    return {"races": counts}
+
+
+def state_ballots(ballot_root):
+    """The states whose own ballot pages (state and local races) are built beside this one: site/dev/ballot/<code>/."""
+    return sorted(st for st in STATE_NAMES if os.path.exists(os.path.join(ballot_root, st.lower(), "index.html")))
+
+
 def member_facts(bios, site_root):
     """A sitting member's record, read from the draft site's own member files so both sides say the same thing."""
     out = {}
@@ -178,7 +281,7 @@ def build(db, record_db, site_root, out_dir):
             bios.add(bio)
             runs[bio].append([race, election, outcome])
     notes = {r[0]: {"changed": r[1], "note": r[2], "st": r[3], "su": r[4], "asof": r[5]} for r in con.execute("SELECT * FROM state_notes")}
-    sources = {r[0]: {"state": r[2], "kind": r[3], "agency": r[4], "title": r[5], "url": r[6], "fetched": r[8], "sha": r[9], "rows": r[10], "note": r[11]}
+    sources = {r[0]: {"state": r[2], "kind": r[3], "agency": r[4], "title": r[5], "url": r[6], "pub": r[7], "fetched": r[8], "sha": r[9], "rows": r[10], "note": r[11]}
                for r in con.execute("SELECT * FROM ballot_sources")}
     listed = {race.split("-")[1] for race, els in cands.items() if els.get("general") or els.get("open-primary")}      # a November list, not a primary alone (Indiana, 2026-09-30)
     races = []
@@ -195,6 +298,7 @@ def build(db, record_db, site_root, out_dir):
             "runs": runs, "kinds": KIND_LABELS, "elections": ELECTION_NAMES, "party": party_of, "people": people(con, out_dir),
             "map": {k: v["d"] for k, v in shapes.items()}, "sbox": {k: v["bbox"] for k, v in shapes.items()},
             "dist": district_file(out_dir, {st for st, n in notes.items() if n["changed"]}), "ads": ads(con, fec_ids),
+            "adlib": ad_library(con, races, out_dir), "stateBallots": state_ballots(os.path.dirname(out_dir)),
             "odds": json.load(open(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json"), encoding="utf-8"))
                     if os.path.exists(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json")) else {},
             "issues": {p: [u, json.loads(t)] for p, u, t in con.execute("SELECT person, url, topics FROM issues")}
@@ -365,6 +469,16 @@ PAGE = r"""<!DOCTYPE html>
 .k-doors{background:#B85C38}.k-buys{background:#8A8F98}.k-production{background:#C9B79C}
 .adsp{margin-top:8px;font-size:13px}.adsp summary{cursor:pointer;color:var(--accent);font-weight:600}.adsp ul{margin:6px 0 0;padding-left:18px}
 .adlinks{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+/* the ads themselves: links to Google's ad library, labelled from the record only */
+.adlib{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.adlib h4{margin:0 0 4px;font-size:14.5px}
+.adlib .adn{font-size:13px;color:var(--muted);margin:0}
+.adlist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:7px}
+.adlist li{font-size:13px;line-height:1.45;padding:8px 10px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}
+.adlist li small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.adlist a{font-weight:600;color:var(--accent)}
+.adall{all:unset;box-sizing:border-box;cursor:pointer;margin-top:8px;font-size:13px;font-weight:700;border:1px solid var(--line-strong);border-radius:999px;padding:6px 14px}
+.adall:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .fnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 .sgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));margin-top:14px}
 .scard2{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface)}
@@ -468,7 +582,7 @@ PAGE = r"""<!DOCTYPE html>
 </header>
 <main id="app" class="bwrap" tabindex="-1"></main>
 <footer class="bwrap bfoot">
-  <p>On The Ballot, from The Civic Archive v__VERSION__. Who is running comes only from each state's official candidate list, loaded one state at a time; campaign money from the Federal Election Commission's bulk files. No scores, no ratings of any person, no ads, no donors. Built __GENERATED__.</p>
+  <p>On The Ballot, from The Civic Archive v__VERSION__. Who is running comes only from each state's official candidate list, loaded one state at a time; campaign money from the Federal Election Commission's bulk files; the ads themselves are linked where Google's public ad library holds them. No scores, no ratings of any person, no advertising of its own, no donors. Built __GENERATED__.</p>
   <p><a href="../">On The Ballot: every level</a> &middot; <a href="../../">The Civic Archive front door</a> &middot; <a href="../../us/">The record of the 119th Congress</a></p>
 </footer>
 <div class="cl" id="cl" hidden>
@@ -621,7 +735,8 @@ function compare(r){
     ${row("Their campaign's ads", c => adCell(c, A => A.c))}
     ${row("Outside ads for them", c => adCell(c, A => adMerge(A.o["for-general"], A.o["for-primary"])))}
     ${row("Outside ads against them", c => adCell(c, A => adMerge(A.o["against-general"], A.o["against-primary"])))}
-    ${row("See the ads", c => `<a href="https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&q=${encodeURIComponent(c.n)}&search_type=keyword_unordered" target="_blank" rel="noopener">Meta's ad library</a> &middot; <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Google's</a><small>Search the name; the ads open there, never copied here</small>`)}
+    ${row("See the ads", c => { const t = adCount(adN(r, c));
+      return `${t ? `<a href="#race=${esc(r.id)}" data-jump="adlib-${esc(c.fec)}">${t.toLocaleString("en-US")} ad${t === 1 ? "" : "s"} in Google's library</a>` : (c.fec ? "No ad in Google's library tied to them" : "&ndash;")}<small><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library</a>: Meta's ads are not in Google's data</small>`; })}
     ${grp("Polls (Transparency Initiative members only)")}
     ${row("Latest poll", c => pollCell(r, c, "latest"))}
     ${row("Our average", c => pollCell(r, c, "average"))}
@@ -671,20 +786,78 @@ function pollCell(r, c, what){      // the compare table: this candidate's share
   const ten = mine.slice(0, 10), v = ten.map(p => p.shares[key(p)]);
   return ten.length > 1 ? `${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%<small>of the ${ten.length} most recent; the arithmetic is in Polls below</small>` : "&ndash;<small>One qualifying poll so far</small>";
 }
+/* ---------- the ads themselves: Google's ad library, tied to the candidates by the record only (ballot/adlibrary.py) ---------- */
+const ADL = BOOT.adlib || {races: {}};
+const adN = (r, c) => (c && c.fec && (ADL.races[r.id] || {})[c.fec]) || null;      // [their campaign's, outside, videos, images, text ads]
+const adCount = n => n ? n[0] + n[1] : 0;
+const metaSearch = n => `https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&q=${encodeURIComponent(n)}&search_type=keyword_unordered`;
+const num = n => Number(n).toLocaleString("en-US");
+const monDay = (y, m, d) => new Date(y, m - 1, d).toLocaleDateString("en-US", {month: "short", day: "numeric"});
+function adSpan(a){      // "Jul 8 to Aug 12, 2026"
+  if (!a.first) return "dates not given";
+  const [y1, m1, d1] = a.first.split("-").map(Number), [y2, m2, d2] = (a.last || a.first).split("-").map(Number);
+  if (!a.last || a.first === a.last) return `${monDay(y1, m1, d1)}, ${y1}`;
+  return y1 === y2 ? `${monDay(y1, m1, d1)} to ${monDay(y2, m2, d2)}, ${y2}` : `${monDay(y1, m1, d1)}, ${y1} to ${monDay(y2, m2, d2)}, ${y2}`;
+}
+const adSpend = a => a.lo == null && a.hi == null ? "spending not given" : a.hi == null ? `over ${usd(a.lo)}` : !a.lo ? `up to ${usd(a.hi)}` : `${usd(a.lo)} to ${usd(a.hi)}`;
+const adWhere = s => s === "US" ? "Aimed at the whole country, in Google's targeting" : s ? `Aimed at ${s.split(",").map(x => NAMES[x] || x).join(", ")}, in Google's targeting` : "";
+const AD_WORDS = {video: ["Video", "Watch it"], image: ["Image", "See it"], text: ["Text ad", "Read it"]};
+function adItem(a){
+  const [kind, verb] = AD_WORDS[a.type] || [a.type || "Ad", "See it"], where = adWhere(a.states);
+  const small = [a.rel === "campaign" && a.by ? `Advertiser in Google's library: ${a.by}` : "", where].filter(Boolean).map(esc).join(" &middot; ");
+  return `<li><b>${esc(kind)}</b>, ${esc(adSpan(a))}, ${esc(adSpend(a))} &middot; ${esc(a.label)} &middot; ${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">${verb} in Google's ad library</a>` : "Google gives no page for it"}${small ? `<small>${small}</small>` : ""}</li>`;
+}
+function adLibBlock(r, c){
+  const n = adN(r, c), t = adCount(n);
+  const kinds = n ? [[n[2], "video", "videos"], [n[3], "image", "images"], [n[4], "text ad", "text ads"]].filter(x => x[0]).map(x => `${num(x[0])} ${x[0] === 1 ? x[1] : x[2]}`) : [];
+  const OUT = "reported spending in this race for or against them";
+  const whose = !n ? "" : n[0] && n[1] ? `Of these, ${num(n[0])} ${n[0] === 1 ? "is" : "are"} their campaign's own and ${num(n[1])} ${n[1] === 1 ? "is" : "are"} by outside groups that ${OUT}.`
+    : n[0] ? (t === 1 ? "It is their campaign's own." : "All are their campaign's own.")
+    : (t === 1 ? `It is by an outside group that ${OUT}.` : `All are by outside groups that ${OUT}.`);
+  return `<div class="adlib" id="adlib-${esc(c.fec)}" data-k="${esc(c.fec)}"><h4>The ads themselves</h4>
+    ${t ? `<p class="adn">${num(t)} ad${t === 1 ? "" : "s"} in Google's ad library: ${kinds.join(", ")}. ${whose} Newest first.</p><ul class="adlist"><li>Loading the list&hellip;</li></ul>`
+      : `<p class="adn">Google's ad library holds no ad tied to them.</p>`}
+    <p class="adlinks"><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library for ${esc(c.n)}</a>: Meta's ads are not in Google's data.</p></div>`;
+}
+const adFiles = {};
+function mountAdLib(r){      // the list is fetched only when a race page with ads opens
+  const boxes = $$(".adlib[data-k]").filter(b => adCount(adN(r, {fec: b.dataset.k})));
+  if (!boxes.length) return;
+  const f = adFiles[r.id] || (adFiles[r.id] = fetch(`data/ads/${encodeURIComponent(r.id)}.json?v=${encodeURIComponent(BOOT.generated)}`).then(x => x.ok ? x.json() : Promise.reject(x.status)));
+  f.then(d => boxes.forEach(b => { if (b.isConnected) fillAdList(b, (d.cands || {})[b.dataset.k] || []); }),
+    () => { delete adFiles[r.id]; boxes.forEach(b => { const ul = $(".adlist", b); if (ul) ul.innerHTML = `<li>The list could not be loaded just now. <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Open Google's ad library</a> and search the name.</li>`; }); });
+}
+function fillAdList(b, list){
+  const ul = $(".adlist", b); if (!ul) return;
+  ul.innerHTML = list.length ? list.slice(0, 6).map(adItem).join("") : "<li>None found in the list.</li>";
+  if (list.length <= 6) return;
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "adall"; btn.textContent = `Show all ${num(list.length)}`;
+  btn.addEventListener("click", () => { ul.insertAdjacentHTML("beforeend", list.slice(6).map(adItem).join("")); btn.remove(); const a = ul.children[6] && ul.children[6].querySelector("a"); if (a) a.focus(); });
+  ul.after(btn);
+}
+document.addEventListener("click", e => {      // "N ads in Google's library" in the comparison: to that candidate's list, without changing the page
+  const a = e.target.closest("a[data-jump]"); if (!a) return;
+  const t = document.getElementById(a.dataset.jump); if (!t) return;
+  e.preventDefault(); t.setAttribute("tabindex", "-1"); t.scrollIntoView({block: "start", behavior: calm() ? "auto" : "smooth"}); t.focus({preventScroll: true});
+});
+const adSrcItem = () => { const s = BOOT.sources["google-political-ads"]; if (!s) return "";
+  return `<div class="srcitem"><b>Google</b>: Political Ads Transparency Report, data bundle. Google's public record of the election ads run on its services: each ad's advertiser and the FEC number or other registration Google verified it under, its kind (video, image or text), the dates it ran, its spending and impressions as ranges, and the places it was aimed at. ${num(s.rows || 0)} of its ads are tied to 2026 candidates here, each linked to its own page in Google's Ads Transparency Center (adstransparency.google.com); nothing is copied.<small><span class="tag fact">Fact</span> <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>${s.pub ? ` &middot; updated by Google ${esc(fmtDate(String(s.pub).slice(0, 10)))}` : ""} &middot; fetched ${esc(s.fetched)} &middot; SHA-256 ${esc((s.sha || "").slice(0, 16))}&hellip;</small></div>`; };
 function adsHTML(r){
-  const g = general(r).filter(c => c.fec && BOOT.ads[c.fec]); if (!g.length) return "";
-  const last = g.map(c => BOOT.ads[c.fec].last).sort().pop();
-  const meta = n => `https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&q=${encodeURIComponent(n)}&search_type=keyword_unordered`;
-  const blocks = g.map(c => { const A = BOOT.ads[c.fec], o = A.o || {};
+  const g = general(r).filter(c => c.fec && (BOOT.ads[c.fec] || adCount(adN(r, c)))); if (!g.length) return "";
+  const last = g.map(c => (BOOT.ads[c.fec] || {}).last || "").sort().pop();
+  const withLib = g.some(c => adCount(adN(r, c)));
+  const blocks = g.map(c => { const A = BOOT.ads[c.fec] || {c: {}, o: {}, sp: []}, o = A.o || {};
     const rows = [adBar(A.c, "Their campaign's own ads"), adBar(o["for-general"], "Outside, for them, since the primary"), adBar(o["against-general"], "Outside, against them, since the primary"),
       adBar(o["for-primary"], "Outside, for them, in the primary"), adBar(o["against-primary"], "Outside, against them, in the primary")].filter(Boolean).join("");
-    const sp = A.sp.filter(s => s[3] >= 1000).map(s => `<li>${s[0] ? esc(s[0]) : "People and groups filing on their own (not named here)"}: <b>${usdShort(s[3])}</b> ${s[1]}${s[2] === "primary" ? ", in the primary" : s[2] === "general" ? "" : ""}</li>`).join("");
-    return `<div class="adcard" style="--pc:${pcVar(c)}"><h3>${esc(c.n)} <small>${esc(shortParty(c))}</small></h3>${rows || `<p class="held">No ad spending reported yet.</p>`}
+    const sp = (A.sp || []).filter(s => s[3] >= 1000).map(s => `<li>${s[0] ? esc(s[0]) : "People and groups filing on their own (not named here)"}: <b>${usdShort(s[3])}</b> ${s[1]}${s[2] === "primary" ? ", in the primary" : ""}</li>`).join("");
+    return `<div class="adcard" style="--pc:${pcVar(c)}"><h3>${esc(c.n)} <small>${esc(shortParty(c))}</small></h3>${rows || `<p class="held">No ad spending reported to the FEC yet.</p>`}
       ${sp ? `<details class="adsp"><summary>Who spent the most, apart from the campaign</summary><ul>${sp}</ul></details>` : ""}
-      <p class="adlinks">See the ads themselves: <a href="${meta(c.n)}" target="_blank" rel="noopener">Meta's ad library</a> &middot; <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Google's political ads</a> (search the name)</p></div>`; }).join("");
-  return `<section class="bsec" id="ads"><h2>Ads and the money behind them</h2><p class="sub">What each campaign reported spending on ads, by kind, and what others spent for and against them on their own. Outside spending is not the campaign's money: the campaign never received it, and does not control it.</p>
+      ${adLibBlock(r, c)}</div>`; }).join("");
+  return `<section class="bsec" id="ads"><h2>Ads and the money behind them</h2><p class="sub">What each campaign reported spending on ads, by kind, and what others spent for and against them on their own; then the ads themselves, as Google's ad library holds them. Outside spending is not the campaign's money: the campaign never received it, and does not control it.</p>
     <div class="adgrid">${blocks}</div>
-    <p class="fnote">From the Federal Election Commission's filings through ${esc(fmtDate(last))}. Each expense's kind is read from the purpose its spender wrote ("digital ads", "direct mail"); "medium not stated" means exactly that. An expense reported twice, in a quick 24- or 48-hour report and again later, is counted once. Outside spenders are named only when they are committees.</p></section>`;
+    ${last ? `<p class="fnote">The spending is from the Federal Election Commission's filings through ${esc(fmtDate(last))}. Each expense's kind is read from the purpose its spender wrote ("digital ads", "direct mail"); "medium not stated" means exactly that. An expense reported twice, in a quick 24- or 48-hour report and again later, is counted once. Outside spenders are named only when they are committees.</p>` : ""}
+    ${withLib ? `<p class="fnote">The ads themselves are Google's, and each opens on Google's own page, where a video plays; nothing is copied here. An ad is listed under a candidate only on the record: Google verified its advertiser as the candidate's campaign committee, or as a committee that reported to the FEC spending in this race for or against them. <b>Google's data does not tell which candidate an outside group's ad is about, or what it says.</b> So an outside group's ad appears under each candidate the group reported spending on, and its label says only what the group itself reported to the FEC. Dates, spending ranges and targeting are Google's${BOOT.sources["google-political-ads"] && BOOT.sources["google-political-ads"].pub ? `, as of Google's update of ${esc(fmtDate(String(BOOT.sources["google-political-ads"].pub).slice(0, 10)))}` : ""}. Meta's ads are not in Google's data; the search link opens Meta's own library.</p>` : ""}</section>`;
 }
 /* ---------- betting markets: information only, behind a calm notice (John's answers, 2026-09-29) ---------- */
 const HELPLINES = {      // each from the state's own page; a state not listed shows the national line alone, which routes callers to local help
@@ -1007,6 +1180,7 @@ function statePage(st){
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><span>${esc(NAMES[st])}</span></nav>
   <section class="bhero"><span class="eyebrow">On The Ballot &middot; ${esc(NAMES[st])}</span><h1>${esc(NAMES[st])}</h1>
     <p class="lede">${rs.filter(r => r.o === "H").length} House ${rs.filter(r => r.o === "H").length === 1 ? "seat" : "seats"}${rs.some(r => r.o === "S") ? " and a Senate seat" : ""} on the November 3 ballot. ${listed.has(st) ? "Candidates from the state's official list." : "The state's official candidate list is not loaded yet; each race says who holds the seat today."}</p>
+    ${(BOOT.stateBallots || []).includes(st) ? `<p style="margin:16px 0 0"><a class="rpgo" href="../${esc(st.toLowerCase())}/">State and local races on ${esc(NAMES[st])}&rsquo;s ballot <span aria-hidden="true">&rsaquo;</span></a></p>` : ""}
     ${stateNote(st)}</section>
   ${stateMapHTML(st)}
   ${rs.some(r => r.o === "S") ? `<section class="bsec"><h2>Senate</h2><div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}</div></section>` : ""}
@@ -1040,8 +1214,9 @@ function racePage(id){
   ${adsHTML(r)}
   ${oddsHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-${TOPN[r.st] || "two"}: every candidate, of every party preference, on one ballot, and the ${TOPN[r.st] || "two"} with the most votes go on to November${r.st === "AK" ? ", where the vote is counted by ranked choice" : ""}.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
-  ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
+  ${srcs.length || ADL.races[r.id] ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}${ADL.races[r.id] ? adSrcItem() : ""}</div></section>` : ""}`;
   mountLocator(r);
+  mountAdLib(r);
   const sh = $("#rshare");
   if (sh) sh.addEventListener("click", async () => {      // the share page carries the preview card; it opens the race
     const url = `https://thecivicarchive.github.io/dev/ballot/us/r/${r.id}.html`, title = `${raceName(r)}: who is on the ballot`;
@@ -1063,11 +1238,13 @@ function sourcesHTML(){
       <li><b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.</li>
       <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
       <li><b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.</li>
+      <li><b>The ads themselves</b> are Google's: each one opens on its own page in Google's Ads Transparency Center, where a video plays; nothing is copied here. An ad is tied to a candidate only on the record: Google verified its advertiser under the candidate's campaign committee (or, where Google gives no FEC number the FEC's files know, the advertiser's name is the committee's own), or under the FEC number of a committee that reported spending in the race. A campaign's own ad is labelled "Paid for by their campaign", with no word about its tone. An outside group's ad is labelled with what the group itself swore to the FEC: how much it spent for and against each candidate in the race. Google's data does not tell which candidate an outside ad is about, or what it says, and this page never guesses. Meta's ads are not in Google's data; a link searches Meta's own library by name.</li>
       <li><b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.</li>
-      <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, the remaining states' lists, and each ad itself, linked from the public ad libraries</li>
+      <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, and the remaining states' lists.</li>
     </ul>
-    <div class="srclist">${Object.values(BOOT.sources).sort((a, b) => NAMES[a.state].localeCompare(NAMES[b.state])).map(srcItem).join("")}
+    <div class="srclist">${Object.entries(BOOT.sources).filter(([id]) => id !== "google-political-ads").map(([, s]) => s).sort((a, b) => (NAMES[a.state] || a.state || "").localeCompare(NAMES[b.state] || b.state || "")).map(srcItem).join("")}
       <div class="srcitem"><b>Federal Election Commission</b>: bulk data files for the 2025&ndash;2026 cycle (candidates, committees, campaign totals, committee payments)<small><span class="tag fact">Fact</span> <a href="https://www.fec.gov/data/browse-data/?tab=bulk-data" target="_blank" rel="noopener">fec.gov/data/browse-data/?tab=bulk-data</a></small></div>
+      ${adSrcItem()}
       <div class="srcitem"><b>National Conference of State Legislatures</b>: the notes on new district lines<small><span class="tag analysis">Secondary</span> <a href="https://www.ncsl.org/redistricting-and-census/changing-the-maps-tracking-mid-decade-redistricting" target="_blank" rel="noopener">Changing the Maps: Tracking Mid-Decade Redistricting</a>, updated September 11, 2026</small></div>
     </div></section>`;
 }

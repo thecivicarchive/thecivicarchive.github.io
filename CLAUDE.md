@@ -758,6 +758,36 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   canvass and Missouri's Grand Totals when posted; campaign websites and photos once the FEC key is saved; then state
   and local ballots (ask John about scope first).
 
+## State and local races on the ballot (from v4.0.071)
+
+John's go-ahead (2026-09-30): state legislature and local races on the November ballot, Minnesota first, built with
+subagents, with the rule against personal or sensitive data pushed into every agent's instructions.
+
+- Data: `ballot_local_2026.sqlite` (tables sl_races, sl_candidates, sl_sources, sl_places), apart from
+  `ballot_2026.sqlite`, so the federal FEC matching and people stages never see a local name. One loader per state,
+  `ballot/state_local_<code>.py`, each rewriting only its own state's rows. Minnesota's (`state_local_mn.py`) reads the
+  Secretary of State files John saved in states_cache/mn_local/sos/20261103/ (general candidates: federal/state/county
+  file, 21 columns; local file, 18; filings files for the partisan primaries) and covers every office: statewide, the
+  Legislature, courts, county, soil and water, cities, townships, school and hospital districts (4,721 races, 7,981
+  candidacies). Its "ballot order" column is each party's order code (90 for nonpartisan), so nonpartisan cards say the
+  order is not given and sort by surname. Place names come from the Census county subdivision codes
+  (st27_mn_cousub2020.txt) and the Education Department's district list. WI IA MI ND SD (and the next ring) carry
+  statewide offices, the legislature and courts from the same official lists their federal loaders read.
+- Pages: `build_ballot_state_dev.py` writes site/dev/ballot/<code>/ (index.html plus data/<code>.json and
+  data/districts.json) and site/dev/ballot/states/; the ballot door's State and County-and-city cards open them.
+  run_ballot.py stages `local` (the state loaders) and `adlib` (the ad library).
+- The privacy rule for state and local candidates (stricter than federal): only name as filed, office, district or
+  jurisdiction, party or "Nonpartisan office", ballot order, write-in and special marks; a sitting legislator (matched
+  by chamber, district and name, one fit only) links to their existing state record page and nothing more. No photos,
+  ages, websites, biographies, money or Wikipedia; the files' address, phone, e-mail and website columns are never
+  read, printed or cached, even while exploring. Put this rule in every agent's prompt.
+- Ads (John, 2026-09-30, "record only"): Google's Political Ads Transparency bundle (keyless, ~307 MB) is read by
+  `ballot/adlibrary.py` into ad_library and ad_links; each ad links to its page in Google's Ads Transparency Center
+  (where a video plays) and is never copied. Outside groups' ads are labelled from the group's own sworn FEC
+  independent-expenditure filings (spent for or against named candidates, with amounts); a campaign's own ad says
+  "Paid for by their campaign". Never write "attack" or "positive"; never guess which candidate an outside ad is about.
+  Meta's per-ad data needs Meta's Ad Library API token (John's step; not asked yet).
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

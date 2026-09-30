@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.071 — 2026-09-30 — State and local races on the ballot, and the ads themselves
+
+- On The Ballot now has state and local races. Minnesota's page has every race on its November ballot, from the Secretary of State's own lists: governor and the statewide offices, all 201 legislative seats, judges, and county, city, township, school and hospital district offices, 7,981 candidacies. Pick your county, city, school district and House district (or let your device find them) to see your whole ballot.
+- Wisconsin, Iowa, Michigan, the Dakotas, Ohio, Indiana, Missouri, Nebraska, Montana and Wyoming have their statewide, legislative and court races, with their primaries and official votes where published. Choose a state from the ballot door.
+- For state and local candidates the pages show only what each filed under: name, office, place, party or nonpartisan office, and ballot order. A sitting legislator links to their record; nothing else is shown about anyone.
+- The ads themselves: 19,227 ads from Google's public political ads library are linked from the Congress race pages, each opening where Google shows it. A campaign's own ad says so; an outside group's ad carries what that group swore to the FEC it spent for or against the candidates in the race. The pages never call an ad an attack or a positive ad.
+
 ## v4.0.070 — 2026-09-30 — The side-by-side table fills in ads and polls
 
 - When you step into the arena to compare candidates, the rows that said "still to come" now show the real figures: each campaign's own ad spending by kind, what outside groups spent on ads for and against each candidate, links to the public ad libraries, and each candidate's latest poll from a Transparency Initiative member with our average.
