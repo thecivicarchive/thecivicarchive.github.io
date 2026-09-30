@@ -24,7 +24,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from ballot import fec26, match, races  # noqa: E402
+from ballot import campaign, fec26, match, people, races  # noqa: E402
 from ballot.common import CACHE, DB, STATE_NAMES, connect  # noqa: E402
 from ballot.lists import LOADERS  # noqa: E402
 
@@ -70,6 +70,21 @@ def stage_lists(con, codes):
 def stage_match(con):
     say("== match: candidates to FEC numbers and members of Congress")
     match.link(con, say=say)
+
+
+def stage_people(con):
+    say("== people: age, offices held and a photo, from the official records")
+    people.build(con, say=say)
+
+
+def stage_campaign(con):
+    say("== campaign: each campaign's website (FEC Form 1) and photo options from it, to be looked at before use")
+    campaign.websites(con, say=say)
+    campaign.photos(con, say=say)
+    campaign.apply_choices(con, say=say)
+    sheets, index = campaign.contact_sheet(con)
+    if sheets:
+        say(f"    {len(index)} candidates' photo options wait to be looked at: " + ", ".join(sheets))
 
 
 def stage_check(con):
@@ -119,7 +134,8 @@ def stage_site(con):
 def main():
     global LOG
     args = [a.lower() for a in sys.argv[1:]]
-    stages = [a for a in args if a in ("races", "fec", "lists", "match", "check", "site")] or ["races", "fec", "lists", "match", "check", "site"]
+    every = ["races", "fec", "lists", "match", "people", "campaign", "check", "site"]
+    stages = [a for a in args if a in every] or every
     codes = [a for a in args if len(a) == 2 and a.upper() in STATE_NAMES]
     os.makedirs(os.path.join(HERE, "logs"), exist_ok=True)
     LOG = open(os.path.join(HERE, "logs", f"ballot-{dt.datetime.now():%Y%m%d-%H%M%S}-{'-'.join(stages)}.log"), "w", encoding="utf-8")
@@ -128,7 +144,8 @@ def main():
         if s == "lists":
             stage_lists(con, codes)
         else:
-            {"races": stage_races, "fec": stage_fec, "match": stage_match, "check": stage_check, "site": stage_site}[s](con)
+            {"races": stage_races, "fec": stage_fec, "match": stage_match, "people": stage_people, "campaign": stage_campaign,
+             "check": stage_check, "site": stage_site}[s](con)
     say(f"Done. Log: {LOG.name}")
 
 

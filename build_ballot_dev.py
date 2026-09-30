@@ -103,7 +103,34 @@ def member_facts(bios, site_root):
     return out
 
 
-def build(db, record_db, site_root):
+def people(con, out_dir):
+    """Age, offices held and a photo for each candidate (ballot/people.py); photos are written as files beside the page."""
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'people'").fetchone():
+        return {}
+    import hashlib
+    os.makedirs(os.path.join(out_dir, "photos"), exist_ok=True)
+    out = {}
+    for key, dob, dob_src, offices, photo, photo_src, credit, url, website in con.execute(
+            "SELECT person, dob, dob_src, offices, photo, photo_src, photo_credit, photo_url, website FROM people"):
+        p = {}
+        if dob:
+            p["dob"], p["ds"] = dob, dob_src
+        if offices:
+            p["off"] = json.loads(offices)
+        if photo:
+            name = (key if key[:1] in "HSP" and "|" not in key else hashlib.sha1(key.encode()).hexdigest()[:14]) + ".webp"
+            path = os.path.join(out_dir, "photos", name)
+            if not os.path.exists(path) or open(path, "rb").read() != photo:
+                open(path, "wb").write(photo)
+            p["ph"], p["ps"], p["pc"], p["pu"] = f"photos/{name}", photo_src, credit, url
+        if website:
+            p["web"] = website
+        if p:
+            out[key] = p
+    return out
+
+
+def build(db, record_db, site_root, out_dir):
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
     rec = sqlite3.connect(f"file:{record_db}?mode=ro", uri=True)
     party_of = dict(rec.execute("SELECT bioguide_id, party FROM legislators WHERE is_current = 1"))
@@ -117,7 +144,7 @@ def build(db, record_db, site_root):
         office = "H" if "-H" in race else "S"
         sitting = int(bool(bio) and chamber_of.get(bio) == ("House" if office == "H" else "Senate"))
         c = {"n": name, "p": party, "pc": code, "inc": int(bool(inc) or sitting), "wi": wi, "o": order, "v": votes, "pct": pct,
-             "out": outcome, "fec": fec, "bio": bio, "note": note, "src": src, "date": date}
+             "out": outcome, "fec": fec, "bio": bio, "note": note, "src": src, "date": date, "k": fec or f"{race}|{name}"}
         cands[race][election].append(c)
         fec_ids.add(fec)
         if bio:
@@ -137,7 +164,7 @@ def build(db, record_db, site_root):
                       "el": {e: v for e, v in cands.get(race, {}).items()}})
     boot = {"election": GENERAL, "generated": dt.date.today().isoformat(), "names": STATE_NAMES, "notes": notes, "sources": sources,
             "listed": sorted(listed), "races": races, "money": money(con, fec_ids), "members": member_facts(bios, site_root),
-            "runs": runs, "kinds": KIND_LABELS, "elections": ELECTION_NAMES, "party": party_of,
+            "runs": runs, "kinds": KIND_LABELS, "elections": ELECTION_NAMES, "party": party_of, "people": people(con, out_dir),
             "map": {k: v["d"] for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
     return boot
@@ -222,6 +249,8 @@ PAGE = r"""<!DOCTYPE html>
 .bcard .band span:last-child{opacity:.85}
 .bcard .mono{flex:1;display:grid;place-items:center;min-height:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--pc) 9%,transparent) 0 7px,transparent 7px 14px)}
 .bcard .mono span{width:min(40%,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);color:var(--pc);border:2px solid var(--pc);background:#fff}
+.bcard .mono .ph{width:min(46%,88px);overflow:hidden;box-shadow:0 6px 16px -8px rgba(0,0,0,.45)}
+.bcard .mono .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
 .bcard .who{padding:9px 11px 6px}.bcard .who b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.06}
 .bcard .who small{display:block;color:#5C6169;font-size:11.5px;margin-top:2px}
 .bcard dl{margin:0;padding:7px 11px 10px;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;border-top:1px solid #E4E5E1}
@@ -336,6 +365,23 @@ const surname = n => String(n).replace(/\s+(Jr\.?|Sr\.?|II|III|IV)$/i, "").trim(
 const inOrder = list => [...list].sort((a, b) => (a.o ?? 1e9) - (b.o ?? 1e9) || surname(a.n).localeCompare(surname(b.n)));
 const initials = n => { const w = String(n).replace(/["“”].*?["“”]/g, "").replace(/\b(Jr|Sr|II|III|IV)\.?$/i, "").trim().split(/\s+/); return ((w[0] || "")[0] || "") + ((w.length > 1 ? w[w.length - 1] : "")[0] || ""); };
 const general = r => r.el && r.el.general ? inOrder(r.el.general) : [];
+/* who a candidate is: age, offices held and for how long, a photo (ballot/people.py) */
+const P = c => (BOOT.people || {})[c.k] || {};
+const YEAR_MS = 365.2425 * 864e5;
+const ageOf = dob => { if (!dob) return null; const [y, m, d] = dob.split("-").map(Number), n = new Date(); let a = n.getFullYear() - y; if (n.getMonth() + 1 < m || (n.getMonth() + 1 === m && n.getDate() < d)) a--; return a; };
+const yearsBetween = (s, e) => s ? Math.max(0, (Math.min(e ? new Date(e).getTime() : Date.now(), Date.now()) - new Date(s)) / YEAR_MS) : null;
+function service(c){
+  const off = P(c).off || []; if (!off.length) return null;
+  const now = off.filter(o => !o.end).sort((a, b) => (b.start || "").localeCompare(a.start || ""))[0] || null;
+  const iv = off.filter(o => o.start).map(o => [new Date(o.start).getTime(), o.end ? new Date(o.end).getTime() : Date.now()]).sort((a, b) => a[0] - b[0]);
+  let total = 0, cur = null;      // every office on record, overlapping years counted once
+  for (const [a, b] of iv) { if (!cur) cur = [a, b]; else if (a <= cur[1]) cur[1] = Math.max(cur[1], b); else { total += cur[1] - cur[0]; cur = [a, b]; } }
+  if (cur) total += cur[1] - cur[0];
+  return {now: now ? {office: now.office, years: yearsBetween(now.start), unsure: !!now.unsure || !now.start} : null, total: iv.length ? total / YEAR_MS : null, unsure: off.some(o => o.unsure || !o.start), list: off};
+}
+const yWords = (y, unsure) => y == null ? "years not on record" : (y < 1 ? (unsure ? "at least a few months" : "under a year") : `${unsure ? "at least " : ""}${Math.floor(y)} yr${Math.floor(y) === 1 ? "" : "s"}`);
+const shortOffice = o => String(o || "").replace(/^U\.S\. /, "U.S. ").replace(/ House of Representatives$/, " House");
+const SRC_NAME = {"Congress": "the Biographical Directory of the U.S. Congress (congress-legislators roster)", "State roster": "the Open States roster of state officials"};
 const days = () => { const [y, m, d] = BOOT.election.split("-").map(Number), n = new Date(); return Math.round((new Date(y, m - 1, d) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5); };
 const dayWords = () => { const n = days(); return n > 1 ? `Election Day in ${n} days` : n === 1 ? "Election Day is tomorrow" : n === 0 ? "Election Day is today" : `Election Day was ${fmtDate(BOOT.election)}`; };
 
@@ -362,14 +408,16 @@ function officeNow(c){
   return `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? ` since ${m.since}` : ""}`;
 }
 function card(c, r, k, solo){
-  const M = money(c), off = officeNow(c);
+  const M = money(c), pp = P(c), age = ageOf(pp.dob), sv = service(c);
   const flag = c.out === "unopposed" ? "Unopposed" : c.wi ? "Write-in" : c.inc ? "Incumbent" : "";
-  const rows = [["Office now", off ? esc(off.replace("U.S. ", "")) : "None in Congress"], ["Raised, 2026", M && M.r != null ? usdShort(M.r) : (c.fec ? "Not yet reported" : "No FEC filing")]];
-  if (M && M.coh != null) rows.push(["Cash on hand", usdShort(M.coh)]);
+  const rows = [["Age", age != null ? String(age) : "Not on record"],
+    ["In office now", sv && sv.now ? `${esc(shortOffice(sv.now.office))}, ${yWords(sv.now.years, sv.now.unsure)}` : "No office on record"]];
+  if (sv && sv.total != null && (!sv.now || sv.total - (sv.now.years || 0) >= 1)) rows.push(["Years in office", `${yWords(sv.total, sv.unsure)}, all offices`]);
+  rows.push(["Raised, 2026", M && M.r != null ? usdShort(M.r) : (c.fec ? "Not yet reported" : "No FEC filing")]);
   return `<article class="bcard${c.wi ? " wi" : ""}${solo ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(shortParty(c))}">
     <div class="band"><span>${esc(shortParty(c))}</span><span>${esc(r.o === "S" ? "Senate" : r.st + "-" + (+r.d || "AL"))}</span></div>
     ${flag ? `<span class="flag">${esc(flag)}</span>` : ""}
-    <div class="mono"><span aria-hidden="true">${esc(initials(c.n).toUpperCase())}</span></div>
+    <div class="mono">${pp.ph ? `<span class="ph"><img src="${esc(pp.ph)}" alt="" loading="lazy" decoding="async"></span>` : `<span aria-hidden="true">${esc(initials(c.n).toUpperCase())}</span>`}</div>
     <div class="who"><b>${esc(c.n)}</b><small>${esc(c.p || "")}</small></div>
     <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
 }
@@ -382,7 +430,7 @@ function arena(r){
     <div class="acards" data-n="${g.length}">${parts.join("")}</div>
     <button class="aopen" id="aopen" type="button" aria-expanded="false" aria-controls="cmp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4l8 8-8 8"/></svg><span>Step into the arena: compare them side by side</span></button>
     <div class="cmp" id="cmp" hidden></div>
-    <p class="anote">Every card is the same size. The cards show what the record holds: the office a candidate holds in Congress today, and the money their campaign reported to the FEC. No score or grade of any person.</p>
+    <p class="anote">Every card is the same size. The cards show what the records hold: age, the office a candidate holds now and for how long, their years in any office on record, and the money their campaign reported to the FEC. No score or grade of any person.</p>
   </section>`;
 }
 function compare(r){
@@ -398,6 +446,13 @@ function compare(r){
     ${grp("On the ballot")}
     ${row("Party, as printed", c => esc(c.p || "") + (c.wi ? "<small>Write-in: the name is not printed on the ballot</small>" : ""))}
     ${row("Notes from the list", c => c.note ? esc(c.note) : "&ndash;")}
+    ${grp("Who they are")}
+    ${row("Age", c => { const p = P(c), a = ageOf(p.dob); return a != null ? `${a}<small>Born ${esc(p.dob.slice(0, 4))}, according to ${esc(SRC_NAME[p.ds] || p.ds)}</small>` : "Not on record<small>No official record this site holds gives a birth date</small>"; })}
+    ${row("Offices on record", c => { const sv = service(c); if (!sv) return "None<small>The records here cover Congress, state legislatures and statewide offices. City, county and school offices are not in them yet.</small>";
+        return sv.list.map(o => `${esc(o.office)}, ${o.start ? esc(o.start.slice(0, 4)) : "start not on record"}&ndash;${o.end ? esc(o.end.slice(0, 4)) : "now"}<small>${yWords(yearsBetween(o.start, o.end), o.unsure || !o.start)}${o.terms ? `, ${o.terms} terms` : ""}; ${esc(SRC_NAME[o.src] || o.src)}</small>`).join("")
+          + (sv.total != null ? `<small><b>All offices together: ${yWords(sv.total, sv.unsure)}</b></small>` : ""); })}
+    ${row("Photo", c => { const p = P(c); return p.ph ? `${esc(p.pc || "")}${p.pu ? `<small><a href="${esc(p.pu)}" target="_blank" rel="noopener">Where it comes from</a></small>` : ""}` : "None yet<small>Initials stand in until a photo from an official record or the campaign's own site is found</small>"; })}
+    ${row("In their own words", c => P(c).web ? `<a href="${esc(P(c).web)}" target="_blank" rel="noopener nofollow">Their campaign's website</a><small>The address their campaign gave the FEC on its Statement of Organization</small>` : soon("A link to their campaign's own website, from its filing with the FEC"))}
     ${grp("In office")}
     ${row("In Congress today", c => { const m = mem(c); return m ? `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? `, since ${m.since}` : ""}${m.terms ? `<small>${m.terms} term${m.terms === 1 ? "" : "s"}</small>` : ""}` : "No"; })}
     ${row("Votes this Congress", c => { const m = mem(c); return m && m.elig ? `Voted on ${Number(m.cast).toLocaleString()} of ${Number(m.elig).toLocaleString()}${m.split ? `<small>Voted against most of their party on ${m.breaks || 0} of the ${m.split} votes that split the parties</small>` : ""}` : "&ndash;"; })}
@@ -418,7 +473,6 @@ function compare(r){
     ${grp("Still to come")}
     ${row("Ads", c => soon("TV, radio, digital and mail spending for and against, and links to the public ad libraries"))}
     ${row("Polls", c => soon("From pollsters in AAPOR's Transparency Initiative"))}
-    ${row("In their own words", c => soon("A link to their campaign's own issues page"))}
   </tbody></table>`;
   return html;
 }
@@ -431,7 +485,7 @@ function field(r, key){
   const date = list[0].date, topTwo = key === "primary";
   const src = BOOT.sources[list[0].src];
   return `<section class="field run"><div class="fh"><b>${esc(BOOT.elections[key] || key)} &middot; ${esc(fmtDate(date))}</b><span>${list.length} candidates${topTwo ? ", every party on one ballot; the two with the most votes advance" : ""}</span></div>
-    <ol class="lanes">${rows.map((c, i) => `<li class="lane${c.out === "advanced" ? " won" : ""}${votes ? "" : " nobar"}" style="--pc:${pcVar(c)};--k:${i}"><span class="nm">${esc(c.n)}<small>${esc(c.p || "")}${c.inc ? " &middot; serves in this chamber today" : ""}</small></span>
+    <ol class="lanes">${rows.map((c, i) => `<li class="lane${c.out === "advanced" ? " won" : ""}${votes ? "" : " nobar"}" style="--pc:${pcVar(c)};--k:${i}"><span class="nm">${esc(c.n)}<small>${esc(c.p || "")}${ageOf(P(c).dob) != null ? ` &middot; age ${ageOf(P(c).dob)}` : ""}${c.inc ? " &middot; serves in this chamber today" : ""}</small></span>
       <span class="bar"><i style="--w:${votes ? (100 * (c.pct || 0) / max).toFixed(1) : 0}%"></i></span>
       <span class="vv">${votes ? `${Number(c.v).toLocaleString()} &middot; ${(c.pct || 0).toFixed(1)}%` : (c.out === "advanced" ? "Won" : "Lost")}</span></li>`).join("")}</ol>
     <p class="fnote">${votes ? `Votes as certified in the official results (${esc(src ? src.agency : "the state")}).` : `The official vote counts for this primary are not loaded yet; who won comes from the candidate list of the ${esc(src ? src.agency : "state")}.`}</p></section>`;
@@ -519,6 +573,8 @@ function sourcesHTML(){
       <li><b>Order.</b> Candidates appear in the order the state's list gives them, or by surname where the list gives no ballot order. Never by money, polls or party.</li>
       <li><b>Parties</b> are printed exactly as the official list prints them. Colours are for telling the cards apart only.</li>
       <li><b>Money</b> is the 2026 cycle from the Federal Election Commission's bulk files: what each campaign reported, organizations named, people only as a total. A candidate's own fundraising committees and joint fundraising committees are moved in, not donors. Outside spending is kept apart, because the campaign never received it.</li>
+      <li><b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.</li>
+      <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
       <li><b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.</li>
       <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, ads (spending by kind, for and against, and links to the public ad libraries), polls from pollsters in AAPOR's Transparency Initiative, each campaign's own issues page, and then state and local races.</li>
     </ul>
@@ -553,7 +609,7 @@ def main():
     if not os.path.exists(args.db):
         sys.exit("No ballot database yet. Run: python run_ballot.py")
     site_root = os.path.join(HERE, "site", "dev")
-    boot = build(args.db, args.record, site_root)
+    boot = build(args.db, args.record, site_root, os.path.dirname(args.out))
     version = (boot["changelog"][0].get("version") if boot["changelog"] else "") or ""
     page = PAGE.replace("__CSS__", borrow("CSS")).replace("__MONEYFMT__", borrow("MONEYFMT")).replace("__CHANGELOG__", borrow("CHANGELOG"))
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))

@@ -10,6 +10,26 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.047 — 2026-09-29 — Texas, and faces, ages and years in office on every card
+
+- Texas joins California and Florida: its certified list for November 3,
+  all 38 House seats and the Senate race, 87 candidates in ballot order,
+  read from the Secretary of State's 1,395-page certification.
+- Every candidate's card now shows their age, the office they hold now and
+  for how long, and their years in any office on record. These come from
+  official records only: the Biographical Directory of the U.S. Congress
+  and the state rosters. Where no record gives a birth date or an office,
+  the card says so; nothing is estimated.
+- Members of Congress and state legislators now appear with their official
+  portraits. Other candidates keep their initials for now; photos from
+  their own campaign websites come next, each one looked at before use.
+- The comparison adds a "Who they are" section: age, every office on
+  record with its years, and where the photo comes from.
+- On the ballot side, the switch at the top now reads Legislation &
+  Legislatures and takes you back. Rest on it for three seconds and the
+  fireworks spell out the way back.
+- The fireworks are now red, white and blue, with CLICK TO SEE in silver.
+
 ## v4.0.046 — 2026-09-29 — On The Ballot opens: who is running for Congress
 
 - A new switch sits at the top of the front door: On The Ballot, with the

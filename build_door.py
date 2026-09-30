@@ -308,7 +308,7 @@ __WIP__
   <div class="skip">Click, or press any key, to skip</div>
 </div>
 
-<div class="sky" id="sky" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="On The Ballot"><canvas id="skyfx" aria-hidden="true"></canvas><p class="sr">On The Ballot. Click to see.</p><p class="hint" aria-hidden="true">Click anywhere to step through. Wait, and the sky clears.</p></div>
+<div class="sky" id="sky" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="__SKYLABEL__"><canvas id="skyfx" aria-hidden="true"></canvas><p class="sr">__SKYLABEL__. Click to see.</p><p class="hint" aria-hidden="true">Click anywhere to step through. Wait, and the sky clears.</p></div>
 <div class="wh" id="wh" hidden aria-hidden="true"><canvas id="whfx"></canvas></div>
 
 <script>
@@ -438,6 +438,7 @@ const SW = $("#bsw"), sky = $("#sky"), skyfx = $("#skyfx");
 let skyRaf = 0, skyOpen = false, armed = true, chargeT = 0, going = false;
 (function when(){      /* the days left until Election Day, counted on the reader's own calendar */
   const el = $("#bwhen"); if (!el) return;
+  if (DOOR.whenText) { el.textContent = DOOR.whenText; return; }
   const [y, m, d] = String(DOOR.election || "").split("-").map(Number); if (!y) return;
   const day = new Date(y, m - 1, d), now = new Date(), n = Math.round((day - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 864e5);
   el.textContent = n > 1 ? `Election Day in ${n} days` : n === 1 ? "Election Day is tomorrow" : n === 0 ? "Election Day is today"
@@ -447,40 +448,59 @@ function glow(color){      /* one soft point of light, drawn once and stamped ma
   const c = document.createElement("canvas"); c.width = c.height = 32; const g = c.getContext("2d"), r = g.createRadialGradient(16, 16, 0, 16, 16, 16);
   r.addColorStop(0, "#FFFFFF"); r.addColorStop(.2, color); r.addColorStop(.5, color + "70"); r.addColorStop(1, color + "00"); g.fillStyle = r; g.fillRect(0, 0, 32, 32); return c;
 }
+/* what the fireworks spell, word by word in red, white and blue (John, 2026-09-29), with CLICK TO SEE in silver beneath */
+const RED = "#FF3B3B", WHITE = "#FFFFFF", BLUE = "#3D7BFF", SILVER = ["#F2F4F7", "#A9B0BA"];
+const SKYWORDS = DOOR.sky || [[["ON", RED], ["THE", WHITE], ["BALLOT", BLUE]]];
 function letterPoints(W, H){      /* where each spark comes to rest: the words drawn off screen, then sampled on a grid */
   const c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d"), FONT = '"Instrument Sans", system-ui, sans-serif';
-  let f1 = Math.max(30, Math.min(W * .11, H * .19, 150)); g.font = `700 ${f1}px ${FONT}`;
-  const w1 = g.measureText("ON THE BALLOT").width; if (w1 > W * .9) f1 *= W * .9 / w1;
-  const f2 = f1 * .5, y1 = H * .4, y2 = y1 + f1 * .5 + f2 * 1.05;
-  g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle";
-  g.font = `700 ${f1}px ${FONT}`; g.fillText("ON THE BALLOT", W / 2, y1);
-  g.font = `700 ${f2}px ${FONT}`; g.fillText("CLICK TO SEE", W / 2, y2);
+  const texts = SKYWORDS.map(l => l.map(w => w[0]).join(" "));
+  let f1 = Math.max(30, Math.min(W * .11, H * (SKYWORDS.length > 1 ? .14 : .19), 150)); g.font = `700 ${f1}px ${FONT}`;
+  const widest = Math.max(...texts.map(t => g.measureText(t).width)); if (widest > W * .9) f1 *= W * .9 / widest;
+  const f2 = f1 * .5, step = f1 * 1.06, words = [];
+  let y = H * .42 - ((SKYWORDS.length - 1) * step + f1 * .5 + f2 * 1.05) / 2;
+  g.fillStyle = "#fff"; g.textAlign = "left"; g.textBaseline = "middle";
+  SKYWORDS.forEach(line => {      // each word drawn in its own place, so each spark knows its word and its colour
+    g.font = `700 ${f1}px ${FONT}`;
+    const space = g.measureText(" ").width, total = line.reduce((s, w, i) => s + g.measureText(w[0]).width + (i ? space : 0), 0);
+    let x = W / 2 - total / 2;
+    line.forEach(([t, color]) => { const w = g.measureText(t).width; g.fillText(t, x, y); words.push({x0: x, x1: x + w, y, h: f1, color}); x += w + space; });
+    y += step;
+  });
+  const ySub = y - step + f1 * .5 + f2 * 1.05;
+  g.font = `700 ${f2}px ${FONT}`; const sw = g.measureText("CLICK TO SEE").width; g.fillText("CLICK TO SEE", W / 2 - sw / 2, ySub);
+  words.push({x0: W / 2 - sw / 2, x1: W / 2 + sw / 2, y: ySub, h: f2, color: "silver", sub: true});
   const gap = Math.max(4, Math.round(f1 / 23)), d = g.getImageData(0, 0, W, H).data, pts = [];
-  for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) if (d[(y * W + x) * 4 + 3] > 140) pts.push({x, y, line: y < (y1 + y2) / 2 ? 0 : 1});
-  return {pts, y1, y2, gap};
+  for (let yy = 0; yy < H; yy += gap) for (let xx = 0; xx < W; xx += gap) if (d[(yy * W + xx) * 4 + 3] > 140) {
+    const wi = words.findIndex(w => Math.abs(yy - w.y) <= w.h * .72 && xx >= w.x0 - 3 && xx <= w.x1 + 3);
+    if (wi >= 0) pts.push({x: xx, y: yy, w: wi});
+  }
+  return {pts, words, gap, f1};
 }
 function fireworks(){
   if (skyOpen || going) return; skyOpen = true; armed = false;
   sky.hidden = false; void sky.offsetWidth; sky.classList.add("show"); sky.focus({preventScroll: true});
   const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight, g = skyfx.getContext("2d");
   skyfx.width = Math.round(W * dpr); skyfx.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const COLORS = ["#FFD86B", "#FFFFFF", "#FF8A7A", "#8CC4FF", "#7CF0D0", "#FFB8E8"], SPR = Object.fromEntries(COLORS.map(c => [c, glow(c)]));
+  const COLORS = [RED, WHITE, BLUE, ...SILVER], SPR = Object.fromEntries(COLORS.map(c => [c, glow(c)]));
+  const tint = c => c === "silver" ? SILVER[(Math.random() * 2) | 0] : c;      // silver twinkles between a bright and a darker grey
   const stars = Array.from({length: Math.round(W * H / 8000)}, () => ({x: Math.random() * W, y: Math.random() * H * .9, r: Math.random() * 1.3 + .3, p: Math.random() * 6.28}));
   const T = letterPoints(W, H), groups = [];
-  [[0, 4], [1, 3]].forEach(([line, n]) => {      // the first line bursts in four places, the second in three, left to right
-    const P = T.pts.filter(p => p.line === line); if (!P.length) return;
-    let lo = Infinity, hi = -Infinity; P.forEach(p => { lo = Math.min(lo, p.x); hi = Math.max(hi, p.x); });
-    for (let k = 0; k < n; k++) { const a = lo + (hi - lo) * k / n, b = lo + (hi - lo) * (k + 1) / n, Q = P.filter(p => p.x >= a && (k === n - 1 ? p.x <= b : p.x < b));
-      if (Q.length) groups.push({line, pts: Q, cx: (a + b) / 2, cy: (line ? T.y2 : T.y1) - (line ? 0 : 10)}); }
+  T.words.forEach((wd, wi) => {      // one burst for a short word, two or three along a long one, left to right
+    const P = T.pts.filter(p => p.w === wi); if (!P.length) return;
+    const n = wd.sub ? 3 : Math.max(1, Math.min(3, Math.round((wd.x1 - wd.x0) / (T.f1 * 1.9))));
+    for (let k = 0; k < n; k++) { const a = wd.x0 + (wd.x1 - wd.x0) * k / n, b = wd.x0 + (wd.x1 - wd.x0) * (k + 1) / n;
+      const Q = P.filter(p => p.x >= a - 3 && (k === n - 1 ? p.x <= b + 3 : p.x < b));
+      if (Q.length) groups.push({pts: Q, cx: (a + b) / 2, cy: wd.y - (wd.sub ? 0 : 10), color: wd.color, sub: !!wd.sub}); }
   });
-  const LINE0 = ["#FFD86B", "#FF8A7A", "#8CC4FF", "#FFD86B"], rockets = groups.map((G, i) => ({at: 150 + i * 240 + (G.line ? 260 : 0), x0: G.cx + (Math.random() - .5) * 90, G, color: G.line ? (i % 2 ? "#7CF0D0" : "#FFFFFF") : LINE0[i % 4]}));
-  for (let k = 0; k < 7; k++) rockets.push({at: 2500 + k * 380, x0: W * (.1 + .8 * Math.random()), G: {cx: W * (.08 + .84 * Math.random()), cy: H * (.1 + .2 * Math.random()), pts: []}, color: COLORS[k % COLORS.length], deco: true});
+  const rockets = groups.map((G, i) => ({at: 150 + i * 230 + (G.sub ? 260 : 0), x0: G.cx + (Math.random() - .5) * 90, G, color: G.color}));
+  const later = groups.length * 230 + 700;      // when the words are nearly whole, a few more bursts around them
+  for (let k = 0; k < 7; k++) rockets.push({at: later + k * 380, x0: W * (.1 + .8 * Math.random()), G: {cx: W * (.08 + .84 * Math.random()), cy: H * (.1 + .2 * Math.random()), pts: []}, color: [RED, WHITE, BLUE][k % 3], deco: true});
   const parts = [], t0 = performance.now(), HOLD = 7000, FADE = 1500; let lastT = t0;      // the words are whole by about 3.9 s and hold till 7
   function explode(R, t){
     const {G} = R, s = T.gap * 2.2;
-    G.pts.forEach(p => { const a = Math.random() * 6.283, v = 170 + Math.random() * 260; parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, tx: p.x, ty: p.y, born: t, s, c: R.color, tw: Math.random() * 6.28}); });
+    G.pts.forEach(p => { const a = Math.random() * 6.283, v = 170 + Math.random() * 260; parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, tx: p.x, ty: p.y, born: t, s, c: tint(R.color), tw: Math.random() * 6.28}); });
     for (let k = 0, n = R.deco ? 120 : 70; k < n; k++) { const a = Math.random() * 6.283, v = 80 + Math.random() * (R.deco ? 330 : 250);
-      parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born: t, life: 900 + Math.random() * 1000, s: 4 + Math.random() * 6, c: R.deco ? R.color : COLORS[(Math.random() * COLORS.length) | 0]}); }
+      parts.push({x: G.cx, y: G.cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born: t, life: 900 + Math.random() * 1000, s: 4 + Math.random() * 6, c: tint(R.color)}); }
   }
   function step(now){
     const t = now - t0, dt = Math.min(40, now - lastT) / 1000; lastT = now;
@@ -490,7 +510,7 @@ function fireworks(){
     for (const R of rockets) {      // each rocket climbs from below the screen, trailing sparks, and bursts where its letters are
       if (t < R.at || R.fired) continue;
       const u = Math.min(1, (t - R.at) / 650), at = q => { const e = 1 - Math.pow(1 - Math.max(0, q), 2.2); return [R.x0 + (R.G.cx - R.x0) * e, H + 12 + (R.G.cy - H - 12) * e]; };
-      for (let k = 0; k < 7; k++) { const [x, y] = at(u - k * .035); g.globalAlpha = (1 - k / 7) * .85; g.drawImage(SPR["#FFD86B"], x - 5, y - 5, 10, 10); }
+      for (let k = 0; k < 7; k++) { const [x, y] = at(u - k * .035); g.globalAlpha = (1 - k / 7) * .85; g.drawImage(SPR[SILVER[0]], x - 5, y - 5, 10, 10); }
       if (u >= 1) { R.fired = true; explode(R, t); }
     }
     for (let i = parts.length - 1; i >= 0; i--) {
@@ -566,9 +586,8 @@ function go(url){
   wh.addEventListener("click", () => { location.href = url; }, {once: true});
 }
 if (SW) {
-  const lit = SW.classList.contains("on");
   SW.addEventListener("pointermove", e => {      // rest the pointer here for three seconds and the sky lights up; it takes a real
-    if (lit || e.pointerType !== "mouse" || calm() || !armed || skyOpen || going || SW.classList.contains("charge")) return;      // move onto the switch, so
+    if (e.pointerType !== "mouse" || calm() || !armed || skyOpen || going || SW.classList.contains("charge")) return;      // move onto the switch, so
     SW.classList.add("charge"); clearTimeout(chargeT); chargeT = setTimeout(fireworks, 3000);      // a pointer already resting there when the page opens sets nothing off
   });
   SW.addEventListener("pointerleave", () => { clearTimeout(chargeT); SW.classList.remove("charge"); if (!skyOpen) armed = true; });
@@ -601,13 +620,21 @@ ELECTION_DAY = "2026-11-03"      # the next general election; the switch counts 
 BALLOT_DB = os.path.join(HERE, "ballot_2026.sqlite")
 BALLOT_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v8H4z"/><path d="M8 12V5h8v7"/>'
                '<path d="M10 8.6l1.5 1.5 2.8-2.9"/></svg>')
+RECORD_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4H4z"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/>'
+               '<path d="M3 20h18"/></svg>')
+RED, WHITE, BLUE = "#FF3B3B", "#FFFFFF", "#3D7BFF"
+SKY_BACK = [[["LEGISLATION", RED], ["&", WHITE]], [["LEGISLATURES", BLUE]]]      # the fireworks on the ballot door, for the way back
 
 
 def switch(on):
-    """The On The Ballot switch: off on the front door (a click goes to the ballot), lit on the ballot door (a click goes back)."""
-    href, label = ("../", "On The Ballot is on. Back to the public record") if on else ("ballot/", "On The Ballot: who is on the ballot, race by race")
+    """The switch at the top middle names where it goes (John, 2026-09-29): On The Ballot on the front door; on the
+    ballot door, Legislation & Legislatures, the way back. Both set off fireworks after three seconds' rest."""
+    if on:
+        href, label, text, icon = "../", "Legislation and Legislatures: back to the public record", "Legislation &amp; Legislatures", RECORD_ICON
+    else:
+        href, label, text, icon = "ballot/", "On The Ballot: who is on the ballot, race by race", "On The Ballot", BALLOT_ICON
     return (f'<a class="bsw{" on" if on else ""}" id="bsw" href="{href}" aria-label="{label}" title="{label}"><span class="trk">'
-            f'<span class="knob">{BALLOT_ICON}</span><span class="lbl">On The Ballot</span></span><span class="when" id="bwhen"></span></a>')
+            f'<span class="knob">{icon}</span><span class="lbl">{text}</span></span><span class="when" id="bwhen"></span></a>')
 
 
 def ballot_facts(db=BALLOT_DB):
@@ -648,10 +675,12 @@ def main():
     import datetime as dt
     if args.ballot:
         B = ballot_facts()
-        data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B)}
+        data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B),
+                "sky": SKY_BACK, "whenText": "Back to the public record"}
         words = {"__TITLE__": "On The Ballot · The Civic Archive",
                  "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
-                 "__HOME__": "../", "__SWITCH__": switch(True), "__H1__": "Who&rsquo;s on the ballot, <em>race by race.</em>",
+                 "__HOME__": "../", "__SWITCH__": switch(True), "__SKYLABEL__": "Legislation and Legislatures",
+                 "__H1__": "Who&rsquo;s on the ballot, <em>race by race.</em>",
                  "__LEAD__": "Every candidate the states have certified for the November 3, 2026 general election, the primaries that chose them, "
                              "and the money behind them. Official lists only, loaded one state at a time. Pick a level of government.",
                  "__FOOTER__": f"On The Ballot, from The Civic Archive v{version}. Candidate lists from each state&rsquo;s election office; "
@@ -665,6 +694,7 @@ def main():
         words = {"__TITLE__": "The Civic Archive",
                  "__DESC__": "One shared place for the public record: every bill, every recorded vote, who represents you and who funds them. Federal and state.",
                  "__HOME__": "./", "__SWITCH__": switch(False) if os.path.exists(os.path.join(site_root, "ballot", "index.html")) else "",
+                 "__SKYLABEL__": "On The Ballot",
                  "__H1__": "The public record, <em>for everyone.</em>",
                  "__LEAD__": "Every bill, every recorded vote, who represents you and who funds them, straight from official sources and written so you can follow it. Pick a level of government to step inside.",
                  "__FOOTER__": f"The Civic Archive v{version}. Built from public records: GovInfo, the House Clerk and the Senate, the Federal Election Commission, "

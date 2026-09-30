@@ -503,10 +503,32 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   CLICK TO SEE over a blurred night sky and hold about three seconds; a click runs the wormhole (canvas tunnel, the
   page and the words pulled into the middle, two seconds) and `sessionStorage.wormhole` plays the arrival on the
   other side. Motion off: a plain fade. Phones: a tap goes straight through.
-- Next, in order: more states' lists, largest first (TX, NY, PA, IL, OH, GA, NC, MI ...); Florida's primary votes;
-  the California certified-list check (a small PDF reader); ads (the FEC's independent expenditure file, whose
-  purpose column gives the medium, and campaigns' operating expenditures; ad library links); polls (AAPOR's list);
-  each campaign's issues page; share pages for races; then state and local ballots.
+- Texas (v4.0.047): the Secretary of State's Ballot Certification Report PDF, county by county, read with
+  `ballot/pdftext.py` (pure Python: object streams, the page tree, ToUnicode maps; a simple font's codes are always one
+  byte even when its map claims two). Every county's list of a district must agree. Names are printed in capitals;
+  the page shows ordinary capitals (a sitting member as the roster spells them) and says so.
+- John's second round (2026-09-29): photos, age and years in office on every card. `ballot/people.py` takes birth
+  dates, offices and portraits from official records only (the congress-legislators roster for Congress, the Open
+  States roster in `state_<code>.sqlite` for state legislators and statewide officials, matched by name, same state,
+  same party, and only when unique; every match is printed for reading). A term whose scheduled end is in the future is
+  current; a run with no start date starts "at least" at the earliest date the record gives.
+- Campaign photos (`ballot/campaign.py`): each campaign's website from its FEC Form 1 through OpenFEC, which needs
+  John's free api.data.gov key (`Save FEC key.bat` writes `fec_key.txt`; never ask for it in chat, never print or read
+  it; the demo key allows 10 requests an hour). docquery.fec.gov refuses scripts (403) and the FEC's committee pages
+  load by JavaScript, so neither is used. Up to three photo options per candidate from their own site; each is looked at
+  on a contact sheet and `ballot/photo_choice.json` records the option showing the candidate alone, or "none" with a
+  note. Only chosen photos reach the page, credited and linked. Nobody's likeness is recognised or matched.
+- The ballot door's switch reads "Legislation & Legislatures" ("Back to the public record" beneath) and has the same
+  three-second fireworks for the way back. The fireworks are red, white and blue by word, CLICK TO SEE in silver.
+- Betting-market odds (John's answers, 2026-09-29): Polymarket and Kalshi, as information only, labelled "what
+  bettors are paying: not a poll, a forecast or an official record", with trading volume and the time. A click opens a
+  calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),
+  the national problem-gambling helpline and the reader's own state's (from the state they picked or their location,
+  worked out on the device), and "Go to the market" or "Stay here". No slot machine, no referral codes. Not built yet.
+- Next, in order: more states' lists, largest first (NY, PA, IL, OH, GA, NC, MI ...); campaign websites and photos once
+  the key is saved; betting-market odds; Florida's primary votes; the California certified-list check; ads (the FEC's
+  independent expenditure file, whose purpose column gives the medium; ad library links); polls (AAPOR's list); share
+  pages for races; then state and local ballots.
 
 ## Optional: rate more bills with the Claude API
 
