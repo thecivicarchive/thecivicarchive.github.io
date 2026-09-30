@@ -238,6 +238,22 @@
     "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Iowa",
     "checked": "2026-09-30"
    }
+  },
+  "2026-SD-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 8,
+    "pollsters": [
+     "Public Policy Polling (four, for Brian Bengs's campaign)",
+     "a poll of September 8-9, 2026 for Brian Bengs's campaign whose pollster the list does not name",
+     "Impact Research (for Brian Bengs's campaign)",
+     "Public Opinion Strategies (for the National Republican Senatorial Committee)",
+     "Mason-Dixon Polling & Strategy (the Republican primary, for South Dakota News Watch)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_South_Dakota",
+    "checked": "2026-09-30",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. The September 8-9 row is labelled Silver Bulletin on the list and sourced to a post on X."
+   }
   }
  }
 }

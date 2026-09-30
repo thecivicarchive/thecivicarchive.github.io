@@ -554,15 +554,30 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   (Feb 6-8, 2026) is by a member; Mason-Dixon, SurveyUSA, InsiderAdvantage and the rest are not members. Michigan (v4.0.055):
   Marist, Emerson x2, SSRS (CNN's PDF at s3.documentcloud.org/documents/<id>/<slug>.pdf; the viewer page has no text),
   MSU IPPSR; Iowa: Marist, Emerson x2. Polls by members that cannot yet be checked (a paywall, a secondhand report) go
-  in `pending` and are named, not counted. South Dakota's polls are not yet looked for. State helplines (`HELPLINES`)
-  only from the state's own page: MN, IA, MI (read in the Browser pane; michigan.gov refuses scripts) and WI
-  (dhs.wisconsin.gov/disease/gambling-disorder.htm); South Dakota's DSS page is an empty shell and ND is not looked up yet.
+  in `pending` and are named, not counted. South Dakota (v4.0.060): no TI member has polled it (PPP, Impact Research, Public
+  Opinion Strategies, Mason-Dixon), so the race has `"polls": []` with `left_out`, and the page says none has published one
+  yet. State helplines (`HELPLINES`) only from the state's own page: MN, IA, MI (read in the Browser pane; michigan.gov
+  refuses scripts), WI (dhs.wisconsin.gov/disease/gambling-disorder.htm), ND (HHS news release of 2026-03-09: GamblerND),
+  SD (the Lottery's Responsible Play page; the DSS page is an empty shell), OH (dbh.ohio.gov, which answers scripts 404 and
+  browsers normally: read in the Browser pane), IN (FSSA DMHA), NE (the Commission on Problem Gambling), MT (the Department
+  of Justice's Gambling Control page, naming the Montana Council on Problem Gambling's line). Wyoming's Department of Health
+  points to the national line, so WY is left out and shows the national line alone.
 - Betting markets (v4.0.054, `ballot/odds.py`, `run_ballot.py odds`): `MARKETS` lists each race's Polymarket event slug
   and Kalshi event ticker, found and checked by hand (Kalshi's prices are `last_price_dollars`, volume `volume_fp` in
   contracts); a snapshot goes to ballot_cache/odds/odds_2026.json. The page folds them away, labelled, and "Go to" opens
   a notice dialog: bets not facts, 18 and over, legality disputed in some states, the National Problem Gambling
   Helpline 1-800-MY-RESET (NCPG's page; 1-800-GAMBLER is no longer the number there) and the state's line (`HELPLINES`;
   Minnesota 1-800-333-HOPE, from its Department of Human Services). "Stay here" is the main button. No referral links.
+- Minnesota (v4.0.058-059): John saved the Secretary of State's files (he answered its CAPTCHA himself; never solve or
+  work around it) into states_cache/mn_local/sos/20261103/, with a .md extension: "Candidates in the General Election -
+  Federal, State, and County Offices" (number; name; office no.; office title; county, 88 statewide; ballot order;
+  party; then addresses, phone, website [col 17], e-mail) and "Candidate Filings" (the same without the ballot order:
+  party is col 6, website col 16), with the Secretary's own column note. `mn.py` reads name, office, order, party and the
+  website only; the filings give the primary fields (winners from the November list; votes wait for the Aug 11 results
+  files). IND = independent. Websites go to ballot_cache/lists_websites/mn.json, then `campaign.list_websites` puts them
+  on the matched person; `campaign.issues` follows a home-page link labelled Issues/Priorities/Platform and keeps only
+  the page's headings as topics (`topic()`: numbering off, all-caps to ordinary, sentences, furniture and appeals that
+  name the candidate dropped; call net.patient_lookups first or the router's lost lookups fail whole sites).
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`
   for every race with a list, drawn with share_cards.py (the type has no star glyph: "serves in this seat today" is
   written under an incumbent's name; more than four candidates show three and "and N more"); redrawn only when the

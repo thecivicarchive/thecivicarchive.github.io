@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.060 — 2026-09-30 — South Dakota's polls, and the helplines of the Dakotas and the next states
+
+- South Dakota's Senate race now says plainly that no pollster in AAPOR's Transparency Initiative has published a poll of it, and names the eight polls by others that were found and left out (Public Policy Polling, Impact Research, Public Opinion Strategies, Mason-Dixon).
+- The notice before a betting market now gives each state's own problem-gambling helpline, from the state's own page, for North Dakota (GamblerND, 1-877-702-7848), South Dakota (1-888-781-HELP), Ohio, Indiana, Nebraska and Montana. Wyoming's Department of Health points to the national helpline, which is shown everywhere.
+
 ## v4.0.059 — 2026-09-30 — Minnesota's primaries, and the campaigns in their own words
 
 - Each Minnesota race shows its August 11 primaries: every candidate who

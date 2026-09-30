@@ -22,8 +22,13 @@ MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each c
     "2026-MI-S2": {"polymarket": "michigan-senate-election-winner", "kalshi": "SENATEMI-26", "checked": "2026-09-30"},
     "2026-IA-S2": {"polymarket": "iowa-senate-election-winner", "kalshi": "SENATEIA-26", "checked": "2026-09-30"},
     "2026-SD-S2": {"polymarket": "south-dakota-senate-election-winner", "kalshi": "SENATESD-26", "checked": "2026-09-30"},
+    "2026-OH-S3": {"polymarket": "ohio-senate-election-winner", "kalshi": "SENATEOHS-26", "checked": "2026-09-30"},      # the special election
+    "2026-NE-S2": {"polymarket": "nebraska-senate-election-winner", "kalshi": "SENATENE-26", "checked": "2026-09-30"},
+    "2026-MT-S2": {"polymarket": "montana-senate-election-winner", "kalshi": "SENATEMT-26", "checked": "2026-09-30"},
+    "2026-WY-S2": {"polymarket": "wyoming-senate-election-winner", "kalshi": "SENATEWY-26", "checked": "2026-09-30"},
     **{f"2026-{st}-H{int(d):02d}": {"kalshi": f"HOUSE{st}{d}-26", "checked": "2026-09-30"}      # "MN-02 House winner?" and the like
-       for st, d in (("MN", 2), ("WI", 1), ("WI", 3), ("IA", 1), ("IA", 3), ("MI", 3), ("MI", 4), ("MI", 7), ("MI", 8), ("MI", 10))},
+       for st, d in (("MN", 2), ("WI", 1), ("WI", 3), ("IA", 1), ("IA", 3), ("MI", 3), ("MI", 4), ("MI", 7), ("MI", 8), ("MI", 10),
+                                  ("OH", 1), ("OH", 9), ("OH", 13), ("IN", 1), ("NE", 2), ("MT", 1))},
 }
 
 

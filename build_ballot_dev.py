@@ -659,7 +659,14 @@ const HELPLINES = {      // each from the state's own page; a state not listed s
   MN: ["Minnesota Problem Gambling Helpline", "1-800-333-HOPE (4673)", "tel:18003334673", "https://mn.gov/dhs/people-we-serve/adults/services/gambling-problems/get-help/"],
   IA: ["Your Life Iowa (Iowa HHS)", "(855) 581-8111, or text (855) 895-8398", "tel:18555818111", "https://yourlifeiowa.org/gambling"],
   MI: ["Michigan Problem Gambling Helpline", "1-800-270-7117", "tel:18002707117", "https://www.michigan.gov/mdhhs/keep-mi-healthy/mentalhealth/gambling"],
-  WI: ["Wisconsin's free helpline", "800-GAMBLE-5 (800-426-2535)", "tel:18004262535", "https://www.dhs.wisconsin.gov/disease/gambling-disorder.htm"]};
+  WI: ["Wisconsin's free helpline", "800-GAMBLE-5 (800-426-2535)", "tel:18004262535", "https://www.dhs.wisconsin.gov/disease/gambling-disorder.htm"],
+  ND: ["GamblerND (North Dakota Health and Human Services)", "1-877-702-7848, or 711 (TTY)", "tel:18777027848", "https://www.hhs.nd.gov/news/march-problem-gambling-awareness-month-free-confidential-support-available-statewide"],
+  SD: ["South Dakota's Problem Gambling Helpline", "1-888-781-HELP (4357)", "tel:18887814357", "https://lottery.sd.gov/responsible-play/"],
+  OH: ["Problem Gambling Helpline of Ohio", "1-800-589-9966", "tel:18005899966", "https://dbh.ohio.gov/get-help/get-help-now/problem-gambling"],
+  IN: ["Indiana Problem Gambling Referral Line", "800-994-8448", "tel:18009948448", "https://www.in.gov/fssa/dmha/addiction-services/problem-gambling"],
+  NE: ["Nebraska Commission on Problem Gambling helpline", "1-833-238-6837, or text 402-806-7344", "tel:18332386837", "https://problemgambling.nebraska.gov/"],
+  MT: ["Montana Council on Problem Gambling's 24-hour helpline (listed by the Montana Department of Justice)", "1-888-900-9979", "tel:18889009979", "https://dojmt.gov/gaming/compulsive-gambling/"]};
+      // Wyoming's Department of Health points to the national helpline (health.wyo.gov/behavioralhealth/mhsa/problem-gambling/), so Wyoming shows that alone
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
@@ -689,8 +696,12 @@ function marketNotice(url, name, st){
 }
 document.addEventListener("click", e => { const b = e.target.closest(".mgo"); if (!b) return; const r = R[decodeURIComponent(location.hash.slice(6))]; marketNotice(b.dataset.url, b.dataset.name, r ? r.st : ""); });
 /* ---------- polls: only pollsters in AAPOR's Transparency Initiative (John, 2026-09-29) ---------- */
+const TI_LINK = `<a href="https://aapor.org/standards-and-ethics/transparency-initiative/" target="_blank" rel="noopener">Transparency Initiative</a>`;
+const leftOutHTML = (L, other) => L && L.n ? `<p class="fnote">${L.n} ${other ? "other " : ""}published ${L.n === 1 ? "poll" : "polls"} of this race ${L.n === 1 ? "is" : "are"} from pollsters outside the Initiative and ${L.n === 1 ? "is" : "are"} not counted here: ${esc(L.pollsters.join(", "))}. Found in <a href="${esc(L.found_in)}" target="_blank" rel="noopener">Wikipedia's list of polls</a> (secondary), checked ${esc(fmtDate(L.checked))}.</p>` : "";
 function pollsHTML(r){
-  const P0 = (BOOT.polls || {})[r.id]; if (!P0 || !(P0.polls || []).length) return "";
+  const P0 = (BOOT.polls || {})[r.id]; if (!P0) return "";
+  if (!(P0.polls || []).length) return P0.left_out && P0.left_out.n ? `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">We show polls only from pollsters in the American Association for Public Opinion Research's ${TI_LINK}, who publish how each poll was done. None of them has published a poll of this race yet.</p>
+    ${leftOutHTML(P0.left_out, false)}</section>` : "";
   const polls = [...P0.polls].sort((a, b) => b.end.localeCompare(a.end)), seen = new Set(), latest = [];
   for (const p of polls) if (!seen.has(p.pollster) && latest.length < 5) { seen.add(p.pollster); latest.push(p); }
   const names = [...new Set(polls.flatMap(p => Object.keys(p.shares)))];
@@ -700,11 +711,11 @@ function pollsHTML(r){
   const avg = ten.length > 1 ? `<p class="pavg"><b>Our average of the ${ten.length} most recent:</b> ${names.map(n => { const v = ten.filter(p => p.shares[n] != null).map(p => p.shares[n]); return v.length ? `${esc(n)} (${v.join(" + ")}) &divide; ${v.length} = <b>${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%</b>` : ""; }).filter(Boolean).join("; ")}.</p>`
     : `<p class="pavg">Only one poll qualifies so far, so there is no average yet; ours will take the ten most recent from these pollsters.</p>`;
   const L = P0.left_out, notes = polls.filter(p => p.note).map(p => `<li>${esc(p.pollster)}, ${range(p)}: ${esc(p.note)}</li>`).join("");
-  return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">Only from pollsters in the American Association for Public Opinion Research's <a href="https://aapor.org/standards-and-ethics/transparency-initiative/" target="_blank" rel="noopener">Transparency Initiative</a>, who publish how each poll was done. The latest from up to five of them, each checked against the pollster's own release.</p>
+  return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">Only from pollsters in the American Association for Public Opinion Research's ${TI_LINK}, who publish how each poll was done. The latest from up to five of them, each checked against the pollster's own release.</p>
     <div class="ptable"><table><thead><tr><th>Pollster and dates</th>${names.map(n => `<th>${esc(n)}</th>`).join("")}<th>Someone else or undecided</th></tr></thead><tbody>${rows}</tbody></table></div>
     ${avg}${notes ? `<ul class="pnotes">${notes}</ul>` : ""}
     ${(P0.pending || []).length ? `<p class="fnote">Also by members, found but not counted until checked against the pollster's own release: ${P0.pending.map(x => `${esc(x.pollster)} (ending ${esc(fmtDate(x.end))}; ${esc(x.why)})`).join("; ")}.</p>` : ""}
-    ${L && L.n ? `<p class="fnote">${L.n} other published ${L.n === 1 ? "poll" : "polls"} of this race ${L.n === 1 ? "is" : "are"} from pollsters outside the Initiative and ${L.n === 1 ? "is" : "are"} not counted here: ${esc(L.pollsters.join(", "))}. Found in <a href="${esc(L.found_in)}" target="_blank" rel="noopener">Wikipedia's list of polls</a> (secondary), checked ${esc(fmtDate(L.checked))}.</p>` : ""}
+    ${leftOutHTML(L, true)}
     <p class="fnote">A poll is a measure of opinion when it was taken, with a margin of error, not a forecast.</p></section>`;
 }
 /* ---------- maps: the districts on the ballot, drawn as on the Vote map (John, 2026-09-30) ---------- */
