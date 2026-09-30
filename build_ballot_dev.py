@@ -43,7 +43,7 @@ ELECTION_NAMES = {"general": "General election", "open-primary": "Open primary",
                   "primary-AZI": "Arizona Independent Party primary", "primary-NL": "No Labels primary",
                   "special-primary-REP": "Special Republican primary", "special-runoff-REP": "Special Republican primary runoff",
                   "special-primary-DEM": "Special Democratic primary", "special-runoff-DEM": "Special Democratic primary runoff",
-                  "primary-NP": "Nonpartisan primary"}
+                  "primary-NP": "Nonpartisan primary", "primary-CON": "Conservative primary", "primary-WOR": "Working Families primary"}
 
 
 def money(con, ids):

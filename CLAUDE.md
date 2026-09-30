@@ -697,7 +697,16 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   Mississippi (`ms.py`: sample ballots' order; official recapitulations), New Mexico (`nm.py`: candidateportal.servis
   eid=2917). Nevada (`nv.py`): www.nvsos.gov and silverstateelection.nv.gov answer scripts with Incapsula: John saves
   the certified list as ballot_cache/nv/nv_2026_general_candidates.html. `fec26.py` strips phone-like digit runs that
-  filers typed into the name field. Privacy: three agents
+  filers typed into the name field.
+  Primaries for the first states (v4.0.066): Texas (`tx.py`): the SOS's Civix results system (goelect.txelections.
+  civixapps.com/api-ivis-system/api/s3/enr/electionConstants lists elections with an official flag; each election's
+  "Official Canvass Report" PDF comes base64 inside JSON; ids 53813/53814 primaries, 58315/58314 runoffs); a no-majority
+  field can end without a runoff (TX-23, TX-32 Republican). Illinois (`il.py`): the State Board's official canvass.
+  Pennsylvania (`pa.py`): electionreturns.pa.gov JSON (GetOfficeData, electionid 117; the election list marks it
+  Official) and the county CSV as a check. Florida (`fl.py`): the Division's official results files. New York (`ny.py`):
+  the Board's results workbook (2026-june-primary-vote-results-08312026.xlsx, linked from its "Certified June 23rd
+  Primary" page), carried out of the Browser pane; 2026's sheet titles read "Primary Election - June 23, 2026"; district
+  15's Democratic sheet disagrees with itself (candidate vs party totals), which the source note records. Privacy: three agents
   printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
   and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`

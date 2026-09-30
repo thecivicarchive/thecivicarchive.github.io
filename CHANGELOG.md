@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.066 — 2026-09-30 — Primaries for the big states, and polls for Texas and Florida
+
+- Texas's March 3 primaries and May 26 runoffs, Illinois's March 17 primaries, Pennsylvania's May 19 primaries and New York's June 23 primaries are in, with the official vote counts; Florida's August 18 primaries now show their official votes too.
+- Polls for the Senate races in Texas (seven, from Marist, Emerson and ReconMR) and Florida (five), from Transparency Initiative members only; Illinois's race has no published November poll by anyone. Every one of the 35 Senate races now says what polls exist and which are counted.
+
 ## v4.0.065 — 2026-09-30 — Alabama, Louisiana, Oregon, Mississippi and New Mexico
 
 - Alabama, Oregon, Mississippi and New Mexico are loaded from each state's own official list, with their primaries and official votes; Alabama's includes the August 11 special primaries held after its 2023 map came back.

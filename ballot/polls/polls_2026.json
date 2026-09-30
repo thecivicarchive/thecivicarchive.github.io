@@ -1405,6 +1405,285 @@
     "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_North_Carolina",
     "checked": "2026-09-30"
    }
+  },
+  "2026-IL-S2": {
+   "polls": [],
+   "left_out": {
+    "n": 24,
+    "pollsters": [
+     "Public Policy Polling (seven, the Democratic primary, for the Democratic Lieutenant Governors Association, which backed Stratton)",
+     "GBAO (five, the Democratic primary, for Krishnamoorthi's campaign)",
+     "Change Research (three, the Democratic primary only, for Krishnamoorthi's campaign)",
+     "Victory Research (three, the Democratic primary)",
+     "Tulchin Research (two, the Democratic primary, one for Krishnamoorthi's campaign)",
+     "Emerson College Polling (both primaries only, January 3-5, 2026, for WGN-TV and Nexstar Media; it did not ask the November matchup)",
+     "FM3 Research (the Democratic primary, for American Future)",
+     "Z to A Research (the Democratic primary, for The Impact Fund PAC, which backed Krishnamoorthi)",
+     "314 Action (the Democratic primary with Lauren Underwood, who did not run, March 2025)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Illinois",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-FL-S3": {
+   "polls": [
+    {
+     "pollster": "Change Research (for Freedom Project USA)",
+     "member": "Change Research",
+     "start": "2026-09-25",
+     "end": "2026-09-27",
+     "n": 1063,
+     "pop": "likely voters",
+     "moe": 2.8,
+     "shares": {
+      "Ashley Moody": 48,
+      "Angie Nixon": 47
+     },
+     "rest": 6,
+     "note": "The figures count voters leaning one way: undecided voters were asked whom they would choose. The release gives 5% not sure and 1% would not vote, so the figures add to 101 because of rounding. The statement's opening and its tables give 1,063 likely voters; one later sentence gives 1,107, the September 7-9 poll's figure.",
+     "url": "https://www.freedomprojectusa.org/florida-aapor-methodology-statement-september-25-27-2026.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Change Research (for Freedom Project USA)",
+     "member": "Change Research",
+     "start": "2026-09-07",
+     "end": "2026-09-09",
+     "n": 1107,
+     "pop": "likely voters",
+     "moe": 2.8,
+     "shares": {
+      "Ashley Moody": 47,
+      "Angie Nixon": 47
+     },
+     "rest": 6,
+     "note": "The figures count voters leaning one way: undecided voters were asked whom they would choose. The release gives 5% not sure and 1% would not vote.",
+     "url": "https://www.freedomprojectusa.org/florida-aapor-methodology-statement-september-7-9-2026.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of North Florida",
+     "member": "University of North Florida Public Opinion Research Laboratory",
+     "start": "2026-07-08",
+     "end": "2026-07-17",
+     "n": 848,
+     "pop": "likely voters",
+     "moe": 3.8,
+     "shares": {
+      "Ashley Moody": 50,
+      "Angie Nixon": 42
+     },
+     "rest": 8,
+     "note": "Asked in July, a month before the August 18 primary, as one of two possible matchups (the other was against Alexander Vindman). The release gives 1% for someone else, 1% would not vote and 6% undecided or refused.",
+     "url": "https://www.unfporl.org/s/UNF-PORL-Summer-Statewide-2026-FLLV-Press-Release.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-03-29",
+     "end": "2026-03-31",
+     "n": 1125,
+     "pop": "likely voters",
+     "moe": 2.8,
+     "shares": {
+      "Ashley Moody": 47,
+      "Angie Nixon": 36
+     },
+     "rest": 16,
+     "note": "Asked in March, before the August 18 primary, as one of three possible matchups (the others were against Alexander Vindman and Hector Mujica). The full results give 1% for someone else and 15% undecided; the figures add to 99 because of rounding.",
+     "url": "https://emersoncollegepolling.com/florida-2026-poll-donalds-leads-gop-primary-for-governor-republicans-outpace-democrats-in-florida-elections/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "University of North Florida",
+     "member": "University of North Florida Public Opinion Research Laboratory",
+     "start": "2026-02-21",
+     "end": "2026-03-02",
+     "n": 786,
+     "pop": "likely voters",
+     "moe": 4.4,
+     "shares": {
+      "Ashley Moody": 46,
+      "Angie Nixon": 38
+     },
+     "rest": 16,
+     "note": "Asked in February and March, before the August 18 primary, as one of two possible matchups (the other was against Alexander Vindman). 768 of the 786 voters answered this question, and refusals are left out of the percentages. The release gives 1% for someone else, 1% would not vote and 14% don't know.",
+     "url": "https://www.unfporl.org/s/PORL-2026-Spring-Statewide-LV-EMBARGO-3426-9ym2.pdf",
+     "checked": "2026-09-30"
+    }
+   ],
+   "left_out": {
+    "n": 15,
+    "pollsters": [
+     "Stetson University (two)",
+     "Change Research (two, for Freedom Project USA: Moody against Alexander Vindman only, May 13-16, and Moody against Vindman plus the Democratic primary, July 9-11)",
+     "University of North Florida (Moody against Jennifer Jenkins only, October 15-25, 2025)",
+     "InsiderAdvantage",
+     "St. Pete Polls (for Florida Politics)",
+     "Quantus Insights",
+     "McLaughlin & Associates (for Associated Industries of Florida, which backs Moody)",
+     "Global Strategy Group (for Alex Vindman's campaign)",
+     "Cherry Communications (for the Florida Chamber of Commerce)",
+     "Echelon Insights (for NetChoice)",
+     "Public Policy Polling (for Alex Vindman's campaign)",
+     "MDW (for Edge Communications)",
+     "and one more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_special_election_in_Florida",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-TX-S2": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-17",
+     "end": "2026-09-20",
+     "n": 1139,
+     "pop": "registered voters",
+     "moe": 4.4,
+     "shares": {
+      "Ken Paxton": 44,
+      "James Talarico": 50
+     },
+     "rest": 6,
+     "note": "The table packet gives another candidate 2% and undecided or refused 4%.",
+     "url": "https://maristpoll.marist.edu/polls/2026-midterm-elections-in-texas-september-2026/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-09-12",
+     "end": "2026-09-14",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3,
+     "shares": {
+      "Ken Paxton": 46,
+      "James Talarico": 47,
+      "Ted Brown": 2
+     },
+     "rest": 4,
+     "note": "The release gives 4% undecided. The figures add to 99 because of rounding.",
+     "url": "https://emersoncollegepolling.com/texas-2026-poll-talarico-and-paxton-in-dead-heat-abbott-maintains-edge/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "ReconMR",
+     "member": "Reconnaissance Market Research",
+     "start": "2026-09-08",
+     "end": "2026-09-11",
+     "n": 614,
+     "pop": "likely voters",
+     "moe": 4.3,
+     "shares": {
+      "Ken Paxton": 43,
+      "James Talarico": 49
+     },
+     "rest": 8,
+     "note": "The question named Paxton and Talarico, or someone else. Of the rest, 4% chose someone else or would not vote and 4% did not know.",
+     "url": "https://reconmr.com/wp-content/uploads/2026/09/ReconMR-Texas-Poll-September-Release-Final.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-08-09",
+     "end": "2026-08-10",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3,
+     "shares": {
+      "Ken Paxton": 47,
+      "James Talarico": 46
+     },
+     "rest": 7,
+     "note": "The question offered someone else instead of naming Ted Brown. Of the rest, 2% chose someone else and 5% were undecided.",
+     "url": "https://emersoncollegepolling.com/texas-2026-poll-paxton-and-talarico/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "ReconMR (with Texas A&M University's Bush School)",
+     "member": "Reconnaissance Market Research",
+     "start": "2026-07-27",
+     "end": "2026-07-30",
+     "n": 619,
+     "pop": "likely voters",
+     "moe": 4.7,
+     "shares": {
+      "Ken Paxton": 43,
+      "James Talarico": 47
+     },
+     "rest": 10,
+     "note": "The question named Paxton and Talarico, or someone else. Of the rest, 4% chose someone else or would not vote and 6% did not know.",
+     "url": "https://reconmr.com/wp-content/uploads/2026/08/Texas-Pulse-August-Release-August-7-2026-Final.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "ReconMR (with Texas A&M University's Bush School)",
+     "member": "Reconnaissance Market Research",
+     "start": "2026-06-01",
+     "end": "2026-06-04",
+     "n": 807,
+     "pop": "likely voters",
+     "moe": 4,
+     "shares": {
+      "Ken Paxton": 46,
+      "James Talarico": 46
+     },
+     "rest": 9,
+     "note": "The crosstabs give 3% for someone else, 1% who would not vote and 5% who did not know or refused. The figures add to 101 because of rounding.",
+     "url": "https://reconmr.com/wp-content/uploads/2026/06/TXP-June-Press-Release-1.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-01-10",
+     "end": "2026-01-12",
+     "n": 1165,
+     "pop": "registered voters",
+     "moe": 2.8,
+     "shares": {
+      "Ken Paxton": 46,
+      "James Talarico": 46
+     },
+     "rest": 9,
+     "note": "Asked in January as one of six possible matchups, before the March 3 primaries and before the May 26 Republican runoff that Paxton won. The release gives 9% undecided. The figures add to 101 because of rounding.",
+     "url": "https://emersoncollegepolling.com/texas-2026-poll/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-27",
+     "why": "Siena's own post gives only the headline. The full results are on the New York Times's site, which turns our check away"
+    }
+   ],
+   "left_out": {
+    "n": 126,
+    "pollsters": [
+     "Stratus Intelligence (fourteen: twelve of the Republican primary, for a group backing Wesley Hunt; one for the Conservative Policy Project; one of November, for Texans for a Conservative Majority)",
+     "Peak Insights (eleven, the Republican primary and runoff, for Texans for a Conservative Majority, which backed Cornyn)",
+     "Texas Public Opinion Research (seven)",
+     "Public Policy Polling (six: two for Senate Majority PAC, two for Lone Star Rising PAC, which backs Talarico, and one for the Texas Justice Fund)",
+     "Pulse Decision Science (five, for Paxton's campaign and groups backing him)",
+     "Quantus Insights (five, one for Trending Politics)",
+     "Texas Southern University (five)",
+     "Impact Research (four, for Talarico's campaign)",
+     "University of Texas/Texas Politics Project (four)",
+     "Ragnar Research Partners (four, three for groups backing Cornyn)",
+     "Emerson College Polling (two: August 11-12, 2025, the primaries and matchups with Colin Allred, and February 26-27, 2026, the primaries only; neither asked the November matchup)",
+     "Change Research (two, listed only for other contests: Cornyn and Paxton against Jasmine Crockett, November 21-26, 2025, and the Republican runoff, March 17-19, 2026; its own site sits behind a bot check)",
+     "and fifty-seven more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Texas",
+    "checked": "2026-09-30"
+   }
   }
  }
 }
