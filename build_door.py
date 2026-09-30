@@ -257,6 +257,28 @@ body.fadeout .page{transition:opacity .2s;opacity:0}
 body.bh .page{transition:transform 1.7s cubic-bezier(.7,0,.95,.35),filter 1.5s ease-in,opacity 1.1s ease-in .4s;transform:scale(.02) rotate(170deg);filter:blur(10px) brightness(.35);opacity:0}
 .sky.bh canvas{transition:transform 1.6s cubic-bezier(.7,0,.95,.35),opacity 1.2s ease-in .25s;transform:scale(.02) rotate(170deg);opacity:0}
 body.arrive-bh .page{animation:whitehole 1.2s cubic-bezier(.16,.7,.2,1) both}
+/* the crossings that fit what each side covers (John, 2026-09-29): a ballot fed into a scanner; books falling from a shelf */
+.scene{position:fixed;inset:0;z-index:85;overflow:hidden;cursor:pointer;opacity:0;transition:opacity .3s ease;background:#EFE9DD}
+.scene.show{opacity:1}
+.scene svg{position:absolute;inset:0;width:100%;height:100%;transform-origin:var(--zx,50%) var(--zy,48%);transition:transform .75s cubic-bezier(.6,0,.9,.4)}
+.scene::after{content:"";position:absolute;inset:0;background:#FFFDF6;opacity:0;transition:opacity .6s ease-in .15s;pointer-events:none}
+.scene.zoom svg{transform:scale(7)}.scene.zoom::after{opacity:1}
+.scene .ballot{animation:ballotgo 2s .25s both}
+@keyframes ballotgo{0%{transform:translate(40px,760px) rotate(-18deg);animation-timing-function:cubic-bezier(.25,.7,.3,1)}
+  48%{transform:translate(372px,268px) rotate(0);animation-timing-function:linear}58%{transform:translate(372px,268px)}
+  100%{transform:translate(372px,20px);animation-timing-function:cubic-bezier(.5,0,.6,1)}}
+.scene .sleeve{animation:sleevego 2s .25s both}
+@keyframes sleevego{0%{transform:translate(40px,760px) rotate(-18deg);animation-timing-function:cubic-bezier(.25,.7,.3,1)}
+  48%{transform:translate(372px,268px) rotate(0)}62%{transform:translate(372px,268px);opacity:1}100%{transform:translate(300px,640px);opacity:0}}
+.scene .led.on{fill:#3BE06F;filter:drop-shadow(0 0 6px #3BE06F)}
+.scene .bk{transform-box:fill-box;transform-origin:50% 100%;animation:fall 1.15s var(--d) cubic-bezier(.45,0,.9,.55) both}
+@keyframes fall{25%{transform:rotate(calc(var(--r) * .25))}100%{transform:translate(var(--x),560px) rotate(var(--r));opacity:.85}}
+.scene .unit{transform-box:fill-box;transform-origin:50% 100%;animation:unitaway .7s 1.35s ease-in both}
+@keyframes unitaway{to{transform:translateY(60px) scale(.92);opacity:0}}
+.scene .door{transform-box:fill-box;transform-origin:0% 50%;animation:dooropen .85s 2.05s cubic-bezier(.3,.6,.3,1) both}
+@keyframes dooropen{to{transform:scaleX(.07) skewY(-10deg);filter:brightness(.7)}}
+.scene .glow{animation:glowup 1.2s 2.05s ease-in both}@keyframes glowup{from{opacity:.25}to{opacity:1}}
+body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opacity:0;transform:scale(1.03);filter:brightness(1.5)}to{opacity:1;transform:none;filter:none}}
 @keyframes whitehole{from{transform:scale(.04) rotate(-140deg);filter:blur(8px) brightness(3);opacity:0}to{transform:none;filter:none;opacity:1}}
 .sky.pull canvas{transition:transform 1.1s cubic-bezier(.62,0,.88,.3),opacity 1s ease-in .15s;transform:scale(.04) rotate(40deg);opacity:0}
 .sky{position:fixed;inset:0;z-index:70;cursor:pointer;opacity:0;transition:opacity .7s ease;outline:none;
@@ -314,6 +336,7 @@ __WIP__
 
 <div class="sky" id="sky" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="__SKYLABEL__"><canvas id="skyfx" aria-hidden="true"></canvas><p class="sr">__SKYLABEL__. Click to see.</p><p class="hint" aria-hidden="true">Click anywhere to step through. Wait, and the sky clears.</p></div>
 <div class="wh" id="wh" hidden aria-hidden="true"><canvas id="whfx"></canvas></div>
+<div class="scene" id="scene" hidden aria-hidden="true"></div>
 
 <script>
 const DOOR = __DATA__;
@@ -661,11 +684,71 @@ function blackhole(cv, dir, dur, done){
   }
   requestAnimationFrame(frame);
 }
+/* the ballot scanner: a hand brings a marked ballot to the scanner, the scanner takes it in and says it was counted.
+   The ballot is generic: no names, no parties. */
+function scannerScene(){
+  const ovals = [1, 0, 1, 1, 0, 1].map((f, i) => { const y = 64 + i * 27;
+    return `<rect x="16" y="${y - 4}" width="116" height="8" rx="3" fill="#D6D9DF"/><ellipse cx="156" cy="${y}" rx="9" ry="6" fill="${f ? "#15171B" : "none"}" stroke="#15171B" stroke-width="1.5"/>`; }).join("");
+  const ballot = `<rect width="180" height="236" rx="3" fill="#FFFFFF" stroke="#C9CCD2"/><rect width="180" height="34" rx="3" fill="#15171B"/>
+    <text x="90" y="15" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" letter-spacing="1.5">OFFICIAL BALLOT</text>
+    <text x="90" y="27" text-anchor="middle" fill="#C9CCD2" font-size="7">GENERAL ELECTION &#183; NOVEMBER 3, 2026</text>${ovals}`;
+  return `<svg viewBox="0 0 1000 700" aria-hidden="true"><defs><clipPath id="slotcut"><rect x="0" y="268" width="1000" height="432"/></clipPath>
+      <linearGradient id="mach" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#454C59"/><stop offset="1" stop-color="#2A2F39"/></linearGradient></defs>
+    <rect width="1000" height="700" fill="#EFE9DD"/><rect y="560" width="1000" height="140" fill="#D9D1C1"/>
+    <rect x="330" y="335" width="340" height="225" rx="10" fill="#2B3140"/><text x="500" y="455" text-anchor="middle" fill="#CFD6E6" font-size="17" font-weight="700" letter-spacing="3">OFFICIAL BALLOT BOX</text>
+    <rect x="300" y="236" width="400" height="104" rx="16" fill="url(#mach)"/><rect x="356" y="262" width="208" height="8" rx="3" fill="#0A0C10"/>
+    <rect x="590" y="256" width="94" height="64" rx="6" fill="#0E1A13"/><text id="scr1" x="637" y="283" text-anchor="middle" fill="#9DF0B5" font-size="11" font-weight="700">Insert ballot</text>
+    <text id="scr2" x="637" y="301" text-anchor="middle" fill="#9DF0B5" font-size="9"></text><circle class="led" cx="324" cy="266" r="7" fill="#414753"/>
+    <text x="637" y="336" text-anchor="middle" fill="#8D96A8" font-size="8">BALLOTS CAST <tspan id="cnt">1,247</tspan></text>
+    <g class="sleeve"><rect x="64" y="222" width="52" height="150" rx="12" fill="#27365E"/><rect x="58" y="218" width="64" height="20" rx="7" fill="#1C2847"/></g>
+    <g clip-path="url(#slotcut)"><g class="ballot">${ballot}</g></g></svg>`;
+}
+/* the bookshelf: the books tumble off, the shelf falls away, a door behind it opens onto light */
+function shelfScene(){
+  const COLORS = ["#27365E", "#7C2D2D", "#2F5D4A", "#B08A3E", "#5B3A6E", "#8C5A2B", "#3E4A57", "#9A3F2C"];
+  let books = "";
+  [200, 290, 380, 470].forEach((floor, row) => {
+    for (let x = 254; x < 744;) {
+      const w = 12 + Math.round(Math.random() * 12), h = 56 + Math.round(Math.random() * 24), c = COLORS[(Math.random() * COLORS.length) | 0];
+      const d = (.15 + Math.random() * .75 + row * .05).toFixed(2), r = ((Math.random() < .5 ? -1 : 1) * (40 + Math.random() * 130)).toFixed(0), dx = ((Math.random() - .5) * 170).toFixed(0);
+      books += `<g class="bk" style="--d:${d}s;--r:${r}deg;--x:${dx}px"><rect x="${x}" y="${floor - h}" width="${w}" height="${h}" rx="2" fill="${c}"/>`
+        + `<rect x="${x}" y="${floor - h + 8}" width="${w}" height="3" fill="#E8C46A" opacity=".8"/><rect x="${x}" y="${floor - 14}" width="${w}" height="3" fill="#E8C46A" opacity=".8"/></g>`;
+      x += w + 1 + Math.round(Math.random() * 2);
+    }
+  });
+  return `<svg viewBox="0 0 1000 700" aria-hidden="true"><rect width="1000" height="700" fill="#EFE6D6"/><rect y="560" width="1000" height="140" fill="#D8CDB8"/>
+    <rect class="glow" x="415" y="180" width="170" height="320" fill="#FFF4CC"/>
+    <g class="door"><rect x="415" y="180" width="170" height="320" fill="#7A4A2B" stroke="#4E2E19" stroke-width="5"/>
+      <rect x="437" y="204" width="126" height="120" rx="4" fill="none" stroke="#5E3820" stroke-width="4"/><rect x="437" y="344" width="126" height="130" rx="4" fill="none" stroke="#5E3820" stroke-width="4"/>
+      <circle cx="566" cy="342" r="7" fill="#E8C46A"/></g>
+    <rect x="402" y="168" width="196" height="336" fill="none" stroke="#5B3A22" stroke-width="12"/>
+    <g class="unit"><rect x="240" y="110" width="520" height="450" fill="#8B5A36"/><rect x="240" y="110" width="16" height="450" fill="#6A4127"/><rect x="744" y="110" width="16" height="450" fill="#6A4127"/>
+      <rect x="240" y="104" width="520" height="14" fill="#6A4127"/>${[200, 290, 380, 470].map(y => `<rect x="240" y="${y}" width="520" height="12" fill="#6A4127"/>`).join("")}
+      <rect x="240" y="548" width="520" height="14" fill="#5A3620"/></g>${books}</svg>`;
+}
+function runScene(kind, url){
+  const S = $("#scene"), shelf = kind === "bookshelf";
+  S.innerHTML = shelf ? shelfScene() : scannerScene(); S.hidden = false; S.classList.remove("zoom");
+  S.style.setProperty("--zx", shelf ? "50%" : "59%"); S.style.setProperty("--zy", shelf ? "49%" : "41%");
+  setTimeout(() => S.classList.add("show"), 10);
+  S.addEventListener("click", () => { location.href = url; }, {once: true});
+  if (!shelf) {      // the scanner's screen and light, in step with the ballot
+    setTimeout(() => { $("#scr1").textContent = "Reading…"; }, 1450);
+    setTimeout(() => { $("#scr1").textContent = "✓ Ballot counted"; $("#scr2").textContent = "Thank you for voting"; $(".led", S).classList.add("on"); $("#cnt").textContent = "1,248"; }, 2250);
+  }
+  setTimeout(() => S.classList.add("zoom"), shelf ? 2850 : 2800);
+  setTimeout(() => { location.href = url; }, shelf ? 3550 : 3500);
+}
 function go(url){
   if (!url) return;
   if (going) { location.href = url; return; }      // a second click skips the ride
   going = true; clearTimeout(chargeT);
-  const style = DOOR.transit === "blackhole" ? "blackhole" : "wormhole";      // each door says how it crosses
+  const style = ["scanner", "bookshelf", "blackhole"].includes(DOOR.transit) ? DOOR.transit : "wormhole";      // each door says how it crosses
+  if (style === "scanner" || style === "bookshelf") {
+    try { sessionStorage.setItem("wormhole", style); } catch (e) {}
+    if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
+    closeSky(); runScene(style, url); return;
+  }
   try { sessionStorage.setItem("wormhole", style); } catch (e) {}
   if (calm()) { document.body.classList.add("fadeout"); setTimeout(() => { location.href = url; }, 220); return; }
   const wh = $("#wh"); wh.hidden = false;
@@ -689,6 +772,7 @@ sky.addEventListener("keydown", e => {
 (function emerge(){      /* arriving through the wormhole: the tunnel slows and the page opens out of its middle */
   let came = null; try { came = sessionStorage.getItem("wormhole"); sessionStorage.removeItem("wormhole"); } catch (e) {}
   if (!came || calm()) return;
+  if (came === "scanner" || came === "bookshelf") { document.body.classList.add("arrive-soft"); setTimeout(() => document.body.classList.remove("arrive-soft"), 900); return; }
   const wh = $("#wh"); wh.hidden = false;
   if (came === "blackhole") { document.body.classList.add("arrive-bh"); blackhole($("#whfx"), -1, 1200, () => { wh.hidden = true; document.body.classList.remove("arrive-bh"); }); return; }
   document.body.classList.add("arrive");
@@ -766,7 +850,7 @@ def main():
     if args.ballot:
         B = ballot_facts()
         data = {"space": "ballot", "election": ELECTION_DAY, "version": version, "levels": ballot_levels(B),
-                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record", "transit": "wormhole"}
+                "sky": SKY_BACK, "skyStyle": "flag", "whenText": "Back to the public record", "transit": "bookshelf"}
         words = {"__TITLE__": "On The Ballot · The Civic Archive",
                  "__DESC__": "Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.",
                  "__HOME__": "../", "__SWITCH__": switch(True), "__SKYLABEL__": "Legislation and Legislatures",
@@ -778,7 +862,7 @@ def main():
     else:
         data = {"federal": federal_facts(args.db), "states": [state_facts(code, site_root) for code in sorted(PLACES)],
                 "map": {k: {"d": v["d"], "name": v["name"]} for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
-                "version": version, "election": ELECTION_DAY, "transit": "blackhole"}      # John is comparing: in by black hole, back by wormhole
+                "version": version, "election": ELECTION_DAY, "transit": "scanner"}      # the wormhole and black hole stay in the code as future ideas
         data["offmap"] = [o for o in OFF_MAP if o[0] not in data["map"]]      # the map file draws the District of Columbia; it does not draw the territories
         data["local"] = local_facts(site_root)
         words = {"__TITLE__": "The Civic Archive",

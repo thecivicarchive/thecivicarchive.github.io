@@ -519,7 +519,12 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   on a contact sheet and `ballot/photo_choice.json` records the option showing the candidate alone, or "none" with a
   note. Only chosen photos reach the page, credited and linked. Nobody's likeness is recognised or matched.
 - The ballot door's switch reads "Legislation & Legislatures" ("Back to the public record" beneath) and has the same
-  three-second fireworks for the way back. The fireworks are red, white and blue by word, CLICK TO SEE in silver.
+  three-second fireworks for the way back, drawn as the American flag (canton of stars, thirteen stripes, a ripple).
+  ON THE BALLOT is red, white and blue by word; CLICK TO SEE is silver; both end with a flash and a ring of sparks.
+- The crossings (John, 2026-09-29, v4.0.051): into the ballot, a ballot fed into a scanner that confirms it was counted
+  (`scannerScene`); back to the record, books falling off a shelf and a door behind it opening (`shelfScene`). Each
+  door names its crossing in `DOOR.transit`; the wormhole (`tunnel`) and black hole (`blackhole`) stay in build_door.py
+  as future ideas. The ballot in the scanner scene is generic: no names, no parties.
 - Betting-market odds (John's answers, 2026-09-29): Polymarket and Kalshi, as information only, labelled "what
   bettors are paying: not a poll, a forecast or an official record", with trading volume and the time. A click opens a
   calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),

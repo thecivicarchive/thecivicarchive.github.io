@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.051 — 2026-09-29 — Crossings that fit what each side covers
+
+- Going into On The Ballot, a hand carries a marked ballot up to a ballot
+  scanner and feeds it in; the scanner reads it, its light turns green,
+  the screen says "Ballot counted, thank you for voting", the count of
+  ballots cast goes up by one, and the view moves into the screen.
+- Going back to Legislation & Legislatures, the books tumble off a
+  bookshelf, the shelf falls away, a door behind it swings open onto
+  light, and the view goes through the doorway.
+- The wormhole and the black hole are kept for later.
+
 ## v4.0.050 — 2026-09-29 — A black hole, to compare with the wormhole
 
 - Going into On The Ballot from the front door now falls through a black
