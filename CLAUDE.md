@@ -624,7 +624,30 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   (boe.ohio.gov answered 522 in the pane). A race a state's loader cannot load goes in `list_gaps` (race, state, reason),
   and the page says the race's list is not loaded, with the reason, rather than "no candidate". `match.py` also ties a
   former member (service ended 2011 or later, same state and party, one fit) to their Bioguide id. Saves while agents
-  are still writing loaders use `python version.py save --hold <path>` so unfinished files stay out. Privacy: three agents
+  are still writing loaders use `python version.py save --hold <path>` so unfinished files stay out.
+  Ring three (v4.0.062): Colorado (`co.py`): coloradosos.gov's HTML list (withdrawals only as strike-through; the XLSX
+  lags), the lot-drawing XLSX for ballot order, Clarity detailxml votes stored only where they equal the certified
+  abstract (a scan; its federal totals typed into `ABSTRACT` with the scan's SHA-256). Kentucky (`ky.py`):
+  web.sos.ky.gov/CandidateFilings (id=3 Senate, 4 House; withdrawn rows after pnlOfficeWddResults; party "Write-In" =
+  declared write-in) and the Board's primary certification PDF (contested primaries only; wide fields printed sideways, so
+  ky.py keeps its own page_runs copy that keeps text direction). Utah (`ut.py`): the Lieutenant Governor's signed,
+  sideways certification scans with a text layer (names matched letters-only to the typed Candidate Filings page), the
+  Master Ballot Position List, electionresults.utah.gov JSON (/results/public/api/elections/Utah/<id>, files under
+  /cdn/results/). Arkansas (`ar.py`): candidates.arkansas.gov (`/wp-json/metl/v1/all?postID=2941`, five columns; ballot
+  names can carry a filed title, "Senator Tom Cotton", kept as printed with a note) and the Tally results API
+  (enr-results-api.totalresults.com, cId arkansas; isWinner unset, winners by majority). Idaho (`id.py`, a builtin name):
+  the Candidate Filing Portal's JSON (api-run.voteidaho.gov; rows carry mailingAddress and voterId: allowlist keys) and
+  the canvass report PDF ("**" = protected count). West Virginia (`wv.py`): candidates.wvsos.gov's JSON POST service
+  (officeDescription as an array; the host omits its intermediate certificate, so the POST uses net's issuer repair) and
+  Clarity (county status 4 = completely reported). Oklahoma (`ok.py`): hosting.okelections.us/electionlist.html (the
+  November ballot county by county, drawing order; the address is reused, so the title is checked), the fixed-width
+  Candidate List Book PDF (columns by character position); results.okelections.us refuses scripts and redirected to
+  results.okelections.gov, which did not resolve, so no votes or runoffs yet. Kansas (`ks.py`): Official Vote Totals PDF
+  and precinct workbooks answer scripts; the Candidate List page (.aspx) shows a "Human Verification" page even in the
+  Browser pane: never solve it; John can save the page ("2026 General" chosen) into ballot_cache/ks/. Tennessee
+  (`tn.py`): sos.tn.gov and its file host answer CloudFront 403 and the Browser pane is not allowed that site; tn.py
+  reads the four files John saves into ballot_cache/tn/ (the Senate and House lists from sos.tn.gov/elections/2026-
+  candidate-lists, and 20260806RepublicanPrimarybyCounty.pdf / 20260806DemocraticPrimarybyCounty.pdf). Privacy: three agents
   printed a few contact cells while exploring layouts (never stored); agents are now told to print only headers, counts
   and allowlisted cells.
 - Share pages (v4.0.056, `ballot/share_race.py`, run by `build_ballot_dev.py`): `r/<race>.html` and `og/r/<race>.png`

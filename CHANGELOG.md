@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.062 — 2026-09-30 — Seven more states: Colorado, Kentucky, Utah, Oklahoma, Arkansas, Idaho and West Virginia
+
+- Colorado, Kentucky, Utah, Arkansas, Idaho and West Virginia are loaded from each state's own official list, with their primaries and the official vote counts (Colorado's checked against its certified abstract; Kentucky's from the Board of Elections' certification, where Thomas Massie lost his primary).
+- Oklahoma's November ballot is loaded from the State Election Board's list, county by county; its primaries show who won, because the Board's results site refuses our requests.
+- Kansas's primaries are in with the official vote totals; its November list waits behind a human-verification page we do not get past. Tennessee's lists and results wait too: the Secretary of State's sites refuse our requests.
+- Polls for the Senate races in Tennessee, Colorado, Kentucky, Oklahoma, Arkansas, Kansas, Idaho and West Virginia, from Transparency Initiative members only. Where the release's margin of error covers a different group than the figure shown, the table says so in plain words.
+- Tennessee's problem-gambling line (the REDLINE) is in the betting-market notice; the other states in this group point to the national line.
+
 ## v4.0.061 — 2026-09-30 — Six more states, and the primaries of Iowa and the Dakotas
 
 - Nebraska, Montana, Wyoming and Missouri are loaded from each state's own official candidate list, with their primaries: Nebraska, Montana and Wyoming with the official vote counts, Missouri with who won (its official totals are not posted yet).

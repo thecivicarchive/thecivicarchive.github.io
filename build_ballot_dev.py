@@ -38,7 +38,8 @@ from money_views import KIND_LABELS, PAC_LIMIT, committee_kind, tidy_name       
 
 ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary", "primary-LMN": "Legal Marijuana NOW primary",
                   "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-LIB": "Libertarian primary", "primary-GRE": "Green primary",
-                  "primary-DFL": "Democratic-Farmer-Labor primary"}
+                  "primary-DFL": "Democratic-Farmer-Labor primary",
+                  "runoff-REP": "Republican primary runoff", "runoff-DEM": "Democratic primary runoff"}
 
 
 def money(con, ids):
