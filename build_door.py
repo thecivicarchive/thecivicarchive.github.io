@@ -850,8 +850,8 @@ def ballot_facts(db=BALLOT_DB):
     con = sqlite3.connect(db)
     one = lambda q: con.execute(q).fetchone()[0]
     return {"races": one("SELECT COUNT(*) FROM races WHERE level = 'federal'"),
-            "candidates": one("SELECT COUNT(*) FROM candidates c JOIN races r USING (race_id) WHERE r.level = 'federal' AND c.election = 'general'"),
-            "states": one("SELECT COUNT(DISTINCT state) FROM ballot_sources WHERE level = 'federal'")}
+            "candidates": one("SELECT COUNT(*) FROM candidates c JOIN races r USING (race_id) WHERE r.level = 'federal' AND c.election IN ('general', 'open-primary')"),
+            "states": one("SELECT COUNT(DISTINCT substr(race_id, 6, 2)) FROM candidates WHERE election IN ('general', 'open-primary')")}      # a November list, as the page counts
 
 
 def ballot_levels(B):

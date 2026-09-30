@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.067 — 2026-09-30 — The ballot door counts what the pages count
+
+- The On The Ballot door now counts the states whose November lists are loaded (41) and every candidate on a November ballot, Louisiana's open primary included, the same way the pages do.
+
 ## v4.0.066 — 2026-09-30 — Primaries for the big states, and polls for Texas and Florida
 
 - Texas's March 3 primaries and May 26 runoffs, Illinois's March 17 primaries, Pennsylvania's May 19 primaries and New York's June 23 primaries are in, with the official vote counts; Florida's August 18 primaries now show their official votes too.
