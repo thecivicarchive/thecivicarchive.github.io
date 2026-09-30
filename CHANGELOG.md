@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.072 — 2026-09-30 — Nine more states' legislatures on the ballot
+
+- Colorado, Kentucky, Utah, Oklahoma, Arkansas, Idaho and West Virginia now have their statewide, legislative and court races on the ballot pages, from each state's own lists, with their primaries and official votes where published: 21 states in all.
+- Tennessee's, Kansas's and Indiana's pages list their races and who holds each seat; their November candidate lists wait on files their election offices do not let us fetch, and the pages say so.
+
 ## v4.0.071 — 2026-09-30 — State and local races on the ballot, and the ads themselves
 
 - On The Ballot now has state and local races. Minnesota's page has every race on its November ballot, from the Secretary of State's own lists: governor and the statewide offices, all 201 legislative seats, judges, and county, city, township, school and hospital district offices, 7,981 candidacies. Pick your county, city, school district and House district (or let your device find them) to see your whole ballot.

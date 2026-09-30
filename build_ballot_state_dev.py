@@ -535,7 +535,10 @@ def page_words(code, P, data, lines, nest, local, sources, off, prim_votes):
         main, lister = f"{name}'s county boards of elections", "county boards of elections"
         who, from_who = "county boards of elections&rsquo;", f"{name}&rsquo;s county boards of elections&rsquo;"
     else:
-        main = state_level[0] if state_level else ((next(iter(sources.values()), {}).get("agency") or f"{name} election office").split(",")[0].strip())
+        official = [(x.get("agency") or "").split(",")[0].strip() for x in sources.values()      # never the roster or the Census Bureau
+                    if x.get("kind") in ("official results", "official candidate list") and x.get("agency")
+                    and not re.search(r"Open States|Census", x.get("agency") or "")]
+        main = state_level[0] if state_level else (official[0] if official else f"{name}'s election office")
         lister = re.sub(rf"^{re.escape(name)}\s+", "", main)                # "Secretary of State", "Elections Commission"; Michigan's "Department of State"
         who, from_who = f"{lister}&rsquo;s", f"the {main}&rsquo;s"
     from_plain = from_who.replace("&rsquo;", "'")

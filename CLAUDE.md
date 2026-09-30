@@ -787,6 +787,10 @@ subagents, with the rule against personal or sensitive data pushed into every ag
   independent-expenditure filings (spent for or against named candidates, with amounts); a campaign's own ad says
   "Paid for by their campaign". Never write "attack" or "positive"; never guess which candidate an outside ad is about.
   Meta's per-ad data needs Meta's Ad Library API token (John's step; not asked yet).
+- Loaded (v4.0.072): MN (state, county and local), and statewide/legislature/courts for WI IA MI ND SD OH IN MO NE MT WY
+  CO KY UT OK AR ID WV; TN, KS and IN have races and holders but their November lists wait on John's browser saves (the
+  same files as the federal side). Ohio has 60 legislative seats with no reachable list. When a state has no candidate
+  list yet, the page names the state's results office, never the Open States roster or the Census Bureau.
 
 ## Optional: rate more bills with the Claude API
 
