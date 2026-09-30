@@ -539,6 +539,25 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   for 2026 (`district_file`); a changed state shows its outline and says why. Test maps with a set viewport
   (resize_window) because the hidden pane lays out at width 0; see them by drawing the SVG, computed styles inlined,
   to a canvas and carrying the PNG out as base64.
+- Ads (v4.0.054, `ballot/ads.py`, `run_ballot.py ads`): the FEC's independent_expenditure_2026.csv (dates written
+  15-MAY-26; the latest copy of each spender's transaction, then one count per spender, candidate, side, date and
+  amount; ele_type P/G splits the primary from the general) and oppexp26.zip (the candidates' own P and A committees;
+  memo lines out) into `ad_money` and `ad_spenders`, for every 2026 FEC candidate. Kind from the purpose line by the
+  ordered patterns in `MEDIUM` (digital before TV, "MEDIA PLACEMENT" = medium not stated). Spenders named only when a
+  committee; FEC type I (person or group) is "people and groups filing on their own". Payees never stored. The page
+  links Meta's ad library search and Google's political ads page; ads are never copied. Dates typed in the future are
+  ignored for "through".
+- Polls (v4.0.054): `ballot/polls/aapor_ti_members.json` (AAPOR's list; its page shows twelve and loads the rest by
+  script, and its WordPress API answers 401, so it was read in the Browser pane after Load More) and a hand-kept
+  `ballot/polls/polls_2026.json`: each poll checked against the pollster's own release (Wikipedia's table only to find
+  them and to count those left out, labelled secondary). Minnesota's Senate race: of ten published polls only Emerson
+  (Feb 6-8, 2026) is by a member; Mason-Dixon, SurveyUSA, InsiderAdvantage and the rest are not members.
+- Betting markets (v4.0.054, `ballot/odds.py`, `run_ballot.py odds`): `MARKETS` lists each race's Polymarket event slug
+  and Kalshi event ticker, found and checked by hand (Kalshi's prices are `last_price_dollars`, volume `volume_fp` in
+  contracts); a snapshot goes to ballot_cache/odds/odds_2026.json. The page folds them away, labelled, and "Go to" opens
+  a notice dialog: bets not facts, 18 and over, legality disputed in some states, the National Problem Gambling
+  Helpline 1-800-MY-RESET (NCPG's page; 1-800-GAMBLER is no longer the number there) and the state's line (`HELPLINES`;
+  Minnesota 1-800-333-HOPE, from its Department of Human Services). "Stay here" is the main button. No referral links.
 - John's second round (2026-09-29): photos, age and years in office on every card. `ballot/people.py` takes birth
   dates, offices and portraits from official records only (the congress-legislators roster for Congress, the Open
   States roster in `state_<code>.sqlite` for state legislators and statewide officials, matched by name, same state,

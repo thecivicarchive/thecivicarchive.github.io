@@ -10,6 +10,31 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.054 — 2026-09-30 — Ads, polls and the betting markets, Minnesota first
+
+- Every race with an official list now shows its ads and the money behind
+  them: what each campaign reported spending on TV, digital and
+  streaming, print and mail, radio, texts and calls, and door-knocking;
+  what others spent for and against each candidate on their own, since
+  the primary and in it; and the committees that spent the most. From
+  the Federal Election Commission's filings; each expense's kind is read
+  from the purpose its spender wrote, and one reported twice counts once.
+  Links go to Meta's and Google's public ad libraries to see the ads.
+- Polls, only from pollsters in the Transparency Initiative of the
+  American Association for Public Opinion Research, each checked against
+  the pollster's own release: the latest from up to five of them, and our
+  own average of the ten most recent with the arithmetic shown. For
+  Minnesota's Senate race one poll qualifies so far (Emerson College,
+  February); the page says which other polls were left out and why.
+- What bettors are paying on Polymarket and Kalshi, as information only,
+  folded away and labelled as neither a poll, a forecast nor a record.
+  Going to a market first opens a notice: that these are bets, the age
+  limit, that their legality is disputed in some states, and the
+  national (1-800-MY-RESET) and Minnesota (1-800-333-HOPE) problem-
+  gambling helplines. No referral links. Minnesota's, Michigan's, Iowa's
+  and South Dakota's Senate races, and ten House races where Kalshi runs
+  a market (Minnesota's 2nd among them).
+
 ## v4.0.053 — 2026-09-30 — The Upper Midwest on the ballot, and maps for every race
 
 - On The Ballot now carries the official candidate lists of Michigan,

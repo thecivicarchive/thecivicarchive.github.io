@@ -89,6 +89,27 @@ def money(con, ids):
     return out
 
 
+def ads(con, ids):
+    """Ad spending by kind for each candidate on a loaded list (ballot/ads.py): the campaign's own over the cycle, and
+    outside spending for and against by election, with the largest spenders that are committees."""
+    ids = sorted(i for i in ids if i)
+    if not ids or not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'ad_money'").fetchone():
+        return {}
+    q, out = ",".join("?" * len(ids)), {}
+    for cid, who, stance, el, med, amt, _n, last in con.execute(f"SELECT * FROM ad_money WHERE cand_id IN ({q})", ids):
+        a = out.setdefault(cid, {"c": {}, "o": {}, "sp": [], "last": ""})
+        if who == "campaign":
+            a["c"][med] = round(amt)
+        else:
+            a["o"].setdefault(f"{stance}-{el}", {})[med] = round(amt)
+        a["last"] = max(a["last"], last or "")
+    for cid, name, stance, el, amt in con.execute(f"SELECT cand_id, name, stance, election, amount FROM ad_spenders WHERE cand_id IN ({q}) ORDER BY amount DESC", ids):
+        a = out.get(cid)
+        if a is not None and sum(1 for s in a["sp"] if s[1] == stance) < 5:
+            a["sp"].append([name, stance, el, round(amt)])
+    return out
+
+
 def member_facts(bios, site_root):
     """A sitting member's record, read from the draft site's own member files so both sides say the same thing."""
     out = {}
@@ -168,7 +189,11 @@ def build(db, record_db, site_root, out_dir):
             "listed": sorted(listed), "races": races, "money": money(con, fec_ids), "members": member_facts(bios, site_root),
             "runs": runs, "kinds": KIND_LABELS, "elections": ELECTION_NAMES, "party": party_of, "people": people(con, out_dir),
             "map": {k: v["d"] for k, v in shapes.items()}, "sbox": {k: v["bbox"] for k, v in shapes.items()},
-            "dist": district_file(out_dir, {st for st, n in notes.items() if n["changed"]}),
+            "dist": district_file(out_dir, {st for st, n in notes.items() if n["changed"]}), "ads": ads(con, fec_ids),
+            "odds": json.load(open(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json"), encoding="utf-8"))
+                    if os.path.exists(os.path.join(HERE, "ballot_cache", "odds", "odds_2026.json")) else {},
+            "polls": json.load(open(os.path.join(HERE, "ballot", "polls", "polls_2026.json"), encoding="utf-8"))["races"]
+                     if os.path.exists(os.path.join(HERE, "ballot", "polls", "polls_2026.json")) else {},
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
     return boot
 
@@ -296,6 +321,40 @@ PAGE = r"""<!DOCTYPE html>
 .loc path.lot:hover{fill:var(--line-strong)}.loc path.lme{stroke:var(--ink);stroke-width:1.8;vector-effect:non-scaling-stroke}
 .loc path.lout{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.55;pointer-events:none}
 .loc figcaption{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.4}
+/* betting markets: apart, quiet, behind a notice */
+.oddswrap{border:1px dashed var(--line-strong);border-radius:18px;padding:12px 16px;background:var(--surface)}
+.oddswrap summary{cursor:pointer;list-style:none}.oddswrap summary::-webkit-details-marker{display:none}
+.oddswrap summary h2{display:inline;font-size:clamp(22px,2.6vw,30px)}.oddswrap summary span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+.oddswrap summary h2::after{content:" \25BE";font-size:.6em;color:var(--muted)}.oddswrap[open] summary h2::after{content:" \25B4"}
+.mgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:12px}
+.mkt{border:1px solid var(--line);border-radius:14px;padding:10px 12px}.mh{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:6px}.mh span{color:var(--muted)}
+.mrowo{display:grid;grid-template-columns:1fr 90px 44px;gap:8px;align-items:center;font-size:13.5px;margin:5px 0}
+.mbar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}.mbar i{display:block;height:100%;background:var(--muted)}
+.mgo{all:unset;cursor:pointer;margin-top:8px;font-size:13px;font-weight:700;color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:6px 12px}
+.mnotice{max-width:520px;width:calc(100% - 32px);border:1px solid var(--line-strong);border-radius:18px;padding:20px 22px;background:var(--surface);color:var(--ink)}
+.mnotice::backdrop{background:rgba(10,12,18,.55)}.mnotice h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 8px}
+.mnotice p,.mnotice li{font-size:14px;line-height:1.5}.mnotice .mnh{color:var(--muted);font-style:italic;font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+.mnotice .mnh b{font-style:normal;color:var(--ink)}
+.mbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}.mbtns .stay{all:unset;cursor:pointer;font-weight:700;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.mbtns .goext{padding:9px 16px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);text-decoration:none;font-weight:600}
+/* polls */
+.ptable{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.ptable table{border-collapse:collapse;width:100%;font-size:14px}.ptable th,.ptable td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.ptable th{font-size:12px;color:var(--muted);font-weight:700}.ptable td small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.ptable td:not(:first-child){font-variant-numeric:tabular-nums;font-weight:700}
+.pavg{margin:10px 0 0;font-size:14px}.pnotes{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--muted)}
+/* ads by kind */
+.adgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px}
+.adcard{border:1px solid var(--line);border-top:4px solid var(--pc);background:var(--surface);border-radius:16px;padding:12px 14px}
+.adcard h3{font-family:var(--serif);font-weight:400;font-size:21px;margin:0 0 8px}.adcard h3 small{font:600 12px var(--sans);color:var(--muted)}
+.adrow{margin:10px 0}.adl{display:flex;justify-content:space-between;font-size:13px}.adl span{font-weight:700}
+.adbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line);margin:5px 0}.adbar i{display:block;min-width:2px}
+.adk{display:flex;flex-wrap:wrap;gap:3px 10px;font-size:11.5px;color:var(--muted)}.adk span{display:inline-flex;gap:4px;align-items:center}.adk i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.k-tv{background:#3A5BA0}.k-digital{background:#2F9E8F}.k-print{background:#C08A3E}.k-radio{background:#8E5BA8}.k-texts{background:#6B8E23}
+.k-doors{background:#B85C38}.k-buys{background:#8A8F98}.k-production{background:#C9B79C}
+.adsp{margin-top:8px;font-size:13px}.adsp summary{cursor:pointer;color:var(--accent);font-weight:600}.adsp ul{margin:6px 0 0;padding-left:18px}
+.adlinks{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+.fnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 .sgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));margin-top:14px}
 .scard2{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface)}
 .scard2 b{display:block}.scard2 span{font-size:12.5px;color:var(--muted)}.scard2 .pill2{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:2px 8px;background:var(--accent-soft,rgba(15,122,106,.12));color:var(--accent)}
@@ -562,6 +621,80 @@ function field(r, key){
     <p class="fnote">${votes ? `Votes as certified in the official results (${esc(src ? src.agency : "the state")}).` : `The official vote counts for this primary are not loaded yet; who won comes from the candidate list of the ${esc(src ? src.agency : "state")}.`}</p></section>`;
 }
 
+/* ---------- ads: what each campaign, and everyone spending apart from it, reported spending, by kind (ballot/ads.py) ---------- */
+const AD_KINDS = [["tv", "TV"], ["digital", "Digital and streaming"], ["print", "Print and mail"], ["radio", "Radio"], ["texts", "Texts and calls"],
+  ["doors", "Door-knocking"], ["buys", "Media buys, medium not stated"], ["production", "Ad production"]];
+const adTotal = m => AD_KINDS.reduce((t, [k]) => t + ((m || {})[k] || 0), 0);
+function adBar(m, label){
+  const tot = adTotal(m); if (!tot) return "";
+  const parts = AD_KINDS.filter(([k]) => (m[k] || 0) > 0).sort((a, b) => m[b[0]] - m[a[0]]);
+  return `<div class="adrow"><div class="adl"><b>${esc(label)}</b><span>${usdShort(tot)}</span></div>
+    <div class="adbar" role="img" aria-label="${esc(label)}: ${parts.map(([k, w]) => `${w} ${usdShort(m[k])}`).join(", ")}">${parts.map(([k]) => `<i class="k-${k}" style="flex:${m[k]}" title="${esc(AD_KINDS.find(x => x[0] === k)[1])}: ${usdShort(m[k])}"></i>`).join("")}</div>
+    <div class="adk">${parts.map(([k, w]) => `<span><i class="k-${k}"></i>${esc(w)} ${usdShort(m[k])}</span>`).join("")}</div></div>`;
+}
+function adsHTML(r){
+  const g = general(r).filter(c => c.fec && BOOT.ads[c.fec]); if (!g.length) return "";
+  const last = g.map(c => BOOT.ads[c.fec].last).sort().pop();
+  const meta = n => `https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&q=${encodeURIComponent(n)}&search_type=keyword_unordered`;
+  const blocks = g.map(c => { const A = BOOT.ads[c.fec], o = A.o || {};
+    const rows = [adBar(A.c, "Their campaign's own ads"), adBar(o["for-general"], "Outside, for them, since the primary"), adBar(o["against-general"], "Outside, against them, since the primary"),
+      adBar(o["for-primary"], "Outside, for them, in the primary"), adBar(o["against-primary"], "Outside, against them, in the primary")].filter(Boolean).join("");
+    const sp = A.sp.filter(s => s[3] >= 1000).map(s => `<li>${s[0] ? esc(s[0]) : "People and groups filing on their own (not named here)"}: <b>${usdShort(s[3])}</b> ${s[1]}${s[2] === "primary" ? ", in the primary" : s[2] === "general" ? "" : ""}</li>`).join("");
+    return `<div class="adcard" style="--pc:${pcVar(c)}"><h3>${esc(c.n)} <small>${esc(shortParty(c))}</small></h3>${rows || `<p class="held">No ad spending reported yet.</p>`}
+      ${sp ? `<details class="adsp"><summary>Who spent the most, apart from the campaign</summary><ul>${sp}</ul></details>` : ""}
+      <p class="adlinks">See the ads themselves: <a href="${meta(c.n)}" target="_blank" rel="noopener">Meta's ad library</a> &middot; <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Google's political ads</a> (search the name)</p></div>`; }).join("");
+  return `<section class="bsec" id="ads"><h2>Ads and the money behind them</h2><p class="sub">What each campaign reported spending on ads, by kind, and what others spent for and against them on their own. Outside spending is not the campaign's money: the campaign never received it, and does not control it.</p>
+    <div class="adgrid">${blocks}</div>
+    <p class="fnote">From the Federal Election Commission's filings through ${esc(fmtDate(last))}. Each expense's kind is read from the purpose its spender wrote ("digital ads", "direct mail"); "medium not stated" means exactly that. An expense reported twice, in a quick 24- or 48-hour report and again later, is counted once. Outside spenders are named only when they are committees.</p></section>`;
+}
+/* ---------- betting markets: information only, behind a calm notice (John's answers, 2026-09-29) ---------- */
+const HELPLINES = {MN: ["Minnesota Problem Gambling Helpline", "1-800-333-HOPE (4673)", "tel:18003334673", "https://mn.gov/dhs/people-we-serve/adults/services/gambling-problems/get-help/"]};
+function oddsHTML(r){
+  const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
+  const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
+    return `<div class="mkt"><div class="mh"><b>${name}</b><span>${esc(M.title || "")}</span></div>${M.rows.map(([label, p]) => `<div class="mrowo"><span>${esc(label)}</span><span class="mbar"><i style="width:${(100 * p).toFixed(1)}%"></i></span><b>${Math.round(100 * p)}&cent;</b></div>`).join("")}
+      <p class="fnote">${Number(M.volume).toLocaleString()} ${M.unit === "contracts" ? "contracts" : "dollars"} traded in all. A price of 60&cent; means a contract paying $1 if that happens trades at 60&cent;.</p>
+      <button type="button" class="mgo" data-url="${esc(M.url)}" data-name="${name}">Go to ${name}&hellip;</button></div>`; };
+  const at = new Date(O.at);
+  return `<section class="bsec" id="odds"><details class="oddswrap"><summary><h2>What bettors are paying</h2><span>Prices on two prediction markets, as information only. Not a poll, not a forecast and not an official record.</span></summary>
+    <div class="mgrid">${block("polymarket", "Polymarket")}${block("kalshi", "Kalshi")}</div>
+    <p class="fnote">Read from each market's public data on ${esc(at.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"}))}. Prices move all day; the markets' own pages have the current ones. The Civic Archive takes no money from either market and uses no referral links.</p></details></section>`;
+}
+function marketNotice(url, name, st){
+  const d = document.createElement("dialog"), H = HELPLINES[st];
+  d.className = "mnotice";
+  d.innerHTML = `<h3>You are leaving for ${esc(name)}</h3>
+    <p>${esc(name)} is a market where people bet money on outcomes, including elections. Prices there are bets, not facts, and anyone can lose what they put in.</p>
+    <ul><li>You must be at least 18 to use it; some places set a higher age.</li><li>Whether these markets are allowed where you live is disputed in some states. Check your state's law before you use one.</li></ul>
+    <p class="mnh">If gambling is causing you or someone close to you harm, free and confidential help is there day and night:<br>
+      <b>National Problem Gambling Helpline</b>: call or text <a href="tel:18006973738">1-800-MY-RESET</a>, or <a href="https://www.ncpgambling.org/help-treatment/" target="_blank" rel="noopener">chat online</a>.${H ? `<br><b>${esc(H[0])}</b>: <a href="${H[2]}">${esc(H[1])}</a> (<a href="${H[3]}" target="_blank" rel="noopener">about it</a>)` : ""}</p>
+    <div class="mbtns"><button type="button" class="stay">Stay here</button><a class="goext" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Go to the market</a></div>`;
+  document.body.appendChild(d);
+  const close = () => { d.close(); d.remove(); };
+  d.querySelector(".stay").addEventListener("click", close);
+  d.querySelector(".goext").addEventListener("click", () => setTimeout(close, 50));
+  d.addEventListener("cancel", e => { e.preventDefault(); close(); });
+  d.showModal(); d.querySelector(".stay").focus();
+}
+document.addEventListener("click", e => { const b = e.target.closest(".mgo"); if (!b) return; const r = R[decodeURIComponent(location.hash.slice(6))]; marketNotice(b.dataset.url, b.dataset.name, r ? r.st : ""); });
+/* ---------- polls: only pollsters in AAPOR's Transparency Initiative (John, 2026-09-29) ---------- */
+function pollsHTML(r){
+  const P0 = (BOOT.polls || {})[r.id]; if (!P0 || !(P0.polls || []).length) return "";
+  const polls = [...P0.polls].sort((a, b) => b.end.localeCompare(a.end)), seen = new Set(), latest = [];
+  for (const p of polls) if (!seen.has(p.pollster) && latest.length < 5) { seen.add(p.pollster); latest.push(p); }
+  const names = [...new Set(polls.flatMap(p => Object.keys(p.shares)))];
+  const range = p => p.start.slice(0, 7) === p.end.slice(0, 7) ? esc(fmtDate(p.end)).replace(/ (\d+),/, (_m, d) => ` ${+p.start.slice(8)}&ndash;${d},`) : `${fmtDate(p.start).replace(/, \d{4}$/, "")}&ndash;${esc(fmtDate(p.end))}`;
+  const rows = latest.map(p => `<tr><td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.pollster)}</a><small>${range(p)} &middot; ${Number(p.n).toLocaleString()} ${esc(p.pop)}, &plusmn;${p.moe}</small></td>${names.map(n => `<td>${p.shares[n] != null ? p.shares[n] + "%" : "&ndash;"}</td>`).join("")}<td>${p.rest != null ? p.rest + "%" : ""}</td></tr>`).join("");
+  const ten = polls.slice(0, 10);
+  const avg = ten.length > 1 ? `<p class="pavg"><b>Our average of the ${ten.length} most recent:</b> ${names.map(n => { const v = ten.filter(p => p.shares[n] != null).map(p => p.shares[n]); return v.length ? `${esc(n)} (${v.join(" + ")}) &divide; ${v.length} = <b>${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%</b>` : ""; }).filter(Boolean).join("; ")}.</p>`
+    : `<p class="pavg">Only one poll qualifies so far, so there is no average yet; ours will take the ten most recent from these pollsters.</p>`;
+  const L = P0.left_out, notes = polls.filter(p => p.note).map(p => `<li>${esc(p.pollster)}, ${range(p)}: ${esc(p.note)}</li>`).join("");
+  return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">Only from pollsters in the American Association for Public Opinion Research's <a href="https://aapor.org/standards-and-ethics/transparency-initiative/" target="_blank" rel="noopener">Transparency Initiative</a>, who publish how each poll was done. The latest from up to five of them, each checked against the pollster's own release.</p>
+    <div class="ptable"><table><thead><tr><th>Pollster and dates</th>${names.map(n => `<th>${esc(n)}</th>`).join("")}<th>Someone else or undecided</th></tr></thead><tbody>${rows}</tbody></table></div>
+    ${avg}${notes ? `<ul class="pnotes">${notes}</ul>` : ""}
+    ${L && L.n ? `<p class="fnote">${L.n} other published ${L.n === 1 ? "poll" : "polls"} of this race ${L.n === 1 ? "is" : "are"} from pollsters outside the Initiative and ${L.n === 1 ? "is" : "are"} not counted here: ${esc(L.pollsters.join(", "))}. Found in <a href="${esc(L.found_in)}" target="_blank" rel="noopener">Wikipedia's list of polls</a> (secondary), checked ${esc(fmtDate(L.checked))}.</p>` : ""}
+    <p class="fnote">A poll is a measure of opinion when it was taken, with a margin of error, not a forecast.</p></section>`;
+}
 /* ---------- maps: the districts on the ballot, drawn as on the Vote map (John, 2026-09-30) ---------- */
 let DIST = null, mapOff = null;
 const needDist = () => DIST ? Promise.resolve(DIST) : fetch(BOOT.dist.url).then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -823,6 +956,9 @@ function racePage(id){
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
     ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}</div>${locatorHTML()}</section>
   ${general(r).length ? arena(r) : `<div class="notebox">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet. We add each state from its own election office, largest first.`}</div>`}
+  ${pollsHTML(r)}
+  ${adsHTML(r)}
+  ${oddsHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? "California's primary is top-two: every candidate, of every party preference, on one ballot." : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
   mountLocator(r);

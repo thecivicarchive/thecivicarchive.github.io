@@ -7,6 +7,7 @@ run_ballot.py - On The Ballot: who is on the ballot, race by race, from each sta
     python run_ballot.py fec              the 2026 cycle from the FEC's bulk files, for every House and Senate candidate
     python run_ballot.py lists [ca fl]    official candidate lists (every state with a loader, or the ones named)
     python run_ballot.py match            tie candidates to their FEC numbers and to members of Congress
+    python run_ballot.py ads              ad spending by kind (TV, digital and streaming, print and mail, radio), campaign and outside
     python run_ballot.py check            write ballot_report.md: what is loaded, from which files, what is missing
     python run_ballot.py site             build site/dev/ballot/ (its door and the Congress pages) and the front door
 
@@ -87,6 +88,16 @@ def stage_campaign(con):
         say(f"    {len(index)} candidates' photo options wait to be looked at: " + ", ".join(sheets))
 
 
+def stage_ads(con):
+    say("== ads: what each campaign and the outside spenders reported spending on ads, by kind (FEC bulk files)")
+    importlib.import_module("ballot.ads").load(con, say=say)
+
+
+def stage_odds(con):
+    say("== odds: what Polymarket and Kalshi are trading on the races listed in ballot/odds.py (information only)")
+    importlib.import_module("ballot.odds").load(con, say=say)
+
+
 def stage_check(con):
     say("== check: ballot_report.md")
     q = lambda s, *p: con.execute(s, p).fetchall()
@@ -134,7 +145,7 @@ def stage_site(con):
 def main():
     global LOG
     args = [a.lower() for a in sys.argv[1:]]
-    every = ["races", "fec", "lists", "match", "people", "campaign", "check", "site"]
+    every = ["races", "fec", "lists", "match", "people", "campaign", "ads", "odds", "check", "site"]
     stages = [a for a in args if a in every] or every
     codes = [a for a in args if len(a) == 2 and a.upper() in STATE_NAMES]
     os.makedirs(os.path.join(HERE, "logs"), exist_ok=True)
@@ -145,7 +156,7 @@ def main():
             stage_lists(con, codes)
         else:
             {"races": stage_races, "fec": stage_fec, "match": stage_match, "people": stage_people, "campaign": stage_campaign,
-             "check": stage_check, "site": stage_site}[s](con)
+             "ads": stage_ads, "odds": stage_odds, "check": stage_check, "site": stage_site}[s](con)
     say(f"Done. Log: {LOG.name}")
 
 

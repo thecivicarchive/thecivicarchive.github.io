@@ -1,0 +1,17 @@
+{
+ "rule": "Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-MN-S2": {
+   "polls": [
+    {"pollster": "Emerson College Polling", "member": "Emerson College Polling Society", "start": "2026-02-06", "end": "2026-02-08",
+     "n": 1000, "pop": "likely voters", "moe": 3.0, "shares": {"Peggy Flanagan": 47, "Michele Tafoya": 41}, "rest": 12,
+     "note": "Asked in February as a matchup between likely nominees, six months before the August 11 primary.",
+     "url": "https://emersoncollegepolling.com/minnesota-2026-poll-democrats-lead-gop-as-voters-cite-threats-to-democracy/",
+     "checked": "2026-09-30"}
+   ],
+   "left_out": {"n": 9, "pollsters": ["InsiderAdvantage", "co/efficient", "SurveyUSA (for KSTP)", "Quantus Insights", "TIPP Insights", "Deep Root Analytics", "Impact Research"],
+     "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Minnesota", "checked": "2026-09-30"}
+  }
+ }
+}
