@@ -648,7 +648,9 @@ function adsHTML(r){
     <p class="fnote">From the Federal Election Commission's filings through ${esc(fmtDate(last))}. Each expense's kind is read from the purpose its spender wrote ("digital ads", "direct mail"); "medium not stated" means exactly that. An expense reported twice, in a quick 24- or 48-hour report and again later, is counted once. Outside spenders are named only when they are committees.</p></section>`;
 }
 /* ---------- betting markets: information only, behind a calm notice (John's answers, 2026-09-29) ---------- */
-const HELPLINES = {MN: ["Minnesota Problem Gambling Helpline", "1-800-333-HOPE (4673)", "tel:18003334673", "https://mn.gov/dhs/people-we-serve/adults/services/gambling-problems/get-help/"]};
+const HELPLINES = {      // each from the state's own page; a state not listed shows the national line alone, which routes callers to local help
+  MN: ["Minnesota Problem Gambling Helpline", "1-800-333-HOPE (4673)", "tel:18003334673", "https://mn.gov/dhs/people-we-serve/adults/services/gambling-problems/get-help/"],
+  IA: ["Your Life Iowa (Iowa HHS)", "(855) 581-8111, or text (855) 895-8398", "tel:18555818111", "https://yourlifeiowa.org/gambling"]};
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";
@@ -692,6 +694,7 @@ function pollsHTML(r){
   return `<section class="bsec" id="polls"><h2>Polls</h2><p class="sub">Only from pollsters in the American Association for Public Opinion Research's <a href="https://aapor.org/standards-and-ethics/transparency-initiative/" target="_blank" rel="noopener">Transparency Initiative</a>, who publish how each poll was done. The latest from up to five of them, each checked against the pollster's own release.</p>
     <div class="ptable"><table><thead><tr><th>Pollster and dates</th>${names.map(n => `<th>${esc(n)}</th>`).join("")}<th>Someone else or undecided</th></tr></thead><tbody>${rows}</tbody></table></div>
     ${avg}${notes ? `<ul class="pnotes">${notes}</ul>` : ""}
+    ${(P0.pending || []).length ? `<p class="fnote">Also by members, found but not counted until checked against the pollster's own release: ${P0.pending.map(x => `${esc(x.pollster)} (ending ${esc(fmtDate(x.end))}; ${esc(x.why)})`).join("; ")}.</p>` : ""}
     ${L && L.n ? `<p class="fnote">${L.n} other published ${L.n === 1 ? "poll" : "polls"} of this race ${L.n === 1 ? "is" : "are"} from pollsters outside the Initiative and ${L.n === 1 ? "is" : "are"} not counted here: ${esc(L.pollsters.join(", "))}. Found in <a href="${esc(L.found_in)}" target="_blank" rel="noopener">Wikipedia's list of polls</a> (secondary), checked ${esc(fmtDate(L.checked))}.</p>` : ""}
     <p class="fnote">A poll is a measure of opinion when it was taken, with a margin of error, not a forecast.</p></section>`;
 }

@@ -4,14 +4,240 @@
  "races": {
   "2026-MN-S2": {
    "polls": [
-    {"pollster": "Emerson College Polling", "member": "Emerson College Polling Society", "start": "2026-02-06", "end": "2026-02-08",
-     "n": 1000, "pop": "likely voters", "moe": 3.0, "shares": {"Peggy Flanagan": 47, "Michele Tafoya": 41}, "rest": 12,
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-02-06",
+     "end": "2026-02-08",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3.0,
+     "shares": {
+      "Peggy Flanagan": 47,
+      "Michele Tafoya": 41
+     },
+     "rest": 12,
      "note": "Asked in February as a matchup between likely nominees, six months before the August 11 primary.",
      "url": "https://emersoncollegepolling.com/minnesota-2026-poll-democrats-lead-gop-as-voters-cite-threats-to-democracy/",
-     "checked": "2026-09-30"}
+     "checked": "2026-09-30"
+    }
    ],
-   "left_out": {"n": 9, "pollsters": ["InsiderAdvantage", "co/efficient", "SurveyUSA (for KSTP)", "Quantus Insights", "TIPP Insights", "Deep Root Analytics", "Impact Research"],
-     "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Minnesota", "checked": "2026-09-30"}
+   "left_out": {
+    "n": 9,
+    "pollsters": [
+     "InsiderAdvantage",
+     "co/efficient",
+     "SurveyUSA (for KSTP)",
+     "Quantus Insights",
+     "TIPP Insights",
+     "Deep Root Analytics",
+     "Impact Research"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Minnesota",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-MI-S2": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-24",
+     "end": "2026-09-27",
+     "n": 1235,
+     "pop": "registered voters",
+     "moe": 3.8,
+     "shares": {
+      "Abdul El-Sayed": 51,
+      "Mike Rogers": 44
+     },
+     "rest": 4,
+     "url": "https://maristpoll.marist.edu/polls/midterm-elections-in-michigan-september-2026/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-09-12",
+     "end": "2026-09-14",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3.0,
+     "shares": {
+      "Abdul El-Sayed": 48,
+      "Mike Rogers": 46
+     },
+     "rest": 6,
+     "url": "https://emersoncollegepolling.com/michigan-2026-poll-el-sayed-and-rogers-locked-in-close-election/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "SSRS (for CNN)",
+     "member": "SSRS",
+     "start": "2026-08-31",
+     "end": "2026-09-06",
+     "n": 843,
+     "pop": "likely voters",
+     "moe": 4.1,
+     "shares": {
+      "Abdul El-Sayed": 47,
+      "Mike Rogers": 44
+     },
+     "rest": 8,
+     "url": "https://s3.documentcloud.org/documents/28608784/cnn-poll-conducted-by-ssrs-michigan.pdf",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Michigan State University (IPPSR, fielded by YouGov)",
+     "member": "Institute for Public Policy and Social Research, and the Office for Survey Research, at Michigan State University",
+     "start": "2026-08-10",
+     "end": "2026-08-20",
+     "n": 779,
+     "pop": "likely voters",
+     "moe": 3.4,
+     "shares": {
+      "Abdul El-Sayed": 50,
+      "Mike Rogers": 45
+     },
+     "rest": 5,
+     "url": "https://ippsr.msu.edu/news/msu-poll-shows-democrats-lead-republicans-coalesce-behind-rogers",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-01-24",
+     "end": "2026-01-25",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3.0,
+     "shares": {
+      "Abdul El-Sayed": 43,
+      "Mike Rogers": 43
+     },
+     "rest": 14,
+     "url": "https://emersoncollegepolling.com/michigan-2026-poll-crowded-democratic-senate-primary-remains-wide-open/",
+     "checked": "2026-09-30",
+     "note": "Asked in January as a possible matchup, before the August 4 primary."
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The Washington Post",
+     "end": "2026-09-14",
+     "why": "its release did not answer our check"
+    },
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-09-22",
+     "why": "the release is behind a paywall"
+    }
+   ],
+   "left_out": {
+    "n": 34,
+    "pollsters": [
+     "Glengariff Group",
+     "EPIC-MRA",
+     "Mitchell Research",
+     "TIPP Insights",
+     "Abacus Data",
+     "GBAO",
+     "Suffolk University",
+     "Data for Progress",
+     "Trafalgar Group",
+     "InsiderAdvantage",
+     "co/efficient",
+     "Cygnal",
+     "and eleven more"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan",
+    "checked": "2026-09-30"
+   }
+  },
+  "2026-IA-S2": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-17",
+     "end": "2026-09-20",
+     "n": 1050,
+     "pop": "registered voters",
+     "moe": 4.4,
+     "shares": {
+      "Ashley Hinson": 42,
+      "Josh Turek": 50
+     },
+     "rest": 7,
+     "url": "https://maristpoll.marist.edu/polls/2026-midterm-elections-in-iowa-september-2026/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-08-31",
+     "end": "2026-09-01",
+     "n": 750,
+     "pop": "likely voters",
+     "moe": 3.6,
+     "shares": {
+      "Ashley Hinson": 50,
+      "Josh Turek": 45
+     },
+     "rest": 6,
+     "url": "https://emersoncollegepolling.com/iowa-2026-poll-hinson-leads-turek/",
+     "checked": "2026-09-30"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-08-02",
+     "end": "2026-08-04",
+     "n": 712,
+     "pop": "likely voters",
+     "moe": 3.7,
+     "shares": {
+      "Ashley Hinson": 48,
+      "Josh Turek": 45
+     },
+     "rest": 6,
+     "url": "https://emersoncollegepolling.com/iowa-2026-poll/",
+     "checked": "2026-09-30"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-27",
+     "why": "the release is behind a paywall"
+    },
+    {
+     "pollster": "Change Research",
+     "end": "2026-01-11",
+     "why": "only reported secondhand so far; the pollster's own release is still to find"
+    }
+   ],
+   "left_out": {
+    "n": 18,
+    "pollsters": [
+     "Cygnal",
+     "Global Strategy Group",
+     "Abacus Data",
+     "YouGov",
+     "Echelon Insights",
+     "GQR",
+     "InsiderAdvantage",
+     "Public Policy Polling",
+     "Rasmussen Reports",
+     "Suffolk University",
+     "Trafalgar Group",
+     "Wedgewood Polls",
+     "co/efficient",
+     "Beacon Research/Shaw & Co."
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Iowa",
+    "checked": "2026-09-30"
+   }
   }
  }
 }

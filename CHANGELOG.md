@@ -10,6 +10,17 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.055 — 2026-09-30 — Polls for Michigan's and Iowa's Senate races
+
+- Michigan's Senate race now shows five polls by members of the
+  Transparency Initiative (Marist, Emerson twice, SSRS for CNN and
+  Michigan State University), each checked against the pollster's own
+  release, and our average of them with the arithmetic shown.
+- Iowa's Senate race shows three (Marist and Emerson twice).
+- Polls by members that could not yet be checked against the pollster's
+  own release (one behind a paywall, one only reported secondhand) are
+  named but not counted until they are.
+
 ## v4.0.054 — 2026-09-30 — Ads, polls and the betting markets, Minnesota first
 
 - Every race with an official list now shows its ads and the money behind

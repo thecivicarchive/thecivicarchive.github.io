@@ -551,7 +551,11 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   script, and its WordPress API answers 401, so it was read in the Browser pane after Load More) and a hand-kept
   `ballot/polls/polls_2026.json`: each poll checked against the pollster's own release (Wikipedia's table only to find
   them and to count those left out, labelled secondary). Minnesota's Senate race: of ten published polls only Emerson
-  (Feb 6-8, 2026) is by a member; Mason-Dixon, SurveyUSA, InsiderAdvantage and the rest are not members.
+  (Feb 6-8, 2026) is by a member; Mason-Dixon, SurveyUSA, InsiderAdvantage and the rest are not members. Michigan (v4.0.055):
+  Marist, Emerson x2, SSRS (CNN's PDF at s3.documentcloud.org/documents/<id>/<slug>.pdf; the viewer page has no text),
+  MSU IPPSR; Iowa: Marist, Emerson x2. Polls by members that cannot yet be checked (a paywall, a secondhand report) go
+  in `pending` and are named, not counted. South Dakota's polls are not yet looked for. State helplines (`HELPLINES`)
+  only from the state's own page: MN and IA so far; michigan.gov refuses scripts, WI and ND pages moved, SD unread.
 - Betting markets (v4.0.054, `ballot/odds.py`, `run_ballot.py odds`): `MARKETS` lists each race's Polymarket event slug
   and Kalshi event ticker, found and checked by hand (Kalshi's prices are `last_price_dollars`, volume `volume_fp` in
   contracts); a snapshot goes to ballot_cache/odds/odds_2026.json. The page folds them away, labelled, and "Go to" opens
