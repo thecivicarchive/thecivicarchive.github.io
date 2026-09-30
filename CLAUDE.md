@@ -794,6 +794,9 @@ subagents, with the rule against personal or sensitive data pushed into every ag
   v4.0.073 adds GA (primaries; list behind reCAPTCHA) NC MD WA AL OR MS NM, VA (one special), LA (odd-year legislature),
   AZ and NV (waiting): 33 states. sl_places has no state column and is shared: county ids are 5-digit FIPS and
   district ids carry the state ("MT-1"), or one state's rows collide with another's (Oregon's did).
+  v4.0.074: all 49 states with state races in 2026 (NJ has none: odd-year Legislature). Waiting: MA RI NH lists (bot
+  walls), CT (only 19 towns' sample ballots posted), GA AZ NV TN KS IN (as on the federal side). The ring scripts live
+  in the session's workflows/scripts folder (state-legislatures-ring*.js).
 
 ## Optional: rate more bills with the Claude API
 

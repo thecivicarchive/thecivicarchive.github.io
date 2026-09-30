@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.074 — 2026-09-30 — State races in 49 states
+
+- Every state with state races on this November's ballot now has its page: New England, South Carolina, Delaware, Alaska and Hawaii, and California, Texas, Florida, New York, Pennsylvania and Illinois join the list, with their primaries and official votes where published. New Jersey has no state race this year (its Legislature is elected in odd years).
+- Massachusetts's, Rhode Island's and New Hampshire's November lists, and most of Connecticut's (whose Secretary of the State has posted only some towns' sample ballots), wait on files we cannot fetch yet; their pages say so.
+
 ## v4.0.073 — 2026-09-30 — Twelve more states' state races
 
 - North Carolina, Maryland, Washington, Alabama, Oregon, Mississippi and New Mexico have their statewide, legislative and court races on the ballot pages, with official primary votes; Georgia's primaries and runoffs are in while its November list waits on a file its Secretary of State puts behind a check.
