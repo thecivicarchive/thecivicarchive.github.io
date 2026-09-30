@@ -555,7 +555,8 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   Marist, Emerson x2, SSRS (CNN's PDF at s3.documentcloud.org/documents/<id>/<slug>.pdf; the viewer page has no text),
   MSU IPPSR; Iowa: Marist, Emerson x2. Polls by members that cannot yet be checked (a paywall, a secondhand report) go
   in `pending` and are named, not counted. South Dakota's polls are not yet looked for. State helplines (`HELPLINES`)
-  only from the state's own page: MN and IA so far; michigan.gov refuses scripts, WI and ND pages moved, SD unread.
+  only from the state's own page: MN, IA, MI (read in the Browser pane; michigan.gov refuses scripts) and WI
+  (dhs.wisconsin.gov/disease/gambling-disorder.htm); South Dakota's DSS page is an empty shell and ND is not looked up yet.
 - Betting markets (v4.0.054, `ballot/odds.py`, `run_ballot.py odds`): `MARKETS` lists each race's Polymarket event slug
   and Kalshi event ticker, found and checked by hand (Kalshi's prices are `last_price_dollars`, volume `volume_fp` in
   contracts); a snapshot goes to ballot_cache/odds/odds_2026.json. The page folds them away, labelled, and "Go to" opens

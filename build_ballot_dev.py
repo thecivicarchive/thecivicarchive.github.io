@@ -652,7 +652,9 @@ function adsHTML(r){
 /* ---------- betting markets: information only, behind a calm notice (John's answers, 2026-09-29) ---------- */
 const HELPLINES = {      // each from the state's own page; a state not listed shows the national line alone, which routes callers to local help
   MN: ["Minnesota Problem Gambling Helpline", "1-800-333-HOPE (4673)", "tel:18003334673", "https://mn.gov/dhs/people-we-serve/adults/services/gambling-problems/get-help/"],
-  IA: ["Your Life Iowa (Iowa HHS)", "(855) 581-8111, or text (855) 895-8398", "tel:18555818111", "https://yourlifeiowa.org/gambling"]};
+  IA: ["Your Life Iowa (Iowa HHS)", "(855) 581-8111, or text (855) 895-8398", "tel:18555818111", "https://yourlifeiowa.org/gambling"],
+  MI: ["Michigan Problem Gambling Helpline", "1-800-270-7117", "tel:18002707117", "https://www.michigan.gov/mdhhs/keep-mi-healthy/mentalhealth/gambling"],
+  WI: ["Wisconsin's free helpline", "800-GAMBLE-5 (800-426-2535)", "tel:18004262535", "https://www.dhs.wisconsin.gov/disease/gambling-disorder.htm"]};
 function oddsHTML(r){
   const O = (BOOT.odds || {})[r.id]; if (!O || !(O.polymarket || O.kalshi)) return "";
   const block = (key, name) => { const M = O[key]; if (!M || !M.rows.length) return "";

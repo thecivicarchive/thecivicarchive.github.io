@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.057 — 2026-09-30 — Each state's own gambling helpline
+
+- The notice before a betting market now gives Michigan's (1-800-270-7117)
+  and Wisconsin's (800-GAMBLE-5) own helplines for their races, as it does
+  for Minnesota and Iowa, beside the national one; each number is taken
+  from the state's own page.
+
 ## v4.0.056 — 2026-09-30 — Share any race
 
 - Every race with an official list has a "Share this race" button and a
