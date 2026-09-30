@@ -10,6 +10,30 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.053 — 2026-09-30 — The Upper Midwest on the ballot, and maps for every race
+
+- On The Ballot now carries the official candidate lists of Michigan,
+  Wisconsin, Iowa, North Dakota and South Dakota, read from each state's
+  own election office: every House seat, and the Senate races in
+  Michigan, Iowa and South Dakota. Minnesota's list is ready to load as
+  soon as its files are saved.
+- Wisconsin's party primaries show every candidate's votes, from the
+  Elections Commission's official county-by-county report. Michigan's
+  show who ran in each party's August primary and who won it.
+- Each state's page has a map, drawn like the Vote map: every district
+  in the colour of the party that holds it today, with its number on it,
+  and striped where the member who holds it is not on the ballot for it.
+  Point at a district, or tap it, to see who is running there; zoom in
+  for the cities. A second view shows the Senate seat.
+- Each race's page shows where it is: its district picked out on the
+  state, or the whole state for a Senate race. Tap a neighbouring
+  district to go to its race.
+- The map of the country has a second view too: the Senate seats on the
+  ballot, by who holds them today.
+- Where a state drew new district lines for 2026 (California, Florida,
+  Texas and six more), its districts are listed but not drawn yet, since
+  the old lines would be the wrong districts.
+
 ## v4.0.052 — 2026-09-29 — The crossings, in 3D and in your own eyes
 
 - Both crossings are now real rooms in 3D, seen as if you were standing

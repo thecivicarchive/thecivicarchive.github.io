@@ -37,7 +37,8 @@ from build_state_dev import borrow                                              
 from money_views import KIND_LABELS, PAC_LIMIT, committee_kind, tidy_name       # noqa: E402
 
 ELECTION_NAMES = {"general": "General election", "primary": "Top-two primary", "primary-DEM": "Democratic primary",
-                  "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-GRE": "Green primary"}
+                  "primary-REP": "Republican primary", "primary-LPF": "Libertarian primary", "primary-GRE": "Green primary",
+                  "primary-DFL": "Democratic-Farmer-Labor primary"}
 
 
 def money(con, ids):
@@ -162,12 +163,29 @@ def build(db, record_db, site_root, out_dir):
         races.append({"id": race, "st": st, "o": "H" if office == "U.S. House" else "S", "d": dist, "cls": cls, "sp": special,
                       "h": [holder, hname, hparty] if holder else None, "note": note, "date": gdate,
                       "el": {e: v for e, v in cands.get(race, {}).items()}})
+    shapes = state_paths(os.path.join(HERE, "us_states_albers.json"))
     boot = {"election": GENERAL, "generated": dt.date.today().isoformat(), "names": STATE_NAMES, "notes": notes, "sources": sources,
             "listed": sorted(listed), "races": races, "money": money(con, fec_ids), "members": member_facts(bios, site_root),
             "runs": runs, "kinds": KIND_LABELS, "elections": ELECTION_NAMES, "party": party_of, "people": people(con, out_dir),
-            "map": {k: v["d"] for k, v in state_paths(os.path.join(HERE, "us_states_albers.json")).items()},
+            "map": {k: v["d"] for k, v in shapes.items()}, "sbox": {k: v["bbox"] for k, v in shapes.items()},
+            "dist": district_file(out_dir, {st for st, n in notes.items() if n["changed"]}),
             "changelog": read_changelog(os.path.join(HERE, "CHANGELOG.md"))}
     return boot
+
+
+def district_file(out_dir, changed):
+    """The House district lines the maps draw, in a file of their own beside the page (fetched only when a map is
+    opened). Only states whose lines on the 2026 ballot are the current ones: where a state drew new lines for 2026,
+    the old lines would be the wrong districts, so none are written and its maps say so."""
+    src = json.load(open(os.path.join(HERE, "us_districts_albers.json"), encoding="utf-8"))
+    kept = {st: rings for st, rings in src["states"].items() if st not in changed}
+    body = json.dumps({"q": src.get("q", 50), "vintage": src.get("vintage", ""), "states": kept}, separators=(",", ":"))
+    path = os.path.join(out_dir, "data", "districts.json")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if not os.path.exists(path) or open(path, encoding="utf-8").read() != body:
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(body)
+    return {"url": "data/districts.json", "vintage": src.get("vintage", ""), "states": sorted(kept)}
 
 
 PAGE = r"""<!DOCTYPE html>
@@ -179,6 +197,7 @@ PAGE = r"""<!DOCTYPE html>
 <meta name="description" content="Every House and Senate race on the November 3, 2026 ballot: who is running, from each state's official list, the primaries that chose them, and who funds them.">
 <meta name="version" content="__VERSION__">
 <meta name="theme-color" content="#0C0E12">
+<link rel="icon" href="../../us/icon-192.png" type="image/png">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,6 +244,58 @@ PAGE = r"""<!DOCTYPE html>
 .usballot path{fill:var(--surface);stroke:var(--line-strong);stroke-width:.8;cursor:pointer;transition:fill .15s}
 .usballot path.on{fill:var(--accent)}.usballot path.off{fill:url(#bhatch)}.usballot path:hover{filter:brightness(1.12)}
 .mkey{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:8px 0 0}.mkey span{display:inline-flex;gap:7px;align-items:center}.mkey i{width:13px;height:13px;border-radius:3px;display:inline-block;border:1px solid var(--line-strong)}
+.usballot path.sen{stroke:var(--surface)}.usballot path.sen.unk{opacity:.55}.usballot path.none{fill:var(--line)}
+/* the maps (John, 2026-09-30): the districts on the ballot, drawn as on the Vote map */
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
+.seg button{all:unset;cursor:pointer;font:600 13px var(--sans);padding:6px 13px;border-radius:999px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}.seg button:disabled{opacity:.4;cursor:default}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(270px,1fr);gap:16px;align-items:start;margin-top:14px}
+@media (max-width:860px){.mapgrid{grid-template-columns:1fr}}
+.mapcol{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:12px 12px 10px;min-width:0}
+.mapbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.zoom{display:inline-flex;gap:5px}
+.zoom button{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line-strong);border-radius:50%;font:700 16px/1 var(--sans);color:var(--ink);background:var(--surface)}
+.zoom button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.svgbox{position:relative;border-radius:14px;overflow:hidden;background:var(--bg);touch-action:pan-y}
+.svgbox.zoomed{touch-action:none;cursor:grab}.svgbox.drag{cursor:grabbing}
+.bstate{width:100%;height:auto;display:block;user-select:none;-webkit-user-select:none}
+.bstate path.dist{stroke:var(--surface);stroke-width:1.1;vector-effect:non-scaling-stroke;cursor:pointer;transition:filter .15s,opacity .15s}
+.bstate path.dist.unk{opacity:.5}.bstate path.dist.vac{fill:var(--line-strong)}
+.bstate path.dist:hover,.bstate path.dist.hl{filter:brightness(1.2) saturate(1.1)}
+.bstate path.dist:focus{outline:none}.bstate path.dist:focus-visible{stroke:var(--accent);stroke-width:3}
+.bstate path.ring{fill:none;stroke:var(--ink);stroke-width:3;vector-effect:non-scaling-stroke;pointer-events:none}
+.bstate path.sout{fill:none;stroke:var(--ink);stroke-width:1.3;vector-effect:non-scaling-stroke;pointer-events:none;opacity:.6}
+.bstate path.whole{stroke:var(--surface);stroke-width:1.1;vector-effect:non-scaling-stroke;cursor:pointer}
+.bstate path.nolines{fill:var(--line);cursor:default}
+.bstate text{pointer-events:none;text-anchor:middle}
+.bstate text.dlab{font:700 12px var(--sans);fill:#fff;paint-order:stroke;stroke:rgba(10,12,18,.6);stroke-width:3px;stroke-linejoin:round}
+.bstate text.dlab.tiny{display:none}
+.bstate text.big{font:700 13px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.mnote{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.45}
+.mapside{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:14px 16px 16px;min-height:200px}
+.mapside .kick{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.mapside h3{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.05;margin:4px 0 6px}
+.mapside .held{font-size:13.5px;color:var(--muted);margin:0 0 10px}.mapside .held b{color:var(--ink)}
+.tally{display:grid;gap:6px;margin:10px 0 12px;padding:0;list-style:none}
+.tally li{display:flex;gap:9px;align-items:center;font-size:14px}.tally i{width:14px;height:14px;border-radius:4px;flex:none}
+.plist{display:grid;gap:8px;margin:8px 0 12px;padding:0;list-style:none}
+.plist li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:7px 10px 7px 7px;border-left:4px solid var(--pc)}
+.plist .av{width:40px;height:40px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:color-mix(in srgb,var(--pc) 14%,var(--surface));color:var(--pc);font:600 15px var(--serif)}
+.plist .av img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.plist b{display:block;font-size:14.5px;line-height:1.2}.plist small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.plist .star{color:var(--gold);font-size:12px;margin-left:4px}
+.rpgo{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;font-size:14px}
+.sidehint{font-size:13px;color:var(--muted);margin:10px 0 0}
+.dnum{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 6px;border-radius:9px;background:var(--pc,var(--line-strong));color:#fff;font:700 13px var(--sans);margin-right:8px;vertical-align:middle}
+.bhero.withloc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start}
+@media (max-width:720px){.bhero.withloc{grid-template-columns:1fr}.bhero.withloc .loc{width:min(300px,100%)}}
+.loc{margin:0;width:260px;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:10px}
+.loc svg{width:100%;height:auto;display:block}
+.loc path.lst{fill:var(--line);stroke:none}.loc path.lot{fill:var(--line);stroke:var(--surface);stroke-width:.9;vector-effect:non-scaling-stroke;cursor:pointer}
+.loc path.lot:hover{fill:var(--line-strong)}.loc path.lme{stroke:var(--ink);stroke-width:1.8;vector-effect:non-scaling-stroke}
+.loc path.lout{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.55;pointer-events:none}
+.loc figcaption{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.4}
 .sgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));margin-top:14px}
 .scard2{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface)}
 .scard2 b{display:block}.scard2 span{font-size:12.5px;color:var(--muted)}.scard2 .pill2{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:2px 8px;background:var(--accent-soft,rgba(15,122,106,.12));color:var(--accent)}
@@ -491,6 +562,185 @@ function field(r, key){
     <p class="fnote">${votes ? `Votes as certified in the official results (${esc(src ? src.agency : "the state")}).` : `The official vote counts for this primary are not loaded yet; who won comes from the candidate list of the ${esc(src ? src.agency : "state")}.`}</p></section>`;
 }
 
+/* ---------- maps: the districts on the ballot, drawn as on the Vote map (John, 2026-09-30) ---------- */
+let DIST = null, mapOff = null;
+const needDist = () => DIST ? Promise.resolve(DIST) : fetch(BOOT.dist.url).then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(d => (DIST = d), () => (DIST = {q: 50, states: {}, failed: true}));
+const decodeRing = (ring, q) => { let x = 0, y = 0; const pts = []; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; pts.push([x / q, y / q]); } return pts; };
+const pathOf = rings => rings.map(p => "M" + p.map(v => v[0].toFixed(2) + "," + v[1].toFixed(2)).join("L") + "Z").join("");
+const areaOf = pts => { let a = 0; for (let i = 0, n = pts.length; i < n; i++) { const [x0, y0] = pts[i], [x1, y1] = pts[(i + 1) % n]; a += x0 * y1 - x1 * y0; } return Math.abs(a) / 2; };
+const centroidOf = pts => { let a = 0, cx = 0, cy = 0; for (let i = 0, n = pts.length; i < n; i++) { const [x0, y0] = pts[i], [x1, y1] = pts[(i + 1) % n], f = x0 * y1 - x1 * y0; a += f; cx += (x0 + x1) * f; cy += (y0 + y1) * f; } a *= .5; return a ? [cx / (6 * a), cy / (6 * a)] : pts[0]; };
+const linesChanged = st => !!(BOOT.notes[st] && BOOT.notes[st].changed);
+const houseOf = st => (byState[st] || []).filter(r => r.o === "H");
+const senateOf = st => (byState[st] || []).filter(r => r.o === "S");
+const raceOfD = (st, n) => houseOf(st).find(r => +r.d === +n);
+const distCache = {};
+function districtsOf(st){      // [{n, d, area, c}]; the whole state for an at-large seat; null where no lines are drawn
+  if (!DIST) return null;
+  if (distCache[st] !== undefined) return distCache[st];
+  if (linesChanged(st)) return distCache[st] = null;      // new lines for 2026: the old ones would be the wrong districts
+  const raw = DIST.states[st];
+  if (!raw) {
+    if (houseOf(st).length !== 1 || !BOOT.map[st]) return distCache[st] = null;
+    const [x0, y0, x1, y1] = BOOT.sbox[st];
+    return distCache[st] = [{n: 0, d: BOOT.map[st], area: (x1 - x0) * (y1 - y0), c: [(x0 + x1) / 2, (y0 + y1) / 2], whole: true}];
+  }
+  const q = DIST.q || 50;
+  return distCache[st] = Object.entries(raw).map(([n, rings]) => {
+    const pts = rings.map(r => decodeRing(r, q)), big = pts.reduce((m, r) => areaOf(r) > areaOf(m) ? r : m, pts[0]);
+    return {n: +n, d: pathOf(pts), area: pts.reduce((t, r) => t + areaOf(r), 0), c: centroidOf(big)};
+  }).sort((a, b) => a.n - b.n);
+}
+/* a seat's colour is the party that holds it today; striped when that member is not on the seat's November ballot */
+const HOLD = r => r && r.h ? (HOLDPARTY[r.h[2]] || "I") : null;
+const PVAR = {D: "var(--pD)", R: "var(--pR)", I: "var(--pI)"};
+function seatState(r){
+  if (!r || !r.h) return "vacant";
+  if (!listed.has(r.st)) return "unknown";
+  return general(r).some(c => c.bio === r.h[0]) ? "running" : "open";
+}
+const seatFill = (r, id) => { const h = HOLD(r); return !h ? "var(--line-strong)" : seatState(r) === "open" ? `url(#${id}-open-${h})` : PVAR[h]; };
+const openDefs = (id, w) => `<defs>${["D", "R", "I"].map(h => `<pattern id="${id}-open-${h}" patternUnits="userSpaceOnUse" width="${w.toFixed(3)}" height="${w.toFixed(3)}" patternTransform="rotate(45)"><rect width="${w.toFixed(3)}" height="${w.toFixed(3)}" style="fill:${PVAR[h]};opacity:.28"/><rect width="${(w * .42).toFixed(3)}" height="${w.toFixed(3)}" style="fill:${PVAR[h]}"/></pattern>`).join("")}</defs>`;
+const aspectOf = b => Math.min(1.75, Math.max(.8, (b[2] - b[0]) / Math.max(1, b[3] - b[1])));
+const fitBox = (b, aspect, pad) => { let w = (b[2] - b[0]) * pad, h = (b[3] - b[1]) * pad; if (w / h > aspect) h = w / aspect; else w = h * aspect; return [(b[0] + b[2]) / 2 - w / 2, (b[1] + b[3]) / 2 - h / 2, w, h]; };
+const ONE = {D: "a Democrat", R: "a Republican", I: "an independent"}, MANY = {D: "Democrats", R: "Republicans", I: "independents"};
+function seatWords(r){
+  const s = seatState(r); if (s === "vacant") return "The seat is vacant today.";
+  const who = `Held today by <b>${esc(r.h[1])}</b> (${esc(r.h[2])})`;
+  return s === "running" ? `${who}, who is on the ballot again.` : s === "open" ? `${who}, who is not on the ballot for it: an open seat.` : `${who}. The state's official list is not loaded yet.`;
+}
+const plain = html => String(html).replace(/<[^>]+>/g, "");
+function preview(r){      // a race in the side panel: who holds it, who is running, and the way in
+  const g = general(r), h = HOLD(r);
+  const who = g.length ? `<ol class="plist">${g.map(c => { const pp = P(c), age = ageOf(pp.dob);
+      return `<li style="--pc:${pcVar(c)}"><span class="av">${pp.ph ? `<img src="${esc(pp.ph)}" alt="" loading="lazy" decoding="async">` : esc(initials(c.n).toUpperCase())}</span><span><b>${esc(c.n)}${c.inc ? '<span class="star" title="Serves in this chamber today">&#9733;</span>' : ""}</b><small>${esc(shortParty(c))}${age != null ? ` &middot; age ${age}` : ""}</small></span></li>`; }).join("")}</ol>`
+    : `<p class="held">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet.`}</p>`;
+  return `<span class="kick">${r.o === "S" ? "U.S. Senate" : "U.S. House"}${r.sp ? " &middot; special election" : ""}</span>
+    <h3>${r.o === "H" ? `<span class="dnum" style="--pc:${h ? PVAR[h] : "var(--line-strong)"}">${+r.d || "AL"}</span>` : ""}${esc(r.o === "S" ? NAMES[r.st] : raceShort(r))}</h3>
+    <p class="held">${seatWords(r)}</p>${who}<a class="rpgo" href="#race=${esc(r.id)}">Open the race &rsaquo;</a>`;
+}
+function sideSummary(st, view){
+  if (view === "S") { const s = senateOf(st)[0]; return s ? preview(s) : `<p class="held">No Senate seat from ${esc(NAMES[st])} is on the ballot in 2026.</p>`; }
+  const hs = houseOf(st), n = {D: 0, R: 0, I: 0}; let open = 0, vac = 0;
+  hs.forEach(r => { const h = HOLD(r); if (h) n[h]++; else vac++; if (seatState(r) === "open") open++; });
+  const rows = ["D", "R", "I"].filter(k => n[k]).map(k => `<li><i style="background:${PVAR[k]}"></i>${n[k]} held by ${n[k] === 1 ? ONE[k] : MANY[k]}</li>`);
+  if (vac) rows.push(`<li><i style="background:var(--line-strong)"></i>${vac} vacant</li>`);
+  if (listed.has(st)) rows.push(`<li><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px)"></i>${open ? `${open} open ${open === 1 ? "seat" : "seats"}: the member who holds it is not on its ballot` : "No open seat: every member is on the ballot again"}</li>`);
+  return `<span class="kick">${esc(NAMES[st])} &middot; U.S. House</span><h3>${hs.length === 1 ? "One seat, at large" : `${hs.length} districts`}</h3>
+    <ul class="tally">${rows.join("")}</ul><p class="sidehint">${matchMedia("(hover: hover)").matches ? "Point at a district to see who is running there; click to keep it here." : "Tap a district to see who is running there."}</p>`;
+}
+function stateMapHTML(st){
+  const s = senateOf(st).length;
+  return `<section class="bsec" id="mapsec"><h2>On the map</h2><p class="sub">Each district in the colour of the party that holds it today; striped where the member who holds it is not on the ballot for it. The colours say who holds a seat, never who will win it.</p>
+    <div class="mapgrid"><div class="mapcol">
+      <div class="mapbar"><div class="seg" role="group" aria-label="Which seats to show"><button type="button" data-v="H" aria-pressed="true">House districts</button><button type="button" data-v="S" aria-pressed="false"${s ? "" : ' disabled title="No Senate race in this state in 2026"'}>Senate seat</button></div>
+        <div class="zoom" role="group" aria-label="Zoom"><button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">&minus;</button><button type="button" data-z="fit" aria-label="Show the whole state">&#10530;</button></div></div>
+      <div class="svgbox" id="svgbox"><svg class="bstate" id="bstate" role="group" aria-label="Map of ${esc(NAMES[st])}'s congressional districts"></svg></div>
+      <p class="mnote" id="bnote"></p></div>
+    <aside class="mapside" id="mapside" aria-live="polite"></aside></div></section>`;
+}
+async function mountStateMap(st){
+  const svg = $("#bstate"), side = $("#mapside"), box = $("#svgbox"), note = $("#bnote"); if (!svg) return;
+  side.innerHTML = sideSummary(st, "H");
+  await needDist();
+  if (!svg.isConnected) return;      // the reader moved on while the lines loaded
+  const B = BOOT.sbox[st], vb0 = fitBox(B, aspectOf(B), 1.08), list = districtsOf(st), hover = matchMedia("(hover: hover)").matches;
+  let vb = vb0.slice(), view = "H", sel = null, drag = null, moved = false;
+  const byN = Object.fromEntries((list || []).map(D => [D.n, D]));
+  const unitsPerPx = () => vb[2] / Math.max(1, svg.getBoundingClientRect().width || 640);
+  function relabel(){
+    const s = unitsPerPx();
+    $$("text.dlab", svg).forEach(t => { const D = byN[t.dataset.d]; if (!D) return;
+      t.setAttribute("transform", `translate(${D.c[0].toFixed(2)} ${D.c[1].toFixed(2)}) scale(${s.toFixed(4)})`);
+      t.classList.toggle("tiny", D.area / (s * s) < 650 && +t.dataset.d !== sel); });
+  }
+  const setVB = v => { vb = v; svg.setAttribute("viewBox", v.map(x => x.toFixed(2)).join(" ")); box.classList.toggle("zoomed", v[2] < vb0[2] * .98); relabel(); };
+  function ring(){
+    $$("path.ring", svg).forEach(p => p.remove());
+    const d = view === "S" ? BOOT.map[st] : sel != null && byN[sel] ? byN[sel].d : null;
+    if (d && (view === "H" ? list && list.length > 1 : true)) svg.insertAdjacentHTML("beforeend", `<path class="ring" d="${d}"/>`);
+  }
+  function draw(){
+    let body = openDefs("sm", vb0[2] / 90);
+    if (view === "S") {
+      const r = senateOf(st)[0];
+      body += `<path class="whole" data-race="${esc(r.id)}" d="${BOOT.map[st]}" style="fill:${seatFill(r, "sm")}" tabindex="0" role="button" aria-label="${esc(raceName(r))}: ${esc(plain(seatWords(r)))}"/>`;
+      note.innerHTML = `The whole state votes for this seat.`;
+    } else if (!list) {
+      body += `<path class="whole nolines" d="${BOOT.map[st]}"/><text class="big" transform="translate(${((B[0] + B[2]) / 2).toFixed(1)} ${((B[1] + B[3]) / 2).toFixed(1)}) scale(${unitsPerPx().toFixed(4)})" dy=".35em">${linesChanged(st) ? "New district lines for 2026" : "District lines not loaded"}</text>`;
+      note.innerHTML = linesChanged(st) ? `${esc(NAMES[st])} drew new congressional lines for 2026${BOOT.notes[st].note ? ` (${esc(BOOT.notes[st].note.replace(/\.\s*$/, ""))})` : ""}. The new map is not drawn here yet, so the districts are listed below but not shown; the old lines would be the wrong districts.`
+        : DIST.failed ? "The district lines could not be loaded. Check your connection and open the page again." : "";
+    } else {
+      body += list.map(D => { const r = raceOfD(st, D.n), s = seatState(r);
+        return `<path class="dist${s === "unknown" ? " unk" : ""}${s === "vacant" ? " vac" : ""}" data-d="${D.n}" d="${D.d}" style="fill:${seatFill(r, "sm")}" tabindex="0" role="button" aria-label="${esc(r ? raceName(r) : "District " + D.n)}. ${esc(r ? plain(seatWords(r)) : "")}"/>`; }).join("");
+      if (list.length > 1) body += list.map(D => `<text class="dlab" data-d="${D.n}" dy=".36em">${D.n}</text>`).join("");
+      body += `<path class="sout" d="${BOOT.map[st]}"/>`;
+      note.innerHTML = list[0].whole ? "The whole state is one district, elected at large." : `District lines: ${esc(DIST.vintage || "the current lines")}, the lines on ${esc(NAMES[st])}'s 2026 ballot.`;
+    }
+    svg.innerHTML = body;
+    setVB(vb); ring();
+  }
+  function show(n, keep){
+    const r = view === "S" ? senateOf(st)[0] : raceOfD(st, n); if (!r) return;
+    if (keep) { sel = view === "S" ? null : +n; ring(); relabel(); }
+    side.innerHTML = preview(r);
+  }
+  const rest = () => { side.innerHTML = view === "S" ? sideSummary(st, "S") : sel != null ? preview(raceOfD(st, sel)) : sideSummary(st, "H"); };
+  const toUnits = e => { const b = svg.getBoundingClientRect(); return [vb[0] + (e.clientX - b.left) / b.width * vb[2], vb[1] + (e.clientY - b.top) / b.height * vb[3]]; };
+  function zoomAt(f, at){
+    const w = Math.min(vb0[2], Math.max(vb0[2] / 14, vb[2] / f)), k = w / vb[2], h = vb[3] * k, [px, py] = at || [vb[0] + vb[2] / 2, vb[1] + vb[3] / 2];
+    setVB(clamp([px - (px - vb[0]) * k, py - (py - vb[1]) * k, w, h]));
+  }
+  const clamp = v => [Math.min(Math.max(v[0], vb0[0]), vb0[0] + vb0[2] - v[2]), Math.min(Math.max(v[1], vb0[1]), vb0[1] + vb0[3] - v[3]), v[2], v[3]];
+  svg.addEventListener("click", e => {
+    if (moved) { moved = false; return; }
+    const p = e.target.closest("path.dist, path.whole"); if (!p || p.classList.contains("nolines")) return;
+    show(p.dataset.d, true);
+    if (!hover && side.getBoundingClientRect().top > innerHeight - 80) side.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"});
+  });
+  svg.addEventListener("keydown", e => { if (e.key !== "Enter" && e.key !== " ") return; const p = e.target.closest("path.dist, path.whole"); if (p && !p.classList.contains("nolines")) { e.preventDefault(); show(p.dataset.d, true); } });
+  if (hover) {
+    svg.addEventListener("pointerover", e => { const p = e.target.closest("path.dist"); if (!p || drag) return; $$("path.dist.hl", svg).forEach(x => x.classList.remove("hl")); p.classList.add("hl"); show(p.dataset.d, false); });
+    svg.addEventListener("pointerleave", () => { $$("path.dist.hl", svg).forEach(x => x.classList.remove("hl")); rest(); });
+  }
+  if (mapOff) mapOff.abort();      // the window's listeners from the last map opened go with it
+  mapOff = new AbortController();
+  const sig = {signal: mapOff.signal};
+  svg.addEventListener("dblclick", e => { e.preventDefault(); zoomAt(2, toUnits(e)); });
+  svg.addEventListener("pointerdown", e => { moved = false; if (!box.classList.contains("zoomed") || e.button) return; drag = {x: e.clientX, y: e.clientY, vb: vb.slice()}; });
+  addEventListener("pointermove", e => {      // no pointer capture: the map lets the page keep its clicks
+    if (!drag || !svg.isConnected) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (!moved && Math.hypot(dx, dy) < 4) return;
+    moved = true; box.classList.add("drag"); const k = unitsPerPx(); setVB(clamp([drag.vb[0] - dx * k, drag.vb[1] - dy * k, vb[2], vb[3]]));
+  }, sig);
+  addEventListener("pointerup", () => { if (drag) { drag = null; box.classList.remove("drag"); } }, sig);
+  $$(".zoom button", $("#mapsec")).forEach(b => b.addEventListener("click", () => { if (b.dataset.z === "fit") setVB(vb0.slice()); else zoomAt(b.dataset.z === "in" ? 1.8 : 1 / 1.8); }));
+  $$(".seg button", $("#mapsec")).forEach(b => b.addEventListener("click", () => {
+    if (b.disabled || b.dataset.v === view) return;
+    view = b.dataset.v; sel = null; $$(".seg button", $("#mapsec")).forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    draw(); rest();
+  }));
+  addEventListener("resize", () => { if (svg.isConnected) relabel(); }, sig);
+  draw();
+}
+function locatorHTML(){ return `<figure class="loc"><svg id="locsvg" role="img" aria-label="Where this race is"></svg><figcaption id="loccap"></figcaption></figure>`; }
+async function mountLocator(r){      // the race's own district picked out on its state; a tap on another district opens that race
+  const svg = $("#locsvg"); if (!svg) return;
+  await needDist(); if (!svg.isConnected) return;
+  const st = r.st, B = BOOT.sbox[st], vb = fitBox(B, aspectOf(B), 1.06), list = r.o === "H" ? districtsOf(st) : null;
+  let body = openDefs("lm", vb[2] / 60), cap = "";
+  if (r.o === "S") { body += `<path class="lme" d="${BOOT.map[st]}" style="fill:${seatFill(r, "lm")}"/>`; cap = "The whole state votes for this seat."; }
+  else if (list) {
+    const me = list.find(D => D.n === +r.d);
+    body += list.filter(D => D !== me).map(D => `<path class="lot" data-d="${D.n}" d="${D.d}"><title>${esc(raceShort({o: "H", d: D.n}))}</title></path>`).join("");
+    if (me) body += `<path class="lme" d="${me.d}" style="fill:${seatFill(r, "lm")}"/>`;
+    body += `<path class="lout" d="${BOOT.map[st]}"/>`;
+    cap = me && me.whole ? "The whole state is one district." : me ? `District ${me.n} of ${list.length}${list.length > 1 ? ". Tap another district to open its race." : "."}` : "";
+  } else { body += `<path class="lst" d="${BOOT.map[st]}"/>`; cap = linesChanged(st) ? "New district lines for 2026: the new map is not drawn here yet." : "District lines not available."; }
+  svg.setAttribute("viewBox", vb.map(v => v.toFixed(2)).join(" ")); svg.innerHTML = body; $("#loccap").textContent = cap;
+  svg.addEventListener("click", e => { const p = e.target.closest("path.lot"); const rr = p && raceOfD(st, p.dataset.d); if (rr) location.hash = "race=" + rr.id; });
+}
+
 /* ---------- pages ---------- */
 function home(anchor){
   const H = BOOT.races.filter(r => r.o === "H").length, S = BOOT.races.filter(r => r.o === "S");
@@ -507,10 +757,11 @@ function home(anchor){
     <div class="mine" id="minelist"></div></section>
   <section class="bsec" id="senate"><h2>The Senate races</h2><p class="sub">Thirty-three seats whose terms end in January, and ${S.filter(r => r.sp).length} special elections for the rest of a term.</p>
     <div class="rgrid">${S.map(raceCard).join("")}</div></section>
-  <section class="bsec" id="states"><h2>Every state</h2><p class="sub">Filled states have their official candidate list loaded. The rest are coming, largest first.</p>
-    <svg class="usballot" id="usballot" viewBox="0 0 975 610" role="img" aria-label="Map of the states: filled where the official candidate list is loaded"><defs><pattern id="bhatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="var(--surface)"/><rect width="2.5" height="7" fill="var(--accent)" opacity=".35"/></pattern></defs>
+  <section class="bsec" id="states"><h2>Every state</h2><p class="sub">Filled states have their official candidate list loaded. The rest are coming, largest first. Switch the map to see the Senate seats on the ballot.</p>
+    <div class="mapbar" style="margin-top:12px"><div class="seg" role="group" aria-label="What the map shows" id="useg"><button type="button" data-u="lists" aria-pressed="true">Official lists</button><button type="button" data-u="senate" aria-pressed="false">Senate races</button></div></div>
+    <svg class="usballot" id="usballot" viewBox="0 0 975 610" role="img" aria-label="Map of the states"><defs><pattern id="bhatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="var(--surface)"/><rect width="2.5" height="7" fill="var(--accent)" opacity=".35"/></pattern></defs>${openDefs("us", 7)}
       ${Object.entries(BOOT.map).map(([s, d]) => NAMES[s] ? `<path class="${listed.has(s) ? "on" : "off"}" d="${d}" data-st="${s}"><title>${esc(NAMES[s])}: ${listed.has(s) ? "list loaded" : "list coming"}</title></path>` : "").join("")}</svg>
-    <div class="mkey"><span><i style="background:var(--accent)"></i>Official list loaded</span><span><i style="background:repeating-linear-gradient(45deg,var(--accent) 0 2px,var(--surface) 2px 7px)"></i>Coming</span></div>
+    <div class="mkey" id="ukey"></div>
     <div class="sgrid">${Object.keys(NAMES).sort((a, b) => NAMES[a].localeCompare(NAMES[b])).map(s => `<a class="scard2" href="#state=${s}"><b>${esc(NAMES[s])}</b><span>${(byState[s] || []).filter(r => r.o === "H").length} House ${(byState[s] || []).filter(r => r.o === "H").length === 1 ? "seat" : "seats"}${(byState[s] || []).some(r => r.o === "S") ? ", a Senate race" : ""}${BOOT.notes[s] && BOOT.notes[s].changed ? ", new district lines" : ""}</span><br><span class="pill2${listed.has(s) ? "" : " no"}">${listed.has(s) ? "List loaded" : "Coming"}</span></a>`).join("")}</div></section>
   ${sourcesHTML()}`;
   const mst = $("#mst"), mdi = $("#mdi");
@@ -524,6 +775,17 @@ function home(anchor){
     $("#minelist").innerHTML = `${stateNote(st)}<div class="rgrid">${mineR.map(raceCard).join("")}</div>`; };
   mst.addEventListener("change", () => { mine.d = ""; fill(); }); mdi.addEventListener("change", showMine); fill();
   $("#usballot").addEventListener("click", e => { const p = e.target.closest("path[data-st]"); if (p) location.hash = "state=" + p.dataset.st; });
+  const usMode = mode => {      // the same map two ways: whose lists are loaded, and the Senate seats on the ballot
+    $$("#usballot path[data-st]").forEach(p => { const st = p.dataset.st, s = senateOf(st)[0], t = p.querySelector("title");
+      if (mode === "senate") { p.setAttribute("class", s ? `sen${seatState(s) === "unknown" ? " unk" : ""}` : "none"); p.style.fill = s ? seatFill(s, "us") : ""; t.textContent = `${NAMES[st]}: ${s ? plain(seatWords(s)) : "no Senate race in 2026"}`; }
+      else { p.setAttribute("class", listed.has(st) ? "on" : "off"); p.style.fill = ""; t.textContent = `${NAMES[st]}: ${listed.has(st) ? "list loaded" : "list coming"}`; } });
+    $("#ukey").innerHTML = mode === "senate"
+      ? `<span><i style="background:var(--pD)"></i>Held by a Democrat</span><span><i style="background:var(--pR)"></i>Held by a Republican</span><span><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,var(--surface) 2px 6px)"></i>Open seat: the senator is not on the ballot for it</span><span><i style="background:var(--line)"></i>No Senate race in 2026</span><span>Paler: the state's list is not loaded yet, so an open seat is not marked</span>`
+      : `<span><i style="background:var(--accent)"></i>Official list loaded</span><span><i style="background:repeating-linear-gradient(45deg,var(--accent) 0 2px,var(--surface) 2px 7px)"></i>Coming</span>`;
+    $$("#useg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.u === mode)));
+  };
+  $$("#useg button").forEach(b => b.addEventListener("click", () => usMode(b.dataset.u)));
+  usMode("lists");
   if (anchor && $("#" + anchor)) $("#" + anchor).scrollIntoView();
 }
 function statePage(st){
@@ -533,9 +795,11 @@ function statePage(st){
   <section class="bhero"><span class="eyebrow">On The Ballot &middot; ${esc(NAMES[st])}</span><h1>${esc(NAMES[st])}</h1>
     <p class="lede">${rs.filter(r => r.o === "H").length} House ${rs.filter(r => r.o === "H").length === 1 ? "seat" : "seats"}${rs.some(r => r.o === "S") ? " and a Senate seat" : ""} on the November 3 ballot. ${listed.has(st) ? "Candidates from the state's official list." : "The state's official candidate list is not loaded yet; each race says who holds the seat today."}</p>
     ${stateNote(st)}</section>
+  ${stateMapHTML(st)}
   ${rs.some(r => r.o === "S") ? `<section class="bsec"><h2>Senate</h2><div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}</div></section>` : ""}
   <section class="bsec"><h2>House</h2><div class="rlist">${rs.filter(r => r.o === "H").map(raceRow).join("")}</div></section>
   ${src.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${src.map(srcItem).join("")}</div></section>` : ""}`;
+  mountStateMap(st);
 }
 function holderLine(r){
   if (!r.h) return `<p class="holder">The seat is vacant today.</p>`;
@@ -556,11 +820,12 @@ function racePage(id){
   const prim = Object.keys(r.el || {}).filter(k => k !== "general").sort();
   const srcs = [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean);
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
-  <section class="bhero"><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
-    ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}</section>
+  <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
+    ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}</div>${locatorHTML()}</section>
   ${general(r).length ? arena(r) : `<div class="notebox">${listed.has(r.st) ? "No candidate for this race is on the state's list." : `The official candidate list for ${esc(NAMES[r.st])} is not loaded yet. We add each state from its own election office, largest first.`}</div>`}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? "California's primary is top-two: every candidate, of every party preference, on one ballot." : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}</div></section>` : ""}`;
+  mountLocator(r);
   const b = $("#aopen");
   if (b) b.addEventListener("click", () => { const c = $("#cmp"); if (c.hidden) { c.innerHTML = compare(r); c.hidden = false; b.setAttribute("aria-expanded", "true"); b.querySelector("span").textContent = "Close the comparison"; c.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); }
     else { c.hidden = true; b.setAttribute("aria-expanded", "false"); b.querySelector("span").textContent = "Step into the arena: compare them side by side"; } });
@@ -575,6 +840,7 @@ function sourcesHTML(){
       <li><b>Money</b> is the 2026 cycle from the Federal Election Commission's bulk files: what each campaign reported, organizations named, people only as a total. A candidate's own fundraising committees and joint fundraising committees are moved in, not donors. Outside spending is kept apart, because the campaign never received it.</li>
       <li><b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.</li>
       <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
+      <li><b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.</li>
       <li><b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.</li>
       <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, ads (spending by kind, for and against, and links to the public ad libraries), polls from pollsters in AAPOR's Transparency Initiative, each campaign's own issues page, and then state and local races.</li>
     </ul>

@@ -5,8 +5,9 @@ card) and, when they serve in Congress today, to their Bioguide id (for their re
 A match needs the same state and office, the same family name, and a given name that fits (the same, one the start
 of the other, or a common nickname, as the state money loaders use), and it must be the only fit. A House candidate
 is looked for in their own district first, then anywhere in the state (after redistricting a campaign can be
-registered under another number), but only if the name fits exactly one registration. Anyone left unmatched is
-listed; nobody is guessed.
+registered under another number), but only if the name fits exactly one registration. A name kept on the ballot that
+the FEC files among the given names (a professional or maiden name: ARENHOLZ, ASHLEY HINSON for Ashley Hinson) matches
+only when it is the one such fit in the race. Anyone left unmatched is listed; nobody is guessed.
 """
 
 import collections
@@ -63,6 +64,9 @@ def link(con, record_db=os.path.join(HERE, "congress_119.sqlite"), say=print):
         if not hits:      # the family name alone, when exactly one registration in the race carries it
             same = [r for r in here if fits(me, r[2], loose=True)]
             hits = same if len(same) == 1 and sum(1 for r in here if fits((None, me[1]), r[2])) == 1 else []
+        if not hits:      # a name kept on the ballot that the FEC files among the given names (ARENHOLZ, ASHLEY HINSON for Ashley Hinson)
+            kept = [r for r in here if me[0] and r[2][0] and me[1] in r[2][0] and given_fits(me[0][0], r[2][0][0])]
+            hits = kept if len(kept) == 1 else []
         if not hits and code == "H":      # registered under another district number: one person, however many numbers
             hits = [r for r in pool if fits(me, r[2])]
             if len({(h[2][1], tuple(h[2][0][:1])) for h in hits}) > 1:

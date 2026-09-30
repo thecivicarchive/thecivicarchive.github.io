@@ -508,6 +508,37 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   `ballot/pdftext.py` (pure Python: object streams, the page tree, ToUnicode maps; a simple font's codes are always one
   byte even when its map claims two). Every county's list of a district must agree. Names are printed in capitals;
   the page shows ordinary capitals (a sitting member as the roster spells them) and says so.
+- The Upper Midwest (John, 2026-09-30, v4.0.053: MN WI IA MI ND SD next). Michigan (`mi.py`): the Bureau of Elections'
+  Official Candidate Listing from its filing system, mi-boe.entellitrak.com (`page.miboePublicReport&electionYear=2026
+  &electionType=GEN` and `PRI`), which answers scripts although the rest of michigan.gov (and mvic) returns 403 and the
+  old mielections.us host is gone; rows are status (DISQ, WITHD: off the ballot), party, "Last, First", date, method;
+  primary fields from the PRI listing, the advancer read from the GEN listing, no votes. Wisconsin (`wi.py`):
+  elections.wi.gov answers scripts with 403 and serves browsers, so "Candidates on Ballot By Election" (PDF, media
+  40951) and the Partisan Primary "County by County Report" (xlsx, one sheet per office and party named in its Document
+  map; the Office Totals row; SCATTERING is write-ins) are carried out of the Browser pane as base64 (an in-page fetch
+  handed back through the tool's saved result; a public page may not post to a local port) into ballot_cache/wi/; the
+  loader downloads nothing; the signed canvass statements are scans. Iowa (`ia.py`): the Secretary of State's candidate
+  list PDF, linked as "candidate list" from sos.iowa.gov/general-election; headings are centred and entries are not,
+  so the column edges come from where cells start in rows that name an office; only the first three columns are ever
+  turned into text. North Dakota (`nd.py`): vip.sos.nd.gov/candidatelist.aspx?eid=348, the page's own Search posted for
+  "Representative in Congress"; columns by name (Contest printed twice, the second is the office). South Dakota
+  (`sd.py`): vip.sdsos.gov/candidatelist.aspx?eid=774, a Telerik grid sorted by office (federal first, checked); its CSV
+  export needs more than a plain post; columns by an allowlist, Withdrawn left off, REP/DEM/IND/LIB written out. Never
+  exclude columns by position in these grids: allowlist them, and print nothing else while testing. Minnesota (`mn.py`):
+  candidates.sos.mn.gov shows the same Radware CAPTCHA as the results sites, so the loader waits for John's files in
+  states_cache/mn_local/sos/20261103/ (and 20260811/ for primary votes), read with the county loader's `read_file`.
+  `match.py` also matches a name kept on the ballot that the FEC files among the given names (ARENHOLZ, ASHLEY HINSON).
+- Maps (John, 2026-09-30, v4.0.053: "the ability to look at the map(s) like [the Vote map]"). The state page draws its
+  districts (House view) or the whole state (Senate view), each seat in the colour of the party holding it today and
+  striped where that member is not on the seat's November list (`seatState`: running, open, unknown when the list is
+  not loaded, vacant), labelled at the largest ring's centroid with 12px type scaled by transform, small ones hidden
+  until zoomed; hover or tap previews the race beside the map; zoom buttons, double-click, drag to pan when zoomed (no
+  pointer capture; window listeners dropped through an AbortController when the map goes). Race pages show a locator
+  (the district on its state, others clickable). The home map's second view shows the Senate seats. District lines go in
+  `site/dev/ballot/us/data/districts.json`, fetched when a map opens, and only for states whose lines did not change
+  for 2026 (`district_file`); a changed state shows its outline and says why. Test maps with a set viewport
+  (resize_window) because the hidden pane lays out at width 0; see them by drawing the SVG, computed styles inlined,
+  to a canvas and carrying the PNG out as base64.
 - John's second round (2026-09-29): photos, age and years in office on every card. `ballot/people.py` takes birth
   dates, offices and portraits from official records only (the congress-legislators roster for Congress, the Open
   States roster in `state_<code>.sqlite` for state legislators and statewide officials, matched by name, same state,
@@ -543,7 +574,8 @@ libraries (never copied); the money rule as everywhere; after Election Day, the 
   calm notice box: gambling disclaimer, age limits, a state-law warning (availability is disputed in some states),
   the national problem-gambling helpline and the reader's own state's (from the state they picked or their location,
   worked out on the device), and "Go to the market" or "Stay here". No slot machine, no referral codes. Not built yet.
-- Next, in order: more states' lists, largest first (NY, PA, IL, OH, GA, NC, MI ...); campaign websites and photos once
+- Next, in order: Minnesota's files from John; primaries for IA, ND, SD (their primary lists: IA from the Secretary of
+  State, ND eid=346, SD eid=773); more states' lists, largest first (OH, GA, NC ...); campaign websites and photos once
   the key is saved; betting-market odds; Florida's primary votes; the California certified-list check; ads (the FEC's
   independent expenditure file, whose purpose column gives the medium; ad library links); polls (AAPOR's list); share
   pages for races; then state and local ballots.
