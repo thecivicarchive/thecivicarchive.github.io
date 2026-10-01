@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.076 — 2026-10-01 — Nine more states, county by county
+
+- County and local races open for Florida, Nebraska, Wyoming, Michigan, Iowa, Missouri, Montana, Ohio and Wisconsin: 4,732 more contests and 6,328 more candidates. On The Ballot's local level now holds 21,870 contests and 36,490 candidates in 29 states.
+- Florida comes from the Division of Elections' own file of local candidates (county commissions, school boards, and nearly two thousand special district seats), placed county by county with each supervisor of elections' notice. A candidate nobody opposed is elected without a vote and is shown that way.
+- These states have no single list for most local offices, so they are read one county at a time, largest first, from each county election office's own list or sample ballot: nine Michigan counties, sixteen in Wyoming, eleven in Iowa, twelve in Missouri, ten in Nebraska (plus every district board statewide), twenty-three county boards in Ohio, ten in Wisconsin, nine in Montana. Every county not read yet says so on its page, with the reason.
+- Michigan's circuit, district and probate judges, Missouri's and Nebraska's judges' retention votes, Ohio's appeals and common pleas judges and Florida's county judges are in, each under the counties they serve.
+- Wisconsin elects only sheriffs, clerks of circuit court and a few coroners in November (cities, towns and school boards vote in April); Iowa's cities and schools voted in 2025. Each state's page says which local offices are elected when.
+
 ## v4.0.075 — 2026-10-01 — County and local races in twenty states
 
 - On The Ballot's county and local level, Minnesota only until now, opens for nineteen more states: Kentucky, North Carolina, Virginia, South Dakota, North Dakota, Washington, Idaho, West Virginia, Oklahoma, Texas, Louisiana, South Carolina, Alabama, Vermont, Maryland, New Mexico, Maine, Delaware and Hawaii. Together with Minnesota that is 17,138 county and local contests and 30,162 candidates in 1,235 counties, every one from the state's own election office.
