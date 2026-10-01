@@ -941,6 +941,45 @@ his purchased usage: stop at 99 percent of the weekly limit.
   not have yet; `ballot_cache/me/` and other earlier caches keep official workbooks and PDFs whole, residence columns
   included (never read, but kept on disk).
 
+## The cabin (from v4.0.078), and pages that do not show their workings
+
+John's idea (2026-10-01): the landing page for the whole site is a room. A visitor stands in a cozy log cabin, in the
+first person, and walks around; two posters on the wall glow and are the doors to the site's two spaces (he chose two:
+ballots, and legislation and legislatures, with wording that invites: "Meet everyone asking for your vote." and "See
+what they did with the last one."); modest furniture; outside the window the Rocky Mountains, at the visitor's own
+time of day and season (worked out on the device; nothing is sent). The ring of cards stays as the plain way in.
+
+- `cabin_room3d.js` draws the room with the kit's three.js (`start(canvas, opts)`; `still(w, h, view)` returns one
+  frame as a JPEG data URL for checking where frames are not drawn; `setWhen(when, season)`), and `build_cabin.py`
+  writes the page (`?time=morning|afternoon|dusk|night` and `?season=` in the address show another hour or season).
+  `build_door.py` builds the cabin whenever it builds the front door. `CABIN_FIRST` in `build_door.py` is off: the ring
+  of cards is `index.html` and the cabin is `cabin.html` beside it. Switched on, the cabin becomes `index.html` and the
+  ring is written as `doors.html`. John switches it on once the cabin looks real.
+- Where it stands: the first version is drawn entirely in code (flat-shaded boxes, canvas textures), and John's verdict
+  was that it must be "more immersive and 3D ... as hyper realistic (human) as possible", with two reference photos of
+  real log great rooms (vaulted round-log rafters, honey-coloured log walls, a floor-to-ceiling stacked-stone fireplace
+  with a half-log mantel, a gable wall of windows on pines and peaks, leather sofas on a red Persian-style rug, lamps,
+  a wrought-iron chandelier). He approved downloading free materials for it: CC0 textures (Poly Haven, ambientCG) and
+  public-domain National Park Service photos of the Rockies, kept in the site's own folder and credited; nothing loads
+  from another server. He offered a Fable 5.1 max-effort agent for the rebuild. He likes the two doors as signs at the
+  foot of the page: keep them bold and glowing. Keep also: walking, the visitor's clock, the plain way in, the still
+  page for devices with no 3D or with Motion off, and no `setPointerCapture` (drag listeners sit on the window).
+- To check frames in the Browser pane (which draws no animation while hidden): start a throwaway local saver that
+  accepts a POST with CORS, call `window.__cabin.still(960, 600, {x, z, yaw, pitch})` in the page, POST the data URL
+  to it, and Read the JPEG. A `//` comment added in the middle of a one-line function swallows the rest of the line:
+  use `/* */` there.
+- Pages that do not show their workings (John, 2026-10-01): no page offers the whole site as a file to download (the
+  one-file archive `site/dev.html` is still built, for the 16 MB rule, but `offline.html` is no longer copied into the
+  fast site), and no page names the kit's own files or programs: footers say "Generated on <date>", the lenses' "Check
+  it yourself" notes give the formulas, the self-test and the download of every figure without naming a program, and
+  `build_ballot_state_dev.plain_source()` takes database and program names out of source lines on their way to the
+  page. `quiet_pages.py` is the last pass over the built `.html` files (program names, "python ..." command lines and
+  database names inside the pages' own script and comments); `Publish dev site.bat` runs it before it copies the draft.
+  A reader can always save a page they are looking at; what is gone is the offer and the hints. The repository that
+  serves the site is public and holds all the code and these notes; John chose to leave that for now and plan a split
+  (code in a private repository, a public one holding only the built pages; creating the private repository is his
+  step). Do not make the split, or change the repository's visibility, without him.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes
