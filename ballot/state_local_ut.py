@@ -1,17 +1,56 @@
 """
-ballot/state_local_ut.py - Utah's state races on the November 3, 2026 ballot, from the Lieutenant Governor's Office of
-Elections, into ballot_local_2026.sqlite (the tables sl_races, sl_candidates, sl_sources and sl_places). The federal
-ballot database (ballot_2026.sqlite) is never opened here, and U.S. House rows are left to ballot/lists/ut.py.
+ballot/state_local_ut.py - Utah's state races on the November 3, 2026 ballot, and the local contests the statewide list
+carries, from the Lieutenant Governor's Office of Elections, into ballot_local_2026.sqlite (the tables sl_races,
+sl_candidates, sl_sources, sl_places, sl_gaps and sl_notes). The federal ballot database (ballot_2026.sqlite) is never
+opened here, and U.S. House rows are left to ballot/lists/ut.py.
 
 What is on the ballot: half the Utah Senate (the districts the certification lists, four-year terms, plus any seat
 filled for the rest of an unexpired term), all 75 seats of the Utah House of Representatives, the State Board of
 Education seats up this year (partisan: the certification prints each candidate's party), and the retention elections
 of the Supreme Court, the Court of Appeals and the district and juvenile courts. No statewide executive office is on the
-2026 certification. The justice courts' retention questions (municipal and county courts) and the two proposed
-constitutional amendments are counted and left out.
+2026 certification. The two proposed constitutional amendments are counted and left out.
 
-Sources, the Lieutenant Governor's own and nothing else (the same files ballot/lists/ut.py reads for Congress, and its
-cached copies in ballot_cache/ut/):
+The local level (a narrow pass, 2026-10-01: only what the statewide list carries). The certification's last judicial
+group, "Justice Courts", holds the retention questions of the judges of the county and city justice courts. Each is
+stored as one contest, level court, kind justice_court_retention, beside the district and juvenile court judges:
+
+  - The court. A question reads "Shall NAME be retained in the office of Judge of the Draper Municipal Justice Court?";
+    some name several courts ("Naples City and Uintah County Justice Courts") or one court shared by two places
+    ("Roy/Weber County", "Uintah-Huntsville Municipal"). The words are read into places: "X County" is one of the 29
+    counties; anything else is a city or town on the Census Bureau's 2020 place list for Utah (st49_ut_place2020.txt,
+    kept whole in ballot_cache/ut/local/: names, codes and counties, no people), matched letter for letter (capitals
+    set aside, and i, l and 1 read as one letter) and to exactly one entry, with "City" and "Municipal" read as the
+    court's kind words where the place's own name does not have them (Ogden City, but Salt Lake City). Machine reading
+    misreads a letter now and then (Eme1y County, Justice Comt), so a name of five letters or more may differ by one
+    letter when exactly one place then fits, and the office title is written again from the places matched. A question
+    whose court cannot be matched is not loaded: it is counted in a gap, never guessed.
+  - The counties (county_ids). The certification names the court, not the county: a county court's county, and for a
+    city or town the county or counties the Census Bureau's list puts it in (Draper lies in two). Who votes is the
+    law's, not the list's: Utah Code 78A-7-203 and 20A-12-201(7) put a county justice court judge, and a municipal one
+    in a town or a city of the fourth or fifth class, on ballots throughout the county, and a judge of a larger city's
+    court only on that city's ballots; the certification leaves the placing to election officers, and each contest's
+    note says so.
+  - The names. The Candidate Filings page has no table for justice court judges, so the name is the certification's
+    own reading (capitals; machine reading's l, 1 and 0 inside a name are I and O), shown in ordinary capitals.
+    Controls: the group is read twice by two routes and must agree, and its Yes/No answer lines are counted against
+    the questions; and each judge is looked up in the Lieutenant Governor's 2026 Voter Information Pamphlet, whose
+    Judicial Performance Evaluation Commission pages give a typed "Honorable NAME" and "Locations Served". The pamphlet
+    is read in memory and never saved: it carries profiles and other matter this archive does not read. Only those two
+    lines of each justice court page are kept (ballot_cache/ut/local/ut_2026_pamphlet_justice_courts.json), and they
+    change nothing: a judge it does not have, or courts it lists differently, is printed as a CHECK line.
+  - ids. A county court's jurisdiction is the county (its 5-digit code); a single city's or town's court is the place,
+    UT-M-<Census place code>, with a row in sl_places (kind mcd); a question naming several places has no single id.
+    race_id is 2026-UT-JCRET-<place and county codes>-<FAMILY NAME>.
+  - The candidate row is written as Utah's other retention rows are (order 1, incumbent 1: a retention election is by
+    law the sitting judge's), but the contest's holder_* columns stay empty, as for every local office.
+
+Not loaded, and said so in sl_gaps and sl_notes: county offices and local school board contests. Utah has no statewide
+list of them: each county clerk certifies and posts the county's own (Utah Code 20A-5a-210), so every one of the 29
+counties has a county gap, and special district boards have a state one. City and town offices are elected in odd
+years (20A-1-202). Ballot questions are never loaded.
+
+Sources for the state races, the Lieutenant Governor's own and nothing else (the same files ballot/lists/ut.py reads for
+Congress, and its cached copies in ballot_cache/ut/):
 
   - The "2026 General Election Certification" (the ***AMENDED*** copy signed September 21, 2026, linked as "Official
     Certified Candidates" from vote.utah.gov's Current Election Information page). It says the names "shall appear on the
@@ -47,7 +86,10 @@ judge, so that name is the holder and is marked incumbent.
 
 The privacy rule: only office, district, candidate name, party, ballot order, status and votes are read from any list.
 Names are printed in capitals; the page shows ordinary capitals (a sitting member as the roster spells them) and says so.
-No photos, ages, websites, biographies or money reach the database.
+No photos, ages, websites, biographies or money reach the database. The loader's own notes, gap reasons and source notes
+are tried against the page's contact scan before they are written, and a name or court that looks like contact details
+is left out and counted, never printed. When a layout does not read, the message names the file and the check, never
+the line.
 
 Usage: python ballot/state_local_ut.py <database file> [--cache <folder>]
 """
@@ -71,10 +113,11 @@ if HERE not in sys.path:
 
 import openpyxl  # noqa: E402
 
-from ballot.common import fold, name_parts, party_code  # noqa: E402
+from ballot.check_local import EXTRA_SCHEMA, contact_like  # noqa: E402
+from ballot.common import SUFFIXES, fold, name_parts, party_code  # noqa: E402
 from ballot.lists import ut as fed  # noqa: E402
 from ballot.match import fits  # noqa: E402
-from ballot.pdftext import PDF, lines, rows as pdf_rows  # noqa: E402
+from ballot.pdftext import PDF, join, lines, rows as pdf_rows  # noqa: E402
 from states import net  # noqa: E402
 
 STATE, FIPS, NAME = "UT", "49", "Utah"
@@ -117,7 +160,45 @@ RETENTION = ("A retention election (Utah Code 20A-12-201, as the certification c
 
 SRC = {"general": "ut-ltg-2026-state-general-certification", "write_in": "ut-ltg-2026-state-write-in-certification",
        "filings": "ut-ltg-2026-state-candidate-filings", "results": "ut-ltg-2026-state-primary-results",
-       "canvass": "ut-ltg-2026-state-primary-canvass", "roster": "ut-openstates-roster", "counties": "ut-census-cb-2024-county"}
+       "canvass": "ut-ltg-2026-state-primary-canvass", "roster": "ut-openstates-roster", "counties": "ut-census-cb-2024-county",
+       "places": "ut-census-2020-place-codes", "pamphlet": "ut-ltg-2026-voter-information-pamphlet"}
+
+# ---- the local level: the justice courts' retention questions, and what is not loaded yet
+LOCAL_DIR = "local"                                       # ballot_cache/ut/local/
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st49_ut_place2020.txt"
+PLACE_FILE = "census_st49_ut_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+PAMPHLET_URL = "https://vote.utah.gov/wp-content/uploads/2026/09/2026-Voter-Information-Pamphlet.pdf"
+PAMPHLET_FILE = "ut_2026_pamphlet_justice_courts.json"
+PAMPHLET_NAME = re.compile(r"^Honorable\s+([A-Z][A-Za-z.'\- ]{2,50})$")
+CLERKS_URL = "https://vote.utah.gov/contact-your-county-election-officials/"
+CODE_URL = "https://le.utah.gov/xcode/"
+LAW = {"general": CODE_URL + "Title20A/Chapter1/20A-1-S201.html", "justice": CODE_URL + "Title78A/Chapter7/78A-7-S203.html",
+       "notice": CODE_URL + "Title20A/Chapter5a/20A-5a-S210.html", "districts": CODE_URL + "Title17B/Chapter1/17B-1-S306.html"}
+JUSTICE_KIND = "justice_court_retention"
+JUSTICE_COUNTY = "A county's justice court: voters throughout {where} decide (Utah Code 78A-7-203)."
+JUSTICE_PLACED = ("Who votes depends on the court (Utah Code 78A-7-203): the whole county for a county's justice court or one in a "
+                  "town or a city of the fourth or fifth class, only the city's own voters in a larger city. The certification "
+                  "leaves that placing to election officers.")
+CALENDAR = ("On November 3, 2026 Utah's counties elect the county officers whose four-year terms end this year (as a rule, "
+            "commission or council seats and the county clerk, auditor, sheriff and attorney), local school boards elect about "
+            "half their members, special districts on the even-year cycle fill board seats, and justice court judges whose terms "
+            "end face a yes or no retention vote. City and town offices, and special districts on the municipal cycle, are "
+            "elected in November of odd-numbered years, next in 2027. The county treasurer, recorder, surveyor and assessor are, "
+            "as a rule, on the other four-year cycle, next in 2028.")
+CALENDAR_SOURCE = ("Utah Code 20A-1-201 and 20A-1-202 (what each November election fills), 17-66-202 (county officers' terms), "
+                   "20A-14-202 (local school boards), 17B-1-306 (special districts) and 78A-7-203 (justice court judges)")
+GAP_WHAT = "county offices and local school board races"
+GAP_REASON = ("{county}'s clerk certifies and posts the candidates for county office and local school boards for the county alone "
+              "(Utah Code 20A-5a-210); the statewide list does not carry them, and the county's notice has not been read into this "
+              "archive yet.")
+DISTRICT_GAP = ("Special districts that elect board members in even years certify their candidates to their own county clerks "
+                "(Utah Code 17B-1-306); there is no statewide list of them, and none has been read into this archive yet.")
+UNREAD_GAP = ("Some retention questions for justice court judges on the Lieutenant Governor's certification ({n} in all) could not be "
+              "read from its machine-read text and matched to a county, city or town, so they are left out rather than guessed.")
+# what the page's own guard drops from a note (build_ballot_state_dev.py): a number, then within a few words a street word
+PAGE_STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|"
+                         r"Ln|Lane|Way|Ct|Court|Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_races (race_id TEXT PRIMARY KEY, state TEXT NOT NULL, level TEXT NOT NULL, office_kind TEXT NOT NULL, office TEXT NOT NULL, jurisdiction TEXT, jurisdiction_id TEXT, county_ids TEXT, district TEXT, seat TEXT, special INTEGER NOT NULL DEFAULT 0, partisan INTEGER NOT NULL, holder_id TEXT, holder_name TEXT, holder_party TEXT, election_date TEXT NOT NULL, note TEXT);
@@ -666,6 +747,454 @@ def fits_holder(name, holder):
     return any(fits(cand, name_parts(f)) for f in holder["forms"])
 
 
+# ---------------------------------------------------------------- the local level: justice courts
+
+def own_words(text, what):
+    """The loader's own sentence, tried against the contact scan the check and the page apply (the strict one: no web
+    address, e-mail or telephone, and no number followed within a few words by a street word such as Court or Place). A
+    sentence that would be dropped there is a mistake in this file, so it stops the load and says which sentence."""
+    if contact_like(text, True) or PAGE_STREET.search(text):
+        fail(f"the loader's own words for {what} would be dropped by the page's contact scan; reword them")
+    return text
+
+
+def bare(text):
+    """Letters only, for comparing a machine-read word with a typed one whatever the capitals: i, l, L and 1 all read as
+    one letter, 0 as O (fed.letters, which keeps capital L apart, after lower-casing)."""
+    return fed.letters((text or "").lower())
+
+
+def near(word, target, cutoff=0.8):
+    return difflib.SequenceMatcher(None, bare(word), bare(target)).ratio() >= cutoff
+
+
+def and_words(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def read_places(folder, cmap, say):
+    """({letters of a place's bare name: [{code, name, base, cids}]}, rows in the file) for Utah's incorporated cities
+    and towns, from the Census Bureau's 2020 place codes file: names, codes and the counties each lies in, nothing about
+    people, so the file is kept whole and asked for once."""
+    path = os.path.join(folder, PLACE_FILE)
+    net.download(PLACE_URL, path, max_age_days=3650, tries=3, say=say)
+    geoid_of = {full: g for g, (_n, full) in cmap.items()}
+    out, n = defaultdict(list), 0
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        if fh.readline().rstrip("\r\n").split("|") != PLACE_HEAD:
+            fail(f"{PLACE_FILE}: the header is not the one this loader was checked against")
+        for k, line in enumerate(fh, start=2):
+            if not line.strip():
+                continue
+            f = line.rstrip("\r\n").split("|")
+            if len(f) != len(PLACE_HEAD) or f[1] != FIPS or not re.fullmatch(r"\d{5}", f[2]):
+                fail(f"{PLACE_FILE}: line {k} does not fit the header")
+            n += 1
+            if f[5] != "INCORPORATED PLACE":
+                continue
+            cids = [geoid_of.get(c) for c in f[8].split("~~~")]
+            if not all(cids):
+                fail(f"{PLACE_FILE}: line {k} names a county the county file does not have")
+            base = re.sub(r"\s+(?:metro township|township|city|town)$", "", f[4])
+            out[bare(base)].append({"code": f[2], "name": f[4], "base": base, "cids": sorted(cids)})
+    return out, n, path
+
+
+def place_named(base, places, loose=False):
+    """The one city or town of that name (letters only), or None. Loose: a name of five letters or more with exactly one
+    letter read differently, when exactly one place fits."""
+    key = bare(base)
+    if not key:
+        return None
+    if not loose:
+        hits = places.get(key, [])
+        return hits[0] if len(hits) == 1 else None
+    if len(key) < 5:
+        return None
+    hits = [p for k, ps in places.items() if len(k) == len(key) and sum(a != b for a, b in zip(k, key)) == 1 for p in ps]
+    return hits[0] if len(hits) == 1 else None
+
+
+def county_named(base, cmap):
+    """(GEOID, 1 if read loosely else 0) for 'Emery' or the machine-read 'Eme1y', or (None, 0)."""
+    key = bare(base)
+    exact = [g for g, (name, _full) in cmap.items() if bare(name) == key]
+    if len(exact) == 1:
+        return exact[0], 0
+    if len(key) >= 5:
+        hits = [g for g, (name, _full) in cmap.items()
+                if len(bare(name)) == len(key) and sum(a != b for a, b in zip(bare(name), key)) == 1]
+        if len(hits) == 1:
+            return hits[0], 1
+    return None, 0
+
+
+def one_court_place(text, cmap, places):
+    """One name in a court's title, with its kind words: 'Davis County', 'Draper Municipal', 'Ogden City', 'Salt Lake City
+    Municipal', 'Santa Clara', or two places of one shared court joined by a hyphen ('Uintah-Huntsville Municipal').
+    Returns {"label": the words as they are written again, "parts": [("C", GEOID) or ("M", place)], "loose": n} or None."""
+    words_ = text.split()
+    if not words_:
+        return None
+    muni = len(words_) > 1 and near(words_[-1], "Municipal")
+    if muni:
+        words_ = words_[:-1]
+    tail = " Municipal" if muni else ""
+    if not muni and len(words_) > 1 and near(words_[-1], "County"):
+        geoid, loose = county_named(" ".join(words_[:-1]), cmap)
+        return {"label": cmap[geoid][1], "parts": [("C", geoid)], "loose": loose} if geoid else None
+    tries = [(" ".join(words_), "")]
+    if len(words_) > 1 and near(words_[-1], "City", 0.75):
+        tries.append((" ".join(words_[:-1]), " City"))                 # the place's own name first: Salt Lake City, Plain City
+    for base, city in tries:
+        p = place_named(base, places)
+        if p:
+            return {"label": p["base"] + city + tail, "parts": [("M", p)], "loose": 0}
+    for base, city in tries:
+        bits = [b.strip() for b in base.split("-")]
+        if len(bits) > 1:
+            ps = [place_named(b, places) for b in bits]
+            if all(ps):
+                return {"label": "-".join(p["base"] for p in ps) + city + tail, "parts": [("M", p) for p in ps], "loose": 0}
+    for base, city in tries:
+        p = place_named(base, places, loose=True)
+        if p:
+            return {"label": p["base"] + city + tail, "parts": [("M", p)], "loose": 1}
+    return None
+
+
+def court_list(body, cmap, places):
+    """The courts in '<names> Justice Court(s)' with those last words taken off: names divided by commas and 'and', and
+    the places of one shared court by '/'. Returns {"label", "parts", "courts": how many, "loose"} or None."""
+    pieces = re.split(r"(\s*,\s*and\s+|\s*,\s*|\s+and\s+)", re.sub(r"\s+", " ", body or "").strip())
+    label, parts, loose = "", [], 0
+    for k, piece in enumerate(pieces):
+        if k % 2:
+            label += (", and " if "," in piece else " and ") if "and" in piece else ", "
+            continue
+        subs = [one_court_place(s.strip(), cmap, places) for s in piece.split("/")]
+        if not all(subs):
+            return None
+        label += "/".join(s["label"] for s in subs)
+        loose += sum(s["loose"] for s in subs)
+        for s in subs:
+            for part in s["parts"]:
+                if part not in parts:
+                    parts.append(part)
+    return {"label": label, "parts": parts, "courts": len(pieces[0::2]), "loose": loose}
+
+
+def justice_office(office, cmap, places):
+    """A justice court question's office, 'Judge of the Naples City and Uintah County Justice Courts' as machine-read
+    (Justice Comt, Cou1t, Com1s), into its courts; adds "plural_read", whether the scan's last word ends in s."""
+    m = re.match(r"^Judge\s+of\s+the\s+(.+)$", re.sub(r"\s+", " ", office or "").strip())
+    words_ = m.group(1).split(" ") if m else []
+    if len(words_) < 3 or not near(words_[-2], "Justice") or not re.fullmatch(r"C[A-Za-z0-9]{3,5}", words_[-1]):
+        return None
+    got = court_list(" ".join(words_[:-2]), cmap, places)
+    if got:
+        got["plural_read"] = words_[-1].lower().endswith("s")
+    return got
+
+
+def served_list(text, cmap, places):
+    """The pamphlet's 'Locations Served' line into places: courts divided by commas, each ending 'Justice Court', a court's
+    seat after a dash set aside ('Daggett County Justice Court - Manila'). Returns the parts or None."""
+    parts = []
+    for item in re.split(r"\s*,\s*", re.sub(r"\s+", " ", text or "").strip().rstrip(",")):
+        item = re.sub(r"\s+[-" + chr(0x2013) + r"]\s+.*$", "", item).strip()        # a hyphen or an en dash
+        if not item.endswith(" Justice Court"):
+            return None
+        got = court_list(item[:-len(" Justice Court")], cmap, places)
+        if not got:
+            return None
+        parts += [p for p in got["parts"] if p not in parts]
+    return parts
+
+
+def caps_name(read):
+    """A judge's name as the certification prints it, in capitals. Inside a word that is otherwise capitals, machine
+    reading's l and 1 are I and its 0 is O. None when anything but a name's own characters is left."""
+    out = []
+    for w in re.sub(r"\s+", " ", read or "").strip().split(" "):
+        if not re.search(r"[a-km-z]", w):
+            w = w.replace("l", "I").replace("1", "I").replace("0", "O")
+        out.append(w)
+    t = " ".join(out)
+    return t if re.fullmatch(r"[A-Za-z][A-Za-z .'\"-]*[A-Za-z.]", t) and not contact_like(t, True) else None
+
+
+def family_key(caps):
+    """The family name's letters for a race id: the last word of the name as printed, a trailing JR or III set aside, a
+    hyphen closed up (VO-DUC -> VODUC)."""
+    words_ = [w for w in caps.split() if fold(w).replace(" ", "") not in SUFFIXES] or caps.split()
+    return re.sub(r"[^A-Z]", "", words_[-1].upper())
+
+
+def justice_section(path):
+    """A second, separate reading of the certification's Justice Courts group, to check the first against: the questions
+    [(name as read, office as read) or None] and the number of Yes/No answer lines printed under them."""
+    out, answers, section, on, pending = [], 0, None, False, None
+    for page, cells in fed.scan_rows(path):
+        if page == 1:
+            continue
+        t = fed.words(cells)
+        sec = section_of(t)
+        if sec:
+            section, on, pending = sec, False, None
+            continue
+        if section != "JUDICIAL":
+            continue
+        if not t.startswith("Shall") and re.match(r"^(Supreme Court and Court of Appeals|Justice Courts|\w+ Judicial District)\.", t):
+            on, pending = t.startswith("Justice Courts"), None
+            continue
+        if not on:
+            continue
+        if compact(t).lower() == "yesno":
+            answers += 1
+            continue
+        if t.startswith("Shall"):
+            pending = t
+        elif pending is not None:
+            pending += " " + t
+        if pending is not None and pending.rstrip().endswith("?"):
+            m = RETAIN.match(re.sub(r"\s+", " ", pending).strip())
+            out.append((m.group(1), m.group(2)) if m else None)
+            pending = None
+    return out, answers
+
+
+def pamphlet_link():
+    """The Voter Information Pamphlet's address as the Current Election Information page links it today, or None."""
+    try:
+        page = fed.decode(net.get(fed.INFO_URL, accept="text/html"))
+    except Exception:                                        # noqa: BLE001
+        return None
+    for href, body in re.findall(r'<a[^>]*href="([^"]+\.pdf)"[^>]*>(.*?)</a>', page, re.S):
+        if "Voter Information Pamphlet" in fed.text(body) and href.startswith("https://vote.utah.gov/"):
+            return href
+    return None
+
+
+def pamphlet_judges(folder, say):
+    """The justice court judges' pages of the Lieutenant Governor's 2026 Voter Information Pamphlet, as a control: each
+    page's "Honorable NAME" line and its "Locations Served" line, and nothing else. The pamphlet is read in memory and
+    never saved (it carries profiles and other matter this archive does not read); only these two cells per page are
+    kept, for thirty days. Returns the kept record, or None when the pamphlet cannot be had (the control is then skipped)."""
+    path = os.path.join(folder, PAMPHLET_FILE)
+    if fed.fresh(path, 30):
+        try:
+            return json.load(open(path, encoding="utf-8"))
+        except ValueError:                                   # a kept copy that does not read: ask again
+            pass
+    try:
+        url = pamphlet_link() or PAMPHLET_URL
+        time.sleep(1.0)                                      # one request at a time, a second apart
+        raw = net.get(url, timeout=300, accept="application/pdf")
+        time.sleep(1.0)
+        if raw[:5] != b"%PDF-":
+            raise ValueError("not a PDF")
+        pdf = PDF(raw)
+        judges, pages, unread, blanked = [], 0, 0, 0
+        for page, res in pdf.pages():
+            pages += 1
+            try:
+                rows_ = [re.sub(r"\s+", " ", join(runs) or "").strip() for _y, runs in pdf_rows(pdf, page, res)]
+            except Exception:                                # noqa: BLE001  a page of pictures or an odd font: not a judge's page
+                unread += 1
+                continue
+            at = next((i for i, t in enumerate(rows_) if t.startswith("Locations Served:")), None)
+            if at is None:
+                continue
+            name = next((m.group(1).strip() for t in reversed(rows_[max(0, at - 3):at]) for m in [PAMPHLET_NAME.match(t)] if m), None)
+            courts = rows_[at].split(":", 1)[1].strip()
+            for t in rows_[at + 1:at + 4]:                   # a list that runs on: only lines made of court names
+                if "Justice Court" in t and re.fullmatch(r"[A-Za-z/.', -]+", t):
+                    courts += " " + t
+                else:
+                    break
+            if not name or "Justice Court" not in courts:
+                continue                                     # a judge of another court
+            if contact_like(name, True) or contact_like(courts, True):
+                blanked += 1
+                continue
+            judges.append({"name": name, "courts": courts})
+        kept = {"url": url, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw),
+                "pages": pages, "pages_unread": unread, "blanked": blanked, "judges": judges}
+        json.dump(kept, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        say(f"      Voter Information Pamphlet: {pages} pages read in memory, {len(judges)} justice court judges' names and courts kept")
+        return kept
+    except Exception as e:                                   # noqa: BLE001
+        try:
+            kept = json.load(open(path, encoding="utf-8"))
+            say(f"      Voter Information Pamphlet: not refreshed ({type(e).__name__}); using the names and courts kept earlier")
+            return kept
+        except (OSError, ValueError):
+            say(f"      Voter Information Pamphlet: not read ({type(e).__name__}); the justice court names are not checked against it")
+            return None
+
+
+def local_rows(folder, gpath, justice_read, cmap, general_url, signed, amended, say):
+    """The local level, as far as the statewide list goes: the justice courts' retention questions (level court), the
+    places they name, and the gaps and notes saying what is not loaded. Returns the rows and the report's lines."""
+    os.makedirs(folder, exist_ok=True)
+    out = {"races": {}, "cands": [], "places": [], "src": [], "gaps": [], "notes": [], "report": [], "checks": []}
+    try:                                                     # a layout that does not read stops the load (fail); a server that does not answer does not
+        places, place_rows_n, ppath = read_places(folder, cmap, say)
+    except Exception as e:                                   # noqa: BLE001  the Census file did not answer and none is kept
+        places, place_rows_n, ppath = {}, 0, None
+        out["checks"].append(f"the Census Bureau's place list could not be had ({type(e).__name__}); city and town courts are left out")
+
+    # the group read a second time, and its answer lines counted
+    second, answers = justice_section(gpath)
+    same = second == list(justice_read)
+    if not same:
+        out["checks"].append(f"the Justice Courts group does not read the same way twice ({len(justice_read)} questions one way, "
+                             f"{len(second)} the other); none is loaded")
+    elif answers != len(justice_read):
+        out["checks"].append(f"the Justice Courts group has {len(justice_read)} questions and {answers} Yes/No answer lines")
+
+    used_places, ids, unread, loose, plural_off, blanked = {}, set(), 0, 0, 0, 0
+    judges = defaultdict(list)                               # (family name, first given name) -> its contests' parts
+    for k, (read_name, read_office) in enumerate(justice_read if same else [], start=1):
+        caps = caps_name(read_name)
+        got = justice_office(read_office, cmap, places)
+        if not caps or not got or not got["parts"]:
+            unread += 1
+            continue
+        name = ordinary(caps)
+        given, family = name_parts(caps)
+        plural = got["courts"] > 1
+        plural_off += 1 if plural != got["plural_read"] else 0
+        loose += got["loose"]
+        court = f"{got['label']} Justice Court{'s' if plural else ''}"
+        office = f"Judge of the {court} (retention election)"
+        cids = sorted({c for kind, p in got["parts"] for c in ([p] if kind == "C" else p["cids"])})
+        names = [cmap[p][1] if kind == "C" else p["name"] for kind, p in got["parts"]]
+        keys = [p[2:] if kind == "C" else p["code"] for kind, p in got["parts"]]
+        for kind, p in got["parts"]:
+            if kind == "M":
+                used_places[p["code"]] = p
+        only = got["parts"][0] if len(got["parts"]) == 1 else None
+        jid = None if not only else only[1] if only[0] == "C" else f"{STATE}-M-{only[1]['code']}"
+        if all(kind == "C" for kind, _p in got["parts"]):
+            who = JUSTICE_COUNTY.format(where=and_words(names))
+        else:
+            who = JUSTICE_PLACED
+        rid = f"2026-{STATE}-JCRET-{'-'.join(keys)}-{family_key(caps)}"
+        if rid in ids:
+            rid += re.sub(r"[^A-Z]", "", "".join(w[:1] for w in given).upper())
+        if rid in ids or not re.fullmatch(rf"2026-{STATE}-JCRET-[0-9-]+-[A-Z]+", rid):
+            fail(f"justice court question {k} of the certification does not give a race id of its own")
+        if contact_like(office, True) or contact_like(and_words(names), True):
+            unread, blanked = unread + 1, blanked + 1
+            continue
+        ids.add(rid)
+        judges[(bare(family), bare(given[0]) if given else "")].append((name, got["parts"]))
+        out["races"][rid] = dict(race_id=rid, state=STATE, level="court", office_kind=JUSTICE_KIND, office=office,
+                                 jurisdiction=and_words(names), jurisdiction_id=jid, county_ids=json.dumps(cids), district=None,
+                                 seat=None, special=0, partisan=0, holder_id=None, holder_name=None, holder_party=None,
+                                 election_date=GENERAL, note=own_words(f"{RETENTION} {who}", "a justice court contest"))
+        out["cands"].append((rid, "general", GENERAL, name, "Nonpartisan office", "N", 1, 1, 0, None, None, None, None, SRC["general"],
+                             "Standing for retention as the sitting judge. " + CAPS))
+    n = len(out["races"])
+    if not same:
+        unread = max(len(justice_read), len(second), answers)
+    missed = unread + (max(0, answers - len(justice_read)) if same else 0)
+
+    # the control: the pamphlet's typed names and the courts it lists for each judge
+    pam = pamphlet_judges(folder, say) if n else None
+    in_pam, same_courts, pam_unread, not_there, differ = 0, 0, 0, [], []
+    if pam:
+        typed = []
+        for j in pam["judges"]:
+            typed.append((name_parts(j["name"]), served_list(j["courts"], cmap, places)))
+        for (_fam, _first), rows_ in sorted(judges.items()):
+            shown_name = rows_[0][0]
+            mine = name_parts(shown_name)
+            hits = [t for t in typed if bare(t[0][1]) == bare(mine[1]) and fits(mine, t[0])]
+            if len(hits) != 1:
+                not_there.append(shown_name)
+                continue
+            in_pam += 1
+            ours = {(kind, p if kind == "C" else p["code"]) for _nm, parts in rows_ for kind, p in parts}
+            theirs = hits[0][1]
+            if theirs is None:
+                pam_unread += 1
+            elif {(kind, p if kind == "C" else p["code"]) for kind, p in theirs} == ours:
+                same_courts += 1
+            else:
+                differ.append(shown_name)
+        extra = len(typed) - in_pam
+        if not_there:
+            out["checks"].append("justice court judges on the certification with no page of their own in the Voter Information Pamphlet "
+                                 f"(nothing is changed): {'; '.join(not_there)}")
+        if differ:
+            out["checks"].append("the Voter Information Pamphlet lists other courts than the certification for (the certification is "
+                                 f"followed): {'; '.join(differ)}")
+        if extra:
+            out["checks"].append(f"{extra} justice court judge page(s) in the Voter Information Pamphlet match no question on the certification")
+
+    # places, sources, gaps and notes
+    for code, p in sorted(used_places.items()):
+        out["places"].append(("mcd", f"{STATE}-M-{code}", p["name"], json.dumps(p["cids"]), SRC["places"]))
+    if ppath:
+        out["src"].append((SRC["places"], STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, Utah (st49_ut_place2020.txt)",
+                           PLACE_URL, "2020", mdate(ppath), sha_of(ppath), place_rows_n,
+                           own_words("City and town names, codes and the counties each lies in, read for the cities and towns the justice "
+                                     f"courts' retention questions name ({len(used_places)} of them). The file is about places only: no "
+                                     "people and no contact columns.", "the place list's source note")))
+    if pam:
+        out["src"].append((SRC["pamphlet"], STATE, "official voter pamphlet", AGENCY,
+                           "2026 Utah Voter Information Pamphlet: the pages on justice court judges standing for retention",
+                           pam["url"], "", pam["fetched"], pam["sha256"], len(pam["judges"]),
+                           own_words("A control only; nothing is taken from it. Read in memory and not kept: from each justice court judge's "
+                                     f"page ({len(pam['judges'])} of them), only the line with the judge's name and the line of courts served. "
+                                     f"{in_pam} of the certification's {len(judges)} judges have a page there; the courts listed are "
+                                     f"the same for {same_courts} and differ for {len(differ)}"
+                                     + (f", with {pam_unread} not read" if pam_unread else "") + ". The pamphlet's profiles and evaluations, "
+                                     "and every other page, are never read or stored.", "the pamphlet's source note")))
+    for geoid, (_name, full) in sorted(cmap.items()):
+        out["gaps"].append((STATE, "county", geoid, full, GAP_WHAT, own_words(GAP_REASON.format(county=full), "a county gap"), CLERKS_URL))
+    out["gaps"].append((STATE, "state", STATE, NAME, "special district board races", own_words(DISTRICT_GAP, "the special district gap"),
+                        LAW["districts"]))
+    if missed:
+        out["gaps"].append((STATE, "state", STATE, NAME, "justice court retention questions",
+                            own_words(UNREAD_GAP.format(n=missed), "the unread questions gap"), general_url))
+    reached = sorted({c for r in out["races"].values() for c in json.loads(r["county_ids"])})
+    out["notes"].append((STATE, "local_calendar", own_words(CALENDAR, "the calendar note"), own_words(CALENDAR_SOURCE, "the calendar note's source"),
+                         LAW["general"]))
+    coverage = ("Loaded for Utah's local level so far: the justice court judges' retention questions on the Lieutenant Governor's "
+                f"{'amended ' if amended else ''}General Election Certification ({n} of them, for county and city courts alike), filed "
+                f"with the other judges and tied to the counties where those courts sit ({len(reached)} of the 29). " if n else
+                "No local contest is loaded for Utah yet. ")
+    coverage += ("Not loaded yet: county offices and local school board contests, which each county clerk certifies and posts for the "
+                 "county alone, and special district boards. Ballot questions are not loaded: the proposed constitutional amendments "
+                 "and local propositions.")
+    out["notes"].append((STATE, "local_coverage", own_words(coverage, "the coverage note"),
+                         own_words(f"{AGENCY}: 2026 General Election Certification" + (f", signed {signed}" if signed else ""),
+                                   "the coverage note's source"), general_url))
+
+    kinds = Counter("county" if all(k == "C" for k, _p in parts) else "city" if all(k == "M" for k, _p in parts) else "both"
+                    for rows_ in judges.values() for _nm, parts in rows_)
+    out.update(n=n, loose=loose, answers=answers)
+    out["report"].append(
+        f"    Utah (county and local): {n} justice court retention questions loaded under level court ({kinds['county']} for a county's "
+        f"court, {kinds['city']} for city or town courts, {kinds['both']} naming both), {len(judges)} judges, {len(used_places)} cities and "
+        f"towns named, {len(reached)} of 29 counties reached; read twice ({len(second)} and {len(justice_read)} questions, {answers} answer "
+        f"lines); {loose} place or county name(s) read with one letter misread; "
+        + (f"Voter Information Pamphlet: {in_pam} of {len(judges)} judges found, same courts for {same_courts}" if pam
+           else "Voter Information Pamphlet not read") + f"; {len(out['gaps'])} gaps recorded (29 counties: {GAP_WHAT})")
+    if plural_off:
+        out["checks"].append(f"{plural_off} justice court question(s) read 'Court' where several courts are named, or 'Courts' for one")
+    if blanked:
+        out["checks"].append(f"{blanked} justice court question(s) left out: a name or court that looked like contact details")
+    if missed:
+        out["checks"].append(f"{missed} justice court question(s) not loaded; a gap says so")
+    return out
+
+
 # ---------------------------------------------------------------- the load
 
 def load(db_path, say=print, cache=CACHE, refresh=False):
@@ -882,6 +1411,15 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
         checks.append(f"judges in the filings page's State Judicial table not found on the certification: {'; '.join(unread)}")
     n_retention = len(used_q)
 
+    # ---- the local level: the justice courts' retention questions, the places they name, the gaps and the notes
+    local = local_rows(os.path.join(folder, LOCAL_DIR), gpath, [(n, o) for g, _d, n, o, _c in retention_read if g == "justice"],
+                       cmap, found["general"], signed, amended, say)
+    for rid, r in local["races"].items():
+        if rid in races:
+            fail(f"a justice court contest's race id is already a state race's ({rid})")
+        races[rid] = r
+    cand.extend(local["cands"])
+
     nominee = {}
     for rid, rows in general_by_race.items():
         for name, party, _o, typed in rows:
@@ -1024,7 +1562,7 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
     dupes = [k for k, v in keys.items() if v > 1]
     if dupes:
         fail(f"two rows for one candidate in one election: {dupes[:3]}")
-    place_rows = [("county", g, full, json.dumps([g]), SRC["counties"]) for g, (_n, full) in sorted(cmap.items())]
+    place_rows = [("county", g, full, json.dumps([g]), SRC["counties"]) for g, (_n, full) in sorted(cmap.items())] + local["places"]
     general = [c for c in cand if c[1] == "general"]
     per_kind = Counter(races[c[0]]["office_kind"] for c in general)
     listed = {b: sum(len(r["rows"]) for (bb, _d), r in races_read.items() if bb == b) for b in BODIES}
@@ -1042,9 +1580,13 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
          "ballot order. Every name matched to the office's typed Candidate Filings page in the same race and party, whose spelling "
          f"is kept ({len(fuzzy)} names matched by race and party where machine reading had misread a letter). A race's county_ids "
          f"are the counties its heading sentence names ({len(loose_counties)} heading(s) with a county name misread by one letter). "
-         f"Retention: {n_retention} state-court judges loaded; {justice} justice-court questions (municipal and county courts) "
-         f"and {amendments} proposed constitutional amendments are not loaded. Withdrawn, disqualified or deceased, left off: "
-         f"{len(gone)}. Out at a party convention, not on any ballot: {convention}."),
+         f"Retention: {n_retention} state-court judges loaded, and {local['n']} of the {justice} justice-court questions (county and "
+         "city courts): for those, only the judge's name and the court are read, the name is the scan's own reading because the "
+         "filings page has no table of them, the court is matched to a county or to a city or town on the Census Bureau's place "
+         f"list ({local['loose']} name(s) with one letter misread), and the group is read twice and its {local['answers']} answer "
+         f"lines counted. The {amendments} proposed constitutional amendments are not loaded. Withdrawn, disqualified or deceased, "
+         f"left off: {len(gone)}. Out at a party convention, not on any ballot: {convention}. The certification prints no contact "
+         "columns."),
         (SRC["write_in"], STATE, "official candidate list", AGENCY,
          "2026 Write-In Candidate Certification" + (f" (signed {wsigned})" if wsigned else "") + ": state offices",
          found["write_in"], wsigned, mdate(wpath), sha_of(wpath), len(write_ins),
@@ -1075,8 +1617,8 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
          "are those members. The roster does not carry the State Board of Education."),
         (SRC["counties"], STATE, "official boundaries", "U.S. Census Bureau",
          "Cartographic boundary file, counties, 2024, 1:500,000 (cb_2024_us_county_500k)", COUNTY_URL, "", mdate(COUNTY_ZIP),
-         sha_of(COUNTY_ZIP), len(place_rows), "Utah's 29 counties: names and GEOIDs only."),
-    ]
+         sha_of(COUNTY_ZIP), len(cmap), "Utah's 29 counties: names and GEOIDs only."),
+    ] + local["src"]
     for county, (spath, url, used_for) in sorted(county_files.items()):
         src.append((f"ut-{fold(county).replace(' ', '-')}-2026-state-primary-summary", STATE, "official results",
                     f"{county} Clerk (posted on the Lieutenant Governor's election results system)",
@@ -1084,17 +1626,21 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
                     len(used_for), "The votes of the single-county state primaries the county certified: " + ", ".join(used_for) + "."))
 
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
-    with con:
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
+    with con:      # Utah's rows only, in one transaction
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                     (STATE, f"2026-{STATE}-%"))
         con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_places WHERE source_id LIKE 'ut-%' OR (kind = 'county' AND id GLOB '49[0-9][0-9][0-9]')")
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
         con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
         con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cand)
         con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
         con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     # ---- the report: counts only
@@ -1105,7 +1651,7 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
     senate = sorted(int(r["district"]) for r in races.values() if r["office_kind"] == "state_senate")
     say(f"    Utah (state races): {by_kind['state_senate']} Senate seats (districts {', '.join(map(str, senate))}), "
         f"{by_kind['state_house']} House seats, {by_kind['state_board_of_education']} State Board of Education seats, "
-        f"{n_retention} state-court retention elections; {len(general)} names on the November ballot (Senate "
+        f"{n_retention} state-court retention elections; {len(general) - len(local['cands'])} names on the November ballot (Senate "
         f"{per_kind['state_senate']}, House {per_kind['state_house']}, State Board {per_kind['state_board_of_education']}, "
         f"retention {n_retention}; {writes} declared write-ins; {len(gone)} withdrawn, disqualified or deceased left off); "
         f"unopposed: Senate {alone['state_senate']}, House {alone['state_house']}, State Board {alone['state_board_of_education']}; "
@@ -1117,6 +1663,10 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
         say(f"    CHECK Utah (state races): primary: {p}")
     for c in checks:
         say(f"    CHECK Utah (state races): {c}")
+    for line in local["report"]:
+        say(line)
+    for c in local["checks"]:
+        say(f"    CHECK Utah (county and local): {c}")
     return len(general)
 
 

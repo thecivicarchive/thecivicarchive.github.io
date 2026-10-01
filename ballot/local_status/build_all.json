@@ -1281,5 +1281,249 @@
    "Florida's local candidate download names an office and seat but no county or district (its only county code sits in the candidate's address block and is not read), so state_local_fl.py places each row by finding the same name, office and seat on the county supervisor's candidate page (voterfocus.com/CampaignFinance/candidate_pr.php?c=<county>, one layout for all 67) and takes the contests and district names from the Secretary of State's 67 Notices of General Election PDFs on dos.fl.gov.",
    "In that download 'Unopposed' also covers a candidate who won outright on August 18 (the rivals read 'Defeated'), accented letters are Windows-1252 bytes rather than UTF-8, and a supervisor's page can lag behind (still 'Qualified' after a defeat), so the Division's status decides who is on the ballot and any disagreement goes in a note or a gap."
   ]
+ },
+ "co": {
+  "code": "co",
+  "summary_line": "Level other: 7 RTD director contests, 10 candidates. Level court (with counties): 117 judge retention votes (62 district, 52 county, 3 Denver juvenile and probate). 57 of 64 counties have at least one; 6 by the check's count of local levels.",
+  "local_races": 7,
+  "local_candidates": 10,
+  "check_passed": true,
+  "state_rows_unchanged": "yes: 103 races and 292 candidacies identical. Two source notes reworded only: the general list's (its other rows are now loaded) and the results site's (its web address taken out of the note).",
+  "counts_reconcile": "List: 404 rows = 47 Congress + 230 state + 127 local. All 127 placed once: 10 RTD names in 7 contests, 117 judges. The workbook, a second route, matches row for row. One name is on two Rio Blanco rows (county and associate judge); both kept.",
+  "sources": [
+   "Colorado Secretary of State, 2026 General Election Official Candidate List (page and its Excel version), https://www.coloradosos.gov/pubs/elections/vote/generalCandidates.html",
+   "Colorado Secretary of State, 2026 RTD Candidate Petition Lot Drawing for Ballot Position, https://www.coloradosos.gov/pubs/elections/vote/RTDCandidateBallotOrder.html",
+   "Colorado Secretary of State, 2022 Abstract of Votes Cast, General Election: RTD Directors (district headings and County column only), https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/RTD.html",
+   "Colorado General Assembly, Office of Legislative Legal Services, Colorado Revised Statutes 2026, Title 13: sections 13-5-101 to 13-5-123.1 (the judicial districts), https://olls.info/crs/crs2026-title-13.htm",
+   "U.S. Census Bureau, Cartographic boundary file, counties, 2024, 1:500,000 (the kit's own copy, table only), https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip",
+   "Linked but not read by the loader: Colorado Secretary of State, County Election Offices (the address on each county gap), https://www.coloradosos.gov/pubs/elections/Resources/CountyElectionOffices.html",
+   "Linked but not read by the loader: Colorado General Assembly, 2026 CRS Titles for Download (the address on the calendar note; Titles 1, 22, 31, 32 and the Constitution were read by hand on 2026-10-01 to check the note), https://leg.colorado.gov/agencies/office-legislative-legal-services/2026-crs-titles-download"
+  ],
+  "left_out": "Withdrawn: 0 local (1 state-level, as before). Declared write-ins: 0 local (2 state-level, as before). Ballot questions and measures and local primaries are not loaded; the list carries no non-person contest. County, town, school and special district offices are not on this list.",
+  "gaps": "64 county-scope rows, none other. 62 say the county's own offices (commissioners, clerk and recorder, treasurer, assessor, sheriff, coroner, surveyor) and town contests are not on the Secretary of State's list and are published by the county clerk; Denver and Broomfield, cities and counties, are worded accordingly.",
+  "needs_john": [],
+  "new_office_kinds": [
+   "transit_board: Regional Transportation District Director",
+   "county_court_retention: Judge of the County Court (retention vote), including Rio Blanco's associate judge (Nebraska's rows already use this kind, but the page's KINDS list does not place it yet)",
+   "probate_court_retention: Judge of the Denver Probate Court (retention vote)"
+  ],
+  "new_place_kinds_or_levels": "All levels fit: RTD director districts are level other with one place of kind special each (CO-X-RTD-B and so on, counties from the 2022 abstract); judges stay at level court with county_ids. The 19 judicial districts with a judge up are sl_places rows of kind judicial (CO-JD1 ...), as Wyoming's are; the page ignores that kind. One choice to review: judges standing for retention carry holder_name and incumbent 1, the same as Colorado's existing Supreme Court and Court of Appeals rows, rather than the empty holder and incumbent 0 used for other local offices. Two more things a reviewer should know: each RTD note says a 2026 law (SB 26-150, C.R.S. 32-9-109.5) ends sitting directors' terms on January 1, 2029, although the Secretary's page lists the term as four years; and Denver's and Broomfield's gap rows say they are cities and counties rather than listing county offices they do not elect.",
+  "how_to_run": "From the project folder: .venv\\Scripts\\python.exe ballot\\state_local_co.py <database file>   (optional: --cache <folder>; the default is ballot_cache\\co, with the local files in ballot_cache\\co\\local, already filled, so the local part downloads nothing). Same as before for run_ballot.py: load(db_path, say=...).",
+  "privacy_slip": "One, and not a candidate's: while reading the candidate list page's own words outside its table, the page footer came out in my tool output once, with the Secretary of State's office street address and phone number. Also, the column headings of the 2022 RTD results tables, which are 2022 candidates' names, were printed once while learning that layout; the loader never reads them. No candidate's address, phone, e-mail or website was read or printed (these lists have no such columns), and nothing contact-like is in the cache files or the database.",
+  "lessons": [
+   "Colorado's Secretary of State site sits behind a front that renames a tag attribute on every request, so a page's SHA-256 never repeats: tie two readings together by a fingerprint of the rows read (or the workbook's hash, which is stable), not by the page's.",
+   "Colorado's statewide candidate list reaches below the state only for RTD directors and judge retention votes and names no counties, so a judicial district's counties come from C.R.S. 13-5-102 to 13-5-123.1 (the Legislative Legal Services file of Title 13 on olls.info) and a director district's from the Secretary's 2022 abstract page, while county and town contests exist only clerk by clerk until the results site lists \"2026 General\"."
+  ]
+ },
+ "ut": {
+  "code": "ut",
+  "summary_line": "Utah: 30 justice court retention questions loaded, all under level court (9 county courts, 18 city or town courts, 3 naming both), 30 names for 26 judges, reaching 17 of 29 counties. No county, school board or district race loaded in this narrow pass; 29 county gaps say why.",
+  "local_races": 30,
+  "local_candidates": 30,
+  "check_passed": true,
+  "state_rows_unchanged": "yes",
+  "counts_reconcile": "No totals on the certification, so its Justice Courts group was read twice by two routes: 30 and 30 questions, 30 Yes/No lines; 30 races, 30 names, each question in one race. Pamphlet control: 25 of 26 judges found (not E. Jed Labrum); courts differ for Memmott and Richards.",
+  "sources": [
+   "Utah Office of the Lieutenant Governor, Office of Elections: 2026 General Election Certification (amended, signed 2026-09-21), its Justice Courts group, https://vote.utah.gov/wp-content/uploads/2026/09/2026-General-Election-Certification-Amended-09-21.pdf",
+   "U.S. Census Bureau: 2020 place codes, Utah (st49_ut_place2020.txt; city and town names, codes and counties), https://www2.census.gov/geo/docs/reference/codes2020/place/st49_ut_place2020.txt",
+   "Utah Office of the Lieutenant Governor: 2026 Voter Information Pamphlet (a control only; each justice court judge's name line and courts-served line, read in memory, never saved), https://vote.utah.gov/wp-content/uploads/2026/09/2026-Voter-Information-Pamphlet.pdf",
+   "Utah Legislature: Utah Code 20A-1-201, 20A-1-202, 17-66-202, 20A-14-202, 17B-1-306, 78A-7-203, 20A-12-201 and 20A-5a-210 (the calendar note, the contest notes and the gap reasons), https://le.utah.gov/xcode/Title20A/Chapter1/20A-1-S201.html",
+   "Utah Office of the Lieutenant Governor: Contact Your County Election Officials (the address given with each county gap; its contents are not read), https://vote.utah.gov/contact-your-county-election-officials/",
+   "U.S. Census Bureau: cartographic boundary file, counties, 2024 (already in the kit; the 29 county names and codes), https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip"
+  ],
+  "left_out": "No justice court question is marked withdrawn; all 30 loaded, none unread. Not loaded: ballot questions (the 2 proposed constitutional amendments and local propositions). No contest between non-persons on the list. State-level: 40 withdrawn, disqualified or deceased candidates stay left off, as before.",
+  "gaps": "30 rows: 29 county (each county's offices and local school board races: its clerk certifies and posts them under Utah Code 20A-5a-210, there is no statewide list, none read yet) and 1 state (special district boards: candidates certified to county clerks, no statewide list).",
+  "needs_john": [],
+  "new_office_kinds": [
+   "justice_court_retention: Justice court judge (retention election)"
+  ],
+  "new_place_kinds_or_levels": "None new. Seven of the 30 questions name several courts, or one court shared by two places, so they have no single place: jurisdiction lists the places, jurisdiction_id is left empty and county_ids is filled (level court, which the check does not test). The other 23 use the county's code or UT-M-<Census place code>, with 30 mcd rows in sl_places.",
+  "how_to_run": "From C:\\Users\\16516\\plain-congress: .venv\\Scripts\\python.exe ballot\\state_local_ut.py ballot_local_2026.sqlite (optional: --cache <folder>). Or in Python: from ballot import state_local_ut; state_local_ut.load(db_path). The two local cache files are already in ballot_cache\\ut\\local\\, so a run downloads nothing new. Tested copy: C:\\Users\\16516\\AppData\\Local\\Temp\\claude\\C--Users-16516-plain-congress\\ebb8874a-10e0-46ff-ae74-f1ddb1899e50\\scratchpad\\sl_local_ut\\test.sqlite",
+  "privacy_slip": "One slip while exploring; none in the loader, the caches or the database. To find the justice court pages of the Lieutenant Governor's Voter Information Pamphlet (read in memory, never saved), I printed every line containing \"Justice Court\". About 100 lines reached my tool output, roughly 45 of them sentences from judges' official evaluation profiles: year and court of appointment, a degree, earlier posts, one appointing mayor's name. That is biography text. No address, city of residence, ZIP, phone, e-mail or website was printed, and none of it was cached or stored. After that I printed only the name line and the courts-served line, and the loader keeps only those two cells per page.",
+  "lessons": [
+   "Utah's statewide certification carries only one kind of local contest, the justice court judges' retention questions; county and school board candidates exist only in each county clerk's own notice (Utah Code 20A-5a-210), and who votes on a justice court judge depends on the city's class (78A-7-203), which the list does not say.",
+   "The page's guard counts Court, Place and Pl as street words though check_local's scan does not, so a race note with a number followed within a few words by 'court' is dropped: keep statute numbers in brackets with punctuation straight after, and test notes against build_ballot_state_dev.STREET."
+  ]
+ },
+ "il": {
+  "code": "il",
+  "summary_line": "78 local races, 121 candidates: county 24/35 (Cook only), other districts 33/44 (27 regional superintendents, 6 sanitary), school 21/42 (Chicago Board of Education); plus 181 circuit-judge contests (188 candidates) under court. Regional contests reach all 102 counties; county offices are Cook's alone.",
+  "local_races": 78,
+  "local_candidates": 121,
+  "check_passed": true,
+  "state_rows_unchanged": "yes: all 168 races, 327 candidates and 263 places identical. Only two source rows changed: the State Board list's note and row count (250 to 462) and the canvass's note, to say their local parts are now read.",
+  "counts_reconcile": "State Board list: 207 local headings, 214 names = 205 contests, 212 stored + 2 withdrawn. Cook Clerk: 161 contests, 298 lines = 33 stored (55 + 1 \"No Candidate\") + 31 judges (89) + 97 state (153); whole and party-by-party readings agree. Chicago: 131 = 21 + 22 alike + 23 + 65.",
+  "sources": [
+   "Illinois State Board of Elections, Website Candidate List, General Election November 3, 2026 (cached cells, nothing new downloaded): https://elections.il.gov/ElectionOperations/EOPDFViewer.aspx?ElectionID=sejIrI%2bQmww%3d&QueryType=xF443FTCAJbIL3atac%2fUjEg7Y4yklgT1&Status=P2wRQXkiFoo%3d",
+   "Illinois State Board of Elections, Official Canvass, General Primary March 17, 2026 (already cached; read only for each region's and circuit's counties and each vacancy's words): Candidate Totals on https://www.elections.il.gov/ElectionOperations/DownloadVoteTotals.aspx",
+   "Cook County Clerk, Contests and candidates, General Election of November 3, 2026 (JSON, ballot numbers): https://www.cookcountyclerkil.gov/api/Candidate/GetAllCandidates?language=en&electionCode=110326&partyCode=",
+   "Chicago Board of Election Commissioners, Candidate Filings in Ballot Order, November 3, 2026 (PDF, status as of 9/11/2026, linked from https://chicagoelections.gov/getting-ballot/candidates): https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-09/Candidate%20List_20260911-1.pdf",
+   "Illinois General Assembly, Circuit Courts Act Section 1 (705 ILCS 35/1), the counties of each judicial circuit: https://www.ilga.gov/Documents/legislation/ilcs/documents/070500350K1.htm",
+   "Illinois State Board of Elections, Election Authorities (names of the 108 jurisdictions only): https://www.elections.il.gov/ElectionOperations/ElectionAuthorities.aspx",
+   "Illinois General Assembly, Election Code 10 ILCS 5/2A-1.1, 2A-1.2 and 2A-14 to 2A-23 (for the calendar note; read while writing, not at run time): https://www.ilga.gov/Documents/legislation/ilcs/documents/001000050K2A-1.2.htm"
+  ],
+  "left_out": "2 judges who withdrew from retention (questions not stored). 1 \"No Candidate\" placeholder line (contest kept, with a note). Ballot questions (127 rows on Chicago's list). Write-in candidates: 30 Chicago contests show a write-in line, no names. Federal and state contests on the two local lists (97 and 65). Local primaries.",
+  "gaps": "101 county-scope rows, every county but Cook: county offices and local districts not loaded, because Illinois has no statewide county list and each county's election authority publishes its own; five rows also name the city's own election board. No state, place or race gaps.",
+  "needs_john": [],
+  "new_office_kinds": [
+   "regional_superintendent_of_schools: Regional Superintendent of Schools",
+   "board_of_review: Commissioner of the Board of Review (Cook County)",
+   "circuit_court_retention: Judge of the Circuit Court (retention); Missouri already uses it, but the page builder's list does not place it yet"
+  ],
+  "new_place_kinds_or_levels": "No new levels. Regional superintendents: level other, one special place per region (IL-X-roe-<counties>, no county code), because a regional office of education is not a school district but serves every district of its counties, as Nebraska's educational service units are filed. Circuit judges: level court, place kind judicial (IL-JC1 to IL-JC24, IL-JCCOOK), counties from the canvass for vacancies and from 705 ILCS 35/1 for retention. Chicago Board of Education: school place IL-S-031-chicago-board-of-education. One decision for you: a region's contest is filed under its own counties plus the neighbouring counties the March canvass lists under it (parts of them vote on it), which is why all 102 counties show a local race; setting REGION_SLICES = False in the loader files it under the region's own counties only (94 counties).",
+  "how_to_run": "From C:\\Users\\16516\\plain-congress: .venv\\Scripts\\python.exe -m ballot.state_local_il <database path>   (add --refresh to fetch the local lists again; in code: ballot.state_local_il.load(db_path, say=print))",
+  "privacy_slip": "none. No address, phone, e-mail or website reached my output, a cache or the database: the Cook and Chicago lists have no contact columns, and the Election Authorities page was read for jurisdiction names only. I printed candidates' and judges' names with party and ballot numbers (allowed cells), and once the canvass's signature block (State Board members' names, no contact details).",
+  "lessons": [
+   "Illinois local: the Cook County Clerk's contest list is keyless JSON (cookcountyclerkil.gov/api/Candidate/GetAllCandidates?language=en&electionCode=110326&partyCode=, a party code giving a second reading) with ballot numbers and no contact fields, but it wraps a cell holding a comma in single quotes, writes a quotation mark as two apostrophes and writes \"No Candidate\" as a candidate line where nobody filed; the Chicago Board's \"Candidate Filings in Ballot Order\" PDF (linked from chicagoelections.gov/getting-ballot/candidates) carries the same ballot numbers plus the Chicago Board of Education, and calls itself unofficial.",
+   "Illinois's State Board list files regional superintendents and circuit judges under short headings (\"ETC.\"), and the March canvass supplies the rest: each region's full county list (and, in its county tables, the neighbouring counties where parts vote on it), each vacancy's full words, and whether a seat is a resident (one county) or subcircuit judgeship; retention is circuit-wide, with each circuit's counties in 705 ILCS 35/1 at ilga.gov/Documents/legislation/ilcs/documents/<doc>.htm, which answers scripts."
+  ]
+ },
+ "or": {
+  "code": "or",
+  "summary_line": "Oregon: 10 local contests from the state's own list, all filed under level court (3 district attorney, 7 circuit judge), with 16 candidates; no county, city or district level rows in this narrow pass; 8 of 36 counties have a contest.",
+  "local_races": 10,
+  "local_candidates": 16,
+  "check_passed": true,
+  "state_rows_unchanged": "yes",
+  "counts_reconcile": "The list's own counts (District Attorney 4, Circuit Court 13: 17 filings) came out the same by two routes and on a second fetch. 16 qualified, each one candidate in exactly one race; 1 not qualified left off; 0 withdrawn.",
+  "sources": [
+   "Oregon Secretary of State, Elections Division: ORESTAR Candidate Filings, 2026 General Election, District Attorney and Judge of the Circuit Court: https://secure.sos.state.or.us/orestar/CFSearchPage.do",
+   "Oregon Secretary of State, Elections Division: 2026 May Primary Election Official Results (May 19, 2026 Abstract of Votes), Judge of the Circuit Court and District Attorney pages 52 to 62: https://records.sos.state.or.us/ORSOSCMSearch/Search/DocumentStream.ashx?uri=16180585",
+   "Oregon Legislative Assembly, Legislative Counsel Committee: Oregon Revised Statutes, 2025 edition, chapter 3 (ORS 3.012, Judicial districts): https://www.oregonlegislature.gov/bills_laws/ors/ors003.html",
+   "U.S. Census Bureau: Cartographic boundary file, counties, 2024 (county names and codes; already a source row): https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip",
+   "In url columns only, not read as data: Oregon Revised Statutes index (calendar note) https://www.oregonlegislature.gov/bills_laws/Pages/ORS.aspx ; Secretary of State, County Elections Officials (the 36 county gaps) https://sos.oregon.gov/elections/Pages/countyofficials.aspx"
+  ],
+  "left_out": "1 circuit judge filing the list marks not qualified (11th District, Position 3): counted, not named. 0 withdrawn. Not loaded: ballot measures, local primaries, and every county, city and special district contest (36 county gaps).",
+  "gaps": "36 county-scope rows, one per county; no state, place or race rows. County, city and district candidates file locally, so no statewide list has them; each county clerk's list is still to be read. The page currently shows them with the state's gaps.",
+  "needs_john": [],
+  "new_office_kinds": [
+   "district_attorney: District Attorney",
+   "circuit_court: Judge of the Circuit Court"
+  ],
+  "new_place_kinds_or_levels": "No new level: all ten contests are level court. The five judicial districts used are in sl_places as kind judicial (OR-JD2, 4, 5, 11, 20), a kind other states already use. The page builder ignores court rows' county_ids until Oregon has a county-level row.",
+  "how_to_run": ".venv\\Scripts\\python.exe ballot\\state_local_or.py <database path>   (from the project folder; add --refresh to ask the lists again; python run_ballot.py local or runs it on the real database)",
+  "privacy_slip": "none",
+  "lessons": [
+   "Oregon's ORESTAR candidate list holds only offices filed with the state (ORS 249.035), so its local part is just District Attorney and Circuit Court judge, and its result page echoes the search with the contest's own comma inside (\"2nd District, Position 14\"), so compare the whole echoed line rather than splitting on commas.",
+   "An Oregon nonpartisan office is on the November list only as a top-two runoff (\"Nominated\", ORS 249.088) or a vacancy election (\"Fee\", ORS 249.205; \"Auto Nominated **\", ORS 249.091), which the May abstract confirms (it prints one multi-county contest with no Total row), and ORS 3.012 on oregonlegislature.gov, which answers scripts in windows-1252, gives each judicial district's counties."
+  ]
+ },
+ "ar": {
+  "code": "ar",
+  "summary_line": "Arkansas: 130 local races, 212 candidates (county 33, city 95, school 1, other 1) in 2 of 75 counties, Pulaski and Washington; plus 4 court runoffs, 8 candidates, reaching 15 counties (16 counties with at least one).",
+  "local_races": 130,
+  "local_candidates": 212,
+  "check_passed": true,
+  "state_rows_unchanged": "yes: all 125 statewide and legislative races and their 273 candidate rows are identical. Arkansas had no court rows before; the 4 runoffs are new. Only the Candidate Search source row's note was reworded.",
+  "counts_reconcile": "Candidate Search: its own count 198 = 177 state + 13 federal + 8 runoff rows; all 8 placed. Pulaski draw: 111 lines by two readers; 71 local, all placed. Washington: 182 candidate rows, identical on two fetches; 141 local, all placed. Each candidate is in one race.",
+  "sources": [
+   "Arkansas Secretary of State, Elections Division, 2026 Candidate Search (the November runoffs for circuit judge and prosecuting attorney), https://candidates.arkansas.gov/",
+   "Arkansas Secretary of State, Elections Division, official results of the March 3, 2026 nonpartisan general election (circuit judge and prosecuting attorney contests: counties and the no-majority check), https://arkansas.tally-enr.com/#election=7f77a178-af02-40ec-92db-c5cc50882c68",
+   "Pulaski County Election Commission, 11/3/2026 General Election: Ballot Position Draw (PDF, five columns, no contact columns), https://votepulaskiar.gov/wp-content/uploads/11032026_Ballot-Draw-Results.pdf",
+   "Washington County Election Commission, November 3, 2026 Election Information (candidate tables; contact columns never collected), https://www.washingtoncountyar.gov/government/departments-a-e/election-commission/november-3-2026-general-election-information",
+   "U.S. Census Bureau, 2020 Census place codes for Arkansas (city names and codes), https://www2.census.gov/geo/docs/reference/codes2020/place/st05_ar_place2020.txt",
+   "Arkansas Secretary of State, 2026 Election Dates (rev. June 2025) (which election is on which day), https://www.sos.arkansas.gov/uploads/elections/2026_Election_Calendar_Rev._6-2025_.pdf",
+   "Arkansas State Board of Election Commissioners, 2026 County Board of Election Commissioners Procedures Manual (what the ballot prints: unopposed candidates, party designation), https://sbec.arkansas.gov/wp-content/uploads/2026-CBEC-Manual.pdf",
+   "U.S. Census Bureau, 2024 county boundary file already in the kit (county names), https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip"
+  ],
+  "left_out": "Withdrawn or disqualified: none marked on these lists (0). Ballot questions not loaded (Washington's page names 3 local ones). 79 federal and state rows on the two county lists left to those pages. Pulaski's unopposed candidates are not in its draw. No local primaries.",
+  "gaps": "74 county-scope rows: 72 counties whose own lists are not read yet (Arkansas has no statewide list for county, city or township offices), Benton (its site refuses scripts), and Pulaski's offices with one candidate, left out of its ballot draw. No state, place or race gaps.",
+  "needs_john": [
+   {
+    "url": "https://bentoncountyar.gov/election-commission/",
+    "action": "Optional, for the next pass: nothing reads this file yet (the loader only notes that it is there), and I could not see the page because it answers scripts with 403. Open the page, find the November 3, 2026 General Election ballot draw results or candidate list, and save the PDF. A ballot draw is best: it carries no contact columns.",
+    "save_as": "ballot_cache/ar/local/benton_2026_general_candidates.pdf"
+   }
+  ],
+  "new_office_kinds": [
+   "prosecuting_attorney: Prosecuting Attorney (court level; new, not yet placed in the page builder's KINDS)",
+   "city_attorney: City Attorney (new, not yet placed in the page builder's KINDS)",
+   "circuit_court: Circuit Judge (court level; already used by other states)",
+   "county_judge: County Judge",
+   "justice_of_the_peace: Justice of the Peace",
+   "constable: Constable",
+   "clerk_of_court: Circuit Clerk",
+   "county_clerk: County Clerk",
+   "county_assessor: County Assessor",
+   "tax_collector: County Collector",
+   "coroner: Coroner",
+   "water_board: Board Director (Beaver Water District)"
+  ],
+  "new_place_kinds_or_levels": "None new, but three choices to review. (1) Constables are filed under level county, with the township's name (Pulaski) or the constable district number (Washington) as the district; level township is unused. (2) City offices are stored nonpartisan in both counties, each race with a note of what its county's list says: Pulaski's draw lists every city candidate as Independent, Washington's city table has no party column, and the State Board's 2026 manual says no party is printed in a nonpartisan municipal election (A.C.A. 7-5-207(d)). That the Pulaski cities' elections are nonpartisan is my reading (no party nominee in any of their contests, no party primary there on March 3), not a statement in the draw. (3) Court runoffs use jurisdiction \"Judicial District N\", id AR-JD<N>, with no sl_places row; their counties come from the official March 3 results.",
+  "how_to_run": "From C:\\Users\\16516\\plain-congress: .venv\\Scripts\\python.exe ballot\\state_local_ar.py <database path>   (for the real database: .venv\\Scripts\\python.exe run_ballot.py local ar). Caches in ballot_cache\\ar\\local\\ are fresh for two days, so a re-run downloads nothing new.",
+  "privacy_slip": "None: no candidate's address, e-mail, phone, ZIP or website reached my output, a cache or the database (the kit's privacy scan of ballot_cache/ar/local and of the scratch rows is clean). For the record: from Washington's page I printed only table headings, allowed cells and counts; a throwaway exploration parser held whole table rows in memory before cutting them to the allowed columns (never printed or saved), whereas the loader's own parser never collects those cells. One non-candidate cell of the page's Sample Ballots table was masked as contact-like, and that table's two agency links (the state voter lookup and the county's sample-ballot folder) were printed. My offline test uses invented contact values only.",
+  "lessons": [
+   "Arkansas has no statewide list of county, city or township candidates: the Secretary's Candidate Search carries only the November runoffs for circuit judge and prosecuting attorney (their counties come from the official March 3 results), and each county's election commission posts its own list, so local rows go in county by county (Pulaski: a ballot-draw PDF of contested races only; Washington: a page of tables with contact columns, read by exact heading row, whose bytes change on every request so the kept rows are hashed too; Benton answers scripts with 403).",
+   "What an Arkansas ballot prints is in the State Board of Election Commissioners' CBEC Procedures Manual (sbec.arkansas.gov): unopposed candidates other than mayor, governor, circuit clerk and state offices are left off the general election ballot, and no party, not even Independent, is printed in a nonpartisan city election, so a county list's 'Independent' or missing party column for city offices is stored as nonpartisan with a note."
+  ]
+ },
+ "ct": {
+  "code": "ct",
+  "summary_line": "71 local races, 50 candidates: 54 Judge of Probate races at level court (16 districts with names, 19 candidates) and 17 Registrar of Voters races at level township (31 candidates), from the 19 of 169 town ballots posted; all 8 counties have at least one.",
+  "local_races": 71,
+  "local_candidates": 50,
+  "check_passed": true,
+  "state_rows_unchanged": "yes: all 192 races and 103 candidates identical, read from the ballot list cached 2026-09-30. Once that list is re-read (it goes stale 16:25 CDT October 1), 153 race notes change only in the date they quote.",
+  "counts_reconcile": "The ballots print no totals, so two routes were compared: the loader's reading and poppler's pdftotext agree on all 179 filled cells across 53 pages. 56 cells on 19 ballots = 53 party lines stored (50 candidates, each in one race) + 3 on check ballots.",
+  "sources": [
+   "Connecticut Secretary of the State: November 3, 2026, State Election, Sample Town Ballots (one PDF per town, 19 of 169 posted; one sl_sources row per ballot, old ids kept, notes reworded without the page's address; plus a row for the listing page, whose fingerprint ballots() now keeps) - https://portal.ct.gov/sots/election-services/town-ballots/2026-november-town-election-ballots",
+   "Connecticut General Assembly: General Statutes section 45a-2, Probate districts (chapter 801): the 54 districts and the towns of each - https://www.cga.ct.gov/current/pub/chap_801.htm#sec_45a-2",
+   "U.S. Census Bureau: 2020 Census county subdivision codes for Connecticut (st09_ct_cousub2020.txt): the 169 towns, their codes and the eight counties - https://www2.census.gov/geo/docs/reference/codes2020/cousub/st09_ct_cousub2020.txt",
+   "Connecticut General Assembly: General Statutes sections 45a-18, 9-164, 9-185, 9-189a, 9-190, 9-190a, 9-256 and 9-163aa (read once to check the calendar note and the October 9 date; cited in sl_notes and sl_gaps, not read by the loader) - https://www.cga.ct.gov/current/pub/chap_146.htm"
+  ],
+  "left_out": "Withdrawn: none countable (ballots print none). Not loaded: registered write-ins (not printed), ballot questions, Judge of Probate primaries (districts 13 and 48). Other town-office columns: 0 on the 19 posted ballots; when one appears it becomes a place gap until a reader is written from that ballot.",
+  "gaps": "1 row, scope state: the 150 towns not posted yet (19 of 169 posted; due by October 9 under C.G.S. 9-256 and 9-163aa). No county, place or race gaps today; a posted ballot that is unreadable, disagrees within its probate district or prints other town offices gets one.",
+  "needs_john": [],
+  "new_office_kinds": [
+   "registrar_of_voters: Registrar of Voters"
+  ],
+  "new_place_kinds_or_levels": "Levels all fit: Judge of Probate under court (kind judge_of_probate, already used by Maine but not in the builder's COURTS words; places kind \"judicial\", ids CT-PD1 to CT-PD54, race ids 2026-CT-PD<n>), Registrar of Voters under township (places mcd, CT-M-<county subdivision code>). One mismatch for the page: the county rows are the eight counties (09001 to 09015, named from the Census 2020 codes file) because the kit's cb_2024_us_county_500k file gives Connecticut nine planning regions (09110 to 09190). I ran build_ballot_state_dev.build() in memory: it lists 17 \"counties and planning regions\", the nine regions with lines and no races, the eight counties with races and no lines. It needs 2020 county lines for Connecticut (a local_ct_counties.json) before the county map is right. The check counts only the 17 township rows as local (17 races, 31 candidates, 7 of 8 counties); the 54 probate rows are under court.",
+  "how_to_run": "From C:\\Users\\16516\\plain-congress:  .venv\\Scripts\\python.exe -m ballot.state_local_ct <path to database> [--refresh]   (the same call as before: ballot.state_local_ct.load(db_path, say=print); the file is C:\\Users\\16516\\plain-congress\\ballot\\state_local_ct.py, its local cache C:\\Users\\16516\\plain-congress\\ballot_cache\\ct\\local\\, the passing trial copy C:\\Users\\16516\\AppData\\Local\\Temp\\claude\\C--Users-16516-plain-congress\\ebb8874a-10e0-46ff-ae74-f1ddb1899e50\\scratchpad\\sl_local_ct\\test.sqlite)",
+  "privacy_slip": "none",
+  "lessons": [
+   "Connecticut's local offices on the state ballot are Judge of Probate (54 districts whose towns are C.G.S. 45a-2 on cga.ct.gov, which answers scripts) and Registrar of Voters, read from two more columns of the same town sample ballots, and because the Census Bureau's 2024 county file gives Connecticut nine planning regions, the eight counties and the towns' codes come from st09_ct_cousub2020.txt.",
+   "Git for Windows ships poppler's pdftotext, and pdftotext -layout gives an independent second reading of a PDF (cell marks as tokens, names under a column's number) for reconciling what ballot/pdftext.py read when the source prints no totals."
+  ]
+ },
+ "nv": {
+  "code": "nv",
+  "summary_line": "Nevada: 125 contests and 208 candidates in 2 of 17 counties (Clark 89/148, Washoe 36/60): county 20, city 15, school 4, other 7, plus 79 local judges' contests under court. The check counts 46 races and 106 candidates at the local levels.",
+  "local_races": 125,
+  "local_candidates": 208,
+  "check_passed": true,
+  "state_rows_unchanged": "yes: all 59 state-level races identical, with no candidates before or after. The 16 county place rows now read \"Clark County\" (Census form) instead of \"Clark\"; the check notes this and does not fail.",
+  "counts_reconcile": "Neither list prints totals. Clark: 254 names, read by ruled lines and again line by line, agreeing: 148 local, 106 state or federal. Washoe: 103 names by two readers, agreeing: 60 local, 43 state or federal. All 208 also found in each county's second official document.",
+  "sources": [
+   "Clark County Election Department, All Contests and Candidates in the November 3, 2026, General Election in Clark County, Nevada (PDF dated 2026-08-24), https://www.clarkcountynv.gov/adobe/assets/urn:aaid:aem:1db09a57-4c1b-47e1-94d9-e7782c442571/original/as/officesup-26g.pdf",
+   "Washoe County Registrar of Voters, Washoe County 2026 General Election Contests (workbook, modified 2026-08-06), https://www.washoecounty.gov/voters/files/Washoe%20County%202026%20General%20Election%20Contests.xlsx",
+   "U.S. Census Bureau, 2020 place codes, Nevada (city codes and names), https://www2.census.gov/geo/docs/reference/codes2020/place/st32_nv_place2020.txt",
+   "U.S. Census Bureau, cartographic boundary file, counties, 2024 (county names; already in the kit), https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip",
+   "Nevada Legislature, Nevada Revised Statutes 293.12755, 293.260, 293C.140, 318.095, 539.115 (calendar note; read 2026-10-01, cited in sl_notes, not an sl_sources row), https://www.leg.state.nv.us/nrs/NRS-293.html"
+  ],
+  "left_out": "Neither list has a status column, so no withdrawals could be counted. Not loaded: 3 Washoe ballot questions; 149 names in 74 federal and state contests (Congress, statewide offices, Legislature, Supreme Court, Board of Regents); 16 \"None of these candidates\" lines. Local primaries not read.",
+  "gaps": "15 county-scope rows, one per county not read yet (its clerk's own list waits its turn). 1 state-scope row: Board of Regents districts 2, 3, 5, 8, 10 and Supreme Court seats B and D are on both lists but are state offices nothing loads yet.",
+  "needs_john": [],
+  "new_office_kinds": [
+   "town_advisory_board: Town Advisory Board Member (new)",
+   "city_attorney: City Attorney (new)",
+   "public_administrator: Public Administrator (already used by Montana; not yet placed on the page)",
+   "improvement_board: General Improvement District Trustee (already used by Wyoming; not yet placed on the page)",
+   "special_district_board: Board Member, Verdi TV District (already used by Florida; not yet placed on the page)",
+   "district_attorney: District Attorney (county level; known to the page)",
+   "county_assessor: County Assessor (known to the page)",
+   "county_clerk: County Clerk (known to the page)",
+   "constable: Constable (county level, township as the district; known to the page)",
+   "justice_of_the_peace: Justice of the Peace (under court; known to the page)",
+   "district_court: District Court Judge (known to the page)",
+   "municipal_court: Municipal Court Judge (known to the page)",
+   "water_board: Board Member, water district (known to the page)"
+  ],
+  "new_place_kinds_or_levels": "none: all fit. Nevada townships have no government, so they are not places: constables sit under the county with the township as district, justices of the peace under court. Moapa Valley's town advisory board is level other, special place \"Moapa Valley (unincorporated town)\". The page's wording for county-by-county states says \"county boards of elections\"; Nevada's are clerks and registrars.",
+  "how_to_run": "From C:\\Users\\16516\\plain-congress: .venv\\Scripts\\python.exe -m ballot.state_local_nv <database path>   (for the real database: python run_ballot.py local nv). The file changed is C:\\Users\\16516\\plain-congress\\ballot\\state_local_nv.py; tested only on the scratch copy. run_all.py smoke was not run, because this agent may write only its own files.",
+  "privacy_slip": "none. Output held only names, offices, parties, counts and statute text. For completeness: one link listing (county's own host only) showed the addresses of Washoe's daily mail-ballot files, never opened; the Clark PDF's footer shows a staff member's initials; the cached workbook's file properties name its county author, never read.",
+  "lessons": [
+   "Nevada's local candidates come county by county because the Secretary of State's list is bot-walled: read Clark County's 'Candidates and Contests' PDF by its ruled lines (a full-width rule ends a contest, a partial rule ends a candidate, since contest cells are centred beside their names) and Washoe's workbook by its headings; neither has contact columns, and both also print the statewide, legislative, Supreme Court and Regents candidates.",
+   "In Nevada a nonpartisan office settled at the June primary (no opponent, or a majority) is not on the November list at all, so a missing sheriff is not a gap; and townships have no government, so constables go under the county with the township as the district and justices of the peace under court."
+  ]
  }
 }

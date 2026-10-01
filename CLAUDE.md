@@ -878,6 +878,62 @@ his purchased usage: stop at 99 percent of the weekly limit.
   Ballot Certification Report prints every county's county and precinct offices (2,646 contests, 254 counties), and the
   Secretary's portal answers one keyless POST (findQualifiedCandidates, election 53815; allowlist keys; cdFilingStatus
   CG = on the ballot, party W = declared write-in); statutes for scripts at tcss.legis.texas.gov/resources/.
+- Wave three (v4.0.076: MI OH MO NE WY WI IA MT FL), the first county-by-county states: the statewide part, then the
+  largest counties a script can read, each county's own office as the agency, a table in the loader naming each
+  county's source address (hand-checked, never guessed), and a county-scope `sl_gaps` row for every county not read.
+  Adding a county is one entry in that table (`AUTHORITIES` in Missouri's loader, `LOCAL_SOURCES` in Montana's) plus,
+  where the layout is new, a small reader; a hand-saved file under `ballot_cache/<code>/local/<county>/` is read when
+  present. Michigan: judges from the Bureau's statewide listing; nine county clerks' lists in six layouts (Wayne,
+  Oakland, Macomb's published sheet, Kent, Ottawa, Ingham, Kalamazoo, Saginaw, Muskegon); status marks hide inside name
+  cells ("(Withdrew)", "DISQUALIFIED 7/15/26 Name", Muskegon's unexplained "(W)"); school districts keyed by CEPI's
+  Educational Entity Master. Ohio: every board must post a 46-day election notice (R.C. 3511.16: names, offices,
+  parties, no addresses), so read that, never the board's candidate list; 23 boards read from their own sites, 61 sit
+  on the state's shared site that refuses scripts; a court of appeals race is printed by every county of its district;
+  the notices also carry 18 legislative districts the state rows lack (not loaded: a state-level run to do). Missouri:
+  each election authority's notice or sample ballot PDF (13 read); St. Louis City is filed as a county (29510); a
+  county's ballot can disagree with the Secretary's certification (Circuit 23 Division 2: a race gap, no name shown).
+  Nebraska: the Secretary's workbook carries only district boards and judges and names no county (seats are placed
+  from its by-county sheet); an office pattern without word boundaries ("governor") once swallowed every community
+  college Board of Governors contest. Wyoming: each clerk's November sample ballots by precinct, merged per county,
+  checked against the Secretary's CSV; three counties post scans. Wisconsin: sample ballots (a contest is found by its
+  "Vote for 1" line); only sheriff, clerk of circuit court and coroner are on this ballot. Iowa: each auditor's sample
+  ballots (columns from the "Vote for no more than N" lines), parties checked against the June primary. Montana:
+  partisan or not is taken from what each county prints; in a centred table a contact cell can start left of its own
+  heading, so take cells by the nearest heading's middle, never by a left-edge cut-off (one mailing-address cell was
+  printed to an agent's output that way; nothing stored). Florida: the Division's local candidate download names no
+  county (its only county code is in the address block, never read), so each row is placed by finding the same name,
+  office and seat on the county supervisor's candidate page; "Unopposed" there also covers a candidate who won
+  outright on August 18; accented letters are Windows-1252; 89 candidates could not be placed and are a state gap.
+- `ballot/pdftext.py` has limits three loaders worked around in their own files and that deserve one shared fix (with
+  the federal loaders re-tested): it reads nothing drawn inside Form XObjects (Muskegon, Jasper County, Ohio boards),
+  does not put font and spacing back on `Q` (Converse County's watermarked ballots, Kansas City's party labels), and
+  misses pages when a PDF's catalog is longer than 600 bytes.
+- `build_ballot_state_dev.build()` is not read-only: it writes `states_cache/local_counties/local_<code>_counties.json`
+  the first time a state has local rows. An office kind the builder does not know is listed after the known ones of
+  its level under its own title and named in a build note ("is not placed in KINDS yet"); 45 such kinds wait to be
+  placed (Florida's community development boards, Wyoming's district boards and others).
+- Wave four (v4.0.077: CO UT IL OR AR CT NV), narrow on purpose: Colorado's RTD directors and 117 retention votes
+  (judicial districts' counties from C.R.S. 13-5-102 on; the Secretary's page changes a tag attribute on every request,
+  so compare rows, not page hashes); Utah's 30 justice court retention questions; Illinois's regional superintendents
+  and circuit judges from the State Board's list, plus the Cook County Clerk's contest list (JSON) and the Chicago
+  Board's PDF; Oregon's district attorneys and circuit judges from ORESTAR; Arkansas's four court runoffs plus Pulaski's
+  ballot draw PDF and Washington County's page; Connecticut's judges of probate (one race per probate district) and
+  registrars of voters from the town ballots posted so far (19 of 169; the rest are due by October 9: re-run
+  `python run_ballot.py local ct` after that date); Nevada's Clark (PDF) and Washoe (workbook) county lists.
+- Where it stands (v4.0.077, 2026-10-01): 34 states have county or local rows, 22,148 contests and 36,970 candidates;
+  `ballot/local_status/` holds the status generator (`make_status.py`, `status_state.json`, every build agent's answer
+  in `build_all.json`), which writes `ballot_local_status.md`. Still to do, in order: (1) more counties in the partly
+  loaded states (MI OH MO NE IA MT WI WY IL AR NV CO UT OR), largest first; (2) the states not started: CA NY NJ KS TN
+  AZ MS AK, and Pennsylvania's handful of special elections; (3) the states waiting on John's browser saves (IN GA RI
+  NH MA); (4) cities and school districts in TX, ME, FL, MD; (5) a pages round: place the 45 office kinds the builder
+  does not know yet, show notes and gaps for a state whose only local rows are court rows (UT, OR), "counties and
+  cities" wording on county pages of states with independent cities, and the "is on the ... lists" sentence for
+  county-by-county states; (6) Ohio's 18 legislative districts from the 46-day notices and Texas's newer state rows;
+  (7) John's Agents of Audit over the whole site (fix what is plainly missing or stale; list every suggestion for his
+  approval).
+- Never pipe a build or a load through `Select-Object -First N` in PowerShell: it ends the pipeline and kills the
+  Python process partway (it left Maine and Texas unloaded once, and stopped a site build before the doors). Send the
+  output to a file, or use `-Last`.
 - Patch a loader with the Edit tool, never a scripted text rewrite (half the loaders are CRLF, half LF). In a race
   note put dates in brackets or words: the page's guard reads a number followed by Court, Place or Way as an address.
 - To look into (found by wave two, not acted on): Texas's live list has since added a Democrat in 2026-TX-DC486-UNEXP,

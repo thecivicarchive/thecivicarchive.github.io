@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-01, after waves one, two and three",
- "version": "v4.0.076",
+ "updated": "2026-10-01, after waves one to four",
+ "version": "v4.0.077",
  "loaded": {
   "nd": "yes: 374 contests, all 53 counties", "sd": "yes: 442 contests, all 66 counties", "ky": "yes: 3,124 contests, all 120 counties",
   "ok": "yes: 41 contests (only contested races are printed)", "id": "yes: 279 contests, all 44 counties", "wv": "yes: 98 contests, all 55 counties",
@@ -17,6 +17,13 @@
   "wi": "partly: 21 contests from 10 of 72 counties (only sheriff, clerk of circuit court and coroner are on this ballot)",
   "ia": "partly: 427 contests from 11 of 99 counties",
   "mt": "partly: 79 contests from 9 of 56 counties",
-  "fl": "yes: 2,341 contests, all 67 counties (cities still to come)"
+  "fl": "yes: 2,341 contests, all 67 counties (cities still to come)",
+  "co": "statewide part only: 7 RTD director contests and 117 judges' retention votes; the 64 counties' own offices still to come",
+  "ut": "statewide part only: 30 justice court retention votes; the 29 counties' own offices still to come",
+  "il": "partly: regional superintendents in every region, circuit judges, Cook County and Chicago (78 contests plus 181 judge contests); 101 counties still to come",
+  "or": "statewide part only: 3 district attorney and 7 circuit judge contests; the 36 counties still to come",
+  "ar": "partly: 4 court runoffs, and 130 contests from Pulaski and Washington counties; 73 counties still to come",
+  "ct": "partly: judges of probate and registrars of voters from the 19 of 169 town ballots posted so far (the rest are due by October 9)",
+  "nv": "partly: Clark and Washoe counties (125 contests with judges); 15 counties still to come"
  }
 }

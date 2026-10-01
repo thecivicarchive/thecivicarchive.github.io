@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.077 — 2026-10-01 — Local judges and the first counties of seven more states
+
+- Colorado, Utah, Illinois, Oregon, Arkansas, Connecticut and Nevada join the local level, each with the part of its local ballot that an official list carries today. County and local races now stand at 22,148 contests and 36,970 candidates in 34 states.
+- Illinois: the regional superintendents of schools in every region, the circuit judges, and suburban Cook County's and Chicago's own contests. Nevada: Clark and Washoe counties, where about nine in ten Nevadans live. Arkansas: Pulaski and Washington counties.
+- Colorado's RTD directors and 117 judges' retention votes, Utah's justice court retention votes, Oregon's district attorneys and circuit judges, and Connecticut's judges of probate and registrars of voters in the 19 towns whose ballots are posted so far (the rest are due by October 9).
+- Every county still to be read says so on its page and names the county office that publishes its list.
+
 ## v4.0.076 — 2026-10-01 — Nine more states, county by county
 
 - County and local races open for Florida, Nebraska, Wyoming, Michigan, Iowa, Missouri, Montana, Ohio and Wisconsin: 4,732 more contests and 6,328 more candidates. On The Ballot's local level now holds 21,870 contests and 36,490 candidates in 29 states.

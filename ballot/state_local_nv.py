@@ -1,6 +1,7 @@
 """
-ballot/state_local_nv.py - Nevada's state races on the November 3, 2026 ballot, into ballot_local_2026.sqlite (the
-federal ballot_2026.sqlite is never opened here):
+ballot/state_local_nv.py - Nevada's state races on the November 3, 2026 ballot, and the county and local races of
+Clark and Washoe counties (see "County and local races" below), into ballot_local_2026.sqlite (the federal
+ballot_2026.sqlite is never opened here). The state races:
 
   - the six statewide offices, each elected on its own, every four years, at the governor's election: Governor,
     Lieutenant Governor, Secretary of State, Attorney General, State Treasurer and State Controller (Nevada
@@ -58,6 +59,54 @@ votes (Nevada nominates by plurality), said so in a note. A judicial primary kee
 
 Ballot order: stored only if a list prints an order column; otherwise left empty.
 
+County and local races (a narrow pass, 2026-10-01: Clark and Washoe counties, about nine in ten Nevadans)
+---------------------------------------------------------------------------------------------------------
+The Secretary of State's statewide list is behind the bot wall, but each county's election office posts its own list
+of November contests and candidates. Two are read here, each fetched with states/net.py's honest User-Agent, one
+request at a time, and kept in ballot_cache/nv/local/ for a week (kept.json says where each file came from and when):
+
+  - Clark County Election Department, "All Contests and Candidates in the November 3, 2026, General Election in Clark
+    County, Nevada" (a ten-page PDF linked as "Candidates and Contests"). A ruled table of five columns: CONTEST,
+    CANDIDATE NAME ON BALLOT (Last Name; First, Middle, and/or Nickname), PARTY and TERM (Years). The contest and term
+    cells are centred beside their candidates, so the table is read by its own ruled lines: a rule across the whole
+    table ends a contest, a rule across the name and party columns ends a candidate. The list says it is "in order of
+    appearance on the ballot, subject to change", so its order is stored as the ballot order.
+  - Washoe County Registrar of Voters, "Washoe County 2026 General Election Contests" (a workbook of one sheet):
+    Name on Ballot, Party, Office Sought, Office Type, Term Length, Vote For, found by those headings; ballot questions
+    follow in a second table and are not read. It states no ballot order, so none is stored.
+
+Neither file has a contact column of any kind (no address, telephone, e-mail or website), so each is kept whole. Only
+the contest, the name on the ballot, the party, the term and the vote-for number are read. A name cell that looks like
+a contact detail would be left out and counted, never printed. A layout that no longer fits stops the loader, which
+names the file, the page or row and the check, never the text.
+
+What is written for them (ballot/check_local.py states the conventions):
+  - county offices (level county): commissioners and the partisan row offices as each list prints them (district
+    attorney, assessor, clerk, recorder, treasurer, public administrator), and constables, who are elected by the
+    voters of a township (NRS 258.010) and are filed under their county with the township as the district;
+  - judges (level court, county_ids filled in): district court judges by department, justices of the peace by township
+    (NRS 4.020) and municipal court judges under their city;
+  - city offices (level city) under the Census Bureau's 2020 place code and name ("Henderson city"), school district
+    trustees (level school; a county school district has its county's name, NRS 386.010 and 386.030), and water,
+    general improvement and other districts and a town advisory board (level other);
+  - partisan or not is what each list prints (Clark's section headings and its NP code; Washoe's Office Type and its
+    empty Party cell), and the party words are the ones the state rows use;
+  - sl_places: Nevada's seventeen counties (names from the Census county file) and every place the races use;
+    sl_gaps: a row for each of the fifteen counties whose list is not read yet, and for any contest this loader could
+    not place; sl_notes: local_calendar (from the statutes, read on the Legislature's site on 2026-10-01) and
+    local_coverage.
+The federal and state offices on the two lists (Congress, the statewide offices, the Legislature, the Supreme Court
+and the Board of Regents) and Washoe's ballot questions are counted and left out: the state rows above still wait for
+the Secretary of State's own list, and are written exactly as before. Each list is read twice, by two routes (Clark's
+by its ruled lines and again line by line; Washoe's through openpyxl and again from the workbook's own XML), and the
+two readings must agree; every name read is placed in exactly one contest. Neither list prints totals of its own.
+Checked by hand on 2026-10-01: each county's loaded names against a second document of the same office (Clark's Legal
+Notice of General Election, Washoe's sample ballot booklet), all 208 found.
+
+When a county's file cannot be fetched and no copy is kept, that county gets a gap and the rest loads. Clark and
+Washoe counties do not touch, so no district is on both lists; when a neighbouring county is added, a district on two
+counties' lists must become one place and one race (a key without a county code, every county in county_ids).
+
     python -m ballot.state_local_nv <path to a test database> [--cache <folder holding nv/>]
 """
 
@@ -73,15 +122,20 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
+import xml.etree.ElementTree as ET
 import zipfile
 from collections import Counter, defaultdict
 from urllib.error import HTTPError, URLError
+from urllib.parse import urljoin, urlparse
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
-from ballot.common import CACHE, fold, name_parts  # noqa: E402
+from ballot import pdftext  # noqa: E402
+from ballot.check_local import EXTRA_SCHEMA, contact_like  # noqa: E402
+from ballot.common import CACHE, SUFFIXES, fold, name_parts  # noqa: E402
 from ballot.lists import nv as NVL  # noqa: E402  the saved-file conventions: STEMS, KINDS, clean(), official(), party_of(), turned()
 from ballot.lists.tx import proper  # noqa: E402
 from ballot.match import fits  # noqa: E402
@@ -168,6 +222,53 @@ HEADS = {"name": r"(candidate(?:'s)?|ballot|choice)?\s*name(?: on ballot| as it 
          "order": r"ballot order|order|position", "votes": r"(total )?votes(?: cast)?|vote count"}
 STATEWIDE_JURISDICTION = re.compile(r"^(?:statewide|state|state of nevada|nevada|legislative|state legislature|judicial|supreme court|"
                                     r"court of appeals)?$", re.I)
+
+# ---- county and local races: the counties whose own lists are read, and the words written about them
+LOCAL_DIR, KEPT_LOCAL, LOCAL_KEEP_DAYS = "local", "kept.json", 7
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st32_nv_place2020.txt"
+PLACE_FILE = "census_st32_nv_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+CLARK_PAGE = "https://www.clarkcountynv.gov/government/departments/elections/index.php"
+CLARK_URL = ("https://www.clarkcountynv.gov/adobe/assets/urn:aaid:aem:1db09a57-4c1b-47e1-94d9-e7782c442571/original/as/"
+             "officesup-26g.pdf")
+CLARK_FILE = "clark_officesup-26g.pdf"
+WASHOE_PAGE = "https://www.washoecounty.gov/voters/information/index.php"
+WASHOE_URL = "https://www.washoecounty.gov/voters/files/Washoe%20County%202026%20General%20Election%20Contests.xlsx"
+WASHOE_FILE = "washoe_2026_general_election_contests.xlsx"
+NRS_URL = "https://www.leg.state.nv.us/nrs/NRS-293.html"
+SRC_CLARK, SRC_WASHOE, SRC_PLACES = "nv-clark-2026-general-contests", "nv-washoe-2026-general-contests", "nv-census-2020-places"
+LOCAL_PARTIES = {"DEM", "REP", "LPN", "IAP", "NPP"}                     # the codes both lists print for a partisan office
+# Clark County's section headings: (whose offices they are, whether the list prints them with parties)
+CLARK_SECTIONS = {"FEDERAL PARTISAN": ("state", 1), "STATE PARTISAN": ("state", 1), "COUNTY PARTISAN": ("county", 1),
+                  "STATE AND DISTRICT NONPARTISAN": ("district", 0), "COUNTY NONPARTISAN": ("county", 0),
+                  "CITY (ALL NONPARTISAN)": ("city", 0), "TOWNSHIP NONPARTISAN": ("township", 0)}
+CLARK_HEAD = ("CONTEST", "CANDIDATE NAME ON BALLOT Last Name", "First, Middle, and/or Nickname", "PARTY", "TERM (Years)")
+WASHOE_HEAD = ["Name on Ballot", "Party", "Office Sought", "Office Type", "Term Length", "Vote For"]
+WASHOE_STATE_TYPES = {"Federal District Partisan", "Statewide Partisan", "District Partisan", "Statewide Nonpartisan"}
+# a county's own offices, as either list words them: (office_kind, the office in plain words)
+COUNTY_ROW = {"district attorney": ("district_attorney", "District Attorney"), "county district attorney": ("district_attorney", "District Attorney"),
+              "county assessor": ("county_assessor", "County Assessor"), "county clerk": ("county_clerk", "County Clerk"),
+              "county recorder": ("county_recorder", "County Recorder"), "county treasurer": ("county_treasurer", "County Treasurer"),
+              "public administrator": ("public_administrator", "Public Administrator"),
+              "county public administrator": ("public_administrator", "Public Administrator"),
+              "sheriff": ("sheriff", "Sheriff"), "county sheriff": ("sheriff", "Sheriff")}
+COUNCIL_WORDS = {"council member": "Council Member", "city council": "City Council Member", "councilman": "Councilman",
+                 "councilwoman": "Councilwoman", "councilmember": "Councilmember"}
+CITY_ROW = {"city attorney": ("city_attorney", "City Attorney"), "city clerk": ("city_clerk", "City Clerk"),
+            "city treasurer": ("city_treasurer", "City Treasurer")}
+STATE_ON_COUNTY_LIST = re.compile(r"(?:Nevada )?Board of Regents\b|State Board of Education\b|Justice of the Supreme Court\b|Supreme Court\b|"
+                                  r"Judge of the Court of Appeals\b|Court of Appeals\b")
+GID_NOTE = ("The county's list prints only the district's name for this contest; the office is trustee of the district's board "
+            "(NRS 318.095).")
+NAME_ONLY_NOTE = "The county's list prints only the district's name for this contest."
+LOCAL_CAPS = "The county's list prints this name in capitals; it is shown here in ordinary capitals."
+LOCAL_WHAT = "county, township, city, school and district races"
+CALENDAR = ("Nevada holds its general election in November of each even-numbered year, and county, township, city, school district and "
+            "general improvement district offices are filled at it, so those whose terms are ending are on the November 3, 2026 ballot. A "
+            "nonpartisan office is missing from it when the June 9 primary settled it: a candidate with no opponent, or one who won a majority "
+            "there, was declared elected (a judge of the district court in that position goes on to November alone). Irrigation districts hold "
+            "their own elections in April.")
+CALENDAR_SOURCE = "Nevada Revised Statutes 293.12755, 293.260, 293C.140, 318.095 and 539.115 (Nevada Legislature)"
 
 # the last check on every text stored (the site builder's own patterns)
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[A-Za-z]{2,}")
@@ -678,6 +779,790 @@ def guard(races, cands):
                 fail(f"a candidate {f} in {c[0]} ({c[1]}) looks like it holds a contact detail; nothing was written")
 
 
+# ============================================================================================ county and local races
+
+class Unplaced(Exception):
+    """A contest on a county's list that this loader does not know how to file: it becomes a gap, never a guess."""
+
+
+def lfail(msg):
+    raise SystemExit(f"Nevada (county and local races): {msg}")
+
+
+def slug(text):
+    t = unicodedata.normalize("NFKD", text or "")
+    return re.sub(r"[^a-z0-9]+", "-", "".join(c for c in t if not unicodedata.combining(c)).lower()).strip("-")
+
+
+def squeeze(text):
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def plain_caps(text):
+    """A title printed in capitals, in ordinary capitals: VERDI TV DISTRICT -> Verdi TV District; DISTRICT F AT-LARGE ->
+    District F At-Large. A single letter, a Roman numeral and TV stay as they are."""
+    out = []
+    for i, w in enumerate(squeeze(text).split(" ")):
+        core = w.strip(",.")
+        if len(core) <= 1 or core in ("TV", "II", "III", "IV", "VI", "VII"):
+            out.append(w)
+        elif i and core.lower() in ("of", "the", "and", "for"):
+            out.append(w.lower())
+        else:
+            out.append("-".join(p[:1].upper() + p[1:].lower() for p in w.split("-")))
+    return " ".join(out)
+
+
+def census_county_names(path):
+    """{GEOID: the county's name as the Census Bureau writes it} for Nevada: 'Clark County', and 'Carson City' as it is."""
+    import shapefile
+    z = zipfile.ZipFile(path)
+    base = next(n for n in z.namelist() if n.endswith(".dbf"))
+    rdr = shapefile.Reader(dbf=io.BytesIO(z.read(base)))
+    return {r["GEOID"]: r["NAMELSAD"] for r in (x.as_dict() for x in rdr.iterRecords()) if r["STATEFP"] == FIPS}
+
+
+def census_places(folder, by_full, say):
+    """(path, {folded name without its kind word: [(place code, 'Henderson city', [county GEOIDs])]}, rows read) for
+    Nevada's incorporated places, from the Census Bureau's 2020 place codes file (places only, no people; kept whole and
+    asked for once)."""
+    path = os.path.join(folder, PLACE_FILE)
+    try:
+        net.download(PLACE_URL, path, max_age_days=3650, tries=3, say=say)
+    except (HTTPError, URLError, OSError) as e:
+        lfail(f"the Census Bureau's place codes file could not be fetched ({type(e).__name__}); nothing was changed. Run again.")
+    out, n = defaultdict(list), 0
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        if fh.readline().rstrip("\r\n").split("|") != PLACE_HEAD:
+            lfail(f"{PLACE_FILE}: the header is not the one this loader was checked against")
+        for ln, line in enumerate(fh, start=2):
+            if not line.strip():
+                continue
+            f = line.rstrip("\r\n").split("|")
+            if len(f) != len(PLACE_HEAD) or f[1] != FIPS or not re.fullmatch(r"\d{5}", f[2]):
+                lfail(f"{PLACE_FILE}: line {ln} does not fit the header")
+            n += 1
+            if f[5] != "INCORPORATED PLACE":
+                continue
+            cids = [by_full.get(fold(c)) for c in f[8].split("~~~")]
+            if not all(cids):
+                lfail(f"{PLACE_FILE}: line {ln} names a county the Census county file does not have")
+            out[fold(re.sub(r"\s+(?:city|town)$", "", f[4]))].append((f[2], f[4], sorted(cids)))
+    return path, out, n
+
+
+def kept(folder, name, url, magic, say, find=None, days=LOCAL_KEEP_DAYS):
+    """(path, the address it came from, the day it was fetched, how) for one county's file; path None when it could not
+    be had. A copy kept for less than `days` is used as it is, so a second run asks for nothing. Otherwise one request
+    (asked at most twice more on a refusal or a server error; a bot check is never answered), and the answer is kept
+    only if it is the kind of file expected. When the address has moved (404), `find` reads the county's own page for
+    the new one. If the county cannot be reached, an older copy is used when there is one."""
+    path, side_path = os.path.join(folder, name), os.path.join(folder, KEPT_LOCAL)
+    side = {}
+    if os.path.exists(side_path):
+        try:
+            side = json.load(open(side_path, encoding="utf-8"))
+        except ValueError:
+            side = {}
+    info = side.get(name) or {}
+    have = os.path.exists(path) and os.path.getsize(path) > 0
+    if have and time.time() - os.path.getmtime(path) < days * 86400:
+        return path, info.get("url") or url, info.get("fetched") or mdate(path), "kept copy"
+    used = url
+    try:
+        try:
+            raw = fetch(url, say)
+        except HTTPError as e:
+            if e.code != 404 or find is None:
+                raise
+            time.sleep(1.5)
+            used = find(say)
+            time.sleep(1.5)
+            raw = fetch(used, say)
+        time.sleep(1.5)
+        if not raw.startswith(magic):
+            raise Blocked("the answer is not the file")
+    except (HTTPError, URLError, OSError, Blocked) as e:
+        if have:
+            say(f"      {name} could not be read afresh ({type(e).__name__}); using the copy kept on {mdate(path)}")
+            return path, info.get("url") or url, info.get("fetched") or mdate(path), "kept copy (the county's site could not be reached)"
+        say(f"      {name} could not be fetched ({type(e).__name__}), and no copy is kept")
+        return None, url, "", f"not fetched ({type(e).__name__})"
+    os.makedirs(folder, exist_ok=True)
+    with open(path + ".part", "wb") as fh:
+        fh.write(raw)
+    os.replace(path + ".part", path)
+    side[name] = {"url": used, "fetched": dt.date.today().isoformat(), "sha256": sha_bytes(raw), "bytes": len(raw)}
+    json.dump(side, open(side_path, "w", encoding="utf-8"), indent=1)
+    return path, used, side[name]["fetched"], "read afresh"
+
+
+def clark_link(say):
+    """Where Clark County's elections page links the list today (the county's own host only), for when the address
+    kept here has moved. Only the page's links are looked at, and only one of them is returned."""
+    page = fetch(CLARK_PAGE, say).decode("utf-8", "replace")
+    for m in re.finditer(r'href\s*=\s*["\']([^"\']+)["\']', page, re.I):
+        full = urljoin(CLARK_PAGE, H.unescape(m.group(1)).strip()).split("?")[0]
+        u = urlparse(full)
+        if (u.hostname or "").lower() == "www.clarkcountynv.gov" and u.path.lower().endswith("/officesup-26g.pdf"):
+            return full
+    raise Blocked("the elections page no longer links the list")
+
+
+# ---------------------------------------------------------------------------------- what an office on a county list is
+
+def district_board(name, area=None, named_only=False):
+    """A district's board contest, filed by what the district's own name says it is."""
+    low = name.lower()
+    out = dict(level="other", kind="special_district_board", office="Board Member", place=("special", name), district=area,
+               note=NAME_ONLY_NOTE if named_only else None)
+    if "general improvement district" in low:
+        out.update(kind="improvement_board")
+        if named_only:
+            out.update(office="General Improvement District Trustee", note=GID_NOTE)
+    elif "hospital" in low:
+        out.update(level="hospital", kind="hospital_board", place=("hospital", name))
+    elif "water" in low:
+        out.update(kind="water_board")
+    elif "fire" in low:
+        out.update(kind="fire_board")
+    elif "library" in low:
+        out.update(kind="library_board")
+    return out
+
+
+def city_office(bare, rest):
+    """A city's contest, from the words that follow the city's name on the list."""
+    r = squeeze(rest).strip(" ,")
+    low = r.lower()
+    if low in ("mayor", "city mayor"):
+        return dict(level="city", kind="mayor", office="Mayor", place=("city", bare))
+    m = re.fullmatch(r"(council member|city council|councilman|councilwoman|councilmember),? ?(ward \w+|district \w+|seat \w+|at[ -]large)?", low)
+    if m:
+        part = r[m.start(2):m.end(2)] if m.group(2) else None
+        out = dict(level="city", kind="council", office=COUNCIL_WORDS[m.group(1)], place=("city", bare))
+        if part and re.match(r"(?:ward|district) ", part, re.I):
+            out["district"] = part
+        elif part:
+            out["seat"] = "At Large" if re.fullmatch(r"at[ -]large", part, re.I) else part
+        return out
+    m = re.fullmatch(r"municipal court judge,? ?(department \w+)?", low)
+    if m:
+        return dict(level="court", kind="municipal_court", office="Municipal Court Judge", place=("city", bare),
+                    seat=r[m.start(1):m.end(1)] if m.group(1) else None)
+    if low in CITY_ROW:
+        k, o = CITY_ROW[low]
+        return dict(level="city", kind=k, office=o, place=("city", bare))
+    raise Unplaced()
+
+
+def township_office(text):
+    """A constable or a justice of the peace, each elected by the voters of one township; None for anything else. A
+    Nevada township has no government of its own, so both are filed under the county with the township as the district."""
+    m = re.fullmatch(r"Constable,? (.+? Township)", text)
+    if m:
+        return dict(level="county", kind="constable", office="Constable", place=("county",), district=m.group(1),
+                    note=f"Elected by the voters of {m.group(1)} only (NRS 258.010).")
+    m = re.fullmatch(r"Justice of the Peace,? (.+? Township)(?:,? (Department \w+))?", text)
+    if m:
+        return dict(level="court", kind="justice_of_the_peace", office="Justice of the Peace", place=("county",), district=m.group(1),
+                    seat=m.group(2), note=f"Elected by the voters of {m.group(1)} only (NRS 4.020).")
+    return None
+
+
+def clark_office(section, text, city, cname):
+    """What one contest of Clark County's list is: None for a federal or state office (left to the state part of this
+    loader), a dict for a county, township, city, school, district or local court contest; Unplaced for any other."""
+    scope = CLARK_SECTIONS[section][0]
+    if scope == "state":
+        return None
+    if scope == "district":
+        m = re.fullmatch(r"District Court Judge ((?:Family Division )?Department \w+)", text)
+        if m:
+            return dict(level="court", kind="district_court", office="District Court Judge", place=("county",), seat=m.group(1))
+        if STATE_ON_COUNTY_LIST.match(text):
+            return None
+        raise Unplaced()
+    if scope == "county":
+        m = re.fullmatch(r"County Commission(?:er)? District (\w+)", text)
+        if m:
+            return dict(level="county", kind="county_commissioner", office="County Commissioner", place=("county",), district=f"District {m.group(1)}")
+        if text.lower() in COUNTY_ROW:
+            k, o = COUNTY_ROW[text.lower()]
+            return dict(level="county", kind=k, office=o, place=("county",))
+        m = re.fullmatch(rf"Trustee ({re.escape(cname)} School District) (\w+)", text)
+        if m:
+            return dict(level="school", kind="school_board", office="School District Trustee", place=("school", m.group(1)),
+                        district=f"District {m.group(2)}")
+        m = re.fullmatch(r"Board Member (.+? District)(?: (?!No\b|#|\d)(.+))?", text)
+        if m:
+            return district_board(m.group(1), m.group(2))
+        m = re.fullmatch(r"(.+) Town Advisory Board", text)
+        if m:
+            return dict(level="other", kind="town_advisory_board", office="Town Advisory Board Member",
+                        place=("special", f"{m.group(1)} (unincorporated town)"))
+        raise Unplaced()
+    if scope == "city":
+        if not city or not text.startswith(city + " "):
+            raise Unplaced()
+        return city_office(city[len("City of "):], text[len(city) + 1:])
+    t = township_office(text)
+    if t is None:
+        raise Unplaced()
+    return t
+
+
+def washoe_office(office, otype, cname):
+    """What one contest of Washoe County's workbook is, from its Office Sought and Office Type (as clark_office)."""
+    text = plain_caps(office)                                               # the workbook prints contests in capitals
+    if otype in WASHOE_STATE_TYPES:
+        return None
+    if otype == "County Partisan":
+        m = re.fullmatch(r"County Commissioner, District (\w+)", text)
+        if m:
+            return dict(level="county", kind="county_commissioner", office="County Commissioner", place=("county",), district=f"District {m.group(1)}")
+        if text.lower() in COUNTY_ROW:
+            k, o = COUNTY_ROW[text.lower()]
+            return dict(level="county", kind=k, office=o, place=("county",))
+        raise Unplaced()
+    if otype in ("District Nonpartisan", "County Nonpartisan", "Township Nonpartisan"):
+        m = re.fullmatch(r"District Court Judge, (Department \w+(?:, Family Court)?)", text)
+        if m:
+            return dict(level="court", kind="district_court", office="District Court Judge", place=("county",), seat=m.group(1))
+        if STATE_ON_COUNTY_LIST.match(text):
+            return None
+        m = re.fullmatch(rf"{re.escape(cname)} School Board, (District \w+(?: At-Large)?)", text)
+        if m:
+            return dict(level="school", kind="school_board", office="School District Trustee", place=("school", f"{cname} School District"),
+                        district=m.group(1))
+        if text.lower() in COUNTY_ROW:
+            k, o = COUNTY_ROW[text.lower()]
+            return dict(level="county", kind=k, office=o, place=("county",))
+        t = township_office(text)
+        if t:
+            return t
+        if re.fullmatch(r".+ District", text):
+            return district_board(text, None, named_only=True)
+        raise Unplaced()
+    m = re.fullmatch(r"City of (.+)", otype)
+    if m and text.lower().startswith(m.group(1).lower() + " "):
+        return city_office(m.group(1), text[len(m.group(1)) + 1:])
+    raise Unplaced()
+
+
+# ---------------------------------------------------------------------------------------- Clark County's list (a PDF)
+
+def page_rects(pdf, page):
+    """Every rectangle a page draws, in page space: (x, y, width, height). The list's table is ruled with thin ones."""
+    contents = pdf.get(page.get("Contents"))
+    parts = contents if isinstance(contents, list) else [page.get("Contents")]
+    data = b"\n".join(pdf.stream(p) or b"" for p in parts if isinstance(p, pdftext.Ref))
+    ctm, saved, out = [1, 0, 0, 1, 0, 0], [], []
+    for op, a in pdftext._ops(data):
+        if op == "q":
+            saved.append(ctm[:])
+        elif op == "Q":
+            ctm = saved.pop() if saved else [1, 0, 0, 1, 0, 0]
+        elif op == "cm" and len(a) == 6:
+            ctm = pdftext._mul([float(x) for x in a], ctm)
+        elif op == "re" and len(a) == 4:
+            x, y, w, h = (float(v) for v in a)
+            x0, y0 = ctm[0] * x + ctm[2] * y + ctm[4], ctm[1] * x + ctm[3] * y + ctm[5]
+            x1, y1 = ctm[0] * (x + w) + ctm[2] * (y + h) + ctm[4], ctm[1] * (x + w) + ctm[3] * (y + h) + ctm[5]
+            out.append((min(x0, x1), min(y0, y1), abs(x1 - x0), abs(y1 - y0)))
+    return out
+
+
+def apart(values, gap=1.5):
+    """Sorted values, a rule drawn twice counted once."""
+    out = []
+    for v in sorted(values):
+        if not out or v - out[-1] > gap:
+            out.append(v)
+    return out
+
+
+def cell_lines(runs):
+    """The text runs of one cell as its printed lines, top to bottom."""
+    lines = []
+    for r in sorted(runs, key=lambda r: (-r[1], r[0])):
+        if lines and abs(lines[-1][0] - r[1]) <= 2.0:
+            lines[-1][1].append(r)
+        else:
+            lines.append([r[1], [r]])
+    return [t for t in (pdftext.join(rs) for _y, rs in lines) if t]
+
+
+def clark_list(path):
+    """Clark County's table, read by its own ruled lines. A rule across the whole table ends a block (the headings, a
+    section heading, a city's heading or one contest); inside a block a rule across the name and party columns ends a
+    candidate. Returns the blocks in order, each {page, k, label: the CONTEST cell's lines, term, cells: [(last name,
+    first names, party, lines)]}, and the words printed outside the table on page 1. Read a second time line by line,
+    without the rules: every printed line with a party code must be one cell of the first reading."""
+    name = os.path.basename(path)
+    pdf = pdftext.PDF(open(path, "rb").read())
+    blocks, by_line, outside, foot = [], Counter(), [], []
+    for n, (page, res) in enumerate(pdf.pages(), 1):
+        runs = pdftext.page_runs(pdf, page, res)
+        rects = page_rects(pdf, page)
+        edges = apart(x for x, _y, w, h in rects if w <= 2.0 and h > 20)
+        if len(edges) != 6:
+            lfail(f"{name}: page {n} is ruled into {max(len(edges) - 1, 0)} columns, not the five this loader was checked against")
+        width = edges[-1] - edges[0]
+        full = apart(y for _x, y, w, h in rects if h <= 2.0 and w > width - 10)[::-1]
+        part = apart(y for x, y, w, h in rects if h <= 2.0 and 20 < w <= width - 10 and x > edges[1] - 3)[::-1]
+        if len(full) < 2:
+            lfail(f"{name}: page {n} has no ruled table")
+
+        def band(x):
+            for i, b in enumerate("ABCDE"):
+                if edges[i] - 1 <= x < edges[i + 1] - 1:
+                    return b
+            return None
+
+        if n == 1:
+            outside = [r for r in runs if r[1] > full[0]]
+            foot = [r for r in runs if r[1] < full[-1]]
+        for k, (top, bottom) in enumerate(zip(full, full[1:]), 1):
+            inside = [r for r in runs if bottom < r[1] < top]
+            if not inside:
+                continue
+            if any(band(r[0]) is None for r in inside):
+                lfail(f"{name}: page {n}, block {k} has text outside the table's five columns")
+            cuts = [top] + [p for p in part if bottom < p < top] + [bottom]
+            cells = []
+            for ct, cb in zip(cuts, cuts[1:]):
+                got = {b: cell_lines([r for r in inside if band(r[0]) == b and cb < r[1] < ct]) for b in "BCD"}
+                cells.append((" ".join(got["B"]), " ".join(got["C"]), " ".join(got["D"]), max(len(v) for v in got.values())))
+            blocks.append({"page": n, "k": k, "label": cell_lines([r for r in inside if band(r[0]) == "A"]),
+                           "term": " ".join(cell_lines([r for r in inside if band(r[0]) == "E"])), "cells": cells})
+        for _y, rs in pdftext.rows(pdf, page, res):                         # the second reading: printed lines, no rules
+            rs = [r for r in rs if full[-1] < r[1] < full[0]]
+            code = pdftext.join([r for r in rs if band(r[0]) == "D"])
+            if code in LOCAL_PARTIES or code == "NP":
+                by_line[(pdftext.join([r for r in rs if band(r[0]) == "B"]), pdftext.join([r for r in rs if band(r[0]) == "C"]), code)] += 1
+    by_cell = Counter((c[0], c[1], c[2]) for b in blocks for c in b["cells"] if c[2] in LOCAL_PARTIES or c[2] == "NP")
+    wrapped = sum(1 for b in blocks for c in b["cells"] if (c[2] in LOCAL_PARTIES or c[2] == "NP") and c[3] > 1)
+    one_line = Counter((c[0], c[1], c[2]) for b in blocks for c in b["cells"] if (c[2] in LOCAL_PARTIES or c[2] == "NP") and c[3] == 1)
+    if sum(by_line.values()) != sum(by_cell.values()) or Counter(k[2] for k in by_line.elements()) != Counter(k[2] for k in by_cell.elements()) \
+            or sum((one_line - by_line).values()) or sum((by_line - one_line).values()) != wrapped:
+        lfail(f"{name}: read by its ruled lines the table has {sum(by_cell.values())} names with a party code, and read line by line "
+              f"{sum(by_line.values())}; the two readings do not agree")
+    head = re.sub(r"[,\s]+", " ", " ".join(cell_lines(outside)))
+    stamp = re.search(r"(\d{1,2})/ ?(\d{1,2})/ ?(20\d\d)", pdftext.join(foot))
+    return {"blocks": blocks, "names": sum(by_cell.values()), "wrapped": wrapped,
+            "titled": bool(re.search(r"All Contests and Candidates in the November 3 2026 General Election in Clark County Nevada", head)),
+            "ordered": "in order of appearance on the ballot" in head,
+            "published": f"{stamp.group(3)}-{int(stamp.group(1)):02d}-{int(stamp.group(2)):02d}" if stamp else ""}
+
+
+def clark_contests(path, cname):
+    """Clark County's contests in the list's order. Comes back as {published, ordered: whether the list says it is in
+    ballot order, contests: [{where, label, c: what the office is (clark_office), partisan, names: [(name, party code)],
+    vote: how many to choose, special, term, wider}], unplaced: [(contest, names)] for contests this loader does not
+    know, rows: names read in all, notc: None of These Candidates lines, left and left_rows: federal and state contests
+    and their names, questions, check}. Every name with a party code is in exactly one contest."""
+    name = os.path.basename(path)
+    data = clark_list(path)
+    if not data["titled"]:
+        lfail(f"{name} is not headed as Clark County's list of the November 3, 2026 general election")
+    out = {"published": data["published"], "ordered": data["ordered"], "contests": [], "unplaced": [], "rows": 0, "notc": 0, "left": 0,
+           "left_rows": 0, "left_titles": [], "questions": 0, "check": []}
+    section = city = None
+    heads = 0
+    for b in data["blocks"]:
+        where = f"page {b['page']}, block {b['k']}"
+        label = squeeze(" ".join(b["label"]))
+        filled = [c for c in b["cells"] if c[0] or c[1] or c[2]]
+        if label == CLARK_HEAD[0]:
+            got = (label, squeeze(" ".join(c[0] for c in b["cells"])), squeeze(" ".join(c[1] for c in b["cells"])),
+                   squeeze(" ".join(c[2] for c in b["cells"])), b["term"])
+            if got != CLARK_HEAD:
+                lfail(f"{name}: {where}: the table's headings are not the five this loader was checked against")
+            heads += 1
+            continue
+        if not filled and not b["term"]:
+            if label in CLARK_SECTIONS:
+                section, city = label, None
+            elif section and CLARK_SECTIONS[section][0] == "city" and re.fullmatch(r"City of .+", label):
+                city = label
+            elif label:
+                lfail(f"{name}: {where} is a heading this loader does not know")
+            continue
+        if section is None:
+            lfail(f"{name}: {where} is a contest before any section heading")
+        if not label:
+            lfail(f"{name}: {where} has names but no contest beside them (a contest split over two pages?)")
+        if len(filled) != len(b["cells"]) and filled:
+            lfail(f"{name}: {where} has an empty row between its names")
+        text, vote = label, 1
+        m = re.search(r"\s*\bVote for not more than (\d+)\b", text)
+        if m:
+            vote, text = int(m.group(1)), squeeze(text[:m.start()] + " " + text[m.end():])
+        m = re.search(r"\s*NOTE: This office covers areas in multiple Counties\b.*$", text)
+        wider = bool(m)
+        if m:
+            text = text[:m.start()].strip()
+        text = squeeze(re.sub(r"\s*\(See [^)]*\)", "", text))
+        partisan = CLARK_SECTIONS[section][1]
+        names = []
+        for i, (last, first, code, _lines) in enumerate(filled, 1):
+            if not code and NOTC.match(squeeze(f"{last} {first}")):
+                out["notc"] += 1
+                continue
+            if not last or not first or (code not in LOCAL_PARTIES and code != "NP"):
+                lfail(f"{name}: {where}, name {i}: a name cell is empty or the party code is not one of the list's own")
+            if (code == "NP") == bool(partisan):
+                lfail(f"{name}: {where}, name {i}: the party code does not fit the section the contest is printed under")
+            family, _, suffix = last.partition(",")
+            if suffix.strip() and fold(suffix) not in SUFFIXES:
+                lfail(f"{name}: {where}, name {i}: the Last Name cell has a comma that is not before Jr., II and the like")
+            names.append((squeeze(f"{first} {family} {suffix.strip()}"), code))
+        out["rows"] += len(names)
+        try:
+            c = clark_office(section, text, city, cname)
+        except Unplaced:
+            out["unplaced"].append((text, len(names)))
+            continue
+        if c is None:
+            out["left"] += 1
+            out["left_rows"] += len(names)
+            out["left_titles"].append(text)
+            continue
+        m = re.fullmatch(r"(\d+)-Year Unexpired Term", b["term"])
+        if not m and not re.fullmatch(r"\d+", b["term"]):
+            lfail(f"{name}: {where}: the TERM cell is not a number of years or an unexpired term")
+        if wider:
+            out["check"].append(f"{text}: the list says this office reaches other counties too; only {cname} is recorded")
+        out["contests"].append({"where": where, "label": text, "c": c, "partisan": partisan, "names": names, "vote": vote,
+                                "special": bool(m), "term": b["term"], "wider": wider})
+    if heads != len({b["page"] for b in data["blocks"]}):
+        lfail(f"{name}: not every page begins with the table's headings")
+    if out["rows"] != data["names"]:
+        lfail(f"{name}: {data['names']} names carry a party code but {out['rows']} were placed in contests")
+    return out
+
+
+# --------------------------------------------------------------------------------- Washoe County's list (a workbook)
+
+def cell_text(v):
+    if v is None:
+        return ""
+    if isinstance(v, float) and v.is_integer():
+        v = int(v)
+    t = squeeze(v)
+    return t.split(".")[0] if re.fullmatch(r"-?\d+\.0+", t) else t
+
+
+def xlsx_cells(path):
+    """A workbook's first sheet read without openpyxl, from the sheet's own XML and the shared strings: {(row, column
+    counted from 0): text}. The second route by which Washoe County's list is read."""
+    xns = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+    rns = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
+    z = zipfile.ZipFile(path)
+    sheet = ET.fromstring(z.read("xl/workbook.xml")).find(f"{xns}sheets/{xns}sheet")
+    target = next(r.get("Target") for r in ET.fromstring(z.read("xl/_rels/workbook.xml.rels")) if r.get("Id") == sheet.get(f"{rns}id"))
+    target = target.lstrip("/") if target.startswith("/") else "xl/" + target
+    shared = []
+    if "xl/sharedStrings.xml" in z.namelist():
+        for si in ET.fromstring(z.read("xl/sharedStrings.xml")).findall(f"{xns}si"):
+            shared.append("".join(t.text or "" for t in si.findall(f"{xns}t")) + "".join(t.text or "" for r in si.findall(f"{xns}r") for t in r.findall(f"{xns}t")))
+    out = {}
+    for c in ET.fromstring(z.read(target)).iter(f"{xns}c"):
+        m = re.fullmatch(r"([A-Z]+)(\d+)", c.get("r") or "")
+        if not m:
+            continue
+        col = 0
+        for ch in m.group(1):
+            col = col * 26 + ord(ch) - 64
+        v = c.find(f"{xns}v")
+        if c.get("t") == "s" and v is not None:
+            text = shared[int(v.text)]
+        elif c.get("t") == "inlineStr":
+            text = "".join(t.text or "" for t in c.iter(f"{xns}t"))
+        else:
+            text = v.text if v is not None else ""
+        text = cell_text(text)
+        if text:
+            out[(int(m.group(2)), col - 1)] = text
+    return out
+
+
+def washoe_contests(path, cname):
+    """Washoe County's contests in the workbook's order, in the shape clark_contests() gives. The candidates' table is
+    read by its headings; the ballot questions' table under it is counted and not read."""
+    import openpyxl
+    name = os.path.basename(path)
+    wb = openpyxl.load_workbook(path, data_only=True)
+    if len(wb.worksheets) != 1:
+        lfail(f"{name} has {len(wb.worksheets)} sheets, not the one this loader was checked against")
+    grid = [[cell_text(v) for v in row] for row in wb.worksheets[0].iter_rows(values_only=True)]
+    modified = wb.properties.modified
+    wb.close()
+    title = next((v for row in grid for v in row if v), "")
+    if title != "2026 General Election":
+        lfail(f"{name} is not headed 2026 General Election")
+    head = next((i for i, row in enumerate(grid) if all(h in row for h in WASHOE_HEAD)), None)
+    if head is None:
+        lfail(f"{name}: no row carries the headings {WASHOE_HEAD}")
+    col = {h: grid[head].index(h) for h in WASHOE_HEAD}
+    rows, questions, asked, last = [], 0, False, head
+    for i in range(head + 1, len(grid)):
+        if not any(grid[i]):
+            continue
+        nm, party, office, otype, term, vote = (grid[i][col[h]] for h in WASHOE_HEAD)
+        if asked:
+            questions += 1
+        elif nm == "Question" and party == "Text":
+            asked = True                                                    # the ballot questions' own table: counted, not read
+        elif not (nm and office and otype):
+            lfail(f"{name}: row {i + 1} lacks a name, an office or an office type")
+        else:
+            rows.append((i + 1, nm, party, office, otype, term, vote))
+            last = i
+    other = xlsx_cells(path)                                                # the second reading, from the workbook's own XML
+    for i in range(head, last + 1):
+        for j, v in enumerate(grid[i]):
+            if v != other.get((i + 1, j), ""):
+                lfail(f"{name}: row {i + 1} reads differently by the two routes (openpyxl, and the workbook's own XML)")
+    if sum(1 for (r, _c) in other if head < r <= last + 1) != sum(1 for i in range(head, last + 1) for v in grid[i] if v):
+        lfail(f"{name}: the two routes (openpyxl, and the workbook's own XML) do not find the same number of filled cells")
+    out = {"published": modified.date().isoformat() if modified else "", "ordered": False, "contests": [], "unplaced": [], "rows": 0, "notc": 0,
+           "left": 0, "left_rows": 0, "left_titles": [], "questions": questions, "check": []}
+    groups, seen = [], set()
+    for r in rows:
+        key = r[3:]
+        if groups and groups[-1][0] == key:
+            groups[-1][1].append(r)
+            continue
+        if key in seen:
+            lfail(f"{name}: row {r[0]}: a contest is printed in two places")
+        seen.add(key)
+        groups.append((key, [r]))
+    for (office, otype, term, vote), rs in groups:
+        where = f"rows {rs[0][0]}-{rs[-1][0]}"
+        partisan = 1 if otype.endswith(" Partisan") else 0
+        names = []
+        for n, nm, party, *_rest in rs:
+            if NOTC.match(nm):
+                if party:
+                    lfail(f"{name}: row {n}: a party beside None of these candidates")
+                out["notc"] += 1
+                continue
+            if (party in LOCAL_PARTIES) != bool(partisan) or (not partisan and party not in ("", "NP")):
+                lfail(f"{name}: row {n}: the Party cell does not fit the contest's Office Type")
+            names.append((squeeze(NVL.turned(nm)), party if partisan else "NP"))
+        out["rows"] += len(names)
+        try:
+            c = washoe_office(office, otype, cname)
+        except Unplaced:
+            out["unplaced"].append((plain_caps(office), len(names)))
+            continue
+        if c is None:
+            out["left"] += 1
+            out["left_rows"] += len(names)
+            out["left_titles"].append(plain_caps(office))
+            continue
+        if not re.fullmatch(r"\d+ Years?", term) and "unexpired" not in term.lower():
+            lfail(f"{name}: {where}: the Term Length cell is not a number of years")
+        if not vote.isdigit() or int(vote) < 1:
+            lfail(f"{name}: {where}: the Vote For cell is not a number")
+        out["contests"].append({"where": where, "label": plain_caps(office), "c": c, "partisan": partisan, "names": names, "vote": int(vote),
+                                "special": "unexpired" in term.lower(), "term": term, "wider": False})
+    if out["rows"] + out["notc"] != len(rows):
+        lfail(f"{name}: {len(rows)} name rows but {out['rows'] + out['notc']} were placed in contests")
+    return out
+
+
+LOCAL_COUNTIES = [
+    {"fips": "32003", "src": SRC_CLARK, "agency": "Clark County Election Department", "file": CLARK_FILE, "url": CLARK_URL, "page": CLARK_PAGE,
+     "magic": b"%PDF-", "read": clark_contests, "find": clark_link,
+     "title": "All Contests and Candidates in the November 3, 2026, General Election in Clark County, Nevada",
+     "how": "A ruled table of five columns, read by its own lines: contest, name on the ballot (last name; first, middle or nickname), party "
+            "and term. Read twice, by the ruled lines and again line by line, and the two readings agree."},
+    {"fips": "32031", "src": SRC_WASHOE, "agency": "Washoe County Registrar of Voters", "file": WASHOE_FILE, "url": WASHOE_URL, "page": WASHOE_PAGE,
+     "magic": b"PK", "read": washoe_contests, "find": None,
+     "title": "Washoe County 2026 General Election Contests (workbook)",
+     "how": "A workbook of one sheet, its columns found by their headings: Name on Ballot, Party, Office Sought, Office Type, Term Length and "
+            "Vote For. Read twice, through a workbook reader and again from the workbook's own XML, and the two readings agree."},
+]
+
+
+def local_rows(folder, county_zip, say, refresh=False):
+    """Clark and Washoe counties' county, township, city, school, district and local court contests on the November
+    ballot: rows for sl_races, sl_candidates, sl_places, sl_sources, sl_gaps and sl_notes, and the lines of the report.
+    Each county's list is read whole, and every name on it is placed in exactly one contest or counted as left out
+    (a federal or state office, or None of these candidates). Nothing is placed by guess: a contest this loader does
+    not know, or a county whose list could not be had, becomes a gap."""
+    os.makedirs(folder, exist_ok=True)
+    cnames = census_county_names(county_zip)
+    if len(cnames) != 17:
+        lfail(f"the Census county file gives Nevada {len(cnames)} counties, not 17")
+    ppath, cplaces, n_places = census_places(folder, {fold(n): g for g, n in cnames.items()}, say)
+    out = {"races": [], "cands": [], "places": [], "src": [], "gaps": [], "notes": [], "report": []}
+    places, seen_ids, loaded, uncoded = {}, set(), [], []
+    for cfg in LOCAL_COUNTIES:
+        fips, cname = cfg["fips"], cnames[cfg["fips"]]
+        path, url, fetched, how = kept(folder, cfg["file"], cfg["url"], cfg["magic"], say, cfg["find"], 0 if refresh else LOCAL_KEEP_DAYS)
+        if path is None:
+            out["gaps"].append((STATE, "county", fips, cname, LOCAL_WHAT,
+                                f"{cname}'s election office publishes its own list of November contests and candidates, but the file could not be "
+                                "fetched when this was loaded and no earlier copy was on hand; loading again will fetch it.", cfg["page"]))
+            out["report"].append(f"    CHECK Nevada (county and local): {cname}'s list could not be fetched ({how}); a gap is recorded")
+            continue
+        data = cfg["read"](path, cname)
+        n_races = n_names = blanked = 0
+        for con_ in data["contests"]:
+            c = con_["c"]
+            p = c["place"]
+            if p[0] == "county":
+                jname, jid, cids = cname, fips, [fips]
+            elif p[0] == "city":
+                hits = [h for h in cplaces.get(fold(p[1]), []) if fips in h[2]]
+                if len(hits) == 1:
+                    jname, jid, cids = hits[0][1], f"{STATE}-M-{hits[0][0]}", sorted(set(hits[0][2]) | {fips})
+                    places.setdefault(jid, ["mcd", jid, jname, set(), SRC_PLACES])
+                else:                                                       # no single Census place of that name in the county: named as the list does
+                    jname, jid, cids = f"{p[1]} city", f"{STATE}-M-{fips[2:]}-{slug(p[1])}-city", [fips]
+                    places.setdefault(jid, ["mcd", jid, jname, set(), cfg["src"]])
+                    uncoded.append(jname)
+            else:
+                letter, kind = {"school": ("S", "school"), "hospital": ("H", "hospital"), "special": ("X", "special")}[p[0]]
+                jname, jid, cids = p[1], f"{STATE}-{letter}-{fips[2:]}-{slug(p[1])}", [fips]
+                places.setdefault(jid, [kind, jid, jname, set(), cfg["src"]])
+            if jid in places:
+                places[jid][3].update(cids)
+            special = 1 if con_["special"] else 0
+            rid = f"2026-{STATE}-" + "-".join([jid if jid.isdigit() else jid[len(STATE) + 1:], c["kind"].replace("_", "-")]
+                                             + [slug(x) for x in (c.get("district"), c.get("seat")) if x]) + ("-S" if special else "")
+            if rid in seen_ids:
+                lfail(f"{cfg['file']}: {con_['where']}: two contests come to the same race id ({rid})")
+            seen_ids.add(rid)
+            notes = [c.get("note")]
+            if con_["vote"] > 1:
+                notes.append(f"Voters choose up to {con_['vote']}.")
+            if special:
+                notes.append(f"An election for the rest of an unexpired term (the county's list gives the term as {con_['term']}).")
+            if con_["wider"]:
+                notes.append("The county's list says this office also covers parts of other counties.")
+            placed = []
+            for i, (nm, code) in enumerate(con_["names"], 1):
+                caps = bool(re.search(r"[A-Z]", nm)) and nm == nm.upper()
+                shown = re.sub(r"(['’\"(“])([a-z])", lambda m: m.group(1) + m.group(2).upper(), proper(nm)) if caps else nm
+                if not shown or contact_like(shown, True):
+                    blanked += 1                                            # counted, never shown
+                    continue
+                party = NVL.party_of(code) if con_["partisan"] else NONPARTISAN
+                placed.append([rid, "general", GENERAL, shown, party, NVL.colour(party) if con_["partisan"] else "N",
+                               i if data["ordered"] else None, 0, 0, None, None, None, None, cfg["src"], LOCAL_CAPS if caps else None])
+            if len({x[3] for x in placed}) != len(placed):
+                lfail(f"{cfg['file']}: {con_['where']}: the same name twice in one contest")
+            if not placed:
+                notes.append("The county's list shows no candidate for this contest.")
+            out["races"].append((rid, STATE, c["level"], c["kind"], c["office"], jname, jid, json.dumps(cids), c.get("district"), c.get("seat"),
+                                 special, con_["partisan"], None, None, None, GENERAL, " ".join(x for x in notes if x) or None))
+            out["cands"] += placed
+            n_races += 1
+            n_names += len(placed)
+        if n_names + blanked + data["left_rows"] + sum(k for _t, k in data["unplaced"]) != data["rows"]:
+            lfail(f"{cfg['file']}: {data['rows']} names read, but those placed, left to the state offices and left unplaced do not add up to that")
+        for title, k in data["unplaced"]:
+            out["gaps"].append((STATE, "county", fips, cname, f"a contest not placed yet: {title}",
+                                f"{cname}'s list carries this contest, with {k} name{'s' if k != 1 else ''}, but this loader does not yet know how "
+                                "to file the office, so it is left out rather than placed by guess.", url))
+        loaded.append({"cfg": cfg, "cname": cname, "races": n_races, "names": n_names, "data": data})
+        out["src"].append((
+            cfg["src"], STATE, "official candidate list", cfg["agency"], cfg["title"], url, data["published"], fetched, sha_file(path),
+            data["rows"] + data["notc"],
+            f"{cname}'s own list of every contest and candidate on its November ballot. {cfg['how']} The file has no address, "
+            f"telephone, e-mail or website column of any kind, so nothing of that sort is read or kept. {data['rows']} names in all: {n_names} in "
+            f"{n_races} county, township, city, school, district and local court contests are loaded; {data['left_rows']} in {data['left']} "
+            "federal and state contests (Congress, the statewide offices, the Legislature, the Supreme Court and the Board of Regents) are left "
+            f"to the state's own list; {data['notc']} lines reading None of these candidates are not candidates"
+            + (f"; {sum(k for _t, k in data['unplaced'])} names in {len(data['unplaced'])} contests this loader does not know are recorded as gaps"
+               if data["unplaced"] else "")
+            + (f"; {blanked} name cells that looked like contact details were left out" if blanked else "")
+            + (f"; {data['questions']} ballot questions in the table below the candidates are not read" if data["questions"] else "") + ". "
+            + ("The list says it is in order of appearance on the ballot, subject to change, and that order is stored. " if data["ordered"]
+               else "The list states no ballot order, so none is stored. ")
+            + "It has no status column: a candidate who withdrew is simply not on it."))
+        out["report"].append(
+            f"    Nevada (county and local): {cname}: {data['rows']} names read ({how}); {n_races} contests and {n_names} names loaded; "
+            f"{data['left_rows']} names in {data['left']} federal and state contests left to the state's own list; {data['notc']} None of these "
+            f"candidates lines; {data['questions']} ballot questions not read; published {data['published'] or 'not dated'}")
+        for line in data["check"]:
+            out["report"].append(f"    CHECK Nevada (county and local): {cname}: {line}")
+        for title, k in data["unplaced"]:
+            out["report"].append(f"    CHECK Nevada (county and local): {cname}: a contest this loader cannot place, recorded as a gap: {title} ({k} names)")
+        if blanked:
+            out["report"].append(f"    CHECK Nevada (county and local): {cname}: {blanked} name cells looked like contact details and were left out")
+    for name in sorted(set(uncoded)):
+        out["report"].append(f"    CHECK Nevada (county and local): {name} is not one incorporated place in the Census Bureau's list; filed by its name")
+
+    # every other county: its own list is not read yet
+    have = {x["cfg"]["fips"] for x in loaded} | {g[2] for g in out["gaps"] if g[1] == "county" and g[4] == LOCAL_WHAT}
+    so_far = ("so far only " + " and ".join(f"{x['cname']}'s" for x in loaded) + (" lists have" if len(loaded) > 1 else " list has") + " been read"
+              if loaded else "so far no county's list has been read")
+    for geoid, cname in sorted(cnames.items()):
+        if geoid not in have:
+            clerk = "Carson City's clerk publishes its" if not cname.endswith("County") else "Each Nevada county's clerk publishes the county's"
+            out["gaps"].append((STATE, "county", geoid, cname, LOCAL_WHAT,
+                                f"Not loaded yet. {clerk} own list of November contests and candidates; {so_far}, and {cname}'s waits its turn.",
+                                None))
+
+    # the state offices the counties' lists also print and nothing else loads yet: said, so that they are not dropped silently
+    titles = [t for x in loaded for t in x["data"]["left_titles"]]
+    regents = sorted({int(m.group(1)) for t in titles for m in [re.search(r"Board of Regents,? District (\d+)", t)] if m})
+    seats = sorted({m.group(1) for t in titles for m in [re.search(r"Supreme Court\b.*\bSeat ([A-Z])\b", t)] if m})
+    listed = lambda xs: ", ".join(map(str, xs[:-1])) + (" and " if len(xs) > 1 else "") + str(xs[-1])
+    if regents or seats:
+        what = " and ".join(x for x in ("Board of Regents" if regents else "", "Supreme Court" if seats else "") if x) + " seats"
+        which = "; ".join(x for x in (f"Board of Regents district{'s' if len(regents) > 1 else ''} {listed(regents)}" if regents else "",
+                                      f"Supreme Court seat{'s' if len(seats) > 1 else ''} {listed(seats)}" if seats else "") if x)
+        out["gaps"].append((STATE, "state", STATE, NAME, what,
+                            f"Not loaded yet. These are state offices that the counties' lists print too ({which}), but only county and local "
+                            "offices are read from those lists, and the Secretary of State's own list, which covers the whole state, has not been "
+                            "read: its website turns away automated requests.", None))
+
+    out["places"] = [(k, pid, pname, json.dumps(sorted(cids)), src) for k, pid, pname, cids, src in sorted(places.values(), key=lambda p: p[1])]
+    out["src"].append((SRC_PLACES, STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, Nevada (st32_nv_place2020.txt)", PLACE_URL,
+                       "2020", mdate(ppath), sha_file(ppath), n_places,
+                       f"The code and the name of each incorporated city on the counties' lists ({sum(1 for p in places.values() if p[4] == SRC_PLACES)} "
+                       "used here): Henderson city, Reno city and so on. Places only; the file names no person."))
+    lv = Counter(r[2] for r in out["races"])
+    n_races, n_names = len(out["races"]), len(out["cands"])
+    who = " and ".join(x["cname"].replace(" County", "") for x in loaded)
+    out["notes"].append((STATE, "local_calendar", CALENDAR, CALENDAR_SOURCE, NRS_URL))
+    if loaded:
+        word = lambda n: ("no one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen "
+                          "seventeen").split()[n] if 0 <= n <= 17 else str(n)
+        coverage = (f"Loaded for {word(len(loaded))} of Nevada's {word(len(cnames))} counties, {who}, each from its own election office's list of "
+                    f"November contests and candidates: {n_races} contests and {n_names} names (county offices and constables; district court "
+                    "judges, justices of the peace and municipal court judges; city offices; school district trustees; water, improvement and "
+                    f"other district boards). The other {word(len(cnames) - len(loaded))} counties are not loaded yet. Not loaded from these "
+                    "lists: ballot questions, and the federal and state offices they also carry (Congress, the statewide offices, the Legislature, "
+                    "the Supreme Court and the Board of Regents). An office settled at the June primary is on neither list, because it is not on "
+                    "the November ballot.")
+    else:
+        coverage = ("No county or local race is loaded yet: neither Clark County's nor Washoe County's list of November contests and candidates "
+                    "could be fetched when this was loaded. Ballot questions are not loaded in any case.")
+    out["notes"].append((STATE, "local_coverage", coverage,
+                         "Clark County Election Department and Washoe County Registrar of Voters: each county's own list of November 3, 2026 "
+                         "contests and candidates", CLARK_PAGE))
+    for table, rows, fields in (("race", out["races"], (4, 5, 8, 9, 16)), ("place", out["places"], (2,)), ("gap", out["gaps"], (3, 4, 5)),
+                                ("note", out["notes"], (2, 3)), ("source", out["src"], (3, 4, 10))):
+        for row in rows:
+            if any(row[i] and (contact_like(row[i], table in ("race", "place")) or (table == "race" and i == 16 and STREET.search(row[i])))
+                   for i in fields):
+                lfail(f"a {table} text of {row[0] if table != 'place' else row[1]} looks like it holds a contact detail; nothing was written")
+    out["report"].append(
+        f"    Nevada (county and local): {n_races} contests and {n_names} names in {who or 'no county'} (" + ", ".join(
+            f"{k} {lv[k]}" for k in ("county", "city", "school", "hospital", "other", "court") if lv[k])
+        + f"); {len(out['places'])} places; gaps: " + ", ".join(f"{k} {v}" for k, v in sorted(Counter(g[1] for g in out["gaps"]).items()))
+        + "; every name read is placed in exactly one contest or counted as left out")
+    return out
+
+
 def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZIP, refresh=False):
     folder = os.path.join(cache, "nv")
     report = []
@@ -926,6 +1811,13 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
     general = [c for c in cands if c[1] == "general"]
     prim = [c for c in cands if c[1] != "general"]
 
+    # ---- the county and local races, from the counties' own lists (the state rows above are not touched by them)
+    local = local_rows(os.path.join(folder, LOCAL_DIR), county_zip, say, refresh)
+    clash = sorted({r[0] for r in local["races"]} & set(races))
+    if clash:
+        fail(f"a local race id is also a state race id ({clash[0]}); nothing was written")
+    county_names = census_county_names(county_zip)
+
     src = [
         (SRC_SENATE, STATE, "legislature roster", "Nevada Legislature (Legislative Counsel Bureau)",
          "Senate: current members, with district, party, counties and Term Ends", LEG_PAGES["Senate"], "", leg["fetched"],
@@ -946,7 +1838,9 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
          "https://github.com/openstates/people", "", mdate(roster_db), sha_file(roster_db), len(legs) + len(offs),
          "Who holds each seat today (ids, names, parties, districts and term ends only); it does not carry the Treasurer, the Controller or judges."),
         (SRC_COUNTY, STATE, "county codes", "U.S. Census Bureau", "Cartographic boundary file, counties, 2024 (1:500,000)", COUNTY_URL, "2024",
-         mdate(county_zip), sha_file(county_zip), len(counties), "Five-digit county codes for the counties the Legislature lists under each district."),
+         mdate(county_zip), sha_file(county_zip), len(counties),
+         "Five-digit county codes for the counties the Legislature lists under each district, and the names of Nevada's seventeen counties "
+         "(Carson City among them) for the county pages."),
     ]
     if gpaths:
         src.append((SRC_GENERAL, STATE, "official candidate list", "Nevada Secretary of State, Elections Division",
@@ -969,17 +1863,22 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
                     "Saved from a browser. Each party primary's field; the vote counts are not loaded. Contact columns never read."))
 
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
-    with con:
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
+    with con:      # Nevada's rows only, in one transaction
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?)", (STATE,))
         con.execute("DELETE FROM sl_candidates WHERE race_id LIKE ?", (f"2026-{STATE}-%",))
         con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_places WHERE source_id LIKE ?", (STATE.lower() + "-%",))
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
-        con.executemany(f"INSERT INTO sl_races VALUES ({','.join('?' * len(cols))})", [tuple(r[k] for k in cols) for r in races.values()])
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", [("county", g, n, g, SRC_COUNTY) for g, n in sorted(counties.values())])
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany(f"INSERT INTO sl_races VALUES ({','.join('?' * len(cols))})", [tuple(r[k] for k in cols) for r in races.values()] + local["races"])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)",
+                        [("county", g, n, json.dumps([g]), SRC_COUNTY) for g, n in sorted(county_names.items())] + local["places"])
+        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src + local["src"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     kind = lambda rid: races[rid]["office_kind"] if races[rid]["level"] == "legislature" else races[rid]["level"]
@@ -1006,7 +1905,9 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
             say(f"      matched: {c[0]} {c[1]}: {c[3]} -> {c[12]}{' (holds this seat)' if c[7] else ''}")
     for line in report:
         say(f"      check: {line}")
-    return len(general)
+    for line in local["report"]:
+        say(line)
+    return len(general) + len(local["cands"])
 
 
 if __name__ == "__main__":
