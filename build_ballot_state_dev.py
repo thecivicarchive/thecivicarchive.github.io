@@ -193,6 +193,23 @@ STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St
 ZIP = re.compile(r"\b[A-Z]{2}\s+\d{5}\b|\b\d{5}-\d{4}\b")
 
 
+# A source's words without the names of this kit's own files (John, 2026-10-01): a reader needs the agency and the
+# record, not how the site is put together. The loaders' source rows name the database a roster was loaded into and
+# sometimes a program; those names are taken out here, where every state's sources pass on their way to the page.
+FILE_PHRASE = re.compile(r",?\s*\(?\bas\s+(?:it\s+is\s+)?(?:loaded\s+into\s+)?[\w./\\-]+\.(?:sqlite|json)(?:\s+holds\s+(?:it|them))?\)?", re.I)
+FILE_NAME = re.compile(r"\b[\w./\\-]+\.sqlite\b")
+PROGRAM_NAME = re.compile(r"\b[\w./\\-]+\.py\b")
+
+
+def plain_source(text):
+    if not text:
+        return text
+    t = FILE_PHRASE.sub("", str(text))
+    t = FILE_NAME.sub("the site's own records", t)
+    t = PROGRAM_NAME.sub("the site's own reader", t)
+    return re.sub(r"\s{2,}", " ", t).strip()
+
+
 class Guard:
     """Drops any text that looks like contact details, and says which race it came from, never what it said."""
 
@@ -646,8 +663,8 @@ def build(db, code, lines):
     for sid, st, kind, agency, title, url, published, fetched, sha, rows_n, note in con.execute(
             "SELECT source_id, state, kind, agency, title, url, published, fetched, sha256, rows, note FROM sl_sources WHERE state = ? OR state IS NULL "
             "ORDER BY rowid", (code,)):
-        sources[sid] = compact({"kind": kind, "agency": agency, "title": title, "url": url if url and url.startswith("https://") else None,
-                                "published": published, "fetched": fetched, "sha": sha, "rows": rows_n, "note": note})
+        sources[sid] = compact({"kind": kind, "agency": plain_source(agency), "title": plain_source(title), "url": url if url and url.startswith("https://") else None,
+                                "published": published, "fetched": fetched, "sha": sha, "rows": rows_n, "note": plain_source(note)})
     prim_votes = con.execute("SELECT COUNT(*) FROM sl_candidates WHERE race_id LIKE ? AND election <> 'general' AND votes IS NOT NULL",
                              (f"2026-{code}-%",)).fetchone()[0]
 

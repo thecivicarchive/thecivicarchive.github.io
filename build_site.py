@@ -1700,7 +1700,7 @@ def main():
                 f"format, plus {st['current']:,} measures from the current Congress; {st['rated']:,} carry ratings under rubric "
                 f"{data['rubric']}, and {st['members']:,} members appear as sponsors or cosponsors.")
     else:
-        foot = (f"Generated from <code>{os.path.basename(args.db)}</code> on {data['generated']}: {st['measures']:,} measures introduced "
+        foot = (f"Generated on {data['generated']}: {st['measures']:,} measures introduced "
                 f"{st['years']}, {st['roll_calls']:,} roll calls with member-level votes, {st['rated']:,} measures rated under rubric "
                 f"{data['rubric']}, and {st['members']:,} members who sponsored or cosponsored them.")
     html = (TEMPLATE.replace("__DATA__", payload).replace("__FOOTNOTE__", foot)

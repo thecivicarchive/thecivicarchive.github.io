@@ -497,7 +497,7 @@ def render(P, data, version, base_url, analytics):
     tag = ('<script data-goatcounter="%s" data-goatcounter-settings=\'{"no_onload": true, "allow_frame": false}\' '
            'async src="https://gc.zgo.at/count.js" onload="if(window.__gcflush)__gcflush()"></script>' % html_attr(gc)) if gc else ""
     m = st.get("money") or {}
-    foot = (f"Generated from <code>state_{P['code'].lower()}.sqlite</code> on {data['generated']}: {st['members']:,} sitting legislators, "
+    foot = (f"Generated on {data['generated']}: {st['members']:,} sitting legislators, "
             f"{st['districts']:,} districts, {st['portraits']:,} portraits"
             + (f", and campaign money {m['years'][0]} through {m['years'][1]} for {m['members']:,} of them" if m.get("members") else "")
             + (". Bills and recorded votes are the next part to be added." if st["has_money"] else ". Campaign money, then bills and recorded votes, are still to be added.")

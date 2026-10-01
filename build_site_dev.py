@@ -2718,7 +2718,6 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
       <div class="rv">
         <a class="brand" href="#top"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
         <p>__FOOTNOTE__</p>
-        <p class="offline" id="offline" hidden><a href="offline.html" download>Download the offline copy</a>: the whole site in one file, for reading without a connection.</p>
       </div>
       <div class="rv" style="--i:1">
         <h4>Sources</h4>
@@ -4540,7 +4539,7 @@ function lensWords(){
         <li>Why a district has its shape. Coasts, rivers, state lines, county and city limits, and districts drawn to comply with the Voting Rights Act all lower scores for lawful reasons. A low score is not a finding of gerrymandering, and a high one is not a finding of fairness: a tidy shape can still divide voters unevenly.</li>
         <li>Scores depend on the boundary file. These lines are generalized to 1:500,000, so they are smoother than the legal lines and Polsby-Popper runs a little higher than it would on full-detail lines. Never mix scores from different sources (Barnes and Solomon, <i>Political Analysis</i> 29 (2021), 448).</li>${extra || ""}
         <li>Courts treat compactness as one traditional criterion among several, not as a test (see <i>Shaw v. Reno</i>, 509 U.S. 630 (1993); <i>Rucho v. Common Cause</i>, 588 U.S. 684 (2019)).</li></ul>`,
-    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}The program is <code>district_shapes.py</code>; <code>python district_shapes.py --selftest</code> runs the checks and <code>${esc(command)}</code> re-measures the file${command.includes("--state") ? "s" : ""}. Method version ${esc(method)}.</p>`
+    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}Every measure can be worked out again from the Census Bureau&rsquo;s file named above with the formulas given here, and the measuring is tested against shapes whose answers are known before the districts are measured. Method version ${esc(method)}.</p>`
   };
 }
 
@@ -4614,7 +4613,7 @@ function peopleWords(){
         <li>Exactness. Every survey figure has a margin (\u00b1); a small district's margins are wide, and two districts whose margins overlap may not differ at all.</li>
         <li>Fairness or intent. Equal population is a legal requirement, and a spread inside the range courts accept is not a finding of fairness, nor one outside it a finding of wrongdoing; the courts weigh the reasons. Nothing here says who was placed where, or why.</li>
         <li>Adjusted counts. Some states draw their lines on a count adjusted for where people in prison lived before; the Bureau's count here is unadjusted, so those states' districts look less equal than under the count they used.</li>${extra || ""}</ul>`,
-    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}The program is <code>district_people.py</code>; <code>python district_people.py --selftest</code> runs the checks and <code>${esc(command)}</code> reads the files again. Method version ${esc(method)}: if the method changes, the version changes.</p>`
+    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}Every figure can be worked out again from the Census Bureau&rsquo;s files named above with the arithmetic given here, which is tested against the Bureau&rsquo;s own worked examples. Method version ${esc(method)}: if the method changes, the version changes.</p>`
   };
 }
 
@@ -5797,7 +5796,8 @@ def main():
                 f"format, plus {st['current']:,} measures from the current Congress; {st['rated']:,} carry ratings under rubric "
                 f"{data['rubric']}, and {st['members']:,} members appear as sponsors or cosponsors.")
     else:
-        foot = (f"Generated from <code>{os.path.basename(args.db)}</code> on {data['generated']}: {st['measures']:,} measures introduced "
+        # No file names of the kit's own on the page (John, 2026-10-01): readers get the date and the counts, not how the site is put together.
+        foot = (f"Generated on {data['generated']}: {st['measures']:,} measures introduced "
                 f"{st['years']}, {st['roll_calls']:,} roll calls with member-level votes, {st['rated']:,} measures rated under rubric "
                 f"{data['rubric']}, and {st['members']:,} members who sponsored or cosponsored them.")
     if version:
@@ -5847,7 +5847,9 @@ def main():
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"
         import shutil
-        shutil.copyfile(args.out, os.path.join(args.split, "offline.html"))   # the archive travels with the fast site
+        stale = os.path.join(args.split, "offline.html")      # the one-file copy is no longer offered for download (John, 2026-10-01): it stays on this computer only
+        if os.path.exists(stale):
+            os.remove(stale)
         print(f"Wrote {args.split}/: shell {kb(sizes['index.html'])}; "
               + "; ".join(f"{os.path.basename(k)[:-5]} {kb(v)}" for k, v in sizes.items() if k.startswith("data/"))
               + f"; {n_detail:,} bill files ({kb(detail_bytes)}); {len(photo_bytes):,} portraits ({kb(photo_total)})")

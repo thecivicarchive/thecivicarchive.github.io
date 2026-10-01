@@ -10,6 +10,12 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.078 — 2026-10-01 — A first cabin, and quieter pages
+
+- A first draft of a new front door: a small log cabin you can walk around in, with a fire, two armchairs, a bookshelf and a wide window on the Rocky Mountains. The view follows your own clock and calendar (morning, afternoon, dusk or night; gold aspens in autumn, snow in winter), worked out on your device. Nothing is sent anywhere. It lives at its own address, cabin.html, while it is made to look real; the ring of cards is still the landing page.
+- Two posters glow on the cabin's far wall, and they are the doors. "Meet everyone asking for your vote" opens On The Ballot; "See what they did with the last one" opens Legislation & Legislatures. The same two doors are glowing signs at the foot of the page. Walk with the arrow keys or W, A, S, D and drag to look around; on a phone, drag to look and tap the floor to walk.
+- The pages no longer offer the whole site as one file to download, and no longer name the files and programs the site is put together with. The sources, the methods, the formulas and the download of every figure on the district pages stay.
+
 ## v4.0.077 — 2026-10-01 — Local judges and the first counties of seven more states
 
 - Colorado, Utah, Illinois, Oregon, Arkansas, Connecticut and Nevada join the local level, each with the part of its local ballot that an official list carries today. County and local races now stand at 22,148 contests and 36,970 candidates in 34 states.

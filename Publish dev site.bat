@@ -11,6 +11,8 @@ if not exist "site\dev\index.html" (
   exit /b 1
 )
 if not exist "docs\dev" mkdir "docs\dev"
+rem The published pages carry no names of the kit's own files and programs: one last pass before the copy.
+".venv\Scripts\python.exe" quiet_pages.py "site\dev"
 robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP >nul
 if errorlevel 8 (
   echo Could not copy the draft. Is a file open in another program? Close it and retry.

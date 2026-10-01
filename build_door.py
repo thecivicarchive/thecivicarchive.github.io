@@ -818,6 +818,7 @@ SKY_BACK = [[["LEGISLATION", RED], ["&", WHITE]], [["LEGISLATURES", BLUE]]]     
 
 
 TRANSIT_FILES = {"transit3d.js": "door_transit3d.js", "vendor/three.module.min.js": "vendor/three.module.min.js"}
+CABIN_FIRST = False      # John, 2026-10-01: the ring of cards stays the landing page until the realistic cabin is ready; the cabin is at cabin.html
 
 
 def copy_transit(dev_root):
@@ -840,7 +841,7 @@ def switch(on):
     """The switch at the top middle names where it goes (John, 2026-09-29): On The Ballot on the front door; on the
     ballot door, Legislation & Legislatures, the way back. Both set off fireworks after three seconds' rest."""
     if on:
-        href, label, text, icon = "../", "Legislation and Legislatures: back to the public record", "Legislation &amp; Legislatures", RECORD_ICON
+        href, label, text, icon = ("../doors.html" if CABIN_FIRST else "../"), "Legislation and Legislatures: back to the public record", "Legislation &amp; Legislatures", RECORD_ICON      # the ring of cards
     else:
         href, label, text, icon = "ballot/", "On The Ballot: who is on the ballot, race by race", "On The Ballot", BALLOT_ICON
     return (f'<a class="bsw{" on" if on else ""}" id="bsw" href="{href}" aria-label="{label}" title="{label}"><span class="trk">'
@@ -1002,9 +1003,24 @@ def main():
         html = html.replace(key, value)
     html = html.replace("__VERSION__", version).replace("__WIP__", wip).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     os.makedirs(site_root, exist_ok=True)
-    with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
+    # The cabin (John, 2026-10-01) is built whenever the front door is. While CABIN_FIRST is off, the ring of cards stays
+    # the landing page and the cabin sits beside it at its own address, cabin.html. When it is switched on, the cabin
+    # becomes the landing page and the ring is written beside it as doors.html ("Plain view", and the Legislation &
+    # Legislatures poster's way in).
+    front = (not args.ballot) and os.path.basename(args.out).lower() == "index.html"
+    ring_out = os.path.join(site_root, "doors.html") if (front and CABIN_FIRST) else args.out
+    with open(ring_out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)
     copy_transit(os.path.dirname(site_root) if args.ballot else site_root)
+    if front:
+        import build_cabin
+        if CABIN_FIRST:
+            build_cabin.write(args.out, version=version, draft=args.draft, ring="doors.html")
+        else:
+            build_cabin.write(os.path.join(site_root, "cabin.html"), version=version, draft=args.draft, ring="./")
+            stale = os.path.join(site_root, "doors.html")
+            if os.path.exists(stale):
+                os.remove(stale)
     if args.ballot:
         print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}; "
               + (f"states: {L['states']} ({', '.join(L['codes'])}), {L['races']:,} races, {L['candidates']:,} candidates"
@@ -1012,7 +1028,7 @@ def main():
                     f"{L['local_counties']:,} counties, {L['local_candidates']:,} candidates" if L.get("local_codes") else "; no county or local races yet")
                  + ("" if L.get("chooser") else "; no states/ chooser yet, so the State card waits") if L else "no state and local ballot database yet"))
         return
-    print(f"Wrote {args.out}: the front door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; federal {data['federal']}; "
+    print(f"Wrote {ring_out}: the ring of cards, {len(html.encode('utf-8')) / 1e3:,.0f} KB; federal {data['federal']}; "
           + ("the On The Ballot switch; " if words["__SWITCH__"] else "no ballot space yet, so no switch; ")
           + "; ".join(f"{s['name']} {'open' if s['live'] else 'being built'} ({', '.join(s['loaded']) or 'nothing yet'})" for s in data["states"]))
 
