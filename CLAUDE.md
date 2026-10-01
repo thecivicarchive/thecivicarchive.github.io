@@ -798,6 +798,93 @@ subagents, with the rule against personal or sensitive data pushed into every ag
   walls), CT (only 19 towns' sample ballots posted), GA AZ NV TN KS IN (as on the federal side). The ring scripts live
   in the session's workflows/scripts folder (state-legislatures-ring*.js).
 
+## County and local races, every state (from v4.0.075)
+
+John's order (2026-09-30): the local level of On The Ballot for every state (county, city, township, school board,
+special districts on the November 3, 2026 ballot), as far as official sources allow; an orchestrated run with one
+Opus 5.5 max-effort agent per state, in waves of 8 to 10, rings outward from Minnesota, a saved version after each
+wave; a scouting pass first; a running list of what waits on him (`ballot_local_status.md`, his file to open); never
+his purchased usage: stop at 99 percent of the weekly limit.
+
+- The scouting pass (49 agents, research only) is kept whole in `ballot/local_scout.json`: for each state, which local
+  offices are on the November ballot and which are elected at another time, whether the state's own election office
+  publishes one list, its format and columns, whether a script can fetch it, the county-by-county route, what needs
+  John's browser, and a build plan. Read a state's entry before writing or changing its local loader.
+  Four groups: a statewide list a script can read (ND SD KY OK ID WV NC VA WA MD AL LA NM SC DE VT HI; ME and TX for
+  county offices); a statewide list behind a wall or a broken link (IN GA RI NH MA; NV's state list is walled but Clark
+  and Washoe are readable); the state lists only judges or district boards and the rest is county by county (MI MO NE
+  WY CO UT AR OR IL FL CT); county by county only (WI IA OH MT TN KS AZ MS NJ CA NY AK; Pennsylvania elects no regular
+  local office in even years). Many states elect cities and schools at another time (Wisconsin in April, Iowa and
+  Pennsylvania in odd years, Tennessee's counties in August): the page says so from `sl_notes`, never an empty list.
+- Each state's agent extends `ballot/state_local_<code>.py` (the state-level rows stay exactly as they were) and must
+  pass `python -m ballot.check_local --code <code> --db <a scratch copy>`, whose docstring states the conventions:
+  levels county, soil_water, city, township, school, hospital, other (local judges, prosecutors and court clerks stay
+  under court, with county_ids); `jurisdiction_id` a 5-digit county FIPS, or `<ST>-M-<key>` (city, town, village,
+  township), `<ST>-S-<key>` (school), `<ST>-H-<key>` (hospital), `<ST>-X-<key>` (any other district); `county_ids` a
+  JSON list of 5-digit FIPS; `sl_places` kinds county, mcd, school, hospital, special, source ids beginning `<code>-`;
+  `sl_gaps` (state, scope state/county/place/race, place_id, place, what, reason, url) for everything that could not
+  be loaded, with a reason a reader can follow; `sl_notes` (keys `local_calendar`, `local_coverage`). Minnesota keeps
+  its older ids (3-digit counties, bare MCD codes). The check compares against a before-copy of the real database, so
+  load like this: copy `ballot_local_2026.sqlite` aside, `python run_ballot.py local <codes>`, then the check for each
+  code with `--real <the copy>`.
+- Rules the first wave taught: no web address or site name in any note (addresses live in url columns; the check and
+  the page's guard drop such text, and a number followed soon after by a street word such as Place, Court or Way reads
+  as an address); a free-text cell can hold contact details typed into the wrong column (Kentucky: an e-mail in a Last
+  Name cell), so a kept cell that `check_local.contact_like()` flags is blanked before it is cached; a town that is a
+  municipality is level city (North Carolina, Virginia, West Virginia); a district reaching several counties is one
+  place with every county in county_ids; a contest on two counties' lists is one race; where a list has no totals of
+  its own, read it by two routes and compare. No ballot questions, levies or contests that are not between people
+  (North Dakota's official newspapers). Local primaries are not loaded.
+- State lessons. North Dakota: the list's Search with Jurisdiction "All" (the "County" choice leaves out commissioner
+  districts and soil districts); a row with no name is a contest with no candidate; a soil conservation contest is
+  filed under the candidate's county, so compare with the 2024 list (eid=333). South Dakota: the grid prints one title
+  for contests that differ only in a hidden office number and never says how many are elected; statute and rule text
+  at sdlegislature.gov/api/Statutes/<cite>.html. Kentucky: "Candidate Filings with the County Clerk", through the
+  page's own Excel button and a small .xls reader in the loader; a city or school district is named only in free text
+  and tied to Census names; a soil and water contest is printed only when more file than seats; Casey, Metcalfe and
+  Carlisle leave the May primary's field on the list (35 contests kept without names); county sample ballots are at
+  web.sos.ky.gov/ballots/<County> 2026G.pdf. Oklahoma: the November list prints only contested races (26 O.S. 6-102),
+  county offices inside each county's section. Idaho: the portal's County and Local district types; county offices are
+  partisan; magistrate retention is one county's yes-or-no vote. West Virginia: county rows come only from the CSV
+  export; its Magisterial column is a district of residence on commission rows and a town or ward on town rows, and
+  towns load only when every row names one. North Carolina: one CSV row per candidate per county, with is_partisan,
+  is_unexpired and vote_for; the Board still calls its November lists not final. Virginia: the Local Offices workbook;
+  towns named in the title, the District cell or not at all; no party is printed for local offices. Washington: the
+  grid read once per county (&c=01 to 39) with the whole list as the control; a district can sit on a neighbouring
+  county's list.
+- Wave two (2026-10-01: MD AL LA NM SC DE VT HI ME TX). Maryland: the State Board's local candidates CSV names the
+  county only on countywide rows, so the county comes from the same list's page headings, and each county's certified
+  ballot PDF gives "Vote for" and the printed order; cities and towns run their own elections (Takoma Park and Ocean
+  City vote on November 3 from their own lists: place gaps). Alabama: the Secretary's 67 county sample ballots are the
+  statewide list (every county and county school office, all partisan; cities vote at their own municipal elections);
+  count the "(Vote for" lines and the party lines as two controls; names carry small-letter hints (DeRAMUS) that plain
+  capitalizing destroys. Louisiana: Candidate Inquiry gives a CSV per parish and the results site already posts
+  November's race files, so the list is read three ways; a sole qualifier is "Unopposed" and elected off the ballot
+  (two thirds of local contests); every local office prints a party; counties are parishes (the page must not add
+  "County"); court districts are place kind `judicial`. New Mexico: the portal answers county by county
+  (`&cty=<code>`); Filing County is the office's county only for county offices, probate judges, magistrates and the
+  municipal judge; the checklist of offices is the Secretary's General Election Proclamation (a scan, typed into the
+  loader with its SHA-256). South Carolina: city, town, school and special elections on November 3 are elections of
+  their own in the Candidate Tracking System (State Senate 15's special among them): read every election of that date
+  two ways (office All, then each office type); circuit solicitors are level other in special places. Delaware: the
+  Department's workbooks carry all 20 county contests; compare kept rows, not SHA-256s (the workbook's bytes change).
+  Vermont: static.electionresults.vermont.gov lists November's contests weeks ahead (seats, each town's county, towns
+  with no candidate); justices of the peace are one race per town ("Voters choose N"), level township for towns and
+  city for cities; no ballot order stored. Hawaii: county contests only; eight council seats were settled in the
+  August primary; the Candidate Report can disagree with the certified count (Honolulu council District IV: loaded as
+  marked, with a note and a race gap; worth asking the Office). Maine: county offices from the Secretary's general,
+  special, withdrawal and write-in lists; district attorneys are level other in prosecutorial-district places; a
+  candidate who withdraws after August 25 stays printed; cities and towns are each clerk's own posting. Texas: the
+  Ballot Certification Report prints every county's county and precinct offices (2,646 contests, 254 counties), and the
+  Secretary's portal answers one keyless POST (findQualifiedCandidates, election 53815; allowlist keys; cdFilingStatus
+  CG = on the ballot, party W = declared write-in); statutes for scripts at tcss.legis.texas.gov/resources/.
+- Patch a loader with the Edit tool, never a scripted text rewrite (half the loaders are CRLF, half LF). In a race
+  note put dates in brackets or words: the page's guard reads a number followed by Court, Place or Way as an address.
+- To look into (found by wave two, not acted on): Texas's live list has since added a Democrat in 2026-TX-DC486-UNEXP,
+  nine state-level write-ins and separate November 3 specials for House 93 and a Senate seat, which the state rows do
+  not have yet; `ballot_cache/me/` and other earlier caches keep official workbooks and PDFs whole, residence columns
+  included (never read, but kept on disk).
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

@@ -3,8 +3,9 @@ ballot/state_local_ok.py - Oklahoma's state races in 2026: the Oklahoma Senate s
 districts, plus any seat filled for the rest of a term), all 101 Oklahoma House seats, the statewide offices (Governor,
 Lieutenant Governor, State Auditor and Inspector, Attorney General, State Treasurer, Superintendent of Public
 Instruction, Commissioner of Labor, Insurance Commissioner, Corporation Commissioner), and the district court judges
-on the November ballot, with the June 16 party primaries that chose the nominees. Written into
-ballot_local_2026.sqlite (never ballot_2026.sqlite).
+on the November ballot, with the June 16 party primaries that chose the nominees; and the local contests on the
+November ballot: county offices, city and town offices and fire protection district boards (see "The local rows"
+below). Written into ballot_local_2026.sqlite (never ballot_2026.sqlite).
 
 Sources, all the Oklahoma State Election Board's own, the same ones the federal loader (ballot/lists/ok.py) reads:
 
@@ -35,8 +36,48 @@ nominee is that party's candidate on the November list.
 Judges: the November list names the district and associate district judge races still to be decided in November;
 only those are loaded (a judicial seat with one candidate, or decided by a majority in June, is not on the list and is
 counted in the report). The Supreme Court, Court of Criminal Appeals and Court of Civil Appeals retention questions are
-on every ballot, but the list does not name the judges, so they are not loaded. District attorneys and county offices
-are left for the local loaders.
+on every ballot, but the list does not name the judges, so they are not loaded. No district attorney is on the
+November list: the book's DISTRICT ATTORNEY section is read for its district headings and for how many filed under
+each party (the filing number's five columns only), and the coverage note says how the 27 offices were settled.
+
+The local rows (levels county, city and other), from the same November list
+---------------------------------------------------------------------------
+Under each county the list also prints the county offices on that county's ballot (inside "LEGISLATIVE, DISTRICT AND
+COUNTY OFFICERS": COUNTY COMMISSIONER DISTRICT NO. n, COUNTY ASSESSOR, COUNTY TREASURER, and an unexpired term of a
+sheriff or county clerk), each candidate as "NAME, PARTY", and a section for every city ("CITY OF X"), town ("TOWN OF
+X") and fire protection district ("X FIRE") with something on the ballot: an office ("MAYOR", "COUNCILMEMBER -
+COUNCILMEMBER WARD 3", "BOARD MEMBER - MEMBER OF THE BOARD OF DIRECTORS") with its candidates by name alone, or a
+proposition. "X COUNTY QUESTIONS" sections hold propositions only. The page has no contact columns at all (no links,
+no addresses), so a fetched copy is kept whole in ballot_cache/ok/local/.
+
+Oklahoma prints only contested races (26 O.S. 6-102: an unopposed candidate's name is not printed on any ballot), so a
+county office with one candidate left, or one settled in the June 16 primary or the August 25 runoff, is not on the
+list and is not loaded; sl_notes and sl_gaps say so. Propositions and questions are counted, not loaded. A contest
+printed under several counties (a city that lies in two) must read the same in each; one that does not is left out and
+written to sl_gaps, as is an office or a section of a kind this loader has not been checked against, and a candidate
+line that does not read as a name (the line itself is never printed). None of that stops the state rows from loading.
+
+  race ids      2026-OK-<county GEOID>-<office kind>[-<district>][-S]; 2026-OK-M-<place code>-<office kind>[-<ward>][-S];
+                2026-OK-X-<county code>-<name as printed>-fire-board[-S]. -S marks an unexpired term (special = 1).
+  places        a county is its 5-digit GEOID, found by the county's name in the Census county file (the list numbers
+                the counties 01 to 77 in alphabetical order; GEOID = 40 and 2n - 1 is checked). A city or town is
+                OK-M-<Census place code>: matched in the Census Bureau's 2020 place codes file (st40_ok_place2020.txt,
+                names, codes and counties only, kept whole in ballot_cache/ok/local/) by its name and kind word, exactly
+                one entry, and named as the Bureau writes it ("Bartlesville city"). A fire protection district has no
+                official code: OK-X-<the 3-digit code of the first county that prints it>-<its name as printed>, and it
+                is named as the list prints it, with its kind in brackets ("Verdigris Fire (fire protection district)":
+                19 O.S. 901.5 has such a district elect the members of its board of directors each November).
+  parties       county offices are partisan (the party as the list prints it, in the state rows' words); city, town and
+                fire district offices carry no party on the list and are stored as "Nonpartisan office".
+  ballot order  kept for county offices, and only where the list's order is the one 26 O.S. 6-106 sets (recognized
+                parties in the order of the Board's drawing, then independents) with no two candidates of one label;
+                for the nonpartisan offices the list does not say its order is the ballot's, so none is stored.
+  names         printed in capitals and shown in ordinary capitals, as the state rows are; a word the list itself prints
+                in mixed case (NaRISSA, McCLENDON) keeps the list's own inner capitals. No local candidate is matched
+                to any roster, and none carries a holder, a member id or an incumbent mark.
+  also written  sl_gaps and sl_notes (ballot.check_local.EXTRA_SCHEMA): what is not here and why, and which local
+                offices Oklahoma elects on November 3 and which at another time (19 O.S. 131 and 901.5, 11 O.S. 16-102
+                and 16-103, and the Board's 2026 Voter Information Calendar, all read on 2026-09-30).
 
 Today's holders come from the Open States roster in state_ok.sqlite (legislators by chamber and district; the
 officials table for Governor, Lieutenant Governor and Attorney General); only id, name, party, chamber and district
@@ -56,12 +97,14 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
 import zipfile
 from collections import Counter
 
 if __package__ in (None, ""):
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like                   # noqa: E402
 from ballot.common import CACHE, HERE, fold, name_parts, party_code          # noqa: E402
 from ballot.lists import ok as fed                                          # noqa: E402
 from ballot.lists.tx import proper                                          # noqa: E402
@@ -112,6 +155,28 @@ SRC_WD = "ok-seb-2026-withdrawals"
 SRC_CONTESTS = "ok-seb-2026-contests"
 SRC_ROSTER = "ok-openstates-roster"
 SRC_COUNTIES = "ok-census-cb-2024-county"
+
+# the local rows
+LOCAL_DIR = os.path.join(CACHE, "ok", "local")
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st40_ok_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+CALENDAR_URL = "https://oklahoma.gov/elections/elections-results/next-election/voter-information-calendar.html"
+FILING_URL = "https://oklahoma.gov/elections/candidates/2026-candidate-filing-information.html"
+SRC_LOCAL = "ok-seb-2026-general-list-local"
+SRC_PLACES = "ok-census-2020-place"
+STATE_SECTIONS = ("STATE OFFICERS", "CONGRESSIONAL OFFICERS", "JUDICIAL OFFICERS", "JUDICIAL RETENTION", "STATE QUESTIONS")
+LEG_SECTION = "LEGISLATIVE, DISTRICT AND COUNTY OFFICERS"
+UNEXPIRED_MARK = " (UNEXPIRED TERM)"
+UNEXPIRED_NOTE = "An election for the rest of the term (the Board's list: unexpired term)."
+NO_CANDIDATE = "The State Election Board's list shows no candidate for this office."
+COUNTY_OFFICES = {"ASSESSOR": ("county_assessor", "County Assessor"), "TREASURER": ("county_treasurer", "County Treasurer"),
+                  "SHERIFF": ("sheriff", "County Sheriff"), "CLERK": ("county_clerk", "County Clerk")}
+COUNCIL_WORDS = {"COUNCILMEMBER": "Councilmember", "COUNCIL MEMBER": "Council Member", "COUNCILMAN": "Councilman",
+                 "COUNCILWOMAN": "Councilwoman", "COUNCILPERSON": "Councilperson", "COUNCILOR": "Councilor",
+                 "COUNCIL": "Councilmember"}                       # "COUNCILMEMBER - COUNCIL DISTRICT 1": the list's own office word
+PARTY_RANK = {"Republican": 1, "Democrat": 2, "Libertarian": 3, "Independent": 4}      # 26 O.S. 6-106 and the Board's drawing
+NOT_CHECKED = ("The State Election Board's November list prints this contest, but this loader has not been checked against "
+               "an office of this kind, so it is not shown yet.")
 
 UNOPPOSED = ("Unopposed: the only candidate for this seat once withdrawals and contests of candidacy were settled, so the seat "
              "is not on the State Election Board's November 3 list and this name is not printed on the ballot.")
@@ -281,6 +346,47 @@ def counties_named(text, cmap, where):
     return sorted(set(out))
 
 
+def district_attorneys(data):
+    """{"districts", "one_candidate", "one_party", "more_parties"}: how the book's DISTRICT ATTORNEY section stood when
+    filing closed. Read: the section's district and party headings, and for each candidate line the five columns of
+    the filing number, to count it. No name is kept, and the city column is never placed into text."""
+    pdf = PDF(data)
+    inside, done, district, party, count = False, False, None, None, {}
+    for page, res in pdf.pages():
+        for _y, runs in pdf_rows(pdf, page, res):
+            g = name_grid(runs)
+            cand = bool(re.fullmatch(r"\d{5}", g[:NUM_END])) and not g[NUM_END:NAME_START].strip()
+            if not cand and max(r[2] for r in runs) >= 11.5:              # an office heading, 12-point
+                done = done or inside
+                inside = join(runs) == "DISTRICT ATTORNEY"
+                continue
+            if not inside:
+                continue
+            if cand:
+                if district is None or party is None:
+                    raise ValueError("a candidate before its district or party heading")
+                count[district][party] = count[district].get(party, 0) + 1
+                continue
+            heading = join(runs)                                          # compared only; never printed or stored
+            if heading.upper() in PARTIES and len(heading) < 20:
+                party = PARTIES[heading.upper()]
+                continue
+            m = re.fullmatch(r"DISTRICT (\d+)( \(unexpired\))? - (.+)", heading)
+            if m and COUNTY_LIST.fullmatch(m.group(3)):
+                district, party = m.group(1) + (" unexpired" if m.group(2) else ""), None
+                if district in count:
+                    raise ValueError("a district with two headings")
+                count[district] = {}
+        if done and not inside:
+            break
+    if not count:
+        raise ValueError("no DISTRICT ATTORNEY section")
+    out = {"districts": len(count), "one_candidate": 0, "one_party": 0, "more_parties": 0}
+    for c in count.values():
+        out["one_candidate" if sum(c.values()) == 1 else "one_party" if len(c) == 1 else "more_parties"] += 1
+    return out
+
+
 def get_book(extract_dir, cmap, say):
     """The book's state-office entries: from the federal loader's cached copy, else fetched into memory (never saved)."""
     cached = os.path.join(CACHE, "ok", "ok_2026_candidate_list_book.pdf")
@@ -299,17 +405,23 @@ def get_book(extract_dir, cmap, say):
             raise SystemExit("Oklahoma (state races): the Candidate List Book could not be read")
         ex = json.load(open(extract, encoding="utf-8"))
         say(f"    Oklahoma (state races): using the saved extract of the Candidate List Book ({ex['fetched']})")
-        return ex["rows"], ex["races"], ex["sha256"], ex["fetched"], "the saved extract"
+        return ex["rows"], ex["races"], ex["sha256"], ex["fetched"], "the saved extract", ex.get("district_attorneys")
     if data[:5] != b"%PDF-":
         raise SystemExit(f"Oklahoma (state races): {fed.BOOK_URL} did not return a PDF")
     rows, races = read_book(data, cmap)
+    try:
+        da = district_attorneys(data)
+    except Exception as e:  # noqa: BLE001  the count is one sentence of the coverage note; the races do not wait on it
+        say(f"    CHECK Oklahoma (local races): the book's district attorney section could not be counted ({type(e).__name__})")
+        da = None
     sha = hashlib.sha256(data).hexdigest()
     del data
     os.makedirs(extract_dir, exist_ok=True)
     keep = [{k: r[k] for k in ("kind", "race_id", "party", "number", "name")} for r in rows]
-    with open(extract, "w", encoding="utf-8") as fh:              # office, party, filing number and name only
-        json.dump({"url": fed.BOOK_URL, "sha256": sha, "fetched": fetched, "rows": keep, "races": races}, fh, indent=0)
-    return rows, races, sha, fetched, how
+    with open(extract, "w", encoding="utf-8") as fh:              # office, party, filing number and name only; counts for district attorneys
+        json.dump({"url": fed.BOOK_URL, "sha256": sha, "fetched": fetched, "rows": keep, "races": races, "district_attorneys": da},
+                  fh, indent=0)
+    return rows, races, sha, fetched, how, da
 
 
 # ---------- the November list ----------
@@ -387,27 +499,358 @@ def november(page, cmap):
     return races, cands, where, disagree, retention
 
 
-def get_november(extract_dir, cmap, say):
-    """The November list: the federal loader's cached copy when it is under a week old, else fetched into memory."""
-    cached = os.path.join(CACHE, "ok", "ok_2026_general_list.html")
-    page, how = None, None
-    if os.path.exists(cached) and time.time() - os.path.getmtime(cached) < 7 * 86400:
-        page, how = open(cached, encoding="utf-8").read(), "the federal loader's cached copy"
-        fetched = dt.date.fromtimestamp(os.path.getmtime(cached)).isoformat()
+LIST_TITLE = re.compile(r"<TITLE>\s*NOVEMBER / 2026\s+List of Elections\s*</TITLE>", re.I)
+
+
+def november_page(local_dir, say):
+    """(the page's text, the SHA-256 the state rows' source records, the SHA-256 of the bytes as fetched, the day
+    fetched, how it was read). The federal loader's cached copy when it is under a week old; else this loader's own
+    copy in ballot_cache/ok/local/ when that is; else fetched, checked by its title (the address is reused for every
+    election) and kept there, so that a re-run downloads nothing. The page carries sections, offices, names and
+    parties only; a copy in which any candidate cell looked like contact details would not be kept."""
+    fed_copy = os.path.join(CACHE, "ok", "ok_2026_general_list.html")
+    own_copy = os.path.join(local_dir, "ok_2026_general_list.html")
+
+    def fresh(p):
+        return os.path.exists(p) and time.time() - os.path.getmtime(p) < 7 * 86400
+
+    def from_disk(p, how):
+        raw = open(p, "rb").read()
+        page = open(p, encoding="utf-8").read() if p == fed_copy else raw.decode("utf-8", "replace")
+        return page, hashlib.sha256(raw).hexdigest(), dt.date.fromtimestamp(os.path.getmtime(p)).isoformat(), how
+
+    got = None
+    if fresh(fed_copy):
+        got = from_disk(fed_copy, "the federal loader's cached copy")
+    elif fresh(own_copy):
+        got = from_disk(own_copy, "this loader's cached copy")
     else:
+        older = [(p, how) for p, how in ((fed_copy, "the federal loader's cached copy (not refreshed)"),
+                                         (own_copy, "this loader's cached copy (not refreshed)")) if os.path.exists(p)]
+        older.sort(key=lambda x: os.path.getmtime(x[0]), reverse=True)
         try:
-            page = net.get(fed.LIST_URL, accept="text/html").decode("utf-8", "replace")
-            how, fetched = "fetched into memory", dt.date.today().isoformat()
+            raw = net.get(fed.LIST_URL, accept="text/html")
+            page = raw.decode("utf-8", "replace")
+            if not LIST_TITLE.search(page):
+                if not older:
+                    raise SystemExit("Oklahoma (state races): the List of Elections is not the November 2026 list")
+                say("    Oklahoma (state races): the Board's List of Elections address no longer shows the November 2026 list; "
+                    "using the cached copy")
+                got = from_disk(*older[0])
+            else:
+                got = (page, hashlib.sha256(raw).hexdigest(), dt.date.today().isoformat(), "fetched and cached")
+                cells = re.findall(r"<TD WIDTH=970>(.*?)</TD>", page, re.S)
+                if any(contact_like(fed.text(c), True) for c in cells):
+                    got = got[:3] + ("fetched into memory",)
+                    say("    CHECK Oklahoma (local races): a candidate cell of the November list looks like contact details; the page was not cached")
+                else:
+                    os.makedirs(local_dir, exist_ok=True)
+                    with open(own_copy + ".part", "wb") as fh:
+                        fh.write(raw)
+                    os.replace(own_copy + ".part", own_copy)
+                time.sleep(1.0)
+        except SystemExit:
+            raise
         except Exception as e:  # noqa: BLE001
-            if not os.path.exists(cached):
+            if not older:
                 raise
             say(f"    Oklahoma (state races): could not refresh the November list ({type(e).__name__}); using the cached copy")
-            page, how = open(cached, encoding="utf-8").read(), "the federal loader's cached copy (not refreshed)"
-            fetched = dt.date.fromtimestamp(os.path.getmtime(cached)).isoformat()
-    if not re.search(r"<TITLE>\s*NOVEMBER / 2026\s+List of Elections\s*</TITLE>", page, re.I):
+            got = from_disk(*older[0])
+    page, raw_sha, fetched, how = got
+    if not LIST_TITLE.search(page):
         raise SystemExit("Oklahoma (state races): the List of Elections is not the November 2026 list")
-    sha = hashlib.sha256(page.encode("utf-8")).hexdigest()
-    return november(page, cmap) + (sha, fetched, how)
+    return page, hashlib.sha256(page.encode("utf-8")).hexdigest(), raw_sha, fetched, how
+
+
+# ---------- the November list: county, city and town offices and fire protection district boards ----------
+
+def shown_local(caps):
+    """A name the list prints in capitals, in ordinary capitals as the state rows show them. A word the list itself
+    prints in mixed case (NaRISSA, McCLENDON) keeps the list's own inner capitals (NaRissa, McClendon)."""
+    caps = re.sub(r"\s+", " ", caps).strip()
+    out = []
+    for src, std in zip(caps.split(" "), proper(caps.upper()).split(" ")):
+        if src == src.upper():
+            out.append(std)
+        else:
+            out.append("".join(p.capitalize() if len(p) > 1 and p.isupper() else p
+                               for p in re.findall(r"[A-Z][a-z]+|[A-Z]+(?![a-z])|[a-z]+|[^A-Za-z]+", src)))
+    t = re.sub(r"(['\"(])([a-z])", lambda m: m.group(1) + m.group(2).upper(), " ".join(out))
+    return re.sub(r"\b([A-Z])\.([a-z])\b", lambda m: m.group(1) + "." + m.group(2).upper(), t)
+
+
+def slug(text):
+    """Lower-case letters and digits with hyphens between, accents folded: for ids only."""
+    t = "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def read_places(local_dir, cmap, say):
+    """({squashed "name kind": [(place code, name, [county GEOIDs])]}, the same by the bare name, SHA-256, day fetched,
+    rows read) for Oklahoma's incorporated cities and towns, from the Census Bureau's 2020 place codes file. The file
+    has names, codes and counties only; it is kept whole in ballot_cache/ok/local/ and asked for once."""
+    path = os.path.join(local_dir, "st40_ok_place2020.txt")
+    try:
+        net.download(PLACE_URL, path, 3650, say=say)
+    except Exception as e:  # noqa: BLE001
+        raise SystemExit(f"Oklahoma (local races): the Census Bureau's place codes file could not be fetched ({type(e).__name__}); "
+                         "nothing was changed. Re-run.")
+    by_full = {squash(full): geoid for geoid, full in cmap.values()}
+    exact, bare, n = {}, {}, 0
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        if fh.readline().rstrip("\r\n").split("|") != PLACE_HEAD:
+            raise SystemExit("Oklahoma (local races): st40_ok_place2020.txt: the header is not the one this loader was checked against")
+        for ln, line in enumerate(fh, start=2):
+            if not line.strip():
+                continue
+            f = line.rstrip("\r\n").split("|")
+            if len(f) != len(PLACE_HEAD) or f[1] != FIPS or not re.fullmatch(r"\d{5}", f[2]):
+                raise SystemExit(f"Oklahoma (local races): st40_ok_place2020.txt: line {ln} does not fit the header")
+            n += 1
+            if f[5] != "INCORPORATED PLACE":
+                continue
+            cids = [by_full.get(squash(c)) for c in f[8].split("~~~")]
+            if not all(cids):
+                raise SystemExit(f"Oklahoma (local races): st40_ok_place2020.txt: line {ln} names a county the county file does not have")
+            rec = (f[2], f[4], sorted(cids))
+            exact.setdefault(squash(f[4]), []).append(rec)
+            bare.setdefault(squash(re.sub(r"\s+(city|town)$", "", f[4])), []).append(rec)
+    return exact, bare, sha_of(path), mdate(path), n
+
+
+def local_office(section, heading):
+    """What one office heading of the list is, by its section: ("question",), ("county", kind, office, district,
+    special), ("city", kind, office, district, special), ("fire", special) or ("unknown",)."""
+    s = re.sub(r"\s+", " ", section).strip().upper()
+    h = re.sub(r"\s+", " ", heading).strip().upper()
+    if re.match(r"(PROPOSITION|QUESTION)\b", h):
+        return ("question",)
+    special = h.endswith(UNEXPIRED_MARK)
+    if special:
+        h = h[:-len(UNEXPIRED_MARK)]
+    if s == LEG_SECTION:
+        m = re.fullmatch(r"COUNTY COMMISSIONER DISTRICT NO\. (\d+)", h)
+        if m:
+            return ("county", "county_commissioner", "County Commissioner", str(int(m.group(1))), special)
+        if h.startswith("COUNTY ") and h[7:] in COUNTY_OFFICES:
+            return ("county",) + COUNTY_OFFICES[h[7:]] + (None, special)
+        return ("unknown",)
+    if re.fullmatch(r"(CITY|TOWN) OF .+", s):
+        if h == "MAYOR":
+            return ("city", "mayor", "Mayor", None, special)
+        m = re.fullmatch(r"COUNCILMEMBER - (" + "|".join(sorted(COUNCIL_WORDS, key=len, reverse=True)) + r") (WARD|DISTRICT) (\w+)", h)
+        if m:
+            n = m.group(3)                                             # 4, 3A and II as printed; ONE as One
+            n = n.title() if n.isalpha() and len(n) > 2 and not re.fullmatch(r"[IVX]+", n) else n
+            return ("city", "council", COUNCIL_WORDS[m.group(1)], f"{m.group(2).title()} {n}", special)
+        return ("unknown",)
+    if re.search(r"\bFIRE\b", s) and re.fullmatch(r"BOARD MEMBER - MEMBER OF (THE )?BOARD OF DIRECTORS", h):
+        return ("fire", special)
+    return ("unknown",)
+
+
+def november_local(page, cmap, places):
+    """The local contests of the November list: {"races": [sl_races rows], "cands": [sl_candidates rows], "places":
+    [sl_places rows], "gaps": [sl_gaps rows], "checks": [words], and the counts the report and the notes use}. A contest
+    is one office heading under one county, city, town or district; the same heading under the same city or district in
+    another county is the same contest, and its candidate lines there must be the same lines in the same order."""
+    exact, bare = places
+    name_of = {geoid: full for geoid, full in cmap.values()}
+    seen, order = {}, []                # (section key, office heading) -> {county GEOID: [candidate lines]}, in the list's order
+    twice, questions, section_counties = set(), set(), {}      # section_counties: every county that prints a city's or district's section
+    lines = Counter()
+    checks = []
+
+    def check(words):
+        if words not in checks:
+            checks.append(words)
+
+    parts = re.split(r"<A NAME=(\d+)>([^<]*)</A>", page)
+    for k in range(1, len(parts), 3):
+        num, county, body = parts[k], parts[k + 1].strip(), parts[k + 2]
+        if num == "00":
+            continue
+        geoid = cmap[squash(county)][0]
+        if int(geoid[2:]) != 2 * int(num) - 1:
+            check(f"{county} County is numbered {num} on the list, which is not its place in the Census county codes ({geoid})")
+        sec = key = None
+        nth = Counter()
+        for m in re.finditer(r"<TD WIDTH=(\d+)>(.*?)</TD>", body, re.S):
+            width, t = m.group(1), fed.text(m.group(2))
+            if width == "990":
+                sec, key = re.sub(r"\s+", " ", t).strip().upper(), None
+                if sec not in STATE_SECTIONS and sec != LEG_SECTION:
+                    section_counties.setdefault(sec, set()).add(geoid)
+            elif width == "980":
+                key = None
+                h = re.sub(r"\s+", " ", t).strip().upper()
+                if sec is None or sec in STATE_SECTIONS or (sec == LEG_SECTION and not h.startswith("COUNTY ")):
+                    continue                                          # the federal and state loaders' offices
+                skey = f"COUNTY {geoid}" if sec == LEG_SECTION else sec
+                if local_office(sec, h)[0] == "question":
+                    nth[(skey, h)] += 1
+                    questions.add((skey, h, nth[(skey, h)]))
+                    key = "question"
+                    continue
+                key = (skey, sec, h)
+                if key not in seen:
+                    seen[key] = {}
+                    order.append(key)
+                if geoid in seen[key]:
+                    twice.add(key)
+                seen[key].setdefault(geoid, [])
+            elif width == "970":
+                lines["all"] += 1
+                if key is None:
+                    lines["state"] += 1
+                elif key == "question":
+                    lines["under a question"] += 1
+                else:
+                    lines["local"] += 1
+                    seen[key][geoid].append(re.sub(r"\s+", " ", t).strip())
+    if lines["under a question"]:
+        check(f"{lines['under a question']} candidate lines are printed under a proposition; they are not read")
+
+    races, cands, place_rows, gaps = [], [], {}, []
+    stats = Counter()
+    used_ids = set()
+
+    def gap(scope, place_id, place, what, reason):
+        gaps.append((STATE, scope, place_id, place, what, reason, fed.LIST_URL))
+
+    for key in order:
+        skey, sec, h = key
+        by_county = seen[key]
+        cids = sorted(by_county)
+        kind = local_office(sec, h)
+        what = shown_local(h)
+        n_lines = sum(len(v) for v in by_county.values())
+
+        # where it is
+        if sec == LEG_SECTION:
+            jid, jname, level, pk = cids[0], name_of[cids[0]], "county", cids[0]
+            where = ("county", jid, jname)
+        elif re.fullmatch(r"(CITY|TOWN) OF .+", sec):
+            word, bare_name = sec.split(" OF ", 1)
+            word = word.lower()
+            hit = exact.get(squash(f"{bare_name} {word}"), [])
+            if len(hit) != 1:
+                hit = bare.get(squash(bare_name), [])
+            src = SRC_PLACES
+            if len(hit) == 1:
+                pk, jname, census = hit[0][0], hit[0][1], hit[0][2]
+                if not re.search(rf"\s{word}$", jname):
+                    jname = f"{shown_local(bare_name)} {word}"            # the Bureau's code, the Board's kind word
+                listed = section_counties[sec]
+                if not listed <= set(census):
+                    check(f"{jname}: the list files it under a county the Census place file does not name for it")
+                place_counties = sorted(set(census) | listed)
+            else:
+                pk, jname, src = f"{min(section_counties[sec])[2:]}-{slug(bare_name)}-{word}", f"{shown_local(bare_name)} {word}", SRC_LOCAL
+                place_counties = sorted(section_counties[sec])
+                check(f"{jname}: not exactly one entry in the Census place file; filed under the county code and its name")
+            jid, level = f"{STATE}-M-{pk}", "city"
+            pk = f"M-{pk}"
+            where = ("place", jid, jname)
+            place_row = ("mcd", jid, jname, json.dumps(place_counties), src)
+        elif kind[0] == "fire":
+            pk = f"{min(section_counties[sec])[2:]}-{slug(sec)}"         # no official code: the first county that prints it, and its name
+            jid, jname, level = f"{STATE}-X-{pk}", f"{shown_local(sec)} (fire protection district)", "other"
+            pk = f"X-{pk}"
+            where = ("place", jid, jname)
+            place_row = ("special", jid, jname, json.dumps(sorted(section_counties[sec])), SRC_LOCAL)
+        else:
+            for g in cids:                                              # a section of a kind this loader does not know
+                gap("county", g, name_of[g], f"{shown_local(sec)}: {what}", NOT_CHECKED)
+            check(f"a section this loader does not know is not loaded: {sec} / {h} ({n_lines} candidate lines)")
+            stats["contests not loaded"] += 1
+            stats["lines not placed"] += n_lines
+            continue
+        if kind[0] == "unknown":
+            gap(where[0], where[1], where[2], what, NOT_CHECKED)
+            check(f"an office this loader does not know is not loaded: {jname} / {h} ({n_lines} candidate lines)")
+            stats["contests not loaded"] += 1
+            stats["lines not placed"] += n_lines
+            continue
+
+        # what it is
+        if kind[0] == "fire":
+            okind, office, district, special = "fire_board", "Member of the Board of Directors", None, kind[1]
+        else:
+            _, okind, office, district, special = kind
+        rid = f"2026-{STATE}-{pk}-{okind.replace('_', '-')}" + (f"-{slug(district)}" if district else "") + ("-S" if special else "")
+        title = office + (f", {'District ' + district if district.isdigit() else district}" if district else "")
+
+        def leave_out(reason):
+            gap("race", rid, jname, title, reason)
+            check(f"{rid}: {reason}")
+            stats["contests not loaded"] += 1
+            stats["lines not placed"] += n_lines
+
+        if rid in used_ids or key in twice:
+            leave_out("The State Election Board's November list prints this contest twice under one county, so its candidates cannot be "
+                      "told apart; it is not shown.")
+            continue
+        versions = {tuple(v) for v in by_county.values()}
+        if len(versions) != 1:
+            leave_out("The State Election Board's November list prints this contest under several counties and their lists of "
+                      "candidates do not agree, so it is not shown.")
+            continue
+        printed = list(versions.pop())
+
+        # who is in it
+        labelled = [ln.rpartition(",")[2].strip().upper() in PARTIES and bool(ln.rpartition(",")[0].strip()) for ln in printed]
+        if level == "county" and not all(labelled):
+            leave_out("A candidate line of this contest on the State Election Board's November list does not end with a party, "
+                      "so the contest is not shown.")
+            continue
+        if level != "county" and any(labelled) and not all(labelled):
+            leave_out("Some candidate lines of this contest on the State Election Board's November list carry a party and some "
+                      "do not, so the contest is not shown.")
+            continue
+        partisan = 1 if printed and all(labelled) else (1 if level == "county" else 0)
+        entries = []
+        for ln in printed:
+            if partisan:
+                name, _, label = ln.rpartition(",")
+                party = PARTIES[label.strip().upper()]
+                entries.append((re.sub(r"\s+", " ", name).strip(), party, party_code(party)))
+            else:
+                entries.append((ln, NONPARTISAN, NP_CODE))
+        if any(not NAME_OK.fullmatch(n) or contact_like(n, True) for n, _p, _c in entries):
+            leave_out("A candidate line of this contest on the State Election Board's November list does not read as a name, "
+                      "so the contest is not shown.")
+            continue
+        names = [shown_local(n) for n, _p, _c in entries]
+        if len(set(names)) != len(names):
+            leave_out("The State Election Board's November list prints the same name twice in this contest, so it is not shown.")
+            continue
+        ranks = [PARTY_RANK.get(p, 0) for _n, p, _c in entries]
+        ordered = bool(level == "county" and partisan and all(ranks) and all(a < b for a, b in zip(ranks, ranks[1:])))
+        if level == "county" and entries and not ordered:
+            check(f"{rid}: the list's order is not the order of the parties' drawing, or two candidates share a label; no ballot order stored")
+        used_ids.add(rid)
+        note = " ".join(x for x in (UNEXPIRED_NOTE if special else None, None if entries else NO_CANDIDATE) if x) or None
+        races.append((rid, STATE, level, okind, office, jname, jid, json.dumps(cids), district, None, 1 if special else 0, partisan,
+                      None, None, None, GENERAL, note))
+        for i, (shown_name, (_n, party, code)) in enumerate(zip(names, entries), start=1):
+            cands.append((rid, "general", GENERAL, shown_name, party, code, i if ordered else None, 0, 0, None, None, None, None,
+                          SRC_LOCAL, None))
+        if level != "county":
+            place_rows[place_row[1]] = place_row
+        stats["contests"] += 1
+        stats["candidates"] += len(entries)
+        stats["lines placed"] += n_lines
+        stats["printed"] += len(by_county)
+        stats["in several counties"] += 1 if len(by_county) > 1 else 0
+        stats[f"level {level}"] += 1
+        stats[f"kind {okind}"] += 1
+        stats["special"] += 1 if special else 0
+        stats["with ballot order"] += 1 if ordered else 0
+    return {"races": races, "cands": cands, "places": list(place_rows.values()), "gaps": gaps, "checks": checks, "stats": stats,
+            "lines": lines, "questions": len(questions),
+            "counties": sorted({c for r in races for c in json.loads(r[7])}),
+            "cities": sorted({r[5] for r in races if r[2] == "city"})}
 
 
 # ---------- withdrawals and contests of candidacy ----------
@@ -523,12 +966,15 @@ def mdate(path):
 
 # ---------- the load ----------
 
-def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok")):
+def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LOCAL_DIR):
     net.patient_lookups()
     cmap = counties()
     seats, offices, as_of, forms = roster()
-    filers, book_races, b_sha, b_fetched, b_how = get_book(extract_dir, cmap, say)
-    l_races, l_cands, l_where, disagree, retention, l_sha, l_fetched, l_how = get_november(extract_dir, cmap, say)
+    filers, book_races, b_sha, b_fetched, b_how, da = get_book(extract_dir, cmap, say)
+    page, l_sha, l_raw_sha, l_fetched, l_how = november_page(local_dir, say)
+    l_races, l_cands, l_where, disagree, retention = november(page, cmap)
+    place_lists = read_places(local_dir, cmap, say)
+    loc = november_local(page, cmap, place_lists[:2])
     wd = get_withdrawals(say)
     ct = get_contests(extract_dir, say)
     checks = []
@@ -756,22 +1202,76 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok")):
                           h["party"] if h else None, GENERAL,
                           " ".join([x for x in (n_special.get(rid), n_status.get(rid), n_holder.get(rid)) if x] + n_extra.get(rid, [])) or None))
 
-    place_rows = [("county", geoid, full, None, SRC_COUNTIES) for geoid, full in sorted(cmap.values())]
+    county_rows = [("county", geoid, full, json.dumps([geoid]), SRC_COUNTIES) for geoid, full in sorted(cmap.values())]
     wd_before = [f for f in wd_state if f["withdrew"] < PRIMARY]
     wd_after = [f for f in wd_state if f["withdrew"] >= PRIMARY]
     n_gen = sum(1 for c in cand if c[1] == "general" and c[11] != "unopposed")
     n_state_filers = sum(1 for f in filers if f["race_id"] in race_info)
 
+    # ---- the local rows: places, notes, gaps and their sources
+    clash = {r[0] for r in race_rows} & {r[0] for r in loc["races"]}
+    if clash:
+        raise SystemExit(f"Oklahoma (local races): a local race id is also a state race's ({sorted(clash)[0]}); nothing was changed")
+    ls, lines = loc["stats"], loc["lines"]
+    place_rows = county_rows + sorted(loc["places"])
+    _, _, p_sha, p_fetched, p_rows = place_lists
+
+    def and_list(items):
+        return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+    cities = [re.sub(r"\s+(city|town)$", "", n) for n in loc["cities"]]
+    calendar = ("On November 3, 2026 every Oklahoma county elects a county assessor, a county treasurer and the county commissioners "
+                "for Districts 1 and 3, by party; the county clerk, court clerk, sheriff and District 2 commissioner are elected in "
+                "2028. Fire protection districts elect board members each November, without parties"
+                + (f", and {and_list(cities)} {'has' if len(cities) == 1 else 'have'} city contests on this ballot. Most other "
+                   if cities else ". Most ")
+                + "cities and towns elect in April of odd-numbered years (a city with its own charter may choose another date), and "
+                  "school boards were elected on February 10 and April 7, 2026.")
+    if da and not da["more_parties"]:
+        da_words = (f"; that is why no district attorney appears (of the {da['districts']} offices, {da['one_candidate']} had one "
+                    f"candidate when filing closed and {da['one_party']} had candidates of one party only)")
+    elif da:
+        da_words = (f"; no district attorney is on the list, though {da['more_parties']} of the {da['districts']} offices drew "
+                    "candidates of more than one party")
+        loc["checks"].append(f"{da['more_parties']} district attorney offices drew candidates of more than one party, yet none is on the November list")
+    else:
+        da_words = "; no district attorney is on the list"
+    coverage = ("From the State Election Board's November 3 list, read county by county for all 77 counties: every contest it prints "
+                f"for a county office, a city or town office or a fire protection district board ({ls['contests']} contests, "
+                f"{ls['candidates']} candidates, in {len(loc['counties'])} counties). Oklahoma prints only contested races: an office "
+                "with one candidate left, or one settled in the June 16 primary or the August 25 runoff, is not on the ballot and is "
+                f"not shown{da_words}. Not loaded: the {loc['questions']} local propositions and questions on the list.")
+    note_rows = [
+        (STATE, "local_calendar", calendar,
+         "19 O.S. 131 (county officers) and 901.5 (fire protection districts); 11 O.S. 16-102 and 16-103 (cities and towns); "
+         "Oklahoma State Election Board, 2026 Voter Information Calendar (school board election dates)", CALENDAR_URL),
+        (STATE, "local_coverage", coverage,
+         "Oklahoma State Election Board, NOVEMBER / 2026 List of Elections, and Candidates for Office 2026 (who filed for district "
+         "attorney); 26 O.S. 6-102 (an unopposed candidate is not printed on the ballot)", fed.LIST_URL),
+    ]
+    gap_rows = loc["gaps"] + [
+        (STATE, "state", STATE, NAME, "county officers elected without a November contest",
+         "Oklahoma leaves an office off the ballot when one candidate is left or a primary or runoff settled it, so those county "
+         "officers are not on the State Election Board's November list. Who filed and who won is published on the Board's filing "
+         "portal and results site, which refuse scripts, so they are not shown here.", FILING_URL)]
+    made = re.search(r"created on:\s*(\d{1,2})/(\d{1,2})/(\d{4})", page, re.I)
+    l_published = f"{made.group(3)}-{int(made.group(1)):02d}-{int(made.group(2)):02d}" if made else ""
+    kinds = ", ".join(f"{k[5:].replace('_', ' ')} {v}" for k, v in sorted(ls.items()) if k.startswith("kind "))
+
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
     with con:
         con.execute("DELETE FROM sl_candidates WHERE race_id LIKE '2026-OK-%'")
         con.execute("DELETE FROM sl_races WHERE state = 'OK'")
         con.execute("DELETE FROM sl_sources WHERE state = 'OK'")
-        con.execute("DELETE FROM sl_places WHERE kind = 'county' AND id GLOB '40[0-9][0-9][0-9]'")
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cand)
+        con.execute("DELETE FROM sl_places WHERE source_id LIKE 'ok-%' OR (kind = 'county' AND id GLOB '40[0-9][0-9][0-9]')")
+        con.execute("DELETE FROM sl_gaps WHERE state = 'OK'")
+        con.execute("DELETE FROM sl_notes WHERE state = 'OK'")
+        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + loc["races"])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cand + loc["cands"])
         con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+        con.executemany("INSERT OR REPLACE INTO sl_gaps VALUES (?,?,?,?,?,?,?)", gap_rows)
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", note_rows)
         src = [
             (SRC_GENERAL, STATE, "official candidate list", "Oklahoma State Election Board",
              "NOVEMBER / 2026 List of Elections (November 3, 2026 General Election), county by county: state officers, "
@@ -806,8 +1306,28 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok")):
             (SRC_COUNTIES, STATE, "boundaries", "U.S. Census Bureau",
              "Cartographic boundary file, counties, 2024, 1:500,000 (cb_2024_us_county_500k)",
              "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip", "", mdate(COUNTY_ZIP),
-             sha_of(COUNTY_ZIP), len(place_rows), "Oklahoma's 77 counties: names and GEOIDs only; a race's county_ids are the "
+             sha_of(COUNTY_ZIP), len(county_rows), "Oklahoma's 77 counties: names and GEOIDs only; a race's county_ids are the "
              "counties the book names for its district."),
+            (SRC_LOCAL, STATE, "official candidate list", "Oklahoma State Election Board",
+             "NOVEMBER / 2026 List of Elections (November 3, 2026 General Election), county by county: county officers, city and "
+             "town officers and fire protection district boards", fed.LIST_URL, l_published, l_fetched, l_raw_sha, ls["candidates"],
+             f"Read for all 77 counties (from {l_how}): under each county, the county offices in the list's legislative, district "
+             f"and county section and every city, town and fire district section. {ls['lines placed']} candidate lines in "
+             f"{ls['printed']} printed contests gave {ls['candidates']} candidates in {ls['contests']} contests ({kinds}); "
+             f"{ls['in several counties']} contests are printed under more than one county, and every county's copy agreed. Read: "
+             "the section, the office and the candidate line (a name, and a party on county offices); the page has no contact "
+             "columns. Names are printed in capitals and shown in ordinary capitals. County offices carry the ballot order: "
+             "parties in the order of the Board's drawing, then independents, as 26 O.S. 6-106 sets it and the list follows. For "
+             "city, town and fire district offices the list does not say that its order is the ballot's, so none is given. Only "
+             f"contested races are printed. Not loaded: {loc['questions']} local propositions and questions"
+             + (f"; {ls['contests not loaded']} contests this loader could not read (see the gaps)" if ls["contests not loaded"] else "")
+             + ". The SHA-256 is of the page's bytes as fetched."),
+            (SRC_PLACES, STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, Oklahoma (st40_ok_place2020.txt)",
+             PLACE_URL, "", p_fetched, p_sha, p_rows,
+             "Names and FIPS place codes of Oklahoma's incorporated cities and towns, and the counties each lies in. A city or "
+             "town on the Board's November list is matched by its name and kind word to exactly one entry and named as the "
+             f"Bureau writes it; {sum(1 for p in loc['places'] if p[4] == SRC_PLACES)} are used. Read: name, code, type and "
+             "counties; the file has no contact columns and is kept whole."),
         ]
         con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
     con.close()
@@ -838,9 +1358,28 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok")):
     if skipped_courts:
         say(f"    Oklahoma (state races): judges' seats in the book not on the November list (not loaded): "
             + ", ".join(f"{v} {k}" for k, v in sorted(skipped_courts.items())))
+    flagged = sum(1 for r in race_rows if r[16] and contact_like(r[16], True))
+    if flagged:
+        checks.append(f"{flagged} race notes name a web site (the Board's results site): ballot/check_local.py fails on them and the "
+                      "page's privacy check leaves such notes out. They are written unchanged; rewording them (RESULTS_REFUSED in "
+                      "this file) would change rows already loaded, so that is left for John to decide")
     for c in checks:
         say(f"    CHECK Oklahoma (state races): {c}")
-    return len(cand)
+    say(f"    Oklahoma (local races): {ls['contests']} contests, {ls['candidates']} candidates on the November list: county "
+        f"{ls['level county']}, city and town {ls['level city']}, fire protection district boards {ls['level other']} ({kinds}); "
+        f"{ls['special']} for the rest of a term; in {len(loc['counties'])} of 77 counties; ballot order kept for "
+        f"{ls['with ballot order']} county contests; {len(loc['places'])} cities and districts, {len(gap_rows)} gap(s) written")
+    placed = ls["lines placed"] + ls["lines not placed"]
+    say(f"    Oklahoma (local races): reconciled: the list's {lines['all']:,} candidate lines = {lines['state']:,} under federal, state, "
+        f"legislative and judicial offices + {lines['local']} under local offices"
+        + (f" + {lines['under a question']} under propositions" if lines["under a question"] else "")
+        + f"; of the local lines {ls['lines placed']} in {ls['printed']} printed contests gave {ls['candidates']} candidates in "
+        f"{ls['contests']} contests ({ls['in several counties']} printed under more than one county, every copy agreeing), "
+        f"{ls['lines not placed']} not placed; {loc['questions']} local propositions and questions not loaded"
+        + ("" if placed == lines["local"] and lines["state"] + lines["local"] + lines["under a question"] == lines["all"] else "  (DOES NOT ADD UP)"))
+    for c in loc["checks"]:
+        say(f"    CHECK Oklahoma (local races): {c}")
+    return len(cand) + len(loc["cands"])
 
 
 if __name__ == "__main__":

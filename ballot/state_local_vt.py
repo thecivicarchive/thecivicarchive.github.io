@@ -3,7 +3,9 @@ ballot/state_local_vt.py - Vermont's state races on the November 3, 2026 ballot:
 Lieutenant Governor, State Treasurer, Secretary of State, Auditor of Accounts and Attorney General, each elected on its
 own for two years) and every seat of the General Assembly (all 30 senators from 16 senate districts and all 150
 representatives from 109 house districts, all with two-year terms, so the whole Legislature is on every November
-ballot), with each party's August 11 primary field and its official votes.
+ballot), with each party's August 11 primary field and its official votes. From the same list it also loads the local
+offices on that ballot: the five county offices of each of the 14 counties and the justices of the peace of every town
+and city (see "The local level" below).
 
 Sources, all the Secretary of State's (Elections Division), the same files the federal loader reads (ballot/lists/vt.py):
   - "2026 General Election Candidate Listing/Financial Disclosure" (candidates/2026_general_election_qualified_candidates
@@ -46,7 +48,39 @@ A primary is a field when more candidates were on the party's primary than it no
 A field's total is its candidates' votes plus every write-in vote (blank votes and spoiled ballots left out), as on the
 federal page; the Secretary's winner listing prints percentages of all votes counted, blanks included, so the two differ.
 
-    python -m ballot.state_local_vt <path to a test database>
+The local level (county offices and justices of the peace), from the same November list
+---------------------------------------------------------------------------------------
+Vermont's November ballot carries two kinds of local office, both with parties (Vermont Constitution, chapter II,
+sections 43 and 50 to 52): in each of the 14 counties two Assistant Judges, a Probate Judge, a State's Attorney and a
+Sheriff (four years) and a High Bailiff (two years); and in each of the 247 towns and cities its Justices of the Peace
+(two years; from three to fifteen seats, one race per town with "Voters choose N."). Selectboards, town clerks, city
+councils, mayors, village trustees and school boards are chosen at annual meetings in March or spring (17 V.S.A. 2640,
+2646; 16 V.S.A. 423) and are not on this ballot; sl_notes says so, and sl_gaps names what cannot be seen from here.
+  - The candidates come from the same workbook the state rows do. Its county and town rows are cut down in memory to
+    six cells found by their headings (Contest, District Name, Name On Ballot, Party, Vote for Count, Term Length(Years))
+    and only that cut-down copy is kept, as JSON, in ballot_cache/vt/local/, with the SHA-256 of the workbook as it came.
+    It is cut from the very workbook the state rows were (same SHA-256): if the list has changed since the state rows'
+    copy was made, both copies are made again from one download.
+  - The contests come from the Secretary's election results site, which already lists the November 3 general election
+    (no votes yet): its election list, the election's index (the town table: each town's county) and its county and town
+    files, read as the page's own script reads them. They carry no contact details; only each contest's office, county
+    or town, number to elect and the names and parties under it are kept. This second route is the control (every
+    contest, name, party and number to elect must agree with the list; a difference is reported and filed in sl_gaps,
+    never patched) and the reason a town with no candidate still has its race (kept, with a note). Ballot questions in
+    the town file are counted and never read. A town election a clerk has listed for the same day (Danby, with nothing
+    posted on 2026-09-30) is named in sl_gaps.
+  - Places: a county office is filed under the county's five-digit code; a town or city under VT-M-<code>, the Census
+    Bureau's county subdivision code from its 2024 cartographic boundary file (attribute table only), matched within
+    the town's county by name (SAINT for St., CITY or TOWN where two places share a name) and only when exactly one
+    fits. Vermont towns are the township tier (level township); the ten cities are level city.
+  - Names are shown in ordinary capitals as on the state rows. No ballot order is stored: the list states none, and
+    although the ballot is printed alphabetically by surname (17 V.S.A. 2472(b)(2)) the Secretary's two publications
+    order two candidates of one surname differently in places. The ten justice candidates whose party cell reads
+    UNKNOWN are shown as "Party not given". A local candidate is never matched to the roster: no member link, no
+    incumbent mark. Nothing is printed while loading but counts and race ids; a stop names the file, the row's number
+    and the check that failed, never the row.
+
+    python -m ballot.state_local_vt <path to a test database> [cache folder] [local cache folder]
 """
 
 import datetime as dt
@@ -61,8 +95,11 @@ import time
 import zipfile
 from collections import Counter, defaultdict
 
+from urllib.error import HTTPError, URLError
+
 import openpyxl
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like
 from ballot.common import CACHE, HERE, fold, name_parts, party_code
 from ballot.match import fits
 from ballot.pdftext import PDF, page_runs
@@ -135,6 +172,39 @@ SENATE_PART = {"CT": "Central", "N": "North", "SE": "Southeast"}
 LABEL = {"WRITE-IN": "Write-In", "OVERVOTES": "Overvotes", "BLANK VOTES": "Blank votes", "TOTAL VOTES COUNTED": "Total"}
 NUMBER = re.compile(r"\d{1,3}(?:,\d{3})+|\d+")
 
+# ---- the local level: county offices and justices of the peace (see the docstring)
+SRC_L_LIST, SRC_L_ELECTIONS = "vt-sos-2026-local-general-list", "vt-sos-2026-local-results-election-list"
+SRC_L_INDEX, SRC_L_COUNTY, SRC_L_TOWN = "vt-sos-2026-local-november-index", "vt-sos-2026-local-november-county-contests", "vt-sos-2026-local-november-town-contests"
+SRC_L_COUSUB, SRC_L_OTHER = "vt-census-2024-county-subdivisions", "vt-sos-2026-local-town-election-"
+LOCAL_LAYOUT = 1                                   # of the two cut-down copies; a copy of another layout is made again
+LOCAL_MAX_AGE = 2                                  # days the November contests are used again (the list's own copy follows the state rows')
+LOCAL_LIST_FILE, NOV_FILE = "vt_2026_local_general_list.json", "vt_2026_local_november_contests.json"
+LOCAL_SHEET, LOCAL_FIRST = "Candidate Listing", "Contest"
+LOCAL_KEEP = ("Contest", "District Name", "Name On Ballot", "Party", "Vote for Count", "Term Length(Years)")
+LIST_NAME = "2026_general_election_qualified_candidates.xlsx"
+COUSUB_URL = "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_50_cousub_500k.zip"
+COUSUB_FILE = "cb_2024_50_cousub_500k.zip"
+CONSTITUTION = "https://legislature.vermont.gov/statutes/constitution-of-the-state-of-vermont/"
+PAUSE = 1.2                                        # seconds between two requests to one host
+JP, JP_KIND, JP_OFFICE = "JUSTICE OF THE PEACE", "justice_of_the_peace", "Justice of the Peace"
+# the list's contest -> (office_kind, the office as a ballot prints it, the term the Constitution or the list gives it), in ballot order
+COUNTY_OFFICES = {"PROBATE JUDGE": ("probate_judge", "Probate Judge", "4"), "ASSISTANT JUDGE": ("assistant_judge", "Assistant Judge", "4"),
+                  "STATE'S ATTORNEY": ("county_attorney", "State's Attorney", "4"), "SHERIFF": ("sheriff", "Sheriff", "4"),
+                  "HIGH BAILIFF": ("high_bailiff", "High Bailiff", "2")}
+JP_TERM = "2"
+SEATS = {w: i for i, w in enumerate("ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN TWELVE THIRTEEN FOURTEEN FIFTEEN".split(), start=1)}
+PLACE_CELL = re.compile(r"[A-Z][A-Z .'&-]{0,40}")                    # a county's or a town's name as the Secretary writes it
+PARTY_CELL = re.compile(r"[A-Z][A-Z .'&/-]{0,60}")
+OFFICE_CELL = re.compile(r"[A-Z][A-Z0-9 .'&/-]{0,60}")
+GUID = re.compile(r"[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}")
+NO_PARTY, NO_PARTY_WORDS = "UNKNOWN", "Party not given"
+NO_PARTY_NOTE = "The Secretary of State's list prints \"UNKNOWN\" where this candidate's party would be."
+EMPTY = ("No candidate is listed: the Secretary of State's candidate list has no name for this office here, and the Secretary's results site "
+         "shows the contest with none.")
+# the page builder's own last check is a little wider than the trial check's (it also stops at Court and Place)
+BUILDER_STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|Ln|Lane|Way|Ct|Court|"
+                            r"Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
+
 CAPS = "Vermont's list prints names in capitals; they are shown here in ordinary capitals."
 WRITE_WON = "Write-in candidate: the name was not printed on this party's primary ballot; the write-in votes won the nomination."
 WRITE_WON_REG = ("Registered write-in candidate: the name was not printed on this party's primary ballot; the write-in votes won the "
@@ -162,13 +232,19 @@ def today():
 
 # ------------------------------------------------------------------------------------------------ the workbooks
 
+_BOOKS = {}                                                                    # a workbook is asked for once in a run
+
+
 def book(url):
     """A workbook of the Secretary's, read in memory (it carries contact columns, so it is never saved), with its
-    fingerprint."""
-    raw = net.get(url)
-    if raw[:2] != b"PK":
-        raise SystemExit(f"Vermont: {url} is not a workbook")
-    return openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True), sha(raw)
+    fingerprint. Within one run a workbook is downloaded once, so the state rows and the local rows are cut from the
+    same bytes; load() forgets it when it ends."""
+    if url not in _BOOKS:
+        raw = net.get(url)
+        if raw[:2] != b"PK":
+            raise SystemExit(f"Vermont: {url} is not a workbook")
+        _BOOKS[url] = (openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True), sha(raw))
+    return _BOOKS[url]
 
 
 def sheet_rows(ws, keep, first):
@@ -566,9 +642,683 @@ def file_facts(path):
     return sha(raw), dt.datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d")
 
 
+# ------------------------------------------------------------------------------------------------ the local level
+
+def reads_like_contact(text):
+    """The trial check's test and the page builder's slightly wider one, on one piece of text."""
+    return bool(text) and (contact_like(text, True) or bool(BUILDER_STREET.search(str(text))))
+
+
+def local_name(caps):
+    """A name printed in capitals in ordinary capitals, by ordinary()'s rules, with the marks around a nickname set
+    aside first, so that initials inside them stay capitals ("J.J."), and a capital after D' or L' as after O'."""
+    out = []
+    for i, w in enumerate(squash(caps).split()):
+        lead, core, trail = re.fullmatch(r"([\"'(]*)(.*?)([\"'),]*)", w).groups()
+        if i and re.fullmatch(r"[IVX]+", core):
+            shown = core
+        else:
+            shown = ordinary(core) if core else ""
+            shown = "-".join(re.sub(r"^([A-Z])'([a-z])", lambda m: m.group(1) + "'" + m.group(2).upper(), p) for p in shown.split("-"))
+        out.append(lead + shown + trail)
+    return " ".join(out)
+
+
+def local_cut(wb, digest):
+    """The county and town rows of the general workbook, cut down in memory to six cells found by their headings
+    (LOCAL_KEEP), each with the number of the sheet row it came from. No other cell of any row is read, and the state
+    and federal rows are only counted. A name that reads like contact details is never kept (it is blanked and counted);
+    any other cell that is not what its column holds stops the loader, which names the row, never the cell."""
+    if LOCAL_SHEET not in wb.sheetnames:
+        raise SystemExit(f"Vermont: {LIST_NAME} has no {LOCAL_SHEET!r} sheet")
+    idx, contest, rows, other, blanked, read = None, "", [], Counter(), 0, 0
+    for n, r in enumerate(wb[LOCAL_SHEET].iter_rows(values_only=True), start=1):
+        if idx is None:
+            if r and squash(r[0]) == LOCAL_FIRST:
+                head = [squash(h) for h in r]
+                missing = [k for k in LOCAL_KEEP if k not in head]
+                if missing:
+                    raise SystemExit(f"Vermont: {LIST_NAME}, sheet row {n}: the heading row no longer has the columns {missing}")
+                idx = {k: head.index(k) for k in LOCAL_KEEP}
+            continue
+        cell = {k: squash(r[i]) if i < len(r) else "" for k, i in idx.items()}
+        if not any(cell.values()):
+            continue
+        read += 1
+        contest = cell["Contest"] or contest                                  # a contest is named on its first row
+        c = contest.upper()
+        where = f"Vermont: {LIST_NAME}, sheet row {n}"
+        if c not in COUNTY_OFFICES and c != JP:
+            if c in STATEWIDE or c in LEGISLATURE:
+                other["state"] += 1
+            elif c.replace("U.S. ", "") in FEDERAL:
+                other["federal"] += 1
+            else:
+                raise SystemExit(f"{where}: an office this loader does not know; stopping (the row is not shown)")
+            continue
+        district, name, party, seats, term = (cell[k] for k in LOCAL_KEEP[1:])
+        if not PLACE_CELL.fullmatch(district) or reads_like_contact(district):
+            raise SystemExit(f"{where}: the District Name cell is not a county's or a town's name; stopping (the row is not shown)")
+        if not PARTY_CELL.fullmatch(party) or reads_like_contact(party):
+            raise SystemExit(f"{where}: the Party cell is not a party's name; stopping (the row is not shown)")
+        if seats not in SEATS and not (seats.isdigit() and 1 <= int(seats) <= 30):
+            raise SystemExit(f"{where}: the Vote for Count cell is not a number this loader reads; stopping (the row is not shown)")
+        if term and not re.fullmatch(r"\d{1,2}", term):
+            raise SystemExit(f"{where}: the Term Length(Years) cell is not a number of years; stopping (the row is not shown)")
+        if not name or len(name) > 80 or reads_like_contact(name):
+            name, blanked = "", blanked + 1                                   # never kept, never shown; counted
+        rows.append([n, c, district, name, party, SEATS.get(seats) or int(seats), term])
+    if idx is None:
+        raise SystemExit(f"Vermont: {LIST_NAME}: no heading row beginning {LOCAL_FIRST!r} on the sheet {LOCAL_SHEET!r}")
+    write_ins = 0                # a registered write-in for a county or town office (17 V.S.A. 2472(b)(5) asks registration of state and federal ones only)
+    for sheet in wb.sheetnames:
+        if "WRITE-IN" in sheet.upper():
+            for r in sheet_rows(wb[sheet], ("OFFICE",), "OFFICE"):
+                write_ins += r["OFFICE"].upper() in COUNTY_OFFICES or r["OFFICE"].upper().startswith(JP)
+    return {"layout": LOCAL_LAYOUT, "url": GENERAL_XLSX, "sha256": digest, "fetched": today(), "updated": updated(wb, "Selection Criteria"),
+            "rows_read": read, "other": dict(other), "blanked": blanked, "write_ins": int(write_ins),
+            "kept": "of each county or town row: the sheet row's number, contest, district name, name on ballot, party, number to elect, term in years; "
+                    "no other cell of the workbook",
+            "rows": rows}
+
+
+def write_json(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path + ".part", "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=1)
+    os.replace(path + ".part", path)
+
+
+def local_list(folder, state_sha):
+    """The cut-down copy of the list's county and town rows: the one on disk when it was cut from the same workbook the
+    state rows were (the same SHA-256, and no workbook read in this run), else cut now from the run's one download.
+    Returns (the copy, True when it was cut in this run)."""
+    path = os.path.join(folder, LOCAL_LIST_FILE)
+    if GENERAL_XLSX not in _BOOKS and os.path.exists(path):
+        try:
+            old = json.load(open(path, encoding="utf-8"))
+        except ValueError:
+            old = {}
+        if old.get("layout") == LOCAL_LAYOUT and old.get("sha256") == state_sha:
+            return old, False
+    cut = local_cut(*book(GENERAL_XLSX))
+    write_json(path, cut)
+    return cut, True
+
+
+def site_json(url):
+    """One file of the results site, asked for as its own page asks: (what it holds, its address, fingerprint and size)."""
+    raw = net.get(url)
+    return json.loads(raw), {"url": url, "sha256": sha(raw), "bytes": len(raw)}
+
+
+def site_path(index, part):
+    """The address of one of an election's files, from the path its index gives (elections\\<id>-cty-<time>.json)."""
+    path = str((index.get(part) or {}).get("path") or "")
+    if not re.fullmatch(r"elections[\\/]" + GUID.pattern + r"-[a-z]+-\d{6,20}\.json", path):
+        raise SystemExit(f"Vermont: the results site's index gives its {part} file a path that is not read; stopping")
+    return ENR_STATIC + path.replace("\\", "/")
+
+
+def site_names(rows, where):
+    """[name, party] of each candidate row under a contest on the results site, with how many names were blanked
+    because they read like contact details and how many rows were write-ins (counted, not kept)."""
+    names, blanked, written = [], 0, 0
+    for x in rows or []:
+        if x.get("isWriteIn"):
+            written += 1
+            continue
+        name, party = squash(x.get("cn")), squash(x.get("pn"))
+        if party and (not PARTY_CELL.fullmatch(party) or reads_like_contact(party)):
+            raise SystemExit(f"Vermont: {where}: a party cell that is not a party's name; stopping (the row is not shown)")
+        if not name or len(name) > 80 or reads_like_contact(name):
+            name, blanked = "", blanked + 1
+        names.append([name, party])
+    return names, blanked, written
+
+
+def office_words(text):
+    """An office's name from the results site, kept only when it is plainly office words."""
+    t = squash(text).upper()
+    return t if OFFICE_CELL.fullmatch(t) and not reads_like_contact(t) else ""
+
+
+def november_fetch():
+    """The November 3 general election as the Secretary's results site lists it before any vote is counted: the town
+    table, and every county and town contest with its number to elect and the names and parties under it. Cut down
+    as it is read; votes, ids and ballot questions' words are never kept."""
+    elections, f_list = site_json(ENR_LIST)
+    day = [e for e in elections if str(e.get("electionDate", "")).startswith(GENERAL)]
+    mine = [e for e in day if e.get("isStateWideElection") and e.get("electionTypeCode") == "G"]
+    if len(mine) != 1:
+        raise SystemExit(f"Vermont: the results site lists {len(mine)} statewide general elections on {GENERAL}")
+    guid = str(mine[0].get("electionGuid") or "")
+    if not GUID.fullmatch(guid):
+        raise SystemExit("Vermont: the results site's id for the general election is not read; stopping")
+    time.sleep(PAUSE)
+    index, f_index = site_json(f"{ENR_STATIC}elections/{guid}.json")
+    det = index["electionDetails"]
+    if not str(det.get("electionDate", "")).startswith(GENERAL) or not det.get("isGeneralElection"):
+        raise SystemExit("Vermont: the results site's index is not the November 3 general election's; stopping")
+    towns = {}
+    for n, t in enumerate(index["townDistricts"], start=1):
+        town, county = squash(t.get("townName")), squash(t.get("countyName"))
+        if not PLACE_CELL.fullmatch(town) or not PLACE_CELL.fullmatch(county) or towns.setdefault(town, county) != county:
+            raise SystemExit(f"Vermont: the results site's town table, entry {n}: a town or county name that is not read, or a town in two counties; stopping")
+    if {squash(t.get("townName")) for t in index.get("towns") or []} != set(towns):
+        raise SystemExit("Vermont: the results site's town list and its town table do not name the same towns; stopping")
+    for part in ("county", "town"):
+        if not (index.get(part) or {}).get("isEnable"):
+            raise ValueError(f"the results site has not posted the {part} contests")
+    files, blanked, written = {"elections": f_list, "index": f_index}, 0, 0
+
+    time.sleep(PAUSE)
+    data, files["county"] = site_json(site_path(index, "county"))
+    if len(data["d"]) != 1:
+        raise SystemExit("Vermont: the results site's county file is not laid out as one block; stopping")
+    county = []
+    for n, c in enumerate(data["d"][0]["co"], start=1):
+        wide = [x for x in c.get("cs") or [] if x.get("tid") == 0]
+        cname = squash(c.get("ctyn"))
+        if len(wide) != 1 or not PLACE_CELL.fullmatch(cname):
+            raise SystemExit(f"Vermont: the results site's county file, contest {n}: no county name, or not exactly one county-wide row; stopping")
+        names, b, w = site_names(wide[0].get("rc"), f"the results site's county file, contest {n}")
+        blanked, written = blanked + b, written + w
+        county.append({"county": cname, "office": office_words(c.get("on")), "vote_for": int(c.get("vf") or 0), "candidates": names})
+
+    time.sleep(PAUSE)
+    data, files["town"] = site_json(site_path(index, "town"))
+    if len(data["d"]) != 1:
+        raise SystemExit("Vermont: the results site's town file is not laid out as one block; stopping")
+    town, questions = [], Counter()
+    for n, c in enumerate(data["d"][0]["o"], start=1):
+        tname = squash(c.get("tn"))
+        if tname not in towns:
+            raise SystemExit(f"Vermont: the results site's town file, contest {n}: a town that is not in its town table; stopping")
+        if c.get("otc") == "BQ" or c.get("bq"):
+            questions[tname] += 1                                             # a ballot question: counted, its words never read
+            continue
+        rows = c.get("cs") or []
+        if len(rows) != 1 or rows[0].get("tid") != c.get("tid"):
+            raise SystemExit(f"Vermont: the results site's town file, contest {n}: not exactly one row for the town; stopping")
+        names, b, w = site_names(rows[0].get("rc"), f"the results site's town file, contest {n}")
+        blanked, written = blanked + b, written + w
+        town.append({"town": tname, "office": office_words(c.get("on")), "district": bool(c.get("ld")), "vote_for": int(c.get("vf") or 0),
+                     "candidates": names})
+
+    others = []                                                               # any other election a clerk has listed for the same day
+    for e in day:
+        if e is mine[0]:
+            continue
+        g, tname = str(e.get("electionGuid") or ""), squash(e.get("town")).upper()
+        info = {"statewide": bool(e.get("isStateWideElection")), "town": tname if PLACE_CELL.fullmatch(tname) else "", "county": "",
+                "posted": False, "offices": 0, "questions": 0, "index": None}
+        if GUID.fullmatch(g):
+            time.sleep(PAUSE)
+            index2, info["index"] = site_json(f"{ENR_STATIC}elections/{g}.json")
+            where = {squash(t.get("townName")): squash(t.get("countyName")) for t in index2.get("townDistricts") or []}
+            info["county"] = where.get(info["town"], "") if PLACE_CELL.fullmatch(where.get(info["town"], "")) else ""
+            info["posted"] = any((index2.get(p) or {}).get("isEnable") for p in ("federal", "stateWide", "senate", "house", "county", "town"))
+            path = str((index2.get("town") or {}).get("path") or "")
+            if re.fullmatch(r"elections[\\/]" + GUID.pattern + r"-[a-z]+-\d{6,20}\.json", path):
+                time.sleep(PAUSE)
+                try:
+                    data2, info["town_file"] = site_json(ENR_STATIC + path.replace("\\", "/"))
+                    for block in (data2.get("d") or []) if isinstance(data2, dict) else []:
+                        for c in block.get("o") or []:
+                            info["questions" if (c.get("otc") == "BQ" or c.get("bq")) else "offices"] += 1
+                except HTTPError:
+                    pass                                                      # nothing posted under that path
+        others.append(info)
+
+    m = re.match(r"(\d\d)/(\d\d)/(\d{4})", squash(index.get("lastUpdatedDate")))
+    return {"layout": LOCAL_LAYOUT, "fetched": today(), "guid": guid, "election": squash(det.get("electionDateWithName")),
+            "official": bool(det.get("isOfficial")), "updated": f"{m.group(3)}-{m.group(1)}-{m.group(2)}" if m else "",
+            "files": files, "towns": towns, "unorganized": len(index.get("unorganisedTowns") or []), "county": county, "town": town,
+            "questions": dict(questions), "others": others, "blanked": blanked, "write_in_rows": written,
+            "kept": "the town table (town and county names); of each county and town contest the office, the county or town, the number to "
+                    "elect and the names and parties under it; how many ballot questions each town has; no vote, no id, no question's words"}
+
+
+def november(folder, refresh=False, say=print):
+    """The cut-down copy of the November contests: the one on disk while it is fresh (and the list was not cut again in
+    this run), else read now. If the site cannot be read and an older copy is on disk, that copy is used, and said."""
+    path, old = os.path.join(folder, NOV_FILE), None
+    if os.path.exists(path):
+        try:
+            old = json.load(open(path, encoding="utf-8"))
+        except ValueError:
+            old = None
+        if old and old.get("layout") != LOCAL_LAYOUT:
+            old = None
+    if old and not refresh and time.time() - os.path.getmtime(path) < LOCAL_MAX_AGE * 86400:
+        return old
+    try:
+        cut = november_fetch()
+    except (HTTPError, URLError, OSError, ValueError, KeyError, TypeError) as err:
+        if old:
+            say(f"      Vermont: the results site could not be read ({type(err).__name__}); using the copy of {old['fetched']} on disk for the November contests")
+            return old
+        raise SystemExit(f"Vermont: the results site could not be read ({type(err).__name__}: {err}) and no copy is on disk, so the county and "
+                         "town races cannot be filed; run again later")
+    write_json(path, cut)
+    return cut
+
+
+def cousub_file(folder, say=print):
+    """The Census Bureau's county subdivision file for Vermont: the kit's copy if it has one, else the local folder's,
+    downloaded once."""
+    kit = os.path.join(HERE, "states_cache", "census", COUSUB_FILE)
+    if os.path.exists(kit):
+        return kit
+    path = os.path.join(folder, COUSUB_FILE)
+    net.download(COUSUB_URL, path, 3650, say=say)
+    return path
+
+
+def census_cousubs(path):
+    """Vermont's towns, cities, gores and grant from the attribute table of the Census Bureau's county subdivision file
+    (no shapes are read): county code, five-digit code, name, name with its kind word, kind word."""
+    import shapefile                                                        # pyshp, in the kit's environment
+    z = zipfile.ZipFile(path)
+    dbf = [n for n in z.namelist() if n.lower().endswith(".dbf")]
+    if len(dbf) != 1:
+        raise SystemExit("Vermont: the Census county subdivision file does not hold exactly one attribute table")
+    out = []
+    for rec in shapefile.Reader(dbf=io.BytesIO(z.read(dbf[0]))).iterRecords():
+        r = rec.as_dict()
+        if str(r.get("STATEFP")) != FIPS:
+            continue
+        name, label = squash(r["NAME"]), squash(r["NAMELSAD"])
+        out.append({"county": FIPS + str(r["COUNTYFP"]), "code": str(r["COUSUBFP"]), "name": name, "label": label,
+                    "kind": label[len(name):].strip() if label.startswith(name) else ""})
+    codes = [c["code"] for c in out]
+    if not out or len(set(codes)) != len(codes) or any(not re.fullmatch(r"\d{5}", c) for c in codes):
+        raise SystemExit("Vermont: the Census county subdivision file's codes are not five digits, or one is used twice")
+    return out
+
+
+def town_fold(name):
+    """A town's name for comparison only: capitals, SAINT for ST., letters and spaces."""
+    t = re.sub(r"\bST\.?(?= )", "SAINT", squash(name).upper())
+    return re.sub(r"[^A-Z ]", "", t)
+
+
+def town_place(town, county, cousubs):
+    """The Census county subdivision a town of the Secretary's lists is: the one of that county with the same name
+    (ADDISON, SAINT GEORGE), or, where the list says which of two places it means (BARRE CITY, BARRE TOWN), the one of
+    that name and kind. None unless exactly one fits; nothing is guessed."""
+    key, here = town_fold(town), [c for c in cousubs if c["county"] == county]
+    hits = [c for c in here if town_fold(c["name"]) == key]
+    if len(hits) != 1:
+        m = re.fullmatch(r"(.+) (CITY|TOWN)", key)
+        hits = [c for c in here if m and town_fold(c["name"]) == m.group(1) and c["kind"] == m.group(2).lower()]
+    return hits[0] if len(hits) == 1 and hits[0]["kind"] in ("town", "city") else None
+
+
+def county_labels(path):
+    """{five-digit code: the county's name with its kind word (Addison County)} from the Census county file."""
+    import shapefile
+    z = zipfile.ZipFile(path)
+    base = next(n for n in z.namelist() if n.endswith(".dbf"))
+    out = {}
+    for r in (x.as_dict() for x in shapefile.Reader(dbf=io.BytesIO(z.read(base))).iterRecords()):
+        if r["STATEFP"] == FIPS:
+            out[str(r["GEOID"])] = squash(r.get("NAMELSAD") or f"{r['NAME']} County")
+    return out
+
+
+def words_list(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def plural(n, one, many=None):
+    return f"{n:,} {one if n == 1 else (many or one + 's')}"
+
+
+def local_level(loc, nov, counties, labels, cousubs, cousub_path, colours):
+    """Vermont's county offices and justices of the peace as rows ready to write (races, candidates, places, sources,
+    gaps, notes) with the counts behind them. Nothing here touches the database, and nothing is printed."""
+    by_county = {name: geoid for name, (geoid, _n) in counties.items()}                # ADDISON -> 50001
+    if len(labels) != 14 or set(labels) != set(by_county.values()):
+        raise SystemExit(f"Vermont: the Census county file gives {len(labels)} counties for the state, not 14")
+    problems, gaps, contests = [], [], {}
+
+    def gap(scope, pid, place, what, reason, url):
+        """One row for sl_gaps, its key (scope, place id, what) kept unique: a second gap of the same words is numbered."""
+        words, n = what, 1
+        while any(g[1:3] == (scope, pid) and g[4] == words for g in gaps):
+            n += 1
+            words = f"{what} ({n})"
+        gaps.append((STATE, scope, pid, place, words, reason, url))
+
+    def new(kind, office, geoid, place):
+        return {"kind": kind, "office": office, "county": geoid, "place": place, "site": None, "rows": [], "seats": set(), "terms": set()}
+
+    def town_of(town, where):
+        geoid = by_county.get(nov["towns"].get(town, ""))
+        place = town_place(town, geoid, cousubs) if geoid else None
+        if place is None:
+            raise SystemExit(f"Vermont: {where}: a town that the results site's town table and the Census Bureau's county subdivisions do not "
+                             "place in exactly one town or city; stopping")
+        return geoid, place
+
+    # ---- every contest the results site lists, so that a contest with no candidate is kept
+    unknown = Counter()
+    for n, c in enumerate(nov["county"], start=1):
+        geoid = by_county.get(c["county"])
+        if not geoid:
+            raise SystemExit(f"Vermont: the results site's county file, contest {n}: a county the Census Bureau's county file does not have; stopping")
+        if c["office"] not in COUNTY_OFFICES:
+            unknown[("county", geoid, c["office"])] += 1
+            continue
+        key = ("county", geoid, c["office"])
+        if key in contests:
+            raise SystemExit(f"Vermont: the results site's county file lists a county's contest twice (contest {n}); stopping")
+        contests[key] = new("county", c["office"], geoid, None)
+        contests[key]["site"] = c
+    for n, c in enumerate(nov["town"], start=1):
+        geoid, place = town_of(c["town"], f"the results site's town file, contest {n}")
+        if not c["office"].startswith(JP) or c["district"]:
+            unknown[("place", place["code"], c["office"])] += 1
+            continue
+        key = ("town", place["code"], JP)
+        if key in contests:
+            raise SystemExit(f"Vermont: the results site's town file lists a town's justices twice (contest {n}); stopping")
+        contests[key] = new("town", JP, geoid, place)
+        contests[key]["site"] = c
+
+    # ---- the candidate list's rows, each into exactly one contest
+    not_on_site = set()
+    for n, contest, district, name, party, seats, term in loc["rows"]:
+        where = f"{LIST_NAME}, sheet row {n}"
+        if contest in COUNTY_OFFICES:
+            geoid = by_county.get(district)
+            if not geoid:
+                raise SystemExit(f"Vermont: {where}: a county office filed under a name that is not one of the 14 counties; stopping")
+            key, fresh = ("county", geoid, contest), new("county", contest, geoid, None)
+        else:
+            if district not in nov["towns"]:
+                raise SystemExit(f"Vermont: {where}: a town that is not in the results site's town table; stopping")
+            geoid, place = town_of(district, where)
+            key, fresh = ("town", place["code"], JP), new("town", JP, geoid, place)
+        if key not in contests:
+            not_on_site.add(key)
+        c = contests.setdefault(key, fresh)
+        c["rows"].append((n, name, party))
+        c["seats"].add(seats)
+        c["terms"].add(term)
+
+    # ---- races and candidates
+    def colour(label):
+        return colours.get(label) or party_code(label.split("/")[0])
+
+    order = {k: i for i, k in enumerate(COUNTY_OFFICES)}
+    races, cands, places, n_blank, n_diff, n_seat_diff, n_empty, levels, kinds, parties = [], [], {}, 0, 0, 0, 0, Counter(), Counter(), Counter()
+    stored = Counter()                                                        # candidates stored for county offices, and for towns' justices
+    for key in sorted(contests, key=lambda k: (k[0] != "county", contests[k]["county"], order.get(k[2], 9), k[1])):
+        c = contests[key]
+        if c["kind"] == "county":
+            kind, office, usual = COUNTY_OFFICES[c["office"]]
+            level, jur, jid = "county", labels[c["county"]], c["county"]
+            rid = f"2026-{STATE}-{c['county']}-{kind.replace('_', '-')}"
+        else:
+            kind, office, usual, p = JP_KIND, JP_OFFICE, JP_TERM, c["place"]
+            level, jur, jid = ("city" if p["kind"] == "city" else "township"), p["label"], f"{STATE}-M-{p['code']}"
+            rid = f"2026-{STATE}-M-{p['code']}-{kind.replace('_', '-')}"
+            places[jid] = ("mcd", jid, jur, json.dumps([c["county"]]), SRC_L_COUSUB)
+        if len(c["seats"]) > 1:
+            raise SystemExit(f"Vermont: {rid}: the list gives two numbers to elect for one contest; stopping")
+        listed, site = next(iter(c["seats"]), None), (c["site"] or {}).get("vote_for") or None
+        seats = listed or site
+        note = []
+        if seats and seats > 1:
+            note.append(f"Voters choose {seats}.")
+        if listed and site and listed != site:
+            n_seat_diff += 1
+            problems.append(f"{rid}: the candidate list elects {listed}, the results site {site}; the candidate list's number is shown")
+            gap("race", rid, jur, "how many are elected",
+                f"The Secretary of State's candidate list says voters choose {listed} for this office and the Secretary's results site says {site}; "
+                "the candidate list's number is shown until the two agree.", ENR_SITE)
+        odd = sorted(t for t in c["terms"] if t and t != usual)
+        if odd:
+            note.append(f"The Secretary of State's list gives this contest a term of {words_list(odd)} years.")
+            problems.append(f"{rid}: the list gives a term of {words_list(odd)} years, not the usual {usual}")
+        if key in not_on_site:
+            problems.append(f"{rid}: on the candidate list but not among the contests the results site lists")
+        # the control: the same names and parties by the second route
+        if c["site"] is not None:
+            a, b = [(nm, pt) for _n, nm, pt in c["rows"]], [(nm, pt) for nm, pt in c["site"]["candidates"]]
+            blanks = any(not nm for nm, _pt in a + b)                         # a name that was never kept cannot be compared: only the numbers are
+            if (len(a) != len(b)) if blanks else (Counter(a) != Counter(b)):
+                n_diff += 1
+                both = sum((Counter(a) & Counter(b)).values())
+                problems.append(f"{rid}: the candidate list has {len(a)} names and the results site {len(b)}"
+                                + ("" if blanks else f", {both} in both with the same party"))
+                gap("race", rid, jur, "a difference between the Secretary's two lists",
+                    f"The Secretary of State's candidate list names {len(a)} for this office and the Secretary's results site {len(b)}"
+                    + ("" if blanks else f"; the two lists share {both} of those names with the same party")
+                    + ". The candidate list is the one shown.", ENR_SITE)
+        shown, hidden = [], 0
+        for _n, name, party in c["rows"]:
+            if not name:
+                hidden += 1
+                continue
+            if party == NO_PARTY:
+                label, code, cnote = NO_PARTY_WORDS, "O", NO_PARTY_NOTE
+            else:
+                label, cnote = party_words(party), None
+                code = colour(label)
+            parties[label] += 1
+            shown.append((rid, "general", GENERAL, local_name(name), label, code, None, 0, 0, None, None, None, None, SRC_L_LIST, cnote))
+        if len({x[3] for x in shown}) != len(shown):
+            raise SystemExit(f"Vermont: {rid}: a name is on the list twice in one contest; stopping")
+        stored["county" if c["kind"] == "county" else "town"] += len(shown)
+        if hidden:
+            n_blank += hidden
+            words = "One name" if hidden == 1 else f"{hidden} names"
+            problems.append(f"{rid}: {plural(hidden, 'name')} on the list for this office did not read as a name and {'was' if hidden == 1 else 'were'} not kept")
+            gap("race", rid, jur, "a candidate who cannot be shown",
+                f"{words} on the Secretary of State's list for this office could not be read as a name, so "
+                f"{'it is' if hidden == 1 else 'they are'} not shown.", CANDIDATES_PAGE)
+            note.append(f"{words} on the Secretary of State's list for this office could not be read as a name and {'is' if hidden == 1 else 'are'} not shown.")
+        if not c["rows"]:
+            n_empty += 1
+            listed_there = len(c["site"]["candidates"]) if c["site"] else 0
+            note.append(EMPTY if not listed_there else
+                        f"The Secretary of State's candidate list has no name for this office here; the Secretary's results site lists {listed_there}, "
+                        "not shown until the candidate list carries them.")
+        elif shown:
+            note.append(CAPS)
+        races.append((rid, STATE, level, kind, office, jur, jid, json.dumps([c["county"]]), None, None, 0, 1, None, None, None, GENERAL,
+                      " ".join(note) or None))
+        cands += shown
+        levels[level] += 1
+        kinds[kind] += 1
+    if len({r[0] for r in races}) != len(races):
+        raise SystemExit("Vermont: two county or town contests share a race id; stopping")
+
+    # ---- what is not here
+    for (scope, where, office), n in sorted(unknown.items()):
+        pid = where if scope == "county" else f"{STATE}-M-{where}"
+        pname = labels[where] if scope == "county" else next(p["label"] for p in cousubs if p["code"] == where)
+        problems.append(f"{pid}: the results site lists {plural(n, 'contest')} this loader does not know; not loaded")
+        gap(scope, pid, pname, "a contest this loader does not read" + (f": {office.title()}" if office else ""),
+            "The Secretary of State's results site lists this contest for November 3 beside the county offices and justices of the peace; "
+            "it is not an office this loader has been taught to read, so it is not shown.", ENR_SITE)
+    for geoid in sorted(labels):
+        for office in COUNTY_OFFICES:
+            if ("county", geoid, office) not in contests:
+                problems.append(f"{geoid}: no contest for {COUNTY_OFFICES[office][1]} on either list")
+                gap("county", geoid, labels[geoid], f"{COUNTY_OFFICES[office][1]} race",
+                    "Every county elects this office in November 2026, but neither the Secretary of State's candidate list nor the Secretary's "
+                    "results site shows the contest for this county, so it cannot be shown.", ENR_SITE)
+    if loc.get("write_ins"):
+        n_w = loc["write_ins"]
+        problems.append(f"{plural(n_w, 'registered write-in row')} for county or town offices on the list; not loaded")
+        gap("state", STATE, "Vermont", "registered write-in candidates for county and town offices",
+            f"The Secretary of State's workbook lists {plural(n_w, 'registered write-in candidate')} for county or town offices on a sheet "
+            f"that does not say which county or town in a column this loader reads, so {'that candidate is' if n_w == 1 else 'they are'} not shown.",
+            CANDIDATES_PAGE)
+    for o in nov["others"]:
+        hit = town_place(o["town"], by_county.get(o["county"], ""), cousubs) if o["town"] and o["county"] else None
+        scope, pid, pname = ("place", f"{STATE}-M-{hit['code']}", hit["label"]) if hit else ("state", STATE, "Vermont")
+        what_there = (f"{plural(o['offices'], 'contest for an office', 'contests for an office')} and {plural(o['questions'], 'question')} are posted for "
+                      "it, but this loader reads only the general election's contests, so they are not shown" if o["offices"] or o["questions"] else
+                      "no office or question has been posted for it yet, so nothing can be shown and it cannot be said whether an office is being filled")
+        gap(scope, pid, pname, "a town election set for the same day" if hit else "another election set for the same day",
+            f"The Secretary of State's results site lists {'a town election in ' + hit['name'] if hit else 'another election'} for November 3, 2026, "
+            f"apart from the general election; {what_there}.", ENR_SITE)
+    gap("state", STATE, "Vermont", "offices filled at a special town, city or school district meeting on November 3",
+        "A town, city, village or school district can warn a special meeting for November 3 to fill an office; those elections are run by the "
+        "local clerk and are not on the Secretary of State's candidate list, so only the ones a clerk has entered on the Secretary's results "
+        "site can be seen from here.", ENR_SITE)
+
+    # ---- counts: every county or town row of the list is one candidate in one race
+    n_rows, n_county, n_town = len(loc["rows"]), sum(1 for r in loc["rows"] if r[1] in COUNTY_OFFICES), sum(1 for r in loc["rows"] if r[1] == JP)
+    if n_rows != n_county + n_town or len(cands) + n_blank != n_rows or loc["rows_read"] != n_rows + sum(loc["other"].values()):
+        raise SystemExit(f"Vermont: {loc['rows_read']} rows read from the list, {n_rows} county and town rows, {len(cands)} candidates stored and "
+                         f"{n_blank} left out; the counts do not add up; stopping")
+    if len({(x[0], x[3]) for x in cands}) != len(cands):
+        raise SystemExit("Vermont: a candidate is stored twice in one county or town race; stopping")
+    site_county, site_town = sum(len(c["candidates"]) for c in nov["county"]), sum(len(c["candidates"]) for c in nov["town"])
+    jp_races = [r for r in races if r[3] == JP_KIND]
+    n_cities, n_towns = sum(1 for r in jp_races if r[2] == "city"), sum(1 for r in jp_races if r[2] == "township")
+    reached = {f for r in races for f in json.loads(r[7])}
+    q_contests, q_towns = sum(nov["questions"].values()), len(nov["questions"])
+    seat_numbers = sorted({int(re.match(r"Voters choose (\d+)", r[16]).group(1)) for r in jp_races if r[16] and r[16].startswith("Voters choose")})
+    place_rows = [("county", g, labels[g], json.dumps([g]), SRC_COUNTY) for g in sorted(labels)] + [places[k] for k in sorted(places)]
+
+    agree = ("the two agree on every contest, name, party and number to elect" if not (n_diff or n_seat_diff or not_on_site) else
+             f"they differ in {n_diff + n_seat_diff + len(not_on_site)} places, which are named among the gaps or in the run's report")
+    notes = [
+        (STATE, "local_calendar",
+         "On November 3, 2026 each of Vermont's 14 counties elects two assistant judges, a probate judge, a state's attorney and a sheriff for four years "
+         "and a high bailiff for two, and every town and city elects its justices of the peace for two years; all are on the general election ballot "
+         "with party names. Selectboards, town clerks and treasurers, listers, constables, city councils, mayors, village trustees and school boards are "
+         "not on it: they are chosen at annual town, city, village and school district meetings, held on the first Tuesday of March in most places "
+         "(March 3 this year) and in April or May in a few.",
+         "Vermont Constitution, chapter II, sections 43 and 50 to 52; 17 V.S.A. 2640 and 2646 and 16 V.S.A. 423 (annual meetings); the Secretary of "
+         "State's list of 2026 elections on its results site; term lengths as the Secretary's candidate list gives them", CONSTITUTION),
+        (STATE, "local_coverage",
+         f"Loaded from the Secretary of State's 2026 General Election Candidate Listing (updated {loc['updated'] or 'on a date it does not give'}): "
+         f"{levels['county']} county contests in {'all 14' if len({r[6] for r in races if r[2] == 'county'}) == 14 else len({r[6] for r in races if r[2] == 'county'})} "
+         f"counties (assistant judge, probate judge, state's attorney, sheriff and high bailiff) with {stored['county']:,} candidates, and the justice of "
+         f"the peace contest of {len(jp_races)} towns and cities with {stored['town']:,} candidates; {n_empty} of those contests have no candidate on the "
+         "list and are shown with none" + (f", and {plural(n_blank, 'name')} on the list could not be read as a name and {'is' if n_blank == 1 else 'are'} "
+                                           "not shown" if n_blank else "")
+         + ". The contests, including the ones with no candidate, each town's county and the number to elect also come from the Secretary's "
+         f"election results site, which already lists the November 3 contests, and {agree}. Left out: the {q_contests} ballot questions in {q_towns} "
+         f"towns; the {nov['unorganized']} unorganized towns and gores, for which no justice of the peace contest is listed; and anything a town, city or "
+         "school district decides at a meeting of its own. The list has no status column, so a candidate who withdrew is simply absent and cannot be "
+         "counted, and it states no ballot order: the ballot prints each office's names alphabetically by surname, and names are shown here by surname.",
+         "Vermont Secretary of State, Elections Division: 2026 General Election Candidate Listing/Financial Disclosure and the 2026 General Election on "
+         "the election results site; 17 V.S.A. 2472 (how the ballot lists names)", CANDIDATES_PAGE),
+    ]
+
+    cs_sha, cs_date = file_facts(cousub_path)
+    f = nov["files"]
+
+    def stamped(part):
+        """The site serves a contest file under a name that changes at every refresh, and the old name stops answering
+        within the hour: the source's address is the site's own page, and the name as read is said in words."""
+        name = f[part]["url"].rsplit("/", 1)[-1]
+        return (f"The site serves this file under a name that changes each time it is refreshed (as read: {name}, {f[part]['bytes']:,} bytes), found "
+                "through the election's index, so the address given is the site's own page; the fingerprint is of the copy read.")
+
+    sources = [
+        (SRC_L_LIST, STATE, "official candidate list", "Vermont Secretary of State, Elections Division",
+         "2026 General Election Candidate Listing/Financial Disclosure (qualified candidates): county offices and justices of the peace",
+         GENERAL_XLSX, loc["updated"], loc["fetched"], loc["sha256"], n_rows,
+         "The workbook the state races are read from, read in memory and never saved. Six columns are read, by their headings: Contest, District Name "
+         "(the county or the town), Name On Ballot, Party, Vote for Count and Term Length(Years); only those cells of the county and town rows are kept "
+         "on disk. Town of residence, addresses, phones, e-mail, websites and financial disclosures are never read. "
+         f"Of the workbook's {loc['rows_read']:,} rows, {n_county:,} are for county offices and {n_town:,} for justices of the peace, each one candidate "
+         f"in one race; the other {sum(loc['other'].values()):,} are state and federal offices. The list states no ballot order and has no status column."
+         + (f" {n_blank} name(s) that read like contact details were not kept." if n_blank else "")),
+        (SRC_L_ELECTIONS, STATE, "official results site", "Vermont Secretary of State, Elections Division", "Vermont Election Results: the list of elections",
+         f["elections"]["url"], "", nov["fetched"], f["elections"]["sha256"], 1 + len(nov["others"]),
+         f"Read to find the November 3, 2026 general election and any other election a clerk has listed for the same day ({len(nov['others'])}). "
+         "Election dates, kinds and towns only; the file carries no contact details."),
+        (SRC_L_INDEX, STATE, "official results site", "Vermont Secretary of State, Elections Division",
+         "2026 General Election (November 3, 2026) on the election results site: the election's index and town table",
+         f["index"]["url"], nov["updated"], nov["fetched"], f["index"]["sha256"], len(nov["towns"]),
+         f"The town table: each of the {len(nov['towns'])} towns and cities with its county, which is how a town's justices are filed under a county; "
+         f"{nov['unorganized']} unorganized towns and gores are listed apart. No contact details in the file. The date given as published is the "
+         "site's own last-updated stamp, on Vermont's clock."),
+        (SRC_L_COUNTY, STATE, "official results site", "Vermont Secretary of State, Elections Division",
+         "2026 General Election (November 3, 2026) on the election results site: county contests",
+         ENR_SITE, nov["updated"], nov["fetched"], f["county"]["sha256"], site_county,
+         f"Before any vote is counted the file already lists each county contest with the number to elect and the names and parties under it: "
+         f"{len(nov['county'])} contests, {site_county:,} names. Read as a second route to the candidate list; only the office, county, number to elect, "
+         f"names and parties are kept, no vote. {stamped('county')}"),
+        (SRC_L_TOWN, STATE, "official results site", "Vermont Secretary of State, Elections Division",
+         "2026 General Election (November 3, 2026) on the election results site: town contests",
+         ENR_SITE, nov["updated"], nov["fetched"], f["town"]["sha256"], site_town,
+         f"Each town's justice of the peace contest with the number to elect and the names and parties under it: {len(nov['town'])} contests, "
+         f"{site_town:,} names, {sum(1 for c in nov['town'] if not c['candidates'])} contests with no name. The {q_contests} ballot questions in "
+         f"{q_towns} towns are counted and their words never read. Only the office, town, number to elect, names and parties are kept, no vote. "
+         f"{stamped('town')}"),
+        (SRC_L_COUSUB, STATE, "official boundaries (attributes)", "U.S. Census Bureau",
+         "Cartographic boundary file, county subdivisions, Vermont, 2024 (1:500,000)", COUSUB_URL, "2024", cs_date, cs_sha, len(cousubs),
+         "Names with their kind word (Addison town, Barre city) and five-digit codes of Vermont's towns and cities, read from the file's attribute "
+         "table; no shapes are read. A town on the Secretary's lists is matched within its county by name (SAINT for St., and CITY or TOWN where two "
+         "places share a name) and only when exactly one fits."),
+    ]
+    for o in nov["others"]:
+        if o.get("index"):
+            ident = o["index"]["url"].rsplit("/", 1)[-1].rsplit(".", 1)[0]          # the election's id on the site; its first eight characters unless taken
+            sid = SRC_L_OTHER + (ident[:8] if all(s[0] != SRC_L_OTHER + ident[:8] for s in sources) else ident)
+            posted = ("nothing is posted yet." if not (o["offices"] or o["questions"]) else
+                      f"{plural(o['offices'], 'contest for an office', 'contests for an office')} and {plural(o['questions'], 'question')} are posted "
+                      "and not read.")
+            sources.append((sid, STATE, "official results site", "Vermont Secretary of State, Elections Division",
+                            "Another election listed for November 3, 2026 on the election results site: its index", o["index"]["url"], "", nov["fetched"],
+                            o["index"]["sha256"], 1,
+                            "Read to see whether a town's own election on the same day has an office posted (the town, its county and the address of "
+                            "its town file only); " + posted))
+            if o.get("town_file"):
+                tf = o["town_file"]
+                sources.append((sid + "-town-file", STATE, "official results site", "Vermont Secretary of State, Elections Division",
+                                "Another election listed for November 3, 2026 on the election results site: its town file", ENR_SITE, "", nov["fetched"],
+                                tf["sha256"], o["offices"] + o["questions"],
+                                "Only counted: how many contests for an office and how many questions it holds; " + posted + " The site serves the "
+                                f"file under a name that changes each time it is refreshed (as read: {tf['url'].rsplit('/', 1)[-1]}, {tf['bytes']:,} "
+                                "bytes), so the address given is the site's own page; the fingerprint is of the copy read."))
+
+    # ---- the last look before anything is written: nothing that reads like contact details, by the trial check's test and the page builder's
+    for table, strict, items in (("sl_races", True, [(r[0], (r[4], r[5], r[8], r[9], r[16])) for r in races]),
+                                 ("sl_candidates", True, [(x[0], (x[3], x[4], x[14])) for x in cands]),
+                                 ("sl_places", True, [(p[1], (p[2],)) for p in place_rows]),
+                                 ("sl_gaps", False, [(g[2], (g[3], g[4], g[5])) for g in gaps]),
+                                 ("sl_notes", False, [(x[1], (x[2], x[3])) for x in notes]),
+                                 ("sl_sources", False, [(s[0], (s[3], s[4], s[10])) for s in sources])):
+        for ident, texts in items:
+            if any(t and (contact_like(t, strict) or (strict and BUILDER_STREET.search(str(t)))) for t in texts):
+                raise SystemExit(f"Vermont: a text for {table} ({ident}) reads like contact details; stopping (the text is not printed)")
+
+    return {"races": races, "cands": cands, "places": place_rows, "sources": sources, "gaps": gaps, "notes": notes, "problems": problems,
+            "levels": dict(levels), "kinds": dict(kinds), "parties": dict(parties), "counties": len(reached), "empty": n_empty, "blanked": n_blank,
+            "differences": n_diff + n_seat_diff + len(not_on_site), "rows_read": loc["rows_read"], "other_rows": dict(loc["other"]), "rows": n_rows,
+            "county_rows": n_county,
+            "town_rows": n_town, "site_county": site_county, "site_town": site_town, "site_contests": len(nov["county"]) + len(nov["town"]),
+            "towns": n_towns, "cities": n_cities, "questions": q_contests, "question_towns": q_towns, "seat_numbers": seat_numbers,
+            "updated": loc["updated"], "fetched": loc["fetched"], "site_fetched": nov["fetched"]}
+
+
 # ---------------------------------------------------------------------------------------------------- loading
 
-def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZIP):
+def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZIP, local_cache=None):
+    """Vermont's rows into the database at db_path: the state races, then the county and town ones. local_cache is the
+    folder the local level's cut-down copies are kept in (ballot_cache/vt/local unless another is given)."""
+    try:
+        return _load(db_path, say, cache, roster_db, county_zip, local_cache)
+    finally:
+        _BOOKS.clear()                                                         # the workbooks carry contact columns: none is held past the run
+
+
+def _load(db_path, say, cache, roster_db, county_zip, local_cache):
     net.patient_lookups()
     folder = os.path.join(cache, "vt")
     gpath = os.path.join(folder, "vt_2026_sl_general_list.json")
@@ -577,6 +1327,19 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
     epath = os.path.join(folder, "vt_2026_sl_primary_results.json")
     cpath = os.path.join(folder, "vt_2026_primary_official_canvass_town_by_town.pdf")      # the federal loader's copy; results only
     gen = kept(gpath, 2, general_list)
+    # the county and town rows of the same workbook, cut from the same bytes as the state rows, and the November contests
+    lfolder = local_cache or os.path.join(folder, "local")
+    loc, cut_now = local_list(lfolder, gen["sha256"])
+    if loc["sha256"] != gen["sha256"]:                                         # the list changed since the state rows' copy was made:
+        gen = general_list()                                                   # make that copy again, from the run's one download
+        write_json(gpath, gen)
+    by_office = Counter(r[1] for r in loc["rows"])
+    if (gen["sha256"] != loc["sha256"] or gen.get("rows_read") != loc["rows_read"] or len(gen["state"]) != loc["other"].get("state", 0)
+            or any(by_office.get(k.upper(), 0) != v for k, v in gen["others"].items() if k.upper() in NOT_LOADED)):
+        raise SystemExit("Vermont: the state rows' copy and the county and town rows' copy of the candidate list do not hold the same workbook; "
+                         "delete ballot_cache/vt/local/" + LOCAL_LIST_FILE + " and run again")
+    nov_site = november(lfolder, refresh=cut_now, say=say)
+    cousub_path = cousub_file(lfolder, say)
     pri = kept(ppath, 30, primary_list)
     win = kept(wpath, 30, winner_listing)
     legs, offs = roster(roster_db)
@@ -925,7 +1688,9 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
     for rid, race in races.items():
         race["row"][16] = " ".join(race["note"]) or None
     general = [x for x in cands if x[1] == "general"]
-    place_rows = [("county", g, n, g, SRC_COUNTY) for g, n in sorted(counties.values())]
+    # the county and town level: its races and candidates, the counties (named with their kind word) and the towns and cities
+    local = local_level(loc, nov_site, counties, county_labels(county_zip), census_cousubs(cousub_path), cousub_path, colours)
+    place_rows = list(local["places"])
     for rid, race in sorted(races.items()):
         r = race["row"]
         if r[2] == "legislature":
@@ -945,8 +1710,10 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
          "District Name, Name On Ballot, Party and Vote for Count. Town of residence, addresses, phones, e-mail, websites and financial "
          "disclosures never read. The list gives no ballot positions; its order, alphabetical by surname as 17 V.S.A. 2472(b)(2) prints the "
          "ballot, is stored as the ballot order. No status column, so a withdrawn candidate, no longer listed, cannot be counted. The "
-         "Secretary's district codes are shown as the Legislature's district names. Offices on the list not loaded here: "
-         + ", ".join(f"{k.title()} ({v})" for k, v in sorted(gen["others"].items())) + "."),
+         "Secretary's district codes are shown as the Legislature's district names. Other offices on the list: "
+         + ", ".join(f"{k.title()} ({v})" for k, v in sorted(gen["others"].items()) if k.upper() not in NOT_LOADED)
+         + ", left to the federal pages; and the county offices and justices of the peace ("
+         + f"{sum(v for k, v in gen['others'].items() if k.upper() in NOT_LOADED):,} rows), loaded as local races from the same workbook."),
         (SRC_PRI, STATE, "official candidate list", "Vermont Secretary of State, Elections Division",
          "2026 Primary Election Candidate Listing/Financial Disclosure (qualified candidates): statewide offices and the General Assembly",
          PRIMARY_XLSX, pri["updated"], pri["fetched"], pri_sha, sum(len(v) for v in pri["parties"].values()) + len(pri["write_in"]),
@@ -986,21 +1753,31 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
          "Five-digit county codes (GEOID) for Vermont's fourteen counties, named as the results' town table names them."),
     ]
 
+    # Vermont's rows only, in one transaction: its races and candidates by state and race id, its sources, gaps and notes by
+    # state, its places by their vt- source ids (the counties' codes begin 50, so the id cannot pick them out)
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
-    mine_src = [s[0] for s in sources] + [SRC_CANVASS]
-    with con:
-        con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?)", (STATE,))
-        con.execute("DELETE FROM sl_candidates WHERE race_id LIKE ?", (f"2026-{STATE}-%",))
-        con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
-        con.execute(f"DELETE FROM sl_places WHERE source_id IN ({','.join('?' * len(mine_src))})", mine_src)
-        con.execute("DELETE FROM sl_places WHERE id LIKE ?", (f"{STATE}-%",))
-        con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [r["row"] for r in races.values()])
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
-    con.close()
+    try:
+        con.executescript(SCHEMA)
+        con.executescript(EXTRA_SCHEMA)
+        mine_src = [s[0] for s in sources] + [SRC_CANVASS] + [s[0] for s in local["sources"]]
+        with con:
+            con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?)", (STATE,))
+            con.execute("DELETE FROM sl_candidates WHERE race_id LIKE ?", (f"2026-{STATE}-%",))
+            con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
+            con.execute(f"DELETE FROM sl_places WHERE source_id IN ({','.join('?' * len(mine_src))})", mine_src)
+            con.execute("DELETE FROM sl_places WHERE source_id LIKE 'vt-%'")
+            con.execute("DELETE FROM sl_places WHERE id LIKE ?", (f"{STATE}-%",))
+            con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
+            con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+            con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [r["row"] for r in races.values()] + local["races"])
+            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+            con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+            con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources + local["sources"])
+            con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+            con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
+    finally:
+        con.close()
 
     n_sw = sum(1 for r in races.values() if r["row"][2] == "statewide")
     say(f"    Vermont: {len(races)} races ({len(sen_d)} Senate districts, {len(house_d)} House districts, {n_sw} statewide); "
@@ -1014,11 +1791,27 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER, county_zip=COUNTY_ZI
             say(f"      matched: {x[0]} {x[1]}: {x[3]} -> {x[12]}{' (holds this seat)' if x[7] else ''}")
     for line in report:
         say(f"      check: {line}")
+    lv = local["levels"]
+    say(f"    Vermont: {len(local['races'])} county and town races in {local['counties']} of 14 counties (county offices {lv.get('county', 0)}; justices "
+        f"of the peace in {local['towns']} towns and {local['cities']} cities), {len(local['cands']):,} candidates, {local['empty']} contests with no "
+        f"candidate; {local['questions']} ballot questions in {local['question_towns']} towns left out; list updated {local['updated']}, read "
+        f"{local['fetched']}; results site read {local['site_fetched']}")
+    say(f"      check: {local['rows_read']:,} rows in the list = {sum(local['other_rows'].values()):,} state and federal + {local['rows']:,} county and "
+        f"town ({local['county_rows']:,} + {local['town_rows']:,}), each one candidate in one race"
+        + (f", {local['blanked']} left out" if local["blanked"] else "")
+        + f"; the results site lists {local['site_contests']} contests with {local['site_county']:,} + {local['site_town']:,} names: "
+        + ("every contest, name, party and number to elect agrees" if not local["differences"] else f"{local['differences']} differences"))
+    for line in local["problems"]:
+        say(f"      CHECK {line}")
     return {"races": len(races), "general": len(general), "by_kind": dict(general_n), "fields": dict(fields), "primary_rows": primary_rows,
-            "report": report}
+            "report": report,
+            "local": {k: local[k] for k in ("levels", "kinds", "parties", "counties", "empty", "blanked", "differences", "rows_read", "other_rows", "rows",
+                                            "county_rows", "town_rows", "site_county", "site_town", "site_contests", "towns", "cities", "questions",
+                                            "question_towns", "seat_numbers", "updated", "fetched", "site_fetched", "problems")}
+                     | {"races": len(local["races"]), "candidates": len(local["cands"]), "gaps": len(local["gaps"])}}
 
 
 if __name__ == "__main__":
-    if len(sys.argv) not in (2, 3):
-        raise SystemExit("usage: python -m ballot.state_local_vt <database> [cache folder]")
-    load(sys.argv[1], cache=sys.argv[2] if len(sys.argv) > 2 else CACHE)
+    if len(sys.argv) not in (2, 3, 4):
+        raise SystemExit("usage: python -m ballot.state_local_vt <database> [cache folder] [local cache folder]")
+    load(sys.argv[1], cache=sys.argv[2] if len(sys.argv) > 2 else CACHE, local_cache=sys.argv[3] if len(sys.argv) > 3 else None)

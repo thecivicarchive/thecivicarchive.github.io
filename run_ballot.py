@@ -12,11 +12,12 @@ run_ballot.py - On The Ballot: who is on the ballot, race by race, from each sta
     python run_ballot.py ads              ad spending by kind (TV, digital and streaming, print and mail, radio), campaign and outside
     python run_ballot.py adlib            the ads themselves in Google's public ad library, tied to the 2026 candidates (links, never copies)
     python run_ballot.py odds             what Polymarket and Kalshi are trading on the races listed in ballot/odds.py (information only)
-    python run_ballot.py local [mn wi]    the states' own races (statewide, legislature, courts; Minnesota's county and local races too),
-                                          every ballot/state_local_<code>.py loader, or the ones named, into ballot_local_2026.sqlite
+    python run_ballot.py local [mn wi]    the states' own races (statewide, legislature, courts; and the county and local races of the
+                                          states whose loaders reach them), every ballot/state_local_<code>.py loader, or the ones
+                                          named, into ballot_local_2026.sqlite
     python run_ballot.py check            write ballot_report.md: what is loaded, from which files, what is missing
-    python run_ballot.py site             build site/dev/ballot/ (its door, the Congress pages, each state's page and the
-                                          states/ chooser) and the front door
+    python run_ballot.py site             build site/dev/ballot/ (its door, the Congress pages, each state's page, with its county
+                                          pages where its rows reach the counties, and the states/ chooser) and the front door
 
 The federal rows land in ballot_2026.sqlite, the states' own races in ballot_local_2026.sqlite; downloads are cached in
 ballot_cache/ (FEC files in fec_cache/). Each run writes a log to logs/. Nothing here touches congress_119.sqlite. John's decisions (2026-09-29): Congress first;
@@ -123,7 +124,7 @@ def local_loaders():
 
 
 def stage_local(con, codes):
-    """Each state's own list of its state races (and Minnesota's county and local ones) into ballot_local_2026.sqlite. Each
+    """Each state's own list of its state races (and its county and local ones, where the loader reaches them) into ballot_local_2026.sqlite. Each
     loader writes only its own state's rows. Their load() signatures differ: Minnesota's takes db= as a keyword, the
     others take the database path first; both take say=. A loader that stops (Minnesota's waits for John's Secretary of
     State files) is reported and the others still run; the rows it loaded before stay as they were."""

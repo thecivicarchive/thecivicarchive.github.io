@@ -47,6 +47,60 @@ sitting member (incumbent 1, state_member_id) only when the name fits that seat'
 holds another seat in the same legislative district today, or (for a statewide race) any seat or office in the roster,
 gets state_member_id with incumbent 0 and a note, again only when exactly one roster person fits.
 
+County and local offices (John, 2026-09-30)
+-------------------------------------------
+The same Filed Candidates List carries two more district types for "2026 GENERAL", County (COU) and Local (LOC), and
+the loader asks for them the same way: 100 rows a page, the count checked against "candidatesFound", every row cut to
+the same allowed keys (KEEP) the moment it arrives. The mailing address, the county cell and the voter number the
+service also sends are never read, printed or kept; the kept rows are ballot_cache/id/local/
+id_2026_local_filed_candidates.json (refreshed after two days, the kept copy used if the portal cannot be reached). The
+fingerprint on the source is of the service's answers as fetched (the pages in the order asked), taken in passing.
+
+  County (every one of the 44 counties, filed under the county's name):
+    County Commissioner, seat 1 or 2    the seats of commissioner's districts 1 and 2. Idaho Code 31-703 gives the
+                                        four-year term to districts 1, 2 and 3 in turn from 1936, which leaves the
+                                        two-year term to the next district, so 2026 is district 1 for four years and
+                                        district 2 for two (Bonneville County's official November ballot prints
+                                        exactly that). A commissioner must live in the district (34-617); the list
+                                        files the number in its Seat/Zone column, and so does this loader: seat
+                                        "District 1", district empty. Who votes on the seat is not said here: no
+                                        section read for this loader says it (the builder must not say "only the
+                                        voters of that district vote").
+    County Clerk                        printed on the ballot, and named in Idaho Code 34-619, as Clerk of the
+                                        District Court (also the county's auditor and recorder); office_kind
+                                        county_clerk.
+    County Treasurer, Assessor, Coroner every four years, 2026 among them (34-620, 34-621, 34-622).
+    County Sheriff, Prosecuting Attorney every four years, next in 2028 (34-618, 34-623); a row for 2026 fills a
+                                        vacancy at the next general election (59-906): special 1, with a note.
+    Magistrate Judge                    not a contest between people: one yes-or-no retention question a judge, put
+                                        to the county's voters on the nonpartisan ballot in the words of Idaho Code
+                                        1-2220. Filed under level "court" (office_kind magistrate_retention), one race
+                                        a judge, the judge its only name (incumbent 1, as other states' retention rows
+                                        are). The judicial district in the question is the one whose district judge
+                                        contests list the county in the primary canvass.
+  Local (nonpartisan, level "other"):
+    Community College                   trustees of the four community college districts, by trustee zone; every
+                                        voter of the district votes on every zone (33-2106).
+    Highway District Commissioner (County Wide)   the Ada County Highway District, by subdistrict; every voter of the
+                                        district votes on each (40-1404A).
+
+Which counties a local district reaches is not in the allowed keys. It is read from the portal's own District filter
+(FiledCandidates/GetDistricts, the list the search page offers when a county and an office are chosen), asked county
+by county, once a month: no candidate data is in those answers. The portal files the College of Western Idaho under
+Ada County only; the college's own Board of Trustees page says its trustees are elected at large from within Ada and
+Canyon counties, and that one sentence is read (the page is never kept) to add Canyon County. If either cannot be read
+the district is not placed by guess: a gap is recorded instead. A district's id is ID-X-<the first county's three-digit
+code>-<its name>.
+
+Not loaded, and said so in sl_notes: local ballot questions (levies, bonds, recalls), which only the counties' own
+ballots carry. Idaho's cities, school boards and most other districts elect in odd-numbered years (sl_notes, key
+local_calendar, cites the sections). Irrigation districts run their own elections of directors, with no statewide
+list: a row in sl_gaps. Checked on 2026-09-30 against Bonneville County's official November ballot (a sample ballot the
+county posts; no contact details in it): the twelve county, magistrate and college contests there carry the same names,
+and the ballot prints the titles used here (County Commissioner District 1, 4 year term; Clerk of the District Court).
+It prints a college seat as "College District Trustee Zone 1"; the office is written Community College Trustee here,
+after Idaho Code 33-2106, with the zone as the seat.
+
 Usage: python ballot/state_local_id.py <database file> [--cache <folder>]
 """
 
@@ -59,14 +113,17 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
 import zipfile
 from collections import Counter, OrderedDict, defaultdict
 from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
+from ballot.check_local import EXTRA_SCHEMA                                      # noqa: E402
 from ballot.common import fold, name_parts, party_code                          # noqa: E402
 from ballot.lists.id import API, CANVASS_URL, KEEP, PAGE, iso, post, spoken     # noqa: E402
 from ballot.match import fits, initials_clash                                    # noqa: E402
@@ -112,6 +169,64 @@ SRC_PRIMARY_LIST = "id-sos-2026-sl-primary-list"
 SRC_CANVASS = "id-sos-2026-sl-primary-canvass"
 SRC_ROSTER = "id-openstates-roster"
 SRC_COUNTIES = "id-census-cb-2024-county"
+
+# ---- county and local offices (the portal's district types County and Local)
+YEAR = 2026
+LOCAL_DIR = "local"                                   # under the cache folder: ballot_cache/id/local/
+LOCAL_FILE = "id_2026_local_filed_candidates.json"    # the kept rows, allowed keys only
+REACH_FILE = "id_2026_local_district_counties.json"   # which counties the portal files each local district under
+ALSO_FILE = "id_2026_local_district_own_pages.json"   # what a district's own page says of its counties (never the page)
+LOCAL_TYPES = OrderedDict([("COU", "County"), ("LOC", "Local")])
+SRC_LOCAL = "id-sos-2026-local-general-list"
+SRC_REACH = "id-sos-2026-local-district-lookup"
+SRC_ALSO = "id-local-2026-district-page-"             # plus the district's name
+STATUTES = "https://legislature.idaho.gov/statutesrules/idstat/"
+
+# the office as the portal writes it -> (office_kind, the title as the ballot prints it, the Idaho Code section that
+# sets its election years, the first of those years)
+COUNTY_OFFICES = OrderedDict([
+    ("County Commissioner", ("county_commissioner", "County Commissioner", "31-703", None)),
+    ("County Clerk", ("county_clerk", "Clerk of the District Court", "34-619", 1974)),
+    ("County Treasurer", ("county_treasurer", "County Treasurer", "34-620", 1974)),
+    ("County Assessor", ("county_assessor", "County Assessor", "34-621", 1974)),
+    ("County Coroner", ("coroner", "County Coroner", "34-622", 1986)),
+    ("County Sheriff", ("sheriff", "County Sheriff", "34-618", 1972)),
+    ("County Prosecuting Attorney", ("county_attorney", "County Prosecuting Attorney", "34-623", 1984)),
+])
+MAGISTRATE = "Magistrate Judge"
+CLERK_NOTE = ("The Secretary of State's list calls this office County Clerk. The clerk of the district court is also the county's auditor "
+              "and recorder (Idaho Code 34-619).")
+# the office as the portal writes it -> how its races are written. Every voter of the district votes on every seat; the
+# member must live in the zone or subdistrict (Idaho Code 33-2106(4) and 40-1404A).
+LOCAL_OFFICES = OrderedDict([
+    ("Community College", dict(kind="college_board", office="Community College Trustee", seat="Zone", who="trustee",
+                               where="college district", code="33-2106", suffix=" (community college district)")),
+    ("Highway District Commissioner (County Wide)", dict(kind="highway_board", office="Highway District Commissioner", seat="Subdistrict",
+                                                         who="commissioner", where="highway district", code="40-1404A", suffix="")),
+])
+# A district's own page, read for one sentence saying which counties elect its board (the portal files the College of
+# Western Idaho under Ada County only). Checked 2026-09-30.
+OWN_PAGES = {
+    "College Of Western Idaho": dict(agency="College of Western Idaho", title="Board of Trustees",
+                                     url="https://cwi.edu/about/administration/board-trustees",
+                                     sentence=re.compile(r"elected at[- ]large from within ([A-Z][A-Za-z ,]+?) [Cc]ount(?:y|ies)\b")),
+}
+CALENDAR = (
+    "On November 3, 2026 every Idaho county elects two of its three commissioners, its clerk of the district court, treasurer, assessor and "
+    "coroner on the partisan ballot; on the nonpartisan ballot counties vote on keeping magistrate judges whose terms are ending, the four "
+    "community college districts elect trustees and the Ada County Highway District elects commissioners. Sheriffs and prosecuting "
+    "attorneys are elected every four years, next in 2028, so they are on this ballot only where a vacancy is being filled. Cities, school "
+    "districts and fire, cemetery, recreation and soil conservation districts elect in November of odd-numbered years, and the other "
+    "highway districts and hospital, library and water and sewer districts in May of odd-numbered years.")
+CALENDAR_SOURCE = (
+    "Idaho Code 34-617 to 34-623 and 31-703 (county officers), 1-2220 (magistrate judges), 33-2106 (community college trustees), 40-1404A "
+    "(the countywide highway district), 59-906 (vacancies in county offices), 50-405 (cities), 33-503 (school trustees), 31-1410, 27-111, "
+    "31-4306 and 22-2721 (fire, cemetery, recreation and soil conservation districts), 40-1305, 39-1330, 33-2715 and 42-3211 (highway, "
+    "hospital, library and water and sewer districts), as the Idaho Legislature publishes them (read 2026-09-30)")
+IRRIGATION_GAP = (
+    "Irrigation districts elect their directors every year, in May or in November, at elections they run themselves on their own ballots "
+    "(Idaho Code 43-201, 34-106 and 34-1401); candidates are nominated to each district's own secretary, so there is no statewide list, and "
+    "any such election held on November 3 is not here.")
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_races (race_id TEXT PRIMARY KEY, state TEXT NOT NULL, level TEXT NOT NULL, office_kind TEXT NOT NULL, office TEXT NOT NULL, jurisdiction TEXT, jurisdiction_id TEXT, county_ids TEXT, district TEXT, seat TEXT, special INTEGER NOT NULL DEFAULT 0, partisan INTEGER NOT NULL, holder_id TEXT, holder_name TEXT, holder_party TEXT, election_date TEXT NOT NULL, note TEXT);
@@ -221,6 +336,9 @@ def race_of_heading(title):
 
 # ---------- the filing portal: allowed keys only ----------
 
+GIVEN_UP = set()      # a service that refused three times in this run is not asked again
+
+
 def ask(path, body):
     """One question to the portal's service, asked again at most twice after a refusal or a page that is not its JSON."""
     last = None
@@ -231,6 +349,7 @@ def ask(path, body):
             last = e
             if attempt < 2:
                 time.sleep(5 * (attempt + 1))
+    GIVEN_UP.add(API)
     raise ConnectionError(f"{path}: {last}")
 
 
@@ -476,6 +595,500 @@ def person_fits(name, p):
 
 def same_person(a, b):
     return fold(a) == fold(b) or fits(name_parts(a), name_parts(b))
+
+
+# ---------- county and local offices: the portal's County and Local district types, allowed keys only ----------
+
+def lfail(msg):
+    raise SystemExit(f"Idaho (county and local): {msg}")
+
+
+def slug(text):
+    """'College Of Western Idaho' -> 'college-of-western-idaho': letters, digits and hyphens, for ids only."""
+    t = unicodedata.normalize("NFKD", text or "")
+    t = "".join(c for c in t if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def commissioner_terms(year):
+    """{commissioner's district: years} for the two seats on an even year's ballot (Idaho Code 31-703): the four-year term
+    went to district 1 in 1936 and goes to districts 2, 3 and 1 in turn; the two-year term is the next district's."""
+    k = (year - 1936) // 2
+    return {str(k % 3 + 1): 4, str((k + 1) % 3 + 1): 2}
+
+
+def ask_raw(path, body):
+    """One question to the portal's service, asked as ballot/lists/id.py's post() asks it (the page's own POST, the kit's
+    honest User-Agent), returning the answer's data and its bytes as fetched. A refusal, a challenge or an answer that is
+    not the service's JSON is tried twice more and then given up, and the service is not asked again in this run."""
+    if API in GIVEN_UP:
+        raise ConnectionError(f"{path}: the service already refused in this run")
+    last = None
+    for attempt in range(3):
+        try:
+            req = Request(API + path, data=json.dumps(body).encode(), method="POST",
+                          headers={"User-Agent": net.UA, "Content-Type": "application/json", "Accept": "application/json",
+                                   "Origin": "https://run.voteidaho.gov", "Referer": "https://run.voteidaho.gov/"})
+            with urlopen(req, timeout=120) as r:
+                raw = r.read()
+            time.sleep(1.5)
+            got = json.loads(raw)
+            if not isinstance(got, dict) or not got.get("succeeded"):
+                raise ValueError("the service did not answer the question")
+            return got["data"], raw
+        except (HTTPError, URLError, OSError, ValueError) as e:
+            last = e
+            if attempt < 2:
+                time.sleep(5 * (attempt + 1))
+    GIVEN_UP.add(API)
+    raise ConnectionError(f"{path}: {last}")
+
+
+def portal_keys():
+    """(the general election's row, {district type code: its key}, {party as printed: its code}) from the portal."""
+    elections, _ = ask_raw("PublicLookup/GetAllElections", {"isFutureElections": False})
+    kinds, _ = ask_raw("Filing/GetAllDistrictTypes", {"isSearch": True})
+    parties, _ = ask_raw("Filing/GetLookupValues", {"tableName": "Party"})
+    kinds = {k.get("code"): (k["value"], k.get("name")) for k in kinds}
+    for code, name in LOCAL_TYPES.items():
+        if code not in kinds or kinds[code][1] != name:
+            lfail(f"the filing portal no longer lists the district type {code} ({name})")
+    e = [x for x in elections if clean(x["name"]).endswith(ELECTIONS["general"])]
+    if len(e) != 1:
+        lfail(f"the filing portal lists {len(e)} elections named {ELECTIONS['general']!r}")
+    return e[0], {c: kinds[c][0] for c in LOCAL_TYPES}, {p["name"]: p["code"] for p in parties}
+
+
+def fetch_local(say):
+    election, kinds, parties = portal_keys()
+    digest, answers = hashlib.sha256(), 0
+    block = {"election": clean(election["name"]), "date": iso(election.get("attribute1")), "final": {}, "counts": {}, "rows": []}
+    for code in LOCAL_TYPES:
+        rows, n, found = [], 1, None
+        while found is None or len(rows) < found:
+            data, raw = ask_raw("FiledCandidates/SearchCandidates", {
+                "candidateName": None, "electionGuid": election["value"], "districtTypeGuid": kinds[code], "districtNumber": None,
+                "countyGuid": None, "officeGuid": None, "district": None, "seat": None, "partyGuid": None,
+                "filingStatusGuids": None, "pageNumber": n, "pageSize": 100, "sortBy": None, "sortType": "asc"})
+            digest.update(raw)                                       # the fingerprint of the answer as fetched; the bytes go no further
+            answers += 1
+            found = data["candidatesFound"]
+            block["final"][code] = data["isFinalList"]
+            got = data.get("candidates") or []
+            del raw
+            if not got:
+                break
+            rows += [{k: c.get(k) for k in KEEP} for c in got]      # the allowed keys only; address, county cell and voter number dropped here
+            del got, data
+            n += 1
+        if len(rows) != found:
+            lfail(f"the filing portal counts {found} {LOCAL_TYPES[code]} candidates for {ELECTIONS['general']}; {len(rows)} were read")
+        for r in rows:
+            r["candidateName"] = clean(r["candidateName"])
+            if r["districtType"] != LOCAL_TYPES[code]:
+                lfail(f"a {LOCAL_TYPES[code]} row of the {ELECTIONS['general']} list names another district type")
+        block["counts"][code] = found
+        block["rows"] += rows
+    say(f"      Filed Candidates List, {ELECTIONS['general']}: " + ", ".join(f"{LOCAL_TYPES[c]} {block['counts'][c]}" for c in LOCAL_TYPES)
+        + (" (marked final)" if all(block["final"].values()) else ""))
+    return {"page": PAGE, "service": API + "FiledCandidates/SearchCandidates", "parties": parties, "fetched": dt.date.today().isoformat(),
+            "keys": list(KEEP), "sha256": digest.hexdigest(), "answers": answers, "general": block}
+
+
+def kept(path, days):
+    return os.path.exists(path) and os.path.getsize(path) > 0 and time.time() - os.path.getmtime(path) < days * 86400
+
+
+def keep_json(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path + ".part", "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=0)
+    os.replace(path + ".part", path)
+
+
+def read_local(folder, say):
+    """(the kept County and Local rows or None, the file, how they were read): fresh from the portal every two days, else
+    the kept copy; None when the portal cannot be reached and nothing is kept."""
+    path = os.path.join(folder, LOCAL_FILE)
+    if kept(path, 2):
+        return json.load(open(path, encoding="utf-8")), path, "the rows kept from the portal within the last two days"
+    try:
+        net.patient_lookups()
+        data = fetch_local(say)
+    except ConnectionError as e:
+        if not os.path.exists(path):
+            say(f"    Idaho (county and local): the filing portal could not be read ({e}) and there is no kept copy")
+            return None, path, ""
+        say(f"    Idaho (county and local): the filing portal could not be read ({e}); using the rows kept on {mdate(path)}")
+        return json.load(open(path, encoding="utf-8")), path, f"the rows kept on {mdate(path)} (the portal could not be reached)"
+    keep_json(path, data)
+    return data, path, "read afresh from the portal's service"
+
+
+def fetch_reach(offices, say):
+    """{office: {district: [county names]}} from the portal's District filter: for each Local office, the districts the
+    search page offers once a county is chosen, asked county by county. District and county names only."""
+    election, kinds, _parties = portal_keys()
+    digest, answers = hashlib.sha256(), 0
+    listed, raw = ask_raw("FiledCandidates/GetOffices", {"districtTypeGuid": kinds["LOC"], "electionGuid": election["value"]})
+    digest.update(raw)
+    counties, raw = ask_raw("Filing/GetAllCounties", {})
+    digest.update(raw)
+    answers += 2
+    keys = {clean(o.get("name")): o["value"] for o in listed}
+    names = [clean(c.get("name")) for c in counties]
+    if len(names) != 44 or len(set(names)) != 44:
+        lfail(f"the filing portal lists {len(names)} counties, not 44")
+    reach = {}
+    for office in offices:
+        if office not in keys:
+            lfail(f"the filing portal's Local offices no longer include {office!r}")
+        found = defaultdict(list)
+        for c in counties:
+            districts, raw = ask_raw("FiledCandidates/GetDistricts", {"officeGuid": keys[office], "countyGuid": c["value"]})
+            digest.update(raw)
+            answers += 1
+            for d in districts or []:
+                found[clean(d.get("name"))].append(clean(c.get("name")))
+        reach[office] = {d: sorted(cs) for d, cs in sorted(found.items())}
+        say(f"      the portal's District filter, {office}: " + ("; ".join(f"{d} under {', '.join(cs)}" for d, cs in reach[office].items()) or "none"))
+    return {"page": PAGE, "fetched": dt.date.today().isoformat(), "sha256": digest.hexdigest(), "answers": answers, "counties": names,
+            "reach": reach}
+
+
+def read_reach(folder, offices, say):
+    """The kept district-and-county lookup (a month), asked again when it is older or lacks an office; None when the
+    portal cannot be reached and nothing kept covers the offices."""
+    path = os.path.join(folder, REACH_FILE)
+    old = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else None
+    covers = old is not None and all(o in old.get("reach", {}) for o in offices)
+    if covers and kept(path, 30):
+        return old, path
+    try:
+        net.patient_lookups()
+        data = fetch_reach(offices, say)
+    except ConnectionError as e:
+        say(f"    Idaho (county and local): the portal's District filter could not be read ({e})"
+            + (f"; using the answers kept on {mdate(path)}" if covers else ""))
+        return (old, path) if covers else (None, path)
+    keep_json(path, data)
+    return data, path
+
+
+def read_own_pages(folder, districts, cmap, say):
+    """{district: {"url", "fetched", "sha256", "bytes", "counties": [names]}} for the districts in OWN_PAGES: the one
+    sentence of the district's own page that names the counties its board is elected from. The page itself is never kept;
+    a page that cannot be read, or no longer has the sentence, leaves the district out of the answer."""
+    path = os.path.join(folder, ALSO_FILE)
+    old = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+    want = [d for d in districts if d in OWN_PAGES]
+    if all(d in old for d in want) and (not want or kept(path, 30)):
+        return {d: old[d] for d in want}, path
+    out = {}
+    for d in want:
+        page = OWN_PAGES[d]
+        try:
+            raw = net.get(page["url"])
+            time.sleep(1.5)
+        except (HTTPError, URLError, OSError) as e:
+            say(f"    Idaho (county and local): {page['agency']}'s page could not be read ({e})")
+            if d in old:
+                out[d] = old[d]
+            continue
+        text = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", raw.decode("utf-8", "replace"))
+        text = clean(re.sub(r"<[^>]+>", " ", text))
+        m = page["sentence"].search(text)
+        names = [clean(n) for n in re.split(r",|\band\b", m.group(1)) if clean(n)] if m else []
+        del text
+        if not names or any(fold(n + " County") not in cmap for n in names):
+            say(f"    Idaho (county and local): {page['agency']}'s page no longer has the sentence naming its counties")
+            continue
+        out[d] = {"url": page["url"], "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw),
+                  "counties": names}
+    if out:
+        keep_json(path, out)
+    return out, path
+
+
+def local_rows(cache, cmap, contests, cinfo, say):
+    """County and local offices on the November ballot: rows for sl_races, sl_candidates, sl_places, sl_sources, sl_gaps
+    and sl_notes, and the lines of the report. Nothing is placed by guess: what cannot be read becomes a gap."""
+    folder = os.path.join(cache, LOCAL_DIR)
+    out = {"races": [], "cands": [], "places": [], "src": [], "gaps": [], "report": [],
+           "notes": [(STATE, "local_calendar", CALENDAR, CALENDAR_SOURCE, STATUTES + "Title34/T34CH6/")]}
+    out["gaps"].append((STATE, "state", STATE, NAME, "irrigation district directors", IRRIGATION_GAP, STATUTES + "Title43/T43CH2/SECT43-201/"))
+    data, lpath, how = read_local(folder, say)
+    if data is None:
+        out["gaps"].append((STATE, "state", STATE, NAME, "county and local races",
+                            "The Idaho Secretary of State's Filed Candidates List carries the county and local candidates, but its service "
+                            "could not be reached when this was loaded and no earlier copy was on hand; loading again will fetch it.", PAGE))
+        out["notes"].append((STATE, "local_coverage", "No county or local race is loaded yet: the Secretary of State's Filed Candidates List "
+                             "could not be reached when this was loaded. Ballot questions are not loaded in any case.",
+                             "Idaho Secretary of State, Elections Division: Filed Candidates List, Idaho Candidate Filing Portal", PAGE))
+        out["report"].append("    Idaho (county and local): nothing loaded (the filing portal could not be reached); a gap is recorded")
+        return out
+    gen, codes = data["general"], data["parties"]
+    if gen["date"] != GENERAL:
+        lfail(f"the portal's general election is dated {gen['date']}, not {GENERAL}")
+    terms = commissioner_terms(YEAR)
+    spelled = {4: "four", 2: "two"}
+
+    # which judicial district each county is in: the counties under each district judge contest in the primary canvass
+    jd = defaultdict(set)
+    for (rid, _pc), f in contests.items():
+        if cinfo[rid]["office_kind"] == "district_court":
+            for c in f["counties"]:
+                jd[fold(c)].add(int(cinfo[rid]["district"]))
+    jd = {c: next(iter(ds)) for c, ds in jd.items() if len(ds) == 1}
+
+    # the Local districts' counties: the portal's own District filter, and a district's own page where OWN_PAGES names one
+    loc_rows = [r for r in gen["rows"] if r["districtType"] == "Local"]
+    loc_offices = list(dict.fromkeys(clean(r["officeName"]) for r in loc_rows))
+    unknown = [o for o in loc_offices if o not in LOCAL_OFFICES]
+    if unknown:
+        lfail(f"the Local list names an office the loader does not know ({', '.join(repr(o) for o in unknown)})")
+    reach, rpath = read_reach(folder, loc_offices, say) if loc_offices else (None, None)
+    own, _opath = read_own_pages(folder, sorted({clean(r["district"]) for r in loc_rows}), cmap, say) if reach else ({}, None)
+
+    def county_of(name, where):
+        got = cmap.get(fold(name + " County"))
+        if not got:
+            lfail(f"{where} names a county the Census Bureau's county file does not have")
+        return got
+
+    districts = {}      # (office, district as the portal writes it) -> its place, or None when its counties are not known
+
+    def district_place(office, d):
+        if (office, d) in districts:
+            return districts[(office, d)]
+        o = LOCAL_OFFICES[office]
+        title = re.sub(r"\bOf\b", "of", d)
+        listed = list((reach or {}).get("reach", {}).get(office, {}).get(d, []))
+        place = None
+        if listed:
+            more = [n for n in own.get(d, {}).get("counties", []) if n not in listed]
+            ids = sorted(county_of(n, f"the portal's District filter for {title}")[0] for n in listed)
+            pid = f"{STATE}-X-{ids[0][2:]}-{slug(d)}"
+            if d in OWN_PAGES and d not in own:
+                out["gaps"].append((STATE, "place", pid, title + o["suffix"], "counties beyond the one the list files it under",
+                                    f"The Secretary of State's portal files this district under {' and '.join(listed)} County only, and the "
+                                    f"district's own page, which names the counties its board is elected from, could not be read when this was "
+                                    "loaded; its races show under that county alone until it can.", OWN_PAGES[d]["url"]))
+            all_ids = sorted(set(ids) | {county_of(n, f"{title}'s own page")[0] for n in more})
+            place = {"id": pid, "name": title + o["suffix"], "counties": all_ids, "listed": listed, "more": more}
+        else:
+            out["gaps"].append((STATE, "state", STATE, NAME, f"{title}: {o['office'].lower()} seats",
+                                "The Secretary of State's list carries candidates for this district, but which counties it covers could not "
+                                "be read from the filing portal when this was loaded, so its races are left out rather than placed by guess.",
+                                PAGE))
+        districts[(office, d)] = place
+        return place
+
+    # magistrates: a county's judges are told apart by family name, or by the whole name where two share one
+    mags = defaultdict(list)
+    for r in gen["rows"]:
+        if r["districtType"] == "County" and clean(r["officeName"]) == MAGISTRATE:
+            mags[clean(r["district"])].append(r["candidateName"])
+
+    def judge_key(county, name):
+        fam = lambda n: name_parts(n)[1].replace(" ", "-") or slug(n)
+        return fam(name) if sum(1 for n in mags[county] if fam(n) == fam(name)) == 1 else slug(name)
+
+    races, on_ballot, gone, write_ins, unplaced = OrderedDict(), defaultdict(list), [], 0, 0
+    for n, r in enumerate(gen["rows"], start=1):
+        office, d, s = clean(r["officeName"]), clean(r["district"]), clean(str(r["seat"] if r["seat"] is not None else ""))
+        party, name, status = r["partyName"], r["candidateName"], r["filingStatusCode"]
+        where = f"row {n} of the {r['districtType']} list ({office})"
+        if party not in codes:
+            lfail(f"{where} names a party not in the portal's key")
+        if not name:
+            lfail(f"{where} has no name")
+        if status not in ("A", "W"):
+            lfail(f"{where} has a filing status the loader does not read ({r['filingStatus']!r})")
+        nonpartisan = codes[party] == "NOP"
+        if r["districtType"] == "County":
+            geoid, cname = county_of(d, where)
+            if office == MAGISTRATE:
+                if s or not nonpartisan:
+                    lfail(f"{where} has a seat or a party; a magistrate's retention question has neither")
+                rid = f"2026-{STATE}-{geoid}-magistrate-retention-{judge_key(d, name)}"
+                jdn = jd.get(fold(cname))
+                asks = (f" The ballot asks: Shall Magistrate {name} of {cname} of the {ORDINAL[jdn]} Judicial District be retained in office?"
+                        if jdn in ORDINAL else "")
+                info = dict(level="court", office_kind="magistrate_retention", office="Magistrate Judge (retention vote)", jurisdiction=cname,
+                            jurisdiction_id=geoid, county_ids=[geoid], district=None, seat=None, special=0, partisan=0,
+                            note=f"A retention vote: {cname}'s voters answer Yes or No on keeping this magistrate judge in office. No one runs "
+                                 f"against the judge and no party is printed.{asks} A majority of Yes votes keeps the judge for four more years "
+                                 "(Idaho Code 1-2220).")
+            elif office in COUNTY_OFFICES:
+                kind, shown, section, first = COUNTY_OFFICES[office]
+                if nonpartisan:
+                    lfail(f"{where} is a partisan county office listed without a party")
+                key = kind.replace("_", "-")
+                if kind == "county_commissioner":
+                    if s not in ("1", "2", "3"):
+                        lfail(f"{where} has a seat that is not commissioner's district 1, 2 or 3")
+                    special = 0 if s in terms else 1
+                    key, seat = f"{key}-{s}", f"District {s}"
+                    if special:
+                        note = (f"Out of the usual cycle: this year's two regular seats are Districts {' and '.join(sorted(terms))} (Idaho Code "
+                                "31-703). A vacancy in a county office is filled by election at the next general election (Idaho Code 59-906). "
+                                f"The commissioner must live in District {s} (Idaho Code 34-617).")
+                    else:
+                        other = next(k for k in terms if k != s)
+                        note = (f"A {spelled[terms[s]]}-year term this year; District {other}'s seat is for {spelled[terms[other]]} years (Idaho "
+                                f"Code 31-703). The commissioner must live in District {s} (Idaho Code 34-617).")
+                else:
+                    if s:
+                        lfail(f"{where} has a seat; the loader expects none for this office")
+                    special, seat = (0 if (YEAR - first) % 4 == 0 else 1), None
+                    note = CLERK_NOTE if kind == "county_clerk" else None
+                    if special:
+                        note = (f"Out of the usual cycle: Idaho elects this office every four years, next in {YEAR + 4 - (YEAR - first) % 4} "
+                                f"(Idaho Code {section}). A vacancy in a county office is filled by appointment until the next general election, "
+                                "when it is filled by election (Idaho Code 59-906).")
+                rid = f"2026-{STATE}-{geoid}-{key}" + ("-S" if special else "")
+                info = dict(level="county", office_kind=kind, office=shown, jurisdiction=cname, jurisdiction_id=geoid, county_ids=[geoid],
+                            district=None, seat=seat, special=special, partisan=1, note=note)
+            else:
+                lfail(f"row {n} of the County list names an office the loader does not know ({office!r})")
+        else:
+            o = LOCAL_OFFICES[office]
+            if not nonpartisan:
+                lfail(f"{where} carries a party; the loader expects these offices on the nonpartisan ballot")
+            if not s.isdigit():
+                lfail(f"{where} has no {o['seat'].lower()} number")
+            place = district_place(office, d)
+            if place is None:
+                unplaced += 1
+                continue
+            rid = f"2026-{place['id']}-{o['kind'].replace('_', '-')}-{s}"
+            info = dict(level="other", office_kind=o["kind"], office=o["office"], jurisdiction=place["name"], jurisdiction_id=place["id"],
+                        county_ids=place["counties"], district=None, seat=f"{o['seat']} {s}", special=0, partisan=0,
+                        note=f"Every voter in the {o['where']} votes on this seat; the {o['who']} must live in {o['seat']} {s} (Idaho Code "
+                             f"{o['code']}).")
+        if rid in races and (races[rid]["office_kind"], races[rid]["jurisdiction_id"], races[rid]["seat"]) != (
+                info["office_kind"], info["jurisdiction_id"], info["seat"]):
+            lfail(f"two different contests share the race id {rid}")
+        if rid in races and info["office_kind"] == "magistrate_retention":
+            lfail(f"two magistrates of one county share a name ({rid}); each needs a question of its own")
+        races.setdefault(rid, info)
+        if status == "W":
+            gone.append((rid, iso(r["withdrawalDate"])))
+            continue
+        on_ballot[rid].append((name, party, bool(r["isWriteIn"])))
+
+    for rid, info in races.items():
+        rows = on_ballot.get(rid, [])
+        if len({nm for nm, _p, _w in rows}) != len(rows):
+            lfail(f"the same name twice in {rid}")
+        note = info["note"]
+        if not rows:
+            note = ("The official list shows no candidate for this office: everyone who filed has withdrawn." + (" " + note if note else ""))
+        out["races"].append((rid, STATE, info["level"], info["office_kind"], info["office"], info["jurisdiction"], info["jurisdiction_id"],
+                             json.dumps(info["county_ids"]), info["district"], info["seat"], info["special"], info["partisan"], None, None, None,
+                             GENERAL, note))
+        for name, party, wi in rows:
+            write_ins += 1 if wi else 0
+            retention = info["office_kind"] == "magistrate_retention"
+            notes = (["Standing for retention as the sitting magistrate judge."] if retention else []) + ([WRITE_IN] if wi else [])
+            out["cands"].append((rid, "general", GENERAL, name, party if info["partisan"] else "Nonpartisan office",
+                                 party_code(party) if info["partisan"] else "N", None, 1 if retention else 0, 1 if wi else 0, None, None, None,
+                                 None, SRC_LOCAL, " ".join(notes) or None))
+    if len(out["cands"]) + len(gone) + unplaced != len(gen["rows"]):
+        lfail("candidates written, withdrawn and left unplaced do not add up to the list's rows")
+
+    # every county's regular offices: one the list has no row for is said, not invented
+    have = {(i["jurisdiction_id"], i["office_kind"], i["seat"]) for i in races.values() if i["level"] == "county" and not i["special"]}
+    for geoid, cname in sorted(cmap.values()):
+        for office, (kind, shown, section, first) in COUNTY_OFFICES.items():
+            seats = [f"District {k}" for k in sorted(terms)] if kind == "county_commissioner" else [None] if (YEAR - first) % 4 == 0 else []
+            for seat in seats:
+                if (geoid, kind, seat) not in have:
+                    out["gaps"].append((STATE, "county", geoid, cname, shown + (f", {seat}" if seat else ""),
+                                        f"Idaho Code {section} puts this office on every county's ballot this year, but the Secretary of State's "
+                                        f"list shows no one filed for it in {cname}; the county clerk's sample ballot is the authority.", PAGE))
+
+    # places: every local district the races use
+    for (_office, _d), place in sorted(districts.items(), key=lambda kv: (kv[1] or {}).get("id", "")):
+        if place:
+            out["places"].append(("special", place["id"], place["name"], json.dumps(place["counties"]), SRC_REACH))
+
+    # sources, notes and the report
+    lv = Counter(r[2] for r in out["races"])
+    kinds = Counter(r[3] for r in out["races"])
+    by_race = Counter(c[0] for c in out["cands"])
+    level_of = {r[0]: r[2] for r in out["races"]}
+    cand_lv = Counter(level_of[c[0]] for c in out["cands"])
+    reached = {c for r in out["races"] for c in json.loads(r[7])}
+    mag_counties = {r[6] for r in out["races"] if r[3] == "magistrate_retention"}
+    specials = sum(1 for r in out["races"] if r[10])
+    final = all(gen["final"].values())
+    gone_in = "; ".join(f"{races[rid]['office']}{', ' + races[rid]['seat'] if races[rid]['seat'] else ''}, {races[rid]['jurisdiction']}"
+                        for rid, _day in gone)      # the contests only: a candidate who withdrew is not named
+    out["src"].append((
+        SRC_LOCAL, STATE, "official candidate list", "Idaho Secretary of State, Elections Division",
+        f"Filed Candidates List, Idaho Candidate Filing Portal: {gen['election']}, County and Local offices", PAGE, "",
+        data.get("fetched") or mdate(lpath), data.get("sha256") or sha_of(lpath), len(gen["rows"]),
+        f"Read from the portal's public service, the questions the search page asks ({how}); "
+        f"{'the Division marks the list final' if final else 'the Division has not marked every part of the list final'}. Ballot name, office, "
+        "district (the county or the district's name), seat or zone, party, write-in mark, filing status and withdrawal date only; the mailing "
+        "address, county cell and voter number the service also sends are dropped as each row arrives and never read, printed or stored. The "
+        f"fingerprint is of the service's {data.get('answers', 0)} answers as fetched, joined in the order asked (County pages, then Local); the kept "
+        f"copy (ballot_cache/id/local/{LOCAL_FILE}) holds the allowed keys only. {gen['counts'].get('COU', 0)} County and "
+        f"{gen['counts'].get('LOC', 0)} Local rows; {len(gone)} withdrawn and left off{' (' + gone_in + ')' if gone else ''}; {write_ins} declared "
+        "write-in. The list gives no ballot "
+        "order (county clerks print the ballots). Each county's judicial district, for the wording of a magistrate's retention question, is "
+        "read from the district judge contests of the primary canvass."))
+    if reach:
+        pairs = sum(len(cs) for ds in reach["reach"].values() for cs in ds.values())
+        out["src"].append((
+            SRC_REACH, STATE, "official district list", "Idaho Secretary of State, Elections Division",
+            "Idaho Candidate Filing Portal: the districts the search page's District filter offers for each Local office, county by county",
+            PAGE, "", reach.get("fetched") or mdate(rpath), reach.get("sha256") or sha_of(rpath), pairs,
+            f"Which counties the portal files each community college and highway district under ({pairs} district and county pairs), asked "
+            f"for every one of the 44 counties; the fingerprint is of the service's {reach.get('answers', 0)} answers as fetched, in the order "
+            "asked. District and county names only: no candidate is in these answers."))
+    for d, page in sorted(own.items()):
+        out["src"].append((
+            SRC_ALSO + slug(d), STATE, "the district's own page", OWN_PAGES[d]["agency"], OWN_PAGES[d]["title"], page["url"], "",
+            page["fetched"], page["sha256"], 1,
+            f"Read for one sentence: the board is elected at large from within {' and '.join(page['counties'])} counties. The Secretary of "
+            "State's portal files the district under fewer counties, so the others are added from here. Nothing else on the page is read, and "
+            "the page is not kept."))
+    n_mag, n_col, n_hwy = kinds["magistrate_retention"], kinds["college_board"], kinds["highway_board"]
+    colleges = len({r[6] for r in out["races"] if r[3] == "college_board"})
+    highways = " and ".join(sorted({r[5] for r in out["races"] if r[3] == "highway_board"}))
+    parts = [f"{lv['county']} county contests in {len({r[6] for r in out['races'] if r[2] == 'county'})} counties",
+             f"{n_mag} magistrate judges' retention votes in {len(mag_counties)} counties" if n_mag else "",
+             f"{n_col} community college trustee seats in {colleges} districts" if n_col else "",
+             f"{n_hwy} {highways} seats" if n_hwy else ""]
+    parts = [p for p in parts if p]
+    out["notes"].append((
+        STATE, "local_coverage",
+        f"Loaded from the Idaho Secretary of State's Filed Candidates List{', which the Elections Division marks final' if final else ''}: "
+        f"{', '.join(parts[:-1])}{' and ' if len(parts) > 1 else ''}{parts[-1]}, {len(out['cands'])} names in all ({len(gone)} who withdrew are "
+        "left off). " + (f"{unplaced} rows of the list are left out for now: the counties their districts cover could not be read. " if unplaced else "")
+        + "Not loaded: local ballot questions (levies, bonds and recalls), which are printed only on each county's own ballot, and the "
+        "elections irrigation districts run for themselves.",
+        "Idaho Secretary of State, Elections Division: Filed Candidates List, Idaho Candidate Filing Portal", PAGE))
+    alone = sum(1 for r in out["races"] if r[2] == "county" and by_race[r[0]] == 1)
+    out["report"].append(
+        f"    Idaho (county and local): {lv['county']} county contests in {len({r[6] for r in out['races'] if r[2] == 'county'})} counties "
+        f"({specials} out of the usual cycle, {alone} with one name), {n_mag} magistrate retention votes in {len(mag_counties)} counties, "
+        f"{n_col} community college trustee seats, {n_hwy} highway district seats; {len(out['cands'])} names on the November ballot (county "
+        f"{cand_lv['county']}, magistrates {cand_lv['court']}, districts {cand_lv['other']}; {len(gone)} withdrawn left off; {write_ins} declared "
+        f"write-in); {len(gen['rows'])} rows in the list, each placed in exactly one race; {len(reached)} of 44 counties have a race")
+    for (_office, d), place in sorted(districts.items()):
+        if place and place["more"]:
+            out["report"].append(f"    Idaho (county and local): {place['name']}: the portal files it under {', '.join(place['listed'])}; "
+                                 f"{', '.join(place['more'])} added from the district's own page")
+    if unplaced:
+        out["report"].append(f"    CHECK Idaho (county and local): {unplaced} Local rows left out (their district's counties could not be read)")
+    no_jd = sorted({r[5] for r in out["races"] if r[3] == "magistrate_retention" and "The ballot asks" not in (r[16] or "")})
+    if no_jd:
+        out["report"].append("    CHECK Idaho (county and local): no judicial district read from the canvass for " + ", ".join(no_jd))
+    return out
 
 
 # ---------- the load ----------
@@ -748,7 +1361,13 @@ def load(db_path, say=print, cache=CACHE):
                           i["district"], i["seat"], 0, i["partisan"], ",".join(h["id"] for h in hs) or None,
                           " and ".join(h["full"] for h in hs) or None, ", ".join(dict.fromkeys(h["party"] for h in hs if h["party"])) or None,
                           GENERAL, notes.get(rid)))
-    place_rows = [("county", geoid, full, None, SRC_COUNTIES) for geoid, full in sorted(cmap.values())]
+    place_rows = [("county", geoid, full, json.dumps([geoid]), SRC_COUNTIES) for geoid, full in sorted(cmap.values())]
+
+    # ---- county and local offices (their own rows; nothing above is touched)
+    local = local_rows(cache, cmap, contests, cinfo, say)
+    clash = {r[0] for r in race_rows} & {r[0] for r in local["races"]}
+    if clash:
+        fail(f"a county or local race shares an id with a state race: {sorted(clash)}")
 
     n_field_rows = sum(1 for c in cand if c[1] != "general")
     gone_words = "; ".join(f"{name} ({party}, {rid}{', withdrew ' + spoken(d) if d else ''})" for rid, name, party, d in gone) or "none"
@@ -792,17 +1411,21 @@ def load(db_path, say=print, cache=CACHE):
     ]
 
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
-    with con:
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
+    with con:      # Idaho's rows only, in one transaction
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                     (STATE, f"2026-{STATE}-%"))
         con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_places WHERE source_id LIKE 'id-%' OR (kind = 'county' AND id GLOB '16[0-9][0-9][0-9]')")
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cand)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local["races"])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cand + local["cands"])
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows + local["places"])
+        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src + local["src"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     # ---- the report: counts only
@@ -825,7 +1448,11 @@ def load(db_path, say=print, cache=CACHE):
             say(f"    CHECK Idaho (state races): {label}: {', '.join(items)}")
     for c in checks:
         say(f"    CHECK Idaho (state races): {c}")
-    return len(cand)
+    for line in local["report"]:
+        say(line)
+    say(f"    Idaho (county and local): {len(local['gaps'])} gap{'s' if len(local['gaps']) != 1 else ''} recorded ("
+        + "; ".join(f"{g[1]}: {g[4]}" for g in local["gaps"]) + ")")
+    return len(cand) + len(local["cands"])
 
 
 if __name__ == "__main__":

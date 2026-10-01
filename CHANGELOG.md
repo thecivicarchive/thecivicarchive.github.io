@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.075 — 2026-10-01 — County and local races in twenty states
+
+- On The Ballot's county and local level, Minnesota only until now, opens for nineteen more states: Kentucky, North Carolina, Virginia, South Dakota, North Dakota, Washington, Idaho, West Virginia, Oklahoma, Texas, Louisiana, South Carolina, Alabama, Vermont, Maryland, New Mexico, Maine, Delaware and Hawaii. Together with Minnesota that is 17,138 county and local contests and 30,162 candidates in 1,235 counties, every one from the state's own election office.
+- Each of these states' ballot pages now has its counties, a page per county (county offices, cities and towns, school boards, special districts and the local courts that reach it) and "your ballot": pick your county, then your city or town and your school district.
+- Every state's page says, in the state's own terms, which local offices are on the November 3 ballot and which are elected at another time, and lists plainly what is not here yet and why. Oklahoma prints only contested races; Louisiana's November 3 is an open primary, and two thirds of its local offices were filled when only one candidate qualified; Texas's cities and school districts publish their own lists and are still to come.
+- As everywhere on these pages, a local candidate is shown by name, office, place and party (or "Nonpartisan office") only. Addresses and contact details in the official files are never read.
+- The ballot door's "County and city" card now counts every state loaded and opens the list of them.
+
 ## v4.0.074 — 2026-09-30 — State races in 49 states
 
 - Every state with state races on this November's ballot now has its page: New England, South Carolina, Delaware, Alaska and Hawaii, and California, Texas, Florida, New York, Pennsylvania and Illinois join the list, with their primaries and official votes where published. New Jersey has no state race this year (its Legislature is elected in odd years).

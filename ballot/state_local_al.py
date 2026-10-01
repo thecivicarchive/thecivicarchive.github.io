@@ -1,5 +1,6 @@
 """
-ballot/state_local_al.py - Alabama's state races on the November 3, 2026 ballot, into ballot_local_2026.sqlite.
+ballot/state_local_al.py - Alabama's state races, and its county and county school races, on the November 3, 2026
+ballot, into ballot_local_2026.sqlite.
 
 What is on the ballot. Alabama elects its whole Legislature every four years, in the governor's year: all 35 Senate
 seats and all 105 House seats are up in 2026 (four-year terms; states/places.py records the same). The statewide
@@ -10,12 +11,44 @@ Criminal Appeals places up this year, and the circuit and district judgeships up
 these offices is partisan in Alabama. Which of them are up is read from the ballots themselves, not assumed (in the
 September 2026 ballots: State Board of Education districts 2, 4, 6 and 8; Supreme Court places 7 and 8; places 4 and 5
 of each appeals court; 22 circuit and 34 district judgeships). U.S. Senator and Representative are left to the federal
-pages, and county offices, district attorneys, county school boards and local questions to a later phase (they are
-counted and named in the report). The federal ballot database (ballot_2026.sqlite) is never opened here.
+pages. The federal ballot database (ballot_2026.sqlite) is never opened here.
 
 Race keys: 2026-AL-SS<n> and -SH<n> for the Legislature; -GOV, -LTG, -AG, -SOS, -TREAS, -AUD, -AGR; -PSC<place>,
 -SBOE<district>, -SC<place> (Supreme Court), -CIVA<place> and -CRIMA<place> (the appeals courts), -CC<circuit>-<place>
 (circuit courts) and -DC<county FIPS>[-<place>] (district courts).
+
+The county and local part (2026-09-30). The same 67 sample ballots are the statewide official source for county
+candidates: a county office's candidates are certified to the county's judge of probate, not to the Secretary of State
+(the Secretary's 2026 Administrative Calendar, citing Code of Alabama 17-13-5 and 17-13-18). Every contest a ballot
+prints for a county office or a county board of education is read (the section "the county and local part" below):
+sheriff, coroner, revenue commissioner (Bibb's tax assessor/collector and Shelby's property tax commissioner are filed
+under the same kind), tax assessor, tax collector, Jefferson's assistant tax assessor and collector for the Bessemer
+Division, license commissioner (Madison's license director), Macon's racing commissioner, members and chairmen of county
+commissions, members of county boards of education and county superintendents of education. All are partisan: the
+ballot prints a party under every name. Cities and towns hold their own municipal elections (August 26, 2025 and
+August 25, 2026 in the Secretary's municipal election calendars), so no mayor, council or city board is on this
+ballot; no judge of probate, circuit clerk, district attorney or constable is on it either. Ballot questions are not
+loaded.
+  - Level county: jurisdiction the Census Bureau's county name, jurisdiction_id the 5-digit county code; race ids
+    2026-AL-<county code>-<office kind>[-d<district>][-p<place>]. Level school: jurisdiction "<County> County Board of
+    Education" as the ballot names it, jurisdiction_id AL-S-<3-digit county code>-<the name, hyphenated> (the ballot
+    carries no district number, so none is guessed); race ids 2026-AL-S-<the same key>-<office kind>[-d..][-p..].
+  - A title is read only if it is one of the shapes local_office() knows and names the county whose ballot it is on;
+    anything else is left out and written to sl_gaps, never guessed. Every ballot style of the county must print a
+    contest's candidates the same way, or the candidates are left out and the race is a gap. A contest printed with a
+    Write-in line and no name (Etowah's commission district 6 in September 2026) is kept, with a note.
+  - A county's sample ballot draws every version of its ballot (486 November versions in the 67 files). A contest
+    drawn on fewer versions than the county has says so in its note ("Not on every ballot in the county"); nothing is
+    claimed about a contest on all of them, and no district lines are read. Names are shown as shown_local() writes
+    them: ordinary capitals, with the ballot's own small letters kept ("DJ Skegee", J.T., DeRamus).
+  - Two routes to the same count: the contests found from their "FOR ..." titles, and a plain count of the ballots'
+    "(Vote for" lines and party lines (the straight party box's lines apart). Every vote-for line must head a contest
+    that was read (one drawn without the word FOR is named by what it is: Washington County's U.S. House contest in
+    September 2026), and every party line must belong to a candidate that was read.
+  - Kept cells (ballot_cache/al/local/): each ballot's county and school contests (title, names, parties, the Write-in
+    mark, how many styles draw them) as JSON by the file's SHA-256, and what the Secretary's calendars and filing guide
+    say, as findings only. One sl_sources row per county's ballot, with the file's own address and SHA-256.
+  - sl_gaps and sl_notes (ballot/check_local.py's EXTRA_SCHEMA) are rewritten for Alabama on every run.
 
 Checks, all printed and kept in the source notes: every seat of both chambers has a race, and every race whose ballots
 agree has its candidates or says why not; statewide contests are printed in all 67 counties; each primary field's
@@ -55,9 +88,11 @@ Privacy. None of these files carries an address, telephone, e-mail, website or t
 offices, names, parties and ballot questions; the results print contest titles, names, parties and vote columns. Even
 so, only the office, district, name, party, order and vote cells are kept (as JSON of those cells alone), nothing is
 printed but counts and checks, and before anything is written every stored text is checked for anything that looks
-like a contact detail. The roster is read for ids, names, party, chamber and district only.
+like a contact detail. The roster is read for ids, names, party, chamber and district only. The Secretary's calendars
+and filing guide (agency documents with no candidate in them) are searched for a few sentences and never printed.
 
-    python -m ballot.state_local_al <path to a test database> [--keep <folder for the kept-cells JSON>]
+    python -m ballot.state_local_al <path to a test database> [--keep <folder for the state part's kept-cells JSON>]
+                                    [--local-keep <folder for the local part's kept cells, default ballot_cache/al/local>]
 """
 
 import argparse
@@ -76,11 +111,16 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
+from urllib.error import HTTPError, URLError  # noqa: E402
+
+from ballot.check_local import EXTRA_SCHEMA, contact_like  # noqa: E402
 from ballot.common import CACHE, fold, name_parts, party_code  # noqa: E402
-from ballot.lists.al import (DATA_PAGE, FILES, GENERAL, MONTHS, PRIMARY, REP_RUNOFF_SCAN, RUNOFF, SAMPLE_PAGES, SOS,  # noqa: E402
+from ballot.lists.al import (DATA_PAGE, FILES, GENERAL, INFO_PAGE, MONTHS, PRIMARY, REP_RUNOFF_SCAN, RUNOFF, SAMPLE_PAGES, SOS,  # noqa: E402
                              ballot_lines, fetch, number, same_person, sample_links, sha256, xls_sheets)
 from ballot.lists.tx import proper  # noqa: E402
 from ballot.match import fits  # noqa: E402
+from ballot.pdftext import lines as pdf_lines  # noqa: E402
+from states import net  # noqa: E402
 
 STATE, FIPS, NAME = "AL", "01", "Alabama"
 FOLDER = os.path.join(CACHE, "al")
@@ -106,6 +146,10 @@ DATE = re.compile(r"^(%s) (\d{1,2}), (20\d\d)$" % "|".join(MONTHS))
 VOTE_FOR = re.compile(r"^\(\s*Vote\s*for\s*(\w+)\s*\)", re.I)
 NAME_LINE = re.compile(r"^[\"'“‘]?[^\W\d_][^\d]*$")
 CONTACT = re.compile(r"@|https?:|www\.|\.(?:com|org|net|gov|us)\b|\d{3}|P\.?\s?O\.?\s+Box|\bSuite\b", re.I)
+# The page's own guard reads a number followed soon after by a street word as an address, Court, Pl and Place included
+# (ballot/check_local.py's does not have those three); every note and gap the local part writes is held to the wider one.
+LOOKS_LIKE_STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|Ln|"
+                               r"Lane|Way|Ct|Court|Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
 
 # ---------- offices ----------
 # key -> (level, office_kind, office as shown, the roster's officials.office or None)
@@ -279,11 +323,23 @@ def race_of(key, g, geoid_of):
 
 # ---------- the sample ballots ----------
 
-def contests(path):
+_LINES = {}
+
+
+def lines_of(path):
+    """One ballot's drawn lines, read once in a run however many parts of the loader ask for them."""
+    if path not in _LINES:
+        _LINES[path] = ballot_lines(path)
+    return _LINES[path]
+
+
+def contests(path, lines=None, where=None):
     """Every contest drawn on one county's sample ballot, with the date heading of the style it belongs to:
     [(date, title, [[name, party], ...], write-in line, vote for)]. Text below 2 points (a tagged copy of a heading
-    that some counties' files carry) is not ballot text and is skipped."""
-    L = [ln for ln in ballot_lines(path) if ln[2] >= 2]
+    that some counties' files carry) is not ballot text and is skipped. `lines`, when given, are the ballot's lines
+    already read; `where`, when given, is filled with the place of each contest's "(Vote for" line among the lines of
+    2 points and more."""
+    L = [ln for ln in (ballot_lines(path) if lines is None else lines) if ln[2] >= 2]
     out, when, i = [], None, 0
     while i < len(L):
         t = L[i][3]
@@ -301,6 +357,8 @@ def contests(path):
             i += 1                                          # not a contest ("FOR PROPOSED TAXATION" and the like)
             continue
         vote_for = VOTE_FOR.match(L[j][3]).group(1).lower()
+        if where is not None:
+            where.append(j)
         cands, x0, size0 = [], None, None
         j += 1
         while j < len(L) and not L[j][3].startswith("Write-in"):
@@ -361,7 +419,7 @@ def read_ballots(folder, keep, geoid_of, say):
             continue
         changed += 1
         kept, other, unknown = collections.defaultdict(int), collections.Counter(), collections.Counter()
-        for when, title, cands, write_in, vote_for in contests(pdf):
+        for when, title, cands, write_in, vote_for in contests(pdf, lines=lines_of(pdf)):
             key, g = classify(title)
             if key == "other":
                 other[f"{g}|{when}"] += 1
@@ -672,6 +730,619 @@ def local_or_fetch(folder, key, say):
     return path
 
 
+# ---------- the county and local part: the same ballots' county and county school contests ----------
+
+LOCAL_KEPT = "al_2026_general_sample_ballots_local.json"
+LOCAL_KEPT_VERSION = 2
+CAL_KEPT = "al_2026_calendar_findings.json"
+CAL_KEPT_VERSION = 1
+PUBLISHED = "2026-09-10"                                  # the day the Secretary of State posted the general election sample ballots
+LOCAL_WHY = ("county office (local phase)", "county or city school office (local phase)", "district attorney (local phase)",
+             "local question (local phase)")
+SRC_BALLOT = "al-sos-2026-sl-sample-ballot-{}"            # one source per county's ballot, by county code
+LOCAL_LEVELS = ("county", "school")
+# office kinds the pages or other states' loaders already use; anything else this loader writes is named in its report
+KNOWN_KINDS = {"county_commissioner", "sheriff", "county_attorney", "county_auditor", "county_treasurer", "county_auditor_treasurer",
+               "county_recorder", "county_surveyor", "county_park", "soil_water", "mayor", "council", "city_clerk", "city_treasurer",
+               "city_clerk_treasurer", "town_supervisor", "town_clerk", "town_treasurer", "town_clerk_treasurer", "school_board",
+               "hospital_board", "utility_board", "sanitary_board", "coroner", "county_assessor", "tax_collector", "county_board_chair"}
+
+# each office kind in a few plain words, for the coverage note's counts
+KIND_WORDS = {"sheriff": "sheriff", "coroner": "coroner", "revenue_commissioner": "revenue commissioner", "county_assessor": "tax assessor",
+              "tax_collector": "tax collector", "assistant_tax_assessor": "assistant tax assessor",
+              "assistant_tax_collector": "assistant tax collector", "license_commissioner": "license commissioner",
+              "racing_commissioner": "racing commissioner", "county_commissioner": "county commission seats",
+              "county_board_chair": "county commission chairmen", "school_board": "county board of education seats",
+              "school_superintendent": "county superintendents of education"}
+
+NO_NAME_NOTE = "The county's sample ballot prints this contest with a Write-in line and no candidate's name."
+SOME_STYLES = ("Not on every ballot in the county: the county's sample ballot draws {m} versions of the ballot, and this contest "
+               "is on {n} of them.")
+LOCAL_SPLIT_NOTE = ("The versions of the ballot in the county's sample ballot do not print this contest's candidates the same way, "
+                    "so they are left out here.")
+LOCAL_UNREAD_NOTE = "This contest's candidates could not be read with confidence from the county's sample ballot, so they are left out here."
+
+_S = r"[\s,]*"                                            # between two words of a title: spaces, a comma, or nothing at all
+_CN = r"(?P<c>[A-Z][A-Z\s.']*?)"                          # the county's name, as the title writes it
+_N = r"(\d{1,2})"
+_DIST = "DISTRICT" + _S + r"(?:NO\.?" + _S + ")?" + _N
+_PLACE = "PLACE" + _S + r"(?:NO\.?" + _S + ")?" + _N
+
+
+def _p(words):
+    """A title's words as a pattern: any spacing between them (a ballot may run two words together), commas optional."""
+    return _S.join(words.replace("{C}", _CN).split(" "))
+
+
+# a county officer elected by the whole county: (title, office kind, office as shown)
+OFFICE_PATS = [(re.compile(_p(w)), kind, office) for w, kind, office in (
+    ("{C} COUNTY SHERIFF", "sheriff", "Sheriff"),
+    ("{C} COUNTY CORONER", "coroner", "Coroner"),
+    ("{C} COUNTY REVENUE COMMISS?IONER", "revenue_commissioner", "Revenue Commissioner"),
+    ("{C} COUNTY PROPERTY TAX COMMISS?IONER", "revenue_commissioner", "Property Tax Commissioner"),
+    ("{C} COUNTY TAX ASSESSOR / COLLECTOR", "revenue_commissioner", "Tax Assessor/Collector"),
+    ("{C} COUNTY TAX ASSESSOR", "county_assessor", "Tax Assessor"),
+    ("TAX ASSESSOR {C} COUNTY", "county_assessor", "Tax Assessor"),
+    ("{C} COUNTY TAX COLLECTOR", "tax_collector", "Tax Collector"),
+    ("TAX COLLECTOR {C} COUNTY", "tax_collector", "Tax Collector"),
+    ("{C} COUNTY LICENSE COMMISS?IONER", "license_commissioner", "License Commissioner"),
+    ("{C} COUNTY LICENSE DIRECTOR", "license_commissioner", "License Director"),
+    ("{C} COUNTY RACING COMMISS?IONER", "racing_commissioner", "Racing Commissioner"))]
+DIVISION_PAT = re.compile(_p("ASSISTANT TAX (?P<what>ASSESSOR|COLLECTOR) (?P<div>[A-Z][A-Z.'-]*) DIVISION OF {C} COUNTY"))
+CHAIR_PAT = re.compile(_p("(?P<chair>CHAIRMAN|PRESIDENT) {C} COUNTY COMMISSION"))
+SCHOOL_HEAD_PAT = re.compile(_p("(?P<head>SUPERINTENDENT|CHAIRMAN) {C} COUNTY BOARD OF EDUCATION"))
+MEMBER_COMMISSION_PAT = re.compile(_p("MEMBER {C} COUNTY COMMISSION") + r"(?!ER)(?P<rest>.*)")
+MEMBER_BOARD_PAT = re.compile(_p("MEMBER {C} COUNTY BOARD OF EDUCATION") + r"(?P<rest>.*)")
+# offices a reader may look for that no November 2026 ballot carries: (words, what a title of that office would hold)
+ABSENT_OFFICES = (("judge of probate", re.compile(r"PROBATE")), ("circuit clerk", re.compile(r"CIRCUITCLERK|CLERKOFTHECIRCUIT|CIRCUITCOURTCLERK")),
+                  ("district attorney", re.compile(r"DISTRICTATTORNEY")), ("constable", re.compile(r"CONSTABLE")))
+
+
+SMALL_PREFIX = re.compile(r"(Mc|Mac|De|Du|Di|La|Le|St\.)([A-Z][A-Z'-]*)(,?)")
+
+
+def shown_local(name):
+    """A county candidate's name in ordinary capitals, as shown() writes the state rows, but keeping what the ballot's own
+    small letters say: a nickname in quotes or brackets exactly as printed ("DJ Skegee", "EB", (Danny)), initials
+    written together (J.T.), and a prefix printed small (DeRAMUS-COLEMAN -> DeRamus-Coleman, St.CLAIR -> St.Clair)."""
+    raw, out = name.split(), shown(name).split()
+    if len(out) != len(raw):
+        return shown(name)
+    inside = False
+    for i, w in enumerate(raw):
+        body = w.rstrip(",")
+        if body[:1] in "\"“(" and len(body) > 1:
+            inside = True
+        if inside:
+            out[i] = w
+            if body[-1:] in "\"”)" and len(body) > 1:
+                inside = False
+            continue
+        m = SMALL_PREFIX.fullmatch(w)
+        if m:
+            out[i] = m.group(1) + "-".join(p.capitalize() for p in m.group(2).split("-")) + m.group(3)
+        elif re.fullmatch(r"(?:[A-Z]\.){2,},?", w):
+            out[i] = w
+    return " ".join(out)
+
+
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", fold_keep_digits(text)).strip("-")
+
+
+def fold_keep_digits(text):
+    return re.sub(r"[^a-z0-9]+", " ", (text or "").lower()).strip()
+
+
+def place_words(text):
+    """A community's name printed in capitals, in ordinary capitals: ASHVILLE/STEELE -> Ashville/Steele."""
+    return "/".join(proper(re.sub(r"\s+", " ", p).strip()) for p in text.split("/") if p.strip())
+
+
+def _seat_words(rest, school):
+    """The district, place or community words that follow a commission's or a board's name:
+    {district, seat, tag[, associate]}, or None when they are not words this loader knows."""
+    r = re.sub(r"\s+", " ", rest).strip(" ,")
+    if not r:
+        return dict(district=None, seat=None, tag="")
+    m = re.fullmatch(_DIST, r)
+    if m:
+        return dict(district=str(int(m.group(1))), seat=None, tag=f"d{int(m.group(1))}")
+    m = re.fullmatch(_DIST + _S + _PLACE, r)
+    if m:
+        return dict(district=str(int(m.group(1))), seat=f"Place {int(m.group(2))}", tag=f"d{int(m.group(1))}-p{int(m.group(2))}")
+    if re.fullmatch(r"AT[\s-]*LARGE", r):
+        return dict(district=None, seat="At Large", tag="at-large")
+    if school:
+        m = re.fullmatch(_PLACE + r"(?:\s*\(\s*(?P<comm>[A-Z][A-Z\s.'/-]*?)\s*\))?", r)
+        if m:
+            comm = m.group("comm")
+            return dict(district=None, seat=f"Place {int(m.group(1))}" + (f" ({place_words(comm)})" if comm else ""), tag=f"p{int(m.group(1))}")
+        m = re.fullmatch(r"(?P<comm>[A-Z][A-Z\s.'-]*?)\s*/\s*" + _DIST, r)
+        if m:
+            return dict(district=str(int(m.group(2))), seat=place_words(m.group("comm")), tag=f"d{int(m.group(2))}")
+        return None
+    m = re.fullmatch(_PLACE, r)
+    if m:
+        return dict(district=None, seat=f"Place {int(m.group(1))}", tag=f"p{int(m.group(1))}")
+    m = re.fullmatch("ASSOCIATE" + _S + "COMMISS?IONER" + _S + _DIST, r)
+    if m:
+        return dict(district=str(int(m.group(1))), seat=None, tag=f"d{int(m.group(1))}", associate=True)
+    return None
+
+
+def local_office(title, county):
+    """One county's contest title -> {level, office_kind, office, district, seat, tag}, or None when the title is not one
+    of the shapes this loader knows or names another county (never guessed). `county` is the Census Bureau's name
+    without "County" ("St. Clair"); the words are matched whatever their spacing (CLEBURNECOUNTY, BOARDOF EDUCATION)."""
+    t = re.sub(r"\s+", " ", (title or "").upper()).strip()
+    t = re.sub(r"^FOR\b[\s,]*", "", t)
+    here = county_key(county)
+
+    def mine(m):
+        return county_key(m.group("c")) == here
+
+    for pat, kind, office in OFFICE_PATS:
+        m = pat.fullmatch(t)
+        if m and mine(m):
+            return dict(level="county", office_kind=kind, office=office, district=None, seat=None, tag="")
+    m = DIVISION_PAT.fullmatch(t)
+    if m and mine(m):
+        what, div = m.group("what").title(), proper(m.group("div")) + " Division"
+        return dict(level="county", office_kind=f"assistant_tax_{what.lower()}", office=f"Assistant Tax {what}", district=div, seat=None,
+                    tag=slug(div))
+    m = CHAIR_PAT.fullmatch(t)
+    if m and mine(m):
+        return dict(level="county", office_kind="county_board_chair", office=f"{m.group('chair').title()} of the County Commission",
+                    district=None, seat=None, tag="")
+    m = SCHOOL_HEAD_PAT.fullmatch(t)
+    if m and mine(m):
+        if m.group("head") == "SUPERINTENDENT":
+            return dict(level="school", office_kind="school_superintendent", office="Superintendent of the County Board of Education",
+                        district=None, seat=None, tag="")
+        return dict(level="school", office_kind="school_board", office="Chairman of the County Board of Education", district=None,
+                    seat=None, tag="chairman")
+    for pat, school in ((MEMBER_COMMISSION_PAT, False), (MEMBER_BOARD_PAT, True)):
+        m = pat.fullmatch(t)
+        if m and mine(m):
+            r = _seat_words(m.group("rest"), school)
+            if r is None:
+                return None
+            if school:
+                return dict(level="school", office_kind="school_board", office="Member of the County Board of Education", **r)
+            office = "Member of the County Commission" + (" (Associate Commissioner)" if r.pop("associate", False) else "")
+            return dict(level="county", office_kind="county_commissioner", office=office, **r)
+    return None
+
+
+def _title_above(L, i):
+    """The lines drawn just above a "(Vote for" line that are its contest's title: the same size of type, five at most,
+    stopping at the Write-in line of the contest before."""
+    size, out, j = L[i][2], [], i - 1
+    while j >= 0 and len(out) < 5 and abs(L[j][2] - size) <= 0.3 and not L[j][3].startswith("Write-in") and not VOTE_FOR.match(L[j][3]):
+        out.insert(0, L[j][3])
+        j -= 1
+    return re.sub(r"\s+", " ", " ".join(out).replace(" ,", ",")).strip()
+
+
+def _class_of(key, g):
+    """Whose a contest is: "local" (kept here), "state" (the state part's), "federal", or what else it is."""
+    if key is None:
+        return "local"                                    # not understood: kept, so that it is named as a gap and never dropped
+    if key != "other":
+        return "state"
+    if g in LOCAL_WHY:
+        return "local"
+    return "federal" if g.startswith("federal") else g
+
+
+def read_local_ballots(folder, keep, say):
+    """The kept cells of every county's sample ballot for the county and local part: each county or school contest
+    (date of its style, title, names and parties in the order printed, the Write-in mark, how many styles draw it), how
+    many versions of the ballot the file draws, and two plain counts of the whole ballot ("(Vote for" lines and party
+    lines) against what the contests found account for. Cached as JSON in `keep` by each file's SHA-256, so a ballot
+    is read again only when its file changes. A sample ballot has no address, telephone, e-mail or website on it; even
+    so, a name cell that reads like a contact detail is blanked before it is kept, and counted."""
+    files, listed = manifest(folder, say)
+    if len(files) != COUNTIES:
+        raise SystemExit(f"Alabama (county and school races): {len(files)} county sample ballots are listed, not {COUNTIES}")
+    pdfs = os.path.join(folder, "sample_general")
+    os.makedirs(pdfs, exist_ok=True)
+    path = os.path.join(keep, LOCAL_KEPT)
+    old = {}
+    if os.path.exists(path):
+        prev = json.load(open(path, encoding="utf-8"))
+        if prev.get("version") == LOCAL_KEPT_VERSION:
+            old = {f["sha256"]: f for f in prev["files"]}
+    out, changed = [], 0
+    for county, file, url, _fed_sha in files:
+        pdf = os.path.join(pdfs, file)
+        if not os.path.exists(pdf):
+            fetch(url, pdf, b"%PDF-", f"the {county} County sample ballot", say, days=3650)
+        sha = sha256(pdf)
+        if sha in old and old[sha]["file"] == file:
+            out.append(old[sha])
+            continue
+        changed += 1
+        L = [ln for ln in lines_of(pdf) if ln[2] >= 2]
+        where = []
+        found = contests(pdf, lines=lines_of(pdf), where=where)
+        kept, counts, styles, blanked = collections.defaultdict(int), collections.defaultdict(lambda: [0, 0]), collections.Counter(), 0
+        for when, title, cands, write_in, vote_for in found:
+            key, g = classify(title)
+            if key == "GOV":
+                styles[str(when)] += 1
+            cls = _class_of(key, g)
+            counts[f"{cls}|{when}"][0] += 1
+            counts[f"{cls}|{when}"][1] += sum(1 for _n, p in cands if p is not None)
+            if cls != "local":
+                continue
+            cells = []
+            for name, party in cands:
+                if contact_like(name, True) or CONTACT.search(name):
+                    name, blanked = "", blanked + 1
+                cells.append([name, party])
+            kept[json.dumps([when, title, cells, bool(write_in), vote_for])] += 1
+        # the second route: every "(Vote for" line and every party line on the ballot, counted plainly. The straight
+        # party box at the head of each version names the parties too (ALABAMA / DEMOCRATIC / PARTY); those lines are
+        # counted apart, from its heading to the first contest.
+        claimed = set(where)
+        without_for, loose_parties, party_lines, straight_lines, in_box = collections.Counter(), 0, 0, 0, False
+        for i, ln in enumerate(L):
+            if re.match(r"STRAIGHT\s*PARTY", ln[3], re.I):
+                in_box = True
+            elif ln[3].startswith("FOR ") or VOTE_FOR.match(ln[3]) or DATE.match(ln[3]):
+                in_box = False
+            if ln[3].strip().lower() in PRINTED:
+                party_lines, straight_lines = party_lines + (not in_box), straight_lines + in_box
+            if not VOTE_FOR.match(ln[3]) or i in claimed:
+                continue
+            title = _title_above(L, i)
+            without_for[_class_of(*classify(title if title.startswith("FOR ") else "FOR " + title))] += 1
+            j = i + 1
+            while j < len(L) and j - i < 40 and not L[j][3].startswith("Write-in") and not VOTE_FOR.match(L[j][3]) and not L[j][3].startswith("FOR "):
+                loose_parties += L[j][3].strip().lower() in PRINTED
+                j += 1
+        out.append({"county": county, "file": file, "url": url, "sha256": sha, "bytes": os.path.getsize(pdf),
+                    "styles": dict(sorted(styles.items())), "vote_for_lines": sum(1 for ln in L if VOTE_FOR.match(ln[3])),
+                    "contests_read": len(found), "party_lines": party_lines, "straight_party_lines": straight_lines,
+                    "candidate_lines": sum(1 for c in found for _n, p in c[2] if p is not None),
+                    "no_party": sum(1 for c in found for _n, p in c[2] if p is None),
+                    "without_for": dict(sorted(without_for.items())), "without_for_parties": loose_parties,
+                    "counts": {k: v for k, v in sorted(counts.items())}, "blanked": blanked,
+                    "local": [dict(zip(("date", "title", "cands", "write_in", "vote_for"), json.loads(k)), drawn=n)
+                              for k, n in sorted(kept.items())]})
+    if changed or not os.path.exists(path):
+        os.makedirs(keep, exist_ok=True)
+        json.dump({"version": LOCAL_KEPT_VERSION, "page": SAMPLE_PAGES["general"], "listed": listed, "read": dt.date.today().isoformat(),
+                   "files": out}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    say(f"    Alabama (county and school races): {len(out)} county sample ballots ({changed} read afresh, the rest from the kept cells)")
+    return out, path
+
+
+# What the notes say about when local offices are elected rests on four documents of the Secretary of State. Each is
+# fetched once, searched for the sentences below, and only the findings are kept (never the text).
+CALENDARS = (
+    ("muni2026", SOS + "/sites/default/files/election-2026/2026MunicipalElectionFCPACalendar.pdf", "al_2026_municipal_fcpa_calendar.pdf",
+     "al-sos-2026-municipal-fcpa-calendar", "official calendar", "2026 Municipal Election FCPA Filing Calendar (Municipalities Election)",
+     {"aug2026": r"general election [-–—] tuesday, august 25, 2026"},
+     "Read for one line, the date of the 2026 municipal election (General Election, Tuesday, August 25, 2026)."),
+    ("muni2025", SOS + "/sites/default/files/election-2025/FCPA%20Calendar%202025%20Municipal%20Election%20(ex%20Dothan%20and%20Tuscaloosa).pdf",
+     "al_2025_municipal_fcpa_calendar.pdf", "al-sos-2025-municipal-fcpa-calendar", "official calendar",
+     "2025 Municipal Election FCPA Filing Calendar (Municipalities Election)",
+     {"aug2025": r"general election [-–—] tuesday, august 26, 2025"},
+     "Read for one line, the date of the 2025 regular municipal elections (General Election, Tuesday, August 26, 2025)."),
+    ("guide", SOS + "/sites/default/files/election-2026/2026CandidateFilingGuide.pdf", "al_2026_candidate_filing_guide.pdf",
+     "al-sos-2026-candidate-filing-guide", "official guide", "2026 Candidate Filing Guide (FCPA Candidate Filing Guide, nineteenth edition)",
+     {"act2021": r"act 2021-157 changes the date of regular municipal elections that were originally scheduled to occur in 2024 to 2025"},
+     "Read for one sentence: Act 2021-157 moved the regular municipal elections scheduled for 2024 to 2025, except in municipalities "
+     "whose election date is set by another statute."),
+    ("admin", SOS + "/sites/default/files/election-2026/AdminCalendar%20-2026.pdf", "al_2026_admin_calendar.pdf",
+     "al-sos-2026-administrative-calendar", "official calendar", "2026 Administrative Calendar: statewide primary, primary runoff and general election",
+     {"general": r"general election [-–—] november 3, 2026",
+      "probate": r"county party chairman must certify names of primary candidates for county office to",
+      "nominees": r"for county offices to probate judge not later than noon",
+      "cite_5": r"17-13-5\(b\)", "cite_18": r"17-13-18\(d\)",
+      "withdraw": r"last day candidates can withdraw their name from ballot is 71 days before"},
+     "Read for a few lines: the general election's date; that county party chairmen certify candidates for county office, and the "
+     "parties their nominees for county office, to the judge of probate (Code of Alabama 17-13-5 and 17-13-18, as the calendar "
+     "cites them); and the last day a candidate could withdraw from the ballot, 71 days before the general election."))
+
+
+def calendar_findings(keep, say):
+    """{key: True} for each sentence found in the Secretary's calendars and filing guide, and the documents read:
+    [(source id, kind, title, address, published, fetched, sha256, sentences found, note)]. A document that cannot be
+    fetched (two more tries at most) is left out, and the notes then say less. The findings are kept as JSON by each
+    file's SHA-256; the files hold dates and rules, no candidate."""
+    path = os.path.join(keep, CAL_KEPT)
+    old = {}
+    if os.path.exists(path):
+        prev = json.load(open(path, encoding="utf-8"))
+        if prev.get("version") == CAL_KEPT_VERSION:
+            old = prev["files"]
+    facts, docs, new, missing = {}, [], {}, []
+    for key, url, name, sid, kind, title, wanted, note in CALENDARS:
+        pdf = os.path.join(keep, name)
+        try:
+            net.download(url, pdf, max_age_days=3650, tries=3, say=say)
+        except (HTTPError, URLError, OSError):
+            missing.append(title)
+            continue
+        with open(pdf, "rb") as fh:
+            head = fh.read(5)
+        if head != b"%PDF-":                              # a notice or a challenge page instead of the document: not kept, not asked again this run
+            os.remove(pdf)
+            missing.append(title)
+            continue
+        sha = sha256(pdf)
+        rec = old.get(name)
+        if not rec or rec.get("sha256") != sha or set(rec.get("found", {})) != set(wanted):
+            text = " ".join(re.sub(r"\s+", " ", t) for _pg, _y, t in pdf_lines(pdf)).lower()
+            rev = re.search(r"revised (\d{1,2})/(\d{1,2})/(20\d\d)", text)
+            rec = {"sha256": sha, "bytes": os.path.getsize(pdf), "found": {k: bool(re.search(p, text)) for k, p in wanted.items()},
+                   "revised": f"{rev.group(3)}-{int(rev.group(1)):02d}-{int(rev.group(2)):02d}" if rev else ""}
+        new[name] = rec
+        facts.update({k: v for k, v in rec["found"].items() if v})
+        docs.append((sid, kind, title, url, rec["revised"], mdate(pdf), sha, sum(rec["found"].values()), note
+                     + ("" if all(rec["found"].values()) else " Not every line was found in the copy read; the notes say only what was found.")))
+    if new != old or not os.path.exists(path):
+        os.makedirs(keep, exist_ok=True)
+        json.dump({"version": CAL_KEPT_VERSION, "files": new}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return facts, docs, missing
+
+
+def _all(n):
+    return f"all {COUNTIES}" if n == COUNTIES else f"{n} of the {COUNTIES}"
+
+
+def _list(words):
+    words = list(words)
+    return words[0] if len(words) == 1 else ", ".join(words[:-1]) + " or " + words[-1]
+
+
+def local_part(files, counties, geoid_of, facts, docs, missing, folder):
+    """The county and county school races of the November ballot, from the kept cells: the rows for sl_races,
+    sl_candidates, sl_places, sl_sources, sl_gaps and sl_notes, and what to report."""
+    races, cands, places, sources, gaps, checks = [], [], [], [], [], []
+    stats = collections.Counter()
+    by_level, by_kind, kind_counties, offices = collections.Counter(), collections.Counter(), collections.defaultdict(set), collections.Counter()
+    older, titles26 = collections.Counter(), []
+    reached = set()
+    for f in files:
+        geoid = geoid_of[county_key(f["county"])]
+        cname = counties[geoid]                           # "St. Clair County", as the Census Bureau writes it
+        bare = re.sub(r"\s+County$", "", cname)
+        src = SRC_BALLOT.format(geoid)
+        styles = int(f["styles"].get(GENERAL, 0))
+        group, unread = {}, collections.Counter()
+        for k in f["local"]:
+            if k["date"] != GENERAL:
+                older[str(k["date"])] += k["drawn"]
+                stats["older_drawn"] += k["drawn"]
+                continue
+            stats["drawn"] += k["drawn"]
+            stats["lines"] += k["drawn"] * len(k["cands"])
+            titles26.append(squash(k["title"]))
+            o = local_office(k["title"], bare)
+            if o is None:
+                unread[squash(k["title"])] += k["drawn"]
+                stats["unread_drawn"] += k["drawn"]
+                stats["unread_lines"] += k["drawn"] * len(k["cands"])
+                continue
+            if o["level"] == "school":
+                jname = f"{cname} Board of Education"
+                jid = f"{STATE}-S-{geoid[2:]}-{slug(jname)}"
+                rid = f"2026-{jid}-{o['office_kind'].replace('_', '-')}"
+            else:
+                jname, jid = cname, geoid
+                rid = f"2026-{STATE}-{geoid}-{o['office_kind'].replace('_', '-')}"
+            if o["tag"]:
+                rid += "-" + o["tag"]
+            g = group.setdefault(rid, dict(o, jurisdiction=jname, jurisdiction_id=jid, drawn=0, lines=0, vote_for=set(), same=set(),
+                                           versions=collections.defaultdict(collections.Counter)))
+            g["same"].add((o["office"], o["district"], o["seat"]))
+            g["drawn"] += k["drawn"]
+            g["lines"] += k["drawn"] * len(k["cands"])
+            g["vote_for"].add(k["vote_for"])
+            letters = (tuple((squash(n), (p or "").strip().lower()) for n, p in k["cands"]), bool(k["write_in"]))
+            g["versions"][letters][tuple((n, p) for n, p in k["cands"])] += k["drawn"]
+        if unread:
+            n = len(unread)
+            gaps.append((STATE, "county", geoid, cname, "a county contest on the sample ballot" if n == 1 else "county contests on the sample ballot",
+                         f"{cname}'s sample ballot prints " + ("a contest whose title" if n == 1 else f"{n} contests whose titles")
+                         + " this loader does not know how to read, so " + ("it is" if n == 1 else "they are")
+                         + " left out here rather than guessed; the county's sample ballot shows " + ("it." if n == 1 else "them."), f["url"]))
+            checks.append(f"{cname}: {n} contest title{'s' if n != 1 else ''} not understood ({sum(unread.values())} drawings), left out and listed as a gap")
+            stats["unread_titles"] += n
+        loose = sum(n for cls, n in f["without_for"].items() if cls in ("local", "state"))
+        if loose:
+            gaps.append((STATE, "county", geoid, cname, "contests drawn without a heading this loader reads",
+                         f"{cname}'s sample ballot draws {loose} contest" + ("" if loose == 1 else "s") + " whose title does not begin with the "
+                         "word FOR, as every other contest's does, so " + ("it was" if loose == 1 else "they were") + " not read; the "
+                         "county's sample ballot shows " + ("it." if loose == 1 else "them."), f["url"]))
+            checks.append(f"{cname}: state or county contests drawn without FOR in the title and not read: {loose}")
+        n_file = 0
+        for rid, g in sorted(group.items()):
+            notes, problem, rows = [], None, []
+            if len(g["same"]) > 1:
+                problem = "two different contests on the ballot come to one race"
+            elif len(g["vote_for"]) > 1:
+                problem = "the versions of the ballot disagree on how many to vote for"
+            elif len(g["versions"]) > 1:
+                problem = "split"
+            else:
+                (letters, printings), = g["versions"].items()
+                # where the versions space a name differently (PAMELAB. for PAMELA B.), the printing drawn most is kept, then the fuller one
+                best = max(printings, key=lambda c: (printings[c], sum(len(n) for n, _p in c), c))
+                if len(printings) > 1:
+                    stats["respaced"] += 1
+                if not letters[1]:
+                    checks.append(f"{rid}: no Write-in line on the sample ballot")
+                seen_p, seen_n = set(), set()
+                for order, (name, printed) in enumerate(best, start=1):
+                    display = shown_local(name) if name else ""
+                    party = PRINTED.get((printed or "").strip().lower())
+                    if not display or contact_like(display, True) or CONTACT.search(display):
+                        problem, stats["dropped_names"] = "a name cell that does not hold a name", stats["dropped_names"] + 1
+                    elif not party:
+                        problem = "a candidate with no party, or a party this loader does not know, beneath the name"
+                    elif (party in seen_p and party != "Independent") or display in seen_n:
+                        problem = "two candidates of one party, or one name twice"
+                    if problem:
+                        break
+                    seen_p.add(party)
+                    seen_n.add(display)
+                    rows.append([rid, "general", GENERAL, display, party, party_code(party), order, 0, 0, None, None, None, None, src, CAPS])
+                if problem:
+                    rows = []
+            if problem == "split":
+                notes.append(LOCAL_SPLIT_NOTE)
+            elif problem:
+                notes.append(LOCAL_UNREAD_NOTE)
+            elif not rows:
+                notes.append(NO_NAME_NOTE)
+                stats["no_name"] += 1
+            if problem:
+                gaps.append((STATE, "race", rid, f"{g['jurisdiction']}: {g['office']}", "the candidates",
+                             ("The versions of the ballot drawn in the county's sample ballot do not print this contest's candidates the "
+                              "same way" if problem == "split" else "The county's sample ballot could not be read with confidence for this "
+                              "contest (" + problem + ")") + ", so the race is shown without candidates; the county's sample ballot "
+                             "shows them.", f["url"]))
+                checks.append(f"{rid}: {problem}; candidates left out ({g['lines']} candidate lines drawn)")
+                stats["problem_races"] += 1
+                stats["problem_lines"] += g["lines"]
+            word = next(iter(g["vote_for"])) if len(g["vote_for"]) == 1 else None
+            if word and word != "one":
+                notes.append(f"Voters choose {word}.")
+            if styles and g["drawn"] < styles:
+                notes.append(SOME_STYLES.format(n=g["drawn"], m=styles))
+            elif g["drawn"] > styles:
+                checks.append(f"{rid}: drawn {g['drawn']} times on a ballot of {styles} versions")
+            races.append((rid, STATE, g["level"], g["office_kind"], g["office"], g["jurisdiction"], g["jurisdiction_id"], json.dumps([geoid]),
+                          g["district"], g["seat"], 0, 1, None, None, None, GENERAL, " ".join(notes) or None))
+            cands += rows
+            n_file += len(rows)
+            reached.add(geoid)
+            by_level[g["level"]] += 1
+            by_kind[g["office_kind"]] += 1
+            offices[(g["office_kind"], g["office"])] += 1
+            kind_counties[g["office_kind"]].add(geoid)
+            if not problem:
+                stats["placed_lines"] += g["lines"]
+            if g["level"] == "school" and not any(p[1] == g["jurisdiction_id"] for p in places):
+                places.append(("school", g["jurisdiction_id"], g["jurisdiction"], json.dumps([geoid]), src))
+        # the county's ballot as a source, with the two counts side by side
+        f26 = {cls: f["counts"].get(f"{cls}|{GENERAL}", [0, 0]) for cls in ("federal", "state", "local")}
+        rest26 = [v for k, v in f["counts"].items() if k.endswith("|" + GENERAL) and k.split("|")[0] not in f26]
+        old_n = sum(v[0] for k, v in f["counts"].items() if not k.endswith("|" + GENERAL))
+        wf = sum(f["without_for"].values())
+        ok_votes = f["vote_for_lines"] == f["contests_read"] + wf
+        ok_party = f["party_lines"] == f["candidate_lines"] + f["without_for_parties"]
+        stats["vote_for_lines"] += f["vote_for_lines"]
+        stats["contests_read"] += f["contests_read"]
+        stats["party_lines"] += f["party_lines"]
+        stats["straight_party_lines"] += f.get("straight_party_lines", 0)
+        stats["candidate_lines"] += f["candidate_lines"]
+        stats["without_for"] += wf
+        stats["without_for_parties"] += f["without_for_parties"]
+        stats["blanked"] += f.get("blanked", 0)
+        stats["no_party"] += f.get("no_party", 0)
+        if not ok_votes or not ok_party:
+            stats["unreconciled"] += 1
+            checks.append(f"{cname}: the ballot's own lines and the contests read do not add up ({f['vote_for_lines']} vote-for lines "
+                          f"against {f['contests_read'] + wf} contests; {f['party_lines']} party lines against "
+                          f"{f['candidate_lines'] + f['without_for_parties']} candidates read)")
+        for cls, n in sorted(f["without_for"].items()):
+            checks.append(f"{cname}: {n} {cls.split(' (')[0]} contest{'s' if n != 1 else ''} drawn without the word FOR in the title "
+                          "(counted, " + ("not this loader's" if cls not in ("local", "state") else "not read") + ")")
+        pdf = os.path.join(folder, "sample_general", f["file"])
+        sources.append((src, STATE, "official sample ballot", AGENCY, f"2026 General Election Sample Ballot, {cname} (county and school offices)",
+                        f["url"], PUBLISHED, mdate(pdf), f["sha256"], n_file,
+                        f"{cname}'s sample ballot (PDF), which draws {styles} version{'' if styles == 1 else 's'} of the November 3 ballot one "
+                        "over another" + (f" and {old_n} contests of an older ballot beneath, set aside" if old_n else "") + ". Read here: the "
+                        "title of each county and county school contest, the names under it in the order printed, the party beneath each name "
+                        f"and the Write-in line: {len(group)} contests, {n_file} candidates, each version printing a contest the same way"
+                        + ("" if not any(len(g["versions"]) > 1 for g in group.values()) else " except where a gap says otherwise")
+                        + f". Two counts of the whole ballot agree: its {f['vote_for_lines']:,} vote-for lines head {f26['federal'][0]:,} "
+                        f"federal, {f26['state'][0]:,} state and {f26['local'][0]:,} county and school contests"
+                        + (f", {sum(v[0] for v in rest26):,} other contests" if rest26 else "") + (f", {old_n:,} on the older ballot" if old_n else "")
+                        + (f" and {wf} drawn without the word FOR" if wf else "") + f", and its {f['party_lines']:,} party lines are the "
+                        f"{f['candidate_lines'] + f['without_for_parties']:,} candidates under them"
+                        + ("" if ok_votes and ok_party else " (they do not add up; see the loader's report)")
+                        + ". A sample ballot carries no address, telephone, e-mail or website, shows no one who withdrew and names no "
+                        "write-in candidate. Names printed in capitals are shown in ordinary capitals."))
+
+    # the notes: when Alabama elects its local officers, and what is loaded here
+    def nc(*kinds):
+        return len(set().union(*(kind_counties.get(k, set()) for k in kinds)))
+
+    absent = [words for words, pat in ABSENT_OFFICES if not any(pat.search(t) for t in titles26)]
+    calendar = (f"On November 3, 2026 {_all(nc('sheriff'))} Alabama counties elect a sheriff, {nc('coroner')} a coroner and "
+                f"{nc('revenue_commissioner', 'county_assessor', 'tax_collector')} a revenue commissioner or a tax assessor and a tax collector; "
+                f"{nc('county_commissioner', 'county_board_chair')} elect members of the county commission, {nc('school_board')} members of the "
+                f"county board of education and {nc('school_superintendent')} the county superintendent of education.")
+    if absent:
+        calendar += f" No county's November ballot has a contest for {_list(absent)}."
+    days = [d for k, d in (("aug2025", "August 26, 2025 for the regular municipal elections"), ("aug2026", "August 25, 2026 for those held this year"))
+            if facts.get(k)]
+    if len(days) == 2:
+        calendar += (" Cities and towns vote at their own municipal elections, not in November: the Secretary of State's calendars "
+                     f"give {days[0]}" + (", which Act 2021-157 moved from 2024," if facts.get("act2021") else "") + f" and {days[1]}.")
+    else:
+        checks.append("the Secretary's municipal election calendars could not be read, so the calendar note says nothing about cities and towns")
+    kinds_line = ", ".join(f"{KIND_WORDS.get(k, k.replace('_', ' '))} {n}" for k, n in sorted(by_kind.items(), key=lambda x: (-x[1], x[0])))
+    coverage = (f"Loaded from the {len(files)} county sample ballots the Secretary of State posted for November 3, 2026: every county office and "
+                f"county board of education contest printed on them, {len(races):,} contests and {len(cands):,} candidates in "
+                f"{_all(len(reached))} counties ({kinds_line}). Every one is a partisan office, and names, parties and ballot order are as "
+                "printed. A sample ballot shows no one who withdrew and names no write-in candidates"
+                + ("; candidates for county office are certified to each county's judge of probate rather than to the Secretary of State, so "
+                   "these ballots are the statewide official source for them"
+                   if all(facts.get(k) for k in ("probate", "nominees", "cite_5", "cite_18")) else "")
+                + ". Not loaded: constitutional amendments and other ballot questions, the May 19 primary and June 16 runoff for county "
+                "offices, and city and town offices, which are not on this ballot."
+                + ((" One contest is" if stats["no_name"] == 1 else f" {stats['no_name']} contests are") + " printed with a Write-in line "
+                   "and no name." if stats["no_name"] else "")
+                + (f" {len(gaps)} gap{'' if len(gaps) == 1 else 's'} list what could not be read." if gaps else ""))
+    cal_docs = [d[2].split(" (")[0] for d in docs if d[0] != "al-sos-2026-administrative-calendar"]
+    notes = [(STATE, "local_calendar", calendar,
+              f"{AGENCY}: the {len(files)} county sample ballots for November 3, 2026"
+              + ("; " + "; ".join(cal_docs) if cal_docs else ""), INFO_PAGE),
+             (STATE, "local_coverage", coverage, f"{AGENCY}: 2026 General Election Sample Ballots, one for each county"
+              + ("; 2026 Administrative Calendar" if facts.get("probate") else ""), SAMPLE_PAGES["general"])]
+    for sid, kind, title, url, revised, fetched, sha, found, note in docs:
+        sources.append((sid, STATE, kind, AGENCY, title, url, revised, fetched, sha, found, note + " The document holds dates and rules; "
+                        "no candidate is named in it."))
+    for title in missing:
+        checks.append(f"could not be fetched, so the notes rest on less: {title}")
+
+    # the last look at every text the local part stores: nothing that reads like a contact detail
+    for row in races:
+        if any(v and (contact_like(v, True) or LOOKS_LIKE_STREET.search(str(v))) for v in (row[4], row[5], row[8], row[9], row[16])):
+            raise SystemExit(f"Alabama (county and school races): a stored cell of {row[0]} failed the contact-detail check (not shown)")
+    for c in cands:
+        if contact_like(c[3], True) or CONTACT.search(c[3]) or contact_like(c[14] or "", True):
+            raise SystemExit(f"Alabama (county and school races): a stored name in {c[0]} failed the contact-detail check (not shown)")
+    for p in places:
+        if contact_like(p[2], True):
+            raise SystemExit(f"Alabama (county and school races): the name of place {p[1]} failed the contact-detail check (not shown)")
+    for g in gaps:
+        if any(contact_like(v, True) or LOOKS_LIKE_STREET.search(v) for v in (g[3], g[4], g[5]) if v):
+            raise SystemExit(f"Alabama (county and school races): a gap's words for {g[2]} failed the contact-detail check (not shown)")
+    for n in notes:
+        if contact_like(n[2], True) or LOOKS_LIKE_STREET.search(n[2]) or contact_like(n[3], False):
+            raise SystemExit(f"Alabama (county and school races): the note {n[1]} failed the contact-detail check (not shown)")
+    keys = collections.Counter((c[0], c[1], c[3]) for c in cands)
+    if any(n > 1 for n in keys.values()) or len({r[0] for r in races}) != len(races):
+        raise SystemExit("Alabama (county and school races): two rows share a key; stopping")
+
+    stats["races"], stats["cands"], stats["reached"], stats["files"] = len(races), len(cands), len(reached), len(files)
+    return dict(races=races, cands=cands, places=places, sources=sources, gaps=gaps, notes=notes, checks=checks, stats=dict(stats),
+                by_level=dict(by_level), by_kind=dict(by_kind), offices={f"{k}: {o}": n for (k, o), n in sorted(offices.items())},
+                older=dict(older), new_kinds=sorted(set(by_kind) - KNOWN_KINDS), absent=absent,
+                contested=sum(1 for n in collections.Counter(c[0] for c in cands).values() if n > 1),
+                single=sum(1 for n in collections.Counter(c[0] for c in cands).values() if n == 1))
+
+
 # ---------- the load ----------
 
 SCHEMA = """
@@ -688,8 +1359,10 @@ CREATE TABLE IF NOT EXISTS sl_places (kind TEXT NOT NULL, id TEXT NOT NULL, name
 """
 
 
-def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_ZIP, keep=None):
+def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_ZIP, keep=None, local_keep=None):
     keep = keep or folder
+    local_keep = local_keep or os.path.join(folder, "local")
+    net.patient_lookups()
     problems, checks = [], []
     counties = census_counties(county_zip)
     geoid_of = {county_key(n.replace(" County", "")): g for g, n in counties.items()}
@@ -967,7 +1640,17 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
     gen_rows = [c for c in cands if c[1] == "general"]
     older_note = (", ".join(f"{n} contests dated {d}" for d, n in sorted(set_aside.items(), key=str))
                   + " (in " + ", ".join(sorted({c for c, _d in older})) + ")") if older else "none"
-    other_note = "; ".join(f"{why}: {n}" for why, n in sorted(other_general.items()))
+    other_note = "; ".join(f"{why}: {n}" for why, n in sorted(other_general.items())).replace("(local phase)", "(read with the county's own ballot, below)")
+
+    # 8b. the county and local part: the same ballots' county and county school contests
+    lfiles, _lpath = read_local_ballots(folder, local_keep, say)
+    facts, docs, missing = calendar_findings(local_keep, say)
+    local = local_part(lfiles, counties, geoid_of, facts, docs, missing, folder)
+    clash = sorted({r[0] for r in race_rows} & {r[0] for r in local["races"]})
+    if clash:
+        raise SystemExit(f"Alabama: a county race id is also a state race id ({clash[:3]})")
+    if {s[0] for s in local["sources"]} & {SRC_GENERAL, SRC_PRIMARY, SRC_RUNOFF, SRC_DEM_P, SRC_REP_P, SRC_DEM_R, SRC_ROSTER, SRC_COUNTY}:
+        raise SystemExit("Alabama: a local source id is also a state source id")
     kept_sha = hashlib.sha256(json.dumps(sorted(f["sha256"] for f in files)).encode()).hexdigest()
 
     def blanks_note(blanks, recon):
@@ -1023,18 +1706,23 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
                     COUNTY_URL, "", mdate(county_zip), sha256(county_zip) if os.path.exists(county_zip) else "", len(counties),
                     "County names and FIPS codes only."))
 
+    # Alabama's rows only, state and local together, in one transaction: the state rows are written exactly as before
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
     with con:
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                     (STATE, f"2026-{STATE}-%"))
         con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_places WHERE source_id LIKE ?", (f"{STATE.lower()}-%",))
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [tuple(c) for c in cands])
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local["races"])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [tuple(c) for c in cands + local["cands"]])
+        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources + local["sources"])
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows + local["places"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     # 10. say what happened
@@ -1058,12 +1746,40 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
         say(f"      problem: {p}")
     for c in checks:
         say(f"      check: {c}")
-    return {"races": len(races), "general": len(gen_rows), "fields": dict(fields), "problems": problems, "checks": checks}
+    st, lv = local["stats"], local["by_level"]
+    say(f"    Alabama (county and school races): {st['races']:,} races ({', '.join(f'{k} {lv[k]:,}' for k in LOCAL_LEVELS if lv.get(k))}), "
+        f"{st['cands']:,} candidates on the November ballot, a race in {st['reached']} of {COUNTIES} counties; races with more than one "
+        f"candidate: {local['contested']}; with one: {local['single']}; with none printed: {st.get('no_name', 0)}; "
+        f"{len(local['places'])} boards of education as places; {len(local['gaps'])} gaps")
+    say("      office kinds: " + ", ".join(f"{k} {n:,}" for k, n in sorted(local["by_kind"].items(), key=lambda x: (-x[1], x[0]))))
+    say("      offices as printed: " + "; ".join(f"{k} {n:,}" for k, n in sorted(local["offices"].items())))
+    if local["new_kinds"]:
+        say(f"      office kinds the pages do not know yet: {', '.join(local['new_kinds'])}")
+    say(f"      two counts of the {st['files']} ballots: {st['vote_for_lines']:,} vote-for lines against {st['contests_read']:,} contests read "
+        f"and {st.get('without_for', 0)} drawn without the word FOR; {st['party_lines']:,} party lines (the straight party boxes' "
+        f"{st.get('straight_party_lines', 0):,} apart) against {st['candidate_lines']:,} candidates read and {st.get('without_for_parties', 0)} "
+        f"under those; ballots that do not add up: {st.get('unreconciled', 0)}")
+    say(f"      county and school contests on the November styles: {st['drawn']:,} drawings carrying {st['lines']:,} candidate lines; "
+        f"{st.get('placed_lines', 0):,} lines placed, each in exactly one race ({st['cands']:,} candidates in {st['races']:,} races), "
+        f"{st.get('unread_lines', 0):,} under titles not understood, {st.get('problem_lines', 0):,} in races left without candidates; "
+        f"{st.get('older_drawn', 0)} drawings on older styles set aside; {st.get('blanked', 0)} name cells blanked, "
+        f"{st.get('no_party', 0)} names with no party beneath on any contest of the ballots; races where the versions space a name "
+        f"differently (the printing drawn most kept): {st.get('respaced', 0)}")
+    if local["absent"]:
+        say(f"      no November contest for: {', '.join(local['absent'])}")
+    for g in local["gaps"]:
+        say(f"      gap ({g[1]} {g[2]}): {g[4]}")
+    for c in local["checks"]:
+        say(f"      check: {c}")
+    return {"races": len(races), "general": len(gen_rows), "fields": dict(fields), "problems": problems, "checks": checks,
+            "local": {k: v for k, v in local.items() if k not in ("races", "cands", "places", "sources", "gaps", "notes")},
+            "local_gaps": [g[:5] for g in local["gaps"]]}
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("db")
-    ap.add_argument("--keep", help="folder for the kept-cells JSON (default ballot_cache/al)")
+    ap.add_argument("--keep", help="folder for the state part's kept-cells JSON (default ballot_cache/al)")
+    ap.add_argument("--local-keep", help="folder for the county and local part's kept cells (default ballot_cache/al/local)")
     a = ap.parse_args()
-    load(a.db, keep=a.keep)
+    load(a.db, keep=a.keep, local_keep=a.local_keep)

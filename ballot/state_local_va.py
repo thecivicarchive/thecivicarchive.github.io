@@ -1,7 +1,8 @@
 """
-ballot/state_local_va.py - Virginia's state races on the November 3, 2026 ballot, from the Virginia Department of
-Elections' own candidate lists and results, into ballot_local_2026.sqlite (never ballot_2026.sqlite). Virginia's rows
-only: everything this loader writes is deleted and written again on each run.
+ballot/state_local_va.py - Virginia's state races, and its county, city, town and school board races, on the November
+3, 2026 ballot, from the Virginia Department of Elections' own candidate lists and results, into
+ballot_local_2026.sqlite (never ballot_2026.sqlite). Virginia's rows only: everything this loader writes is deleted and
+written again on each run.
 
 What is on the ballot this year
 -------------------------------
@@ -46,6 +47,56 @@ The privacy rule: from any list only office, district, locality, name, party, ba
 and votes are read. Nothing else is read, printed, logged, cached or stored; the cache keeps only those columns, as
 JSON, with the workbook's SHA-256. No photos, ages, websites, biographies or money in this phase.
 
+County, city, town and school board offices (the local part)
+------------------------------------------------------------
+Source: the Department's "2026 November Local Offices Candidate List", the workbook linked as "Download this file" from
+its page "November 3, 2026 - Local Offices" (the page is read for that one link and nothing else of it is kept). One
+sheet, one row per candidate per locality (county or independent city) whose ballot carries the contest. Columns are
+taken by name, and only these: Locality, Office Ballot Order, Party Ballot Order, Office Title, District, Number of
+Seats, Office Term, Special Office Unexpired Term End Date, Status, Candidate Party, Candidate Name. The sheet is read
+no further than the Candidate Name column, so the Incumbent column and the campaign e-mail, website, phone and
+address columns to its right are never read; the kept columns must be the leftmost ones, with no other heading among
+them, or the loader stops. The cut-down copy (JSON) is the only thing cached, in ballot_cache/va/local/. A layout that
+no longer fits stops the loader, which names the file, the sheet row and the check, never the row.
+
+What a row says, and where a contest is filed:
+  * the office is the opening words of the title, which the list spells several ways ("Member Town Council - Hurt",
+    "Member, Town Council - Hurt", "Member Town Council, Fincastle"); what follows names a town, "At Large", a seat
+    or "Special". The District cell holds a ward or district, or the locality itself, or a town ("Town of Herndon",
+    "Blackstone Ward A", or a bare "Farmville"). A town is taken only when it is one town of that county in the
+    Census Bureau's 2020 place list (st51_va_place2020.txt), compared by spelling (Mt for Mount, spaces set aside).
+  * Virginia's towns are municipalities inside counties and its 38 cities are independent of any county: both are
+    filed under level "city" (Virginia has no townships), each with its Census place code (VA-M-36648). A town in two
+    counties has a row per county; they are one contest, with both counties in county_ids.
+  * an elected school board belongs to a county, a city or a town (Colonial Beach, West Point): level "school", named
+    after that place ("Arlington County school board"), keyed by the county's three digits and the place's name.
+  * county offices (supervisors, Arlington's County Board, and special elections for sheriff, Commonwealth's attorney,
+    treasurer, commissioner of the revenue and clerk of court) are level "county"; an office a city shares with a
+    county (the list's District names both) is filed under the county, with both in county_ids.
+  * a filled Special Office Unexpired Term End Date, or "Special" in the title, makes a special election (-S).
+Party: the list has a Candidate Party column (who nominated; nearly all Independent), but Virginia prints a party
+beside a name only for federal, statewide and General Assembly offices (Code of Virginia 24.2-613 B), so every local
+contest is stored partisan 0 with "Nonpartisan office"; the column is not shown. Ballot order: for local offices the
+Party Ballot Order column is one number to a party (1 Democratic, 2 Republican, 5 Independent): the place of a
+candidate's party group, not the candidate's own. Party nominees are printed first and then the independents, who
+are nearly all the candidates, in the order they filed (24.2-613 C), which the list does not give; so no ballot order
+is stored for local contests (of 310 with two or more candidates on the copy first read, nine could have been
+ranked). The loader says so if the column ever stops being one number to a party. The Incumbent column is never read
+for local offices. A town office whose row names no town is that town's only where the county has exactly one town on
+the Census list (Hillsville in Carroll County), and the contest's note says so. A row that cannot be placed (a town
+office with no town named in a county with several towns) is not guessed: it goes to sl_gaps with the reason, and the
+loader's check line counts it. The list names only
+candidates who qualified, so a contest nobody qualified for (write-in only) is not on it; sl_gaps says so. sl_notes
+carries the local calendar (which offices are elected now and which another year, with the Code sections) and what
+is covered.
+
+Fetching: one request at a time through states/net.py with its honest User-Agent, a second apart: the Local Offices
+page, the workbook, and once the Census place list; a second run within two days asks for nothing (the index page's
+links, the cut-down list and the place list are in ballot_cache/va/local/). If the Department's site ever refuses the request
+(a 403, a challenge page, anything but the workbook) and the cache holds no copy, nothing is tried again and nothing
+is worked around: the state rows are still written and sl_gaps says the local list is missing. An ordinary network
+failure with no copy in the cache stops the loader, and the rows loaded before stay as they were.
+
 Usage: python -m ballot.state_local_va <database file> [cache folder]
 """
 
@@ -61,6 +112,7 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
 import zipfile
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urljoin
@@ -70,6 +122,7 @@ if __name__ == "__main__":
 
 import openpyxl
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like
 from ballot.common import CACHE, HERE, fold, name_parts, party_code
 from ballot.lists.va import ENR_API, ENR_CDN, ENR_SITE, PRIMARIES, CODE, race_of as federal_race, shown
 from ballot.match import fits
@@ -154,17 +207,40 @@ def get(url, accept="*/*"):
     return net.get(url, accept=accept)
 
 
-def page_links(url, heading):
-    """A page's links as (absolute address, link text), after checking its heading."""
-    page = get(url).decode("utf-8", "replace")
+def page_links(url, heading, only=None, seen=None):
+    """A page's links as (absolute address, link text), after checking its heading. With `only` (a pattern for the
+    Department's own files), no other link of the page is collected at all: a list page may carry candidates'
+    campaign websites, and those addresses are never taken, kept or shown. `seen`, a dict, is given the SHA-256 and
+    the size of the page as fetched."""
+    raw = get(url)
+    if seen is not None:
+        seen.update(sha256=hashlib.sha256(raw).hexdigest(), bytes=len(raw))
+    page = raw.decode("utf-8", "replace")
+    del raw
     h1 = re.search(r"<h1[^>]*>(.*?)</h1>", page, re.S | re.I)
     said = re.sub(r"\s+", " ", H.unescape(H.unescape(re.sub(r"<[^>]+>", " ", h1.group(1))))).strip() if h1 else ""
     if said != heading:
         raise SystemExit(f"Virginia: the page {url} is headed {said!r}, not {heading!r}")
     out = []
     for href, text in re.findall(r"<a[^>]+href=\"([^\"]+)\"[^>]*>(.*?)</a>", page, re.S | re.I):
-        out.append((urljoin(url, H.unescape(href)), re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", text))).strip()))
+        address = urljoin(url, H.unescape(href))
+        if only is not None and not only.search(address):
+            continue
+        out.append((address, re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", text))).strip()))
     return out
+
+
+def index_links(folder):
+    """The Candidates & Referendums page's links to the Department's own November 2026 workbooks, as (address, link
+    text), kept two days in the cache so that a second run asks for nothing."""
+    path = os.path.join(folder, "local", "va_candidate_list_index.json")
+    if os.path.exists(path) and time.time() - os.path.getmtime(path) < 2 * 86400:
+        return [tuple(x) for x in json.load(open(path, encoding="utf-8"))["links"]]
+    links = page_links(INDEX, INDEX_HEADING, only=NOV_LINK)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump({"page": INDEX, "heading": INDEX_HEADING, "read": dt.date.today().isoformat(), "links": links},
+              open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return links
 
 
 # ---------------------------------------------------------------- offices
@@ -269,13 +345,13 @@ def lists(folder, say):
     specials = []
     try:
         if not fresh:
-            links = [u for u, _t in page_links(ALL_PAGE, ALL_HEADING) if ALL_LINK.search(u)]
+            links = [u for u, _t in page_links(ALL_PAGE, ALL_HEADING, only=ALL_LINK)]
             if not links:
                 raise SystemExit("Virginia: the All Offices page no longer links the 2026 November All Offices Candidate List workbook")
             main = read_list(links[0], ALL_PAGE, ALL_HEADING, all_path, 0, say)
         else:
             main = json.load(open(all_path, encoding="utf-8"))
-        index = page_links(INDEX, INDEX_HEADING)
+        index = index_links(folder)
         for u, text in index:
             if NOV_LINK.search(u) and not ALL_LINK.search(u) and SPECIAL_TEXT.search(text) and "Special" in text:
                 slug = re.sub(r"[^a-z0-9]+", "-", os.path.basename(u).lower().replace(".xlsx", "")).strip("-")
@@ -407,6 +483,550 @@ def county_codes(path=COUNTY_ZIP):
     if len(out) != 133:
         raise SystemExit(f"Virginia: the county file gives {len(out)} counties and independent cities, not 133")
     return out
+
+
+# ---------------------------------------------------------------- county, city, town and school board offices
+
+LOCAL_PAGE = INDEX + "november-3-2026-gen-elect-local-offices/"
+LOCAL_HEADING = "November 3, 2026 - Local Offices"
+LOCAL_LINK = re.compile(r"/candidatelist/2026/2026-November-Local-Offices-Candidate-List[^\"'<>]*\.xlsx$", re.I)
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st51_va_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+CODE_URL = "https://law.lis.virginia.gov/vacode/title24.2/chapter2/"
+END = "Special Office Unexpired Term End Date"
+# the only columns taken from the Local Offices list: its leftmost columns. Nothing to their right is read.
+LOCAL_KEEP = ("Locality", "Office Ballot Order", "Party Ballot Order", "Office Title", "District", "Number of Seats", "Office Term",
+              END, "Status", "Candidate Status", "Candidate Party", "Candidate Name")
+LOCAL_REQUIRED = ("Locality", "Party Ballot Order", "Office Title", "District", "Number of Seats", END, "Candidate Party", "Candidate Name")
+SRC_LOCAL, SRC_LOCAL_PAGE, SRC_PLACE = "va-elections-2026-local-offices-list", "va-elections-2026-local-offices-page", "va-census-2020-places"
+NONPARTISAN = "Nonpartisan office"
+# the office a title opens with: the words the list most often uses, a pattern, the office kind, and whose office it is
+LOCAL_OFFICES = (
+    ("Member Town Council", r"member town council", "council", "town"),
+    ("Member City Council", r"member city council", "council", "city"),
+    ("Member School Board", r"member school board", "school_board", "school"),
+    ("Member Board of Supervisors", r"member board of supervisors", "county_commissioner", "county"),
+    ("Chairman Board of Supervisors", r"chairman board of supervisors", "county_board_chair", "county"),
+    ("Member County Board", r"member county board", "county_commissioner", "county"),
+    ("Vice Mayor", r"vice mayor", "vice_mayor", "municipal"),
+    ("Mayor", r"mayor", "mayor", "municipal"),
+    ("Recorder", r"recorder", "city_recorder", "municipal"),
+    ("Sheriff", r"sheriff", "sheriff", "constitutional"),
+    ("Treasurer", r"treasurer", "treasurer", "constitutional"),
+    ("Commonwealth's Attorney", r"commonwealth.?s attorney", "commonwealths_attorney", "constitutional"),
+    ("Commissioner of Revenue", r"commissioner of (?:the )?revenue", "commissioner_of_revenue", "constitutional"),
+    ("Clerk of Court", r"clerk of (?:the )?(?:circuit )?court", "clerk_of_court", "constitutional"),
+)
+CALENDAR = ("On November 3, 2026 the Virginia cities and towns that vote in November of even years elect mayors and councils, and "
+            "where the school board is elected it is chosen at the same election; Arlington County elects a member of its County "
+            "Board and of its School Board; and special elections fill vacancies in county, city and town offices for the rest of "
+            "a term. Most counties elect their supervisors, sheriffs, Commonwealth's attorneys, treasurers, commissioners of the "
+            "revenue and school boards in November 2027, when soil and water conservation district directors are elected too; "
+            "cities elect those constitutional officers in 2029 unless a charter says otherwise; clerks of circuit court serve "
+            "eight years (counties next in 2031, cities in 2027); and cities and towns whose charters set odd years, or a May "
+            "election, vote then. Virginia's local governments are counties, cities and towns (it has no townships), and its judges "
+            "are chosen by the General Assembly, not elected.")
+CALENDAR_SOURCE = ("Code of Virginia 24.2-217, 24.2-218, 24.2-222, 24.2-222.1, 24.2-223, 24.2-226, 15.2-102, 15.2-705 and 10.1-530; "
+                   "Constitution of Virginia, Article VI, Section 7; Virginia Department of Elections, 2026 November Local Offices "
+                   "Candidate List")
+
+
+class LayoutError(SystemExit):
+    """The list no longer has the layout this loader was checked against. The message names the file, the sheet row and
+    the check that failed; never what the row says."""
+
+
+class Unavailable(Exception):
+    """The Local Offices list or the place list was refused (a 403, a challenge page, anything but the file) and the
+    cache holds no earlier copy: the local part is left out, with a gap that says so. Nothing is tried again, and no
+    wall is worked around. An ordinary network failure is not this: it stops the loader, and the rows loaded before
+    stay as they were."""
+
+    def __init__(self, detail, reason):
+        super().__init__(detail)
+        self.reason = reason
+
+
+REFUSED = (401, 403, 406, 429, 451, 503)         # the answers of a site that does not want a script
+# The page builder's last check drops any note in which a number is followed by a street word ("3 towns on the place
+# list" reads to it like an address). The sentences written here are tried against the same pattern, so that none of
+# them is silently left off a page.
+STREET_LIKE = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|Ln|"
+                         r"Lane|Way|Ct|Court|Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
+
+
+def reads_like_contact(text):
+    return bool(text) and (contact_like(text, True) or bool(STREET_LIKE.search(str(text))))
+
+
+class Unplaced(Exception):
+    """A row that names no place this loader can be sure of: what the contest is, and why it is not shown."""
+
+    def __init__(self, what, reason):
+        super().__init__(what)
+        self.what, self.reason = what, reason
+
+
+def _check(ok, label, line, what):
+    if not ok:
+        raise LayoutError(f"Virginia: {label}: sheet row {line} fails the layout check '{what}'; stopping (the row is not printed)")
+
+
+def slug(text):
+    """'Valley Springs District' -> 'valley-springs-district': letters, digits and hyphens, for ids only."""
+    t = unicodedata.normalize("NFKD", text or "")
+    t = "".join(c for c in t if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def town_key(text):
+    """'Mt Crawford', 'Mount Crawford', 'Lacrosse', 'La Crosse' -> one spelling, for comparing names only."""
+    return "".join("mt" if w == "mount" else "st" if w == "saint" else w for w in fold(text).split())
+
+
+def words_list(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def plural(n, word):
+    return f"{n:,} {word}{'' if n == 1 else 's'}"
+
+
+def read_local_workbook(data, label):
+    """The Local Offices workbook cut down, in memory, to the LOCAL_KEEP columns of its local-office rows (and, for a
+    state office on it, the cells the control against the All Offices list needs). The sheet is read no further than
+    the last of those columns."""
+    if data[:2] != b"PK":
+        raise Unavailable(f"{label} is not a workbook", "The Department of Elections' site sent something other than its Local Offices "
+                          "candidate list when this was loaded, so no local race is shown; loading again asks for it once more.")
+    wb = openpyxl.load_workbook(io.BytesIO(data), read_only=True, data_only=True)
+    try:
+        if len(wb.worksheets) != 1:
+            raise LayoutError(f"Virginia: {label} has {len(wb.worksheets)} sheets, not the one this loader was checked against; stopping")
+        ws = wb.worksheets[0]
+        heads, start = None, 0
+        for i, r in enumerate(ws.iter_rows(values_only=True, max_row=12)):       # headings only, to find the columns
+            cells = [str(c).strip() if c is not None else "" for c in r]
+            del r
+            if all(k in cells for k in LOCAL_REQUIRED):
+                heads, start = cells, i + 2
+                break
+            del cells
+        if not heads:
+            raise LayoutError(f"Virginia: {label}'s columns changed (no heading row with {', '.join(LOCAL_REQUIRED)}); stopping")
+        idx = {k: heads.index(k) for k in LOCAL_KEEP if k in heads}
+        last = max(idx.values()) + 1                                             # the sheet is read no further than this column
+        if any(h not in LOCAL_KEEP for h in heads[:last]) or len(set(heads[:last])) != last:
+            raise LayoutError(f"Virginia: {label}: a heading this loader does not take sits among the columns it reads; stopping")
+        kept, state_rows, counts, n = [], [], collections.Counter(), 0
+        for line, r in enumerate(ws.iter_rows(min_row=start, max_col=last, values_only=True), start):
+            rec = {k: (clean(r[i]) if i < len(r) else "") for k, i in idx.items()}
+            del r
+            if not rec["Office Title"] and not rec["Candidate Name"]:
+                continue
+            n += 1
+            _check(rec["Locality"] and rec["Office Title"] and rec["Candidate Name"], label, line, "locality, office title and name present")
+            _check(rec["Number of Seats"].isdigit() and int(rec["Number of Seats"]) >= 1, label, line, "number of seats is a whole number")
+            _check(not rec[END] or re.fullmatch(r"\d{4}-\d{2}-\d{2}", rec[END]), label, line, "unexpired-term end date is empty or a date")
+            _check(not rec["Party Ballot Order"] or rec["Party Ballot Order"].isdigit(), label, line, "party ballot order is empty or a number")
+            _check(not any(contact_like(v, True) for v in rec.values()), label, line, "no kept cell looks like contact details")
+            what = classify(rec["Office Title"], rec["District"])
+            if what is None:
+                rec["_row"] = line
+                kept.append(rec)
+            elif isinstance(what, str):
+                counts[what] += 1
+            else:
+                counts["state"] += 1
+                state_rows.append([rec["Locality"], rec["Office Title"], rec["District"], rec["Candidate Name"], rec["Candidate Party"],
+                                   rec["Party Ballot Order"]])
+    finally:
+        wb.close()
+    return {"columns": list(idx), "rows": kept, "state_rows": state_rows, "counts": dict(counts), "all_rows": n}
+
+
+def local_list(folder, say):
+    """The Local Offices list, kept on disk only as its cut-down copy (JSON: the LOCAL_KEEP columns, the workbook's
+    SHA-256). Asked afresh when two days old; if that fails, the copy read earlier is used."""
+    path = os.path.join(folder, "va_2026_local_offices_list.json")
+    if os.path.exists(path) and time.time() - os.path.getmtime(path) < 2 * 86400:
+        return path, json.load(open(path, encoding="utf-8"))
+    seen = {}
+    try:
+        links = page_links(LOCAL_PAGE, LOCAL_HEADING, only=LOCAL_LINK, seen=seen)
+        if not links:
+            raise SystemExit("Virginia: the Local Offices page no longer links the 2026 November Local Offices Candidate List workbook")
+        url = links[0][0]
+        data = get(url, accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*")
+        got = read_local_workbook(data, os.path.basename(url))
+    except (HTTPError, URLError, OSError, Unavailable) as e:
+        if os.path.exists(path):
+            say(f"      could not refresh the Local Offices list ({type(e).__name__}); using the copy read earlier")
+            return path, json.load(open(path, encoding="utf-8"))
+        if isinstance(e, HTTPError) and e.code in REFUSED:
+            raise Unavailable(f"HTTP {e.code}", f"The Department of Elections' site refused this site's request for its Local Offices "
+                              f"candidate list when this was loaded (it answered {e.code}), so no local race is shown; the list can "
+                              "be read in a browser at the address given here.") from None
+        raise
+    m = re.search(r"rev-(\d{1,2})-(\d{1,2})-(\d{4})", url)
+    meta = {"url": url, "page": LOCAL_PAGE, "heading": LOCAL_HEADING, "page_sha256": seen.get("sha256", ""), "page_bytes": seen.get("bytes", 0),
+            "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
+            "published": f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}" if m else "",
+            "revision": f"rev. {m.group(1)}-{m.group(2)}-{m.group(3)}" if m else "", "read": dt.date.today().isoformat(), **got}
+    del data
+    os.makedirs(folder, exist_ok=True)
+    with open(path + ".part", "w", encoding="utf-8") as fh:
+        json.dump(meta, fh, ensure_ascii=False, indent=1)
+    os.replace(path + ".part", path)
+    say(f"      {os.path.basename(url)}: {got['all_rows']:,} rows, {len(got['rows']):,} of a local office "
+        f"({', '.join(f'{k} {v}' for k, v in sorted(got['counts'].items())) or 'no others'})")
+    return path, meta
+
+
+def census_places(folder, say):
+    """Virginia's incorporated places from the Census Bureau's 2020 place codes: towns by county and by name, and the
+    independent cities, each with its place code. A public reference file with no personal data, cached whole."""
+    path = os.path.join(folder, "st51_va_place2020.txt")
+    try:
+        net.download(PLACE_URL, path, 3650, tries=3, say=say)
+    except HTTPError as e:
+        if e.code not in REFUSED:
+            raise
+        raise Unavailable(f"HTTP {e.code}", "The Census Bureau's place list, which names Virginia's cities and towns, was refused to "
+                          f"this site when this was loaded (it answered {e.code}), so no local race is shown yet.") from None
+    towns, cities, n = collections.defaultdict(dict), {}, 0
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        if fh.readline().rstrip("\r\n").split("|") != PLACE_HEAD:
+            raise LayoutError("Virginia: st51_va_place2020.txt: the header is not the one this loader was checked against; stopping")
+        for line in fh:
+            f = line.rstrip("\r\n").split("|")
+            if len(f) != len(PLACE_HEAD) or f[1] != FIPS or f[5] != "INCORPORATED PLACE":
+                continue
+            n += 1
+            if f[4].endswith(" town"):
+                place = {"code": f[2], "name": f[4], "counties": [c for c in f[8].split("~~~") if c]}
+                for county in place["counties"]:
+                    towns[fold(county)].setdefault(town_key(f[4][:-5]), []).append(place)
+            elif f[4].endswith(" city"):
+                cities[fold(f[4])] = {"code": f[2], "name": f[4]}
+    return {"path": path, "towns": towns, "cities": cities, "n": n,
+            "n_towns": len({p["code"] for by in towns.values() for hits in by.values() for p in hits})}
+
+
+def one_town(towns_here, text):
+    hits = towns_here.get(town_key(text), [])
+    return hits[0] if len(hits) == 1 else None
+
+
+def read_title(title):
+    """An office title as the list writes it -> the office, and what the rest of the title says (a town, At Large, a
+    seat, Special). None when it opens with no office this loader knows."""
+    t = re.sub(r"\s+", " ", (title or "").replace(",", " ")).strip()
+    for words, pattern, kind, scope in LOCAL_OFFICES:
+        m = re.match(pattern + r"\b", t, re.I)
+        if m:
+            break
+    else:
+        return None
+    out = {"office": words, "kind": kind, "scope": scope, "special": False, "at_large": False, "seat": None, "places": []}
+    for piece in re.split(r"\s+-\s*|\s*-\s+", t[m.end():]):
+        piece = piece.strip()
+        if not piece:
+            continue
+        if re.fullmatch(r"special", piece, re.I):
+            out["special"] = True
+        elif re.fullmatch(r"at[- ]?large", piece, re.I):
+            out["at_large"] = True
+        elif re.fullmatch(r"seat \w+", piece, re.I):
+            out["seat"] = piece
+        else:
+            out["places"].append(re.sub(r"^town of\s+", "", piece, flags=re.I))
+    return out
+
+
+def read_district(cell, own, towns_here, geo):
+    """What the District cell holds: nothing, the locality itself, At Large, a town ("Town of X", "X Ward 2", a bare
+    "X" that is one town of this county), two localities that share an office, or a district in the list's own words."""
+    d = re.sub(r"\s+", " ", cell or "").strip()
+    if not d:
+        return {"kind": "none", "town": None}
+    if fold(d) == fold(own):
+        return {"kind": "self", "town": None}
+    if re.fullmatch(r"at[- ]?large", d, re.I):
+        return {"kind": "at_large", "town": None}
+    m = re.fullmatch(r"town of (.+)", d, re.I)
+    if m:
+        return {"kind": "town_of", "town": one_town(towns_here, m.group(1)), "text": d}
+    m = re.fullmatch(r"(.+?) (ward \w+)", d, re.I)
+    if m and one_town(towns_here, m.group(1)):
+        return {"kind": "town_ward", "town": one_town(towns_here, m.group(1)), "ward": m.group(2), "text": d}
+    if one_town(towns_here, d):
+        return {"kind": "bare_town", "town": one_town(towns_here, d), "text": d}
+    if "," in d:
+        named = [geo.get(fold(p)) for p in d.split(",")]
+        if all(named) and len({g for g, _n in named}) == len(named) > 1:
+            return {"kind": "localities", "town": None, "localities": named, "text": d}
+    return {"kind": "text", "town": None, "text": d}
+
+
+def contest_of(r, geo, places, backed):
+    """One row of the Local Offices list -> the contest it belongs to: level, office, jurisdiction, district, seat.
+    Raises Unplaced for a row whose place cannot be read with certainty; nothing is guessed."""
+    geoid, own = geo[fold(r["Locality"])]
+    is_city = own.endswith(" city")
+    t = read_title(r["Office Title"])
+    if t is None:
+        raise Unplaced(re.sub(r"\s+", " ", r["Office Title"]).strip()[:80],
+                       "The Department of Elections' list gives this contest an office title this site does not know yet, so it is "
+                       "not shown.")
+    special = 1 if (t["special"] or r[END]) else 0
+    what = t["office"] + (" (special election)" if special else "") + (f", {r['District']}" if r["District"] else "")
+    towns_here = {} if is_city else places["towns"].get(fold(own), {})
+    d = read_district(r["District"], own, towns_here, geo)
+    named = {}
+    for p in t["places"]:
+        hit = one_town(towns_here, p)
+        if not hit:
+            raise Unplaced(what, f"The Department of Elections' list files this contest under {own} with a title that names a place "
+                                 f"which is not one town of {own} on the Census Bureau's place list, so it is not shown.")
+        named[hit["code"]] = hit
+    if d["kind"] == "town_of" and not d["town"]:
+        raise Unplaced(what, f"The Department of Elections' list files this contest under {own} for a town that is not one town of "
+                             f"{own} on the Census Bureau's place list, so it is not shown.")
+    unclear = Unplaced(what, f"The Department of Elections' list files this contest under {own} in a way this site cannot read with "
+                             "certainty (the office and the District cell do not fit together), so it is not shown.")
+    seat = t["seat"] or ("At Large" if t["at_large"] or d["kind"] == "at_large" else None)
+    kind, scope, district, how, shared, place = t["kind"], t["scope"], None, None, None, None
+
+    def town_office(town):
+        return "city", town["name"], f"{STATE}-M-{town['code']}", "M" + town["code"], ("mcd", f"{STATE}-M-{town['code']}", town["name"], SRC_PLACE)
+
+    def city_office():
+        city = places["cities"].get(fold(own))
+        if not city:
+            raise unclear
+        return "city", city["name"], f"{STATE}-M-{city['code']}", "M" + city["code"], ("mcd", f"{STATE}-M-{city['code']}", city["name"], SRC_PLACE)
+
+    if scope == "town" or (scope == "municipal" and not is_city):            # a town's council, mayor, vice mayor or recorder
+        if is_city or d["kind"] == "localities":
+            raise unclear
+        if d["town"]:
+            named[d["town"]["code"]] = d["town"]
+        if len(named) > 1:
+            raise unclear
+        if named:
+            town = next(iter(named.values()))
+        else:
+            every = {p["code"]: p for hits in towns_here.values() for p in hits}
+            if len(every) != 1:
+                raise Unplaced(what, f"The Department of Elections' list files this contest under {own} without naming the town, and "
+                                     f"the Census Bureau lists {len(every) or 'no'} towns in {own}, so it is not shown here; the "
+                                     "county registrar's sample ballot names the town.")
+            town = next(iter(every.values()))
+            how = (f"The Department's list does not name the town for this contest; {town['name'][:-5]} is the only town in "
+                   f"{own} on the Census Bureau's place list.")
+        district = d["ward"] if d["kind"] == "town_ward" else d["text"] if d["kind"] == "text" else None
+        level, jurisdiction, jid, jpart, place = town_office(town)
+    elif scope in ("city", "municipal"):                                       # an independent city's council or mayor
+        if not is_city or named or d["kind"] not in ("none", "self", "at_large", "text"):
+            raise unclear
+        district = d["text"] if d["kind"] == "text" else None
+        level, jurisdiction, jid, jpart, place = city_office()
+    elif scope == "county":                                                    # supervisors, Arlington's County Board
+        if is_city or named or d["kind"] in ("town_of", "localities"):
+            raise unclear
+        district = d.get("text") if d["kind"] in ("text", "town_ward", "bare_town") else None
+        level, jurisdiction, jid, jpart = "county", own, geoid, geoid
+    elif scope == "constitutional":                                            # sheriff, treasurer, prosecutor, revenue, clerk
+        if d["kind"] == "town_of":
+            named[d["town"]["code"]] = d["town"]
+        if len(named) > 1 or d["kind"] in ("town_ward", "bare_town", "text", "at_large"):
+            raise unclear
+        if named:                                                              # a town's own officer (a town treasurer)
+            if is_city:
+                raise unclear
+            level, jurisdiction, jid, jpart, place = town_office(next(iter(named.values())))
+        elif d["kind"] == "localities":                                        # an office a city shares with a county
+            counties = [(g, n) for g, n in d["localities"] if not n.endswith(" city")]
+            if len(counties) != 1 or geoid not in {g for g, _n in d["localities"]}:
+                raise unclear
+            shared = sorted(g for g, _n in d["localities"])
+            level, jid, jpart = "county", counties[0][0], counties[0][0]
+            jurisdiction = words_list([counties[0][1]] + sorted(n for g, n in d["localities"] if g != counties[0][0]))
+        elif is_city:
+            level, jurisdiction, jid, jpart, place = city_office()
+        else:
+            level, jurisdiction, jid, jpart = "county", own, geoid, geoid
+        if kind == "treasurer":
+            kind = "county_treasurer" if level == "county" else "city_treasurer"
+    else:                                                                      # an elected school board
+        if d["kind"] == "localities":
+            raise unclear
+        if d["town"] and (d["kind"] == "town_of" or named or (geoid, d["town"]["code"]) in backed):
+            named[d["town"]["code"]] = d["town"]
+        elif d["town"]:
+            raise Unplaced(what, f"The Department of Elections' list files this school board contest under {own} with a District that "
+                                 "is also a town's name, and nothing on the list says whether it is that town's own school board, so "
+                                 "it is not shown.")
+        if len(named) > 1 or (named and is_city):
+            raise unclear
+        if named:                                                              # a town's own school board
+            town = next(iter(named.values()))
+            first = min(geo[fold(c)][0] for c in town["counties"] if fold(c) in geo)
+            base, key = town["name"], f"{first[2:]}-{slug(town['name'])}"
+            district = d["ward"] if d["kind"] == "town_ward" else None
+        else:
+            base, key = own, f"{geoid[2:]}-{slug(own)}"
+            district = d["text"] if d["kind"] == "text" else None
+        level, jurisdiction, jid, jpart = "school", f"{base} school board", f"{STATE}-S-{key}", "S" + key
+        place = ("school", jid, jurisdiction, SRC_LOCAL)
+    race_id = f"2026-{STATE}-" + "-".join([jpart, kind.replace("_", "-")] + [slug(x) for x in (district, seat) if x]) + ("-S" if special else "")
+    return {"race_id": race_id, "level": level, "office_kind": kind, "office": t["office"], "jurisdiction": jurisdiction,
+            "jurisdiction_id": jid, "district": district, "seat": seat, "special": special, "how": how, "shared": shared, "place": place,
+            "said_special": t["special"]}
+
+
+def build_local(meta, geo, places):
+    """The Local Offices list's rows as contests and candidates: every row in exactly one contest, or in sl_gaps with
+    the reason. Returns the rows for sl_races, sl_candidates, sl_places and sl_gaps, the CHECK lines and the counts."""
+    rows, problems = meta["rows"], []
+    # The Party Ballot Order is one number to a party (the party group's place on the ballot), not a candidate's own
+    # place, so no ballot order is stored for local offices. If that ever changes, say so.
+    order_of = collections.defaultdict(set)
+    for r in rows:
+        order_of[r["Candidate Party"]].add(r["Party Ballot Order"])
+    if any(len(v) != 1 for v in order_of.values()) or len({next(iter(v)) for v in order_of.values()}) != len(order_of):
+        problems.append("local: the Party Ballot Order column is no longer one number to a party; read the list again (it may now "
+                        "give each candidate's own place)")
+    # towns the list itself shows to have a school board of their own (so a bare town name in a later row can be trusted)
+    backed = set()
+    for r in rows:
+        loc, t = geo.get(fold(r["Locality"])), read_title(r["Office Title"])
+        if not loc or not t or t["scope"] != "school" or loc[1].endswith(" city"):
+            continue
+        towns_here = places["towns"].get(fold(loc[1]), {})
+        d = read_district(r["District"], loc[1], towns_here, geo)
+        for p in [one_town(towns_here, x) for x in t["places"]] + ([d["town"]] if d["kind"] == "town_of" else []):
+            if p:
+                backed.add((loc[0], p["code"]))
+
+    races, gaps, gone, placed = {}, {}, 0, 0
+    for r in rows:
+        status = (r.get("Status") or r.get("Candidate Status") or "").lower()
+        if any(g in status for g in GONE):
+            gone += 1
+            continue
+        loc = geo.get(fold(r["Locality"]))
+        try:
+            if not loc:
+                raise Unplaced(re.sub(r"\s+", " ", r["Office Title"]).strip()[:80],
+                               "The Department of Elections' list files this contest under a locality the Census Bureau's county "
+                               "file does not name, so it is not shown.")
+            c = contest_of(r, geo, places, backed)
+        except Unplaced as u:
+            key = ("county", loc[0], loc[1], u.what) if loc else ("state", STATE, NAME, u.what)
+            g = gaps.setdefault(key, {"reason": u.reason, "names": set(), "rows": 0})
+            g["names"].add(r["Candidate Name"])
+            g["rows"] += 1
+            continue
+        race = races.get(c["race_id"])
+        if race is None:
+            race = races[c["race_id"]] = dict(c, localities={}, ends=set(), seats=set(), people={}, hows=set(), rows=0)
+        elif any(race[k] != c[k] for k in ("level", "office_kind", "office", "jurisdiction", "jurisdiction_id", "district", "seat", "special")):
+            raise SystemExit(f"Virginia: two different contests of the Local Offices list share the race id {c['race_id']}; stopping")
+        race["localities"][loc[0]] = loc[1]
+        race["ends"].add(r[END])
+        race["seats"].add(r["Number of Seats"])
+        race["rows"] += 1
+        if c["how"]:
+            race["hows"].add(c["how"])
+        if c["said_special"] and not r[END]:
+            problems.append(f"{c['race_id']}: the title says Special but the list gives no unexpired-term end date")
+        p = race["people"].setdefault(r["Candidate Name"], {"orders": set(), "places": collections.Counter(), "party": set()})
+        p["orders"].add(r["Party Ballot Order"])
+        p["places"][loc[0]] += 1
+        p["party"].add(r["Candidate Party"])
+        placed += 1
+
+    race_rows, cand_rows, place_of = [], [], {}
+    for rid in sorted(races):
+        race = races[rid]
+        cids = sorted(set(race["localities"]) | set(race["shared"] or ()))
+        if race["shared"] and set(race["shared"]) != set(race["localities"]):
+            problems.append(f"{rid}: the District cell names {len(race['shared'])} localities but its rows are filed under {len(race['localities'])}")
+        if race["place"] and race["place"][0] == "mcd" and race["jurisdiction"].endswith(" town"):
+            census = {geo[fold(c)][0] for hits in places["towns"].values() for ps in hits.values() for p in ps
+                      if p["code"] == race["place"][1].rsplit("-", 1)[-1] for c in p["counties"] if fold(c) in geo}
+            if not set(race["localities"]) <= census:
+                problems.append(f"{rid}: filed under a county the Census Bureau's place list does not give for {race['jurisdiction']}")
+        notes = []
+        seats = sorted(race["seats"])
+        if len(seats) != 1:
+            problems.append(f"{rid}: the list gives {seats} seats")
+        elif int(seats[0]) > 1:
+            notes.append(f"Voters choose up to {int(seats[0])}.")
+        if race["special"]:
+            ends = sorted(race["ends"] - {""})
+            if len(ends) == 1:
+                day = dt.date.fromisoformat(ends[0])
+                notes.append(f"A special election for the rest of a term that ends {day:%B} {day.day}, {day.year}.")
+            else:
+                notes.append("A special election for the rest of a term.")
+                if len(ends) > 1:
+                    problems.append(f"{rid}: the list gives more than one unexpired-term end date ({ends})")
+        elif race["ends"] - {""}:
+            problems.append(f"{rid}: an unexpired-term end date on some rows only")
+        if len(cids) > 1:
+            notes.append("On the ballot in " + words_list(sorted(geo_name(geo, c) for c in cids))
+                         + " (the localities the Department's list gives for this office).")
+        notes += sorted(race["hows"])
+        people = race["people"]
+        for p in people.values():
+            if set(p["places"]) != set(race["localities"]):
+                problems.append(f"{rid}: a candidate is listed in {len(p['places'])} of the contest's {len(race['localities'])} localities")
+            if max(p["places"].values()) > 1:
+                problems.append(f"{rid}: a candidate is listed twice in one locality")
+            if len(p["orders"]) > 1 or len(p["party"]) > 1:
+                problems.append(f"{rid}: a candidate's party or party ballot order differs between localities")
+        seen, caps_any = set(), False
+        for raw, p in people.items():
+            name, caps = shown(raw)
+            if name in seen:
+                raise SystemExit(f"Virginia: the same name twice in the contest {rid}; stopping (the name is not printed)")
+            seen.add(name)
+            caps_any |= caps
+            write_in = int(any("write" in x.lower() for x in p["party"]))
+            cand_rows.append((rid, "general", GENERAL, name, NONPARTISAN, "N", None, 0, write_in, None, None, None, None,
+                              SRC_LOCAL, join(CAPS if caps else "", WRITE_IN if write_in else "")))
+        if caps_any:
+            notes.append(CAPS)
+        race_rows.append((rid, STATE, race["level"], race["office_kind"], race["office"], race["jurisdiction"], race["jurisdiction_id"],
+                          json.dumps(cids), race["district"], race["seat"], race["special"], 0, None, None, None, GENERAL,
+                          " ".join(notes) or None))
+        if race["place"]:
+            kind, pid, pname, src = race["place"]
+            place_of.setdefault((kind, pid), {"name": pname, "src": src, "counties": set()})["counties"] |= set(cids)
+    place_rows = [(kind, pid, e["name"], json.dumps(sorted(e["counties"])), e["src"]) for (kind, pid), e in sorted(place_of.items())]
+    gap_rows, unplaced = [], 0
+    for (scope, pid, pname, what), g in sorted(gaps.items()):
+        unplaced += g["rows"]
+        n = len(g["names"])
+        gap_rows.append((STATE, scope, pid, pname, what, g["reason"] + f" The list names {n} candidate{'s' if n != 1 else ''} for it.", LOCAL_PAGE))
+    levels = collections.Counter(r[2] for r in race_rows)
+    kinds = collections.Counter(r[3] for r in race_rows)
+    reached = {c for r in race_rows for c in json.loads(r[7])}
+    return {"races": race_rows, "cands": cand_rows, "places": place_rows, "gaps": gap_rows, "problems": problems,
+            "rows": len(rows), "placed": placed, "unplaced": unplaced, "unplaced_contests": len(gaps), "gone": gone,
+            "levels": dict(levels), "kinds": dict(kinds), "reached": len(reached),
+            "specials": sum(1 for r in race_rows if r[10]), "parties": {k: len([1 for r in rows if r["Candidate Party"] == k]) for k in order_of},
+            "party_orders": {k: sorted(v) for k, v in order_of.items()},
+            "two_county": sum(1 for r in race_rows if len(json.loads(r[7])) > 1), "copies": placed - len(cand_rows),
+            "statuses": dict(collections.Counter((r.get("Status") or r.get("Candidate Status") or "") for r in rows))}
+
+
+def geo_name(geo, geoid):
+    return next(name for g, name in geo.values() if g == geoid)
 
 
 # ---------------------------------------------------------------- load
@@ -604,8 +1224,50 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
         problems.append(f"races with no November candidate: {empty}")
     problems += unreconciled
 
+    # ---- county, city, town and school board offices, from the Local Offices list (see the docstring)
+    local, lmeta, lplaces, local_gaps, control = None, None, None, [], ""
+    try:
+        if not geo:
+            raise Unavailable("the county file is not in states_cache/census", "The Census Bureau's county file, which turns the list's "
+                              "localities into county codes, was not in this site's cache when this was loaded, so no local race is "
+                              "shown yet.")
+        _lpath, lmeta = local_list(os.path.join(folder, "local"), say)
+        lplaces = census_places(os.path.join(folder, "local"), say)
+        local = build_local(lmeta, geo, lplaces)
+    except Unavailable as e:
+        say(f"      Virginia local: not loaded ({e})")
+        local_gaps.append((STATE, "state", STATE, NAME, "county, city, town and school board races", e.reason, LOCAL_PAGE))
+    local_races, local_cands = (local["races"], local["cands"]) if local else ([], [])
+    if local:
+        clash = sorted({r[0] for r in local_races} & set(races))
+        if clash:
+            raise SystemExit(f"Virginia: a local contest and a state race share a race id ({clash[:3]}); stopping")
+        problems += local["problems"]
+        local_gaps += local["gaps"]
+        local_gaps.append((STATE, "state", STATE, NAME, "contests nobody qualified for",
+                           "The Department of Elections' list names only candidates who qualified for the ballot, so a contest that "
+                           "no one qualified for, which voters decide by writing a name in, is not on the list and is not shown here; "
+                           "the general registrar's sample ballot for each locality lists every contest.", LOCAL_PAGE))
+        # the control: the All Offices list of the same revision counts the same local rows and carries the same state rows
+        if main.get("published") and main.get("published") == lmeta.get("published"):
+            all_local = main.get("counts", {}).get("local", 0)
+            mine = sorted(tuple(x) for x in lmeta.get("state_rows", []))
+            theirs = sorted((r.get("Locality", ""), r["Office Title"], r["District"], r["Candidate Name"], r["Candidate Party"],
+                             r.get("Party Ballot Order", "")) for r in main["rows"])
+            if all_local != local["rows"]:
+                problems.append(f"local: the Local Offices list has {local['rows']} local rows, the All Offices list of the same revision {all_local}")
+            if mine != theirs:
+                problems.append("local: the Local Offices list's rows of a state office are not the All Offices list's")
+            control = (f"The All Offices list of the same revision counts {all_local:,} rows of a local office ("
+                       + ("the same" if all_local == local["rows"] else "not the same") + "), and its rows of a state office "
+                       + ("are" if mine == theirs else "are not") + " this list's.")
+        else:
+            control = "The All Offices list in the cache is another revision, so the two lists were not compared."
+
     for folded, (geoid, label) in sorted(geo.items(), key=lambda kv: kv[1][0]):
         place_rows.append(("county", geoid, label, json.dumps([geoid]), SRC_COUNTY))
+    if local:
+        place_rows += local["places"]
     race_rows = [(r["race_id"], STATE, r["level"], r["office_kind"], r["office"], r["jurisdiction"], r["jurisdiction_id"],
                   r["county_ids"], r["district"], r["seat"], r["special"], r["partisan"], r["holder_id"], r["holder_name"],
                   r["holder_party"], GENERAL, r["note"]) for r in races.values()]
@@ -619,10 +1281,64 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
          "phone and address columns are never read (the sheet is read no further than the last of these), and for a row "
          "that is not a state office only the Office Title is looked at. SHA-256 is the workbook's. "
          f"Rows on the list: {main['all_rows']} ({counts.get('federal', 0)} federal, left to the federal pages; "
-         f"{counts.get('local', 0)} local offices, not stored in this phase; {len(main['rows'])} of a state office, one per "
-         f"candidate per locality). Withdrawn or removed, left off: {len(gone)}. " + ODD_YEARS
+         f"{counts.get('local', 0)} local offices, read from the Department's Local Offices list instead; {len(main['rows'])} of a "
+         f"state office, one per candidate per locality). Withdrawn or removed, left off: {len(gone)}. " + ODD_YEARS
          + (" State races on this list: " + ", ".join(sorted(races)) + "." if races else " This list carries no state race."))]
     sources += special_sources + pri_sources
+    notes = [(STATE, "local_calendar", CALENDAR, CALENDAR_SOURCE, CODE_URL)]
+    if local:
+        statuses = ", ".join(f"{k} {v:,}" for k, v in sorted(local["statuses"].items())) or "none given"
+        sources.append((SRC_LOCAL, STATE, "official candidate list", "Virginia Department of Elections",
+                        f"2026 November Local Offices Candidate List ({lmeta['heading']}" + (f", {lmeta['revision']})" if lmeta["revision"] else ")"),
+                        lmeta["url"], lmeta["published"], lmeta["read"], lmeta["sha256"], local["rows"],
+                        "Linked as \"Download this file\" from the Department's page \"November 3, 2026 - Local Offices\" (Candidates & "
+                        f"Referendums). Only these columns are read: {', '.join(lmeta['columns'])}. The sheet is read no further than the "
+                        "Candidate Name column: the Incumbent column and the campaign e-mail, website, phone and address columns to its "
+                        "right are never read, and only the cut-down copy is cached. SHA-256 is the workbook's. "
+                        f"Rows on the list: {lmeta['all_rows']:,}, one per candidate per locality: {lmeta['counts'].get('state', 0)} of a state "
+                        f"office (stored from the All Offices list), {local['rows']:,} of a local office"
+                        + (f", {lmeta['counts']['federal']} federal" if lmeta["counts"].get("federal") else "")
+                        + f". Of the local rows {local['placed']:,} are placed, each in exactly one contest, giving {len(local_cands):,} "
+                        f"candidates in {len(local_races):,} contests ({local['copies']} rows are a second locality's copy of a candidate, "
+                        f"for a town in two counties or an office two localities share); {local['unplaced']} rows of "
+                        f"{plural(local['unplaced_contests'], 'contest')} could not be placed and are listed as gaps; withdrawn or removed, "
+                        f"left off: {local['gone']}. Status values on the list: {statuses}. Party is not shown (the ballot prints none for local "
+                        "offices). No ballot order is stored: the Party Ballot Order column is the place of a candidate's party group ("
+                        + ", ".join(f"{k} {'/'.join(v)}" for k, v in sorted(local["party_orders"].items(), key=lambda kv: kv[1]))
+                        + "), and independents are printed in the order they filed, which the list does not give. " + control))
+        if lmeta.get("page_sha256"):
+            sources.append((SRC_LOCAL_PAGE, STATE, "official page", "Virginia Department of Elections",
+                            f"{lmeta['heading']} (the page that links the Local Offices list)", lmeta["page"], "",
+                            lmeta["read"], lmeta["page_sha256"], 1,
+                            "Read for one thing only, the address of the workbook it offers as \"Download this file\". Nothing else on "
+                            "the page is taken, kept or shown, and no other link of the page is collected. SHA-256 is the page's as "
+                            "fetched; rows is the one link taken."))
+        sources.append((SRC_PLACE, STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, Virginia (st51_va_place2020.txt)",
+                        PLACE_URL, "", day_of(lplaces["path"]), sha_of(lplaces["path"]), lplaces["n"],
+                        f"Virginia's incorporated places: {len(lplaces['cities'])} independent cities and {lplaces['n_towns']} towns, with "
+                        "the counties each town lies in. Used to name each contest's city or town as the Bureau writes it and to give it "
+                        "its place code; a town is taken only when the list's words fit exactly one town of the county. A public "
+                        "reference file with no personal data."))
+        notes.append((STATE, "local_coverage",
+                      "Loaded from the Virginia Department of Elections' 2026 November Local Offices Candidate List"
+                      + (f" ({lmeta['revision']})" if lmeta["revision"] else "") + f": {len(local_races):,} contests and {len(local_cands):,} "
+                      f"candidates for county, city, town and school board offices, reaching {local['reached']} of Virginia's 133 counties and "
+                      f"independent cities; {local['specials']} of the contests are special elections for the rest of a term. Names are as "
+                      "the list prints them, and a school board contest is filed under the county, city or town whose ballot carries it "
+                      "(the list does not name the school division). Not shown: the list's party column, because Virginia prints no "
+                      "party beside a name for local offices; the ballot order, because the list gives only the place of each candidate's "
+                      "party group, and independents, who are nearly all the candidates, are printed in the order they filed; contests "
+                      "nobody qualified for, which are decided by write-in and are not on the list"
+                      + (f"; {plural(local['unplaced_contests'], 'contest')} that could not be filed with certainty (listed among the gaps)"
+                         if local["unplaced_contests"] else "")
+                      + "; and the proposed constitutional amendments and local referendums, which the Department lists on a page of "
+                      "their own.",
+                      "Virginia Department of Elections, 2026 November Local Offices Candidate List; Code of Virginia 24.2-613 (what a "
+                      "ballot prints beside a name, and the order of names)", LOCAL_PAGE))
+    else:
+        notes.append((STATE, "local_coverage", "No county, city, town or school board race is loaded for Virginia yet: the Department of "
+                      "Elections' Local Offices candidate list could not be read when this was loaded.",
+                      "Virginia Department of Elections, 2026 November Local Offices Candidate List", LOCAL_PAGE))
     if geo:
         sources.append((SRC_COUNTY, STATE, "boundaries", "U.S. Census Bureau",
                         "Cartographic boundary file, counties, 2024, 1:500,000 (cb_2024_us_county_500k)", COUNTY_URL, "",
@@ -634,19 +1350,32 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
                         "https://github.com/openstates/people", "", day_of(roster_path), "", len(members) + sum(map(len, officers.values())),
                         "Used only to say who holds each seat today and to mark incumbents: names, parties and districts. Not an official record."))
 
+    # the sentences written here, tried against the page's last check (see STREET_LIKE)
+    for table, key, text in ([("sl_races.note", r[0], r[16]) for r in local_races]
+                             + [("sl_gaps", f"{g[1]} {g[2]}", " ".join(x for x in g[3:6] if x)) for g in local_gaps]
+                             + [("sl_notes", n[1], n[2]) for n in notes]):
+        if reads_like_contact(text):
+            problems.append(f"{table} {key}: this sentence would read as contact details to the page's last check and be left out; reword it")
+
+    # Virginia's rows only, in one transaction: races and candidates by state and race id, sources, gaps and notes by
+    # state, places by their va- source ids. Other states' loaders share this database; nothing of theirs is touched.
     con = sqlite3.connect(db_path)
     try:
-        con.executescript(SCHEMA)
+        con.executescript(SCHEMA + EXTRA_SCHEMA)
         with con:
             con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                         (STATE, f"2026-{STATE}-%"))
             con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_places WHERE source_id LIKE 'va-%'")
-            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
+            con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+            con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local_races)
+            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local_cands)
             con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
             con.executemany("INSERT OR REPLACE INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+            con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local_gaps)
+            con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", notes)
     finally:
         con.close()
 
@@ -657,10 +1386,24 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
             f"{sum(1 for c in cands if c[1] == 'general' and c[7])} incumbents matched; no regular state race (odd-year elections)")
     else:
         say("    Virginia: no state race on the November 3, 2026 ballot. " + ODD_YEARS)
+    if local:
+        say(f"    Virginia local: {len(local_races):,} contests ({', '.join(f'{k} {v:,}' for k, v in sorted(local['levels'].items()))}), "
+            f"{len(local_cands):,} candidates, reaching {local['reached']} of 133 counties and independent cities; {local['specials']} "
+            f"special elections; {local['two_county']} contests on the ballot in more than one locality; no ballot order (the list "
+            "gives only each party group's place)")
+        say(f"      check: {local['rows']:,} local rows on the list = {local['placed']:,} placed, each in exactly one contest "
+            f"({local['copies']} of them a second locality's copy of a candidate) + {local['unplaced']} not placed "
+            f"({plural(local['unplaced_contests'], 'contest')}, in sl_gaps) + {local['gone']} withdrawn or removed. {control}")
+        say("      office kinds: " + ", ".join(f"{k} {v:,}" for k, v in sorted(local["kinds"].items(), key=lambda kv: (-kv[1], kv[0]))))
+        for g in local["gaps"]:
+            say(f"      not placed (in sl_gaps): {g[3]}: {g[4]}")
     for p in problems:
         say(f"      CHECK {p}")
     return {"races": len(races), "candidates": gen_rows, "by_kind": dict(by_kind), "fields": fields, "problems": problems,
-            "specials": [t for t, _m in specials], "counts": counts, "gone": len(gone)}
+            "specials": [t for t, _m in specials], "counts": counts, "gone": len(gone),
+            "local": dict({k: local[k] for k in ("rows", "placed", "unplaced", "unplaced_contests", "gone", "levels", "kinds", "reached",
+                                                 "specials", "two_county", "copies")},
+                          races=len(local_races), candidates=len(local_cands)) if local else None}
 
 
 SCHEMA = """

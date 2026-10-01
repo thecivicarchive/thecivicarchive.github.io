@@ -3,8 +3,9 @@ ballot/state_local_hi.py - Hawaii's state races on the November 3, 2026 ballot: 
 pair per party in November, nominated in separate August 8 primaries), the fifteen State Senate seats elected this year
 (thirteen regular seats and two vacancies, Districts 18 and 19, for the rest of terms that end in 2028), all 51 House
 seats, and the five Office of Hawaiian Affairs trustees (three at-large, the Maui and Oahu resident seats), with the
-August 8 primaries that chose the nominees. Written into ballot_local_2026.sqlite (never ballot_2026.sqlite), Hawaii's
-rows only.
+August 8 primaries that chose the nominees; and, since the local pass (John, 2026-09-30), the county offices on the same
+ballot: the mayors of Maui and Kauai counties and the county council seats still to be decided (see "County offices"
+below). Written into ballot_local_2026.sqlite (never ballot_2026.sqlite), Hawaii's rows only.
 
     python ballot/state_local_hi.py <database file> [--cache <folder>] [--refresh]
 
@@ -16,8 +17,9 @@ Sources, all the State of Hawaii Office of Elections' own:
     pager and counted against its "items" figure. Only four columns are taken, by their headings: Contests, Party, Ballot
     Name and Status. The grid also carries each candidate's legal name, mailing address, phone, e-mail, website and filing
     dates; those cells are never turned into text, printed or kept, and no page of the grid is written to disk. The kept
-    columns of the state rows go to <cache>/hi_2026_candidate_report_state.json; the county and federal rows are only
-    counted by contest and status. Status: "In General" is on the November ballot; "Elected After Primary" is declared
+    columns of the state rows go to <cache>/hi_2026_candidate_report_state.json, with a count by contest and status of
+    the county and federal rows (the county rows themselves are kept by the local pass, below). Status: "In General"
+    is on the November ballot; "Elected After Primary" is declared
     elected after the primary, the only candidate left for the seat, and not on the November ballot (stored with outcome
     "unopposed" and a note, as other states' loaders store a seat settled early); "In Primary" was on the primary ballot
     and not nominated; "Issued" took out nomination papers and never filed them (never a candidate); "Withdrawn" and
@@ -44,7 +46,7 @@ Sources, all the State of Hawaii Office of Elections' own:
   * The Contest Schedule (elections.hawaii.gov/voting/contest-schedule/): its 2026 table names every office up this year,
     with the State Senate seats (18* and 19*: two-year terms, the original terms expiring November 7, 2028), the House
     (1 - 51) and the OHA trustee seats. The races read from the Candidate Report must be exactly these. Only the table's
-    cells are kept (<cache>/hi_2026_contest_schedule.json); the county rows are counted, not loaded.
+    cells are kept (<cache>/hi_2026_contest_schedule.json); its county rows are checked by the local pass.
   * The proclamations for the two Senate vacancies (elections.hawaii.gov/proclamations/: State Senate District 18 and
     State Senate District 19), read for how each seat is filled and when its term ends.
   * The Office's certified 2022 General Election Statewide Summary (files.hawaii.gov, summary.txt): only its Governor
@@ -71,6 +73,57 @@ A field is a primary section with two candidates or more: primary-DEM, primary-R
 primary-NP (the nonpartisan section of a partisan contest, and the OHA at-large primary). pct is of the section's
 candidates' votes (the Office's own percentages include blank and over votes).
 
+County offices (the local pass)
+-------------------------------
+Hawaii's only local governments with elected officers are its counties: Hawaii, Kauai and Maui counties and the City and
+County of Honolulu (the Census Bureau's Honolulu County). Kalawao County is under the Department of Health (Hawaii
+Revised Statutes section 326-34) and elects no one. The Office of Elections' Contest Schedule lists no city, township,
+school board or special district office, so every local race is level "county", filed under the county's 5-digit code.
+
+  * The same 2026 Candidate Report: its county rows (124 on 2026-09-30) are cut from the one reading of the grid that
+    also gives the state rows (fetch_grid), the same four cells of each and nothing else, and kept as
+    <cache>/local/hi_2026_candidate_report_county.json for two days. The name is kept only where a row is marked In
+    General, Elected After Primary or In Primary (people who were on a ballot); a row marked Issued, Withdrawn or Void
+    is counted and its name is not kept. A kept cell that looked like contact details would be blanked before it was
+    kept, and counted. The fingerprint on the source is of the grid's pages as fetched, in the order read, taken in
+    passing; no page is ever written to disk.
+    Titles read: "<COUNTY> MAYOR", "<COUNTY> COUNCILMEMBER, DIST <n>" (Hawaii County 1 to 9, Honolulu I to IX),
+    "<COUNTY> COUNCILMEMBER (<AREA>)" (Maui's nine seats, each named for an area of the county) and
+    "<COUNTY> COUNCILMEMBER" (Kauai's seven seats, one contest). Any other county title is not guessed at: its rows
+    go to sl_gaps. Every county row's Party is "NONPARTISAN SPECIAL" (no party is printed for these offices); a row
+    with anything else sends its contest to sl_gaps.
+    In General            on the November ballot: the candidates loaded (election "general", party "Nonpartisan office").
+    Elected After Primary the seat was decided on August 8 and is NOT on the November ballot: no race row is written
+                          (the page counts every local race as on the November ballot), and sl_notes says which seats.
+    In Primary, Issued, Withdrawn, Void   not on the November ballot; counted. Local primaries are not loaded.
+  * The Contest Schedule, every year's table (2026 and 2028 today; cells only, <cache>/local/
+    hi_contest_schedule_years.json): the county contests read must be exactly the schedule's for 2026, seat for seat,
+    and the 2028 table says which county offices are elected at another time (sl_notes, key local_calendar).
+  * The Office's "District Precinct with Associated Contests" table (elections.hawaii.gov/resources/
+    districts-and-precincts/; seven columns, nothing about a person; <cache>/local/hi_precincts_contests.json): which
+    council contest each precinct votes on. It lists Maui's and Kauai's councils as At-Large, which is why those notes
+    say voters across the county vote on every seat.
+  * Controls, none of them stored: the counts by contest and status taken when the state rows were read (a second
+    reading) must be these rows' counts; and the certified August 8 summary's county contests must have the report's
+    candidates, with those marked In General or Elected After Primary leading the count. Where they do not (Honolulu
+    council District IV on 2026-09-30: the report marks In General the candidates who placed first and third, and
+    marks the one who placed second In Primary), the contest is loaded as the report marks it, with a note on the
+    race, a row in sl_gaps and a CHECK line; nothing is corrected by hand.
+
+  kinds      a county's Mayor is office_kind county_executive (its elected chief executive; office "Mayor"), a council
+             seat county_council (office "Councilmember"), the kinds other states' county rows use.
+  race ids   2026-HI-<county code>-county-executive; 2026-HI-<county code>-county-council[-<district or area>]
+  district   Hawaii County "4"; Honolulu "District IV" (the list's Roman numerals); seat: a Maui seat's area, in the
+             Contest Schedule's spelling ("East Maui"). Kauai's contest has neither (its note says how many to choose).
+  names      as the state rows: turned round from "FAMILY, Given", the family name in ordinary capitals (a name spelled
+             letter for letter like a sitting member's would take the roster's capitals, as there; none does today).
+             No county candidate is matched to a roster: no holder, member id or incumbent mark. No ballot order (the
+             report gives none; section 11-115 has names printed in alphabetical order).
+  also       sl_gaps and sl_notes (ballot.check_local.EXTRA_SCHEMA) are rewritten for Hawaii on every run. Ballot
+             questions (county charter amendments) are not loaded. If the report cannot be read, or the county pass
+             stops on anything it did not expect, it writes a gap and the notes, says so in a CHECK line (the kind of
+             error and the line of this file, never the text it stopped on), and the state rows load as before.
+
 The privacy rule: from every list only office, district, name, party, status and votes are read. Nothing else reaches
 the cache, the database, a log or the screen.
 """
@@ -90,11 +143,13 @@ import time
 import urllib.parse
 import zipfile
 from http.cookiejar import CookieJar
+from urllib.error import URLError
 from urllib.request import HTTPCookieProcessor, Request, build_opener
 
 if __package__ in (None, ""):
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like                    # noqa: E402
 from ballot.common import CACHE, HERE, fold, name_parts, party_code          # noqa: E402
 from ballot.lists import hi as fed                                          # noqa: E402
 from ballot.lists.tx import proper                                          # noqa: E402
@@ -243,11 +298,17 @@ def grid_rows(page):
         yield {k: fed.text(cells[i]) for k, i in idx.items()}
 
 
-def read_report(path, say, refresh=False):
-    """The state rows of the 2026 Candidate Report (four columns), every page read; kept on disk for two days."""
-    if not refresh and fresh(path, 2):
-        return json.load(open(path, encoding="utf-8"))
+_GRID = {}
+
+
+def fetch_grid(say):
+    """Every row of the 2026 Candidate Report, the four kept cells of each, read once a run through the grid's own pager
+    and counted against its "items" figure (the state rows and the county rows are both cut from this one reading). No
+    page is written to disk; the SHA-256 of the pages' bytes, in the order read, is taken in passing."""
+    if _GRID:
+        return _GRID
     opener = build_opener(HTTPCookieProcessor(CookieJar()))
+    digest = hashlib.sha256()
 
     def fetch(fields=None):
         data = urllib.parse.urlencode(fields).encode() if fields is not None else None
@@ -255,34 +316,47 @@ def read_report(path, say, refresh=False):
         if data:
             headers.update({"Content-Type": "application/x-www-form-urlencoded", "Referer": REPORT})
         with opener.open(Request(REPORT, data=data, headers=headers), timeout=120) as r:
-            return r.read().decode("utf-8", "replace")
+            raw = r.read()
+        digest.update(raw)
+        return raw.decode("utf-8", "replace")
 
+    net.patient_lookups()
     page = fetch()
     chosen = re.search(r'<select[^>]*ddlElection[^>]*>.*?<option selected="selected" value="94">([^<]*)</option>', page, re.S)
     if not chosen or chosen.group(1).strip() != "2026 Candidate Report":
-        raise SystemExit(f"Hawaii (state races): {REPORT} is no longer the 2026 Candidate Report")
+        raise SystemExit(f"Hawaii: {REPORT} is no longer the 2026 Candidate Report")
     m = re.search(r"<strong>(\d+)</strong>\s*items in\s*<strong>(\d+)</strong>", page)
     if not m:
-        raise SystemExit("Hawaii (state races): the Candidate Report no longer shows its row count")
+        raise SystemExit("Hawaii: the Candidate Report no longer shows its row count")
     items, pages = int(m.group(1)), int(m.group(2))
     rows = list(grid_rows(page))
     for n in range(2, pages + 1):
         nxt = re.search(r'<input type="submit" name="([^"]+)"[^>]*?title="Next Page"[^>]*>', page)
         if not nxt or "return false" in nxt.group(0):
-            raise SystemExit(f"Hawaii (state races): page {n - 1} of the Candidate Report has no Next Page button")
+            raise SystemExit(f"Hawaii: page {n - 1} of the Candidate Report has no Next Page button")
         fields = fed.form(page)
         fields.update({"__EVENTTARGET": "", "__EVENTARGUMENT": "", nxt.group(1): " "})
         time.sleep(1.5)
         page = fetch(fields)
         cur = re.search(r'class="rgCurrentPage"[^>]*>\s*<span>(\d+)</span>', page)
         if not cur or int(cur.group(1)) != n:
-            raise SystemExit(f"Hawaii (state races): asked for page {n} of the Candidate Report and got {cur.group(1) if cur else 'no page'}")
+            raise SystemExit(f"Hawaii: asked for page {n} of the Candidate Report and got {cur.group(1) if cur else 'no page'}")
         rows += list(grid_rows(page))
     del page
     if len(rows) != items:
-        raise SystemExit(f"Hawaii (state races): the Candidate Report counts {items} rows; {len(rows)} were read")
+        raise SystemExit(f"Hawaii: the Candidate Report counts {items} rows; {len(rows)} were read")
     if len({tuple(r.values()) for r in rows}) != len(rows):
-        raise SystemExit("Hawaii (state races): the Candidate Report gave the same row twice; its pager may have changed")
+        raise SystemExit("Hawaii: the Candidate Report gave the same row twice; its pager may have changed")
+    _GRID.update(items=items, pages=pages, rows=rows, sha256=digest.hexdigest(), fetched=dt.date.today().isoformat())
+    return _GRID
+
+
+def read_report(path, say, refresh=False):
+    """The state rows of the 2026 Candidate Report (four columns), every page read; kept on disk for two days."""
+    if not refresh and fresh(path, 2):
+        return json.load(open(path, encoding="utf-8"))
+    grid = fetch_grid(say)
+    items, pages, rows = grid["items"], grid["pages"], grid["rows"]
     state, others = [], collections.defaultdict(collections.Counter)
     for r in rows:
         o = office_of(r["Contests"])
@@ -634,6 +708,699 @@ def split_printed(printed):
     if not family.strip() or not parts:
         raise SystemExit("Hawaii (state races): a name not printed 'FAMILY, Given' (the name is not shown)")
     return family.strip(), parts[0], parts[1:]
+
+
+# ---------------------------------------------------------------- county offices (the local pass)
+
+PRECINCTS = "https://elections.hawaii.gov/resources/districts-and-precincts/"
+PRECINCT_HEAD = ["COUNTY", "DISTRICT", "PRECINCT", "U.S. REP", "STATE SENATE", "STATE REP", "COUNCIL"]
+SRC_LOCAL = {"report": "hi-oe-2026-local-candidate-report", "schedule": "hi-oe-contest-schedule-county",
+             "precincts": "hi-oe-precincts-contests"}
+COUNTY_WORD = r"(HAWAII|HONOLULU|KAUAI|MAUI)"
+COUNTY_PARTY = "NONPARTISAN SPECIAL"        # how the report marks an office elected without parties (the OHA rows carry it too)
+MAYOR, COUNCIL = "county_executive", "county_council"      # a county's mayor is its elected chief executive; the page files it first
+LOCAL_OFFICE = {MAYOR: "Mayor", COUNCIL: "Councilmember"}
+NUMBER = "no one two three four five six seven eight nine ten eleven twelve".split()
+ORDINAL = "zeroth first second third fourth fifth sixth seventh eighth ninth tenth".split()
+
+
+def number_word(n):
+    return NUMBER[n] if 0 <= n < len(NUMBER) else f"{n:,}"
+
+
+def ordinal_word(n):
+    return ORDINAL[n] if 0 < n < len(ORDINAL) else f"number {n}"
+
+
+def and_list(items):
+    items = [str(i) for i in items if i not in (None, "")]
+    return items[0] if len(items) == 1 else (", ".join(items[:-1]) + " and " + items[-1]) if items else ""
+
+
+def roman(text):
+    """The value of a Roman numeral (Honolulu's council districts are numbered I to IX), for sorting only."""
+    vals, total = {"I": 1, "V": 5, "X": 10}, 0
+    for a, b in zip(text, text[1:] + " "):
+        total += -vals[a] if vals.get(b, 0) > vals[a] else vals[a]
+    return total
+
+
+def district_key(d):
+    return (int(d), "") if str(d).isdigit() else (roman(d), "") if re.fullmatch(r"[IVX]+", str(d)) else (10 ** 6, str(d))
+
+
+def iso_day(words):
+    try:
+        return dt.datetime.strptime(words or "", "%B %d, %Y").date().isoformat()
+    except ValueError:
+        return ""
+
+
+def county_office(title):
+    """(county word, office kind, district, area) for a county contest title of the Candidate Report, or None for a title
+    this loader has not been checked against. An area is what a Maui council seat is named for."""
+    t = re.sub(r"\s+", " ", title or "").strip().upper()
+    m = re.fullmatch(COUNTY_WORD + r" MAYOR", t)
+    if m:
+        return (m.group(1), MAYOR, None, None)
+    m = re.fullmatch(COUNTY_WORD + r" COUNCILMEMBER, DIST (\d+|[IVX]+)", t)
+    if m:
+        return (m.group(1), COUNCIL, m.group(2), None)
+    m = re.fullmatch(COUNTY_WORD + r" COUNCILMEMBER \(([A-Z][A-Z' -]*[A-Z])\)", t)
+    if m:
+        return (m.group(1), COUNCIL, None, m.group(2))
+    m = re.fullmatch(COUNTY_WORD + r" COUNCILMEMBER", t)
+    if m:
+        return (m.group(1), COUNCIL, None, None)
+    return None
+
+
+def county_report(path, say, refresh=False):
+    """The county rows of the 2026 Candidate Report: the four kept cells of each (Contests, Party, Ballot Name, Status) and
+    nothing else, kept on disk for two days. A kept cell that looks like contact details is blanked before it is kept,
+    and counted. If the report cannot be read and an older kept copy exists, the older copy is used and the caller is
+    told. Returns (the extract, a word of warning or None). When the report has already been read in this run (for the
+    state rows), the county rows are cut from that same reading, so the two extracts stay in step."""
+    if not refresh and not _GRID and fresh(path, 2):
+        return json.load(open(path, encoding="utf-8")), None
+    try:
+        grid = fetch_grid(say)
+    except (SystemExit, URLError, OSError) as e:
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            old = json.load(open(path, encoding="utf-8"))
+            return old, f"the Candidate Report could not be read again ({type(e).__name__}); the county rows kept on {old.get('fetched')} are used"
+        raise
+    rows, blanked, unnamed, others = [], 0, 0, collections.Counter()
+    for r in grid["rows"]:
+        o = office_of(r["Contests"])
+        if o != "county":
+            others["federal" if o == "federal" else "state"] += 1
+            continue
+        cut = {}
+        for k in KEEP:
+            v = r[k]
+            if contact_like(v, True):
+                v, blanked = "", blanked + 1
+            cut[k] = v
+        if cut["Status"] not in (ON, EAP, LOST) and cut["Ballot Name"]:
+            cut["Ballot Name"], unnamed = "", unnamed + 1      # never on a ballot's list here (never filed, withdrew): counted, the name not kept
+        rows.append(cut)
+    kept = {"title": "2026 Candidate Report: county offices", "url": REPORT, "items": grid["items"], "pages": grid["pages"],
+            "fetched": grid["fetched"], "sha256_pages": grid["sha256"], "columns": list(KEEP), "rows": rows, "blanked": blanked,
+            "names_not_kept": unnamed, "others": dict(others)}
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(kept, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    say(f"      2026 Candidate Report: {grid['items']} rows on {grid['pages']} pages, {len(rows)} for county offices")
+    return kept, None
+
+
+def kept_or_fetch(path, days, refresh, build):
+    """A kept extract while it is fresh; otherwise build() makes a new one, which is kept. If that fails, the older copy
+    with a word saying so, or (None, why) when there is none."""
+    if not refresh and fresh(path, days):
+        return json.load(open(path, encoding="utf-8")), None
+    try:
+        kept = build()
+    except (URLError, OSError, ValueError) as e:
+        why = str(e) if isinstance(e, ValueError) else type(e).__name__
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            old = json.load(open(path, encoding="utf-8"))
+            return old, f"could not be read again ({why}); the copy kept on {old.get('fetched')} is used"
+        return None, f"could not be read ({why})"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(kept, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return kept, None
+
+
+def table_cells(table):
+    return [[words_of(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)] for tr in re.findall(r"<tr.*?</tr>", table, re.S)]
+
+
+def schedule_years(cache, say, refresh=False):
+    """Every year's table of the Contest Schedule page (2026 and 2028 today): the tables' cells only, which name offices,
+    seats and terms and nothing about a person."""
+    def build():
+        time.sleep(1.5)
+        raw = net.get(SCHEDULE, accept="text/html")
+        page = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw.decode("utf-8", "replace"), flags=re.S)
+        start = page.find("The following provides a schedule")
+        if start < 0:
+            raise ValueError("the page no longer opens with its schedule")
+        body = page[start:]
+        heads = [m for m in re.finditer(r"<h4[^>]*>(.*?)</h4>", body, re.S) if re.fullmatch(r"\d{4}", words_of(m.group(1)))]
+        years = collections.OrderedDict()
+        for i, h in enumerate(heads):
+            table = re.search(r"<table.*?</table>", body[h.end():heads[i + 1].start() if i + 1 < len(heads) else len(body)], re.S)
+            if table:
+                years[words_of(h.group(1))] = table_cells(table.group(0))
+        if "2026" not in years:
+            raise ValueError("the page has no table for 2026")
+        updated = re.search(r"Last Updated on (\w+ \d{1,2}, \d{4})", words_of(body))
+        return {"url": SCHEDULE, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(),
+                "updated": updated.group(1) if updated else "", "years": years}
+    return kept_or_fetch(os.path.join(cache, "hi_contest_schedule_years.json"), 30, refresh, build)
+
+
+def precinct_table(cache, say, refresh=False):
+    """The Office's "District Precinct with Associated Contests" table: seven columns (county, district, precinct and the
+    U.S. House, State Senate, State House and council contest each precinct votes on), none of them about a person."""
+    def build():
+        time.sleep(1.5)
+        raw = net.get(PRECINCTS, accept="text/html")
+        page = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw.decode("utf-8", "replace"), flags=re.S)
+        for m in re.finditer(r"<table.*?</table>", page, re.S):
+            rows = table_cells(m.group(0))
+            if rows and rows[0] == PRECINCT_HEAD:
+                updated = re.search(r"Last Updated on (\w+ \d{1,2}, \d{4})", words_of(page[m.end():m.end() + 4000]))
+                return {"url": PRECINCTS, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(),
+                        "updated": updated.group(1) if updated else "", "head": PRECINCT_HEAD,
+                        "rows": [r for r in rows[1:] if len(r) == len(PRECINCT_HEAD) and any(r)]}
+        raise ValueError("the page no longer has the table of precincts and their contests")
+    return kept_or_fetch(os.path.join(cache, "hi_precincts_contests.json"), 30, refresh, build)
+
+
+def schedule_county(rows):
+    """{county word: [(office, seats, jurisdiction)]} from one year's table, and the headings and offices not read."""
+    out, odd, group = collections.OrderedDict(), [], None
+    for cells in rows:
+        if not cells or cells[0] == "OFFICE":
+            continue
+        if not any(cells[1:]):
+            m = re.fullmatch(r"(?:City (?:&|and) )?County of (\w+)", cells[0])
+            group = m.group(1).upper() if m else None
+            if not m and cells[0] not in ("Federal", "State"):
+                odd.append(cells[0])
+            continue
+        if group:
+            if cells[0] not in ("Mayor", "Prosecuting Attorney", "Councilmember"):
+                odd.append(cells[0])
+            out.setdefault(group, []).append((cells[0], cells[1] if len(cells) > 1 else "", cells[2] if len(cells) > 2 else ""))
+    return out, odd
+
+
+def council_districts(where):
+    """The districts a schedule row names: '1 - 9' -> ['1', ..., '9']; 'II, IV, VI, VIII' -> those; anything else -> None."""
+    m = re.fullmatch(r"(\d+)\s*-\s*(\d+)", where.strip())
+    if m:
+        return [str(i) for i in range(int(m.group(1)), int(m.group(2)) + 1)]
+    parts = [p.strip() for p in where.split(",")]
+    return parts if parts and all(re.fullmatch(r"[IVX]+|\d+", p) for p in parts) else None
+
+
+def county_primary(path):
+    """The county contests of the certified August 8 summary, a control on the report's marks: {contest id: {"title",
+    "names": [(name as printed, total votes)]}}. Titles, names and totals only; the file has no contact columns."""
+    with open(path, encoding="utf-8-sig", newline="") as fh:
+        table = list(csv.reader(fh, delimiter="\t"))
+    heads = [h.lstrip("#").strip() for h in table[1]] if len(table) > 1 else []
+    if not all(k in heads for k in SUMMARY_KEEP):
+        return None
+    idx = {k: heads.index(k) for k in SUMMARY_KEEP}
+    out = collections.OrderedDict()
+    for r in table[2:]:
+        if not any(c.strip() for c in r) or len(r) < len(heads):
+            continue
+        c = {k: r[i].strip() for k, i in idx.items()}
+        if office_of(c["Contest Title"]) != "county" or not c["Total Votes"].isdigit():
+            continue
+        out.setdefault(c["Contest ID"], {"title": c["Contest Title"], "names": []})["names"].append(
+            (re.sub(r"\s+", " ", c["Candidate Name"]), int(c["Total Votes"])))
+    return out
+
+
+def council_vote_for(pdf_path, county_words):
+    """'Number To Vote For' under a county's council contest in the primary's Final Summary Report, or None."""
+    try:
+        text_lines = [re.sub(r"\s+", " ", t) for _p, _y, t in pdf_lines(pdf_path)]
+    except Exception:  # noqa: BLE001  a control only
+        return None
+    for i, t in enumerate(text_lines):
+        if t.startswith(f"Councilmember, {county_words}"):
+            for x in text_lines[i + 1:i + 6]:
+                m = re.fullmatch(r"Number To Vote For: (\d+)", x)
+                if m:
+                    return int(m.group(1))
+    return None
+
+
+def local_rows(cache, report, sched, counties, shown, res_paths, say, refresh=False):
+    """The county pass: the mayors and county council seats on the November 3 ballot, from the county rows of the Candidate
+    Report. Returns the rows for sl_races, sl_candidates, sl_sources, sl_gaps and sl_notes and what to report. Nothing is
+    placed by guess: a contest or a row that cannot be read becomes a gap, and none of it stops the state rows."""
+    races, cands, sources, gaps, checks = [], [], [], [], []
+    stats = collections.Counter()
+    os.makedirs(cache, exist_ok=True)
+    by_word = {re.sub(r"\s+County$", "", n).upper(): (g, n) for g, n in counties.items()}
+    label = lambda word: by_word[word][1] + (" (the City and County of Honolulu)" if word == "HONOLULU" else "")      # noqa: E731
+    in_order = lambda words: sorted(words, key=lambda w: by_word[w][0])          # noqa: E731  counties in the order of their codes
+
+    def clauses(pairs):
+        """[(county, what it elects)] -> 'A elects x, B y, and C z'."""
+        out = [f"{n} elects {p}" if i == 0 else f"{n} {p}" for i, (n, p) in enumerate(pairs)]
+        return out[0] if len(out) == 1 else ", ".join(out[:-1]) + ", and " + out[-1] if out else ""
+
+    def council_words(ds):
+        return f"the council member{'s' if len(ds) > 1 else ''} for district{'s' if len(ds) > 1 else ''} {and_list(ds)}"
+
+    def gap(scope, place_id, place, what, reason, url=REPORT):
+        if contact_like(what, False) or contact_like(reason, False) or len(reason) < 20:
+            checks.append(f"a gap's words would be dropped by the contact-detail check ({scope} {place_id}); not written")
+            return
+        for i, g in enumerate(gaps):                      # the table's key is (state, scope, place, what): one row, both reasons
+            if g[1:3] == (scope, place_id) and g[4] == what:
+                gaps[i] = g[:5] + (g[5] + " " + reason, g[6])
+                return
+        gaps.append((STATE, scope, place_id, place, what, reason, url))
+
+    # ---- the Contest Schedule (which county offices are up, this year and in 2028) and the precinct table
+    years, ywarn = schedule_years(cache, say, refresh)
+    if ywarn:
+        checks.append(f"the Contest Schedule {ywarn}")
+    tables = years["years"] if years else {"2026": sched["rows"]}
+    sched26, odd26 = schedule_county(tables["2026"])
+    sched28, odd28 = schedule_county(tables["2028"]) if "2028" in tables else ({}, [])
+    if odd26 or odd28:
+        checks.append(f"the Contest Schedule lists headings or county offices this loader does not read: {sorted(set(odd26 + odd28))}")
+    prec, pwarn = precinct_table(cache, say, refresh)
+    if pwarn:
+        checks.append(f"the Office's table of precincts and their contests {pwarn}")
+    council_of = collections.defaultdict(collections.Counter)          # county word -> {council value: precincts}
+    for r in (prec or {}).get("rows", []):
+        council_of[r[0].upper()][r[6]] += 1
+
+    def schedule_words(office, seats, where):
+        if office == "Councilmember":
+            ds = council_districts(where)
+            if ds and re.fullmatch(r"\d+\s*-\s*\d+", where.strip()):
+                return f"the council members for districts {ds[0]} to {ds[-1]}"
+            if ds:
+                return council_words(ds)
+            return f"all {number_word(int(seats))} council members" if seats.isdigit() else "its council"
+        return {"Mayor": "its mayor", "Prosecuting Attorney": "its prosecuting attorney"}.get(office, office.lower())
+
+    # what the 2028 table lists for each county that the 2026 table does not; what neither lists; Kalawao
+    later = []
+    for word in in_order(w for w in sched28 if w in by_word):
+        now = {(o, w) for o, _s, w in sched26.get(word, [])}
+        new = [schedule_words(o, s, w) for o, s, w in sched28[word] if (o, w) not in now]
+        if new:
+            later.append((by_word[word][1], and_list(new)))
+    kalawao = ("Kalawao County, which state law puts under the Department of Health, elects no county officers"
+               if "KALAWAO" in by_word and "KALAWAO" not in sched26 and "KALAWAO" not in sched28 else "")
+    only_counties = "the schedule lists no city, township, school board or special district office" if years and not (odd26 or odd28) else ""
+    tail = ", and ".join(x for x in (only_counties, kalawao) if x)
+    if later:
+        s3 = f"In 2028, by the Office of Elections' Contest Schedule, {clauses(later)}" + ("; " + tail if tail else "") + "."
+    else:
+        s3 = (tail[0].upper() + tail[1:] + ".").replace("The schedule", "The Office of Elections' Contest Schedule") if tail else ""
+    cal_source = ("State of Hawaii Office of Elections: Contest Schedule" + (" (2026 and 2028)" if sched28 else " (2026)")
+                  + " and 2026 Candidate Report" + ("; Hawaii Revised Statutes section 326-34 (Kalawao County)" if kalawao else ""))
+
+    def schedule_source():
+        if not years:
+            return
+        n = sum(len(v) for v in sched26.values()) + sum(len(v) for v in sched28.values())
+        up = lambda s: "; ".join(f"{by_word[w][1] if w in by_word else w.title()}: {and_list([schedule_words(*o) for o in offs])}"      # noqa: E731
+                                 for w, offs in s.items())
+        sources.append(source_row(
+            SRC_LOCAL["schedule"], "official notice", AGENCY, "Contest Schedule: county offices, " + and_list(list(years["years"])),
+            SCHEDULE, iso_day(years.get("updated")), years.get("fetched"), years.get("sha256"), n,
+            "The page's tables for " + and_list(list(years["years"])) + ", their cells only (office, seats, jurisdiction and term; nothing "
+            f"about a person). County offices listed for 2026: {up(sched26)}." + (f" For 2028: {up(sched28)}." if sched28 else "")
+            + (f" The page says it was last updated on {years['updated']}." if years.get("updated") else "")
+            + " sha256 is of the page as fetched; the kept extract holds the tables alone."))
+
+    def precinct_source():
+        if not prec:
+            return
+        seen = "; ".join(f"{by_word[w][1] if w in by_word else w.title()}: {', '.join(f'{k} ({v})' for k, v in sorted(c.items(), key=lambda kv: district_key(kv[0])))}"
+                         for w, c in council_of.items())
+        sources.append(source_row(
+            SRC_LOCAL["precincts"], "official precinct table", AGENCY, "Districts and Precincts: District Precinct with Associated Contests",
+            PRECINCTS, iso_day(prec.get("updated")), prec.get("fetched"), prec.get("sha256"), len(prec["rows"]),
+            "A table of seven columns (county, district, precinct, and the U.S. House, State Senate, State House and council contest "
+            "each precinct votes on); nothing about a person. Read for the council column, with the number of precincts in brackets: "
+            f"{seen}." + (f" The page says it was last updated on {prec['updated']}." if prec.get("updated") else "")
+            + " sha256 is of the page as fetched; the kept extract holds this table alone."))
+
+    def finish(calendar, coverage, cov_source, report_read=True):
+        notes = [(STATE, "local_calendar", calendar, cal_source if report_read else cal_source.replace(" and 2026 Candidate Report", ""), SCHEDULE),
+                 (STATE, "local_coverage", coverage, cov_source, REPORT)]
+        for n in notes:
+            if contact_like(n[2], False) or contact_like(n[3], False):
+                checks.append(f"the {n[1]} note would be dropped by the contact-detail check")
+        schedule_source()
+        precinct_source()
+        return {"races": races, "cands": cands, "sources": sources, "gaps": gaps, "notes": notes, "checks": checks, "stats": stats}
+
+    # ---- the county rows of the Candidate Report
+    path = os.path.join(cache, "hi_2026_candidate_report_county.json")
+    try:
+        kept, warn = county_report(path, say, refresh)
+    except (SystemExit, URLError, OSError) as e:
+        checks.append(f"the Candidate Report's county rows could not be read ({type(e).__name__}); no county race is loaded")
+        gap("state", STATE, NAME, "county mayor and council races",
+            "The Office of Elections' Candidate Report could not be read when this was loaded, so the county offices on the "
+            "November 3 ballot are not shown yet; the loader reads the report again each time it runs.")
+        listed = "; ".join(f"{label(w)}: {and_list([schedule_words(*o) for o in offs])}" for w, offs in sched26.items() if w in by_word)
+        calendar = (f"The Office of Elections' Contest Schedule lists these county offices for 2026: {listed}. "
+                    "Which of them are on the November 3 ballot, and which were decided at the August 8 primary, could not be read when "
+                    "this was loaded." + (" " + s3 if s3 else ""))
+        return finish(calendar, "No county race is loaded yet: the Office of Elections' Candidate Report could not be read when this "
+                      "was loaded.", "State of Hawaii Office of Elections, 2026 Candidate Report", report_read=False)
+    if warn:
+        checks.append(warn)
+    stats["rows in"] = len(kept["rows"])
+    stats["blanked cells"] = kept.get("blanked", 0)
+
+    # read twice: the counts by contest and status taken when the state rows were read must be these rows' counts
+    contests = collections.OrderedDict()
+    for r in kept["rows"]:
+        contests.setdefault(r["Contests"], []).append(r)
+    earlier = {k[len("county: "):]: v for k, v in (report.get("others") or {}).items() if k.startswith("county: ")}
+    mine = {t: dict(collections.Counter(x["Status"] for x in rows)) for t, rows in contests.items() if t}
+    twice = earlier == mine
+    if not twice:
+        differ = sorted(t for t in set(earlier) | set(mine) if earlier.get(t) != mine.get(t))
+        checks.append(f"the county rows read on {kept.get('fetched')} and the counts taken with the state rows on {report.get('fetched')} "
+                      f"differ for {len(differ)} contests ({'; '.join(differ[:6])}): the Candidate Report changed in between")
+
+    # the certified August 8 summary, a control on who the report says went on
+    primary = county_primary(res_paths["summary"]) if res_paths.get("summary") and os.path.exists(res_paths["summary"]) else None
+    by_names = collections.defaultdict(list)
+    for title, rows in contests.items():
+        ran = frozenset(fold(x["Ballot Name"]) for x in rows if x["Status"] in (ON, EAP, LOST) and x["Ballot Name"])
+        if ran:
+            by_names[ran].append(title)
+    on_primary = {}                                   # contest title -> [(name, votes)] of its primary contest
+    for cid, e in (primary or {}).items():
+        hits = [t for t in by_names.get(frozenset(fold(n) for n, _v in e["names"]), []) if fold(t).endswith(fold(e["title"]))]
+        if len(hits) != 1:
+            checks.append(f"the certified primary summary's contest {cid} ({e['title']}, {len(e['names'])} names) matches {len(hits)} county "
+                          "contests of the Candidate Report by its candidates' names")
+            continue
+        on_primary[hits[0]] = e["names"]
+
+    # ---- races
+    settled, live, unread, expected_seen, out_of_step = [], [], collections.Counter(), set(), []
+    order = lambda item: (by_word[item[1][0]][0], 0 if item[1][1] == MAYOR else 1, district_key(item[1][2] or ""), item[1][3] or "")   # noqa: E731
+    read = []
+    for title, rows in contests.items():
+        o = county_office(title) if title else None
+        if not o or o[0] not in by_word:
+            unread[title or "(a contest title that was blanked)"] += len(rows)
+            continue
+        read.append((title, o, rows))
+    for title, n in unread.items():
+        stats["not placed: a contest this loader does not read"] += n
+        word = (re.match(COUNTY_WORD, title.upper()) or [None, None])[1]
+        where = (("county", by_word[word][0], by_word[word][1]) if word in by_word else ("state", STATE, NAME))
+        gap(*where, f"the contest the list calls {proper(title)}" if title and not title.startswith("(") else "a county contest",
+            f"The Office of Elections' Candidate Report has {n} row{'s' if n != 1 else ''} for a county contest written in a form this "
+            "loader has not been checked against, so it is not shown here; the report itself names the candidates.")
+        checks.append(f"a county contest title this loader does not read ({title}, {n} rows)")
+
+    vote_for = council_vote_for(res_paths.get("pdf"), "County of Kauai") if res_paths.get("pdf") else None
+    for title, (word, kind, district, area), rows in sorted(read, key=order):
+        geoid, cname = by_word[word]
+        expected_seen.add((word, kind, district, area))
+        by_status = collections.defaultdict(list)
+        for x in rows:
+            by_status[x["Status"]].append(x)
+        on, eap, lost = by_status.get(ON, []), by_status.get(EAP, []), by_status.get(LOST, [])
+        stats["lost in the primary"] += len(lost)
+        stats["never filed"] += len(by_status.get(NEVER, []))
+        stats["withdrawn or void"] += sum(len(by_status.get(s, [])) for s in OFF)
+        odd = {s: len(v) for s, v in by_status.items() if s not in (ON, EAP, LOST, NEVER, *OFF)}
+        offs = sched26.get(word, [])
+        council = next(((s, w) for of, s, w in offs if of == "Councilmember"), None)
+        seats = int(council[0]) if kind == COUNCIL and not district and not area and council and council[0].isdigit() else 1
+        where_words = (f"district {district}" if district else area.title() if area else "")
+        what = f"{LOCAL_OFFICE[kind]}{', ' + where_words if where_words else ''}"
+        plain = (f"{cname}'s mayor" if kind == MAYOR else f"{cname} council district {district}" if district else
+                 f"{cname}'s {area.title()} council seat" if area else f"{cname}'s council")
+        if any(x["Party"] != COUNTY_PARTY for x in rows):
+            stats["not placed: a party on a county row"] += len(on) + len(eap) + sum(odd.values())
+            gap("county", geoid, cname, what,
+                f"The Office of Elections' Candidate Report gives a party for this county office ({len(rows)} rows), which this loader "
+                "has not been checked against, so the contest is not shown here.")
+            checks.append(f"{title}: a row whose Party is not {COUNTY_PARTY}; the contest is left out")
+            continue
+        stats["elected after the primary"] += len(eap)
+        if eap and not on:
+            settled.append({"word": word, "kind": kind, "district": district, "area": area, "ran": len(eap) + len(lost), "n": len(eap)})
+            if len(eap) != seats:
+                checks.append(f"{title}: {len(eap)} marked Elected After Primary for {seats} seat{'s' if seats != 1 else ''}")
+            if odd:
+                checks.append(f"{title}: rows with a status not read ({odd})")
+                stats["not placed: a status not read"] += sum(odd.values())
+            ran = on_primary.get(title)
+            if ran and len(ran) > 1:
+                top = max(v for _n, v in ran)
+                if [fold(n) for n, v in ran if v == top] != [fold(x["Ballot Name"]) for x in eap]:
+                    checks.append(f"{title}: the candidate marked Elected After Primary did not lead the certified August 8 count alone")
+            continue
+
+        # a contest on the November ballot (or one the list shows with no candidate at all)
+        seat = None
+        if area:
+            names26 = council[1] if council else ""
+            at = names26.upper().find(area)
+            seat = names26[at:at + len(area)] if at >= 0 else proper(area)
+        rid = "-".join(x for x in (f"2026-{STATE}-{geoid}", kind.replace("_", "-"), district or (re.sub(r"[^A-Za-z0-9]+", "-", seat).strip("-") if seat else "")) if x)
+        if any(r[0] == rid for r in races):
+            stats["not placed: a second contest that reads as the same seat"] += len(on) + sum(odd.values())
+            gap("county", geoid, cname, f"a second contest for {what}",
+                "The Office of Elections' Candidate Report lists two contests that read as the same office and seat, so the second is "
+                "not shown here; the report itself has it.")
+            checks.append(f"{title}: a second contest with the race id {rid}; left out")
+            continue
+        notes = []
+        if word == "HONOLULU":
+            notes.append("Honolulu County's government is the City and County of Honolulu.")
+        at_large = bool(council_of.get(word, {}).get("At-Large"))
+        if kind == COUNCIL and not district and council_of.get(word) and not at_large:
+            checks.append(f"{title}: the Office's table of precincts does not list {cname}'s council as At-Large")
+        if kind == COUNCIL and area:
+            n_areas = sum(1 for _t, oo, _r in read if oo[0] == word and oo[3])
+            notes.append((f"Voters across {cname} vote on this seat, one of {number_word(n_areas)} council seats named for areas of the "
+                          "county (the Office of Elections lists the county's council as At-Large).") if at_large else
+                         f"One of {cname}'s {number_word(n_areas)} council seats, each named for an area of the county.")
+        if kind == COUNCIL and not district and not area and seats > 1:
+            notes.append(f"Voters choose up to {seats}: the county's {number_word(seats)} council seats are filled together"
+                         + (", by voters across the county." if at_large else "."))
+            if vote_for is not None and vote_for != seats:
+                checks.append(f"{title}: the Contest Schedule lists {seats} seats; the primary's Final Summary Report says Number To Vote For: {vote_for}")
+        ran = on_primary.get(title)
+        if on and lost:
+            went = "This candidate" if len(on) == 1 else f"These {number_word(len(on))}"
+            notes.append(f"{went} went on from the August 8 primary, which had {number_word(len(on) + len(lost) + len(eap))} candidates"
+                         + (" for this seat." if kind == COUNCIL and seats == 1 else "." if seats > 1 else " for this office."))
+            if ran:
+                ranked = sorted(ran, key=lambda nv: -nv[1])
+                place = {fold(n): i + 1 for i, (n, _v) in enumerate(ranked)}
+                got = sorted(place.get(fold(x["Ballot Name"]), 0) for x in on)
+                tied = len(on) < len(ranked) and ranked[len(on) - 1][1] == ranked[len(on)][1]
+                if 0 in got:
+                    checks.append(f"{title}: a candidate marked In General is not in the certified August 8 count of this contest")
+                elif got != list(range(1, len(on) + 1)):
+                    passed = [p for p in range(1, max(got) + 1) if p not in got]
+                    placed_words, passed_words = and_list([ordinal_word(p) for p in got]), and_list([ordinal_word(p) for p in passed])
+                    one = len(passed) == 1
+                    notes.append(f"The list marks them In General though they placed {placed_words} in the certified August 8 count; the "
+                                 f"candidate{'' if one else 's'} who placed {passed_words} {'is' if one else 'are'} marked In Primary, and the "
+                                 "list does not say why.")
+                    gap("race", rid, cname, f"why the {'one' if one else 'ones'} who placed {passed_words} on August 8 "
+                        f"{'is' if one else 'are'} not on the November list",       # not "candidate": the page reads that word as names left off
+                        f"The Office of Elections' Candidate Report marks In General the candidates who placed {placed_words} in the "
+                        f"certified August 8 count for this seat and marks the candidate{'' if one else 's'} who placed {passed_words} In "
+                        "Primary, without saying why; the contest is shown here as the report marks it.")
+                    checks.append(f"{title}: the candidates marked In General placed {placed_words} in the certified August 8 count; the "
+                                  f"one{'' if one else 's'} who placed {passed_words} {'is' if one else 'are'} marked In Primary. Loaded as the "
+                                  "report marks them, with a note and a gap")
+                    out_of_step.append(plain)
+                elif tied:
+                    checks.append(f"{title}: a tie at the last place to November in the certified August 8 count")
+            elif primary is not None:
+                checks.append(f"{title}: the report marks candidates In Primary, and the certified August 8 summary has no such contest")
+        elif on and primary is not None and not ran:
+            notes.append("This seat was not on the August 8 primary ballot." if kind == COUNCIL else
+                         "This office was not on the August 8 primary ballot.")
+        if eap:
+            notes.append(f"The list also marks {number_word(len(eap))} candidate{'s' if len(eap) != 1 else ''} for this office Elected After "
+                         "Primary; they are not on the November ballot.")
+            checks.append(f"{title}: rows marked Elected After Primary beside rows marked In General")
+        if not on:
+            notes.append("No candidate for this office is on the Office of Elections' list for November 3.")
+        if odd:
+            n_odd = sum(odd.values())
+            stats["not placed: a status not read"] += n_odd
+            gap("race", rid, cname, f"{n_odd} candidate{'s' if n_odd != 1 else ''} for {what} whose mark on the list is not read",
+                f"The Office of Elections' Candidate Report marks {n_odd} row{'s' if n_odd != 1 else ''} for this office with a status this "
+                "loader does not read, so it cannot say whether they are on the November 3 ballot; they are left off.")
+            checks.append(f"{title}: rows with a status not read ({odd})")
+        note = " ".join(notes)
+        if page_would_drop(note) or contact_like(note, True):
+            checks.append(f"{rid}: its note would be dropped by the contact-detail check; the note is left out")
+            note = "No candidate for this office is on the Office of Elections' list for November 3." if not on else ""
+        placed, n_out, n_dup = set(), 0, 0
+        for x in on:
+            try:
+                name = shown(x["Ballot Name"]) if x["Ballot Name"] else None
+            except SystemExit:
+                name = None
+            if not name or contact_like(name, True) or page_would_drop(name):
+                n_out += 1
+                continue
+            if name in placed:
+                n_dup += 1
+                continue
+            placed.add(name)
+            cands.append((rid, "general", GENERAL, name, NONPARTISAN_OFFICE, "N", None, 0, 0, None, None, None, None, SRC_LOCAL["report"], CAPS))
+        stats["placed"] += len(placed)
+        stats["not placed: a name not in the form read"] += n_out
+        stats["a second copy of a name"] += n_dup
+        if n_out:
+            gap("race", rid, cname, f"{n_out} candidate{'s' if n_out != 1 else ''} for {what}",
+                f"The Office of Elections' Candidate Report marks {len(on)} candidate{'s' if len(on) != 1 else ''} for this office In "
+                f"General, and {n_out} of the names could not be read as a name printed family name first, so "
+                f"{'it is' if n_out == 1 else 'they are'} left off; the report itself has {'it' if n_out == 1 else 'them'}.")
+            checks.append(f"{title}: {n_out} of {len(on)} names marked In General could not be read and are left off")
+        if n_dup:
+            checks.append(f"{title}: the same name is marked In General {n_dup + 1} times; it is stored once")
+        races.append((rid, STATE, "county", kind, LOCAL_OFFICE[kind], cname, geoid, json.dumps([geoid]), district and
+                      (district if district.isdigit() else f"District {district}"), seat, 0, 0, None, None, None, GENERAL, note or None))
+        live.append({"word": word, "kind": kind, "district": district, "area": area})
+        stats["seats on the ballot"] += seats
+    stats["seats settled on August 8"] = sum(s["n"] for s in settled)
+
+    # ---- the contests read against the Contest Schedule's county rows for 2026
+    expected, exp_seats = set(), 0
+    for word, offs in sched26.items():
+        for office, seats_, where in offs:
+            exp_seats += int(seats_) if seats_.isdigit() else 0
+            if office == "Mayor":
+                expected.add((word, MAYOR, None, None))
+            elif office == "Councilmember":
+                ds = council_districts(where)
+                if ds:
+                    expected |= {(word, COUNCIL, d, None) for d in ds}
+                elif re.match(r"(City (&|and) )?County\b", where):
+                    expected.add((word, COUNCIL, None, None))
+                else:
+                    areas = {a for (w, k, d, a) in expected_seen if w == word and a}
+                    left = where.upper()
+                    for a in sorted(areas, key=len, reverse=True):
+                        left = left.replace(a, " ", 1) if a in left else left + " ?"
+                    if left.strip() or len(areas) != (int(seats_) if seats_.isdigit() else -1):
+                        checks.append(f"the Contest Schedule's {word.title()} council seats ({where}) are not the {len(areas)} the Candidate Report names")
+                    expected |= {(word, COUNCIL, None, a) for a in areas}
+            else:
+                expected.add((word, office, None, None))
+    if expected != expected_seen:
+        checks.append("the county contests on the Candidate Report are not the Contest Schedule's for 2026: "
+                      f"only on the schedule {sorted(map(str, expected - expected_seen))}; only on the report {sorted(map(str, expected_seen - expected))}")
+    seats_read = stats["seats on the ballot"] + stats["seats settled on August 8"]
+    if exp_seats != seats_read:
+        checks.append(f"the Contest Schedule lists {exp_seats} county seats for 2026; {seats_read} were read from the Candidate Report")
+    for (word, kind, district, area) in expected_seen:
+        if district and council_of.get(word) and district not in council_of[word]:
+            checks.append(f"{word.title()} council district {district} is not in the Office's table of precincts")
+
+    # ---- the notes
+    def county_phrase(word, rs, settled_form=False):
+        parts = []
+        if any(r["kind"] == MAYOR for r in rs):
+            parts.append("the mayor" if settled_form else "its mayor")
+        ds = sorted((r["district"] for r in rs if r["kind"] == COUNCIL and r["district"]), key=district_key)
+        if ds:
+            parts.append(f"district{'s' if len(ds) > 1 else ''} {and_list(ds)}" if settled_form else council_words(ds))
+        offs = sched26.get(word, [])
+        total = next((int(s) for of, s, _w in offs if of == "Councilmember" and s.isdigit()), 0)
+        n_area = sum(1 for r in rs if r["kind"] == COUNCIL and r["area"])
+        if n_area:
+            parts.append(f"all {number_word(n_area)} council members" if n_area == total else
+                         f"{number_word(n_area)} of its {number_word(total)} council members")
+        if any(r["kind"] == COUNCIL and not r["district"] and not r["area"] for r in rs):
+            parts.append(f"all {number_word(total)} council members" if total else "its council")
+        return and_list(parts)
+
+    words_live = in_order({x["word"] for x in live})
+    s1 = ("On November 3, 2026, without party labels, "
+          + clauses([(label(w), county_phrase(w, [x for x in live if x["word"] == w])) for w in words_live]) + "."
+          if words_live else "No county office is on the Office of Elections' list for November 3, 2026.")
+    s2 = ""
+    if settled:
+        only_council = all(s["kind"] == COUNCIL for s in settled)
+        s2 = (f"The other {'council seats' if only_council else 'county offices'} up this year ("
+              + and_list([f"{by_word[w][1]} {county_phrase(w, [s for s in settled if s['word'] == w], True)}"
+                          for w in in_order({s["word"] for s in settled})])
+              + ") were decided at the August 8 primary, where the Office of Elections' list marks "
+              + ("one candidate for each" if all(s["n"] == 1 for s in settled) else "the winners")
+              + " Elected After Primary, so they are not on the November ballot.")
+    calendar = " ".join(x for x in (s1, s2, s3) if x)
+
+    n_mayor = sum(1 for r in races if r[3] == MAYOR)
+    n_council = len(races) - n_mayor
+    reached = sorted({json.loads(r[7])[0] for r in races})
+    left = [f"{stats['lost in the primary']} candidates who lost in that primary" if stats["lost in the primary"] else "",
+            f"{stats['never filed']} people who took out nomination papers and never filed them" if stats["never filed"] else "",
+            f"{stats['withdrawn or void']} who withdrew" if stats["withdrawn or void"] else ""]
+    not_placed = sum(v for k, v in stats.items() if k.startswith("not placed: ")) + stats["a second copy of a name"]
+    coverage = (f"Loaded from the Office of Elections' 2026 Candidate Report, read on {dt.date.fromisoformat(kept['fetched']):%B} "
+                f"{dt.date.fromisoformat(kept['fetched']).day}, {kept['fetched'][:4]}: the {len(races)} county contests on the November 3 ballot "
+                f"({n_mayor} for mayor and {n_council} for {stats['seats on the ballot'] - n_mayor} council seats) and the {len(cands)} candidates "
+                f"the report marks In General, in {len(reached)} of Hawaii's {len(counties)} counties. "
+                + ("Not on the November ballot and not shown: "
+                   + and_list([f"the {number_word(stats['seats settled on August 8'])} seats decided at the August 8 primary" if settled else ""] + left)
+                   + ". " if settled or any(left) else "")
+                + (f"Left out because they could not be read: {not_placed} rows, listed among the gaps. " if not_placed else "")
+                + (f"For {and_list(out_of_step)} the report's marks and the certified August 8 count do not line up; the contest is shown "
+                   "as the report marks it and is named among the gaps. " if out_of_step else "")
+                + "Not loaded: county charter amendments and other ballot questions, which a candidate list does not carry, and the "
+                  "August 8 primary's fields and votes for county offices. The report gives no ballot positions (state law has the names "
+                  "for an office printed in alphabetical order) and names no write-in candidates.")
+    kept_sha = sha_file(path)
+    n_status = collections.Counter(x["Status"] for x in kept["rows"])
+    sources.append(source_row(
+        SRC_LOCAL["report"], "official candidate list", AGENCY, "2026 Candidate Report: county offices (mayors and county councils)", REPORT, "",
+        kept.get("fetched"), kept.get("sha256_pages"), len(kept["rows"]),
+        f"Linked as \"Candidate Report\" from the Office's Candidate Reports page. All {kept['items']} rows on {kept['pages']} pages read "
+        f"through the grid's own pager on {kept.get('fetched')} and counted against its total; the {len(kept['rows'])} rows for county "
+        "offices kept (the name only where a row is marked In General, Elected After Primary or In Primary; the others are counted "
+        "without it). Only Contests, Party, Ballot Name and Status are read, by their headings; the grid's legal name, mailing address, "
+        "phone, e-mail, website and filing date cells are never turned into text, printed or kept, and no page is written to disk. sha256 "
+        f"is of the {kept['pages']} pages as fetched, in the order read; the kept extract (those four columns of the county rows) has "
+        f"sha256 {kept_sha}. Rows by status: {', '.join(f'{s} {n}' for s, n in sorted(n_status.items()))}. The November list is the rows "
+        "marked In General; Elected After Primary means the seat was decided on August 8 and is not on the November ballot; In Primary "
+        "lost at the primary; Issued never filed (not candidates); Withdrawn and Void are left off. Controls: the same counts by contest "
+        f"and status as when the state rows were read ({'they agree' if twice else 'they differ'}); the contests and "
+        "seats of the Contest Schedule's county rows"
+        + ("; and the certified August 8 summary could not be read for this pass" if primary is None else
+           f"; and the certified August 8 summary, whose {len(on_primary)} county contests have the report's candidates, with those marked "
+           "In General or Elected After Primary leading the count"
+           + (f", except for {and_list(out_of_step)} (named among the gaps)" if out_of_step else "")) + ". "
+        + (f"{kept['blanked']} kept cells looked like contact details and were blanked before anything was kept. " if kept.get("blanked") else "")
+        + "The report gives no ballot positions. " + CAPS))
+    cov_source = ("State of Hawaii Office of Elections, 2026 Candidate Report (county offices); Hawaii Revised Statutes section 11-115 "
+                  "(the order of names on the ballot)")
+    return finish(calendar, coverage, cov_source)
+
+
+def local_stopped(where):
+    """What the county pass leaves when it stops on something unexpected: no county rows, a gap and the two notes."""
+    return {"races": [], "cands": [], "sources": [], "stats": collections.Counter(),
+            "checks": [f"the county pass stopped ({where}); no county race is loaded"],
+            "gaps": [(STATE, "state", STATE, NAME, "county mayor and council races",
+                      "The county part of this loader stopped on something it did not expect in the Office of Elections' lists, so the "
+                      "county offices on the November 3 ballot are not shown yet.", REPORT)],
+            "notes": [(STATE, "local_calendar",
+                       "The Office of Elections' Contest Schedule says which county offices (mayors, prosecuting attorneys and council "
+                       "members) are up in each election year; which of them are on the November 3, 2026 ballot could not be read when "
+                       "this was loaded.", "State of Hawaii Office of Elections, Contest Schedule", SCHEDULE),
+                      (STATE, "local_coverage", "No county race is loaded yet: the county part of the loader stopped before it could read "
+                       "the Office of Elections' Candidate Report through.", "State of Hawaii Office of Elections, 2026 Candidate Report",
+                       REPORT)]}
 
 
 # ---------------------------------------------------------------- load
@@ -1027,7 +1794,8 @@ def load(db_path, say=print, cache=DEFAULT_CACHE, fed_cache=None, roster_path=RO
                 f"or kept). State rows: {len(report['rows'])} ({', '.join(f'{s} {n}' for s, n in sorted(statuses.items()))}). The November list is "
                 "the rows marked In General; Elected After Primary is declared elected and not on the November ballot (stored as unopposed); "
                 "In Primary lost at the primary; Issued never filed (not candidates); Withdrawn, Void and Filed are left off. "
-                f"Counted, not loaded: county offices ({county_rows} rows) and Congress ({federal_rows} rows, the federal loader's). "
+                f"Counted here, not part of this extract: county offices ({county_rows} rows, read under their own entry) and Congress "
+                f"({federal_rows} rows, the federal loader's). "
                 "The report gives no ballot positions. Hawaii's ballots have no write-in line.")
     draw_ids = {}
     sources = [
@@ -1053,7 +1821,8 @@ def load(db_path, say=print, cache=DEFAULT_CACHE, fed_cache=None, roster_path=RO
                    f"The 2026 table's cells only (sha256 of the kept extract). State: Governor and Lieutenant Governor; State Senate "
                    f"{len(exp['senate'])} seats ({', '.join(sorted(exp['senate'], key=int))}; {', '.join(sorted(exp['senate_star'], key=int))} "
                    f"starred: {exp['term_note']}); State House 1 - 51; OHA trustees {exp['oha_at_large']} at large and resident of "
-                   f"{', '.join(sorted(x.title() for x in exp['oha_resident']))}. Also listed, not loaded: {'; '.join(exp['county'])}."),
+                   f"{', '.join(sorted(x.title() for x in exp['oha_resident']))}. Also listed (the county offices, read under their "
+                   f"own entry): {'; '.join(exp['county'])}."),
         source_row(SRC["gov2022"], "official results", AGENCY, "2022 General Election Statewide Summary (summary.txt): Governor contest only",
                    GOV_2022, "", gov22.get("fetched") or day_of(gov22_path), gov22.get("sha256", ""), len(gov22["rows"]),
                    f"Only the contest title and candidate lines of the Governor contest are kept: \"{gov22['rows'][0]['contest'] if gov22['rows'] else ''}\", "
@@ -1092,19 +1861,37 @@ def load(db_path, say=print, cache=DEFAULT_CACHE, fed_cache=None, roster_path=RO
     # the drawings' own source ids on the rows they decided
     cands = [c if not (c[0] in draw_ids and c[11] == "unopposed") else c[:13] + (draw_ids[c[0]],) + c[14:] for c in cands]
 
+    # the county pass: mayors and county councils (nothing above is changed by it, and nothing in it stops the state rows)
+    try:
+        local = local_rows(os.path.join(cache, "local"), report, sched, counties, shown, res_paths, say, refresh)
+        if {r[0] for r in local["races"]} & {r[0] for r in race_rows}:
+            raise ValueError("a county race shares its id with a state race")
+    except (Exception, SystemExit) as e:      # noqa: BLE001  said, with where it stopped; never the text it stopped on
+        tb, line = e.__traceback__, "?"
+        while tb is not None:                 # the deepest line of this file the error passed through
+            if os.path.abspath(tb.tb_frame.f_code.co_filename) == os.path.abspath(__file__):
+                line = tb.tb_lineno
+            tb = tb.tb_next
+        local = local_stopped(f"{type(e).__name__} at line {line} of {os.path.basename(__file__)}")
+
     con = sqlite3.connect(db_path)
     try:
         con.executescript(SCHEMA)
+        con.executescript(EXTRA_SCHEMA)
         with con:
             con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                         (STATE, f"2026-{STATE}-%"))
             con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_places WHERE source_id LIKE 'hi-%'")
-            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-            con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
+            con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+            con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local["races"])
+            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+            con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources + local["sources"])
             con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+            con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+            con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     finally:
         con.close()
 
@@ -1118,9 +1905,29 @@ def load(db_path, say=print, cache=DEFAULT_CACHE, fed_cache=None, roster_path=RO
         say(f"      CHECK {p}")
     for n in notes_out:
         say(f"      note: {n}")
+    st = local["stats"]
+    kinds = collections.Counter(r[3] for r in local["races"])
+    reached = {c for r in local["races"] for c in json.loads(r[7])}
+    say(f"    Hawaii county offices: {len(local['races'])} races on the November ballot (mayor {kinds[MAYOR]}, council "
+        f"{kinds[COUNCIL]}) for {st['seats on the ballot']} seats, {len(local['cands'])} candidates, in {len(reached)} of "
+        f"{len(counties)} counties; {st['seats settled on August 8']} more seats were decided on August 8 and are not on the ballot; "
+        f"{len(local['gaps'])} gap{'s' if len(local['gaps']) != 1 else ''} recorded"
+        + (f"; {st['blanked cells']} kept cells blanked because they looked like contact details" if st["blanked cells"] else ""))
+    aside = [("elected after the primary", st["elected after the primary"]), ("lost in the primary", st["lost in the primary"]),
+             ("never filed", st["never filed"]), ("withdrawn or void", st["withdrawn or void"]),
+             ("a second copy of a name", st["a second copy of a name"])] \
+        + sorted((k, v) for k, v in st.items() if k.startswith("not placed: "))
+    say(f"      the report's county rows: {st['rows in']} read = {st['placed']} placed, each in one race"
+        + "".join(f" + {v} {k}" for k, v in aside if v))
+    if st["rows in"] != st["placed"] + sum(v for _k, v in aside):
+        say("      CHECK the county rows read and the rows accounted for differ")
+    for c in local["checks"]:
+        say(f"      CHECK {c}")
     return {"races": len(races), "by_kind": dict(by_kind), "general_rows": len(gen_rows), "settled": settled, "fields": len(fields),
             "field_rows": field_rows, "incumbents": incumbents, "problems": problems, "notes": notes_out,
-            "statuses": dict(statuses), "drawings": [(d["race"], d["party"]) for d in draws]}
+            "statuses": dict(statuses), "drawings": [(d["race"], d["party"]) for d in draws],
+            "local_races": len(local["races"]), "local_candidates": len(local["cands"]), "local_kinds": dict(kinds),
+            "local_gaps": len(local["gaps"]), "local_stats": dict(st), "local_checks": local["checks"]}
 
 
 if __name__ == "__main__":

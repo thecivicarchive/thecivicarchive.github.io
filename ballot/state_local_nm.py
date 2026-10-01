@@ -61,6 +61,58 @@ say so. pct is the share of that party primary's votes.
 The privacy rule: from any list only office, district, name, party, ballot order, status and votes are read. No
 address, city, ZIP code, phone, website, e-mail or treasurer is read, printed, logged, cached or stored, and the page
 gets names as filed (in ordinary capitals), office, district, party, ballot order and write-in marks only.
+
+The county offices and the local judges (John, 2026-09-30)
+----------------------------------------------------------
+The same November list carries every county office on this ballot and the judges elected by county or judicial
+district, and from it the loader also writes: county commissioners (Los Alamos County's councilors), sheriffs,
+assessors, the county clerks and the treasurer up this year and probate judges (level county, as the list's own
+DistrictType files them), and, under level court with their counties, magistrate judges, Los Alamos County's
+municipal judge, district court judges, judges of the Bernalillo County Metropolitan Court and the yes-or-no retention
+votes for sitting district and metropolitan court judges. Every one of these offices but the retention votes is on the
+partisan ballot. New Mexico's cities, school boards and other districts elect at the Regular Local Election in
+November of odd-numbered years (or, a municipality that kept it, at the Municipal Officer Election in March of
+even-numbered years), so the November 2026 list has no contest of theirs; sl_notes says so.
+
+  - The whole list (the same page the state rows come from, asked once a run), cut down in memory to the county and
+    judge rows and to these cells, by their headings: Contest (both), District, DistrictType, Name, Party, Ballot
+    Order, Status, and Filing County only on a row for an office filed in its own county (a county office, a probate
+    judge, a magistrate, the municipal judge). On a district or metropolitan court row that cell is the county where
+    the candidate lives, so it is never turned into text; those courts' counties come from the courts' own page and
+    the proclamation. The addresses, city, ZIP, phones, e-mail, website, filing time and "Confidential Public
+    Official" cells are never read. A kept cell that reads like contact details is blanked and counted, never printed.
+    Only the cut-down rows are kept (ballot_cache/nm/local/nm_2026_general_local.json).
+  - The same list county by county (CandidateList.aspx?...&cty=<code>, the 33 codes of the page's own county menu), the
+    second route the first is checked against, because the list prints no totals: every row for an office filed in its
+    own county must be on exactly the view of the county the whole list names, with the same cells, and every other
+    office must be either wholly on the county views or wholly off them (filed with the Secretary of State). The other
+    rows of a view are only counted, all views together, by office; their cells are never read.
+  - The Secretary's General Election Proclamation (January 26, 2026), the checklist of offices. It is a scan, so its
+    list of county offices and of the district and metropolitan court seats "to fill unexpired term" was typed from it
+    once (PROCLAIMED and the two SEATS tables below) and the loader checks, by SHA-256, that the file on the
+    Secretary's site is still the one it was typed from. It tells what the candidate list cannot: a contest nobody is
+    listed for (kept, with a note), how many councilors Los Alamos County elects, and which judgeships are for an
+    unexpired term (special 1).
+  - The New Mexico Courts' own page "Courts by District": which counties each of the thirteen judicial districts
+    covers. It must name every county exactly once.
+  - The results site's export of county contests in the June 2 primary, read only for each contest's vote-for number
+    (the number each party nominates is the number elected in November). No name and no vote is kept from it.
+
+Withdrawn and disqualified names are left off and counted in the contest's note, without the name. Local primaries are
+not loaded. Ballot questions are not on a candidate list and are not loaded. If the two readings of the list cannot be
+made to agree the loader stops before writing anything, naming the counties and the counts, never a row.
+
+What is kept on disk for this part, all of it in <cache>/local/ (ballot_cache/nm/local/) and none of it a page as it
+came: nm_2026_general_local.json (the county and judge rows, allowed cells), nm_2026_general_local_views.json (the same
+rows as each county's view gives them, and one count by office of the other rows on all views together),
+nm_judicial_districts.json (each judicial district's counties), nm_2026_general_proclamation.json (the proclamation's
+fingerprint) and nm_2026_primary_county_contests.json (each county contest's vote-for number). The list is asked again
+after two days; the county views only when the list's county and judge rows have changed; the courts' page and the
+proclamation after a month; the June primary's export once.
+
+Race ids for these rows: 2026-NM-<county code>-<office>[-<district or division>] for an office of one county (so
+2026-NM-35001-county-commissioner-5, 2026-NM-35045-magistrate-division-2), 2026-NM-JD<n>-district-court... for a
+judicial district, and -S at the end for a seat filled for an unexpired term.
 """
 
 import csv
@@ -82,6 +134,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like        # noqa: E402
 from ballot.common import fold, name_parts, party_code          # noqa: E402
 from ballot.lists.nm import CERTIFIED_NEWS, LISTS, PORTAL, RESULTS, WRITE_MARK, county_check, ordinary, text   # noqa: E402
 from ballot.lists.tx import proper                              # noqa: E402
@@ -239,10 +292,28 @@ def office_label(office):
 
 # ---------- the candidate lists: the kept columns only ----------
 
+_PAGES = {}
+
+
+def list_page(kind):
+    """One list as the portal serves it, asked once a run: the state rows and the county rows are cut from the same
+    answer, and a refusal is remembered too, so the portal is not asked for the same page again. Held in memory only,
+    and let go when the load ends."""
+    if kind not in _PAGES:
+        eid, title = LISTS[kind]
+        try:
+            _PAGES[kind] = ask(PORTAL.format(eid=eid), "text/html", title, expect=b'class="rgHeader')
+        except SystemExit as e:
+            _PAGES[kind] = e
+    if isinstance(_PAGES[kind], SystemExit):
+        raise _PAGES[kind]
+    return _PAGES[kind]
+
+
 def read_grid(kind):
     eid, title = LISTS[kind]
     url = PORTAL.format(eid=eid)
-    page = ask(url, "text/html", title, expect=b'class="rgHeader').decode("utf-8", "replace")
+    page = list_page(kind).decode("utf-8", "replace")
     if not re.search(r"<title>\s*" + re.escape(title) + r"\s*</title>", page):
         raise SystemExit(f"New Mexico (state races): {url} is no longer the {title}")
     if re.search(r'class="rgPager|class="rgNumPart', page):
@@ -477,12 +548,902 @@ def ticket(name):
     return parts[0], parts[1]
 
 
+# ======================================================================================================================
+# The county offices and the local judges: the rows of the November list the state part above only counts
+# ======================================================================================================================
+
+LOCAL = "New Mexico (county offices and local judges)"
+GEN_EID = LISTS["general"][0]
+VIEW = "https://candidateportal.servis.sos.state.nm.us/CandidateList.aspx?eid={eid}&cty={cty}"
+PROCLAMATION_URL = "https://www.sos.nm.gov/wp-content/uploads/2026/04/2026-General-Election-Proclamation-English.pdf"
+PROCLAMATION_SHA = "a0efc2d279ebb3414ab92afee77e8e583c2cc3302026fbfc8ed5ea65ae492cc4"      # the scan the tables below were typed from
+PROCLAMATION_DAY = "2026-01-26"
+COURTS_URL = "https://nmcourts.gov/courts-by-district/"
+LOCAL_ELECTIONS_URL = "https://www.sos.nm.gov/voting-and-elections/local-election-act-information/"
+VOTE_FOR_CSV = RESULTS + "resultsCSV.aspx?text=All&type=CTY&map=CTY&eid=" + EID
+
+LOCAL_SRC = "nm-sos-2026-local-general-list"
+VIEW_SRC = "nm-sos-2026-local-general-list-c{code}"
+PROC_SRC = "nm-sos-2026-general-proclamation"
+COURTS_SRC = "nm-courts-judicial-districts"
+VOTE_FOR_SRC = "nm-sos-2026-primary-county-contests"
+
+# The proclamation's county offices, typed from the scan (its text layer is the scanner's own reading: "PRO BA TE",
+# "SHERJFF", "District I"), one county a line as the proclamation lists them:
+#   magistrate judges: () none, (0,) one judge with no division named, else the divisions (for Sandoval and Santa Fe
+#   counties the proclamation writes "District 1" and so on where the candidate list writes "Division");
+#   the countywide offices; and the commissioners: by District or Position, or the number of councilors.
+PROCLAIMED = {
+    "Bernalillo": ((), "sheriff assessor probate", ("District", (1, 5))),
+    "Catron": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Chaves": ((1, 2), "sheriff assessor probate", ("District", (1, 5))),
+    "Cibola": ((1, 2), "sheriff assessor probate", ("District", (1, 3))),
+    "Colfax": ((1, 2), "sheriff assessor probate", ("District", (1, 2))),
+    "Curry": ((1, 2), "sheriff assessor probate", ("District", (1, 2, 3))),
+    "De Baca": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Dona Ana": ((1, 2, 3, 4, 5, 6, 7), "sheriff assessor probate", ("District", (1, 3))),
+    "Eddy": ((1, 2, 3), "assessor clerk probate", ("District", (1, 4))),
+    "Grant": ((2,), "sheriff assessor probate", ("District", (1, 2))),
+    "Guadalupe": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Harding": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Hidalgo": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Lea": ((1, 2, 3, 4), "sheriff assessor probate", ("District", (2, 3))),
+    "Lincoln": ((1, 2), "clerk treasurer probate", ("District", (2, 4, 5))),
+    "Los Alamos": ((0,), "municipal sheriff assessor probate", ("Councilors", (4,))),
+    "Luna": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "McKinley": ((1, 2, 3), "sheriff assessor probate", ("District", (1, 2))),
+    "Mora": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Otero": ((1, 2), "sheriff assessor probate", ("District", (1, 2))),
+    "Quay": ((0,), "sheriff assessor probate", ("District", (3,))),
+    "Rio Arriba": ((1, 2), "sheriff assessor probate", ("District", (1, 2))),
+    "Roosevelt": ((0,), "sheriff assessor probate", ("District", (3, 4, 5))),
+    "San Juan": ((1, 2, 3, 4, 5, 6), "sheriff assessor probate", ("District", (1, 2))),
+    "San Miguel": ((1, 2), "sheriff assessor probate", ("District", (1, 3))),
+    "Sandoval": ((1, 2, 3), "sheriff assessor probate", ("District", (1, 3))),
+    "Santa Fe": ((1, 2, 3, 4), "sheriff assessor probate", ("District", (1, 3))),
+    "Sierra": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Socorro": ((0,), "sheriff assessor probate", ("District", (1, 3))),
+    "Taos": ((1, 2), "sheriff assessor probate", ("District", (1, 2, 5))),
+    "Torrance": ((0,), "sheriff assessor probate", ("District", (1, 2))),
+    "Union": ((0,), "sheriff assessor probate", ("Position", (1, 2))),
+    "Valencia": ((1, 2, 3), "sheriff assessor probate", ("District", (1, 3))),
+}
+# "Judicial District Judges ... to fill unexpired term" and "Two judges of the Bernalillo County Metropolitan Court ...
+# to fill unexpired term", as the proclamation lists them: judicial district -> divisions, and the court's divisions
+PROCLAIMED_DISTRICT_SEATS = {1: (4, 8), 2: (2, 11, 19, 24), 3: (4,), 5: (5,), 10: (1,), 11: (2, 6, 8), 12: (2,)}
+PROCLAIMED_METRO_SEATS = (5, 19)
+METRO_COUNTY = "Bernalillo"                                 # the proclamation's own words: "the Bernalillo County Metropolitan Court"
+PROCLAIMED_WORD = {"sheriff": "County Sheriff", "assessor": "County Assessor", "clerk": "County Clerk", "treasurer": "County Treasurer",
+                   "probate": "Probate Judge"}
+
+COUNTYWIDE = {"County Assessor": ("county_assessor", "County Assessor"), "County Clerk": ("county_clerk", "County Clerk"),
+              "County Sheriff": ("sheriff", "County Sheriff"), "County Treasurer": ("county_treasurer", "County Treasurer"),
+              "Probate Judge": ("probate_judge", "Probate Judge")}
+COUNTY_FILED = ("countywide", "commissioner", "at_large", "magistrate", "municipal")      # offices filed in the office's own county
+DISTRICT_TYPE = {"countywide": "CTY", "commissioner": "CCX", "at_large": "CTY", "magistrate": "MGX", "municipal": "MUX", "district": "JDX",
+                 "metro": "JMC"}
+LOCAL_HEADS = ("District", "Filing County", "Name", "Party", "Ballot Order", "Status", "DistrictType")
+KEY = ("Office", "Contest", "District", "DistrictType", "Name", "Party", "Ballot Order", "Status")
+ORD_WORDS = ("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth", "Eleventh", "Twelfth", "Thirteenth")
+NUMBER = ("no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+          "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty")
+UNEXPIRED = "An election to fill an unexpired term, as the Secretary of State's proclamation of January 26, 2026 words it."
+RETENTION_VOTE = "A retention vote: voters answer Yes or No on keeping this judge in office."
+NO_ONE = "The Secretary of State's proclamation of January 26, 2026 lists this office for election; the candidate list names no candidate for it."
+# the page builder's own test for a number followed soon after by a street word (it knows more such words than the trial
+# check does: Court, Place); every text written here is tried against both before it is stored
+BUILDER_STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|Ln|Lane|Way|Ct|Court|"
+                            r"Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
+
+
+class LocalStop(SystemExit):
+    """The county and judge rows cannot be loaded as they should be; the loader stops before it writes anything."""
+
+
+def stop(what):
+    raise LocalStop(f"{LOCAL}: {what}; stopped (no row is printed)")
+
+
+def number(n):
+    return NUMBER[n] if 0 <= n < len(NUMBER) else f"{n:,}"
+
+
+def and_names(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1] if items else ""
+
+
+def reads_like_contact(value):
+    return bool(value) and (contact_like(value, True) or bool(BUILDER_STREET.search(str(value))))
+
+
+def fetch(url, accept, what, expect=None):
+    """One address, asked at most three times and then left alone (a refusal, or an answer without what it should
+    hold, is never worked around). Returns the bytes as they came, after a pause."""
+    last = None
+    for attempt in range(3):
+        try:
+            body = net.get(url, accept=accept)
+            if expect is not None and expect not in body:
+                last = "the answer came back without its expected content (a bot check or a changed page)"
+            else:
+                time.sleep(1.2)
+                return body
+        except (HTTPError, URLError, OSError) as e:
+            last = e
+        if attempt < 2:
+            time.sleep(5 * (attempt + 1))
+    raise LocalStop(f"{LOCAL}: {what} ({url}) could not be read in three tries ({last}); stopped. This loader does not work around a refusal.")
+
+
+def keep_json(path, kept):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path + ".part", "w", encoding="utf-8") as fh:
+        json.dump(kept, fh, ensure_ascii=False, indent=0)
+    os.replace(path + ".part", path)
+
+
+def fresh(path, days):
+    return os.path.exists(path) and time.time() - os.path.getmtime(path) < days * 86400
+
+
+def local_kind(office):
+    """Which kind of county or judge row an office of the list is; None for the state and federal rows."""
+    if office in COUNTYWIDE:
+        return "countywide"
+    if office == "County Commissioner by Commissioner District":
+        return "commissioner"
+    if office == "County Commissioner At Large":
+        return "at_large"
+    if office == "Magistrate Judge":
+        return "magistrate"
+    if office == "Municipal Judge":
+        return "municipal"
+    if office == "District Court Judge":
+        return "district"
+    if office == "Judge of the Metropolitan Court":
+        return "metro"
+    if office.startswith("Judicial Retention District Court Judge "):
+        return "district_retention"
+    if office.startswith("Judicial Retention Judge of the Metropolitan Court "):
+        return "metro_retention"
+    if office.startswith("County "):
+        return "unknown"                                    # a county office this loader has not met: it stops, naming the office
+    return None
+
+
+def judicial(words):
+    """'FIRST JUDICIAL DISTRICT, DIVISION 04' or '10TH JUDICIAL DISTRICT' -> (1, 4) or (10, None); None when not read."""
+    m = re.fullmatch(r"([A-Z]+|\d+(?:ST|ND|RD|TH)) JUDICIAL DISTRICT(?:\s*,\s*DIVISION 0*(\d+))?", (words or "").strip().upper())
+    if not m:
+        return None
+    w = m.group(1)
+    n = int(re.match(r"\d+", w).group(0)) if w[0].isdigit() else ORD_WORDS.index(w.title()) + 1 if w.title() in ORD_WORDS else 0
+    return (n, int(m.group(2)) if m.group(2) else None) if 1 <= n <= len(ORD_WORDS) else None
+
+
+# ---------- reading the list: the whole of it, and county by county ----------
+
+def open_grid(raw, title, what):
+    """The grid of one answer: (page, where each needed column is, rows as lists of raw cells). Only the headings are
+    turned into text here; a caller reads the cells it is allowed to and no others."""
+    page = raw.decode("utf-8", "replace")
+    if not re.search(r"<title>\s*" + re.escape(title) + r"\s*</title>", page):
+        stop(f"{what} is no longer the {title}")
+    if re.search(r'class="rgPager|class="rgNumPart', page):
+        stop(f"{what} now runs over several pages; read them through its pager")
+    heads = [text(h) for h in re.findall(r'<th scope="col" class="rgHeader[^"]*"[^>]*>(.*?)</th>', page, re.S)]
+    if heads.count("Contest") != 2 or any(heads.count(k) != 1 for k in LOCAL_HEADS):
+        stop(f"{what}: the grid's columns changed")
+    rows = []
+    for n, tr in enumerate(re.findall(r'<tr class="(?:rgRow|rgAltRow)"[^>]*>(.*?)</tr>', page, re.S), 1):
+        cells = re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)
+        if len(cells) != len(heads):
+            stop(f"row {n} of {what} does not line up with the grid's headings")
+        rows.append(cells)
+    col = {k: heads.index(k) for k in LOCAL_HEADS}
+    col["first"], col["office"] = heads.index("Contest"), len(heads) - 1 - heads[::-1].index("Contest")
+    return page, col, rows
+
+
+def kept_row(cells, col, office, with_county, blanked):
+    """The allowed cells of one county or judge row. A kept cell that reads like contact details (typed into the
+    wrong column) is blanked and counted; it is never printed."""
+    r = {"Office": office, "Contest": text(cells[col["first"]])}
+    r.update({k: text(cells[col[k]]) for k in ("District", "DistrictType", "Name", "Party", "Ballot Order", "Status")})
+    if with_county:
+        r["County"] = text(cells[col["Filing County"]])
+    for k in ("Contest", "District", "Name"):
+        if reads_like_contact(r[k]):
+            r[k] = ""
+            blanked[0] += 1
+    return r
+
+
+def county_menu(page):
+    menu = re.search(r'id="MainContent_ddlCounty"[^>]*>(.*?)</select>', page, re.S)
+    return menu.group(1) if menu else ""
+
+
+def read_whole(folder, say, force=False):
+    """The county and judge rows of the whole November list (the allowed cells only), kept two days. When the state
+    part has just asked for the page, the rows are cut from that same answer, so the two parts never drift apart."""
+    path = os.path.join(folder, "nm_2026_general_local.json")
+    if not force and fresh(path, 2) and "general" not in _PAGES:
+        return json.load(open(path, encoding="utf-8"))
+    eid, title = LISTS["general"]
+    try:
+        if force:
+            _PAGES.pop("general", None)
+        raw = list_page("general")
+    except SystemExit as e:
+        if not os.path.exists(path):
+            raise LocalStop(str(e))
+        kept = json.load(open(path, encoding="utf-8"))
+        say(f"    {LOCAL}: the candidate list could not be read; using the copy kept on {kept['fetched']}")
+        return kept
+    page, col, grid = open_grid(raw, title, "the candidate list")
+    counties = {c: H.unescape(t).strip() for c, t in re.findall(r'<option[^>]*value="(\d+)"[^>]*>([^<]+)</option>', county_menu(page))
+                if c not in ("0", "99")}
+    menu = re.search(r'id="MainContent_ddlParty"[^>]*>(.*?)</select>', page, re.S)
+    legend = {c: ordinary(H.unescape(t)) for c, t in re.findall(r'<option[^>]*value="([A-Z]+)"[^>]*>([^<]+)</option>', menu.group(1) if menu else "")}
+    if len(counties) != 33 or not legend:
+        stop("the candidate list no longer shows its menus of 33 counties and of parties")
+    rows, by_office, blanked = [], Counter(), [0]
+    for n, cells in enumerate(grid, 1):
+        office = text(cells[col["office"]])
+        by_office[office_label(office)] += 1
+        kind = local_kind(office)
+        if kind is None:
+            continue                                        # a state or federal row: nothing else of it is read here
+        if kind == "unknown":
+            stop(f"row {n} of the candidate list names a county office this loader does not know ({office_label(office)})")
+        rows.append(kept_row(cells, col, office, kind in COUNTY_FILED, blanked))
+    kept = {"title": title, "url": PORTAL.format(eid=eid), "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(),
+            "bytes": len(raw), "items": len(grid), "legend": legend, "counties": counties,
+            "columns": ["Office", "Contest", "District", "DistrictType", "Name", "Party", "Ballot Order", "Status",
+                        "County (only on a row for an office filed in its own county)"],
+            "by_office": dict(sorted(by_office.items())), "blanked": blanked[0], "rows": rows}
+    del raw, page, grid
+    keep_json(path, kept)
+    return kept
+
+
+def rows_digest(rows):
+    return hashlib.sha256(json.dumps(rows, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def read_views(folder, whole, say, force=False):
+    """The same list asked county by county, the 33 codes of its own county menu: the rows for offices filed in their
+    own county (allowed cells), and one count by office of every other row on all the views together. Kept for as long
+    as the whole list's county and judge rows are the ones these views were read against."""
+    path = os.path.join(folder, "nm_2026_general_local_views.json")
+    want = rows_digest(whole["rows"])
+    if not force and os.path.exists(path):
+        kept = json.load(open(path, encoding="utf-8"))
+        if kept.get("of") == want:
+            return kept
+    title = LISTS["general"][1]
+    views, other, items, blanked = {}, Counter(), 0, [0]
+    say(f"      {LOCAL}: reading the candidate list county by county (33 views, one at a time)")
+    for code, name in sorted(whole["counties"].items()):
+        what = f"the candidate list's view for {name} County"
+        url = VIEW.format(eid=GEN_EID, cty=code)
+        raw = fetch(url, "text/html", what, expect=b'class="rgHeader')
+        page, col, grid = open_grid(raw, title, what)
+        if re.findall(r'<option[^>]*selected="selected"[^>]*value="(\d+)"', county_menu(page)) != [code]:
+            stop(f"{what} is not that county's: its county menu shows another choice")
+        rows = []
+        for cells in grid:
+            office = text(cells[col["office"]])
+            if local_kind(office) in COUNTY_FILED:
+                rows.append(kept_row(cells, col, office, False, blanked))
+            else:
+                other[office_label(office)] += 1            # counted with every other view's; nothing else of the row is read
+        items += len(grid)
+        views[code] = {"county": name, "url": url, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(),
+                       "bytes": len(raw), "rows": rows}
+        del raw, page, grid
+    kept = {"of": want, "fetched": dt.date.today().isoformat(), "items": items, "other": dict(sorted(other.items())), "blanked": blanked[0],
+            "views": views}
+    keep_json(path, kept)
+    return kept
+
+
+def reconcile(whole, views):
+    """The whole list against its county views. Every row for an office filed in its own county must be on exactly the
+    view of the county the whole list names, cell for cell; every other office must be wholly on the views or wholly
+    off them (filed with the Secretary of State); and the rows must add up."""
+    a = Counter((r["County"],) + tuple(r[k] for k in KEY) for r in whole["rows"] if local_kind(r["Office"]) in COUNTY_FILED)
+    b = Counter((v["county"],) + tuple(r[k] for k in KEY) for v in views["views"].values() for r in v["rows"])
+    if a != b:
+        only_a, only_b = a - b, b - a
+        where = sorted({k[0] or "no county" for k in only_a} | {k[0] for k in only_b})
+        stop(f"the whole list and its county views differ: {sum(only_a.values())} rows only on the whole list, {sum(only_b.values())} only on "
+             f"a county view (counties: {', '.join(where)})")
+    filed_here = {office_label(r["Office"]) for r in whole["rows"] if local_kind(r["Office"]) in COUNTY_FILED}
+    on_views, with_state, split = {}, {}, []
+    for label, n in whole["by_office"].items():
+        if label in filed_here:
+            continue
+        m = views["other"].get(label, 0)
+        if m == n:
+            on_views[label] = n
+        elif m == 0:
+            with_state[label] = n
+        else:
+            split.append(f"{label} ({n} on the whole list, {m} on the county views)")
+    stray = sorted(set(views["other"]) - set(whole["by_office"]))
+    if split or stray:
+        stop("the whole list and its county views count other offices differently: " + "; ".join(split + [f"{s} (on a view only)" for s in stray]))
+    matched = sum(b.values())
+    if views["items"] != matched + sum(on_views.values()) or whole["items"] != views["items"] + sum(with_state.values()):
+        stop(f"the rows do not add up: {whole['items']} on the whole list, {views['items']} on the county views, "
+             f"{sum(with_state.values())} for offices on no view")
+    return {"matched": matched, "on_views": on_views, "with_state": with_state}
+
+
+# ---------- the three smaller sources ----------
+
+def judicial_districts(folder, by_key, say):
+    """({judicial district number: [county codes]}, what was kept) from the New Mexico Courts' own page, kept a month.
+    The page must name thirteen districts and every county exactly once."""
+    path = os.path.join(folder, "nm_judicial_districts.json")
+    kept = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else None
+
+    def codes_of(found):
+        out, seen = {}, Counter()
+        for n, names in found["districts"].items():
+            codes = []
+            for name in names:
+                hit = by_key.get(fold(name).replace(" ", ""))
+                if not hit:
+                    stop(f"the courts' page names a county the Census Bureau's county file does not have, under the {ORD_WORDS[int(n) - 1]} Judicial District")
+                codes.append(hit[0])
+                seen[hit[0]] += 1
+            out[int(n)] = sorted(codes)
+        if sorted(out) != list(range(1, 14)) or len(seen) != len(by_key) or any(v != 1 for v in seen.values()):
+            stop(f"the courts' page does not give thirteen judicial districts that hold every county once ({len(out)} districts, {len(seen)} counties)")
+        return out
+
+    if not kept or not fresh(path, 30):
+        try:
+            raw = fetch(COURTS_URL, "text/html", "the New Mexico Courts' page of courts by district", expect=b"Judicial District")
+            plain = H.unescape(re.sub(r"<[^>]+>", "\n", re.sub(r"(?s)<script.*?</script>|<style.*?</style>", "", raw.decode("utf-8", "replace"))))
+            lines = [" ".join(s.split()) for s in plain.split("\n") if s.strip()]
+            found = {}
+            for i, line in enumerate(lines[:-1]):
+                m = re.fullmatch("(" + "|".join(ORD_WORDS) + ") Judicial District", line)
+                w = re.fullmatch(r"(?:For|Serving) (.+)", lines[i + 1]) if m else None
+                if w:
+                    names = [re.sub(r"\s+Count(?:y|ies)$", "", x).strip() for x in re.split(r"\s*,\s*(?:and\s+)?|\s+and\s+", w.group(1)) if x.strip()]
+                    if found.setdefault(ORD_WORDS.index(m.group(1)) + 1, names) != names:
+                        stop("the courts' page names two different sets of counties for one judicial district")
+            got = {"title": "Courts by District", "url": COURTS_URL, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(),
+                   "bytes": len(raw), "kept": "each judicial district's counties, as the page words them; nothing else",
+                   "districts": {str(n): v for n, v in sorted(found.items())}}
+            del raw, plain, lines
+            out = codes_of(got)                             # a page that no longer reads right is never kept over a copy that did
+            keep_json(path, got)
+            return out, got
+        except LocalStop as e:
+            if not kept:
+                raise
+            say(f"    {e} Using the copy of the courts' page kept on {kept['fetched']}.")
+    return codes_of(kept), kept
+
+
+def proclamation(folder, say):
+    """Is the proclamation on the Secretary's site still the scan PROCLAIMED was typed from? The file is fetched once a
+    month for its fingerprint and is not kept (it is a list of offices; the receipt is)."""
+    path = os.path.join(folder, "nm_2026_general_proclamation.json")
+    kept = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else None
+    if kept and fresh(path, 30):
+        return kept
+    try:
+        raw = fetch(PROCLAMATION_URL, "application/pdf,*/*", "the General Election Proclamation", expect=b"%PDF")
+    except LocalStop:
+        if not kept:
+            raise
+        say(f"    {LOCAL}: the proclamation could not be read again; its fingerprint of {kept['fetched']} stands")
+        return kept
+    digest = hashlib.sha256(raw).hexdigest()
+    kept = {"title": "2026 General Election Proclamation", "url": PROCLAMATION_URL, "fetched": dt.date.today().isoformat(), "sha256": digest,
+            "bytes": len(raw), "typed_from": PROCLAMATION_SHA, "same": digest == PROCLAMATION_SHA}
+    del raw
+    keep_json(path, kept)
+    return kept
+
+
+def vote_for(folder, say):
+    """Each county contest of the June 2 primary with the number its ballot said to vote for, from the results site's
+    own export. Four columns are read (contest number, contest name, district, vote-for); no name and no vote is.
+    Asked once: the primary is over and certified. None when it cannot be read (the loader then says less)."""
+    path = os.path.join(folder, "nm_2026_primary_county_contests.json")
+    if os.path.exists(path):
+        return json.load(open(path, encoding="utf-8"))
+    try:
+        raw = fetch(VOTE_FOR_CSV, "text/csv,*/*", "the results site's export of county contests", expect=b"RaceID,RaceName,")
+        rd = csv.reader(io.StringIO(raw.decode("utf-8-sig", "replace")))
+        head = [h.strip() for h in next(rd)]
+        at = {k: head.index(k) for k in ("RaceID", "RaceName", "AreaNum", "VoteFor")}
+        contests = {}
+        for n, row in enumerate(rd, 2):
+            if not row:
+                continue
+            if len(row) <= max(at.values()):
+                raise ValueError(f"line {n} is short")
+            parts = [p.strip() for p in row[at["RaceName"]].split(" - ")]
+            if len(parts) != 3 or parts[1] != parts[2] or not row[at["VoteFor"]].strip().isdigit():
+                raise ValueError(f"line {n}: a contest name or a vote-for number that is not read")
+            item = {"office": parts[0], "county": parts[1], "area": row[at["AreaNum"]].strip(), "vote_for": int(row[at["VoteFor"]])}
+            if contests.setdefault(row[at["RaceID"]].strip(), item) != item:
+                raise ValueError(f"line {n}: one contest number, two descriptions")
+    except (LocalStop, ValueError, StopIteration) as e:
+        say(f"    {LOCAL}: the June primary's county contests could not be read ({str(e).replace(LOCAL + ': ', '')}); the number of seats of an "
+            "at-large contest is then taken from the proclamation alone")
+        return None
+    kept = {"title": "2026 Primary Election results: county contests", "url": VOTE_FOR_CSV, "fetched": dt.date.today().isoformat(),
+            "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "kept": "each contest's office, county, district and vote-for number; no name, no vote",
+            "contests": sorted(contests.values(), key=lambda c: (c["county"], c["office"], c["area"]))}
+    del raw
+    keep_json(path, kept)
+    return kept
+
+
+# ---------- one contest ----------
+
+def _race(rid, level, kind, office, jurisdiction, jid, counties, district=None, seat=None, special=0, partisan=1, notes=()):
+    return {"race_id": rid + ("-S" if special else ""), "level": level, "office_kind": kind, "office": office, "jurisdiction": jurisdiction,
+            "jurisdiction_id": jid, "counties": sorted(counties), "district": district, "seat": seat, "special": int(special), "partisan": partisan,
+            "notes": list(notes)}
+
+
+def countywide_race(fips, cfull, list_office):
+    kind, office = COUNTYWIDE[list_office]
+    return _race(f"2026-{STATE}-{fips}-{kind.replace('_', '-')}", "county", kind, office, cfull, fips, [fips])
+
+
+def commissioner_race(fips, cfull, d):
+    return _race(f"2026-{STATE}-{fips}-county-commissioner-{d}", "county", "county_commissioner", "County Commissioner", cfull, fips, [fips],
+                 district=str(d))
+
+
+def at_large_race(fips, cfull, name):
+    """The list's "County Commissioner At Large" contests, told apart by the name the first Contest column gives them."""
+    if name == "County Councilor":
+        return _race(f"2026-{STATE}-{fips}-county-council-at-large", "county", "county_council", "County Councilor", cfull, fips, [fips], seat="At Large")
+    if name == "County Commissioner":
+        return _race(f"2026-{STATE}-{fips}-county-commissioner-at-large", "county", "county_commissioner", "County Commissioner", cfull, fips, [fips],
+                     seat="At Large")
+    m = re.fullmatch(r"County Commissioner District 0*(\d+)", name, re.I)
+    if m:
+        d = m.group(1)
+        return _race(f"2026-{STATE}-{fips}-county-commissioner-at-large-district-{d}", "county", "county_commissioner", "County Commissioner", cfull, fips,
+                     [fips], seat=f"District {d}",
+                     notes=[f"The Secretary of State's list files this contest among the at-large commissioner contests, under the name \"County Commissioner District {d}\"."])
+    return None
+
+
+def magistrate_race(fips, cfull, div, said=None):
+    return _race(f"2026-{STATE}-{fips}-magistrate" + (f"-division-{div}" if div else ""), "court", "magistrate", "Magistrate Judge", cfull, fips, [fips],
+                 seat=f"Division {div}" if div else None, notes=[f"The Secretary of State's list words this contest \"{said}\"."] if said else [])
+
+
+def municipal_race(fips, cfull, said=None):
+    return _race(f"2026-{STATE}-{fips}-municipal-court", "court", "municipal_court", "Municipal Judge", cfull, fips, [fips],
+                 notes=[f"The Secretary of State's list words this contest \"{said}\"."] if said else [])
+
+
+def district_race(n, div, counties, special=False, retention=False):
+    name, jid = f"{ORD_WORDS[n - 1]} Judicial District", f"{STATE}-JD{n}"
+    if retention:
+        return _race(f"2026-{STATE}-JD{n}-district-court-retention-division-{div}", "court", "district_court_retention",
+                     "District Court Judge (retention vote)", name, jid, counties, district=str(n), seat=f"Division {div}", partisan=0)
+    return _race(f"2026-{STATE}-JD{n}-district-court" + (f"-division-{div}" if div else ""), "court", "district_court", "District Court Judge", name, jid,
+                 counties, district=str(n), seat=f"Division {div}" if div else None, special=special)
+
+
+def metro_race(fips, cfull, div, special=False, retention=False):
+    if retention:
+        return _race(f"2026-{STATE}-{fips}-metropolitan-court-retention-division-{div}", "court", "metropolitan_court_retention",
+                     "Judge of the Metropolitan Court (retention vote)", cfull, fips, [fips], seat=f"Division {div}", partisan=0)
+    return _race(f"2026-{STATE}-{fips}-metropolitan-court-division-{div}", "court", "metropolitan_court", "Judge of the Metropolitan Court", cfull, fips,
+                 [fips], seat=f"Division {div}", special=special)
+
+
+# ---------- the county and judge rows, ready to write ----------
+
+def local_level(cache, cmap, say=print):
+    """New Mexico's county offices and local judges on the November list, as rows ready to write (races, candidates,
+    places, sources, gaps, notes) with the counts behind them. Nothing here touches the database."""
+    folder = os.path.join(cache, "local")
+    whole = read_whole(folder, say)
+    views = read_views(folder, whole, say)
+    try:
+        facts = reconcile(whole, views)
+    except LocalStop as first:                              # the list may have changed between the two readings: read both again, once
+        say("    " + str(first).replace("; stopped (no row is printed)", "") + ". Reading the list and its county views again, once.")
+        time.sleep(5)
+        whole = read_whole(folder, say, force=True)
+        views = read_views(folder, whole, say, force=True)
+        facts = reconcile(whole, views)
+    by_key = {k.replace(" ", ""): v for k, v in cmap.items()}      # 'donaana' -> ('35013', 'Doña Ana County')
+
+    def county(name, what):
+        hit = by_key.get(fold(name).replace(" ", "")) if name else None
+        if not hit:
+            stop(f"{what} names a county the Census Bureau's county file does not have, or none")
+        return hit
+
+    if sorted(fold(n) for n in whole["counties"].values()) != sorted(fold(n) for n in PROCLAIMED):
+        stop("the candidate list's county menu and the proclamation's counties are not the same 33")
+    districts, courts = judicial_districts(folder, by_key, say)
+    proc = proclamation(folder, say)
+    primary = vote_for(folder, say)
+    legend = whole["legend"]
+    problems, contests = [], {}
+    if not proc["same"]:
+        problems.append("the proclamation on the Secretary of State's site is no longer the scan its office list was typed from; read it again "
+                        "(PROCLAIMED, PROCLAIMED_DISTRICT_SEATS, PROCLAIMED_METRO_SEATS and PROCLAMATION_SHA)")
+    metro_fips, metro_full = county(METRO_COUNTY, "the proclamation's metropolitan court")
+
+    def contest(info, n=None):
+        have = contests.get(info["race_id"])
+        if have is None:
+            have = contests[info["race_id"]] = dict(info, on=[], off=Counter(), nameless=0, listed=False, key=None)
+        elif any(have[k] != info[k] for k in ("level", "office_kind", "office", "jurisdiction_id", "counties", "district", "seat", "special", "partisan")):
+            stop(f"row {n} of the candidate list: two different contests share the race id {info['race_id']}")
+        else:
+            have["notes"] += [x for x in info["notes"] if x not in have["notes"]]
+        return have
+
+    def proclaimed_district(n, div):
+        seats = PROCLAIMED_DISTRICT_SEATS.get(n, ())
+        return div in seats or (div is None and len(seats) == 1)
+
+    counts = Counter()
+    for n, r in enumerate(whole["rows"], 1):
+        kind, tail, where = local_kind(r["Office"]), r["District"], f"row {n} of the candidate list"
+        if not r["Contest"] or not r["Contest"].endswith(tail):
+            stop(f"{where}: the contest's title is blank or does not end with its district")
+        if kind in DISTRICT_TYPE and r["DistrictType"] != DISTRICT_TYPE[kind]:
+            problems.append(f"{where}: the list's district type for {office_label(r['Office'])} is {r['DistrictType']!r}, not {DISTRICT_TYPE[kind]!r}")
+        if kind in COUNTY_FILED:
+            fips, cfull = county(r["County"], where)
+        info, key = None, None
+        if kind == "countywide":
+            if tail or r["Contest"] != r["Office"]:
+                stop(f"{where}: a countywide office ({r['Office']}) with a district")
+            info, key = countywide_race(fips, cfull, r["Office"]), (r["Office"], fips, "")
+        elif kind == "commissioner":
+            m = re.fullmatch(r"(?:COUNTY COMMISSION )?DIST(?:RICT)? 0*(\d+)", tail, re.I)
+            if not m:
+                stop(f"{where}: a county commissioner's district that is not read")
+            info, key = commissioner_race(fips, cfull, m.group(1)), (r["Office"], fips, m.group(1))
+        elif kind == "at_large":
+            info = None if tail else at_large_race(fips, cfull, r["Contest"])
+            if not info:
+                stop(f"{where}: an at-large commissioner contest whose name is not read")
+            key = (r["Office"], fips, "")
+        elif kind == "magistrate":
+            m = re.fullmatch(r"(?:MAGISTRATE(?: COURT)? )?DIVISION 0*(\d+)", tail, re.I)
+            alone = re.fullmatch(r"MAGISTRATE(?:\s*-\s*(.+))?", tail, re.I)
+            if m:
+                info = magistrate_race(fips, cfull, m.group(1))
+            elif alone and (not alone.group(1) or fold(alone.group(1)) == fold(r["County"])):
+                info = magistrate_race(fips, cfull, None)
+            elif re.fullmatch(r"MAGISTRATE DISTRICT \d+", tail, re.I):
+                info = magistrate_race(fips, cfull, None, said=r["Contest"])      # a district number of the list's own, not a division
+            else:
+                stop(f"{where}: a magistrate judge's division that is not read")
+        elif kind == "municipal":
+            if not re.fullmatch(r"MUNICIPAL DISTRICT \d+", tail, re.I):
+                stop(f"{where}: a municipal judge's district that is not read")
+            info = municipal_race(fips, cfull, said=r["Contest"])
+        elif kind in ("district", "district_retention"):
+            got = judicial(tail)
+            if not got or (kind == "district_retention" and (got[1] is None or r["Office"] != "Judicial Retention District Court Judge " + tail)):
+                stop(f"{where}: a judicial district or division that is not read")
+            dn, div = got
+            if kind == "district":
+                special = proclaimed_district(dn, div)
+                info = district_race(dn, div, districts[dn], special=special)
+                if div is None and special:
+                    info["notes"].append(f"The Secretary of State's proclamation calls this seat Division {PROCLAIMED_DISTRICT_SEATS[dn][0]}.")
+                if not special:
+                    problems.append(f"{info['race_id']}: a district court seat on the candidate list that the proclamation does not list")
+            else:
+                info = district_race(dn, div, districts[dn], retention=True)
+                if not (r["DistrictType"] or "").upper().startswith(ORD_WORDS[dn - 1].upper()):
+                    problems.append(f"{where}: the list's district type does not name the {ORD_WORDS[dn - 1]} Judicial District")
+        elif kind in ("metro", "metro_retention"):
+            m = re.fullmatch(r"DIVISION 0*(\d+)", tail, re.I)
+            if not m or (kind == "metro_retention" and r["Office"] != "Judicial Retention Judge of the Metropolitan Court " + tail):
+                stop(f"{where}: a metropolitan court division that is not read")
+            div = int(m.group(1))
+            if kind == "metro":
+                info = metro_race(metro_fips, metro_full, div, special=div in PROCLAIMED_METRO_SEATS)
+                if div not in PROCLAIMED_METRO_SEATS:
+                    problems.append(f"{info['race_id']}: a metropolitan court seat on the candidate list that the proclamation does not list")
+            else:
+                info = metro_race(metro_fips, metro_full, div, retention=True)
+        else:
+            stop(f"{where}: an office this loader does not know")
+        c = contest(info, n)
+        c["listed"], c["key"] = True, key or c["key"]
+        counts["rows"] += 1
+        if r["Status"] in OFF:
+            c["off"][r["Status"]] += 1
+            counts["off"] += 1
+        elif r["Status"] not in ON:
+            stop(f"{where}: a status that is not read ({r['Status']!r})")
+        elif not r["Name"]:
+            c["nameless"] += 1
+            counts["nameless"] += 1
+        else:
+            c["on"].append(r)
+
+    # ---- the proclamation as the checklist: an office it lists that the candidate list has no row for is kept, empty
+    proclaimed, empty = set(), []
+
+    def expect(options, any_of=None):
+        ids = [o["race_id"] for o in options]
+        proclaimed.update(ids)
+        if any_of:
+            proclaimed.update(any_of)
+        if not any(i in contests for i in ids) and not any_of:
+            c = contest(options[0])
+            c["notes"].append(NO_ONE)
+            empty.append(c["race_id"])
+
+    seats, positions = {}, {}                               # race id -> the number the proclamation says are elected, and its positions
+    for cname, (mag, wide, (how, which)) in PROCLAIMED.items():
+        fips, cfull = county(cname, "the proclamation's office list")
+        for w in wide.split():
+            expect([municipal_race(fips, cfull)] if w == "municipal" else [countywide_race(fips, cfull, PROCLAIMED_WORD[w])])
+        for d in mag:
+            mine = [i for i in contests if i.startswith(f"2026-{STATE}-{fips}-magistrate")]
+            expect([magistrate_race(fips, cfull, d or None)], any_of=mine if d == 0 else None)
+        if how == "District":
+            for d in which:
+                expect([commissioner_race(fips, cfull, d), at_large_race(fips, cfull, f"County Commissioner District {d}")])
+        elif how == "Position":
+            info = at_large_race(fips, cfull, "County Commissioner")
+            expect([info])
+            seats[info["race_id"]], positions[info["race_id"]] = len(which), and_names(f"Position {p}" for p in which)
+        else:
+            info = at_large_race(fips, cfull, "County Councilor")
+            expect([info])
+            seats[info["race_id"]] = which[0]
+    for dn, divs in PROCLAIMED_DISTRICT_SEATS.items():
+        for div in divs:
+            expect([district_race(dn, div, districts[dn], special=True)] + ([district_race(dn, None, districts[dn], special=True)] if len(divs) == 1 else []))
+    for div in PROCLAIMED_METRO_SEATS:
+        expect([metro_race(metro_fips, metro_full, div, special=True)])
+    for rid, c in contests.items():
+        if c["partisan"] and c["listed"] and rid not in proclaimed:
+            problems.append(f"{rid}: on the candidate list but not among the offices the proclamation lists")
+
+    # ---- how many each county contest elects: the June primary's vote-for number, and the proclamation's count
+    voted = defaultdict(set)
+    for item in (primary or {}).get("contests", []):
+        hit = by_key.get(fold(item["county"]).replace(" ", ""))
+        m = re.search(r"(\d+)\s*$", item["area"])
+        if hit:
+            voted[(item["office"], hit[0], m.group(1) if m else "")].add(item["vote_for"])
+    for rid, c in contests.items():
+        got = voted.get(c["key"]) if c["key"] else None
+        want = seats.get(rid, 1)
+        if got and got != {want}:
+            problems.append(f"{rid}: the June primary ballot said vote for {sorted(got)}, the proclamation gives {want}")
+            seats.pop(rid, None)
+        c["voted"] = bool(got)
+
+    # ---- races and candidates
+    def party_of(code, rid):
+        if code not in legend:
+            stop(f"{rid}: a party code that is not in the list's key")
+        return legend[code]
+
+    races, cands, gaps = [], [], []
+    for rid, c in sorted(contests.items()):
+        notes = ([UNEXPIRED] if c["special"] else []) + list(c["notes"])
+        if not c["partisan"]:
+            notes.append(RETENTION_VOTE)
+            if len(c["on"]) != 1:
+                problems.append(f"{rid}: a retention vote with {len(c['on'])} names")
+        if rid in seats and seats[rid] > 1:
+            notes.append(f"Voters choose {seats[rid]}.")
+            if rid in positions:                            # the proclamation lists positions, the candidate list one contest
+                if c["voted"]:
+                    notes.append(f"The Secretary of State's proclamation calls the {number(seats[rid])} seats {positions[rid]}; the candidate list and "
+                                 "the June primary's results carry them as one contest.")
+                else:
+                    notes[-1] = (f"The Secretary of State's proclamation calls for {number(seats[rid])} commissioners here, {positions[rid]}; the "
+                                 "candidate list files the candidates under one contest and does not say which position each seeks.")
+                    gaps.append((STATE, "race", rid, c["jurisdiction"], "which position each candidate seeks",
+                                 f"The Secretary of State's proclamation lists {number(seats[rid])} commissioner positions for this county and the "
+                                 "candidate list files every candidate under one contest; the June primary's results, which would say whether "
+                                 "voters choose them in one contest, could not be read on this run.", whole["url"]))
+        for status, v in sorted(c["off"].items()):
+            notes.append(f"The Secretary of State's list also carries {number(v)} name{'s' if v > 1 else ''} marked {status}, left off here.")
+        if c["nameless"]:
+            notes.append(f"{number(c['nameless']).capitalize()} row{'s' if c['nameless'] > 1 else ''} of the Secretary of State's list for this contest "
+                         f"{'are' if c['nameless'] > 1 else 'is'} left out: the name cell did not hold a name.")
+        if c["listed"] and not c["on"]:
+            notes.append("No name on the Secretary of State's list for this contest is still on the ballot.")
+        orders, names = [], set()
+        for r in c["on"]:
+            wi = bool(WRITE_MARK.search(r["Name"]))
+            name = shown(r["Name"])
+            if not name or name in names:
+                stop(f"{rid}: a name that is blank once its write-in mark is taken off, or the same name twice")
+            names.add(name)
+            if c["partisan"]:
+                party = party_of(r["Party"], rid) if r["Party"] else "No party"
+                code, inc, note = party_code(party), 0, ([WRITE_IN] if wi else []) + [CAPS]
+            else:
+                if r["Party"]:
+                    problems.append(f"{rid}: a retention row with a party code")
+                party, code, inc, note = NONPARTISAN, "N", 1, ["Standing for retention as the sitting judge.", CAPS]
+            order = int(r["Ballot Order"]) if c["partisan"] and not wi and r["Ballot Order"].isdigit() and r["Ballot Order"] != NO_PLACE else None
+            orders.append(order)
+            counts["write_in"] += int(wi)
+            counts["no_order"] += int(order is None and not wi and bool(c["partisan"]))
+            cands.append((rid, "general", GENERAL, name, party, code, order, inc, int(wi), None, None, None, None, LOCAL_SRC, " ".join(note)))
+        given = [o for o in orders if o is not None]
+        if len(given) != len(set(given)):
+            problems.append(f"{rid}: two names with the same ballot order on the list")
+        races.append((rid, STATE, c["level"], c["office_kind"], c["office"], c["jurisdiction"], c["jurisdiction_id"], json.dumps(c["counties"]),
+                      c["district"], c["seat"], c["special"], c["partisan"], None, None, None, GENERAL, " ".join(notes) or None))
+
+    # ---- the counts: every county and judge row is a candidate, a name left off, or a row without a name
+    if counts["rows"] != len(whole["rows"]) or len(cands) + counts["off"] + counts["nameless"] != len(whole["rows"]):
+        stop(f"{len(whole['rows'])} county and judge rows read, {len(cands)} candidates stored, {counts['off']} left off, {counts['nameless']} without a name")
+    if len({(c[0], c[3]) for c in cands}) != len(cands):
+        stop("a candidate is stored twice in one contest")
+    local_rows = sum(n for label, n in whole["by_office"].items() if local_kind(label) or label.startswith("Judicial Retention "))
+    if sum(whole["by_office"].values()) != whole["items"] or local_rows != len(whole["rows"]):
+        stop("the whole list's rows by office do not add up")
+
+    by_level, by_kind = Counter(r[2] for r in races), Counter(r[3] for r in races)
+    county_races = [r for r in races if r[2] == "county"]
+    court_races = [r for r in races if r[2] == "court"]
+    reached = {f for r in races for f in json.loads(r[7])}
+    used = sorted({int(r[8]) for r in races if r[3].startswith("district_court")})
+    places = [("judicial", f"{STATE}-JD{n}", f"{ORD_WORDS[n - 1]} Judicial District", json.dumps(districts[n]), COURTS_SRC) for n in used]
+
+    # ---- what the list cannot show
+    gaps.append((STATE, "state", STATE, NAME, "offices added after the proclamation that nobody filed for",
+                 "The Secretary of State's candidate list shows a contest only when someone is listed for it, so the checklist of offices is the "
+                 "proclamation of January 26, 2026; an office put on the ballot after that date for which no candidate is listed would not be "
+                 "seen here.", whole["url"]))
+    gaps.append((STATE, "state", STATE, NAME, "elections that conservancy districts and other bodies run themselves",
+                 "The Secretary of State's November list carries no contest for any city, school district or special district, and the Local Election "
+                 "Act leaves conservancy districts out of the Regular Local Election; an election such a body holds on its own is not on the list and "
+                 "would have to be read from that body's own notice.", LOCAL_ELECTIONS_URL))
+
+    # ---- the two notes
+    has = lambda w: [c for c, (_m, wide, _c) in PROCLAIMED.items() if w in wide.split()]
+    mag_counties = [c for c, (mag, _w, _c) in PROCLAIMED.items() if mag]
+    special_dc = sum(1 for r in races if r[3] == "district_court" and r[10])
+    special_metro = sum(1 for r in races if r[3] == "metropolitan_court" and r[10])
+    retention = sum(1 for r in races if r[3].endswith("_retention"))
+    counties_words = lambda names: and_names(names) + (" counties" if len(names) > 1 else " County")
+    calendar = (
+        f"On November 3, 2026 New Mexico's counties elect, on the partisan ballot, a probate judge in each of the {len(PROCLAIMED)} counties, the county "
+        f"commissioners whose terms are up (county councilors in Los Alamos County), a sheriff in {len(has('sheriff'))} counties, an assessor in "
+        f"{len(has('assessor'))}, a county clerk in {counties_words(has('clerk'))} and a treasurer in {counties_words(has('treasurer'))}; magistrate "
+        f"judges are elected in {len(mag_counties)} counties and a municipal judge in {counties_words(has('municipal'))}, {number(special_dc)} district "
+        f"judgeships and {number(special_metro)} judgeships of the Bernalillo County Metropolitan Court are filled for unexpired terms, and sitting "
+        f"district and metropolitan court judges face yes-or-no retention votes ({retention} of them). Cities, towns and villages, school boards and "
+        "other local districts elect at the Regular Local Election in November of odd-numbered years, and a municipality that has not joined it at "
+        "the Municipal Officer Election in March of even-numbered years, so none of their offices is on this ballot.")
+    empties = [f"{r[4]}{', District ' + r[8] if r[8] and r[2] == 'county' else ''}{', ' + r[9] if r[9] else ''}, {r[5]}" for r in races if r[0] in empty]
+    coverage = (
+        f"Loaded from the Secretary of State's 2026 General Election Contest/Candidate List: {len(county_races)} contests for county offices in all "
+        f"{len({r[6] for r in county_races})} counties (commissioners and councilors, sheriffs, assessors, clerks, a treasurer and probate judges) and "
+        f"{len(court_races)} for local judges, shown with the judges (magistrate judges: {by_kind['magistrate']}; district court judges: "
+        f"{by_kind['district_court']}; metropolitan court judges: {by_kind['metropolitan_court']}; a municipal judge: {by_kind['municipal_court']}; "
+        f"retention votes: {retention}), {len(cands)} names in all, {counts['write_in']} of them declared write-in candidates. The list was read whole "
+        f"and again county by county and the two readings agree; {counts['off']} names it marks Withdrawn or Disqualified are left off. "
+        + (f"The proclamation lists {number(len(empties))} office{'s' if len(empties) > 1 else ''} nobody is on the list for ({'; '.join(empties)}), kept "
+           "here with no candidate. " if empties else "")
+        + "Not loaded: ballot questions (constitutional amendments, bond questions and any county question), which a candidate list does not carry; "
+        "the June 2 primaries for these offices; and any office put on the ballot after the proclamation for which nobody is listed.")
+    notes = [
+        (STATE, "local_calendar", calendar,
+         "New Mexico Secretary of State: General Election Proclamation of January 26, 2026 (the offices on this ballot) and Local Election Act "
+         "Information (the Regular Local Election and the Municipal Officer Election, under the Local Election Act of 2018 as amended in 2019, "
+         "NMSA 1978, Chapter 1, Article 22)", LOCAL_ELECTIONS_URL),
+        (STATE, "local_coverage", coverage, "New Mexico Secretary of State: 2026 General Election Contest/Candidate List, and the General Election "
+         "Proclamation of January 26, 2026", whole["url"]),
+    ]
+
+    # ---- sources: one row per page or file read
+    with_state = sum(facts["with_state"].values())
+    sources = [
+        (LOCAL_SRC, STATE, "official candidate list", "New Mexico Secretary of State",
+         "2026 General Election Contest/Candidate List (November 3, 2026): county offices and local judges",
+         whole["url"], "", whole["fetched"], whole["sha256"], len(whole["rows"]),
+         f"The candidate portal's grid of every office ({whole['items']} rows on one page), cut down in memory to its {len(whole['rows'])} rows for "
+         "county offices and for magistrate, municipal, district and metropolitan court judges. Cells read, by their headings: both Contest columns, "
+         "District, DistrictType, Name, Party, Ballot Order, Status, and Filing County only on a row for an office filed in its own county; on a "
+         "district or metropolitan court row that cell is where the candidate lives and is never read. The addresses, city, ZIP, phones, e-mail, "
+         "website and filing time are never read, and only the cut-down rows are kept; the fingerprint is of the page as it came. "
+         f"{len(cands)} names stored, {counts['off']} marked Withdrawn or Disqualified left off, {counts['write_in']} declared write-ins; ballot order "
+         f"as the list gives it (99 means none: {counts['no_order']} printed names have none). Checked against the same list read county by county: "
+         f"{facts['matched']} rows for offices filed in their own county match cell for cell, {sum(facts['on_views'].values())} rows for other offices "
+         f"are on the county views and {with_state} are for offices filed with the Secretary of State, which makes {whole['items']}."
+         + (f" Kept cells blanked because they read like contact details: {whole['blanked']}." if whole["blanked"] else "")),
+    ]
+    for code, v in sorted(views["views"].items()):
+        sources.append((VIEW_SRC.format(code=code), STATE, "official candidate list", "New Mexico Secretary of State",
+                        f"2026 General Election Contest/Candidate List (November 3, 2026), {v['county']} County's view: county offices, magistrate and "
+                        "municipal judges", v["url"], "", v["fetched"], v["sha256"], len(v["rows"]),
+                        f"{v['county']} County's own view of the list (the county menu's choice {code}): {len(v['rows'])} rows for offices filed in the "
+                        "county, matched against the whole list cell for cell. Cells read, by their headings: both Contest columns, District, "
+                        "DistrictType, Name, Party, Ballot Order and Status; the addresses, city, ZIP, phones, e-mail, website, filing county and "
+                        "filing time are never read. The view's other rows (legislative, education commission, district court and metropolitan "
+                        "court candidates who filed in the county) are only counted, with every other view's, by office; nothing else of them "
+                        "is read, and the page was not kept."))
+    n_proclaimed = (sum(len(wide.split()) + len(mag) + (len(which) if how != "Councilors" else which[0]) for mag, wide, (how, which) in PROCLAIMED.values())
+                    + sum(len(v) for v in PROCLAIMED_DISTRICT_SEATS.values()) + len(PROCLAIMED_METRO_SEATS))
+    sources += [
+        (PROC_SRC, STATE, "official proclamation", "New Mexico Secretary of State", "2026 General Election Proclamation (English), filed January 26, 2026",
+         PROCLAMATION_URL, PROCLAMATION_DAY, proc["fetched"], proc["sha256"], n_proclaimed,
+         "The checklist of offices. The file is a scan, so its list of county offices, county by county, and of the district and metropolitan court "
+         f"judgeships to fill an unexpired term was typed from it once ({n_proclaimed} seats) and is kept in the loader; the fingerprint is of the "
+         "file as fetched, and " + ("it is the scan the list was typed from. " if proc["same"] else "IT IS NO LONGER THE SCAN THE LIST WAS TYPED FROM: read it again. ")
+         + "It gives what the candidate list cannot: an office nobody is listed for, how many councilors Los Alamos County elects, the two "
+         "commissioner positions of Union County, and which judgeships are for an unexpired term. The file names no candidate and has no contact "
+         "columns; it is not kept, only its fingerprint."),
+        (COURTS_SRC, STATE, "official court directory", "New Mexico Courts (the state's Judicial Branch)", courts["title"] + ": the counties of each judicial district",
+         courts["url"], "", courts["fetched"], courts["sha256"], len(courts["districts"]),
+         "Only each judicial district's counties are read and kept, nothing else of the page; it must name thirteen districts and every county "
+         "exactly once. A district court contest is shown for the counties of its judicial district, never for the county a candidate filed in."),
+    ]
+    if primary:
+        sources.append(
+            (VOTE_FOR_SRC, STATE, "official results", "New Mexico Secretary of State",
+             "2026 Primary Election results (June 2, 2026): county contests, the results site's CSV export", primary["url"], "2026-06-23", primary["fetched"],
+             primary["sha256"], len(primary["contests"]),
+             "Read only for the number each county contest's ballot said to vote for, which is the number elected in November: four columns (contest "
+             "number, contest name, district and vote-for). No candidate's name and no vote is read or kept, and the export has no contact columns; "
+             "the fingerprint is of the export as it came."))
+
+    # ---- the last look before anything is written: nothing that reads like contact details, by the trial check's test and the page builder's
+    for table, items in (("sl_races", [(r[0], (r[4], r[5], r[8], r[9], r[16])) for r in races]),
+                         ("sl_candidates", [(c[0], (c[3], c[4], c[14])) for c in cands]),
+                         ("sl_places", [(p[1], (p[2],)) for p in places]),
+                         ("sl_gaps", [(g[2], (g[3], g[4], g[5])) for g in gaps]),
+                         ("sl_notes", [(x[1], (x[2], x[3])) for x in notes]),
+                         ("sl_sources", [(s[0], (s[3], s[4], s[10])) for s in sources])):
+        for ident, texts in items:
+            if any(reads_like_contact(t) for t in texts):
+                stop(f"a text for {table} ({ident}) reads like contact details")
+
+    return {"races": races, "cands": cands, "places": places, "sources": sources, "gaps": gaps, "notes": notes, "problems": problems, "empty": empty,
+            "by_level": dict(by_level), "by_kind": dict(by_kind), "counties": len(reached), "counts": dict(counts), "rows": len(whole["rows"]),
+            "items": whole["items"], "facts": facts, "fetched": whole["fetched"], "retention": retention, "voted": bool(primary)}
+
+
 # ---------- the load ----------
 
 def load(db_path, say=print, cache=CACHE):
+    """New Mexico's rows into the database at db_path: the state races, then the county offices and the local judges
+    (their cut-down copies are kept in <cache>/local/). Everything is read and checked before anything is written."""
     if os.path.abspath(db_path) == os.path.abspath(os.path.join(HERE, "ballot_2026.sqlite")):
         raise SystemExit("New Mexico (state races): this loader never writes ballot_2026.sqlite")
     net.patient_lookups()
+    try:
+        return _load(db_path, say, cache)
+    finally:
+        _PAGES.clear()                                     # the pages held for this run are let go, whatever happened
+
+
+def _load(db_path, say, cache):
     seats, offices, as_of = roster()
     cmap = county_names()
     problems, notes_out = [], []
@@ -856,8 +1817,14 @@ def load(db_path, say=print, cache=CACHE):
          "votes from in that district's June 2 primary contests."),
     ]
 
+    # ---- the county offices and the local judges: read and checked whole before anything is written
+    local = local_level(cache, cmap, say)
+    clash = {r[0] for r in race_rows} & {r[0] for r in local["races"]}
+    if clash:
+        raise SystemExit(f"{LOCAL}: a county or judge contest shares its race id with a state race ({sorted(clash)[:3]}); stopped")
+
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
     with con:
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                     (STATE, f"2026-{STATE}-%"))
@@ -865,10 +1832,14 @@ def load(db_path, say=print, cache=CACHE):
         con.execute("DELETE FROM sl_places WHERE source_id IN (SELECT source_id FROM sl_sources WHERE state = ?) OR source_id LIKE ?",
                     (STATE, "nm-%"))
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local["races"])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows + local["places"])
+        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src + local["sources"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     # ---- the report: counts only
@@ -894,7 +1865,27 @@ def load(db_path, say=print, cache=CACHE):
         say(f"    CHECK New Mexico (state races): {p}")
     for rid, code in sorted(recounted):
         say(f"    New Mexico (state races): {rid} {party_of(code)} primary was recounted (ordered June 23); the certified canvass figures are loaded")
-    return len(cands)
+
+    # ---- the county and judge rows: counts only
+    lk, lc, lf = local["by_kind"], local["counts"], local["facts"]
+    county_ids = {r[0] for r in local["races"] if r[2] == "county"}
+    county_kinds = Counter(r[3] for r in local["races"] if r[2] == "county")
+    county_n, county_c = len(county_ids), sum(1 for c in local["cands"] if c[0] in county_ids)
+    say(f"    {LOCAL}: {county_n} county contests ({', '.join(f'{k} {v}' for k, v in sorted(county_kinds.items()))}) "
+        f"with {county_c} candidates, and {len(local['races']) - county_n} contests for local judges (magistrate {lk.get('magistrate', 0)}, municipal "
+        f"court {lk.get('municipal_court', 0)}, district court {lk.get('district_court', 0)}, metropolitan court {lk.get('metropolitan_court', 0)}, "
+        f"retention votes {local['retention']}) with {len(local['cands']) - county_c}; {local['counties']} of 33 counties reached; "
+        f"{lc.get('off', 0)} withdrawn or disqualified left off, {lc.get('write_in', 0)} declared write-ins, {lc.get('no_order', 0)} printed names "
+        "with no ballot order on the list")
+    say(f"    {LOCAL}: the list read whole ({local['items']} rows, {local['rows']} of them county and judge rows) and again county by county: "
+        f"{lf['matched']} rows for offices filed in their own county match cell for cell, {sum(lf['on_views'].values())} rows for other offices are on "
+        f"the county views, {sum(lf['with_state'].values())} are for offices filed with the Secretary of State"
+        + ("" if local["voted"] else "; the June primary's vote-for numbers were not read"))
+    for rid in local["empty"]:
+        say(f"    {LOCAL}: on the proclamation with no candidate on the list (kept, empty): {rid}")
+    for p in local["problems"]:
+        say(f"    CHECK {LOCAL}: {p}")
+    return len(cands) + len(local["cands"])
 
 
 if __name__ == "__main__":

@@ -6,11 +6,35 @@ ballot/state_local_sc.py - South Carolina's state races on the November 3, 2026 
     Superintendent of Education and Commissioner of Agriculture;
   - all 124 seats of the House of Representatives (two-year terms).
 The Senate's 46 seats are elected for four years in presidential years (last in 2024, next in 2028), and the
-Commission's office list for the November 3 election offers no State Senate office, so no Senate seat is stored; a
-State Senate office on that list stops the loader. Solicitors (one per judicial circuit) and county, school and special
-district offices are local and left out. Which offices are up is a fixed list checked against the Commission's own:
-every office above must be on the general election's office list, and a state office there that is not above stops
-the loader. The federal ballot database is never opened here.
+Commission's office list for the November 3 election offers no State Senate office, so no regular Senate seat is
+stored; a State Senate office on that list stops the loader. Which offices are up is a fixed list checked against the
+Commission's own: every office above must be on the general election's office list, and a state office there that is
+not above stops the loader. The federal ballot database is never opened here.
+
+The county and local part (from "the county and local part" down) adds every other contest between people that the
+Commission lists for November 3, 2026:
+  - from the statewide general election's own list: county offices (county council, auditor, treasurer, probate
+    judge, sheriff, coroner, clerk of court, register of deeds, supervisor), the circuit solicitors, soil and water
+    district commissioners, school boards, and watershed, fire, public service and public works districts;
+  - from the elections the Commission lists as elections of their own on the same day (its page's "Local Elections"
+    and "Special Elections" kinds): city and town offices, a few school districts, and special elections. One of them
+    is a state race, the special election for State Senate District 15, stored with the Legislature.
+Each election's list is read twice by two routes, the whole list (office "All") and office type by office type, and
+the two must hold the same rows; the set of elections is checked against the Commission's 2026 Election Calendar (a
+PDF of election numbers, names, kinds and counties). The list names a school board only by its county and a district
+or seat number (the four York County districts and the districts with elections of their own are named), so a
+school contest is filed under the county in the list's own words and no school district is guessed. A city or town is
+the one incorporated place of the Census Bureau's 2020 place codes that the election's name names among the places of
+its counties. The list never says how many seats a contest fills and gives no ballot order; write-in candidates,
+ballot questions and local primaries are not loaded. What could not be loaded goes to sl_gaps, and two plain notes
+(which local offices are elected when, and what the list covers) to sl_notes.
+Levels: county offices (probate judge and clerk of court among them) are level county, filed under the county's
+five-digit code; a soil and water commission is its county's; a circuit solicitor is elected by a judicial circuit of
+several counties, which is neither a county nor a court of this state's rows, so it is level other with a place of
+kind special (SC-X-judicial-circuit-<n>); watershed, fire, public service and public works districts are level other;
+a town is an incorporated municipality, so level city. The Commission's table of municipal elections (a workbook of
+every city's and town's election day) gives the counts in the calendar note and names the towns it says vote in
+November of even years that have no November 3, 2026 election on the Commission's lists.
 
 Sources, all the State Election Commission's own, the same two systems the federal loader reads (ballot/lists/sc.py):
   - the November ballot: the Candidate Tracking System (vrems.scvotes.sc.gov/Candidate/SelectElection), through the
@@ -46,11 +70,15 @@ Privacy. From the candidate list only the cells named above are kept or read; Lo
 the detail pages (addresses, telephone, e-mail) are never asked for. The results carry names, parties and votes only.
 The roster's contact columns are never selected. An error names the office, the file or the check, never a row of
 contact data. Before anything is written every stored name, party and note is checked for anything that looks like a
-contact detail, and the load stops (without showing it) if one does.
+contact detail, and the load stops (without showing it) if one does. The local part keeps five cells of a row
+(Office, Associated Counties, Name on Ballot, Party, Candidate Status) in ballot_cache/sc/local/; a name cell that
+holds anything but a name is blanked before it is kept, and counted. The calendar, the Commission's table of
+municipal elections and the Census place codes carry no personal details.
 
     python -m ballot.state_local_sc <path to a test database>
 """
 
+import collections
 import csv
 import datetime as dt
 import hashlib
@@ -62,6 +90,7 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
 import uuid
 import zipfile
 import xml.etree.ElementTree as ET
@@ -71,6 +100,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
+from ballot.check_local import EXTRA_SCHEMA, contact_like  # noqa: E402
 from ballot.common import CACHE, fold, name_parts, party_code  # noqa: E402
 from ballot.lists.sc import BEFORE, CTS, CTS_PAGE, KNOWN, ON, RESULTS_PAGE, Session, fetch_results  # noqa: E402
 from ballot.lists.tx import proper  # noqa: E402
@@ -112,7 +142,8 @@ STATEWIDE = {
 HOUSE_LABEL = "State House of Representatives"
 OFFICIAL_WORDS = {"governor": "Governor", "lt_governor": "Lieutenant Governor", "attorney general": "Attorney General"}
 
-# the office list: local offices this loader leaves out (county, school, circuit and special districts)
+# the office list: local offices (county, school, circuit and special districts), which the state part sets aside and
+# the county and local part below reads
 LOCAL = re.compile(r"^(Solicitor|Sheriff|Probate Judge|Clerk of Court|Coroner|Auditor|County |Register of Deeds|Soil and Water|"
                    r"Board of Education|School |Watershed|Fire District|Public Service District|Commissioner of Public Works)")
 FEDERAL = re.compile(r"^U\.S\. ")
@@ -151,6 +182,10 @@ NONE_ON_LIST = "No candidate for this seat is on the Election Commission's Novem
 RUNOFF_NOTE = "Went to the June 23, 2026 runoff: no candidate won a majority on June 9."
 PETITION_NOTE = "On the ballot by voters' petition, as the Election Commission's list says (\"Petition\"), not a party's nomination."
 CAPS_NOTE = "South Carolina's list prints this name in capitals; it is shown here in ordinary capitals."
+SENATE_SPECIAL_NOTE = ("A special election for the rest of the term (the Election Commission's list: \"Unexpired Term\"), which the "
+                       "Commission lists as an election of its own held with the November 3 general election. Who holds the seat today "
+                       "is not shown here, because a seat filled by special election may be vacant. The primary that chose the nominees "
+                       "is not shown.")
 
 
 class Unknown(Exception):
@@ -429,9 +464,951 @@ def pct(v, total):
     return round(100 * v / total, 1) if total else None
 
 
+# ================================================================================================ the county and local part
+
+LOCAL_FILE = "sc_2026_local_candidate_lists.json"
+LOCAL_KEEP = ("Office", "Associated Counties", "Name on Ballot", "Party", "Candidate Status")
+ELECTION_KINDS = ("General", "Local", "Special")              # the election page's own three kinds, asked in this order
+PLACE_FILE = "census_st45_sc_place2020.txt"
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st45_sc_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+CALENDAR_FILE = "sc_2026_election_calendar.pdf"
+CALENDAR_URL = "https://scvotes.gov/wp-content/uploads/2026/09/2026-9-28.pdf"
+MUNI_FILE = "sc_2026_municipal_elections.xlsx"
+MUNI_URL = "https://scvotes.gov/wp-content/uploads/2026/05/2026-05-12-Municipal-Elections-scVOTES.xlsx"
+MUNI_HEAD = ("County", "Municipality", "Odd Year Election", "Even Year Election", "Election Day", "Who Does Work of Conducting Election?",
+             "Partisan or Non-Partisan?")
+CODE_URL = "https://www.scstatehouse.gov/code/t07c013.php"
+SRC_LOCAL, SRC_OWN = "sc-sec-2026-local-general-list", "sc-sec-2026-local-elections-lists"
+SRC_SENATE = "sc-sec-2026-sl-senate-special-list"
+SRC_CALENDAR, SRC_MUNI, SRC_PLACE = "sc-sec-2026-election-calendar", "sc-sec-2026-municipal-elections-table", "sc-census-2020-places"
+LOCAL_LEVELS = ("county", "soil_water", "city", "township", "school", "hospital", "other")
+NONPARTISAN = "Nonpartisan office"
+KNOWN_KINDS = {"county_commissioner", "sheriff", "county_attorney", "county_auditor", "county_treasurer", "county_auditor_treasurer",
+               "county_recorder", "county_surveyor", "county_park", "soil_water", "mayor", "council", "city_clerk", "city_treasurer",
+               "city_clerk_treasurer", "town_supervisor", "town_clerk", "town_treasurer", "town_clerk_treasurer", "school_board",
+               "hospital_board", "utility_board", "sanitary_board"}                 # the kinds the pages already know
+
+# county offices: the general election's office type -> (office kind, the office in plain words)
+COUNTY_OFFICES = {"Sheriff": ("sheriff", "Sheriff"), "Probate Judge": ("probate_judge", "Probate Judge"),
+                  "Clerk of Court": ("clerk_of_court", "Clerk of Court"), "Coroner": ("coroner", "Coroner"),
+                  "Auditor": ("county_auditor", "Auditor"), "County Treasurer": ("county_treasurer", "County Treasurer"),
+                  "County Supervisor": ("county_executive", "County Supervisor"), "Register of Deeds": ("register_of_deeds", "Register of Deeds"),
+                  "County Council Chair": ("county_board_chair", "County Council Chair")}
+SCHOOL_TYPE = re.compile(r"^(Board of Education|School )")
+MUNI_TYPE = re.compile(r"^(Mayor|Town Council|City Council)")
+SCHOOL_PREFIX = (("Board of Education District, ", "Board of Education"), ("Board of Education, ", "Board of Education"),
+                 ("School Trustee District, ", "School Trustee"), ("School Trustee, ", "School Trustee"),
+                 ("School Board District, ", "School Board"), ("School Board, ", "School Board"),
+                 ("School District At Large, ", "School Board"))
+# an office type a city or town election offers with no candidate under it: (office kind, the office, what the type elects by)
+EMPTY_TYPES = {"Mayor": ("mayor", "Mayor", None), "Town Council": ("council", "Town Council", None),
+               "Town Council Ward": ("council", "Town Council", "ward"), "City Council Seat": ("council", "City Council", None),
+               "City Council Seat at Large": ("council", "City Council", "At Large"), "City Council at Large": ("council", "City Council", "At Large"),
+               "City Council District": ("council", "City Council", "district"), "City Council Ward": ("council", "City Council", "ward"),
+               "Commissioner of Public Works": ("utility_board", "Commissioner of Public Works", None)}
+ONE_SEAT = {"mayor", "sheriff", "probate_judge", "clerk_of_court", "coroner", "county_auditor", "county_treasurer", "county_executive",
+            "register_of_deeds", "county_board_chair", "solicitor"}
+UNEXPIRED = re.compile(r"\s*\(Unexpired Term\)", re.I)
+LOCAL_NOT_A_NAME = re.compile(r"@|https?:|www\.|\.(?:com|org|net|gov|us)\b|\d(?!(?:nd|rd|th)\b)", re.I)
+# what the page's own guard refuses in a note: a number followed soon after by a street word (Court and Place included)
+PAGE_STREET = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.' -]{1,40}?\s(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Dr|Drive|Ln|"
+                         r"Lane|Way|Ct|Court|Cir|Circle|Pkwy|Parkway|Hwy|Highway|Trl|Trail|Pl|Place|Ter|Terrace)\b\.?", re.I)
+CAL_LINE = re.compile(r"^(\d{2})/(\d{2})/(\d{4}) (\d{5}) (?:\d{2}-([A-Z]+)|(ALL)) (.+?) (General|Special|Primary|Referendum)( \*)? "
+                      r"(?:\d{1,2}/\d{1,2}/\d{4} - \d{1,2}/\d{1,2}/\d{4}|-)$")
+
+SEATS_NOTE = "The Election Commission's list does not say how many seats this contest fills."
+SCHOOL_NOTE = ("The Election Commission's list names this school board only by its county and a district or seat number, and does not say "
+               "how many seats the contest fills.")
+UNEXPIRED_NOTE = "An election for the rest of an unexpired term, as the Election Commission's list titles it."
+OWN_SPECIAL_NOTE = "A special election, which the Election Commission lists as an election of its own held with the November 3 general election."
+NO_CANDIDATE_NOTE = "No candidate is on the Election Commission's list for this office."
+OWN_ELECTION_NOTE = ("The Commission's table of municipal elections says the town conducts its own election, so its candidates may be on "
+                     "file with the town only.")
+OTHER_PARTY_NOTE = "The Election Commission's list gives this candidate's party as \"{}\"."
+
+
+class LocalError(SystemExit):
+    pass
+
+
+def flat(text):
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def slug(text):
+    t = unicodedata.normalize("NFKD", str(text or ""))
+    t = "".join(c for c in t if not unicodedata.combining(c)).replace("'", "").replace("’", "")
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def spell(text):
+    """A name as it is compared: capitals, a hyphen as a space, no other punctuation."""
+    return flat(re.sub(r"[^A-Z0-9 ]", "", str(text or "").upper().replace("-", " ")))
+
+
+def and_list(items):
+    items = [i for i in items if i]
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1] if items else ""
+
+
+def day_words(iso):
+    d = dt.date.fromisoformat(iso)
+    return f"{d:%B} {d.day}, {d.year}"
+
+
+def local_name(raw):
+    """A local candidate's name as filed, or "" when the cell holds something other than a name (a digit that is not an
+    ordinal, "@", a web address, or anything ballot.check_local reads as contact details). Never printed either way."""
+    name = flat(raw)
+    return "" if not name or LOCAL_NOT_A_NAME.search(name) or contact_like(name, True) else name
+
+
+def state_or_federal(office):
+    """An office (the form's office type, or a row's office) that the state part or the federal pages read."""
+    o = flat(office)
+    return bool(FEDERAL.match(o) or o.startswith(HOUSE_LABEL) or any(o in v[2] for v in STATEWIDE.values()))
+
+
+# ---------------------------------------------------------------------------------------- reading the Commission's lists
+
+def local_grid(body, where):
+    """([{kept column: cell}], how many cells were blanked) from one search answer. Columns are taken by heading and only
+    the five kept cells of a row are made into text; Running Mate and Location of Filing are never kept. A name cell that
+    holds anything but a name, and any other kept cell that reads like an e-mail, a telephone or a web address, is blanked
+    before it is kept, and counted. A layout that no longer fits stops the loader, which names the answer and the row's
+    number, never the row."""
+    t = body.decode("utf-8", "replace")
+    head = [flat(re.sub(r"<[^>]+>", " ", h)) for h in re.findall(r"<th[^>]*>(.*?)</th>", t, re.S)]
+    missing = [k for k in LOCAL_KEEP if k not in head]
+    if missing:
+        raise LocalError(f"South Carolina (local races): the candidate search's columns changed for {where} (no {', '.join(missing)})")
+    idx = {k: head.index(k) for k in LOCAL_KEEP}
+    rows, blanked = [], 0
+    for m in re.finditer(r"<tr([^>]*)>(.*?)</tr>", t, re.S):
+        cells = re.findall(r"<td[^>]*>(.*?)</td>", m.group(2), re.S)
+        if not cells:
+            continue
+        at = re.search(r'data-index="(\d+)"', m.group(1))
+        if len(cells) != len(head) or not at or int(at.group(1)) != len(rows):
+            raise LocalError(f"South Carolina (local races): row {len(rows) + 1} of the answer for {where} does not fit the table's "
+                             "header or its numbering (the row is not shown)")
+        rec = {k: flat(html.unescape(re.sub(r"<[^>]+>", " ", cells[i]))) for k, i in idx.items()}
+        del cells
+        for k in LOCAL_KEEP:                                 # a cell that reads like an e-mail, a telephone or a web address is not kept
+            if k != "Name on Ballot" and contact_like(rec[k], False):
+                rec[k] = ""
+                blanked += 1
+        rec["Name on Ballot"] = local_name(rec["Name on Ballot"])
+        blanked += not rec["Name on Ballot"]
+        rows.append(rec)
+    del t
+    return rows, blanked
+
+
+def read_election(s, token, kind, eid, display, name):
+    """One election of the Candidate Tracking System, read twice: the whole list (office "All") and office type by office
+    type. The two routes must hold the same rows. Only the kept cells are returned; for the statewide general election the
+    state and federal rows (read elsewhere) are counted and dropped."""
+    page = s.ask(CTS_PAGE, urlencode({"ElectionKindSid": kind, "ElectionYear": "2026", "ElectionID": eid,
+                                      "__RequestVerificationToken": token}).encode(),
+                 ctype="application/x-www-form-urlencoded").decode("utf-8", "replace")
+    form = re.search(r'<form id="searchForm">(.*?)</form>', page, re.S)
+    if not form or f'name="ElectionId" value="{eid}"' not in form.group(1):
+        raise LocalError(f"South Carolina (local races): the candidate search for election {eid} ({display}) did not open")
+    export = re.search(r'name="ExportFileName" value="([^"]*)"', form.group(1))
+
+    def options(select_id):
+        sel = re.search(rf'<select[^>]*id="{select_id}"[^>]*>(.*?)</select>', form.group(1), re.S)
+        return [(a, flat(html.unescape(b))) for a, b in re.findall(r'<option[^>]*value="([^"]*)"[^>]*>([^<]*)', sel.group(1))] if sel else []
+
+    def search(value):
+        fields = [("ElectionId", eid), ("ExportFileName", export.group(1) if export else ""), ("SelectedOffice", value),
+                  ("CandidateFirstName", ""), ("CandidateLastName", ""), ("SelectedCandidateStatus", "All"),
+                  ("SelectedPoliticalParty", "All"), ("SelectedFilingLocation", "All")]
+        b = "----sc" + uuid.uuid4().hex
+        data = "".join(f'--{b}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n' for k, v in fields) + f"--{b}--\r\n"
+        return s.ask(f"{CTS}/Candidate/CandidateSearch/", data.encode(), ctype=f"multipart/form-data; boundary={b}")
+
+    opts = {label: value for value, label in options("SelectedOffice")}
+    rec = {"id": eid, "kind": kind, "display": display, "name": name, "url": f"{CTS}/Candidate/CandidateSearch?electionId={eid}",
+           "offered": [o for o in opts if o != "All"], "counties": [label for _v, label in options("SelectedAssociatedCounties")],
+           "types": {}}
+    if not rec["offered"]:
+        return rec                                          # no office at all: a question put to the voters
+    if "All" not in opts:
+        raise LocalError(f"South Carolina (local races): the candidate search for {display} no longer offers every office at once")
+    body = search(opts["All"])
+    whole, blanked = local_grid(body, f"{display}, every office")
+    rest = [r for r in whole if not (kind == "General" and state_or_federal(r["Office"]))]
+    rec["all"] = {"sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body), "rows": len(whole),
+                  "state_and_federal_rows": len(whole) - len(rest), "blanked": blanked}
+    del body
+    typed = []
+    for o in rec["offered"]:
+        if kind == "General" and state_or_federal(o):
+            continue
+        body = search(opts[o])
+        rows, blanked = local_grid(body, f"{display}, {o}")
+        rec["types"][o] = {"sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body), "blanked": blanked, "rows": rows}
+        typed += rows
+        del body
+    key = lambda r: tuple(r[k] for k in LOCAL_KEEP)
+    if collections.Counter(map(key, rest)) != collections.Counter(map(key, typed)):
+        raise LocalError(f"South Carolina (local races): the whole list of {display} and its lists office by office do not hold the "
+                         f"same rows ({len(rest)} against {len(typed)}); read it again")
+    return rec
+
+
+def read_local_lists(part, say):
+    """Every election the Candidate Tracking System dates November 3, 2026, each read by read_election. The elections already
+    read in a run that stopped part-way (within six hours) are not asked for again."""
+    s = Session()
+    seen, todo = set(), []
+    for kind in ELECTION_KINDS:
+        for e in json.loads(s.ask(f"{CTS}/Candidate/GetElections?electionType={kind}&year=2026", accept="application/json")):
+            eid = str(e.get("electionId"))
+            if str(e.get("electionDate", "")).startswith(GENERAL) and eid not in seen:
+                seen.add(eid)
+                todo.append((kind, eid, flat(e.get("displayName")), flat(e.get("electionName"))))
+    statewide = [t for t in todo if t[0] == "General"]
+    if len(statewide) != 1 or statewide[0][2] != LISTS["general"][0]:
+        raise LocalError(f"South Carolina (local races): the Candidate Tracking System lists {len(statewide)} statewide elections on "
+                         f"{GENERAL}, not the one named {LISTS['general'][0]!r}")
+    tok = re.search(r'name="__RequestVerificationToken" type="hidden" value="([^"]+)"', s.ask(CTS_PAGE).decode("utf-8", "replace"))
+    if not tok:
+        raise LocalError("South Carolina (local races): the Candidate Tracking System's election page changed (no form token)")
+    done = {}
+    if os.path.exists(part) and time.time() - os.path.getmtime(part) < 6 * 3600:
+        done = {e["id"]: e for e in json.load(open(part, encoding="utf-8")).get("elections", [])}
+    out = {"read": dt.date.today().isoformat(), "page": CTS_PAGE, "kept": list(LOCAL_KEEP), "elections": []}
+    for kind, eid, display, name in todo:
+        rec = done.get(eid)
+        if rec is None or rec.get("display") != display:
+            rec = read_election(s, tok.group(1), kind, eid, display, name)
+        out["elections"].append(rec)
+        with open(part, "w", encoding="utf-8") as fh:
+            json.dump(out, fh, ensure_ascii=False)
+    say(f"      Candidate Tracking System: {len(out['elections'])} elections dated November 3 read, each whole and office by office")
+    return out
+
+
+def local_lists(folder, say, max_age_days=2):
+    """(path, the kept cells of every November 3 election's list). Read afresh after two days; if it cannot be read again
+    the copy on disk is used and the caller is told."""
+    path = os.path.join(folder, LOCAL_FILE)
+    if os.path.exists(path) and time.time() - os.path.getmtime(path) < max_age_days * 86400:
+        return path, json.load(open(path, encoding="utf-8"))
+    part = path + ".part"
+    try:
+        out = read_local_lists(part, say)
+    except (SystemExit, OSError) as e:
+        if os.path.exists(path):
+            say(f"      could not read the local candidate lists again ({e}); using the copy read earlier")
+            return path, json.load(open(path, encoding="utf-8"))
+        raise
+    with open(part, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=0)
+    os.replace(part, path)
+    return path, out
+
+
+def census_places(path):
+    """({name in capitals: [(place code, name as the Bureau writes it, kind word, {county keys})]}, how many) for South
+    Carolina's incorporated cities and towns, from the Census Bureau's 2020 place codes."""
+    with open(path, encoding="utf-8-sig", errors="replace") as fh:
+        lines = fh.read().splitlines()
+    if not lines or lines[0].split("|") != PLACE_HEAD:
+        raise LocalError(f"South Carolina (local races): {os.path.basename(path)} does not begin with the header this loader was checked against")
+    out, n = collections.defaultdict(list), 0
+    for ln in lines[1:]:
+        f = ln.split("|")
+        if len(f) < 9 or f[1] != FIPS or not f[5].upper().startswith("INCORPORATED"):
+            continue
+        base, _, kind = f[4].rpartition(" ")
+        if kind not in ("city", "town") or not re.fullmatch(r"\d{5}", f[2]):
+            raise LocalError(f"South Carolina (local races): line {n + 2} of {os.path.basename(path)} is an incorporated place that is "
+                             "neither a city nor a town, or has no five-digit code")
+        out[spell(base)].append((f[2], f[4], kind, {county_key(c) for c in f[8].split("~~~") if c.strip()}))
+        n += 1
+    return out, n
+
+
+def election_calendar(folder, say):
+    """The Commission's 2026 Election Calendar (election numbers, names, kinds and counties; no personal details):
+    {"dated", "lines", "elections": {number: {"date", "name", "type", "counties", "multiple"}}}, or None when it cannot be
+    read (the caller says so and goes on without the cross-check)."""
+    from states import net
+    path = os.path.join(folder, CALENDAR_FILE)
+    try:
+        net.download(CALENDAR_URL, path, max_age_days=3650, say=say)
+        if open(path, "rb").read(5) != b"%PDF-":
+            os.remove(path)
+            raise OSError("the address did not give a PDF")
+        from ballot import pdftext
+        lines = [flat(t) for _pg, _y, t in pdftext.lines(path)]
+    except (OSError, ValueError, KeyError, IndexError) as e:
+        say(f"      the Commission's 2026 Election Calendar could not be read ({e}); the elections are not cross-checked against it")
+        return None
+    out, bad, dated = {}, 0, ""
+    for ln in lines:
+        m = re.match(r"^(\d{2})/(\d{2})/(\d{4}) SOUTH CAROLINA Page \d+ Of \d+$", ln)
+        if m:
+            dated = f"{m.group(3)}-{m.group(1)}-{m.group(2)}"
+            continue
+        if not re.match(r"^\d{2}/\d{2}/\d{4} \d{5} ", ln):
+            continue
+        m = CAL_LINE.match(ln)
+        if not m:
+            bad += 1
+            continue
+        e = out.setdefault(m.group(4), {"date": f"{m.group(3)}-{m.group(1)}-{m.group(2)}", "name": flat(m.group(7)), "type": m.group(8),
+                                        "counties": [], "multiple": bool(m.group(9))})
+        e["counties"].append(m.group(5) or m.group(6))
+    if bad or not out:
+        say(f"      {bad} lines of the Commission's 2026 Election Calendar do not fit the layout this loader was checked against; the "
+            "elections are not cross-checked against it")
+        return None
+    return {"path": path, "dated": dated, "lines": sum(len(e["counties"]) for e in out.values()), "elections": out}
+
+
+def municipal_table(folder, say):
+    """The Commission's table of municipal elections (one row a city or town: county, name, odd or even year, election day,
+    who conducts the election, partisan or not; no personal details): {"path", "rows": [{"county", "name", "odd", "even",
+    "day", "own", "partisan"}]}, or None when it cannot be read."""
+    import warnings
+    from states import net
+    path = os.path.join(folder, MUNI_FILE)
+    try:
+        net.download(MUNI_URL, path, max_age_days=3650, say=say)
+        if open(path, "rb").read(2) != b"PK":
+            os.remove(path)
+            raise OSError("the address did not give a workbook")
+        import openpyxl
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+            grid = [[flat(c) if c is not None else "" for c in r] for r in wb.worksheets[0].iter_rows(values_only=True)]
+    except (OSError, ValueError, KeyError, IndexError) as e:
+        say(f"      the Commission's table of municipal elections could not be read ({e}); the towns that vote in November are not "
+            "checked against it")
+        return None
+    head = grid[0] if grid else []
+    if any(h not in head for h in MUNI_HEAD):
+        say("      the Commission's table of municipal elections no longer has the headings this loader was checked against; it is not used")
+        return None
+    idx = {h: head.index(h) for h in MUNI_HEAD}
+    rows = [{"county": r[idx["County"]], "name": r[idx["Municipality"]], "odd": bool(r[idx["Odd Year Election"]]),
+             "even": bool(r[idx["Even Year Election"]]), "day": r[idx["Election Day"]],
+             "own": r[idx["Who Does Work of Conducting Election?"]].lower() == "city",
+             "partisan": r[idx["Partisan or Non-Partisan?"]].lower() == "partisan"} for r in grid[1:] if r[idx["Municipality"]]]
+    return {"path": path, "rows": rows}
+
+
+# ---------------------------------------------------------------------------------------- what each contest is
+
+def school_rule(otype, o, out):
+    """A school board office string -> its parts, in the list's own numbers; None when no rule fits."""
+    sch = lambda **kw: out(family="school", level="school", kind="school_board", **kw)
+    n = lambda x: str(int(x))
+    m = re.fullmatch(r"(.+ School District) Trustees?(?: (?:Seat (\d+)|(At[- ]Large)))?", o)
+    if m:                                                    # the list names the district itself (York County's four)
+        return sch(title="School District Trustee", name=m.group(1), seat=n(m.group(2)) if m.group(2) else ("At Large" if m.group(3) else None))
+    if o == "Board of Education Chair":
+        return sch(title="Board of Education Chair")
+    if o == "School Board At Large":
+        return sch(title="School Board", seat="At Large")
+    m = re.fullmatch(r"School Board At Large District (\d+)|School Board District (\d+) At Large", o)
+    if m:
+        return sch(title="School Board", district=n(m.group(1) or m.group(2)), seat="At Large")
+    m = re.fullmatch(r"School Board of Trustees District (\d+)", o)
+    if m:
+        return sch(title="School Board of Trustees", district=n(m.group(1)))
+    m = re.fullmatch(r"District (\d+)", o)
+    if m and otype.startswith("School Board District"):       # "District 5 (Unexpired Term)": the office type says whose district
+        return sch(title="School Board", district=n(m.group(1)))
+    for prefix, title in SCHOOL_PREFIX:
+        if not o.startswith(prefix):
+            continue
+        rest = o[len(prefix):]
+        m = re.fullmatch(r"(?:District )?(\d+),? Seat (\d+)", rest)
+        if m:
+            return sch(title=title, district=n(m.group(1)), seat=n(m.group(2)))
+        m = re.fullmatch(r"District (\d+) (Area \d+)", rest)
+        if m:
+            return sch(title=title, district=n(m.group(1)), seat=m.group(2))
+        m = re.fullmatch(r"District (\d+) At[- ]Large", rest)
+        if m:
+            return sch(title=title, district=n(m.group(1)), seat="At Large")
+        m = re.fullmatch(r"(?:District|School Board Trustee District|School Board District) (\d+)", rest)
+        if m:
+            return sch(title=title, district=n(m.group(1)), seat="At Large" if prefix.startswith("School District At Large") else None)
+        m = re.fullmatch(r"(\d+) (.+) County", rest)
+        if m:
+            return sch(title=title, district=n(m.group(1)), named_county=m.group(2))
+        return None
+    return None
+
+
+def muni_rule(otype, o, out):
+    """A city or town office string -> its parts; None when no rule fits. The council is called what the list calls it."""
+    mun = lambda **kw: out(family="muni", level="city", **kw)
+    n = lambda x: str(int(x))
+    head, _, tail = o.partition(", ")
+    if otype == "Mayor":
+        return mun(kind="mayor", title="Mayor", name=tail) if head == "Mayor" and tail else None
+    if head == "Town Council Ward" and re.fullmatch(r"\d+", tail):
+        return mun(kind="council", title="Town Council", district=f"Ward {n(tail)}")
+    if head in ("Town Council", "City Council Seat") and tail:
+        return mun(kind="council", title=head.replace(" Seat", ""), name=tail)
+    if head in ("City Council Seat at Large", "City Council at Large") and tail:
+        return mun(kind="council", title="City Council", seat="At Large", name=tail)
+    if head == "City Council Ward":
+        m = re.fullmatch(r"(?:(.+) )?(Town|City) Council Ward (\d+)", tail)
+        return mun(kind="council", title=f"{m.group(2)} Council", district=f"Ward {n(m.group(3))}", name=m.group(1)) if m else None
+    if head in ("City Council", "City Council District") and tail:
+        if re.fullmatch(r"\d+", tail):
+            return mun(kind="council", title="City Council", district=n(tail))
+        m = re.fullmatch(r"(.+) City Council Dist(?:rict)? (\d+)", tail)
+        if m:
+            return mun(kind="council", title="City Council", district=n(m.group(2)), name=m.group(1))
+        return mun(kind="council", title="City Council", name=tail)
+    return None
+
+
+def classify(otype, office):
+    """What one contest of a list is, from its office type (the search form's own) and its office string: family, level,
+    office kind, the office in plain words, district, seat, the district's or town's name where the string carries one, and
+    whether the string says "Unexpired Term". None when no rule fits: the caller leaves the contest out and says so."""
+    special = bool(UNEXPIRED.search(office))
+    o = flat(UNEXPIRED.sub("", office))
+    out = lambda **kw: dict(dict(district=None, seat=None, special=special, name=None, named_county=None, word=None), **kw)
+    n = lambda x: str(int(x))
+    if otype == "State Senate":
+        m = re.fullmatch(r"State Senate District (\d+)", o)
+        return out(family="senate", level="legislature", kind="state_senate", title="State Senator", district=n(m.group(1))) if m else None
+    m = re.fullmatch(r"Solicitor Circuit (\d+)", otype)
+    if m:
+        return out(family="circuit", level="other", kind="solicitor", title="Solicitor", name=n(m.group(1))) if o == otype else None
+    if otype in COUNTY_OFFICES:
+        kind, title = COUNTY_OFFICES[otype]
+        return out(family="county", level="county", kind=kind, title=title) if o == otype else None
+    if otype.startswith("County Council"):
+        council = lambda **kw: out(family="county", level="county", kind="county_commissioner", title="County Council", **kw)
+        m = re.fullmatch(r"County Council(?: District)?,? District (\d+)", o)
+        if m:
+            return council(district=n(m.group(1)))
+        if o.lower() == "county council at large":
+            return council(seat="At Large")
+        m = re.fullmatch(r"County Council (.+ Township)", o)          # an at-large seat the list names by township
+        return council(seat=m.group(1)) if m else None
+    if otype == "Soil and Water District Commission":
+        return out(family="soil", level="soil_water", kind="soil_water", title="Soil and Water District Commissioner") if o == otype else None
+    if otype == "Watershed Conservation District":
+        m = re.fullmatch(r"Watershed Conservation District, (.+)", o)
+        return out(family="district", level="other", kind="watershed_board", title="Watershed Conservation District Director",
+                   name=m.group(1), word="watershed conservation district") if m else None
+    if otype == "Fire District Commissioner":
+        m = re.fullmatch(r"Fire District Commissioner, (.+?)(?: Commissioners)?", o)
+        return out(family="district", level="other", kind="fire_board", title="Fire District Commissioner", name=m.group(1),
+                   word="fire district") if m else None
+    if otype == "Public Service District":
+        psd = lambda **kw: out(family="district", level="other", kind="public_service_board", title="Public Service District Commissioner",
+                               word="public service district", **kw)
+        m = re.fullmatch(r"Public Service District, (.+?)(?: District (\d+))?", o)
+        if m:
+            return psd(name=m.group(1), district=n(m.group(2)) if m.group(2) else None)
+        m = re.fullmatch(r"(.+ Public Service District)(?: (Section \d+|At Large))?", o)
+        return psd(name=m.group(1), seat=m.group(2)) if m else None
+    if otype == "Commissioner of Public Works":
+        m = re.fullmatch(r"Commissioner of Public Works, (.+?)(?: (Area \w+))?", o)
+        return out(family="works", level="other", kind="utility_board", title="Commissioner of Public Works", name=m.group(1),
+                   seat=m.group(2), word="public works commission") if m else None
+    if SCHOOL_TYPE.match(otype):
+        return school_rule(otype, o, out)
+    if MUNI_TYPE.match(otype):
+        return muni_rule(otype, o, out)
+    return None
+
+
+def municipality(election_name, ckeys, places):
+    """The one incorporated place an election's name names, among the places of the election's counties: (code, name as
+    the Bureau writes it, kind word), or None. A name the Commission shortens ("Hilton Head") is taken only when it begins
+    exactly one such place's name."""
+    words = spell(election_name)
+    near = [(base, code, name, kind) for base, entries in places.items() for code, name, kind, cset in entries if cset & ckeys]
+    hits = [h for h in near if re.search(rf"\b{re.escape(h[0])}\b", words)]
+    if hits:
+        longest = max(len(h[0]) for h in hits)
+        best = [h for h in hits if len(h[0]) == longest]
+        return best[0][1:] if len(best) == 1 else None
+    core = flat(re.sub(r"\b(TOWN OF|CITY OF|GENERAL|SPECIAL|SPEC|ELECTION|ELECT|ELEC|TOWN|CITY|COUNCIL|MAYOR)\b", " ", words))
+    best = [h for h in near if core and h[0].startswith(core + " ")]
+    return best[0][1:] if len(best) == 1 else None
+
+
+def local_part(lists, counties, places, n_places, cal, muni, say):
+    """The lists' local contests -> the rows to write (races, candidates, places, gaps, notes, sources) and the counts
+    that reconcile them with the lists. Nothing is written here. The contests for a State Senate seat are handed back
+    apart, for the state part to store with the Legislature."""
+    cname = {k: n for k, (_g, n) in counties.items()}
+    geoid = {k: g for k, (g, _n) in counties.items()}
+    words_of = lambda keys: (cname[keys[0]] + " County") if len(keys) == 1 else and_list([cname[k] for k in keys]) + " counties"
+    checks, gaps = [], []
+    elections = lists["elections"]
+    statewide = next(e for e in elections if e["kind"] == "General")
+    own = [e for e in elections if e["kind"] != "General"]
+    cal_e = (cal or {}).get("elections", {})
+
+    # 0. the elections themselves, against the Commission's calendar
+    if cal:
+        on_day = {k for k, v in cal_e.items() if v["date"] == GENERAL}
+        listed = {e["id"] for e in elections}
+        if on_day != listed:
+            checks.append(f"the calendar dated {cal['dated']} and the Candidate Tracking System do not list the same November 3 elections "
+                          f"(calendar only: {sorted(on_day - listed)}; system only: {sorted(listed - on_day)})")
+        for e in elections:
+            c = cal_e.get(e["id"])
+            if c and c["counties"] != ["ALL"] and e["counties"] and sorted(c["counties"]) != sorted(x.upper() for x in e["counties"]):
+                checks.append(f"election {e['id']} ({e['name']}): the calendar and the candidate search name different counties")
+
+    def is_special(e):
+        by_name = bool(re.search(r"\bSpec(?:ial)?\b", e["name"], re.I))
+        c = cal_e.get(e["id"])
+        if c and (c["type"] == "Special") != by_name:
+            checks.append(f"election {e['id']} ({e['name']}): the calendar calls it {c['type']}; its name is followed")
+        return by_name
+
+    # 1. every contest, in the lists' own order: one for each office string and set of counties under an office type
+    contests, questions, empties, rows_read = [], [], [], 0
+    for e in elections:
+        if not e["offered"]:
+            questions.append(e)
+            continue
+        e_special = e["kind"] != "General" and is_special(e)
+        for otype, t in e["types"].items():
+            rows_read += len(t["rows"])
+            if not t["rows"]:
+                empties.append((e, otype, e_special))
+                continue
+            groups = {}
+            for r in t["rows"]:
+                groups.setdefault((r["Office"], r["Associated Counties"]), []).append(r)
+            for (office, where_text), rows in groups.items():
+                contests.append({"e": e, "otype": otype, "office": office, "where": where_text, "rows": rows, "e_special": e_special})
+
+    left_rows = 0
+
+    def leave(c, what, reason):
+        nonlocal left_rows
+        left_rows += len(c["rows"])
+        gaps.append((STATE, "race", "contest-" + slug(f"{c['e']['id']} {c['office']} {c['where']}"),
+                     f"{c['office']} ({c['where'].title()})", what, reason, c["e"]["url"]))
+
+    # 2. what each contest is, and which counties its ballot reaches
+    found = []
+    for c in contests:
+        keys = [county_key(x) for x in c["where"].split(",") if x.strip()]
+        parties = {r["Party"] for r in c["rows"]}
+        if not keys or any(k not in geoid for k in keys):
+            leave(c, "a contest whose counties could not be read",
+                  "The Election Commission's list names a county for this contest that the Census Bureau's county file does not have, so "
+                  "it is not loaded until the list is corrected.")
+            continue
+        if "Nonpartisan" in parties and len(parties) > 1:
+            leave(c, "a contest whose rows disagree about party",
+                  "Some rows of this contest in the Election Commission's list say Nonpartisan and others name a party, so it is not "
+                  "loaded until they agree.")
+            continue
+        k = classify(c["otype"], c["office"])
+        if k is None:
+            leave(c, "a contest this loader has no rule for",
+                  "The Election Commission's list names this office in a way this loader has no rule for yet; it is left out rather than "
+                  "guessed at.")
+            continue
+        c.update(k, keys=sorted(keys), partisan=int("Nonpartisan" not in parties))
+        c["special"] = int(k["special"] or c["e_special"])
+        found.append(c)
+    senate = [c for c in found if c["family"] == "senate"]
+    found = [c for c in found if c["family"] != "senate"]
+
+    unknown = sorted({r["Candidate Status"] for c in contests for r in c["rows"]} - KNOWN)
+    if unknown:
+        checks.append(f"statuses on the local lists that the loader does not know, left off the ballot: {unknown}")
+
+    # 3. the jurisdiction of each contest: a county, a judicial circuit, a city or town, a school board, a named district
+    muni_of = {}
+    for e in own:
+        if any(MUNI_TYPE.match(o) for o in e["offered"]):
+            ckeys = {county_key(x) for x in e["counties"]}
+            hit = municipality(e["name"], ckeys, places)
+            if hit:
+                muni_of[e["id"]] = dict(code=hit[0], name=hit[1], kind=hit[2], base=spell(hit[1].rpartition(" ")[0]))
+            else:                                           # not one place of the Census list: named as the election names it, no code
+                w = spell(e["name"])
+                core = flat(re.sub(r"\b(TOWN OF|CITY OF|GENERAL|SPECIAL|SPEC|ELECTION|ELECT|ELEC|COUNCIL|MAYOR|DIS(?:T|TRICT)? \d+)\b", " ", w)).title()
+                kind = "town" if re.search(r"\bTOWN\b", w) else "city" if re.search(r"\bCITY\b", w) else ""
+                muni_of[e["id"]] = dict(code=None, name=flat(f"{core} {kind}"), kind=kind, base=spell(core))
+                checks.append(f"election {e['id']} ({e['name']}): its name does not name exactly one incorporated place of its counties "
+                              "in the Census Bureau's place codes; the town is named as the election names it, with no place code")
+    single_titles = collections.defaultdict(set)             # county -> the school titles of its one-county, unnamed contests
+    for c in found:
+        if c["family"] == "school" and not c["name"] and len(c["keys"]) == 1 and c["e"]["kind"] == "General":
+            single_titles[c["keys"][0]].add(c["title"])
+    named_school = {}                                        # an election of its own that names a school district in its title
+    for e in own:
+        m = re.match(r"^(.*?School Dist(?:rict)?\.? \d+)\b", e["name"])
+        if m and all(SCHOOL_TYPE.match(o) for o in e["offered"]):
+            named_school[e["id"]] = flat(re.sub(r"\bDist\.?(?= \d)", "District", m.group(1)))
+
+    for c in found:
+        fam, keys = c["family"], c["keys"]
+        if fam in ("county", "soil"):
+            if len(keys) != 1:
+                c["bad"] = ("a county office listed under more than one county",
+                            "The Election Commission's list files this county office under more than one county, so it cannot be placed "
+                            "until the list is corrected.")
+                continue
+            c.update(jtype="county", jid=geoid[keys[0]], jname=f"{cname[keys[0]]} County")
+        elif fam == "circuit":
+            c.update(jtype="special", jname=f"Judicial Circuit {c['name']}", jgroup=("circuit", c["name"]), jslug=f"judicial-circuit-{c['name']}", jcode=False)
+        elif fam == "muni" or (fam == "works" and c["e"]["id"] in muni_of):
+            town = muni_of.get(c["e"]["id"])
+            if not town:
+                c["bad"] = ("a city or town office in an election that names no town",
+                            "The Election Commission lists this city or town office in an election whose offices are not all a town's, so "
+                            "the town cannot be told and the contest is not loaded.")
+                continue
+            tail = spell(re.sub(r"^(Town|City) of ", "", c["name"] or "", flags=re.I))
+            if tail and not town["base"].startswith(tail) and not tail.startswith(town["base"]):
+                checks.append(f"election {c['e']['id']} ({c['e']['name']}): an office string names another place than the election does; "
+                              "the election's town is kept")
+            c.update(level="city", jtype="mcd", jname=town["name"], jid=(f"{STATE}-M-{town['code']}" if town["code"] else None),
+                     jgroup=("mcd", town["name"]), jslug=slug(town["name"]), jcode=True)
+        elif fam == "school":
+            if c["name"]:                                    # the string names the district
+                c.update(jtype="school", jname=c["name"], jgroup=("school", c["name"]), jslug=slug(c["name"]), jcode=True)
+            elif c["e"]["id"] in named_school:               # the election's own name does
+                jn = named_school[c["e"]["id"]]
+                if c["district"] and re.search(rf"\bSchool District {c['district']}$", jn):
+                    c["district"] = None                     # "District 3 Seat 1" in Florence School District 3's own election: Seat 1
+                c.update(jtype="school", jname=jn, jgroup=("school", jn), jslug=slug(jn), jcode=True)
+            else:                                            # filed under the county, in the list's own words
+                home = None
+                if c["named_county"]:
+                    nk = county_key(c["named_county"])
+                    home = nk if nk in keys else None
+                elif len(keys) == 1:
+                    home = keys[0]
+                else:
+                    fits_ = [k for k in keys if c["title"] in single_titles.get(k, set())]
+                    home = fits_[0] if len(fits_) == 1 else None
+                if home is None:
+                    jn = f"School boards ({words_of(keys)})"
+                    c.update(jtype="school", jname=jn, jgroup=("school", jn), jslug=slug(jn), jcode=False)
+                else:
+                    jn = f"{cname[home]} County school boards"
+                    c.update(jtype="school", jname=jn, jgroup=("school", jn), jslug=slug(jn), jcode=True, home=home)
+        else:                                                # a district the list names: watershed, fire, public service, public works
+            base = c["name"]
+            has = re.search(r"\bDistrict\b", base, re.I) if c["kind"] != "public_service_board" else re.search(r"Public Service District", base, re.I)
+            jn = base if has else f"{base} ({c['word']})"
+            c.update(jtype="special", jname=jn, jgroup=("special", c["kind"], jn), jslug=slug(jn), jcode=True)
+    for c in [c for c in found if c.get("bad")]:
+        leave(c, *c["bad"])
+    found = [c for c in found if not c.get("bad")]
+
+    # one place for each named thing: contests that share a name and a county are one district, whatever counties each
+    # lists; the same name in counties that do not touch (Beaverdam Creek in Edgefield and in Oconee) is two districts
+    groups = collections.defaultdict(list)
+    for c in found:
+        if "jgroup" in c:
+            groups[c["jgroup"]].append(c)
+    for group, members in groups.items():
+        clusters = []                                        # [{county keys}, [contests]]
+        for c in members:
+            home = {c["home"]} if c.get("home") else set(c["keys"])
+            hit = [cl for cl in clusters if cl[0] & home]
+            for cl in hit[1:]:
+                hit[0][0] |= cl[0]
+                hit[0][1] += cl[1]
+                clusters.remove(cl)
+            if hit:
+                hit[0][0] |= home
+                hit[0][1].append(c)
+            else:
+                clusters.append([home, [c]])
+        letter = {"mcd": "M", "school": "S"}.get(group[0], "X")
+        for keys_, cs in clusters:
+            jid = cs[0].get("jid")
+            if not jid:
+                code = f"{geoid[min(keys_)][2:]}-" if cs[0]["jcode"] and len(keys_) == 1 else ""
+                jid = f"{STATE}-{letter}-{code}{cs[0]['jslug']}"
+            for c in cs:
+                c["jid"] = jid
+
+    # 4. races and candidates
+    def rid_of(jid, office, district, seat, special):
+        """2026-SC-<the jurisdiction's key>-<the office>[-d<district>][-seat<n>][-S]: the same on every run."""
+        jkey = jid[len(STATE) + 1:] if jid.startswith(STATE + "-") else jid
+        bits = [f"2026-{STATE}", jkey, slug(office), (("d" + district) if district.isdigit() else slug(district)) if district else "",
+                (("seat" + seat) if seat.isdigit() else slug(seat)) if seat else ""]
+        return "-".join(b for b in bits if b) + ("-S" if special else "")
+
+    races, cands, ids = [], [], {}
+    place_reach, place_name = collections.defaultdict(set), {}
+    status_left, placed_rows, merged, names_dropped, no_active = collections.Counter(), 0, 0, 0, 0
+    for c in found:
+        # a named district's race is keyed by the office kind (its name already says what it is), every other by the office's own words
+        rid = rid_of(c["jid"], c["kind"] if c["jtype"] == "special" else c["title"], c["district"], c["seat"], c["special"])
+        if not re.fullmatch(rf"2026-{STATE}-[A-Za-z0-9-]+", rid):
+            raise LocalError(f"South Carolina (local races): a race id that is not letters, digits and hyphens ({rid!r})")
+        if rid in ids:
+            raise LocalError(f"South Carolina (local races): two contests of the lists share the race id {rid}")
+        cids = sorted(geoid[k] for k in c["keys"])
+        on = [r for r in c["rows"] if r["Candidate Status"] in ON]
+        twice = collections.Counter((fold(r["Name on Ballot"]), r["Party"] if c["partisan"] else "") for r in on if r["Name on Ballot"])
+        if any(v > 1 for v in twice.values()):               # two rows the page could not tell apart: left out, never merged by guess
+            leave(c, "a contest listing one name twice",
+                  "The Election Commission's list gives the same name twice in this contest" + (" for one party" if c["partisan"] else "")
+                  + ", so it is not loaded until the list is corrected.")
+            continue
+        ids[rid] = c
+        for r in c["rows"]:
+            if r["Candidate Status"] not in ON:
+                status_left[r["Candidate Status"]] += 1
+        note = []
+        if c["family"] == "circuit":
+            note.append(f"Voters throughout {words_of(c['keys'])} elect the solicitor, the judicial circuit's prosecutor.")
+        if c["family"] == "school" and c.get("home") and len(c["keys"]) > 1:
+            note.append(f"The Election Commission's list files this contest under {words_of(c['keys'])}.")
+        if c["e_special"]:
+            note.append(OWN_SPECIAL_NOTE)
+        if UNEXPIRED.search(c["office"]):
+            note.append(UNEXPIRED_NOTE)
+        grouped = {}
+        for r in on:
+            if not r["Name on Ballot"]:
+                names_dropped += 1
+                continue
+            grouped.setdefault(fold(r["Name on Ballot"]), []).append(r)
+        lost = sum(1 for r in on if not r["Name on Ballot"])
+        if lost:
+            note.append(("One name" if lost == 1 else f"{lost} names") + " on the Election Commission's list for this contest could not be read "
+                        "as a name and " + ("is" if lost == 1 else "are") + " left out.")
+            gaps.append((STATE, "race", rid, f"{c['title']}, {c['jname']}", "a candidate whose name cell could not be read",
+                         "A name cell for this contest in the Election Commission's list held something other than a name, so that "
+                         "candidate is left out until the list is corrected.", c["e"]["url"]))
+        if not on:
+            no_active += 1
+            sts = sorted({r["Candidate Status"] for r in c["rows"]})
+            note.append("Nobody the Election Commission's list names for this office is on the ballot: the list gives the status "
+                        + and_list([f"\"{s}\"" for s in sts]) + ".")
+        elif c["family"] == "school" and (c["jname"].endswith(" school boards") or c["jname"].startswith("School boards (")):
+            note.append(SCHOOL_NOTE)
+        elif c["kind"] not in ONE_SEAT and not (c["kind"] in ("county_commissioner", "council") and c["district"]):
+            note.append(SEATS_NOTE)
+        races.append([rid, STATE, c["level"], c["kind"], c["title"], c["jname"], c["jid"], json.dumps(cids), c["district"], c["seat"],
+                      c["special"], c["partisan"], None, None, None, GENERAL, " ".join(note) or None])
+        src = SRC_LOCAL if c["e"]["kind"] == "General" else SRC_OWN
+        for rs in grouped.values():
+            name, caps = shown(rs[0]["Name on Ballot"])
+            cnote = [CAPS_NOTE] if caps else []
+            if c["partisan"]:
+                parties = [r["Party"] for r in rs]                        # more than one row: nominated by more than one party
+                party = ", ".join(p for p in parties if p) or "No party given"
+                code = "I" if parties[0] == "Petition" else party_code(parties[0])
+                if len(parties) > 1:
+                    cnote.append("Nominated by more than one party; the Election Commission's list has a row for each ("
+                                 + ", then ".join(parties) + ").")
+                if "Petition" in parties:
+                    cnote.append(PETITION_NOTE)
+                if any(re.search(r"Not Specified", p) for p in parties) or not parties[0]:
+                    cnote.append(OTHER_PARTY_NOTE.format(parties[0] or "blank"))
+            else:
+                party, code = NONPARTISAN, "N"
+            merged += len(rs) - 1
+            placed_rows += len(rs)
+            cands.append([rid, "general", GENERAL, name, party, code, None, 0, 0, None, None, None, None, src, " ".join(cnote) or None])
+        if c["jtype"] != "county":
+            place_reach[c["jid"]].update(cids)
+            coded = bool(re.fullmatch(rf"{STATE}-M-\d{{5}}", c["jid"]))
+            place_name.setdefault(c["jid"], (c["jtype"], c["jname"], SRC_PLACE if coded else src))
+
+    # an office type a town's election offers with nobody under it: kept, with a note
+    town_row = {spell(r["name"]): r for r in (muni or {}).get("rows", [])}
+    empty_races = 0
+    for e, otype, e_special in empties:
+        town = muni_of.get(e["id"])
+        if otype not in EMPTY_TYPES or not town:
+            gaps.append((STATE, "race", "office-" + slug(f"{e['id']} {otype}"), f"{otype} ({e['name']})", "an office with no candidate listed",
+                         "The Election Commission's candidate system shows this office for the election but lists no candidate under it, "
+                         "and without one this loader cannot tell which board or seat it is.", e["url"]))
+            continue
+        kind, title, by = EMPTY_TYPES[otype]
+        district = {"ward": "By ward", "district": "By district"}.get(by)
+        seat = by if by == "At Large" else None
+        jid = f"{STATE}-M-{town['code']}" if town["code"] else None
+        if not jid:
+            ckeys = sorted(county_key(x) for x in e["counties"])
+            jid = f"{STATE}-M-{geoid[ckeys[0]][2:] + '-' if len(ckeys) == 1 else ''}{slug(town['name'])}"
+        rid = rid_of(jid, title, district, seat, int(e_special))
+        if rid in ids:
+            raise LocalError(f"South Carolina (local races): an office with no candidate shares the race id {rid} with another contest")
+        ids[rid] = None
+        cids = sorted(geoid[county_key(x)] for x in e["counties"])
+        siblings = {r[11] for r in races if r[6] == jid}
+        listed_town = town_row.get(town["base"], {})
+        partisan = siblings.pop() if len(siblings) == 1 else int(listed_town.get("partisan", False))
+        note = [NO_CANDIDATE_NOTE]
+        if district:
+            note.append(f"The list shows the office for this election without naming a {by}.")
+        if listed_town.get("own"):
+            note.append(OWN_ELECTION_NOTE)
+        if e_special:
+            note.append(OWN_SPECIAL_NOTE)
+        races.append([rid, STATE, "city", kind, title, town["name"], jid, json.dumps(cids), district, seat, int(e_special), partisan,
+                      None, None, None, GENERAL, " ".join(note)])
+        place_reach[jid].update(cids)
+        place_name.setdefault(jid, ("mcd", town["name"], SRC_PLACE if town["code"] else SRC_OWN))
+        empty_races += 1
+
+    keys_ = [(c[0], c[3]) for c in cands]
+    if len(keys_) != len(set(keys_)):
+        raise LocalError("South Carolina (local races): two local candidate rows share a race and a name")
+    senate_rows = sum(len(c["rows"]) for c in senate)
+    off_rows = sum(status_left.values())
+    if rows_read != senate_rows + left_rows + off_rows + placed_rows + names_dropped:
+        raise LocalError(f"South Carolina (local races): {rows_read} rows read, but {senate_rows} for the State Senate, {placed_rows} placed, "
+                         f"{off_rows} left off by status, {names_dropped} without a readable name and {left_rows} left out do not add to that")
+
+    # 5. places: every jurisdiction the races use that is not a county
+    place_rows = [(jtype, jid, name, json.dumps(sorted(place_reach[jid])), src) for jid, (jtype, name, src) in sorted(place_name.items())]
+
+    # 6. the towns the Commission's table says vote in November of even years, against the general elections it lists
+    n_muni = n_odd = n_even = n_nov = 0
+    if muni:
+        rows_m = muni["rows"]
+        n_muni, n_odd, n_even = len(rows_m), sum(1 for r in rows_m if r["odd"]), sum(1 for r in rows_m if r["even"])
+        have = {muni_of[e["id"]]["base"] for e in own if e["id"] in muni_of and not re.search(r"\bSpec(?:ial)?\b", e["name"], re.I)}
+        for r in rows_m:
+            if not (r["even"] and re.search(r"after 1st Mon\. in Nov", r["day"], re.I)):
+                continue
+            n_nov += 1
+            base = spell(r["name"])
+            if base in have:
+                continue
+            entry = places.get(base, [])
+            label = entry[0][1] if len(entry) == 1 else r["name"].title()
+            for cn in [x.strip() for x in r["county"].split(",") if x.strip()]:
+                if county_key(cn) not in geoid:
+                    continue
+                gaps.append((STATE, "county", geoid[county_key(cn)], f"{cname[county_key(cn)]} County", f"{label} election, if one is due this year",
+                             f"The State Election Commission's table of municipal elections says {label.rpartition(' ')[0] if len(entry) == 1 else label} "
+                             "votes in November of even-numbered years, but neither its candidate system nor its 2026 election calendar lists "
+                             "a November 3, 2026 election for it, so there is nothing to load; a town that elects all its officers every "
+                             "four years may simply not be due this year.", MUNI_URL))
+
+    # 7. the counts, the gaps of the whole state and the two notes
+    local = [r for r in races if r[2] in LOCAL_LEVELS]
+    by_level = collections.Counter(r[2] for r in local)
+    by_kind = collections.Counter(r[3] for r in local)
+    with_kind = collections.defaultdict(set)
+    for r in local:
+        with_kind[r[3]].update(json.loads(r[7]))
+    school_counties = {g for r in local if r[2] == "school" for g in json.loads(r[7])}
+    reached = {g for r in local for g in json.loads(r[7])}
+    total = len(counties)
+    lids = {r[0] for r in local}
+    n_cands = sum(1 for c in cands if c[0] in lids)
+    towns = {r[6] for r in local if r[2] == "city"}
+    n_own_general = sum(1 for e in own if e["offered"] and not re.search(r"\bSpec(?:ial)?\b", e["name"], re.I) and not any(c["e"] is e for c in senate))
+    n_own_special = sum(1 for e in own if e["offered"] and re.search(r"\bSpec(?:ial)?\b", e["name"], re.I) and not any(c["e"] is e for c in senate))
+    other_general = sorted(k for k, v in cal_e.items() if v["type"] == "General" and v["date"] != GENERAL) if cal else []
+    gaps.append((STATE, "state", STATE, NAME, "offices nobody filed for",
+                 "The State Election Commission's list for the general election has a row for each candidate, so a county, school or "
+                 "district office that drew no candidate does not appear in it; a county's own sample ballot is the place to check for one.",
+                 statewide["url"]))
+    cnt = lambda kind: len(with_kind[kind])
+    county_of = {g: n for _k, (g, n) in counties.items()}
+    np_council = sorted({county_of[r[6]] for r in local if r[3] == "county_commissioner" and not r[11]})
+    party_school = sorted({county_of[g] for r in local if r[2] == "school" and r[11] for g in json.loads(r[7])})
+    calendar = (
+        "On November 3, 2026 South Carolina's general election ballot carries county council seats in "
+        + (f"all {total}" if cnt("county_commissioner") == total else f"{cnt('county_commissioner')} of the {total}")
+        + f" counties and, where the term ends this year, the probate judge ({cnt('probate_judge')} counties), auditor "
+        f"({cnt('county_auditor')}), treasurer ({cnt('county_treasurer')}), sheriff ({cnt('sheriff')}), coroner ({cnt('coroner')}), clerk of "
+        f"court ({cnt('clerk_of_court')}), register of deeds ({cnt('register_of_deeds')}) and county supervisor ({cnt('county_executive')}), "
+        f"with {by_kind['solicitor']} of the sixteen circuit solicitors, all on party lines"
+        + (f" except the council of {and_list(np_council)} County" if len(np_council) == 1 else
+           f" except the councils of {and_list(np_council)} counties" if np_council else "")
+        + f"; and soil and water district commissioners, school board seats reaching {len(school_counties)} counties"
+        + (f" (on party lines in {and_list(party_school)} {'County' if len(party_school) == 1 else 'counties'} only)" if party_school else "")
+        + " and watershed, fire, public service and public works districts, without parties. "
+        + (f"Cities and towns set their own election day by ordinance (of {n_muni} municipalities {n_odd} vote in odd-numbered years and "
+           f"{n_even} in even-numbered years, {n_nov} of those in November), and the Election Commission lists " if muni else
+           "Cities and towns set their own election day by ordinance, and most vote in odd-numbered years; the Election Commission lists ")
+        + f"{n_own_general} city, town and school district general elections and {n_own_special} local special elections as elections of "
+          "their own on November 3"
+        + (f", with {len(other_general)} more local general elections on other days of 2026" if cal else "")
+        + ". State law sets the election of sheriffs, coroners and clerks of court for presidential years, next in 2028, and solicitors "
+          "serve four years, so most counties and ten circuits do not elect them this year.")
+    coverage = (
+        f"Loaded from the State Election Commission's Candidate Tracking System as read on {day_words(lists['read'])}: every county, school "
+        f"and district contest on its list for the November 3 statewide general election, and the {n_own_general + n_own_special} city, town "
+        f"and school district elections it lists for the same day: {len(local):,} contests and {n_cands:,} candidates, with a local contest in "
+        + (f"all {total} counties" if len(reached) == total else f"{len(reached)} of the {total} counties")
+        + f". The list gives each candidate a status, and only those marked Active are shown; {off_rows:,} others, who lost a primary, "
+          "withdrew or did not qualify, are left off. It gives no ballot order and never says how many seats a contest fills. It names a "
+          "school board by its county and a district or seat number, so those contests are filed under the county in the list's own words "
+          "and the school district is not named unless the list names it. Write-in candidates, local primaries and ballot questions "
+        + (f"(the Commission lists {len(questions)} referendums that day) " if questions else "")
+        + "are not loaded, and a city or town that runs its own election may not be on the Commission's list at all."
+        + (f" {sum(1 for g in gaps if g[1] == 'race')} contests or offices could not be placed and are listed as gaps." if any(g[1] == "race" for g in gaps) else ""))
+    notes = [(STATE, "local_calendar", calendar,
+              "S.C. Code sections 7-13-10, 5-15-50, 23-11-10, 17-5-10, 14-17-10, 1-7-310, 14-5-610, 48-9-1220 and 48-11-100 (South Carolina "
+              "Legislature); the State Election Commission's 2026 Election Calendar and its table of municipal elections; counts from the "
+              "Commission's candidate lists", CODE_URL),
+             (STATE, "local_coverage", coverage, "South Carolina State Election Commission, Candidate Tracking System: the statewide general "
+              "election and the local elections of November 3, 2026", CTS_PAGE)]
+
+    # 8. the last look: nothing that reads like contact details is stored, in the check's words or the page's
+    for r in races:
+        if any(v and contact_like(v, True) for v in (r[4], r[5], r[8], r[9], r[16])) or (r[16] and PAGE_STREET.search(r[16])):
+            raise LocalError(f"South Carolina (local races): a stored cell of {r[0]} failed the contact-detail check (not shown)")
+    for c in cands:
+        if not local_name(c[3]) or contact_like(c[4], True) or (c[14] and (contact_like(c[14], True) or PAGE_STREET.search(c[14]))):
+            raise LocalError(f"South Carolina (local races): a stored name, party or note in {c[0]} failed the contact-detail check (not shown)")
+    for p in place_rows:
+        if contact_like(p[2], True):
+            raise LocalError(f"South Carolina (local races): the name of place {p[1]} failed the contact-detail check (not shown)")
+    for g in gaps:
+        if any(v and contact_like(v, False) for v in g[3:6]):
+            raise LocalError(f"South Carolina (local races): a gap for {g[2]} failed the contact-detail check (not shown)")
+    for nt in notes:
+        if contact_like(nt[2], False) or contact_like(nt[3], False):
+            raise LocalError(f"South Carolina (local races): the note {nt[1]} failed the contact-detail check (not shown)")
+
+    own_read = [e for e in own if e["offered"] and not any(c["e"] is e for c in senate)]
+    return dict(races=races, cands=cands, places=place_rows, gaps=gaps, notes=notes, checks=checks, senate=senate,
+                local=len(local), local_cands=n_cands, by_level=dict(by_level), by_kind=dict(by_kind), reached=len(reached), counties=total,
+                partisan=sum(1 for r in local if r[11]), rows_read=rows_read, senate_rows=senate_rows, placed_rows=placed_rows,
+                merged=merged, off_rows=off_rows, status_left=dict(status_left), left_rows=left_rows, names_dropped=names_dropped,
+                no_active=no_active, empty_races=empty_races, questions=[e["name"] for e in questions], towns=len(towns),
+                towns_coded=sum(1 for j, (jt, _n, _s) in place_name.items() if jt == "mcd" and re.fullmatch(rf"{STATE}-M-\d{{5}}", j)),
+                towns_all=sum(1 for _j, (jt, _n, _s) in place_name.items() if jt == "mcd"),
+                own_elections=len(own_read), own_general=n_own_general, own_special=n_own_special,
+                general_rows=sum(len(t["rows"]) for t in statewide["types"].values()),
+                own_rows=sum(len(t["rows"]) for e in own_read for t in e["types"].values()),
+                general_cands=sum(1 for c in cands if c[13] == SRC_LOCAL), own_cands=sum(1 for c in cands if c[13] == SRC_OWN),
+                general_all=statewide["all"], own_digest=hashlib.sha256("\n".join(f"{e['id']} {e['all']['sha256']}" for e in sorted(own_read, key=lambda x: x["id"])).encode()).hexdigest(),
+                new_kinds=sorted(set(by_kind) - KNOWN_KINDS), n_places=n_places, muni=dict(all=n_muni, odd=n_odd, even=n_even, nov=n_nov),
+                other_general=len(other_general))
+
+
 # ------------------------------------------------------------------------------------------------ loading
 
-def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_ZIP):
+def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_ZIP, local_folder=None):
     from states import net
     net.patient_lookups()
     os.makedirs(folder, exist_ok=True)
@@ -812,6 +1789,70 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
         if want != got and not (kind == "runoff" and got < want):
             checks.append(f"{kind}: {want} result lines, {got} stored")
 
+    # 8b. the county and local part: every other November 3 contest the same system lists (nothing above is changed by it)
+    local_folder = local_folder or os.path.join(folder, "local")
+    os.makedirs(local_folder, exist_ok=True)
+    _llpath, llists = local_lists(local_folder, say)
+    ppath = os.path.join(local_folder, PLACE_FILE)
+    net.download(PLACE_URL, ppath, max_age_days=3650, say=say)
+    places, n_places = census_places(ppath)
+    cal = election_calendar(local_folder, say)
+    muni = municipal_table(local_folder, say)
+    local = local_part(llists, counties, places, n_places, cal, muni, say)
+    clash = sorted({f"2026-{STATE}-{k}" for k in list(STATEWIDE) + [f"SH{d}" for d in range(1, HOUSE_SEATS + 1)]} & {r[0] for r in local["races"]})
+    if clash:
+        raise SystemExit(f"South Carolina: a local race id is also a state race id ({clash[:3]})")
+
+    # 8c. a State Senate seat with a special election of its own on November 3: stored with the Legislature, beside the
+    # rows above. Who holds the seat is left empty (a seat filled by special election may be vacant, whatever the roster says).
+    extra_races, extra_cands, extra_places, senate_said = [], [], [], []
+    holding_now = {c[12] for c in cands if c[7] and c[12]}
+    for sc in local["senate"]:
+        d = sc["district"]
+        rid = f"2026-{STATE}-SS{d}"
+        if rid in races or any(r[0] == rid for r in extra_races):
+            raise SystemExit(f"South Carolina (state races): two contests for State Senate District {d} on the November 3 lists")
+        cids = sorted(counties[k][0] for k in sc["keys"])
+        on = [r for r in sc["rows"] if r["Candidate Status"] in ON]
+        unknown_s = sorted({r["Candidate Status"] for r in sc["rows"]} - KNOWN)
+        if unknown_s:
+            raise SystemExit(f"South Carolina (state races): statuses on the Senate special election's list the loader does not read: {unknown_s}")
+        note = [SENATE_SPECIAL_NOTE] + ([] if on else [NONE_ON_LIST])
+        extra_races.append((rid, STATE, "legislature", "state_senate", "State Senator", f"Senate District {d}", f"{STATE}-{d}", json.dumps(cids),
+                            d, None, 1, int(sc["partisan"]), None, None, None, GENERAL, " ".join(note)))
+        grouped_s = {}
+        for r in on:
+            if not r["Name on Ballot"]:
+                checks.append(f"{rid}: a name cell on the special election's list could not be read as a name; that candidate is left out")
+                continue
+            grouped_s.setdefault(fold(r["Name on Ballot"]), []).append(r)
+        for rs in grouped_s.values():
+            name, caps = shown(rs[0]["Name on Ballot"])
+            parties = [r["Party"] for r in rs]
+            cnote = [CAPS_NOTE] if caps else []
+            if len(parties) > 1:
+                cnote.append(f"Nominated by more than one party; the Election Commission's list has a row for each ({', then '.join(parties)}).")
+            if "Petition" in parties:
+                cnote.append(PETITION_NOTE)
+            pool = [p for p in people if p["id"] not in holding_now and (p["party"] or "") == parties[0] and person_fits(name, p)]
+            mid = pool[0]["id"] if len(pool) == 1 else None
+            if mid:
+                cnote.append(f"Serves today {where(pool[0])}.")
+            elif len(pool) > 1:
+                checks.append(f"{rid}: {name} fits {len(pool)} sitting members of the same party; none is taken")
+            extra_cands.append((rid, "general", GENERAL, name, ", ".join(p for p in parties if p) or None,
+                                "I" if parties[0] == "Petition" else party_code(parties[0]), None, 0, 0, None, None, None, mid, SRC_SENATE,
+                                " ".join(cnote) or None))
+        extra_places.append(("senate", f"{STATE}-{d}", f"Senate District {d}", json.dumps(cids), SRC_SENATE))
+        senate_said.append(f"State Senate District {d} ({sc['e']['name']}): {len(grouped_s)} candidates on the list, "
+                           f"{len(sc['rows']) - len(on)} rows with other statuses left off")
+    for row in extra_races:
+        if CONTACT_NOTE.search(row[16]) or PAGE_STREET.search(row[16]):
+            raise SystemExit(f"South Carolina (state races): the note for {row[0]} failed the contact-detail check (not shown)")
+    for c in extra_cands:
+        if CONTACT.search(c[3]) or CONTACT.search(c[4] or "") or (c[14] and CONTACT_NOTE.search(c[14])):
+            raise SystemExit(f"South Carolina (state races): a stored cell for {c[0]} failed the contact-detail check (not shown)")
+
     # 9. write South Carolina's rows only, in one transaction
     race_rows = [tuple(" ".join(r["note"]) or None if k == "note" else r[k] for k in (
         "race_id", "state", "level", "office_kind", "office", "jurisdiction", "jurisdiction_id", "county_ids", "district", "seat", "special",
@@ -872,8 +1913,63 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
                         "state offices", m["detail_url"],
                         f"{up.group(3)}-{int(up.group(1)):02d}-{int(up.group(2)):02d}" if up else "",
                         mtime(os.path.join(folder, m["detail"])), sha(os.path.join(folder, m["detail"])), n, body))
+    # the local part's sources, after the state part's own (no address or site name in a note: the address has its own column)
+    ga, L = local["general_all"], local
+    statewide_e = next(e for e in llists["elections"] if e["kind"] == "General")
+    left_words = "; ".join(f"{k}: {v}" for k, v in sorted(L["status_left"].items())) or "none"
+    sources += [
+        (SRC_LOCAL, STATE, "official candidate list", AGENCY,
+         "Candidate Tracking System: 11/3/2026 Statewide General Election, county, school and district offices", statewide_e["url"], "",
+         llists["read"], ga["sha256"], L["general_rows"],
+         "Read through the page's own search twice: once for every office at once and once for each of the "
+         f"{len(statewide_e['types'])} county, school and district office types the election offers; the two routes hold the same rows. "
+         f"The SHA-256 is of the whole answer as fetched ({ga['bytes']:,} bytes, {ga['rows']:,} rows: {ga['state_and_federal_rows']:,} state "
+         f"and federal rows read elsewhere, {L['general_rows']:,} read here); each office type's answer has its own SHA-256 beside the kept "
+         "cells. Columns taken by heading; kept: Office, Associated Counties, Name on Ballot, Party, Candidate Status. Running Mate and "
+         "Location of Filing are never kept; the table has no contact columns, and the detail pages that do are never asked for, nor the "
+         f"export. Status Active is on the November ballot: {L['general_cands']:,} candidates from this list. The list gives no ballot "
+         "positions, no number of seats and no write-in candidates, and names a school board by county and number only."),
+        (SRC_OWN, STATE, "official candidate list", AGENCY,
+         f"Candidate Tracking System: the {L['own_elections']} city, town and school district elections listed as elections of their own on "
+         "November 3, 2026", CTS_PAGE, "", llists["read"], L["own_digest"], L["own_rows"],
+         f"Each of the {L['own_elections']} elections ({L['own_general']} general, {L['own_special']} special) is chosen on the page and read "
+         "the same two ways, the same five cells kept; the two routes hold the same rows for every one. The SHA-256 here is of the list of "
+         "election numbers with each whole answer's own SHA-256, in number order; the answers' fingerprints are kept beside the kept cells. "
+         f"{L['own_cands']:,} candidates marked Active come from these lists. A city or town is the one incorporated place the election's "
+         f"name names among the places of its counties ({L['towns_coded']} of {L['towns_all']} matched to a Census place code). "
+         + (f"The Commission also lists {len(L['questions'])} elections that day with no office ({', '.join(L['questions'])}): questions put "
+            "to the voters, which are not loaded." if L["questions"] else "")),
+        (SRC_PLACE, STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, South Carolina (st45_sc_place2020.txt)", PLACE_URL,
+         "2020", mtime(ppath), sha(ppath), n_places,
+         f"Names and five-digit place codes of South Carolina's {n_places} incorporated cities and towns, with the counties each lies in. "
+         "Used to name each city or town as the Bureau writes it; the file holds no personal details."),
+    ]
+    if local["senate"]:
+        se = [sc["e"] for sc in local["senate"]]
+        sources.append((SRC_SENATE, STATE, "official candidate list", AGENCY,
+                        "Candidate Tracking System: " + "; ".join(e["display"] for e in se), se[0]["url"], "", llists["read"],
+                        se[0]["all"]["sha256"], sum(len(sc["rows"]) for sc in local["senate"]),
+                        "A special election for a State Senate seat, listed as an election of its own and read the same two ways as the "
+                        "local elections; the same five cells kept. Status Active is on the November ballot. The SHA-256 is of the whole "
+                        "answer as fetched. The primary that chose the nominees is not read."))
+    if cal:
+        sources.append((SRC_CALENDAR, STATE, "official calendar", AGENCY, "2026 Election Calendar (report RP0110)", CALENDAR_URL, cal["dated"],
+                        mtime(cal["path"]), sha(cal["path"]), cal["lines"],
+                        f"A PDF with a text layer: {cal['lines']} lines, one for each election in each county that holds it (date, election "
+                        f"number, county, name, kind and filing period), {len(cal['elections'])} elections in 2026. Read to check that the "
+                        "Candidate Tracking System and the calendar list the same November 3 elections, and for the count of local general "
+                        "elections on other days. It names no candidate."))
+    if muni:
+        sources.append((SRC_MUNI, STATE, "official list", AGENCY, "Municipal Elections (table of every city's and town's election day)",
+                        MUNI_URL, "2026-05-12", mtime(muni["path"]), sha(muni["path"]), len(muni["rows"]),
+                        "One row a city or town. Columns read: County, Municipality, Odd Year Election, Even Year Election, Election Day, "
+                        "Who Does Work of Conducting Election? and Partisan or Non-Partisan?. Used for the counts of towns voting in odd and "
+                        "even years, for whether an office with no candidate listed is on the ballot with parties and whether the town "
+                        "conducts its own election, and to name the towns it says vote in November of even years that have no November 3, "
+                        "2026 election on the Commission's lists. It names no candidate and holds no personal details."))
+
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
     with con:
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                     (STATE, f"2026-{STATE}-%"))
@@ -881,10 +1977,15 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_places WHERE source_id LIKE ? OR (kind = 'county' AND id LIKE ?) OR id LIKE ?",
                     (f"{STATE.lower()}-%", f"{FIPS}___", f"{STATE}-%"))
-        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [tuple(c) for c in cands])
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + extra_races + [tuple(r) for r in local["races"]])
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        [tuple(c) for c in cands] + extra_cands + [tuple(c) for c in local["cands"]])
         con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
-        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows + extra_places + local["places"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     # 10. say what happened
@@ -912,9 +2013,32 @@ def load(db_path, say=print, folder=FOLDER, roster_db=ROSTER, county_zip=COUNTY_
     for line in matched:
         if " (holds this seat)" not in line:
             say(f"      matched: {line}")
-    for line in checks:
+    for line in senate_said:
+        say(f"      also on the November 3 ballot, a special election of its own: {line}")
+    for c in extra_cands:
+        if c[12]:
+            say(f"      matched: {c[0]} general: {c[3]} -> {c[12]}")
+    lv = L["by_level"]
+    say(f"    South Carolina county and local offices: {L['local']:,} races ("
+        + ", ".join(f"{k.replace('_', ' ')} {lv[k]:,}" for k in LOCAL_LEVELS if lv.get(k)) + f"), {L['local_cands']:,} candidates, a local "
+        f"contest in {L['reached']} of {L['counties']} counties; {L['partisan']:,} partisan and {L['local'] - L['partisan']:,} nonpartisan")
+    say(f"      rows read: {L['rows_read']:,} ({L['general_rows']:,} of the statewide general election's local offices, {L['own_rows']:,} of "
+        f"{L['own_elections']} elections of their own, {L['senate_rows']} of a State Senate special election), by two routes that agree; "
+        f"{L['placed_rows']:,} placed, each in exactly one race ({L['local_cands']:,} candidates), {L['off_rows']:,} left off by status "
+        f"({left_words}), {L['names_dropped']} without a readable name, {L['left_rows']} left out with their contests")
+    say(f"      {L['no_active']} contests whose listed names are all off the ballot and {L['empty_races']} town offices with no candidate "
+        f"listed are kept with a note; cities and towns matched to a Census place code: {L['towns_coded']} of {L['towns_all']}; office kinds: "
+        + ", ".join(f"{k} {v:,}" for k, v in sorted(L["by_kind"].items())))
+    if L["new_kinds"]:
+        say(f"      office kinds the pages do not know yet: {', '.join(L['new_kinds'])}")
+    for g in L["gaps"]:
+        say(f"      gap ({g[1]}): {g[3]}: {g[4]}")
+    for line in checks + L["checks"]:
         say(f"      check: {line}")
-    return dict(races=len(races), general=len(gen), primary=len(prim), fields=fields, runoffs=nrunoffs, checks=checks)
+    return dict(races=len(races), general=len(gen), primary=len(prim), fields=fields, runoffs=nrunoffs, checks=checks + L["checks"],
+                senate_special=len(extra_races), senate_special_candidates=len(extra_cands),
+                local={k: v for k, v in L.items() if k not in ("races", "cands", "places", "gaps", "notes", "checks", "senate", "general_all")},
+                local_gaps=[g[:5] for g in L["gaps"]])
 
 
 if __name__ == "__main__":

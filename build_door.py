@@ -19,8 +19,9 @@ clears and the reader stays). With Motion off there are no fireworks and the wor
     python build_door.py --out site/dev/ballot/index.html --ballot
 
 writes the On The Ballot door: the same ring, one card per level (Congress first; then the states, which open on the
-chooser at ballot/states/ once build_ballot_state_dev.py has written it; then the county and city level, open for
-Minnesota), with the switch lit; a click on it goes back through the wormhole.
+chooser at ballot/states/ once build_ballot_state_dev.py has written it; then the county and city level, which counts
+every state whose county and local races are loaded and opens the chooser's list of them, ballot/states/#local), with
+the switch lit; a click on it goes back through the wormhole.
 
 Everything the page shows is counted at build time from the databases on this computer: congress_119.sqlite for
 the federal card, state_<code>.sqlite and state_<code>_districts.json for each state in states/places.py, and
@@ -30,6 +31,7 @@ ballot_2026.sqlite (Congress) and ballot_local_2026.sqlite (the states' own race
 import argparse
 import json
 import os
+import re
 import sqlite3
 import sys
 
@@ -153,6 +155,7 @@ main{min-height:calc(100vh - 150px);display:flex;flex-direction:column}
 .lv .art svg .fill{fill:var(--accent);stroke:none;opacity:.22}
 .lv dl{display:flex;gap:14px;margin:0 0 14px;padding:12px 0 0;border-top:1px solid var(--line)}
 .lv dl div{flex:1;min-width:0}.lv dd{margin:0;font-family:var(--serif);font-size:24px;line-height:1}.lv dt{font-size:11.5px;color:var(--muted);margin-top:3px}
+.lv dl.f4{gap:10px;justify-content:space-between}.lv dl.f4 div{flex:0 1 auto}      /* a card with four numbers (the ballot door's County and city card): each as wide as it needs */
 .lv .go{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;height:40px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:14.5px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
 .lv.front .go{opacity:1;transform:none}
 .lv.soon{cursor:default}.lv.soon .tag{color:var(--muted)}.lv.soon .go{background:none;color:var(--muted);border:1px dashed var(--line-strong)}
@@ -371,7 +374,7 @@ const LEVELS = DOOR.levels || [      // the On The Ballot door brings its own ca
 const ring = $("#ring"), stage = $("#stage"), dots = $("#dots"), N = LEVELS.length, STEP = 2 * Math.PI / N;
 ring.innerHTML = LEVELS.map((L, i) => `<button class="lv${L.soon ? " soon" : ""}" type="button" data-i="${i}" aria-label="${esc(L.tag)}: ${esc(L.title)}"${L.soon ? ' aria-disabled="true"' : ""}>
   <span class="tag">${esc(L.tag)}</span><h2>${esc(L.title)}</h2><p>${esc(L.text)}</p><span class="art">${ART[L.key] || ""}</span>
-  ${L.facts.length ? `<dl>${L.facts.map(f => `<div><dd>${f[0] == null ? "–" : Number(f[0]).toLocaleString()}</dd><dt>${esc(f[1])}</dt></div>`).join("")}</dl>` : ""}<span class="go">${esc(L.go)}</span><span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>`).join("");
+  ${L.facts.length ? `<dl${L.facts.length > 3 ? ' class="f4"' : ""}>${L.facts.map(f => `<div><dd>${f[0] == null ? "–" : Number(f[0]).toLocaleString()}</dd><dt>${esc(f[1])}</dt></div>`).join("")}</dl>` : ""}<span class="go">${esc(L.go)}</span><span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>`).join("");
 dots.innerHTML = LEVELS.map(() => "<i></i>").join("");
 const cards = $$(".lv", ring);
 
@@ -859,10 +862,25 @@ BALLOT_LOCAL_DB = os.path.join(HERE, "ballot_local_2026.sqlite")
 LOCAL_LEVELS = ("county", "soil_water", "city", "township", "school", "hospital", "other")      # as build_ballot_state_dev.py files them
 
 
+def county_codes(value):
+    """The counties a contest reaches, from its county_ids, as the pages read them: the three digits that name a county
+    inside its state (Minnesota's rows carry those; the local conventions carry the five-digit code)."""
+    if value in (None, ""):
+        return set()
+    try:
+        arr = json.loads(value) if isinstance(value, str) else value
+    except ValueError:
+        arr = re.findall(r"\d+", str(value))
+    arr = arr if isinstance(arr, (list, tuple)) else [arr]
+    return {s.zfill(3)[-3:] for s in (re.sub(r"\D", "", str(x)) for x in arr) if s}
+
+
 def ballot_local_facts(ballot_root, db=BALLOT_LOCAL_DB):
     """What the state and local ballot pages hold, counted from ballot_local_2026.sqlite the way the pages count it: a state
     counts once its page is written (site/dev/ballot/<code>/), races are the state-level ones (statewide, legislature,
-    courts), candidates are those on the November lists. Minnesota's county and local races are counted apart."""
+    courts), candidates are those on the November lists. The county and local contests are counted apart, for every
+    state whose rows reach the counties: how many states, the counties their contests reach, the contests and the
+    November candidates (the same four numbers the chooser's #local section adds up)."""
     if not os.path.exists(db):
         return {}
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
@@ -878,19 +896,32 @@ def ballot_local_facts(ballot_root, db=BALLOT_LOCAL_DB):
            "races": count(f"SELECT COUNT(*) FROM sl_races WHERE state IN ({sp}) AND level NOT IN ({ph})", *states, *LOCAL_LEVELS),
            "candidates": count(f"SELECT COUNT(*) FROM sl_candidates c JOIN sl_races r USING (race_id) WHERE c.election = 'general' AND r.state IN ({sp}) "
                                f"AND r.level NOT IN ({ph})", *states, *LOCAL_LEVELS),
-           "chooser": os.path.exists(os.path.join(ballot_root, "states", "index.html"))}
-    if "MN" in states:
-        out["mn_local"] = con.execute(f"SELECT COUNT(*) FROM sl_races WHERE state = 'MN' AND level IN ({ph})", LOCAL_LEVELS).fetchone()[0]
-        out["mn_local_candidates"] = con.execute(f"SELECT COUNT(*) FROM sl_candidates c JOIN sl_races r USING (race_id) WHERE c.election = 'general' "
-                                                 f"AND r.state = 'MN' AND r.level IN ({ph})", LOCAL_LEVELS).fetchone()[0]
-        out["mn_counties"] = con.execute("SELECT COUNT(*) FROM sl_places WHERE kind = 'county' AND source_id LIKE 'mn-%'").fetchone()[0]
+           "chooser": os.path.exists(os.path.join(ballot_root, "states", "index.html")),
+           "local_codes": [], "local_races": 0, "local_candidates": 0, "local_counties": 0, "local_kinds": set()}
+    for s in states:      # every state whose rows reach the counties, counted one by one
+        rows = con.execute(f"SELECT county_ids, office_kind FROM sl_races WHERE state = ? AND level IN ({ph})", (s, *LOCAL_LEVELS)).fetchall()
+        if not rows:
+            continue
+        out["local_codes"].append(s)
+        out["local_races"] += len(rows)
+        out["local_counties"] += len(set().union(*(county_codes(c) for c, _k in rows)))
+        out["local_kinds"].update(k for _c, k in rows)
+        out["local_candidates"] += con.execute(f"SELECT COUNT(*) FROM sl_candidates c JOIN sl_races r USING (race_id) WHERE c.election = 'general' "
+                                               f"AND r.state = ? AND r.level IN ({ph})", (s, *LOCAL_LEVELS)).fetchone()[0]
     con.close()
     return out
 
 
+NUMBER_WORDS = "no one two three four five six seven eight nine ten eleven twelve".split()
+# the offices the County and city card names, each only if the loaded rows hold it (the office kinds of build_ballot_state_dev.py)
+LOCAL_OFFICES = (("sheriffs", ("sheriff",)), ("county boards", ("county_commissioner", "county_council", "county_executive", "county_board_chair")),
+                 ("mayors", ("mayor",)), ("councils", ("council",)), ("school boards", ("school_board",)))
+
+
 def ballot_levels(B, L=None):
     """The On The Ballot door's cards: Congress, then the states' own races (live once the chooser and a state's page are
-    written), then the county and city level (live for Minnesota; the other states come later)."""
+    written), then the county and city level: every state whose county and local races are loaded, counted from the
+    database, opening the chooser's list of those states (one state alone opens its own counties)."""
     L = L or {}
     state = {"key": "state", "tag": "State", "title": "Governors and legislatures",
              "text": "Races for governor, the state legislatures and the other statewide offices, state by state. They come after Congress.",
@@ -903,12 +934,21 @@ def ballot_levels(B, L=None):
                  "go": "Choose a state", "url": "states/", "under": "On the ballot: the states"}
     local = {"key": "local", "tag": "County and city", "title": "Closer to home",
              "text": "Sheriffs, county boards, mayors, councils and school boards, Minnesota first.", "facts": [], "go": "Coming later", "soon": True}
-    if L.get("mn_local"):
+    codes = L.get("local_codes") or []
+    if codes:
+        n = len(codes)
+        offices = [w for w, kinds in LOCAL_OFFICES if any(k in L["local_kinds"] for k in kinds)] or ["county and local offices"]
+        offices = (", ".join(offices[:-1]) + " and " + offices[-1]) if len(offices) > 1 else offices[0]
+        single = n == 1 or not L.get("chooser")      # one state, or no chooser page to list them on: the card opens that state's own counties
+        name = PLACES[codes[0].lower()]["name"] if codes[0].lower() in PLACES else codes[0]
         local = {"key": "local", "tag": "County and city", "title": "Closer to home",
-                 "text": "Every county, soil and water, city, township, school and hospital district race on Minnesota's November 3 ballot, county by county. "
-                         "Other states come later.",
-                 "facts": [[L["mn_local"], "county and local races"], [L["mn_local_candidates"], "candidates listed"], [L.get("mn_counties") or None, "counties"]],
-                 "go": "Minnesota", "url": "mn/#counties", "under": "On the ballot: Minnesota's counties"}
+                 "text": (f"{offices[0].upper() + offices[1:]} on the November 3 ballot, county by county, from the official lists of "
+                          + (f"{NUMBER_WORDS[n] if n < len(NUMBER_WORDS) else n} states so far. More states follow." if n > 1
+                             else f"{name} so far. Other states come later.")),
+                 "facts": [[n, "states" if n > 1 else "state"], [L["local_counties"], "counties"], [L["local_races"], "contests"],
+                           [L["local_candidates"], "candidates"]],
+                 "go": name if single else "Choose a state", "url": f"{codes[0].lower()}/#counties" if single else "states/#local",
+                 "under": f"On the ballot: {name}'s counties" if single else "On the ballot: counties and cities"}
     return [
         {"key": "federal", "tag": "U.S. Congress", "title": "The House and the Senate",
          "text": "Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.",
@@ -968,7 +1008,8 @@ def main():
     if args.ballot:
         print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}; "
               + (f"states: {L['states']} ({', '.join(L['codes'])}), {L['races']:,} races, {L['candidates']:,} candidates"
-                 + (f"; Minnesota local: {L['mn_local']:,} races, {L['mn_local_candidates']:,} candidates" if L.get("mn_local") else "")
+                 + (f"; county and local: {len(L['local_codes'])} states ({', '.join(L['local_codes'])}), {L['local_races']:,} contests reaching "
+                    f"{L['local_counties']:,} counties, {L['local_candidates']:,} candidates" if L.get("local_codes") else "; no county or local races yet")
                  + ("" if L.get("chooser") else "; no states/ chooser yet, so the State card waits") if L else "no state and local ballot database yet"))
         return
     print(f"Wrote {args.out}: the front door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; federal {data['federal']}; "

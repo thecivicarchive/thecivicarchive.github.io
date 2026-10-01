@@ -1,8 +1,9 @@
 """
 ballot/state_local_wv.py - West Virginia's state races on the November 3, 2026 ballot: the State Senate seats up this
 year, all 100 seats of the House of Delegates, and the judicial vacancies the Secretary of State lists for November,
-with the May 12 party primaries that chose the legislative nominees. Written into ballot_local_2026.sqlite (never
-ballot_2026.sqlite), West Virginia's rows only.
+with the May 12 party primaries that chose the legislative nominees; and, from the same list's county level, the
+county, school board and town offices on that ballot (see "The local pass" below). Written into
+ballot_local_2026.sqlite (never ballot_2026.sqlite), West Virginia's rows only.
 
 Sources, all the Secretary of State's own (the same two the federal loader, ballot/lists/wv.py, reads):
   * the 2026 candidate listing (candidates.wvsos.gov), read through the listing's own data service
@@ -56,6 +57,56 @@ County codes: the detail report lists the counties taking part in each contest; 
 counties (Census GEOIDs, from the Bureau's cartographic county file), for the legislative districts and any judicial
 circuit that also had a May contest.
 
+The local pass (county, school board and town offices; John, 2026-09-30)
+------------------------------------------------------------------------
+The listing's office level COUNTY carries the county offices on the November ballot (County Commission in every
+county, and unexpired terms of County Clerk, Circuit Clerk, Prosecuting Attorney, Sheriff, Assessor, Magistrate and the
+county Board of Education) and, under seven counties, town offices (Mayor, Recorder, Council Member, Municipal Judge).
+It is read through the listing's own CSV export (candidate-web-api/candidates/export, a JSON POST with the page's
+filters: the election, the office level COUNTY and the tab, R or W), one request a tab; the JSON service used above
+carries no county for these rows except inside the candidate's address, which is never opened. The export's columns
+are Name, Legal Name, Party, County, Race, District/Circuit, Division, Magisterial, City, State, Residence County,
+MailingAddress, Filing Date, CampaignPhoneNumber and Email. Only Name (the name as printed on the ballot: the same
+words, row for row, as the JSON service's candidateBallotName), Party, County, Race, District/Circuit, Division and
+Magisterial are taken, by their headings, as the file is parsed; every other cell is dropped there and is never
+printed, kept or stored. The SHA-256 of each export's bytes as they arrived and its row count are kept beside the
+cut-down rows in ballot_cache/wv/local/wv_2026_local_general_list.json; the file itself is not kept.
+
+The Magisterial column is free text. For a county commission or school board candidate it is the magisterial district
+the candidate lives in (the ballot prints it, because no two commissioners and no more than two board members may
+come from one district). That is where a person lives, so it is dropped as the file is parsed, with two exceptions
+where it is the office's own place and not a person's: for a town office it is the town's name (or a ward, or a
+term), and where a county's commission seats are themselves named by district it is the seat's name. The second is
+accepted only on the word of the county's own page of the Secretary's results site for the May 12 primary (the
+summary report: contest titles, candidates and votes, nothing else): Jefferson County's contests are titled "COUNTY
+COMMISSIONER - HARPERS FERRY DIST" and "- KABLETOWN DIST", so its two seats are two races with a district.
+
+What the list gets wrong, and what is done about it (nothing is guessed):
+  * a row entered twice (every cell read is the same) is kept once and counted;
+  * two candidates of one party under one county commission office: the county's primary page is read. If the office
+    was put to the voters as "Vote For 2" (Berkeley), the race says "Voters choose 2."; if as seats named by district
+    (Jefferson), each seat is a race; otherwise (Brooke: the primary was for one seat and the second Republican was
+    not in it) the race keeps both names and its note says what the two records show;
+  * a county with no commission candidate (Webster, whose primary did nominate candidates) goes in sl_gaps;
+  * town rows that do not name their town. A county's town races are loaded only when every town row filed under it
+    names a town that is exactly one incorporated place of that county in the Census Bureau's place list (Pax, Cowen,
+    North Hills); otherwise none is, and the county goes in sl_gaps. Kanawha's rows mostly say only "WARD 4", and the
+    official primary results show both Charleston and South Charleston have a Ward 4 (and show contests the list
+    lacks altogether), so no race there can be told apart from the list.
+
+Levels and keys: county offices are level "county" under the county's 5-digit code (a magistrate too: these seats are
+new to this database, so they are not filed under "court"); a county board of education is level "school" under the
+county's school district as the Census Bureau names and codes it (WV-S-<7-digit code>; a West Virginia school district
+is its county); a town office is level "city" under the Census place code (WV-M-<5-digit code>). Race ids are
+2026-WV-<place key>-<office kind>[-<district or division>][-S], -S for an unexpired term. A board of education seat on
+a November ballot is always for the rest of a term (W. Va. Code 18-5-1b, 18-5-2), whether or not the list says so.
+Ballot order is drawn by lot in each county (W. Va. Code 3-5-13a) and is not in the list. Nothing is matched to the
+legislative roster and no holder is given for a local office.
+
+sl_gaps and sl_notes (ballot/check_local.py's EXTRA_SCHEMA) are rewritten for West Virginia on every run: what could
+not be loaded and why, a "local_calendar" note (which local offices are on this ballot and which are elected at
+another time, from the state code) and a "local_coverage" note.
+
 The privacy rule: only office, district, name, party, ballot order, status and votes are read from any list. Nothing
 else is printed, logged, cached or stored, and no photos, ages, websites, biographies or money are stored in this
 phase.
@@ -77,12 +128,16 @@ import time
 import zipfile
 import xml.etree.ElementTree as ET
 
+from urllib.error import URLError
+from urllib.request import Request, urlopen
+
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from ballot.check_local import EXTRA_SCHEMA
 from ballot.common import CACHE, HERE, fold, name_parts, party_code
 from ballot.lists.tx import proper
-from ballot.lists.wv import API, DONE, RESULTS_PAGE, RESULT_CODES, SITE, fetch_results, post
+from ballot.lists.wv import API, CLARITY, DONE, RESULTS_PAGE, RESULT_CODES, SITE, fetch_results, post, unzip_json
 from ballot.match import fits
 from states import net
 
@@ -105,6 +160,42 @@ OFF_LIST = "Not on the party's May 12 primary ballot."
 SRC_GEN, SRC_PRI = "wv-sos-2026-sl-general-list", "wv-sos-2026-sl-primary-list"
 SRC_RES, SRC_SUM = "wv-sos-2026-sl-primary-results", "wv-sos-2026-sl-primary-summary"
 SRC_COUNTY, SRC_ROSTER = "wv-census-2024-counties", "wv-openstates-roster"
+
+# the local pass: county, school board and town offices (see the docstring)
+LOCAL_LEVEL = "COUNTY"
+EXPORT = API + "/export"
+CLARITY_WV = "https://results.enr.clarityelections.com/WV/"
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st54_wv_place2020.txt"
+PLACE_HEAD = ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE", "CLASSFP", "FUNCSTAT", "COUNTIES"]
+UNSD_URL = "https://www2.census.gov/geo/tiger/TIGER2024/UNSD/tl_2024_54_unsd.zip"
+CODE_URL = "https://code.wvlegislature.gov/3-1-17/"
+LOCAL_READ = {"name": "Name", "party": "Party", "county": "County", "race": "Race", "circuit": "District/Circuit",
+              "division": "Division", "place": "Magisterial"}                    # the only cells of the export ever taken
+LOCAL_COUNTY = {                                                                  # the list's title -> kind, plain title, partisan
+    "COUNTY COMMISSION": ("county_commissioner", "County Commissioner", 1),
+    "COUNTY CLERK": ("county_clerk", "County Clerk", 1),
+    "CIRCUIT CLERK": ("clerk_of_court", "Circuit Clerk", 1),
+    "PROSECUTING ATTORNEY": ("county_attorney", "Prosecuting Attorney", 1),
+    "SHERIFF": ("sheriff", "Sheriff", 1),
+    "ASSESSOR": ("county_assessor", "Assessor", 1),
+    "MAGISTRATE": ("magistrate", "Magistrate", 0),
+}
+LOCAL_SCHOOL = {"BOARD OF EDUCATION": ("school_board", "Board of Education Member")}
+LOCAL_TOWN = {"MAYOR": ("mayor", "Mayor"), "RECORDER": ("city_recorder", "Recorder"), "COUNCIL MEMBER": ("council", "Council Member"),
+              "MUNICIPAL JUDGE": ("municipal_judge", "Municipal Judge")}
+PARTY_LINES = {"REPUBLICAN", "DEMOCRAT", "LIBERTARIAN", "MOUNTAIN", "CONSTITUTION"}     # each nominates one candidate a seat
+TITLE_PARTY = {"REP": "REPUBLICAN", "DEM": "DEMOCRAT", "MTN": "MOUNTAIN", "LBN": "LIBERTARIAN", "LIB": "LIBERTARIAN",
+               "CST": "CONSTITUTION", "CON": "CONSTITUTION"}                         # a results title's prefix -> the list's party
+SRC_LOCAL, SRC_LOCAL_W = "wv-sos-2026-local-general-list", "wv-sos-2026-local-general-write-ins"
+SRC_PLACES, SRC_SCHOOLS, SRC_PAGES = "wv-census-2020-places", "wv-census-2024-school-districts", "wv-sos-2026-primary-county-pages"
+UNEXPIRED = "An election for the rest of a term, as the Secretary of State's list titles it (\"unexpired\")."
+NO_PARTY_PRINTED = "{} are elected on a nonpartisan ballot: no party is printed."
+BOARD_TERM = ("State law elects full terms at the May primary, so a board seat on the November ballot is for the rest of a term; "
+              "the Secretary of State's list does not title this one \"unexpired\".")
+BOARD_BOTH = ("State law elects full terms at the May primary, so a board seat on the November ballot is for the rest of a term; "
+              "the Secretary of State's list titles the office \"unexpired\" for some of these candidates and not for others.")
+HOW_MANY = "The Secretary of State's list does not say how many seats are being filled."
+NO_DIVISION = "The Secretary of State's list gives no division number for this seat."
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_races (race_id TEXT PRIMARY KEY, state TEXT NOT NULL, level TEXT NOT NULL, office_kind TEXT NOT NULL, office TEXT NOT NULL, jurisdiction TEXT, jurisdiction_id TEXT, county_ids TEXT, district TEXT, seat TEXT, special INTEGER NOT NULL DEFAULT 0, partisan INTEGER NOT NULL, holder_id TEXT, holder_name TEXT, holder_party TEXT, election_date TEXT NOT NULL, note TEXT);
@@ -391,6 +482,703 @@ def county_codes(path=COUNTY_ZIP):
     return out
 
 
+# ---------------------------------------------------------------- county, school board and town offices (the local pass)
+
+def slug(text):
+    """Lower-case letters and digits joined by hyphens, for race ids."""
+    return re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-")
+
+
+def count_word(n):
+    return {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine"}.get(n, str(n))
+
+
+def and_list(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1] if items else ""
+
+
+def post_bytes(url, payload, accept):
+    """One POST with the same honest User-Agent, returning the bytes as they arrive. The host leaves its issuer's
+    certificate out of the handshake; this repairs that the way states/net.get does, and no less strictly."""
+    req = Request(url, data=json.dumps(payload).encode(), method="POST",
+                  headers={"User-Agent": net.UA, "Content-Type": "application/json", "Accept": accept})
+    try:
+        with urlopen(req, timeout=120) as r:
+            return r.read()
+    except URLError as e:
+        if getattr(getattr(e, "reason", None), "verify_code", None) != 20:   # 20: the server left out its issuer's certificate
+            raise
+        ctx = net._context_with_issuer(req.host)
+        if ctx is None:
+            raise
+        with urlopen(req, timeout=120, context=ctx) as r:
+            return r.read()
+
+
+def export_bytes(tab, say):
+    """The listing's CSV export of one tab at the county level, or None when the service does not give it: the first
+    try and at most two more, then the host is left alone."""
+    payload = {"candidateType": tab, "electionName": ELECTIONS["general"][0], "officeDescription": [LOCAL_LEVEL]}
+    for attempt in range(3):
+        try:
+            return post_bytes(EXPORT, payload, "text/csv, */*")
+        except (URLError, OSError) as e:
+            say(f"      the candidate list's export did not answer ({type(e).__name__} {getattr(e, 'code', '')}); try {attempt + 1} of 3")
+            if attempt < 2:
+                time.sleep(5 * (attempt + 1))
+    return None
+
+
+def cut_export(raw, tab):
+    """The export's rows cut down, as they are parsed, to the cells named in LOCAL_READ, found by their headings. The
+    rest of each row (legal name, city, state, residence county, mailing address, filing date, telephone, e-mail) is
+    dropped here and goes nowhere else. Returns (the column names, the rows), or None when the bytes are not the
+    export. A row that does not fit stops the loader, which names the row number and the check, never the row."""
+    table = list(csv.reader(io.StringIO(raw.decode("utf-8-sig", "replace"))))
+    head = [h.strip() for h in table[0]] if table else []
+    if any(head.count(c) != 1 for c in LOCAL_READ.values()):
+        return None
+    idx = {k: head.index(c) for k, c in LOCAL_READ.items()}
+    rows = []
+    for n, cells in enumerate(table[1:], 2):
+        if not any(c.strip() for c in cells):
+            continue
+        if len(cells) != len(head):
+            raise SystemExit(f"West Virginia: row {n} of the county-level export (tab {tab}) has {len(cells)} cells, not the "
+                             f"heading's {len(head)}; stopping (the row is not printed)")
+        row = {k: re.sub(r"\s+", " ", cells[i]).strip() for k, i in idx.items()}
+        if not row["name"] or not row["race"] or not row["county"]:
+            raise SystemExit(f"West Virginia: row {n} of the county-level export (tab {tab}) lacks a name, an office or a county; "
+                             "stopping (the row is not printed)")
+        row["tab"], row["row"] = tab, n
+        rows.append(row)
+    del table
+    return head, rows
+
+
+def office_of(text):
+    """("COUNTY COMMISSION", True) for "COUNTY COMMISSION - UNEXPIRED"; ("MAYOR", False) for "MAYOR"."""
+    t = re.sub(r"\s+", " ", text or "").strip().upper()
+    m = re.fullmatch(r"(.+?) - UNEXPIRED", t)
+    return (m.group(1), True) if m else (t, False)
+
+
+def crowded(rows):
+    """{party: how many} for the parties with more than one candidate on the Regular tab among these rows. A party
+    nominates one candidate a seat, so this means more than one seat, or a fault in the list."""
+    n = collections.Counter(r["party"] for r in rows if r["tab"] == "R" and r["party"] in PARTY_LINES)
+    return {p: k for p, k in n.items() if k > 1}
+
+
+DISTRICT_WORDS = re.compile(r"\b(MAGISTERIAL|DISTRICT|DISTRIC|DISTRI|DISTR|DIST|DIS)\b\.?", re.I)
+
+
+def district_key(text):
+    """Letters and digits with the kind word set aside: HARPERS FERRY and HARPERS FERRY DIST are the same district."""
+    return re.sub(r"[^a-z0-9]+", "", DISTRICT_WORDS.sub(" ", text or "").lower())
+
+
+def site_heading(settings):
+    """The heading a results page shows ("Official Results"), as ballot/lists/wv.py reads the statewide page's."""
+    heads = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == "header" and isinstance(v, str) and v.strip():
+                    heads.append(re.sub(r"<[^>]+>", "", v).strip())
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(settings)
+    return heads[0] if len(set(heads)) == 1 else " / ".join(heads)
+
+
+def county_pages(folder, version):
+    """{county: its election number on the Secretary's results site}, from the statewide page's own list of the counties
+    taking part in the May 12 primary. Kept on disk: the primary is over."""
+    path = os.path.join(folder, "wv_2026_primary_county_pages.json")
+    if os.path.exists(path):
+        return json.load(open(path, encoding="utf-8")), path
+    url = f"{CLARITY}{version}/json/en/electionsettings.json"
+    raw = net.get(url)
+    lines = unzip_json(raw)["settings"]["electiondetails"].get("participatingcounties") or []
+    pages = {}
+    for line in lines:
+        parts = line.split("|")
+        if len(parts) < 2 or not parts[1].isdigit():
+            raise SystemExit("West Virginia: the results site's list of counties is not laid out as name|number|...")
+        pages[parts[0]] = parts[1]
+    if len(pages) != 55:
+        raise SystemExit(f"West Virginia: the results site lists {len(pages)} counties, not 55")
+    kept = {"url": url, "fetched": dt.date.today().isoformat(), "sha256": hashlib.sha256(raw).hexdigest(), "counties": pages}
+    os.makedirs(folder, exist_ok=True)
+    json.dump(kept, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    time.sleep(1)
+    return kept, path
+
+
+def county_results(folder, county, version, say):
+    """One county's own page of the Secretary's results site for the May 12, 2026 primary: (contests, what the page says
+    of itself, the file), or None when it cannot be read. contests is {contest title: [(choice, party, votes)]} from the
+    page's summary report, which holds offices, candidates' names and votes and nothing else. Kept on disk."""
+    key = re.sub(r"[^a-z]", "", county.lower())
+    zpath = os.path.join(folder, f"wv_2026_primary_summary_{key}.zip")
+    mpath = zpath[:-4] + ".json"
+    try:
+        if not (os.path.exists(zpath) and os.path.exists(mpath)):
+            pages, _path = county_pages(folder, version)
+            name = next((n for n in pages["counties"] if fold(n) == fold(county)), None)
+            if not name:
+                return None
+            base = f"{CLARITY_WV}{name}/{pages['counties'][name]}/"
+            ver = net.get(base + "current_ver.txt").decode("ascii", "replace").strip()
+            if not ver.isdigit():
+                return None
+            time.sleep(1)
+            settings = unzip_json(net.get(f"{base}{ver}/json/en/electionsettings.json"))
+            time.sleep(1)
+            details = settings["settings"]["electiondetails"]
+            meta = {"county": name, "version": ver, "heading": site_heading(settings), "updated": settings.get("websiteupdatedat"),
+                    "election": details.get("internalname"), "date": details.get("electiondate"), "url": f"{base}{ver}/reports/summary.zip"}
+            net.download(meta["url"], zpath, max_age_days=0, tries=3, say=say)
+            if open(zpath, "rb").read(2) != b"PK":
+                os.remove(zpath)
+                return None
+            json.dump(meta, open(mpath, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        meta = json.load(open(mpath, encoding="utf-8"))
+        if meta["election"] != "2026 Primary" or meta["date"] != "5/12/2026":
+            return None
+        table = list(csv.reader(io.StringIO(zipfile.ZipFile(zpath).read("summary.csv").decode("utf-8-sig", "replace"))))
+        head = table[0]
+        ci, ni, pi, vi = head.index("contest name"), head.index("choice name"), head.index("party name"), head.index("total votes")
+        contests = collections.defaultdict(list)
+        for r in table[1:]:
+            if r:
+                contests[re.sub(r"\s+", " ", r[ci]).strip()].append((re.sub(r"\s+", " ", r[ni]).strip(), r[pi].strip(), int(r[vi])))
+        return dict(contests), meta, zpath
+    except (URLError, OSError, ValueError, KeyError, IndexError, zipfile.BadZipFile) as e:
+        say(f"      {county} County's page of the results site could not be read ({type(e).__name__})")
+        return None
+
+
+COMMISSION = re.compile(r"^(?:([A-Z]{3}) FOR )?COUNTY COMMISSION(?:ER)?\b(.*?)\s*\(Vote For (\d+)\)$", re.I)
+
+
+def commission_seats(contests):
+    """A county's May primary contests for County Commissioner, one for each party and seat: the party, whether it is
+    an unexpired term, the district the title names (if any), how many to vote for, and the field."""
+    out = []
+    for title, choices in contests.items():
+        m = COMMISSION.match(title)
+        if not m:
+            continue
+        rest = m.group(2)
+        district = re.sub(r"\s+", " ", re.sub(r"\(?\bUNEXP\w*(\s+TERM)?\)?", " ", rest, flags=re.I)).strip(" -,")
+        out.append({"party": TITLE_PARTY.get((m.group(1) or "").upper(), ""), "unexpired": bool(re.search(r"UNEXP", rest, re.I)),
+                    "district": district, "vote_for": int(m.group(3)),
+                    "field": sorted(((n, v) for n, _p, v in choices if fold(n) != PLACEHOLDER), key=lambda nv: -nv[1])})
+    return out
+
+
+def seat_districts(rows, seats):
+    """{district key: the district in plain words} when the county's primary put the office to the voters as separate
+    seats named by district, and the list's district for every candidate is one of them with no party twice in a
+    district; else None. Only then is a commission candidate's magisterial district the seat's name."""
+    named = {district_key(s["district"]) for s in seats if s["district"]} - {""}
+    if len(named) < 2 or any(not s["district"] for s in seats):
+        return None
+    out = {}
+    for r in rows:
+        k = district_key(r["place"])
+        if k not in named:
+            return None
+        out[k] = proper(re.sub(r"\s+", " ", DISTRICT_WORDS.sub(" ", r["place"])).strip().upper()) + " District"
+    if any(crowded([r for r in rows if district_key(r["place"]) == k]) for k in out):
+        return None
+    return out
+
+
+def local_list(folder, version, say, max_age_days=2):
+    """The county-level rows of the November list, both tabs, cut down to what this loader may read and kept on disk
+    as JSON (asked afresh after two days). Returns (the kept rows and what is known of the files, the path), or
+    (None, path) when the service gives nothing and there is no copy on disk."""
+    path = os.path.join(folder, "wv_2026_local_general_list.json")
+    if os.path.exists(path) and time.time() - os.path.getmtime(path) < max_age_days * 86400:
+        return json.load(open(path, encoding="utf-8")), path
+    net.patient_lookups()
+    files, rows = {}, []
+    for tab in ("R", "W"):
+        raw = export_bytes(tab, say)
+        cut = cut_export(raw, tab) if raw is not None else None
+        if cut is None:
+            if os.path.exists(path):
+                say("      the candidate list's county-level export could not be read; the copy on disk is used")
+                return json.load(open(path, encoding="utf-8")), path
+            return None, path
+        files[tab] = {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "rows": len(cut[1]), "columns": cut[0]}
+        del raw
+        rows += cut[1]
+        time.sleep(1.5)
+
+    # a row entered twice (every cell read is the same) is kept once
+    seen, kept, twice = set(), [], []
+    for r in rows:
+        key = tuple(r[k] for k in ("tab", "race", "county", "circuit", "division", "name", "party", "place"))
+        if key in seen:
+            twice.append({"race": r["race"], "county": r["county"]})
+            continue
+        seen.add(key)
+        kept.append(r)
+
+    # a commission candidate's magisterial district becomes the seat's district only where the county's own primary
+    # contests were titled by district (see seat_districts); everywhere else it is where the candidate lives, and goes
+    groups = collections.defaultdict(list)
+    for r in kept:
+        if office_of(r["race"])[0] == "COUNTY COMMISSION":
+            groups[(r["county"], r["race"])].append(r)
+    for (county, title), rs in sorted(groups.items()):
+        if not crowded(rs):
+            continue
+        got = county_results(folder, county, version, say)
+        seats = [s for s in commission_seats(got[0]) if s["unexpired"] == office_of(title)[1]] if got else []
+        names = seat_districts([r for r in rs if r["tab"] == "R"], seats)
+        for r in rs:
+            r["district"] = (names or {}).get(district_key(r["place"]), "")
+    for r in kept:
+        place = r.pop("place")
+        if office_of(r["race"])[0] in LOCAL_TOWN:
+            r["town"] = place                        # a town office: the town's name, a ward or a term, as the list has it
+    out = {"election": ELECTIONS["general"][0], "url": SITE, "service": EXPORT, "level": LOCAL_LEVEL,
+           "fetched": dt.date.today().isoformat(), "read": list(LOCAL_READ.values()), "files": files, "entered_twice": twice, "rows": kept}
+    os.makedirs(folder, exist_ok=True)
+    json.dump(out, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    say(f"      {ELECTIONS['general'][0]}: {files['R']['rows']} regular and {files['W']['rows']} write-in rows at the COUNTY level"
+        + (f"; {len(twice)} entered twice" if twice else ""))
+    return out, path
+
+
+def census_places(folder, say):
+    """West Virginia's incorporated places from the Census Bureau's 2020 place codes file: code, name with its kind
+    word ("Pax town"), and the counties each lies in. The file holds places only and is kept whole."""
+    path = os.path.join(folder, "st54_wv_place2020.txt")
+    net.download(PLACE_URL, path, max_age_days=3650, tries=3, say=say)
+    out = []
+    with open(path, encoding="utf-8-sig", errors="replace") as fh:
+        for n, line in enumerate(fh, 1):
+            cells = line.rstrip("\r\n").split("|")
+            if n == 1:
+                if cells != PLACE_HEAD:
+                    raise SystemExit("West Virginia: the Census place file's heading is not the one this loader was checked against")
+                continue
+            if len(cells) != len(PLACE_HEAD):
+                raise SystemExit(f"West Virginia: line {n} of the Census place file has {len(cells)} cells")
+            if cells[5] == "INCORPORATED PLACE":
+                out.append({"fp": cells[2], "name": cells[4], "counties": [c.strip() for c in cells[8].split("~~~")]})
+    return out, path
+
+
+def town_of(text, county_label, places):
+    """(the place, whether a compass letter was spelled out) for the town a list row names, or None. The words must be
+    the whole name of exactly one incorporated place of that county: "TOWN OF PAX" is Pax town, "COWEN" is Cowen town,
+    and a leading compass letter is read as the word ("TOWN N. HILLS" is North Hills town). A ward, a term or an empty
+    cell names no town."""
+    t = re.sub(r"^(TOWN|CITY|VILLAGE)( OF)? ", "", re.sub(r"\s+", " ", text or "").strip().upper())
+    here = [p for p in places if county_label in p["counties"]]
+
+    def same(words):
+        key = letters(words)
+        out = []
+        for p in here:
+            bare = re.sub(r" (city|town|village|corporation)$", "", p["name"])
+            inside = re.search(r"^(.*?) \((.*?)\)$", bare)
+            if key and key in {letters(bare)} | ({letters(inside.group(1)), letters(inside.group(2))} if inside else set()):
+                out.append(p)
+        return out
+
+    hit = same(t)
+    if len(hit) == 1:
+        return hit[0], False
+    m = re.match(r"^([NSEW])\.? (.+)$", t)
+    if m and not hit:
+        hit = same({"N": "NORTH", "S": "SOUTH", "E": "EAST", "W": "WEST"}[m.group(1)] + " " + m.group(2))
+        if len(hit) == 1:
+            return hit[0], True
+    return None
+
+
+def school_districts(folder, geo, say):
+    """{county GEOID: (the district's Census GEOID, its name as the Census Bureau writes it)}: a West Virginia school
+    district is its county (W. Va. Code 18-1-1), and the Bureau's file names all 55."""
+    import shapefile                                   # pyshp
+    path = os.path.join(folder, "tl_2024_54_unsd.zip")
+    net.download(UNSD_URL, path, max_age_days=3650, tries=3, say=say)
+    z = zipfile.ZipFile(path)
+    base = next(n[:-4] for n in z.namelist() if n.endswith(".dbf"))
+    rdr = shapefile.Reader(dbf=io.BytesIO(z.read(base + ".dbf")))
+    fields = [f[0] for f in rdr.fields[1:]]
+    out = {}
+    for rec in rdr.iterRecords():
+        rec = dict(zip(fields, rec))
+        name = str(rec["NAME"]).strip()
+        m = re.fullmatch(r"(.+?)(?: County)? School District", name)
+        hit = geo.get(fold(m.group(1))) if m else None
+        if not hit or hit[0] in out:
+            raise SystemExit("West Virginia: a school district in the Census file is not one county's")
+        out[hit[0]] = (str(rec["GEOID"]), name)
+    if len(out) != 55:
+        raise SystemExit(f"West Virginia: the Census school district file gives {len(out)} districts, not 55")
+    return out, path
+
+
+def seat_note(rows, seats, official, shown):
+    """What a reader is told when the list shows more than one candidate of a party under one county commission
+    office: the office is filled several at a time (the primary's own "Vote For" number), or the list does not explain
+    it and the primary's result is given."""
+    many = crowded(rows)
+    seats = [s for s in seats if not s["district"]]
+    votes_for = {s["vote_for"] for s in seats}
+    if seats and len(votes_for) == 1 and min(votes_for) >= 2 and max(many.values()) <= min(votes_for):
+        n = min(votes_for)
+        return f"Voters choose {n}. The official results of the May 12 primary put this office to the voters as \"Vote For {n}\".", n
+    out = []
+    for party, k in sorted(many.items()):
+        mine = [s for s in seats if s["party"] == party]
+        said = f"The Secretary of State's list shows {count_word(k)} {proper(party)} candidates under this office"
+        if len(mine) != 1:
+            out.append(said + " and does not say whether more than one seat is on the ballot.")
+            continue
+        n, field = mine[0]["vote_for"], mine[0]["field"]
+        said += f", but the May 12 primary was for {count_word(n)} seat{'s' if n > 1 else ''} (the official results say \"Vote For {n}\")."
+        clear = official and (len(field) <= n or field[n - 1][1] > field[n][1])
+
+        def among(name, people):                      # the same letters, or the same family name and a given name that fits
+            return any(letters(name) == letters(p) or fits(name_parts(name), name_parts(p)) for p, _v in people)
+        facts = []
+        for r in rows:
+            if r["tab"] == "R" and r["party"] == party:
+                facts.append((0, f"{shown(r['name'])} won that primary") if clear and among(r["name"], field[:n]) else
+                             (1, f"{shown(r['name'])} ran in that primary") if among(r["name"], field) else
+                             (2, f"{shown(r['name'])} was not in it"))
+        out.append(f"{said} {'; '.join(text for _i, text in sorted(facts))}. The list does not say whether another seat, such as an "
+                   "unexpired term, is on the ballot.")
+    return " ".join(out), None
+
+
+def local_rows(folder, geo, version, shown, say):
+    """The local pass: county offices, county boards of education and town offices from the listing's county level.
+    Returns the rows for sl_races, sl_candidates, sl_places, sl_sources, sl_gaps and sl_notes, and what to report."""
+    races, cands, places, sources, gaps, notes, checks = {}, [], {}, [], [], [], []
+    stats = collections.Counter()
+    by_fips = {geoid: label for geoid, label in geo.values()}
+    calendar = (STATE, "local_calendar",
+                "On November 3, 2026 every West Virginia county elects a county commissioner, and voters fill any unexpired terms of county "
+                "clerk, circuit clerk, prosecuting attorney, sheriff, assessor, magistrate and county board of education; some cities and "
+                "towns elect their officers that day too. Full terms of sheriff, prosecuting attorney, assessor and surveyor are elected "
+                "in presidential years and both clerks every six years (all next in 2028), while magistrates (next in 2028), county boards "
+                "of education and conservation district supervisors are elected on the nonpartisan ballot at the May primary, held May 12 "
+                "this year. Other cities and towns voted with the May primary or vote on their own dates (the Secretary of State publishes "
+                "calendars for town elections on June 2 and June 9, 2026); state law has every one of them move to a statewide primary or "
+                "general election day by July 1, 2032.",
+                "W. Va. Code sections 3-1-17, 18-5-1b, 18-5-2, 19-21A-6, 3-1-31 and 8-5-5 (West Virginia Legislature); the Secretary of "
+                "State's 2026 municipal election calendars", CODE_URL)
+
+    def gap(scope, place_id, place, what, reason):
+        gaps.append((STATE, scope, place_id, place, what, reason, SITE))
+
+    def done(coverage):
+        notes.extend([calendar, (STATE, "local_coverage", coverage,
+                                 "West Virginia Secretary of State, 2026 General Candidate Listing (county-level offices)", SITE)])
+        return {"races": [], "cands": cands, "places": [], "sources": sources, "gaps": gaps, "notes": notes, "checks": checks, "stats": stats}
+
+    lst, lpath = local_list(folder, version, say) if geo else (None, None)
+    if lst is None:
+        why = ("The Secretary of State's candidate list did not give its county-level rows when this was loaded, so no county, school "
+               "board or town race could be read from it." if geo else
+               "The Census Bureau's county file was not on this machine when this was loaded, so the list's counties could not be coded.")
+        gap("state", STATE, NAME, "county, school board and town races", why)
+        return done("Nothing is loaded yet for county, school board or town races: " + why[0].lower() + why[1:])
+
+    rows = lst["rows"]
+    stats["rows in"] = sum(f["rows"] for f in lst["files"].values())
+    stats["entered twice"] = len(lst["entered_twice"])
+    towns = schools = ppath = spath = None
+    try:
+        towns, ppath = census_places(folder, say)
+    except (URLError, OSError) as e:
+        checks.append(f"the Census place list could not be fetched ({type(e).__name__}); town offices are left out")
+    try:
+        schools, spath = school_districts(folder, geo, say)
+    except (URLError, OSError, zipfile.BadZipFile) as e:
+        checks.append(f"the Census school district file could not be fetched ({type(e).__name__}); boards of education are left out")
+    results = {}
+
+    def primary(county):
+        """A county's own May primary results page, read once ("BERKELEY" and "Berkeley" are one county)."""
+        if fold(county) not in results:
+            results[fold(county)] = county_results(folder, county, version, say)
+        return results[fold(county)]
+
+    def race(rid, row, **fields):
+        if rid not in races:
+            races[rid] = dict(fields, race_id=rid, rows=[], labels=set())
+        elif any(races[rid][k] != v for k, v in fields.items()):
+            raise SystemExit(f"West Virginia: two different contests share the race key {rid}")
+        races[rid]["rows"].append(row)
+        races[rid]["labels"].add(office_of(row["race"])[1])
+        return races[rid]
+
+    # a county whose commission seats are named by district: a candidate the list gives no such district cannot be placed
+    split = {(r["county"], r["race"]) for r in rows if r.get("district")}
+    no_district = collections.Counter((r["county"], r["race"]) for r in rows if (r["county"], r["race"]) in split and not r.get("district"))
+    for county, _title in sorted(split):
+        primary(county)                                 # the page that named the seats is one of this load's sources
+
+    town_rows, unknown = collections.defaultdict(list), collections.Counter()
+    for r in rows:
+        if (r["county"], r["race"]) in split and not r.get("district"):
+            continue
+        base, unexp = office_of(r["race"])
+        hit = geo.get(fold(r["county"]))
+        if not hit:
+            raise SystemExit(f"West Virginia: row {r['row']} of the county-level list (tab {r['tab']}) names a county the Census file "
+                             "does not have; stopping (the row is not printed)")
+        fips, clabel = hit
+        seat = join(f"Division {r['division']}" if r["division"] else None, r["circuit"] or None)
+        if base in LOCAL_COUNTY:
+            kind, title, partisan = LOCAL_COUNTY[base]
+            district = r.get("district") or None
+            rid = "-".join(x for x in (f"2026-{STATE}-{fips}", slug(kind), slug(district), slug(seat), "S" if unexp else "") if x)
+            race(rid, r, level="county", office_kind=kind, office=title, jurisdiction=clabel, jurisdiction_id=fips, county_ids=[fips],
+                 district=district, seat=seat, special=1 if unexp else 0, partisan=partisan, base=base, county=r["county"])
+        elif base in LOCAL_SCHOOL:
+            if not schools:
+                stats["not placed: no school district list"] += 1
+                continue
+            kind, title = LOCAL_SCHOOL[base]
+            geoid, sname = schools[fips]
+            sid = f"{STATE}-S-{geoid}"
+            rid = "-".join(x for x in (f"2026-{sid}", slug(kind), slug(seat), "S") if x)
+            race(rid, r, level="school", office_kind=kind, office=title, jurisdiction=sname, jurisdiction_id=sid, county_ids=[fips],
+                 district=None, seat=seat, special=1, partisan=0, base=base, county=r["county"])
+            places[("school", sid)] = (sname, [fips], SRC_SCHOOLS)
+        elif base in LOCAL_TOWN:
+            town_rows[fips].append(r)
+        else:
+            unknown[base] += 1
+
+    # town offices: a county's are loaded only when every one of its town rows names its town
+    named_towns = {}
+    for fips, rs in sorted(town_rows.items()):
+        clabel = by_fips[fips]
+        hits = [town_of(r.get("town"), clabel, towns) if towns else None for r in rs]
+        offices = and_list(sorted({LOCAL_TOWN[office_of(r["race"])[0]][1].lower() for r in rs}))
+        if not all(hits):
+            found = sorted({h[0]["name"] for h in hits if h})
+            stats["not placed: town not named" if towns else "not placed: no list of towns"] += len(rs)
+            n = len(rs)
+            if not towns:
+                why = (f"The Secretary of State's list files {n} candidate{'s' if n != 1 else ''} for {offices} under {clabel}, but the Census "
+                       "Bureau's list of towns could not be fetched to place them.")
+            elif found:
+                why = (f"The Secretary of State's list files {n} candidates for {offices} under {clabel} but names the town for only "
+                       f"{sum(1 for h in hits if h)} of them ({and_list(found)}); the others carry a ward, a term or nothing where the town "
+                       "should be, so the list cannot say which town each is running in, and none of the county's town races is shown. "
+                       "The county's sample ballots will show them.")
+            else:
+                why = (f"The Secretary of State's list files {n} candidate{'s' if n != 1 else ''} for {offices} under {clabel} without "
+                       "naming the town for any of them, so it cannot say which town each is running in. The county's sample ballots "
+                       "will show them.")
+            gap("county", fips, clabel, "city and town races", why)
+            continue
+        for r, (place, spelled_out) in zip(rs, hits):
+            base, unexp = office_of(r["race"])
+            kind, title = LOCAL_TOWN[base]
+            pid = f"{STATE}-M-{place['fp']}"
+            cids = sorted({geo[fold(re.sub(r" County$", "", c))][0] for c in place["counties"]} | {fips})
+            seat = join(f"Division {r['division']}" if r["division"] else None, r["circuit"] or None)
+            rid = "-".join(x for x in (f"2026-{pid}", slug(kind), slug(seat), "S" if unexp else "") if x)
+            rc = race(rid, r, level="city", office_kind=kind, office=title, jurisdiction=place["name"], jurisdiction_id=pid, county_ids=cids,
+                      district=None, seat=seat, special=1 if unexp else 0, base=base)
+            if spelled_out:
+                rc["town_words"] = r["town"]
+            places[("mcd", pid)] = (place["name"], cids, SRC_PLACES)
+            named_towns[pid] = place["name"]
+
+    # counties with no commission candidate on the list
+    have = {rc["jurisdiction_id"] for rc in races.values() if rc["office_kind"] == "county_commissioner" and not rc["special"]}
+    for fips in sorted(set(by_fips) - have):
+        clabel = by_fips[fips]
+        got = primary(re.sub(r" County$", "", clabel))
+        ran = sorted({proper(s["party"]) for s in commission_seats(got[0]) if not s["unexpired"] and s["field"] and s["party"]}) if got else []
+        gap("county", fips, clabel, "county commissioner race",
+            "State law has every county elect a commissioner at each general election, "
+            + (f"and the official results of the May 12 primary show {and_list(ran)} candidates for the office in {clabel}, " if ran else "")
+            + f"but the Secretary of State's November list carries no candidate for County Commission {'there' if ran else 'in ' + clabel}, "
+              "so the race cannot be shown yet.")
+    for (county, title), n in sorted(no_district.items()):
+        hit = geo[fold(county)]
+        stats["not placed: no district"] += n
+        gap("race", f"2026-{STATE}-{hit[0]}-county-commissioner" + ("-S" if office_of(title)[1] else ""), hit[1],
+            f"{count_word(n)} candidate{'s' if n != 1 else ''} for county commissioner",
+            f"{hit[1]} elects its commissioners to seats named by district, and the Secretary of State's list gives no district that "
+            f"matches one for {count_word(n)} of its candidates, who cannot be placed in a race.")
+    if stats["not placed: no school district list"]:
+        n = stats["not placed: no school district list"]
+        gap("state", STATE, NAME, "county board of education races",
+            f"The Secretary of State's list files {n} candidate{'s' if n != 1 else ''} for county boards of education, but the Census "
+            "Bureau's list of school districts could not be fetched when this was loaded, so they could not be filed under their districts.")
+    for title, n in sorted(unknown.items()):
+        stats["not placed: office not known"] += n
+        gap("state", STATE, NAME, f"{title.lower()} races",
+            f"The Secretary of State's list files {n} candidate{'s' if n != 1 else ''} under the county-level office \"{title}\", "
+            "a title this loader has not been taught to read, so they are not shown.")
+        checks.append(f"an office title the local pass does not know: {title!r} ({n} rows)")
+
+    # the races, their notes and their candidates
+    race_rows = []
+    for rid, rc in sorted(races.items()):
+        listed = rc["rows"]
+        regular = [r for r in listed if r["tab"] == "R"]
+        if "partisan" not in rc:                        # a town office: as the list's own rows have it
+            flags = {r["party"] == "NON-PARTISAN" for r in regular} or {False}
+            rc["partisan"] = 0 if flags == {True} else 1
+            if len(flags) > 1:
+                checks.append(f"{rid}: the list gives some candidates a party and others none")
+        note = [f"The Secretary of State's list writes the town as \"{rc['town_words']}\"."] if rc.get("town_words") else []
+        if rc["level"] == "county" and rc["district"]:
+            note.append(f"{rc['jurisdiction']} elects its commissioners to seats named for its magisterial districts, as the official "
+                        "results of the May 12 primary title them; this is one of them.")
+        many = crowded(listed)
+        if many and rc["base"] == "COUNTY COMMISSION":
+            got = primary(rc["county"])
+            seats = [s for s in commission_seats(got[0]) if s["unexpired"] == bool(rc["special"])] if got else []
+            said, chosen = seat_note(listed, seats, bool(got) and got[1]["heading"] == "Official Results", shown)
+            note.append(said)
+            if not chosen:
+                checks.append(f"{rid}: more than one candidate of a party, and the May primary was not for that many seats; noted on the race")
+        elif many and rc["office_kind"] != "council":
+            note.append(" ".join(f"The Secretary of State's list shows {count_word(k)} {proper(p)} candidates under this office and does "
+                                 "not explain it." for p, k in sorted(many.items())))
+            checks.append(f"{rid}: more than one candidate of a party; noted on the race")
+        if rc["level"] == "school":
+            note += [NO_PARTY_PRINTED.format("County boards of education"),
+                     UNEXPIRED if rc["labels"] == {True} else BOARD_TERM if rc["labels"] == {False} else BOARD_BOTH, HOW_MANY]
+            if len(rc["labels"]) > 1:
+                checks.append(f"{rid}: the list titles the office \"unexpired\" for some candidates and not for others; kept as one race")
+        else:
+            if rc["special"]:
+                note.append(UNEXPIRED)
+            if rc["office_kind"] == "magistrate":
+                note.append(NO_PARTY_PRINTED.format("Magistrates"))
+                if not rc["seat"]:
+                    note.append(NO_DIVISION)
+            elif not rc["partisan"]:
+                note.append("The Secretary of State's list gives no party for this office.")
+            if rc["office_kind"] == "council":
+                note.append(HOW_MANY)
+        seen = set()
+        for r in listed:
+            name = shown(r["name"])
+            if name in seen:
+                stats["same name twice in a race, kept once"] += 1
+                checks.append(f"{rid}: one name is listed twice (the Regular and Write-In tabs, or two entries that differ); kept once")
+                continue
+            seen.add(name)
+            write_in = 1 if r["tab"] == "W" else 0
+            if not rc["partisan"]:
+                party, code = NONPARTISAN, "N"
+                if r["party"] not in ("NON-PARTISAN", ""):
+                    checks.append(f"{rid}: the list gives a party on a nonpartisan office; not shown")
+            elif write_in:
+                party, code = (proper(r["party"]) if r["party"] else "Write-in"), "W"
+            else:
+                party = proper(r["party"]) if r["party"] else "No party given"
+                code = party_code(party)
+                if r["party"] in ("", "NON-PARTISAN"):
+                    checks.append(f"{rid}: a candidate for a partisan office is listed without a party")
+            cands.append((rid, "general", GENERAL, name, party, code, None, 0, write_in, None, None, None, None,
+                          SRC_LOCAL_W if write_in else SRC_LOCAL, WRITE_IN if write_in else None))
+            stats["placed"] += 1
+        race_rows.append((rid, STATE, rc["level"], rc["office_kind"], rc["office"], rc["jurisdiction"], rc["jurisdiction_id"],
+                          json.dumps(rc["county_ids"]), rc["district"], rc["seat"], rc["special"], rc["partisan"], None, None, None,
+                          GENERAL, join(*note, CAPS, NO_ORDER)))
+
+    # what was read
+    f = lst["files"]
+    for sid, tab, label in ((SRC_LOCAL, "R", "Regular Candidates"), (SRC_LOCAL_W, "W", "Write-In Candidates")):
+        sources.append((sid, STATE, "official candidate list", "West Virginia Secretary of State",
+                        f"2026 General Candidate Listing: 11/03/2026 - GENERAL 2026, county-level offices, {label} (CSV export)",
+                        SITE, "", lst["fetched"], f[tab]["sha256"], f[tab]["rows"],
+                        "The listing's own CSV export (candidate-web-api/candidates/export under the listing's address, a POST with the page's "
+                        f"filters: the election, the office level {LOCAL_LEVEL} and the {label} tab). The fingerprint is of the file as it "
+                        "arrived; the file itself is not kept. Read, by their headings: Name (the name as printed on the ballot), Party, "
+                        "County, Race, District/Circuit, Division and Magisterial. Never read: Legal Name, City, State, Residence County, "
+                        "MailingAddress, Filing Date, CampaignPhoneNumber and Email. The Magisterial cell is kept only where it names a "
+                        "town office's place or the district a commission seat is named for; for any other candidate it is the magisterial "
+                        "district the candidate lives in, and it is dropped as the file is parsed. The list gives no ballot positions and "
+                        "has no status column (a candidate who withdrew is no longer listed)."
+                        + (f" Rows entered twice and kept once: {len(lst['entered_twice'])}." if tab == "R" and lst["entered_twice"] else "")))
+    if ppath:
+        sources.append((SRC_PLACES, STATE, "official place codes", "U.S. Census Bureau",
+                        "2020 place codes, West Virginia (st54_wv_place2020.txt)", PLACE_URL, "", day_of(ppath), sha_of(ppath), len(towns),
+                        "Names and codes of West Virginia's incorporated places and the counties each lies in: a town the candidate list "
+                        "names is matched to the one place of that name in its county. The file holds places only."))
+    if spath:
+        sources.append((SRC_SCHOOLS, STATE, "boundaries", "U.S. Census Bureau",
+                        "TIGER/Line 2024, unified school districts, West Virginia (tl_2024_54_unsd)", UNSD_URL, "", day_of(spath),
+                        sha_of(spath), len(schools),
+                        "Names and codes only: West Virginia's 55 school districts are its counties, and a county board of education's "
+                        "race is filed under the district as the Bureau names it."))
+    read_pages = [(c, got) for c, got in sorted(results.items()) if got]
+    if read_pages:
+        pages, pages_path = county_pages(folder, version)
+        sources.append((SRC_PAGES, STATE, "official results", "West Virginia Secretary of State",
+                        "2026 Primary Election (May 12, 2026): the results site's list of the counties' own pages", pages["url"], "",
+                        pages["fetched"], pages["sha256"], len(pages["counties"]),
+                        "The statewide results page's settings, read only for each county's election number on the same site."))
+    for county, (contests, meta, zpath) in read_pages:
+        sources.append((f"wv-sos-2026-primary-summary-{slug(county)}", STATE, "official results", "West Virginia Secretary of State",
+                        f"2026 Primary Election (May 12, 2026), {meta['county']} County: summary report (CSV)", meta["url"], "", day_of(zpath),
+                        sha_of(zpath), len(commission_seats(contests)),
+                        f"{meta['county']} County's own page of the Secretary's results site, headed \"{meta['heading']}\", version "
+                        f"{meta['version']}, last updated {meta['updated']}. Read only for the County Commissioner contests: how each was put "
+                        "to the voters (its title and \"Vote For\" number) and who won it, where the November list shows more than one "
+                        "candidate of a party or no candidate at all. No primary votes are stored from it."))
+
+    # the summary a reader gets
+    kinds = collections.Counter(r[2] for r in race_rows)
+    commission = [r for r in race_rows if r[3] == "county_commissioner" and not r[10]]
+    unexpired = sum(1 for r in race_rows if r[2] == "county" and r[10])
+    left = [g for g in gaps if g[1] == "county" and g[4] == "city and town races"]
+    n_left = stats["not placed: town not named"] + stats["not placed: no list of towns"]
+    missing = [g[3] for g in gaps if g[4] == "county commissioner race"]
+    coverage = (f"Loaded from the Secretary of State's 2026 General Candidate Listing at the county level: {len(commission)} county commission "
+                f"races in {len({r[6] for r in commission})} of the 55 counties, {unexpired} unexpired terms of county offices and magistrate, "
+                f"{kinds['school']} county board of education race{'s' if kinds['school'] != 1 else ''}"
+                + (f" and {kinds['city']} town races in {and_list(sorted(named_towns.values()))}" if kinds["city"] else "")
+                + f": {stats['placed']} candidates, {sum(1 for c in cands if c[8])} of them declared write-ins. Left out: "
+                + (f"{n_left} candidates for town offices that the list files under {and_list([g[3].replace(' County', '') for g in left])} "
+                   f"{'counties' if len(left) != 1 else 'County'} "
+                   + ("without naming the town; " if towns else "and that could not be placed in a town; ") if left else "")
+                + (f"the county commission race in {and_list(missing)}, where the list has no candidate; " if missing else "")
+                + "towns that are not on the Secretary's list at all; ballot questions and levies; and party committee seats. The list gives "
+                  "no ballot order and no longer lists anyone who withdrew, and the magisterial district that the ballot prints beside "
+                  "commission and school board candidates (it is where the candidate lives) is not shown.")
+    gap("state", STATE, NAME, "city and town races that are not on the Secretary of State's list",
+        "Cities and towns take their own candidate filings, and the Secretary of State's list carries town offices under "
+        + (f"only {count_word(len(town_rows))} {'counties' if len(town_rows) != 1 else 'county'}" if town_rows else "no county")
+        + ", so a town that votes on November 3 without appearing there is not here.")
+    out = done(coverage)
+    out["races"] = race_rows
+    out["places"] = [(kind, pid, name, json.dumps(cids), src) for (kind, pid), (name, cids, src) in sorted(places.items())
+                     if any(r[6] == pid for r in race_rows)]
+    out["lpath"] = lpath
+    return out
+
+
 # ---------------------------------------------------------------- load
 
 def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
@@ -670,19 +1458,30 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
                         "Used only to say who holds each seat today and to mark incumbents: names, parties, districts and start "
                         "dates. Not an official record."))
 
+    # the local pass: county offices, county boards of education and town offices (nothing above is changed by it)
+    local = local_rows(os.path.join(folder, "local"), geo, meta["version"], shown, say)
+    clash = {r[0] for r in local["races"]} & {r[0] for r in race_rows}
+    if clash:
+        raise SystemExit(f"West Virginia: a local race shares its key with a state race ({sorted(clash)[:3]})")
+
     con = sqlite3.connect(db_path)
     try:
         con.executescript(SCHEMA)
+        con.executescript(EXTRA_SCHEMA)
         with con:
             con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?) OR race_id LIKE ?",
                         (STATE, f"2026-{STATE}-%"))
             con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
             con.execute("DELETE FROM sl_places WHERE source_id LIKE 'wv-%'")
-            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows)
-            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-            con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources)
-            con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows)
+            con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+            con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+            con.executemany("INSERT INTO sl_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", race_rows + local["races"])
+            con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+            con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", sources + local["sources"])
+            con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", place_rows + local["places"])
+            con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+            con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     finally:
         con.close()
 
@@ -696,8 +1495,24 @@ def load(db_path, say=print, cache=CACHE, roster_path=ROSTER):
         say(f"      CHECK the {t} primary is tied at the top; no outcome stored")
     for x in leaders_off:
         say(f"      note: a primary leader not on the November listing: {x}")
+    st = local["stats"]
+    levels = collections.Counter(r[2] for r in local["races"])
+    left = {k[len("not placed: "):]: v for k, v in st.items() if k.startswith("not placed: ")}
+    say(f"    West Virginia local: {len(local['races'])} races ({', '.join(f'{k} {v}' for k, v in sorted(levels.items())) or 'none'}), "
+        f"{len(local['cands'])} candidates ({sum(1 for c in local['cands'] if c[8])} declared write-in), in "
+        f"{len({c for r in local['races'] for c in json.loads(r[7])})} of 55 counties; {len(local['gaps'])} gaps recorded")
+    say(f"      the list's county-level rows: {st['rows in']} read = {st['placed']} placed, each in one race"
+        + (f" + {st['entered twice']} entered twice" if st["entered twice"] else "")
+        + "".join(f" + {v} not placed ({k})" for k, v in sorted(left.items()))
+        + (f" + {st['same name twice in a race, kept once']} a second copy of a name" if st["same name twice in a race, kept once"] else ""))
+    if st["rows in"] != st["placed"] + st["entered twice"] + sum(left.values()) + st["same name twice in a race, kept once"]:
+        say("      CHECK the county-level rows read and the rows accounted for differ")
+    for c in local["checks"]:
+        say(f"      CHECK {c}")
     return {"races": len(races), "candidates": gen_rows, "by_kind": dict(by_kind), "fields": fields, "uncontested": uncontested,
-            "problems": problems, "ties": ties, "leaders_off": leaders_off, "read": read, "skipped": dict(skipped)}
+            "problems": problems, "ties": ties, "leaders_off": leaders_off, "read": read, "skipped": dict(skipped),
+            "local_races": len(local["races"]), "local_candidates": len(local["cands"]), "local_levels": dict(levels),
+            "local_gaps": len(local["gaps"]), "local_stats": dict(st), "local_checks": local["checks"]}
 
 
 if __name__ == "__main__":

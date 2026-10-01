@@ -46,6 +46,50 @@ race; everyone on the general list advanced from the primary (top two with ties)
 agrees between the results and both lists; county rows add up; the Senate seats on the list are exactly the 2022 seats
 and none of the 2024 ones, 49 in all; the House list has all 98 positions. Every mismatch is reported, never patched.
 
+County and local contests (John, 2026-09-30)
+--------------------------------------------
+The same GENERAL 2026 Candidate List carries every county, city and district office with a candidate on the November
+ballot, but the whole list does not say which county a row belongs to ("County", "Prosecuting Attorney"). So the list
+is read once more county by county, through its own county menu (the address ending &c=<two-digit code>, 39 counties),
+with the same reader and the same ten cells; a view that fits on one page shows no count, so its rows are counted. The
+kept cells of the rows that are neither the state's nor Congress's go to ballot_cache/wa/local/
+wa_2026_general_local_<all|code>.json, with each page's SHA-256; no page is kept. The whole list is the control: every
+county or local row on it must be on at least one county's view, and no view may carry a row it lacks (the two write a
+district in different capitals, so rows are compared without regard to capitals). A contest that reaches several
+counties (a superior court for three counties, a public utility district that crosses a county line, the King County
+district court's Southeast Electoral District, on Pierce County's list too) is one contest with every such county in
+county_ids.
+
+Each county types its own titles ("COUNTY COMMISSIONER #03", "Commissioner Dist. No. 3", "District 3"), so a contest is
+read by rules, never by position, and anything the rules cannot read is stored in the list's own words and reported:
+  - county offices (District Type Countywide, County, Commissioner, Council): level county, the county's FIPS code.
+    Assessor, auditor, clerk, coroner, prosecuting attorney, sheriff, treasurer, commissioner, council member, and two
+    charter offices (King's Director of Elections, Clallam's Director of Community Development). A commissioner's or
+    council member's number is kept as the list words it (District 3, No. 3). Where the list files the contest under
+    the county, the number is the seat (the whole county votes in November, RCW 36.32.050); where it files it under
+    the numbered district itself (King, Pierce, Clark, Spokane, Franklin, Yakima), it is the district, and the note
+    says so. A title that is only "District 3" (Jefferson) is read from the Secretary of State's November 2022 results
+    export for that county, which names the seat ("Jefferson Commissioner, District 3"); the note says so.
+  - judges: level court, with county_ids, as Minnesota's district judges are: superior_court (four unexpired terms),
+    district_court (a county's court, or the part of it the list names: King's electoral districts, Snohomish's four
+    courts) and municipal_court (Seattle, Tacoma). A county clerk titled "Clerk of Superior Court" is a county office.
+  - cities (City/Town, City Council): level city, named and keyed from the Census Bureau's 2020 place codes when the
+    list's name fits exactly one incorporated place ("Seattle city", WA-M-63000); otherwise the list's words and a key
+    of county code and name.
+  - other districts (Public Utility, Port, Fire): level other. The list gives no district numbers, and a district's
+    words differ by county ("PUD ALL", "Benton County PUD", "Public Utility District (ALL)"): the county's own name and
+    the words that only say the whole district votes are set aside (pud_name), and the name is followed by the county
+    or counties whose lists carry it: "Public Utility District No. 1 (Island and Snohomish counties)". The key is
+    WA-X-<county codes>-<name>. Nothing says which county a district that crosses a line belongs to, so none is named.
+A contest is partisan when its candidates show a party preference on the list (RCW 29A.04.110: county offices, unless a
+county's charter says otherwise); the list writes a preference short and in capitals (DEMOCRATIC), stored as a ballot
+words it ("Prefers Democratic Party") in ordinary capitals. Judges and district offices are "Nonpartisan office", N.
+Ballot order is the list's own; where a district's candidates are numbered across its contests no order is stored.
+Term Type "Unexpired" is special = 1; "Short & Full" and "Initial Full" are said in the note. Local primaries are not
+loaded. Local candidates are never matched to the roster: no holder, no incumbent mark, no link.
+Also written: sl_places (the 39 counties from the Census county file; each city and district a contest names),
+sl_gaps (what the list cannot show) and sl_notes (local_calendar, local_coverage).
+
 Privacy: only office, district, candidate name, party preference, ballot order, status and votes are read. No address,
 city, ZIP code, phone, website, e-mail, filing date or treasurer is read, printed, logged, cached or stored; no photos,
 ages, websites, biographies or money reach the database.
@@ -65,6 +109,7 @@ import sqlite3
 import sys
 import time
 import urllib.parse
+import zipfile
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -74,6 +119,7 @@ if HERE not in sys.path:
 
 import openpyxl  # noqa: E402
 
+from ballot.check_local import EXTRA_SCHEMA  # noqa: E402
 from ballot.common import CACHE, fold, name_parts  # noqa: E402
 from ballot.lists import wa as W  # noqa: E402
 from ballot.match import fits  # noqa: E402
@@ -97,6 +143,19 @@ KEEP = ("District Type", "District", "Race", "Term Type", "Term Length", "Name",
         "Ballot Order")
 SENATE_SEATS, DISTRICTS = 49, 49
 NONPARTISAN = "Nonpartisan office"
+VIEW_FILE = "wa_2026_general_local_{}.json"                    # in ballot_cache/wa/local/: "all", or a county's list code
+COUNTY_MENU = "ctl00$ContentPlaceHolder1$ddlCounty"
+FIPS = "53"
+COUNTY_ZIP = os.path.join(HERE, "states_cache", "census", "cb_2024_us_county_500k.zip")
+COUNTY_URL = "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip"
+PLACE_URL = "https://www2.census.gov/geo/docs/reference/codes2020/place/st53_wa_place2020.txt"
+PLACE_FILE = "census_st53_wa_place2020.txt"
+PAST_COUNTY_URL = "https://results.vote.wa.gov/results/20221108/export/20221108_{}.csv"
+PAST_COUNTY_FILE = "wa_2022_general_results_{}.csv"
+RCW = "https://app.leg.wa.gov/RCW/default.aspx?cite="
+SRC_ALL, SRC_VIEW = "wa-sos-2026-local-general-list-all", "wa-sos-2026-local-general-list-c{}"
+SRC_COUNTIES, SRC_PLACES, SRC_PAST_COUNTY = "wa-census-2024-counties", "wa-census-2020-places", "wa-sos-2022-general-results-{}"
+LOCAL_LEVELS = ("county", "soil_water", "city", "township", "school", "hospital", "other")
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_races (race_id TEXT PRIMARY KEY, state TEXT NOT NULL, level TEXT NOT NULL, office_kind TEXT NOT NULL,
@@ -255,6 +314,687 @@ def past_results(year, folder, say):
         if re.search(r"legislative district", race, re.I):
             out.append((race, r["Candidate"].strip(), int(r["Votes"] or 0)))
     return path, out
+
+
+# ------------------------------------------------------------------------------------- the local rows, county by county
+
+_REFUSED = []      # filled once the list's site refuses a request (403, 429) after its retries; it is then not asked again in this run
+
+
+def federal_row(r):
+    return r["District Type"].strip().upper() == "CONGRESSIONAL"
+
+
+def read_view(code, folder, say, max_age_days=2):
+    """The kept cells of the local rows of one view of the GENERAL 2026 Candidate List: the whole list (code "all") or one
+    county's (its two-digit code in the list's own county menu, the address ending &c=<code>). Every page is read through
+    the grid's own pager and the rows are counted against the grid's own "items" figure where it shows one (a view that
+    fits on one page shows none). Nothing of a page is kept but the kept cells of the rows that are neither the state's nor
+    Congress's, a count of those, and each page's SHA-256: ballot_cache/wa/local/wa_2026_general_local_<code>.json."""
+    path = os.path.join(folder, VIEW_FILE.format(code))
+    if fresh(path, max_age_days):
+        return json.load(open(path, encoding="utf-8"))
+    title = LISTS["general"][1]
+    if not _REFUSED:
+        try:
+            keep = fetch_view(code, say)
+        except (HTTPError, OSError) as e:
+            if isinstance(e, HTTPError) and e.code in (403, 429):
+                _REFUSED.append(e.code)                    # refused after its two more tries: the host is not asked again in this run
+            if not os.path.exists(path):
+                raise
+            say(f"      the {title} list ({code}) could not be read ({e}); using the copy read earlier")
+        else:
+            os.makedirs(folder, exist_ok=True)
+            tmp = path + ".part"
+            json.dump(keep, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+            os.replace(tmp, path)
+            time.sleep(2)
+            return keep
+    if os.path.exists(path):
+        if len(_REFUSED) == 1:
+            say("      the candidate list's site refused the reader; it is not asked again in this run, and the copies read earlier are used")
+            _REFUSED.append(0)                             # said once
+        return json.load(open(path, encoding="utf-8"))
+    raise SystemExit(f"Washington: the candidate list's site refused the reader earlier in this run, so it is not asked again; there is no "
+                     f"earlier copy of the {title} list ({code})")
+
+
+def fetch_view(code, say):
+    """One view of the GENERAL 2026 list, every page, cut down in memory to what read_view keeps."""
+    eid, title = LISTS["general"]
+    url = W.LIST_URL + eid + ("" if code == "all" else "&c=" + code)
+    raw = ask(url, say)
+    page = raw.decode("utf-8", "replace")
+    hashes = [hashlib.sha256(raw).hexdigest()]
+    if not re.search(rf"<title>\s*{title} Candidate List\s*</title>", page):
+        raise SystemExit(f"Washington: {url} is no longer the {title} Candidate List (a challenge page? nothing is read)")
+    menu = re.search(rf'<select[^>]*name="{re.escape(COUNTY_MENU)}"[^>]*>(.*?)</select>', page, re.S)
+    if not menu:
+        raise SystemExit(f"Washington: the {title} list no longer has its county menu")
+    options = {v: text(lbl) for v, lbl in re.findall(r'<option[^>]*value="([^"]*)"[^>]*>(.*?)</option>', menu.group(1), re.S)}
+    chosen = re.search(r'<option selected="selected" value="([^"]*)"', menu.group(1))
+    chosen = chosen.group(1) if chosen else ""
+    if chosen != ("" if code == "all" else code):
+        raise SystemExit(f"Washington: asked the {title} list for county code {code!r}; the page shows {chosen!r}")
+    m = re.search(r"<strong>(\d+)</strong>\s*items in\s*<strong>(\d+)</strong>", page)
+    items, pages = (int(m.group(1)), int(m.group(2))) if m else (None, 1)
+    if not m and re.search(r'class="rgPageNext"', page):
+        raise SystemExit(f"Washington: the {title} list ({code}) has a pager but no row count")
+    rows = list(grid_rows(page))
+    for n in range(2, pages + 1):
+        nxt = re.search(r'<input type="(submit|button)" name="([^"]+)" value=" " (?:onclick="javascript:__doPostBack\(&#39;([^&]+)&#39;,'
+                        r'&#39;&#39;\)" )?title="Next Page" class="rgPageNext" />', page)
+        if not nxt:
+            raise SystemExit(f"Washington: page {n - 1} of the {title} list ({code}) has no Next Page button")
+        fields = W.form(page)
+        if nxt.group(1) == "submit":
+            fields.update({"__EVENTTARGET": "", "__EVENTARGUMENT": "", nxt.group(2): " "})
+        elif nxt.group(3):
+            fields.update({"__EVENTTARGET": nxt.group(3), "__EVENTARGUMENT": ""})
+        else:
+            raise SystemExit(f"Washington: page {n - 1} of the {title} list ({code}) has a Next Page button that is not read")
+        time.sleep(2)
+        req = Request(url, data=urllib.parse.urlencode(fields).encode(), method="POST",
+                      headers={"User-Agent": net.UA, "Content-Type": "application/x-www-form-urlencoded", "Referer": url})
+        raw = ask(req, say)
+        page = raw.decode("utf-8", "replace")
+        hashes.append(hashlib.sha256(raw).hexdigest())
+        cur = re.search(r'class="rgCurrentPage"[^>]*><span>(\d+)</span>', page)
+        if not cur or int(cur.group(1)) != n:
+            raise SystemExit(f"Washington: asked for page {n} of the {title} list ({code}) and got {cur.group(1) if cur else 'no page'}")
+        rows += list(grid_rows(page))
+    if items is not None and len(rows) != items:
+        raise SystemExit(f"Washington: the {title} list ({code}) counts {items} rows; {len(rows)} were read")
+    if items is None and len(rows) > 100:
+        raise SystemExit(f"Washington: the {title} list ({code}) gave {len(rows)} rows on one page, more than a page holds")
+    kept = [r for r in rows if not state_row(r) and not federal_row(r)]
+    return {"code": code, "county": options.get(code) if code != "all" else None, "menu": options if code == "all" else None,
+            "title": title, "url": url, "read": dt.date.today().isoformat(), "items": len(rows), "counted": items is not None,
+            "pages": pages, "page_sha256": hashes, "rows": kept, "state_rows": sum(1 for r in rows if state_row(r)),
+            "federal_rows": sum(1 for r in rows if federal_row(r))}
+
+
+TOP_TWO_LOCAL = "Top-two primary: the party shown is each candidate's own stated preference."
+ORDER_ODD = "The list numbers this district's candidates across its contests, so no ballot position is given here."
+YEARS = {"1": "one year", "2": "two years", "3": "three years", "4": "four years", "5": "five years", "6": "six years"}
+SMALL_WORDS, KEPT_CAPITALS = {"OF", "AND", "THE", "FOR", "IN"}, {"PUD", "GOP", "II", "III", "IV"}
+
+# A county office's title on the list, lower case, once the county's name and the word "County" are taken off its front.
+COUNTY_OFFICES = {
+    "assessor": ("county_assessor", "County Assessor"),
+    "auditor": ("county_auditor", "County Auditor"),
+    "clerk": ("county_clerk", "County Clerk"),
+    "clerk of superior court": ("county_clerk", "County Clerk"),
+    "coroner": ("coroner", "County Coroner"),
+    "prosecuting attorney": ("county_attorney", "Prosecuting Attorney"),
+    "prosecutor": ("county_attorney", "Prosecuting Attorney"),
+    "sheriff": ("sheriff", "County Sheriff"),
+    "treasurer": ("county_treasurer", "County Treasurer"),
+    "director of elections": ("county_elections_director", "Director of Elections"),
+    "director of community development": ("county_community_development_director", "Director of Community Development"),
+}
+COUNTY_TYPES = ("COUNTYWIDE", "COUNTY", "COMMISSIONER", "COUNCIL")
+CITY_TYPES = ("CITY/TOWN", "CITY COUNCIL")
+# The District Type of a district that is not a county, a city or a court: level, office kind, office, place kind, id letter.
+DISTRICT_TYPES = {
+    "PUBLIC UTILITY": ("other", "utility_board", "Public Utility District Commissioner", "special", "X"),
+    "PORT": ("other", "port_board", "Port Commissioner", "special", "X"),
+    "FIRE": ("other", "fire_board", "Fire Commissioner", "special", "X"),
+    "SCHOOL": ("school", "school_board", "School Director", "school", "S"),
+    "HOSPITAL": ("hospital", "hospital_board", "Hospital District Commissioner", "hospital", "H"),
+}
+WHOLE_COURT = ("COUNTY", "DISTRICT COURT", "DISTRICT COURT JUDGE", "DISTRICT COURT JUDGES", "COURT DISTRICT")
+SEAT = re.compile(r"^(?P<res>residency\s+)?(?P<w>district|dist|position|postion|pos|department|dept)?\.?\s*(?:no\.?|#)?\s*0*"
+                  r"(?P<n>\d+|[A-Za-z](?![A-Za-z]))\s*(?P<rest>.*)$", re.I)
+SEAT_WORD = {"district": "District", "dist": "District", "position": "Position", "postion": "Position", "pos": "Position",
+             "department": "Department", "dept": "Department"}
+
+
+def squeeze(text):
+    return re.sub(r"\s+", " ", text or "").strip()
+
+
+def plain(text):
+    """The list's own words in ordinary capitals: a word typed all in capitals keeps one capital (PUD stays, small words go
+    lower); a word typed in mixed case is kept as typed."""
+    out = []
+    for i, word in enumerate(squeeze(text).split(" ")):
+        parts = []
+        for p in re.split(r"([-/])", word):
+            letters = re.sub(r"[^A-Za-z]", "", p)
+            if len(letters) >= 2 and letters.isupper() and letters not in KEPT_CAPITALS:
+                p = p.lower()
+                if not (letters in SMALL_WORDS and i):
+                    j = next(k for k, ch in enumerate(p) if ch.isalpha())
+                    p = p[:j] + p[j].upper() + p[j + 1:]
+            parts.append(p)
+        out.append("".join(parts))
+    return " ".join(out)
+
+
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-")
+
+
+def county_words(names):
+    """'King County'; 'King and Pierce counties'; 'Ferry, Pend Oreille and Stevens counties'."""
+    if len(names) == 1:
+        return f"{names[0]} County"
+    return f"{', '.join(names[:-1])} and {names[-1]} counties"
+
+
+def local_party(listed):
+    """The list writes a party preference short and in capitals (DEMOCRATIC, STATES NO PARTY PREFERENCE); it is stored the
+    way a ballot words it and the state rows already carry it: 'Prefers Democratic Party', 'States No Party Preference'."""
+    w = squeeze(listed)
+    if w.upper() in ("STATES NO PARTY PREFERENCE", "NO PARTY PREFERENCE"):
+        return "States No Party Preference"
+    return f"Prefers {plain(w)} Party"
+
+
+def designator(text):
+    """What tells one seat of an office from another, as the list words it, evened out: 'Dist. No. 3' -> ('District 3',
+    '3', ''); 'Pos. 2' -> ('Position 2', '2', ''); 'DEPARTMENT NO. 1' -> ('Department 1', '1', ''); '#03', 'No. 3', '(3)'
+    and '3' -> ('No. 3', '3', ''); 'Dist #B AL' -> ('District B', 'B', 'AL'); 'Full Time' -> ('Full Time', None, '').
+    Returns (seat words, its number or letter, any words left over)."""
+    t = squeeze(re.sub(r"[()]", " ", text or "")).strip(" ,;:-")
+    if not t:
+        return None, None, ""
+    m = SEAT.match(t)
+    if not m:
+        return plain(t), None, ""
+    n = m.group("n").upper()
+    label = ("Residency " if m.group("res") else "") + SEAT_WORD.get((m.group("w") or "").lower(), "No.")
+    if m.group("res") and not m.group("w"):
+        return plain(t), None, ""
+    return f"{label} {n}", n, m.group("rest").strip(" ,;:-")
+
+
+def strip_words(text, names, pattern):
+    """A contest title with the words that name its office (the pattern) and its place (the names) taken out."""
+    t = re.sub(pattern, " ", text, flags=re.I)
+    for n in names:
+        t = re.sub(rf"\b{re.escape(n)}\b", " ", t, flags=re.I)
+    return squeeze(t)
+
+
+def city_of(words):
+    """('Seattle', None) from 'City of Seattle'; ('Seattle', '5') from 'SEATTLE CITY COUNCIL DISTRICT 5'; else (None, None)."""
+    d = squeeze(words)
+    m = re.fullmatch(r"(?i)(?:the )?(?:city|town) of (.+)", d)
+    if m:
+        return m.group(1).strip(), None
+    m = re.fullmatch(r"(?i)(.+?) (?:city|town) council district (?:no\.? ?|# ?)?0*(\d+)", d)
+    if m:
+        return m.group(1).strip(), m.group(2)
+    return None, None
+
+
+def pud_name(words, counties):
+    """A public utility district as the list words it, evened out. The lists call the same kind of district 'PUD ALL',
+    'Benton County PUD', 'Public Utility District (ALL)', 'PUBLIC UTILITY DISTRICT NO. 1': the county's own name and the
+    words that only say the whole district votes (ALL, COUNTYWIDE, AT-LARGE) are set aside; a number written straight
+    after 'Public Utility District' is kept as 'No. n'. 'PUD DISTRICT 2' is kept as it is, because the list does not say
+    whether 2 is the district's number or a commissioner district inside it. Anything else is the list's own words."""
+    t = re.sub(r"[()]", " ", squeeze(words).upper())
+    t = re.sub(r"\bDISTRICT-AT-LARGE\b|\bAT[- ]LARGE\b|\bCOUNTYWIDE\b|\bALL\b", " ", t)
+    for c in counties:
+        t = re.sub(rf"\b{re.escape(c.upper())}\b", " ", t)
+    t = squeeze(re.sub(r"\bCOUNTY\b", " ", t))
+    if re.fullmatch(r"(?:PUD|PUBLIC UTILITY DIST(?:RICT)?)(?: DISTRICT)?", t):
+        return "Public Utility District"
+    m = re.fullmatch(r"PUBLIC UTILITY DIST(?:RICT)? (?:NO\. ?|# ?)?0*(\d+)", t) or re.fullmatch(r"PUD (?:NO\. ?|# ?)0*(\d+)", t)
+    if m:
+        return f"Public Utility District No. {m.group(1)}"
+    m = re.fullmatch(r"PUD DISTRICT (?:NO\. ?|# ?)?0*(\d+)", t)
+    if m:
+        return f"PUD District {m.group(1)}"
+    return plain(words)
+
+
+def term_note(term, length):
+    """(special, a sentence or None) for the list's Term Type and Term Length."""
+    years = YEARS.get(length)
+    if term == "Regular":
+        return 0, (f"A regular term of {years} on the list." if years and length not in ("4", "6") else None)
+    if term == "Short & Full":
+        return 0, "Short and full term: the winner also serves the rest of the current term."
+    if term == "Unexpired":
+        return 1, (f"For the rest of a term: {years} on the list." if years else "For the rest of a term.")
+    if term == "Initial Full":
+        return 0, "On the list as an \"Initial Full\" term" + (f" of {years}." if years else ".")
+    return 0, f"On the list as a \"{term}\" term."
+
+
+def county_table(path=COUNTY_ZIP):
+    """{folded county name: (five-digit code, 'Adams County')} for Washington's 39 counties, from the Census Bureau's
+    cartographic county file the kit already has (names and codes only)."""
+    import shapefile                                   # pyshp
+    z = zipfile.ZipFile(path)
+    base = next(n[:-4] for n in z.namelist() if n.endswith(".dbf"))
+    rdr = shapefile.Reader(dbf=io.BytesIO(z.read(base + ".dbf")))
+    fields = [f[0] for f in rdr.fields[1:]]
+    out = {}
+    for rec in rdr.iterRecords():
+        rec = dict(zip(fields, rec))
+        if str(rec.get("STATEFP")) == FIPS:
+            out[fold(str(rec["NAME"]))] = (str(rec["GEOID"]), str(rec["NAMELSAD"]))
+    if len(out) != 39:
+        raise SystemExit(f"Washington: the Census county file gives {len(out)} counties, not 39")
+    return out
+
+
+def census_places(folder, say):
+    """(path, {folded name without its kind word: [(place code, 'Seattle city')]}) for Washington's incorporated places,
+    from the Census Bureau's 2020 place codes file (places only, no people; cached whole)."""
+    path = os.path.join(folder, PLACE_FILE)
+    net.download(PLACE_URL, path, max_age_days=3650, say=say)
+    lines = open(path, encoding="utf-8", errors="replace").read().splitlines()
+    if not lines or lines[0].split("|")[:6] != ["STATE", "STATEFP", "PLACEFP", "PLACENS", "PLACENAME", "TYPE"]:
+        raise SystemExit(f"Washington: {PLACE_FILE} does not begin with the Census place codes heading; delete it and run again")
+    out = collections.defaultdict(list)
+    for line in lines[1:]:
+        f = line.split("|")
+        if len(f) >= 6 and f[1] == FIPS and f[5] == "INCORPORATED PLACE" and re.fullmatch(r"\d{5}", f[2]):
+            out[fold(re.sub(r"\s+(?:city|town)$", "", f[4]))].append((f[2], f[4]))
+    return path, out
+
+
+def past_office(county, n, folder, say):
+    """(path, address, title, rows in the file) of the one race in a county's November 2022 results export that names a
+    commissioner or council seat for district n, for a seat the 2026 list titles only 'District n'; title None when there
+    is not exactly one. The export holds race, candidate, party, votes, percentage and jurisdiction (no contact columns,
+    so it is cached whole); only the race titles are read."""
+    path = os.path.join(folder, PAST_COUNTY_FILE.format(slug(county)))
+    url = PAST_COUNTY_URL.format(county.replace(" ", ""))
+    try:
+        net.download(url, path, max_age_days=3650, tries=3, say=say)
+        raw = open(path, "rb").read()
+    except (HTTPError, OSError):
+        return None, url, None, 0
+    if raw.lstrip()[:1] == b"<":
+        return None, url, None, 0
+    reader = csv.DictReader(io.StringIO(raw.decode("utf-8-sig", "replace")))
+    if "Race" not in (reader.fieldnames or []):
+        return path, url, None, 0
+    races = [squeeze(r["Race"]) for r in reader]
+    hits = [t for t in sorted(set(races))
+            if re.fullmatch(rf"(?:{re.escape(county)} )?(?:County )?(?:Commissioner|Council(?:or| Member|member)?),? District (?:No\. ?)?0*{n}", t, re.I)]
+    return path, url, (hits[0] if len(hits) == 1 else None), len(races)
+
+
+def row_key(r):
+    """One candidacy, whatever capitals a view writes its district in (the same row shows 'Council' on one view and
+    'COUNCIL' on another)."""
+    return (squeeze(r["District Type"]).upper(), squeeze(r["District"]).upper(), squeeze(r["Race"]).casefold(), squeeze(r["Term Type"]),
+            squeeze(r["Term Length"]), squeeze(r["Name"]), squeeze(r["Party Preference"]).upper(), squeeze(r["Status"]),
+            squeeze(r["Ballot Order"]))
+
+
+def load_local(folder, say):
+    """The county and local contests of the GENERAL 2026 list, read county by county. Returns a dict: races (sl_races
+    rows as dicts), cands (sl_candidates rows), places, sources, gaps, notes (rows for those tables), report (lines for the
+    run) and a few counts."""
+    os.makedirs(folder, exist_ok=True)
+    ctable = county_table()
+    ppath, by_name = census_places(folder, say)
+    whole = read_view("all", folder, say)
+    menu = whole.get("menu") or {}
+    codes = {c: label for c, label in menu.items() if fold(label) in ctable}
+    others = sorted(label for c, label in menu.items() if c not in codes and label)
+    if len(codes) != 39 or len({fold(v) for v in codes.values()}) != 39 or others != ["State"]:
+        raise SystemExit("Washington: the list's county menu is no longer the 39 counties and 'State'; nothing is read")
+    views = {c: read_view(c, folder, say) for c in sorted(codes)}
+    fips = {c: ctable[fold(label)][0] for c, label in codes.items()}
+    lsad = {c: ctable[fold(label)][1] for c, label in codes.items()}
+    short = {c: re.sub(r"\s+County$", "", lsad[c]) for c in codes}
+    report, extra_src = [], {}
+
+    # ---- every county or local row of the whole list is on some county's view, and nothing else is
+    where, first = collections.defaultdict(list), collections.OrderedDict()
+    for c in sorted(views):
+        seen = set()
+        for r in views[c]["rows"]:
+            k = row_key(r)
+            if k in seen:
+                raise SystemExit(f"Washington: {lsad[c]}'s view of the list carries one candidacy twice ({squeeze(r['Race'])})")
+            seen.add(k)
+            where[k].append(c)
+            first.setdefault(k, r)
+    wk = collections.Counter(row_key(r) for r in whole["rows"])
+    lost = sorted({(k[1], k[2]) for k in wk if k not in where})
+    stray = sorted({(k[1], k[2]) for k in where if k not in wk})
+    control = not lost and not stray and all(v == 1 for v in wk.values())
+    if whole["items"] != len(whole["rows"]) + whole["state_rows"] + whole["federal_rows"]:
+        raise SystemExit("Washington: the whole list's rows do not add up to its own count")
+    if lost:
+        report.append(f"{sum(1 for k in wk if k not in where)} county or local rows of the whole list are on no county's view: {lost[:6]}")
+    if stray:
+        report.append(f"{sum(1 for k in where if k not in wk)} rows on a county's view are not on the whole list: {stray[:6]}")
+    if any(v > 1 for v in wk.values()):
+        report.append(f"{sum(1 for v in wk.values() if v > 1)} county or local rows are on the whole list twice")
+
+    contests = collections.OrderedDict()
+    for k, r in first.items():
+        contests.setdefault((tuple(where[k]),) + k[:5], []).append(r)
+
+    races, cands, places, unread, gone, gaps = collections.OrderedDict(), [], {}, [], [], []
+    placed = skipped = 0
+
+    def city_place(city, dwords, cs):
+        hits = by_name.get(fold(city), []) if city else []
+        if len(hits) == 1:
+            return hits[0][1], f"{STATE}-M-{hits[0][0]}", SRC_PLACES
+        # the name fits no one incorporated place on the Census Bureau's list: the list's own words, keyed by county and name
+        report.append(f"a city or town on the list fits no one place on the Census Bureau's list ({plain(dwords)}); named in the list's own words")
+        return (f"{plain(dwords)} ({county_words([short[c] for c in cs])})", f"{STATE}-M-{'-'.join(fips[c][2:] for c in cs)}-{slug(plain(dwords))}",
+                SRC_ALL)
+
+    def classify(dtype, dwords, race, cs):
+        """One contest's office and place from the list's District Type, District and Race, or None when it cannot be told."""
+        names, c3 = [short[c] for c in cs], [fips[c][2:] for c in cs]
+        d_up = dwords.upper()
+        x = dict(district=None, seat=None, notes=[], pkind=None, psrc=SRC_ALL)
+
+        def seat_of(rest):
+            words, n, left = designator(rest)
+            if left:
+                x["notes"].append(f"The list titles this contest \"{race}\".")
+            return words, n
+
+        # ---- judges: superior, district and municipal courts (a county clerk can be titled "Clerk of Superior Court")
+        if dtype in ("JUDICIAL", "DISTRICT COURT") or (re.search(r"\b(?:district|municipal|superior) court\b", race, re.I)
+                                                       and not re.search(r"\bclerk\b", race, re.I)):
+            if re.search(r"\bmunicipal court\b", race, re.I):
+                city, _sub = city_of(dwords)
+                jname, jid, x["psrc"] = city_place(city, dwords, cs)
+                seat, _n = seat_of(strip_words(race, [city] if city else [], r"\bmunicipal\s+court\b|\bjudges?\b"))
+                x.update(level="court", kind="municipal_court", office="Municipal Court Judge", jname=jname, jid=jid, pkind="mcd", seat=seat)
+                return x
+            if re.search(r"\bsuperior court\b", dwords + " " + race, re.I):
+                named = sorted(fold(n) for n in re.split(r",|\band\b", re.sub(r"(?i)\s*superior court.*$", "", dwords)) if n.strip())
+                if named != sorted(fold(n) for n in names):
+                    report.append(f"{plain(dwords)}: the counties it names are not the counties whose views carry it ({', '.join(names)})")
+                seat, _n = seat_of(strip_words(race, names, r"\bsuperior\s+court\b|\bjudges?\b|\bcounty\b"))
+                x.update(level="court", kind="superior_court", office="Superior Court Judge", jname=plain(dwords), jid="SUP-" + "-".join(c3), seat=seat)
+                return x
+            if dtype == "DISTRICT COURT" or re.search(r"\bdistrict court\b", dwords + " " + race, re.I):
+                if len(cs) == 1 and d_up in WHOLE_COURT + (lsad[cs[0]].upper(),):
+                    jname, jid = f"{lsad[cs[0]]} District Court", f"DC-{c3[0]}"
+                else:                                                            # a part of a county's court, in the list's own words
+                    part = re.sub(r"^Court\s*-\s*", "District Court, ", plain(dwords))      # 'Court - North District'
+                    jname, jid = f"{part} ({county_words(names)})", "DC-" + "-".join(c3) + "-" + slug(plain(dwords))
+                rest = strip_words(race, names, r"\bdistrict\s+court\b|\bjudges?\b|\bcounty\b")
+                own = {w.casefold() for w in re.findall(r"[A-Za-z]+", dwords)}      # words that only repeat the district's name
+                rest = " ".join(w for w in rest.split() if not re.sub(r"[^A-Za-z]", "", w) or re.sub(r"[^A-Za-z]", "", w).casefold() not in own)
+                seat, n = seat_of(rest)
+                tail = re.search(r"(\d+)\s*$", dwords)
+                if seat and n and tail and tail.group(1).lstrip("0") == n and seat == f"No. {n}":
+                    seat = None                                                  # 'Judge - District Court 1' of 'District Court 1'
+                x.update(level="court", kind="district_court", office="District Court Judge", jname=jname, jid=jid, seat=seat)
+                return x
+            unread.append((dtype, dwords, race))
+            x.update(level="court", kind="other", office=plain(race), jname=f"{plain(dwords)} ({county_words(names)})",
+                     jid="CT-" + "-".join(c3) + "-" + slug(plain(dwords)))
+            return x
+
+        # ---- county offices
+        if dtype in COUNTY_TYPES:
+            if len(cs) != 1:
+                return None
+            c = cs[0]
+            x.update(level="county", jname=lsad[c], jid=fips[c], pkind="county", psrc=SRC_COUNTIES)
+            core = squeeze(re.sub(r"^county\s+", "", re.sub(rf"^{re.escape(short[c])}\s+", "", re.sub(r"^metropolitan\s+", "", race, flags=re.I),
+                                                              flags=re.I), flags=re.I))
+            whole_county = d_up in ("COUNTY", lsad[c].upper()) or "ALL COUNTY" in d_up
+            if core.casefold() in COUNTY_OFFICES:
+                x["kind"], x["office"] = COUNTY_OFFICES[core.casefold()]
+                if not whole_county:
+                    x["notes"].append(f"The list files this contest under \"{plain(dwords)}\".")
+                    report.append(f"{lsad[c]}: {x['office']} is filed under {plain(dwords)!r}, not the county")
+                return x
+            m = re.match(r"(?i)commissioner\b(.*)$", core)
+            m2 = re.match(r"(?i)council(?:or|member|\s+member)?\b(.*)$", core)
+            m3 = re.fullmatch(r"(?i)district\s+(?:no\.?\s*|#\s*)?0*(\d+)", core)
+            if m:
+                x["kind"], x["office"], rest = "county_commissioner", "County Commissioner", m.group(1)
+            elif m2:
+                x["kind"], rest = "county_council", m2.group(1)
+                x["office"] = "County Councilor" if re.match(r"(?i)councilor", core) else "County Council Member"
+            elif m3:
+                path, url, title, n_rows = past_office(short[c], m3.group(1), folder, say)
+                if not title:
+                    unread.append((dtype, dwords, race))
+                    x.update(kind="other", office=plain(race))
+                    return x
+                council = bool(re.search(r"(?i)council", title))
+                x["kind"], x["office"] = ("county_council", "County Council Member") if council else ("county_commissioner", "County Commissioner")
+                x["notes"].append(f"The list titles this contest only \"{race}\"; the Secretary of State's November 2022 results call the "
+                                  f"seat \"{title}\".")
+                extra_src[SRC_PAST_COUNTY.format(slug(short[c]))] = (path, url, short[c], n_rows)
+                rest = core
+            else:
+                unread.append((dtype, dwords, race))
+                x.update(kind="other", office=plain(race))
+                return x
+            words, n = seat_of(rest)
+            tail = re.search(r"(\d+)\s*$", d_up)
+            if whole_county:
+                x["seat"] = words
+            elif n and tail and tail.group(1).lstrip("0") == n and re.search(r"\bDISTRICT\b", d_up):
+                x["district"] = n
+                x["notes"].append(f"Filed on the list under {plain(dwords)}, not the county as a whole.")
+            else:
+                x["seat"] = words
+                x["notes"].append(f"The list files this contest under \"{plain(dwords)}\".")
+                report.append(f"{lsad[c]}: {x['office']} {words or ''} is filed under {plain(dwords)!r}; who votes on it is not read from that")
+            return x
+
+        # ---- city and town offices
+        if dtype in CITY_TYPES or dtype.startswith(("CITY", "TOWN")):
+            city, sub = city_of(dwords)
+            jname, jid, x["psrc"] = city_place(city, dwords, cs)
+            x.update(level="city", jname=jname, jid=jid, pkind="mcd")
+            core = strip_words(race, [city] if city else [], r"^\s*city\b")
+            m = re.match(r"(?i)council(?:or|member|\s+member)?\b(.*)$", core)
+            if core.casefold() == "mayor":
+                x.update(kind="mayor", office="Mayor")
+            elif m:
+                x.update(kind="council", office="Council Member")
+                words, n = seat_of(m.group(1))
+                if sub and n == sub:
+                    x["district"] = n
+                    x["notes"].append(f"Filed on the list under {plain(dwords)}, not the city as a whole.")
+                else:
+                    x["seat"] = words
+            else:
+                unread.append((dtype, dwords, race))
+                x.update(kind="other", office=plain(race))
+            return x
+
+        # ---- every other district: public utility, port, fire (school and hospital districts vote in odd years)
+        known = next((v for k, v in DISTRICT_TYPES.items() if dtype.startswith(k)), None)
+        base = pud_name(dwords, names) if dtype == "PUBLIC UTILITY" else plain(dwords)
+        level, kind, office, pkind, letter = known or ("other", "other", plain(race), "special", "X")
+        x.update(level=level, kind=kind, office=office, pkind=pkind, jname=f"{base} ({county_words(names)})",
+                 jid=f"{STATE}-{letter}-{'-'.join(c3)}-{slug(base)}")
+        m = re.search(r"(?i)\b(?:commissioner|comm|director)\b\.?(?!.*\b(?:commissioner|comm|director)\b)(.*)$", race)
+        if known and m:
+            x["seat"], _n = seat_of(m.group(1))
+        else:
+            unread.append((dtype, dwords, race))
+            if known:
+                x["seat"] = plain(race)
+        return x
+
+    for (cs, dtype, _dup, _rf, term, length), rows in contests.items():
+        forms = collections.Counter(squeeze(r["District"]) for r in rows)
+        dwords = max(forms, key=lambda s: (s != s.upper(), forms[s], s))
+        race = squeeze(rows[0]["Race"])
+        active = [r for r in rows if r["Status"] == "Active"]
+        x = classify(dtype, dwords, race, cs)
+        if x is None:
+            gaps.append((STATE, "race", f"{'-'.join(fips[c] for c in cs)}-{slug(race)}", county_words([short[c] for c in cs]), f"{plain(race)}",
+                         f"The Secretary of State's list files this county office under {len(cs)} counties at once, so which county's "
+                         "office it is cannot be told from the list.", views[cs[0]]["url"]))
+            report.append(f"a county office listed by {len(cs)} counties was not loaded: {race}")
+            skipped += len(rows)
+            continue
+        for r in rows:
+            if r["Status"] == "Withdrawn":
+                gone.append((race, cs))
+            elif r["Status"] != "Active":
+                raise SystemExit(f"Washington: a status on the general list that is not read ({r['Status']!r}, {race}, {lsad[cs[0]]})")
+        special, tnote = term_note(term, length)
+        notes = list(x["notes"])
+        if len(cs) > 1:
+            notes.append(f"On the county lists of {county_words([short[c] for c in cs]).replace(' counties', '')}.")
+        if tnote:
+            notes.append(tnote)
+        prefs = [bool(squeeze(r["Party Preference"])) for r in (active or rows)]
+        partisan = int(any(prefs))
+        if x["level"] == "court" and partisan:
+            report.append(f"{x['jname']}: a judge's contest shows a party preference on the list; it is stored as a nonpartisan office")
+            partisan = 0
+        elif partisan and not all(prefs):
+            report.append(f"{x['jname']}, {x['office']}: some candidates show a party preference and some do not")
+        orders = [squeeze(r["Ballot Order"]) for r in active]
+        ordered = all(o.isdigit() for o in orders) and sorted(int(o) for o in orders) == list(range(1, len(orders) + 1))
+        if active and not ordered:
+            notes.append(ORDER_ODD)
+        if not active:
+            notes.append(f"Nobody is on the list for this office: the {len(rows)} who filed withdrew.")
+        if partisan:
+            notes.append(TOP_TWO_LOCAL)
+        kslug = x["kind"].replace("_", "-") + (f"-{slug(x['office'])}" if x["kind"] == "other" else "")
+        core = x["jid"] if x["jid"].startswith(("DC-", "SUP-")) else f"{x['jid']}-{kslug}" if x["level"] == "county" else \
+            f"{x['jid'][len(STATE) + 1:] if x['jid'].startswith(STATE + '-') else x['jid']}-{kslug}"
+        rid = (f"2026-{STATE}-{core}" + (f"-{slug(x['district'])}" if x["district"] else "") + (f"-{slug(x['seat'])}" if x["seat"] else "")
+               + ("-S" if special else ""))
+        if rid in races or not re.fullmatch(rf"2026-{STATE}-[A-Za-z0-9-]+", rid):
+            raise SystemExit(f"Washington: two contests on the list come to one race id, or the id is not well formed ({rid})")
+        fl = sorted(fips[c] for c in cs)
+        races[rid] = dict(race_id=rid, state=STATE, level=x["level"], office_kind=x["kind"], office=x["office"], jurisdiction=x["jname"],
+                          jurisdiction_id=x["jid"], county_ids=json.dumps(fl), district=x["district"], seat=x["seat"], special=special,
+                          partisan=partisan, holder_id=None, holder_name=None, holder_party=None, election_date=GENERAL,
+                          note=" ".join(notes) or None)
+        if x["pkind"] and x["pkind"] != "county":
+            p = places.setdefault((x["pkind"], x["jid"]), [x["jname"], set(), x["psrc"]])
+            p[1].update(fl)
+        seen = set()
+        for r in sorted(active, key=lambda r: (int(r["Ballot Order"]) if squeeze(r["Ballot Order"]).isdigit() else 0)):
+            name = squeeze(r["Name"])
+            if not name or name in seen:
+                raise SystemExit(f"Washington: a candidate with no name, or one name twice, in {rid}")
+            seen.add(name)
+            if partisan:
+                party = local_party(r["Party Preference"]) if squeeze(r["Party Preference"]) else "No party preference on the list"
+                pcode = code(party)
+            else:
+                party, pcode = NONPARTISAN, "N"
+            cands.append([rid, "general", GENERAL, name, party, pcode, int(r["Ballot Order"]) if ordered else None, 0, 0, None, None, None,
+                          None, SRC_VIEW.format(cs[0]), None])
+            placed += 1
+
+    for t in sorted(set(unread)):
+        report.append(f"a title on the list that is not read, stored in the list's own words: {t}")
+    with_pa = {json.loads(r["county_ids"])[0] for r in races.values() if r["office_kind"] == "county_attorney"}
+    if len(with_pa) != 39:
+        report.append(f"{39 - len(with_pa)} counties show no prosecuting attorney contest on the list")
+    total_rows = len(first)
+    if placed + len(gone) + skipped != total_rows:
+        raise SystemExit(f"Washington: {total_rows} county and local rows on the county views, but {placed} placed, {len(gone)} withdrawn "
+                         f"and {skipped} not loaded")
+
+    # ---- places: every county, and each city or district a contest names
+    place_rows = [("county", fips[c], lsad[c], json.dumps([fips[c]]), SRC_COUNTIES) for c in sorted(codes, key=lambda c: fips[c])]
+    place_rows += [(kind, pid, name, json.dumps(sorted(cset)), src) for (kind, pid), (name, cset, src) in sorted(places.items())]
+
+    # ---- sources: one row for the whole list, one for each county's view, and the place lists
+    cols = ("District Type, District, Race, Term Type, Term Length, Name, Party Preference, Status, Election Status and Ballot Order")
+    view_sha = lambda v: v["page_sha256"][0] if len(v["page_sha256"]) == 1 else hashlib.sha256("".join(v["page_sha256"]).encode()).hexdigest()
+    sources = [(SRC_ALL, STATE, "official candidate list", "Washington Secretary of State",
+                "GENERAL 2026 Candidate List (November 3, 2026), all counties: county and local offices", whole["url"], "", whole["read"],
+                view_sha(whole), len(whole["rows"]),
+                f"The whole list, every page read through the grid's own pager ({whole['items']} rows on {whole['pages']} pages; the count "
+                f"matched): {len(whole['rows'])} rows for county and local offices, {whole['state_rows']} for the Legislature and the appellate "
+                f"courts and {whole['federal_rows']} for Congress, which are read elsewhere. It is the control for the 39 county views, which "
+                "say which county a row belongs to: every county or local row here is on at least one county's view, and no view carries a "
+                f"row this list lacks{'' if control else ' (this did not hold on this run; see the run log)'}. Only {cols} were read; the "
+                "mailing address, e-mail, phone and filing date columns were never read and the pages were not kept. The list writes a party "
+                "preference short and in capitals (DEMOCRATIC); it is shown as a ballot words it (Prefers Democratic Party), in ordinary "
+                f"capitals. Ballot order as the list gives it. Withdrawn, left off: {len(gone)}. The sha256 here is of the pages' own hashes "
+                "joined.")]
+    for c in sorted(codes):
+        v = views[c]
+        sources.append((SRC_VIEW.format(c), STATE, "official candidate list", "Washington Secretary of State",
+                        f"GENERAL 2026 Candidate List (November 3, 2026), {lsad[c]}'s view: county and local offices", v["url"], "", v["read"],
+                        view_sha(v), len(v["rows"]),
+                        f"{lsad[c]}'s own view of the list (the address ending &c={c}): {v['items']} rows on {v['pages']} page"
+                        f"{'s' if v['pages'] > 1 else ''} ({'the grid counts them' if v['counted'] else 'a single page shows no count, so the rows were counted'}), "
+                        f"{len(v['rows'])} of them for county and local offices. Only {cols} were read; the mailing address, e-mail, phone and "
+                        "filing date columns were never read and the page was not kept."
+                        + (" The sha256 here is of the pages' own hashes joined." if len(v["page_sha256"]) > 1 else "")))
+    sources.append((SRC_COUNTIES, STATE, "official boundaries", "U.S. Census Bureau",
+                    "Cartographic boundary file, counties, 2024, 1:500,000 (cb_2024_us_county_500k)", COUNTY_URL, "", mtime(COUNTY_ZIP),
+                    sha(COUNTY_ZIP), 39, "Washington's 39 counties: names and five-digit codes only."))
+    sources.append((SRC_PLACES, STATE, "official place codes", "U.S. Census Bureau", "2020 place codes, Washington (st53_wa_place2020.txt)",
+                    PLACE_URL, "", mtime(ppath), sha(ppath), sum(len(v) for v in by_name.values()),
+                    "Names and codes of Washington's incorporated cities and towns. A city on the candidate list takes the Census Bureau's "
+                    "name and code only when its name fits exactly one place."))
+    for sid, (path, url, county, n_rows) in sorted(extra_src.items()):
+        sources.append((sid, STATE, "official results", "Washington Secretary of State",
+                        f"November 8, 2022 General Election results, {county} County export", url, "", mtime(path), sha(path), n_rows,
+                        "Race titles only were read, to learn which office the 2026 list titles with a district number alone. The file "
+                        "holds race, candidate, party, votes, percentage and jurisdiction; it has no contact columns."))
+
+    # ---- what is not here, and the calendar
+    list_url = whole["url"]
+    gaps += [
+        (STATE, "state", STATE, "Washington", "write-in candidates for county and local offices",
+         "The Secretary of State's candidate list names only the candidates printed on the ballot. A write-in candidate declares with the "
+         "county auditor and is not on this list.", list_url),
+        (STATE, "state", STATE, "Washington", "offices nobody filed for",
+         "The Secretary of State's list is a list of candidates, so an office that nobody filed for does not appear on it. The county "
+         "auditor's sample ballot is the authority for such an office.", list_url)]
+    by_kind = collections.Counter(r["office_kind"] for r in races.values())
+    by_level = collections.Counter(r["level"] for r in races.values())
+    judges = by_kind["superior_court"] + by_kind["district_court"] + by_kind["municipal_court"]
+    courts_of = sorted({re.sub(r"\s+(?:city|town)$", "", r["jurisdiction"]) for r in races.values() if r["office_kind"] == "municipal_court"})
+    few = [f"{by_level['city']} city council seats" if by_level["city"] else "",
+           f"{by_kind['port_board'] + by_kind['fire_board']} port and fire district seats" if by_kind["port_board"] + by_kind["fire_board"] else "",
+           f"the municipal court judges of {' and '.join(courts_of)}" if courts_of else ""]
+    few = [w for w in few if w]
+    note_rows = [
+        (STATE, "local_calendar",
+         "On November 3, 2026 Washington elects county officers (assessor, auditor, clerk, coroner, prosecuting attorney, sheriff, "
+         "treasurer, and commissioner or council seats), district court judges and public utility district commissioners"
+         + (f", and fills {by_kind['superior_court']} unexpired superior court terms" if by_kind["superior_court"] else "")
+         + "; a county office carries party preferences unless the county's charter makes it nonpartisan. Cities, towns, school "
+         "districts and most other districts (fire, port, hospital, water, park) elect their officers in November of odd-numbered "
+         "years, next in 2027"
+         + (f", so only a few of their seats are on this ballot: {', '.join(few[:-1]) + ' and ' + few[-1] if len(few) > 1 else few[0]}"
+            if few else "")
+         + ". Conservation districts hold their elections at times set by their own law, and a county charter may put county "
+         "elections in odd-numbered years.",
+         "Revised Code of Washington 29A.04.321 and 29A.04.330 (when state, county, city and district elections are held), 29A.04.110 "
+         "(partisan offices), 36.16.030 (elective county officers), 3.34.050 (district judges) and 35.20.150 (Seattle's municipal "
+         "judges); the Secretary of State's GENERAL 2026 Candidate List for what is on this ballot",
+         RCW + "29A.04.330"),
+        (STATE, "local_coverage",
+         "Loaded: every contest for a county, city or district office with a candidate on the Secretary of State's GENERAL 2026 Candidate "
+         f"List, read county by county for all 39 counties: {by_level['county']} contests for county offices, {judges} for superior, "
+         f"district and municipal court judges (shown with the judges), {by_kind['utility_board']} for public utility district "
+         f"commissioners and {by_level['city'] + by_level['other'] - by_kind['utility_board']} for city council, port and fire district "
+         f"seats, {placed} candidates in all. Not loaded: ballot measures, levies and other questions, which the candidate list does not "
+         "carry; write-in candidates; any office nobody filed for; and the local primaries of August 4. A district is named in the "
+         "list's own words with the county or counties whose lists carry it, because the list gives no district numbers.",
+         "Washington Secretary of State, GENERAL 2026 Candidate List", list_url)]
+    return dict(races=races, cands=cands, places=place_rows, sources=sources, gaps=gaps, notes=note_rows, report=report, placed=placed,
+                rows=total_rows, whole=len(whole["rows"]), gone=len(gone), skipped=skipped, control=control, items=whole["items"],
+                state_rows=whole["state_rows"], federal_rows=whole["federal_rows"],
+                county_rows=sum(len(v["rows"]) for v in views.values()))
 
 
 # ---------------------------------------------------------------------------------------------------------- the races
@@ -435,6 +1175,7 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER):
     results, counties, unreconciled = primary_results(book)
     past = {y: past_results(y, folder, say) for y in PAST}
     legs = roster(roster_db)
+    local = load_local(os.path.join(folder, "local"), say)      # county and local contests; the state rows below never see them
 
     # ---- the races and the November ballot, from the general list
     races, listed, gone = {}, collections.defaultdict(list), []
@@ -754,16 +1495,27 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER):
             src.append((SCAN_SRC[fsid], STATE, "official certification", "Washington Secretary of State", title, url, "", mtime(path), sha(path), 0,
                         f"Posted on {W.SOS_PAGE}. A scanned image with no text layer (the federal loader's copy): fingerprinted here, not read."))
 
+    clash = sorted(set(races) & set(local["races"]))
+    if clash:
+        raise SystemExit(f"Washington: a local contest and a state race share a race id ({clash[:3]})")
+    local_rows = [tuple(r[c] for c in cols) for r in local["races"].values()]
+
     con = sqlite3.connect(db_path)
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EXTRA_SCHEMA)
     with con:
         con.execute("DELETE FROM sl_candidates WHERE race_id IN (SELECT race_id FROM sl_races WHERE state = ?)", (STATE,))
         con.execute("DELETE FROM sl_candidates WHERE race_id LIKE ?", (f"2026-{STATE}-%",))
         con.execute("DELETE FROM sl_races WHERE state = ?", (STATE,))
         con.execute("DELETE FROM sl_sources WHERE state = ?", (STATE,))
-        con.executemany(f"INSERT INTO sl_races VALUES ({','.join('?' * len(cols))})", race_rows)
-        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands)
-        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
+        con.execute("DELETE FROM sl_places WHERE source_id LIKE ?", (STATE.lower() + "-%",))
+        con.execute("DELETE FROM sl_gaps WHERE state = ?", (STATE,))
+        con.execute("DELETE FROM sl_notes WHERE state = ?", (STATE,))
+        con.executemany(f"INSERT INTO sl_races VALUES ({','.join('?' * len(cols))})", race_rows + local_rows)
+        con.executemany("INSERT INTO sl_candidates VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", cands + local["cands"])
+        con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src + local["sources"])
+        con.executemany("INSERT INTO sl_places VALUES (?,?,?,?,?)", local["places"])
+        con.executemany("INSERT INTO sl_gaps VALUES (?,?,?,?,?,?,?)", local["gaps"])
+        con.executemany("INSERT INTO sl_notes VALUES (?,?,?,?,?)", local["notes"])
     con.close()
 
     gen_rows = [c for c in cands if c[1] == "general"]
@@ -781,7 +1533,25 @@ def load(db_path, say=print, cache=CACHE, roster_db=ROSTER):
             say(f"      matched elsewhere: {c[0]} {c[1]}: {c[3]} -> {c[12]}")
     for line in report:
         say(f"      check: {line}")
-    return len(gen_rows)
+
+    lr = local["races"].values()
+    lv = collections.Counter(r["level"] for r in lr)
+    kinds = collections.Counter(r["office_kind"] for r in lr)
+    per = collections.Counter(local["races"][c[0]]["level"] for c in local["cands"])
+    reached = {f for r in lr if r["level"] in LOCAL_LEVELS for f in json.loads(r["county_ids"])}
+    say(f"    Washington, county and local: {len(local['races'])} contests, {local['placed']} candidates: county offices {lv['county']} "
+        f"({per['county']} candidates), judges of the superior, district and municipal courts {lv['court']} ({per['court']}), city "
+        f"{lv['city']} ({per['city']}), public utility, port and fire districts {lv['other']} ({per['other']}); {len(reached)} of 39 "
+        f"counties have a county or local contest; {sum(r['partisan'] for r in lr)} contests carry party preferences")
+    say(f"      the list's own count: {local['items']} rows = {local['state_rows']} Legislature and appellate courts + {local['federal_rows']} "
+        f"Congress + {local['whole']} county and local; the 39 county views hold {local['county_rows']} county and local rows, "
+        f"{local['rows']} once a contest that reaches several counties is counted once; {local['placed']} placed, each in one contest, "
+        f"{local['gone']} withdrawn left off, {local['skipped']} not loaded; whole list and county views agree: "
+        f"{'yes' if local['control'] else 'NO'}")
+    say("      office kinds: " + ", ".join(f"{k} {v}" for k, v in kinds.most_common()))
+    for line in local["report"]:
+        say(f"      check (local): {line}")
+    return len(gen_rows) + local["placed"]
 
 
 if __name__ == "__main__":
