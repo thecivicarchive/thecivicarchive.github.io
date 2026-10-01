@@ -1,0 +1,315 @@
+{
+ "state": "TX",
+ "part": 2,
+ "of": 3,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-TX-H03",
+   "name": "Keith Self",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.keithself.com/",
+    "how": "The site is titled \"Keith Self for Congress\" and carries an endorsement asking the voters of TX-03 to send Keith Self back to Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H03",
+   "name": "Evan Hunt",
+   "party": "Democratic",
+   "website": {
+    "url": "https://electevanhunt.com/",
+    "how": "The site is titled \"Elect Evan Hunt\", says \"I'm running for Congress\" and describes TX-03; it is paid for by Elect Evan Hunt.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H06",
+   "name": "Jake Ellzey",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.ellzeyfortexas.com/",
+    "how": "The site is titled \"Jake Ellzey for Congress\" and says he represents Congressional District 6 in Texas; paid for by Jake Ellzey for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H06",
+   "name": "Danny Minton",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.dannyfortexas.com/",
+    "how": "dannyminton.com redirects here. The site is titled \"Danny Minton for Texas | Texas Congressional District 6\" and says he is running for Congress in Texas' 6th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H09",
+   "name": "Alex Mealer",
+   "party": "Republican",
+   "website": {
+    "url": "https://alexandramealer.com/",
+    "how": "The site is titled \"Alex Mealer for Congress | TX-09\" and says she is running for Congress for TX-09.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Public Safety Chair, METRO (the Houston-area transit authority), representing the 14 multi-cities in its service area; worded as the campaign's site words it, which gives no years",
+     "from": null,
+     "to": null,
+     "source": "Alex Mealer for Congress, About page",
+     "url": "https://alexandramealer.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H09",
+   "name": "Leticia Gutierrez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.leticiaforcongress.com/",
+    "how": "The site is titled \"Leticia Gutierrez for Congress District 9\" and calls her the Democratic candidate for TX-09 on November 3.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H12",
+   "name": "Craig A. Goldman",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.craiggoldman.org/",
+    "how": "The site is titled \"Craig Goldman for Congress\" and says he represents Texas District 12 in Congress; paid for by Craig Goldman for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H12",
+   "name": "Angela \"heli\" Rodriguez Prilliman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.helifortexas.com/",
+    "how": "The site is titled \"Angela 'Heli' Rodriguez Prilliman For Congress TX-12\" and calls her the Democratic candidate for United States Representative, District 12.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H15",
+   "name": "Monica De La Cruz",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.monicaforcongress.us/",
+    "how": "The site is titled \"Monica De La Cruz for Congress\", has a TX-15 page, and is paid for by Monica for Congress.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "Her Bioguide id D000594 is also attached to another candidate, Carlos de La Cruz (Republican, 2026-TX-H35, FEC id H6TX35087), so the people table gives him her birth date (1974-11-11) and her U.S. House service since 2023, and his card would link to her record.",
+     "problem": "The Clerk of the House's member profile for D000594 is Monica De La Cruz, Texas 15th, Republican; Carlos de La Cruz is a different person, a candidate in district 35, and is not that member.",
+     "url": "https://clerk.house.gov/members/D000594",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H15",
+   "name": "Bobby Pulido",
+   "party": "Democratic",
+   "website": {
+    "url": "https://bobbypulidofortexas.com/",
+    "how": "The site is titled \"Bobby Pulido for Congress\" and says he is running for Congress in Texas' 15th District.",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "date": null,
+    "source": "Wikipedia, \"Bobby Pulido\" (the birth date is cited to the biography on his own site; the article says he is the Democratic candidate against Monica De La Cruz in the 15th district in 2026)",
+    "url": "https://en.wikipedia.org/wiki/Bobby_Pulido",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H18",
+   "name": "Christian Dashaun Menefee",
+   "party": "Democratic",
+   "website": {
+    "url": "https://christianmenefee.com/",
+    "how": "The site is titled \"Christian Menefee for Congress\" and names TX-18 and Texas's 18th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H21",
+   "name": "Mark Teixeira",
+   "party": "Republican",
+   "website": {
+    "url": "https://teixeiraforcongress.com/",
+    "how": "The site is titled \"Mark 'Tex' Teixeira for Congress\" and says he is running to serve Texas' 21st Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H21",
+   "name": "Kristin Hook",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.drkristinhook.org/",
+    "how": "The site says Dr. Kristin Hook is the Democratic candidate for U.S. Congress in Texas' 21st Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H24",
+   "name": "Beth Van Duyne",
+   "party": "Republican",
+   "website": {
+    "url": "https://bethfortexas.com/",
+    "how": "The site is titled \"Beth For Texas\", belongs to the Beth Van Duyne for Congress Committee and names the 24th Congressional District; its news items and copyright line are dated 2020, so it may not have been refreshed for 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H24",
+   "name": "Kevin Burge",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.burgeforcongress.com/",
+    "how": "The site is titled \"Kevin Burge for Congress\", calls him a Texas Democrat running for Congress and names the 24th District of Texas; paid for by his campaign committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H27",
+   "name": "Michael Cloud",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cloudforcongress.com/",
+    "how": "The site is titled \"Cloud for Congress | Michael Cloud\", calls itself his campaign website, says he represents the twenty-seventh district of Texas and is paid for by Cloud for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H27",
+   "name": "Tanya Lloyd",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.tanyafortexas.com/",
+    "how": "The site is titled \"Tanya Lloyd for Congress\" and says she is the Democratic congressional candidate in TX-27.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H30",
+   "name": "Frederick D. Haynes III",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.haynesforcongress.com/",
+    "how": "The site is titled \"Haynes for Congress\" and describes itself as \"Rev. Frederick Haynes, III for Congress, TX-30\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1960,
+    "date": null,
+    "source": "Wikipedia, \"Frederick Haynes III\" (\"born 1960\", with a citation; the article says he is the Democratic nominee for Texas's 30th congressional district in 2026)",
+    "url": "https://en.wikipedia.org/wiki/Frederick_Haynes_III",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H33",
+   "name": "Patrick David Gillespie",
+   "party": "Republican",
+   "website": {
+    "url": "https://patrickgillespie4congress33.com/",
+    "how": "The site is titled \"Patrick Gillespie 4 Congress 33\" and reads \"Patrick Gillespie for Congress, Texas District 33\"; the text names Patrick David Gillespie.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H33",
+   "name": "Colin Allred",
+   "party": "Democratic",
+   "website": {
+    "url": "https://colinallred.com/",
+    "how": "The site is titled \"Allred for Texas\", says Colin is running for Congress and names Texas's 33rd Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H36",
+   "name": "Brian Babin",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.babinforcongress.com/",
+    "how": "The page is titled \"Babin for Congress - Priorities\" and names Congressman Brian Babin; the page read does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H36",
+   "name": "Rhonda Hart",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.hart4congress.com/",
+    "how": "The site is titled \"Rhonda Hart for Congress\" and describes itself as her campaign's platform for \"the fight for Texas 36\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-S2",
+   "name": "Ken Paxton",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.kenpaxton.com/",
+    "how": "The site is titled \"Ken Paxton for U.S. Senate\", calls him Attorney General and is paid for by Ken Paxton For Senate; its About page says he served in the Texas House and Senate before becoming Attorney General.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Texas House of Representatives, District 70 (first elected in 2002; represented the district for 10 years; the years here are worked out from that)",
+     "from": "2003",
+     "to": "2013",
+     "source": "Office of the Attorney General of Texas, About the Attorney General",
+     "url": "https://www.texasattorneygeneral.gov/about-office/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Texas Senate, District 8 (elected in 2012; the same page gives January 5, 2015 as the day he was sworn in as Attorney General; the years here are worked out from that)",
+     "from": "2013",
+     "to": "2015",
+     "source": "Office of the Attorney General of Texas, About the Attorney General",
+     "url": "https://www.texasattorneygeneral.gov/about-office/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-S2",
+   "name": "James Talarico",
+   "party": "Democratic",
+   "website": {
+    "url": "https://jamestalarico.com/",
+    "how": "The site is titled \"Talarico for Texas - Official Campaign Website of James Talarico for U.S. Senate\" and says he is running for the U.S. Senate in Texas.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-S2",
+   "name": "Ted Brown",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://tedbrown.org/",
+    "how": "The site (which opens at tedbrown.org/website/index.html) is titled \"Ted Brown - Libertarian for U.S. Senator from Texas\".",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,186 @@
+{
+ "state": "MS",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-MS-H01",
+   "name": "Cliff Johnson",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.cliffjohnsonforcongress.com/",
+    "how": "The site is titled 'Cliff Johnson for Congress', says he 'is running for Congress' and speaks of North Mississippi and Mississippi; it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H01",
+   "name": "Trent Kelly",
+   "party": "Republican",
+   "website": {
+    "url": "https://kellyformississippi.com/",
+    "how": "The site says Trent Kelly represents 'the First District of Mississippi' and is paid for by Kelly for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H02",
+   "name": "Bennie Foster",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.electbenniefoster.com/",
+    "how": "The site says 'Bennie Foster is the independent candidate for Mississippi's 2nd U.S. Congressional District in 2026'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H02",
+   "name": "Bennie G. Thompson",
+   "party": "Democrat",
+   "website": {
+    "url": "https://benniethompson.com/",
+    "how": "Titled 'Bennie Thompson for Congress'; it names the Second District of Mississippi and reports his 2026 Democratic nomination for the 2nd Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H02",
+   "name": "Ron Eller",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.voteroneller.com/",
+    "how": "Titled 'Ron Eller for Congress', the official campaign website; it asks for support for 'my campaign for the Second Congressional District of Mississippi'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H03",
+   "name": "Erik Kiehle",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://kiehle4congress.us/",
+    "how": "Titled 'Erik Kiehle for US House of Representatives'; it says he 'is running for MS District 3 to serve in the US House of Representatives'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H03",
+   "name": "Michael A. Chiaradio",
+   "party": "Democrat",
+   "website": {
+    "url": "https://michaelachiaradio.com/",
+    "how": "Paid for by 'Michael A. Chiaradio for Congress 2026'; its About page calls him the 'Democratic Nominee in Mississippi's 3rd Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H03",
+   "name": "Michael Guest",
+   "party": "Republican",
+   "website": {
+    "url": "https://michaelguest.ms/",
+    "how": "Titled 'Michael Guest for U.S. Congress - Mississippi's Third District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H04",
+   "name": "Carl Boyanton",
+   "party": "Independent",
+   "website": {
+    "url": "https://carl4congress.com/",
+    "how": "Titled 'Carl Boyanton an Independent in the 4th Congressional District'; it names Mississippi and November 3rd, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H04",
+   "name": "Jeffrey Hulum III",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.jeffreyhulumiiiforcongress.com/",
+    "how": "Titled 'Jeffrey Hulum III for Congress'; its description reads 'Democrat for Congress in MS-4'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-H04",
+   "name": "Mike Ezell",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.mikeezell.ms/",
+    "how": "Titled 'Mike Ezell for Congress'; its news items name him as Mississippi's 4th District Republican Representative and the 4th Congressional District primary.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MS-S2",
+   "name": "Scott Colom",
+   "party": "Democrat",
+   "website": {
+    "url": "https://scottcolom.com/",
+    "how": "Titled 'Scott Colom for Senate'; it calls him 'a candidate for the U.S. Senate' in Mississippi challenging Senator Cindy Hyde-Smith.",
+    "verified": true
+   },
+   "born": {
+    "year": 1982,
+    "date": null,
+    "source": "Wikipedia, 'Scott Colom' (the statement carries a citation)",
+    "url": "https://en.wikipedia.org/wiki/Scott_Colom",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Attorney, 16th Judicial District of Mississippi",
+     "from": "2016",
+     "to": "now",
+     "source": "His campaign site says he was elected District Attorney in 2015 and calls him District Attorney today; Wikipedia gives the term's start as 2016",
+     "url": "https://scottcolom.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "City Prosecutor (part-time), Columbus, Mississippi",
+     "from": "2013",
+     "to": "2016",
+     "source": "Wikipedia, 'Scott Colom', citing the University of Wisconsin Law School",
+     "url": "https://en.wikipedia.org/wiki/Scott_Colom",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Municipal Court Judge, Aberdeen, Mississippi",
+     "from": "2012",
+     "to": "2013",
+     "source": "Wikipedia, 'Scott Colom', citing The Dispatch (Columbus), 2021-11-16",
+     "url": "https://en.wikipedia.org/wiki/Scott_Colom",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Justice Court Judge, Lowndes County, Mississippi (appointed; interim again 2012-2013)",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, 'Scott Colom', citing The Dispatch (Columbus), 2021-11-16",
+     "url": "https://en.wikipedia.org/wiki/Scott_Colom",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MS-S2",
+   "name": "Ty Pinkins",
+   "party": "Independent",
+   "website": {
+    "url": "https://typinkins.com/",
+    "how": "Titled 'Ty Pinkins for US Senate | Mississippi'; it carries 'Independent Ty Pinkins discusses campaign, race for U.S. Senate'.",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "state": "ID",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-ID-H01",
+   "name": "Kaylee Peterson",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.kayleeforcongress.com/",
+    "how": "The site is headed 'Kaylee Peterson for US House of Representatives in Idaho's First District' and is paid for by the Kaylee for Congress committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-H01",
+   "name": "Russ Fulcher",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.russfulcher.com/",
+    "how": "The site is titled 'Russ Fulcher for Congress' and is paid for by Russ Fulcher for Idaho, his campaign committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Idaho Senate, District 21",
+     "from": "2005",
+     "to": "2012",
+     "source": "Wikipedia, 'Russ Fulcher' (statement carries citations)",
+     "url": "https://en.wikipedia.org/wiki/Russ_Fulcher",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Idaho Senate, District 22",
+     "from": "2012",
+     "to": "2014",
+     "source": "Wikipedia, 'Russ Fulcher' (statement carries a citation)",
+     "url": "https://en.wikipedia.org/wiki/Russ_Fulcher",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ID-H01",
+   "name": "Sarah Zabel",
+   "party": "Independent",
+   "website": {
+    "url": "https://zabelforcongress.com/",
+    "how": "The site reads 'Sarah Zabel - Independent for U.S. Congress in Idaho's First District' and is paid for by Zabel for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-H02",
+   "name": "Ellie Gilbreath",
+   "party": "Democratic",
+   "website": {
+    "url": "https://ellieforidaho.com/",
+    "how": "The site reads 'Ellie Gilbreath for U.S. Congress, Idaho, District 2', copyright 2026, paid for by Ellie for Idaho.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-H02",
+   "name": "Emre Houser",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.houserforidaho.com/",
+    "how": "The site says Emre Houser is running as an Independent candidate for the seat held by Mike Simpson (Idaho's second district), paid for by Houser For Idaho.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-H02",
+   "name": "Mike Simpson",
+   "party": "Republican",
+   "website": {
+    "url": "https://simpsonforcongress.com/",
+    "how": "The site is titled 'Mike Simpson for Congress' and is paid for by Simpson for Congress, his campaign committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-H02",
+   "name": "Tripp Charles Hutchinson",
+   "party": "Independent",
+   "website": {
+    "url": "https://votefortripp.com/",
+    "how": "The site is titled 'Tripp Hutchinson for United States Congress (ID-2)' and is paid for by Tripp Hutchinson for United States Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Ketchum City Council (Idaho)",
+     "from": null,
+     "to": "now",
+     "source": "City of Ketchum, City Council page (lists Tripp Hutchinson as a council member; no start year given; his campaign site calls him a City Councilman)",
+     "url": "https://ketchumidaho.gov/293/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ID-H02",
+   "name": "Will Johanson",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.johansonforidaho.com/",
+    "how": "The site names Will Johanson, Libertarian, for Idaho's Second Congressional District, paid for by Will Johanson for Idaho.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-S2",
+   "name": "Jim Risch",
+   "party": "Republican",
+   "website": {
+    "url": "https://senatorrisch.com/",
+    "how": "The site is headed 'Jim Risch for US Senate' and is paid for by the Jim Risch for U.S. Senate Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-S2",
+   "name": "Natalie M Fleming",
+   "party": "Independent",
+   "website": {
+    "url": "https://nataliefleming.info/",
+    "how": "The site is titled 'Natalie Fleming for US Senate' and reads 'Idaho, Independent, U.S. Senate 2026', paid for by Natalie M Fleming for U.S. Senate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ID-S2",
+   "name": "Todd Achilles",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.achillesforidaho.com/",
+    "how": "The site is titled 'Todd Achilles for Idaho' and asks for donations to Todd Achilles' campaign for U.S. Senate in Idaho.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Idaho House of Representatives, District 16, Seat B",
+     "from": "2024",
+     "to": "2025",
+     "source": "Wikipedia, 'Todd Achilles' (appointment and resignation each cited to the Idaho Capital Sun)",
+     "url": "https://en.wikipedia.org/wiki/Todd_Achilles",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

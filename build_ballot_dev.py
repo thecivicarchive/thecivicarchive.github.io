@@ -25,8 +25,10 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import sqlite3
 import sys
+import urllib.parse
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -257,7 +259,57 @@ def people(con, out_dir):
             p["web"] = website
         if p:
             out[key] = p
+    found(con, out)
     return out
+
+
+FOUND_KINDS = ("official", "campaign", "secondary")
+FOUND_MARK = "Found on the open web"      # ballot/found.py's mark on a website the sweep found
+
+
+def found_source(source, url):
+    """A short name for the page that states a found fact, from the sweep's own note about it: who publishes the page,
+    cut off before the note goes on to say what the page says. When the note does not begin with a name short enough
+    to print, the page's own host stands in."""
+    host = re.sub(r"^www\.", "", urllib.parse.urlsplit(url or "").netloc.lower())
+    if host.endswith("wikipedia.org"):
+        return "Wikipedia"
+    s = re.sub(r"\s+", " ", str(source or "")).strip()
+    cut = re.search(r",|;|:| \(| - | – | — |[\"“”]| '|‘|['’]s? | (?:member|legislator|official|web)?\s*(?:page|site|website|list|listing|biography|profile|article|report|story|release)\b"
+                    r"| (?:lists?|names?|says|states|gives|shows|reports?|reported|confirms?|biography of|profile of) ", s)
+    name = (s[:cut.start()] if cut else s).strip(" .")
+    name = re.sub(r"^The ", "the ", name)
+    if not 3 <= len(name) <= 60 or re.match(r"(?i)^(his|her|their|the candidate|campaign)\b", name):
+        return host or "the page linked"
+    return name
+
+
+def found(con, out):
+    """What the open-web sweep found (ballot/found.py), added to a person only where the official records are blank:
+    a birth year, earlier offices, and a mark on a website the sweep found. Each carries who states it, the page's
+    address and the kind of source. Nothing else in found_facts is read; a kind outside the three is ignored."""
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name = 'found_facts'").fetchone():
+        return
+    key_of = {}
+    for race, name, fec in con.execute("SELECT race_id, name, fec_id FROM candidates"):
+        key_of[(race, name)] = fec or f"{race}|{name}"
+    for race, name, field, year, date, office, y0, y1, source, url, kind in con.execute(
+            "SELECT race_id, name, field, year, date, office, from_year, to_year, source, url, kind FROM found_facts "
+            "ORDER BY race_id, name, from_year IS NULL, from_year, office"):
+        key = key_of.get((race, name))
+        if not key or kind not in FOUND_KINDS or not re.match(r"(?i)^https?://", url or ""):
+            continue
+        p = out.setdefault(key, {})
+        who = found_source(source, url)
+        if field == "born" and year and not p.get("dob") and "fb" not in p:
+            full = date if date and re.fullmatch(rf"{year}-\d\d-\d\d", str(date)) else ""
+            p["fb"] = [int(year), full, who, url, kind]
+        elif field == "office" and office and not p.get("off"):
+            y1 = "now" if str(y1 or "").lower() == "now" else (int(y1) if str(y1 or "").isdigit() else None)
+            p.setdefault("fo", []).append([office, int(y0) if str(y0 or "").isdigit() else None, y1, who, url, kind])
+    for (person,) in con.execute("SELECT person FROM websites WHERE source LIKE ?", (FOUND_MARK + "%",)):
+        if out.get(person, {}).get("web"):
+            out[person]["wf"] = 1
 
 
 def build(db, record_db, site_root, out_dir):
@@ -341,9 +393,9 @@ PAGE = r"""<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>__CSS__</style>
 <style>
-:root{--pR:var(--rep);--pD:var(--dem);--pL:#B07C00;--pG:#2F8F4E;--pI:#6E62A8;--pO:#646B76;--pW:#7C828C;--gold:#B8860B;
+:root{--pR:var(--rep);--pD:var(--dem);--pL:#B07C00;--pG:#2F8F4E;--pI:#6E62A8;--pO:#646B76;--pW:#7C828C;--gold:#B8860B;--gold-ink:#7A5806;
   --night:#0B1030;--night2:#070A1C;--cream:#F4F1E8}
-:root[data-theme="dark"]{--pL:#E3B53A;--pG:#5CC98A;--pI:#A99CE0;--pO:#9AA3AF;--pW:#9AA0A8;--gold:#E0B040}
+:root[data-theme="dark"]{--pL:#E3B53A;--pG:#5CC98A;--pI:#A99CE0;--pO:#9AA3AF;--pW:#9AA0A8;--gold:#E0B040;--gold-ink:#E0B040}
 .bwrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .crumbs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px;color:var(--muted);margin:22px 0 6px}
 .crumbs a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-strong)}
@@ -363,6 +415,45 @@ PAGE = r"""<!DOCTYPE html>
 .mybar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 0}
 .mybar select{height:44px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);padding:0 14px;font:600 14.5px var(--sans)}
 .mine{display:grid;gap:12px;margin-top:14px}
+/* your ballot (John, 2026-10-01): a location button, and the contests for Congress laid out as a ballot would print them */
+.locbtn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;background:var(--ink);color:var(--bg);font:700 14.5px var(--sans)}
+.locbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.locbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mybar .forget{all:unset;cursor:pointer;font:600 13px var(--sans);color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:4px 2px}
+.mybar .forget:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.locnote{font-size:13px;color:var(--muted);margin:8px 0 0;max-width:70ch;min-height:1em}
+.paper{max-width:720px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);box-shadow:0 14px 30px -24px rgba(0,0,0,.5);overflow:hidden}
+.paper .phead{background:var(--ink);color:var(--bg);padding:14px 18px;text-align:center}
+.paper .phead b{display:block;font-size:14px;letter-spacing:.2em;text-transform:uppercase}.paper .phead span{display:block;font-size:12px;opacity:.82;margin-top:4px;letter-spacing:.05em}
+.paper .pnote{font-size:12.5px;color:var(--muted);padding:10px 18px;margin:0;border-bottom:1px solid var(--line);line-height:1.45}
+.contest{padding:14px 18px;border-bottom:1px solid var(--line)}
+.contest .ct{display:flex;justify-content:space-between;gap:6px 12px;align-items:baseline;flex-wrap:wrap}
+.contest .ct b{font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}.contest .ct span{font-size:12px;color:var(--muted)}
+.contest .ct a{font-size:13px;font-weight:600;color:var(--accent-ink);margin-left:auto}
+.contest .vf{font-size:12.5px;font-weight:700;margin:4px 0 8px}
+.contest ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.contest li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:7px 10px;border:1px solid var(--line);border-radius:6px;border-left:4px solid var(--pc,var(--line-strong))}
+.contest .oval{width:22px;height:13px;border:2px solid var(--ink);border-radius:50%;display:block;box-sizing:border-box}
+.contest li b{font-size:14.5px}.contest li small{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.contest .wline{border-style:dashed}.contest .wline b{font-weight:600;color:var(--muted)}
+.contest .pnone{font-size:13px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+.paper .pfoot{padding:14px 18px;font-size:13.5px;color:var(--muted)}
+/* folded listings (John, 2026-10-01): the Senate races and every state's races start closed, each summary saying what is inside */
+.fold{border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:0 18px;margin-top:22px}
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;padding:16px 0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--muted);font-size:20px;line-height:1;align-self:center;flex:none}.fold[open]>summary::before{content:"\25BE"}
+.fold>summary h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,36px);margin:0;line-height:1.05}
+.fold>summary .fsum{font-size:13.5px;color:var(--muted);margin-left:auto}
+.fold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:12px}
+.fold>.fbody{padding:0 0 18px}.fold>.fbody>.sub{margin:0 0 6px}
+.sfold{border-top:1px solid var(--line)}
+.sfold>summary{cursor:pointer;list-style:none;display:flex;gap:6px 10px;align-items:baseline;flex-wrap:wrap;padding:12px 0}
+.sfold>summary::-webkit-details-marker{display:none}
+.sfold>summary::before{content:"\25B8";color:var(--muted);align-self:center}.sfold[open]>summary::before{content:"\25BE"}
+.sfold>summary b{font-size:15.5px}.sfold>summary span{font-size:13px;color:var(--muted)}.sfold>summary .pill2{margin-left:auto}
+.sfold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.sfold .fbody{padding:0 0 14px}.sfold .rlist,.sfold .rgrid{margin-top:6px}.sfold .notebox{margin-top:0;margin-bottom:10px}
 .chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:12.5px;font-weight:600;white-space:nowrap}
 .chip i{width:9px;height:9px;border-radius:50%;background:var(--pc)}
 .chip.inc::after{content:"\2605";color:var(--gold);font-size:11px}
@@ -435,11 +526,19 @@ PAGE = r"""<!DOCTYPE html>
 .loc figcaption{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.4}
 .rshare{all:unset;cursor:pointer;margin-top:12px;display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);font-weight:700;font-size:14px}
 .rshare:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-/* betting markets: apart, quiet, behind a notice */
-.oddswrap{border:1px dashed var(--line-strong);border-radius:18px;padding:12px 16px;background:var(--surface)}
-.oddswrap summary{cursor:pointer;list-style:none}.oddswrap summary::-webkit-details-marker{display:none}
-.oddswrap summary h2{display:inline;font-size:clamp(22px,2.6vw,30px)}.oddswrap summary span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
-.oddswrap summary h2::after{content:" \25BE";font-size:.6em;color:var(--muted)}.oddswrap[open] summary h2::after{content:" \25B4"}
+/* polls and betting markets as tabs above the arena (John, 2026-10-01): both closed to start; a click pulls one down */
+.rtabs{margin:18px 0 0}
+.rtabs .tabrow{display:flex;gap:8px;flex-wrap:wrap}
+.rtab{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);font:700 14px var(--sans);color:var(--ink)}
+.rtab small{font:500 12.5px var(--sans);color:var(--muted)}
+.rtab::after{content:"\25BE";color:var(--muted);font-size:12px}.rtab[aria-expanded="true"]::after{content:"\25B4"}
+.rtab[aria-expanded="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}.rtab[aria-expanded="true"] small,.rtab[aria-expanded="true"]::after{color:var(--bg);opacity:.8}
+.rtab:hover{border-color:var(--ink)}.rtab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rtabpanel{margin-top:10px;border:1px solid var(--line);border-radius:18px;padding:4px 18px 16px;background:var(--surface)}
+.rtabpanel[hidden]{display:none}
+.rtabpanel .bsec{padding:10px 0 0}.rtabpanel .bsec h2{font-size:clamp(22px,2.6vw,30px)}
+:root:not(.calm) .rtabpanel{animation:pull .25s var(--ease) both}
+@keyframes pull{from{opacity:0;transform:translateY(-6px)}}
 .mgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:12px}
 .mkt{border:1px solid var(--line);border-radius:14px;padding:10px 12px}.mh{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:6px}.mh span{color:var(--muted)}
 .mrowo{display:grid;grid-template-columns:1fr 90px 44px;gap:8px;align-items:center;font-size:13.5px;margin:5px 0}
@@ -488,54 +587,78 @@ PAGE = r"""<!DOCTYPE html>
 .notebox .src{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
 .holder{margin:10px 0 0;color:var(--muted);font-size:15px}
 .holder b{color:var(--ink)}
-/* the arena: the general election, candidates face to face */
-.arena{position:relative;border-radius:30px;padding:30px clamp(12px,3vw,34px) 24px;margin:20px 0 6px;overflow:hidden;isolation:isolate;color:var(--cream);
-  background:radial-gradient(120% 95% at 50% 0%,#1D2856 0%,var(--night) 52%,var(--night2) 100%);box-shadow:inset 0 0 0 1px rgba(255,214,110,.25),0 30px 60px -40px rgba(0,0,0,.7)}
-.arena::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(34% 70% at 22% -6%,rgba(255,236,170,.22),transparent 70%),radial-gradient(34% 70% at 78% -6%,rgba(255,236,170,.22),transparent 70%)}
-.arena::after{content:"";position:absolute;left:6%;right:6%;bottom:40px;height:46%;border-radius:50%;z-index:-1;border:1px solid rgba(255,214,110,.26);background:radial-gradient(closest-side,rgba(255,214,110,.10),transparent)}
+/* the arena: the general election, candidates face to face. A few shades off the page's own background, so it follows
+   light and dark with the rest of the page (John, 2026-10-01); the gold is kept for the lines and the "vs" */
+.arena{position:relative;border-radius:30px;padding:30px clamp(12px,3vw,34px) 24px;margin:20px 0 6px;overflow:hidden;isolation:isolate;color:var(--ink);
+  background:color-mix(in srgb,var(--ink) 7%,var(--bg));box-shadow:inset 0 0 0 1px var(--line),0 24px 50px -40px rgba(0,0,0,.35)}
+.arena::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(34% 70% at 22% -6%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 70%),radial-gradient(34% 70% at 78% -6%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 70%)}
+.arena::after{content:"";position:absolute;left:6%;right:6%;bottom:40px;height:46%;border-radius:50%;z-index:-1;border:1px solid color-mix(in srgb,var(--gold) 38%,transparent);background:radial-gradient(closest-side,color-mix(in srgb,var(--gold) 8%,transparent),transparent)}
 .arena .ahead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.arena .ahead b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#FFD86B}.arena .ahead span{font-size:13px;color:rgba(244,241,232,.72)}
+.arena .ahead b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}.arena .ahead span{font-size:13px;color:var(--muted)}
 .acards{display:flex;justify-content:center;align-items:center;gap:clamp(8px,2.4vw,28px);perspective:1100px;flex-wrap:wrap}
-.vs{font-family:var(--serif);font-style:italic;font-size:clamp(30px,4.6vw,54px);color:#FFD86B;text-shadow:0 0 24px rgba(255,200,80,.6);line-height:1;flex:none}
+.vs{font-family:var(--serif);font-style:italic;font-size:clamp(30px,4.6vw,54px);color:var(--gold-ink);line-height:1;flex:none}
 .bcard{--pc:var(--pO);position:relative;width:clamp(148px,22vw,220px);aspect-ratio:5/7.2;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;
-  background:linear-gradient(165deg,#FFFFFF,#F3EFE4);color:#15171B;box-shadow:0 24px 44px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.3);transition:transform .35s var(--ease)}
+  background:var(--surface);color:var(--ink);box-shadow:0 18px 36px -22px rgba(0,0,0,.5),0 0 0 1px var(--line);transition:transform .35s var(--ease)}
 .acards[data-n="2"] .bcard:first-child{transform:rotateY(12deg)}.acards[data-n="2"] .bcard:last-child{transform:rotateY(-12deg)}
 .bcard .band{background:var(--pc);color:#fff;font:700 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:9px 11px;display:flex;justify-content:space-between;gap:6px}
+:root[data-theme="dark"] .bcard .band{color:#0F1114}      /* the dark theme's party colours are paler, so the band's type goes dark */
 .bcard .band span:last-child{opacity:.85}
 .bcard .mono{flex:1;display:grid;place-items:center;min-height:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--pc) 9%,transparent) 0 7px,transparent 7px 14px)}
-.bcard .mono span{width:min(40%,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);color:var(--pc);border:2px solid var(--pc);background:#fff}
+.bcard .mono span{width:min(40%,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);color:var(--pc);border:2px solid var(--pc);background:var(--surface)}
 .bcard .mono .ph{width:min(46%,88px);overflow:hidden;box-shadow:0 6px 16px -8px rgba(0,0,0,.45)}
 .bcard .mono .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
 .bcard .who{padding:9px 11px 6px}.bcard .who b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.06}
-.bcard .who small{display:block;color:#5C6169;font-size:11.5px;margin-top:2px}
-.bcard dl{margin:0;padding:7px 11px 10px;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;border-top:1px solid #E4E5E1}
-.bcard dt{color:#5C6169}.bcard dd{margin:0;text-align:right;font-weight:600}
-.bcard .flag{position:absolute;top:34px;right:9px;font:700 9.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:#15171B;color:#FFD86B}
-.bcard.wi{border:2px dashed #9AA0A8}
+.bcard .who small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.bcard dl{margin:0;padding:7px 11px 10px;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;border-top:1px solid var(--line)}
+.bcard dt{color:var(--muted)}.bcard dd{margin:0;text-align:right;font-weight:600}
+.bcard .flag{position:absolute;top:34px;right:7px;font:700 9.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.bcard.wi{border:2px dashed var(--line-strong)}
 .bcard.solo{width:clamp(170px,26vw,240px)}
-.aopen{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;margin:20px auto 0;height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,214,110,.6);color:#FFE9A8;font-weight:700;font-size:14.5px;width:max-content}
-.aopen:hover,.aopen:focus-visible{background:rgba(255,214,110,.12)}
+/* a reader's own arrangement (John, 2026-10-01): hide a card, move it with the arrows, or drag it; kept on their device only */
+.bcard[draggable="true"]{cursor:grab}.bcard.dragging{opacity:.45}.bcard.over{outline:3px dashed var(--gold);outline-offset:3px}
+.ctl{position:absolute;top:33px;left:7px;display:flex;gap:3px}
+.ctl button,.colctl button{all:unset;box-sizing:border-box;cursor:pointer;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line-strong);font:700 14px/1 var(--sans);color:var(--ink);background:var(--surface)}
+.ctl button:hover,.colctl button:hover{border-color:var(--ink)}
+.ctl button:disabled,.colctl button:disabled{opacity:.35;cursor:default;border-color:var(--line-strong)}
+.ctl button:focus-visible,.colctl button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hidbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:14px auto 0;font-size:13px;color:var(--muted)}
+.hidbar button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;gap:7px;align-items:center;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;background:var(--surface)}
+.hidbar button:hover{border-color:var(--ink)}.hidbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hidbar button i{width:9px;height:9px;border-radius:50%;background:var(--pc,var(--line-strong))}
+.aopen{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;margin:20px auto 0;height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--gold);color:var(--ink);font-weight:700;font-size:14.5px;width:max-content}
+.aopen:hover,.aopen:focus-visible{background:color-mix(in srgb,var(--gold) 14%,transparent)}
 .aopen svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
-.anote{font-size:12.5px;color:rgba(244,241,232,.7);text-align:center;margin:12px auto 0;max-width:70ch}
+.anote{font-size:12.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:70ch}
 @media (max-width:640px){      /* on a phone the cards stand in a column, each laid on its side, with "vs" between */
   .acards{flex-direction:column;gap:6px}.acards .bcard,.acards[data-n="2"] .bcard:first-child,.acards[data-n="2"] .bcard:last-child{transform:none}
   .bcard,.bcard.solo{width:min(100%,360px);aspect-ratio:auto;flex-direction:row;flex-wrap:wrap}
   .bcard .band{width:100%}.bcard .mono{flex:0 0 88px;min-height:88px}.bcard .mono span{width:58px;font-size:24px}
   .bcard .who{flex:1;min-width:0;align-self:center}.bcard dl{width:100%}.bcard .flag{top:40px}
+  .ctl{top:3px;left:50%;transform:translateX(-50%)}      /* on a phone the card lies on its side, so the controls sit in the band's empty middle, clear of the portrait */
   .vs{font-size:30px}}
 :root:not(.calm) .arena.deal .bcard{animation:deal .85s var(--ease) both;animation-delay:calc(var(--k) * .14s)}
 :root:not(.calm) .arena.deal .vs{animation:vspop .6s .5s cubic-bezier(.3,1.7,.5,1) both}
 @keyframes deal{from{opacity:0;transform:translateY(46px) rotateX(38deg) scale(.82)}}
 @keyframes vspop{from{opacity:0;transform:scale(.2) rotate(-24deg)}to{opacity:1;transform:none}}
-.cmp{margin-top:18px;overflow-x:auto;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,214,110,.18)}
+.cmp{margin-top:18px;overflow-x:auto;border-radius:18px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
 .cmp table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
-.cmp th,.cmp td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;text-align:left}
-.cmp thead th{font-family:var(--serif);font-weight:400;font-size:19px;color:#fff;border-bottom:2px solid var(--pc)}
-.cmp tbody th{color:rgba(244,241,232,.7);font-weight:600;font-size:12.5px;white-space:nowrap;width:1%}
-.cmp td small{display:block;color:rgba(244,241,232,.62);font-size:12px;margin-top:3px}
-.cmp a{color:#FFE9A8}
-.cmp .soon{color:rgba(244,241,232,.55);font-style:italic}
-.cmp .grp th{padding-top:16px;color:#FFD86B;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom-color:rgba(255,214,110,.3)}
+.cmp th,.cmp td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.cmp thead th{font-family:var(--serif);font-weight:400;font-size:19px;color:var(--ink);border-bottom:2px solid var(--pc)}
+.cmp tbody th{color:var(--muted);font-weight:600;font-size:12.5px;white-space:nowrap;width:1%}
+.cmp td small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.cmp a{color:var(--accent-ink)}
+.cmp .soon{color:var(--muted);font-style:italic}
+.cmp tr[hidden]{display:none}
+.cmp .grp th{padding:0;border-bottom-color:color-mix(in srgb,var(--gold) 38%,transparent)}
+.cmp .gbtn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;width:100%;padding:14px 12px 10px;color:var(--gold-ink);font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.cmp .gbtn::before{content:"\25B8";font-size:13px;letter-spacing:0}.cmp .gbtn[aria-expanded="true"]::before{content:"\25BE"}
+.cmp .gbtn small{font:500 12px var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
+.cmp .gbtn:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}.cmp .gbtn:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.cmp .colctl{display:flex;gap:4px;margin-top:8px}
+.cmpbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 12px 0;font-size:13px;color:var(--muted)}
+.cmpbar button{all:unset;box-sizing:border-box;cursor:pointer;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;background:var(--surface)}
+.cmpbar button:hover{border-color:var(--ink)}.cmpbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cmp .empty{padding:18px 14px;font-size:14px;color:var(--muted)}
 /* the field: a primary, every candidate in a lane */
 .field{border:1px solid var(--line);border-radius:22px;padding:16px 18px 14px;background:var(--surface);margin:14px 0}
 .field .fh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
@@ -593,7 +716,8 @@ PAGE = r"""<!DOCTYPE html>
 const BOOT = __BOOT__;
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
-const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
+const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} },
+  del: k => { try { localStorage.removeItem(k); } catch (e) {} }};
 __MONEYFMT__
 __CHANGELOG__
 /* ---------- the two switches, with the same saved choices as the rest of the site ---------- */
@@ -640,6 +764,16 @@ function service(c){
 const yWords = (y, unsure) => y == null ? "years not on record" : (y < 1 ? (unsure ? "at least a few months" : "under a year") : `${unsure ? "at least " : ""}${Math.floor(y)} yr${Math.floor(y) === 1 ? "" : "s"}`);
 const shortOffice = o => String(o || "").replace(/^U\.S\. /, "U.S. ").replace(/ House of Representatives$/, " House");
 const SRC_NAME = {"Congress": "the Biographical Directory of the U.S. Congress (congress-legislators roster)", "State roster": "the Open States roster of state officials"};
+/* found on the open web (ballot/found.py): a birth year [year, date, who states it, address, kind] and offices
+   [office, from, to, who, address, kind], shown only where the official records give none, each labelled by its kind of
+   source (official: a government's own page; campaign: the candidate's own site; secondary: Wikipedia or a named news
+   organization) and linked to the page that states it */
+const fAge = fb => fb ? (fb[1] ? String(ageOf(fb[1])) : "about " + (new Date().getFullYear() - fb[0])) : null;
+const fSrc = (who, url, kind) => { const a = t => `<a href="${esc(url)}" target="_blank" rel="noopener nofollow">${t}</a>`;
+  return kind === "campaign" ? `according to ${a("their campaign")}` : kind === "official" ? `according to ${a(esc(who))}` : `as reported by ${a(esc(who))}`; };
+const fYears = o => o[2] === "now" ? (o[1] ? `, since ${o[1]}` : ", held today") : o[1] && o[2] ? (o[1] === o[2] ? `, ${o[1]}` : `, ${o[1]} to ${o[2]}`) : o[1] ? `, from ${o[1]}` : o[2] ? `, until ${o[2]}` : "";
+const F_KIND = {official: "government pages", campaign: "the candidate's own campaign site", secondary: "Wikipedia or news reports"};
+const fNow = c => (P(c).fo || []).find(o => o[2] === "now" && o[5] === "official") || null;
 const days = () => { const [y, m, d] = BOOT.election.split("-").map(Number), n = new Date(); return Math.round((new Date(y, m - 1, d) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5); };
 const dayWords = () => { const n = days(); return n > 1 ? `Election Day in ${n} days` : n === 1 ? "Election Day is tomorrow" : n === 0 ? "Election Day is today" : `Election Day was ${fmtDate(BOOT.election)}`; };
 
@@ -665,83 +799,136 @@ function officeNow(c){
   const m = c.bio && BOOT.members[c.bio]; if (!m) return null;
   return `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? ` since ${m.since}` : ""}`;
 }
-function card(c, r, k, solo){
+/* ---------- a reader's own arrangement of a race (John, 2026-10-01): cards hidden and an order of their own, kept on their
+   device only. The page's own order stays the official list's; one control puts it back. The cards and the comparison's
+   columns share the one arrangement, so a card moved is a column moved. ---------- */
+const ARR = {};
+const arrKey = r => "ballot:arr:" + r.id;
+function arrOf(r){      // {o: every candidate's key in the reader's order, h: the keys hidden}; the official order when nothing is kept
+  if (ARR[r.id]) return ARR[r.id];
+  const keys = general(r).map(c => c.k); let saved = null;
+  try { saved = JSON.parse(store.get(arrKey(r)) || "null"); } catch (e) { saved = null; }
+  const o = saved && Array.isArray(saved.o) ? saved.o.filter(k => keys.includes(k)) : [];
+  keys.forEach(k => { if (!o.includes(k)) o.push(k); });      // a name added to the list since goes last
+  return ARR[r.id] = {o, h: new Set(saved && Array.isArray(saved.h) ? saved.h.filter(k => keys.includes(k)) : [])};
+}
+const arrOrderChanged = r => { const a = arrOf(r), def = general(r).map(c => c.k); return a.o.some((k, i) => k !== def[i]); };
+const arrChanged = r => arrOf(r).h.size > 0 || arrOrderChanged(r);
+const arrSave = r => { const a = arrOf(r); if (arrChanged(r)) store.set(arrKey(r), JSON.stringify({o: a.o, h: [...a.h]})); else store.del(arrKey(r)); };
+const arrList = r => { const by = Object.fromEntries(general(r).map(c => [c.k, c])); return arrOf(r).o.map(k => by[k]).filter(Boolean); };      // everyone, in the reader's order
+const arrShown = r => arrList(r).filter(c => !arrOf(r).h.has(c.k));
+const arrHidden = r => arrList(r).filter(c => arrOf(r).h.has(c.k));
+function arrMove(r, k, toKey){      // the moved one takes the other's place: after it when moving later, before it when moving earlier
+  const a = arrOf(r), i = a.o.indexOf(k), j = a.o.indexOf(toKey); if (i < 0 || j < 0 || i === j) return;
+  a.o.splice(i, 1); a.o.splice(j, 0, k); arrSave(r);
+}
+function arrHide(r, k, hide){ const a = arrOf(r); if (hide) a.h.add(k); else a.h.delete(k); arrSave(r); }
+function arrReset(r){ delete ARR[r.id]; store.del(arrKey(r)); }
+const ctlBtns = (c, pos, n, attr) => `<button type="button" data-${attr}="-1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} earlier" title="Move earlier"${pos === 0 ? " disabled" : ""}>&lsaquo;</button><button type="button" data-${attr}="1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} later" title="Move later"${pos >= n - 1 ? " disabled" : ""}>&rsaquo;</button><button type="button" data-${attr === "mv" ? "hide" : "chide"}="${esc(c.k)}" aria-label="Hide ${esc(c.n)}${attr === "mv" ? "'s card" : "'s column"}" title="Hide">&times;</button>`;
+
+function card(c, r, k, n){
   const M = money(c), pp = P(c), age = ageOf(pp.dob), sv = service(c);
   const flag = c.out === "unopposed" ? "Unopposed" : c.wi ? "Write-in" : c.inc ? "Incumbent" : "";
-  const rows = [["Age", age != null ? String(age) : "Not on record"],
-    ["In office now", sv && sv.now ? `${esc(shortOffice(sv.now.office))}, ${yWords(sv.now.years, sv.now.unsure)}` : "No office on record"]];
+  const fn = sv ? null : fNow(c);
+  const rows = [["Age", age != null ? String(age) : (fAge(pp.fb) || "Not on record")],
+    ["In office now", sv && sv.now ? `${esc(shortOffice(sv.now.office))}, ${yWords(sv.now.years, sv.now.unsure)}` : fn ? `${esc(fn[0])}${fn[1] ? `, since ${fn[1]}` : ""}` : "No office on record"]];
   if (sv && sv.total != null && (!sv.now || sv.total - (sv.now.years || 0) >= 1)) rows.push(["Years in office", `${yWords(sv.total, sv.unsure)}, all offices`]);
   rows.push(["Raised, 2026", M && M.r != null ? usdShort(M.r) : (c.fec ? "Not yet reported" : "No FEC filing")]);
-  return `<article class="bcard${c.wi ? " wi" : ""}${solo ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(shortParty(c))}">
+  return `<article class="bcard${c.wi ? " wi" : ""}${n === 1 ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(shortParty(c))}" data-k="${esc(c.k)}" draggable="true">
     <div class="band"><span>${esc(shortParty(c))}</span><span>${esc(r.o === "S" ? "Senate" : r.st + "-" + (+r.d || "AL"))}</span></div>
+    <div class="ctl" role="group" aria-label="Arrange ${esc(c.n)}'s card">${ctlBtns(c, k, n, "mv")}</div>
     ${flag ? `<span class="flag">${esc(flag)}</span>` : ""}
     <div class="mono">${pp.ph ? `<span class="ph"><img src="${esc(pp.ph)}" alt="" loading="lazy" decoding="async"></span>` : `<span aria-hidden="true">${esc(initials(c.n).toUpperCase())}</span>`}</div>
     <div class="who"><b>${esc(c.n)}</b><small>${esc(c.p || "")}</small></div>
     <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
 }
+function headWords(r){
+  const g = general(r), shown = arrShown(r), op = openPrimary(r);
+  if (g.length === 1) return "One name for this office";
+  return `${g.length} candidates${shown.length < g.length ? `, ${g.length - shown.length} hidden by you` : ""}, ${arrOrderChanged(r) ? "in an order you chose on this device" : "in the order the state's list gives, or by surname"}${op ? ". Every party on one ballot: more than half the votes wins the seat; otherwise the top two meet on December 12" : ""}`;
+}
+function arenaCards(r){      // the cards in the reader's arrangement, and the bars beneath: the hidden names, and the way back to the official order
+  const shown = arrShown(r), hidden = arrHidden(r), parts = [];
+  shown.forEach((c, i) => { if (i) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i, shown.length)); });
+  const hid = hidden.length ? `<div class="hidbar"><span>Hidden by you:</span>${hidden.map(c => `<button type="button" data-show="${esc(c.k)}" style="--pc:${pcVar(c)}" aria-label="Show ${esc(c.n)}'s card again"><i aria-hidden="true"></i>${esc(c.n)}</button>`).join("")}</div>` : "";
+  const reset = arrChanged(r) ? `<div class="hidbar"><button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button></div>` : "";
+  return {cards: parts.join("") || `<p class="anote">Every card is hidden. Show them again below.</p>`, bars: hid + reset, n: shown.length};
+}
 function arena(r){
   const g = general(r); if (!g.length) return "";
-  const parts = []; g.forEach((c, i) => { if (i) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i, g.length === 1)); });
-  const lone = g.length === 1;
-  const op = openPrimary(r), when = op ? g[0].date : r.date;
+  const op = openPrimary(r), when = op ? g[0].date : r.date, A = arenaCards(r);
   return `<section class="arena deal" id="arena" aria-label="The ${op ? "open primary" : "general election"}, ${esc(fmtDate(when))}">
-    <div class="ahead"><b>${op ? "Open primary" : "General election"} &middot; ${esc(fmtDate(when))}</b><span>${lone ? "One name for this office" : `${g.length} candidates, in the order the state's list gives, or by surname`}${op ? ". Every party on one ballot: more than half the votes wins the seat; otherwise the top two meet on December 12" : ""}</span></div>
-    <div class="acards" data-n="${g.length}">${parts.join("")}</div>
+    <div class="ahead"><b>${op ? "Open primary" : "General election"} &middot; ${esc(fmtDate(when))}</b><span id="ahead">${headWords(r)}</span></div>
+    <div class="acards" data-n="${A.n}">${A.cards}</div>
+    <div id="abars">${A.bars}</div>
     <button class="aopen" id="aopen" type="button" aria-expanded="false" aria-controls="cmp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4l8 8-8 8"/></svg><span>Step into the arena: compare them side by side</span></button>
     <div class="cmp" id="cmp" hidden></div>
-    <p class="anote">Every card is the same size. The cards show what the records hold: age, the office a candidate holds now and for how long, their years in any office on record, and the money their campaign reported to the FEC. No score or grade of any person.</p>
+    <p class="anote">Every card is the same size. The cards show what the records hold: age, the office a candidate holds now and for how long, their years in any office on record, and the money their campaign reported to the FEC. No score or grade of any person.${g.some(c => !P(c).dob && P(c).fb || !service(c) && fNow(c)) ? " Where no official record gives a birth year, an age that reads &ldquo;about&rdquo; comes from a year stated on a government page, the campaign's own site, Wikipedia or a news organization; the comparison below names and links the page." : ""}${g.length > 1 ? " You can hide a card (&times;) or move the cards about (drag one, or use its arrows). That arrangement is yours alone, kept on this device; the state's own order is unchanged, and this site ranks no one." : ""}</p>
   </section>`;
 }
+let CMP_OPEN = new Set();      // the comparison's sections a reader has opened on this page; every section starts closed
 function compare(r){
-  const g = general(r), n = g.length;
+  const g = arrShown(r), n = g.length, all = general(r);
+  if (!n) return `<p class="empty">Every candidate is hidden. Show them again above to compare them.</p>`;
   const cell = (fn) => g.map(c => `<td>${fn(c)}</td>`).join("");
   const M = c => money(c) || {}, mem = c => (c.bio && BOOT.members[c.bio]) || null;
   const soon = t => `<span class="soon">${t}</span>`;
-  const row = (label, fn) => `<tr><th scope="row">${label}</th>${cell(fn)}</tr>`;
-  const grp = label => `<tr class="grp"><th colspan="${n + 1}">${label}</th></tr>`;
+  let curG = "";
+  const row = (label, fn) => `<tr data-g="${curG}"${CMP_OPEN.has(curG) ? "" : " hidden"}><th scope="row">${label}</th>${cell(fn)}</tr>`;
+  const groups = [];
+  const grp = (id, label, rows) => { curG = id; const body = rows.map(([l, fn]) => row(l, fn)).join("");
+    groups.push(`<tr class="grp"><th colspan="${n + 1}"><button class="gbtn" type="button" data-g="${id}" aria-expanded="${CMP_OPEN.has(id) ? "true" : "false"}">${label}<small>${rows.map(x => x[0]).join(" &middot; ")}</small></button></th></tr>${body}`); };
   const orgs = c => { const o = M(c).orgs || []; return o.length ? o.map(x => `${esc(x[0])} <small>${esc(BOOT.kinds[x[1]] || "")}: ${usd(x[2])}</small>`).join("") : (c.fec ? "None itemized yet" : "&ndash;"); };
   const side = (c, s) => { const m = M(c), t = m[s] || 0, w = m[s === "for" ? "forw" : "agw"] || []; return t ? `${usd(t)}${w.map(x => `<small>${esc(x[0])}: ${usd(x[1])}</small>`).join("")}` : "None reported"; };
-  const html = `<table><thead><tr><th></th>${g.map(c => `<th scope="col" style="--pc:${pcVar(c)}">${esc(c.n)}</th>`).join("")}</tr></thead><tbody>
-    ${grp("On the ballot")}
-    ${row("Party, as printed", c => esc(c.p || "") + (c.wi ? "<small>Write-in: the name is not printed on the ballot</small>" : ""))}
-    ${row("Notes from the list", c => c.note ? esc(c.note) : "&ndash;")}
-    ${grp("Who they are")}
-    ${row("Age", c => { const p = P(c), a = ageOf(p.dob); return a != null ? `${a}<small>Born ${esc(p.dob.slice(0, 4))}, according to ${esc(SRC_NAME[p.ds] || p.ds)}</small>` : "Not on record<small>No official record this site holds gives a birth date</small>"; })}
-    ${row("Offices on record", c => { const sv = service(c); if (!sv) return "None<small>The records here cover Congress, state legislatures and statewide offices. City, county and school offices are not in them yet.</small>";
+  grp("ballot", "On the ballot", [
+    ["Party, as printed", c => esc(c.p || "") + (c.wi ? "<small>Write-in: the name is not printed on the ballot</small>" : "")],
+    ["Notes from the list", c => c.note ? esc(c.note) : "&ndash;"]]);
+  grp("who", "Who they are", [
+    ["Age", c => { const p = P(c), a = ageOf(p.dob); return a != null ? `${a}<small>Born ${esc(p.dob.slice(0, 4))}, according to ${esc(SRC_NAME[p.ds] || p.ds)}</small>`
+        : p.fb ? `${fAge(p.fb)}<small>Born ${p.fb[0]}, ${fSrc(p.fb[2], p.fb[3], p.fb[4])}. No official record this site holds gives a birth date${p.fb[1] ? "" : "; the age is worked out from the year alone"}.</small>`
+        : "Not on record<small>No official record this site holds gives a birth date</small>"; }],
+    ["Offices on record", c => { const sv = service(c), fo = P(c).fo || [];
+        if (!sv && fo.length) return fo.map(o => `${esc(o[0])}${fYears(o)}<small>${fSrc(o[3], o[4], o[5])}</small>`).join("")
+          + `<small><b>Years not counted:</b> ${fo.length === 1 ? "this comes" : "these come"} from ${[...new Set(fo.map(o => F_KIND[o[5]]))].join(" and ")}, not from the official records this site holds, and the years given are often incomplete.</small>`;
+        if (!sv) return "None<small>The records here cover Congress, state legislatures and statewide offices. City, county and school offices are not in them yet.</small>";
         return sv.list.map(o => `${esc(o.office)}, ${o.start ? esc(o.start.slice(0, 4)) : "start not on record"}&ndash;${o.end ? esc(o.end.slice(0, 4)) : "now"}<small>${yWords(yearsBetween(o.start, o.end), o.unsure || !o.start)}${o.terms ? `, ${o.terms} terms` : ""}; ${esc(SRC_NAME[o.src] || o.src)}</small>`).join("")
-          + (sv.total != null ? `<small><b>All offices together: ${yWords(sv.total, sv.unsure)}</b></small>` : ""); })}
-    ${row("Photo", c => { const p = P(c); return p.ph ? `${esc(p.pc || "")}${p.pu ? `<small><a href="${esc(p.pu)}" target="_blank" rel="noopener">Where it comes from</a></small>` : ""}` : "None yet<small>Initials stand in until a photo from an official record or the campaign's own site is found</small>"; })}
-    ${row("In their own words", c => { const I = (BOOT.issues || {})[c.k];
-      if (I) return `<span class="topics">${I[1].map(t => `<span>${esc(t)}</span>`).join("")}</span><a href="${esc(I[0])}" target="_blank" rel="noopener nofollow">Read them in their own words</a><small>The topics their campaign's issues page lists, as headings; nothing is summarized</small>`;
-      return P(c).web ? `<a href="${esc(P(c).web)}" target="_blank" rel="noopener nofollow">Their campaign's website</a><small>The address the campaign gave the FEC or the state's candidate list</small>` : soon("A link to their campaign's own website"); })}
-    ${grp("In office")}
-    ${row("In Congress today", c => { const m = mem(c); return m ? `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? `, since ${m.since}` : ""}${m.terms ? `<small>${m.terms} term${m.terms === 1 ? "" : "s"}</small>` : ""}` : "No"; })}
-    ${row("Votes this Congress", c => { const m = mem(c); return m && m.elig ? `Voted on ${Number(m.cast).toLocaleString()} of ${Number(m.elig).toLocaleString()}${m.split ? `<small>Voted against most of their party on ${m.breaks || 0} of the ${m.split} votes that split the parties</small>` : ""}` : "&ndash;"; })}
-    ${row("Bills this Congress", c => { const m = mem(c); return m && m.spon != null ? `Sponsored ${m.spon}${m.laws ? `, ${m.laws} became law` : ""}` : "&ndash;"; })}
-    ${row("Their full record", c => c.bio && mem(c) ? `<a href="../../us/#member=${esc(c.bio)}">Open their page on the record side</a>` : `&ndash;<small>No record in Congress. Records of state and local offices come later.</small>`)}
-    ${grp("Campaign money, 2026 (FEC)")}
-    ${row("Raised", c => M(c).r != null ? `${usd(M(c).r)}${M(c).end ? `<small>Through ${esc(fmtDate(M(c).end))}</small>` : ""}` : (c.fec ? "Not yet reported" : "No FEC filing"))}
-    ${row("From people", c => M(c).ind != null ? `${usd(M(c).ind)}<small>A total; people who give are never named here</small>` : "&ndash;")}
-    ${row("From organizations", c => M(c).cmte != null ? `${usd(M(c).cmte)}${M(c).passed ? `<small>${usd(M(c).passed)} of it passed along from people who earmarked it</small>` : ""}` : "&ndash;")}
-    ${row("Largest organizations", orgs)}
-    ${row("From the party", c => M(c).pty != null ? usd(M(c).pty) : "&ndash;")}
-    ${row("From the candidate", c => M(c).self != null ? usd(M(c).self) + "<small>Their own gifts and loans</small>" : "&ndash;")}
-    ${row("Cash on hand", c => M(c).coh != null ? usd(M(c).coh) : "&ndash;")}
-    ${row("FEC filings", c => c.fec ? `<a href="https://www.fec.gov/data/candidate/${esc(c.fec)}/" target="_blank" rel="noopener">${esc(c.fec)}</a>` : "No registration found")}
-    ${grp("Outside spending, 2026 (never received by the campaign)")}
-    ${row("Spent to support", c => side(c, "for"))}
-    ${row("Spent to oppose", c => side(c, "against"))}
-    ${grp("Ads, 2026 (spending reported to the FEC)")}
-    ${row("Their campaign's ads", c => adCell(c, A => A.c))}
-    ${row("Outside ads for them", c => adCell(c, A => adMerge(A.o["for-general"], A.o["for-primary"])))}
-    ${row("Outside ads against them", c => adCell(c, A => adMerge(A.o["against-general"], A.o["against-primary"])))}
-    ${row("See the ads", c => { const t = adCount(adN(r, c));
-      return `${t ? `<a href="#race=${esc(r.id)}" data-jump="adlib-${esc(c.fec)}">${t.toLocaleString("en-US")} ad${t === 1 ? "" : "s"} in Google's library</a>` : (c.fec ? "No ad in Google's library tied to them" : "&ndash;")}<small><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library</a>: Meta's ads are not in Google's data</small>`; })}
-    ${grp("Polls (Transparency Initiative members only)")}
-    ${row("Latest poll", c => pollCell(r, c, "latest"))}
-    ${row("Our average", c => pollCell(r, c, "average"))}
-  </tbody></table>`;
-  return html;
+          + (sv.total != null ? `<small><b>All offices together: ${yWords(sv.total, sv.unsure)}</b></small>` : ""); }],
+    ["Photo", c => { const p = P(c); return p.ph ? `${esc(p.pc || "")}${p.pu ? `<small><a href="${esc(p.pu)}" target="_blank" rel="noopener">Where it comes from</a></small>` : ""}` : "None yet<small>Initials stand in until a photo from an official record or the campaign's own site is found</small>"; }],
+    ["In their own words", c => { const I = (BOOT.issues || {})[c.k];
+      if (I) return `<span class="topics">${I[1].map(t => `<span>${esc(t)}</span>`).join("")}</span><a href="${esc(I[0])}" target="_blank" rel="noopener nofollow">Read them in their own words</a><small>The topics their campaign's issues page lists, as headings; nothing is summarized${P(c).wf ? ". The address is the campaign's own website, found on the open web and checked against the race it names" : ""}</small>`;
+      return P(c).web ? `<a href="${esc(P(c).web)}" target="_blank" rel="noopener nofollow">Their campaign's website</a><small>${P(c).wf ? "The campaign's own website, found on the open web and checked against the race it names" : "The address the campaign gave the FEC or the state's candidate list"}</small>` : soon("A link to their campaign's own website"); }]]);
+  grp("office", "In office", [
+    ["In Congress today", c => { const m = mem(c); return m ? `${m.ch === "Senate" ? "U.S. Senator" : "U.S. Representative"}${m.since ? `, since ${m.since}` : ""}${m.terms ? `<small>${m.terms} term${m.terms === 1 ? "" : "s"}</small>` : ""}` : "No"; }],
+    ["Votes this Congress", c => { const m = mem(c); return m && m.elig ? `Voted on ${Number(m.cast).toLocaleString()} of ${Number(m.elig).toLocaleString()}${m.split ? `<small>Voted against most of their party on ${m.breaks || 0} of the ${m.split} votes that split the parties</small>` : ""}` : "&ndash;"; }],
+    ["Bills this Congress", c => { const m = mem(c); return m && m.spon != null ? `Sponsored ${m.spon}${m.laws ? `, ${m.laws} became law` : ""}` : "&ndash;"; }],
+    ["Their full record", c => c.bio && mem(c) ? `<a href="../../us/#member=${esc(c.bio)}">Open their page on the record side</a>` : `&ndash;<small>No record in Congress. Records of state and local offices come later.</small>`]]);
+  grp("money", "Campaign money, 2026 (FEC)", [
+    ["Raised", c => M(c).r != null ? `${usd(M(c).r)}${M(c).end ? `<small>Through ${esc(fmtDate(M(c).end))}</small>` : ""}` : (c.fec ? "Not yet reported" : "No FEC filing")],
+    ["From people", c => M(c).ind != null ? `${usd(M(c).ind)}<small>A total; people who give are never named here</small>` : "&ndash;"],
+    ["From organizations", c => M(c).cmte != null ? `${usd(M(c).cmte)}${M(c).passed ? `<small>${usd(M(c).passed)} of it passed along from people who earmarked it</small>` : ""}` : "&ndash;"],
+    ["Largest organizations", orgs],
+    ["From the party", c => M(c).pty != null ? usd(M(c).pty) : "&ndash;"],
+    ["From the candidate", c => M(c).self != null ? usd(M(c).self) + "<small>Their own gifts and loans</small>" : "&ndash;"],
+    ["Cash on hand", c => M(c).coh != null ? usd(M(c).coh) : "&ndash;"],
+    ["FEC filings", c => c.fec ? `<a href="https://www.fec.gov/data/candidate/${esc(c.fec)}/" target="_blank" rel="noopener">${esc(c.fec)}</a>` : "No registration found"]]);
+  grp("outside", "Outside spending, 2026 (never received by the campaign)", [
+    ["Spent to support", c => side(c, "for")],
+    ["Spent to oppose", c => side(c, "against")]]);
+  grp("ads", "Ads, 2026 (spending reported to the FEC)", [
+    ["Their campaign's ads", c => adCell(c, A => A.c)],
+    ["Outside ads for them", c => adCell(c, A => adMerge(A.o["for-general"], A.o["for-primary"]))],
+    ["Outside ads against them", c => adCell(c, A => adMerge(A.o["against-general"], A.o["against-primary"]))],
+    ["See the ads", c => { const t = adCount(adN(r, c));
+      return `${t ? `<a href="#race=${esc(r.id)}" data-jump="adlib-${esc(c.fec)}">${t.toLocaleString("en-US")} ad${t === 1 ? "" : "s"} in Google's library</a>` : (c.fec ? "No ad in Google's library tied to them" : "&ndash;")}<small><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library</a>: Meta's ads are not in Google's data</small>`; }]]);
+  grp("polls", "Polls (Transparency Initiative members only)", [
+    ["Latest poll", c => pollCell(r, c, "latest")],
+    ["Our average", c => pollCell(r, c, "average")]]);
+  const hidden = arrHidden(r);
+  const bar = `<div class="cmpbar"><button type="button" data-gall="1">Open every section</button><button type="button" data-gall="0">Close every section</button>
+    ${all.length > 1 ? `<span>Each section opens on a click. The arrows under a name move its column; &times; hides it.</span>` : ""}
+    ${hidden.length ? `<span>Hidden by you:</span>${hidden.map(c => `<button type="button" data-show="${esc(c.k)}" aria-label="Show ${esc(c.n)}'s column again">${esc(c.n)}</button>`).join("")}` : ""}
+    ${arrChanged(r) ? `<button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button>` : ""}</div>`;
+  return `${bar}<table><thead><tr><th></th>${g.map((c, i) => `<th scope="col" style="--pc:${pcVar(c)}" data-k="${esc(c.k)}">${esc(c.n)}${all.length > 1 ? `<div class="colctl" role="group" aria-label="Arrange ${esc(c.n)}'s column">${ctlBtns(c, i, n, "cmv")}</div>` : ""}</th>`).join("")}</tr></thead><tbody>${groups.join("")}</tbody></table>`;
 }
 
 /* ---------- a primary, and its field ---------- */
@@ -784,7 +971,7 @@ function pollCell(r, c, what){      // the compare table: this candidate's share
   if (!mine.length) return polls.length ? "Not asked about<small>in the qualifying polls</small>" : (P0 ? "No qualifying poll yet" : "&ndash;");
   if (what === "latest") { const p = mine[0]; return `${p.shares[key(p)]}%<small>${esc(p.pollster)}, ${esc(fmtDate(p.end))}</small>`; }
   const ten = mine.slice(0, 10), v = ten.map(p => p.shares[key(p)]);
-  return ten.length > 1 ? `${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%<small>of the ${ten.length} most recent; the arithmetic is in Polls below</small>` : "&ndash;<small>One qualifying poll so far</small>";
+  return ten.length > 1 ? `${(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)}%<small>of the ${ten.length} most recent; the arithmetic is under the Polls tab above</small>` : "&ndash;<small>One qualifying poll so far</small>";
 }
 /* ---------- the ads themselves: Google's ad library, tied to the candidates by the record only (ballot/adlibrary.py) ---------- */
 const ADL = BOOT.adlib || {races: {}};
@@ -901,9 +1088,25 @@ function oddsHTML(r){
       <p class="fnote">${Number(M.volume).toLocaleString()} ${M.unit === "contracts" ? "contracts" : "dollars"} traded in all. A price of 60&cent; means a contract paying $1 if that happens trades at 60&cent;.</p>
       <button type="button" class="mgo" data-url="${esc(M.url)}" data-name="${name}">Go to ${name}&hellip;</button></div>`; };
   const at = new Date(O.at);
-  return `<section class="bsec" id="odds"><details class="oddswrap"><summary><h2>What bettors are paying</h2><span>Prices on two prediction markets, as information only. Not a poll, not a forecast and not an official record.</span></summary>
+  return `<section class="bsec" id="odds"><h2>What bettors are paying</h2><p class="sub">Prices on two prediction markets, as information only. Not a poll, not a forecast and not an official record.</p>
     <div class="mgrid">${block("polymarket", "Polymarket")}${block("kalshi", "Kalshi")}</div>
-    <p class="fnote">Read from each market's public data on ${esc(at.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"}))}. Prices move all day; the markets' own pages have the current ones. The Civic Archive takes no money from either market and uses no referral links.</p></details></section>`;
+    <p class="fnote">Read from each market's public data on ${esc(at.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"}))}. Prices move all day; the markets' own pages have the current ones. The Civic Archive takes no money from either market and uses no referral links.</p></section>`;
+}
+/* the two tabs above the arena (John, 2026-10-01): polls, and what bettors are paying. Both closed to start; a click pulls one down, and pulls the other up */
+function raceTabs(r){
+  const tabs = [], P0 = (BOOT.polls || {})[r.id], O = (BOOT.odds || {})[r.id];
+  if (P0) { const n = (P0.polls || []).length; tabs.push({id: "polls", label: "Polls", sum: n ? `${n} qualifying ${n === 1 ? "poll" : "polls"}` : "none that qualifies yet", body: pollsHTML(r)}); }
+  if (O && (O.polymarket || O.kalshi)) { const m = ["polymarket", "kalshi"].filter(k => O[k] && O[k].rows && O[k].rows.length).length; tabs.push({id: "odds", label: "What bettors are paying", sum: `${m === 1 ? "one market" : m + " markets"}; bets, not polls`, body: oddsHTML(r)}); }
+  if (!tabs.length) return "";
+  return `<div class="rtabs" id="rtabs"><div class="tabrow">${tabs.map(t => `<button type="button" class="rtab" id="tab-${t.id}" aria-expanded="false" aria-controls="panel-${t.id}">${t.label}<small>${esc(t.sum)}</small></button>`).join("")}</div>
+    ${tabs.map(t => `<div class="rtabpanel" id="panel-${t.id}" role="region" aria-labelledby="tab-${t.id}" hidden>${t.body}</div>`).join("")}</div>`;
+}
+function wireTabs(){
+  const box = $("#rtabs"); if (!box) return;
+  box.addEventListener("click", e => { const b = e.target.closest(".rtab"); if (!b) return;
+    const open = b.getAttribute("aria-expanded") !== "true";
+    $$(".rtab", box).forEach(x => { x.setAttribute("aria-expanded", "false"); $("#" + x.getAttribute("aria-controls")).hidden = true; });
+    if (open) { b.setAttribute("aria-expanded", "true"); $("#" + b.getAttribute("aria-controls")).hidden = false; } });
 }
 function marketNotice(url, name, st){
   const d = document.createElement("dialog"), H = HELPLINES[st];
@@ -951,7 +1154,9 @@ function pollsHTML(r){
 let DIST = null, mapOff = null;
 const needDist = () => DIST ? Promise.resolve(DIST) : fetch(BOOT.dist.url).then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(d => (DIST = d), () => (DIST = {q: 50, states: {}, failed: true}));
-const decodeRing = (ring, q) => { let x = 0, y = 0; const pts = []; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; pts.push([x / q, y / q]); } return pts; };
+/* the Albers projection and the point-in-polygon test, borrowed from the record side (build_site_dev.py's GEO block), so a
+   reader's location is placed on this page's own map lines, on their device; it defines conic, albersUsa, inRing, inShape, pathRings and decodeRing */
+__GEO__
 const pathOf = rings => rings.map(p => "M" + p.map(v => v[0].toFixed(2) + "," + v[1].toFixed(2)).join("L") + "Z").join("");
 const areaOf = pts => { let a = 0; for (let i = 0, n = pts.length; i < n; i++) { const [x0, y0] = pts[i], [x1, y1] = pts[(i + 1) % n]; a += x0 * y1 - x1 * y0; } return Math.abs(a) / 2; };
 const centroidOf = pts => { let a = 0, cx = 0, cy = 0; for (let i = 0, n = pts.length; i < n; i++) { const [x0, y0] = pts[i], [x1, y1] = pts[(i + 1) % n], f = x0 * y1 - x1 * y0; a += f; cx += (x0 + x1) * f; cy += (y0 + y1) * f; } a *= .5; return a ? [cx / (6 * a), cy / (6 * a)] : pts[0]; };
@@ -1127,39 +1332,101 @@ async function mountLocator(r){      // the race's own district picked out on it
   svg.addEventListener("click", e => { const p = e.target.closest("path.lot"); const rr = p && raceOfD(st, p.dataset.d); if (rr) location.hash = "race=" + rr.id; });
 }
 
+/* ---------- where the reader is (John, 2026-10-01): the state from this page's own state shapes, the district from the lines the maps draw,
+   all on the device; nothing is sent anywhere. In a state whose congressional lines changed for 2026 the reader is placed in the state only. ---------- */
+const stateRings = {};
+function locate(lon, lat){      // {st, d: the district number, or null where the lines are not the 2026 ballot's or are not loaded}
+  const pt = albersUsa(lon, lat); if (!pt) return null; let st = null;
+  for (const s of Object.keys(BOOT.map)) { const b = BOOT.sbox[s]; if (!NAMES[s] || !b || pt[0] < b[0] || pt[0] > b[2] || pt[1] < b[1] || pt[1] > b[3]) continue;
+    if (inShape(pt, stateRings[s] || (stateRings[s] = pathRings(BOOT.map[s])))) { st = s; break; } }
+  if (!st) return null;
+  const list = districtsOf(st), q = (DIST && DIST.q) || 50; let d = null;
+  if (list) for (const D of list) { if (D.whole) { d = 0; break; } const raw = DIST.states[st] && DIST.states[st][String(D.n)]; if (raw && inShape(pt, raw.map(rg => decodeRing(rg, q)))) { d = D.n; break; } }
+  return {st, d};
+}
+/* the reader's own ballot for Congress, as a ballot would print it: the office, "Vote for one", each name as filed with its party and an
+   oval beside it. A preview from the official list, not for marking; the county's sample ballot is the authority. */
+function ballotHTML(st, d){
+  const sen = [...senateOf(st)].sort((a, b) => (a.sp ? 1 : 0) - (b.sp ? 1 : 0)), hs = houseOf(st), hr = d !== "" ? hs.find(r => r.d === d) : null;
+  const contest = r => {
+    const g = general(r), printed = g.filter(c => !c.wi && c.out !== "unopposed"), wi = g.filter(c => c.wi), un = g.filter(c => c.out === "unopposed"), op = openPrimary(r);
+    const title = r.o === "S" ? `United States Senator${r.sp ? " (special election, for the rest of the term)" : ""}` : `United States Representative${+r.d ? `, District ${+r.d}` : ""}`;
+    let body;
+    if (!hasList(r)) body = `<p class="pnone">${notLoaded(r)}</p>`;
+    else if (!g.length) body = `<p class="pnone">No candidate for this office is on the state's list.</p>`;
+    else body = `${printed.length ? `<p class="vf">Vote for one</p><ol>${printed.map(c => `<li style="--pc:${pcVar(c)}"><span class="oval" aria-hidden="true"></span><span><b>${esc(c.n)}</b><small>${esc(c.p || shortParty(c))}</small></span></li>`).join("")}${wi.length ? `<li class="wline"><span class="oval" aria-hidden="true"></span><span><b>Write-in</b><small>Declared write-in ${wi.length === 1 ? "candidate" : "candidates"}, not printed: ${wi.map(c => esc(c.n)).join(", ")}</small></span></li>` : ""}</ol>` : ""}
+      ${un.length ? `<p class="pnone">${un.map(c => esc(c.n)).join(", ")}: unopposed, so the office is not printed on the ballot and the candidate takes it without a vote.</p>` : ""}`;
+    return `<section class="contest"><div class="ct"><b>${esc(title)}</b>${op ? `<span>An open primary: every party on one ballot; the runoff, if one is needed, is December 12</span>` : ""}<a href="#race=${esc(r.id)}">Open this race &rsaquo;</a></div>${body}</section>`;
+  };
+  const house = hr ? contest(hr) : `<section class="contest"><div class="ct"><b>United States Representative</b></div><p class="pnone">${linesChanged(st) ? `${esc(NAMES[st])} drew new congressional lines for 2026, so your district cannot be worked out from your location here; the state has ${hs.length} districts. Pick yours above.` : "Pick your district above to see this contest."}</p></section>`;
+  const local = (BOOT.stateBallots || []).includes(st) ? `<a class="rpgo" href="../${esc(st.toLowerCase())}/">State and local contests: ${esc(NAMES[st])}&rsquo;s ballot page <span aria-hidden="true">&rsaquo;</span></a>` : `The state and local contests for ${esc(NAMES[st])} are coming.`;
+  return `<div class="paper" role="region" aria-label="Your ballot for Congress: a preview"><div class="phead"><b>Your ballot: a preview</b><span>General election &middot; November 3, 2026 &middot; ${esc(NAMES[st])}${hr && +hr.d ? `, District ${+hr.d}` : ""}</span></div>
+    <p class="pnote">The contests for Congress, from ${esc(NAMES[st])}'s official candidate list, in the order it gives. Not for marking. Your county's sample ballot is the authority on what your own ballot shows, including the order of names where the state rotates them.</p>
+    ${sen.map(contest).join("")}${house}
+    <div class="pfoot">${local}</div></div>`;
+}
+const foldSum = rs => { const n = rs.reduce((t, r) => t + general(r).length, 0), L = rs.filter(hasList).length;
+  return `${rs.length} ${rs.length === 1 ? "race" : "races"} &middot; ${n ? `${n.toLocaleString("en-US")} candidates listed${L < rs.length ? ` in ${L} of them` : ""}` : "official lists coming"}`; };
+
 /* ---------- pages ---------- */
 function home(anchor){
   const H = BOOT.races.filter(r => r.o === "H").length, S = BOOT.races.filter(r => r.o === "S");
   const cands = BOOT.races.reduce((n, r) => n + general(r).length, 0);
   const mine = JSON.parse(store.get("ballot:mine") || "null") || {st: store.get("state") || "", d: ""};
-  const opts = Object.keys(NAMES).sort((a, b) => NAMES[a].localeCompare(NAMES[b])).map(s => `<option value="${s}"${s === mine.st ? " selected" : ""}>${esc(NAMES[s])}</option>`).join("");
+  const states = Object.keys(NAMES).sort((a, b) => NAMES[a].localeCompare(NAMES[b]));
+  const opts = states.map(s => `<option value="${s}"${s === mine.st ? " selected" : ""}>${esc(NAMES[s])}</option>`).join("");
+  const stateSum = s => { const rs = byState[s] || [], h = rs.filter(r => r.o === "H").length, n = rs.reduce((t, r) => t + general(r).length, 0);
+    return `${h} House ${h === 1 ? "seat" : "seats"}${rs.some(r => r.o === "S") ? ", a Senate race" : ""}${BOOT.notes[s] && BOOT.notes[s].changed ? ", new district lines" : ""}${n ? ` &middot; ${n.toLocaleString("en-US")} candidates listed` : ""}`; };
   $("#app").innerHTML = `<section class="bhero"><span class="eyebrow">On The Ballot &middot; U.S. Congress</span>
     <h1>Who&rsquo;s running for <em>Congress</em></h1>
     <p class="lede">Every House seat and 35 Senate seats are on the November 3, 2026 ballot. Who is running comes from each state&rsquo;s own official list of candidates, added one state at a time; the primaries that chose them come from the official results.</p>
     <span class="countdown"><i></i>${esc(dayWords())}</span>
     <div class="kchips"><div class="kchip"><b>${H}</b><span>House races</span></div><div class="kchip"><b>${S.length}</b><span>Senate races</span></div><div class="kchip"><b>${listed.size} of 50</b><span>states' lists loaded</span></div><div class="kchip"><b>${cands.toLocaleString("en-US")}</b><span>candidates listed so far</span></div></div></section>
-  <section class="bsec" id="yours"><h2>Your ballot</h2><p class="sub">Pick your state and your congressional district. The choice stays on this device.</p>
-    <div class="mybar"><select id="mst" aria-label="Your state"><option value="">Your state</option>${opts}</select><select id="mdi" aria-label="Your district"></select></div>
-    <div class="mine" id="minelist"></div></section>
-  <section class="bsec" id="senate"><h2>The Senate races</h2><p class="sub">Thirty-three seats whose terms end in January, and ${S.filter(r => r.sp).length} special elections for the rest of a term.</p>
-    <div class="rgrid">${S.map(raceCard).join("")}</div></section>
-  <section class="bsec" id="states"><h2>Every state</h2><p class="sub">Filled states have their official candidate list loaded. The rest are coming, largest first. Switch the map to see the Senate seats on the ballot.</p>
+  <section class="bsec" id="states"><h2>Every state</h2><p class="sub">Filled states have their official candidate list loaded. The rest are coming, largest first. Switch the map to see the Senate seats on the ballot; tap a state to open its races.</p>
     <div class="mapbar" style="margin-top:12px"><div class="seg" role="group" aria-label="What the map shows" id="useg"><button type="button" data-u="lists" aria-pressed="true">Official lists</button><button type="button" data-u="senate" aria-pressed="false">Senate races</button></div></div>
     <svg class="usballot" id="usballot" viewBox="0 0 975 610" role="img" aria-label="Map of the states"><defs><pattern id="bhatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="var(--surface)"/><rect width="2.5" height="7" fill="var(--accent)" opacity=".35"/></pattern></defs>${openDefs("us", 7)}
       ${Object.entries(BOOT.map).map(([s, d]) => NAMES[s] ? `<path class="${listed.has(s) ? "on" : "off"}" d="${d}" data-st="${s}"><title>${esc(NAMES[s])}: ${listed.has(s) ? "list loaded" : "list coming"}</title></path>` : "").join("")}</svg>
-    <div class="mkey" id="ukey"></div>
-    <div class="sgrid">${Object.keys(NAMES).sort((a, b) => NAMES[a].localeCompare(NAMES[b])).map(s => `<a class="scard2" href="#state=${s}"><b>${esc(NAMES[s])}</b><span>${(byState[s] || []).filter(r => r.o === "H").length} House ${(byState[s] || []).filter(r => r.o === "H").length === 1 ? "seat" : "seats"}${(byState[s] || []).some(r => r.o === "S") ? ", a Senate race" : ""}${BOOT.notes[s] && BOOT.notes[s].changed ? ", new district lines" : ""}</span><br><span class="pill2${listed.has(s) ? "" : " no"}">${listed.has(s) ? "List loaded" : "Coming"}</span></a>`).join("")}</div></section>
+    <div class="mkey" id="ukey"></div></section>
+  <section class="bsec" id="yours"><h2>Your ballot</h2><p class="sub">Use your location, or pick your state and your congressional district, and the contests for Congress appear here the way a ballot prints them. Your location is worked out on this device and never sent anywhere; the choice stays on this device too.</p>
+    <div class="mybar"><button type="button" class="locbtn" id="yloc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Use my location</button>
+      <select id="mst" aria-label="Your state"><option value="">Your state</option>${opts}</select><select id="mdi" aria-label="Your district" hidden></select><button type="button" class="forget" id="yforget" hidden>Forget my choices</button></div>
+    <p class="locnote" id="locnote" role="status"></p>
+    <div class="mine" id="minelist"></div></section>
+  <details class="fold" id="senate"><summary><h2>The Senate races</h2><span class="fsum">${foldSum(S)}</span></summary><div class="fbody"><p class="sub">Thirty-three seats whose terms end in January, and ${S.filter(r => r.sp).length} special elections for the rest of a term. Open a state to see who is running.</p>
+    ${S.map(r => { const g = general(r); return `<details class="sfold"><summary><b>${esc(NAMES[r.st])}${r.sp ? '<span class="tagsp">Special</span>' : ""}</b><span>${g.length ? `${g.length} candidates` : hasList(r) ? "No candidate on the list" : "Official list coming"}${r.h ? ` &middot; held today by ${esc(r.h[1])}` : ""}</span></summary><div class="fbody"><div class="rlist">${raceRow(r)}</div></div></details>`; }).join("")}</div></details>
+  <details class="fold" id="races"><summary><h2>Every race, state by state</h2><span class="fsum">${H} House and ${S.length} Senate races &middot; ${listed.size} of 50 states' lists loaded</span></summary><div class="fbody"><p class="sub">Open a state for its races, or its name for its page with the district map.</p>
+    ${states.map(s => `<details class="sfold" data-st="${s}"><summary><b>${esc(NAMES[s])}</b><span>${stateSum(s)}</span><span class="pill2${listed.has(s) ? "" : " no"}">${listed.has(s) ? "List loaded" : "Coming"}</span></summary><div class="fbody"></div></details>`).join("")}</div></details>
   ${sourcesHTML()}`;
-  const mst = $("#mst"), mdi = $("#mdi");
+  const mst = $("#mst"), mdi = $("#mdi"), note = $("#locnote"), forget = $("#yforget");
   const fill = () => { const st = mst.value, hs = (byState[st] || []).filter(r => r.o === "H");
-    mdi.innerHTML = hs.length ? hs.map(r => `<option value="${esc(r.d)}"${r.d === mine.d ? " selected" : ""}>${esc(raceShort(r))}</option>`).join("") : `<option value="">District</option>`;
-    mdi.hidden = !st || hs.length <= 1; showMine(); };
+    mdi.innerHTML = hs.length > 1 ? `<option value="">Your district</option>` + hs.map(r => `<option value="${esc(r.d)}"${r.d === mine.d ? " selected" : ""}>${esc(raceShort(r))}</option>`).join("") : "";
+    mdi.hidden = !st || hs.length <= 1; forget.hidden = !st; showMine(); };
   const showMine = () => { const st = mst.value; if (!st) { $("#minelist").innerHTML = ""; return; }
-    const d = (byState[st] || []).filter(r => r.o === "H").length === 1 ? "00" : mdi.value;
-    store.set("ballot:mine", JSON.stringify({st, d}));
-    const mineR = (byState[st] || []).filter(r => r.o === "S" || r.d === d);
-    $("#minelist").innerHTML = `${stateNote(st)}<div class="rgrid">${mineR.map(raceCard).join("")}</div>`; };
-  mst.addEventListener("change", () => { mine.d = ""; fill(); }); mdi.addEventListener("change", showMine); fill();
+    const hs = (byState[st] || []).filter(r => r.o === "H"), d = hs.length === 1 ? hs[0].d : mdi.value;
+    mine.st = st; mine.d = d; store.set("ballot:mine", JSON.stringify({st, d}));
+    $("#minelist").innerHTML = `${stateNote(st)}${ballotHTML(st, d)}`; };
+  mst.addEventListener("change", () => { mine.d = ""; note.textContent = ""; fill(); }); mdi.addEventListener("change", showMine); fill();
+  forget.addEventListener("click", () => { mine.st = ""; mine.d = ""; ["ballot:mine", "pin", "state"].forEach(k => store.del(k)); mst.value = ""; fill(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
+  $("#yloc").addEventListener("click", () => {
+    if (!navigator.geolocation) { note.textContent = "Location isn't available in this browser. Pick your state instead."; return; }
+    note.textContent = "Finding your district…";
+    navigator.geolocation.getCurrentPosition(pos => needDist().then(() => {
+      const lat = pos.coords.latitude, lon = pos.coords.longitude, acc = pos.coords.accuracy || 0, hit = locate(lon, lat);
+      if (!hit) { note.textContent = "That spot isn't inside a state on our map. Pick your state instead."; return; }
+      const hs = houseOf(hit.st), r = hit.d != null ? raceOfD(hit.st, hit.d) : null;
+      mine.st = hit.st; mine.d = r ? r.d : ""; mst.value = hit.st; fill();
+      store.set("pin", JSON.stringify({st: hit.st, lat: Math.round(lat * 100) / 100, lon: Math.round(lon * 100) / 100, acc: Math.round(acc)})); store.set("state", hit.st);      // rounded, about half a mile: the same kept pin the other pages use
+      const where = r ? `${NAMES[hit.st]}, and it looks like ${+r.d ? raceShort(r) : "its one district, at large"}` : NAMES[hit.st];
+      const why = r ? "" : linesChanged(hit.st) ? ` ${NAMES[hit.st]} drew new congressional lines for 2026, so your district cannot be worked out from the lines here: pick it from the list.` : DIST && DIST.failed ? " The district lines could not be loaded, so pick your district from the list." : hs.length > 1 ? " Pick your district from the list." : "";
+      note.textContent = `${where}.${why} Worked out on your device; your location never leaves it.${r && hs.length > 1 ? " Near a district line the guess can be off by one." : ""}${acc > 8000 ? ` Your device could only place you within about ${Math.round(acc / 1609.34)} miles, so treat the district as a rough guess.` : ""}`;
+      $("#minelist").scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"});
+    }), () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
+  });
+  $("#races").addEventListener("toggle", e => {      // a state's races are drawn the first time its fold opens
+    const d = e.target.closest(".sfold[data-st]"); if (!d || !d.open || d.dataset.filled) return;
+    const s = d.dataset.st, rs = byState[s] || []; d.dataset.filled = "1";
+    $(".fbody", d).innerHTML = `${stateNote(s)}<div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}${rs.filter(r => r.o === "H").map(raceRow).join("")}</div><p style="margin:12px 0 0"><a class="rpgo" href="#state=${s}">${esc(NAMES[s])}&rsquo;s page, with the district map <span aria-hidden="true">&rsaquo;</span></a></p>`;
+  }, true);
   $("#usballot").addEventListener("click", e => { const p = e.target.closest("path[data-st]"); if (p) location.hash = "state=" + p.dataset.st; });
   const usMode = mode => {      // the same map two ways: whose lists are loaded, and the Senate seats on the ballot
     $$("#usballot path[data-st]").forEach(p => { const st = p.dataset.st, s = senateOf(st)[0], t = p.querySelector("title");
@@ -1172,7 +1439,7 @@ function home(anchor){
   };
   $$("#useg button").forEach(b => b.addEventListener("click", () => usMode(b.dataset.u)));
   usMode("lists");
-  if (anchor && $("#" + anchor)) $("#" + anchor).scrollIntoView();
+  if (anchor && $("#" + anchor)) { const t = $("#" + anchor); if (t.tagName === "DETAILS") t.open = true; t.scrollIntoView(); }
 }
 function statePage(st){
   const rs = byState[st] || []; if (!rs.length) { home(); return; }
@@ -1183,8 +1450,8 @@ function statePage(st){
     ${(BOOT.stateBallots || []).includes(st) ? `<p style="margin:16px 0 0"><a class="rpgo" href="../${esc(st.toLowerCase())}/">State and local races on ${esc(NAMES[st])}&rsquo;s ballot <span aria-hidden="true">&rsaquo;</span></a></p>` : ""}
     ${stateNote(st)}</section>
   ${stateMapHTML(st)}
-  ${rs.some(r => r.o === "S") ? `<section class="bsec"><h2>Senate</h2><div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}</div></section>` : ""}
-  <section class="bsec"><h2>House</h2><div class="rlist">${rs.filter(r => r.o === "H").map(raceRow).join("")}</div></section>
+  ${rs.some(r => r.o === "S") ? `<details class="fold"><summary><h2>Senate</h2><span class="fsum">${foldSum(rs.filter(r => r.o === "S"))}</span></summary><div class="fbody"><div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}</div></div></details>` : ""}
+  <details class="fold"><summary><h2>House</h2><span class="fsum">${foldSum(rs.filter(r => r.o === "H"))}</span></summary><div class="fbody"><div class="rlist">${rs.filter(r => r.o === "H").map(raceRow).join("")}</div></div></details>
   ${src.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${src.map(srcItem).join("")}</div></section>` : ""}`;
   mountStateMap(st);
 }
@@ -1206,26 +1473,60 @@ function racePage(id){
   const r = R[id]; if (!r) { home(); return; }
   const prim = Object.keys(r.el || {}).filter(k => k !== "general" && k !== "open-primary").sort();
   const srcs = [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean);
+  CMP_OPEN = new Set();
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
     ${holderLine(r)}${r.note ? `<p class="holder">${esc(r.note)}</p>` : ""}${general(r).length ? `<button type="button" class="rshare" id="rshare">Share this race</button>` : ""}</div>${locatorHTML()}</section>
+  ${raceTabs(r)}
   ${general(r).length ? arena(r) : `<div class="notebox">${hasList(r) ? "No candidate for this race is on the state's list." : `${notLoaded(r)} We add each state from its own election office, largest first.`}</div>`}
-  ${pollsHTML(r)}
   ${adsHTML(r)}
-  ${oddsHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-${TOPN[r.st] || "two"}: every candidate, of every party preference, on one ballot, and the ${TOPN[r.st] || "two"} with the most votes go on to November${r.st === "AK" ? ", where the vote is counted by ranked choice" : ""}.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
   ${srcs.length || ADL.races[r.id] ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}${ADL.races[r.id] ? adSrcItem() : ""}</div></section>` : ""}`;
   mountLocator(r);
   mountAdLib(r);
+  wireTabs();
+  wireArena(r);
   const sh = $("#rshare");
   if (sh) sh.addEventListener("click", async () => {      // the share page carries the preview card; it opens the race
     const url = `https://thecivicarchive.github.io/dev/ballot/us/r/${r.id}.html`, title = `${raceName(r)}: who is on the ballot`;
     try { if (navigator.share) { await navigator.share({title, url}); return; } await navigator.clipboard.writeText(url); sh.textContent = "Link copied"; }
     catch (e) { if (e && e.name !== "AbortError") { sh.textContent = url; } }
   });
-  const b = $("#aopen");
-  if (b) b.addEventListener("click", () => { const c = $("#cmp"); if (c.hidden) { c.innerHTML = compare(r); c.hidden = false; b.setAttribute("aria-expanded", "true"); b.querySelector("span").textContent = "Close the comparison"; c.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); }
-    else { c.hidden = true; b.setAttribute("aria-expanded", "false"); b.querySelector("span").textContent = "Step into the arena: compare them side by side"; } });
+}
+function wireArena(r){      // the comparison's open button; the cards' and columns' arrows, hides and shows; the sections' folds; dragging a card
+  const A = $("#arena"); if (!A) return;
+  const b = $("#aopen"), cmp = $("#cmp"), box = $(".acards", A);
+  b.addEventListener("click", () => { if (cmp.hidden) { cmp.innerHTML = compare(r); cmp.hidden = false; b.setAttribute("aria-expanded", "true"); b.querySelector("span").textContent = "Close the comparison"; cmp.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); }
+    else { cmp.hidden = true; b.setAttribute("aria-expanded", "false"); b.querySelector("span").textContent = "Step into the arena: compare them side by side"; } });
+  const sel = k => `[data-k="${CSS.escape(k)}"]`;
+  function redraw(){
+    A.classList.remove("deal");      // the cards were dealt once; a rearrangement does not deal them again
+    const parts = arenaCards(r); box.innerHTML = parts.cards; box.dataset.n = parts.n; $("#abars", A).innerHTML = parts.bars; $("#ahead", A).textContent = headWords(r);
+    if (!cmp.hidden) cmp.innerHTML = compare(r);
+  }
+  const focusOn = (...cands) => { const f = cands.map(s => $(s, A)).find(x => x && !x.disabled); if (f) f.focus(); };
+  A.addEventListener("click", e => {
+    const t = e.target.closest("button"); if (!t) return;
+    const mv = t.dataset.mv || t.dataset.cmv;
+    if (mv) {      // along the shown cards only: a hidden one is skipped over, not jumped behind
+      const k = t.dataset.k, shown = arrShown(r), i = shown.findIndex(c => c.k === k), j = i + (+mv); if (i < 0 || j < 0 || j >= shown.length) return;
+      arrMove(r, k, shown[j].k); redraw();
+      if (t.dataset.mv) focusOn(`.bcard${sel(k)} [data-mv="${mv}"]`, `.bcard${sel(k)} [data-hide]`); else focusOn(`#cmp th${sel(k)} [data-cmv="${mv}"]`, `#cmp th${sel(k)} [data-chide]`);
+    }
+    else if (t.dataset.hide != null || t.dataset.chide != null) { const k = t.dataset.hide != null ? t.dataset.hide : t.dataset.chide; arrHide(r, k, true); redraw(); focusOn(`${t.dataset.hide != null ? "#abars" : "#cmp"} [data-show="${CSS.escape(k)}"]`, `[data-show="${CSS.escape(k)}"]`, "#aopen"); }
+    else if (t.dataset.show != null) { const k = t.dataset.show; arrHide(r, k, false); redraw(); focusOn(`${t.closest("#cmp") ? "#cmp th" : ".bcard"}${sel(k)} [data-chide], .bcard${sel(k)} [data-hide]`); }
+    else if (t.hasAttribute("data-reset")) { arrReset(r); redraw(); b.focus(); }
+    else if (t.classList.contains("gbtn")) { const g = t.dataset.g, open = t.getAttribute("aria-expanded") !== "true"; t.setAttribute("aria-expanded", String(open)); $$(`tr[data-g="${g}"]`, cmp).forEach(tr => { tr.hidden = !open; }); if (open) CMP_OPEN.add(g); else CMP_OPEN.delete(g); }
+    else if (t.dataset.gall != null) { const open = t.dataset.gall === "1"; $$(".gbtn", cmp).forEach(x => { x.setAttribute("aria-expanded", String(open)); if (open) CMP_OPEN.add(x.dataset.g); else CMP_OPEN.delete(x.dataset.g); }); $$("tr[data-g]", cmp).forEach(tr => { tr.hidden = !open; }); }
+  });
+  /* dragging a card onto another: it takes that card's place. The browser's own drag and drop, so nothing captures the pointer;
+     on a touch screen the arrows do the same */
+  let dragK = null;
+  box.addEventListener("dragstart", e => { const c = e.target.closest(".bcard[data-k]"); if (!c) return; dragK = c.dataset.k; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", c.dataset.k); } catch (x) {} });
+  box.addEventListener("dragend", () => { dragK = null; $$(".bcard.dragging, .bcard.over", box).forEach(x => x.classList.remove("dragging", "over")); });
+  box.addEventListener("dragover", e => { if (!dragK) return; const c = e.target.closest(".bcard[data-k]"); if (!c) return; e.preventDefault(); e.dataTransfer.dropEffect = "move"; if (c.dataset.k !== dragK && !c.classList.contains("over")) { $$(".bcard.over", box).forEach(x => x.classList.remove("over")); c.classList.add("over"); } });
+  box.addEventListener("dragleave", e => { const c = e.target.closest(".bcard[data-k]"); if (c && !c.contains(e.relatedTarget)) c.classList.remove("over"); });
+  box.addEventListener("drop", e => { const c = e.target.closest(".bcard[data-k]"); if (!dragK || !c) return; e.preventDefault(); if (c.dataset.k !== dragK) { arrMove(r, dragK, c.dataset.k); redraw(); } dragK = null; });
 }
 const srcItem = s => `<div class="srcitem"><b>${esc(s.agency)}</b>: ${esc(s.title)}<small><span class="tag fact">Fact</span> <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a> &middot; fetched ${esc(s.fetched)} &middot; ${Number(s.rows || 0).toLocaleString()} rows &middot; SHA-256 ${esc((s.sha || "").slice(0, 16))}&hellip;${s.note ? " &middot; " + esc(s.note) : ""}</small></div>`;
 function sourcesHTML(){
@@ -1236,6 +1537,7 @@ function sourcesHTML(){
       <li><b>Parties</b> are printed exactly as the official list prints them. Colours are for telling the cards apart only.</li>
       <li><b>Money</b> is the 2026 cycle from the Federal Election Commission's bulk files: what each campaign reported, organizations named, people only as a total. A candidate's own fundraising committees and joint fundraising committees are moved in, not donors. Outside spending is kept apart, because the campaign never received it.</li>
       <li><b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.</li>
+      <li><b>Found on the open web.</b> Where no official record gives a candidate's birth year or earlier offices, the page shows what a government's own page, the campaign's own website, Wikipedia or a named news organization states. Each is labelled by which of those it is ("according to" a government page or the campaign, "as reported by" Wikipedia or a news organization) and linked to the page that states it, and each was checked twice: found by one reader and confirmed against its source by a second. An age from a birth year alone reads "about", and offices found this way are listed but their years are not added up. A campaign website found the same way is marked as such. Never an address, family, or anything about a person's views.</li>
       <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
       <li><b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.</li>
       <li><b>The ads themselves</b> are Google's: each one opens on its own page in Google's Ads Transparency Center, where a video plays; nothing is copied here. An ad is tied to a candidate only on the record: Google verified its advertiser under the candidate's campaign committee (or, where Google gives no FEC number the FEC's files know, the advertiser's name is the committee's own), or under the FEC number of a committee that reported spending in the race. A campaign's own ad is labelled "Paid for by their campaign", with no word about its tone. An outside group's ad is labelled with what the group itself swore to the FEC: how much it spent for and against each candidate in the race. Google's data does not tell which candidate an outside ad is about, or what it says, and this page never guesses. Meta's ads are not in Google's data; a link searches Meta's own library by name.</li>
@@ -1254,7 +1556,7 @@ function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if (h.startsWith("race=")) racePage(h.slice(5));
   else if (h.startsWith("state=")) statePage(h.slice(6).toUpperCase());
-  else { home(h); if (!h) scrollTo(0, 0); return; }
+  else { home(h.replace(/[^\w-]/g, "")); if (!h) scrollTo(0, 0); return; }
   scrollTo(0, 0);
 }
 addEventListener("hashchange", route);
@@ -1276,7 +1578,7 @@ def main():
     site_root = os.path.join(HERE, "site", "dev")
     boot = build(args.db, args.record, site_root, os.path.dirname(args.out))
     version = (boot["changelog"][0].get("version") if boot["changelog"] else "") or ""
-    page = PAGE.replace("__CSS__", borrow("CSS")).replace("__MONEYFMT__", borrow("MONEYFMT")).replace("__CHANGELOG__", borrow("CHANGELOG"))
+    page = PAGE.replace("__CSS__", borrow("CSS")).replace("__MONEYFMT__", borrow("MONEYFMT")).replace("__CHANGELOG__", borrow("CHANGELOG")).replace("__GEO__", borrow("GEO"))
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     os.makedirs(os.path.dirname(args.out), exist_ok=True)

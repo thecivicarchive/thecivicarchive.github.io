@@ -1,0 +1,140 @@
+{
+ "state": "MN",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-MN-H02",
+   "name": "Matt Little",
+   "party": "Democratic-Farmer-Labor",
+   "born": {
+    "year": 1984,
+    "date": "1984-11-24",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15490",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lakeville City Council",
+     "from": "2010",
+     "to": "2012",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15490",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Lakeville",
+     "from": "2012",
+     "to": "2016",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15490",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Senate (District 58)",
+     "from": "2017",
+     "to": "2021",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15490",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-H02",
+   "name": "Eric Pratt",
+   "party": "Republican",
+   "offices": [
+    {
+     "office": "Prior Lake-Savage School Board",
+     "from": "2000",
+     "to": "2012",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15386",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Senate (District 55, then District 54 from 2023)",
+     "from": "2013",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15386",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Offices on record: Minnesota Senate starting January 2023 (State roster), which reads as about three years in office.",
+     "problem": "The Legislative Reference Library's record gives continuous Senate service since 2013: District 55 for the 2013 to 2022 sessions, then District 54 from 2023 to the present.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15386",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-S2",
+   "name": "Peggy Flanagan",
+   "party": "Democratic-Farmer-Labor",
+   "born": {
+    "year": 1979,
+    "date": "1979-09-22",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15451",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minneapolis School Board",
+     "from": "2005",
+     "to": "2009",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15451",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives (District 46A)",
+     "from": "2015",
+     "to": "2019",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15451",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Lieutenant Governor of Minnesota",
+     "from": "2019",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15451",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-S2",
+   "name": "Michele Tafoya",
+   "party": "Republican",
+   "born": {
+    "year": 1964,
+    "date": null,
+    "source": "Wikipedia, 'Michele Tafoya' (statement cited to Artful Living, January 12, 2018); the article names her the Republican nominee for U.S. Senate in Minnesota in 2026",
+    "url": "https://en.wikipedia.org/wiki/Michele_Tafoya",
+    "kind": "secondary",
+    "verified": true
+   }
+  }
+ ]
+}

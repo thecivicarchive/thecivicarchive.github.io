@@ -1,0 +1,206 @@
+{
+ "state": "MI",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-MI-H02",
+   "name": "Ben Ambrose",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://ambrose4congress.com/",
+    "how": "The page is titled 'Ben Ambrose for Congress - A Voice for Michigan's Future'; its own description names him the Democratic nominee for Michigan's 2nd Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H02",
+   "name": "John Moolenaar",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://www.johnmoolenaarforcongress.com/",
+    "how": "Titled 'John Moolenaar for Congress'; he writes that he serves as congressman for Michigan's 2nd District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H04",
+   "name": "Sean McCann",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://seanmccannforcongress.com/",
+    "how": "Titled 'Sean McCann for Congress'; says 'Sean is running for Congress in MI-04' and calls him a State Senator.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kalamazoo City Commission (five two-year terms)",
+     "from": "1999",
+     "to": "2009",
+     "source": "Wikipedia, citing the Michigan House Democrats' biography (elected in 1999, served ten years); his Senate biography confirms five two-year terms without years",
+     "url": "https://en.wikipedia.org/wiki/Sean_McCann_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Michigan Senate",
+     "from": "2019",
+     "to": "now",
+     "source": "Wikipedia (term began January 1, 2019); his Senate biography says he is serving his second term",
+     "url": "https://en.wikipedia.org/wiki/Sean_McCann_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Michigan Senate from 2023 only (plus a second Michigan Senate entry dated 2023-01-01 to 2023-01-01 and marked unsure)",
+     "problem": "His official Senate biography says he is serving his second term in the Michigan Senate, so his Senate service began before 2023 (Wikipedia gives January 1, 2019); the 2023 date looks like the roster's start of the current term.",
+     "url": "https://senatedems.com/mccann/about/bio/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-H04",
+   "name": "Bill Huizenga",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://huizengaformichigan.com/",
+    "how": "Titled 'Huizenga for Congress', paid for by Huizenga for Congress; describes Bill Huizenga serving Southwest Michigan in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H06",
+   "name": "Debbie Dingell",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://debbiedingellforcongress.com/",
+    "how": "Titled 'Debbie Dingell for Congress', with a 2026 section and a page on the district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H08",
+   "name": "Kristen McDonald Rivet",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://kristenmcdonaldrivet.com/",
+    "how": "Titled 'Kristen McDonald Rivet for Michigan'; says Congresswoman Kristen McDonald Rivet represents MI-08 and asks for help to keep her in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H08",
+   "name": "Thomas J. Smith",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://tomsmithformi.com/",
+    "how": "Titled 'Tom Smith for Congress'; says Tom Smith is running for U.S. Representative for Michigan's 8th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H10",
+   "name": "Christina Bertrand Hines",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://www.christinahinesforcongress.com/",
+    "how": "Titled 'Christina Hines for Congress'; says she is running for Congress in Michigan's 10th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H10",
+   "name": "Michael Bouchard",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://www.bouchardforcongress.com/",
+    "how": "Titled 'Captain Mike Bouchard for Congress'; asks readers to stand with him 'for Michigan's 10th Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H12",
+   "name": "Rashida Tlaib",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://rashidaforcongress.com/",
+    "how": "Titled 'Rashida Tlaib for Congress'; asks for support for Rashida Tlaib for U.S. Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-H12",
+   "name": "James D. Hooper",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://jameshooperforcongress.com/",
+    "how": "Titled 'James Hooper for Congress', a Republican from Wayne County; its About page names the incumbent he is running against, Rashida Tlaib.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S2",
+   "name": "Abdul El-Sayed",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://abdulforsenate.com/",
+    "how": "Titled 'Abdul El-Sayed - Michigan U.S. Senate Candidate 2026'; says he is running for US Senate in Michigan.",
+    "verified": true
+   },
+   "born": {
+    "year": 1984,
+    "date": null,
+    "source": "Wikipedia (birth date cited to press profiles); year only kept",
+    "url": "https://en.wikipedia.org/wiki/Abdul_El-Sayed",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Health Officer and Executive Director, Detroit Health Department (appointed by the mayor)",
+     "from": "2015",
+     "to": "2017",
+     "source": "Wikipedia, citing the Detroit Free Press (2015) and The Detroit News (2017); his campaign's About page confirms the post without years",
+     "url": "https://en.wikipedia.org/wiki/Abdul_El-Sayed",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Director, Wayne County Department of Health, Human and Veterans Services",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, citing the Detroit Free Press (2025); his campaign's About page confirms the post without years",
+     "url": "https://en.wikipedia.org/wiki/Abdul_El-Sayed",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S2",
+   "name": "Mike Rogers",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://rogersforsenate.com/",
+    "how": "Titled 'Mike Rogers for Senate'; its headlines are about his U.S. Senate bid in Michigan.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S2",
+   "name": "Lydia Christensen",
+   "party": "Libertarian Party",
+   "website": {
+    "url": "https://www.lydialynnchristensen.com/",
+    "how": "Titled 'Lydia Christensen for U.S. Senate'; describes her as Michigan's Libertarian candidate for U.S. Senate in 2026.",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "state": "NE",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-NE-H01",
+   "name": "Chris Backemeyer",
+   "party": "Democratic",
+   "website": {
+    "url": "https://backnebraska.com/",
+    "how": "The site is titled 'Chris Backemeyer for Nebraska', says he is running for Congress, and is paid for by Backemeyer for Nebraska.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H01",
+   "name": "Mike Flood",
+   "party": "Republican",
+   "website": {
+    "url": "https://mikefloodfornebraska.com/",
+    "how": "The site reads 'Mike Flood for U.S. Congress - Nebraska District 1' and is paid for by Mike Flood for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H02",
+   "name": "Brinker Harding",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.brinkerharding.com/",
+    "how": "The site is titled 'Brinker Harding for Congress' and calls him a candidate for the United States Congress in Nebraska's 2nd District; paid for by Brinker Harding for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Omaha City Council, 6th district",
+     "from": "2017",
+     "to": "now",
+     "source": "Wikipedia, 2026 United States House of Representatives elections in Nebraska (statement cited to the Nebraska Examiner, 2025-07-01); the campaign's own site also calls him an Omaha City Councilman",
+     "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Nebraska",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-H02",
+   "name": "Denise Powell",
+   "party": "Democratic",
+   "website": {
+    "url": "https://deniseforcongress.org/",
+    "how": "The site is titled 'Denise Powell for Congress - Nebraska's Second District' and is paid for by Denise Powell for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H02",
+   "name": "Eric Michael Foreman",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://foremantakebackourhouse.com/",
+    "how": "The site is titled 'Real Representation Nebraska | Foreman for US Congress' and has a 'Meet Eric' page; it names Nebraska and the office but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H03",
+   "name": "Adrian Smith",
+   "party": "Republican",
+   "website": {
+    "url": "https://joinadrian.com/",
+    "how": "The site is titled 'Adrian Smith for U.S. Congress', asks support for 'Congressman Adrian Smith for Nebraska's Third District' and is paid for by Adrian Smith for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H03",
+   "name": "Becky Kelly Stille",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.beckystille2026.com/",
+    "how": "The site is titled 'Becky Stille for U.S. Congress', says she is 'running for Nebraska's 3rd' and is paid for by Becky Stille for U.S. Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H03",
+   "name": "David J. Else",
+   "party": "Legal Marijuana NOW",
+   "website": {
+    "url": "https://dave-else-for-congress.square.site/",
+    "how": "The site is titled 'Dave Else For Congress' and calls him 'A Real Rural Nebraskan'; it names the office and state but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-H03",
+   "name": "Mark Cohen",
+   "party": "By Petition",
+   "website": {
+    "url": "https://www.markfornebraska.org/",
+    "how": "The site ('Mark for Nebraska') names Mark Cohen as 'Independent Candidate for Congress in NE-03'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S2",
+   "name": "Chuck Conboy",
+   "party": "America First",
+   "website": {
+    "url": "https://conboyforsenate.com/",
+    "how": "The site reads 'Chuck Conboy for U.S. Senate - Nebraska', names the America First Party, and is paid for by Chuck Conboy for U.S. Senate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S2",
+   "name": "Dan Osborn",
+   "party": "By Petition",
+   "website": {
+    "url": "https://osbornforsenate.com/",
+    "how": "The site says 'Dan Osborn and I'm running for U.S. Senate in Nebraska' and is paid for by Osborn for Senate.",
+    "verified": true
+   },
+   "born": {
+    "year": 1975,
+    "date": null,
+    "source": "Wikipedia, Dan Osborn (birth date cited to the Nebraska Examiner, 2025-04-03); year only kept",
+    "url": "https://en.wikipedia.org/wiki/Dan_Osborn",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S2",
+   "name": "Mike Marvin",
+   "party": "Legal Marijuana NOW",
+   "website": {
+    "url": "https://marvinforsenate.com/",
+    "how": "The site is titled 'Mike Marvin - Legal Marijuana Now', names Nebraska and is paid for by Mike Marvin for Congress; its front page now carries a closing message to supporters written after the primary, so read it before showing the link.",
+    "verified": true,
+    "corrected": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S2",
+   "name": "Pete Ricketts",
+   "party": "Republican",
+   "website": {
+    "url": "https://petericketts.com/",
+    "how": "The site reads 'Pete Ricketts for Senate' and is paid for by Pete Ricketts for Senate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S2",
+   "name": "Robin Richards",
+   "party": "Nebraska Working People",
+   "website": {
+    "url": "https://robinforne.com/",
+    "how": "The site is titled 'Robin Richards for U.S. Senate | Nebraska' and names Robin Richards as the Nebraska Working People Party candidate.",
+    "verified": true
+   }
+  }
+ ]
+}

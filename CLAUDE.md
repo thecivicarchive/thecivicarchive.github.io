@@ -955,15 +955,33 @@ time of day and season (worked out on the device; nothing is sent). The ring of 
   `build_door.py` builds the cabin whenever it builds the front door. `CABIN_FIRST` in `build_door.py` is off: the ring
   of cards is `index.html` and the cabin is `cabin.html` beside it. Switched on, the cabin becomes `index.html` and the
   ring is written as `doors.html`. John switches it on once the cabin looks real.
-- Where it stands: the first version is drawn entirely in code (flat-shaded boxes, canvas textures), and John's verdict
-  was that it must be "more immersive and 3D ... as hyper realistic (human) as possible", with two reference photos of
-  real log great rooms (vaulted round-log rafters, honey-coloured log walls, a floor-to-ceiling stacked-stone fireplace
-  with a half-log mantel, a gable wall of windows on pines and peaks, leather sofas on a red Persian-style rug, lamps,
-  a wrought-iron chandelier). He approved downloading free materials for it: CC0 textures (Poly Haven, ambientCG) and
-  public-domain National Park Service photos of the Rockies, kept in the site's own folder and credited; nothing loads
-  from another server. He offered a Fable 5.1 max-effort agent for the rebuild. He likes the two doors as signs at the
-  foot of the page: keep them bold and glowing. Keep also: walking, the visitor's clock, the plain way in, the still
-  page for devices with no 3D or with Motion off, and no `setPointerCapture` (drag listeners sit on the window).
+- The first version was drawn entirely in code (flat-shaded boxes, canvas textures); John's verdict was that it must be
+  "more immersive and 3D ... as hyper realistic (human) as possible", with two reference photos of real log great rooms.
+  The second version (2026-10-01) is a log great room 10.4 by 9 m under a vaulted roof (eave 3.6 m, ridge 6.6 m): round
+  logs as geometry for the walls (interlocking courses, ends proud of the corners), rafters, purlins, ridge, two log
+  trusses, a loft over the back with a log railing and a steep stair, a gable wall of glass rising to the roof, a deck
+  with a log railing outside, a stacked-stone chimney breast with the firebox cut into it, a hearth and a log mantel, and
+  a fire of shader flames, sparks, coals and a flickering point light that casts shadows. Materials are photographed
+  (CC0, Poly Haven and ambientCG, in `cabin_assets/tex/`: colour, normal and AO/roughness maps, shrunk to 1k or 512) and
+  the furniture is CC0 models from Poly Haven (`cabin_assets/models/`, textures shrunk): a tufted leather sofa, two
+  bergère armchairs, a rocking chair, a bench coffee table, two tall side tables, a wrought-iron lantern chandelier,
+  throw pillows and a vase; the rug is a design drawn in the Persian manner over the weave of a photographed carpet.
+  Outside the windows is a public-domain National Park Service photograph of Rocky Mountain National Park
+  (`cabin_assets/view/`, 2048 px wide, from NPGallery, each record marked "Public domain"), one per hour and season
+  where one was found, shown at the angle a real lens sees with its horizon at eye level, mirrored beyond its sides,
+  graded for the hour; there is no night photograph, so night darkens the September twilight picture and strews stars
+  over its sky parts, and the footer says so. `cabin_assets/credits.json` lists every work with author, licence and
+  source page, and the page's Credits button shows them. The add-ons the room needs (GLTFLoader, EffectComposer,
+  UnrealBloomPass, OutputPass, RoomEnvironment) are vendored from the same three.js release into `vendor/jsm/` with
+  their `from 'three'` imports pointed at the kit's copy; `build_cabin.py` copies all of it beside the page (about 10 MB
+  in all) and imports the room with a content hash so a browser never keeps an old copy. Phones (`?lite=1` forces it)
+  draw without bloom and with smaller shadows, and a phone held upright starts further back so both posters fit. John
+  likes the two doors as signs at the foot of the page: keep them bold and glowing. Keep also: walking, the visitor's
+  clock, the plain way in, the still page for devices with no 3D or with Motion off, and no `setPointerCapture` (drag
+  listeners sit on the window). What still falls short of a photograph: no global illumination (light does not bounce,
+  so corners and the underside of the loft are evenly lit by the sky light), the sofa's leather grain is the model's
+  normal map over a flat colour, the mantel books and the blanket are plain boxes, and the view is one flat photograph
+  at 75 m, so the parallax is the deck railing's, not the mountains'.
 - To check frames in the Browser pane (which draws no animation while hidden): start a throwaway local saver that
   accepts a POST with CORS, call `window.__cabin.still(960, 600, {x, z, yaw, pitch})` in the page, POST the data URL
   to it, and Read the JPEG. A `//` comment added in the middle of a one-line function swallows the rest of the line:
@@ -979,6 +997,45 @@ time of day and season (worked out on the device; nothing is sent). The ring of 
   serves the site is public and holds all the code and these notes; John chose to leave that for now and plan a split
   (code in a private repository, a public one holding only the built pages; creating the private repository is his
   step). Do not make the split, or change the repository's visibility, without him.
+
+## The Congress ballot pages, reworked, and facts found on the open web (v4.0.079)
+
+John's nine marked-up screenshots (2026-10-01). On `build_ballot_dev.py`'s pages: the "Every state" map sits directly
+under the number tiles; "Your ballot" has "Use my location" (the state from the page's state shapes, the district from
+the lines the maps draw, on the device; a state with new 2026 lines places the reader in the state only) and then a
+paper-style preview headed "Your ballot: a preview" (office, "Vote for one", each name as printed with party, an empty
+oval; the county's sample ballot is the authority); "The Senate races" and "Every race, state by state" start folded,
+a fold per state; on a race page Polls and "What bettors are paying" are two pull-down tabs above the arena, closed to
+start, with everything the betting notice carried; the comparison's sections start closed and each candidate's column
+moves and hides; the fight cards move (arrows, drag without pointer capture) and hide, with "Put back the official
+order". One arrangement serves cards and columns, kept per race in localStorage; the page's own order is always the
+official list's and the note says so. The arena is `color-mix(ink 7%, bg)` and follows the theme (the state ballot
+pages borrow the same stylesheet). Left for John: small arrow buttons on phones, a stray "vs" when cards wrap, Senate
+folds in postal-code order, and no arrange controls on the state ballot pages.
+
+Facts found on the open web (John: "sweep the internet, ethically and responsibly"), for candidates for Congress on
+the November lists only; state and local candidates stay under the strict rule.
+- `ballot/found/<ST>-<k>.json`: 56 files written by research agents and then checked by a second agent that re-opened
+  every source ("verified": true on what it confirmed; unconfirmed findings deleted). Allowed: the campaign's own
+  website (the site itself must name the candidate and the office or district), the year of birth (a full date only
+  from an official or campaign page), and public offices held, each with the page that states it and its kind:
+  `official` (a government's own page), `campaign`, `secondary` (Wikipedia with a citation, a named news
+  organization). Never: addresses, phones, family, religion, health, employers, schools, legal troubles, endorsements,
+  views; never people-search sites, data brokers, voter files, logins, paywalls, CAPTCHAs. A finding needs two anchors
+  tying the person to the race, or it is left out.
+- `ballot/found.py` (stage `found` of `run_ballot.py`, after `people`) loads only verified findings: websites into the
+  `websites` table (source begins "Found on the open web"; a listed or FEC website is never replaced), birth years and
+  offices into `found_facts`. Official records stay first: a found fact fills a blank only, and found offices of a
+  person the official record already covers are held back and listed in `ballot/found/REVIEW.md` with the review
+  items (things our pages show that an official source contradicts; a person reads them, nothing changes by itself).
+  `run_ballot.py` also gained `--db <file>` and `--only "<person>;<person>"`.
+- The page shows a found birth year as "about 51" on the card and, in the comparison, "born 1975, according to
+  <source>" / "according to their campaign" / "as reported by <source>", linked; found offices as "office, 2015 to
+  2019" with the same labels and "years not counted"; a found office reaches the card only when official and held
+  today. Totals at v4.0.079: 824 websites, 191 offices (31 official, 73 campaign, 87 secondary), 56 birth years
+  (9 official, 4 campaign, 43 secondary). Photo options fetched from found websites still need the contact-sheet
+  review before any appears (`ballot/photo_choice.json`).
+- Many campaign sites answer scripts with 429 or a CAPTCHA; those findings were deleted, never worked around.
 
 ## Optional: rate more bills with the Claude API
 

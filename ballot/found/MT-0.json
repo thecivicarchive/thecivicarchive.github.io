@@ -1,0 +1,164 @@
+{
+ "state": "MT",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-MT-H01",
+   "name": "Aaron Flint",
+   "party": "Republican",
+   "website": {
+    "url": "https://flintformontana.com/",
+    "how": "The site is titled 'Aaron Flint for Montana', reads 'Aaron Flint for Congress' and quotes an endorsement naming Montana's 1st Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-H01",
+   "name": "Sam Forstag",
+   "party": "Democratic",
+   "website": {
+    "url": "https://samformontana.com/",
+    "how": "The site is titled 'Sam Forstag for Montana' and calls him 'Candidate for Montana's First District', 'running for Congress in Montana's 1st District'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1994,
+    "date": null,
+    "source": "Wikipedia, 'Sam Forstag' (opening sentence, which names him the Democratic nominee in Montana's 1st district and cites The New York Times, CBS News and The Guardian)",
+    "url": "https://en.wikipedia.org/wiki/Sam_Forstag",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-H02",
+   "name": "Brian J Miller",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.miller4congress.com/",
+    "how": "The site is headed 'Miller for Congress | Montana Second Congressional District' and is paid for by 'Miller for Congress'; the page gives only the family name in its text, and the campaign's own contact line uses the given name Brian.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-H02",
+   "name": "Michael D Eisenhauer",
+   "party": "Independent",
+   "website": {
+    "url": "https://eisenhauerforcongress.com/",
+    "how": "The site is titled 'Eisenhauer for Congress - An Independent for Montana' and describes an 'Independent candidacy for Montana's 2nd' Congressional District; it calls him Mike.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-H02",
+   "name": "Patrick McCracken",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.mccrackenformontana.com/",
+    "how": "The site is titled 'McCracken for Montana', reads 'Patrick McCracken for Montana's 2nd Congressional District' and has a Libertarians page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-H02",
+   "name": "Troy Downing",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.troydowning.com/",
+    "how": "The site is titled 'Troy Downing for Congress | Official Campaign Website' and says he represents Montana's second congressional district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-S2",
+   "name": "Alani Bankhead",
+   "party": "Democratic",
+   "website": {
+    "url": "https://alaniformt.com/",
+    "how": "The site is titled 'Alani Bankhead for U.S. Senate - Montana' and says she is running for U.S. Senate in Montana.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-S2",
+   "name": "Kurt Alme",
+   "party": "Republican",
+   "website": {
+    "url": "https://almeforsenate.com/",
+    "how": "The site is titled 'Alme for Senate', has a 'Meet Kurt Alme' section and says he is running for U.S. Senate; it describes his Montana offices.",
+    "verified": true
+   },
+   "born": {
+    "year": 1966,
+    "date": null,
+    "source": "Wikipedia, 'Kurt Alme' (birth statement cited to the Martindale-Hubbell Law Directory; the article names him the 2026 Senate candidate in Montana)",
+    "url": "https://en.wikipedia.org/wiki/Kurt_Alme",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "United States Attorney for the District of Montana",
+     "from": "2017",
+     "to": "2020",
+     "source": "Wikipedia, 'Kurt Alme' (cited to the Missoulian); his campaign site also states the office, without years",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Alme",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Director, Montana Office of Budget and Program Planning (the Governor's budget director)",
+     "from": "2021",
+     "to": "2021",
+     "source": "Wikipedia, 'Kurt Alme' (this sentence has no citation of its own); his campaign site states the office under Governor Gianforte, without years",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Alme",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "United States Attorney for the District of Montana (interim, then confirmed)",
+     "from": "2025",
+     "to": "2026",
+     "source": "Wikipedia, 'Kurt Alme' (cited to a U.S. Attorney's Office press release and the Bozeman Daily Chronicle)",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Alme",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Director, Montana Department of Revenue",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: served 'under Governor Judy Martz'; no years are given there or on Wikipedia",
+     "url": "https://almeforsenate.com/meet-kurt/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-S2",
+   "name": "Kyle Austin",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.kyleaustinmt.com/",
+    "how": "The site is titled 'Support Kyle Austin for U.S. Senate | Advocate for Montana's Future'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-S2",
+   "name": "Seth Bodnar",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.sethformontana.com/",
+    "how": "The site is titled 'Seth Bodnar for Montana | Independent U.S. Senate Candidate' and says he is running for U.S. Senate.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

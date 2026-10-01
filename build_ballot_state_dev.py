@@ -1112,7 +1112,7 @@ html,body{overflow-x:hidden}
 .st .bcard{aspect-ratio:auto;min-height:clamp(250px,30vw,300px)}
 .st .bcard .band span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .st .bcard .who b{overflow-wrap:anywhere}
-.st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:#0A5A4E;text-decoration:underline;text-underline-offset:2px}
+.st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 .st .bcard.np .mono span{border-style:dashed}
 @media (max-width:640px){.st .bcard{min-height:0}}
 .loading{padding:60px 0;text-align:center}

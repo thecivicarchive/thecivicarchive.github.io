@@ -1,0 +1,231 @@
+{
+ "state": "MO",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-MO-H01",
+   "name": "Paul Berry III",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.momadmaga.com/",
+    "how": "The site is titled \"Paul Berry III For Congress\" and speaks of his 2026 Missouri Congressional District One campaign.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H01",
+   "name": "Wesley Bell",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bell4mo.com/",
+    "how": "The site is titled \"Wesley Bell for Congress\", is paid for by Bell for Missouri, describes his election as St. Louis County Prosecuting Attorney in 2018, and asks for help with its 2026 goals; it does not name the district number.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H02",
+   "name": "Ann Wagner",
+   "party": "Republican",
+   "website": {
+    "url": "https://annwagner.com/",
+    "how": "The site is titled \"Ann Wagner - U.S. Congress\", is paid for by Ann Wagner for Congress and describes her as born and raised in Missouri; it does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H02",
+   "name": "Fred Wellman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.wellmanformo.com/",
+    "how": "The site is titled \"Fred Wellman for Congress | Missouri's 2nd Congressional District\" and says he is challenging Ann Wagner.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H03",
+   "name": "Bethany E Mann",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bethanymannforcongress.com/",
+    "how": "The site says the 2026 campaign is underway and names Missouri's 3rd Congressional District; paid for by Bethany Mann for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H03",
+   "name": "Bob Onder",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.bobondermo.com/",
+    "how": "The site is titled \"Dr. Bob Onder for Congress\" and its About page describes his two terms in the Missouri Senate; it does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H04",
+   "name": "Jordan Herrera",
+   "party": "Democratic",
+   "website": {
+    "url": "https://jordanjherrera.com/about/",
+    "how": "The About page is headed \"Candidate for U.S. Congress - Missouri's 4th District\"; one home-page sentence still says \"Missouri's 5th\" (his FEC number, H6MO05254, was also issued for district 5).",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H04",
+   "name": "Mark Alford",
+   "party": "Republican",
+   "website": {
+    "url": "https://alfordforcongress.com/",
+    "how": "The site is titled \"Mark Alford for Congress\" and says he represents Missouri's 4th District in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H05",
+   "name": "Rick Brattin",
+   "party": "Republican",
+   "website": {
+    "url": "https://rickbrattin.com/",
+    "how": "The site is titled \"Rick Brattin for Congress\" and its Meet Rick page describes his Missouri House and Senate service; it does not name the district number.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives (55th District)",
+     "from": "2010",
+     "to": "2018",
+     "source": "Missouri Senate, Senator Rick Brattin's biography (\"four terms ... from 2010-2018\")",
+     "url": "https://www.senate.mo.gov/Senators/Member?id=5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Cass County Auditor (the biography gives no years)",
+     "from": "",
+     "to": "",
+     "source": "Missouri Senate, Senator Rick Brattin's biography",
+     "url": "https://www.senate.mo.gov/Senators/Member?id=5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Missouri Senate (31st District; elected 2020)",
+     "from": "2021",
+     "to": "now",
+     "source": "Missouri Senate, Senator Rick Brattin's biography; our state roster gives the start, 2021-01-06",
+     "url": "https://www.senate.mo.gov/Senators/Member?id=5",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Offices on record: Missouri House starting and ending on 2019-01-09 (marked unsure), then Missouri Senate from 2021; no county office.",
+     "problem": "The Missouri Senate's biography says he served four terms in the Missouri House, 2010-2018, and is a former auditor of Cass County, before his election to the Senate in 2020.",
+     "url": "https://www.senate.mo.gov/Senators/Member?id=5",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-H06",
+   "name": "Andy Maidment",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.maidmentformissouri.com/",
+    "how": "The site is titled \"Andy Maidment for Missouri's Sixth Congressional District\" and calls him the libertarian candidate running for Congress there.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H06",
+   "name": "Chris Stigall",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.stigallforcongress.com/",
+    "how": "The site is titled \"Chris Stigall for Congress\", is paid for by Chris Stigall for Congress, and places him in Missouri's 6th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H06",
+   "name": "Josh Smead",
+   "party": "Democratic",
+   "website": {
+    "url": "https://votesmead.com/",
+    "how": "The site reads \"Josh Smead for Congress - Missouri's 6th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H07",
+   "name": "Eric W. Burlison",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.ericburlisonforcongress.com/",
+    "how": "The site is titled \"Eric Burlison for Congress\", \"proven conservative leadership for Missouri\", paid for by Eric Burlison for Congress; it does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H07",
+   "name": "Kevin Craig",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.kevincraig.us/",
+    "how": "The site is titled \"Kevin Craig for Congress - Christian Libertarian for Missouri's 7th Congressional District\" and asks for a Libertarian vote on November 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H07",
+   "name": "Missi Hesketh",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.missiformo.com/",
+    "how": "The site (missiheskethforcongress.com forwards to it) says Missi Hesketh is running for Congress in Southwest Missouri and names Missouri's District 7.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor (the site says \"former mayor\" and gives neither the city nor the years)",
+     "from": "",
+     "to": "",
+     "source": "her campaign site's home page",
+     "url": "https://www.missiformo.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-H08",
+   "name": "Chris Reichard",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.reichardforrep.com/",
+    "how": "The site calls itself the official campaign website for Chris Reichard for U.S. Representative MO-08.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-H08",
+   "name": "Jason T. Smith",
+   "party": "Republican",
+   "website": {
+    "url": "https://electjasonsmith.com/",
+    "how": "The site, \"Elect Jason Smith\", refers to him throughout as Congressman Jason Smith and places him in Southeast Missouri; it does not itself state the district number.",
+    "corrected": true,
+    "verified": true
+   }
+  }
+ ]
+}

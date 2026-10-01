@@ -1,0 +1,260 @@
+{
+ "state": "IL",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-IL-H02",
+   "name": "Donna Miller",
+   "party": "Democratic",
+   "website": {
+    "url": "https://donnaforcongress.com/",
+    "how": "The site is titled 'Donna Miller for Congress', is paid for by Donna Miller for Congress in Illinois, and describes her as a Cook County Commissioner running for Congress.",
+    "verified": true
+   },
+   "born": {
+    "year": 1965,
+    "date": null,
+    "source": "Wikipedia, 'Donna Miller', citing WTTW News's 2018 candidate profile",
+    "url": "https://en.wikipedia.org/wiki/Donna_Miller",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cook County Board of Commissioners, 6th District",
+     "from": "2018",
+     "to": "now",
+     "source": "Wikipedia, 'Donna Miller' (term began December 2018); Cook County's own page at https://www.cookcountyil.gov/all-people/donna-miller lists her as a sitting commissioner without a start year",
+     "url": "https://en.wikipedia.org/wiki/Donna_Miller",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H02",
+   "name": "Michael Scott Noack",
+   "party": "Republican",
+   "website": {
+    "url": "https://noack4congress.com/",
+    "how": "The site is titled 'Mike Noack for Congress | IL-2 Republican' and says he is running for Congress in Illinois' 2nd District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H04",
+   "name": "Chris Getty",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.chrisgettyforcongress.com/",
+    "how": "The site is titled 'Chris Getty for Congress' and reads 'Independent | IL-4th District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, Village of Lyons, Illinois",
+     "from": null,
+     "to": "now",
+     "source": "His campaign's About page (no start year given)",
+     "url": "https://www.chrisgettyforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Township Supervisor (the page does not name the township in that sentence)",
+     "from": null,
+     "to": null,
+     "source": "His campaign's About page, which says he was elected Township Supervisor; it gives no years and does not say whether he holds the post today",
+     "url": "https://www.chrisgettyforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H04",
+   "name": "Patty Garcia",
+   "party": "Democratic",
+   "website": {
+    "url": "https://pattyforillinois.com/",
+    "how": "The site is titled 'Patty Garcia for Congress' and says she is running for Congress across the 4th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H06",
+   "name": "Niki Conforti",
+   "party": "Republican",
+   "website": {
+    "url": "https://conforti4congress.com/",
+    "how": "The site's Meet Niki page reads 'Niki Conforti Candidate (R) Illinois 6th Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H06",
+   "name": "Sean Casten",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.castenforcongress.com/",
+    "how": "The site is titled 'Sean Casten for Congress' and says he represents Illinois' 6th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H08",
+   "name": "Jennifer Davis",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.votejenniferdavis.com/",
+    "how": "The site is titled 'Jennifer Davis for Congress | Illinois 8th District candidate' and calls her the Republican running in Illinois' 8th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H08",
+   "name": "Melissa L. Bean",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.melissabeanforcongress.com/",
+    "how": "The site is titled 'Melissa Bean for Congress' and says she is running again to be Representative from Illinois' 8th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H10",
+   "name": "Brad Schneider",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.schneiderforcongress.com/",
+    "how": "The site is titled 'Schneider for Congress', names Brad Schneider's reelection and Illinois's 10th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H12",
+   "name": "Julie Fortier",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.juliefortier.org/",
+    "how": "The site is titled 'Julie Fortier for Illinois District 12 | Democrat' and calls her the Democrat for U.S. House in Illinois District 12.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H12",
+   "name": "Mike Bost",
+   "party": "Republican"
+  },
+  {
+   "race_id": "2026-IL-H14",
+   "name": "James T. \"Jim\" Marter",
+   "party": "Republican",
+   "website": {
+    "url": "https://marter4congress.us/",
+    "how": "The site is 'Marter For Congress' and says 'I'm Jim Marter, running for Congress in Illinois' 14th District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Oswego Public Library District Board",
+     "from": "2021",
+     "to": "2025",
+     "source": "His campaign's Meet Jim page",
+     "url": "https://marter4congress.us/meet-jim/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H14",
+   "name": "Lauren Underwood",
+   "party": "Democratic",
+   "website": {
+    "url": "https://underwoodforcongress.com/",
+    "how": "The site is 'Underwood for Congress' and says Congresswoman Lauren Underwood represents Illinois' 14th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H16",
+   "name": "Darin LaHood",
+   "party": "Republican"
+  },
+  {
+   "race_id": "2026-IL-H16",
+   "name": "Paul Nolley",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.nolleyforcongress.com/",
+    "how": "The site is titled 'Paul Nolley for Congress', names Illinois' 16th Congressional District and the race against incumbent Darin LaHood.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-S2",
+   "name": "Don Tracy",
+   "party": "Republican",
+   "website": {
+    "url": "https://dontracyforil.com/",
+    "how": "The site is titled 'Don Tracy for Illinois Senate' and calls him the Republican candidate for the United States Senate from Illinois.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Illinois Gaming Board (acting from February 2015, confirmed June 2017)",
+     "from": "2015",
+     "to": "2019",
+     "source": "Wikipedia, 'Don Tracy', citing the Illinois Times (Scott Reeder, 'Don Tracy Clears His Name', February 20, 2025)",
+     "url": "https://en.wikipedia.org/wiki/Don_Tracy",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-S2",
+   "name": "Juliana Stratton",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.julianastratton.com/",
+    "how": "The site is titled 'Juliana Stratton for U.S. Senate' and says she has served as Lieutenant Governor of Illinois and is running for U.S. Senate.",
+    "verified": true
+   },
+   "born": {
+    "year": 1965,
+    "date": null,
+    "source": "Wikipedia, 'Juliana Stratton', citing WTTW's 2018 candidate profile",
+    "url": "https://en.wikipedia.org/wiki/Juliana_Stratton",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Illinois House of Representatives, 5th District",
+     "from": "2017",
+     "to": "2019",
+     "source": "Wikipedia, 'Juliana Stratton' (5th District, January 2017 to January 2019). The Lieutenant Governor's official About page (https://ltgov.illinois.gov/about.html) confirms she represented the 5th District in the Illinois House before 2018 but gives no years",
+     "url": "https://en.wikipedia.org/wiki/Juliana_Stratton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-S2",
+   "name": "Whitfield Harrington Jr",
+   "party": "American Center Party",
+   "website": {
+    "url": "https://whit4ilsenate.com/",
+    "how": "The site is titled 'Whitfield Harrington for U.S. Senate' and calls him an independent candidate for U.S. Senate in Illinois helping to form the American Center Party.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 2
+}

@@ -1,0 +1,511 @@
+{
+ "state": "CA",
+ "part": 1,
+ "of": 3,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-CA-H02",
+   "name": "Jared Huffman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.jaredhuffman.com/",
+    "how": "The site is titled 'Jared Huffman for Congress', is paid for by Huffman for Congress and speaks of representing California's northern region in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H02",
+   "name": "Robin Littau",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.littauforcongress.com/",
+    "how": "The site is titled 'Littau For Congress 2026 | CA District 2' and describes Robin Littau as a California Republican congressional candidate.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School board member, Enterprise Elementary School District (Redding)",
+     "from": "2024",
+     "to": "now",
+     "source": "Her campaign site's About page: 'a residing School Board Member for the Enterprise Elementary School District (24-26)'",
+     "url": "https://www.littauforcongress.com/about-5",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H05",
+   "name": "Michael Masuda",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.votemasuda.com/",
+    "how": "The site's pages are titled 'Michael Masuda for Congress in CA5' and describe California's 5th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H05",
+   "name": "Tom McClintock",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.tommcclintock.com/",
+    "how": "The site is titled 'Tom McClintock | for Congress', is paid for by McClintock for Congress and describes his gold country and Sierra Nevada district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H08",
+   "name": "John Garamendi",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.garamendi.org/",
+    "how": "The site is titled 'John Garamendi for Congress', is paid for by his campaign committee and has a 'District 8' section.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H08",
+   "name": "Rudy Recile",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.rudyforuscongress.com/",
+    "how": "The site is titled 'Major (Ret) Rudy Recile For U.S. Congress' and says 'Candidate California's 8th Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H11",
+   "name": "Connie Chan",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.conniechansf.com/",
+    "how": "The site is titled 'Connie Chan for Congress | Progressive Leader for California's 11th District'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1978,
+    "date": null,
+    "source": "Wikipedia's article on Connie Chan (the birth date carries a footnote); year only kept",
+    "url": "https://en.wikipedia.org/wiki/Connie_Chan_(politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, San Francisco Board of Supervisors, District 1",
+     "from": "2021",
+     "to": "now",
+     "source": "Wikipedia's article on Connie Chan (assumed office January 8, 2021)",
+     "url": "https://en.wikipedia.org/wiki/Connie_Chan_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H11",
+   "name": "Scott Wiener",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.scottwiener.com/",
+    "how": "The site is titled 'Scott Wiener for Congress' and its biography page describes State Senator Scott Wiener of San Francisco.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, San Francisco Board of Supervisors, District 8",
+     "from": "2011",
+     "to": "2016",
+     "source": "Wikipedia's article on Scott Wiener (January 8, 2011 to December 5, 2016); his campaign site confirms he served on the Board without giving years",
+     "url": "https://en.wikipedia.org/wiki/Scott_Wiener",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H14",
+   "name": "Aisha Wahab",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.aishawahab.com/",
+    "how": "The site is titled 'Dr. Aisha Wahab for Congress' and its description reads 'Dr. Aisha Wahab for Congress - CA 14'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, California State Senate, 10th district",
+     "from": "2022",
+     "to": "2026",
+     "source": "Wikipedia's article on Aisha Wahab (December 5, 2022 to September 1, 2026)",
+     "url": "https://en.wikipedia.org/wiki/Aisha_Wahab",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Hayward City Council",
+     "from": "2018",
+     "to": "2022",
+     "source": "Wikipedia's article on Aisha Wahab (December 11, 2018 to December 5, 2022)",
+     "url": "https://en.wikipedia.org/wiki/Aisha_Wahab",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H14",
+   "name": "Melissa Hernandez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.melissahernandez2026.com/",
+    "how": "The site is titled 'Melissa Hernandez for Congress' and says she 'is running for Congress in CA-14'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Director, Bay Area Rapid Transit (BART) Board of Directors, District 5 (Board President for 2026)",
+     "from": "2024",
+     "to": "now",
+     "source": "BART's own biography of Director Hernandez: appointed May 23, 2024, elected November 2024; current term December 2024 to December 2028",
+     "url": "https://www.bart.gov/about/bod/member/district5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Dublin, California",
+     "from": "not stated",
+     "to": "2024",
+     "source": "BART's own biography: 'served as the city's mayor for four years until June 2024' (no starting year is given; she was also a Dublin councilmember for eight years, years not given)",
+     "url": "https://www.bart.gov/about/bod/member/district5",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H17",
+   "name": "Ritesh Tandon",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.tandonforcongress.com/",
+    "how": "The site is titled 'Ritesh Tandon | Congressional Candidate, U.S. House of Representatives - CA 17' and says he is running to represent California's 17th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H20",
+   "name": "Sandra Van Scotter",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.electsandravanscotter.com/",
+    "how": "The site presents Sandra Van Scotter as a candidate for California's 20th Congressional District (CD-20).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H20",
+   "name": "Vince Fong",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.vincefong.com/",
+    "how": "The site is titled 'Vince Fong for Congress' and speaks of representing his community in the United States Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H23",
+   "name": "Jay Obernolte",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.electjay.com/",
+    "how": "The site is titled 'Jay Obernolte for Congress - Conservative for California's 23rd Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H23",
+   "name": "Tessa Lynn Hodge",
+   "party": "Democratic",
+   "website": {
+    "url": "https://tessaforca.com/",
+    "how": "The site is titled 'Tessa Lynn Hodge for Congress'; its About page says she is running 'to represent California's 23rd Congressional District in the 2026 election'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H26",
+   "name": "Jacqui Irwin",
+   "party": "Democratic",
+   "website": {
+    "url": "https://jacquiirwin.com/",
+    "how": "The site is titled 'Jacqui Irwin for Congress' and says 'I am running to represent the new 26th Congressional District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, California State Assembly (44th district, later the 42nd)",
+     "from": "2014",
+     "to": "now",
+     "source": "Her campaign site: 'first elected in 2014 to represent California's 44th Assembly District'; Wikipedia gives December 1, 2014",
+     "url": "https://jacquiirwin.com/about-jacqui",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Thousand Oaks City Council (two terms as mayor)",
+     "from": "2004",
+     "to": "not stated",
+     "source": "Her official Assembly biography: 'first elected in 2004' to the Thousand Oaks City Council; 'served two terms as mayor of Thousand Oaks'",
+     "url": "https://a42.asmdc.org/biography",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "California Assembly from 2022-12-05, marked unsure (the state roster's earliest date)",
+     "problem": "Her campaign site says she 'was first elected in 2014 to represent California's 44th Assembly District' (her official Assembly biography, for the 42nd district, shows her chairing an Assembly committee from 2014), so the page understates her time in office by eight years.",
+     "url": "https://jacquiirwin.com/about-jacqui",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H26",
+   "name": "Sam Gallucci",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.samgallucci.com/",
+    "how": "The site is titled 'Sam Gallucci for Congress | CA-26'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H29",
+   "name": "Angélica María Dueñas",
+   "party": "Democratic",
+   "website": {
+    "url": "https://angelica4congress.com/",
+    "how": "The site is titled with her name 'for Congress' and describes California's 29th Congressional district and her 2026 run.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H29",
+   "name": "Luz Maria Rivas",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.luzforcongress.com/",
+    "how": "The site is titled 'Luz Rivas for Congress' and says she is 'running to represent California's 29th Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H32",
+   "name": "Brad Sherman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bradsherman.com/",
+    "how": "The site is titled 'Brad Sherman for Congress' and its description says he 'is running for re-election to Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H32",
+   "name": "Larry Thompson",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.larrythompsonforcongress.com/",
+    "how": "The site is titled 'Larry Thompson for U.S. Congress - California 32nd' and says he is running in California's 32nd District, election November 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H35",
+   "name": "Mike Cargile",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cargileforcongress.com/",
+    "how": "The site describes itself as the official website of 'Congressional Republican Candidate Mike Cargile for the 35th District of California'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H35",
+   "name": "Norma J. Torres",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.normatorres.com/",
+    "how": "The site is titled 'Norma Torres for Congress' and says she represents California's 35th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H38",
+   "name": "Hilda Solis",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.hildasolis.com/",
+    "how": "The site is titled 'Hilda Solis | For Congress' and carries the announcement that she is running for California's 38th Congressional District.",
+    "verified": true
+   },
+   "born": {
+    "year": 1957,
+    "date": "1957-10-20",
+    "source": "U.S. House of Representatives, History, Art & Archives (concise biography)",
+    "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Los Angeles County Board of Supervisors (chair, 2025 to now)",
+     "from": "2014",
+     "to": "now",
+     "source": "U.S. House of Representatives, History, Art & Archives (concise biography)",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "U.S. Secretary of Labor",
+     "from": "2009",
+     "to": "2013",
+     "source": "U.S. Department of Labor, Hall of Secretaries (February 24, 2009 to January 22, 2013)",
+     "url": "https://www.dol.gov/general/aboutdol/history/solis",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "U.S. House of Representatives, California (107th to 111th Congresses)",
+     "from": "2001",
+     "to": "2009",
+     "source": "U.S. House of Representatives, History, Art & Archives (concise biography): January 3, 2001 to February 24, 2009",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, California State Senate",
+     "from": "1994",
+     "to": "2001",
+     "source": "U.S. House of Representatives, History, Art & Archives (concise biography)",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, California State Assembly",
+     "from": "1992",
+     "to": "1994",
+     "source": "U.S. House of Representatives, History, Art & Archives (concise biography)",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Rio Hondo Community College Board of Trustees",
+     "from": "1985",
+     "to": "1992",
+     "source": "U.S. House of Representatives, History, Art & Archives (concise biography)",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "No age, no offices on record and no link to a member record",
+     "problem": "She is a former member of the U.S. House (Bioguide S001153, served 2001 to 2009), so the House's own biography gives her birth date and offices; the matching rule only ties former members whose service ended in 2011 or later.",
+     "url": "https://history.house.gov/People/Listing/S/SOLIS,-Hilda-L--(S001153)/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H38",
+   "name": "Pedro Antonio Casas",
+   "party": "Republican",
+   "website": {
+    "url": "https://casasforcongress.com/",
+    "how": "The site is titled 'Casas for Congress', names Dr. Pedro 'Antonio' Casas and speaks of the 38th Congressional District throughout.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H41",
+   "name": "Linda Sánchez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://voteforlinda.com/",
+    "how": "The site says 'Linda Sanchez is running for re-election in California's 41st District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H41",
+   "name": "Mitch Clemmons",
+   "party": "Republican",
+   "website": {
+    "url": "https://electmitchclemmons.com/",
+    "how": "The site is titled 'Mitch Clemmons for Congress | California District 41' and names the November 3, 2026 general election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H44",
+   "name": "Genevieve Angel",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.angelforcongress.com/",
+    "how": "The site is titled 'Genevieve Angel for Congress 2026 - CA-44'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H44",
+   "name": "Nanette Diaz Barragan",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.barraganforcongress.com/",
+    "how": "The site is titled 'Nanette Barragan For Congress (CA-44)'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H47",
+   "name": "Dave Min",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.davemin.com/",
+    "how": "The site is titled 'Dave Min for Congress', has a 'District 47' section and says he represents California's 47th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H47",
+   "name": "Jenny Rae Le Roux",
+   "party": "Republican",
+   "website": {
+    "url": "https://jennyraeca.com/",
+    "how": "The site is titled 'Jenny Rae Le Roux for Congress | CA-47'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H50",
+   "name": "Scott Peters",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.scottpeters.com/",
+    "how": "The site is titled 'Scott Peters for Congress', is paid for by his campaign committee and has a 'California's 50th District' section.",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "state": "NJ",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": [],
+ "candidates": [
+  {
+   "race_id": "2026-NJ-H02",
+   "name": "Jeff Van Drew",
+   "party": "Republican",
+   "website": {
+    "url": "https://vandrewforcongress.com/",
+    "how": "The site is titled \"Jeff Van Drew for Congress - A Strong America\", asks readers to \"Join Congressman Van Drew to FIGHT for South Jersey\" and is paid for by Van Drew for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H02",
+   "name": "Zack Mullock",
+   "party": "Democratic",
+   "website": {
+    "url": "https://mullockforcongress.com/",
+    "how": "The site is titled \"Zack Mullock for Congress | A Voice for South Jersey\" and its description calls him Cape May's two-term Mayor; it names Congress and South Jersey but not the district number.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Cape May, New Jersey",
+     "from": null,
+     "to": "now",
+     "source": "City of Cape May, Mayor & Council page (lists Mayor Zachary Mullock, term expiring 12/31/2028; gives no starting year)",
+     "url": "https://www.capemaycity.com/departments/MayorCouncil",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor, City of Cape May, New Jersey",
+     "from": "2021 (elected 2020)",
+     "to": "now",
+     "source": "New Jersey Globe, 2026-02-17 (says he has led Cape May since 2021, unseated the city's mayor in 2020 and was re-elected to a second term unopposed in 2024)",
+     "url": "https://newjerseyglobe.com/congress/zack-mullock-launches-nj-2-campaign-with-some-top-south-jersey-dems-already-behind-him/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Cape May City Council, New Jersey",
+     "from": "elected 2018",
+     "to": null,
+     "source": "New Jersey Globe, 2026-02-17 (says he was first elected to the city council in 2018 and unseated the mayor in 2020; the year his council service ended is not stated)",
+     "url": "https://newjerseyglobe.com/congress/zack-mullock-launches-nj-2-campaign-with-some-top-south-jersey-dems-already-behind-him/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NJ-H04",
+   "name": "Christopher H. Smith",
+   "party": "Republican",
+   "website": {
+    "url": "https://smith4nj.com/",
+    "how": "The site is titled \"Friends of Chris Smith\", refers to Rep. Chris Smith (R-NJ) and NJ-04, and reports county party endorsements \"for reelection in 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H04",
+   "name": "Rachel Peace",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.peace4shore.com/",
+    "how": "The site is titled \"Rachel Peace for Congress | NJ-04 | A Better Way\"; paid for by Rachel Peace for Congress Inc.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H06",
+   "name": "Frank Pallone Jr.",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.pallonefornewjersey.com/",
+    "how": "The site is titled \"Pallone for New Jersey | Frank Pallone\", describes his service in Congress for the 6th district and is paid for by Pallone for Congress; it does not name the 2026 election on its home page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H06",
+   "name": "Hillary Herzig",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.herzigforcongress.com/",
+    "how": "The site is titled \"Volunteer for Political Change | Herzig for Congress in NJ-6\" and says Hillary is committed to representing New Jersey's 6th District; the home page does not name her party.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H08",
+   "name": "Rob Menendez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.robmenendez.com/",
+    "how": "The site says he serves New Jersey's Eighth Congressional District in the House and \"is running for re-election\"; paid for by Menendez for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H08",
+   "name": "Aristotle Eliopoulos",
+   "party": "Independent",
+   "website": {
+    "url": "https://arieliopoulosforcongress.com/",
+    "how": "The site is titled \"Aristotle 'Ari' Eliopoulos for Congress | NJ Congressional District 8\" and calls him a candidate for New Jersey's 8th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H10",
+   "name": "LaMonica R. McIver",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.lamonicaforcongress.com/",
+    "how": "The site is titled \"Home Page | LaMonicafor Congress\", invites readers to \"Join Our 2026 Campaign\" and is paid for by LaMonica McIver For Congress (Newark, NJ); the home page names Congress but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H12",
+   "name": "Adam Hamawy",
+   "party": "Democratic",
+   "website": {
+    "url": "https://hamawyfornj.com/",
+    "how": "The site is titled \"Dr. Adam Hamawy for Congress\" and says \"I'm running for Congress in New Jersey's 12th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H12",
+   "name": "Gregg Mele",
+   "party": "Republican",
+   "website": {
+    "url": "https://mele4america.com/",
+    "how": "The site is titled \"Gregg Mele for Congress | A Fighter for New Jersey\" and names New Jersey's 12th Congressional District; the home page does not name his party.",
+    "verified": true
+   }
+  }
+ ]
+}

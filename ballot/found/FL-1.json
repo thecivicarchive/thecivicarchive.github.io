@@ -1,0 +1,282 @@
+{
+ "state": "FL",
+ "part": 1,
+ "of": 3,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-FL-H02",
+   "name": "Amanda Marie Green",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://www.amgforcongress.com/",
+    "how": "The site is titled \"Amanda Marie Green for Congress\" and calls her the \"Democratic Nominee for Congress in FL-02\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H02",
+   "name": "Austin Rogers",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://rogersforflorida.com/",
+    "how": "The site is titled \"Austin Rogers for Florida\" and says he \"is running for Congress in Florida's 2nd Congressional District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H05",
+   "name": "John H. Rutherford",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://johnrutherfordforcongress.com/",
+    "how": "The site is titled \"Republican John Rutherford for Congressional District 5\" and calls him Jacksonville's former Sheriff and a member of Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H05",
+   "name": "Rachel Grage",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://www.rachelgrage.com/",
+    "how": "The site is titled \"Rachel Grage for Congress\" and headed \"Rachel Grage for Florida Congressional District 5\" (footer dated 2026).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H08",
+   "name": "Jennifer Jenkins",
+   "party": "Florida Democratic Party",
+   "offices": [
+    {
+     "office": "Member, Brevard County School Board (Florida)",
+     "from": "2020",
+     "to": "",
+     "source": "The Floridian, news report of May 5, 2026: \"former Brevard County School Board member\", elected in the 2020 race; the year she left is not stated",
+     "url": "https://floridianpress.com/2026/05/jenkins-pivots-to-floridas-8th-congressional-district-now-battling-haridopolos-for-congress/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-FL-H08",
+   "name": "Mike Haridopolos",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://www.mike4congress.com/",
+    "how": "The site is titled \"Mike Haridopolos for Congress | Republican for Congress\" and calls him Congressman for Florida's 8th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H11",
+   "name": "James Pericola",
+   "party": "Florida Democratic Party"
+  },
+  {
+   "race_id": "2026-FL-H11",
+   "name": "Joe Strada",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://votestrada.com/",
+    "how": "The site is titled \"Joe Strada for Congress | Florida's 11th Congressional District | Election Day November 3, 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H11",
+   "name": "Ralph Groves",
+   "party": "Libertarian Party of Florida",
+   "website": {
+    "url": "https://www.grovesforcongress.com/",
+    "how": "The site says \"Vote for Ralph Groves, the Libertarian Party candidate in Florida's 11th Congressional District\" (Groves for Congress 2026).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H14",
+   "name": "Brian Lambert",
+   "party": "Libertarian Party of Florida",
+   "website": {
+    "url": "https://www.brianlambertforcongress.com/",
+    "how": "The site is titled \"Brian Lambert for Congress | Libertarian Candidate for FL-14\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H14",
+   "name": "Kathy Castor",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://www.castorforcongress.com/",
+    "how": "The site is \"Castor for Congress\", calls her Representative Kathy Castor of Tampa and Hillsborough, and links the new FL-14 district map.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H14",
+   "name": "Mike Beltran",
+   "party": "Republican Party of Florida",
+   "born": {
+    "year": 1984,
+    "date": "1984-06-26",
+    "source": "Florida House of Representatives, member page for Rep. Mike Beltran (Republican, District 70)",
+    "url": "https://www.flhouse.gov/Sections/Representatives/details.aspx?MemberId=4747&LegislativeTermId=90",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Florida House of Representatives (District 70 in the 2022-2024 term)",
+     "from": "2018",
+     "to": "2024",
+     "source": "Florida House of Representatives member page for the 2022-2024 term (\"Elected to the Florida House of Representatives in 2018, reelected subsequently\"; District 70, Republican)",
+     "url": "https://www.flhouse.gov/Sections/Representatives/details.aspx?MemberId=4747&LegislativeTermId=90",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-FL-H17",
+   "name": "Greg Steube",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://www.electgregsteube.com/",
+    "how": "The site is titled \"Greg Steube for Congress\" and says he \"is running for re-election in Florida's 17th Congressional district\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H17",
+   "name": "Matthew Montavon",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://www.montavonforcongress.com/",
+    "how": "The site is titled \"Montavon For Congress\", has \"Meet Matthew\" and \"CD 17\" pages, and speaks of Florida's Gulf Coast.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H17",
+   "name": "Michael J. Quirk",
+   "party": "No Party Affiliation (Partisan)",
+   "website": {
+    "url": "https://www.michaelquirkforcongress.com/",
+    "how": "The site is headed \"No Party Affiliation (NPA) Michael J. Quirk for U.S. Representative, Florida's 17th Congressional District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H20",
+   "name": "Brent Andersen",
+   "party": "Republican Party of Florida"
+  },
+  {
+   "race_id": "2026-FL-H20",
+   "name": "Debbie Wasserman Schultz",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://debbiewassermanschultz.com/",
+    "how": "The site is titled \"Debbie Wasserman Schultz | Democrat for Congress\" and carries news of her nomination in Florida's 20th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H20",
+   "name": "Kedner Maxime",
+   "party": "Independent Party of Florida",
+   "website": {
+    "url": "https://www.maximeforcongress.com/",
+    "how": "The site is titled \"Kedner Maxime for Congress - District 20 Florida\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H23",
+   "name": "Deborah Adeimy",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://debadeimy4congress.com/",
+    "how": "The site is headed \"Deborah Adeimy for U.S. Congress, Republican 2026 - Palm Beach County Florida\"; it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H23",
+   "name": "Lois Frankel",
+   "party": "Florida Democratic Party"
+  },
+  {
+   "race_id": "2026-FL-H26",
+   "name": "Mario Diaz-Balart",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://mariodiazbalart.org/",
+    "how": "The site is titled \"Mario Diaz-Balart for Congress 2026 | Florida's 26th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-H26",
+   "name": "Nicole Locklin",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://locklinforcongress.com/",
+    "how": "The site is titled \"Nicole Locklin for Congress\", calls her \"Democrat Nicole Locklin\" for U.S. Congress and speaks of South Florida; it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-FL-S3",
+   "name": "Angie Nixon",
+   "party": "Florida Democratic Party",
+   "website": {
+    "url": "https://angienixon.com/",
+    "how": "The site is titled \"Angie Nixon for U.S. Senate\" and headed \"For U.S. Senate. For Florida.\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1984,
+    "date": null,
+    "source": "Wikipedia, \"Angie Nixon\" (the birth statement carries two citations); the article names her a Florida House member and the Democratic nominee in the 2026 Senate special election in Florida",
+    "url": "https://en.wikipedia.org/wiki/Angie_Nixon",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Florida House of Representatives (District 14, then District 13)",
+     "from": "2020",
+     "to": "now",
+     "source": "Florida House of Representatives: listed among the Representatives for 2020-2022 (Democrat, District 14) and for 2024-2026 (District 13)",
+     "url": "https://www.flhouse.gov/Sections/Representatives/representatives.aspx?legislativetermid=89",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Offices on record: Florida House from 2022-11-08, marked as an uncertain start (State roster)",
+     "problem": "The Florida House's own list of Representatives for 2020-2022 already names Angela \"Angie\" Nixon (Democrat, District 14), so her service began with the November 2020 election, not 2022",
+     "url": "https://www.flhouse.gov/Sections/Representatives/representatives.aspx?legislativetermid=89",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-FL-S3",
+   "name": "Ashley Moody",
+   "party": "Republican Party of Florida",
+   "website": {
+    "url": "https://ashleymoody.com/",
+    "how": "The site is titled \"Ashley Moody for U.S. Senate\" (footer: 2026 Ashley Moody for U.S. Senate) and names her opponent in the Florida race.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 5
+}

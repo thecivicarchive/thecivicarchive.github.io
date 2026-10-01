@@ -1,0 +1,94 @@
+{
+ "state": "CT",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 3,
+ "candidates": [
+  {
+   "race_id": "2026-CT-H01",
+   "name": "Luke Bronin",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://www.broninforcongress.com/",
+    "how": "The site is titled 'Luke Bronin for Congress' and says he will work for 'Connecticut's 1st District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Hartford, Connecticut",
+     "from": "2016",
+     "to": "2024",
+     "source": "the candidate's own campaign site (About page)",
+     "url": "https://www.broninforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "General Counsel to the Governor of Connecticut (Dannel Malloy)",
+     "from": "2013",
+     "to": null,
+     "source": "Wikipedia, citing the Governor's office announcement; the campaign site states the post without years",
+     "url": "https://en.wikipedia.org/wiki/Luke_Bronin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Deputy Assistant Secretary for Terrorist Financing and Financial Crimes, U.S. Department of the Treasury",
+     "from": null,
+     "to": null,
+     "source": "the candidate's own campaign site (About page); no years given",
+     "url": "https://www.broninforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CT-H02",
+   "name": "Joe Courtney",
+   "party": "Democratic Party"
+  },
+  {
+   "race_id": "2026-CT-H03",
+   "name": "Rosa L. DeLauro",
+   "party": "Democratic Party",
+   "website": {
+    "url": "https://rosadelauro.com/",
+    "how": "The site is titled 'Rosa DeLauro for Congress', names CT-03 and carries 2026 news; paid for by Friends of Rosa DeLauro.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CT-H03",
+   "name": "Christopher Lancia",
+   "party": "Republican Party"
+  },
+  {
+   "race_id": "2026-CT-H04",
+   "name": "Michael Ted Goldstein",
+   "party": "Republican Party",
+   "website": {
+    "url": "https://goldsteinforcongress.com/",
+    "how": "The site reads 'Connecticut's 4th Congressional District 2026, Dr. Mike Goldstein for Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CT-H05",
+   "name": "Jahana Hayes",
+   "party": "Democratic Party, Working Families Party",
+   "website": {
+    "url": "https://jahanahayes.com/",
+    "how": "The site is titled 'Jahana Hayes for Congress' and names Connecticut's 5th district, with a 2026 endorsements page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CT-H05",
+   "name": "Chris Shea",
+   "party": "Republican Party"
+  }
+ ]
+}

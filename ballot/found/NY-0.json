@@ -1,0 +1,326 @@
+{
+ "state": "NY",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-NY-H01",
+   "name": "Christopher J. Gallant",
+   "party": "Democratic",
+   "website": {
+    "url": "https://gallantny.com/",
+    "how": "The site is headed 'Chris Gallant for Congress' and names New York's 1st Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H01",
+   "name": "Nicholas J. Lalota",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.nicklalota.com/",
+    "how": "The site is titled 'Nick LaLota | LaLota for Congress' and speaks of putting Long Island first.",
+    "corrected": true,
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "The name is written 'Nicholas J. Lalota', and the candidate row carries no FEC number although it is matched to the sitting member (L000598).",
+     "problem": "The Clerk of the House spells the member's name 'Nick LaLota' (capital L twice), New York 1st District, Republican.",
+     "url": "https://clerk.house.gov/members/L000598",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NY-H03",
+   "name": "Thomas R. Suozzi",
+   "party": "Democratic",
+   "website": {
+    "url": "https://suozziforcongress.com/",
+    "how": "The site is titled 'Suozzi for Congress', says Tom Suozzi is running for re-election to Congress, and names the November 3 vote and Long Island and Queens.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H03",
+   "name": "Michael J. LiPetri Jr",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.mikelipetriforcongress.com/",
+    "how": "The site is headed 'Mike LiPetri for Congress' and names NY-03.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the New York State Assembly, 9th district",
+     "from": "2019",
+     "to": "2021",
+     "source": "Wikipedia, 'Mike LiPetri' (his 2018 election to the seat carries a citation; the article ties him to the 2026 race in New York's 3rd district as the Republican nominee)",
+     "url": "https://en.wikipedia.org/wiki/Mike_LiPetri",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NY-H05",
+   "name": "Gregory W. Meeks",
+   "party": "Democratic",
+   "website": {
+    "url": "https://meeksforcongress.com/",
+    "how": "The address forwards to congressmangregorymeeks.com, titled 'Rep Gregory Meeks', which speaks of serving the Fifth Congressional District of New York and is paid for by Friends for Gregory Meeks.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H05",
+   "name": "George Marsh",
+   "party": "Republican, Queens United",
+   "website": {
+    "url": "https://georgemarshforcongress.com/",
+    "how": "The site is titled 'George Marsh for Congress' and says he is running for Queens' 5th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H07",
+   "name": "Claire Valdez",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://clairevaldezforcongress.com/",
+    "how": "The site is titled 'Claire Valdez for Congress' and describes her as an Assemblymember running for Congress, which matches the Assembly seat our record shows.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H07",
+   "name": "Melvin Rivera",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://melvinforcongress.com/",
+    "how": "The site says 'Elect Melvin Rivera for Congress, New York Congressional District 7'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H07",
+   "name": "Priscilla Ghaznavi",
+   "party": "Our Future",
+   "website": {
+    "url": "https://priscillaghaznaviforcongress.com/",
+    "how": "The site is titled 'Priscilla Ghaznavi for Congress' and names NY's 7th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H09",
+   "name": "Yvette D. Clarke",
+   "party": "Democratic",
+   "website": {
+    "url": "https://voteyvette.com/",
+    "how": "The site is titled 'Clarke for Congress | Proudly Representing NY-09'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H09",
+   "name": "Joel Azumah",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.joelazumah.com/",
+    "how": "The site is titled 'Joel Anabilah-Azumah for Congress' and is signed Committee to Elect Joel Anabilah-Azumah; its Meet Joel page places him in Brooklyn, New York. It names the office but not the district or the year.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H11",
+   "name": "Mike DeCillis",
+   "party": "Democratic",
+   "website": {
+    "url": "https://decillisforcongress.com/",
+    "how": "The site is titled 'DeCillis For Congress | NY-11 (Staten Island & South Brooklyn)' and says Mike DeCillis is a Democrat running for Congress in NY-11.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H11",
+   "name": "Nicole Malliotakis",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://nicolemalliotakis.com/",
+    "how": "The site calls itself the official website of Nicole Malliotakis for Congress (NY-11).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H13",
+   "name": "Darializa Avila Chevalier",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://darializaforcongress.com/",
+    "how": "The site is titled 'Darializa For Congress' and says 'Running for Congress in NY-13'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H13",
+   "name": "Jomo M. Williams",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.jmw4congress.com/",
+    "how": "The site is headed 'Jomo Manuel Williams for Congress - NY-13'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H15",
+   "name": "Ritchie Torres",
+   "party": "Democratic",
+   "website": {
+    "url": "https://torres.nyc/",
+    "how": "The site is titled 'Ritchie Torres for Congress' and has an 'About NY-15' section.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H15",
+   "name": "Gonzalo Duran",
+   "party": "Conservative",
+   "website": {
+    "url": "https://www.gonzaloduran.nyc/",
+    "how": "The site announces Gonzalo Duran's candidacy for Congress in New York's 15th Congressional District and names the Conservative Party.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H15",
+   "name": "Andre Easton",
+   "party": "Socialism PSL",
+   "website": {
+    "url": "https://www.andreforthebronx.nyc/",
+    "how": "The site says Andre Easton is running for Congress to represent New York's 15th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H15",
+   "name": "Jose Vega",
+   "party": "Speak The Truth",
+   "website": {
+    "url": "https://votevega.nyc/",
+    "how": "The site is titled 'Jose Vega for Congress 2026 | Let's Save the Bronx'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H17",
+   "name": "Cait Conley",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://caitconley.com/",
+    "how": "The site is headed 'Cait Conley for Congress - New York's 17th District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H17",
+   "name": "Mike Lawler",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://lawlerforcongress.com/",
+    "how": "The site is titled 'Mike Lawler for Congress' and says he represents NY-17 in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H19",
+   "name": "Josh Riley",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://joshrileyforcongress.com/",
+    "how": "The site is titled 'Josh Riley for Congress' and describes a candidate from Upstate New York running for Congress; its home page still carries voting dates from an earlier election.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H19",
+   "name": "Peter K. Oberacker",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.peterforny19.com/",
+    "how": "The site says 'New York State Senator Peter Oberacker is running for Congress in NY-19' and is paid for by Peter for NY, Inc.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H21",
+   "name": "Blake Gendebien",
+   "party": "Democratic",
+   "website": {
+    "url": "https://blakegendebienforcongress.com/",
+    "how": "The site is titled 'Blake Gendebien for Congress' and names New York's 21st district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H21",
+   "name": "Anthony Constantino",
+   "party": "Republican, Taxpayer Rights",
+   "website": {
+    "url": "https://constantino.com/",
+    "how": "The site is titled 'Anthony Constantino | NY-21 Congressional Frontrunner', says he is running for Congress in NY-21, and is marked 'Paid by Constantino for Congress'.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H23",
+   "name": "Nicholas A. Langworthy",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://nicklangworthy.com/",
+    "how": "The site is titled 'Nick Langworthy for Congress' and names New York's 23rd Congressional District; its home page still carries early-voting text from an earlier election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H25",
+   "name": "Joseph D. Morelle",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://votemorelle.com/",
+    "how": "The site is titled 'Joe Morelle for Congress' and describes itself as the official campaign site of Joe Morelle, Democratic candidate for the U.S. House of Representatives in New York's 25th Congressional District.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H25",
+   "name": "Virginia E. McIntyre",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.virginiamcintyreforcongress.com/",
+    "how": "The site is titled 'Virginia McIntyre for Congress | Monroe County, New York' and describes her as a candidate for U.S. Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Monroe County Legislator, 4th Legislative District (Gates, Greece)",
+     "from": "2024",
+     "to": "now",
+     "source": "Monroe County Legislature's own list of legislators (Virginia E. McIntyre, R; joined January 1, 2024)",
+     "url": "https://www.monroecounty.gov/legislature-legislators",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

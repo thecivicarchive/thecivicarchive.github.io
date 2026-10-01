@@ -1,0 +1,170 @@
+{
+ "state": "LA",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-LA-H02",
+   "name": "Lisa Ballay",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://ballayforcongress.com/",
+    "how": "The site is titled 'Lisa Ballay for Congress - Louisiana's 2nd District', calls her the Libertarian candidate for U.S. House, Louisiana District 2, and is paid for by Lisa Ballay for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Neighborhood Housing Advisory Committee, City of New Orleans (appointed by the City Council)",
+     "from": "2017",
+     "to": null,
+     "source": "Her campaign site; it gives the year of appointment and no end year",
+     "url": "https://ballayforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Louisiana State Museum Board (appointed)",
+     "from": "2025",
+     "to": null,
+     "source": "Her campaign site; it gives the year of appointment and no end year",
+     "url": "https://ballayforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H02",
+   "name": "Troy A. Carter Sr.",
+   "party": "Democrat",
+   "website": {
+    "url": "https://congressmantroycarter.com/",
+    "how": "The site is titled 'Troy Carter for Congress', speaks as the sitting Congressman representing Louisiana, and is paid for by Troy Carter for Congress; it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H04",
+   "name": "\"Matt\" Gromlich",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.mattgromlichforcongress.com/",
+    "how": "The site is titled 'Matt Gromlich | Candidate for Congress, Louisiana's 4th District' and is paid for by the Committee to Elect Matt Gromlich.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H04",
+   "name": "\"Mike\" Johnson",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.mikejohnsonforlouisiana.com/",
+    "how": "The site is titled 'Speaker Mike Johnson' and is paid for by Mike Johnson for Louisiana, his campaign committee; it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H04",
+   "name": "Conrad Cable",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.conrad4congress2026.com/",
+    "how": "The site is titled 'Conrad Cable for Congress 2026 | Louisiana's 4th District' and names Mike Johnson as the member he is running against. The address first recorded, conradcableforcongress.com, forwards here; paid for by Committee to Elect Conrad Cable.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H04",
+   "name": "Gordon Heslop",
+   "party": "Republican",
+   "website": {
+    "url": "https://heslopforcongress.com/",
+    "how": "The site names Gordon Heslop and the '4th Congressional District of Louisiana', says he is a Republican, and is paid for by Heslop for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H06",
+   "name": "\"Rick\" Edmonds",
+   "party": "Republican",
+   "website": {
+    "url": "https://rickedmonds.com/",
+    "how": "The site is titled 'Rick Edmonds for U.S. Congress - 6th Congressional District', calls him a Louisiana state senator, and is paid for by Rick for Louisiana.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "Offices on record: Louisiana Senate from 2016-01-11 to 2024-01-07, a one-day Louisiana House entry on 2024-01-07 marked unsure, then Louisiana Senate from 2024-01-08.",
+     "problem": "The Louisiana Senate's own page says he was elected to the Senate (District 6) in 2023, so the 2016 to 2024 service cannot have been in the Senate; Wikipedia (secondary) gives it as the Louisiana House, District 66, January 2016 to January 2024. The chamber label on the earlier term looks swapped.",
+     "url": "https://senate.la.gov/smembers?ID=6",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H06",
+   "name": "Blake Miguez",
+   "party": "Republican",
+   "born": {
+    "year": 1981,
+    "date": null,
+    "source": "Wikipedia, 'Blake Miguez' (the birth date carries a footnote citing the Louisiana Secretary of State)",
+    "url": "https://en.wikipedia.org/wiki/Blake_Miguez",
+    "kind": "secondary",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "Offices on record: Louisiana Senate from 2015-03-04 to 2024-01-07, a one-day Louisiana House entry on 2024-01-07 marked unsure, then Louisiana Senate from 2024-01-08.",
+     "problem": "The Louisiana Senate's own page says he was elected to the Senate (District 22) in 2023, so the 2015 to 2024 service cannot have been in the Senate; Wikipedia (secondary) gives it as the Louisiana House, District 49, February 2015 to January 2024. The chamber label on the earlier term looks swapped.",
+     "url": "https://senate.la.gov/smembers?ID=22",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H06",
+   "name": "Chauna Banks",
+   "party": "Democrat",
+   "website": {
+    "url": "https://chaunabanksforcongress.vote/",
+    "how": "The site says 'Chauna Banks is running for U.S. Congress in Louisiana's 6th District'. The address first recorded, chaunabanksforcongress.com, forwards here.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, East Baton Rouge Parish Metropolitan Council",
+     "from": null,
+     "to": null,
+     "source": "Wikipedia's article on the 2026 Louisiana House elections lists her in the 6th District race as a 'former East Baton Rouge Parish Metro Councilor', citing nola.com; no years are given",
+     "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Louisiana",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H06",
+   "name": "Larry Davis III",
+   "party": "Republican",
+   "website": {
+    "url": "https://larrydavisforcongress.com/",
+    "how": "The site is 'Larry Davis for Congress' and calls him a lifelong Louisianan and conservative; it does not print the district number, so the tie is name, state and office only.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H06",
+   "name": "Michael Mebruer",
+   "party": "Republican",
+   "website": {
+    "url": "https://mebruerforcongress.com/",
+    "how": "The site says Mebruer for Congress supports 'Michael Mebruer for U.S. House of Representatives in Louisiana's 6th Congressional District' and calls him a Republican candidate.",
+    "verified": true
+   }
+  }
+ ]
+}

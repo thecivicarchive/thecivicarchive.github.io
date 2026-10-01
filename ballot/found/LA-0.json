@@ -1,0 +1,184 @@
+{
+ "state": "LA",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-LA-H01",
+   "name": "Lauren Jewett",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.laurenjewett.com/",
+    "how": "The site is titled \"Lauren Jewett for Congress | Louisiana's 1st District\" and gives Election Day as November 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H01",
+   "name": "Steve Scalise",
+   "party": "Republican",
+   "website": {
+    "url": "https://stevescalise.com/",
+    "how": "The site presents Steve Scalise as a Louisiana conservative (\"Join Team Scalise\") and its contribution link goes to the committee Scalise for Congress; it does not name the district or the year.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H03",
+   "name": "John Day",
+   "party": "Democrat",
+   "website": {
+    "url": "https://johndayforcongress.com/",
+    "how": "The site is titled \"John Day for Congress\" and says he is running for Congress in the 3rd District of Louisiana; copyright 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H03",
+   "name": "\"Clay\" Higgins",
+   "party": "Republican",
+   "website": {
+    "url": "https://captainhiggins.com/",
+    "how": "The site is titled \"Clay Higgins - U.S. Congress\" and is paid for by Captain Higgins for Congress of Lafayette, LA; its copyright line reads 2016-22, so it has not been updated for 2026 and does not name the district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "Stewart Cathey Jr.",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.stewartcathey.com/",
+    "how": "The site is titled \"Stewart Cathey Jr. for Congress\", is paid for by Cathey for Congress (copyright 2026) and identifies him as State Senator, District 33.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "Misti Cordell",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cordellforcongress.com/",
+    "how": "The site is titled \"Misti Cordell for Congress\" and gives the open primary for Louisiana's Fifth Congressional District on November 3, 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (at-large), Louisiana Board of Regents; Chair",
+     "from": "2024",
+     "to": "now",
+     "source": "Louisiana Board of Regents, Board of Regents Members page (Year Appointed: 2024; Term Expires: December 31, 2029; Title: Chair)",
+     "url": "https://www.laregents.edu/boardmembers/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "Michael Echols",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.michaelechols.com/",
+    "how": "The site is titled \"Michael Echols for Congress\", is paid for by Echols for Congress and says he represents District 14 in the Louisiana House of Representatives; it does not name the congressional district.",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "date": null,
+    "source": "Wikipedia, \"Michael Echols\", birth date cited there to a NOLA.com article of February 10, 2026 on his run for the 5th District seat (nola.com itself could not be opened to confirm)",
+    "url": "https://en.wikipedia.org/wiki/Michael_Echols",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Monroe City Council (including time as chair)",
+     "from": "2016",
+     "to": "2020",
+     "source": "KNOE 8 News, December 11, 2025, report on State Representative Michael Echols",
+     "url": "https://www.knoe.com/2025/12/11/representative-michael-echols-named-louisiana-house-majority-leader-by-republican-caucus/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "\"Gabe\" Firment",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.firmentforcongress.com/",
+    "how": "The site is titled \"Gabe Firment | Louisiana's 5th Congressional District\", headed \"Gabe Firment for Congress\", and says he was elected to the Louisiana House of Representatives in 2019.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "Austin Magee",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.austinmageeforcongress.com/",
+    "how": "The site is titled \"Austin Magee for Congress | Get Involved Today\" and names Louisiana's Congressional District 5.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-LA-H05",
+   "name": "Patricia \"Pat\" Moore",
+   "party": "Democrat",
+   "website": {
+    "url": "https://patmooreforcongress.com/",
+    "how": "The site is titled \"Pat Moore for Congress | Louisiana's 5th District\" and says she has been State Representative for Louisiana House District 17 since 2019.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Ouachita Parish Police Jury",
+     "from": null,
+     "to": "2019",
+     "source": "The Ouachita Citizen (Hanna Newspapers), April 3, 2019: \"Ouachita Parish Police Juror Pat Moore was elected ... to represent District 17 in the state House\"; the article gives no starting year",
+     "url": "https://www.hannapub.com/ouachitacitizen/news/local_state_headlines/moore-wins-district-17-house-race-jurors-to-appoint-interim/article_d889d10e-5636-11e9-aed4-274e582226df.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-S2",
+   "name": "\"Jamie\" Davis",
+   "party": "Democrat",
+   "website": {
+    "url": "https://jamieforlouisiana.com/",
+    "how": "The site is titled \"Jamie Davis for U.S. Senate - Louisiana First.\" and names the U.S. Senate race in Louisiana.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Tensas Parish Police Jury",
+     "from": null,
+     "to": null,
+     "source": "His campaign site (\"served my neighbors on the Tensas Parish Police Jury\"); no years are given",
+     "url": "https://jamieforlouisiana.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-LA-S2",
+   "name": "Julia Letlow",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.julialetlow.com/",
+    "how": "The site is titled \"Julia Letlow for Louisiana\" and says Julia is running for the United States Senate.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

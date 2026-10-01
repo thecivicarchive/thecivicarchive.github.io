@@ -1,0 +1,199 @@
+{
+ "state": "VA",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-VA-H01",
+   "name": "Robert J. \"Rob\" Wittman",
+   "party": "Republican",
+   "website": {
+    "url": "https://robwittman.com/",
+    "how": "The site is titled \"Re-Elect Rob Wittman for Congress\" and speaks of Virginia's First District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H01",
+   "name": "Shannon L. Taylor",
+   "party": "Democratic",
+   "website": {
+    "url": "https://shannontaylorva.com/",
+    "how": "The site is titled \"Shannon Taylor for Congress\" and says she is running for Congress in Virginia's 1st District.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commonwealth's Attorney, Henrico County, Virginia",
+     "from": "2012",
+     "to": "now",
+     "source": "Wikipedia, \"Shannon Taylor (attorney)\": its summary box gives the term from January 1, 2012 (that date has no footnote; her November 2011 election is cited to NBC12); her campaign site also says she was elected Henrico County Commonwealth's Attorney in 2011 and has been the county's top prosecutor for 14 years",
+     "url": "https://en.wikipedia.org/wiki/Shannon_Taylor_(attorney)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-VA-H03",
+   "name": "Edwin Rivera, Jr.",
+   "party": "Republican",
+   "website": {
+    "url": "https://edwinriveraforcongress.com/",
+    "how": "The site names \"Edwin Rivera for U.S. Congress\" in Virginia's 3rd Congressional District (it refuses plain scripts with 403; read through the fetch tool).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H03",
+   "name": "Makiba A. Gaines",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.makibagaines4congress.com/",
+    "how": "The site is titled \"MAKIBA GAINES FOR CONGRESS | VOTE MAKIBA GAINES\"; the district is not in the page's plain text (the page is drawn by script), so the tie is the name and the office.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H03",
+   "name": "Robert C. \"Bobby\" Scott",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bobbyscottforcongress.com/",
+    "how": "The site is titled \"Bobby Scott for Congress\" and says he has represented Virginia's 3rd congressional district since 1993.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H03",
+   "name": "Stephen C. Woll",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.stevewoll.com/",
+    "how": "The site's description says Steve Woll is running as an independent for Congress in VA-03.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H05",
+   "name": "John J. McGuire III",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.mcguireva.com/",
+    "how": "The site is titled \"John McGuire for Congress\" and names VA-05, Virginia's Fifth District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H05",
+   "name": "Tom S. P. Perriello",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.tomperriello.com/",
+    "how": "The site is titled \"Tom Perriello for Congress\" and says he is running to flip VA-05 (the address tomperriellova.com forwards to it).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H07",
+   "name": "Alaha Ahrar",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.alahaahrarforcongress.com/",
+    "how": "The site is titled \"Alaha Ahrar for Congress - Virginia's 7th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H07",
+   "name": "Doug A. Ollivant",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.dougforvirginia.com/",
+    "how": "The site is titled \"Doug Ollivant for Virginia\", is paid for by Ollivant for Congress, and its Meet Doug page says he is running for Congress; the district number is not in the pages read.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H07",
+   "name": "Eugene S. Vindman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://vindmanforcongress.com/",
+    "how": "The site is titled \"Vindman for Congress\" and says Eugene Vindman is running to serve the communities of Virginia in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H07",
+   "name": "Randall A. Terry",
+   "party": "Independent",
+   "website": {
+    "url": "https://terry.vote/",
+    "how": "The site is titled \"Randall Terry for Congress\" and labels the candidate \"VIRGINIA | DISTRICT 7\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1959,
+    "date": null,
+    "source": "Wikipedia, \"Randall Terry\" (birth year cited there to Vote Smart). The article does not mention the 2026 Virginia race; the tie is the campaign site terry.vote, which labels the candidate \"VIRGINIA | DISTRICT 7\" and names him founder of Operation Rescue and the 2024 Constitution Party candidate for President, the person the article describes",
+    "url": "https://en.wikipedia.org/wiki/Randall_Terry",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H09",
+   "name": "H. Morgan Griffith",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.morgangriffithforcongress.com/",
+    "how": "The site is titled \"Morgan Griffith for Congress\" and describes his service to Southwest Virginia in Congress; the district number is not in the page read.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H09",
+   "name": "Joy A. Powers",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.joyforva.com/",
+    "how": "The site's description says Joy Powers is running for Virginia's Ninth Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H11",
+   "name": "Arthur G. Purves",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.votepurves.org/",
+    "how": "The site is titled \"Purves for Congress\" and says \"Republican for Congress - Virginia 11th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H11",
+   "name": "Dianne L. Blais",
+   "party": "Green",
+   "website": {
+    "url": "https://dianneforcongress.org/doku.php?id=start",
+    "how": "The site is titled \"Dianne Blais for Congress!\"; the district is not in the page's plain text (dianneforcongress.com forwards here).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-VA-H11",
+   "name": "James R. Walkinshaw",
+   "party": "Democratic",
+   "website": {
+    "url": "https://jameswalkinshaw.org/",
+    "how": "The site is titled \"James Walkinshaw for Congress\" and says he is running for re-election and was elected to Congress in 2025.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

@@ -1,0 +1,236 @@
+{
+ "state": "NJ",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-NJ-H01",
+   "name": "Damon Galdo",
+   "party": "Republican",
+   "website": {
+    "url": "https://votedamongaldo.com/",
+    "how": "The site's title is \"Damon Galdo: New Jersey Congressional Candidate\" and it says he is running to represent New Jersey's First Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H01",
+   "name": "Donald Norcross",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.donaldnorcrossforcongress.com/",
+    "how": "Titled \"Donald Norcross - Working for New Jersey\" and marked \"Paid for by Norcross for Congress\"; the home page names Congress and New Jersey but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H03",
+   "name": "Herb Conaway",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.herbforcongress.com/",
+    "how": "The site's title is \"Herb Conaway for Congress | New Jersey's 3rd District\", paid for by Herb Conaway for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H03",
+   "name": "Michael P. McGuire",
+   "party": "Republican"
+  },
+  {
+   "race_id": "2026-NJ-H05",
+   "name": "Adam Rueda",
+   "party": "Humane Sustainable Future",
+   "website": {
+    "url": "https://adamruedafornj5.com/",
+    "how": "The site's title and heading are \"Adam Rueda for NJ-5\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H05",
+   "name": "Josh Gottheimer",
+   "party": "Democratic",
+   "website": {
+    "url": "https://josh4jersey.com/",
+    "how": "Titled \"Josh for Jersey\"; the page names Josh Gottheimer and NJ-05, and it is paid for by Josh Gottheimer for Congress.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H05",
+   "name": "Sean Kirrane",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.seankirrane.com/",
+    "how": "Titled \"Sean Kirrane for Congress\" with the description \"Fighting for New Jersey families in NJ-5\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H07",
+   "name": "Rebecca Bennett",
+   "party": "Democratic",
+   "website": {
+    "url": "https://rebeccabennettforcongress.com/",
+    "how": "The site's title is \"Rebecca Bennett for Congress - New Jersey's 7th District\", paid for by Rebecca Bennett for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H07",
+   "name": "Thomas H. Kean Jr.",
+   "party": "Republican",
+   "website": {
+    "url": "https://tomkean.com/",
+    "how": "Titled \"Tom Kean for Congress\"; its description names New Jersey's 7th District, and it is paid for by Kean for Congress Inc.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H09",
+   "name": "Nelida Pou",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.nelliepoufornewjersey.com/",
+    "how": "The home page is titled \"Nellie Pou for Congress\" and speaks of New Jersey; it does not print the district number on the home page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H09",
+   "name": "Rosie Pino",
+   "party": "Republican",
+   "website": {
+    "url": "https://rosiepinofornj.com/",
+    "how": "Titled \"Pino for Congress\"; the page names Rosie Pino, the 9th District and NJ-09, paid for by Pino for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clifton City Council (New Jersey)",
+     "from": "2019",
+     "to": "now",
+     "source": "New Jersey Globe (Joey Fox, July 10, 2025): on the council since 2019, re-elected 2022",
+     "url": "https://newjerseyglobe.com/congress/clifton-councilwoman-will-run-for-gop-nod-to-take-down-nellie-pou/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Clifton City Council (New Jersey)",
+     "from": null,
+     "to": "now",
+     "source": "City of Clifton's Council page lists Rosemary Pino, Councilwoman (no dates given)",
+     "url": "https://www.cliftonnj.org/101/Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Clifton Board of Education (New Jersey)",
+     "from": "2013",
+     "to": null,
+     "source": "Her campaign site: elected in 2013 and served two terms (end year not stated)",
+     "url": "https://rosiepinofornj.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NJ-H09",
+   "name": "Terrisa Bukovinac",
+   "party": "Save Our Babies",
+   "website": {
+    "url": "https://terrisa2026.com/",
+    "how": "Titled \"Terrisa for Congress\"; the page says \"My name is Terrisa Bukovinac\" and that she is running for the U.S. House in New Jersey's 9th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H11",
+   "name": "Analilia Mejia",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.analiliafornj.com/",
+    "how": "The site's title is \"Analilia Mejia for New Jersey | NJ-11 Congressional Candidate 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-H11",
+   "name": "Joe Hathaway",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.joehathawayforcongress.com/",
+    "how": "Titled \"Joe Hathaway for Congress\"; its description says he is running for Congress in New Jersey's 11th district.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Randolph Township Council (New Jersey)",
+     "from": "2022",
+     "to": "now",
+     "source": "His campaign site: joined the Township Council in May 2022",
+     "url": "https://www.joehathawayforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Randolph Township Council (New Jersey)",
+     "from": null,
+     "to": "now",
+     "source": "Township of Randolph's Township Council page lists Joe Hathaway, Councilman (no dates given)",
+     "url": "https://www.randolphnj.org/330/Township-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Randolph Township (New Jersey)",
+     "from": "2025",
+     "to": "2025",
+     "source": "His campaign site: served as Mayor in 2025",
+     "url": "https://www.joehathawayforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NJ-S2",
+   "name": "Cory Booker",
+   "party": "Democratic",
+   "website": {
+    "url": "https://corybooker.com/",
+    "how": "Titled \"Stand with Cory Booker -- join our campaign for Senate today\"; names New Jersey, paid for by Cory Booker for Senate.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NJ-S2",
+   "name": "Justin Murphy",
+   "party": "Republican",
+   "website": {
+    "url": "https://jerseyjustin4senate.org/",
+    "how": "Titled \"MURPHY FOR U.S. SENATE 2026 - New Jersey\", paid for by The Committee to Elect Justin Murphy.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Tabernacle Township Committee (New Jersey)",
+     "from": "2000",
+     "to": "2003",
+     "source": "New Jersey Globe (Joey Fox, December 18, 2025): elected to the township committee in 2000, did not seek re-election in 2003",
+     "url": "https://newjerseyglobe.com/congress/former-tabernacle-committeeman-will-run-for-u-s-senate-again/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

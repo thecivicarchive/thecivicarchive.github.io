@@ -1,0 +1,225 @@
+{
+ "state": "WA",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-WA-H01",
+   "name": "Suzan DelBene",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://delbeneforcongress.com/",
+    "how": "The site's title reads 'Delbene For Congress | Fighting for Washington's 1st District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H01",
+   "name": "Mary Silva",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.marysilvaforcongress.com/",
+    "how": "The home page says 'I'm Mary Silva ... I am running for Congress in Washington State's 1st District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H02",
+   "name": "Rick Larsen",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://www.ricklarsen.org/",
+    "how": "Titled 'Rick Larsen for Congress'; the home page says he represents Washington state's 2nd Congressional District and carries September 2026 campaign updates.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H02",
+   "name": "Edwin H. Feller",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://fellerforcongress.com/",
+    "how": "The site's title reads 'Edwin Feller for Congress | Common Sense for WA's 2nd District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H03",
+   "name": "John Braun",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.votebraun.com/",
+    "how": "Titled 'John Braun for Congress'; the home page says 'Republican for Congress - WA-03'.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H03",
+   "name": "Marie Gluesenkamp Perez",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://marieforcongress.com/",
+    "how": "Titled 'Marie Gluesenkamp Perez for Congress'; the home page describes her as a member of Congress working for Southwest Washington (the district number is not printed).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H04",
+   "name": "Amanda McKinney",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.mckinneyforwashington.com/",
+    "how": "The home page says 'I'm Amanda McKinney ... current Yakima County Commissioner, running for Congress' and names Washington's 4th District.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Yakima County Board of Commissioners",
+     "from": "2020",
+     "to": "now",
+     "source": "Wikipedia's article on the 2026 U.S. House elections in Washington, citing the Yakima Herald-Republic of 2025-12-19 for 'Yakima County commissioner (2020-present)'; her campaign site says 'current Yakima County Commissioner' without a year",
+     "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Washington",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WA-H04",
+   "name": "John Duresky",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://www.johnduresky4congress.com/",
+    "how": "The site's title reads 'JOHN DURESKY FOR CONGRESS | WA 04' and the page names the 4th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H05",
+   "name": "Michael Baumgartner",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.votebaumgartner.com/",
+    "how": "The home page quotes Michael Baumgartner: 'I'm running for re-election to ensure the 5th District remains ...' and 'I am honored to represent Washington's 5th District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H05",
+   "name": "Carmela Conroy",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://conroy4congress.com/",
+    "how": "Titled 'Carmela Conroy for Congress'; the home page says 'General Election - November 3, 2026' and 'For Washington State's Fifth District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "U.S. Consul General in Lahore, Pakistan (U.S. Department of State; a Foreign Service posting)",
+     "from": "2009",
+     "to": "2011",
+     "source": "Wikipedia's article on Carmela Conroy, citing The Spokesman-Review's profile of 2024-10-13",
+     "url": "https://en.wikipedia.org/wiki/Carmela_Conroy",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WA-H06",
+   "name": "Emily Randall",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://electemilyrandall.com/",
+    "how": "Titled 'Emily Randall for Congress'; the home page names Washington's 6th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H06",
+   "name": "Teresa Fox",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://foxforwa.com/",
+    "how": "Titled 'Teresa Fox for U.S. Congress'; its description says 'Fighting for Washington's working families' and the page's text (drawn by script) says 'The 6th Congressional District needs leadership'.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H07",
+   "name": "Pramila Jayapal",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://www.pramilaforcongress.com/",
+    "how": "Titled 'Pramila for Congress', 'Paid for by Pramila for Congress', with a '2026 Endorsements' section; its /bio page says she represents Washington's 7th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H07",
+   "name": "Nirav Sheth",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://shethforcongress.com/",
+    "how": "'Paid for by the Nirav Sheth for Congress'; the home page speaks of bringing his message to 'all of the 7th District' and of Washington State.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H08",
+   "name": "Kim Schrier",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://www.drkimschrier.com/",
+    "how": "The site's title reads 'Kim Schrier | Democrat for Congress in Washington's 8th District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H08",
+   "name": "Spencer Meline",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.melineforcongress.com/",
+    "how": "The site's title reads 'Meline for Congress | District 08 - Washington State' and the page says 'Vote Spencer Meline for U.S. Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H09",
+   "name": "Adam Smith",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://electadamsmith.com/",
+    "how": "Titled 'Adam Smith for Congress'; the home page says he represents Washington's 9th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H09",
+   "name": "Doug Basler",
+   "party": "Prefers Republican Party",
+   "website": {
+    "url": "https://www.dougbasler.com/",
+    "how": "Titled 'Doug Basler'; the home page says 'I'm running for Congress' and the About page carries his candidate statement (the district number is not printed on the pages read).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WA-H10",
+   "name": "Marilyn Strickland",
+   "party": "Prefers Democratic Party",
+   "website": {
+    "url": "https://stricklandforwashington.com/",
+    "how": "The site's title reads 'Marilyn Strickland for Congress | WA-10'.",
+    "verified": true
+   }
+  }
+ ]
+}

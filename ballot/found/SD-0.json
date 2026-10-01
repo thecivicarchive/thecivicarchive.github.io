@@ -1,0 +1,93 @@
+{
+ "state": "SD",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-SD-H00",
+   "name": "Marty Jackley",
+   "party": "Republican",
+   "website": {
+    "url": "https://martyjackley.com/",
+    "how": "The site is titled \"Marty Jackley for Congress\" and says he kept South Dakota safe as Attorney General and U.S. Attorney and is now running for Congress.",
+    "verified": true
+   },
+   "born": {
+    "year": 1970,
+    "date": null,
+    "source": "Wikipedia, \"Marty Jackley\" (birth date carries a footnote; the article names him as South Dakota's Attorney General and a 2026 candidate for the at-large House seat)",
+    "url": "https://en.wikipedia.org/wiki/Marty_Jackley",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "United States Attorney for the District of South Dakota",
+     "from": "2006",
+     "to": "2009",
+     "source": "South Dakota Attorney General's office, official biography (appointed 2006; the end year is the year the same biography gives for his becoming Attorney General)",
+     "url": "https://atg.sd.gov/OurOffice/bio.aspx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Attorney General of South Dakota",
+     "from": "2009",
+     "to": "2019",
+     "source": "South Dakota Attorney General's office, official biography",
+     "url": "https://atg.sd.gov/OurOffice/bio.aspx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Attorney General of South Dakota",
+     "from": "2023",
+     "to": "now",
+     "source": "South Dakota Attorney General's office, official biography (elected in 2022; the biography gives the election year, not the day the term began)",
+     "url": "https://atg.sd.gov/OurOffice/bio.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-H00",
+   "name": "Nicole \"Nikki\" Gronli",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.nikkigforsd.com/",
+    "how": "The site is headed \"Nikki G for SD | Gronli candidate for Congress\" and asks readers to support Nikki for U.S. House.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Led USDA Rural Development in South Dakota",
+     "from": "2022",
+     "to": "2025",
+     "source": "Her campaign's About page (\"led USDA Rural Development in South Dakota from 2022 to 2025\"; the page does not give the post's title)",
+     "url": "https://www.nikkigforsd.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-S2",
+   "name": "Brian L Bengs",
+   "party": "Independent"
+  },
+  {
+   "race_id": "2026-SD-S2",
+   "name": "Mike Rounds",
+   "party": "Republican",
+   "website": {
+    "url": "https://roundsforsenate.com/",
+    "how": "The site is titled \"Mike Rounds for Senate\" and names him as U.S. Senator for South Dakota (R-S.D.). Its newest dated item is his February 2020 re-election announcement; the footer is dated 2026, but the page does not mention the 2026 election.",
+    "verified": true
+   }
+  }
+ ]
+}

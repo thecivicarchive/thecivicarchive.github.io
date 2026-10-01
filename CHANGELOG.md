@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.079 — 2026-10-01 — Ballot pages you can fold, sort and make your own; a cabin that looks like one
+
+- The Congress ballot pages open calmer. The map of every state sits right under the numbers; the Senate races and every other race are folded away state by state until you open them; on a race page the polls and the betting prices are two tabs above the candidates that pull down when you want them.
+- "Your ballot" can use your location (worked out on your device, never sent anywhere) and then shows a plain preview of the federal part of your ballot: each office, "Vote for one", and every name as printed. Your county's sample ballot remains the authority.
+- The candidates' cards can be moved into any order and hidden one by one, and so can their columns in the side-by-side comparison, whose sections now start closed. The order a reader chooses is theirs alone and stays on their device; one button puts back the official list's order.
+- The arena where the cards stand no longer has a colour of its own: it is a few shades off the page and follows light and dark.
+- More candidates' blanks are filled. Where no official record gives a birth year or earlier offices, the pages now show what a government page, the campaign's own site, Wikipedia or a named news organization states: 824 campaign websites, 191 public offices and 56 birth years, each labelled with where it comes from and linked, each checked twice. Never an address, a family member or a word about anyone's views.
+- The cabin has been rebuilt to look like a real one: round log walls and rafters, a wall of glass on a photograph of Rocky Mountain National Park for the hour and the season, a stacked-stone fireplace with a fire, real furniture, sunlight across the floor. It is still at its own address, cabin.html, and its Credits button names every photograph, texture and model it uses.
+
 ## v4.0.078 — 2026-10-01 — A first cabin, and quieter pages
 
 - A first draft of a new front door: a small log cabin you can walk around in, with a fire, two armchairs, a bookshelf and a wide window on the Rocky Mountains. The view follows your own clock and calendar (morning, afternoon, dusk or night; gold aspens in autumn, snow in winter), worked out on your device. Nothing is sent anywhere. It lives at its own address, cabin.html, while it is made to look real; the ring of cards is still the landing page.

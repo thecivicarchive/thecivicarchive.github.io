@@ -1,0 +1,65 @@
+{
+ "state": "DE",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-DE-H00",
+   "name": "Sarah McBride",
+   "party": "Democratic",
+   "website": {
+    "url": "https://sarahmcbride.com/",
+    "how": "The site is titled \"Sarah McBride for Congress | Official Campaign Website\" and says she represents Delaware's at-large congressional district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-DE-H00",
+   "name": "Joseph \"Dr. Joe\" Arminio",
+   "party": "Republican",
+   "website": {
+    "url": "https://drjoeforcongress.com/",
+    "how": "The site is titled \"Dr. Joe For Congress — Delaware 2026\", is paid for by \"Citizens for Joe Arminio\" and speaks of Delaware's 2026 General Election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-DE-S2",
+   "name": "Chris Coons",
+   "party": "Democratic"
+  },
+  {
+   "race_id": "2026-DE-S2",
+   "name": "Michael \"Dr. Mike\" Katz",
+   "party": "Republican",
+   "website": {
+    "url": "https://drmikekatz.com/",
+    "how": "The site is titled \"Dr. Mike Katz for U.S. Senate — Delaware 2026\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Senator, Delaware State Senate",
+     "from": null,
+     "to": null,
+     "source": "His campaign site lists \"Delaware State Senate\" under his time as a legislator; it gives no years and does not say whether the service is past or present",
+     "url": "https://drmikekatz.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "State Senator, Delaware State Senate, 4th district",
+     "from": "2009",
+     "to": "2013",
+     "source": "Wikipedia, \"Michael Katz (politician)\": member of the Delaware Senate from the 4th district, 2009 to 2013, with a footnote; the article ties him to the 2026 Republican U.S. Senate nomination in Delaware. Years still deserve an official check (legis.delaware.gov and elections.delaware.gov were out of reach from this machine).",
+     "url": "https://en.wikipedia.org/wiki/Michael_Katz_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

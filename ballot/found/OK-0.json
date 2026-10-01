@@ -1,0 +1,160 @@
+{
+ "state": "OK",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-OK-H01",
+   "name": "John Croisant",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.croisantforcongress.com/",
+    "how": "The site is titled \"Croisant For U.S. Congress\" and says John Croisant is running to represent Oklahoma's First District in Congress, with Election Day given as November 3, 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Tulsa Public Schools Board of Education, District 5",
+     "from": "2024",
+     "to": "now",
+     "source": "Tulsa Public Schools, Board of Education page (says he was elected to his post in April 2024 and the term expires April 2028; an earlier term is not stated there)",
+     "url": "https://www.tulsaschools.org/about/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-H01",
+   "name": "Mark Tedford",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.tedfordforcongress.com/",
+    "how": "The site is titled \"Mark Tedford for U.S. Congress\" and says he is running for U.S. Congress (OK-1), Oklahoma's First District.",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "date": null,
+    "source": "Wikipedia, \"Mark Tedford\" (the statement cites The Shreveport Journal, July 4, 1969); the article describes him as the Oklahoma House member for District 69 and a 2026 U.S. House candidate",
+    "url": "https://en.wikipedia.org/wiki/Mark_Tedford",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Oklahoma House of Representatives, District 69",
+     "from": "2022",
+     "to": "now",
+     "source": "Oklahoma House of Representatives member page (elected in 2022 to represent House District 69)",
+     "url": "https://www.okhouse.gov/representatives/mark-tedford",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-H02",
+   "name": "Brandon Wade",
+   "party": "Democrat",
+   "website": {
+    "url": "https://brandon4congress.com/",
+    "how": "The site is titled \"Brandon Wade for Congress\" and reads \"Democrat for U.S. Congress, Oklahoma's 2nd District\", with 2026 posts.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H02",
+   "name": "Josh Brecheen",
+   "party": "Republican",
+   "website": {
+    "url": "https://joshbrecheen.com/",
+    "how": "The site is titled \"Josh Brecheen\", speaks of Oklahoma and Congress, and is marked \"Paid for by Josh Brecheen For Congress\"; it does not print the district number on its home page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H03",
+   "name": "Frank D. Lucas",
+   "party": "Republican",
+   "website": {
+    "url": "https://frankdlucas.com/",
+    "how": "The site is titled \"Frank Lucas\", is marked \"Paid for by Lucas for Congress\" and refers to his reelection to Oklahoma's Third Congressional District; its footer is dated 2025 and its news items are from the last campaign.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H04",
+   "name": "Mitchell Jacob",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.mitchelljacob.com/",
+    "how": "The site is titled \"Jacob for Congress\", says he is running as a Democrat in Oklahoma's 4th Congressional District and counts down to the November 3, 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H04",
+   "name": "Tom Cole",
+   "party": "Republican",
+   "website": {
+    "url": "https://tomcoleforcongress.com/",
+    "how": "The site is marked \"Paid for by Cole for Congress\" and carries his April 1, 2026 announcement that he seeks reelection to represent the Fourth District of Oklahoma in the U.S. House.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H05",
+   "name": "Robert P. Henri",
+   "party": "Independent",
+   "website": {
+    "url": "https://projectduecourse.org/",
+    "how": "The site is titled \"Robert P. Henri, Independent for Congress | Project Due Course\" and is headed \"Robert P. Henri for Congress - OK-05\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-H05",
+   "name": "Stephanie Bice",
+   "party": "Republican",
+   "website": {
+    "url": "https://biceforcongress.com/",
+    "how": "The site is titled \"Stephanie Bice for Congress\", speaks of Oklahoma and is marked \"Paid for and authorized by Bice for Congress\"; it does not print the district number on its home page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-S2",
+   "name": "Kevin Hern",
+   "party": "Republican",
+   "website": {
+    "url": "https://hernforsenate.com/",
+    "how": "The site is titled \"Kevin Hern for Senate\", describes his record in Congress for Oklahoma and is marked \"Paid for by Hern for Senate\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-S2",
+   "name": "N'Kiyla Jasmine Thomas",
+   "party": "Democrat",
+   "website": {
+    "url": "https://www.jasmineforok.com/",
+    "how": "The site is titled \"Jasmine Thomas for Oklahoma\", names N'Kiyla Jasmine Thomas, points to the November 3, 2026 general election and quotes coverage of her as the Democratic nominee for Oklahoma's Senate seat; marked \"Paid for by N'Kiyla For OK\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-S2",
+   "name": "Ron Meinhardt",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.running4ok.com/",
+    "how": "The site is titled \"Ron Meinhardt for U.S. Senate\" with the line \"Oklahoma First\" and is marked \"Paid for by Meinhardt for U.S. Senate\".",
+    "verified": true
+   }
+  }
+ ]
+}

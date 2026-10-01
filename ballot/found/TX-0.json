@@ -1,0 +1,355 @@
+{
+ "state": "TX",
+ "part": 0,
+ "of": 3,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-TX-H01",
+   "name": "Nathaniel Moran",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.nathanielmoran.com/",
+    "how": "The site is titled 'Congressman Nathaniel Moran', describes him as born and raised in Whitehouse, TX, and its sign-up text is from 'Nathaniel Moran for Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H01",
+   "name": "Yolanda R. Prince",
+   "party": "Democratic",
+   "website": {
+    "url": "https://yolandaprince.com/",
+    "how": "The site is titled 'Yolanda R. Prince for Congress'; its About page reads 'Yolanda R. Prince for US Congress', calls her a Tyler native and names the Smith County Democratic Party.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H04",
+   "name": "Pat Fallon",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.fallonforcongress.com/",
+    "how": "The site is titled 'Conservative Republican Pat Fallon for Congress' and is paid for by Fallon for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H07",
+   "name": "Alexander Hale",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.halefortexas.com/",
+    "how": "The site is titled 'Alexander Hale for Congress | TX-07' and says he is running for U.S. Congress in Texas's 7th Congressional District as a Republican.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H07",
+   "name": "Lizzie Pannill Fletcher",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.lizziefletcher.com/",
+    "how": "The site is titled 'Lizzie Pannill Fletcher | U.S. Congress | Texas 7th Congressional District' and has a '2026 Election' section.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H07",
+   "name": "Espoir Ngabo",
+   "party": "Green",
+   "website": {
+    "url": "https://www.espoirfortexas.com/",
+    "how": "The site says Espoir Ngabo is running for Congress, would be the first third-party candidate to represent TX-7, and is paid for by the Campaign Committee for Espoir Ngabo.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H10",
+   "name": "Chris Gober",
+   "party": "Republican",
+   "website": {
+    "url": "https://chrisgober.com/",
+    "how": "The site says Chris Gober is running for Congress to represent Texas's 10th District as a Republican; paid for by Chris Gober for Texas.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H10",
+   "name": "Caitlin Rourk",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.caitlinrourk.com/",
+    "how": "The site is titled 'Caitlin Rourk for Congress' and says she is running for TX-10; its news page reports her Democratic primary win in TX-10.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H13",
+   "name": "Ronny Jackson",
+   "party": "Republican",
+   "website": {
+    "url": "https://ronnyjacksontx.com/",
+    "how": "The address forwards to teamronny.com, which says Congressman Ronny Jackson represents Texas' 13th District; that page is paid for by Team Ronny, a joint fundraising committee authorized by his campaign, so it is his committees' site rather than the campaign committee's alone.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H13",
+   "name": "Mark Nair",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.marknair.com/",
+    "how": "The site is titled 'Mark Nair for Congress', is signed 'Mark Nair for CD13', and its About page says he is an Amarillo resident running to represent Congressional District 13.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council member, City of Amarillo",
+     "from": null,
+     "to": null,
+     "source": "His campaign site's About page, which calls him a former City Councilman and speaks of his time 'serving as an Amarillo City Council member'; it gives no years",
+     "url": "https://www.marknair.com/about-mark",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H16",
+   "name": "Adam Bauman",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.adambaumanforcongress.com/",
+    "how": "The home page reads 'Adam Bauman for Congress, Congressional District 16, El Paso, Texas'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H16",
+   "name": "Veronica Escobar",
+   "party": "Democratic",
+   "website": {
+    "url": "https://veronicaescobar.com/",
+    "how": "The site is titled 'Veronica Escobar | Democrat for Congress | El Paso, Texas' and is paid for by Veronica Escobar for Congress, copyright 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H19",
+   "name": "Tom Sell",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.selltexastrue.com/",
+    "how": "The site's description reads 'Conservative Tom Sell - Standing Up For West Texas Values. Running for Congress'; it is paid for by Conservative Tom Sell for Congress and gives Election Day as November 3. It does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H19",
+   "name": "Kyle Rable",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.rableforwesttexas.com/",
+    "how": "The site is titled 'Kyle Rable Democrat For Congress', says he lives in Lubbock and is running for Congress in 2026 for West Texas; paid for by Rable for West Texas.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H22",
+   "name": "Trever Nehls",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.trevernehlsforcongress.com/",
+    "how": "The site is titled 'Trever Nehls For Congress - CD 22' and speaks of Texas' 22nd Congressional District throughout.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Constable, Fort Bend County Precinct 4",
+     "from": "2013",
+     "to": "2020",
+     "source": "His campaign site's About page: 'the elected Constable for Fort Bend County Precinct 4 from 2013 to 2020'",
+     "url": "https://www.trevernehlsforcongress.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H22",
+   "name": "Marquette Greene-Scott",
+   "party": "Democratic",
+   "website": {
+    "url": "https://marquettegreenescott.com/",
+    "how": "The site is titled 'Marquette Greene-Scott for Congress | Texas District 22' and calls her the Democratic nominee for Texas Congressional District 22.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council member, Position 3 (Mayor Pro Tem), City of Iowa Colony",
+     "from": null,
+     "to": "now",
+     "source": "Her campaign site's biography: 'currently Mayor Pro Tem of the City of Iowa Colony, Texas, holding Position 3 on the city council'; it gives no starting year",
+     "url": "https://marquettegreenescott.com/bio/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H25",
+   "name": "Roger Williams",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.rogerforcongress.com/",
+    "how": "The site is titled 'Roger Williams for Congress', speaks of taking Texas values to Washington, and is paid for by the Roger Williams for U.S. Congress Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H25",
+   "name": "Dione Sims",
+   "party": "Democratic",
+   "website": {
+    "url": "https://dionesimsforcongress.com/",
+    "how": "The site is titled 'Dione Sims for Congress | Democrat for TX-25' and describes her as the Democratic candidate for Texas' 25th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H28",
+   "name": "Tano E. Tijerina",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.tanoforcongress.com/",
+    "how": "The site is titled 'Tano Tijerina for Congress'; he writes as Webb County Judge, from Laredo, running for Congress for South Texas; paid for by Tano Tijerina for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Judge, Webb County",
+     "from": "2015",
+     "to": "now",
+     "source": "Laredo Morning Times, December 2, 2025: 'has served as county judge since 2015'; Webb County's own home page (webbcountytx.gov) lists Tano E. Tijerina as Webb County Judge",
+     "url": "https://www.lmtonline.com/local/article/south-texas-congressional-district-tano-tijerina-21218957.php",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H28",
+   "name": "Henry Cuellar",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.henrycuellar.com/",
+    "how": "The site is titled 'Henry Cuellar for Congress | Texas 28th District' and says 'Re-Elect Henry Cuellar in 2026'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H28",
+   "name": "Marlón Durán",
+   "party": "Green",
+   "website": {
+    "url": "https://marlonduran.com/",
+    "how": "The site is titled 'Marlon Duran For Congress!'; his story speaks of the Valley and Laredo, of running for Congress for 'my district', and addresses Cuellar, the district's member, by name.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H31",
+   "name": "John R. Carter",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.johncarterforcongress.com/",
+    "how": "The site is titled 'John Carter for Congress' and describes Judge John Carter as the congressman serving the 31st District of Texas.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H31",
+   "name": "Justin Early",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.votejustinearly.com/",
+    "how": "The site is titled 'Justin Early for Congress' and its description names Texas District 31, TX-31, US House, Democrat and the 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H31",
+   "name": "Greg Stoker",
+   "party": "Green",
+   "website": {
+    "url": "https://www.stokerfortexas.com/",
+    "how": "The site is titled 'Stoker for Congress | TX-31' and calls Greg Stoker 'Congressional Candidate, TX-31' with the November 3, 2026 election day.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H34",
+   "name": "Eric Flores",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.ericflores.com/",
+    "how": "The site is titled 'Flores for Congress', is paid for by Eric Flores for Congress, and speaks of Coastal Bend and South Texas.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City attorney and municipal judge (the city is not named)",
+     "from": null,
+     "to": null,
+     "source": "His campaign site's About page: 'Eric served as a City Attorney and municipal judge before joining the U.S. Attorney's Office'; no city or years given",
+     "url": "https://www.ericflores.com/abouteric",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-TX-H34",
+   "name": "Vicente Gonzalez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://vicentegonzalez.com/",
+    "how": "The site names Texas's 34th Congressional District and is paid for by the Vicente Gonzalez for Congress Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H34",
+   "name": "Chris Royal",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://chriscongress.com/",
+    "how": "The site is titled 'Chris Royal for Congress'; he writes as a member of the Libertarian Party, refers to Texas's balanced budget, and asks for a vote for Chris Royal 'in the upcoming November election'; it does not name the district, and parts are marked under construction.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H34",
+   "name": "Eddie Espinoza",
+   "party": "Green",
+   "website": {
+    "url": "https://espinoza4tx.com/",
+    "how": "The site is titled 'Espinoza For Congress', addresses voters in Texas' Congressional District 34 'this November', and names his opponents Vicente Gonzalez and Eric Flores.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-TX-H37",
+   "name": "Greg Casar",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.casarforcongress.com/",
+    "how": "The site is titled 'Greg Casar for Congress | TX-35 | Progressive Democrat | Texas' and calls him Congressman Greg Casar; the title still names District 35, the seat he holds now, not District 37.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

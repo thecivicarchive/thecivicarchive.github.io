@@ -1,0 +1,193 @@
+{
+ "state": "MD",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-MD-H01",
+   "name": "Dan Schwartz",
+   "party": "Democratic",
+   "website": {
+    "url": "https://schwartzforcongress.com/",
+    "how": "The site is titled 'Dan Schwartz for Congress' and asks readers to vote Dan Schwartz for Congress; Wikipedia's 2026 Maryland House article lists it as his 1st district campaign site.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H01",
+   "name": "Andy Harris",
+   "party": "Republican",
+   "website": {
+    "url": "https://andyharris.com/",
+    "how": "The site is headed 'Andy Harris for Congress', the sitting 1st district member's campaign committee name.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H02",
+   "name": "John \"Johnny O\" Olszewski, Jr.",
+   "party": "Democratic",
+   "website": {
+    "url": "https://gojohnnyo.com/",
+    "how": "Titled 'Johnny O - Democrat for Congress', says he has represented Maryland's 2nd Congressional District since 2025, paid for by Johnny O for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H02",
+   "name": "Dave Wallace",
+   "party": "Republican",
+   "website": {
+    "url": "https://davewallace.us/",
+    "how": "Titled 'Dave Wallace for US Congress' with Maryland (Carroll County, Baltimore) references; the page does not print the district number or year, and Wikipedia's 2026 Maryland House article lists it as his 2nd district campaign site.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H03",
+   "name": "Sarah Elfreth",
+   "party": "Democratic",
+   "website": {
+    "url": "https://elfrethformaryland.com/",
+    "how": "Titled 'Sarah Elfreth for Congress', the sitting 3rd district member's campaign site.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H04",
+   "name": "Glenn F. Ivey",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.glennivey.com/",
+    "how": "Glenn Ivey's campaign site, describing his work in Congress; he is the sitting 4th district member.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H04",
+   "name": "Sam Husseini",
+   "party": "Green",
+   "born": {
+    "year": 1966,
+    "date": null,
+    "source": "Wikipedia, 'Sam Husseini' (the paragraph giving the birth year ends with a news citation; the article says the Maryland Green Party chose him in July 2026 as its nominee in the 4th congressional district)",
+    "url": "https://en.wikipedia.org/wiki/Sam_Husseini",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H05",
+   "name": "Adrian Boafo",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.adrianboafo.com/",
+    "how": "Titled 'Adrian Boafo for Congress' and says Adrian is running for Congress for Marylanders.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, City Council, District 3, City of Bowie (also Mayor Pro Tem)",
+     "from": "2019",
+     "to": "2022",
+     "source": "Maryland State Archives, Maryland Manual On-Line biography of Delegate Adrian A. Boafo (Democrat, District 23)",
+     "url": "https://msa.maryland.gov/msa/mdmanual/06hse/html/msa18393.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MD-H06",
+   "name": "April McClain Delaney",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.aprilmcclaindelaneyforcongress.com/",
+    "how": "Headed 'April McClain Delaney ... for Congress' and speaks of her re-election to represent Maryland's 6th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H06",
+   "name": "Robin Ficker",
+   "party": "Republican",
+   "website": {
+    "url": "https://voteficker.com/",
+    "how": "Titled 'Robin Ficker for Congress'; he writes that he is running for Congress in Maryland and asks for support in the Republican nomination.",
+    "verified": true
+   },
+   "born": {
+    "year": 1943,
+    "date": null,
+    "source": "Wikipedia, 'Robin Ficker' (birth date carries a citation; the article says he won the 2026 Republican nomination to face April McClain Delaney)",
+    "url": "https://en.wikipedia.org/wiki/Robin_Ficker",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Maryland House of Delegates, Legislative District 15B",
+     "from": "1979",
+     "to": "1982",
+     "source": "Maryland State Archives, 'House of Delegates, Legislative District 15' (lists Robin Ficker (R) for the 1979 through 1982 sessions; the term ran to January 1983)",
+     "url": "https://msa.maryland.gov/msa/speccol/sc2600/sc2685/house/html/legis15hse.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MD-H06",
+   "name": "Moshe Y. Landman",
+   "party": "Green",
+   "website": {
+    "url": "https://www.moshelandman.us/",
+    "how": "The site reads 'United States Congress Maryland District 6 - 2026' under Moshe Landman's name.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H07",
+   "name": "Kweisi Mfume",
+   "party": "Democratic",
+   "website": {
+    "url": "https://mfumeforcongress.com/",
+    "how": "Reads 'Re-elect Kweisi Mfume, Democrat, U.S. Congress, Maryland 7th Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H07",
+   "name": "Scott M. Collier",
+   "party": "Republican",
+   "website": {
+    "url": "http://scottcollier.org/",
+    "how": "Titled 'Scott Collier for Congress'; an April 2026 note says he is running for the Maryland District 7 Congressional seat. The site answers on http only.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H08",
+   "name": "Jamie Raskin",
+   "party": "Democratic",
+   "website": {
+    "url": "https://jamieraskin.com/",
+    "how": "Titled 'Official campaign website of Jamie Raskin for Congress' and asks for his re-election to represent Maryland's 8th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MD-H08",
+   "name": "Cheryl Riley",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cheryl4maryland.com/",
+    "how": "Headed 'Cheryl Riley for Congress, MD-8'.",
+    "verified": true
+   }
+  }
+ ]
+}

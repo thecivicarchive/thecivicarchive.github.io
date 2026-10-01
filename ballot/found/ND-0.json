@@ -1,0 +1,59 @@
+{
+ "state": "ND",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-ND-H00",
+   "name": "Julie Fedorchak",
+   "party": "Republican",
+   "website": {
+    "url": "https://fedorchaknd.com/",
+    "how": "The site is titled 'Julie Fedorchak for US Congress - A Fresh Energy for North Dakota', calls itself her campaign website as distinct from her official U.S. House site, and is paid for by Fedorchak for ND.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commissioner, North Dakota Public Service Commission",
+     "from": "2012",
+     "to": "2025",
+     "source": "Wikipedia, 'Julie Fedorchak' (appointment cited to the Bismarck Tribune, 30 November 2012); her official House biography confirms 12 years on the Commission without giving the years",
+     "url": "https://en.wikipedia.org/wiki/Julie_Fedorchak",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "candidates.incumbent is 0 for Julie Fedorchak in race 2026-ND-H00 (the row is matched to Bioguide F000482).",
+     "problem": "Her official House page describes her as the sitting Representative for North Dakota's at-large seat, so the list's incumbent mark is unset for the member who holds this seat today; check that the page's 'in office now' line comes from the roster match and not this column.",
+     "url": "https://fedorchak.house.gov/about",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-H00",
+   "name": "Trygve Hammer",
+   "party": "Democratic-NPL",
+   "website": {
+    "url": "https://www.hammerfornd.com/",
+    "how": "The site is titled 'Trygve Hammer for ND', is paid for by Hammer for ND, and its About page says he is running for Congress, to represent North Dakota in the U.S. House of Representatives. The site does not state the election year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-H00",
+   "name": "Helene Neville",
+   "party": "independent nomination",
+   "website": {
+    "url": "https://heleneforcongress.com/",
+    "how": "The site is titled 'Helene for Congress 2026 - North Dakota- Independent', names Helene Neville and gives Election Day as November 3, 2026.",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,308 @@
+{
+ "state": "OH",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 3,
+ "candidates": [
+  {
+   "race_id": "2026-OH-H03",
+   "name": "Cleophus Dulaney",
+   "party": "Republican",
+   "website": {
+    "url": "https://votedulaney.org/",
+    "how": "The site is titled \"Cleophus Dulaney for Congress\"; its home page says \"My name is Cleophus Dulaney and I'm running to represent Ohio's 3rd Congressional District in the United States Congress\" and speaks of central Ohio.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H03",
+   "name": "Joyce Beatty",
+   "party": "Democratic",
+   "website": {
+    "url": "https://beattyforcongress.com/",
+    "how": "The site is titled \"Joyce Beatty for Congress\" and names her the Representative of Ohio's Third Congressional District; its donation link is for 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H05",
+   "name": "Bob Latta",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.lattaforcongress.com/",
+    "how": "The site is titled \"Bob Latta - Ohio's Fifth District\" and is paid for by Latta for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H05",
+   "name": "Brian A. Shaver",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.brianshaverforcongress.com/",
+    "how": "The site is titled \"Brian Shaver for Congress - Candidate for Ohio's 5th District\" and is dated 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Fostoria City Council (Ohio)",
+     "from": null,
+     "to": "now",
+     "source": "his campaign's own site (\"the current President of the Fostoria City Council\"; no years given)",
+     "url": "https://www.brianshaverforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-H07",
+   "name": "Max Miller",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.votemaxmiller.com/",
+    "how": "The site is titled \"Max Miller For Congress\", speaks of Northeast Ohio and his service in Congress, and is paid for by Max Miller for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H07",
+   "name": "Brian Poindexter",
+   "party": "Democratic",
+   "website": {
+    "url": "https://poindexterforcongress.com/",
+    "how": "The site is titled \"Brian Poindexter for Congress\", says he is \"running for Congress\" and names Ohio's 7th Congressional District.",
+    "corrected": true,
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member at large, Brook Park City Council (Ohio)",
+     "from": "2017",
+     "to": "now",
+     "source": "his campaign's own site (elected in 2017 as an At-Large member of Brook Park City Council; the home page calls him a Brook Park city councilman)",
+     "url": "https://poindexterforcongress.com/brian-poindexters-working-class-story/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-H09",
+   "name": "Derek Merrin",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.derekmerrin.com/",
+    "how": "The site is headed \"Derek Merrin for Congress\", speaks of Northwest Ohio and his years as a state representative from Lucas County, and is paid for by Derek Merrin for Congress.",
+    "verified": true
+   },
+   "born": {
+    "year": 1986,
+    "date": null,
+    "source": "Wikipedia, \"Derek Merrin\" (the birth date carries a citation; year only kept)",
+    "url": "https://en.wikipedia.org/wiki/Derek_Merrin",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Waterville City Council (Ohio)",
+     "from": null,
+     "to": null,
+     "source": "his campaign's own site (became a council member at 19; no years given)",
+     "url": "https://www.derekmerrin.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Waterville, Ohio",
+     "from": "2008",
+     "to": "2011",
+     "source": "his campaign's own site (\"He served as Mayor from 2008-2011\")",
+     "url": "https://www.derekmerrin.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Ohio House of Representatives (47th District, then 42nd)",
+     "from": "2016",
+     "to": "2025",
+     "source": "Wikipedia, \"Derek Merrin\"; his campaign's site says eight years in the Ohio legislature without the years",
+     "url": "https://en.wikipedia.org/wiki/Derek_Merrin",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-H09",
+   "name": "Marcy Kaptur",
+   "party": "Democratic",
+   "website": {
+    "url": "https://marcykaptur.com/",
+    "how": "The site names Marcy Kaptur of Northwest Ohio, asks readers to help reelect Marcy to Congress, and is paid for by Kaptur for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H11",
+   "name": "Mike Kirchner",
+   "party": "Republican",
+   "website": {
+    "url": "https://mikekirchner.com/",
+    "how": "The site says \"Mike Kirchner is the Republican candidate for U.S. Representative of Ohio District 11.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H11",
+   "name": "Shontel M. Brown",
+   "party": "Democratic",
+   "note": "Findings removed on review: the campaign site answered with a CAPTCHA page, so nothing on it could be confirmed."
+  },
+  {
+   "race_id": "2026-OH-H14",
+   "name": "David P. Joyce",
+   "party": "Republican",
+   "website": {
+    "url": "https://joyceforcongress.com/",
+    "how": "The site is titled \"Dave Joyce for Congress\" and describes him as a lifelong resident of Northeast Ohio.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-H14",
+   "name": "Maria Jukic",
+   "party": "Democratic",
+   "note": "Findings removed on review: the campaign site answered with a CAPTCHA page, so nothing on it could be confirmed."
+  },
+  {
+   "race_id": "2026-OH-S3",
+   "name": "Sherrod Brown",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.sherrodbrown.com/",
+    "how": "The site is titled \"Sherrod Brown - Fighting for Ohioans\", is about his campaign for the Senate in Ohio, and is paid for by Friends of Sherrod Brown.",
+    "corrected": true,
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ohio House of Representatives (61st District)",
+     "from": "1975",
+     "to": "1983",
+     "source": "Wikipedia, \"Sherrod Brown\"",
+     "url": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Ohio Secretary of State",
+     "from": "1983",
+     "to": "1991",
+     "source": "Wikipedia, \"Sherrod Brown\"",
+     "url": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "U.S. House of Representatives (Ohio's 13th District)",
+     "from": "1993",
+     "to": "2007",
+     "source": "Wikipedia, \"Sherrod Brown\"",
+     "url": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "U.S. Senate (Ohio)",
+     "from": "2007",
+     "to": "2025",
+     "source": "Wikipedia, \"Sherrod Brown\"",
+     "url": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Offices on record: \"U.S. Senate\" from 1993-01-05 to 2025-01-03, ten terms, as one run.",
+     "problem": "His first seven terms (1993 to 2007) were in the U.S. House for Ohio's 13th District; he sat in the Senate only from January 2007 to January 2025. The roster's terms seem to have been merged under the last chamber. Read here on Wikipedia; the Biographical Directory of Congress (bioguide.congress.gov/search/bio/B000944) is the official record to confirm against, but it answered this script with 403.",
+     "url": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-S3",
+   "name": "Jon Husted",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.jonhustedforsenate.com/",
+    "how": "The site is titled \"Jon Husted for Senate\", calls him Senator Jon Husted delivering for Ohio, and is paid for by Husted for Senate.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ohio House of Representatives (41st District; Speaker 2005 to 2009)",
+     "from": "2001",
+     "to": "2009",
+     "source": "Wikipedia, \"Jon Husted\"",
+     "url": "https://en.wikipedia.org/wiki/Jon_Husted",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Ohio Senate (6th District)",
+     "from": "2009",
+     "to": "2011",
+     "source": "Wikipedia, \"Jon Husted\"",
+     "url": "https://en.wikipedia.org/wiki/Jon_Husted",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Ohio Secretary of State",
+     "from": "2011",
+     "to": "2019",
+     "source": "Wikipedia, \"Jon Husted\"",
+     "url": "https://en.wikipedia.org/wiki/Jon_Husted",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Lieutenant Governor of Ohio",
+     "from": "2019",
+     "to": "2025",
+     "source": "Wikipedia, \"Jon Husted\"",
+     "url": "https://en.wikipedia.org/wiki/Jon_Husted",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-S3",
+   "name": "Greg Levy",
+   "party": "Other-party",
+   "website": {
+    "url": "https://www.greg4senate.com/",
+    "how": "The site is titled \"Greg Levy for Senate\", speaks to Ohio throughout, and is paid for by Greg Levy for Senate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-S3",
+   "name": "William B. Redpath",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://billredpath.com/",
+    "how": "The site says \"I'm Bill Redpath, Libertarian, running in the special election for the U.S. Senate in Ohio for 2026.\"",
+    "verified": true
+   }
+  }
+ ]
+}

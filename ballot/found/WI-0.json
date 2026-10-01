@@ -1,0 +1,248 @@
+{
+ "state": "WI",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-WI-H01",
+   "name": "Bryan Steil",
+   "party": "Republican",
+   "website": {
+    "url": "https://bryansteil.com/",
+    "how": "Titled 'Bryan Steil for Congress'; says Congressman Bryan Steil serves Southeast Wisconsin in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H01",
+   "name": "Mitchell Berman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bermanforcongress.com/",
+    "how": "Headed 'Mitchell Berman for Congress' and names Wisconsin's 1st District (WI-01).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H02",
+   "name": "Mark Pocan",
+   "party": "Democratic",
+   "website": {
+    "url": "https://pocanforcongress.com/",
+    "how": "Its description says Mark Pocan is running for reelection in Wisconsin's 2nd Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H03",
+   "name": "Derrick Van Orden",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.vanordenforcongress.com/",
+    "how": "Titled 'Derrick Van Orden for Congress', paid for by Van Orden for Congress; the site does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H03",
+   "name": "Rebecca Cooke",
+   "party": "Democratic",
+   "website": {
+    "url": "https://cookeforwisconsin.com/",
+    "how": "Titled 'Rebecca Cooke', paid for by Cooke for Congress, Eau Claire, Wisconsin; the home page does not print the district number.",
+    "verified": true
+   },
+   "born": {
+    "year": 1987,
+    "date": null,
+    "source": "Wikipedia, 'Rebecca Cooke (politician)', citing WisPolitics' 2024 Wisconsin Election Guide",
+    "url": "https://en.wikipedia.org/wiki/Rebecca_Cooke_(politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, board of directors, Wisconsin Economic Development Corporation (appointed by the Governor)",
+     "from": "2019",
+     "to": "2021",
+     "source": "Wikipedia, 'Rebecca Cooke (politician)', citing The Daily Reporter, the Governor's press release and The Wisconsin Independent",
+     "url": "https://en.wikipedia.org/wiki/Rebecca_Cooke_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-H04",
+   "name": "Arthur Burks",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.burks4congress.com/",
+    "how": "Site name 'Wisconsin 4th Congre[ssional]'; names Arthur Burks and 'Burks For Congress' in its footer.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H04",
+   "name": "Gwen Moore",
+   "party": "Democratic",
+   "website": {
+    "url": "https://gwenmooreforcongress.com/",
+    "how": "Titled 'Gwen Moore for U.S. Congress'; speaks of representing the 4th Congressional District of Wisconsin.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H04",
+   "name": "Tim Rogers",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.rogersforwisconsin.com/",
+    "how": "Says 'Tim Rogers, Candidate for Wisconsin's 4th Congressional District', a Republican running to represent Milwaukee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H05",
+   "name": "Andrew Beck",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.beckforcongress.com/",
+    "how": "Its description says 'Support Andy Beck for Congressional District 5 in Wisconsin'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H05",
+   "name": "Scott Fitzgerald",
+   "party": "Republican",
+   "website": {
+    "url": "https://scottfitzgeraldforcongress.com/",
+    "how": "Titled 'Scott Fitzgerald for Congress'; says Congressman Fitzgerald represents Wisconsin's Fifth Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H06",
+   "name": "Brad Smith",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bradsmithforcongress.com/",
+    "how": "Titled 'Brad Smith for Wisconsin'; says Brad, of Mequon, is running for Congress; the home page does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H06",
+   "name": "Elizabeth Anne Fitzgibbon",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.fitzgibbonforcongress.com/",
+    "how": "Titled 'Elizabeth Fitzgibbon for Congress | Wisconsin Congressional District 6'; calls her an independent candidate for the 6th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H06",
+   "name": "Glenn Grothman",
+   "party": "Republican",
+   "website": {
+    "url": "https://glenngrothman.com/",
+    "how": "Titled 'Glenn Grothman'; names Wisconsin's Sixth Congressional District and Glenn's priorities for it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H06",
+   "name": "Mike Thurow",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.thurowforcongress.com/",
+    "how": "Says Mike Thurow is the Independent candidate for Wisconsin's 6th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H07",
+   "name": "Fred Clark",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.clarkforwi.com/",
+    "how": "Titled 'Clark for Wisconsin', paid for by Fred Clark for Wisconsin; speaks of Fred Clark joining leaders in Congress for northern Wisconsin; no district number on the home page.",
+    "verified": true
+   },
+   "born": {
+    "year": 1959,
+    "date": null,
+    "source": "Wikipedia, 'Fred Clark (politician)', citing the Wisconsin Blue Book",
+    "url": "https://en.wikipedia.org/wiki/Fred_Clark_(politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Wisconsin State Assembly (42nd district, then 81st district)",
+     "from": "2009",
+     "to": "2015",
+     "source": "Wikipedia, 'Fred Clark (politician)', citing the Wisconsin Blue Book",
+     "url": "https://en.wikipedia.org/wiki/Fred_Clark_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Wisconsin Natural Resources Board (appointed by the Governor)",
+     "from": "2019",
+     "to": null,
+     "source": "Wikipedia, 'Fred Clark (politician)', citing the Governor's press release and WBAY; the article gives no end date",
+     "url": "https://en.wikipedia.org/wiki/Fred_Clark_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-H07",
+   "name": "Michael Alfonso",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.alfonsoforwisconsin.com/",
+    "how": "Titled 'Conservative Michael Alfonso for Congress'; names Wisconsin's 7th District (WI-7).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-H08",
+   "name": "Rick Crosson",
+   "party": "Democratic",
+   "website": {
+    "url": "https://rickcrosson.com/",
+    "how": "Titled 'Rick Crosson For Congress', paid for by Rick Crosson for Congress, Green Bay, Wisconsin; no district number on the home page.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Green Bay Area Public School District Board of Education",
+     "from": "2024",
+     "to": "2025",
+     "source": "Wikipedia's 2026 Wisconsin House elections article, citing the Green Bay Press-Gazette ('Former Green Bay School Board member Rick Crosson announces run for 8th Congressional District', 2025-08-18)",
+     "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Wisconsin",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-H08",
+   "name": "Tony Wied",
+   "party": "Republican",
+   "website": {
+    "url": "https://tonywiedforcongress.com/",
+    "how": "Titled 'Tony Wied for Congress', paid for by Tony Wied for Congress; the home page names WI-08.",
+    "verified": true
+   }
+  }
+ ]
+}

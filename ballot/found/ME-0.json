@@ -1,0 +1,155 @@
+{
+ "state": "ME",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-ME-H02",
+   "name": "Paul R. LePage",
+   "party": "Republican",
+   "offices": [
+    {
+     "office": "Waterville City Council (Maine)",
+     "from": "1997",
+     "to": "2002",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Paul_LePage",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Waterville, Maine",
+     "from": "2004",
+     "to": "2011",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Paul_LePage",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Governor of Maine",
+     "from": "2011",
+     "to": "2019",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Paul_LePage",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ME-H02",
+   "name": "Matthew G. Dunlap",
+   "party": "Democratic",
+   "born": {
+    "year": 1964,
+    "date": null,
+    "source": "Wikipedia (statement carries a citation)",
+    "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Maine House of Representatives",
+     "from": "1996",
+     "to": "2005",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Secretary of State of Maine",
+     "from": "2005",
+     "to": "2011",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Secretary of State of Maine",
+     "from": "2013",
+     "to": "2021",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Maine State Auditor",
+     "from": "2021",
+     "to": "2021",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Maine State Auditor",
+     "from": "2022",
+     "to": "now",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matthew_Dunlap",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ME-S2",
+   "name": "Troy D. Jackson",
+   "party": "Democratic",
+   "born": {
+    "year": 1968,
+    "date": null,
+    "source": "Wikipedia (statement carries a citation)",
+    "url": "https://en.wikipedia.org/wiki/Troy_Jackson_(politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Maine House of Representatives",
+     "from": "2002",
+     "to": "2008",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Troy_Jackson_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Maine Senate",
+     "from": "2008",
+     "to": "2014",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Troy_Jackson_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Maine Senate",
+     "from": "2016",
+     "to": "2024",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Troy_Jackson_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "President of the Maine Senate",
+     "from": "2018",
+     "to": "2024",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Troy_Jackson_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

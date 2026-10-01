@@ -1,0 +1,375 @@
+{
+ "state": "PA",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-PA-H01",
+   "name": "Brian K. Fitzpatrick",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.brianfitzpatrick.com/",
+    "how": "The site is titled \"Brian Fitzpatrick For Congress\" and speaks of the race for Pennsylvania's First Congressional District (PA-01).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H01",
+   "name": "Robert J Harvie Jr",
+   "party": "Democratic",
+   "website": {
+    "url": "https://bobharvieforcongress.com/",
+    "how": "The site is titled \"Bob Harvie for Congress\", is paid for by Bob Harvie For Congress, and describes him as a Bucks County Commissioner.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commissioner, Bucks County Board of Commissioners",
+     "from": "2020",
+     "to": "now",
+     "source": "Bucks County's own page for the commissioner (sworn in January 6, 2020; re-elected November 2023; term 2024 to 2028)",
+     "url": "https://www.buckscounty.gov/192/Robert-Harvie-Jr",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Supervisor, Falls Township Board of Supervisors",
+     "from": "2003",
+     "to": "2020",
+     "source": "Bucks County's own page for the commissioner (elected 2003; chairman 2008 to 2020)",
+     "url": "https://www.buckscounty.gov/192/Robert-Harvie-Jr",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-PA-H02",
+   "name": "Brendan F. Boyle",
+   "party": "Democratic",
+   "website": {
+    "url": "https://voteboyle.com/",
+    "how": "The site is titled \"Brendan F. Boyle | U.S. Congress - Representing Pennsylvania's 2nd District\" and is paid for by Citizens for Boyle.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H02",
+   "name": "Jessica Arriaga",
+   "party": "Republican",
+   "website": {
+    "url": "https://jessforcongress.com/",
+    "how": "The site is titled \"Jessica Arriaga for Congress\", is dated 2026 and speaks of Philadelphia; it does not name the district number (jessforphilly.com forwards to it).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H03",
+   "name": "Christopher M Rabb",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.chrisrabb.com/",
+    "how": "The site is titled \"Chris Rabb For Congress\"; its About page names Pennsylvania's 3rd Congressional District and calls him a state representative (PA-200).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H03",
+   "name": "Dennis Joseph Mahoney",
+   "party": "The Independent Party",
+   "website": {
+    "url": "https://mahoneyforcongress.com/",
+    "how": "The site is titled \"Dennis Mahoney for Congress - Independent - PA District 3\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H04",
+   "name": "Aurora Stuski",
+   "party": "Republican",
+   "website": {
+    "url": "https://aurora4pa.com/",
+    "how": "The site is titled \"Aurora Stuski for Congress PA-04 | Republican Candidate\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H04",
+   "name": "Madeleine Dean Cunnane",
+   "party": "Democratic",
+   "website": {
+    "url": "https://mad4pa.com/",
+    "how": "The site is titled \"Madeleine Dean for Congress\" and says she represents Pennsylvania's 4th Congressional District; paid for by Mad 4 PA PAC.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "No link to a sitting member, no FEC number, no age and no offices for \"Madeleine Dean Cunnane\" (Democratic, district 4).",
+     "problem": "The Clerk of the House lists Madeleine Dean (Bioguide D000631) as the sitting Representative for Pennsylvania's 4th district, Democrat; her campaign site mad4pa.com says the same. The state list prints her married name, so she went unmatched to the roster and to her FEC registration.",
+     "url": "https://clerk.house.gov/members/D000631",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-PA-H05",
+   "name": "Mary Gay Scanlon",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.scanlonforcongress.com/",
+    "how": "The site is titled \"Scanlon For Congress\"; its About page speaks of Mary Gay's work in Congress for Pennsylvania's 5th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H06",
+   "name": "Chrissy Houlahan",
+   "party": "Democratic",
+   "website": {
+    "url": "https://chrissyhoulahanforcongress.com/",
+    "how": "The site is titled \"Chrissy Houlahan for Congress\", names PA-06 and Pennsylvania's 6th Congressional District, and is dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H06",
+   "name": "Martin Young",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.voteyoung.com/",
+    "how": "The site names \"Marty Young, US Congressional Candidate (PA-06)\" and is paid for by Marty Young for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H07",
+   "name": "Robert R Brooks",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.brooksforcongress.com/",
+    "how": "The site is titled \"Bob Brooks for Congress\"; its 2026 news items name PA-07 and his opponent Ryan Mackenzie.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H07",
+   "name": "Ryan Mackenzie",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.mackenzieforcongress.com/",
+    "how": "The site is titled \"Ryan Mackenzie for Congress\"; its About page speaks of his work in Congress for the 7th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H08",
+   "name": "Paige Cognetti",
+   "party": "Democratic",
+   "born": {
+    "year": 1980,
+    "date": null,
+    "source": "Wikipedia's article on Paige Cognetti, which names her the 2026 Democratic nominee in Pennsylvania's 8th district and cites The Bond Buyer for the date",
+    "url": "https://en.wikipedia.org/wiki/Paige_Cognetti",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Scranton",
+     "from": "2020",
+     "to": "now",
+     "source": "The City of Scranton's page about the mayor (sworn in January 6, 2020; re-elected November 2021)",
+     "url": "https://scrantonpa.gov/your-government/mayor/about-the/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-PA-H08",
+   "name": "Robert P. Bresnahan, Jr.",
+   "party": "Republican",
+   "website": {
+    "url": "https://robforpa.com/",
+    "how": "The site names Congressman Rob Bresnahan of Northeastern Pennsylvania, now serving in the U.S. House, and speaks of the 2026 election; it does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H09",
+   "name": "Daniel Meuser",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.meuserforcongress.com/",
+    "how": "The site names Dan Meuser, elected to Congress in 2018 for Pennsylvania's 9th District, asks for help to \"win PA-09\" and carries September 2026 updates.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H09",
+   "name": "Rachel Lillian Wallace",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.wallaceforcongress.com/",
+    "how": "The site is titled \"Rachel Wallace For Congress\" and says she is running for U.S. Congress in Pennsylvania's 9th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H10",
+   "name": "Janelle Stelson",
+   "party": "Democratic",
+   "website": {
+    "url": "https://janellestelson.com/",
+    "how": "The site is titled \"Janelle Stelson for Congress\", says she is taking on Congressman Scott Perry, and carries September 2026 news of the 10th District race.",
+    "verified": true
+   },
+   "born": {
+    "year": 1960,
+    "date": null,
+    "source": "Wikipedia's article on Janelle Stelson, which names her the 2026 Democratic nominee in Pennsylvania's 10th district and cites a Gettysburg Times profile for the year",
+    "url": "https://en.wikipedia.org/wiki/Janelle_Stelson",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H10",
+   "name": "Scott Perry",
+   "party": "Republican",
+   "website": {
+    "url": "https://patriotsforperry.com/",
+    "how": "The site says \"Vote for Congressman Scott Perry on November 3rd\" and names him the Representative for Pennsylvania's 10th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H11",
+   "name": "Lloyd Smucker",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.electsmucker.com/",
+    "how": "The site is titled \"Lloyd Smucker for Congress\" and is paid for by Smucker for Congress; its Meet Lloyd page speaks of his two terms in the Pennsylvania State Senate and his service in the U.S. House; it does not name the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H11",
+   "name": "Nancy Ellen Mannion",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.nancymannion.com/",
+    "how": "The site is titled \"Nancy Mannion for Congress | PA-11 Congressional Candidate\" and calls her a Democrat for Pennsylvania's 11th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H12",
+   "name": "James Kevin Hayes",
+   "party": "Republican",
+   "website": {
+    "url": "https://jameshayesforpa.com/",
+    "how": "The site is titled \"James Hayes for Congress\", names PA-12 and Pennsylvania's 12th congressional district, and is dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H12",
+   "name": "Summer L. Lee",
+   "party": "Democratic",
+   "website": {
+    "url": "https://summerforpa.com/",
+    "how": "The site is titled \"Summer Lee for Congress | Official Campaign Site\" and reads \"Democrat For Congress | PA-12\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H13",
+   "name": "Elizabeth Rhoads Farnham",
+   "party": "Democratic",
+   "website": {
+    "url": "https://bethfarnhamforcongress.com/",
+    "how": "The site is titled \"Beth Farnham for Congress - Candidate for US Representative of Pennsylvania's 13th District\" and names the November 3rd, 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H13",
+   "name": "John Joyce",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.johnjoyceforcongress.com/",
+    "how": "The site is titled \"John Joyce for Congress\", says he has served Pennsylvania's 13th District since 2019 and is running for re-election; dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H14",
+   "name": "David Alan Bradstock",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.bradstockforcongress.com/",
+    "how": "The site says Alan Bradstock is the Democratic Congressional Candidate in Pennsylvania's 14th District and names November 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H14",
+   "name": "Guy Reschenthaler",
+   "party": "Republican",
+   "website": {
+    "url": "https://guyforpa.com/",
+    "how": "The site is titled \"Guy Reschenthaler for Congress | Pennsylvania's 14th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H15",
+   "name": "Glenn Thompson",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.friendsofglennthompson.com/",
+    "how": "The site is titled \"Congressman Glenn 'GT' Thompson - Representing Pennsylvania's 15th District - Official Campaign Website\", paid for by Friends of Glenn Thompson; its copyright line reads 2024.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H15",
+   "name": "Ray Bilger",
+   "party": "Democratic",
+   "website": {
+    "url": "https://bilgerforcongress.com/",
+    "how": "The site is titled \"Ray Bilger for Congress | PA-15\" and says he is running for U.S. Congress in Pennsylvania's 15th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H16",
+   "name": "Justin Reed Wagner",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.justinwagnerforcongress.com/",
+    "how": "The site is titled \"Justin Wagner For Congress\", says \"Ready to fight for PA-16\", and is dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-PA-H17",
+   "name": "Anthony G Guy",
+   "party": "Republican"
+  },
+  {
+   "race_id": "2026-PA-H17",
+   "name": "Christopher Raphael Deluzio",
+   "party": "Democratic",
+   "website": {
+    "url": "https://chrisforpa.com/",
+    "how": "The site is titled \"Western Pennsylvania's Fighter in Congress\", is paid for by Chris Deluzio for Congress, and names PA-17.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 1
+}

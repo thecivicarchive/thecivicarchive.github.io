@@ -2,12 +2,14 @@
 """
 run_ballot.py - On The Ballot: who is on the ballot, race by race, from each state's own official candidate list.
 
-    python run_ballot.py                  everything: races, fec, lists, match, people, campaign, ads, adlib, odds, local, check, site
+    python run_ballot.py                  everything: races, fec, lists, match, people, found, campaign, ads, adlib, odds, local, check, site
     python run_ballot.py races            the federal races on the November 3, 2026 ballot, and each state's notes
     python run_ballot.py fec              the 2026 cycle from the FEC's bulk files, for every House and Senate candidate
     python run_ballot.py lists [ca fl]    official candidate lists (every state with a loader, or the ones named)
     python run_ballot.py match            tie candidates to their FEC numbers and to members of Congress
     python run_ballot.py people           age, offices held and a photo, from the official records
+    python run_ballot.py found            what the open-web sweep found and a second reader confirmed (ballot/found/*.json): campaign
+                                          websites, and birth years and offices where the official records give none, each with its source
     python run_ballot.py campaign         each campaign's website and photo options (to be looked at before use)
     python run_ballot.py ads              ad spending by kind (TV, digital and streaming, print and mail, radio), campaign and outside
     python run_ballot.py adlib            the ads themselves in Google's public ad library, tied to the 2026 candidates (links, never copies)
@@ -23,6 +25,9 @@ The federal rows land in ballot_2026.sqlite, the states' own races in ballot_loc
 ballot_cache/ (FEC files in fec_cache/). Each run writes a log to logs/. Nothing here touches congress_119.sqlite. John's decisions (2026-09-29): Congress first;
 official lists state by state, biggest states first; after the three-second hover the fireworks wait for a click;
 polls only from pollsters in AAPOR's Transparency Initiative (not loaded yet).
+
+Options: --db <file> works on another copy of the federal database (for trying a stage out); --only "<person>;<person>"
+keeps the campaign stage's photo and issue fetches to the people named (a person is an FEC number, or "race|name").
 """
 
 import datetime as dt
@@ -36,7 +41,7 @@ import traceback
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from ballot import campaign, fec26, match, people, races  # noqa: E402
+from ballot import campaign, fec26, found, match, people, races  # noqa: E402
 from ballot.common import CACHE, DB, STATE_NAMES, connect  # noqa: E402
 from ballot.lists import LOADERS  # noqa: E402
 
@@ -90,13 +95,18 @@ def stage_people(con):
     people.build(con, say=say)
 
 
-def stage_campaign(con):
+def stage_found(con):
+    say("== found: what the open-web sweep found and a second reader confirmed, each with the page that states it")
+    found.load(con, say=say)
+
+
+def stage_campaign(con, only=None):
     say("== campaign: each campaign's website (FEC Form 1) and photo options from it, to be looked at before use")
     campaign.list_websites(con, say=say)      # the states' own lists first (Minnesota's gives each campaign's site)
     campaign.websites(con, say=say)
     campaign.apply_choices(con, say=say)      # puts the websites on the people before their pages are read
-    campaign.photos(con, say=say)
-    campaign.issues(con, say=say)
+    campaign.photos(con, say=say, only=only)
+    campaign.issues(con, say=say, only=only)
     campaign.apply_choices(con, say=say)
     sheets, index = campaign.contact_sheet(con)
     if sheets:
@@ -206,20 +216,34 @@ def stage_site(con):
 
 def main():
     global LOG
-    args = [a.lower() for a in sys.argv[1:]]
-    every = ["races", "fec", "lists", "match", "people", "campaign", "ads", "adlib", "odds", "local", "check", "site"]
+    raw, opts = sys.argv[1:], {}
+    for flag in ("--db", "--only"):      # taken out before the rest is lower-cased: a path and a name keep their capitals
+        if flag in raw:
+            i = raw.index(flag)
+            if i + 1 >= len(raw):
+                raise SystemExit(f"{flag} needs a value")
+            opts[flag] = raw[i + 1]
+            del raw[i:i + 2]
+    db = os.path.abspath(opts["--db"]) if "--db" in opts else DB
+    only = {p.strip() for p in opts.get("--only", "").split(";") if p.strip()} or None
+    args = [a.lower() for a in raw]
+    every = ["races", "fec", "lists", "match", "people", "found", "campaign", "ads", "adlib", "odds", "local", "check", "site"]
     stages = [a for a in args if a in every] or every
     codes = [a for a in args if len(a) == 2 and a.upper() in STATE_NAMES]
     os.makedirs(os.path.join(HERE, "logs"), exist_ok=True)
     LOG = open(os.path.join(HERE, "logs", f"ballot-{dt.datetime.now():%Y%m%d-%H%M%S}-{'-'.join(stages)}.log"), "w", encoding="utf-8")
-    con = connect(DB)
+    if db != DB:
+        say(f"Working on {db}, not the kit's own ballot_2026.sqlite")
+    con = connect(db)
     for s in stages:
         if s == "lists":
             stage_lists(con, codes)
         elif s == "local":
             stage_local(con, codes)
+        elif s == "campaign":
+            stage_campaign(con, only)
         else:
-            {"races": stage_races, "fec": stage_fec, "match": stage_match, "people": stage_people, "campaign": stage_campaign,
+            {"races": stage_races, "fec": stage_fec, "match": stage_match, "people": stage_people, "found": stage_found,
              "ads": stage_ads, "adlib": stage_adlib, "odds": stage_odds, "check": stage_check, "site": stage_site}[s](con)
     say(f"Done. Log: {LOG.name}")
 

@@ -1,0 +1,51 @@
+{
+ "state": "VT",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-VT-H00",
+   "name": "Becca Balint",
+   "party": "Democratic",
+   "review": [
+    {
+     "shows": "The candidates row for Becca Balint has incumbent = 0 (Vermont's list does not mark incumbents).",
+     "problem": "She is the sitting U.S. Representative for Vermont's at-large seat (the FEC's candidate page lists her as the incumbent House candidate for Vermont, Democratic Party, 2026); check that the page's \"in office now\" line comes from the roster and not from this column.",
+     "url": "https://www.fec.gov/data/candidate/H2VT01076/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-VT-H00",
+   "name": "Gerald Malloy",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.deploymalloy.com/",
+    "how": "The site is headed \"Gerald Malloy for Congress\", presents him as running for U.S. Congress in Vermont, and is paid for by \"Gerald Malloy for US Congress, Limited\".",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "No birth date or offices for Gerald Malloy (correctly blank today).",
+     "problem": "Caution for any later fill: the Wikipedia article \"Gerald Malloy\" is a different person, a South Carolina state senator born in 1961; none of it belongs to Vermont's candidate.",
+     "url": "https://en.wikipedia.org/wiki/Gerald_Malloy",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-VT-H00",
+   "name": "Ryan P. Walton",
+   "party": "Independent",
+   "website": {
+    "url": "https://www.waltonforvermont.com/",
+    "how": "The site says \"Ryan P. Walton is running for the United States House of Representatives to give Vermont an independent voice\" and describes an independent 2026 campaign in Vermont.",
+    "verified": true
+   }
+  }
+ ]
+}

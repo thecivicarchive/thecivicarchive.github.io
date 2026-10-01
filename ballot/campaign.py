@@ -132,7 +132,7 @@ def topic(t):
     return t[:1] + t[1:].lower() if t.isupper() else t
 
 
-def issues(con, say=print, pause=1.5):
+def issues(con, say=print, pause=1.5, only=None):
     """Each campaign's own page of issues, found from its home page's links ("Issues", "Priorities", "Where I Stand" and
     the like), and the topics it lists as headings there. Only the headings are kept, a few words each, and the page
     links to the campaign's own words; nothing longer is copied, and nothing is summarized or characterized."""
@@ -140,6 +140,8 @@ def issues(con, say=print, pause=1.5):
     net.patient_lookups()      # the home router drops some address lookups; ask again rather than give up on a site
     got, failed = 0, 0
     for person, site, name in con.execute("SELECT person, website, name FROM people WHERE website IS NOT NULL").fetchall():
+        if only is not None and person not in only:      # a trial on a few people (run_ballot.py --only)
+            continue
         family = (name_parts(name)[1].split() or [""])[-1]
         try:
             page, final, _ = _fetch(site)
@@ -226,7 +228,7 @@ def _portrait(data, headshot=False):
     return buf.getvalue()
 
 
-def photos(con, say=print, pause=1.5, refresh=False):
+def photos(con, say=print, pause=1.5, refresh=False, only=None):
     """For each candidate with a website and no photo from an official record, keep up to three options from their site."""
     net.patient_lookups()
     con.executescript(OPTIONS)
@@ -234,7 +236,7 @@ def photos(con, say=print, pause=1.5, refresh=False):
     rows = con.execute("SELECT person, name, website FROM people WHERE website IS NOT NULL AND (photo IS NULL OR photo_src = 'Campaign')").fetchall()
     got, tried = 0, 0
     for person, name, site in rows:
-        if person in have and not refresh:
+        if (person in have and not refresh) or (only is not None and person not in only):
             continue
         family = name_parts(name)[1].split()[-1] if name_parts(name)[1] else ""
         tried += 1

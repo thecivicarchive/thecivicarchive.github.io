@@ -1,0 +1,116 @@
+{
+ "state": "WY",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 2,
+ "candidates": [
+  {
+   "race_id": "2026-WY-H00",
+   "name": "Chuck Gray",
+   "party": "Republican",
+   "born": {
+    "year": 1990,
+    "date": null,
+    "source": "Wikipedia, 'Chuck Gray (Wyoming politician)', citing Wyoming News Now (July 30, 2022)",
+    "url": "https://en.wikipedia.org/wiki/Chuck_Gray_(Wyoming_politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wyoming Secretary of State",
+     "from": "2023",
+     "to": "now",
+     "source": "Wikipedia, 'Chuck Gray (Wyoming politician)' (took office January 2, 2023); the Secretary of State's own page says he was elected the 24th Secretary of State in 2022",
+     "url": "https://en.wikipedia.org/wiki/Chuck_Gray_(Wyoming_politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Wyoming House of Representatives, District 57",
+     "from": "2017",
+     "to": "2023",
+     "source": "Wikipedia, 'Chuck Gray (Wyoming politician)' (January 10, 2017 to January 2, 2023); the Secretary of State's own page says three terms for House District 57, without years",
+     "url": "https://en.wikipedia.org/wiki/Chuck_Gray_(Wyoming_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-H00",
+   "name": "Lisa Kinney",
+   "party": "Democratic",
+   "website": {
+    "url": "https://lisakinneyforcongress.com/",
+    "how": "The site is titled 'Lisa Kinney - Running For You!', carries a 'Kinney Congress' emblem and the words 'for Congress', and speaks of Wyoming in the U.S. Congress; its pages are dated 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wyoming Senate, Albany County",
+     "from": "1985",
+     "to": "1995",
+     "source": "Wikipedia, 'Lisa F. Kinney', citing the Wyoming Secretary of State and the Wyoming Legislature; the article also says she announced for the at-large U.S. House seat in April 2026",
+     "url": "https://en.wikipedia.org/wiki/Lisa_F._Kinney",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-H00",
+   "name": "Shawn Johnson",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.shawnforwyoming.com/",
+    "how": "The site is headed 'SHAWN JOHNSON Libertarian for U.S. House' and says he is running for Congress for Wyoming.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Casper City Council (two terms, including a year as vice mayor)",
+     "from": null,
+     "to": null,
+     "source": "His campaign site: elected to the Casper City Council in 2014 and served two terms, eight years, including a year as vice mayor; the site prints no start or end year of service, so none is given here",
+     "url": "https://www.shawnforwyoming.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S2",
+   "name": "Harriet Hageman",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.hagemanforwyoming.com/",
+    "how": "The site is titled 'Harriet Hageman', is branded 'Hageman for Wyoming' and its donation links name the 'Hageman Senate Fund'; it does not spell out 'U.S. Senate' in a heading, so read it before using.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-S2",
+   "name": "James Byrd",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.byrdforsenate.com/",
+    "how": "The site is titled 'Byrd for Senate', names James Byrd of Wyoming and his career in the Wyoming legislature, and is dated 2026, paid for by Byrd for Senate.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wyoming House of Representatives, District 44",
+     "from": "2009",
+     "to": "2019",
+     "source": "Wikipedia, 'James W. Byrd' (January 13, 2009 to January 7, 2019)",
+     "url": "https://en.wikipedia.org/wiki/James_W._Byrd",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

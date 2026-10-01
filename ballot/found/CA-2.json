@@ -1,0 +1,504 @@
+{
+ "state": "CA",
+ "part": 2,
+ "of": 3,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 1,
+ "candidates": [
+  {
+   "race_id": "2026-CA-H03",
+   "name": "Ami Bera",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.beraforcongress.com/",
+    "how": "The site is titled 'Dr. Ami Bera for Congress' and says he is running in California's new 3rd Congressional District ('Dr. Ami Bera For CA-03').",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H03",
+   "name": "Robb Tucker",
+   "party": "Republican",
+   "website": {
+    "url": "https://robbtucker.com/",
+    "how": "The site is titled 'Robb Tucker for Congress'; he describes himself as a Nevada County Supervisor now running for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Nevada County Board of Supervisors (elected 2024)",
+     "from": "2024",
+     "to": "now",
+     "source": "Robb Tucker's campaign site, About page",
+     "url": "https://robbtucker.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H06",
+   "name": "Kevin Kiley",
+   "party": "No Party Preference",
+   "website": {
+    "url": "https://electkevinkiley.com/",
+    "how": "The site is titled 'Kevin Kiley | For Congress', carries a 'CA06' section and is paid for by Kevin Kiley for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H06",
+   "name": "Richard Pan",
+   "party": "Democratic",
+   "website": {
+    "url": "https://drpanforcongress.com/",
+    "how": "The site is titled 'Dr. Pan for Congress', names Dr. Richard Pan, his State Senate service and 'California's 6th Congressional District'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1965,
+    "date": null,
+    "source": "Wikipedia, 'Richard Pan' (statement cited to LegiStorm)",
+    "url": "https://en.wikipedia.org/wiki/Richard_Pan",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "California State Assembly, 5th District",
+     "from": "2010",
+     "to": "2012",
+     "source": "Wikipedia, 'Richard Pan'",
+     "url": "https://en.wikipedia.org/wiki/Richard_Pan",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "California State Assembly, 9th District",
+     "from": "2012",
+     "to": "2014",
+     "source": "Wikipedia, 'Richard Pan'",
+     "url": "https://en.wikipedia.org/wiki/Richard_Pan",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "California State Senate, 6th District",
+     "from": "2014",
+     "to": "2022",
+     "source": "Wikipedia, 'Richard Pan'",
+     "url": "https://en.wikipedia.org/wiki/Richard_Pan",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H09",
+   "name": "John McBride",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.johnmcbrideforcongress.com/",
+    "how": "The site is titled 'John Mcbride for California Congressional District 9' and says he is running for Congress in California's 9th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H09",
+   "name": "Josh Harder",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.harderforcongress.com/",
+    "how": "The site is titled 'Josh Harder for Congress', is paid for by Josh Harder for Congress (Manteca, CA) and speaks of the Valley; it names the office but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H12",
+   "name": "Jamie Joyce",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.jamiejoyce.com/",
+    "how": "The site is titled 'Jamie Joyce for Congress' and says she 'is running for Congress (D12, CA)' as a Democrat.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H12",
+   "name": "Lateefah Simon",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.lateefahsimon.com/",
+    "how": "The site is titled 'Lateefah Simon for Congress'; its About page says she is running for re-election in California's 12th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H15",
+   "name": "Charles Hoelter",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.hoelterforuscongress.com/",
+    "how": "The site is 'Charles Hoelter', paid for by Charles Hoelter for Congress, with a San Mateo, California campaign office; it names the office but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H15",
+   "name": "Kevin Mullin",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.kevinmullinforcongress.com/",
+    "how": "The site is titled 'Kevin Mullin for Congress' and says Congressman Mullin represents California's 15th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H18",
+   "name": "Shane Lewis",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.shanelewisforcongress.com/",
+    "how": "The site is titled 'Shane Lewis for Congress District 18' and reads 'California District 18 ... Your candidate for Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H18",
+   "name": "Zoe Lofgren",
+   "party": "Democratic",
+   "website": {
+    "url": "https://zoelofgren.com/",
+    "how": "The site is titled 'Zoe Lofgren for Congress', says 'Re-Election in 2026' and names the 18th Congressional District in California.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H21",
+   "name": "Jim Costa",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.jimcosta.com/",
+    "how": "The site is titled 'Jim Costa For Congress' and reads 'Jim Costa, Representative, CA 21st District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H21",
+   "name": "Kyle Kirkland",
+   "party": "Republican",
+   "website": {
+    "url": "https://kirkland2026.com/",
+    "how": "The site is titled 'Kyle Kirkland for Congress | Business Leader for CA-21' and names California's 21st District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H24",
+   "name": "Bob Smith",
+   "party": "Republican",
+   "website": {
+    "url": "https://bobsmithforcongress.com/",
+    "how": "The site is titled 'Bob Smith for Congress | California District 24' and speaks of 'CD-24'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H24",
+   "name": "Salud Carbajal",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.saludcarbajal.com/",
+    "how": "The site reads 'Salud Carbajal for Congress, For California's 24th District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H27",
+   "name": "George Whitesides",
+   "party": "Democratic",
+   "website": {
+    "url": "https://georgewhitesides.com/",
+    "how": "The site reads 'George Whitesides for Congress' and speaks of his first re-election in California's 27th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H27",
+   "name": "Jason Gibbs",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.jasongibbsforcongress.com/",
+    "how": "The site is titled 'Jason Gibbs for Congress' and describes him as a Santa Clarita city councilman running for Congress; it names the office but not the district number.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Santa Clarita City Council (elected 2020)",
+     "from": "2020",
+     "to": "now",
+     "source": "Jason Gibbs's campaign site",
+     "url": "https://www.jasongibbsforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Santa Clarita (chosen by the council)",
+     "from": "2023",
+     "to": "2023",
+     "source": "Jason Gibbs's campaign site",
+     "url": "https://www.jasongibbsforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H30",
+   "name": "Laura Friedman",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.lauraforcongress.org/",
+    "how": "The site is titled 'Laura For Congress | For California's 30th Congressional District' and names Laura Friedman and CA-30.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H30",
+   "name": "Scott Alan Meyers",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.meyersforcongress.com/",
+    "how": "The site is titled 'Scott Alan Meyers for Congress | California's 30th District | Republican'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H33",
+   "name": "Pete Aguilar",
+   "party": "Democratic",
+   "website": {
+    "url": "https://peteaguilar.com/",
+    "how": "The site is titled 'Pete Aguilar for U.S. Congress', says he is running for re-election, and its About page says he represents California's 33rd Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H33",
+   "name": "Stephanie M. Vargas",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.stephanievargas4congress.com/",
+    "how": "The site is titled 'Stephanie Vargas for Congress | California's 33rd Congressional District' and names Stephanie M. Vargas.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H36",
+   "name": "Houston Brignano",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.voteforhouston.com/",
+    "how": "The site is titled 'Houston Brignano for Congress' and carries a 'CA-36' section and 'Congressional District 36'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H36",
+   "name": "Ted W. Lieu",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.lieuforcongress.com/",
+    "how": "The site is titled 'Ted Lieu for Congress'; its About page says Congressman Ted W. Lieu represents California's 36th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H39",
+   "name": "Mark Takano",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.marktakano.com/",
+    "how": "The site is paid for by Mark Takano for Congress, says he represents California's 39th district and asks support for his re-election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H39",
+   "name": "Steve Manos",
+   "party": "Republican",
+   "website": {
+    "url": "https://manosforcongress.com/",
+    "how": "The site is titled 'Steve Manos for Congress | CA 39th Congressional District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Lake Elsinore City Council (elected 2012)",
+     "from": "2012",
+     "to": "now",
+     "source": "Steve Manos's campaign site (it says 'City Council' and 'Mayor' and names Lake Elsinore elsewhere on the page)",
+     "url": "https://manosforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Lake Elsinore (served as mayor in 2015, 2019, 2024 and 2026)",
+     "from": "2015",
+     "to": "2026",
+     "source": "Steve Manos's campaign site (it says 'City Council' and 'Mayor' and names Lake Elsinore elsewhere on the page)",
+     "url": "https://manosforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H42",
+   "name": "Brian Burley",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.burley4congress.com/",
+    "how": "The site is titled 'Brian Burley for Congress (CA-42)'; its Bio page calls him a candidate for Congress in California's new 42nd District.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Huntington Beach City School District Board (elected; the page gives no years)",
+     "from": "",
+     "to": "now",
+     "source": "Brian Burley's campaign site, Bio page",
+     "url": "https://www.burley4congress.com/bio",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H42",
+   "name": "Robert Garcia",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.robertgarcia.com/",
+    "how": "The site is titled 'Robert Garcia for Congress | Democrat for California's 42nd Congressional District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H45",
+   "name": "Chuong V. Vo",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.vo4congress.com/",
+    "how": "The site is titled 'Chuong Vo for Congress', reads 'Chuong Vo for CA-45' and has a 'District 45' section.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Cerritos City Council",
+     "from": "2020",
+     "to": "2025",
+     "source": "Ballotpedia News, 3 August 2026",
+     "url": "https://news.ballotpedia.org/2026/08/03/tran-d-and-vo-r-running-in-californias-redrawn-45th-congressional-district-on-november-3/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Cerritos (the page gives no years)",
+     "from": "",
+     "to": "",
+     "source": "Chuong Vo's campaign site",
+     "url": "https://www.vo4congress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H45",
+   "name": "Derek Tran",
+   "party": "Democratic",
+   "website": {
+    "url": "https://derektranforcongress.com/",
+    "how": "The site is titled 'Derek Tran for Congress', calls him Congressman Derek Tran and speaks of Orange County; it names the office but not the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H48",
+   "name": "Jim Desmond",
+   "party": "Republican",
+   "website": {
+    "url": "https://desmondforcongress.com/",
+    "how": "The site is titled 'Jim Desmond for Congress | Common Sense Leadership for CA-48'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, San Marcos City Council",
+     "from": "2004",
+     "to": "2006",
+     "source": "Wikipedia, 'Jim Desmond'",
+     "url": "https://en.wikipedia.org/wiki/Jim_Desmond",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor of San Marcos",
+     "from": "2006",
+     "to": "2018",
+     "source": "Wikipedia, 'Jim Desmond'",
+     "url": "https://en.wikipedia.org/wiki/Jim_Desmond",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, San Diego County Board of Supervisors, 5th district",
+     "from": "2019",
+     "to": "now",
+     "source": "Wikipedia, 'Jim Desmond'",
+     "url": "https://en.wikipedia.org/wiki/Jim_Desmond",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H48",
+   "name": "Marni von Wilpert",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.marnivonwilpert.com/",
+    "how": "The site is titled 'Marni von Wilpert for Congress' and names the 48th Congressional District.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, San Diego City Council, District 5",
+     "from": "2020",
+     "to": "now",
+     "source": "Wikipedia, 'Marni von Wilpert'",
+     "url": "https://en.wikipedia.org/wiki/Marni_von_Wilpert",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CA-H51",
+   "name": "Ricardo Cabrera",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cabreraforcongress2026.com/",
+    "how": "The site is titled 'Cabrera for Congress 2026 | Ricardo Cabrera CA-51' and says he is running for Congress in CA-51.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CA-H51",
+   "name": "Sara Jacobs",
+   "party": "Democratic"
+  }
+ ]
+}

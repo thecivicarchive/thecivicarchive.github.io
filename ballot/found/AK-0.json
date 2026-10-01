@@ -1,0 +1,90 @@
+{
+ "state": "AK",
+ "part": 0,
+ "of": 1,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-AK-H00",
+   "name": "Bill Hill",
+   "party": "Nonpartisan",
+   "website": {
+    "url": "https://billhillforalaskans.com/",
+    "how": "The site is titled 'Bill Hill | Independent for All Alaskans', says working Alaskans should be represented in Congress, and asks for donations to 'Bill's campaign for Congress'. It does not print the year or the word House.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AK-H00",
+   "name": "James C. \"Jim\" McDermott",
+   "party": "Registered Libertarian",
+   "website": {
+    "url": "https://jamesmcdermott.org/",
+    "how": "The site's header reads 'Jim McDermott for U.S. House | Alaska Libertarian - 2026'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AK-H00",
+   "name": "Nick Begich",
+   "party": "Registered Republican",
+   "website": {
+    "url": "https://www.alaskansfornickbegich.com/",
+    "how": "The site is titled 'Nick Begich For Alaska' and says he was 'Elected to the U.S. House of Representatives in 2024'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AK-S2",
+   "name": "Dan S. Sullivan",
+   "party": "Registered Republican",
+   "website": {
+    "url": "https://dansullivanforalaska.com/",
+    "how": "The site is titled 'Dan Sullivan for Alaska' and says he 'was sworn in as Alaska's eighth U.S. Senator on January 6, 2015, and reelected in November 2020', which is the sitting senator our record matches to Dan S. Sullivan.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AK-S2",
+   "name": "Daniel J. Sullivan Jr.",
+   "party": "Registered Republican",
+   "website": {
+    "url": "https://www.sullivanforsenate.com/",
+    "how": "The site is titled 'Daniel J Sullivan for U.S. Senate' and calls him a 'Republican U.S. Senate candidate' who would put Alaska first. It does not print the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AK-S2",
+   "name": "Mary Peltola",
+   "party": "Registered Democrat",
+   "website": {
+    "url": "https://www.marypeltola.com/",
+    "how": "The home page says 'I'm running for Senate because I've lived firsthand how government is failing Alaskans' under the name Mary Peltola.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Alaska House of Representatives",
+     "from": "1999",
+     "to": "2009",
+     "source": "Wikipedia, Mary Peltola (infobox)",
+     "url": "https://en.wikipedia.org/wiki/Mary_Peltola",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Bethel City Council",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, Mary Peltola (article text)",
+     "url": "https://en.wikipedia.org/wiki/Mary_Peltola",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

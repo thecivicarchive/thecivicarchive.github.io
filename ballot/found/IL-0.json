@@ -1,0 +1,282 @@
+{
+ "state": "IL",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "candidates": [
+  {
+   "race_id": "2026-IL-H01",
+   "name": "Christian Maxwell",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.christianmaxwellforcongress.com/",
+    "how": "Headed 'Christian Maxwell for Congress' and reads 'Republican Nominee · Illinois CD-1'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H01",
+   "name": "Jonathan L. Jackson",
+   "party": "Democratic",
+   "review": [
+    {
+     "shows": "candidates.incumbent is 0 for every Illinois candidate in this chunk, including the seven sitting members matched to the roster (Jackson, Ramirez, Quigley, Foster, Budzinski, Mary Miller, Sorensen).",
+     "problem": "The Clerk of the House lists Jackson (1), Ramirez (3), Quigley (5), Foster (11), Budzinski (13) and Mary E. Miller (15) as the sitting Representatives for the districts they are running in (seen on review; Sorensen's row was not reached on the Clerk's page, though his own campaign site calls him U.S. Rep.). The incumbent column is 0 for all seven (checked in ballot_2026.sqlite); if any page line reads that column rather than the roster match, it would be wrong for them.",
+     "url": "https://clerk.house.gov/Members/ViewMemberProfiles",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H03",
+   "name": "Angel Oakley",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.libertyangel.us/",
+    "how": "Titled 'Angel Oakley for US Congress', names the 3rd District and Illinois, and is marked 'Paid for by Angel Oakley for Congress'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Village Trustee, Village of Winfield, Illinois",
+     "from": null,
+     "to": null,
+     "source": "Her campaign site, which calls her 'a former Winfield Village Trustee' and gives no years",
+     "url": "https://www.libertyangel.us/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H03",
+   "name": "Delia Ramirez",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.deliaforcongress.com/",
+    "how": "Titled 'Delia Ramirez for Congress', speaks of representing IL-3 and asks for help to re-elect her; paid for by her campaign committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H05",
+   "name": "Mike Quigley",
+   "party": "Democratic",
+   "website": {
+    "url": "https://quigleyforcongress.com/",
+    "how": "Headed 'IL 5th District', names Mike Quigley and is marked 'Paid for by Quigley for Congress'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H05",
+   "name": "Tommy Hanson",
+   "party": "Republican",
+   "website": {
+    "url": "https://votetommyhanson.com/",
+    "how": "Titled 'Vote for Tommy Hanson | US Congress | 5th District in Illinois'; paid for by Tommy Hanson for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H07",
+   "name": "Chad Koppie",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.koppieforcongress.com/",
+    "how": "Calls itself the official campaign website for Chad Koppie for U.S. House, Illinois' 7th District; its Meet Chad page says he is the Republican nominee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Kane County Regional Board of School Trustees",
+     "from": "2007",
+     "to": null,
+     "source": "His campaign site ('2007- present' on the Meet Chad page; the home page says he 'was a member', so the end is not clear)",
+     "url": "https://www.koppieforcongress.com/meet_chad",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, District 300 School Board",
+     "from": "1987",
+     "to": "1991",
+     "source": "His campaign site",
+     "url": "https://www.koppieforcongress.com/meet_chad",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Trustee, Rutland Township",
+     "from": "1983",
+     "to": "1987",
+     "source": "His campaign site",
+     "url": "https://www.koppieforcongress.com/meet_chad",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H07",
+   "name": "La Shawn K. Ford",
+   "party": "Democratic",
+   "website": {
+    "url": "https://fordforcongress.com/",
+    "how": "Titled 'La Shawn K Ford for Congress' and reads 'Democratic Nominee for U.S. Congress (IL-07)'; paid for by La Shawn K. Ford for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H09",
+   "name": "Daniel Biss",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.danielbiss.com/",
+    "how": "Titled 'Daniel Biss for Congress', says he is the Democratic nominee for Congress and thanks IL-09; paid for by Biss for Congress.",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "date": null,
+    "source": "Wikipedia, 'Daniel Biss' (the birth date carries a footnote)",
+    "url": "https://en.wikipedia.org/wiki/Daniel_Biss",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Evanston, Illinois",
+     "from": "2021",
+     "to": "now",
+     "source": "His campaign site ('elected mayor of Evanston in 2021'); Wikipedia, 'Daniel Biss', shows him in office since May 2021",
+     "url": "https://www.danielbiss.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Illinois Senate (9th district)",
+     "from": "2013",
+     "to": "2019",
+     "source": "Wikipedia, 'Daniel Biss'; his campaign site confirms service in the Senate without years",
+     "url": "https://en.wikipedia.org/wiki/Daniel_Biss",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Illinois House of Representatives (17th district)",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, 'Daniel Biss'; his campaign site confirms service in the House without years",
+     "url": "https://en.wikipedia.org/wiki/Daniel_Biss",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H11",
+   "name": "Bill Foster",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.billfoster.com/",
+    "how": "Titled 'Bill Foster for Congress' and says he is running for reelection in Illinois' 11th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H11",
+   "name": "Jeff Walter",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.jeffwalterforcongress.com/",
+    "how": "Titled 'Jeff Walter for Congress'; says the current Mayor of Elburn, Illinois is running for Congress (the site does not print the district number); paid for by Walter for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor (Village President) of Elburn, Illinois",
+     "from": null,
+     "to": "now",
+     "source": "His campaign site ('the current Mayor of Elburn, Illinois'; no start year given). The village's own board page refused a script (403) and was not read.",
+     "url": "https://www.jeffwalterforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H13",
+   "name": "Jeff Wilson",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.wilsonforcongress.com/",
+    "how": "Names Jeff Wilson as a candidate for Congress in Illinois District 13.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Champaign County Board",
+     "from": null,
+     "to": null,
+     "source": "His campaign site: 'Currently serving his community on the Champaign County Board', without years. The first researcher reported that the county's own member list did not name him on 2026-10-01; the reviewer could not open that list, so this is unconfirmed.",
+     "url": "https://www.wilsonforcongress.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IL-H13",
+   "name": "Nikki Budzinski",
+   "party": "Democratic",
+   "website": {
+    "url": "https://nikkiforcongress.com/",
+    "how": "'Nikki for Congress', paid for by Nikki for Congress; its About page calls her the Representative for Illinois' 13th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H15",
+   "name": "Jennifer Todd",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.jentodd2026.us/",
+    "how": "Titled 'Jennifer Todd for Congress'; its About page reads 'Democrat for IL-15' and says she is running for Congress in Illinois' 15th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H15",
+   "name": "Mary E. Miller",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.marymillerforcongress.com/",
+    "how": "'Mary Miller for Congress', naming Congresswoman Mary Miller and Illinois' 15th Congressional District; paid for by Mary Miller for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H17",
+   "name": "Dillan S. Vancil",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.vancilforcongress.com/",
+    "how": "'Vancil for Congress', paid for by Vancil for Congress; says Dillan is ready to fight for working families in Congress and names Illinois. The home page as read on review does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IL-H17",
+   "name": "Eric Sorensen",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.ericforillinois.com/",
+    "how": "'Eric for Illinois', paid for by Eric Sorensen for Illinois; calls him U.S. Rep. Eric Sorensen and names Moline, Rockford and the Quad Cities. The page as read on review does not print the district number.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-01",
+ "removed": 0
+}

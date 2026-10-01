@@ -1,0 +1,371 @@
+{
+ "state": "NY",
+ "part": 1,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 2,
+ "candidates": [
+  {
+   "race_id": "2026-NY-H02",
+   "name": "Patrick Halpin",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://halpinforcongress.com/",
+    "how": "The site is titled \"Halpin for Congress\", is paid for by Halpin for Congress, calls him a former Suffolk County Executive and quotes coverage of him as U.S. Rep. Andrew Garbarino's Democratic challenger.",
+    "verified": true
+   },
+   "born": {
+    "year": 1953,
+    "date": null,
+    "source": "Wikipedia, \"Patrick G. Halpin\" (statement cited to Newsday, 2009)",
+    "url": "https://en.wikipedia.org/wiki/Patrick_G._Halpin",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Suffolk County Executive",
+     "from": "1988",
+     "to": "1991",
+     "source": "Wikipedia, \"Patrick G. Halpin\"; his campaign's About page also says he was elected Suffolk County Executive",
+     "url": "https://en.wikipedia.org/wiki/Patrick_G._Halpin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member of the New York State Assembly",
+     "from": "1982",
+     "to": "1987",
+     "source": "Wikipedia, \"Patrick G. Halpin\" (election of April 20, 1982 cited to The New York Times); his campaign's About page also says he represented the Town of Babylon in the Assembly",
+     "url": "https://en.wikipedia.org/wiki/Patrick_G._Halpin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member of the Suffolk County Legislature, 13th District",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Wikipedia, \"Patrick G. Halpin\": elected in 1979 to represent the 13th District of the Suffolk County Legislature (the article gives no dates of service); his campaign's About page also says he represented LD-13 in the County Legislature",
+     "url": "https://en.wikipedia.org/wiki/Patrick_G._Halpin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member (from 2006) and Chair (from December 2018) of the Suffolk County Water Authority",
+     "from": "2006",
+     "to": "not stated",
+     "source": "Wikipedia, \"Patrick G. Halpin\" (appointment as Chair cited to Newsday); the Authority's own board page no longer lists him, and no source read gives the year he left",
+     "url": "https://en.wikipedia.org/wiki/Patrick_G._Halpin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chair of the Town of Babylon Planning Board",
+     "from": "not stated",
+     "to": "now",
+     "source": "His campaign's About page: \"currently serves as Chair of the Town of Babylon Planning Board\"",
+     "url": "https://halpinforcongress.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NY-H02",
+   "name": "Andrew R. Garbarino",
+   "party": "Republican, Conservative"
+  },
+  {
+   "race_id": "2026-NY-H04",
+   "name": "Laura A. Gillen",
+   "party": "Democratic",
+   "website": {
+    "url": "https://lauragillen.com/",
+    "how": "Titled \"Laura Gillen for Congress\"; the site says she \"is running for re-election in New York's Fourth Congressional District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H04",
+   "name": "Jeanine C. Driscoll",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://driscoll4congress.com/",
+    "how": "Titled \"Jeanine C. Driscoll for Congress\"; the site says she \"is running for New York's 4th Congressional District\" and is paid for by Driscoll for Congress.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Receiver of Taxes, Town of Hempstead",
+     "from": "2019",
+     "to": "now",
+     "source": "Her campaign's Meet Jeanine page: \"first elected Hempstead Town Receiver of taxes in 2019 and was overwhelmingly re-elected in 2023\" (2019 is the election year; the Town of Hempstead's own staff directory, hempsteadny.gov/Directory.aspx, lists her as Receiver of Taxes today)",
+     "url": "https://driscoll4congress.com/meet-jeanine/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Associate Village Justice, Incorporated Village of Bellerose",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Her campaign's Meet Jeanine page",
+     "url": "https://driscoll4congress.com/meet-jeanine/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NY-H06",
+   "name": "Grace Meng",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.gracefornewyork.com/",
+    "how": "\"Grace for New York\"; its Meet Grace page says \"Grace Meng represents New York's 6th Congressional District located in Queens\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H06",
+   "name": "Joseph Chou",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://josephforny.com/",
+    "how": "Titled \"Joseph Chou for Congress | New York's 6th District, Queens\"; the page says \"Vote Joseph Chou for New York's 6th Congressional District\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1964,
+    "date": null,
+    "source": "His campaign's About page: \"I was born in Japan in 1964\"",
+    "url": "https://josephforny.com/about",
+    "kind": "campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H08",
+   "name": "Hakeem S. Jeffries",
+   "party": "Democratic",
+   "website": {
+    "url": "https://hakeemjeffries.com/",
+    "how": "Paid for by Jeffries for Congress; the site says he \"has proudly represented New York's Eighth Congressional District in the U.S. House of Representatives since January 3, 2013\" and carries 2026 campaign news.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H10",
+   "name": "Brad Lander",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://www.bradlanderforcongress.com/",
+    "how": "Titled \"Brad Lander for Congress\", paid for by Lander for Congress; the site names NY-10.",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "date": null,
+    "source": "Wikipedia, \"Brad Lander\" (statement cited to his own post of July 8, 2022 about his 53rd birthday)",
+    "url": "https://en.wikipedia.org/wiki/Brad_Lander",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Comptroller of New York City",
+     "from": "2022",
+     "to": "2025",
+     "source": "Wikipedia, \"Brad Lander\"; his campaign's About page also describes his service as New York City's Comptroller",
+     "url": "https://en.wikipedia.org/wiki/Brad_Lander",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member of the New York City Council, 39th District",
+     "from": "2010",
+     "to": "2021",
+     "source": "Wikipedia, \"Brad Lander\"; his campaign's About page also describes his service as a City Council Member",
+     "url": "https://en.wikipedia.org/wiki/Brad_Lander",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NY-H10",
+   "name": "Jennifer E. Moore",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "http://mooreforny.com/",
+    "how": "Titled \"Jennifer Moore for Congress | NY-10\"; the page says \"New York's 10th Congressional District\" and is paid for by JEM for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H12",
+   "name": "Micah C. Lasher",
+   "party": "Democratic",
+   "website": {
+    "url": "https://micahlasher.com/",
+    "how": "Titled \"Micah Lasher for Congress\"; its Meet Micah page says he \"is running for Congress in the heart of Manhattan (NY-12, where Jerry Nadler is retiring)\" and is \"currently a member of the New York State Assembly\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H12",
+   "name": "Caroline Shinkle",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.carolinefornewyork.com/",
+    "how": "Titled \"Caroline Shinkle for Congress | Republican Nominee\"; the page says \"Republican Nominee for U.S. Congress in New York's 12th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H12",
+   "name": "Karen Ortiz",
+   "party": "Karen Ortiz",
+   "website": {
+    "url": "https://ko4congress.com/",
+    "how": "Titled \"Karen Ortiz for Congress\", paid for by Karen Ortiz for Congress; the page speaks of \"Manhattan District 12\" and of signing her petition there.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H14",
+   "name": "Alexandria Ocasio-Cortez",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://www.ocasiocortez.com/",
+    "how": "Titled \"Alexandria Ocasio-Cortez | Official Campaign Website\"; its description reads \"Alexandria Ocasio-Cortez for NY-14\"; paid for by Alexandria Ocasio-Cortez for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H14",
+   "name": "Diamant Hysenaj",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://votefordiamant.com/",
+    "how": "Titled \"Diamant Hysenaj for Congress NY-14\"; the page says he is \"running to be the People's Congressman for NY-14\" and is paid for by Diamant Hysenaj for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H16",
+   "name": "George S. Latimer",
+   "party": "Democratic",
+   "website": {
+    "url": "https://latimerforny.com/",
+    "how": "Titled \"George Latimer for Congress\", paid for by George Latimer for Congress; describes him as a lifelong Westchester resident running for Congress (\"For Congress. For New York.\"). It does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H16",
+   "name": "Joseph J. Cinquemani",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.cinquemaniforcongress.com/",
+    "how": "Titled \"Cinquemani for Congress\"; the page says \"I'm Joe Cinquemani and I want to represent New York's 16th Congressional District\" and its About page calls him the Republican candidate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H18",
+   "name": "Pat Ryan",
+   "party": "Democratic, Working Families"
+  },
+  {
+   "race_id": "2026-NY-H18",
+   "name": "Jackie Mary Auringer",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://winwithjackie.com/",
+    "how": "Titled \"Jackie Auringer for Congress\"; its About page calls her the \"Republican candidate for Congress in NY-18\" and \"Republican-Conservative for Congress\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H20",
+   "name": "Paul D. Tonko",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://paultonko.com/",
+    "how": "Titled \"Paul Tonko for Congress\"; its Meet Paul page says he has served the Capital Region in the U.S. House since 2009, \"is running for re-election\", and describes New York's 20th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H20",
+   "name": "Ralph F. Ambrosio",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://ambrosioforcongress.com/",
+    "how": "Titled \"Ralph Ambrosio for House Representative for NY-20\" and described as the \"Official campaign website for Ralph Ambrosio for House Representative for NY-20\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H22",
+   "name": "John W. Mannion",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://www.mannionforny.com/",
+    "how": "Titled \"John Mannion for NY-22\"; the page speaks of Congressman John Mannion and \"New York's 22nd Congressional District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H22",
+   "name": "Kailee Buller",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://kaileebuller.com/",
+    "how": "Titled \"Kailee Buller for Congress\"; its description reads \"Kailee Buller is running to represent New York's 22nd district in Congress\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H24",
+   "name": "Alissa J. Ellman",
+   "party": "Democratic, Working Families",
+   "website": {
+    "url": "https://www.ellmanforcongress.com/",
+    "how": "Titled \"Ellman for Congress\", paid for by Ellman for Congress; the home page says \"A Real Voice for NY-24\" and names Claudia Tenney as the member she is running against.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H24",
+   "name": "Claudia Tenney",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://claudiaforcongress.com/",
+    "how": "Titled \"Claudia Tenney for Congress\", paid for by Claudia Tenney for Congress; its Bio page calls her an \"advocate for the 24th District\" under the heading \"Fighting for NY-24\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H26",
+   "name": "Timothy M. Kennedy",
+   "party": "Democratic",
+   "website": {
+    "url": "https://kennedyforuscongress.com/",
+    "how": "Titled \"Kennedy for U.S. Congress\", paid for by Kennedy for Congress; it carries news of \"Congressman Tim Kennedy\". Its description still mentions the April 30 special election of 2024 and it does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NY-H26",
+   "name": "Dennis E. Hannon",
+   "party": "Republican, Conservative",
+   "website": {
+    "url": "https://www.hannonforcongress.com/",
+    "how": "Titled \"Dennis Hannon for Congress\"; its description reads \"Dennis Hannon for Congress | NY-26\".",
+    "verified": true
+   }
+  }
+ ]
+}

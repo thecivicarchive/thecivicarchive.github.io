@@ -1,0 +1,299 @@
+{
+ "state": "NC",
+ "part": 0,
+ "of": 2,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-01",
+ "removed": 0,
+ "candidates": [
+  {
+   "race_id": "2026-NC-H01",
+   "name": "Don Davis",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.votedondavis.com/",
+    "how": "The site is headed \"Congressman Don Davis\" and says he is running for Congress to continue the fight for eastern North Carolina.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H01",
+   "name": "Laurie Buckhout",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.lauriebuckhoutforcongress.com/",
+    "how": "The page title reads \"Laurie Buckhout For Congress | North Carolina's First District\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1961,
+    "date": null,
+    "source": "Wikipedia, citing a 13News Now report on her nomination in this district",
+    "url": "https://en.wikipedia.org/wiki/Laurie_Buckhout",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Acting Assistant Secretary of Defense for Cyber Policy, U.S. Department of Defense",
+     "from": "2025",
+     "to": "2025",
+     "source": "Wikipedia (the article names her as the Republican nominee in North Carolina's 1st district)",
+     "url": "https://en.wikipedia.org/wiki/Laurie_Buckhout",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NC-H03",
+   "name": "Greg Murphy",
+   "party": "Republican",
+   "website": {
+    "url": "https://murphy4congress.com/",
+    "how": "Titled \"Dr. Greg Murphy for Congress\" and calls Congressman Murphy the voice of Eastern North Carolina in Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H03",
+   "name": "Raymond Smith",
+   "party": "Democratic",
+   "website": {
+    "url": "https://raymondsmithfornc.com/",
+    "how": "Titled \"Dr. Raymond E. Smith for Congress\"; its description says he is running for US Congress in North Carolina District 3.",
+    "verified": true
+   },
+   "born": {
+    "year": 1961,
+    "date": null,
+    "source": "Wikipedia (Raymond Smith Jr., named there as the Democratic nominee for North Carolina's 3rd district; the sentence cites Vote Smart and Ballotpedia)",
+    "url": "https://en.wikipedia.org/wiki/Raymond_Smith_Jr.",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Carolina House of Representatives, 21st district",
+     "from": "2019",
+     "to": "2023",
+     "source": "Wikipedia (Raymond Smith Jr.); his campaign site calls him a two-term legislator for Wayne and Sampson Counties",
+     "url": "https://en.wikipedia.org/wiki/Raymond_Smith_Jr.",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Wayne County Board of Education, at-large member (also vice chairman)",
+     "from": "2016",
+     "to": "not stated",
+     "source": "his campaign site's About page (elected in 2016)",
+     "url": "https://raymondsmithfornc.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NC-H05",
+   "name": "Virginia Foxx",
+   "party": "Republican",
+   "website": {
+    "url": "https://virginiafoxx.com/",
+    "how": "Says Virginia represents North Carolina's 5th Congressional District; paid for by Virginia Foxx for Congress.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H05",
+   "name": "Chuck Hubbard",
+   "party": "Democratic",
+   "website": {
+    "url": "https://hubbardforcongress.com/",
+    "how": "Titled \"Chuck Hubbard for Congress\" and has a section on \"The 5th District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H05",
+   "name": "Robert B. Luffman",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://luffmanforcongress.org/",
+    "how": "Titled \"Luffman for Congress\" (family name only) and speaks of the voices of NC-5; copyright 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H07",
+   "name": "David Rouzer",
+   "party": "Republican",
+   "website": {
+    "url": "https://davidrouzer.com/",
+    "how": "Titled \"David Rouzer U.S. Congress\" and refers to North Carolina's 7th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H07",
+   "name": "Kimberly Hardy",
+   "party": "Democratic",
+   "website": {
+    "url": "https://www.kimberlyhardyforcongress.com/",
+    "how": "Its description says Kimberly Hardy is running for Congress in North Carolina's 7th district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H09",
+   "name": "Richard Hudson",
+   "party": "Republican",
+   "website": {
+    "url": "https://richardhudson.org/",
+    "how": "Titled \"Richard Hudson for Congress - Proudly Serving North Carolina's 9th District\"; carries his reelection announcement.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H09",
+   "name": "Richard N. Ojeda II",
+   "party": "Democratic",
+   "offices": [
+    {
+     "office": "West Virginia Senate, 7th district",
+     "from": "2017",
+     "to": "2019",
+     "source": "Wikipedia (Richard Ojeda; the article names him as the Democratic nominee in North Carolina's 9th district)",
+     "url": "https://en.wikipedia.org/wiki/Richard_Ojeda",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NC-H11",
+   "name": "Jennifer Capps Balkcom",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.jenniferbalkcom.com/",
+    "how": "Titled \"Balkcom for Congress\"; the home page names Jennifer Balkcom, of Henderson County in Western North Carolina (the district itself is not named; the site's About page still holds template text about someone else).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H11",
+   "name": "Jamie Ager",
+   "party": "Democratic",
+   "website": {
+    "url": "https://agerforcongress.com/",
+    "how": "Titled \"Jamie Ager for US Congress\"; he writes that he is running for North Carolina's 11th US Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H13",
+   "name": "Paul Barringer",
+   "party": "Democratic",
+   "website": {
+    "url": "https://paulbarringer.com/",
+    "how": "Titled \"Paul Barringer Democrat for Congress\"; says he is running in North Carolina's 13th Congressional District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-H13",
+   "name": "Brad Knott",
+   "party": "Republican",
+   "website": {
+    "url": "https://www.bradknott.com/",
+    "how": "Titled \"Brad Knott for Congress\"; says he is running for re-election for North Carolina's 13th District.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-S2",
+   "name": "Michael Dublin",
+   "party": "Green",
+   "website": {
+    "url": "https://www.dublinforcongress.com/",
+    "how": "Titled \"Michael Dublin for U.S. Senate | North Carolina\" and reads \"U.S. Senate - North Carolina - 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-S2",
+   "name": "Roy Cooper",
+   "party": "Democratic",
+   "website": {
+    "url": "https://roycooper.com/",
+    "how": "Titled \"Roy Cooper for North Carolina\"; says Democrat Roy Cooper is running for U.S. Senate.",
+    "verified": true
+   },
+   "born": {
+    "year": 1957,
+    "date": null,
+    "source": "National Governors Association, former governors (an association's biography, so the year only)",
+    "url": "https://www.nga.org/governor/roy-cooper/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Governor of North Carolina",
+     "from": "2017",
+     "to": "2025",
+     "source": "National Governors Association",
+     "url": "https://www.nga.org/governor/roy-cooper/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Attorney General of North Carolina",
+     "from": "2001",
+     "to": "2017",
+     "source": "Wikipedia (Roy Cooper); the NGA page says he was elected Attorney General in 2000 and served four terms",
+     "url": "https://en.wikipedia.org/wiki/Roy_Cooper",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "North Carolina Senate",
+     "from": "1991",
+     "to": "2001",
+     "source": "Wikipedia (Roy Cooper)",
+     "url": "https://en.wikipedia.org/wiki/Roy_Cooper",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "North Carolina House of Representatives",
+     "from": "1987",
+     "to": "1991",
+     "source": "Wikipedia (Roy Cooper)",
+     "url": "https://en.wikipedia.org/wiki/Roy_Cooper",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NC-S2",
+   "name": "Shannon W. Bray",
+   "party": "Libertarian",
+   "website": {
+    "url": "https://www.shannonbray.us/",
+    "how": "Titled \"Shannon W. Bray\" and headed \"A Liberty-First U.S. Senate Campaign for North Carolina\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NC-S2",
+   "name": "Michael Whatley",
+   "party": "Republican",
+   "website": {
+    "url": "https://michaelwhatley.com/",
+    "how": "Titled \"Michael Whatley for Senate\"; says he seeks to represent North Carolina in the U.S. Senate.",
+    "verified": true
+   }
+  }
+ ]
+}

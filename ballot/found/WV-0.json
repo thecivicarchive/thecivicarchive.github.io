@@ -1,0 +1,23 @@
+{"state": "WV", "part": 0, "of": 1, "researched": "2026-10-01", "verified_on": "2026-10-01", "removed": 0, "candidates": [
+  {"race_id": "2026-WV-H01", "name": "Belinda Fox-Spencer", "party": "Constitution",
+   "website": {"url": "https://www.belindafoxspencerwv.com/", "how": "The site's heading reads \"Belinda Fox Spencer | Candidate for U.S. Congress WV, District 1\" and names the Constitution Party and 2026.", "verified": true}},
+  {"race_id": "2026-WV-H01", "name": "Carol Miller", "party": "Republican",
+   "website": {"url": "https://www.electcarolmiller.com/", "how": "The site names Carol Miller as a Representative in Congress for West Virginia and is paid for by Carol for Congress; its visible text gives no district number (its logo file is still labelled WV-CD03, the number of her seat before 2023).", "verified": true}},
+  {"race_id": "2026-WV-H01", "name": "Vince George", "party": "Democrat",
+   "website": {"url": "https://www.vincegeorgeforcongress.com/", "how": "The site names Vince George \"for West Virginia's 1st Congressional District\".", "verified": true}},
+  {"race_id": "2026-WV-H02", "name": "Ace Parsi", "party": "Democrat",
+   "website": {"url": "https://www.aceforcongress.com/", "how": "The site names Ace Parsi as a candidate for Congress in West Virginia's second district.", "verified": true}},
+  {"race_id": "2026-WV-H02", "name": "Riley Moore", "party": "Republican",
+   "website": {"url": "https://www.mooreforwv.com/", "how": "The site names Riley Moore for Congress in West Virginia and is paid for by Moore for West Virginia, Inc.", "verified": true}},
+  {"race_id": "2026-WV-S2", "name": "Rachel Fetty Anderson", "party": "Democrat",
+   "website": {"url": "https://www.fettyandersonforsenate.com/", "how": "The site names Rachel Fetty Anderson as running for U.S. Senate in West Virginia.", "verified": true},
+   "offices": [{"office": "Member, Morgantown City Council (West Virginia)", "from": "2017", "to": "2021", "source": "Her campaign's own site: \"In 2017 Rachel was elected to the Morgantown City Council and served until 2021.\"", "url": "https://www.fettyandersonforsenate.com/about", "kind": "campaign", "verified": true}]},
+  {"race_id": "2026-WV-S2", "name": "Rio Phillips", "party": "Write-in",
+   "website": {"url": "https://www.rioforsenate.com/", "how": "The site is titled \"Rio for U.S. Senate 2026 | Working Class Independent for West Virginia\"; the home page gives the given name only, and the site's About page (/about) carries the full name in its footer, \"Rio Phillips for West Virginia\".", "verified": true}},
+  {"race_id": "2026-WV-S2", "name": "S. Marshall Wilson", "party": "Constitution",
+   "website": {"url": "https://wilsonwv.com/", "how": "The site names S. Marshall Wilson for U.S. Senate, West Virginia, 2026, and the Constitution Party.", "verified": true},
+   "born": {"year": 1969, "date": null, "source": "Wikipedia's article on S. Marshall Wilson, citing the West Virginia Blue Book 2017-2018; the article says he is the Constitution Party candidate for U.S. Senate in 2026", "url": "https://en.wikipedia.org/wiki/S._Marshall_Wilson", "kind": "secondary", "verified": true},
+   "offices": [{"office": "Member, West Virginia House of Delegates, 60th district", "from": "2016", "to": "2020", "source": "Wikipedia's article on S. Marshall Wilson, which gives his service as December 2016 to December 2020 with a cited footnote on his 2016 election", "url": "https://en.wikipedia.org/wiki/S._Marshall_Wilson", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-WV-S2", "name": "Shelley Moore Capito", "party": "Republican",
+   "website": {"url": "https://shelleymoorecapito.com/", "how": "The site reads \"Shelley Moore Capito for U.S. Senate\" and is paid for by Capito for West Virginia.", "verified": true}}
+]}
