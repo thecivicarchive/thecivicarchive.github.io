@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Virginia: The Civic Archive</title>
 <meta name="description" content="Who represents every district in the Virginia General Assembly, what they work on, from public records.">
-<meta name="version" content="4.0.038">
+<meta name="version" content="4.0.078">
 <link rel="canonical" href="https://thecivicarchive.github.io/dev/va/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Civic Archive">
@@ -22,7 +22,7 @@
 <link rel="icon" href="icon-192.png" type="image/png">
 
 <meta name="theme-color" content="#0C0E12">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -328,45 +328,116 @@ p{margin:0 0 12px}
 .mapfilter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-size:13.5px;color:var(--muted)}
 .mapfilter[hidden]{display:none!important}
 .mapfilter b{color:var(--ink)}
-.trk{display:block;margin:12px 0 8px;text-align:left}
-.trk .rail{display:block;position:relative;height:4px;border-radius:2px;background:var(--hair);margin:8px 8px 0}
-.trk .fill,.trk .fillbad{position:absolute;top:0;bottom:0;border-radius:2px;width:0}
-.trk .fill{left:0;background:var(--accent);transition:width 1.5s var(--ease) .15s}
-.trk.go .fill{width:calc(var(--a) * 100%)}
-.trk .fillbad{left:calc(var(--a) * 100%);background:var(--rep);transition:width .6s var(--ease) 1.5s}
-.trk.go .fillbad{width:calc((var(--p) - var(--a)) * 100%)}
-.trk .stop{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);transition:background .3s,border-color .3s;transition-delay:calc(.15s + var(--t) * 1.5s)}
-.trk.go .stop.done,.trk.go .stop.now{background:var(--accent);border-color:var(--accent)}
-.trk.go .stop.fail{background:var(--rep);border-color:var(--rep)}
-.trk .run{position:absolute;top:50%;left:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent);opacity:0;transition:left 1.5s var(--ease) .15s,opacity .3s}
-.trk.go .run{left:calc(var(--p) * 100%);opacity:1}
-.trk.active.go .run{animation:trkpulse 2.4s ease-in-out 1.9s infinite}
-@keyframes trkpulse{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 0%,transparent)}}
-.trk.failed .run{background:var(--rep);box-shadow:0 0 0 4px color-mix(in srgb,var(--rep) 28%,transparent)}
-.trk.stalled .fill,.trk.stalled.go .stop.done,.trk.stalled.go .stop.now{background:var(--line-strong);border-color:var(--line-strong)}
-.trk.stalled .run{background:var(--muted);box-shadow:none}
-.trk-labels{display:block;position:relative;height:18px;margin:12px 8px 0}
-.trk.full .trk-labels{height:36px}
-.trk-labels>span{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;font-size:11.5px;line-height:1.35;color:var(--muted);white-space:nowrap}
-.trk-labels>span:first-child{transform:none;align-items:flex-start;margin-left:-8px}
-.trk-labels>span:last-child{transform:translateX(-100%);align-items:flex-end;margin-left:8px}
-.trk-labels b{font-weight:600}
-.trk-labels .done b,.trk-labels .now b{color:var(--ink)}
-.trk-labels .fail b{color:var(--bad-ink)}
-.trk-labels em{font-style:normal;font-size:11px}
-.trk-cap{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);font-weight:500}
+/* ---------- the path a measure took, lane by lane: House, Senate, President ---------- */
+.trk.lanes{display:block;margin:12px 0 8px;text-align:left;--rh:14px;--dy:.5;--ds:9px;--pt:4px;--cw:22px}
+.trk.lanes.full{--rh:66px;--dy:.2;--ds:13px;--pt:3px;--cw:86px;margin:14px 0 6px}
+.lanes .lwrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 10px}
+.lanes .lnames{display:grid;grid-template-rows:repeat(3,var(--rh));font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lanes.full .lnames{font-size:11px}
+.lanes .lnames span{display:block;line-height:14px;padding-top:calc(var(--rh) * var(--dy) - 7px);white-space:nowrap}
+.lanes .lscroll{display:block;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding-bottom:2px}
+.lanes .lgrid{display:block;position:relative;height:calc(3 * var(--rh));min-width:calc(var(--n) * var(--cw));
+  background:linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * var(--dy)) / 100% 1px no-repeat,
+             linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * (1 + var(--dy))) / 100% 1px no-repeat,
+             linear-gradient(var(--hair),var(--hair)) 0 calc(var(--rh) * (2 + var(--dy))) / 100% 1px no-repeat}
+.lanes svg.lline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.lanes .lline polyline{fill:none;stroke-width:2.5px;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.lanes .lline .done{stroke:var(--accent)}
+.lanes .lline .todo{stroke:var(--line-strong);stroke-dasharray:3 5}
+.lanes.stalled .lline .done{stroke:var(--line-strong)}
+.lanes .ls{position:absolute;left:calc((var(--i) + .5) / var(--n) * 100%);top:calc((var(--r) + var(--dy)) * var(--rh));width:calc(100% / var(--n));transform:translate(-50%,calc(-1 * (var(--ds) / 2 + var(--pt))));
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:var(--pt) 2px 2px;border-radius:10px;color:var(--muted);font-size:11.5px;line-height:1.2;text-align:center}
+button.ls{cursor:pointer}
+.lanes .ls i{display:block;width:var(--ds);height:var(--ds);border-radius:50%;background:var(--surface);border:2px solid var(--line-strong);flex:none;transition:transform .2s var(--ease),background .3s,border-color .3s,box-shadow .3s}
+.lanes .ls.done i,.lanes .ls.now i{background:var(--accent);border-color:var(--accent)}
+.lanes .ls.now i{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 24%,transparent)}
+.lanes .ls.bad i{background:var(--rep);border-color:var(--rep)}
+.lanes .ls.todo i{background:var(--surface);border-color:var(--line-strong)}
+.lanes.stalled .ls.now i{background:var(--muted);border-color:var(--muted);box-shadow:none}
+button.ls:hover i,button.ls.popping i,button.ls:focus-visible i{transform:scale(1.4)}
+button.ls:focus-visible{outline:2px solid var(--accent);outline-offset:0}
+.lanes .ls .lt{font-weight:600;color:var(--ink);max-width:100%}
+.lanes .ls.todo .lt{color:var(--muted);font-weight:500}
+.lanes .ls.bad .lt{color:var(--bad-ink)}
+.lanes .ls .ld{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.lanes.full .ls .lt,.lanes.full .ls .ld{background:var(--surface);border-radius:4px;padding:0 3px;position:relative}
+.lanes.w:not(.go) .ls{opacity:0}
+.lanes.w .ls{transition:opacity .35s var(--ease) calc(.1s + var(--i) * 80ms)}
+.lanes.w:not(.go) .lline{clip-path:inset(0 100% 0 0)}
+.lanes.w .lline{transition:clip-path 1.3s var(--ease) .1s}
+.lanes.active.go .ls.now i{animation:lpulse 2.4s ease-in-out 1.8s infinite}
+@keyframes lpulse{50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 0%,transparent)}}
+.calm .lanes .ls,.calm .lanes .lline{transition:none}.calm .lanes.active.go .ls.now i{animation:none}
+.trk-cap{display:block;margin-top:6px;font-size:12.5px;color:var(--muted);font-weight:500}
 .trk.failed .trk-cap{color:var(--bad-ink)}
 .trk-cap .quiet{font-weight:400}
 .trk.slim{margin:10px 0 12px}
-.pickitem .trk{margin:12px 0 2px}
-.calm .trk .fill,.calm .trk .fillbad,.calm .trk .run,.calm .trk .stop{transition:none}
-.calm .trk.active.go .run{animation:none}
-@media (max-width:560px){
-  .trk.pick .trk-labels>span:not(.now):not(.fail):not(:first-child):not(:last-child){display:none}
-  .trk.full .trk-labels{position:static;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;margin:12px 0 0}
-  .trk.full .trk-labels>span{position:static;transform:none;flex-direction:row;gap:6px;align-items:baseline;margin:0}
-  .trk.full .trk-labels>span:last-child{transform:none}
-}
+.pickitem .trk{margin:10px 0 2px}
+.lanetag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;line-height:1.5;white-space:nowrap}
+.lanetag.LH{background:var(--accent-soft);color:var(--accent-ink)}
+.lanetag.LS{background:var(--amber-soft);color:var(--amber-ink)}
+.lanetag.LP,.lanetag.LT{background:var(--plum-soft);color:var(--plum)}
+/* every step, in order */
+.sl-h{margin:18px 0 8px}
+.steplist{list-style:none;margin:0 0 8px 7px;padding:0;border-left:2px solid var(--line)}
+.steplist>li{position:relative;padding:0 0 16px 18px}
+.steplist>li::before{content:"";position:absolute;left:-8px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--surface);box-sizing:border-box}
+.steplist>li.bad::before{background:var(--rep)}
+.steplist>li.todo::before{background:var(--surface);border:2px dashed var(--line-strong)}
+.steplist>li.todo{color:var(--muted)}
+.sl-when{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:3px}
+.sl-what{font-size:14.5px}
+.sl-what .q{color:var(--muted)}
+.sl-notes{margin:4px 0 0;padding-left:18px;font-size:13px;color:var(--muted)}
+.sp-votes{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:13.5px}
+.sp-votes>li{padding:6px 0 0;border-top:1px dashed var(--line)}
+.sp-votes>li.main{border-top-style:solid}
+.sp-split{display:block;color:var(--muted);font-size:12.5px}
+.sp-act{display:inline-flex;gap:10px;margin-left:4px;font-size:12.5px}
+.sp-act .maplink{margin-left:0}
+/* ---------- pop-out cards: a name, a rating, a step ---------- */
+.pop{position:fixed;z-index:90;left:0;top:0;width:max-content;max-width:400px;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:var(--r-lg);box-shadow:var(--shadow-3);font-size:14px;line-height:1.5;text-align:left;opacity:0;transform:translateY(4px);transition:opacity .16s var(--ease),transform .16s var(--ease)}
+.pop[hidden]{display:none}
+.pop.show{opacity:1;transform:none}
+.pop[data-side="above"]{transform:translateY(-4px)}.pop.show[data-side="above"]{transform:none}
+.pop.pinned{border-color:var(--accent-line)}
+.pop::before{content:"";position:absolute;left:var(--ax,50%);width:11px;height:11px;background:var(--surface);border:1px solid var(--line-strong);transform:translateX(-50%) rotate(45deg)}
+.pop.pinned::before{border-color:var(--accent-line)}
+.pop[data-side="below"]::before{top:-7px;border-right:0;border-bottom:0}
+.pop[data-side="above"]::before{bottom:-7px;border-left:0;border-top:0}
+.pop-in{position:relative;max-height:min(72vh,560px);overflow:auto;padding:14px 16px 12px;overscroll-behavior:contain;border-radius:inherit}
+.pop h4{font-size:15.5px;margin:0 0 6px}
+.pop h5{margin:12px 0 4px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.pop p{margin:0 0 8px}
+.pop .pop-wait{color:var(--muted);margin:0}
+.pop .pop-links{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line);font-weight:600;font-size:13.5px}
+.pop .pop-links a{text-decoration:none}
+.pop .pop-links a:hover{text-decoration:underline}
+.calm .pop{transition:none}
+.pc-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.pc-head b{display:block;font-size:16.5px;line-height:1.25}
+.pc-head .muted{display:block;font-size:13px;line-height:1.35}
+.pc-facts{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:5px;font-size:13.5px}
+.pc-facts li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
+.pc-facts li>span:first-child{color:var(--muted)}
+.pc-wiki{margin:8px 0 0;padding:8px 10px;border-left:3px solid var(--line-strong);background:var(--hair);border-radius:0 8px 8px 0;font-size:13px}
+.pc-wiki p{margin:4px 0 2px}
+.pc-wiki a{font-size:12.5px}
+.tag.outside{background:var(--hair);color:var(--muted);border:1px dashed var(--line-strong)}
+.ap-h{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:15.5px}
+.ap-this{font-size:15px}
+.ap-math{display:grid;gap:4px;margin:0 0 8px;padding:8px 10px;background:var(--hair);border-radius:8px;font-size:13px;font-variant-numeric:tabular-nums}
+.ap-math a{font-size:12.5px;margin-left:6px}
+.ap-scale{font-size:13px;color:var(--muted)}
+.ap-src{margin:0 0 8px;padding-left:18px;font-size:13px}
+.ap-who{font-size:12.5px;color:var(--muted)}
+.sp-h{display:flex;align-items:center;gap:8px;margin-bottom:2px;font-size:15.5px}
+.sp-d{color:var(--muted);font-size:13px;margin:0 0 6px}
+[data-axis]{cursor:help;border-radius:10px;transition:background .15s,box-shadow .15s}
+[data-axis]:hover,[data-axis].popping,[data-axis]:focus-visible{background:var(--hair);box-shadow:0 0 0 6px var(--hair)}
+a.spon,.spot-spon a{color:inherit;text-decoration:none}
+a.spon:hover b,.spot-spon a:hover b,a.spon.popping b,.spot-spon a.popping b{text-decoration:underline;text-underline-offset:2px}
+.popping{--pop-on:1}
 .hm-back{position:absolute;inset:0;background:rgba(21,23,27,.42);backdrop-filter:blur(9px) saturate(.9);-webkit-backdrop-filter:blur(9px) saturate(.9);animation:fadein .25s var(--ease) both}
 :root[data-theme="dark"] .hm-back{background:rgba(0,0,0,.58)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -1124,7 +1195,7 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 </style>
 <style>
 /* ---- only on the state pages ---- */
-:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A;--k-biz:#E8B44A;--k-union:#B49BF2;--k-org:#7E9BFF;--m-biz:#E8B44A;--m-union:#B49BF2;--m-org:#7E9BFF}
+:root{--m-lobbyists:#F28DB2;--m-cand:#8BD17C;--m-loans:#C5C96A;--m-orgs:#E8B44A;--k-pcf:#F2994A;--k-biz:#E8B44A;--k-union:#B49BF2;--k-org:#7E9BFF;--k-unnamed:#6B7079;--m-biz:#E8B44A;--m-union:#B49BF2;--m-org:#7E9BFF}
 .hero h1{font-size:calc(clamp(44px,16.2vw,118px) * var(--fit,1))}
 @media (min-width:960px){.hero h1{font-size:calc(clamp(96px,11.2vw,148px) * var(--fit,1))}}
 .hero::after{display:none}
@@ -1242,7 +1313,7 @@ a.chip{text-decoration:none}
         <div><dd>63–36</dd><dt>House of Delegates: Democratic to Republican; one seat vacant</dt></div>
         <div><dd data-count="140">0</dd><dt>districts on the map</dt></div>
       </dl>
-      <p class="kpifoot">Counted from public records.<br>Updated September 24, 2026.</p>
+      <p class="kpifoot">Counted from public records.<br>Updated October 01, 2026.</p>
     </aside>
     <div class="hero-copy">
       <h1 style="--fit:1.00" aria-label="Virginia, in plain words."><span class="h1a">Virginia,</span> <span class="h1b">in plain words.</span></h1>
@@ -1448,7 +1519,7 @@ a.chip{text-decoration:none}
     <div class="fgrid">
       <div class="rv">
         <a class="brand" href="#top"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
-        <p>Generated from <code>state_va.sqlite</code> on September 24, 2026: 139 sitting legislators, 140 districts, 141 portraits. Campaign money, then bills and recorded votes, are still to be added. Version 4.0.038.</p>
+        <p>Generated on October 01, 2026: 139 sitting legislators, 140 districts, 141 portraits. Campaign money, then bills and recorded votes, are still to be added. Version 4.0.078.</p>
         <p><a href="../">All levels of government</a> &middot; <a href="../us/">The federal side</a></p>
       </div>
       <div class="rv" style="--i:1">
@@ -1522,7 +1593,7 @@ a.chip{text-decoration:none}
 </div>
 
 <script>
-const BOOT = {"version":"4.0.038","generated":"September 24, 2026","base":"https://thecivicarchive.github.io/dev/va","analytics":"","place":{"code":"VA","name":"Virginia","legislature":"Virginia General Assembly","session":"2026 Session","upper":{"name":"Senate","title":"Senator","short":"Sen.","seats":40,"term_years":4,"next":2027},"lower":{"name":"House of Delegates","full":"House of Delegates","title":"Delegate","short":"Del.","seats":100,"term_years":2,"next":2027},"nested":false,"zooms":[{"name":"Northern Virginia","box":[-77.6,38.6,-77.0,39.05]},{"name":"Richmond","box":[-77.65,37.35,-77.25,37.68]},{"name":"Hampton Roads","box":[-76.6,36.68,-75.95,37.12]}],"money_links":{},"money_agency":{},"money_rule":"","money_credit":""},"stats":{"members":139,"districts":140,"chambers":{"upper":{"name":"Senate","seats":40,"filled":40,"per":1,"varies":null,"beyond":null,"uniform":false,"parties":[["Democratic","D",21],["Republican","R",19]],"vacant":[]},"lower":{"name":"House of Delegates","seats":100,"filled":99,"per":1,"varies":null,"beyond":null,"uniform":false,"parties":[["Democratic","D",63],["Republican","R",36]],"vacant":["20"]}},"parties":[["Democratic","D",84],["Republican","R",55]],"money":{},"portraits":141,"wiki":140,"bills":0,"roll_calls":0,"has_money":false,"officials":3,"has_shapes":true,"has_people":true},"kinds":{"pcf":"Political committee or fund","party":"Party unit","cand":"Another candidate's committee","biz":"Business","union":"Union","org":"Other organization"},"changelog":[{"version":"4.0.038","date":"2026-09-24","title":"Texas's campaign money","items":["Texas is the fifth state with its campaign money loaded, from the Texas Ethics Commission's bulk download of every electronically filed report since 2000 (one 1 GB file, 35.6 million contribution rows, read in eight minutes). All 179 sitting legislators are matched to their accounts: $279 million from named organizations since 2015 and $166 million from people, as totals. Texas has no contribution limits, and the file shows it: one committee, Texans for Lawsuit Reform PAC, gave sitting members about $30 million.","The Commission's own filer index does the identifying. An account is matched by family name, a compatible given name and the office it sought or held; where the Commission's formal name does not fit the roster's (Roberto D. Guerra for Bobby Guerra, Eugene Y. Wu for Gene Wu), the Commission's own record of the seat the account holds settles it, and the run lists all eighteen such cases. A giver's kind comes from the same index: a registered committee is what it is registered as, whatever a campaign called it. Texas bars corporate and union gifts, so the rest of the named organizations are partnerships, law firms and associations.","No outside spending is shown for Texas: the Commission's bulk file lists a committee's spending for a candidate on the same schedule as the gifts it made, with no flag to tell them apart and none for support or opposition. The money card says so.","Reports superseded by a later filing (117,079 rows) are skipped in favour of the later one. Six committees were treated as a member's own earlier committee, all city council or mayoral accounts passed on to the legislative one."]},{"version":"4.0.037","date":"2026-09-24","title":"Colorado's campaign money","items":["Colorado is the fourth state with its campaign money loaded, from the Secretary of State's TRACER bulk downloads: one contributions file a year, 2015 through 2026 (2.5 million rows, of which 907,055 went to statewide candidate committees). All 100 sitting legislators are matched to 156 committees: $12.4 million from named organizations (the Colorado Democratic Party first, then the small donor committees of firefighters, doctors, realtors and teachers) and $12.9 million from people, as totals.","Colorado's files name no office for a candidate, so a campaign is matched only when it is a statewide-jurisdiction candidate committee whose name carries no other office and whose candidate's full name fits exactly one sitting legislator. Where the state's spelling of a name does not fit (Julia for Julie, Merrick for Rick), the committee's own name is read: the name the member goes by before \"for\", or the seat it names (\"Taggart for House District 55\"), and still only one member may fit. Every such match is listed by the run. Superseded records are skipped in favour of their amendments; returned and bounced gifts are left out.","Colorado's bulk expenditure files do not say which candidate an independent spender supported or opposed, so no outside spending is shown for Colorado, and the money card says so rather than showing zero.","Seventeen committees were treated as a member's own earlier committee (\"moved in\", not a donor): House accounts passed to Senate ones, and balances rolled over after redistricting, each listed by name in the run.","Oregon has no bulk dataset (its ORESTAR system offers only search exports), so it is set aside for now; Texas is next."]},{"version":"4.0.036","date":"2026-09-24","title":"Washington's campaign money","items":["Washington is the third state with its campaign money loaded, from the Public Disclosure Commission's open data on data.wa.gov (public domain): every gift to a House or Senate campaign since 2015 (479,008 rows), the Commission's register of legislative campaigns (1,373 campaigns by 1,305 people, with a person number that ties one candidate's campaigns together) and independent expenditures and electioneering communications for or against candidates. All 147 sitting legislators are matched: $68.1 million from named organizations and $21.2 million of outside spending ($9.6 million for sitting members, $11.6 million against), 2016 through 2026.","Washington lets businesses, unions and other organizations give to a campaign directly, and the Commission's file carries the code each campaign reported a giver under. So the site's rule reaches three more kinds of organization, named as the campaign reported them: businesses, unions and other organizations, each with its own colour beside political committees, party and caucus committees. People stay totals. A gift filed as miscellaneous or anonymous is counted as other.","Campaigns are matched by name and never guessed. The register writes a name three ways (\"CAYLOR KENNETH E\", \"Clifford Mark Greene\", \"GREGORY CAROL J (CAROL GREGORY)\"); each way is read, a match needs the family name, a compatible given name and a chamber the member has served in, must be the only fit, and the register's district settles a tie. Two representatives' Senate campaigns were accepted because exactly one sitting member carries the name; nothing was left ambiguous.","A receipt a campaign dated in the future (one is dated 2031) is filed under the campaign's election year rather than inventing a segment for it."]},{"version":"4.0.035","date":"2026-09-24","title":"Iowa's campaign money","items":["Iowa is the second state with its campaign money loaded, from the Iowa Ethics and Campaign Disclosure Board's own datasets on data.iowa.gov: every contribution received since 2003 (3.2 million rows, of which 513,564 went to House and Senate campaigns since 2015), the Board's register of committees, and independent spending for or against candidates. All 149 sitting legislators are matched to their committees (160 of them, 952 on file): $62.1 million from named organizations, $2.2 million of outside spending, in the 2016 through 2026 cycles.","The same rule as everywhere on the site. Organizations are named: political action committees, the state and county central committees of the parties, and other candidates' committees, each recognised by the number the Board assigned it. People are only ever totals. A giver the file names without a committee number (a bank paying interest, a business, an unitemized line) cannot be verified from the file, so it is counted as \"other\" and not named either. Outside spending is kept apart, its free-text descriptions never reach the page, and a member's own earlier committee (a council or county race before the legislature) is \"moved in\", not a donor.","Committees are matched by name and never guessed: the Board's register names the candidate for a committee still open; a closed committee's name is read from its title (\"Committee to Elect Zach Wahls\", \"Pellant for Iowa House\", \"Cheevers4House\"). A match needs the family name, a compatible given name where one is written, and a chamber the member has served in, and must be the only fit; the register's district settles a tie; a sitting representative's registered committee for a Senate race is accepted when exactly one sitting member carries the name. The one title two members fit (\"Johnson for State House\") is left out and said so.","Each state's money card now carries that state's own sentence about what its agency's file holds (Iowa lists gifts over $25; Minnesota over $200 and no public subsidy), and Iowa's carries the Board's credit line and its Creative Commons Attribution-NonCommercial licence."]},{"version":"4.0.034","date":"2026-09-24","title":"Who lives in each district","items":["The second districting lens is built, on every level at once: all 435 congressional districts and every district of all 99 state chambers, 7,210 districts in all. For each: the Census Bureau's 2020 count of residents (the number the lines were drawn on), how far its people per seat sit from the state's ideal, people per square mile, the urban share, and the Bureau's 2020-2024 American Community Survey estimates with their margins of error: median age, median household income, under 18, 65 and over, Hispanic or Latino and each race among those who are not, born outside the United States, below the poverty line, a bachelor's degree or higher, owner-occupied homes.","The page is \"People\", beside \"Shape\" on the federal Districts page (`#people`, `#people/MN`, `#people=MN-5`) and on every state's own pages (`#people`, `#people=S-61`). The map shades by any figure; people per seat uses fixed steps either side of the ideal in a palette that is no party's. A district's panel gives every figure with its margin; the table sorts on any column; the whole table downloads with margins included.","Everything comes from keyless files on census.gov, each fingerprinted: the Bureau's own population-by-district files for the 119th Congress and the 2024 legislative districts, and ten ACS tables. Derived margins use the Bureau's own formulas from its handbook; the program's self-test reproduces the handbook's worked examples before it reads anything, and refuses to run unless every column carries the label it expects.","Four checks are written into the results and shown under \"Sources and methods\": the 2020 count by district equals the apportionment resident population in every state checked; the Bureau's three tabulations of the same blocks (Congress, Senate, House) agree in all 50 states; the survey's district populations add up to the Bureau's own state figure in all 50; and the under-18 share built from the age bands equals the Bureau's own table B09001 in every one of the 7,210 districts.","Where districts elect different numbers of members (Maryland's House of Delegates, Vermont's Senate and House), people per seat divides by the seats the roster shows, and the page says so. New Hampshire's floterial House districts have no lines in the Bureau's file, so people per seat is not computed for that chamber, and the page says why. A state with one representative has no row in the congressional file; its district's figures are the state's own, from the legislative tabulation of the same blocks.","What the figures cannot tell you is on every page: residents are not voters; the count is five years old and the survey a five-year average; every estimate has a margin; a spread inside the range courts accept is not a finding of fairness, nor outside it of wrongdoing; and states that drew on counts adjusted for where people in prison lived look less equal here than under the count they used. The widest congressional spreads in the Bureau's unadjusted count are in such states."]},{"version":"4.0.033","date":"2026-09-23","title":"The last ring: all fifty states","items":["New York, New Jersey, Delaware, Maryland, Connecticut, Rhode Island, Massachusetts, Vermont, New Hampshire, Maine, South Carolina, Florida, California, Alaska and Hawaii are open, and with them every state. Fifty states, 7,336 legislators and 177 statewide officials, each with a page and a preview card, and every state with its Shapes page (6,775 legislative districts measured in 99 chambers). The District of Columbia, Puerto Rico and Guam are still to come; each needs a source of its own.","Some states name their districts rather than number them. Massachusetts has \"First Middlesex\" and \"Berkshire, Hampden, Franklin and Hampshire\", Vermont \"Chittenden Southeast\" and \"Addison-1\", New Hampshire \"Belknap 7\". The Census Bureau's file codes them differently (D11, CHS, 007), so each roster name is matched to the Bureau's own name by spelling, a match has to be the only one, and the lines are filed under the names the state uses. Every one of Massachusetts's 200 and Vermont's 125 matched.","Where districts elect different numbers of members, the pages read each district's count from the roster instead of assuming one number for the chamber: New Hampshire's House districts elect from one to ten representatives, Maryland's from one to three delegates, Vermont's Senate districts from one to three senators, its House one or two. \"Who represents you\" says so, and a vacancy is counted for the chamber as a whole rather than guessed for one district.","New Hampshire's 39 floterial House districts, each laid over several of its neighbours, have no lines of their own in the Bureau's file. They are listed, not drawn: the map and the roster say so, their members have pages like everyone else's, and \"who represents you\" says you may have a representative it cannot find. Maine seats a representative of the Passamaquoddy Tribe and one of the Houlton Band of Maliseet Indians beside its 151 members; they are shown with the House and counted apart from its seats.","A joint nomination is counted with the party named first and shown with the whole label, as the record writes it: New York's \"Democratic/Working Families\" and \"Republican/Conservative/Independence\", Vermont's \"Democratic/Progressive\".","When a seat is next on the ballot, from the record: Florida's and California's even-numbered Senate districts vote in 2026 and their odd-numbered ones in 2028 (elected in 2022 and 2024); New Jersey's whole legislature in 2027, having voted in 2023 and 2025; South Carolina's Senate in 2028; New York, Maryland, Connecticut, Rhode Island, Massachusetts, Vermont, New Hampshire, Maine and Delaware's House in 2026. Delaware's, Alaska's and Hawaii's Senates follow no district-number rule, so nothing is claimed for those.","Alaska's coastline, with its fjords and islands, is drawn at about 250 metres rather than 80, or its district file would weigh 1.3 MB; every other state keeps the finer line.","Portraits stay missing where a legislature's site has moved or refuses them: most of New Jersey's (the old picture addresses answer 404), some of Connecticut's House Republicans (the site answers with a web page), a third of Maine's. The page shows a party initial in their place.","Vacant seats are shown as vacant, 27 across the fifteen states."]}],"photo_ids":["0258144f","06c0d909","0bba07ba","0bd1b9d6","0d2983ef","0f77b7d1","1084ab28","10868c64","138f964d","18756686","22817a2c","23775904","27eeaa71","28a2a753","2a831795","2ae6c10e","2bb39b59","318cc276","32b96a0d","32dae8e8","34c31079","359eaeba","3605a4dd","38f25fcb","3a2855f7","3a48fc34","3a8cbf64","3ae2755c","3ceca66a","3f02dc5d","418a32b0","43d936f6","448bfee3","44ebbeab","4524f0db","48911708","496f9aa1","4a329580","4ae07d5d","4caa245e","500ff29f","50a18b88","50a6c704","52e67ab6","53937ad8","58b46062","5be2e2f9","5e5e025d","63c0c8ef","658209cc","6840c55c","6a07d7b6","6ab67007","704cecad","71c20dff","725be36e","72ecc30c","73e0de29","745d2197","7517f920","77b071e3","7c045b50","7e0776e4","7ec1cbe4","7ef2fdd9","80c98569","815f7b31","8329b3a6","837c9441","865dace5","892b7901","894118dd","8a50ceeb","8ec90d7b","9303514b","94fa59c7","986f0601","995be769","9c41c70b","9f8c35c8","9fd6fbd7","a0178eeb","a0b9b444","a551cb4b","a6f78488","a7fd18db","aabaa796","ad107e73","adb58f21","ae28ba3f","aeba499e","aec7ee58","b0a785c3","b151be46","b209f24e","b251a648","b448d4e4","b5ce9d0e","b6db5cc9","ba57d68e","bbb38d6c","bbd31428","beaab5ae","bf0211bf","bf425b62","bf558d98","c10414ad","c3391ffd","c3b0c2fc","ca122856","cb9573ab","cbf3268e","d0263d88","d0de7acb","d112b6c3","d3a4b614","d90e6a36","dae8ce89","ddba8b1b","e142c869","e2ce02ec","e4396bfa","e58b604d","e766f1e0","eacc546e","eb7a5152","ebdc449e","ec0c5f08","ec11a019","ec14a514","ed935430","ee82c166","f09abfed","f17d0fd9","f1a906cd","f2a47eb9","f3e15ab0","f747c790","f8cafb3b","fa49c701","fef2f7f3"],"has_votes":false,"has_money":false,"has_shapes":true,"has_people":true,"inline":null,"unmapped":{"upper":[],"lower":[]}};
+const BOOT = {"version":"4.0.078","generated":"October 01, 2026","base":"https://thecivicarchive.github.io/dev/va","analytics":"","place":{"code":"VA","name":"Virginia","legislature":"Virginia General Assembly","session":"2026 Session","upper":{"name":"Senate","title":"Senator","short":"Sen.","seats":40,"term_years":4,"next":2027},"lower":{"name":"House of Delegates","full":"House of Delegates","title":"Delegate","short":"Del.","seats":100,"term_years":2,"next":2027},"nested":false,"zooms":[{"name":"Northern Virginia","box":[-77.6,38.6,-77.0,39.05]},{"name":"Richmond","box":[-77.65,37.35,-77.25,37.68]},{"name":"Hampton Roads","box":[-76.6,36.68,-75.95,37.12]}],"money_links":{},"money_agency":{},"money_rule":"","money_credit":""},"stats":{"members":139,"districts":140,"chambers":{"upper":{"name":"Senate","seats":40,"filled":40,"per":1,"varies":null,"beyond":null,"uniform":false,"parties":[["Democratic","D",21],["Republican","R",19]],"vacant":[]},"lower":{"name":"House of Delegates","seats":100,"filled":99,"per":1,"varies":null,"beyond":null,"uniform":false,"parties":[["Democratic","D",63],["Republican","R",36]],"vacant":["20"]}},"parties":[["Democratic","D",84],["Republican","R",55]],"money":{},"portraits":141,"wiki":140,"bills":0,"roll_calls":0,"has_money":false,"officials":3,"has_shapes":true,"has_people":true},"kinds":{"pcf":"Political committee or fund","party":"Party unit","cand":"Another candidate's committee","biz":"Business","union":"Union","org":"Other organization","unnamed":"Not named here"},"changelog":[{"version":"4.0.078","date":"2026-10-01","title":"A cabin for a front door","items":["The first thing a visitor sees is now a room: a small log cabin you can walk around in, with a fire, two armchairs, a bookshelf and a wide window on the Rocky Mountains. The view follows your own clock and calendar (morning, afternoon, dusk or night; gold aspens in autumn, snow in winter), worked out on your device. Nothing is sent anywhere.","Two posters glow on the far wall, and they are the doors. \"Meet everyone asking for your vote\" opens On The Ballot; \"See what they did with the last one\" opens Legislation & Legislatures. Walk with the arrow keys or W, A, S, D and drag to look around; on a phone, drag to look and tap the floor to walk.","The ring of cards is still here as \"Plain view\". It is also what a device that cannot draw the room gets, and the two doors are ordinary links at the foot of the page.","The pages no longer offer the whole site as one file to download, and no longer name the files and programs the site is put together with. The sources, the methods, the formulas and the download of every figure on the district pages stay."]},{"version":"4.0.077","date":"2026-10-01","title":"Local judges and the first counties of seven more states","items":["Colorado, Utah, Illinois, Oregon, Arkansas, Connecticut and Nevada join the local level, each with the part of its local ballot that an official list carries today. County and local races now stand at 22,148 contests and 36,970 candidates in 34 states.","Illinois: the regional superintendents of schools in every region, the circuit judges, and suburban Cook County's and Chicago's own contests. Nevada: Clark and Washoe counties, where about nine in ten Nevadans live. Arkansas: Pulaski and Washington counties.","Colorado's RTD directors and 117 judges' retention votes, Utah's justice court retention votes, Oregon's district attorneys and circuit judges, and Connecticut's judges of probate and registrars of voters in the 19 towns whose ballots are posted so far (the rest are due by October 9).","Every county still to be read says so on its page and names the county office that publishes its list."]},{"version":"4.0.076","date":"2026-10-01","title":"Nine more states, county by county","items":["County and local races open for Florida, Nebraska, Wyoming, Michigan, Iowa, Missouri, Montana, Ohio and Wisconsin: 4,732 more contests and 6,328 more candidates. On The Ballot's local level now holds 21,870 contests and 36,490 candidates in 29 states.","Florida comes from the Division of Elections' own file of local candidates (county commissions, school boards, and nearly two thousand special district seats), placed county by county with each supervisor of elections' notice. A candidate nobody opposed is elected without a vote and is shown that way.","These states have no single list for most local offices, so they are read one county at a time, largest first, from each county election office's own list or sample ballot: nine Michigan counties, sixteen in Wyoming, eleven in Iowa, twelve in Missouri, ten in Nebraska (plus every district board statewide), twenty-three county boards in Ohio, ten in Wisconsin, nine in Montana. Every county not read yet says so on its page, with the reason.","Michigan's circuit, district and probate judges, Missouri's and Nebraska's judges' retention votes, Ohio's appeals and common pleas judges and Florida's county judges are in, each under the counties they serve.","Wisconsin elects only sheriffs, clerks of circuit court and a few coroners in November (cities, towns and school boards vote in April); Iowa's cities and schools voted in 2025. Each state's page says which local offices are elected when."]},{"version":"4.0.075","date":"2026-10-01","title":"County and local races in twenty states","items":["On The Ballot's county and local level, Minnesota only until now, opens for nineteen more states: Kentucky, North Carolina, Virginia, South Dakota, North Dakota, Washington, Idaho, West Virginia, Oklahoma, Texas, Louisiana, South Carolina, Alabama, Vermont, Maryland, New Mexico, Maine, Delaware and Hawaii. Together with Minnesota that is 17,138 county and local contests and 30,162 candidates in 1,235 counties, every one from the state's own election office.","Each of these states' ballot pages now has its counties, a page per county (county offices, cities and towns, school boards, special districts and the local courts that reach it) and \"your ballot\": pick your county, then your city or town and your school district.","Every state's page says, in the state's own terms, which local offices are on the November 3 ballot and which are elected at another time, and lists plainly what is not here yet and why. Oklahoma prints only contested races; Louisiana's November 3 is an open primary, and two thirds of its local offices were filled when only one candidate qualified; Texas's cities and school districts publish their own lists and are still to come.","As everywhere on these pages, a local candidate is shown by name, office, place and party (or \"Nonpartisan office\") only. Addresses and contact details in the official files are never read.","The ballot door's \"County and city\" card now counts every state loaded and opens the list of them."]},{"version":"4.0.074","date":"2026-09-30","title":"State races in 49 states","items":["Every state with state races on this November's ballot now has its page: New England, South Carolina, Delaware, Alaska and Hawaii, and California, Texas, Florida, New York, Pennsylvania and Illinois join the list, with their primaries and official votes where published. New Jersey has no state race this year (its Legislature is elected in odd years).","Massachusetts's, Rhode Island's and New Hampshire's November lists, and most of Connecticut's (whose Secretary of the State has posted only some towns' sample ballots), wait on files we cannot fetch yet; their pages say so."]},{"version":"4.0.073","date":"2026-09-30","title":"Twelve more states' state races","items":["North Carolina, Maryland, Washington, Alabama, Oregon, Mississippi and New Mexico have their statewide, legislative and court races on the ballot pages, with official primary votes; Georgia's primaries and runoffs are in while its November list waits on a file its Secretary of State puts behind a check.","Virginia and Louisiana elect their legislatures in odd years, so their pages show only the few state contests on this November's ballot (Virginia's House District 20 special election). Arizona's and Nevada's wait on files their offices do not let us fetch. 33 states in all."]}],"photo_ids":["0258144f","06c0d909","0bba07ba","0bd1b9d6","0d2983ef","0f77b7d1","1084ab28","10868c64","138f964d","18756686","22817a2c","23775904","27eeaa71","28a2a753","2a831795","2ae6c10e","2bb39b59","318cc276","32b96a0d","32dae8e8","34c31079","359eaeba","3605a4dd","38f25fcb","3a2855f7","3a48fc34","3a8cbf64","3ae2755c","3ceca66a","3f02dc5d","418a32b0","43d936f6","448bfee3","44ebbeab","4524f0db","48911708","496f9aa1","4a329580","4ae07d5d","4caa245e","500ff29f","50a18b88","50a6c704","52e67ab6","53937ad8","58b46062","5be2e2f9","5e5e025d","63c0c8ef","658209cc","6840c55c","6a07d7b6","6ab67007","704cecad","71c20dff","725be36e","72ecc30c","73e0de29","745d2197","7517f920","77b071e3","7c045b50","7e0776e4","7ec1cbe4","7ef2fdd9","80c98569","815f7b31","8329b3a6","837c9441","865dace5","892b7901","894118dd","8a50ceeb","8ec90d7b","9303514b","94fa59c7","986f0601","995be769","9c41c70b","9f8c35c8","9fd6fbd7","a0178eeb","a0b9b444","a551cb4b","a6f78488","a7fd18db","aabaa796","ad107e73","adb58f21","ae28ba3f","aeba499e","aec7ee58","b0a785c3","b151be46","b209f24e","b251a648","b448d4e4","b5ce9d0e","b6db5cc9","ba57d68e","bbb38d6c","bbd31428","beaab5ae","bf0211bf","bf425b62","bf558d98","c10414ad","c3391ffd","c3b0c2fc","ca122856","cb9573ab","cbf3268e","d0263d88","d0de7acb","d112b6c3","d3a4b614","d90e6a36","dae8ce89","ddba8b1b","e142c869","e2ce02ec","e4396bfa","e58b604d","e766f1e0","eacc546e","eb7a5152","ebdc449e","ec0c5f08","ec11a019","ec14a514","ed935430","ee82c166","f09abfed","f17d0fd9","f1a906cd","f2a47eb9","f3e15ab0","f747c790","f8cafb3b","fa49c701","fef2f7f3"],"has_votes":false,"has_money":false,"has_shapes":true,"has_people":true,"inline":null,"unmapped":{"upper":[],"lower":[]}};
 /* Data arrives when a page needs it, exactly as on the federal side: `need(name)` fetches data/<name>.json once
    and caches the promise. */
 const P = BOOT.place, CH = {Senate: P.upper, House: P.lower || P.upper, Legislature: P.upper};
@@ -1563,10 +1634,10 @@ const store = {get(k){ try { return localStorage.getItem(k); } catch (e) { retur
 /* ===== parts shared with the federal page (taken from it when this page is built) ===== */
 /* ---------- theme ---------- */
 (function(){
-  /* Dark by default; a reader's choice, once made, wins. The same line runs in
+  /* Light by default (John, 2026-09-27); a reader's choice, once made, wins. The same line runs in
      the head before anything paints, so there is no flash of the other theme. */
   let saved = null; try { saved = localStorage.getItem("theme"); } catch(e) {}
-  document.documentElement.dataset.theme = saved || "dark";
+  document.documentElement.dataset.theme = saved || "light";
   const tc = $('meta[name="theme-color"]');
   const syncColor = () => { if (tc) tc.content = document.documentElement.dataset.theme === "dark" ? "#0C0E12" : "#F5F5F2"; };
   syncColor();
@@ -1645,6 +1716,88 @@ function avatar(id, party, cls){
   const kb = src && cls !== "sm" ? ` kb" style="--pc:var(--${pc});--kbd:${11 + h % 7}s;--kbo:-${h % 11}s;--kbx:${(h % 3) - 1 ? ((h % 3) - 1) * 3 : 2}%;--kby:${(h >> 3) % 2 ? 3 : -2}%` : `" style="--pc:var(--${pc})`;
   return `<span class="avw ${cls || ""}${kb}"><span class="avc"><span class="avz">${src ? `<img class="av" src="${src}" alt="" decoding="async" loading="lazy">` : `<span class="av av-txt">${p.slice(0, 1)}</span>`}</span></span><i class="pb">${p}</i></span>`;
 }
+
+/* ---------- pop-outs: the detail behind a name, a rating or a step ---------- */
+/* A card opens beside the thing it explains: when a mouse rests on it, when the keyboard reaches it, or when it is
+   tapped (ratings and steps; a name keeps its own tap, which opens the member's page). Nothing in a card is kept
+   from the page or the record it links to; it saves a trip. Escape, a second tap, or a tap elsewhere closes it.
+   pop.add(selector, builder, {tap}) registers a kind; a builder returns the card's HTML, or a promise of it. */
+const pop = (() => {
+  const box = document.createElement("div");
+  box.className = "pop"; box.id = "popcard"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "More about this"); box.hidden = true;
+  document.body.appendChild(box);
+  const kinds = [];
+  let cur = null, pend = null, pinned = false, tOpen = 0, tClose = 0, seq = 0;
+  const hit = el => { if (!el || !el.closest || box.contains(el)) return [null, null]; for (const k of kinds) { const t = el.closest(k.sel); if (t) return [k, t]; } return [null, null]; };
+  function place(t){
+    if (!t || !t.isConnected) { close(); return; }
+    const r = t.getBoundingClientRect(), vw = document.documentElement.clientWidth || innerWidth, vh = innerHeight, m = 10;
+    box.style.maxWidth = Math.min(400, vw - 2 * m) + "px";
+    const bw = box.offsetWidth, bh = box.offsetHeight, x = Math.max(m, Math.min(vw - bw - m, r.left + r.width / 2 - bw / 2));
+    let y = r.bottom + 10, side = "below";
+    if (y + bh > vh - m && r.top - bh - 10 >= m) { y = r.top - bh - 10; side = "above"; }
+    else if (y + bh > vh - m) y = Math.max(m, vh - bh - m);
+    box.style.left = Math.round(x) + "px"; box.style.top = Math.round(y) + "px"; box.dataset.side = side;
+    box.style.setProperty("--ax", Math.round(Math.max(18, Math.min(bw - 18, r.left + r.width / 2 - x))) + "px");
+  }
+  function close(){
+    clearTimeout(tOpen); clearTimeout(tClose); seq++; pend = null;
+    if (cur) { cur.classList.remove("popping"); cur.removeAttribute("aria-expanded"); }
+    cur = null; pinned = false; box.classList.remove("show", "pinned"); box.hidden = true; box.innerHTML = "";
+  }
+  function show(k, t, pin){
+    clearTimeout(tClose); clearTimeout(tOpen); pend = null;
+    if (cur === t && !box.hidden) { if (pin) { pinned = true; box.classList.add("pinned"); } return; }
+    if (cur) { cur.classList.remove("popping"); cur.removeAttribute("aria-expanded"); }
+    cur = t; pinned = !!pin; box.classList.toggle("pinned", pinned); t.classList.add("popping"); if (k.tap) t.setAttribute("aria-expanded", "true");
+    const my = ++seq;
+    const fill = html => { if (my !== seq) return; if (!html) { close(); return; } box.innerHTML = `<div class="pop-in">${html}</div>`; box.hidden = false; place(t); requestAnimationFrame(() => { if (my === seq) box.classList.add("show"); }); };
+    let out = ""; try { out = k.html(t); } catch (e) { console.error(e); }
+    if (out && typeof out.then === "function") { fill(`<p class="pop-wait">Loading\u2026</p>`); out.then(fill, () => fill(`<p class="muted">Couldn't load this. Check your connection and try again.</p>`)); }
+    else fill(out);
+  }
+  const later = () => { clearTimeout(tClose); tClose = setTimeout(() => { if (!pinned) close(); }, 260); };
+  document.addEventListener("pointerover", e => {
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    if (box.contains(e.target) || (cur && cur.contains(e.target))) { clearTimeout(tClose); return; }
+    const [k, t] = hit(e.target); if (!t || pinned || pend === t) return;
+    clearTimeout(tOpen); pend = t; tOpen = setTimeout(() => show(k, t), cur ? 90 : 320);
+  });
+  document.addEventListener("pointerout", e => {
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    const to = e.relatedTarget;
+    if (pend && !(to && pend.contains(to))) { clearTimeout(tOpen); pend = null; }
+    if (!cur || pinned || (to && (box.contains(to) || cur.contains(to)))) return;
+    later();
+  });
+  document.addEventListener("focusin", e => {
+    if (box.contains(e.target)) return;
+    const [k, t] = hit(e.target);
+    if (t && t === e.target && e.target.matches(":focus-visible")) show(k, t);
+    else if (cur && !pinned && t !== cur) close();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) { const t = cur; close(); if (t && t.focus) t.focus({preventScroll: true}); } });
+  document.addEventListener("click", e => {
+    if (box.contains(e.target)) { if (e.target.closest("a[href], button")) setTimeout(close, 0); return; }
+    const [k, t] = hit(e.target);
+    if (t && k.tap) { e.preventDefault(); e.stopPropagation(); if (cur === t && pinned) close(); else show(k, t, true); return; }
+    if (!box.hidden) close();
+  }, true);
+  document.addEventListener("scroll", e => { if (box.hidden || (e.target && e.target.nodeType === 1 && box.contains(e.target))) return; if (pinned) place(cur); else close(); }, {passive: true, capture: true});
+  addEventListener("resize", () => { if (!box.hidden) place(cur); });
+  addEventListener("hashchange", close); addEventListener("popstate", close);
+  return {add: (sel, html, opts) => { kinds.push(Object.assign({sel, html}, opts || {})); }, close, within: el => !!(cur && el && el.contains(cur))};
+})();
+/* first sentence of a paragraph, stepping over initials and titles (U.S., Jr., Dr.) */
+function firstSentence(text){
+  const s = String(text || "").replace(/\s+/g, " ").trim(), rx = /\.(?=\s+["'(A-Z]|$)/g; let m;
+  while ((m = rx.exec(s))) { const w = (s.slice(0, m.index).match(/(\S+)$/) || ["", ""])[1];
+    if (/^(Jr|Sr|Dr|Mr|Mrs|Ms|St|Mt|No|Inc|Rep|Sen|Gov|Lt|Col|Gen|Rev|Hon|Sgt|Capt|U\.S|U\.N|D\.C|[A-Z])$/.test(w)) continue;
+    return s.slice(0, m.index + 1); }
+  return s.length > 260 ? s.slice(0, 260).replace(/\s+\S*$/, "") + "\u2026" : s;
+}
+const wikiHTML = w => w && w.extract ? `<div class="pc-wiki"><span class="tag outside">Wikipedia \u00b7 not an official record</span><p>${esc(firstSentence(w.extract))}</p><a href="${esc(w.url || "https://en.wikipedia.org/wiki/" + encodeURIComponent(String(w.title || "").replace(/ /g, "_")))}" target="_blank" rel="noopener">Read the article</a></div>` : "";
+const factsHTML = rows => rows.length ? `<ul class="pc-facts">${rows.map(([k, v]) => `<li><span>${esc(k)}</span><span>${v}</span></li>`).join("")}</ul>` : "";
 
 const SHARE_BASE = BOOT.base || location.href.split("#")[0].replace(/\/[^\/]*$/, "");
 const gcq = [];
@@ -1799,7 +1952,7 @@ function squarify(items, W, H){
 /* ---------- the districting lenses: the words every level shares ----------
    A congressional district and a state legislative district are measured by the same three formulas from the
    same kind of Census file, so the measures, the method, the self-test and the limits are written once here; the
-   state pages borrow this block at build time (BORROWED in build_state_dev.py). */
+   state pages borrow this block at build time (BORROWED in a build step). */
 const LENS_MEAS = {pp: {name: "Polsby-Popper", say: "the district's area as a share of a circle with the same perimeter. A long, wiggly edge lowers it, whether a mapmaker drew the edge or a coastline did"},
   reock: {name: "Reock", say: "the district's area as a share of the smallest circle that holds it. A long, thin district scores low however smooth its edge"},
   hull: {name: "Convex hull", say: "the district's area as a share of the tightest rubber band around it. Arms and notches lower it; a plain elongated shape does not"}};
@@ -1817,12 +1970,12 @@ function lensWords(){
         <li>Why a district has its shape. Coasts, rivers, state lines, county and city limits, and districts drawn to comply with the Voting Rights Act all lower scores for lawful reasons. A low score is not a finding of gerrymandering, and a high one is not a finding of fairness: a tidy shape can still divide voters unevenly.</li>
         <li>Scores depend on the boundary file. These lines are generalized to 1:500,000, so they are smoother than the legal lines and Polsby-Popper runs a little higher than it would on full-detail lines. Never mix scores from different sources (Barnes and Solomon, <i>Political Analysis</i> 29 (2021), 448).</li>${extra || ""}
         <li>Courts treat compactness as one traditional criterion among several, not as a test (see <i>Shaw v. Reno</i>, 509 U.S. 630 (1993); <i>Rucho v. Common Cause</i>, 588 U.S. 684 (2019)).</li></ul>`,
-    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}The program is <code>district_shapes.py</code>; <code>python district_shapes.py --selftest</code> runs the checks and <code>${esc(command)}</code> re-measures the file${command.includes("--state") ? "s" : ""}. Method version ${esc(method)}.</p>`
+    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}Every measure can be worked out again from the Census Bureau&rsquo;s file named above with the formulas given here, and the measuring is tested against shapes whose answers are known before the districts are measured. Method version ${esc(method)}.</p>`
   };
 }
 
 /* the second lens: who lives in each district. The figures every level shows, how each is read from a row, and the
-   words of its Sources and methods; district_people.py computes the rows the same way for Congress and every chamber. */
+   words of its Sources and methods; the people counting computes the rows the same way for Congress and every chamber. */
 const PEOPLE_MEAS = {
   dev: {name: "People per seat, against the ideal", short: "From ideal", say: "how far the district's 2020 population per seat sits from the state's ideal, its population divided by the chamber's seats. Zero is exact equality; plus means more people share a seat than the ideal, minus fewer", fmt: v => (v > 0 ? "+" : "") + v.toFixed(2) + "%", count: true},
   pop: {name: "People, 2020 count", short: "People, 2020", say: "residents on April 1, 2020, counted by the Census Bureau in the blocks that make up the district: the number the lines were drawn on", fmt: v => Math.round(v).toLocaleString(), count: true},
@@ -1891,12 +2044,29 @@ function peopleWords(){
         <li>Exactness. Every survey figure has a margin (\u00b1); a small district's margins are wide, and two districts whose margins overlap may not differ at all.</li>
         <li>Fairness or intent. Equal population is a legal requirement, and a spread inside the range courts accept is not a finding of fairness, nor one outside it a finding of wrongdoing; the courts weigh the reasons. Nothing here says who was placed where, or why.</li>
         <li>Adjusted counts. Some states draw their lines on a count adjusted for where people in prison lived before; the Bureau's count here is unadjusted, so those states' districts look less equal than under the count they used.</li>${extra || ""}</ul>`,
-    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}The program is <code>district_people.py</code>; <code>python district_people.py --selftest</code> runs the checks and <code>${esc(command)}</code> reads the files again. Method version ${esc(method)}: if the method changes, the version changes.</p>`
+    program: (method, download, command) => `<h3>Check it yourself</h3><p>${download || ""}Every figure can be worked out again from the Census Bureau&rsquo;s files named above with the arithmetic given here, which is tested against the Bureau&rsquo;s own worked examples. Method version ${esc(method)}: if the method changes, the version changes.</p>`
   };
 }
 
 
 /* ===== end of the shared parts ===== */
+
+/* ---------- who someone is, in brief: the card a name opens (this state's own records) ---------- */
+function personPop(el){
+  if (el.closest(".seats")) return "";
+  const id = el.dataset.id || decodeURIComponent(((el.getAttribute("href") || "").match(/^#member=([^/?#]+)/) || [])[1] || ""); if (!id) return "";
+  return membersReady().then(() => needMember(id).catch(() => ({}))).then(pf => {
+    const L = (DATA.legislators || {})[id]; if (!L) return "";
+    const S = pf.service || {}, C = pf.committees || [], M = pf.money, rows = [], sm = M && M.sum && M.sum.all;
+    const since = S.vague ? S.vague.charAt(0).toUpperCase() + S.vague.slice(1) : (S.since ? "Since " + S.since.slice(0, 4) : (sinceWords(L) ? "Since " + sinceWords(L) : ""));
+    if (since) rows.push(["In office", esc(since + (S.next ? ` \u00b7 on the ballot next in ${S.next}` : ""))]);
+    if (C.length) rows.push(["Committees", C.slice(0, 3).map(c => esc(c.name) + (c.title ? ` (${esc(c.title)})` : "")).join("; ") + (C.length > 3 ? esc(`; and ${C.length - 3} more`) : "")]);
+    if (sm && sm[0]) rows.push(["Campaign money", esc(`${usd(sm[0])} from ${Number(sm[1] || 0).toLocaleString()} organizations on file`)]);
+    const last = L.ln || String(L.n).split(" ").slice(-1)[0];
+    return `<div class="pc"><div class="pc-head">${avatar(id, L.p, "md")}<div><b>${esc(L.n)}</b><span class="muted">${esc(seatOf(L))} \u00b7 ${esc(L.pn || "")}</span></div></div>${factsHTML(rows)}${wikiHTML(pf.wiki)}<p class="pop-links"><a href="#member=${esc(id)}">Open ${esc(last)}'s page</a>${sm && sm[0] ? `<a href="#member=${esc(id)}/money">Who funds the campaign</a>` : ""}</p></div>`;
+  });
+}
+pop.add("a[href^='#member=']:not(.chip), button.ymem[data-id]", personPop);
 
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => $$(".rv:not(.obs)", root || document).forEach(el => { el.classList.add("obs"); rvIO.observe(el); });
@@ -2292,7 +2462,7 @@ function moneyCardBody(id, view){
     ${top.length ? `<p class="know-sub">The ${top.length === 10 ? "ten" : top.length} organization${top.length === 1 ? "" : "s"} that gave the most${sum[1] > top.length ? `, of ${sum[1].toLocaleString()} that gave ${usd(sum[0])} in all` : ""}</p><ol class="mny-top">${top.map(d => `<li><span class="nm">${donorName(d[2], d[0], d[1])}${kindTag(d[2])}</span><span class="amt">${usd(d[3])}</span><span class="meter" style="width:calc((100% - 30px) * ${(d[3] / max).toFixed(3)})"></span></li>`).join("")}</ol>` : `<p class="muted">No organization's gift to this campaign is on file for ${view === "all" ? "these years" : "this segment"}.</p>`}
     ${(out[0] || out[1]) ? `<p class="mny-out">Separately, outside groups spent <b>${usd(out[0])}</b> to support and <b>${usd(out[1])}</b> to oppose. None of that went to the campaign.</p>` : ""}`;
 }
-const MONEY_RULE = `From ${esc(AGENCY)}'s public files. ${P.money_rule ? esc(P.money_rule) + " " : ""}Organizations are named: political committees and funds, party committees and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.${P.money_credit ? " " + esc(P.money_credit) : ""}`;
+const MONEY_RULE = `From ${esc(AGENCY)}${AGENCY.endsWith("s") ? "'" : "'s"} public files.${P.money_rule ? esc(P.money_rule) + " " : ""}Organizations are named: political committees and funds, party committees and other candidates' committees. People who gave, lobbyists included, are counted in the totals and never named on this site. Money a member moved from an earlier committee of their own is shown as "moved in", not as a donor.${P.money_credit ? " " + esc(P.money_credit) : ""}`;
 function moneyCard(id){
   const M = MONEY[id].M, views = ["all"].concat(M.cycles.map(String)).filter(v => (M.top || {})[v] || (M.totals || {})[v]), start = "all";
   return `<div class="know-b money" data-money="${esc(id)}"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4>
@@ -2355,7 +2525,9 @@ function renderMoney(id, M, L, show){
     curRows = rows; drawChart(rows);
     const cols = colsFor(view, "Organization").concat(view === "all" ? M.cycles.slice().reverse().map(y => ({key: "y" + y, label: segLabel(y), num: true, val: r => (r.c[y] || [0])[0] || null, html: r => r.c[y] ? usd(r.c[y][0]) : ""})) : []);
     const mv = view === "all" ? Object.values(D.moved || {}).reduce((a, b) => a + b, 0) : ((D.moved || {})[view] || 0);
-    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${mv ? `Not counted as a donor: ${usd(mv)} moved in from ${esc(last)}'s own earlier committee. ` : ""}Every organization on file is listed; nothing is cut off. ${MONEY_RULE}</p>`;
+    const shared = D.shared || [];
+    const sharedNote = shared.length ? `Includes ${esc(last)}'s equal share of ${shared.length === 1 ? "a committee" : `${shared.length} committees`} formed for several candidates together, divided equally among the candidates each was formed for: ${shared.map(s => `${esc(s.n)} (${s.k} candidates${s.y.length ? "; " + s.y.join(", ") : ""})`).join("; ")}. ` : "";
+    host.innerHTML = `<div id="mnytable"></div><p class="know-rule" style="margin-top:10px">${mv ? `Not counted as a donor: ${usd(mv)} moved in from ${esc(last)}'s own earlier committee. ` : ""}${sharedNote}Every organization on file is listed; nothing is cut off. ${MONEY_RULE}</p>`;
     table = gridTable($("#mnytable"), {cols, rows: rows.filter(r => !off.has(r.k)), sort: [{key: "total", dir: "desc"}], page: 25, rowId: r => r.id, detail: r => pays(r, view), empty: "No organization's gift is on file for this choice.",
       count: rs => `${rs.length.toLocaleString()} organization${rs.length === 1 ? "" : "s"}, ${usd(rs.reduce((a, r) => a + r._t, 0))}`,
       onHover: r => { $$("#tmap button").forEach(b => b.classList.toggle("hot", !!r && b.dataset.id === r.id)); }});
@@ -2478,7 +2650,7 @@ function renderMemberPage(id, show){
 })();
 
 /* ---------- the shape of every district: the federal Districts lens, on this state's own chambers ----------
-   The same three measures, computed by district_shapes.py from the Census Bureau's files for this state's upper
+   The same three measures, computed by the shape measuring from the Census Bureau's files for this state's upper
    and lower chamber; the page measures and never concludes. The words it shares with the federal page (the
    measures, the method, the self-test, the limits) are borrowed from there at build time. */
 let lensBuilt = false, lensGo = null;
@@ -2559,14 +2731,14 @@ function shapesPage(pick){
     const srcs = keys.map(k => { const c = S.chambers[k]; return `<p><span class="tier">Official, primary</span> ${esc(c.source.publisher)}, ${esc(c.source.product)}: <code>${esc(c.source.file)}</code>, the ${esc(P[k].name)} districts, clipped to the shoreline. <a href="${esc(c.source.url)}" target="_blank" rel="noopener">The file at census.gov</a>. Fetched ${esc(c.source.fetched)}, ${Number(c.source.bytes).toLocaleString()} bytes. Its SHA-256 fingerprint, so that anyone can confirm they are measuring the same file: <code>${esc(c.source.sha256)}</code></p>`; }).join("");
     const controls = keys.map(k => (keys.length > 1 ? `<p><b>The ${esc(P[k].name)}.</b></p>` : "") + W.control(S.chambers[k].control, S.chambers[k].summary.shore)).join("");
     $("#lensnote").innerHTML = `<span class="tag fact">Fact</span> The lines: ${keys.map(k => `<code>${esc(S.chambers[k].source.file)}</code>`).join(" and ")}, U.S. Census Bureau. <span class="tag analysis">Analysis</span> The measurements: ${keys.map(k => `${S.chambers[k].summary.districts} ${esc(P[k].name)} districts${S.chambers[k].summary.shore ? ` (${S.chambers[k].summary.shore} front open water)` : ""}`).join("; ")}. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
-    $("#methodsbody").innerHTML = `<h3>The source${keys.length > 1 ? "s" : ""}</h3>${srcs}${W.measures}${W.how}<h3>The checks</h3>${W.selftest}${controls}${W.cannot("")}${W.program(S.method, `<a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. `, "python district_shapes.py --state " + P.code.toLowerCase())}
+    $("#methodsbody").innerHTML = `<h3>The source${keys.length > 1 ? "s" : ""}</h3>${srcs}${W.measures}${W.how}<h3>The checks</h3>${W.selftest}${controls}${W.cannot("")}${W.program(S.method, `<a href="data/shapes.csv" download>Download every figure on this page</a>, including the Bureau's areas beside ours. `, "" + P.code.toLowerCase())}
       <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#shapes/${esc(P.code)}">the federal Districts page</a>. This is the first of four lenses; the second, <a href="#people">who lives in each district</a>, is beside it. How votes became seats and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`;
     METHODS.shapes = {title: "Sources and methods: the shape of a district", body: $("#methodsbody").innerHTML};
     draw(); if (pick) lensGo(pick);
   }, () => { lensBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the measurements. Check your connection and try again.</span>`; });
 }
 /* ---------- the second lens on this state's chambers: who lives in each district ----------
-   district_people.py tabulates the Bureau's 2020 count and 2020-2024 survey estimates for every Senate and House
+   the people counting tabulates the Bureau's 2020 count and 2020-2024 survey estimates for every Senate and House
    district; the words, the figures and the formulas are the federal page's (PEOPLE_MEAS, peopleWords, borrowed above). */
 let plBuilt = false, plGo = null;
 function peoplePage(pick){
@@ -2645,7 +2817,7 @@ function peoplePage(pick){
     const controls = keys.map(k => { const c = S.chambers[k].control || {}, s = S.chambers[k].summary || {}; return (keys.length > 1 ? `<p><b>The ${esc(P[k].name)}.</b></p>` : "") + `<p><b>Control totals.</b> The Bureau's 2020 count by ${esc(P[k].name)} district adds up to ${num(s.pop2020_total)}${c.count_vs_resident_2020 ? `, ${c.count_matches_resident ? "equal to" : "against"} the state's resident population in the apportionment tables (${num(c.count_vs_resident_2020[1])})` : ""}${c.count_vs_congress_tabulation ? `; the Bureau's congressional tabulation of the same blocks totals ${num(c.count_vs_congress_tabulation[1])}: ${c.tabulations_agree ? "they agree" : "they differ"}` : ""}. The survey's district populations add up to ${c.acs_sum_vs_state ? `${num(c.acs_sum_vs_state[0])}; the Bureau's own state figure is ${num(c.acs_sum_vs_state[1])}: ${c.acs_sum_matches_state ? "they agree" : "they differ"}` : "a figure the file does not carry"}. The under-18 share, built here from the age bands, equals the Bureau's own table B09001 in ${c.under18_checked - (c.under18_mismatches || []).length} of ${c.under18_checked} districts.</p>`; }).join("");
     const extra = keys.map(k => { const s = S.chambers[k].summary || {}; return (s.dev_from_roster ? `<li>${esc(P[k].name)} districts elect different numbers of members, so people per seat there divides by the seats the roster shows; a vacancy or a roster error would move the figure.</li>` : "") + (s.why_no_dev ? `<li>${esc(s.why_no_dev)}.</li>` : ""); }).join("");
     $("#plnote").innerHTML = `<span class="tag fact">Fact</span> The count: U.S. Census Bureau, ${keys.map(k => `<code>${esc(((S.chambers[k].sources || [])[0] || {}).file || "")}</code>`).join(" and ")}; the estimates: American Community Survey 2020-2024. <span class="tag analysis">Analysis</span> ${keys.map(k => { const s = S.chambers[k].summary || {}; return s.dev ? `${esc(P[k].name)}: people per seat runs ${plFmt("dev", s.dev.min)} to ${plFmt("dev", s.dev.max)} of the ideal` : `${esc(P[k].name)}: people per seat not computed`; }).join("; ")}. Method ${esc(S.method)}, computed ${esc(S.generated)}.`;
-    METHODS.people = {title: "Sources and methods: who lives in a district", body: `<h3>The sources</h3>${W.sources((S.chambers[keys[0]].sources || []).concat(keys.length > 1 ? [(S.chambers[keys[1]].sources || [])[0]] : []).filter(Boolean))}${W.measures}${W.error}<h3>The checks</h3>${W.selftest}${controls}${W.cannot(extra)}${W.program(S.method, `<a href="data/people.csv" download>Download every figure on this page</a>, margins included. `, "python district_people.py --state " + P.code.toLowerCase())}
+    METHODS.people = {title: "Sources and methods: who lives in a district", body: `<h3>The sources</h3>${W.sources((S.chambers[keys[0]].sources || []).concat(keys.length > 1 ? [(S.chambers[keys[1]].sources || [])[0]] : []).filter(Boolean))}${W.measures}${W.error}<h3>The checks</h3>${W.selftest}${controls}${W.cannot(extra)}${W.program(S.method, `<a href="data/people.csv" download>Download every figure on this page</a>, margins included. `, "" + P.code.toLowerCase())}
       <p class="hm-foot">The same lens, on ${esc(P.name)}'s congressional districts: <a href="../us/#people/${esc(P.code)}">the federal People page</a>. This is the second of four lenses; the first, <a href="#shapes">the shape of every district</a>, is beside it. How votes became seats and which counties and cities each map keeps whole come next, and rule-drawn what-if maps after those.</p>`};
     draw(); if (pick) plGo(pick);
   }, () => { plBuilt = false; side.innerHTML = `<span class="muted">Couldn't load the figures. Check your connection and try again.</span>`; });
