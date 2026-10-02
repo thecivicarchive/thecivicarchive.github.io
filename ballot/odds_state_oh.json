@@ -1,0 +1,48 @@
+{
+ "2026-OH-GOV": {
+  "polymarket": "ohio-governor-winner-2026",
+  "kalshi": "GOVPARTYOH-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Ohio Governor Election Winner\" and resolves on the winner of the 2026 Ohio gubernatorial election; its two open outcomes are Amy Acton (D) and Vivek Ramaswamy (R). It also carries eleven placeholder outcomes (Option A to Option J, and Other) that are not active and have no price. Kalshi's event is titled \"Ohio Governor winner?\" (In 2026); its two markets are by party, labelled Amy Acton and Vivek Ramaswamy, and its rule turns on which party's representative is inaugurated. Both name the candidates for governor without their running mates, and neither offers the Libertarian ticket or the four write-in tickets on our list. Left out on purpose: Polymarket's margin-of-victory, Senate-and-Governor combination and \"Closest Governor's Race?\" events, and Kalshi's nomination, primary, combination and margin series (KXGOVOHNOMD, KXOHPRIMARY, KXOHSENGOVCOMBO, KXOHACTONBROWN)."
+ },
+ "2026-OH-AG": {
+  "polymarket": "ohio-attorney-general-election-winner-2026",
+  "kalshi": "KXATTYGENOH-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Polymarket's event is titled \"Ohio Attorney General Election Winner\" and resolves on the party of the candidate who wins the election of November 3, 2026; Kalshi's is \"Ohio Attorney General winner?\" (In 2026), also by party (who is sworn in for the term beginning in 2027). Both label the outcomes John Kulewicz and Keith Faber, the two on our list. Both are barely traded: about $700 on Polymarket and about 3,200 contracts on Kalshi when checked. Polymarket's three placeholder outcomes (Person A, Person B, Other) are not active yet report a price of 0.5, as Minnesota's do. Ask John before showing markets this thin."
+ },
+ "2026-OH-SOS": {
+  "polymarket": "ohio-secretary-of-state-election-winner-2026",
+  "kalshi": "KXSECSTATEOH-26",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Polymarket's event is titled \"Ohio Secretary of State Election Winner\" and resolves on the party of the winner of the election of November 3, 2026; Kalshi's is \"Ohio Secretary of State winner?\" (In 2026), also by party. Both label the outcomes Allison Russo and Robert Sprague; neither offers Tom Pruss, the Libertarian and the third name on our list (Polymarket has an inactive \"Other\"). Lightly traded: about $5,800 on Polymarket and about 6,600 contracts on Kalshi when checked. Polymarket's three placeholder outcomes (Person A, Person B, Other) are not active yet report 0.5."
+ },
+ "2026-OH-AUD": {
+  "polymarket": null,
+  "kalshi": "KXOHAUDITOR-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Auditor of State. Kalshi's event is titled \"Ohio State Auditor winner?\" (in 2026), one market per candidate: Annette Blackwell and Frank LaRose, the two on our list. It opened September 10, 2026 and is barely traded (about 890 contracts when checked, 25 of them on Blackwell), and the standing offers were wide (LaRose 71 to 81 cents against a last price of 67). Ask John before showing a market this thin. Polymarket lists no market for this race (its search and two likely slugs, 2026-10-02)."
+ },
+ "2026-OH-TREAS": {
+  "polymarket": null,
+  "kalshi": "KXOHTREASR-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Treasurer of State. Kalshi's event is titled \"Ohio Treasurer of State winner?\" (in 2026), one market per candidate: Jay Edwards and Seth Walsh, the two on our list. It opened September 10, 2026 and has hardly traded: about 95 contracts on Edwards and a fraction of one contract on Walsh when checked, so the two last prices added to 110 cents. Ask John before showing this market. Polymarket lists no market for this race (its search and two likely slugs, 2026-10-02)."
+ },
+ "2026-OH-SC-20270101": {
+  "polymarket": null,
+  "kalshi": "KXOHHAWKINS-26",
+  "checked": "2026-10-02",
+  "note": "Justice of the Supreme Court, the full term commencing January 1, 2027. Kalshi's event is titled \"Ohio Supreme Court: Hawkins seat winner?\" (In 2026), one market per candidate: Dan Hawkins and Marilyn Zayas, the two on our list (which prints him as Daniel R. Hawkins); each market's rule names this term by its starting date, which is how it was matched to this race and not to the other seat. Lightly traded: about 2,600 contracts when checked. Polymarket lists no market for this race (its search and one likely slug, 2026-10-02)."
+ },
+ "2026-OH-SC-20270102": {
+  "polymarket": null,
+  "kalshi": "KXOHBRUNNER-26",
+  "checked": "2026-10-02",
+  "note": "Justice of the Supreme Court, the full term commencing January 2, 2027. Kalshi's event is titled \"Ohio Supreme Court: Brunner seat winner?\" (In 2026), one market per candidate: Jennifer Brunner and Colleen O'Donnell, the two on our list; each market's rule names this term by its starting date. Hardly traded: about 125 contracts when checked, three of them on O'Donnell, with offers ten cents apart. Ask John before showing this market. Polymarket lists no market for this race."
+ },
+ "_none": {
+  "checked": "2026-10-02",
+  "note": "Not a race; odds.py passes over it. No market was found for any Ohio county office, court of appeals or common pleas seat, or a single legislative seat on the November ballot: Kalshi's list of election series names none (its Cincinnati mayor series was for November 2025) and Polymarket's search returns none. Kalshi's \"Ohio redistricting referendum\" series is about a ballot question, not a race between people, and is left out."
+ }
+}

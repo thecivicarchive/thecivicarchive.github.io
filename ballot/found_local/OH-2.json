@@ -1,0 +1,522 @@
+{
+ "part": 2,
+ "of": 12,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-OH-39173-county-commissioner",
+   "name": "Joseph R. DeMare",
+   "what": "past_party (Green Party nominee for United States Senator, 2016)",
+   "why": "The Wikipedia page names a Joe DeMare of Ohio and nothing else that ties him to the Wood County candidate; the BG Independent News article found for the 2026 race does not mention the Senate run. One anchor only."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-OH-39017-county-commissioner",
+   "name": "Michael V. Ryan",
+   "website": {
+    "url": "https://ryanforbutler.com",
+    "how": "The site's own title names the candidate and the office: \"Michael Ryan for Butler County Commissioner\"; paid for by Friends of Michael Ryan; linked from the Butler County Republican Party's slate page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of Hamilton City Council (also Vice Mayor)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: the About page says \"Serving 8 years on Hamilton City Council\"; the front page says \"former Council member and Vice Mayor of Hamilton, Ohio\" (no years given)",
+     "url": "https://ryanforbutler.com/about-michael-ryan",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://www.butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39035-county-council-5",
+   "name": "Courtney Scheff",
+   "website": {
+    "url": "https://www.courtneyscheff.com/",
+    "how": "The site's own title is \"Scheff for Cuyahoga County\"; its pages name Courtney, the Cuyahoga County Council and District 5",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39059-county-auditor",
+   "name": "Cory Johnson"
+  },
+  {
+   "race_id": "2026-OH-39085-county-commissioner",
+   "name": "John T. Plecnik",
+   "official_page": {
+    "url": "https://www.lakecountyohio.gov/commissioners-office/john-plecnik/",
+    "source": "Lake County, Commissioners' Office: John T. Plecnik",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake County Commissioner",
+     "from": "2021",
+     "to": "",
+     "source": "Lake County, Commissioners' Office: sworn in February 11, 2021; elected November 8, 2022",
+     "url": "https://www.lakecountyohio.gov/commissioners-office/john-plecnik/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Councilman-at-Large, City of Willoughby Hills (also Vice President of Council)",
+     "from": "",
+     "to": "",
+     "source": "Lake County, Commissioners' Office biography (no years given)",
+     "url": "https://www.lakecountyohio.gov/commissioners-office/john-plecnik/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Trustee, Willoughby-Eastlake Public Libraries (Vice President of the Board)",
+     "from": "",
+     "to": "",
+     "source": "Lake County, Commissioners' Office biography (no years given)",
+     "url": "https://www.lakecountyohio.gov/commissioners-office/john-plecnik/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Appointed Lake County Commissioner by the Lake County Republican Party Central Committee",
+     "year": "2021",
+     "party": "Republican",
+     "source": "Lake County, Commissioners' Office news release of January 4, 2024",
+     "url": "https://www.lakecountyohio.gov/commissioners-office/2024/01/04/john-t-plecnik-elected-president-of-the-lake-county-board-of-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39117-county-auditor",
+   "name": "Conni McChesney"
+  },
+  {
+   "race_id": "2026-OH-39143-county-commissioner",
+   "name": "Richard J. Farmer, II"
+  },
+  {
+   "race_id": "2026-OH-39159-county-commissioner",
+   "name": "Shaun M. Bailey",
+   "official_page": {
+    "url": "https://www.unioncountyohio.gov/departments/Commissioners/meet-the-commissioners-52095",
+    "source": "Union County, Meet the Commissioners: Commissioner Shaun Bailey",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Union County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Union County, Meet the Commissioners (lists him as a sitting commissioner; no start date given)",
+     "url": "https://www.unioncountyohio.gov/departments/Commissioners/meet-the-commissioners-52095",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Union County Airport Board",
+     "from": "",
+     "to": "",
+     "source": "Union County, Meet the Commissioners: \"more than six years on the Union County Airport Board\"",
+     "url": "https://www.unioncountyohio.gov/departments/Commissioners/meet-the-commissioners-52095",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39173-county-commissioner",
+   "name": "Joseph R. DeMare"
+  },
+  {
+   "race_id": "2026-OH-CA12-20270101",
+   "name": "Willa Concannon"
+  },
+  {
+   "race_id": "2026-OH-CA8-20281231-S",
+   "name": "Ashley Kilbane",
+   "official_page": {
+    "url": "https://cp.cuyahogacounty.gov/court-resources/judges/judge-ashley-kilbane/",
+    "source": "Cuyahoga County Court of Common Pleas, General Division: Judge Ashley Kilbane",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Cuyahoga County Court of Common Pleas, General Division",
+     "from": "2019",
+     "to": "",
+     "source": "The court's own page: \"On Common Pleas Bench Since: 2019\"",
+     "url": "https://cp.cuyahogacounty.gov/court-resources/judges/judge-ashley-kilbane/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39033-PROB-JUV-20270209",
+   "name": "Matthew E. Crall",
+   "official_page": {
+    "url": "https://crawfordprosecutor.com/",
+    "source": "Crawford County Prosecuting Attorney's office site (linked from the county's own site): County Prosecutor Matthew Crall",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crawford County Prosecuting Attorney",
+     "from": "2013",
+     "to": "",
+     "source": "Crawford County Prosecutor's site: sworn in January 7, 2013",
+     "url": "https://crawfordprosecutor.com/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Law Director, City of Bucyrus",
+     "from": "2008",
+     "to": "2013",
+     "source": "Crawford County Prosecutor's site",
+     "url": "https://crawfordprosecutor.com/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City Prosecutor, City of Bucyrus",
+     "from": "2003",
+     "to": "2013",
+     "source": "Crawford County Prosecutor's site",
+     "url": "https://crawfordprosecutor.com/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39035-GEN-20270106",
+   "name": "Andrew J. Santoli",
+   "official_page": {
+    "url": "https://cp.cuyahogacounty.gov/court-resources/judges/judge-andrew-j-santoli/",
+    "source": "Cuyahoga County Court of Common Pleas, General Division: Judge Andrew J. Santoli",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Cuyahoga County Court of Common Pleas, General Division",
+     "from": "2021",
+     "to": "",
+     "source": "The court's own page: \"On Common Pleas Bench Since: January 2021\"",
+     "url": "https://cp.cuyahogacounty.gov/court-resources/judges/judge-andrew-j-santoli/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39049-DR-20270103",
+   "name": "Lasheyl N. Stroud",
+   "official_page": {
+    "url": "https://drj.fccourts.org/Judiciary/Meet-the-Judges/Judge-Lasheyl-Stroud",
+    "source": "Franklin County Court of Common Pleas, Domestic Relations and Juvenile Branch: Judge Lasheyl Stroud",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Franklin County Court of Common Pleas, Domestic Relations and Juvenile Branch",
+     "from": "",
+     "to": "",
+     "source": "The court's own page (Lead Juvenile Judge; no start date given)",
+     "url": "https://drj.fccourts.org/Judiciary/Meet-the-Judges/Judge-Lasheyl-Stroud",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20270102",
+   "name": "Betsy Sundermann"
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20290103-S",
+   "name": "Sarah Henry"
+  },
+  {
+   "race_id": "2026-OH-CP-39085-PROB-20270209",
+   "name": "Mark J. Bartolotta",
+   "official_page": {
+    "url": "https://www.lakecountyohio.gov/probate-court/",
+    "source": "Lake County Probate Court: \"A Message from Judge Mark J. Bartolotta\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Lake County Court of Common Pleas, Probate Division",
+     "from": "2013",
+     "to": "",
+     "source": "Court News Ohio (Supreme Court of Ohio): appointed by the governor, announced September 13, 2013",
+     "url": "https://courtnewsohio.gov/bench/2013/bartolottaAppt_091613.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39151-GEN-20270209",
+   "name": "Kristen S. Moore"
+  },
+  {
+   "race_id": "2026-OH-CP-39173-20270101",
+   "name": "Paul A. Dobson",
+   "website": {
+    "url": "https://www.dobsonforjudge.com/",
+    "how": "The site's own front page names the candidate, the office and the year: \"2026 Election ... Paul Dobson for Common Pleas Judge\", Wood County; paid for by Citizens for Dobson",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wood County Prosecuting Attorney",
+     "from": "2009",
+     "to": "",
+     "source": "BG Independent News, July 16, 2025: Wood County's elected prosecutor \"since 2009\" (elected in 2008)",
+     "url": "https://bgindependentmedia.org/?p=105967",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SC-20270101",
+   "name": "Daniel R. Hawkins",
+   "website": {
+    "url": "https://www.hawkinsforohio.com/",
+    "how": "The site's own title is \"Hawkins for Justice\", paid for by Hawkins for Ohio; it names Dan Hawkins and the Ohio Supreme Court, but its pages speak of the 2024 election and do not say 2026; the Butler County Republican Party's 2026 candidates page links it",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.supremecourt.ohio.gov/courts/judicial-system/supreme-court-of-ohio/justices-overview/daniel-hawkins/",
+    "source": "The Supreme Court of Ohio: Justice Daniel R. Hawkins",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Supreme Court of Ohio",
+     "from": "2024",
+     "to": "",
+     "source": "The Supreme Court of Ohio: December 10, 2024 to present",
+     "url": "https://www.supremecourt.ohio.gov/courts/judicial-system/supreme-court-of-ohio/justices-overview/daniel-hawkins/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Franklin County Court of Common Pleas, General Division",
+     "from": "2019",
+     "to": "2024",
+     "source": "Wikipedia, Daniel R. Hawkins (cited); the Court's own page confirms the office without years",
+     "url": "https://en.wikipedia.org/wiki/Daniel_R._Hawkins",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, Franklin County Municipal Court, Environmental Division",
+     "from": "2013",
+     "to": "",
+     "source": "The Supreme Court of Ohio: appointed July 2013 (Wikipedia gives 2019 as the end)",
+     "url": "https://www.supremecourt.ohio.gov/courts/judicial-system/supreme-court-of-ohio/justices-overview/daniel-hawkins/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Ohio Republican Party",
+     "url": "https://ohiogop.org/",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://www.butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH13",
+   "name": "Billy Fronimo"
+  },
+  {
+   "race_id": "2026-OH-SH19",
+   "name": "Ed Hargate"
+  },
+  {
+   "race_id": "2026-OH-SH26",
+   "name": "Tom Brinkman",
+   "born": {
+    "year": 1957,
+    "source": "Wikipedia, Tom Brinkman (Republican who represented Cincinnati in the Ohio House); the Hamilton County Republican Party lists Tom Brinkman for State Representative, 26th District",
+    "url": "https://en.wikipedia.org/wiki/Tom_Brinkman",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Ohio House of Representatives",
+     "from": "2001",
+     "to": "2008",
+     "source": "Wikipedia, Tom Brinkman",
+     "url": "https://en.wikipedia.org/wiki/Tom_Brinkman",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member of the Ohio House of Representatives, 27th district",
+     "from": "2015",
+     "to": "2022",
+     "source": "Wikipedia, Tom Brinkman",
+     "url": "https://en.wikipedia.org/wiki/Tom_Brinkman",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Ohio House of Representatives as a Republican",
+     "year": "2001 to 2008, 2015 to 2022",
+     "party": "Republican",
+     "source": "Wikipedia, Tom Brinkman",
+     "url": "https://en.wikipedia.org/wiki/Tom_Brinkman",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH4",
+   "name": "Beryl Brown Piccolantonio",
+   "website": {
+    "url": "https://www.berylforohio.com/",
+    "how": "The site's own title names the candidate and the office: \"Beryl Brown Piccolantonio - A Trusted Leader for State Representative\"; \"Help us keep Beryl in the Statehouse\"; paid for by her committee",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH47",
+   "name": "Jason Purviance"
+  },
+  {
+   "race_id": "2026-OH-SH51",
+   "name": "Jodi Salvo"
+  },
+  {
+   "race_id": "2026-OH-SH7",
+   "name": "Cameron Koffel",
+   "website": {
+    "url": "https://www.cameronkoffel.com/",
+    "how": "The site's own title names the candidate and the office: \"Cameron Koffel - Independent for Ohio House District 7\"; it counts down to Election Day, November 3",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "There's no party next to my name. On purpose.",
+    "url": "https://www.cameronkoffel.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SOS",
+   "name": "Robert Sprague",
+   "website": {
+    "url": "https://www.spragueforohio.com/",
+    "how": "The site's own title is \"Sprague for Ohio\" and its front page says he is \"running for Secretary of State\"; paid for by Sprague for Ohio",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.tos.ohio.gov/bio/",
+    "source": "Ohio Treasurer of State: Treasurer's Biography",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "source": "Wikipedia, Robert Sprague (Ohio treasurer of state; the article has a section on his 2026 secretary of state campaign)",
+    "url": "https://en.wikipedia.org/wiki/Robert_Sprague",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ohio Treasurer of State",
+     "from": "2019",
+     "to": "",
+     "source": "Ohio Treasurer of State: became the 49th Treasurer on January 14, 2019",
+     "url": "https://www.tos.ohio.gov/bio/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member of the Ohio House of Representatives, 83rd District",
+     "from": "2011",
+     "to": "2018",
+     "source": "Ohio Treasurer of State biography",
+     "url": "https://www.tos.ohio.gov/bio/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City Auditor and City Treasurer, Findlay",
+     "from": "",
+     "to": "",
+     "source": "Ohio Treasurer of State biography (no years given)",
+     "url": "https://www.tos.ohio.gov/bio/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Ohio Republican Party",
+     "url": "https://ohiogop.org/",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://www.butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SS25",
+   "name": "Raisheda D. Angus"
+  },
+  {
+   "race_id": "2026-OH-SS9",
+   "name": "Linda D. Matthews",
+   "offices": [
+    {
+     "office": "Trustee, Central State University",
+     "from": "",
+     "to": "",
+     "source": "Her own site for the Republican State Central Committee seat in the 9th Senate district (not a site for this Senate race), which the Hamilton County Republican Party links beside \"Linda Matthews for State Senate, 9th District\"; no years given",
+     "url": "https://www.votelindamatthews.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

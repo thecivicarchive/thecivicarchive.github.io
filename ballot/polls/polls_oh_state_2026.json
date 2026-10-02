@@ -1,0 +1,157 @@
+{
+ "rule": "Ohio's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-OH-GOV": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-24",
+     "end": "2026-09-27",
+     "n": 1298,
+     "pop": "registered voters",
+     "moe": 3.8,
+     "shares": {
+      "Amy Acton": 50,
+      "Vivek Ramaswamy": 44
+     },
+     "rest": 6,
+     "note": "The question named the two candidates for governor, not their running mates, and offered \"another party's candidate\" without naming the Libertarian ticket. The table packet gives another party's candidate 3%, undecided 3% and no response under 1%.",
+     "url": "https://maristpoll.marist.edu/polls/midterm-elections-in-ohio-september-2026/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2025-12-06",
+     "end": "2025-12-08",
+     "n": 850,
+     "pop": "registered voters",
+     "moe": 3.3,
+     "shares": {
+      "Amy Acton": 46,
+      "Vivek Ramaswamy": 45
+     },
+     "rest": 9,
+     "note": "Asked in December 2025 as a matchup between likely nominees, five months before the May 5, 2026 primary. The question named the two candidates for governor, not their running mates. The rest, 9%, were undecided.",
+     "url": "https://emersoncollegepolling.com/ohio-2026-poll-democrats-make-gains-in-races-for-governor-and-us-senate/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2025-08-18",
+     "end": "2025-08-19",
+     "n": 1000,
+     "pop": "registered voters",
+     "moe": 3.0,
+     "shares": {
+      "Amy Acton": 39,
+      "Vivek Ramaswamy": 49
+     },
+     "rest": 12,
+     "note": "Asked in August 2025 as a matchup between declared candidates, nine months before the May 5, 2026 primary. The rest, 12%, were undecided. The same survey asked Ramaswamy against Tim Ryan, who is not on the ballot (49% to 41%); that question is not shown.",
+     "url": "https://emersoncollegepolling.com/ohio-2026/",
+     "checked": "2026-10-02"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-28",
+     "why": "Siena's own post gives only a sentence about the Senate races; the governor's figures are in the toplines behind the New York Times's paywall"
+    }
+   ],
+   "left_out": {
+    "n": 28,
+    "pollsters": [
+     "Bowling Green State University/YouGov (ten: November's matchup in April and October 2025, April and September 2026; the Republican primary four times and the Democratic primary twice)",
+     "Beacon Research/Shaw & Co. Research (two, for Fox News)",
+     "Tulchin Research (two, for John Kulewicz's campaign for attorney general)",
+     "Big Data Poll",
+     "Suffolk University (for USA Today)",
+     "Wedgewood Polls",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "Echelon Insights (for NetChoice)",
+     "Quantus Insights",
+     "EMC Research (for the Ohio Environmental Council)",
+     "Data Targeting (for T. Roosevelt Action)",
+     "Hart Research (for the Ohio Federation of Teachers)",
+     "Impact Research (for Amy Acton's campaign)",
+     "Public Policy Polling (for 314 Action)",
+     "National Public Affairs (the Republican primary, for Dave Yost's campaign)",
+     "WPA Intelligence (the Republican primary, for the Club for Growth)",
+     "Fabrizio, Lee & Associates (the Republican primary, for Vivek Ramaswamy's campaign)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "The count is of separate rows as Wikipedia lists them: 19 of November's matchup and 9 of the two primaries; questions about people who are not on the ballot (Tim Ryan, Dave Yost, Jim Tressel) came from the same surveys and are not counted again. AARP belongs to the Transparency Initiative but its Ohio poll was taken by Fabrizio Ward and Impact Research, which do not. Marist and Emerson are the only members whose own releases give this race's figures; Emerson's site lists no Ohio poll after December 2025, and Siena's September 2026 posts name no Ohio poll (all read 2026-10-02). The same three surveys are in the Congress file for Ohio's Senate race."
+   }
+  },
+  "2026-OH-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Tulchin Research (two, for John Kulewicz's campaign: June 2-4 and July 29 to August 4, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Both polls on Wikipedia's list were paid for by one of the two candidates. Marist's September 2026 Ohio survey and Emerson's two did not ask it."
+   }
+  },
+  "2026-OH-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "co/efficient (the Republican primary only, January 20-22, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race, and Wikipedia lists no poll by anyone of the November matchup. Marist's September 2026 Ohio survey and Emerson's two did not ask it."
+   }
+  },
+  "2026-OH-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_State_Auditor_election",
+    "checked": "2026-10-02",
+    "note": "No poll of this race by anyone was found: Wikipedia's page has no polling section, and Marist's September 2026 Ohio survey and Emerson's two did not ask it."
+   }
+  },
+  "2026-OH-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "No poll of this race by anyone was found: Wikipedia's page has no polling section, and Marist's September 2026 Ohio survey and Emerson's two did not ask it."
+   }
+  },
+  "2026-OH-SC-20270101": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_Supreme_Court_election",
+    "checked": "2026-10-02",
+    "note": "Justice of the Supreme Court, the term beginning January 1, 2027 (Daniel R. Hawkins and Marilyn Zayas), listed here because Kalshi runs a market on it (ballot/odds_state_oh.json). No poll of this race by anyone was found: Wikipedia's page has no polling section, and Marist's September 2026 Ohio survey did not ask it."
+   }
+  },
+  "2026-OH-SC-20270102": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Ohio_Supreme_Court_election",
+    "checked": "2026-10-02",
+    "note": "Justice of the Supreme Court, the term beginning January 2, 2027 (Jennifer Brunner and Colleen O'Donnell), listed here because Kalshi runs a market on it (ballot/odds_state_oh.json). No poll of this race by anyone was found: Wikipedia's page has no polling section, and Marist's September 2026 Ohio survey did not ask it."
+   }
+  }
+ }
+}

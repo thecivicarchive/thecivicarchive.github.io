@@ -37,6 +37,10 @@ organization).
 - `offices`: public offices held (elected or appointed government posts), with years and body. Not jobs, not party posts.
 - `endorsed_by`: a party's OWN published endorsement for this 2026 race: `{"party", "unit", "url"}`.
 - `past_party`: an earlier run or office under a party label: `{"what", "year", "party", "source", "url", "kind"}`.
+  The source must show the label on the record: a party's primary or nomination, a ballot that printed the party, a
+  seat in a body whose members sit by party, or an appointment made by a party's committee. A news article that merely
+  describes someone as a Democrat or a Republican is NOT one, and neither is a guess from who endorsed them: leave it
+  out, and a verifier deletes it.
 - `own_words`: an explicit party or endorsement statement on the candidate's own site, quoted in at most twelve words, with the url.
 - `review`: something our record shows that an official source contradicts.
 

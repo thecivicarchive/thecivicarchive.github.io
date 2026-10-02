@@ -1,0 +1,449 @@
+{
+ "part": 11,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "Web search stopped after 17 of the 28 candidates (the session's search limit), so the legislative candidates and the Governor were researched from Wikipedia, party pages and the campaign sites themselves. Endorsements are the ones ballot/lean/oh_endorsements.json already holds from pages that say 'endorsed' (the Trumbull, Warren and Ohio Republican pages were re-read here; the Franklin and Butler pages were not); slate cards are not recorded. Not found or not confirmed: campaign sites for Nicole L. Sanders (the address a 2020 judicial guide gives does not resolve), Ismail Mohamed and Benjamin McCall (likely addresses refused the request), Dani Isaacsohn, Rick Walker, Kristen F. Rock, Mark Wongrowski, and the eleven others with no keys.",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "candidates": [
+  {
+   "race_id": "2026-OH-39035-county-council-11",
+   "name": "Christine McIntosh",
+   "website": {
+    "url": "https://www.christine-mcintosh.com",
+    "how": "Linked as her campaign website by Signal Cleveland; the site says she is running for Cuyahoga County Council in District 11",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Euclid City Council (former; years not given)",
+     "from": "",
+     "to": "",
+     "source": "Signal Cleveland",
+     "url": "https://signalcleveland.org/cuyahoga-county-council-district-11-democratic-candidates-election-may-5-primary-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39049-county-auditor",
+   "name": "Michael Stinziano",
+   "website": {
+    "url": "https://www.michaelstinziano.com",
+    "how": "Site title: Michael Stinziano for Franklin County Auditor; paid for by his committee",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://auditor.franklincountyohio.gov/Auditor/Meet-Michael",
+    "source": "Franklin County Auditor's Office",
+    "verified": true
+   },
+   "born": {
+    "year": 1979,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Michael_Stinziano",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Franklin County Auditor",
+     "from": "2019",
+     "to": "present",
+     "source": "Franklin County Auditor's Office",
+     "url": "https://auditor.franklincountyohio.gov/Auditor/Meet-Michael",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Columbus City Council",
+     "from": "2016",
+     "to": "2019",
+     "source": "Franklin County Auditor's Office",
+     "url": "https://auditor.franklincountyohio.gov/Auditor/Meet-Michael",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Ohio House of Representatives",
+     "from": "2011",
+     "to": "2016",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Michael_Stinziano",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the first Democrat in 80 years to lead the office",
+    "url": "https://www.michaelstinziano.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39069-county-auditor",
+   "name": "Elizabeth A. Fruchey",
+   "official_page": {
+    "url": "https://www.henrycountyohio.gov/auditor",
+    "source": "Henry County, Ohio",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Henry County Auditor",
+     "from": "",
+     "to": "present",
+     "source": "Henry County, Ohio",
+     "url": "https://www.henrycountyohio.gov/auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39107-coroner-20281231-S",
+   "name": "Alyssa Tobe",
+   "offices": [
+    {
+     "office": "Mercer County Coroner",
+     "from": "",
+     "to": "present",
+     "source": "Hoodline",
+     "url": "https://hoodline.com/2026/08/human-remains-found-near-celina-mirror-details-of-missing-man-65/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39123-county-engineer-20281231-S",
+   "name": "Daniel Toris Jr"
+  },
+  {
+   "race_id": "2026-OH-39155-county-commissioner",
+   "name": "Kristen F. Rock",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Trumbull County Democratic Party",
+     "url": "https://www.trumbullcountydems.org/meet-the-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39173-county-auditor",
+   "name": "Mark Wongrowski"
+  },
+  {
+   "race_id": "2026-OH-CA11-20270209",
+   "name": "Marisa L. Cornachio",
+   "official_page": {
+    "url": "https://www.willoughbycourt.com",
+    "source": "Willoughby Municipal Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Willoughby Municipal Court (second term; elected twice since 2018)",
+     "from": "",
+     "to": "present",
+     "source": "Willoughby Municipal Court",
+     "url": "https://www.willoughbycourt.com",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA8-20270211",
+   "name": "Emanuella D. Groves",
+   "official_page": {
+    "url": "https://appeals.cuyahogacounty.gov/about-us/judges/judge-emanuella-d-groves",
+    "source": "Eighth District Court of Appeals",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Eighth District Court of Appeals",
+     "from": "2021",
+     "to": "present",
+     "source": "Eighth District Court of Appeals",
+     "url": "https://appeals.cuyahogacounty.gov/about-us/judges/judge-emanuella-d-groves",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Cleveland Municipal Court (first elected 2001; served 18 years)",
+     "from": "",
+     "to": "",
+     "source": "Eighth District Court of Appeals",
+     "url": "https://appeals.cuyahogacounty.gov/about-us/judges/judge-emanuella-d-groves",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39017-PROB-20270209",
+   "name": "John M. Holcomb",
+   "official_page": {
+    "url": "https://probatecourt.bcohio.gov/judge.php",
+    "source": "Butler County Probate Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Butler County Court of Common Pleas, Probate Division",
+     "from": "2021",
+     "to": "present",
+     "source": "Butler County Probate Court",
+     "url": "https://probatecourt.bcohio.gov/judge.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Assistant Prosecuting Attorney, Butler County",
+     "from": "1993",
+     "to": "2000",
+     "source": "Butler County Probate Court",
+     "url": "https://probatecourt.bcohio.gov/judge.php",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39035-GEN-20270103",
+   "name": "William Vodrey",
+   "offices": [
+    {
+     "office": "Judge, Cuyahoga County Court of Common Pleas (first elected 2020)",
+     "from": "",
+     "to": "present",
+     "source": "Signal Cleveland",
+     "url": "https://signalcleveland.org/cuyahoga-county-judical-vodrey-election-results-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "First elected to the Common Pleas bench; the article calls him a Democrat",
+     "year": "2020",
+     "party": "Democratic",
+     "source": "Signal Cleveland",
+     "url": "https://signalcleveland.org/cuyahoga-county-judical-vodrey-election-results-2026/",
+     "kind": "secondary",
+     "verified": false,
+     "set_aside": "2026-10-02: the article describes him as a Democrat; it does not show a run, a nomination or an office under that label, so by RULES.md it is not an earlier run under a party label"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39041-GEN-20301231-S",
+   "name": "Nickolas K. McCoy"
+  },
+  {
+   "race_id": "2026-OH-CP-39061-DRUG-20270103",
+   "name": "Nicole L. Sanders",
+   "official_page": {
+    "url": "https://hamiltoncountycourts.org/index.php/common-pleas-court-judge-nicole-l-sanders/",
+    "source": "Hamilton County Courts",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20270212",
+   "name": "Wende C. Cross",
+   "official_page": {
+    "url": "https://hamiltoncountycourts.org/index.php/common-pleas-court-judge-wende-c-cross/",
+    "source": "Hamilton County Courts",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-CP-39085-DR-20270102",
+   "name": "Jeffrey H. Black"
+  },
+  {
+   "race_id": "2026-OH-CP-39151-GEN-20270101",
+   "name": "Kristin G. Farmer",
+   "offices": [
+    {
+     "office": "Judge, Stark County Court of Common Pleas (appointed by the Governor)",
+     "from": "2013",
+     "to": "present",
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2012/farmerAppt_122112.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39169-PROB-JUV-20270209",
+   "name": "Latecia Eileen Wiles",
+   "official_page": {
+    "url": "https://www.wayneprobateandjuvenile.org/judge-latecia-e-wiles",
+    "source": "Wayne County Probate and Juvenile Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Wayne County Court of Common Pleas, Probate and Juvenile Division (appointed April 2012; kept the seat in the 2012 election)",
+     "from": "2012",
+     "to": "present",
+     "source": "Wayne County Probate and Juvenile Court",
+     "url": "https://www.wayneprobateandjuvenile.org/judge-latecia-e-wiles",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-GOV",
+   "name": "Vivek Ramaswamy and Robert A. McColley",
+   "website": {
+    "url": "https://vivekforohio.com",
+    "how": "Site says Vivek Ramaswamy is running for Governor of Ohio; the site names its organization as Vivek Ramaswamy and Rob McColley for Ohio; given as the campaign website by Wikipedia",
+    "verified": true
+   },
+   "born": {
+    "year": 1985,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Vivek_Ramaswamy",
+    "kind": "secondary",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Ohio Republican Party",
+     "url": "https://ohiogop.org/ohio-gop-endorses-trump-endorsed-candidates-in-key-2026-races-2/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate in the Republican presidential primaries",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Vivek_Ramaswamy",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH11",
+   "name": "Shawn Kaeser",
+   "website": {
+    "url": "https://www.shawnkaeser.com",
+    "how": "Site title: Shawn Kaeser for the Ohio House of Representatives; names District 11; paid for by Kaeser For Ohio",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH17",
+   "name": "Mike Dovilla",
+   "website": {
+    "url": "https://www.mikedovilla.com",
+    "how": "Site title: Mike Dovilla for Ohio House District 17; paid for by Mike Dovilla for Ohio",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Ohio Republican Party",
+    "url": "https://www.mikedovilla.com",
+    "note": "one line of the list under the site's Endorsements heading",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH24",
+   "name": "Dani Isaacsohn"
+  },
+  {
+   "race_id": "2026-OH-SH3",
+   "name": "Ismail Mohamed",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH46",
+   "name": "Benjamin McCall"
+  },
+  {
+   "race_id": "2026-OH-SH50",
+   "name": "Matthew Kishman",
+   "website": {
+    "url": "https://www.votekishman.com/",
+    "how": "The site is titled Vote Kishman and names Matt Kishman as State Representative in Ohio; its home page does not print the district",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH57",
+   "name": "Rick Walker"
+  },
+  {
+   "race_id": "2026-OH-SH9",
+   "name": "Bruce Euans",
+   "website": {
+    "url": "https://www.bruceeuans.com",
+    "how": "Site title: Bruce Euans For Ohio House; names Ohio House District 9",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SS23",
+   "name": "Robert E. Dintaman",
+   "website": {
+    "url": "https://www.dintaman4ohio.com/",
+    "how": "Site title: Robert Dintaman for Ohio; asks for a vote for State Senate and names District 23",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SS7",
+   "name": "Cara Jacob",
+   "website": {
+    "url": "https://www.caraforohio.com/",
+    "how": "Site title: Cara Jacob for Ohio Senate; says she is running in Senate District 7; paid for by Friends of Cara Jacob; linked from the Warren County Democratic Party's ballot page",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Warren County Democratic Party",
+     "url": "https://warrencountydems.org/2026ballot/",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

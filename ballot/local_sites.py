@@ -27,7 +27,10 @@ A new state is added to STATES with its name and the words its roster's legislat
 (Iowa and North Dakota, 2026-10-02, also give "why_no_local": why the November list has no city or school race, said in
 the scope files). South Dakota (2026-10-02) has a few city races in November and no school race: its "local_note" says
 why in the scope files, its city races carry the Census place code as SD-M-<code> (`_place_code`), and its ticket for
-Governor is written with "&" (`_first_named`).
+Governor is written with "&" (`_first_named`). Ohio (2026-10-02) has no statewide list of county candidates and no
+website cell; its "local_note" says why a city seat is on the list only for an unexpired term and that the county
+rows are those of the boards read so far, and its legislative races, which carry no jurisdiction, are named by
+district in the scope file.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -187,7 +190,16 @@ STATES = {"MN": {"name": "Minnesota"},
                                "13-7-10): most cities and every school board found voted on June 2, 2026, so the Secretary of State's "
                                "November 3, 2026 list carries the councils of ten cities and no school board. Townships elect at their "
                                "annual meeting in March (SDCL 8-3-1). A local candidate with no opponent is elected without being printed "
-                               "on the ballot (SDCL 12-16-1.1) and is on the list all the same."}}
+                               "on the ballot (SDCL 12-16-1.1) and is on the list all the same."},
+          # Ohio (2026-10-02): no statewide list of county candidates and no website cell anywhere (each county board's own
+          # list or 46-day notice is read by ballot/state_local_oh.py), so its websites come from verified findings only.
+          # Its legislative races carry no jurisdiction, so the scope names the district (`scope`)
+          "OH": {"name": "Ohio", "legislature": r"\bohio (?:state )?(?:house|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "local_note": "Ohio elects its mayors, city and village councils, township officers, boards of education and municipal "
+                               "court judges in November of odd-numbered years (R.C. 3501.02; next in 2027), so the November 3, 2026 lists "
+                               "carry a city or school seat only to finish an unexpired term. Ohio has no statewide list of county "
+                               "candidates: the county offices and common pleas judges here are those of the county boards of elections "
+                               "read so far, and the other counties' are not loaded yet."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1340,7 +1352,10 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             office = office_words(r)
             if r["office_kind"] == "governor":
                 office += " (one ticket: findings are about the candidate for Governor, who is named first)"
-            rows.append({"race_id": rid, "name": name, "level": r["level"], "office": office, "jurisdiction": r["jurisdiction"]})
+            where = r["jurisdiction"]
+            if not where and r["level"] == "legislature" and r["district"]:      # Ohio's legislative races name no jurisdiction
+                where = f"{'Senate' if r['office_kind'] == 'state_senate' else 'House'} District {r['district']}"
+            rows.append({"race_id": rid, "name": name, "level": r["level"], "office": office, "jurisdiction": where})
     rows.sort(key=lambda x: (x["race_id"], x["name"]))
     levels = ["statewide", "legislature", "court", "county", "city", "school"]
     by_level = collections.Counter(x["level"] for x in rows)

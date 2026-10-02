@@ -1,0 +1,434 @@
+{
+ "part": 8,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first seven candidates, so the rest were looked up only on pages reachable directly (party pages, court and county sites, campaign sites they link to, Wikipedia). Nothing was found that way for Andrew Lipian, Michelle Kreager, Daryl T. Dennie, Kimberly Ontko, Rick Rodger, Renea Turner, Darnell T. Brewer, Jonathan R. Bradner, Lyndsey A. Stough, Eboney C. Eldridge or Kelly Hunter-Kalagidis; they deserve a second look with search. A Sylvania City Council member named Lyndsey Stough is on that city's own council page, but no page read ties her to the House District 44 race, so nothing is recorded. The Franklin and Lucas County Democratic parties publish their endorsed lists as images; those two endorsements were taken from ballot/lean/oh_endorsements.json, not re-read here.",
+ "candidates": [
+  {
+   "race_id": "2026-OH-39033-county-commissioner",
+   "name": "Tim Ley",
+   "official_page": {
+    "url": "https://commissioners.crawford-co.org/",
+    "source": "Crawford County, Ohio: County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crawford County Commissioner",
+     "from": "2019 (sworn in December 2018)",
+     "to": "present",
+     "source": "Crawford County Now, 'New commissioner swears into office' (December 28, 2018); the county's own page lists him today",
+     "url": "https://crawfordcountynow.com/?p=85282",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Republican primary for Crawford County Commissioner and was unopposed in November",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Crawford County Now",
+     "url": "https://crawfordcountynow.com/?p=85282",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39041-county-auditor",
+   "name": "George Kaitsa",
+   "official_page": {
+    "url": "https://auditor.co.delaware.oh.us/",
+    "source": "Delaware County Auditor's office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Delaware County Auditor (appointed 2009, elected to a full term the following year)",
+     "from": "2009",
+     "to": "present",
+     "source": "Delaware County Auditor's office",
+     "url": "https://auditor.co.delaware.oh.us/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39061-county-commissioner",
+   "name": "Meeka Owens",
+   "website": {
+    "url": "https://votemeekaowens.com/",
+    "how": "The site says: 'I'm Meeka Owens, a Cincinnati City Councilmember ... and candidate for Hamilton County Commissioner'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cincinnati-oh.gov/council/council-members/council-member-meeka-owens/",
+    "source": "City of Cincinnati, Clerk of Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Cincinnati City Council (elected 2021)",
+     "from": "2021 (elected)",
+     "to": "present",
+     "source": "City of Cincinnati, Clerk of Council",
+     "url": "https://www.cincinnati-oh.gov/council/council-members/council-member-meeka-owens/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39093-county-commissioner",
+   "name": "Andrew Lipian"
+  },
+  {
+   "race_id": "2026-OH-39123-county-auditor",
+   "name": "Michelle Kreager"
+  },
+  {
+   "race_id": "2026-OH-39151-county-commissioner",
+   "name": "Tony M. Townsend",
+   "official_page": {
+    "url": "https://massillonohio.gov/city-council/",
+    "source": "City of Massillon: City Council (Ward 4, Tony Townsend)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Massillon City Council, Ward 4",
+     "from": "",
+     "to": "present",
+     "source": "City of Massillon",
+     "url": "https://massillonohio.gov/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39169-county-commissioner",
+   "name": "Jonathan Hofstetter",
+   "official_page": {
+    "url": "https://www.wayneohio.org/commissioners/",
+    "source": "Wayne County, Ohio: Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wayne County Commissioner",
+     "from": "",
+     "to": "present",
+     "source": "Wayne County, Ohio",
+     "url": "https://www.wayneohio.org/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA1-20270209",
+   "name": "Ginger S. Bock",
+   "offices": [
+    {
+     "office": "Judge, Ohio First District Court of Appeals",
+     "from": "2021",
+     "to": "present",
+     "source": "Wikipedia, 'Ohio District Courts of Appeals' (term began February 9, 2021)",
+     "url": "https://en.wikipedia.org/wiki/Ohio_District_Courts_of_Appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Judge of the First District Court of Appeals on a ballot without party labels; listed as the Democratic Party's candidate",
+     "year": 2020,
+     "party": "Democratic",
+     "source": "Wikipedia, '2020 Ohio elections'",
+     "url": "https://en.wikipedia.org/wiki/2020_Ohio_elections",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA6-20270210",
+   "name": "Myron C. Duhart",
+   "website": {
+    "url": "https://judgeduhart.com/",
+    "how": "The site is titled 'Re-elect Judge Myron Duhart to the Sixth District Court of Appeals'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Ohio Sixth District Court of Appeals (elected 2020)",
+     "from": "2021",
+     "to": "present",
+     "source": "his campaign site; Wikipedia's list gives the term from February 10, 2021",
+     "url": "https://judgeduhart.com/meet-judge-duhart/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Judge, Lucas County Court of Common Pleas (appointed by the Governor, January 2011)",
+     "from": "2011",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://judgeduhart.com/meet-judge-duhart/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Lucas County Democratic Party",
+     "url": "https://lucascountydemocraticparty.com/endorsed-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39017-20270103",
+   "name": "Daniel Haughey",
+   "official_page": {
+    "url": "https://commonpleascourt.bcohio.gov/judges/judge_daniel_e_haughey.php",
+    "source": "Butler County Court of Common Pleas",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Butler County Court of Common Pleas (elected November 2020)",
+     "from": "2021",
+     "to": "present",
+     "source": "Butler County Court of Common Pleas",
+     "url": "https://commonpleascourt.bcohio.gov/judges/judge_daniel_e_haughey.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Butler County Area III Court",
+     "from": "2008",
+     "to": "2020",
+     "source": "Butler County Court of Common Pleas",
+     "url": "https://commonpleascourt.bcohio.gov/judges/judge_daniel_e_haughey.php",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39035-GEN-20270102",
+   "name": "Daryl T. Dennie"
+  },
+  {
+   "race_id": "2026-OH-CP-39035-PROB-20270209",
+   "name": "Laura J. Gallagher",
+   "official_page": {
+    "url": "https://probate.cuyahogacounty.gov/judges.aspx",
+    "source": "Cuyahoga County Probate Court",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-CP-39049-PROB-20270209",
+   "name": "Kelly Green"
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20270210",
+   "name": "Dennis Charles Mahoney",
+   "website": {
+    "url": "https://www.mahoneyforjudge.com/",
+    "how": "'Mahoney for Judge': the site names Dennis Mahoney as a candidate for judge; the Hamilton County Republican Party's candidates page (https://www.hamiltoncountyrepublicanparty.org/candidates) links to it for the Court of Common Pleas. The site itself does not name the county or the court.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Cheviot City Council",
+     "from": "",
+     "to": "",
+     "source": "his campaign site (no years given)",
+     "url": "https://www.mahoneyforjudge.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39061-PROB-20270209",
+   "name": "Ralph Winkler",
+   "website": {
+    "url": "https://www.judgeralphwinkler.com/",
+    "how": "The site is titled 'Re-Elect Judge Ralph Winkler' and says he has served as Hamilton County Probate Court Judge since 2015",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.probatect.org/",
+    "source": "Hamilton County Probate Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Hamilton County Probate Court",
+     "from": "2015",
+     "to": "present",
+     "source": "his campaign site",
+     "url": "https://www.judgeralphwinkler.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Judge, Hamilton County Court of Common Pleas, General Division",
+     "from": "2004",
+     "to": "2015",
+     "source": "his campaign site",
+     "url": "https://www.judgeralphwinkler.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Judge, Hamilton County Municipal Court",
+     "from": "1999",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://www.judgeralphwinkler.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39143-GEN-20270101",
+   "name": "Kimberly Ontko"
+  },
+  {
+   "race_id": "2026-OH-CP-39159-PROB-JUV-20270209",
+   "name": "Rick Rodger"
+  },
+  {
+   "race_id": "2026-OH-GOV",
+   "name": "Renea Turner and Jalen Turner"
+  },
+  {
+   "race_id": "2026-OH-SH10",
+   "name": "Denise D'Angelo",
+   "website": {
+    "url": "https://www.denisedangelo.com/",
+    "how": "The site is titled 'Denise D'Angelo For State Representative' and says 'We need D'Angelo in the Ohio House'; the Franklin County Republican Party's candidates page (https://www.franklincountygop.org/candidates) links to it for the 10th District. The site itself does not give the district number.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, South-Western City School District Board of Education (elected 2023)",
+     "from": "2023 (elected)",
+     "to": "present",
+     "source": "her campaign site",
+     "url": "https://www.denisedangelo.com/meet-denise",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH16",
+   "name": "Scott DiMauro",
+   "website": {
+    "url": "https://www.dimauroforohio.com/",
+    "how": "'DiMauro for Ohio': the site says 'Democratic Candidate for Ohio House District 16' and is paid for by Friends of Scott DiMauro",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Democratic Candidate for Ohio House District 16",
+    "url": "https://www.dimauroforohio.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH22",
+   "name": "Darnell T. Brewer"
+  },
+  {
+   "race_id": "2026-OH-SH29",
+   "name": "Jonathan R. Bradner"
+  },
+  {
+   "race_id": "2026-OH-SH44",
+   "name": "Lyndsey A. Stough"
+  },
+  {
+   "race_id": "2026-OH-SH5",
+   "name": "Eboney C. Eldridge"
+  },
+  {
+   "race_id": "2026-OH-SH54",
+   "name": "Kellie Deeter",
+   "website": {
+    "url": "https://www.kelliedeeter.com/",
+    "how": "The site is titled 'Kellie Deeter for Ohio House'. It does not give the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH8",
+   "name": "Kelly Hunter-Kalagidis"
+  },
+  {
+   "race_id": "2026-OH-SS21",
+   "name": "Kent Smith",
+   "website": {
+    "url": "https://www.kentsmith.org/",
+    "how": "'Kent Smith | Ohio State Senate ... Running for reelection in 2026'; the About page calls him Senator Smith and the Senate Democratic Whip",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SS31",
+   "name": "Laura Sirot",
+   "website": {
+    "url": "https://www.sirotforohio.org/",
+    "how": "'Sirot for State Senate', paid for by Laura Sirot for Ohio; the Wayne County Democratic Party's page for her (State Senator, 31st District) links to it",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Wayne County Children's Services Board",
+     "from": "",
+     "to": "",
+     "source": "her campaign site (no years given)",
+     "url": "https://www.sirotforohio.org/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Wayne County Democratic Party",
+     "url": "https://www.waynedemocrats.org/vote/endorsements/laura-sirot/",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-OH-CP-39049-PROB-20270209",
+   "name": "Kelly Green",
+   "what": "endorsed_by (Franklin County Democratic Party)",
+   "url": "https://www.fcdp.org/myballot.html",
+   "why": "The party's page shows its endorsed list only as an image; the name could not be read on the page, and the researcher had not read it there either."
+  }
+ ]
+}

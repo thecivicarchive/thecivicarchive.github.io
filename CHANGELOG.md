@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.087 — 2026-10-02 — Ohio gets the same treatment
+
+- Ohio's ballot page now has the real map: 9,104 precinct pieces with the districts they sit in (county, city or township, House, Senate, Congress on the 2026 lines, court of appeals district, school district, and council districts and wards where a county or city has them), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.
+- Ohio's candidates for Governor, the other statewide offices, the Supreme Court, the Legislature, the courts and the county offices loaded so far show what the record holds: 97 have an official government page, 74 a campaign website of their own, offices held (240, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": endorsements only from party pages that themselves say "endorsed" (a party's slate card or sample ballot is not counted as one), earlier runs under a party label, the candidate's own words, and how each county and 185 cities voted in 2020, 2022 and 2024, from the Secretary of State's official canvass. Ohio's judges are nominated in party primaries and printed without a party in November; the page labels no one.
+- The Governor's race has its polls (Marist, Emerson twice) and prediction-market prices as tabs; Secretary of State and one Supreme Court seat have market prices too.
+- Only 23 of Ohio's 88 counties have their county and court races loaded, and 38 legislative seats have no November list yet; the page says "list not loaded" there, never "no candidate". Ohio rotates the order of names from precinct to precinct, so no ballot order is shown. Polling places stay off the map until the Secretary of State's list is matched to every precinct.
+- Statewide court seats in every finished state now get the same polls and markets tabs as the other statewide races, and South Dakota's map now says its precinct lines are from 2020.
+- "Earlier, under a party label" now needs the label on the record itself: a party's primary or nomination, a ballot that printed the party, a seat in a body whose members sit by party, or an appointment by a party's committee. A news article describing someone as a Democrat or a Republican does not count; two such entries (one in Ohio, one in Minnesota) were taken out.
+
 ## v4.0.086 — 2026-10-02 — South Dakota gets the same treatment
 
 - South Dakota's ballot page now has the real map: its 835 precincts with the districts they sit in (county, city or township, House, Senate, Congress, judicial circuit, conservation and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.

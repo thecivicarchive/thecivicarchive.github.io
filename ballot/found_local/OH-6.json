@@ -1,0 +1,399 @@
+{
+ "part": 6,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first eight candidates; the rest were researched only through pages that could be reached directly (parties' own pages, official sites, Wikipedia, campaign addresses linked from those). A blank for them means not searched, not that nothing exists. The Franklin and Lucas County Democratic endorsement lists are images on the pages given (headed \"Our endorsed Franklin County Democratic candidates\" and \"November 3rd, 2026 Endorsed Candidates\"). Matt Lundy: the Wikipedia article does not mention the 2026 run; the tie is Ohio, the Democratic label and Lorain County, and our record places House District 53 wholly in Lorain County, so the verifier kept his findings.",
+ "candidates": [
+  {
+   "race_id": "2026-OH-39025-county-commissioner",
+   "name": "Joe Wessels",
+   "website": {
+    "url": "https://joeforclermont.com",
+    "how": "The site's title is \"Joe Wessels for Clermont County Commissioner\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39035-county-executive",
+   "name": "Chris Ronayne",
+   "website": {
+    "url": "https://chrisronayne.com",
+    "how": "The site's title is \"Chris Ronayne for Cuyahoga County Executive\" and it says he is running for re-election as County Executive.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://cuyahogacounty.gov/executive/about-us",
+    "source": "Cuyahoga County, Office of the Executive",
+    "verified": true
+   },
+   "born": {
+    "year": 1968,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Chris_Ronayne",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cuyahoga County Executive",
+     "from": "2023",
+     "to": "present",
+     "source": "Cuyahoga County, About the Executive (took office on January 1, 2023)",
+     "url": "https://cuyahogacounty.gov/executive/about-us",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DEMOCRAT for County Executive",
+    "url": "https://chrisronayne.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39093-county-auditor",
+   "name": "Craig Snodgrass",
+   "official_page": {
+    "url": "https://loraincountyauditor.gov",
+    "source": "Lorain County Auditor (the page names J. Craig Snodgrass, CPA, CGFM as Auditor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lorain County Auditor",
+     "to": "present",
+     "source": "Lorain County Auditor's own site",
+     "url": "https://loraincountyauditor.gov",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39165-county-commissioner",
+   "name": "Tom Grossmann",
+   "website": {
+    "url": "https://tomgrossmann.com",
+    "how": "The site's title is \"Commissioner Tom Grossmann - Warren County Commissioner Tom Grossmann\" and it says he is the only candidate endorsed by the Warren County Republican Party for Commissioner; WVXU's candidate article of 2026-04-03 gives the same address.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Warren County Commissioner",
+     "from": "2015",
+     "to": "present",
+     "source": "WVXU (quotes him: a commissioner since January 2015)",
+     "url": "https://www.wvxu.org/politics/2026-04-03/warren-county-commission-republican-candidates-tom-grossmann-mark-messer",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor and member of the City Council, Mason",
+     "source": "his campaign site (former Mayor and Councilmember of Mason; no years given)",
+     "url": "https://tomgrossmann.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the ONLY candidate endorsed by the Warren County Republican Party for Commissioner",
+    "url": "https://tomgrossmann.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-AUD",
+   "name": "Annette Blackwell",
+   "website": {
+    "url": "https://blackwellforohio.com/",
+    "how": "The site's title is \"Blackwell for Ohio Auditor\" and it announces her candidacy for Auditor; it says she has served as Mayor of Maple Heights.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Maple Heights",
+     "to": "present",
+     "source": "City of Maple Heights (Mayor Annette M. Blackwell, serving in her third term)",
+     "url": "https://mapleheightsohio.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Trumbull County Democratic Party",
+     "url": "https://www.trumbullcountydems.org/meet-the-candidates",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Warren County Democratic Party",
+     "url": "https://warrencountydems.org/2026ballot/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Wayne County Democratic Party",
+     "url": "https://www.waynedemocrats.org/vote/endorsements/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Lucas County Democratic Party",
+     "url": "https://lucascountydems.com/endorsed-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA6-20270209",
+   "name": "Michael R. Goulding",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Sandusky County Republican Party",
+     "url": "https://www.sanduskycogop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA9-20290209-S",
+   "name": "Tavia Galonski",
+   "website": {
+    "url": "https://www.taviagalonski.com",
+    "how": "The site says she serves Summit County as Clerk of Courts and is a candidate for Judge of the 9th District Court of Appeals.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Summit County Clerk of Courts",
+     "to": "present",
+     "source": "her campaign site (serves Summit County residents as Clerk of Courts; no start year given there)",
+     "url": "https://www.taviagalonski.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Ohio House (District 35, then District 33)",
+     "from": "2017",
+     "to": "2024",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tavia_Galonski",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Wayne County Democratic Party",
+     "url": "https://www.waynedemocrats.org/vote/endorsements/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, Ohio House",
+     "year": "2017 to 2024",
+     "party": "Democratic",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tavia_Galonski",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39049-GEN-20270702",
+   "name": "Chris Brown",
+   "official_page": {
+    "url": "https://www.fccourts.org/Directory.aspx",
+    "source": "Franklin County Court of Common Pleas directory (Christopher Brown, Judge, General Division)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Franklin County Court of Common Pleas, General Division",
+     "to": "present",
+     "source": "Franklin County Court of Common Pleas directory",
+     "url": "https://www.fccourts.org/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39061-JUV-20270214",
+   "name": "Susan Luken",
+   "website": {
+    "url": "https://www.lukenforjuvenilecourt.com/",
+    "how": "The site's title is \"Susan Luken for Hamilton County Juvenile Court Judge\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, Hamilton County Probate Court",
+     "from": "2023",
+     "to": "present",
+     "source": "her campaign site (appointed March 22, 2023)",
+     "url": "https://www.lukenforjuvenilecourt.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39123-PROB-JUV-20270209",
+   "name": "Frederick C. Hany II",
+   "official_page": {
+    "url": "https://boe.ottawa.oh.gov/wp-content/uploads/2026/04/Elected-officials-for-website-4-10-2026.pdf",
+    "source": "Ottawa County Board of Elections, list of elected officials (April 10, 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Ottawa County Court of Common Pleas, Juvenile and Probate",
+     "to": "present",
+     "source": "Ottawa County Board of Elections, list of elected officials (April 10, 2026)",
+     "url": "https://boe.ottawa.oh.gov/wp-content/uploads/2026/04/Elected-officials-for-website-4-10-2026.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Judge of the Court of Common Pleas, Juvenile and Probate, listed as Republican",
+     "year": "2026",
+     "party": "Republican",
+     "source": "Ottawa County Board of Elections, list of elected officials",
+     "url": "https://boe.ottawa.oh.gov/wp-content/uploads/2026/04/Elected-officials-for-website-4-10-2026.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-GOV",
+   "name": "Don Kissick and James L. Mills",
+   "website": {
+    "url": "https://donkissick.com",
+    "how": "The site's title is \"Kissick/Mills for Ohio\", paid for by People for Don Kissick and James Mills. The site's opening page names both candidates and Ohio; it does not itself spell out the office.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH1",
+   "name": "Dontavius Jarrells",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH15",
+   "name": "Chris Glassburn",
+   "website": {
+    "url": "https://chrisglassburn.com",
+    "how": "The site's title is \"Chris Glassburn for State Represenative\" (as spelled there); it names North Olmsted and his service as State Representative.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH44",
+   "name": "David J. Fournier",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Lucas County Democratic Party",
+     "url": "https://lucascountydems.com/endorsed-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH53",
+   "name": "Matt Lundy",
+   "born": {
+    "year": 1960,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Matt_Lundy",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Ohio House District 55",
+     "from": "2007",
+     "to": "2014",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matt_Lundy",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Lorain County Commissioner",
+     "from": "2015",
+     "source": "Wikipedia (the article still says \"present\"; no end year recorded)",
+     "url": "https://en.wikipedia.org/wiki/Matt_Lundy",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Avon Lake City Council",
+     "from": "1994",
+     "to": "1995",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matt_Lundy",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, Ohio House District 55",
+     "year": "2007 to 2014",
+     "party": "Democratic",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Matt_Lundy",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SS3",
+   "name": "Stacie A. Baker",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every address was re-opened on 2026-10-02 (the two endorsement images and the Ottawa County list were looked at). Corrected: the Maple Heights address (the old one now forwards to the city's new one); the Summit County Clerk of Courts entry lost a start year its cited page does not give; six website notes were cut down to what the site itself shows (Grossmann's site does not use the word re-elect)."
+}

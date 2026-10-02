@@ -1,0 +1,35 @@
+{
+ "state": "OH",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 341,
+ "by_level": {
+  "statewide": 16,
+  "legislature": 114,
+  "court": 121,
+  "county": 88,
+  "city": 2,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 5,
+  "legislature": 56,
+  "court": 93,
+  "county": 57,
+  "city": 1,
+  "school": 0
+ },
+ "races": 212,
+ "on_the_november_list_in_all": 341,
+ "per_part": 30,
+ "parts": 12,
+ "cities_in": 1,
+ "city_candidates": 2,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "Ohio elects its mayors, city and village councils, township officers, boards of education and municipal court judges in November of odd-numbered years (R.C. 3501.02; next in 2027), so the November 3, 2026 lists carry a city or school seat only to finish an unexpired term. Ohio has no statewide list of county candidates: the county offices and common pleas judges here are those of the county boards of elections read so far, and the other counties' are not loaded yet."
+}

@@ -1,0 +1,514 @@
+{
+ "part": 3,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "Web search stopped partway (the session's search allowance ran out after 18 of 29 candidates), so the state House candidates, the Libertarian candidates and some judges were looked for only at addresses that could be guessed; a blank there means not fully looked up, not nothing to find. Left out on purpose: a campaign site for Marilyn Zayas that party pages link but that answered scripts with a stub; Joshua A. Umbaugh's page, which sits on the Libertarian Party of Ohio's own domain; a birth year for Marilyn Zayas (the secondary source disagrees with itself). Ballotpedia, Guernsey County's site and the Journal-News refused scripts and were not worked around. The endorsed_by entries are the lines already gathered in ballot/lean/oh_endorsements.json, each page re-opened here.",
+ "candidates": [
+  {
+   "race_id": "2026-OH-39017-county-commissioner",
+   "name": "Mike Miller"
+  },
+  {
+   "race_id": "2026-OH-39035-county-council-5",
+   "name": "Michael J. Gallagher"
+  },
+  {
+   "race_id": "2026-OH-39059-county-commissioner",
+   "name": "Dave Wilson"
+  },
+  {
+   "race_id": "2026-OH-39085-county-commissioner",
+   "name": "Tom Trombley"
+  },
+  {
+   "race_id": "2026-OH-39117-county-commissioner",
+   "name": "Jon W. Mason",
+   "official_page": {
+    "url": "https://morrowcountyohio.gov/government/commissioners/",
+    "source": "Morrow County, Ohio: Commissioners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39143-county-commissioner-20290102-S",
+   "name": "Jill A. Simpson",
+   "website": {
+    "url": "https://jillsimpson4u.sitesab.com/",
+    "how": "The site is titled \"Jill Simpson for Sandusky County Commissioner\" and carries the year 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-39165-county-auditor",
+   "name": "Matt Nolan",
+   "official_page": {
+    "url": "https://auditor.warrencountyohio.gov/GeneralInformation/AuditorBio/Index",
+    "source": "Warren County Auditor: Auditor's Biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Warren County Auditor (elected in 2014)",
+     "from": null,
+     "to": "present",
+     "source": "Warren County Auditor",
+     "url": "https://auditor.warrencountyohio.gov/GeneralInformation/AuditorBio/Index",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-39173-county-commissioner",
+   "name": "Ryan E. Lee",
+   "offices": [
+    {
+     "office": "Mayor of Jerry City",
+     "from": null,
+     "to": null,
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/?p=124394",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Council member, Jerry City",
+     "from": null,
+     "to": null,
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/?p=124394",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Elmwood Board of Education",
+     "from": null,
+     "to": null,
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/?p=124394",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Board member, Northwestern Water and Sewer District",
+     "from": null,
+     "to": "present",
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/?p=124394",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA12-20270209",
+   "name": "Robert A. Hendrickson",
+   "offices": [
+    {
+     "office": "Judge, Butler County Area III Court (appointed)",
+     "from": "1997",
+     "to": null,
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/AJHendrickson_032425.asp",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Twelfth District Court of Appeals",
+     "from": "2009",
+     "to": "present",
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/AJHendrickson_032425.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://butlercountygop.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CA9-20270209",
+   "name": "Betty Sutton",
+   "born": {
+    "year": 1963,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Barberton City Council (at large)",
+     "from": "1990",
+     "to": "1990",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Summit County Council (at large)",
+     "from": "1991",
+     "to": "1992",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Ohio House of Representatives",
+     "from": "1993",
+     "to": "2000",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "U.S. Representative, Ohio's 13th district",
+     "from": "2007",
+     "to": "2013",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Administrator, Saint Lawrence Seaway Development Corporation",
+     "from": "2013",
+     "to": "2017",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, Ohio Ninth District Court of Appeals",
+     "from": "2021",
+     "to": "present",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "U.S. Representative, Ohio's 13th district",
+     "year": "2007 to 2013",
+     "party": "Democratic",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Betty_Sutton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Wayne County Democratic Party",
+     "url": "https://www.waynedemocrats.org/vote/endorsements/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39035-DR-20270108",
+   "name": "Colleen Ann Reali",
+   "official_page": {
+    "url": "https://domestic.cuyahogacounty.gov/judges-magistrates/colleen-ann-reali",
+    "source": "Cuyahoga County Domestic Relations Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Cuyahoga County Court of Common Pleas, Domestic Relations Division",
+     "from": "2021",
+     "to": "present",
+     "source": "Cuyahoga County Domestic Relations Court",
+     "url": "https://domestic.cuyahogacounty.gov/judges-magistrates/colleen-ann-reali",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Magistrate, Cuyahoga County Domestic Relations Court (six years before her election)",
+     "from": null,
+     "to": null,
+     "source": "Cuyahoga County Domestic Relations Court",
+     "url": "https://domestic.cuyahogacounty.gov/judges-magistrates/colleen-ann-reali",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39035-GEN-20270107",
+   "name": "Diane P. Russell"
+  },
+  {
+   "race_id": "2026-OH-CP-39049-GEN-20270101",
+   "name": "Carl Aveni",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true,
+     "note": "The names are in the sample ballot image on this page"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20270102",
+   "name": "Christian A. Jenkins"
+  },
+  {
+   "race_id": "2026-OH-CP-39061-GEN-20290114-S",
+   "name": "Leah Dinkelacker",
+   "offices": [
+    {
+     "office": "Judge, Hamilton County Court of Common Pleas (appointed by the Governor)",
+     "from": "2025",
+     "to": "present",
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/DinkelackerAppt_031225.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39093-PROB-20270209",
+   "name": "James T. Walther"
+  },
+  {
+   "race_id": "2026-OH-CP-39151-PROB",
+   "name": "Curt Werren",
+   "official_page": {
+    "url": "https://www.starkcountyohio.gov/probate/the-judge",
+    "source": "Stark County Probate Court: The Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Stark County Probate Court (appointed by the Governor)",
+     "from": "2025",
+     "to": "present",
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/WerrenAppt_011025.asp",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Canton Municipal Court",
+     "from": "2015",
+     "to": null,
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/WerrenAppt_011025.asp",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Stark County Court of Common Pleas, General Division",
+     "from": null,
+     "to": null,
+     "source": "Court News Ohio (Supreme Court of Ohio)",
+     "url": "https://courtnewsohio.gov/bench/2025/WerrenAppt_011025.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-CP-39173-PROB-20270209",
+   "name": "Doug Ruck",
+   "website": {
+    "url": "https://ruckforjudge.com",
+    "how": "The site is titled \"Republican Doug Ruck for Wood County Probate and Juvenile Court Judge\"; BG Independent News's report of his announcement names it",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Doug Ruck for Wood County Probate and Juvenile Court Judge",
+    "url": "https://ruckforjudge.com",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Village solicitor, Gibsonburg",
+     "from": null,
+     "to": "present",
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/doug-ruck-announces-candidacy-for-wood-county-juvenile-probate-court-judge/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Village solicitor, Luckey",
+     "from": null,
+     "to": null,
+     "source": "BG Independent News",
+     "url": "https://bgindependentmedia.org/doug-ruck-announces-candidacy-for-wood-county-juvenile-probate-court-judge/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SC-20270101",
+   "name": "Marilyn Zayas",
+   "offices": [
+    {
+     "office": "Judge, Ohio First District Court of Appeals",
+     "from": "2016",
+     "to": "present",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Marilyn_Zayas",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Trumbull County Democratic Party",
+     "url": "https://www.trumbullcountydems.org/meet-the-candidates",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Warren County Democratic Party",
+     "url": "https://warrencountydems.org/2026ballot/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Wayne County Democratic Party",
+     "url": "https://www.waynedemocrats.org/vote/endorsements/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true,
+     "note": "The names are in the sample ballot image on this page"
+    },
+    {
+     "party": "Democratic",
+     "unit": "Lucas County Democratic Party",
+     "url": "https://lucascountydemocraticparty.com/endorsed-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SH13",
+   "name": "Tristan W. Rader",
+   "website": {
+    "url": "https://www.tristanrader.com",
+    "how": "The site is headed \"State Rep. Tristan Rader\" and names Lakewood and Cleveland's west side, which House District 13 covers",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-SH19",
+   "name": "Nicole Sigurdson"
+  },
+  {
+   "race_id": "2026-OH-SH27",
+   "name": "Nancy Reed Aichholz"
+  },
+  {
+   "race_id": "2026-OH-SH40",
+   "name": "Joshua A. Umbaugh"
+  },
+  {
+   "race_id": "2026-OH-SH47",
+   "name": "Jordan Haire"
+  },
+  {
+   "race_id": "2026-OH-SH52",
+   "name": "Cliff Winkel"
+  },
+  {
+   "race_id": "2026-OH-SH7",
+   "name": "Ukeme Awakessien Jeter",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Franklin County Democratic Party",
+     "url": "https://www.fcdp.org/myballot.html",
+     "verified": true,
+     "note": "The names are in the sample ballot image on this page"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OH-SOS",
+   "name": "Tom Pruss"
+  },
+  {
+   "race_id": "2026-OH-SS29",
+   "name": "Jane Timken",
+   "website": {
+    "url": "https://www.janetimkenforohio.com/",
+    "how": "The site is titled \"Jane Timken for Ohio Senate\" and names the 29th District",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OH-TREAS",
+   "name": "Jay Edwards",
+   "offices": [
+    {
+     "office": "Member, Ohio House of Representatives, 94th district",
+     "from": "2017",
+     "to": "2025",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Jay_Edwards_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ohio House of Representatives, 94th district",
+     "year": "2017 to 2025",
+     "party": "Republican",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Jay_Edwards_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Butler County Republican Party",
+     "url": "https://butlercountygop.org/candidates",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Sandusky County Republican Party",
+     "url": "https://www.sanduskycogop.org/candidates",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Marilyn Zayas: the Lucas County Democratic Party's endorsement page has moved to lucascountydemocraticparty.com; address updated",
+  "Curt Werren: the source gives 2015 as the start on the Canton Municipal Court and no end year; end year blanked",
+  "Jill A. Simpson: the note on how the website was found now says only what the site itself shows",
+  "Jane Timken: website address written as the one the site answers at"
+ ]
+}
