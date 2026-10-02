@@ -533,9 +533,11 @@ window.GEOKIT = (function () {
     const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.mn || dataName("mcd", z.m), "mcd", z.m),
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
-      ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (about ${shares[n] || "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
+      ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (${shares[n] ? "about " + shares[n] : "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
       row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
       row(esc(KW.judicial[1]), z.jd ? dataName("judicial", z.jd) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
+      ...(z.sw2 || []).map((i, n) => row("", ((z.sw2n || [])[n] || dataName("swcd", i)) + ` (it holds a smaller part of the ${UNIT})`, "swcd", i)),
+      ...((BOOT.geo || {}).says || []).map(([k, w]) => z.x && z.x[k] ? row(esc(capital(w)), (z.x[k + "_n"] || z.x[k]) + (z.x[k + "_area"] ? ", " + z.x[k + "_area"].join(" and ") : "") + (z.x[k + "_pct"] ? ` (about ${Math.round(z.x[k + "_pct"])}% of the ${UNIT} is inside it)` : "")) : ""),
       row("Hospital district", z.ho ? (z.hon || dataName("hospital", z.ho)) : "", "hospital", z.ho), row("Park district", z.pk ? (z.pkn || dataName("park", z.pk)) : "", "park", z.pk)].join("");
     const edge = !z.in ? `Your spot is on a ${UNIT} line, as near as this map can tell. ${esc(z.pn)} is the nearest ${UNIT}${z.nb ? `; ${esc(z.nb)} is on the other side` : ""}.`
       : z.edge <= 30 ? `Your spot is about ${feet(z.edge)} feet from this ${UNIT}&rsquo;s line${z.nb ? ` with ${esc(z.nb)}` : ""}; a spot that close can fall on either side of it.` : "";
@@ -642,10 +644,16 @@ window.GEOKIT = (function () {
     const pcts = (p.school || []).length === sch.length ? (p.school_pct || []).map(Number) : []; let nb = 0, sum = 0;
     while (nb < pcts.length && sum + pcts[nb] <= 101.5) sum += pcts[nb++];
     const over = pcts.length === sch.length && nb > 0 && nb < sch.length ? {ov: sch.length - nb} : {};
+    // what the precinct says of districts no layer draws (BOOT.geo.says), and a second district of a kind that holds part of it (split)
+    const says = (BOOT.geo || {}).says || [], x = {}, sp = p.split || {}, sw2 = Object.keys(sp.swcd || {}).filter(i => i !== p.swcd);
+    says.forEach(([k]) => { x[k] = p[k] || ""; if (!p[k]) return; x[k + "_n"] = nm(k, p[k]);
+      if (p[k + "_area"]) x[k + "_area"] = sp[k + "_area"] ? Object.keys(sp[k + "_area"]) : [p[k + "_area"]];
+      if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {})};
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
-      edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0)};
+      edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0), ...more};
   }
   function locate(lon, lat, acc) {      // a reader's spot, used here and now: the pin, the precinct, every district. The spot itself is never kept.
     return (ready || mount()).then(() => map.locate(lon, lat)).then(r => {
