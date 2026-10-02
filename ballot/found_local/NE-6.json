@@ -1,0 +1,424 @@
+{
+ "part": 6,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first six candidates; the rest were looked up by opening official and campaign pages directly, so blanks here mean not looked for by search, not that nothing exists. No Nebraska party page calls its list an endorsement (see ballot/lean/ne_endorsements.json), so endorsed_by is empty throughout.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-commissioner-district-5",
+   "name": "Tim Reams",
+   "official_page": {
+    "url": "https://adamscountyne.gov/board-of-commissioners/73-liaison-reps",
+    "source": "Adams County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Adams County Commissioner, District 5",
+     "source": "Adams County, Board of Commissioners",
+     "url": "https://adamscountyne.gov/board-of-commissioners/73-liaison-reps",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-county-commissioner-district-7",
+   "name": "Myron Kouba",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/county-offices/board-of-commissioners/commissioner-names",
+    "source": "Buffalo County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo County Commissioner, District 7 (elected 2018, began office 2019; re-elected 2022)",
+     "source": "Buffalo County, Terms of Office",
+     "url": "https://buffalocounty.ne.gov/county-offices/board-of-commissioners/terms-of-office",
+     "kind": "official",
+     "from": "2019",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-county-commissioner",
+   "name": "Mike McConaughey",
+   "official_page": {
+    "url": "https://cherrycountyne.gov/county-board/",
+    "source": "Cherry County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cherry County Commissioner, Road District 3",
+     "source": "Cherry County, Board of Commissioners",
+     "url": "https://cherrycountyne.gov/county-board/",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31055-county-commissioner-district-6",
+   "name": "Tim Donahue"
+  },
+  {
+   "race_id": "2026-NE-31109-county-commissioner-district-1",
+   "name": "Sean Flowerday",
+   "official_page": {
+    "url": "https://www.lancaster.ne.gov/672/District-1---Sean-Flowerday",
+    "source": "Lancaster County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lancaster County Commissioner, District 1 (elected November 2018 and 2022; current term 2023 to 2027)",
+     "source": "Lancaster County, Board of Commissioners",
+     "url": "https://www.lancaster.ne.gov/672/District-1---Sean-Flowerday",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31119-county-attorney",
+   "name": "Nathan Eckstrom",
+   "offices": [
+    {
+     "office": "Deputy Madison County Attorney",
+     "source": "Norfolk Daily News",
+     "url": "https://norfolkdailynews.com/news/two-prosecutors-seeking-to-become-next-madison-county-attorney/article_ebefe4b6-d98c-434b-a874-a7a73d84daee.html",
+     "kind": "secondary",
+     "to": "present",
+     "verified": true,
+     "from": "2018"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31137-county-clerk",
+   "name": "Sally Fox"
+  },
+  {
+   "race_id": "2026-NE-31153-county-clerk-register-of-deeds",
+   "name": "Amber K. Houghtaling",
+   "official_page": {
+    "url": "https://www.sarpy.gov/CivicAlerts.aspx?AID=408",
+    "source": "Sarpy County news release, January 21, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sarpy County Clerk and Register of Deeds (appointed by the County Board; sworn in January 20, 2026)",
+     "source": "Sarpy County news release",
+     "url": "https://www.sarpy.gov/CivicAlerts.aspx?AID=408",
+     "kind": "official",
+     "from": "2026",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31177-county-commissioner-district-2",
+   "name": "Reid Japp"
+  },
+  {
+   "race_id": "2026-NE-31185-county-commissioner-district-1",
+   "name": "Daniel K. Grotz",
+   "official_page": {
+    "url": "https://www.yorkcounty.ne.gov/county-board.html",
+    "source": "York County, County Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "York County Commissioner, District 1",
+     "source": "York County, County Board",
+     "url": "https://www.yorkcounty.ne.gov/county-board.html",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-GOV",
+   "name": "Lynne Walz and Ben Steffen",
+   "website": {
+    "url": "https://lynnewalz.com/",
+    "how": "The site is titled 'Lynne Walz for Governor' and says she is running for Governor of Nebraska.",
+    "verified": true
+   },
+   "born": {
+    "year": 1963,
+    "source": "Wikipedia (citing the Fremont Tribune)",
+    "url": "https://en.wikipedia.org/wiki/Lynne_Walz",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Nebraska Legislature, District 15",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Lynne_Walz",
+     "kind": "secondary",
+     "from": "2017",
+     "to": "2025",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Democratic nominee for Lieutenant Governor of Nebraska",
+     "year": 2018,
+     "party": "Democratic",
+     "source": "Wikipedia (the article's party political offices box)",
+     "url": "https://en.wikipedia.org/wiki/Lynne_Walz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-21415-council-ward-2",
+   "name": "Rick Klamm"
+  },
+  {
+   "race_id": "2026-NE-M-26385-council-ward-3",
+   "name": "Alan W. Ronan",
+   "official_page": {
+    "url": "https://www.cityoflavista.org/directory.aspx",
+    "source": "City of La Vista, Mayor and Council directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "La Vista City Council Member, Ward III",
+     "source": "City of La Vista directory",
+     "url": "https://www.cityoflavista.org/directory.aspx",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-38295-council-ward-3",
+   "name": "Steve Sunde",
+   "official_page": {
+    "url": "https://www.papillion.org/460/City-Council",
+    "source": "City of Papillion, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Papillion City Council Member, Ward 3",
+     "source": "City of Papillion, City Council",
+     "url": "https://www.papillion.org/460/City-Council",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC1-richard-r-smith",
+   "name": "Richard R. Smith",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-richard-r-smith",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 1st Judicial District",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-richard-r-smith",
+     "kind": "official",
+     "from": "2022",
+     "to": "present",
+     "verified": true
+    },
+    {
+     "office": "Johnson County Attorney",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-richard-r-smith",
+     "kind": "official",
+     "from": "2015",
+     "to": "2022",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC4-sheryl-l-lohaus",
+   "name": "Sheryl L. Lohaus",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-sheryl-l-lohaus",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 4th Judicial District (Douglas County)",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-sheryl-l-lohaus",
+     "kind": "official",
+     "from": "2011",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC10-morgan-r-farquhar",
+   "name": "Morgan R. Farquhar",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-morgan-r-farquhar",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 10th Judicial District",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-morgan-r-farquhar",
+     "kind": "official",
+     "from": "2022",
+     "to": "present",
+     "verified": true
+    },
+    {
+     "office": "Furnas County Attorney",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-morgan-r-farquhar",
+     "kind": "official",
+     "from": "2018",
+     "to": "2022",
+     "verified": true
+    },
+    {
+     "office": "Special Deputy County Attorney, Frontier County",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-morgan-r-farquhar",
+     "kind": "official",
+     "from": "2020",
+     "to": "2022",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC4-duane-c-dougherty",
+   "name": "Duane C. Dougherty",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-duane-c-dougherty",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 4th Judicial District (Douglas County)",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-duane-c-dougherty",
+     "kind": "official",
+     "from": "2011",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00021-school-board-ward-1",
+   "name": "Jessica Fountain Zuniga"
+  },
+  {
+   "race_id": "2026-NE-S-03810-school-board",
+   "name": "Phil Davidson",
+   "official_page": {
+    "url": "https://www.bellevuepublicschools.org/district-f3/board-of-education/board-members",
+    "source": "Bellevue Public Schools, Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Trustee), Bellevue Public Schools Board of Education",
+     "source": "Bellevue Public Schools, Board Members",
+     "url": "https://www.bellevuepublicschools.org/district-f3/board-of-education/board-members",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-70110-school-board",
+   "name": "Emily Poeschl",
+   "website": {
+    "url": "https://emilyforelkhorn.com/",
+    "how": "The site is titled 'Emily Poeschl for Elkhorn Public Schools' and says '2026 Elkhorn Board of Education'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S-71580-school-board",
+   "name": "Alycia Hughes"
+  },
+  {
+   "race_id": "2026-NE-S-73740-school-board",
+   "name": "Brandon Michael Diederich"
+  },
+  {
+   "race_id": "2026-NE-S-74820-school-board-subdistrict-6",
+   "name": "Lisa Sterba"
+  },
+  {
+   "race_id": "2026-NE-SBOE6",
+   "name": "Grady Erickson",
+   "website": {
+    "url": "https://erickson4nebraska.com/",
+    "how": "The site says 'I am running for the Nebraska State Board of Education, District 6'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS12",
+   "name": "Merv Riepe",
+   "website": {
+    "url": "https://voteriepe.com/",
+    "how": "The site names Merv Riepe as the Nebraska State Senator for District 12 and carries 'Paid for by Riepe for Nebraska'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS24",
+   "name": "Dan Winter"
+  },
+  {
+   "race_id": "2026-NE-SS36",
+   "name": "Darin Tompkins",
+   "website": {
+    "url": "https://tompkinsfornebraska.com/",
+    "how": "The site is titled 'Tompkins for Legislature | District 36' and says 'Darin Tompkins for Nebraska Legislature, District 36'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS46",
+   "name": "Danielle Conrad",
+   "website": {
+    "url": "http://conradforlegislature.com/",
+    "how": "The site is titled 'Conrad for Legislature' and names Senator Danielle Conrad of the Nebraska Legislature.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

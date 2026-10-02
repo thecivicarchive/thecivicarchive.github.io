@@ -1,0 +1,385 @@
+{
+ "part": 0,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after 27 of the 30 candidates; the last three (legislative) were looked up through Wikipedia's election page and the campaign sites it links. Not opened from this machine, so left out or flagged: Barry DeKay's campaign site (address did not resolve), the Hastings school board page, the Nebraska Examiner (refuses scripts). The parties' candidate lists are already in ballot/lean/ne_endorsements.json and do not say 'endorsed', so no endorsed_by is recorded here. Deputy county attorney and similar staff posts were treated as jobs, not offices. Blank means not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-clerk-of-court",
+   "name": "Amanda L. Bauer",
+   "official_page": {
+    "url": "https://adamscountyne.gov/board-of-supervisors/74-officials",
+    "source": "Adams County, list of county officials, naming Amanda Bauer as Clerk of the District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk of the District Court, Adams County",
+     "from": "",
+     "to": "",
+     "source": "Adams County, list of county officials, naming Amanda Bauer as Clerk of the District Court",
+     "url": "https://adamscountyne.gov/board-of-supervisors/74-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-county-assessor",
+   "name": "Roy Meusch",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/ASSESSOR",
+    "source": "Buffalo County, Assessor's page, naming Roy Meusch as County Assessor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo County Assessor",
+     "from": "",
+     "to": "",
+     "source": "Buffalo County, Assessor's page, naming Roy Meusch as County Assessor",
+     "url": "https://buffalocounty.ne.gov/ASSESSOR",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-sheriff",
+   "name": "Daniel J. Schleusener"
+  },
+  {
+   "race_id": "2026-NE-31055-county-assessor-register-of-deeds",
+   "name": "Dakotah Smith"
+  },
+  {
+   "race_id": "2026-NE-31109-clerk-of-court",
+   "name": "Landon Parks"
+  },
+  {
+   "race_id": "2026-NE-31109-county-treasurer",
+   "name": "Rachel Garver",
+   "official_page": {
+    "url": "https://www.lancaster.ne.gov/224/County-Treasurer",
+    "source": "Lancaster County, County Treasurer's page, naming Rachel M. Garver",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lancaster County Treasurer",
+     "from": "2019",
+     "to": "",
+     "source": "KLIN, October 31, 2025, \"Lancaster County Treasurer Announces Bid for Third Term\": in the role since 2019",
+     "url": "https://klin.com/2025/10/31/545795/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31119-public-defender",
+   "name": "Matthew Headley",
+   "official_page": {
+    "url": "https://madisoncountyne.gov/?p=86",
+    "source": "Madison County, Public Defender's page, naming Matthew Headley as Public Defender",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Madison County Public Defender",
+     "from": "",
+     "to": "",
+     "source": "Madison County, Public Defender's page, naming Matthew Headley as Public Defender",
+     "url": "https://madisoncountyne.gov/?p=86",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31137-county-treasurer",
+   "name": "Patti Meguire",
+   "offices": [
+    {
+     "office": "Phelps County Treasurer",
+     "from": "",
+     "to": "",
+     "source": "Phelps County, 2026 delinquent tax list, issued over the name of Patti Meguire, County Treasurer",
+     "url": "https://phelpscounty.ne.gov/pdfs/treasurer/tax_sale/2026/2026%20Delinquent%20Tax%20List.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31153-county-treasurer",
+   "name": "Jeff Mikesell",
+   "official_page": {
+    "url": "https://www.sarpy.gov/309/Treasurer",
+    "source": "Sarpy County, Treasurer's Office page, naming Jeff Mikesell as Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sarpy County Treasurer (appointed by the County Board of Commissioners)",
+     "from": "2023",
+     "to": "",
+     "source": "Sarpy County news release: the Board voted 4-0 on September 12, 2023 to appoint Jeff Mikesell Treasurer",
+     "url": "https://www.sarpy.gov/CivicAlerts.aspx?AID=258",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31177-register-of-deeds",
+   "name": "Arron W. Hoden",
+   "official_page": {
+    "url": "https://www.washingtoncountyne.gov/register-of-deeds",
+    "source": "Washington County, Register of Deeds page, naming Arron Hoden",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Register of Deeds",
+     "from": "",
+     "to": "",
+     "source": "Washington County, Register of Deeds page, naming Arron Hoden",
+     "url": "https://www.washingtoncountyne.gov/register-of-deeds",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-AG",
+   "name": "Jocelyn Brasher",
+   "website": {
+    "url": "https://www.brasherforneag.com/",
+    "how": "The site names Jocelyn Brasher and says \"I'm running for Attorney General\", naming the Nebraska Attorney General's Office",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-M-03950-council-ward-6",
+   "name": "Conner Brown"
+  },
+  {
+   "race_id": "2026-NE-M-25055-council-at-large",
+   "name": "Randy Buschkoetter",
+   "offices": [
+    {
+     "office": "Kearney City Council member",
+     "from": "1998",
+     "to": "",
+     "source": "Central Nebraska Today, May 7, 2026, \"Incumbent Randy Buschkoetter running for Kearney city council\": on the council since first elected in 1998",
+     "url": "https://www.centralnebraskatoday.com/?p=397082",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-34615-council-ward-3",
+   "name": "David McCart"
+  },
+  {
+   "race_id": "2026-NE-REG1",
+   "name": "Brent Comstock",
+   "website": {
+    "url": "https://comstockforregent.com",
+    "how": "The site names Brent Comstock as a candidate for the University of Nebraska Board of Regents, District 1, on the November 3 ballot",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-RET-CC2-todd-j-hutton",
+   "name": "Todd J. Hutton",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-todd-j-hutton",
+    "source": "Nebraska Judicial Branch, the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 2nd Judicial District (Cass, Otoe and Sarpy counties)",
+     "from": "1998",
+     "to": "",
+     "source": "Nebraska Judicial Branch, the judge's own page",
+     "url": "https://nebraskajudicial.gov/courts/hon-todd-j-hutton",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC9-alfred-e-corey-iii",
+   "name": "Alfred E. Corey III",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-alfred-e-corey-iii",
+    "source": "Nebraska Judicial Branch, the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 9th Judicial District (Buffalo and Hall counties)",
+     "from": "2017",
+     "to": "",
+     "source": "Nebraska Judicial Branch, the judge's own page",
+     "url": "https://nebraskajudicial.gov/courts/hon-alfred-e-corey-iii",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC2-michael-a-smith",
+   "name": "Michael A. Smith",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-michael-smith",
+    "source": "Nebraska Judicial Branch, the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 2nd Judicial District (Cass, Otoe and Sarpy counties)",
+     "from": "2016",
+     "to": "",
+     "source": "Nebraska Judicial Branch, the judge's own page",
+     "url": "https://nebraskajudicial.gov/courts/hon-michael-smith",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC9-john-h-marsh",
+   "name": "John H. Marsh",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-john-h-marsh",
+    "source": "Nebraska Judicial Branch, the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 9th Judicial District (Buffalo and Hall counties)",
+     "from": "2016",
+     "to": "",
+     "source": "Nebraska Judicial Branch, the judge's own page",
+     "url": "https://nebraskajudicial.gov/courts/hon-john-h-marsh",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Dawson County Attorney",
+     "from": "1989",
+     "to": "1994",
+     "source": "Nebraska Judicial Branch, the judge's own page",
+     "url": "https://nebraskajudicial.gov/courts/hon-john-h-marsh",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00095-school-board",
+   "name": "Greg Hollman"
+  },
+  {
+   "race_id": "2026-NE-S-04100-school-board",
+   "name": "Justin Boerma"
+  },
+  {
+   "race_id": "2026-NE-S-70710-school-board",
+   "name": "Terry Sorensen"
+  },
+  {
+   "race_id": "2026-NE-S-71580-school-board",
+   "name": "Stacie Widhelm",
+   "official_page": {
+    "url": "https://hastingspublicschools.org/district/board-of-education/",
+    "source": "Hastings Public Schools, Board of Education page, listing Stacie Widhelm as a board member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Hastings Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Hastings Public Schools, Board of Education page, listing Stacie Widhelm as a board member",
+     "url": "https://hastingspublicschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-74430-school-board",
+   "name": "Randy E. Dee"
+  },
+  {
+   "race_id": "2026-NE-S-75900-school-board",
+   "name": "Carrie Hough"
+  },
+  {
+   "race_id": "2026-NE-SOS",
+   "name": "Paul Rumbaugh",
+   "website": {
+    "url": "https://www.rumbaughfornebraska.com/",
+    "how": "The site reads \"Elect Paul Rumbaugh\" for Nebraska Secretary of State and names the election of November 3, 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS18",
+   "name": "Taylor Royal",
+   "website": {
+    "url": "https://www.royalforlegislature.com/",
+    "how": "The site names Taylor Royal as running for the Nebraska Legislature in District 18",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran in the Republican primary for Nebraska State Treasurer (lost to John Murante, 43.58 percent)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Wikipedia, \"2018 Nebraska elections\", State Treasurer, Republican primary results (with a citation)",
+     "url": "https://en.wikipedia.org/wiki/2018_Nebraska_elections#State_Treasurer",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SS30",
+   "name": "Cally Ideus",
+   "website": {
+    "url": "https://www.ideusfornebraska.com/",
+    "how": "The site names Cally Ideus as running in Legislative District 30 of the Nebraska Legislature",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS40",
+   "name": "Barry DeKay"
+  },
+  {
+   "race_id": "2026-NE-SS8",
+   "name": "Josh Livingston",
+   "website": {
+    "url": "https://www.livingstonfornebraska.com/",
+    "how": "The site names Josh Livingston as running for the Nebraska Legislature in District 8",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-NE-S-00095-school-board",
+   "name": "Greg Hollman",
+   "what": "offices: Member of the Crete Public Schools Board of Education",
+   "why": "the minutes' address did not open in three tries, so the fact could not be seen"
+  }
+ ]
+}

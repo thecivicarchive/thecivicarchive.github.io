@@ -1,0 +1,356 @@
+{
+ "part": 3,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "Web search stopped after the first 20 candidates' first query (the session's search limit was reached), so campaign websites were not searched for beyond what those results and Wikipedia's 2026 Douglas County, Lancaster County and Regents articles show (none listed). The Nebraska Examiner voter guide answers 403 and was not used. No Nebraska party page endorses a candidate for these races (see ballot/lean/ne_endorsements.json). Not confirmed and left out: Jill Wolfe as a Papillion La Vista school board member (the district's own board page does not list her); Amber Matthai (the judicial branch's directory names another person as Sarpy County's clerk today).",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-clerk",
+   "name": "Ramona R. Thomas",
+   "official_page": {
+    "url": "https://adamscountyne.gov/county-clerk",
+    "source": "Adams County, Nebraska: County Clerk page names Ramona Thomas as County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Clerk, Adams County",
+     "from": "",
+     "to": "present",
+     "source": "Adams County, Nebraska",
+     "url": "https://adamscountyne.gov/county-clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-county-commissioner-district-1",
+   "name": "Ivan H. Klein",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/COMMISSIONER-NAMES",
+    "source": "Buffalo County, Nebraska: Commissioner Names page lists Ivan Klein for District 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1, Buffalo County (elected 2002; re-elected 2006, 2010, 2014, 2018, 2022)",
+     "from": "2003",
+     "to": "present",
+     "source": "Buffalo County, Nebraska: Terms of Office",
+     "url": "https://buffalocounty.ne.gov/TERMS-OF-OFFICE",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-county-attorney",
+   "name": "Eric A Scott",
+   "official_page": {
+    "url": "https://cherrycountyne.gov/attorney-county/",
+    "source": "Cherry County, Nebraska: County Attorney page names Eric A. Scott",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Cherry County",
+     "from": "",
+     "to": "present",
+     "source": "Cherry County, Nebraska",
+     "url": "https://cherrycountyne.gov/attorney-county/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Printed as the Republican candidate for Cherry County Attorney on the November 8, 2022 general election ballot (official results: Rep Eric A. Scott, 1,680 votes)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Cherry County, Nebraska: official results, General Election, November 8, 2022",
+     "url": "https://cherrycountyne.gov/wp-content/uploads/sites/51/2025/10/2022_General.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31055-county-commissioner-district-2",
+   "name": "Whitney Hansen"
+  },
+  {
+   "race_id": "2026-NE-31109-county-attorney",
+   "name": "Pat Condon",
+   "offices": [
+    {
+     "office": "County Attorney, Lancaster County",
+     "from": "2018",
+     "to": "present",
+     "source": "KOLN 10/11 News, \"Pat Condon files for third term as county attorney\" (January 30, 2026)",
+     "url": "https://www.1011now.com/2026/01/30/pat-condon-files-third-term-county-attorney/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31109-sheriff",
+   "name": "Jay Pitts"
+  },
+  {
+   "race_id": "2026-NE-31137-clerk-of-court",
+   "name": "Jennifer L. Nelson",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/directories/district-court-contacts",
+    "source": "Nebraska Judicial Branch: District Court Contacts lists Jennifer Nelson as Clerk of the District Court for Phelps County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk of the District Court, Phelps County",
+     "from": "",
+     "to": "present",
+     "source": "Nebraska Judicial Branch: District Court Contacts",
+     "url": "https://nebraskajudicial.gov/directories/district-court-contacts",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31153-clerk-of-court",
+   "name": "Amber Matthai"
+  },
+  {
+   "race_id": "2026-NE-31177-county-assessor",
+   "name": "Robin Andreasen"
+  },
+  {
+   "race_id": "2026-NE-31185-county-assessor",
+   "name": "Kurt Bulgrin"
+  },
+  {
+   "race_id": "2026-NE-AUD",
+   "name": "Mike Foley",
+   "official_page": {
+    "url": "https://auditors.nebraska.gov/About_Us/AboutAuditor.html",
+    "source": "Nebraska Auditor of Public Accounts: About the State Auditor",
+    "verified": true
+   },
+   "born": {
+    "year": 1954,
+    "source": "Wikipedia, \"Mike Foley (Nebraska politician)\"",
+    "url": "https://en.wikipedia.org/wiki/Mike_Foley_(Nebraska_politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Nebraska Legislature, District 29 (six years; the page gives no years)",
+     "from": "",
+     "to": "",
+     "source": "Nebraska Auditor of Public Accounts: About the State Auditor",
+     "url": "https://auditors.nebraska.gov/About_Us/AboutAuditor.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Nebraska Auditor of Public Accounts",
+     "from": "2007",
+     "to": "2015",
+     "source": "Nebraska Auditor of Public Accounts: About the State Auditor",
+     "url": "https://auditors.nebraska.gov/About_Us/AboutAuditor.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Lieutenant Governor of Nebraska",
+     "from": "2015",
+     "to": "2023",
+     "source": "Nebraska Auditor of Public Accounts: About the State Auditor",
+     "url": "https://auditors.nebraska.gov/About_Us/AboutAuditor.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Nebraska Auditor of Public Accounts",
+     "from": "2023",
+     "to": "present",
+     "source": "Nebraska Auditor of Public Accounts: About the State Auditor",
+     "url": "https://auditors.nebraska.gov/About_Us/AboutAuditor.html",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Printed as the Republican candidate for Auditor of Public Accounts on the November 8, 2022 general election ballot (shown in Cherry County's official results: Rep Mike Foley)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Cherry County, Nebraska: official results, General Election, November 8, 2022",
+     "url": "https://cherrycountyne.gov/wp-content/uploads/sites/51/2025/10/2022_General.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-21415-council-ward-1",
+   "name": "Grant Marsh"
+  },
+  {
+   "race_id": "2026-NE-M-26385-council-ward-1",
+   "name": "Kim Thomas"
+  },
+  {
+   "race_id": "2026-NE-M-38295-council-ward-1",
+   "name": "David K. Fanslau",
+   "official_page": {
+    "url": "https://www.papillion.org/460/City-Council",
+    "source": "City of Papillion: City Council page lists Dave Fanslau for Ward 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Ward 1, Papillion",
+     "from": "",
+     "to": "present",
+     "source": "City of Papillion: City Council",
+     "url": "https://www.papillion.org/460/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-REG2",
+   "name": "Jill Wolfe"
+  },
+  {
+   "race_id": "2026-NE-RET-CC4-john-e-huber",
+   "name": "John E. Huber",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-john-e-huber",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 4th Judicial District (Douglas County)",
+     "from": "1998",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-john-e-huber",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC1-david-j-a-bargen",
+   "name": "David J. A. Bargen",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-david-j-bargen",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 1st Judicial District",
+     "from": "2022",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-david-j-bargen",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC3-darla-ideus",
+   "name": "Darla Ideus",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-darla-s-ideus",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 3rd Judicial District (Lancaster County)",
+     "from": "2016",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-darla-s-ideus",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-JUV-sarah-m-moore",
+   "name": "Sarah M. Moore",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-sarah-m-moore",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the Separate Juvenile Court, Sarpy County",
+     "from": "2022",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-sarah-m-moore",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-03810-school-board",
+   "name": "Dickee Jost"
+  },
+  {
+   "race_id": "2026-NE-S-04100-school-board",
+   "name": "Steve Callaghan"
+  },
+  {
+   "race_id": "2026-NE-S-71220-school-board",
+   "name": "Greg Beach"
+  },
+  {
+   "race_id": "2026-NE-S-72390-school-board",
+   "name": "Kyle McCartney"
+  },
+  {
+   "race_id": "2026-NE-S-74820-school-board-subdistrict-2",
+   "name": "Jamar Dorsey, Sr."
+  },
+  {
+   "race_id": "2026-NE-S-75900-school-board",
+   "name": "Mary K. Roarty"
+  },
+  {
+   "race_id": "2026-NE-SS10",
+   "name": "Cindy Johnson"
+  },
+  {
+   "race_id": "2026-NE-SS20",
+   "name": "Chris Anderson"
+  },
+  {
+   "race_id": "2026-NE-SS32",
+   "name": "Shay Smith"
+  },
+  {
+   "race_id": "2026-NE-SS42",
+   "name": "Mike Jacobson"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Mike Foley, Legislature District 29: the Auditor's page says he served six years and gives no years, so from/to were blanked"
+ ]
+}

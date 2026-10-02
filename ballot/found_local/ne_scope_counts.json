@@ -1,0 +1,35 @@
+{
+ "state": "NE",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 351,
+ "by_level": {
+  "statewide": 29,
+  "legislature": 46,
+  "court": 48,
+  "county": 120,
+  "city": 38,
+  "school": 70
+ },
+ "races_by_level": {
+  "statewide": 13,
+  "legislature": 25,
+  "court": 48,
+  "county": 106,
+  "city": 22,
+  "school": 22
+ },
+ "races": 236,
+ "on_the_november_list_in_all": 1178,
+ "per_part": 30,
+ "parts": 12,
+ "cities_in": 6,
+ "city_candidates": 38,
+ "school_districts_in": 16,
+ "school_candidates": 70,
+ "just_under": {
+  "places": 2,
+  "candidates": 6
+ },
+ "note": "Nebraska has no statewide list of county, city or school candidates: the county offices, mayors, city councils, village boards and school boards here are those on the notices of election and sample ballots of the 10 county election offices read so far (Adams, Buffalo, Cherry, Douglas, Lancaster, Madison, Phelps, Sarpy, Washington and York), and the other 83 counties' are not loaded yet. Omaha and Lincoln elect their city officers, and Lincoln its school board, in the spring of odd-numbered years (Neb. Rev. Stat. 14-201, 15-301 and 32-544), so they are not on this ballot. Judges are in the scope as the one name on a yes-or-no retention vote. The Board of Regents, the State Board of Education and the Public Service Commission are elected by district and are in the scope with the statewide offices. Township boards and the boards of natural resources, public power, reclamation, community college, educational service unit and other districts are outside the scope's rule and are not in it."
+}

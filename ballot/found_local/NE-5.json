@@ -1,0 +1,436 @@
+{
+ "part": 5,
+ "of": 12,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-NE-SBOE5",
+   "name": "Michaela Conway",
+   "what": "offices: Member, Crete Public Schools Board of Education",
+   "why": "The Nebraska Examiner voter guide page refused the request twice (403), so the fact could not be confirmed"
+  },
+  {
+   "race_id": "2026-NE-SS34",
+   "name": "Loren Lippincott",
+   "what": "website",
+   "why": "The site's name did not resolve in three tries, so the site could not be seen"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-commissioner-district-3",
+   "name": "Lee Hogan",
+   "official_page": {
+    "url": "https://adamscountyne.gov/board-of-commissioners",
+    "source": "Adams County, its Board of Commissioners page: Lee Hogan, Chairman of the Board; Lee Hogan, District 3",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Adams County Commissioner, District 3 (Chairman of the Board)",
+     "from": "",
+     "to": "now",
+     "source": "Adams County, its Board of Commissioners page; it gives no start date",
+     "url": "https://adamscountyne.gov/board-of-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-county-commissioner-district-5",
+   "name": "Mike Morgan",
+   "offices": [
+    {
+     "office": "City Manager, City of Kearney (an appointed post)",
+     "from": "2005",
+     "to": "2024",
+     "source": "Central Nebraska Today, 7 May 2026: former Kearney city manager Mike Morgan is running for Buffalo County Commissioner in District 5",
+     "url": "https://www.centralnebraskatoday.com/2026/05/07/former-kearney-city-manager-mike-morgan-running-for-buffalo-county-commissioner-in-district-5/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-county-commissioner",
+   "name": "Duane Kime"
+  },
+  {
+   "race_id": "2026-NE-31055-county-commissioner-district-6",
+   "name": "John McCann"
+  },
+  {
+   "race_id": "2026-NE-31109-county-clerk",
+   "name": "Matt Hansen",
+   "website": {
+    "url": "https://hansenforlancaster.com/",
+    "how": "The site is titled Hansen For Lancaster and quotes Matt Hansen on representing Lancaster County as its County Clerk; its About page says he has been County Clerk since 2023",
+    "verified": true
+   },
+   "born": {
+    "year": 1988,
+    "source": "Wikipedia, Matt Hansen (Nebraska state senator, District 26), which cites the Nebraska Legislature's biography",
+    "url": "https://en.wikipedia.org/wiki/Matt_Hansen",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lancaster County Clerk",
+     "from": "2023",
+     "to": "now",
+     "source": "His campaign site's About page: has served as the Lancaster County Clerk since 2023",
+     "url": "https://hansenforlancaster.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Nebraska State Senator, District 26",
+     "from": "2015",
+     "to": "2023",
+     "source": "Wikipedia, Matt Hansen, citing the Legislature's records; his campaign site says two terms for District 26 without years",
+     "url": "https://en.wikipedia.org/wiki/Matt_Hansen",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31119-county-assessor",
+   "name": "Jeff Hackerott",
+   "official_page": {
+    "url": "https://madisoncountyne.gov/assessor/",
+    "source": "Madison County, its Assessor page: Jeff Hackerott, Assessor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Madison County Assessor",
+     "from": "",
+     "to": "now",
+     "source": "Madison County, its Assessor page; it gives no start date",
+     "url": "https://madisoncountyne.gov/assessor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31137-county-attorney",
+   "name": "Corey O'Brien",
+   "offices": [
+    {
+     "office": "Phelps County Attorney (approved by the Phelps County Board of Commissioners on 17 December 2024 to fill the remaining term, effective 9 January 2025)",
+     "from": "2025",
+     "to": "now",
+     "source": "Rural Radio Network (KUVR), 3 January 2025: O'Brien starts 2025 as new Holdrege City Attorney, which also reports his appointment as Phelps County attorney",
+     "url": "https://ruralradio.com/kuvr/news/obrien-starts-2025-as-new-holdrege-city-attorney/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Assistant Attorney General, State of Nebraska",
+     "from": "",
+     "to": "2024",
+     "source": "Rural Radio Network (KUVR), the same report: 21 years as an assistant attorney general; it gives no start year",
+     "url": "https://ruralradio.com/kuvr/news/obrien-starts-2025-as-new-holdrege-city-attorney/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31153-county-attorney",
+   "name": "John W. Reisz"
+  },
+  {
+   "race_id": "2026-NE-31177-county-clerk",
+   "name": "Barbara Sullivan",
+   "official_page": {
+    "url": "https://www.washingtoncountyne.gov/clerk",
+    "source": "Washington County, its County Clerk page: Barbara L. Sullivan, County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Clerk",
+     "from": "",
+     "to": "now",
+     "source": "Washington County, its County Clerk page; it gives no start date",
+     "url": "https://www.washingtoncountyne.gov/clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31185-county-clerk",
+   "name": "Mary Melby",
+   "official_page": {
+    "url": "https://www.yorkcounty.ne.gov/county-clerk.html",
+    "source": "York County, its County Clerk page: Mary Melby, County Clerk, Election Commissioner, Register of Deeds",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "York County Clerk (appointed by the York County Commissioners to fill a vacancy)",
+     "from": "2024",
+     "to": "now",
+     "source": "York County press release of 6 August 2024: Mary Melby named York County Clerk",
+     "url": "https://www.yorkcounty.ne.gov/press-releases/mary-melby-named-york-county-clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-GOV",
+   "name": "Jim Pillen and Joe Kelly",
+   "website": {
+    "url": "http://jimpillen.com/",
+    "how": "The site is titled Republican Jim Pillen - Re-Elect for Nebraska Governor",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-M-21415-council-ward-2",
+   "name": "Ric Hallett"
+  },
+  {
+   "race_id": "2026-NE-M-26385-council-ward-2",
+   "name": "Kelly R. Sell",
+   "official_page": {
+    "url": "https://www.cityoflavista.org/225/Ward-II",
+    "source": "City of La Vista, its Ward II page, which names Kelly Sell as a Ward II representative",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "La Vista City Council Member (appointed to a vacancy from Ward IV in January 2006; reelected 2010, 2014, 2018 and 2022; term runs through 2026)",
+     "from": "2006",
+     "to": "now",
+     "source": "City of La Vista, its Ward II page",
+     "url": "https://www.cityoflavista.org/225/Ward-II",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "La Vista City Council Member (elected to a vacancy from Ward I in December 1989; reelected 1990 and 1994)",
+     "from": "1989",
+     "to": "",
+     "source": "City of La Vista, its Ward II page; it gives no end date for this service",
+     "url": "https://www.cityoflavista.org/225/Ward-II",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, La Vista Planning Commission and Board of Adjustment",
+     "from": "1985",
+     "to": "1989",
+     "source": "City of La Vista, its Ward II page",
+     "url": "https://www.cityoflavista.org/225/Ward-II",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-38295-council-ward-2",
+   "name": "Steve Engberg",
+   "offices": [
+    {
+     "office": "Papillion City Council Member, Ward 2 (last elected 2022)",
+     "from": "",
+     "to": "now",
+     "source": "Sarpy County, its Current Elected Officials list: Steven Engberg, Member of City Council Ward 2, City of Papillion; it gives no first year",
+     "url": "https://www.sarpy.gov/858/Current-Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-REG4",
+   "name": "Susanne Shore",
+   "website": {
+    "url": "https://shoreforregent.com/",
+    "how": "The site is titled Susanne Shore for Regent and is headed Susanne Shore - District 4",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-RET-CC4-marcena-m-hendrix",
+   "name": "Marcena M. Hendrix",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-marcena-m-hendrix",
+    "source": "Nebraska Judicial Branch, its page for Hon. Marcena M. Hendrix, District 4, Douglas County Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 4th Judicial District (Douglas County)",
+     "from": "1998",
+     "to": "now",
+     "source": "Nebraska Judicial Branch, its page for Hon. Marcena M. Hendrix",
+     "url": "https://nebraskajudicial.gov/courts/hon-marcena-m-hendrix",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC1-ricky-a-schreiner",
+   "name": "Ricky A. Schreiner",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-rick-schreiner",
+    "source": "Nebraska Judicial Branch, its page for Hon. Rick A. Schreiner, District 1, Gage District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 1st Judicial District",
+     "from": "2016",
+     "to": "now",
+     "source": "Nebraska Judicial Branch, its page for Hon. Rick A. Schreiner",
+     "url": "https://nebraskajudicial.gov/courts/hon-rick-schreiner",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC3-matthew-o-mellor",
+   "name": "Matthew O. Mellor",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-matthew-o-mellor",
+    "source": "Nebraska Judicial Branch, its page for Hon. Matthew O. Mellor, District 3, Lancaster District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 3rd Judicial District (Lancaster County)",
+     "from": "2023",
+     "to": "now",
+     "source": "Nebraska Judicial Branch, its page for Hon. Matthew O. Mellor",
+     "url": "https://nebraskajudicial.gov/courts/hon-matthew-o-mellor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-WCC-thomas-e-stine",
+   "name": "Thomas E. Stine",
+   "official_page": {
+    "url": "https://newcc.gov/home/judges-of-the-court",
+    "source": "Nebraska Workers' Compensation Court, its Judges of the Court page: Thomas E. Stine, Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the Nebraska Workers' Compensation Court (appointed 13 September 2011 by Gov. Dave Heineman)",
+     "from": "2011",
+     "to": "now",
+     "source": "Nebraska Workers' Compensation Court, its Judges of the Court page",
+     "url": "https://newcc.gov/home/judges-of-the-court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-03810-school-board",
+   "name": "Michele Bang"
+  },
+  {
+   "race_id": "2026-NE-S-70110-school-board",
+   "name": "Angie Ohlrich"
+  },
+  {
+   "race_id": "2026-NE-S-71580-school-board",
+   "name": "Abby Vacek"
+  },
+  {
+   "race_id": "2026-NE-S-72390-school-board",
+   "name": "Paul Hazard",
+   "official_page": {
+    "url": "https://www.kearneypublicschools.org/district/board-of-education/board-members",
+    "source": "Kearney Public Schools, its Board Members page: Paul Hazard, Board of Education, 2023-2026; President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Kearney Public Schools Board of Education (President)",
+     "from": "2023",
+     "to": "now",
+     "source": "Kearney Public Schools, its Board Members page, which gives his term as 2023-2026",
+     "url": "https://www.kearneypublicschools.org/district/board-of-education/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-74820-school-board-subdistrict-4",
+   "name": "Shavonna Holman",
+   "official_page": {
+    "url": "https://www.ops.org/p/~board/board-members/post/dr-shavonna-holman",
+    "source": "Omaha Public Schools, its board member page for Dr. Shavonna Holman",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Omaha Public Schools Board of Education, Subdistrict 4",
+     "from": "",
+     "to": "now",
+     "source": "Omaha Public Schools, its Board Members page: Dr. Shavonna Holman, Subdistrict 4; it gives no start date",
+     "url": "https://www.ops.org/board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SBOE5",
+   "name": "Michaela Conway",
+   "website": {
+    "url": "https://www.mcforsboe.com/",
+    "how": "The site is titled Michaela Conway for State Board of Education - District 5",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS12",
+   "name": "Christy Knorr",
+   "website": {
+    "url": "https://christyknorr4ne.com/",
+    "how": "The site is titled Christy Knorr for Nebraska Legislature, District 12",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS22",
+   "name": "Dawson Brunswick",
+   "website": {
+    "url": "https://www.brunswickforlegislature.com/",
+    "how": "The site is titled Brunswick for Legislature and says Dawson Brunswick is running for Legislative District 22",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS34",
+   "name": "Loren Lippincott"
+  },
+  {
+   "race_id": "2026-NE-SS44",
+   "name": "Teresa Ibach",
+   "website": {
+    "url": "https://www.teresaibach.com/",
+    "how": "The site is titled Teresa Ibach for Legislature - District 44",
+    "verified": true
+   }
+  }
+ ]
+}

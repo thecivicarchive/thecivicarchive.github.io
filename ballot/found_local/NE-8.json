@@ -1,0 +1,346 @@
+{
+ "part": 8,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search budget ran out after eight queries, so most of this part was looked up only at official addresses that could be reached directly; the county, city and school candidates left blank are worth a second pass. Seen and left out on purpose: the Nebraska Examiner voter guide (ages, registrations and earlier posts for Witt, Landers and Tegtmeier; it answers a fetch with 403, so nothing from it could be confirmed); ages are not birth years; a news guide's 'registered Republican/Democrat' is not a past_party record. Party lists naming Witt, Dungan, Vargas, Seliga, Meese, Tegtmeier and Kennedy are already in ballot/lean/ne_endorsements.json, which records that those pages do not say 'endorsed', so no endorsed_by is given here. The current board pages of Sarpy (District 2), Madison and Washington counties do not name Seliga, Reeves or Japp, who are therefore not shown as holding those seats. Dungan's birth year (Wikipedia) is not recorded because he is a sitting legislator with a record page. George Dungan's and Tony Vargas's sites did not resolve for WebFetch but answered the kit's own fetcher. Found by trying likely names, not by search: wittfornebraska.com (it names the candidate and the district). A photographer's site at mattschulte.com is another person and was not used.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-treasurer",
+   "name": "Virginia Long"
+  },
+  {
+   "race_id": "2026-NE-31019-county-treasurer",
+   "name": "Brenda R. Rohrich",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/county-offices/treasurer",
+    "source": "Buffalo County: the Treasurer's page names Brenda R. Rohrich, Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Treasurer, Buffalo County",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated on the page",
+     "source": "Buffalo County",
+     "url": "https://buffalocounty.ne.gov/county-offices/treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-county-treasurer",
+   "name": "Kathy Hammond"
+  },
+  {
+   "race_id": "2026-NE-31055-county-treasurer",
+   "name": "Tony Vargas",
+   "website": {
+    "url": "https://vargasfornebraska.com/",
+    "how": "The site is titled 'Tony Vargas' and its home page says 'Support Tony Vargas for Douglas County Treasurer'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Omaha Public Schools Board",
+     "from": 2013,
+     "to": null,
+     "note": "The page says he has served 'since 2013, first as a member of the Omaha Public Schools Board'; no end year is stated",
+     "source": "His campaign site, About Tony",
+     "url": "https://vargasfornebraska.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member of the Nebraska Legislature",
+     "from": 2017,
+     "to": 2025,
+     "source": "His campaign site, About Tony",
+     "url": "https://vargasfornebraska.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Democratic candidate on the general election ballot for the U.S. House, Nebraska's 2nd district",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, Tony Vargas",
+     "url": "https://en.wikipedia.org/wiki/Tony_Vargas",
+     "kind": "secondary",
+     "verified": true,
+     "note": "The page's 2024 results table prints him under 'Democratic'; it does not describe the 2024 primary"
+    },
+    {
+     "what": "Democratic nominee for the U.S. House, Nebraska's 2nd district",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Wikipedia, Tony Vargas",
+     "url": "https://en.wikipedia.org/wiki/Tony_Vargas",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31109-county-commissioner-district-3",
+   "name": "Matt Schulte"
+  },
+  {
+   "race_id": "2026-NE-31119-county-commissioner-district-1",
+   "name": "Tim Reeves"
+  },
+  {
+   "race_id": "2026-NE-31137-county-commissioner-district-3",
+   "name": "Matt Gregg"
+  },
+  {
+   "race_id": "2026-NE-31153-county-commissioner-district-2",
+   "name": "Nick Seliga"
+  },
+  {
+   "race_id": "2026-NE-31177-county-commissioner-district-6",
+   "name": "Matt Japp"
+  },
+  {
+   "race_id": "2026-NE-31185-county-commissioner-district-4",
+   "name": "Randy Obermier"
+  },
+  {
+   "race_id": "2026-NE-M-03950-council-ward-2",
+   "name": "Richard Casey"
+  },
+  {
+   "race_id": "2026-NE-M-21415-council-ward-3",
+   "name": "Marc Rowan",
+   "official_page": {
+    "url": "https://www.cityofhastings.org/government/city-officials/city-council/city-council-3rd-ward.html",
+    "source": "City of Hastings: the 3rd Ward council page names Marc Rowan",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Ward 3, Hastings",
+     "from": 2022,
+     "to": "present",
+     "note": "The page gives the term as December 2022 through December 2026",
+     "source": "City of Hastings",
+     "url": "https://www.cityofhastings.org/government/city-officials/city-council/city-council-3rd-ward.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-34615-council-ward-1",
+   "name": "Corey Granquist"
+  },
+  {
+   "race_id": "2026-NE-M-38295-mayor",
+   "name": "Bob Stubbe"
+  },
+  {
+   "race_id": "2026-NE-RET-CC11-tanya-roberts-connick",
+   "name": "Tanya Roberts-Connick",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-tanya-k-roberts-connick",
+    "source": "Nebraska Judicial Branch: the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 11th Judicial District",
+     "from": 2022,
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-tanya-k-roberts-connick",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC5-denise-kracl",
+   "name": "Denise Kracl",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-denise-j-kracl",
+    "source": "Nebraska Judicial Branch: the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 5th Judicial District",
+     "from": 2022,
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-denise-j-kracl",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "County Attorney, Colfax County",
+     "from": 2011,
+     "to": 2022,
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-denise-j-kracl",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC11-patrick-m-heng",
+   "name": "Patrick M. Heng",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-patrick-m-heng",
+    "source": "Nebraska Judicial Branch: the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 11th Judicial District",
+     "from": 2022,
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-patrick-m-heng",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC4-leanne-m-srb",
+   "name": "LeAnne M. Srb",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-leanne-m-srb",
+    "source": "Nebraska Judicial Branch: the judge's own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 4th Judicial District",
+     "from": 2021,
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-leanne-m-srb",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00088-school-board-ward-2",
+   "name": "Steph Meese"
+  },
+  {
+   "race_id": "2026-NE-S-03990-school-board",
+   "name": "Diana Hettenbaugh"
+  },
+  {
+   "race_id": "2026-NE-S-70710-school-board",
+   "name": "Betsy Flores"
+  },
+  {
+   "race_id": "2026-NE-S-71580-school-board",
+   "name": "Beau Huffman"
+  },
+  {
+   "race_id": "2026-NE-S-73740-school-board",
+   "name": "Mike Kennedy"
+  },
+  {
+   "race_id": "2026-NE-S-75270-school-board",
+   "name": "Brian M. Lodes",
+   "official_page": {
+    "url": "https://www.plcschools.org/our-district/board-of-education/meet-the-board",
+    "source": "Papillion La Vista Community Schools: the board's Members page lists Brian Lodes, Board Member, President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Board of Education, Papillion La Vista Community Schools",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated; the page was last updated 2/17/2026",
+     "source": "Papillion La Vista Community Schools",
+     "url": "https://www.plcschools.org/our-district/board-of-education/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SBOE7",
+   "name": "Elizabeth Tegtmeier",
+   "official_page": {
+    "url": "https://www.education.ne.gov/stateboard/members/",
+    "source": "Nebraska Department of Education: State Board of Education members, District 7",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Nebraska State Board of Education, District 7",
+     "from": 2022,
+     "to": "present",
+     "note": "The page says 'Elected to State Board of Education - 2022'; the year is the election, not the swearing-in",
+     "source": "Nebraska Department of Education",
+     "url": "https://www.education.ne.gov/stateboard/members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SS14",
+   "name": "SuAnn Witt",
+   "website": {
+    "url": "https://www.wittfornebraska.com/",
+    "how": "The site is titled 'Witt for Nebraska', says 'Running for Legislature in District 14' and names SuAnn and the Papillion La Vista School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Board of Education, Papillion La Vista Community Schools",
+     "from": null,
+     "to": "present",
+     "note": "The district's Members page lists SuAnn Witt, Board Member; no start year is stated there (page last updated 2/17/2026). Second anchor: the district lies in Legislative District 14's area (Papillion, Sarpy County)",
+     "source": "Papillion La Vista Community Schools",
+     "url": "https://www.plcschools.org/our-district/board-of-education/meet-the-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Board of Education, Papillion La Vista Community Schools",
+     "from": 2018,
+     "to": "present",
+     "note": "Her site says she has served 'as an elected member since 2018' and was the 2025 Board President",
+     "source": "Her campaign site",
+     "url": "https://www.wittfornebraska.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SS26",
+   "name": "George Dungan",
+   "website": {
+    "url": "https://georgefornebraska.com/",
+    "how": "The site is titled 'George Dungan for Nebraska', says he was elected to the legislature and is paid for by George for Nebraska in Lincoln; it does not name District 26 in words, so the second anchor is the Legislature seat our record shows. It did not resolve for WebFetch and was read with the kit's own fetcher",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS38",
+   "name": "Janell Anderson Ehrke"
+  },
+  {
+   "race_id": "2026-NE-SS48",
+   "name": "Jessica M. Landers"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

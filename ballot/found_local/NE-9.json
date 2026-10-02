@@ -1,0 +1,361 @@
+{
+ "part": 9,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance ran out after eight searches, so most of this part was read from pages reached directly: the parties' own candidate lists (for links to campaign sites), county, city, school and court pages. Candidates with nothing below were not found that way and deserve a search. No party page endorses anyone in this part (the parties publish lists of candidates, not endorsements). Ballotpedia, the Nebraska Examiner voter guide, the Douglas County and Washington County sites and Millard Public Schools refused the request and were left alone.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-register-of-deeds",
+   "name": "Byron J. Morrow",
+   "official_page": {
+    "url": "https://adamscountyne.gov/register-of-deeds",
+    "source": "Adams County, Register of Deeds page (names Byron Morrow, Register of Deeds)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-31019-public-defender",
+   "name": "D. Brandon Brinegar"
+  },
+  {
+   "race_id": "2026-NE-31031-public-defender",
+   "name": "Andrew C Johnson"
+  },
+  {
+   "race_id": "2026-NE-31055-sheriff",
+   "name": "Aaron Hanson",
+   "website": {
+    "url": "https://www.aaronhansonforsheriff.com/",
+    "how": "The site is titled 'Aaron Hanson for Sheriff', speaks as the sitting Sheriff and carries Douglas County Sheriff's Office news dated 2025; found by its address, not through a list",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-31109-county-commissioner-district-5",
+   "name": "Rick Vest",
+   "website": {
+    "url": "https://www.votevest.com/",
+    "how": "The site is titled 'Rick Vest for Lancaster County Commissioner' and speaks of his work on the County Board; it does not print the district number or the year",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lancaster.ne.gov/687/District-5---Rick-Vest",
+    "source": "Lancaster County, District 5 commissioner page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lancaster County Commissioner, District 5 (elected November 2018 and 2022; current term 2023 to 2026)",
+     "from": "2018",
+     "to": "present",
+     "source": "Lancaster County",
+     "url": "https://www.lancaster.ne.gov/687/District-5---Rick-Vest",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31119-county-commissioner-district-3",
+   "name": "Troy Uhlir",
+   "official_page": {
+    "url": "https://madisoncountyne.gov/board-of-commissioners/",
+    "source": "Madison County, Board of Commissioners page (District #3 Troy Uhlir)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-31137-county-commissioner-district-5",
+   "name": "Barb Malm",
+   "official_page": {
+    "url": "https://phelpscounty.ne.gov/webpages/board/board_members.html",
+    "source": "Phelps County, Board Members page (Barb Malm, District 5, term ends 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-31153-county-commissioner-district-5",
+   "name": "Jim Warren",
+   "official_page": {
+    "url": "https://www.sarpy.gov/346/District-5",
+    "source": "Sarpy County, District 5 commissioner page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sarpy County Commissioner, District 5 (took office January 11, 2011; current term January 2023 to January 2027)",
+     "from": "2011",
+     "to": "present",
+     "source": "Sarpy County",
+     "url": "https://www.sarpy.gov/346/District-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Gretna (years not given)",
+     "from": "",
+     "to": "",
+     "source": "Sarpy County",
+     "url": "https://www.sarpy.gov/346/District-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Gretna City Council member (years not given)",
+     "from": "",
+     "to": "",
+     "source": "Sarpy County",
+     "url": "https://www.sarpy.gov/346/District-5",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31177-county-commissioner-district-6",
+   "name": "Timothy L. Grabbe"
+  },
+  {
+   "race_id": "2026-NE-31185-county-treasurer",
+   "name": "Megan Williams",
+   "official_page": {
+    "url": "https://www.yorkcounty.ne.gov/county-treasurer.html",
+    "source": "York County, County Treasurer page (Megan Williams, County Treasurer)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-M-03950-council-ward-2",
+   "name": "Scott Welch"
+  },
+  {
+   "race_id": "2026-NE-M-21415-council-ward-4",
+   "name": "Amy Sandeen"
+  },
+  {
+   "race_id": "2026-NE-M-34615-council-ward-1",
+   "name": "Dale Coy"
+  },
+  {
+   "race_id": "2026-NE-M-38295-mayor",
+   "name": "Joe Hunter"
+  },
+  {
+   "race_id": "2026-NE-RET-CC12-aaron-j-conn",
+   "name": "Aaron J. Conn",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-aaron-j-conn",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 12th Judicial District",
+     "from": "2023",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-aaron-j-conn",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Sheridan County Attorney",
+     "from": "2019",
+     "to": "2022",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-aaron-j-conn",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC6-sara-e-bauer",
+   "name": "Sara E. Bauer",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-sara-e-bauer",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 6th Judicial District",
+     "from": "2023",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-sara-e-bauer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC12-andrea-miller",
+   "name": "Andrea Miller",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-andrea-miller",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 12th Judicial District",
+     "from": "2017",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-andrea-miller",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC4-marlon-a-polk",
+   "name": "Marlon A. Polk",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-marlon-polk",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 4th Judicial District (Douglas County)",
+     "from": "2005",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-marlon-polk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00088-school-board-ward-4",
+   "name": "Aaron Wubbels",
+   "official_page": {
+    "url": "https://www.norris160.org/district/board-education/board-education",
+    "source": "Norris School District 160, Board of Education page (Aaron Wubbels, School Board, Ward 4)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S-03990-school-board",
+   "name": "Kara Neuverth",
+   "official_page": {
+    "url": "https://www.benningtonschools.org/meet-the-board",
+    "source": "Bennington Public Schools, Meet the Board page (Kara Neuverth, Member)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-S-70710-school-board",
+   "name": "Grady Wells"
+  },
+  {
+   "race_id": "2026-NE-S-71580-school-board",
+   "name": "Jodi Graves"
+  },
+  {
+   "race_id": "2026-NE-S-73740-school-board",
+   "name": "Stacy Jolley",
+   "website": {
+    "url": "http://stacyjolley.com",
+    "how": "Linked from the Douglas County Democratic Party's list of 2026 candidates; the site says she serves on the Millard Board of Education and is running for her third term",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sarpy.gov/858/Current-Elected-Officials",
+    "source": "Sarpy County Election Commission, Current Elected Officials (Millard Public Schools District 17 board member, last elected 2022)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Millard Public Schools Board of Education member (last elected 2022; start year not given)",
+     "from": "",
+     "to": "present",
+     "source": "Sarpy County Election Commission",
+     "url": "https://www.sarpy.gov/858/Current-Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-75270-school-board",
+   "name": "Carla Kloeckner"
+  },
+  {
+   "race_id": "2026-NE-SBOE8",
+   "name": "Lou Ann Goding",
+   "website": {
+    "url": "https://www.louanngoding.com",
+    "how": "Linked from the Nebraska Republican Party's list of 2026 candidates; the site is titled 'Lou Ann Goding for State Board of Education'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Omaha Public Schools Board of Education member (Board President in 2015 and 2016)",
+     "from": "2013",
+     "to": "2020",
+     "source": "her campaign site",
+     "url": "https://www.louanngoding.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Omaha Land Bank Board member, appointed by former Mayor Jean Stothert (years not given)",
+     "from": "",
+     "to": "",
+     "source": "her campaign site",
+     "url": "https://www.louanngoding.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SS16",
+   "name": "Cindy Chatt"
+  },
+  {
+   "race_id": "2026-NE-SS26",
+   "name": "Tobias Howard",
+   "website": {
+    "url": "https://www.howardfornebraska.com/",
+    "how": "Linked from the Nebraska Republican Party's list of 2026 candidates; the site is titled 'Howard for Legislature' and says Tobias Howard is running for the Legislature in District 26",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS38",
+   "name": "Tim Anderson",
+   "website": {
+    "url": "https://www.votetimanderson.com",
+    "how": "Linked from the Nebraska Republican Party's list of 2026 candidates; the site is titled 'Tim Anderson for Legislature' and names District 38",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Sutton (years not given)",
+     "from": "",
+     "to": "present",
+     "source": "his campaign site",
+     "url": "https://www.votetimanderson.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SS6",
+   "name": "Nate Ostdiek",
+   "website": {
+    "url": "https://www.natefornebraska.com/",
+    "how": "Linked from the Nebraska Democratic Party's and the Douglas County Democratic Party's lists of 2026 candidates; the site says Nate Ostdiek is running to represent District 6 in the Nebraska Legislature",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

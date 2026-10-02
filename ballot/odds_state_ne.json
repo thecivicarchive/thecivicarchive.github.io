@@ -1,0 +1,38 @@
+{
+ "2026-NE-GOV": {
+  "polymarket": "nebraska-governor-winner-2026",
+  "kalshi": "GOVPARTYNE-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Nebraska Governor Election Winner\" and resolves on the winner of the 2026 Nebraska gubernatorial election; it offers Lynne Walz (D) and Jim Pillen (R), about $18,800 traded when checked (Pillen 90.5 cents, Walz 8.5). It also carries eleven placeholder outcomes (Option A to Option J, Other) that are not open for trading and have no price; ballot/odds.py leaves them out for state races. Kalshi's event is titled \"Nebraska Governor winner?\" (In 2026), with two markets labelled Jim Pillen (last price 91 cents, about 31,800 contracts) and Lynne Walz (7.7 cents, about 26,500 contracts). Both name the candidates for governor without running mates, and neither offers the America First ticket (Brett Lindstrom) or the Legal Marijuana NOW ticket (Rick Beard). Left out on purpose: Polymarket's margin-of-victory event, Kalshi's Governor-Senate combination series (KXNESENGOVCOMBO) and its two nominee series for the May primary (KXGOVNENOMR, KXGOVNENOMD)."
+ },
+ "2026-NE-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENNE-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Kalshi's event is titled \"Nebraska Attorney General winner?\" (In 2026), with markets labelled Mike Hilgers and Jocelyn Brasher, the two on our list. Barely traded: about 524 contracts on Hilgers (last price 92 cents) and 11 on Brasher (6 cents) when checked. Ask John before showing this market: eleven contracts are not a price. Polymarket lists no market for this race (its search for Nebraska and the likely slug, 2026-10-02)."
+ },
+ "2026-NE-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATENE-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"Nebraska Secretary of State winner?\" (in 2026), one market per candidate: Scott Petersen, Sarah J. Slattery, Paul Rumbaugh and Bob Krist, the four on our list. It opened September 13, 2026 and nobody had traded any of the four when checked, so there is no price at all: ballot/odds.py will give it no rows and name all four as quiet. Ask John before showing this market. Polymarket lists no market for this race (its search for Nebraska and the likely slug, 2026-10-02)."
+ },
+ "2026-NE-TREAS": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Treasurer. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Nebraska treasurer series, and three likely event tickers answered not found. Polymarket: its search for \"nebraska treasurer\" returned no such event and two likely slugs returned nothing."
+ },
+ "2026-NE-AUD": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Auditor of Public Accounts. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Nebraska auditor series, and two likely event tickers answered not found. Polymarket: its search for \"nebraska auditor\" returned no such event and the likely slug returned nothing."
+ },
+ "_other_offices": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Public Service Commissioner (District 2), the Board of Regents (Districts 1, 2, 4) and the State Board of Education (Districts 5 to 8): no market on either site; Kalshi's series list and Polymarket's search for Nebraska show none. Not races of the state page and left out on purpose: the U.S. Senate and House markets (on the Congress pages), Kalshi's Nebraska primary-winner series and its market on whether Cindy Burbank would be on the Senate ballot."
+ }
+}

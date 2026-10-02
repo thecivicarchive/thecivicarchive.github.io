@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.091 — 2026-10-02 — Nebraska gets the same treatment
+
+- Nebraska's ballot page now has the real map: 1,805 precinct pieces with the districts they sit in (county, city or township, ward, legislative district, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, down to your own seat on the boards Nebraska elects by district (the Public Service Commission, the Board of Regents, the State Board of Education, natural resources districts, educational service units, community colleges). The precinct lines are the Census Bureau's from 2020, and the map says so.
+- Nebraska has one chamber, elected without party labels: its races read "Legislative District", and the page shows no party colour or word for a legislative candidate.
+- Nebraska's candidates for Governor, the other statewide offices and boards, the Legislature, the courts and the counties, cities and school boards loaded so far show what the record holds: 128 have an official government page, 54 a campaign website of their own, offices held (162, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": earlier runs under a party label and the candidate's own words. No Nebraska party page uses the word "endorsed"; the parties publish lists of their candidates, which are not counted as endorsements, so that part of the record is empty here and the page says nothing in its place.
+- How each place voted, by county: President and Senator in 2024, Governor in 2022, President and Senator in 2020, from the Board of State Canvassers' canvass books, for all 93 counties. Nebraska publishes no precinct results a program can read, so there are no figures for cities.
+- No pollster that publishes its methods has polled a Nebraska state race this year. The Governor's race has prediction-market prices as a tab. Only ten counties' local lists are loaded; elsewhere the page says "not loaded yet". Polling places stay off the map; the page points to the state's own finder.
+
 ## v4.0.090 — 2026-10-02 — Missouri gets the same treatment
 
 - Missouri's ballot page now has the real map: 5,462 precinct pieces with the districts they sit in (county, city or township, ward, House, Senate, Congress, judicial circuit, court of appeals district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.

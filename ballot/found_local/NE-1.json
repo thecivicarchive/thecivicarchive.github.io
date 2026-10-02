@@ -1,0 +1,372 @@
+{
+ "part": 1,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "Web search stopped partway (the session's search allowance ran out), so the three Legislature candidates, the city candidates and four school board candidates were looked for only by opening likely pages. A site for Jeremy Hosein answered scripts with 429 and was left out. Party pages in Nebraska list candidates without saying they endorse them (see ballot/lean/ne_endorsements.json), so endorsed_by is empty.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-assessor",
+   "name": "Jake Jarzynka"
+  },
+  {
+   "race_id": "2026-NE-31019-county-attorney",
+   "name": "Shawn R. Eatherton",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/ATTORNEY",
+    "source": "Buffalo County, Nebraska",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Buffalo County",
+     "from": "2003",
+     "to": "present",
+     "source": "Buffalo County, Nebraska",
+     "url": "https://buffalocounty.ne.gov/ATTORNEY",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-clerk-of-court",
+   "name": "Jessica Hanson",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/directories/district-court-contacts",
+    "source": "Nebraska Judicial Branch, District Court Contacts (lists her as Clerk of the District Court, Cherry County)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-31055-county-attorney",
+   "name": "Donald W. Kleine",
+   "website": {
+    "url": "https://www.donkleine.com/",
+    "how": "guessed from the name and opened; the site is titled 'Don Kleine for Douglas County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Douglas County",
+     "from": "2006",
+     "to": "present",
+     "source": "his campaign site ('As Douglas County Attorney since 2006')",
+     "url": "https://www.donkleine.com/about-don/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31109-county-assessor-register-of-deeds",
+   "name": "Dan Nolte",
+   "official_page": {
+    "url": "https://www.lancaster.ne.gov/153/Assessor-Register-of-Deeds",
+    "source": "Lancaster County, Nebraska",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Assessor/Register of Deeds, Lancaster County",
+     "from": "",
+     "to": "present",
+     "source": "Lancaster County, Nebraska",
+     "url": "https://www.lancaster.ne.gov/153/Assessor-Register-of-Deeds",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31109-public-defender",
+   "name": "Kristi Egger",
+   "website": {
+    "url": "https://kristiegger.org/",
+    "how": "named in KLIN's report of her announcement; the site is titled 'Kristi Egger For Public Defender' and says 'Re-Elect Kristi Egger ... Lancaster County'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Public Defender, Lancaster County",
+     "from": "elected 2022",
+     "to": "present",
+     "source": "KLIN News",
+     "url": "https://klin.com/2025/06/18/lancaster-county-public-defender-kristi-egger-to-seek-reelection-in-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Advanced past the Democratic incumbent in the 2022 primary for Lancaster County Public Defender, then defeated the Republican challenger in the general election",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "KLIN News",
+     "url": "https://klin.com/2025/06/18/lancaster-county-public-defender-kristi-egger-to-seek-reelection-in-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31119-register-of-deeds",
+   "name": "Ellen Sothan"
+  },
+  {
+   "race_id": "2026-NE-31137-public-defender",
+   "name": "Nancy Freburg"
+  },
+  {
+   "race_id": "2026-NE-31153-sheriff",
+   "name": "Greg London",
+   "official_page": {
+    "url": "https://www.sarpy.gov/CivicAlerts.asp?AID=331",
+    "source": "Sarpy County, Nebraska (press release on his appointment as Sheriff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Sarpy County (appointed by the County Board on August 27, 2024, to finish the term)",
+     "from": "2025",
+     "to": "present",
+     "source": "Sarpy County, Nebraska",
+     "url": "https://www.sarpy.gov/CivicAlerts.asp?AID=331",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31177-sheriff",
+   "name": "Kevin Willis"
+  },
+  {
+   "race_id": "2026-NE-AG",
+   "name": "Mike Hilgers",
+   "website": {
+    "url": "https://mikehilgers.com/",
+    "how": "given as his campaign website on Wikipedia; the site is titled 'Mike Hilgers for Attorney General - Nebraska Attorney General Candidate'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-M-03950-mayor",
+   "name": "Kevin Pflager"
+  },
+  {
+   "race_id": "2026-NE-M-25055-council-at-large",
+   "name": "Thomas Cross"
+  },
+  {
+   "race_id": "2026-NE-M-34615-council-ward-4",
+   "name": "Jerry Keenan"
+  },
+  {
+   "race_id": "2026-NE-REG1",
+   "name": "Jeremy Hosein",
+   "offices": [
+    {
+     "office": "Student representative of the University of Nebraska Medical Center on the University of Nebraska Board of Regents (student regent)",
+     "from": "2013",
+     "to": "2013",
+     "source": "Nebraska Examiner",
+     "url": "https://nebraskaexaminer.com/2025/08/22/lincoln-neurosurgeon-former-unmc-student-regent-running-for-nu-board-of-regents-in-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC3-rodney-d-reuter",
+   "name": "Rodney D. Reuter",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-rodney-d-reuter",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Court Judge, 3rd Judicial District",
+     "from": "2016",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-rodney-d-reuter",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-CC9-bryan-s-mcquay",
+   "name": "Bryan S. McQuay",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-bryan-s-mcquay",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Court Judge, 9th Judicial District",
+     "from": "2023",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-bryan-s-mcquay",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "County Attorney in Harlan, Kearney and Phelps counties (before his appointment as judge on July 24, 2023)",
+     "from": "",
+     "to": "2023",
+     "source": "Office of the Governor of Nebraska",
+     "url": "https://governor.nebraska.gov/node/9185",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC2-stefanie-a-martinez",
+   "name": "Stefanie A. Martinez",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-stefanie-martinez",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 2nd Judicial District",
+     "from": "2017",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-stefanie-martinez",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "County Court Judge, 2nd Judicial District",
+     "from": "2013",
+     "to": "2017",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-stefanie-martinez",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC9-patrick-m-lee",
+   "name": "Patrick M. Lee",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-patrick-m-lee",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 9th Judicial District",
+     "from": "2021",
+     "to": "present",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-patrick-m-lee",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00095-school-board",
+   "name": "Greg Mach"
+  },
+  {
+   "race_id": "2026-NE-S-04100-school-board",
+   "name": "Kyle Kruse"
+  },
+  {
+   "race_id": "2026-NE-S-71220-school-board",
+   "name": "Blake Turpen"
+  },
+  {
+   "race_id": "2026-NE-S-72390-school-board",
+   "name": "Byron D. Hansen"
+  },
+  {
+   "race_id": "2026-NE-S-74430-school-board",
+   "name": "Tom Stanton",
+   "official_page": {
+    "url": "https://www.norfolkpublicschools.org/district/board-of-education/",
+    "source": "Norfolk Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Norfolk Public Schools Board of Education",
+     "from": "",
+     "to": "present",
+     "source": "Norfolk Public Schools",
+     "url": "https://www.norfolkpublicschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-75900-school-board",
+   "name": "Elizabeth Kumru",
+   "official_page": {
+    "url": "https://www.ralstonschools.org/ourdistrict/boardofeducation/board-members",
+    "source": "Ralston Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Secretary), Ralston Public Schools Board of Education",
+     "from": "",
+     "to": "present",
+     "source": "Ralston Public Schools",
+     "url": "https://www.ralstonschools.org/ourdistrict/boardofeducation/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-SOS",
+   "name": "Sarah J. Slattery",
+   "website": {
+    "url": "https://www.slatteryfornebraska.com/",
+    "how": "given as her campaign website on Wikipedia's page for the 2026 Secretary of State election; the site is titled 'Sarah Slattery for Secretary of State'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-NE-SS2",
+   "name": "Caitlin Knutson"
+  },
+  {
+   "race_id": "2026-NE-SS30",
+   "name": "Janet M. Bock"
+  },
+  {
+   "race_id": "2026-NE-SS41",
+   "name": "Jeremy Heneger"
+  },
+  {
+   "race_id": "2026-NE-TREAS",
+   "name": "Daniel Ebers",
+   "past_party": [
+    {
+     "what": "Democratic nominee for U.S. House, Nebraska's 3rd congressional district (won the Democratic primary)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 United States House of Representatives elections in Nebraska",
+     "url": "https://en.wikipedia.org/wiki/2024_United_States_House_of_Representatives_elections_in_Nebraska",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

@@ -246,7 +246,27 @@ STATES = {"MN": {"name": "Minnesota"},
                                "candidates: the county offices and the associate circuit judges elected by party here are those on the "
                                "lists of the 13 election authorities read so far, and the other counties' are not loaded yet. In six "
                                "judicial circuits, and for the appellate courts, voters answer Yes or No on keeping each judge: those "
-                               "judges are in the scope as the one name on a retention vote."}}
+                               "judges are in the scope as the one name on a retention vote."},
+          # Nebraska (2026-10-02): the Secretary of State's filing list has contact columns the list loader never reads and
+          # this module does not read either, and the county election offices' notices have no website cell, so its
+          # websites come from verified findings only. One chamber: its legislative races give "Nebraska" as their
+          # jurisdiction, and the scope names each "Legislative District N" ("district_words"). City races carry the
+          # Census place code as NE-M-<code>. 70 of its 73 school districts carry the Census Bureau's own names; the three
+          # the county notices name differently (Lawrence-Nelson, Sandy Creek, Exeter-Milligan-Friend) are small rural
+          # districts and stay without a figure, so "school_names" is empty
+          "NE": {"name": "Nebraska", "legislature": r"\bnebraska (?:state )?(?:legislat\w+|senate|unicameral)|\bunicameral\b",
+                 "district_words": "Legislative District",
+                 "school_names": {},
+                 "local_note": "Nebraska has no statewide list of county, city or school candidates: the county offices, mayors, city "
+                               "councils, village boards and school boards here are those on the notices of election and sample ballots "
+                               "of the 10 county election offices read so far (Adams, Buffalo, Cherry, Douglas, Lancaster, Madison, "
+                               "Phelps, Sarpy, Washington and York), and the other 83 counties' are not loaded yet. Omaha and Lincoln "
+                               "elect their city officers, and Lincoln its school board, in the spring of odd-numbered years (Neb. Rev. "
+                               "Stat. 14-201, 15-301 and 32-544), so they are not on this ballot. Judges are in the scope as the one name "
+                               "on a yes-or-no retention vote. The Board of Regents, the State Board of Education and the Public Service "
+                               "Commission are elected by district and are in the scope with the statewide offices. Township boards and "
+                               "the boards of natural resources, public power, reclamation, community college, educational service "
+                               "unit and other districts are outside the scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1417,7 +1437,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             if where == words and state != "MN" and r["level"] == "legislature":      # Missouri's give the state's own name
                 where = ""
             if not where and r["level"] == "legislature" and r["district"]:      # Ohio's legislative races name no jurisdiction
-                where = f"{'Senate' if r['office_kind'] == 'state_senate' else 'House'} District {r['district']}"
+                where = (f"{STATES[state]['district_words']} {r['district']}" if STATES.get(state, {}).get("district_words") else      # Nebraska
+                         f"{'Senate' if r['office_kind'] == 'state_senate' else 'House'} District {r['district']}")
             elif not where and r["office_kind"] == "court_of_appeals" and r["district"]:      # Michigan's, likewise
                 where = f"Court of Appeals District {r['district']}"
             rows.append({"race_id": rid, "name": name, "level": r["level"], "office": office, "jurisdiction": where})

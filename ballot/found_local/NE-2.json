@@ -1,0 +1,352 @@
+{
+ "part": 2,
+ "of": 12,
+ "researched": "2026-10-02",
+ "notes": "The session's web search allowance ran out after 14 of 30 candidates, so the last 16 were looked up only on pages whose addresses were already known. Scott Petersen's campaign site (named in Wikipedia's election article) answered 429 twice and was left out. No party endorsement pages were reached.",
+ "candidates": [
+  {
+   "race_id": "2026-NE-31001-county-attorney",
+   "name": "Donna Fegler Daiss",
+   "official_page": {
+    "url": "https://adamscountyne.gov/county-attorney",
+    "source": "Adams County, County Attorney's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Adams County Attorney",
+     "from": "",
+     "to": "",
+     "source": "Adams County, County Attorney's Office",
+     "url": "https://adamscountyne.gov/county-attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31019-county-clerk",
+   "name": "Heather A. Christensen",
+   "official_page": {
+    "url": "https://buffalocounty.ne.gov/CLERK",
+    "source": "Buffalo County, County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo County Clerk",
+     "from": "",
+     "to": "",
+     "source": "Buffalo County, County Clerk",
+     "url": "https://buffalocounty.ne.gov/CLERK",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31031-county-assessor",
+   "name": "Melissa J Bancroft",
+   "official_page": {
+    "url": "https://cherrycountyne.gov/county-assessor/",
+    "source": "Cherry County, County Assessor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cherry County Assessor",
+     "from": "",
+     "to": "",
+     "source": "Cherry County, County Assessor",
+     "url": "https://cherrycountyne.gov/county-assessor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31055-county-attorney",
+   "name": "Makayla Danner"
+  },
+  {
+   "race_id": "2026-NE-31109-county-assessor-register-of-deeds",
+   "name": "Tim Johns"
+  },
+  {
+   "race_id": "2026-NE-31109-sheriff",
+   "name": "Ben T. Houchin"
+  },
+  {
+   "race_id": "2026-NE-31119-sheriff",
+   "name": "Todd Volk",
+   "official_page": {
+    "url": "https://madisonsheriffne.gov/",
+    "source": "Madison County Sheriff's Department",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Madison County Sheriff",
+     "from": "",
+     "to": "",
+     "source": "Madison County Sheriff's Department",
+     "url": "https://madisonsheriffne.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-31137-sheriff",
+   "name": "Marty Denton"
+  },
+  {
+   "race_id": "2026-NE-31177-clerk-of-court",
+   "name": "Amber R. Dean"
+  },
+  {
+   "race_id": "2026-NE-31185-clerk-of-court",
+   "name": "Sharilyn Steube",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/directories/district-court-contacts",
+    "source": "Nebraska Judicial Branch, District Court Contacts (York County)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk of the District Court, York County",
+     "from": "",
+     "to": "",
+     "source": "Nebraska Judicial Branch, District Court Contacts",
+     "url": "https://nebraskajudicial.gov/directories/district-court-contacts",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-AUD",
+   "name": "John Knight"
+  },
+  {
+   "race_id": "2026-NE-M-03950-mayor",
+   "name": "Rusty Hike",
+   "official_page": {
+    "url": "https://www.bellevue.net/490/THE-Mayor",
+    "source": "City of Bellevue, The Mayor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Bellevue",
+     "from": "2018",
+     "to": "",
+     "source": "Wikipedia, List of mayors of Bellevue, Nebraska (cited); the city's page says he is in his second term",
+     "url": "https://en.wikipedia.org/wiki/List_of_mayors_of_Bellevue,_Nebraska",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Sarpy County Board of Commissioners",
+     "from": "",
+     "to": "",
+     "source": "City of Bellevue, The Mayor (no years given)",
+     "url": "https://www.bellevue.net/490/THE-Mayor",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Bellevue Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "City of Bellevue, The Mayor (no years given)",
+     "url": "https://www.bellevue.net/490/THE-Mayor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-M-26385-council-ward-1",
+   "name": "Josephine Pohl"
+  },
+  {
+   "race_id": "2026-NE-M-34615-council-ward-4",
+   "name": "Layne Roth"
+  },
+  {
+   "race_id": "2026-NE-REG2",
+   "name": "Elizabeth Butler"
+  },
+  {
+   "race_id": "2026-NE-RET-CC4-craig-q-mcdermott",
+   "name": "Craig Q. McDermott",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-craig-q-mcdermott",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the County Court, 4th Judicial District (Douglas County)",
+     "from": "2005",
+     "to": "",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-craig-q-mcdermott",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-COA2-michael-w-pirtle",
+   "name": "Michael W. Pirtle",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-michael-w-pirtle",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "born": {
+    "year": 1953,
+    "source": "Wikipedia, Michael W. Pirtle (cited)",
+    "url": "https://en.wikipedia.org/wiki/Michael_W._Pirtle",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the Nebraska Court of Appeals, 2nd Judicial District",
+     "from": "2011",
+     "to": "",
+     "source": "Nebraska Judicial Branch (Chief Judge 2020 to 2024)",
+     "url": "https://nebraskajudicial.gov/courts/hon-michael-w-pirtle",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-DC3-andrew-jacobsen",
+   "name": "Andrew Jacobsen",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-andrew-r-jacobsen",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, 3rd Judicial District (Lancaster County)",
+     "from": "2011",
+     "to": "",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-andrew-r-jacobsen",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-RET-JUV-matthew-r-kahler",
+   "name": "Matthew R. Kahler",
+   "official_page": {
+    "url": "https://nebraskajudicial.gov/courts/hon-matthew-r-kahler",
+    "source": "Nebraska Judicial Branch",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the Separate Juvenile Court, Douglas County",
+     "from": "2017",
+     "to": "",
+     "source": "Nebraska Judicial Branch",
+     "url": "https://nebraskajudicial.gov/courts/hon-matthew-r-kahler",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-NE-S-00095-school-board",
+   "name": "Marilyn Schacht"
+  },
+  {
+   "race_id": "2026-NE-S-04100-school-board",
+   "name": "Ryan Klein"
+  },
+  {
+   "race_id": "2026-NE-S-71220-school-board",
+   "name": "Christopher S. Conroy"
+  },
+  {
+   "race_id": "2026-NE-S-72390-school-board",
+   "name": "Drew Blessing"
+  },
+  {
+   "race_id": "2026-NE-S-74820-school-board-subdistrict-2",
+   "name": "Bri Full"
+  },
+  {
+   "race_id": "2026-NE-S-75900-school-board",
+   "name": "Louis Gilmore"
+  },
+  {
+   "race_id": "2026-NE-SOS",
+   "name": "Scott Petersen"
+  },
+  {
+   "race_id": "2026-NE-SS2",
+   "name": "Dean Helmick"
+  },
+  {
+   "race_id": "2026-NE-SS32",
+   "name": "Mark Schoenrock"
+  },
+  {
+   "race_id": "2026-NE-SS41",
+   "name": "Joe Johnson"
+  },
+  {
+   "race_id": "2026-NE-TREAS",
+   "name": "Joey Spellerberg",
+   "website": {
+    "url": "https://www.joeyspellerberg.com/",
+    "how": "Listed under official campaign websites in Wikipedia's 2026 Nebraska State Treasurer election article; the site is titled 'Joey Spellerberg for Treasurer' and says 'Paid for by Spellerberg for Nebraska'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://treasurer.nebraska.gov/about/",
+    "source": "Nebraska State Treasurer's Office",
+    "verified": true
+   },
+   "born": {
+    "year": 1990,
+    "source": "Wikipedia, Joey Spellerberg (cited to The Schuyler Sun)",
+    "url": "https://en.wikipedia.org/wiki/Joey_Spellerberg",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nebraska State Treasurer",
+     "from": "2025",
+     "to": "",
+     "source": "Wikipedia, Joey Spellerberg (cited to the Treasurer's office: sworn in November 6, 2025)",
+     "url": "https://en.wikipedia.org/wiki/Joey_Spellerberg",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Fremont",
+     "from": "2020",
+     "to": "2025",
+     "source": "His campaign site",
+     "url": "https://www.joeyspellerberg.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

@@ -1,0 +1,62 @@
+{
+ "rule": "Nebraska's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Nebraska elects its Governor and Lieutenant Governor, Attorney General, Secretary of State, State Treasurer and Auditor of Public Accounts in 2026. The Public Service Commission, the Board of Regents and the State Board of Education are elected by district, not statewide; no poll of any of those contests was found, and they are not listed here.",
+ "races": {
+  "2026-NE-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 8,
+    "pollsters": [
+     "Lake Research Partners (four: July 23-29, 2025; December 11-17, 2025; April 25-29, 2026; September 8-14, 2026; a Democratic firm, the April one reported as an internal poll)",
+     "Public Policy Polling (two: April 6-7, 2026, released by Lynne Walz's campaign; September 1-2, 2026)",
+     "SurveyUSA (September 8-13, 2026)",
+     "Wedgewood Polls (September 14-16, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Nebraska_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "Governor and Lieutenant Governor. Wikipedia's table lists eight polls of November's matchup and none of the primaries (read 2026-10-02). None of the four pollsters (Lake Research Partners, Public Policy Polling, SurveyUSA, Wedgewood Polls) is on AAPOR's list of Transparency Initiative members, so all eight are left out. Two news searches naming the member pollsters most active in state races (Emerson, Change Research, ActiVote, Marist) found no Nebraska governor poll by any of them. The three averages at the top of Wikipedia's table (270toWin, Race to the WH, Silver Bulletin) are other people's averages, not polls, and are not counted."
+   }
+  },
+  "2026-NE-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Nebraska_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "Attorney General. Wikipedia's page has no polling section and a news search found no published poll of this race, by a member of the Transparency Initiative or by anyone else."
+   }
+  },
+  "2026-NE-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Nebraska_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "Secretary of State. Wikipedia's page has no polling section and a news search found no published poll of this race, by a member of the Transparency Initiative or by anyone else."
+   }
+  },
+  "2026-NE-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Nebraska_elections",
+    "checked": "2026-10-02",
+    "note": "State Treasurer. Wikipedia's page on Nebraska's 2026 elections shows no poll of this race (its separate page for the office was not read) and a news search found none, by a member of the Transparency Initiative or by anyone else."
+   }
+  },
+  "2026-NE-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Nebraska_elections",
+    "checked": "2026-10-02",
+    "note": "Auditor of Public Accounts. Wikipedia's page on Nebraska's 2026 elections shows no poll of this race (its separate page for the office was not read); no news search was made for this office alone. None is counted and none is left out."
+   }
+  }
+ }
+}

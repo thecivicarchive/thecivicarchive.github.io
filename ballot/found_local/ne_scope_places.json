@@ -1,0 +1,310 @@
+{
+ "state": "NE",
+ "made": "2026-10-02",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "NE-M-03950",
+   "name": "Bellevue city",
+   "census_name": "Bellevue city",
+   "population": 64510,
+   "margin": 97,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "NE-M-25055",
+   "name": "Kearney city",
+   "census_name": "Kearney city",
+   "population": 34246,
+   "margin": 26,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "NE-M-34615",
+   "name": "Norfolk city",
+   "census_name": "Norfolk city",
+   "population": 26054,
+   "margin": 49,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "NE-M-38295",
+   "name": "Papillion city",
+   "census_name": "Papillion city",
+   "population": 25244,
+   "margin": 46,
+   "races": 5,
+   "candidates": 7
+  },
+  {
+   "id": "NE-M-21415",
+   "name": "Hastings city",
+   "census_name": "Hastings city",
+   "population": 25008,
+   "margin": 41,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "NE-M-26385",
+   "name": "La Vista city",
+   "census_name": "La Vista city",
+   "population": 16563,
+   "margin": 31,
+   "races": 4,
+   "candidates": 6
+  }
+ ],
+ "school_districts": [
+  {
+   "id": "NE-S-74820",
+   "name": "Omaha Public Schools",
+   "census_name": "Omaha Public Schools",
+   "census_geo_id": "9700000US3174820",
+   "population": 373060,
+   "margin": 3181,
+   "races": 4,
+   "candidates": 6
+  },
+  {
+   "id": "NE-S-73740",
+   "name": "Millard Public Schools",
+   "census_name": "Millard Public Schools",
+   "census_geo_id": "9700000US3173740",
+   "population": 119613,
+   "margin": 2973,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-75270",
+   "name": "Papillion-La Vista Community Schools",
+   "census_name": "Papillion-La Vista Community Schools",
+   "census_geo_id": "9700000US3175270",
+   "population": 71064,
+   "margin": 1502,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-70110",
+   "name": "Elkhorn Public Schools",
+   "census_name": "Elkhorn Public Schools",
+   "census_geo_id": "9700000US3170110",
+   "population": 58397,
+   "margin": 2292,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "NE-S-03810",
+   "name": "Bellevue Public Schools",
+   "census_name": "Bellevue Public Schools",
+   "census_geo_id": "9700000US3103810",
+   "population": 52329,
+   "margin": 1860,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-72390",
+   "name": "Kearney Public Schools",
+   "census_name": "Kearney Public Schools",
+   "census_geo_id": "9700000US3172390",
+   "population": 39714,
+   "margin": 570,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "NE-S-70710",
+   "name": "Fremont Public Schools",
+   "census_name": "Fremont Public Schools",
+   "census_geo_id": "9700000US3170710",
+   "population": 30975,
+   "margin": 490,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "NE-S-74430",
+   "name": "Norfolk Public Schools",
+   "census_name": "Norfolk Public Schools",
+   "census_geo_id": "9700000US3174430",
+   "population": 30612,
+   "margin": 455,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-71220",
+   "name": "Gretna Public Schools",
+   "census_name": "Gretna Public Schools",
+   "census_geo_id": "9700000US3171220",
+   "population": 29611,
+   "margin": 1654,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-71580",
+   "name": "Hastings Public Schools",
+   "census_name": "Hastings Public Schools",
+   "census_geo_id": "9700000US3171580",
+   "population": 22504,
+   "margin": 439,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "NE-S-75900",
+   "name": "Ralston Public Schools",
+   "census_name": "Ralston Public Schools",
+   "census_geo_id": "9700000US3175900",
+   "population": 19250,
+   "margin": 971,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-03990",
+   "name": "Bennington Public Schools",
+   "census_name": "Bennington Public Schools",
+   "census_geo_id": "9700000US3103990",
+   "population": 18718,
+   "margin": 1234,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-04100",
+   "name": "Blair Community Schools",
+   "census_name": "Blair Community Schools",
+   "census_geo_id": "9700000US3104100",
+   "population": 13408,
+   "margin": 366,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "NE-S-00021",
+   "name": "Waverly School District 145",
+   "census_name": "Waverly School District 145",
+   "census_geo_id": "9700000US3100021",
+   "population": 11616,
+   "margin": 823,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "NE-S-00095",
+   "name": "Crete Public Schools",
+   "census_name": "Crete Public Schools",
+   "census_geo_id": "9700000US3100095",
+   "population": 11287,
+   "margin": 594,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "NE-S-00088",
+   "name": "Norris School District 160",
+   "census_name": "Norris School District 160",
+   "census_geo_id": "9700000US3100088",
+   "population": 10305,
+   "margin": 580,
+   "races": 3,
+   "candidates": 3
+  }
+ ],
+ "just_under": [
+  {
+   "kind": "school district",
+   "id": "NE-S-79050",
+   "name": "York Public Schools",
+   "census_name": "York Public Schools",
+   "census_geo_id": "9700000US3179050",
+   "population": 9492,
+   "margin": 234,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "city",
+   "id": "NE-M-20260",
+   "name": "Gretna city",
+   "census_name": "Gretna city",
+   "population": 9193,
+   "margin": 34,
+   "races": 2,
+   "candidates": 3
+  }
+ ],
+ "no_population_figure": [
+  {
+   "kind": "school district",
+   "id": "NE-S-001-lawrence-nelson",
+   "name": "Lawrence Nelson Public School",
+   "races": 1,
+   "candidates": 3,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  },
+  {
+   "kind": "school district",
+   "id": "NE-S-001-sandy-creek",
+   "name": "Sandy Creek Public School",
+   "races": 1,
+   "candidates": 3,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  },
+  {
+   "kind": "school district",
+   "id": "NE-S-185-exeter-milligan-friend",
+   "name": "Exeter-Milligan-Friend (school district)",
+   "races": 1,
+   "candidates": 4,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  }
+ ],
+ "cities_found_by_name_not_code": [],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Beatrice city",
+  "Chalco CDP",
+  "Columbus city",
+  "Fremont city",
+  "Grand Island city",
+  "Lexington city",
+  "Lincoln city",
+  "North Platte city",
+  "Omaha city",
+  "Scottsbluff city",
+  "South Sioux City city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {},
+ "school_names_tied_after_setting_words_aside": [],
+ "note": "Nebraska has no statewide list of county, city or school candidates: the county offices, mayors, city councils, village boards and school boards here are those on the notices of election and sample ballots of the 10 county election offices read so far (Adams, Buffalo, Cherry, Douglas, Lancaster, Madison, Phelps, Sarpy, Washington and York), and the other 83 counties' are not loaded yet. Omaha and Lincoln elect their city officers, and Lincoln its school board, in the spring of odd-numbered years (Neb. Rev. Stat. 14-201, 15-301 and 32-544), so they are not on this ballot. Judges are in the scope as the one name on a yes-or-no retention vote. The Board of Regents, the State Board of Education and the Public Service Commission are elected by district and are in the scope with the statewide offices. Township boards and the boards of natural resources, public power, reclamation, community college, educational service unit and other districts are outside the scope's rule and are not in it."
+}
