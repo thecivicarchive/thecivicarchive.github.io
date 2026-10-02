@@ -1,0 +1,745 @@
+{
+ "part": 27,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already spent when this part began (its one search was refused: 200 of 200 used), so nothing here comes from a search engine and none was read in place of the search tool. Every page was opened directly with the kit's honest User-Agent (states/net.py), one request at a time and at least a second apart on any one site, with each site's robots.txt read first and obeyed: the campaign websites the candidates filed with the Secretary of State (learned by running the kit's own step, python -m ballot.local_sites files, on a scratch copy of the database; the real database was only read; 16 of these 30 candidates filed one), each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates and local party units' sites, the Legislative Reference Library, the University of Minnesota's election archive by a candidate's own address (it has a page for Steve Simon and for nobody else here), Wikipedia's article pages, and three news organizations whose robots.txt lets a reader in (KAXE, Woodbury News Net, the Fairmont Sentinel). The own search pages of a few more were asked and gave nothing (Lakeland PBS, KFGO, KYMN, Sahan Journal, the Dodge County Independent). About 185 pages were asked for, and about 130 robots.txt files, nearly all on the evening of October 1, 2026 and the last few in the first minutes of October 2. A campaign site nobody filed could only be found where a party page links it or a likely address exists, so a missing website here is not proof that none exists.",
+  "A rule this part held itself to, and a question for John: a site was left alone when its robots.txt shuts out the kit's own name or any of Anthropic's named agents (ClaudeBot, Claude-User, Claude-Web, anthropic-ai), since this sweep is run by Claude. Parts 16, 17 and 23 did the same; other parts read some of these sites under the kit's own name, which their robots.txt allows. The rule closed to this part: hometownsource.com (the Sun papers, the Press & News, the Union-Times), presspubs.com, southernminn.com, the Forum Communications papers (Brainerd Dispatch, Bemidji Pioneer, Detroit Lakes Tribune, Post Bulletin), patch.com, minnlawyer.com, kstp.com, minnesotareformer.com, valleynewslive.com, kvrr.com, the FM Extra, the Pine County papers and ramseycounty.us. If John decides the kit's own name is what counts, the races here that those papers would most help are Edina (Scot Housh), New Hope (Jeffrey S. Miller), Osseo (Sarah Mitchell), Woodbury (Anne Burt), the years of Jeff Larson's terms on the Milaca board, and the two judges' appointments. These ask every script to stay out and were not read: benformoorhead.com (the site Ben Livingston filed, so it is not confirmed here and the filed address stands on its own), the City of Detroit Lakes' site, and the search pages of Crow Wing County, MPR News and the Montevideo American-News.",
+  "Not read, and nothing worked around: anneburt.com, the site Anne Burt filed (it answered the kit's reader with a bot check, so no website finding is recorded for her and the filed address stands on its own); sd13dfl.org, the Senate District 13 DFL (403; it was asked twice, which was this part's slip: the reader was then changed so that a page that refuses is never asked again); the Minnesota Judicial Branch's site and the state's mn.gov pages (not requested at all, since other parts met a 403 and a CAPTCHA there); the Secretary of State's own sites (never requested); bringmethenews.com's search (403); the Fairmont Sentinel's and Lakes Area Radio's search (their search pages show nothing without scripts, and the sites' own search interfaces answered 401 and 504); the City of Lexington's site (it closed the connection); the Crosby-Ironton district's board page (its address was not found: the site's menu is drawn by script, and two likely addresses were 404). www.co.todd.mn.us and www.belleplaine.k12.mn.us did not answer; the county's and the district's pages are at www.toddcountymn.gov and www.isd716.org.",
+  "joemcdonaldmn.com answered the kit's reader with 429 (too many requests) at the first ask. Its robots.txt allows every reader, so its home page and its About page were read with the page-reading tool instead (two requests). That tool summarizes a page, so only the title and the committee line it reported are quoted. The second reader may meet the same 429 with a script and should open the site in a browser.",
+  "Pages drawn by script: Jeff Larson's and Ashley Patel's campaign sites and the Mahtomedi district's School Board page show nothing to a plain reader; the words quoted from them are in the script or data the page is drawn from (jefflarsonforhouse.com/assets/index-BZ4Xziak.js, ashleyforshoreview.org/assets/index-C0Qn0Gno.js, and the data inside the Mahtomedi page itself). A person sees the same words by opening the page in a browser. The kit's fetch step may find no photo options or issue headings on the two campaign sites for the same reason.",
+  "For the second reader: (a) Joe McDonald is a sitting member with a roster record, so only his website matters by the sweep's rule; three local offices from the Legislative Reference Library's record of him are also given, because the roster does not carry them (the Library gives no years for the school board seat). Drop them if they are not wanted. No Republican party page publishing his 2026 endorsement was found: the Wright County Republicans' site lists him under 'Elected Officials', and its home page calls a convention for the 'Endorsement of Candidates for House and Senate of districts 29 and 30' without giving the result. (b) Steve Simon's record page comes from the roster's statewide officials, which has no birth date and no earlier service; the Library's record of him gives both, and is given as his official page because the Secretary of State's own site is never requested from this machine. A job the Library also lists is left out. His own_words quote joins the heading of his site's Endorsements page and one line of its list with an ellipsis. Three of his four earlier runs under a party label rest on the University of Minnesota's election archive, labelled secondary as other parts label it; the birth details that archive shows were not taken. (c) Scott Winger's birth year is worked out, not printed: KAXE's 2024 guide prints his own answer 'Age on Election Day: 63 it will be my birthday', and Election Day was November 5, 2024, which fixes the year at 1961. Only the year is recorded (part 17 records a year the same way from 'I will celebrate my 60th birthday'). Drop it if a worked-out year is not wanted. Beltrami County writes his term '2024-2026' and writes the terms of the three commissioners elected in November 2024 '2024-2028', so 2024 is read as the election year, not the year he took his seat. (d) Anne Burt: the sources disagree on when she became mayor, so no start year is given. Wikipedia's list of Woodbury's mayors gives her years as 2018 to the present and cites a Pioneer Press story of February 4, 2019 about 'Woodbury's new mayor'; Woodbury News Net wrote on June 27, 2025 that she 'was elected mayor in 2020'. Her filed campaign site could not be read (a bot check); Woodbury News Net's guide to the 2026 candidates links her name to anneburt.com, so a person with a browser can confirm it. The same Woodbury News Net sentence names a 2040 Comprehensive Plan Task Force, left out as an advisory task force, and the story names a regional mayors' association, which is not a public office. (e) Sarah Mitchell's start year, 2023, is worked out: the district says members serve four-year terms and hers 'Expires January 2027', and her own site says she was 'elected in November 2022'. (f) Jeffrey S. Miller: the City of New Hope's Human Rights Commission page lists 'Jeffrey Miller (Chair)', the only Miller on any of the city's four boards and commissions, and his campaign site speaks of 'my current volunteer work as a New Hope City Commissioner'; no page says in so many words that the two are one person. (g) Ashley Patel's campaign site says she served on Shoreview's Human Rights Commission; the city's page for that commission does not list her among today's members, so the office has no years and no end. (h) Gloria Murphy's posts in the City of Lexington rest on her campaign site alone (the city's site would not answer). (i) Kathryn A. Lorsbach: KAXE reported her appointment on November 24, 2024; the Judicial Branch's page could not be read to confirm the day she took the bench or that Seat 14 is hers, so the judgeship has no start year and no end. (j) Jon W. Lubke, David Lieser, Denise Gaida and Reese Frederickson: each county's own page shows the office held today; none says when it began (Crow Wing County gives only 'Current Term: 2023 to 2027'). (k) Krish Subrahmanian is printed as Krishnan Subrahmanian on the state DFL's list. (l) The election archive has no page under the names of Trent C Dilks, Krish Subrahmanian, Jeff Larson or Joe Brothers, so no earlier run under a party label is recorded for them; the state DFL's list links Jeff Larson's name to a social media page, which is not used, and his filed site was read instead.",
+  "Read and left out on purpose: employment (jobs are not offices by the sweep's rule; whether a sheriff candidate's card should show police posts from the candidate's own site is a question for John); nonprofit, hospital, school-site and association boards (Scot Housh, Brian R. Mueller, Ashley Patel, Anne Burt, Ana Folpe); on Scot Housh's site an 'Edina Crime Prevention Board', and on Brian R. Mueller's a 'Commissioner - Minnesota Law Enforcement Accreditation' line, neither of which could be confirmed as a government body; party posts (Ana Folpe's own site says she has been an officer of a local DFL unit, which is recorded only as her own words); labor and personal endorsements; ages given without a year (KAXE's Detroit Lakes guide gives Natalie Bly's age on Election Day); schools and graduation years; households. Not opened at all: the affidavits of candidacy and financial reports the City of Moorhead posts for its candidates.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6, 8, 10 and 12 use), two items: the Senate District 43 DFL lists Jeffrey S. Miller under 'Letters of Support', and says in so many words that a letter of support is not a DFL endorsement (parts 8 and 10 record the same page for two other candidates; his own site's words about it are recorded as own_words); and the Olmsted 20/24 DFL's '2026 DFL Voting Guide', a sample ballot its home page links, names Ana Folpe among its choices for the Rochester School Board and calls them recommendations. Both are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "For whoever holds the Rochester and Olmsted County races, and for the endorsement ledger (ballot/lean/mn_endorsements.json), which has this unit's June newsletter but not this guide: the Olmsted 20/24 DFL's '2026 DFL Voting Guide' (https://olmsted2024dfl.com/s/DFL-voting-guide-2026.pdf, linked from https://olmsted2024dfl.com/), 'developed by DFL units in Olmsted County', also gives its recommendations for other nonpartisan races: Gabe Perkins and Michael Wojcik for Olmsted County Commissioner (Districts 2 and 6), Karen MacLaughlin for County Attorney, Pernell Meier for Soil & Water Supervisor (District 1), Jess Garcia for Mayor of Rochester, LaMar Hicks and Ruchi Gupta for City Council (Wards 3 and 5), and Cathy Nathan and Jean Marvin, with Ana Folpe, for the School Board. It writes 'No recommendation' for Soil & Water District 3 and City Council Ward 1. None of that is recorded in this file except Ana Folpe's line.",
+  "The endorsement ledger was read for leads after this part's own reading: the Kanabec County and Aitkin County DFL pages (Jeff Larson) and the state DFL's release of June 5, 2026 (Steve Simon) came from it, and each was then opened and read here. The ledger has no party page for Trent C Dilks or Joe Brothers beyond the state list, none at all for Joe McDonald, and none naming any of this part's other nonpartisan candidates. It lists the Senate District 47 DFL's site (Woodbury) as one whose certificate could not be checked, so whether that unit names Anne Burt is not known.",
+  "Nothing a card may show was found for Logan J. Kelly, Ben Livingston, Natalie Bly, Gregory Neutz, Ryan Wright and Jessica Bierwerth. Read for them: the City of Fairmont's council page and five of its board and commission pages (Kelly is on none) and the Fairmont Sentinel's report of October 1, 2026 on the mayoral candidates' forum, which names no public office for him; the City of Moorhead's candidates page and three of its board pages, and the Clay County DFL's and Republicans' candidate pages (Livingston is on none of the boards and neither party page names him); KAXE's Detroit Lakes guide of September 30, 2026, which says the sitting Ward 3 alderman is the other candidate and names no public office or website for Bly; the Crosby-Ironton district's home page and KAXE's search (nothing on Neutz); the Tri-City United district's School Board page (Wright is not among the members it names). For Judge Bierwerth no page that may be cited could be read at all: the court's and the Governor's sites are closed to this machine, no story of her appointment could be looked for without a search (Sahan Journal's search, MPR's and Bring Me The News's were tried: nothing, robots.txt, 403; the state bar association's magazine would not connect; one law school's site search was also asked for her name, and nothing is taken from it), and judgebierwerth.com exists but says only 'Launching Soon'. Joseph Banks has only his website. A second pass with web search restored would be worth it for these seven.",
+  "Addresses tried by name: with no search, about seventy likely web addresses were asked of the network (an address lookup is not a request to any site). The few that exist were asked once: carvercountydfl.org and kellyformayor.com are holding pages, dfl48.org is now an unrelated blog, judgebierwerth.com says only 'Launching Soon', sd36dfl.com (the Senate District 36 DFL) names no candidates on its home page, sd41dfl.com asks scripts to stay out and was not read, and toddcountymn.gov and isd716.org are the county's and the school district's own sites."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0133-MN",
+   "name": "Trent C Dilks",
+   "website": {
+    "url": "https://www.trentformn13.com",
+    "how": "The address he filed; it leads to trentformn13.com, titled 'Trent For MN13'. The home page speaks of campaigning 'across Senate District 13' and of what he will do 'if you send me to St. Paul', carries a 2026 copyright line and says it is paid for by Trent for MN 13. The Minnesota DFL's list of endorsed candidates links his name to the same address.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Trent Dilks, Senate District 13)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0169-MN",
+   "name": "Krish Subrahmanian",
+   "website": {
+    "url": "https://www.krishforsenate.com",
+    "how": "The address he filed. The site is titled 'Krish for Senate'; its home page reads 'Senate District 49', 'Eden Prairie & Minnetonka' and 'November 3rd, 2026', and says it is prepared for and paid by Krish for Senate. The Minnesota DFL's list and the Senate District 49 DFL's candidates page both link to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Krishnan Subrahmanian, Senate District 49)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 49 DFL (district unit; its candidates page names 'Krish Subrahmanian - 49' under the heading 'Endorsed Minnesota House Districts 49A and 49B, and Senate District 49')",
+     "url": "https://dfl49.org/2026-candidates",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Proudly DFL-endorsed",
+    "url": "https://www.krishforsenate.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0207-MN",
+   "name": "Jeff Larson",
+   "website": {
+    "url": "https://jefflarsonforhouse.com",
+    "how": "The address he filed. The page is titled 'Jeff Larson for MN House' and describes itself as 'Help us elect Jeff Larson to the MN House in district 10B.' It is drawn by script; the script it is drawn from carries its words, among them 'Jeff Larson for MN House District 10B' and 'Prepared and Paid for by Jeff Larson for MN House 10B Committee'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milaca School Board member (three terms)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: 'served 3 terms on the Milaca School Board' (no years given; the page is drawn by script, and the words are in the script it is drawn from). The Milaca district's own School Board page does not list him among today's members: https://www.milaca.k12.mn.us/school-board-home/",
+     "url": "https://jefflarsonforhouse.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Jeff Larson, House District 10B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Kanabec County DFL (county unit; its 2026 Midterm Election page names 'Jeff Larson, MN House 10B' under the label 'DFL Endorsed' and links his campaign site)",
+     "url": "https://kanabeccountydfl.org/midterms",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Aitkin County DFL (county unit; its Our Candidates page names 'Jeff Larson HD10B', with his campaign site's address, under the heading 'DFL Endorsed Candidates')",
+     "url": "https://aitkincountydfl.org/our-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0244-MN",
+   "name": "Joe McDonald",
+   "website": {
+    "url": "https://joemcdonaldmn.com",
+    "how": "The address he filed; it leads to www.joemcdonaldmn.com. The site answered the kit's reader with 429 (too many requests), and its robots.txt allows every reader, so the home page was read with the page-reading tool: it is titled 'Joe McDonald for State Rep | Advancing Conservative Values', shows 29A in its banner and says it is paid and prepared for by the Joe McDonald for State Rep Committee. Nothing on the home page is dated 2026. Second reader: the kit's reader met 429 again (asked twice, then left alone); the page-reading tool, which the rules allow, reported the same title, 29A and committee line.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Delano",
+     "from": "2007",
+     "to": "2010",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Joe McDonald, Other Government Service: 'Municipal Mayor: Delano, Minnesota (City Mayor); 2007 to 2010'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15360",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Delano City Council member",
+     "from": "2001",
+     "to": "2006",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Joe McDonald, Other Government Service: 'Municipal Council/Aldermen: Delano, Minnesota (City Council); 2001 to 2006'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15360",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Delano School Board member",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Joe McDonald, Other Government Service: 'School Board/Administration: Delano, Minnesota (School Board Member); 19?? to ?' (the Library gives no years)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15360",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0282-MN",
+   "name": "Joe Brothers",
+   "website": {
+    "url": "https://www.joebrothersforminnesota.com",
+    "how": "Not filed with the Secretary of State. The Minnesota DFL's list of endorsed candidates links his name, under House District 48A, to this address. The site is titled 'Joe Brothers for Minnesota House | Carver County | Waconia | Chaska | Victoria | Cologne | Mayer | Townships', has an 'Election 2026' page, and says it is prepared and paid for by the Joe Brothers for Minnesota Committee.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Joe Brothers, House District 48A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0332-MN",
+   "name": "Steve Simon",
+   "website": {
+    "url": "https://stevesimonmn.com",
+    "how": "The address he filed; it leads to www.stevesimonmn.com, titled 'Steve Simon | Minnesota Secretary of State' and 'Prepared and paid for by Simon for Secretary of State Committee'. The Minnesota DFL's list of endorsed candidates links his name to the same address. None of the three pages read there (home, Meet Steve, Endorsements) is dated 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12280",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Steve Simon (the Legislature's own record of him, which also gives his office of Secretary of State; the Secretary of State's own site was not requested)",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "date": "1969-12-12",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Steve Simon (Date of Birth: 12/12/1969)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12280",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Secretary of State",
+     "from": "2015",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Steve Simon, Other Government Service: 'State Secretary of State: Minnesota; 01/05/2015 to ? [Elected]'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12280",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member of the Minnesota House of Representatives (District 44A, then District 46B)",
+     "from": "2005",
+     "to": "2015",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Steve Simon, 'House 2005-2012 (District 44A); House 2013-2014 (District 46B)'; his first term of office began 1/3/2005 and his last ended 1/4/2015",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12280",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Steve Simon, Secretary of State)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its release of June 5, 2026, 'ICYMI: DFL Endorsed Slate of Candidates', which says the party endorsed its slate at the 2026 DFL State Convention and carries the line 'Minnesota DFL Endorsed Steve Simon for Secretary of State in Reelection Bid')",
+     "url": "https://dfl.org/icymi-dfl-endorsed-slate-of-candidates/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Minnesota Secretary of State (general election of November 8, 2022)",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Steve Simon: 11/08/2022, Secretary of State, General, Democratic-Farmer-Labor, Won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/steve-simon/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Elected Minnesota Secretary of State (general election of November 6, 2018)",
+     "year": 2018,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Steve Simon: 11/06/2018, Secretary of State, General, Democratic-Farmer-Labor, Won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/steve-simon/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Elected Minnesota Secretary of State (general election of November 4, 2014)",
+     "year": 2014,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Steve Simon: 11/04/2014, Secretary of State, General, Democratic-Farmer-Labor, Won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/steve-simon/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "First elected to the Minnesota House of Representatives (District 44A, election of November 2, 2004)",
+     "year": 2004,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Steve Simon, 'Party when first elected: Democratic-Farmer-Labor'; District 44A, 'Elected: 11/2/2004'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12280",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Endorsements ... MN DFL",
+    "url": "https://www.stevesimonmn.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-035",
+   "name": "Jon W. Lubke",
+   "official_page": {
+    "url": "https://www.crowwing.gov/330/Jon-Lubke",
+    "source": "Crow Wing County: Jon Lubke, County Commissioner, District 2",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crow Wing County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Crow Wing County's page for him: 'County Commissioner, District 2' and 'Current Term: 2023 to 2027' (the page gives the current term only; no page read says when he first took office)",
+     "url": "https://www.crowwing.gov/330/Jon-Lubke",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-007",
+   "name": "Scott Winger",
+   "official_page": {
+    "url": "https://www.beltramicountymn.gov/our-government/board-of-commissioners/scott-winger/",
+    "source": "Beltrami County: Scott Winger, District 3 County Commissioner",
+    "verified": true
+   },
+   "born": {
+    "year": 1961,
+    "date": null,
+    "source": "KAXE, 'Beltrami County 2024 Election Guide' (October 8, 2024), his own answer as a candidate for Beltrami County District 3: 'Age on Election Day: 63 it will be my birthday'. Election Day was November 5, 2024, so the answer fixes the year; the year is worked out from it, and only the year is recorded.",
+    "url": "https://www.kaxe.org/elections/2024-10-08/beltrami-county-mn-2024-election-guide",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Beltrami County Commissioner, District 3",
+     "from": "elected 2024",
+     "to": "now",
+     "source": "Beltrami County's page for him: 'District 3 County Commissioner' and 'Term: 2024-2026'. KAXE's guide to the November 2024 election lists him as a candidate for the seat with 'Incumbent: No': https://www.kaxe.org/elections/2024-10-08/beltrami-county-mn-2024-election-guide",
+     "url": "https://www.beltramicountymn.gov/our-government/board-of-commissioners/scott-winger/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-039",
+   "name": "Rhonda Toquam",
+   "official_page": {
+    "url": "https://www.co.dodge.mn.us/county_board/district_4.php",
+    "source": "Dodge County: Commissioner, District 4 (Rhonda Toquam)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dodge County Commissioner, District 4",
+     "from": "2017 (the county's words are 'first elected by the District in 2017')",
+     "to": "now",
+     "source": "Dodge County's District 4 page: 'Commissioner Toquam was first elected by the District in 2017 and her current term will end 1/2027.'",
+     "url": "https://www.co.dodge.mn.us/county_board/district_4.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-023",
+   "name": "David Lieser",
+   "official_page": {
+    "url": "https://www.chippewacountymn.gov/253/David-Lieser",
+    "source": "Chippewa County: David Lieser, District 5 (County Commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chippewa County Commissioner, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Chippewa County's County Government page lists 'David Lieser, District 5' on the '2025-2026 Chippewa County Board of Commissioners' (https://www.chippewacountymn.gov/224/County-Government), and the county's page for him is headed 'David Lieser, District 5'. Neither says when he first took office.",
+     "url": "https://www.chippewacountymn.gov/253/David-Lieser",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-153",
+   "name": "Denise Gaida",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/departments/auditor_and_treasurer/index.php",
+    "source": "Todd County: Auditor and Treasurer (Denise Gaida, Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Todd County Auditor-Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Todd County's Auditor and Treasurer page: 'Denise Gaida is the current Todd County Auditor-Treasurer and is an elected official for 4-year terms.' (no starting year given)",
+     "url": "https://www.toddcountymn.gov/government/departments/auditor_and_treasurer/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-053",
+   "name": "Joseph Banks",
+   "website": {
+    "url": "https://banks4sheriff.com",
+    "how": "The address he filed; it leads to www.banks4sheriff.com. The home page is headed 'JOSEPH BANKS For Hennepin County Sheriff' and says he 'has started to blaze the trail for the November 2026 election'; its foot reads '2025 by Joseph Banks for Hennepin County Sheriff'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-163",
+   "name": "Brian R. Mueller",
+   "website": {
+    "url": "https://www.muellerforsheriff.com",
+    "how": "The address he filed. The site is titled 'Brian Mueller for Washington County Sheriff' and says it is prepared and paid for by the Mueller for Sheriff Committee. No page read there gives a year; Woodbury News Net's guide to the 2026 candidates links his name, under Washington County Sheriff, to this address: https://woodburynewsnet.org/7461/city-county/whos-running-a-guide-to-local-state-candidates-serving-woodbury-voters/",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Sentencing Guidelines Commission member (appointed by the Governor)",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site's Resume page, under 'Current Leadership & Appointments', lists him as 'Governor-Appointed Member' of the 'Minnesota State Sentencing Guidelines Commission' (no years given)",
+     "url": "https://www.muellerforsheriff.com/resume",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Violent Crime Coordinating Council, a state council that oversees violent crime task forces (its chair, earlier)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: the home page speaks of his experience 'as the Past Chair of the Violent Crime Coordinating Council (VCCC) which oversees all state violent crime task forces', and the Resume page lists him as 'President' of the 'Violent Crimes Coordinating Council (VCCC)' under 'Former Leadership Roles' (no years given)",
+     "url": "https://www.muellerforsheriff.com/resume",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-115",
+   "name": "Reese Frederickson",
+   "official_page": {
+    "url": "https://www.pinecountymn.gov/departments/attorney/index.php",
+    "source": "Pine County: County Attorney's Office (Reese Frederickson, Pine County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pine County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Pine County's County Attorney's Office page: 'The Pine County Attorney is an elected official' and 'County Attorney Reese Frederickson leads an office staff' (no starting year given)",
+     "url": "https://www.pinecountymn.gov/departments/attorney/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Logan J. Kelly"
+  },
+  {
+   "race_id": "2026-MN-1001-71428",
+   "name": "Anne Burt",
+   "official_page": {
+    "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+    "source": "City of Woodbury: Mayor and City Council (Anne Burt, Mayor, term expires January 4, 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Woodbury",
+     "from": "",
+     "to": "now",
+     "source": "City of Woodbury's Mayor and City Council page lists 'Anne Burt', 'Mayor', 'Term expires January 4, 2027' (no starting year given). The sources that give a start disagree: Wikipedia's list of Woodbury's mayors gives her years in office as 2018 to the present (https://en.wikipedia.org/wiki/Woodbury,_Minnesota, citing the Pioneer Press of February 4, 2019), and Woodbury News Net wrote on June 27, 2025 that she 'was elected mayor in 2020' (https://woodburynewsnet.org/4126/city-county/woodbury-mayor-anne-burt-wins-emerging-leader-award/)",
+     "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Woodbury Planning Commission member (before she was mayor)",
+     "from": "",
+     "to": "",
+     "source": "Woodbury News Net, 'Woodbury Mayor Anne Burt Wins Emerging Leader Award' (June 27, 2025): before she was mayor she 'had served on the city's Parks & Natural Resources Commission, Planning Commission, and the 2040 Comprehensive Plan Task Force' (no years given)",
+     "url": "https://woodburynewsnet.org/4126/city-county/woodbury-mayor-anne-burt-wins-emerging-leader-award/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Woodbury Parks & Natural Resources Commission member (before she was mayor)",
+     "from": "",
+     "to": "",
+     "source": "Woodbury News Net, 'Woodbury Mayor Anne Burt Wins Emerging Leader Award' (June 27, 2025): before she was mayor she 'had served on the city's Parks & Natural Resources Commission, Planning Commission, and the 2040 Comprehensive Plan Task Force' (no years given)",
+     "url": "https://woodburynewsnet.org/4126/city-county/woodbury-mayor-anne-burt-wins-emerging-leader-award/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "Scot Housh",
+   "website": {
+    "url": "https://scothoush.com",
+    "how": "The address he filed. The site is titled 'Scot Housh for Edina City Council', gives Election Day as 'Tuesday, November 3, 2026', and says it is prepared and paid for by the Scot Housh for Edina City Council Volunteer Committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edina City Council member (Mayor Pro Tem from 2005 to 2011)",
+     "from": "2001",
+     "to": "2011",
+     "source": "His campaign site, under 'A record of service', lists 'Edina City Council' for 2001 to 2011 and 'Mayor Pro Tem, City of Edina' for 2005 to 2011",
+     "url": "https://scothoush.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Edina Park Board member",
+     "from": "1998",
+     "to": "2000",
+     "source": "His campaign site, under 'A record of service', lists 'Edina Park Board' for 1998 to 2000",
+     "url": "https://scothoush.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-45628",
+   "name": "Jeffrey S. Miller",
+   "website": {
+    "url": "https://www.millerfornewhope.com",
+    "how": "The address he filed. The home page is headed 'Elect Jeffrey S. Miller for New Hope City Council', asks for a vote 'on Tuesday, November 3rd', and carries a 2026 line saying it is prepared and paid for by Jeffrey Miller for New Hope City Council. The Senate District 43 DFL's voting page links to it.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "New Hope Human Rights Commission member (its chair)",
+     "from": "",
+     "to": "now",
+     "source": "City of New Hope's Human Rights Commission page lists 'Jeffrey Miller (Chair)' among its members (no years given). His campaign site's Priorities page speaks of 'My current volunteer work as a New Hope City Commissioner': https://www.millerfornewhope.com/priorities",
+     "url": "https://www.newhopemn.gov/city_hall/boards_commissions/human_rights_commission",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Received the DFL Letter of Support",
+    "url": "https://www.millerfornewhope.com",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL (district unit)",
+     "wording": "Letters of Support",
+     "what": "Named under City of New Hope as \"Jeffrey Miller, City Council\", with a link to his campaign site, in the unit's list headed \"Letters of Support\". The unit's own explanation says a letter of support identifies a candidate who supports the principles of the DFL Party and does not constitute a DFL endorsement.",
+     "url": "https://sd43dfl.org/vote",
+     "explained_at": "https://sd43dfl.org/vote/letter-of-support",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59998",
+   "name": "Ashley Patel",
+   "website": {
+    "url": "https://ashleyforshoreview.org",
+    "how": "The address she filed. The page is titled 'Ashley Patel for Shoreview City Council' and describes itself as 'Ashley Patel is running for Shoreview City Council.' It is drawn by script; the script it is drawn from carries its words, among them 'Candidate for Shoreview City Council.' and 'Prepared and paid for by the Campaign for Ashley Patel City Council Committee.'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shoreview Human Rights Commission member",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site says her wish to learn how the city works led her to 'advocate for our neighbors on the city's Human Rights Commission' (no years given; the page is drawn by script, and the words are in the script it is drawn from). The City of Shoreview's own page for the commission does not list her among today's members: https://www.shoreviewmn.gov/Government/Committees-commissions/Human-rights-commission",
+     "url": "https://ashleyforshoreview.org",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-43864",
+   "name": "Ben Livingston"
+  },
+  {
+   "race_id": "2026-MN-1024-15832",
+   "name": "Natalie Bly"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0012",
+   "name": "Gloria Murphy",
+   "website": {
+    "url": "https://www.gloriamurphy.com",
+    "how": "The address she filed; it leads to gloriamurphy.com, titled 'Gloria Murphy for Centennial School Board'. The site describes itself as 'Re-elect Gloria Murphy for Centennial School Board.', its banner gives Election Day as November 3, 2026, and it says it is prepared and paid for by the Gloria Murphy For Centennial School Board committee.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd12.org/discover/school-board",
+    "source": "Centennial School District: School Board (Gloria Murphy, School Board Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Centennial School Board member",
+     "from": "",
+     "to": "now",
+     "source": "Centennial School District's School Board page: 'Gloria Murphy, School Board Director ... Seat up for election in 2026. (Expires 1/2027)' (no starting year given; her campaign site asks voters to re-elect her)",
+     "url": "https://www.isd12.org/discover/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City of Lexington Park Board and Planning and Zoning Commission member",
+     "from": "2018",
+     "to": "",
+     "source": "Her campaign site's Meet Gloria page, under the heading 'City of Lexington': 'Park Board and Planning and Zoning Commission service since 2018.'",
+     "url": "https://gloriamurphy.com/meet/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0182",
+   "name": "Gregory Neutz"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Sarah Mitchell",
+   "website": {
+    "url": "https://sarahmitchellfor279.com",
+    "how": "The address she filed; it leads to sarahmitchellfor279.wordpress.com, titled 'Sarah Mitchell for Osseo School Board, District 279'. The home page says 'I'm running for re-election to the Osseo School Board in November!' and asks for a vote 'on November 3rd'; it says it is prepared and paid for by Sarah Mitchell for Osseo School Board.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.osseoschools.org/about-us/school-board",
+    "source": "Osseo Area Schools: School Board (Sarah Mitchell, School Board Member, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Osseo Area Schools School Board member (its treasurer today)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Osseo Area Schools' School Board page: 'Sarah Mitchell, School Board Member, Treasurer, Term Expires January 2027'; the page says members 'serve alternating four-year terms'. Her campaign site's About page says 'Osseo School Board Member, elected in November 2022': https://sarahmitchellfor279.com/about (2023 as the year she took her seat is worked out from those two pages, not printed on either, so the start is given as the election her own site states.)",
+     "url": "https://www.osseoschools.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Ana Folpe",
+   "website": {
+    "url": "https://anafolpe.com",
+    "how": "The address she filed; it leads to www.anafolpe.com, titled 'Ana Folpe for School Board'. The home page speaks of her experience 'within the Rochester Public School system' and reads 'GENERAL ELECTION: NOVEMBER 3, 2026'; the Meet Ana page says 'Running for Rochester School Board is an honor'.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I've been a volunteer officer with the DFLs of Olmsted County",
+    "url": "https://www.anafolpe.com/about",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Olmsted 20/24 DFL (organizing unit; the guide says it was developed by DFL units in Olmsted County)",
+     "wording": "recommendations (the unit's 2026 voter guide)",
+     "what": "Named \"Ana Folpe\" in a row headed \"School Board (ISD #535) (Elect 4)\", one of three names the guide gives for that office, under \"NONPARTISAN RACES AND BALLOT MEASURES\" in the guide, which the unit's home page calls \"the 2026 DFL voter guide\" and \"a printable sample ballot developed by DFL units in Olmsted County\" (the file is named DFL-voting-guide-2026.pdf and is paid for and prepared by the Olmsted 20/24 DFL organizing unit). The guide calls its choices recommendations (some rows read \"No recommendation\", and it says there are none where there is only one candidate); it does not use the word endorsed.",
+     "url": "https://olmsted2024dfl.com/s/DFL-voting-guide-2026.pdf",
+     "linked_from": "https://olmsted2024dfl.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0716",
+   "name": "Tonya Smith",
+   "official_page": {
+    "url": "https://www.isd716.org/school-board",
+    "source": "Belle Plaine Public Schools: School Board (Tonya Smith, Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Belle Plaine School Board member (its clerk today)",
+     "from": "2022",
+     "to": "now",
+     "source": "Belle Plaine Public Schools' School Board page: 'Tonya Smith, Clerk ... Member Since: 2022, Term Expires: 12/31/2026'",
+     "url": "https://www.isd716.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0832",
+   "name": "Ryan Domin",
+   "website": {
+    "url": "https://dominformahtomedi.org",
+    "how": "The address he filed; it leads to www.dominformahtomedi.org, titled 'Home | Domin for Mahtomedi'. The home page says he 'has proudly served on the Mahtomedi School Board for the past four years' and 'I'm running for reelection'. The page gives no election date.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mahtomedi.k12.mn.us/page/school-board",
+    "source": "Mahtomedi Public Schools: School Board (Ryan Domin, Treasurer, term expires January 4, 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mahtomedi School Board member (its treasurer today)",
+     "from": "",
+     "to": "now",
+     "source": "Mahtomedi Public Schools' School Board page names 'Ryan Domin' with the title 'Treasurer' and 'Term: Expires January 4, 2027' (the page is drawn by script; the words are in the data inside the page; no starting year is given). His campaign site says he 'has proudly served on the Mahtomedi School Board for the past four years, currently serving as Treasurer': https://dominformahtomedi.org",
+     "url": "https://www.mahtomedi.k12.mn.us/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Ryan Wright"
+  },
+  {
+   "race_id": "2026-MN-8313-MN",
+   "name": "Jessica Bierwerth"
+  },
+  {
+   "race_id": "2026-MN-9113-MN",
+   "name": "Kathryn A. Lorsbach",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District (appointed by Governor Tim Walz to the seat chambered in Park Rapids)",
+     "from": "not stated (the appointment was announced on November 21, 2024; the day she took the bench was not found)",
+     "to": "",
+     "source": "KAXE, 'Walz appoints 9th Judicial District judges in Itasca, Hubbard counties' (November 24, 2024): 'Two new judges were selected Thursday, Nov. 21, to fill vacancies in the Ninth Judicial District created by retirements. Clearwater County Attorney Kathryn Lorsbach will replace Judge Robert D. Tiffany in Park Rapids'",
+     "url": "https://www.kaxe.org/local-news/2024-11-24/walz-appoints-9th-judicial-district-judges-in-itasca-hubbard-counties",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Clearwater County Attorney (when she was appointed a judge)",
+     "from": "",
+     "to": "",
+     "source": "KAXE, 'Walz appoints 9th Judicial District judges in Itasca, Hubbard counties' (November 24, 2024): 'Clearwater County Attorney Kathryn Lorsbach will replace Judge Robert D. Tiffany in Park Rapids' (the story gives no years for the county office)",
+     "url": "https://www.kaxe.org/local-news/2024-11-24/walz-appoints-9th-judicial-district-judges-in-itasca-hubbard-counties",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  "notes: a named past employer of Steve Simon (employment is on the never-collected list)",
+  "notes: the police jobs of Joseph Banks and Brian R. Mueller (employment is on the never-collected list)"
+ ],
+ "corrected": [
+  "Steve Simon, website: the committee line is now quoted as the page prints it",
+  "Sarah Mitchell, office: 'from' changed from a worked-out 2023 to 'elected 2022', which her own site states",
+  "Ryan Domin, office and official page: the district's page does carry his term ('Expires January 4, 2027'); added",
+  "Ana Folpe, party_support: the guide's name is given as the unit's home page words it ('2026 DFL voter guide'); the PDF's own text carries no such title"
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on October 2, 2026 with the kit's honest reader (states/net.py), one request at a time, including the pages cited only inside a source line (the Milaca and Shoreview pages that do not list the candidate, Chippewa County's board list, Woodbury News Net's 2026 guide, Wikipedia's Woodbury article, the Olmsted 20/24 DFL's home page) and the two scripts that the Larson and Patel sites are drawn from. Each recorded phrase was found on its page, and each person ties to the race by the place or office in our record.",
+  "joemcdonaldmn.com answered the kit's reader with 429 on both tries; it was read once with the page-reading tool (allowed by the rules; no bot check was met), which summarizes, so the title, 29A and the committee line are as that tool reported them.",
+  "Jeffrey S. Miller: the City of New Hope's three other board pages (Citizen Advisory Commission, Personnel Board, Planning Commission) were read and none names a Miller, so the Human Rights Commission's 'Jeffrey Miller (Chair)' is the only fit for the 'New Hope City Commissioner' his own site speaks of. His site does not name the commission.",
+  "Joe Brothers's site does not print '48A' on its home page; it ties to the race by 'Minnesota House', the Carver County cities of the district and the state DFL list's link under House District 48A.",
+  "Kept though worked out or outside the sweep's need, as the researcher flagged for John: Scott Winger's birth year (from his own printed answer and the election date), and Joe McDonald's three local offices (he has a roster record, so the loader may ignore them). Steve Simon's own_words joins a heading and one line of a list with an ellipsis; both are on his Endorsements page.",
+  "No finding was deleted. Two passages in the notes named jobs or a past employer, which no field may hold; they were reworded."
+ ]
+}

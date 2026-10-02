@@ -1,0 +1,299 @@
+{
+ "state": "MN",
+ "part": 72,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web search allowance was already used up (200 of 200) before this part began, so no searching was possible. Pages were opened directly with the kit's honest User-Agent (states/net.py), robots.txt read first and obeyed. Filed campaign websites were read from sl_websites in ballot_local_2026.sqlite (read-only). Campaign sites nobody filed, local party units' pages and news reports could not be found without searching, so a blank here is not proof that nothing exists; a second pass with searching would be worth it.",
+  "Not read, and nothing worked around: Roseau County's site showed a Radware CAPTCHA on the first request and was not asked again (nothing for Laura Phillipe Larson); Columbia Heights' site asks scripts to stay out in robots.txt (nothing for Robert Rogne); mncourts.gov was not asked, since it refuses scripts (nothing for Judge Rebekka Lynn Stumme); natalieforhouse.com (Natalie Zeleznikar) and stephforspps.com (Stephanie Anderson) answered the reader and the fetch tool with an empty page, so those filed addresses stay as filed and nothing is recorded from them; the Dassel-Cokato and St. Louis County (ISD 2142) school sites did not answer; the Albert Lea, Cambridge-Isanti and Saint Paul school board pages and the Olmsted County board page gave the reader no member names (lists loaded by script), so nothing could be read for Gary Schindler, Nikki Johnson, Stephanie Anderson or Michael Wojcik; the Fergus Falls council page was not found at the addresses tried (Scott Rachels).",
+  "Checked and not found on their government's own list of today's office holders, so nothing recorded: Pat Saum (Rock County lists Sherri Thompson for District 4), Tiffany Lesmeister-Knott (Redwood County lists Jim Salfer for District 2), Greg Copeland (Ramsey County lists Garrison McMurtrey for District 3), John Patrick Dierberger (Rogers), Chris Snyder (Moorhead Ward 2), Randall (Randy) Kight (Sartell-St. Stephen ISD 748), Anthony Robert Sinople (Maple Grove's own candidates page names him as a filed candidate, nothing more).",
+  "Left out on purpose: Cassidy Villeneuve appears in Itasca County's staff directory as an Assistant County Attorney, and Jason Seidl's campaign site calls him chief deputy; both are jobs, not offices, so neither is recorded. Private endorsements on campaign sites (a sitting mayor's on Teneshia Kragness's site) are not a party's own page. Jobs, schools and family on the official biographies were not taken.",
+  "Republican endorsements: the Republican Party of Minnesota's nominees page was not found at the address tried (404), and no local unit page could be found without searching, so nothing is recorded for Natalie Zeleznikar, Allen Shen or John Holmberg. No campaign site is on file for John Holmberg.",
+  "Privacy: while reading layouts, the reader's printed snippets included one campaign contact e-mail, two campaign mailing addresses and a few family names from official biography pages. None was stored or written anywhere; after the first, snippets were masked and shortened."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0156-MN",
+   "name": "Heather Gustafson",
+   "website": {
+    "url": "https://voteheathergustafson.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Heather Gustafson' and reads 'Senator Heather Gustafson: It's an honor to serve as your State Senator'; the home page does not give the district number.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists Heather Gustafson, Senate District 36 (the page gives no year; it is the party's current list)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0193-MN",
+   "name": "Natalie Zeleznikar"
+  },
+  {
+   "race_id": "2026-MN-0230-MN",
+   "name": "Sonja L. Denn",
+   "website": {
+    "url": "https://sonjadennfor22a.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Sonja Denn for MN House 22A' and is paid for by 'the campaign of Sonja Denn for House Committee'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists Sonja Denn, House District 22A (the page gives no year; it is the party's current list)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0267-MN",
+   "name": "Allen Shen",
+   "website": {
+    "url": "https://allenshenformn.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Allen Shen for State House' and says 'Minnesota's House District 40B consists most of Roseville and south side of Shoreview'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0306-MN",
+   "name": "John Holmberg"
+  },
+  {
+   "race_id": "2026-MN-0391-135",
+   "name": "Laura Phillipe Larson"
+  },
+  {
+   "race_id": "2026-MN-0392-127",
+   "name": "Tiffany Lesmeister-Knott"
+  },
+  {
+   "race_id": "2026-MN-0393-123",
+   "name": "Greg Copeland"
+  },
+  {
+   "race_id": "2026-MN-0394-133",
+   "name": "Pat Saum"
+  },
+  {
+   "race_id": "2026-MN-0396-109",
+   "name": "Michael Wojcik"
+  },
+  {
+   "race_id": "2026-MN-0404-015",
+   "name": "Jason S. Seidl",
+   "website": {
+    "url": "https://www.seidl4sheriff.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site reads 'My name is Jason Seidl and I am running for the office of Brown County Sheriff'. Its title reads 'Seidl for Sheriff 2022' and its description 'Jason Seidl for Brown County Sheriff 2018'; nothing on the home page names 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-123",
+   "name": "Bob Fletcher",
+   "website": {
+    "url": "https://fletcherforsheriff.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Bob Fletcher for Ramsey County Sheriff' and announces a fundraiser dated February 4, 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+    "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Sheriff (the page: elected November 6, 2018, re-elected November 8, 2022; the county's Sheriff's Office page, https://www.ramseycounty.us/your-government/leadership/sheriffs-office, gives the oath of office as January 10, 2019)",
+     "from": "2019",
+     "to": "now",
+     "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+     "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Vadnais Heights (the page: elected November 8, 2016; it gives no end year)",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+     "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Vadnais Heights City Council (the page: elected in 2014)",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+     "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Ramsey County Sheriff, earlier service (the page: elected in 1994, then 'Over the next 16 years'; it gives no exact years in office)",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+     "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Saint Paul City Council (the page: 'elected to two terms on the Saint Paul City Council in the 1980s')",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County, 'Meet Sheriff Bob Fletcher'",
+     "url": "https://www.ramseycounty.us/your-government/leadership/sheriffs-office/meet-sheriff-fletcher",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-061",
+   "name": "Cassidy Villeneuve"
+  },
+  {
+   "race_id": "2026-MN-1001-07948",
+   "name": "Teneshia Kragness",
+   "website": {
+    "url": "https://www.teneshiakragnessforbrooklyncentermayor.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site's description reads 'Learn about Brooklyn Center Mayoral Candidate, Teneshia Kragness'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.brooklyncentermn.gov/government/city-council",
+    "source": "City of Brooklyn Center, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Center City Council member (the page: 'Term of Office: 1/1/23 - 12/31/26')",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Brooklyn Center, City Council",
+     "url": "https://www.brooklyncentermn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-47068",
+   "name": "Scott Carlson",
+   "official_page": {
+    "url": "https://www.northmankato.com/government/city_council/index.php",
+    "source": "City of North Mankato, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of North Mankato (the page: 'Scott Carlson, Mayor, Term Expires: 2026'; it gives no start year)",
+     "from": "",
+     "to": "now",
+     "source": "City of North Mankato, City Council",
+     "url": "https://www.northmankato.com/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-12700",
+   "name": "Robert Rogne"
+  },
+  {
+   "race_id": "2026-MN-1010-40166",
+   "name": "Anthony Robert Sinople"
+  },
+  {
+   "race_id": "2026-MN-1010-55186",
+   "name": "John Patrick Dierberger"
+  },
+  {
+   "race_id": "2026-MN-1020-02908",
+   "name": "Laura Helle",
+   "official_page": {
+    "url": "https://www.ci.austin.mn.us/city-council",
+    "source": "City of Austin, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin City Council member, First Ward (the page gives no start year)",
+     "from": "",
+     "to": "now",
+     "source": "City of Austin, City Council",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-43864",
+   "name": "Chris Snyder"
+  },
+  {
+   "race_id": "2026-MN-1026-20906",
+   "name": "Scott Rachels"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0110",
+   "name": "Melanie Hagen",
+   "official_page": {
+    "url": "https://www.isd110.org/about-us/school-board",
+    "source": "Waconia Public Schools (ISD 110), School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waconia Public Schools (ISD 110) School Board, Director (the page: 'Term: Jan. 1, 2023–Dec. 31, 2026')",
+     "from": "2023",
+     "to": "now",
+     "source": "Waconia Public Schools (ISD 110), School Board",
+     "url": "https://www.isd110.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0241",
+   "name": "Gary Schindler"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Daniel Latt"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0625",
+   "name": "Stephanie Anderson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0748",
+   "name": "Randall (Randy) Kight"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0911",
+   "name": "Nikki Johnson"
+  },
+  {
+   "race_id": "2026-MN-5018-ISD2142",
+   "name": "Lynn A Hilde"
+  },
+  {
+   "race_id": "2026-MN-8813-MN",
+   "name": "Rebekka Lynn Stumme"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "All 12 addresses re-opened 2026-10-02 with the kit's User-Agent; every recorded finding was on its page and tied to the race by two anchors. Wording corrected for Jason S. Seidl's website (the site's description names 2018, its title 2022), Melanie Hagen's term line and Bob Fletcher's oath-of-office source."
+ ]
+}

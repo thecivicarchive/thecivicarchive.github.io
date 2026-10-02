@@ -1,0 +1,406 @@
+{
+ "part": 42,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "Web search ran out for the whole session after eleven searches in this part (the tool reported 200 of 200 used), so the rest was done by reading known pages directly with the kit's own User-Agent: the campaign sites the candidates filed, governments' own pages, the Minnesota DFL's endorsed list, the Minnesota Legislative Manual 2025-2026, the University of Minnesota's election archive and KAXE's election guides. A campaign site nobody filed could not be looked for, so a missing website here is not proof that none exists.",
+  "No party's own page naming Sue Ek or George Gilmour as endorsed was found: mngop.com's '2026 Republican Nominees' page gave this reader no text with either name, and no local Republican unit's address was known. KNSI reported a Republican endorsement of Sue Ek on February 21, 2026; a news report is not a party's own page, so nothing is recorded.",
+  "Out of reach and not worked around: www.co.houston.mn.us refused the secure connection (Dean Mierau); www.perham.k12.mn.us did not answer (Danielle Collins); mncourts.gov refuses scripts.",
+  "Checked and nothing found on the government's own page (not on the present board or council, or the page names nobody): Dean Mierau (the Legislative Manual lists Eric Johnson in Houston County District 2), Tina King (Steven J. Rohlfing holds Le Sueur District 5), Rebecca Trapp (the Manual lists Maggie Kluver as Big Stone County Attorney; the county's Attorney pages name no one), Brad Johnson (Austin), Jodi Justice (North St. Paul), Benjamin Sykora (Victoria), Ethan Becker (Owatonna), Katie Large (Detroit Lakes), Christopher Reilly (Grand Rapids), Christine Estee (South St. Paul).",
+  "No birth year is recorded for anyone. KAXE's guides give an 'Age on Election Day' (Tad A. Erickson 41, Christopher Reilly 44), which fits two calendar years, so it is left out."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0141-MN",
+   "name": "Caitlyn Sanow-Minett",
+   "website": {
+    "url": "https://sanowminett.com/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site is titled 'Caitlyn Sanow-Minett for MN Senate District 21', and the Minnesota DFL's endorsed-candidates page links it",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists 'Caitlyn Sanow-Minett, Senate District 21'",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0177-MN",
+   "name": "Steven Schroer",
+   "website": {
+    "url": "https://www.stevenschroermn.org/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site is titled 'Steven Schroer MN Senate 57', and the Minnesota DFL's endorsed-candidates page links it",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists 'Steven Schroer, Senate District 57'",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL Endorsed! Steven was endorsed at the SD57 DFL Convention",
+    "url": "https://www.stevenschroermn.org/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0215-MN",
+   "name": "Sue Ek",
+   "website": {
+    "url": "https://ekforhouse.com/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site's home page says 'Sue Ek is a long-time St. Cloud resident' and speaks of her 2024 campaign for 'Minnesota House District 14B' and of 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Transportation Infrastructure Advisory Board, City of St. Cloud (an appointed city advisory board)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's home page speaks of her 'service on the Transportation Infrastructure Advisory Board for the City of St. Cloud'; no years are given",
+     "url": "https://ekforhouse.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran as the Republican candidate for the Minnesota House of Representatives, District 14B, in the general election (lost, 9,814 votes, 49.40 percent)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns), 'State House, District 14B, 2024', citing the State Canvassing Report of November 21, 2024. Her own site speaks of 'running a competitive campaign for Minnesota House District 14B in 2024'",
+     "url": "https://mn.electionarchives.lib.umn.edu/election/232024109997114B",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0252-MN",
+   "name": "Angela Thompson",
+   "website": {
+    "url": "https://angelathompsonformnhouse.com/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site is titled 'Angela Thompson for MN House 33A'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice-Chair), White Bear Lake Area Schools (ISD 624)",
+     "from": "",
+     "to": "now",
+     "source": "White Bear Lake Area Schools, School Board Members page: 'ANGELA THOMPSON SCHOOL BOARD Vice-Chair Term Expires 12/31/28' (no starting year given). Her campaign site's home page describes her as 'White Bear Lake Area School Board Vice Chair' and says she is running for MN House",
+     "url": "https://www.isd624.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists 'Angela Thompson, House District 33A'",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0290-MN",
+   "name": "George Gilmour",
+   "website": {
+    "url": "https://gilmourformnhouse.com/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site is titled 'George Gilmour for Minnesota House' and says he is 'running for Minnesota House of Representatives District 52A'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-011",
+   "name": "Chad Zimmel",
+   "official_page": {
+    "url": "https://bigstonecounty.gov/departments/board-of-commissioners/",
+    "source": "Big Stone County, Board of Commissioners page: 'District 1 Chad Zimmel'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Big Stone County Commissioner, District 1",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Big Stone County: 'Commissioner District 1 Chad Zimmel', term expires 2027 (no starting year given; page 402 of the PDF). The county's Board of Commissioners page lists him in District 1 today (https://bigstonecounty.gov/departments/board-of-commissioners/)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-035",
+   "name": "Tad A. Erickson",
+   "offices": [
+    {
+     "office": "Brainerd City Council Member, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Brainerd, City Council page: 'Tad Erickson Ward 1 (Safety & Public Works Committee Chair) ... Term: 1/1/2025-12/31/2028' (the page gives only the current term, not when he first joined the council). The same person: KAXE's 'Crow Wing County 2026 Election Guide' (September 28, 2026) carries the answer of 'Tad A. Erickson', candidate for Crow Wing County Commissioner District 3, which calls him 'Councilman Erickson' and speaks of 'continuing to represent Brainerd residents' (https://www.kaxe.org/2026-09-28/crow-wing-county-mn-2026-election-guide)",
+     "url": "https://www.ci.brainerd.mn.us/297/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-075",
+   "name": "Jeremy Michael Hurd",
+   "official_page": {
+    "url": "https://lakecountymn.gov/county-board/",
+    "source": "Lake County, County Board of Commissioners page: 'Jeremy M. Hurd District 4 County Commissioner'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Lake County: 'Commissioner District 4 Jeremy Hurd', term expires 2027 (no starting year given; page 413 of the PDF). The county's County Board page lists 'Jeremy M. Hurd District 4 County Commissioner' today (https://lakecountymn.gov/county-board/)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-079",
+   "name": "Tina King",
+   "website": {
+    "url": "https://www.king4commissioner.us/",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site is headed 'King for Commissioner' and speaks of running for County Commissioner in 'Le Sueur County's District 5'; it gives the family name only, never the given name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0403-041",
+   "name": "Mary Skillings",
+   "official_page": {
+    "url": "https://www.douglascountymn.gov/recorder",
+    "source": "Douglas County, Recorder's Office page: 'COUNTY RECORDER: Mary Skillings, elected official'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Douglas County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Douglas County: 'Recorder Mary Skillings', term expires 2027 (no starting year given; page 407 of the PDF). The county's Recorder's Office page says 'COUNTY RECORDER: Mary Skillings, elected official' today (https://www.douglascountymn.gov/recorder)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-077",
+   "name": "Gary Fish",
+   "official_page": {
+    "url": "https://lotwcounty.gov/directory/",
+    "source": "Lake of the Woods County, staff Directory: 'Gary Fish Sheriff' (the Sheriff's Office page itself does not name him)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake of the Woods County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Lake of the Woods County: 'Sheriff Gary Fish', term expires 2027 (no starting year given; page 413 of the PDF). The county's Directory lists 'Gary Fish Sheriff' today (https://lotwcounty.gov/directory/)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-143",
+   "name": "Donald Everett Lannoye",
+   "official_page": {
+    "url": "https://www.sibleycounty.gov/196/Attorney",
+    "source": "Sibley County, Attorney page: 'Donald E. Lannoye County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sibley County Attorney (appointed October 12, 2021; elected November 2022)",
+     "from": "2021",
+     "to": "now",
+     "source": "Sibley County, Attorney page: 'Donald E Lannoye was appointed as the Sibley County Attorney on October 12, 2021' and 'Mr. Lannoye was elected county attorney for a four year term in November 2022'. The county's history page lists 'Donald E Lannoye 2021 to Present' (https://www.sibleycounty.gov/199/History-of-the-County-Attorneys-Office), and the Minnesota Legislative Manual 2025-2026 lists 'Attorney Donald Everett Lannoye', term expires 2027 (page 424 of https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf)",
+     "url": "https://www.sibleycounty.gov/196/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-28790",
+   "name": "Peter Hyduke",
+   "official_page": {
+    "url": "https://www.hibbingmn.gov/260/City-Council",
+    "source": "City of Hibbing, City Council page: 'Pete Hyduke Mayor ... Term Expires: 12/31/2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Hibbing",
+     "from": "",
+     "to": "now",
+     "source": "City of Hibbing, City Council page: 'Pete Hyduke Mayor ... Term Expires: 12/31/2026' (no starting year given). KAXE's 'Hibbing 2026 Election Guide' (September 28, 2026) says 'The current mayor is Peter Hyduke, who is running for reelection' (https://www.kaxe.org/2026-09-28/hibbing-mn-2026-election-guide)",
+     "url": "https://www.hibbingmn.gov/260/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-21770",
+   "name": "Leif Erickson",
+   "official_page": {
+    "url": "https://www.ci.forest-lake.mn.us/294/City-Council",
+    "source": "City of Forest Lake, City Council page: 'Leif Erickson, Councilmember'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Forest Lake City Council Member (elected 2022)",
+     "from": "",
+     "to": "now",
+     "source": "City of Forest Lake, City Council page: 'Councilmember Leif Erickson was elected to the City Council in 2022 and serves on the EDA and Fire Board'. The page gives the year of election, not the day the term began, so the start is left blank",
+     "url": "https://www.ci.forest-lake.mn.us/294/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-69700",
+   "name": "Pat Armon",
+   "official_page": {
+    "url": "https://www.wspmn.gov/494/City-Council",
+    "source": "City of West St. Paul, City Council page: 'Pat Armon, Ward I Term Expires December 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "West St. Paul City Council Member, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of West St. Paul, City Council page: 'Pat Armon, Ward I Term Expires December 2026' (no starting year given)",
+     "url": "https://www.wspmn.gov/494/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0192",
+   "name": "Maggie Storlie",
+   "official_page": {
+    "url": "https://www.farmington.k12.mn.us/welcome/school-board",
+    "source": "Farmington Area Public Schools, School Board page: 'Maggie Storlie Director ... Term Expires: December 31, 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director), Farmington Area Public Schools (ISD 192)",
+     "from": "",
+     "to": "now",
+     "source": "Farmington Area Public Schools, School Board page: 'Maggie Storlie Director ... Term Expires: December 31, 2026' (no starting year given)",
+     "url": "https://www.farmington.k12.mn.us/welcome/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0720",
+   "name": "Caroline Valdez",
+   "official_page": {
+    "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+    "source": "Shakopee Public Schools, Meet the Board page: 'Caroline Valdez, Board Clerk Present term expires January 2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Clerk), Shakopee Public Schools (ISD 720)",
+     "from": "",
+     "to": "now",
+     "source": "Shakopee Public Schools, Meet the Board page: 'Caroline Valdez, Board Clerk Present term expires January 2027' (no starting year given)",
+     "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0877",
+   "name": "Bob Sansevere",
+   "official_page": {
+    "url": "https://www.bhmschools.org/school-board",
+    "source": "Buffalo-Hanover-Montrose Schools, School Board page: 'Bob Sansevere School Board Chair Term Expires: 12-31-26'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Chair), Buffalo-Hanover-Montrose Schools (ISD 877)",
+     "from": "",
+     "to": "now",
+     "source": "Buffalo-Hanover-Montrose Schools, School Board page: 'Bob Sansevere School Board Chair Term Expires: 12-31-26' (no starting year given)",
+     "url": "https://www.bhmschools.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8515-MN",
+   "name": "Jane Maschka",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, 4th Judicial District (Seat 16); appointed April 2, 2024",
+     "from": "2024",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), Fourth Judicial District judges: 'Jane Maschka (16) ... Appointed April 2, 2024.' (page 367 of the PDF). The end is 'now' because she is on the November 2026 list for the same seat; mncourts.gov refuses scripts, so no page of 2026 was read",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9216-MN",
+   "name": "Patrick W. Flanagan",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, 10th Judicial District (Seat 17); appointed February 21, 2018, elected 2020",
+     "from": "2018",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), Tenth Judicial District judges: 'Patrick W. Flanagan (17) ... Appointed February 21, 2018. Elected 2020.' (page 379 of the PDF). The end is 'now' because he is on the November 2026 list for the same seat; mncourts.gov refuses scripts, so no page of 2026 was read",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mower County Attorney",
+     "from": "2003",
+     "to": "2006",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), Tenth Judicial District judges, the entry for 'Patrick W. Flanagan (17)': 'County Attorney (2003-06)' at Mower County (page 379 of the PDF). Only the County Attorney's office, an elected post, is recorded; the other posts in the entry are jobs and are left out",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

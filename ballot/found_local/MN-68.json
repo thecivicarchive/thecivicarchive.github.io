@@ -1,0 +1,384 @@
+{
+ "part": 68,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance was already used up, so no search engine was read. Pages were opened directly with the kit's honest User-Agent (each site's robots.txt read first and obeyed) or with the page-reading tool: the campaign websites the candidates filed (already in sl_websites, read read-only), each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, the DFL Environmental Caucus, the Minnesota House and the Legislative Reference Library, and the Metropolitan Airports Commission.",
+  "nelsonfor21a.com answered the script with 429 (too many requests) on most tries; the home page was read once by the script and its About page with the page-reading tool. The second reader may meet the same 429.",
+  "Cedrick Frazier: the Minnesota DFL's endorsed list covers statewide, congressional and legislative seats only and does not name him; no party page with the county attorney endorsement was found (the Hennepin County DFL's address did not resolve), so the endorsement is recorded only as his own words. His campaign site also lists the Working Families Party; that party's own page was not looked for.",
+  "Amáda Márquez Simula: the City of Columbia Heights' robots.txt asks scripts to stay out, so the mayor's office rests on her campaign site. The DFL Environmental Caucus is a caucus of the party; its page is headed Endorsements and describes her; left for the second reader to judge whether it stands under endorsed_by.",
+  "Matt Bliss and John Hoffman are sitting legislators with record pages. No Republican party page naming Matt Bliss for 2026 was found (no local unit's address was known without a search).",
+  "The official pages read show these candidates do not hold the office sought today: Pipestone County lists Doug Nagel for District 2 (Thomas Haag) and Keith Vreeman as sheriff (Dustin Seiler); Norman County lists Steve Jacobson for District 3 (Angela Nelson); Anoka's mayor is Erik Skogquist (Phil Rice); Adam P. Woodruff, Emily Antin, Tim Hudacek, Brandy Maki, Tyler Hemmesch and Ryan Vernosh are not on the Little Canada, Richfield, Red Wing, Hibbing, St. Michael-Albertville and White Bear Lake pages read. Any earlier offices they may have held could not be looked up without a search.",
+  "Not reached, and nothing worked around: the Minnesota Judicial Branch (its robots.txt keeps scripts out), so nothing is recorded for Rachel C. Sullivan; Red Lake County's site (a certificate that does not match its name), so nothing for Allen Remick; the Sartell-St. Stephen and St. Louis County school districts' sites (no answer), so nothing for Chris Chamberlain or Kerie Porter; the Cloquet and Litchfield districts' board pages load their names by script and showed none, so nothing for Victoria M.L. McMillen or Gregory Dean Mathews. Benton County's sheriff page does not name James Dingmann; his campaign site describes employment in the sheriff's office, which is not an office held.",
+  "Privacy: while reading two government pages (Hibbing's council page and Norman County's board page) a few officials' published contact lines were printed to the working log before the filter was tightened. Nothing of the kind was stored or written here."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0154-MN",
+   "name": "John Hoffman",
+   "website": {
+    "url": "https://www.johnhoffmanmn.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Senator John Hoffman\" and its home page speaks of him representing \"the cities of Brooklyn Park, Champlin, Coon Rapids, Dayton and Rogers in the new Senate District 34\". The page carries no 2026 election date; its only 2026 mark is a link to a report published in April 2026.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: Senate District 34; the page, titled \"Candidates Endorsed by the Minnesota DFL\", prints no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0191-MN",
+   "name": "Matt Bliss",
+   "website": {
+    "url": "https://www.mattbliss.us",
+    "how": "Filed with the Secretary of State. The home page reads \"State Representative Matt Bliss\" and \"State Representative · House District 2B\". The browser title still says \"Matt for MN House District 5A\", his earlier district.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0228-MN",
+   "name": "LS Rusty Nelson",
+   "website": {
+    "url": "https://nelsonfor21a.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Nelson for 21A | State Representative District 21A | Southwest Minnesota\" and its home page reads \"I'm L.S. \"Rusty\" Nelson, and I'm running for Minnesota State House District 21A\". The site answered the kit's script with 429 twice; it was read with the page-reading tool.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 21A, where the name is written \"Rusty Nelson\"; the page, titled \"Candidates Endorsed by the Minnesota DFL\", prints no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0265-MN",
+   "name": "Amáda Márquez Simula",
+   "website": {
+    "url": "https://www.voteamada.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Amada Márquez Simula for Minnesota House 39B\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Columbia Heights",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site, Bio page: \"Today, Amáda Márquez Simula is serving her third term as the Mayor of Columbia Heights\". No years are given.",
+     "url": "https://www.voteamada.com/about/bio/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 39B; the page, titled \"Candidates Endorsed by the Minnesota DFL\", prints no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "DFL Environmental Caucus (a community caucus of the Minnesota DFL Party, not the party's convention; its own Endorsements page, under \"Minnesota House of Representatives Elections 2026\", lists her as \"the current mayor of Columbia Heights running for the open House District 39B\")",
+     "url": "https://dflec.org/endorsements/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the DFL-endorsed candidate running for the Minnesota House of Representatives District 39B",
+    "url": "https://www.voteamada.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0303-MN",
+   "name": "Ed Fellows",
+   "website": {
+    "url": "https://fellows4mnhouse58b.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Fellows for District 58B\" and its home page reads \"My name is Ed Fellows, and I am running to represent Minnesota House District 58B\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 58B; the page, titled \"Candidates Endorsed by the Minnesota DFL\", prints no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-115",
+   "name": "Abbie Raudabaugh",
+   "website": {
+    "url": "https://raudabaughforcountycommissioner.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Abbie Raudabaugh for Pine County Commissioner\". It does not name the district.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, Pine City Township Board of Supervisors (board chair for two years)",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site: \"I currently serve on the Pine City Township Board of Supervisors, where I was elected by my peers to serve two consecutive years as Board Chair.\" No years are given.",
+     "url": "https://raudabaughforcountycommissioner.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-117",
+   "name": "Thomas Haag"
+  },
+  {
+   "race_id": "2026-MN-0393-107",
+   "name": "Angela Nelson"
+  },
+  {
+   "race_id": "2026-MN-0394-125",
+   "name": "Allen Remick"
+  },
+  {
+   "race_id": "2026-MN-0395-169",
+   "name": "Marcia L. Ward",
+   "official_page": {
+    "url": "https://www.co.winona.mn.us/371/Winona-County-Board",
+    "source": "Winona County's own page for its County Board, which lists \"Marcia L. Ward\" under \"Fifth District\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona County Commissioner, Fifth District",
+     "from": "",
+     "to": "now",
+     "source": "Winona County's County Board page lists \"Marcia L. Ward\" under \"Fifth District\". It gives no years.",
+     "url": "https://www.co.winona.mn.us/371/Winona-County-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-009",
+   "name": "James \"Jay\" Dingmann",
+   "website": {
+    "url": "https://dingmannforsheriff.com",
+    "how": "Filed with the Secretary of State. The site is titled \"James \"Jay\" Dingmann for Benton County Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-117",
+   "name": "Dustin Seiler"
+  },
+  {
+   "race_id": "2026-MN-0405-053",
+   "name": "Cedrick Frazier",
+   "website": {
+    "url": "https://cedrickfrazier.org",
+    "how": "Filed with the Secretary of State. The home page reads \"My name is Cedrick Frazier ... I’m the DFL & Labor endorsed candidate for Hennepin County Attorney\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.house.mn.gov/members/profile/15548",
+    "source": "Minnesota House of Representatives member page: \"Rep. Cedrick Frazier (DFL) District: 43A\". His campaign site says the State Representative is the candidate for Hennepin County Attorney.",
+    "verified": true
+   },
+   "born": {
+    "year": 1979,
+    "date": "1979-04-28",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present, record for Cedrick Frazier: \"Date of Birth: 4/28/1979\"",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15548",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Minnesota House of Representatives (District 45A, 2021-2022; District 43A since 2023)",
+     "from": "2021",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library: \"House 2021-2022 (District 45A); House 2023-Present (District 43A)\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15548",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, New Hope City Council",
+     "from": "2018",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library: \"Municipal Council/Aldermen: New Hope, Minnesota (City Council); 2018 to ?\". His campaign site's About page also says \"In 2018, I became the first ... to serve on the New Hope City Council\" (https://cedrickfrazier.org/about).",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15548",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives (in office since January 2021)",
+     "year": "2020",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library: \"Party when first elected: Democratic-Farmer-Labor\"; the record for the 2021-2022 session reads \"District: 45A Elected: 11/3/2020\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15548",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I’m the DFL & Labor endorsed candidate for Hennepin County Attorney",
+    "url": "https://cedrickfrazier.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-01720",
+   "name": "Phil Rice"
+  },
+  {
+   "race_id": "2026-MN-1001-46042",
+   "name": "Kathleen Backer",
+   "official_page": {
+    "url": "https://www.newulmmn.gov/259/Mayor-City-Council",
+    "source": "The City of New Ulm's own Mayor & City Council page, which lists \"Kathleen L. Backer, Mayor\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of New Ulm",
+     "from": "",
+     "to": "now",
+     "source": "The City of New Ulm's Mayor & City Council page lists \"Kathleen L. Backer, Mayor\". It gives no years.",
+     "url": "https://www.newulmmn.gov/259/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-10918",
+   "name": "Kyle O'Neill",
+   "website": {
+    "url": "https://www.kyleforchan.com",
+    "how": "Filed with the Secretary of State. The home page reads \"My name is Kyle O'Neill, and I'm running to represent the people of Chanhassen on the City Council\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commissioner, Metropolitan Airports Commission (District B)",
+     "from": "2026",
+     "to": "now",
+     "source": "The Metropolitan Airports Commission's Board of Commissioners page: \"Kyle O’Neill was appointed to the MAC by Governor Tim Walz in March 2026 to represent District B\"; it says he \"currently lives with his family in Chanhassen\". His campaign site also says he serves on the Commission.",
+     "url": "https://metroairports.org/about-us/board-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-37502",
+   "name": "Adam P. Woodruff"
+  },
+  {
+   "race_id": "2026-MN-1010-54214",
+   "name": "Emily - Em - Antin"
+  },
+  {
+   "race_id": "2026-MN-1018-53620",
+   "name": "Tim \"Hudy\" Hudacek"
+  },
+  {
+   "race_id": "2026-MN-1022-28790",
+   "name": "Brandy Maki"
+  },
+  {
+   "race_id": "2026-MN-1026-10846-S",
+   "name": "Samuel Mwangi",
+   "website": {
+    "url": "https://sammwangiforchamplin.com",
+    "how": "Filed with the Secretary of State. The site is titled \"Sam Mwangi for Champlin Ward 4\" and reads \"For Champlin City Council\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Champlin Environmental Resources Commission (Ward 4)",
+     "from": "",
+     "to": "now",
+     "source": "The City of Champlin's Environmental Resources Commission page lists \"Samuel Mwangi - Ward 4\" among its members. It gives no years; his campaign site calls him an \"Environmental Resources Commission leader\".",
+     "url": "https://ci.champlin.mn.us/282/Environmental-Resources-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0094",
+   "name": "Victoria M.L. McMillen"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0204",
+   "name": "Mark Torkelson",
+   "official_page": {
+    "url": "https://www.komets.k12.mn.us/district/school-board/school-board-members",
+    "source": "Kasson-Mantorville Schools' own School Board Members page, which lists \"Mark Torkelson, Chair\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Kasson-Mantorville School Board (chair)",
+     "from": "",
+     "to": "now",
+     "source": "Kasson-Mantorville Schools' School Board Members page lists \"Mark Torkelson, Chair\" with three dates beside his name: January 1, 2019, January 1, 2023 and January 1, 2027. The page as read shows no column headings, so what each date means is not stated and no start year is recorded.",
+     "url": "https://www.komets.k12.mn.us/district/school-board/school-board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0465",
+   "name": "Gregory Dean Mathews"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Ryan Vernosh",
+   "website": {
+    "url": "https://vernoshforwbl.com",
+    "how": "Filed with the Secretary of State. The home page reads \"Vernosh For White Bear Lake Area Schools\", \"I'm running for school board\" and \"Prepared and paid for by Campaign for Ryan Vernosh\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0748",
+   "name": "Chris Chamberlain"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0885",
+   "name": "Tyler Hemmesch"
+  },
+  {
+   "race_id": "2026-MN-5014-ISD2142",
+   "name": "Kerie Porter"
+  },
+  {
+   "race_id": "2026-MN-8800-MN",
+   "name": "Rachel C. Sullivan"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  "Mark Torkelson: the start year 2019 and the description of a table \"headed First Elected, Term Began, Term Ends\". Two readings of the district's page showed the three dates but no headings, so the year is not recorded as the start of his service; the office itself stands."
+ ],
+ "verifier_notes": [
+  "Every url in the file was re-opened on 2026-10-02 with the kit's honest User-Agent; nelsonfor21a.com answered 429 twice and was read with the page-reading tool. Each filed website was also checked against sl_websites (read-only).",
+  "Same-person anchors: each campaign site names the candidate and the office or place sought; each official page names the person under the body our record shows (Winona County Fifth District; New Ulm mayor; Champlin Ward 4; Kasson-Mantorville board; the MAC page places Kyle O'Neill in Chanhassen; the House and Library pages are tied to the Hennepin County Attorney race by his campaign site's \"a State Representative\").",
+  "Cedrick Frazier's full birth date comes from an official page (the Legislative Reference Library), which the rules allow. The same record also prints birthplace, minority status, schooling and occupation: none of that is in this file and none should be taken from it.",
+  "The DFL Environmental Caucus endorsement was kept because it is on the caucus's own page under a 2026 heading and the caucus is part of the party; the unit says plainly that it is the caucus, not the party's convention. If John wants only convention endorsements shown, drop that one entry.",
+  "Both own_words quotes are on the candidates' own home pages and are within twelve words (twelve and eleven).",
+  "Candidates with no findings were left blank; the researcher's notes about who does not hold the office today record no fact about a person and were not re-checked."
+ ]
+}

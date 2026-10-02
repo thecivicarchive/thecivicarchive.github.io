@@ -1,0 +1,337 @@
+{
+ "state": "MN",
+ "part": 61,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance was already used up when this part began (every search was refused), so nothing here came from a search engine. Everything was found by reading known addresses directly: the campaign websites already filed with the Secretary of State (read from sl_websites in the database, opened read-only), each government's own site, the Minnesota DFL's endorsed-candidates page and the Legislative Reference Library. Pages were read with the kit's honest User-Agent (states/net.py), each site's robots.txt checked first; two were read with the fetch tool instead, as said below. Candidates with no entry are the ones this left out of reach.",
+  "Brock Ray (New Hope council, special election): the website he filed, brockfornewhope.com, asks scripts to stay out (robots.txt), so it was not read and nothing is recorded.",
+  "Stephen Knudsen and Jesse Vavreck: their filed sites answered the kit's reader 429 three times and answered the fetch tool normally; only the title and the office named are recorded. JD Delgado's filed site answered 503 to both; his website is tied to the race by the state DFL's page, which links it.",
+  "JD Delgado: the state DFL's page writes the endorsed House District 57A candidate as \"Jenaro Delgado\" and links jdformn.com, the address JD Delgado filed; a verifier should confirm they read this as the same person.",
+  "David H. Senjem: the Library's record also carries personal details (family, religion) that were not recorded. Three earlier appointed posts it lists without dates (Minnesota Emergency Response Commission, Olmsted County Environmental Commission, Rochester Park Board) were left out for want of years.",
+  "Not found on their governments' own pages (so nothing recorded): Annette Deyo (Winona County Recorder page), Traci Dawn Kamish (Crystal council page), Jordan Graen (Lake Elmo council page), Del Rae Williams (Moorhead's current mayor and council page), Ted Hazelton (Winona Area Public Schools board and Election 2026 pages), Stephen Knudsen (Douglas County Attorney's page). Roger Bovee appears only on Monticello schools' list of 2026 candidates, which says nothing more. New Ulm's and Marshall's school board pages showed no names to a script (Tara Nilson, Nathan Green); Hastings schools' board page asks scripts to stay out, and Wabasha County was not asked because part 10 found it does too (Jessica Dressely, Cindy McGrath). The Minnesota Judicial Branch site refuses scripts (noted by part 10), so Christina M. Wietzema was not looked up there.",
+  "Thomas J. Sexton and John Burkel are sitting legislators with roster records. Sexton filed no website and none was found without a search. No Republican unit's own page naming an endorsement for Burkel, Sexton or Luke Doerer was found; Burkel's own site says he is the Republican endorsed candidate (own_words).",
+  "No party endorsement was found for any nonpartisan office in this part: none of the county, city, park or school candidates appears on the Minnesota DFL's endorsed-candidates page, and Amanda McFarlane's endorsements page names no party in the text a script can read.",
+  "Verifier, 2026-10-02: every address was opened again (the fetch tool, or the kit's reader where the router lost the lookup). Two county addresses had moved and were corrected (Marshall, Norman). JD Delgado's website was removed because the site answered 503 on both tries; his endorsement stays, tied by House District 57A, the DFL label and the filed address the party links."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0150-MN",
+   "name": "Leah Temple",
+   "website": {
+    "url": "https://www.leahtemple.com",
+    "how": "The site's title reads \"Leah Temple for MN Senate\" and it is paid for by Leah Temple for MN Senate; the Minnesota DFL's endorsed-candidates page links this address beside Leah Temple, Senate District 30.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://www.dfl.org/endorsed/",
+     "also": "The page is headed \"Candidates Endorsed by the Minnesota DFL\", lists \"Leah Temple, Senate District 30\" and links leahtemple.com; it does not print the year.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0188-MN",
+   "name": "John Burkel",
+   "website": {
+    "url": "https://www.burkelforhouse.com",
+    "how": "The site's title reads \"John Burkel for Minnesota House District 1A\" and it is prepared and paid for by Burkel For House.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "the Republican endorsed candidate seeking to represent House District 1A",
+    "url": "https://www.burkelforhouse.com/meetburkel",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0261-MN",
+   "name": "Luke Doerer",
+   "website": {
+    "url": "https://www.votelukedoerermn.com",
+    "how": "The site's title reads \"Luke Doerer for MN House\", its heading \"Luke Doerer for MN House 37B- Maple Grove\", and it is prepared and paid for by the Luke Doerer for House Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0300-MN",
+   "name": "JD Delgado",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://www.dfl.org/endorsed/",
+     "also": "The party's page writes the name \"Jenaro Delgado\" under House District 57A and links jdformn.com, the address JD Delgado filed with the Secretary of State; our record shows JD Delgado as the only DFL candidate in 57A. The page is headed \"Candidates Endorsed by the Minnesota DFL\" and does not print the year.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-075",
+   "name": "Colby Abazs",
+   "website": {
+    "url": "https://vote.abazs.com",
+    "how": "The site is titled \"Vote Colby Abazs\"; its About page says he is working toward \"being the next Lake County Commissioner of District 1\". It is the address he filed with the Secretary of State for the November 2026 election; the site's archive shows posts from 2023 and the footer year is 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crystal Bay Township, Town Clerk (elected)",
+     "from": "",
+     "to": "",
+     "source": "Vote Colby Abazs (campaign site), About Colby",
+     "url": "https://vote.abazs.com/about/",
+     "kind": "campaign",
+     "also": "The page says he has served as \"the elected Town Clerk of Crystal Bay Township\" and gives no years.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-109",
+   "name": "David H. Senjem",
+   "official_page": {
+    "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/david-senjem",
+    "source": "Olmsted County: David Senjem, Olmsted County Commissioner, Second District",
+    "verified": true
+   },
+   "born": {
+    "year": 1942,
+    "date": "1942-12-20",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10806",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Olmsted County Commissioner, Second District",
+     "from": "2023",
+     "to": "now",
+     "source": "Olmsted County, elected officials: David Senjem",
+     "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/david-senjem",
+     "kind": "official",
+     "also": "The page reads \"Served on the county board since 2023\" and \"Term of office expires: 2026\".",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Senate (District 29, then District 25)",
+     "from": "2003",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10806",
+     "kind": "official",
+     "also": "The Library writes \"Senate 2003-2012 (District 29); Senate 2013-2022 (District 25)\"; the last term of office ran to 1/1/2023.",
+     "verified": true
+    },
+    {
+     "office": "Rochester City Council",
+     "from": "1992",
+     "to": "2002",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10806",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Minnesota Senate, Districts 29 and 25",
+     "year": "2003-2022",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10806",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-089",
+   "name": "Larry P. Nybladh",
+   "official_page": {
+    "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+    "source": "Marshall County, Commissioners: \"District 3 — Larry Nybladh\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Marshall County, Commissioners",
+     "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+     "kind": "official",
+     "also": "The page gives no start date. The county's old address (co.marshall.mn.us) now forwards here.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-113",
+   "name": "Roy Sourdif",
+   "official_page": {
+    "url": "https://co.pennington.mn.us/index.php/government/county-board",
+    "source": "Pennington County, County Board & Committees: Roy Sourdif, District 4",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pennington County Commissioner, District 4",
+     "from": "2023",
+     "to": "now",
+     "source": "Pennington County, County Board & Committees",
+     "url": "https://co.pennington.mn.us/index.php/government/county-board",
+     "kind": "official",
+     "also": "The page reads \"Current Term: 2023/ Serving since 2023\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-107",
+   "name": "Ben Fall",
+   "official_page": {
+    "url": "https://www.normanmn.gov/departments/sheriff_s_office.php",
+    "source": "Norman County Sheriff's Office: \"Ben Fall, Sheriff\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Norman County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Norman County, Sheriff's Office",
+     "url": "https://www.normanmn.gov/departments/sheriff_s_office.php",
+     "kind": "official",
+     "also": "The page gives no start date. The county's old address (co.norman.mn.us) now forwards here.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-041",
+   "name": "Stephen Knudsen",
+   "website": {
+    "url": "https://knudsenforcountyattorney.com",
+    "how": "The site's title reads \"Stephen Knudsen For Douglas County Attorney\". It answered the fetch tool; the kit's own reader was answered 429 (Too Many Requests) three times.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0413-053",
+   "name": "Rachel Braaten",
+   "website": {
+    "url": "https://rachelforparks.com",
+    "how": "The site's heading reads \"Rachel Braaten for Three Rivers Parks District 3\"; the Hennepin County park commissioner seats are the Three Rivers Park District board.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-08794",
+   "name": "Vince Workman",
+   "official_page": {
+    "url": "https://www.burnsvillemn.gov/2078/City-Council",
+    "source": "City of Burnsville, Mayor & City Council directory: Vince Workman, Council Member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Burnsville City Council, member",
+     "from": "",
+     "to": "now",
+     "source": "City of Burnsville, Mayor & City Council directory",
+     "url": "https://www.burnsvillemn.gov/2078/City-Council",
+     "kind": "official",
+     "also": "The page gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-51730",
+   "name": "Jesse Vavreck",
+   "website": {
+    "url": "https://jessevavreck.com",
+    "how": "The site's title reads \"Jesse Vavreck For Plymouth City Council\" and it names the At Large seat. It answered the fetch tool; the kit's own reader was answered 429 (Too Many Requests) three times.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1026-00928",
+   "name": "Nicole Mace",
+   "official_page": {
+    "url": "https://alexandriamn.city/city-department/city-council/",
+    "source": "City of Alexandria, City Council: \"Nicole Mace, Council Member - Ward IV\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Alexandria City Council, Ward 4",
+     "from": "",
+     "to": "now",
+     "source": "City of Alexandria, City Council",
+     "url": "https://alexandriamn.city/city-department/city-council/",
+     "kind": "official",
+     "also": "The page gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Amanda McFarlane",
+   "website": {
+    "url": "https://mcfarlaneforisd624.com",
+    "how": "The site's heading reads \"Amanda McFarlane for White Bear Lake Area School Board\" and its address names ISD 624.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Vadnais Heights Park, Recreation & Trails Commission, chairperson",
+     "from": "",
+     "to": "now",
+     "source": "Amanda McFarlane for White Bear Lake Area School Board (campaign site)",
+     "url": "https://www.mcfarlaneforisd624.com",
+     "kind": "campaign",
+     "also": "The site says \"I currently serve as Chairperson of the Vadnais Heights Park, Recreation & Trails Commission\" and gives no years; the city's own commission page did not show its members to a script.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0728",
+   "name": "Sarah Hamlin",
+   "official_page": {
+    "url": "https://www.isd728.org/about1/school-board/school-board-members",
+    "source": "Elk River Area ISD 728, School Board Members: \"Elected 2022 - At Large, Sarah Hamlin, treasurer\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Elk River Area School Board (ISD 728), member at large",
+     "from": "",
+     "to": "now",
+     "source": "Elk River Area ISD 728, School Board Members",
+     "url": "https://www.isd728.org/about1/school-board/school-board-members",
+     "kind": "official",
+     "also": "The page reads \"Elected 2022 - At Large\" and lists her as treasurer; it gives no date the term began.",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0300-MN",
+   "name": "JD Delgado",
+   "field": "website",
+   "url": "https://jdformn.com",
+   "why": "The site answered 503 (Service Unavailable) to the fetch tool and to the kit's reader on 2026-10-02, so its own wording could not be read. The address is still in our record as the website he filed with the Secretary of State."
+  }
+ ]
+}

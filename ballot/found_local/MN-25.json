@@ -1,0 +1,674 @@
+{
+ "part": 25,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already spent (the first search was refused), so every page was reached directly, with the kit's honest User-Agent and each site's robots.txt read first and obeyed: the campaign websites filed with the Secretary of State, each county's, city's and school district's own site, party pages, Wikipedia's Minnesota election articles, and four news sites through their own search pages (KAXE, Lakeland PBS, the Chisago County Press and the Fairmont Sentinel). The reading tool was tried on six addresses; it read one of them (Erica Engelbert-Hensel's site). No search engine was read in place of the search tool. Most pages were read on the evening of October 1, 2026, and a few after midnight.",
+  "The filed websites were read from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; twelve of the thirty filed one, and each was then tried. Two more sites were found for candidates who filed none, Kim Wilson's and Jeff Reinert's: a handful of plausible addresses were checked for existence only (an address lookup, which sends nothing to any site), the few that existed were opened, and these two name the candidate and the race on their own pages. The others that existed were someone else's or empty and are not recorded.",
+  "Filed websites that could not be read or confirmed: dufaultformn.com answers with a CAPTCHA page (left alone; the website finding rests on the party page that links it); dulaneyforcitycouncil.com asks Claude by name to stay out in its robots.txt, so it was not read (the website finding rests on the City of Shakopee's own candidate list, which gives the address); reelectnovack.com has no address at all (a review item for Sean Novack). ericaformahtomedi.com answered the program's first try with 429 (too many requests); the reading tool read it, and so did a later try by the program. chipforsos.com is built by script: its title and description are in the page itself, and its About text (the own_words quote) was read from the site's own content file, https://chipforsos.com/api/content, which fills the About section of its home page.",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (403 to the reading tool; not asked again), so neither judge has a court page here; chisagogop.org (a CAPTCHA page); the Belle Plaine school district's site (the connection is refused or times out, for the program and the reading tool alike), so nothing could be checked for Genise Aretz; the site searches of Chisago County and CCX Media (robots.txt); stevenscountytimes.com (its robots.txt answered 403); and the newspapers whose robots.txt turns Claude away by name (the Forum Communications papers, hometownsource.com, presspubs.com, southernminn.com, twincities.com, minnlawyer.com, grandrapidsmn.com, willmarradio.com, myklgr.com).",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): three listings where a party unit publishes its backing in words that are not an endorsement. The Senate District 34 DFL lists Max Maher among its \"Letter of Support Candidates\", apart from its endorsed candidates; the Senate District 37 DFL lists him as a \"DFL Supported Candidate\", apart from its \"DFL Endorsed\" ones; the Senate District 35 Republicans list Sean Novack among nonpartisan candidates given \"our support and recommendation\", on a page whose title is \"Endorsements\". They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision. Two of those pages also describe the listed candidates' views in the unit's own words; that wording is not repeated here.",
+  "Read and left out on purpose: ages given as \"age on Election Day\" in KAXE's election guides (Melissa Maertens, Chip Tangen, Milo Scott), which do not fix a birth year; jobs, including Jennifer Vipond's (Grant County's Sheriff page calls her Chief Deputy) and Milo Scott's (KAXE: a Wadena police officer), and Chip Tangen's time as a congressman's legislative counsel; family details on the Anoka County page and on several campaign sites; labor and other non-party endorsements on Max Maher's site.",
+  "The two judges, Victoria Gardner and Sarah L. McBroom, are listed with no findings. Neither Lakeland PBS's nor KAXE's own search turned up an appointment story for McBroom, and no source that could be read covers Ramsey County's bench for Gardner. One KAXE local-news story, of April 20, 2026, calls McBroom an Itasca County judge (two more court stories came up in KAXE's search for her name and were not opened), but it is a story about another person's criminal case, so it is not offered as a source for her card and its address is not repeated here; KAXE's own search for her name finds it, if John or the second reader thinks otherwise.",
+  "Nothing was found for seven candidates, who are listed with no findings: Jennifer Vipond, Milo Scott, Jerome Niss, Eugenio Lopez, Genise Aretz, Victoria Gardner and Sarah L. McBroom. The Fairmont Sentinel (July 29, 2026) says of the six candidates for mayor that only Todd Smith has run for city office before; the Worthington district's School Board page does not list Eugenio Lopez among its members.",
+  "For the second reader: (1) Chris DuBose: no page read says in so many words that the 2026 candidate is the former commissioner; the tie is the name, the county, and the same contest twice (the Chisago County Press, November 4, 2022: the new District 2 pitted Rick Greene against Chris DuBose; the 2026 list has the same two names for District 2). The Press story of January 6, 2023 is at https://www.chisagocountypress.com/news/2023/jan/06/montzka-to-chair-citizens-boards-get-lots-of-new-f/ and the one of November 4, 2022 at https://www.chisagocountypress.com/news/2022/nov/04/voting-reminder/. His board service is given an end of 2022 because the December 16, 2022 story has him \"working his final days\"; the county's board page starts the next terms on January 3, 2023. (2) Danielle Plantz: the tie is the name and the city; New Hope's Human Rights Commission page lists a member of that name, and the list has the same name for New Hope City Council. (3) Barbara Neprud and Joshua Beulke appear on their districts' pages as Barb Neprud and Josh Beulke. (4) John P. Fahey's start year (2021) is from his own site; the county's page gives only the election year. (5) Kim Wilson's own_words quote is how she describes her candidacy on her About page, under the heading \"WHY INDEPENDENT?\"; the sentence goes on \"because I believe my first responsibility should be to the people of District 47B, not to a political party\". (6) Shaun C. Palmer's review item is only about the seat's name (District 5 in our record, Ward 5 to the city).",
+  "Seen in passing, for John: KAXE reports August 11 primaries for two nonpartisan county races in this part (Wadena County sheriff, five candidates; Crow Wing County Commissioner District 4), and Jeff Reinert's site gives the primary date too; our record carries no primary rows for nonpartisan offices. The Tri-City United School Board page spells another candidate on that list Hillary Birdsell (our list: Hilary Birdsell).",
+  "Second reader, October 2, 2026: every address in the candidates' findings was opened again with the kit's honest User-Agent, robots.txt obeyed. Two website findings were deleted (see \"removed\"); the notes above that describe them are the first reader's and are left as written. ericaformahtomedi.com answered the program with 429 four times and was read with the reading tool. chipforsos.com's own_words sentence is in the site's own content file (https://chipforsos.com/api/content), which fills its home page by script; Barb Neprud's \"Elected: 2007\" is in the page's own data on ci.k12.mn.us, which is also filled by script. reelectnovack.com still had no address. Mentions of KAXE's guides, of the Shakopee and Tri-City United Elections pages and of other pages whose addresses are not in this file were taken out of the findings' wording because they were not opened; the Chisago County Press stories of January 6, 2023 and November 4, 2022 named in the notes were opened and say what is quoted. Chris DuBose stays on the first reader's reasoning (same name, same county board, the same two names in District 2 in 2022 and 2026): John may want to look at it."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0132-MN",
+   "name": "Torrey Westrom",
+   "website": {
+    "url": "https://torreywestrom.com",
+    "how": "The site's title is \"Torrey Westrom for State Senate\" and its footer says it is paid for by the Westrom for Senate Committee. It says he represents Big Stone, Douglas, Pope, Stearns, Stevens and Swift counties, the six counties our record gives for Senate District 12. It is the address filed with the Secretary of State. The site names neither the year nor the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0169-MN",
+   "name": "Dustin R. DuFault",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 49 Republicans (its page \"Election 2026\" names \"Dustin DuFault, endorsed candidate for Senate District 49\")",
+     "url": "https://www.49mngop.com/election_2026",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0206-MN",
+   "name": "Melissa Maertens",
+   "website": {
+    "url": "https://mmformn.com",
+    "how": "The site's title is \"Maertens for MN House 10A\", and its News page carries the line \"Melissa Maertens receives DFL endorsement for House District 10A\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\": Melissa Maertens, House District 10A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Melissa Maertens receives DFL endorsement for House District 10A",
+    "url": "https://mmformn.com/news",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0243-MN",
+   "name": "Max Rymer",
+   "website": {
+    "url": "https://maxrymer.com",
+    "how": "The site's title is \"Max Rymer for State Representative | District 28B Chisago Co.\" and its home page says \"I am running for re-election to the State House in District 28B\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0281-MN",
+   "name": "Kim Wilson",
+   "website": {
+    "url": "https://www.kimwilsonforhouse.com",
+    "how": "No website is on the Secretary of State's list for her. The site's title is \"Kim Wilson for House 47B\", its home page reads \"Kim Wilson for MN House 47B\", and its About page says she serves as a Woodbury City Councilmember and is running for State Representative for District 47B.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+    "source": "City of Woodbury, Mayor and City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Woodbury City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Woodbury, Mayor and City Council page (lists Kim Wilson, Council Member; term expires January 1, 2029). Her campaign site says she has been a member of the council \"for the past six years\"; neither page gives the year she took office",
+     "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm running as an independent conservative",
+    "url": "https://www.kimwilsonforhouse.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0332-MN",
+   "name": "George \"Chip\" Tangen",
+   "website": {
+    "url": "https://chipforsos.com",
+    "how": "The site's title is \"Chip Tangen for MN Secretary of State\" and its description begins \"Chip Tangen is running for Minnesota Secretary of State\". It is the address filed with the Secretary of State, and the Libertarian Party of Minnesota's endorsements page links it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Libertarian",
+     "unit": "Libertarian Party of Minnesota, the state party (its page \"Endorsed Candidates\", under \"2026 Endorsements\": Chip Tangen, Candidate for MN Secretary of State)",
+     "url": "https://lpmn.org/we-the-people/endorsed-candidates/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Since 2016, Chip has aligned with the Libertarian Party",
+    "url": "https://chipforsos.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-025",
+   "name": "Chris DuBose",
+   "offices": [
+    {
+     "office": "Chisago County Planning Commission (member for District 3; term January 6, 2026 to December 31, 2028)",
+     "from": "",
+     "to": "now",
+     "source": "Chisago County, Planning Commission page (its table of members). The Chisago County Press reported on January 6, 2023 that \"former county board member Chris DuBose\" had joined the commission",
+     "url": "https://www.chisagocountymn.gov/406",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chisago County Board of Commissioners",
+     "from": "",
+     "to": "2022",
+     "source": "Chisago County Press, December 16, 2022 (\"Commissioner Chris DuBose, working his final days due to redistricting and re-election defeat\"). The paper reported on October 4, 2018 that he was seeking the District 1 seat, and on November 4, 2022 that the newly drawn District 2 pitted \"two sitting commissioners against each other, Rick Greene and Chris DuBose\"; no story read gives the day he took office",
+     "url": "https://www.chisagocountypress.com/news/2022/dec/16/county-board-adopts-greatly-reduced-levy/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Chisago City",
+     "from": "",
+     "to": "",
+     "source": "Chisago County Press, October 4, 2018, on a candidates' forum: the two candidates for the District 1 seat \"have been city mayors\", DuBose \"when he lived in Chisago City\" (no years given)",
+     "url": "https://www.chisagocountypress.com/news/2018/oct/04/sheriff-commissioners-and-other-candidates-field-q/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-003",
+   "name": "Jeff Reinert",
+   "website": {
+    "url": "https://jeffreinert.com",
+    "how": "No website is on the Secretary of State's list for him. The site is headed \"jeff reinert\" and, beneath it, \"anoka county commissioner\", and asks readers to help re-elect him to the Anoka County Board. Its About page says he will be running this fall for another term as Anoka County Commissioner representing the 3rd District, and names the district's cities; its home page reads \"Vote: Primary Aug 11, 2026\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+    "source": "Anoka County, Board of Commissioners directory: Jeff Reinert, District 3 Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anoka County Board of Commissioners, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Anoka County, Board of Commissioners directory page for Jeff Reinert (\"Vice Chair, District 3 Commissioner\"). It does not say when he took office; his campaign site says he is running for his fourth term",
+     "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Lino Lakes (10 years)",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, Board of Commissioners directory page for Jeff Reinert (under \"Prior civic/volunteer experience\"; no years given)",
+     "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Lino Lakes City Council (10 years, before becoming mayor)",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, Board of Commissioners directory page for Jeff Reinert (under \"Prior civic/volunteer experience\"; no years given)",
+     "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Lino Lakes Park Board (3 years)",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, Board of Commissioners directory page for Jeff Reinert (under \"Prior civic/volunteer experience\"; no years given)",
+     "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Lino Lakes Economic Development Authority, president (7 years)",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, Board of Commissioners directory page for Jeff Reinert (under \"Prior civic/volunteer experience\"; no years given)",
+     "url": "https://www.anokacountymn.gov/directory.aspx?EID=35",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-035",
+   "name": "Rosemary Franzen",
+   "official_page": {
+    "url": "https://www.crowwing.gov/717",
+    "source": "Crow Wing County, County Board: Rosemary Franzen, County Commissioner, District 4",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crow Wing County Board of Commissioners, District 4 (board chair; current term 2023 to 2027)",
+     "from": "",
+     "to": "now",
+     "source": "Crow Wing County, County Board page for Rosemary Franzen (\"County Commissioner, District 4\", \"Current Term: 2023 to 2027\"); the county's County Board page (https://www.crowwing.gov/65/County-Board) lists her as Chair. Neither says when she took office",
+     "url": "https://www.crowwing.gov/717",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-019",
+   "name": "John P. Fahey",
+   "website": {
+    "url": "https://faheyforcommissioner.com",
+    "how": "The site's title is \"John P. Fahey for Carver Commissioner\"; its home page says \"Vote November 3, 2026!\" and names the office as Carver County Commissioner, District 5. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+    "source": "Carver County, County Board of Commissioners: Commissioner Biographies, John P. Fahey (District 5)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carver County Board of Commissioners, District 5 (first elected in 2020; board chair in 2023, vice chair in 2022 and 2024)",
+     "from": "2021",
+     "to": "now",
+     "source": "His campaign's own site (About page: he has been serving as Carver County Commissioner \"since January 2021\"; chair and vice chair years from the same page). Carver County's biography page says he was first elected to the County Board in 2020 and that his current term expires in 2026",
+     "url": "https://faheyforcommissioner.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Norwood Young America",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "School Board, District 108",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Carver County Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given). His campaign site says he chaired it; the county page also lists the Planning Commission among his committee appointments today",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Carver County Board of Adjustment",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Carver County Park Board",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Norwood Young America Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Carver County, Commissioner Biographies: John P. Fahey, District 5 (under \"Prior Public Service Involvement\"; no years given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/john-p-fahey-district-5",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Emergency Services Board (chair in 2025)",
+     "from": "",
+     "to": "",
+     "source": "His campaign's own site (home page: \"Chair, Metropolitan Emergency Services Board in 2025\"); the county's biography page lists the Metropolitan Emergency Services Executive Board among the bodies he is an alternate to today",
+     "url": "https://faheyforcommissioner.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-149",
+   "name": "Stephanie Buss",
+   "official_page": {
+    "url": "https://www.co.stevens.mn.us/864/AuditorTreasurer",
+    "source": "Stevens County, Auditor/Treasurer department page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stevens County Auditor-Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Stevens County, Auditor/Treasurer department page (names Stephanie Buss, Auditor-Treasurer; it does not say when she took office)",
+     "url": "https://www.co.stevens.mn.us/864/AuditorTreasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-051",
+   "name": "Jennifer Vipond"
+  },
+  {
+   "race_id": "2026-MN-0404-159",
+   "name": "Milo Scott"
+  },
+  {
+   "race_id": "2026-MN-0405-111",
+   "name": "Michelle Marie Eldien",
+   "official_page": {
+    "url": "https://ottertailcounty.gov/department/attorney/",
+    "source": "Otter Tail County, County Attorney department page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Otter Tail County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Otter Tail County, County Attorney department page (names Michelle Eldien, County Attorney; it does not say when she took office)",
+     "url": "https://ottertailcounty.gov/department/attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Jerome Niss"
+  },
+  {
+   "race_id": "2026-MN-1001-70420",
+   "name": "Justin Ask",
+   "official_page": {
+    "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+    "source": "City of Willmar, Mayor & City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Willmar City Council, Ward 3",
+     "from": "",
+     "to": "now",
+     "source": "City of Willmar, Mayor & City Council page (under Willmar City Council Ward 3: Justin Ask, \"Represents Ward 3 until January 2029\"; it does not say when he took office)",
+     "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "Kate Agnew",
+   "website": {
+    "url": "https://kateagnew.com",
+    "how": "The site's title is \"Kate Agnew for Edina City Council\"; its home page says she has served on the Edina City Council over the past four years and is seeking a second term. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.edinamn.gov/772/City-Council",
+    "source": "City of Edina, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edina City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Edina, City Council page (lists Kate Agnew, Council Member; members serve four-year staggered terms). Her campaign site says she has served \"over the past four years\" and calls this her first term; neither page gives the year she took office",
+     "url": "https://www.edinamn.gov/772/City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Edina Planning Commission (member and chair)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own site (About Kate page: before serving on the City Council she served on Edina's Planning Commission, including as Chair; no years given)",
+     "url": "https://kateagnew.com/about-kate",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-45628",
+   "name": "Danielle Plantz",
+   "offices": [
+    {
+     "office": "New Hope Human Rights Commission (member)",
+     "from": "",
+     "to": "now",
+     "source": "City of New Hope, Human Rights Commission page (lists Danielle Plantz among its members; no terms given)",
+     "url": "https://www.newhopemn.gov/city_hall/boards_commissions/human_rights_commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Jim DuLaney",
+   "official_page": {
+    "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+    "source": "City of Shakopee, Mayor & City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shakopee City Council",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Shakopee, Mayor & City Council page (Councilor Jim DuLaney: \"First Took Office: Jan. 1, 2023\", \"Term Expires: Dec. 31, 2026\")",
+     "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-40688",
+   "name": "John Alcorn",
+   "official_page": {
+    "url": "https://ci.marshall.mn.us/administration/city_council/index.php",
+    "source": "City of Marshall, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall City Council, Ward 1",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Marshall, City Council page (\"Serving his 1st term as a Councilmember (Ward I) - 2023 to present\")",
+     "url": "https://ci.marshall.mn.us/administration/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-13114",
+   "name": "Sean Novack",
+   "official_page": {
+    "url": "https://www.coonrapidsmn.gov/148/City-Council",
+    "source": "City of Coon Rapids, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Coon Rapids City Council, Ward 3",
+     "from": "",
+     "to": "now",
+     "source": "City of Coon Rapids, City Council page (\"Sean Novack, Ward 3, Term expires: December 31, 2026\"; it does not say when he took office)",
+     "url": "https://www.coonrapidsmn.gov/148/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 35 Republicans",
+     "wording": "our support and recommendation",
+     "what": "Named \"Sean Novack, Coon Rapids City Council, Ward 3\" in the unit's list headed \"Nonpartisan local offices up for election in 2026\", which the unit says it gives \"our support and recommendation\" and calls a partial list. The page's own title is \"Senate District 35 Republicans - Endorsements\"; it does not use the word endorsed for the local candidates.",
+     "url": "https://www.sd35gop.com/recommended-candidat.html",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The campaign website Sean Novack filed with the Secretary of State: reelectnovack.com.",
+     "problem": "On October 1 and 2, 2026 the name reelectnovack.com had no address at all: the lookup failed for this program after repeated tries on both days and for the reading tool, so there was no site to open.",
+     "url": "https://reelectnovack.com",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-54880",
+   "name": "Shaun C. Palmer",
+   "website": {
+    "url": "https://palmerward5.org",
+    "how": "The site's title is \"Shaun C Palmer - City Councilperson Ward 5 - Shaun C Palmer - Rochester Councilperson\", and its home page carries a letter to Rochester residents dated May 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+    "source": "City of Rochester, Councilmembers page (Shaun C. Palmer, City Councilmember - 5th Ward)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester City Council, Ward 5 (elected in 2018)",
+     "from": "",
+     "to": "now",
+     "source": "City of Rochester, Councilmembers page (\"Shaun C. Palmer, City Councilmember - 5th Ward\"; under Government History: \"Elected in 2018\"). His campaign site also says he was elected to the council in 2018; neither gives the year he took office",
+     "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Olmsted County Environmental Commission (chairman)",
+     "from": "",
+     "to": "",
+     "source": "City of Rochester, Councilmembers page (under Community Activities: \"Past Chairman, Olmsted County Environmental Commission\"; no years given)",
+     "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Council Member, District 5 (Rochester city): the name our record gives the seat, as the Secretary of State's candidate list titles it.",
+     "problem": "The City of Rochester calls its council seats wards: its Councilmembers page lists \"Shaun C. Palmer, City Councilmember - 5th Ward\", and its City Council page speaks of \"Rochester's six city council wards\". His own site says Ward 5 too.",
+     "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0182",
+   "name": "Barbara Neprud",
+   "official_page": {
+    "url": "https://www.ci.k12.mn.us/page/about-ci",
+    "source": "Crosby-Ironton Public Schools (ISD 182), About C-I page, \"Our Board of Education\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crosby-Ironton School Board (ISD 182) (elected in 2007)",
+     "from": "",
+     "to": "now",
+     "source": "Crosby-Ironton Public Schools, About C-I page, \"Our Board of Education\" (lists her as Barb Neprud, \"Elected: 2007\")",
+     "url": "https://www.ci.k12.mn.us/page/about-ci",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Max Maher",
+   "website": {
+    "url": "https://maxforosseo.com",
+    "how": "The site's title is \"Max Maher for Osseo School Board\"; it says \"Election Day: November 3, 2026\" and that three at-large Osseo School Board seats are on the ballot. It is the address filed with the Secretary of State, and the Senate District 34 DFL's and Senate District 37 DFL's candidate pages link it.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 34 DFL",
+     "wording": "Letter of Support",
+     "what": "Listed as \"School Board - Max Maher\" under Osseo in the unit's \"Letter of Support Candidates\", who the page says were granted Letters of Support at the SD34 DFL meeting in August. The page keeps them apart from \"the endorsed DFL candidates for our district\".",
+     "url": "https://www.sd34dfl.com/2026-candidates",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 37 DFL",
+     "wording": "DFL Supported Candidate",
+     "what": "Listed as \"Max Maher, Osseo Area Schools, DFL Supported Candidate\" under \"Meet Our DFL Supported School Board Candidates\", apart from the unit's \"DFL Endorsed\" candidates for the Legislature.",
+     "url": "http://sd37dfl.org/meet-the-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0518",
+   "name": "Eugenio Lopez"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0716",
+   "name": "Genise Aretz"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0832",
+   "name": "Erica Engelbert-Hensel",
+   "website": {
+    "url": "https://www.ericaformahtomedi.com",
+    "how": "The site's title is \"Home | Engage School Board\". Under the heading \"Ensuring every student receives the Mahtomedi experience.\" it opens \"I'm Erica Engelbert-Hensel\", it asks for a vote, and its footer reads \"© 2026 Erica for Mahtomedi.\" It is the address filed with the Secretary of State. The site does not name the election date.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Joshua Beulke",
+   "official_page": {
+    "url": "https://www.tcu2905.us/pages/d3064be8-16fa-4b76-87a8-e3c43159d45b",
+    "source": "Tri-City United Public Schools (ISD 2905), School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Tri-City United School Board (ISD 2905)",
+     "from": "",
+     "to": "now",
+     "source": "Tri-City United Public Schools, School Board page (the caption of its board photograph names Josh Beulke; the page gives no terms or board offices)",
+     "url": "https://www.tcu2905.us/pages/d3064be8-16fa-4b76-87a8-e3c43159d45b",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8307-MN",
+   "name": "Victoria Gardner"
+  },
+  {
+   "race_id": "2026-MN-9111-MN",
+   "name": "Sarah L. McBroom"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0169-MN",
+   "name": "Dustin R. DuFault",
+   "finding": "website https://www.dufaultformn.com",
+   "why": "The site answers with a CAPTCHA page, so it sits behind a wall and could not be read. The Senate District 49 Republicans' page does link it beside his name; the address he filed with the Secretary of State is unaffected."
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Jim DuLaney",
+   "finding": "website https://www.dulaneyforcitycouncil.com",
+   "why": "The site's robots.txt turns this reader away, so it was not opened and nothing on it could be confirmed. The address he filed with the Secretary of State is unaffected."
+  }
+ ]
+}

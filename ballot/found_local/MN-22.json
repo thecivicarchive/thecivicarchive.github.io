@@ -1,0 +1,600 @@
+{
+ "state": "MN",
+ "part": 22,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "WebSearch could not be used for this part (the session's search budget was already spent), so pages were reached directly: the campaign websites filed with the Secretary of State, government, party and newspaper sites, the papers' own search pages where they answer programs (hometownsource.com and presspubs.com), KAXE's 2026 election guide, and Wikipedia's article pages. Everything was read with the kit's own User-Agent, one request at a time, after each site's robots.txt. Candidates with nothing below (Greg Forcier, Sunny D. Resnick, Tony Preciado, Ali Verney, Melissa Danielson, Myron Matthew Grage, Alan R. Fitterer) are ones for whom no such page stated anything a card may show.",
+  "Three campaign websites that were not filed with the Secretary of State were found by asking whether likely addresses exist (an address lookup, not a request to a site) and then reading the ones that did: mallieforjudge.com, votedahlquist.com and reiter4mayor.com. Each names the candidate and the race, as its 'how' line says. Addresses that exist but are not the candidate's, or say nothing: tonypreciado.com (the portfolio of a film effects artist of the same name, not the Mounds View candidate); votepreciado.com (its robots.txt asks programs to stay out, so it was not opened, and nothing ties it to this race); krachmer.com (a page saying the site is under renovation, naming nobody); votedanielson.com, batesforjudge.com, judgechristopherbates.com, keepjudgebates.com and christopherbatesforjudge.com (parking or 'launching soon' pages).",
+  "Sites that asked programs to stay out or refused them, so nothing was taken from them and nothing was worked around: brianformn.com (its robots.txt request was answered 403); co.ym.mn.gov and ci.hugo.mn.us (robots.txt shuts out every program it does not name, so there is no county page for John Berends and no city page for Becky Petryk); mncourts.gov (403: no court page for Judge Bates or Judge Mallie); bioguide.congress.gov (robots.txt); the search of southernminn.com (404). Pine Knot News's search page was not tried (another part found it closed); its elections section and stories were read. The endorsement sweep's ledger says Forward Independence's candidates page lists Mike Krachmer for Mayor of Vadnais Heights; that site's robots.txt asks programs to stay out, so this part did not open it and records nothing from it. wrenshall.k12.mn.us did not answer; the district's pages are at isd100.org.",
+  "Read and left out on purpose: ages given as 'age on Election Day' (KAXE's guides, for Mary Carlson and Matthew Mallie), which do not fix a birth year; jobs, including school maintenance, sheriff's office ranks, city prosecutor and assistant county attorney posts, an agency's counsel and fire department service; schools; neighborhood, league and association boards; party posts (a county party chair appears only as the candidate's own words); labor and other non-party endorsements; relatives' offices; a 2020 run for a nonpartisan council seat (Joe Reiter); and everything the Legislative Reference Library and the Congressional Directory print about a member's private life.",
+  "party_support (a key the loader does not read, in the shape other parts use): the Senate District 46 DFL and the Senate District 50 DFL each list Alicia Gibson, for the Edina City Council, under 'Letter of Support', a heading that is not the word endorsement. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "For the second reader: (1) Kim Rich: the Senate District 46 Republicans' home page prints his line as 'House District 45B: Kim Rich' under 'SD 46 Endorsed Republican Candidates'. It is taken as the unit's endorsement for House District 46B because the unit is Senate District 46, the two lines above it are Senate District 46 and House District 46A, and the name links to kimrichformn.org, whose home page is headed 'House District 46B'. (2) Amy Klobuchar: the years as Hennepin County Attorney (1999 to 2007) are Wikipedia's; the official Congressional Directory gives only the elections (1998 and 2002). Her birth date and her 2006 election are from the Congressional Directory for the 117th Congress on GovInfo; her Senate service from January 3, 2007 is on the Senate's own list of Minnesota senators. (3) Jimmy Gordon is a sitting member whose roster record has no birth date, so the Legislative Reference Library's is given, as other parts did; the Library lists his time as mayor with dates unknown, and his own site says he joined the Isanti City Council in 2019 and was elected mayor in 2022. (4) Mary Carlson: the district's board page is titled 'Wrenshall School District' and its footer reads 'Carlton-Wrenshall Public School District'; her site says Wrenshall School Board, and in KAXE's guide she says Carlton-Wrenshall School Board. (5) John Berends: the one readable government page naming him is the Board of Health page of Countryside Public Health, the five-county community health board; it does not give his district. (6) Randy (RJ) Heidmann's start year 2023 rests on two statements on the district's page (four-year terms begin the January after the election; his ends in 2026) and on his own answer in KAXE's guide that he was elected in 2022. (7) Todd Madson's start year is the Laker Pioneer's report of the January 9, 2023 swearing-in. (8) Christopher D. Bates: the tie between the 2026 candidate and the 2024 appointee is the name, Minnesota and the First Judicial District; the day he took the bench was not found, so no start year is given. (9) Ryan Shea: ryansheaforsheriff.com is his campaign site from 2022, still up (it asks for a vote 'on November 8th' and calls him Detective Shea); it is not recorded as a website for the 2026 race. (10) Mike Belz's own_words is a statement about party politics on the school board rather than about a party of his own; parts 18 and 21 recorded comparable lines for two others in his race. (11) Tony Compo's township post is as the Pine Knot News described him on May 29, 2026; the township's own site could not be found. (12) Matthew R. Mallie's site is dated by its page data (published September 1, 2026; changed September 28, 2026) and Julian Dahlquist's by the site-builder's own stamp in the page (June 2026). (13) Becky Petryk's 'now' rests on The Citizen's story of September 29, 2026, which quotes her as a council member: https://www.presspubs.com/citizen/newsletter/residents-submit-petition-against-hardwood-creek-trail-extension-project/article_332a798e-2927-4397-b054-9b8d9844929f.html",
+  "Addresses of pages that source lines mention without giving them: KAXE's Senate District 11 guide (Mary Carlson's website, and her words about the school board), https://www.kaxe.org/2026-09-28/legislature-state-senate-district-11-mn-2026-election-guide; KAXE's Brainerd School District guide (Randy (RJ) Heidmann: 'I was elected to the Brainerd School Board in 2022'), https://www.kaxe.org/2026-09-30/brainerd-school-district-mn-2026-election-guide; KAXE's Proctor School District guide (Lynn M Peterson: eight years on the board, clerk and chair), https://www.kaxe.org/2026-09-30/proctor-school-district-mn-2026-election-guide; the Vadnais Heights Press's profile of Mayor Krachmer, May 2023, https://www.presspubs.com/vadnais/news/get-to-know-vadnais-heights-mayor-mike-krachmer/article_294e7fec-ffe1-11ed-94c5-a3f962cf7113.html; the Forum of Fargo-Moorhead's report of the Clay County Commission candidate forum of September 21, 2026 (Julian Dahlquist, District 4), https://www.inforum.com/news/moorhead/clay-county-commission-candidates-talk-taxes-mental-health-data-centers-in-forum; the Congressional Directory page for Amy Klobuchar (her election as Hennepin County Attorney in 1998 and 2002), https://www.govinfo.gov/content/pkg/CDIR-2022-10-26/html/CDIR-2022-10-26-MN-S-1.htm; Jimmy Gordon's About page ('He was elected mayor in 2022'), https://www.jimmyforhouse.com/about-jimmy/; the Isanti County Republican Party's Local Candidates page, https://isantigop.org/local-candidates; the Senate District 46 DFL's Letter of Support page, https://sd46dfl.org/2026-los-candidates/; Joe Reiter's home page ('Former East Bethel Planning Commissioner'), https://reiter4mayor.com/; the Orono district's School Board page, https://www.oronoschools.org/about/school-board."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0131-MN",
+   "name": "Mary Carlson",
+   "website": {
+    "url": "https://www.maryforminnesota.com",
+    "how": "The site's title is \"Home | Mary Carlson for Minnesota Senate District 11\" and it is \"Prepared and paid for by the Campaign Fund for Mary Carlson for Minnesota SD11\". It is the address filed with the Secretary of State; the Minnesota DFL's list of endorsed candidates and KAXE's Senate District 11 election guide both link it.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carlton-Wrenshall School Board (member)",
+     "from": "not stated",
+     "to": "now",
+     "source": "KAXE, \"Senate District 11 2026 Election Guide\", September 28, 2026, in her own answer: \"I currently serve on the Carlton-Wrenshall School Board\"",
+     "url": "https://www.kaxe.org/2026-09-28/legislature-state-senate-district-11-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true,
+     "corrected": "The source was the district's own board page, which could not be opened; the wording and kind now follow KAXE's guide, which was read."
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Senate District 11)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0167-MN",
+   "name": "Brian Stalboerger"
+  },
+  {
+   "race_id": "2026-MN-0205-MN",
+   "name": "Owen Werner",
+   "website": {
+    "url": "https://www.wernerforhouse.com",
+    "how": "The Minnesota DFL's list of endorsed candidates links this address from Owen Werner's picture under House District 9B. The site is titled \"Werner for House\", its home page reads \"Minnesota District 9B\", its About page begins \"I'm Owen Werner\", and it is \"Prepared and Paid for by Werner for House Committee\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 9B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0242-MN",
+   "name": "James \"Jimmy\" Gordon",
+   "website": {
+    "url": "https://www.jimmyforhouse.com",
+    "how": "The site's title is \"Jimmy Gordon For MN House District 28A\" and it is \"Prepared and Paid For by the Jimmy Gordon For House Campaign\". It is the address filed with the Secretary of State, and the Isanti County Republican Party's Local Candidates page links it.",
+    "verified": true
+   },
+   "born": {
+    "year": 1987,
+    "date": "1987-01-23",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15632",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Isanti City Council",
+     "from": "2019",
+     "to": "not stated",
+     "source": "his campaign's own website, About Jimmy (\"Jimmy joined the Isanti City Council in 2019\")",
+     "url": "https://www.jimmyforhouse.com/about-jimmy/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Isanti",
+     "from": "not stated (the Library gives the dates as unknown; his campaign site says he was elected mayor in 2022)",
+     "to": "not stated",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Other Government Service: Municipal Mayor, Isanti, Minnesota; dates unknown)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15632",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Isanti County Republican Party, the county unit (its Local Candidates page: \"Isanti County Republican Party Endorsed 28A House Candidate\")",
+     "url": "https://isantigop.org/local-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0279-MN",
+   "name": "Kim Rich",
+   "website": {
+    "url": "https://www.kimrichformn.org",
+    "how": "The site's title is \"Kim Rich for MN\"; its home page is headed \"House District 46B\" and reads \"My name is Kim Rich and I am running to represent Northwest Edina, Hopkins and Southern St. Louis Park in the Minnesota House of Representatives\". It is the address filed with the Secretary of State, and the Senate District 46 Republicans' home page links it from the name.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 46 Republicans, the district unit (its home page lists \"SD 46 Endorsed Republican Candidates\" and prints this line as \"House District 45B: Kim Rich\", with the name linked to the House District 46B campaign site)",
+     "url": "https://www.sd46gop.com/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for State Representative in House District 46B and lost to Cheryl Youakim (7,863 votes, 32.21 percent)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, \"2024 Minnesota House of Representatives election\", District 46B; its candidate list cites the Minnesota Secretary of State's candidate filings",
+     "url": "https://en.wikipedia.org/wiki/2024_Minnesota_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0331-MN",
+   "name": "Amy Klobuchar and Ben Schierer",
+   "website": {
+    "url": "https://www.amyklobuchar.com",
+    "how": "The site's title is \"Amy Klobuchar for Governor\" and it is \"Prepared and paid for by Minnesotans for Klobuchar committee\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.klobuchar.senate.gov/public/index.cfm/about-amy",
+    "source": "U.S. Senate, Senator Amy Klobuchar's office: About Amy",
+    "verified": true
+   },
+   "born": {
+    "year": 1960,
+    "date": "1960-05-25",
+    "source": "Congressional Directory for the 117th Congress, October 2022, page 144 (U.S. Government Publishing Office)",
+    "url": "https://www.govinfo.gov/content/pkg/CDIR-2022-10-26/html/CDIR-2022-10-26-MN-S-1.htm",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "U.S. Senator from Minnesota",
+     "from": "2007",
+     "to": "now",
+     "source": "U.S. Senate, States in the Senate: Minnesota Senators (\"Amy Klobuchar (D)\", Jan. 3, 2007 to Present)",
+     "url": "https://www.senate.gov/states/MN/senators.htm",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Hennepin County Attorney",
+     "from": "1999",
+     "to": "2007",
+     "source": "Wikipedia, \"Amy Klobuchar\" (\"she served from 1999 to 2007 as county attorney of Hennepin County\"; its section on those years cites MPR News's timeline of February 10, 2019). The Congressional Directory, an official record, says she was elected Hennepin County Attorney in 1998 and reelected in 2002",
+     "url": "https://en.wikipedia.org/wiki/Amy_Klobuchar",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Statewide Offices: Minnesota Governor)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the U.S. Senate on November 7, 2006 and, as of October 2022, reelected to each term since; the Directory lists her as \"Democrat, of Minneapolis\"",
+     "year": 2006,
+     "party": "Democratic",
+     "source": "Congressional Directory for the 117th Congress, October 2022, page 144 (U.S. Government Publishing Office)",
+     "url": "https://www.govinfo.gov/content/pkg/CDIR-2022-10-26/html/CDIR-2022-10-26-MN-S-1.htm",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Sought the Democratic nomination for President: announced on February 10, 2019 and suspended her campaign on March 2, 2020",
+     "year": 2020,
+     "party": "Democratic",
+     "source": "Wikipedia, \"Amy Klobuchar\", citing Politico and CNN reports of March 2, 2020",
+     "url": "https://en.wikipedia.org/wiki/Amy_Klobuchar",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-017",
+   "name": "Tony Compo",
+   "offices": [
+    {
+     "office": "Thomson Township Board of Supervisors (supervisor and board chairman, as the paper described him in May 2026)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Pine Knot News, \"Office filings begin\", May 29, 2026 (\"Thomson Township supervisor and board chairman Tony Compo\")",
+     "url": "https://www.pineknotnews.com/story/2026/05/29/elections/office-filings-begin/14922.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-173",
+   "name": "John Berends",
+   "offices": [
+    {
+     "office": "Yellow Medicine County Commissioner",
+     "from": "not stated",
+     "to": "now",
+     "source": "Countryside Public Health, the five-county community health board, Board of Health page (\"John Berends, Yellow Medicine County Commissioner\"); the page does not give his district",
+     "url": "https://www.countrysidepublichealth.org/board-of-health",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-027",
+   "name": "Julian Dahlquist",
+   "website": {
+    "url": "https://www.votedahlquist.com",
+    "how": "The site's title is \"Julian Dahlquist for Clay County Commission\" and it is \"Prepared and paid for by Friends of Julian Dahlquist\"; the site-builder's own stamp in the page dates it to June 2026. The Forum of Fargo-Moorhead reported him as a candidate for the commission's District 4 seat in September 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Moorhead Charter Commission (member)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "his campaign's own website, About page (\"having served on Moorhead’s Charter Commission\")",
+     "url": "https://www.votedahlquist.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I’m also proud to have served as Clay County DFL chair",
+    "url": "https://www.votedahlquist.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0395-011",
+   "name": "Jeff Klages",
+   "official_page": {
+    "url": "https://bigstonecounty.gov/departments/board-of-commissioners/",
+    "source": "Big Stone County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Big Stone County Commissioner, District 5",
+     "from": "not stated",
+     "to": "now",
+     "source": "Big Stone County, Board of Commissioners page (District 5: Jeff Klages)",
+     "url": "https://bigstonecounty.gov/departments/board-of-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-127",
+   "name": "Jean Price",
+   "official_page": {
+    "url": "https://redwoodcounty-mn.gov/departments/auditor-treasurer/",
+    "source": "Redwood County, Auditor / Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Redwood County Auditor/Treasurer",
+     "from": "not stated (the page lists a campaign finance report of November 9, 2022 for \"Jean Price for Auditor/Treasurer\")",
+     "to": "now",
+     "source": "Redwood County, Auditor / Treasurer page (\"Auditor/Treasurer: Jean Price\")",
+     "url": "https://redwoodcounty-mn.gov/departments/auditor-treasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-047",
+   "name": "Ryan Shea",
+   "official_page": {
+    "url": "https://www.freeborncountymn.gov/124/Sheriff",
+    "source": "Freeborn County, Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Freeborn County Sheriff",
+     "from": "not stated",
+     "to": "now",
+     "source": "Freeborn County, Sheriff page (\"Ryan Shea, Sheriff\")",
+     "url": "https://www.freeborncountymn.gov/124/Sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-155",
+   "name": "Greg Forcier"
+  },
+  {
+   "race_id": "2026-MN-0405-107",
+   "name": "Sunny D. Resnick"
+  },
+  {
+   "race_id": "2026-MN-1001-17486",
+   "name": "Joe Reiter",
+   "website": {
+    "url": "https://reiter4mayor.com",
+    "how": "The site's title begins \"Joe Reiter for Mayor\"; its home page is headed \"East Bethel • Mayor 2026\" and \"Joe Reiter for Mayor of East Bethel\", and it is \"Paid for by Reiter for Mayor\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "East Bethel Planning Commission (member)",
+     "from": "not stated",
+     "to": "not stated (his site calls him a former commissioner)",
+     "source": "his campaign's own website (About Joe: \"I have served on the East Bethel Planning Commission\"; home page: \"Former East Bethel Planning Commissioner\")",
+     "url": "https://reiter4mayor.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-66460",
+   "name": "Mike Krachmer",
+   "official_page": {
+    "url": "https://www.cityvadnaisheights.com/233/City-Council",
+    "source": "City of Vadnais Heights, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Vadnais Heights",
+     "from": "not stated (the Vadnais Heights Press reported that he \"was elected to office in the November 2022 general election\")",
+     "to": "now",
+     "source": "City of Vadnais Heights, City Council page (\"Mike Krachmer, Mayor\"; two year term expires January 3, 2027)",
+     "url": "https://www.cityvadnaisheights.com/233/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "Alicia Gibson",
+   "website": {
+    "url": "https://www.aliciagibson.com",
+    "how": "The site's title is \"Alicia Gibson for Edina | Edina City Council\"; it begins \"My name is Alicia Gibson and I am running to serve on the Edina City Council\" and is \"Prepared and paid for by Alicia Gibson for Edina City Council\". It is the address filed with the Secretary of State, and the Senate District 46 DFL's page gives it as her website.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 46 DFL (district unit)",
+     "wording": "Letter of Support",
+     "what": "Named under \"Edina City Council\" as Alicia Gibson, with her website, on the unit's page headed \"Meet the 2026 Edina City Council Candidates who received our Letter of Support!\". The unit's page of \"DFL Endorsed Candidates for the November 3rd, 2026 Election\" is a separate page and does not name her.",
+     "endorsed_page": "https://sd46dfl.org/2026-endorsed-dfl-candidates/",
+     "url": "https://sd46dfl.org/2026-los-candidates/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 50 DFL (district unit)",
+     "wording": "DFL Letter of Support",
+     "what": "Named with Patrick Gage under the headings \"DFL Letter of Support\" and \"Edina City Council:\" at the foot of the unit's page \"Our 2026 Endorsed Candidates\", after the candidates that page lists as endorsed.",
+     "url": "https://www.sd50dfl.org/endorsed-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Tony Preciado"
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Ali Verney"
+  },
+  {
+   "race_id": "2026-MN-1020-30392",
+   "name": "Becky Petryk",
+   "offices": [
+    {
+     "office": "Hugo City Council",
+     "from": "1999 (the paper says she was first elected in 1998 and sworn in the following January)",
+     "to": "now",
+     "source": "The Citizen (Press Publications), \"Council members recognized for 2 decades of service\", February 27, 2020. That she sits today is in the paper's story of September 29, 2026, which quotes \"Council Member Becky Petryk\"",
+     "url": "https://www.presspubs.com/citizen/news/council-members-recognized-for-2-decades-of-service/article_2db43326-59a7-11ea-946e-7b9540e9aea0.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-10972",
+   "name": "Steve Herrmann",
+   "website": {
+    "url": "https://www.herrmannchaska.org",
+    "how": "The site's title is \"Steve Herrmann for Chaska City Council — Ward 3\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chaska Historic Preservation Commission (commissioner)",
+     "from": "2006",
+     "to": "2015",
+     "source": "his campaign's own website (\"From 2006 through 2015, I served as a City of Chaska Historic Preservation Commissioner\")",
+     "url": "https://www.herrmannchaska.org/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-49300",
+   "name": "Melissa Danielson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Randy (RJ) Heidmann",
+   "official_page": {
+    "url": "https://www.isd181.org/board-of-education-home",
+    "source": "Brainerd Public Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brainerd School Board (Clerk)",
+     "from": "2023 (the district's page says four-year terms begin the January after the election and gives his as ending in 2026; in KAXE's election guide he writes that he was elected in 2022)",
+     "to": "now",
+     "source": "Brainerd Public Schools, Board of Education page (Randy Heidmann, Clerk, \"Term Ends 2026\")",
+     "url": "https://www.isd181.org/board-of-education-home",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0278",
+   "name": "Todd Madson",
+   "official_page": {
+    "url": "https://www.oronoschools.org/about/school-board",
+    "source": "Orono Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Orono School Board",
+     "from": "2023 (sworn in on January 9, 2023, after being elected to a first term in the fall of 2022)",
+     "to": "now",
+     "source": "Laker Pioneer (hometownsource.com), \"Orono board of education swears in new members\", January 26, 2023. That he sits today is on the district's School Board page, which names him among the board's six members",
+     "url": "https://www.hometownsource.com/laker_pioneer/community/orono-board-of-education-swears-in-new-members/article_fc58e04a-9d7a-11ed-80cf-b3e96a950ed1.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0492",
+   "name": "Myron Matthew Grage"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Lynn M Peterson",
+   "official_page": {
+    "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+    "source": "Proctor Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Proctor School Board (Clerk)",
+     "from": "not stated (the district gives her current term as January 2023 to December 2026; in KAXE's election guide she writes that she has served on the board for the past eight years and has been its clerk and chair)",
+     "to": "now",
+     "source": "Proctor Public Schools, School Board page (\"Lynn Peterson, Clerk\"; term January 2023 - December 2026)",
+     "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Mike Belz",
+   "website": {
+    "url": "https://mikebelz4fl.com",
+    "how": "The site's title is \"Mike Belz for Forest Lake Area School Board | ISD 831\" and it gives Election Day as Tuesday, November 3, 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Alan R. Fitterer"
+  },
+  {
+   "race_id": "2026-MN-8133-MN",
+   "name": "Christopher D. Bates",
+   "offices": [
+    {
+     "office": "Judge, First Judicial District (appointed by Governor Tim Walz in October 2024 to the Dakota County bench in Hastings, to succeed Judge Janet L. Barke Cain)",
+     "from": "not stated (the appointment was reported on October 25, 2024; the day he took the bench was not found)",
+     "to": "not stated",
+     "source": "Sun Thisweek (hometownsource.com), \"Bates and Schmidt to fill First Judicial District vacancies\", October 25, 2024",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/bates-and-schmidt-to-fill-first-judicial-district-vacancies/article_cc624ed4-9153-11ef-b75a-ef819d4d748c.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The campaign website Christopher D. Bates filed: judgebates.com.",
+     "problem": "On October 1, 2026 the address led only to a registrar's parking page (it forwards to /lander), with no campaign content and nothing naming him or the office.",
+     "url": "https://judgebates.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9101-MN",
+   "name": "Matthew R. Mallie",
+   "website": {
+    "url": "https://mallieforjudge.com",
+    "how": "The site's title is \"Judge Matthew Mallie for 9th District Judge | Minnesota\"; it reads \"He is running for judge\", names the Ninth Judicial District's seventeen counties, and its page data gives it as published on September 1, 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District (appointed by Governor Tim Walz; chambered in Crow Wing County)",
+     "from": "2019 (KAXE: \"first appointed by Gov. Tim Walz in 2019\"; in his own answer, appointed to the bench in June of 2019)",
+     "to": "now",
+     "source": "KAXE, \"Ninth Judicial District 2026 Election Guide\", September 30, 2026, which calls him the incumbent running for reelection",
+     "url": "https://www.kaxe.org/2026-09-30/ninth-judicial-district-judge-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0131-MN",
+   "name": "Mary Carlson",
+   "field": "official_page",
+   "url": "https://www.isd100.org/school-board",
+   "why": "isd100.org answered 429 (too many requests) on two tries on 2026-10-02, so the board page, and the title Chairperson, could not be confirmed. The office itself is kept from her own answer in KAXE's guide, relabelled secondary."
+  },
+  {
+   "race_id": "2026-MN-0167-MN",
+   "name": "Brian Stalboerger",
+   "field": "website",
+   "url": "https://www.brianformn.com",
+   "why": "The site answered 403 to the kit's reader on two tries on 2026-10-02, as it did for the researcher, so nobody has read it and it cannot be confirmed that it names the candidate and the office. Woodbury News Net's guide does link brianformn.com from his name under Senate District 47, but a site behind a refusal is removed."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Mike Belz",
+   "field": "own_words",
+   "url": "https://mikebelz4fl.com/",
+   "why": "The two sentences are on his site as quoted and are twelve words, but they say what kind of board he wants, not what party he belongs to or who endorsed him, so they are not an explicit party or endorsement statement."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file, and the pages the notes name as backing, was opened again on 2026-10-02 with the kit's own fetcher. Two did not open: brianformn.com (403) and isd100.org (429, twice). judgebates.com still answers only with a forward to /lander, as the review item says.",
+  "Kim Rich: the Senate District 46 Republicans' page does print \"House District 45B: Kim Rich\" under \"SD 46 Endorsed Republican Candidates\", with the name linked to kimrichformn.org (headed House District 46B). Kept as the unit's own endorsement with that wording recorded; the district number on the party's page is its slip, for John to know.",
+  "Alicia Gibson's party_support entries are as the two units' pages state (\"Letter of Support\"; the SD46 DFL endorsed-candidates page does not name her). They are not endorsements and stay outside endorsed_by.",
+  "James \"Jimmy\" Gordon is a sitting member; his birth date and earlier offices are as the Legislative Reference Library and his own site state, though the rules say only website, endorsements and review items matter for him.",
+  "The review item for Christopher D. Bates is a parked campaign address, not an official source contradicting our record; kept as a flag for John.",
+  "Todd Madson: the Laker Pioneer says the swearing-in was at the board's meeting \"on Jan. 9\" in a story dated January 26, 2023. Becky Petryk: The Citizen says both were first elected in 1998 and sworn in the following January."
+ ]
+}

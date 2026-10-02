@@ -1,0 +1,687 @@
+{
+ "state": "MN",
+ "part": 32,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up when this part began (the first search was refused: 200 of 200 used), so none of these thirty candidates could be searched for. Every page was opened directly on October 1 and 2, 2026 with the kit's honest User-Agent (states/net.py), one request at a time, each site's robots.txt read first and obeyed, including a stay-out addressed to Claude's own named agents: the campaign websites filed with the Secretary of State (learned from a scratch copy of the database on which the kit's own step, python -m ballot.local_sites files, had been run; only race, name and the website cell were looked at), each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, the Republican Party of Minnesota's nominee pages and the local units its 'Find Your Local Republicans' directory names, the Legislative Reference Library, the Senate's member page, the Attorney General's office, the University of Minnesota's election archive, Wikipedia's API, and the election guides and site search of KAXE (northern Minnesota) and KYMN Radio (Northfield). The page-reading tool was used twice: once to confirm what langforsenate.com shows, once on hometownsource.com's search page (it answered 429 and was left alone). No search engine was read in place of the search tool. A second pass with searching would be worth it for the candidates with nothing below.",
+  "Not read, and nothing worked around: carlieforhouse.com (its robots.txt asks every script to stay out), co.hubbard.mn.us (robots.txt closes it to every reader it does not name, so nothing from Hubbard County's own site about its commissioners), sheriff.itascacountymn.gov (robots.txt, so no county page for the sheriff), bioguide.congress.gov (robots.txt), mncourts.gov (403, on its robots.txt too: no court page for either judge), sd33mngop.com (403), echopress.com, twincities.com and minnpost.com (robots.txt names Claude's agents), hometownsource.com (robots.txt names ClaudeBot; 429 to the page-reading tool), the search pages of mprnews.org, minnlawyer.com, fergusfallsjournal.com and the City of Faribault's site (robots.txt), and mnbenchbar.com (it refused the connection). mn.gov and the Secretary of State's sites were never asked (other parts met a CAPTCHA there). Names with no address on the network: adamforschools.org (see Adam Davis) and paulandersonformn.com, the campaign address Wikipedia gives for Paul Anderson, so he has no website here. Addresses tried by guessing and dropped: duffyforjudge.com (a 'Launching Soon' page that names nobody), andersonforcommissioner.com (a candidate in Georgia), sd30gop.com (a 'Launching Soon' page).",
+  "Read and left out on purpose: the Legislative Reference Library gives Andrew Lang's and Carlie Kotyza-Witthuhn's dates of birth as a year only and marks each \"(uncertain)\", so no birth year is recorded for either; Brady O'Neil's site gives his age (\"I am 26 years old\"), which does not fix a birth year; KAXE's guides give an \"age on Election Day\", likewise not taken. Jobs were left out (sheriff's deputy, police chief, assistant public defender, nonprofit director, Peace Corps), as were military service, schools, and every line about family or religion on the library's records, Wikipedia and campaign sites. Endorsements by groups that are not parties (314 Action for Joe LaForge; named individuals for John Hazelton) are not recorded. The library lists a township office for Paul Anderson with its own question mark (\"Starbuck?\"), so it is left out. Sean Allen's site also tells of a 2016 run for Rochester City Council President, a nonpartisan race he lost: not an office held and not a party label. Leslie Bouchonville's other board (the Cass County Children's Initiative Board) is not plainly a government post and is left out.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): Andrew Lang is named on two county Republican units' pages, under \"2026 Republican Ticket\" (Kandiyohi County) and \"2026 Candidates\" (Renville County). Neither page says in so many words that the unit endorsed him, so they are kept apart from endorsed_by; whether and how they are shown is John's decision. No party's own page was found endorsing Chad Westberg or Paul Anderson: Westberg's own site calls him the endorsed Republican (own_words), the state party's directory lists no site for the Senate District 30 Republicans, the Wright County Republicans' pages do not name him, and the Stevens County Republicans' page only announces the Senate District 12 endorsing convention.",
+  "For the second reader: (1) Andrew Lang's filed address, langforsenate.com, shows a gambling site today; it is a review item and no website is recorded for him. (2) Lang and Paul Anderson: the state roster has no start date for their earlier districts, and the Legislative Reference Library does (review items, as part 10 did). (3) Keith Ellison is a statewide officer whose roster record has no birth date and no earlier offices, so the library's date and his three offices are given; his House service is written \"2003-2006\" as the library writes it (its terms of office run January 6, 2003 to December 31, 2006). (4) Adam Davis: the site found, adam4schools.org, differs from the filed adamforschools.org by one character, and is still worded for the April 14, 2026 special election for the same board. The election archive has an Adam Davis of Columbia Heights who ran as a Republican in House District 50A in 2002 and 2006; no page read says in so many words that he is this year's school board candidate, so those two runs are not among his findings. They are set out under held_for_john at the foot of this file (a key the loader does not read, in the shape part 17 uses), with what ties them and what does not; the archive's birth line was not taken (it cites a birth index). (5) Christopher Lauer is \"Chris Lauer\" on the district's page and his own site; the district says \"Appointed: 4/2023\" and his site says February of 2023, so the year alone is recorded. (6) Joseph Kaliszewski is \"Joe Kaliszewski\" on the City's page. (7) Sean Allen: the City calls the body the Economic Development Authority and he calls it the Economic Development Commission; his three earlier posts rest on his own site, which gives no years. (8) Ted Van Kempen: the only readable government page is the Mississippi Headwaters Board's, which lists him for Hubbard County among its 2024 members and does not say he is a commissioner. Shona Langseth: the commission's own page about her gives the same town as her campaign committee, and her campaign site names the commission, which is what ties the two. (9) Holly Bernatz's 'from' is an election date (her own words), not the day her term began. (10) Seamus Duffy's offices rest on KAXE's story of April 11, 2024; the Governor's release and the court's page could not be read. (11) Joe Dasovich's start date is not stated on any page read.",
+  "Nothing a card may show was found for Julie Anderson (Douglas County's board page shows the District 2 seat is held by someone else, so she is not the sitting commissioner), Natalie Halverson (not on Faribault's council or on its boards page), Katy Vondrasek (KYMN's guide gives a Facebook profile as her only campaign address, and her own answer that she has held no political office), Alex Kutzke (the City of Fergus Falls's candidates page lists only his filing) or Jennifer L. Verdeja (the court's site and the newspapers that would have reported her appointment are closed to scripts). The election archive (federal, statewide and legislative returns) was checked by name for every candidate here who is not a sitting legislator or statewide officer; it has a page only for Adam Davis."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0136-MN",
+   "name": "Andrew R. Lang",
+   "offices": [
+    {
+     "office": "Minnesota Emergency Medical Services Regulatory Board",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Andrew R. Lang), under \"Other government service\": \"State Board/Commission/Council: Minnesota Emergency Medical Services Regulatory Board; [Dates Unknown]\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15489",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Kandiyohi County Republicans (county unit)",
+     "wording": "2026 Republican Ticket",
+     "what": "Named \"Andrew Lang — MN Senate District 16\" on the unit's home page under the heading \"2026 Republican Ticket\" (Federal & MN Legislature). The page does not use the word endorsed for him.",
+     "url": "https://www.kandigop.com/",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Renville County Republicans (county unit)",
+     "wording": "2026 Candidates",
+     "what": "Named as Senator Andrew Lang, under \"Senate District 16\", on the page the unit's menu calls \"2026 Candidates\" (the page's own title still reads \"2024 Republican Candidates\"). The page does not say the unit endorsed him.",
+     "url": "https://www.renvillegop.com/candidates/candidates_2026.html",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The campaign website Andrew R. Lang filed with the Secretary of State: langforsenate.com.",
+     "problem": "On October 1 and 2, 2026 the address (with and without www) showed an online slot-machine gambling site in Indonesian, titled \"Toyota308\", with no campaign content and nothing naming him or the Senate; the page-reading tool saw the same. The Renville County Republicans' candidates page still links this address for him. It should not be shown as his campaign site until it is his again.",
+     "url": "https://langforsenate.com/",
+     "verified": true
+    },
+    {
+     "shows": "State roster: a Senate term in District 17 with no start date, ending January 2, 2023, then District 16 from January 3, 2023; the roster's first term start reads January 3, 2023.",
+     "problem": "The Legislative Reference Library gives Senate service from 2017: \"Senate 2017-2022 (District 17); Senate 2023-Present (District 16)\". The Senate's own page for him (https://www.senate.mn/members/member_bio.html?mem_id=1223) says \"Elected: 2016, re-elected 2020, 2022\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15489",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0172-MN",
+   "name": "Brady O'Neil",
+   "website": {
+    "url": "https://bradyoneil.com",
+    "how": "The site's title is \"Brady O'Neil for Senate\", its page \"What I'm About\" says \"I am running for Minnesota State Senate — District 52\", and it is prepared and paid for by the Brady O'Neil for State Senate Committee. It is the address filed with the Secretary of State, and the Senate District 52 Republicans' home page links it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 52 Republicans, the local party unit (its home page: \"We have endorsed candidates for the 2026 Election!\", then \"Brady O'Neil for Senate District 52\")",
+     "url": "https://www.gop52.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0210-MN",
+   "name": "Paul H. Anderson",
+   "offices": [
+    {
+     "office": "Pope County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Paul H. Anderson), under \"Other government service\": \"County Board/Commissioner: Pope County, Minnesota (County Commissioner); [Dates Unknown]\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15301",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Starbuck School Board (member)",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Paul H. Anderson), under \"Other government service\": \"School Board/Administration: Starbuck, Minnesota (School Board, Member); [Dates Unknown]\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15301",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: a House term in District 12B with no start date, ending January 3, 2023, then District 12A from January 3, 2023; the roster's first term start reads January 3, 2023, and it has no District 13A term.",
+     "problem": "The Legislative Reference Library gives House service from 2009: \"House 2009-2012 (District 13A); House 2013-2022 (District 12B); House 2023-Present (District 12A)\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15301",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0247-MN",
+   "name": "Chad Westberg",
+   "website": {
+    "url": "https://www.chadwestbergformn.com",
+    "how": "The site's title is \"Chad Westberg for MN\" and its home page says he is \"running for Minnesota House District 30B which encompasses Elk River, Nowthen, and parts of Oak Grove and Otsego\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Chad Westberg is the endorsed Republican running for Minnesota House District 30B",
+    "url": "https://www.chadwestbergformn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0285-MN",
+   "name": "Carlie Kotyza-Witthuhn",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 49B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0335-MN",
+   "name": "Keith Ellison",
+   "website": {
+    "url": "https://www.keithellison.org",
+    "how": "The site's title is \"Keith Ellison for Attorney General\" and it is prepared and paid for by the Keith Ellison for Attorney General committee. It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates links it.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ag.state.mn.us/Office/AGBio.asp",
+    "source": "Office of the Minnesota Attorney General, \"Biography of Minnesota Attorney General Keith Ellison\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1963,
+    "date": "1963-08-04",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Keith Maurice Ellison: House, District 58B, 2003-2006)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10763",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Attorney General",
+     "from": "2019",
+     "to": "now",
+     "source": "Office of the Minnesota Attorney General, \"Biography of Minnesota Attorney General Keith Ellison\": \"Keith Ellison was sworn in as Minnesota’s 30th attorney general on January 7, 2019\"",
+     "url": "https://www.ag.state.mn.us/Office/AGBio.asp",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "U.S. Representative, Minnesota's 5th Congressional District",
+     "from": "2007",
+     "to": "2019",
+     "source": "Office of the Minnesota Attorney General, \"Biography of Minnesota Attorney General Keith Ellison\": \"From 2007 to 2019, Keith Ellison represented Minnesota’s 5th Congressional District in the U.S. House of Representatives\"",
+     "url": "https://www.ag.state.mn.us/Office/AGBio.asp",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives, District 58B",
+     "from": "2003",
+     "to": "2006",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Keith Maurice Ellison): \"House 2003-2006 (District 58B)\"; its terms of office run January 6, 2003 to December 31, 2006",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10763",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Statewide Offices: Attorney General)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Minnesota Attorney General in the general election of November 8, 2022",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Keith M. Ellison: Attorney General, general election of November 8, 2022, Democratic-Farmer-Labor, 50.37 percent, won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/keith-m-ellison/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Elected Minnesota Attorney General in the general election of November 6, 2018",
+     "year": 2018,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Keith M. Ellison: Attorney General, general election of November 6, 2018, Democratic-Farmer-Labor, 48.96 percent, won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/keith-m-ellison/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Elected to the U.S. House, Minnesota's 5th District, in the general election of November 7, 2006, and re-elected there in 2008, 2010, 2012, 2014 and 2016",
+     "year": 2006,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Keith M. Ellison: U.S. House, District 05, six general elections from November 7, 2006 to November 8, 2016, each as Democratic-Farmer-Labor, each won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/keith-m-ellison/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 58B, on November 5, 2002",
+     "year": 2002,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Keith Maurice Ellison): \"Party when first elected: Democratic-Farmer-Labor\"; the record's first session gives \"Elected: 11/5/2002\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10763",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-041",
+   "name": "Julie Anderson"
+  },
+  {
+   "race_id": "2026-MN-0393-021-S",
+   "name": "Leslie Bouchonville",
+   "offices": [
+    {
+     "office": "Pine River-Backus School Board",
+     "from": "",
+     "to": "",
+     "source": "KAXE, \"Cass County 2026 Election Guide\", September 28, 2026, which prints the candidates' answers unedited; hers says \"I have served on the Pine River-Backus School Board\". No years are given",
+     "url": "https://www.kaxe.org/2026-09-28/cass-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-045",
+   "name": "Shona Langseth",
+   "website": {
+    "url": "https://www.langseth-campaign.com",
+    "how": "The site's title is \"Shona Langseth County Commissioner Campaign\"; it says she \"wants to represent you as your Fillmore County Commissioner\" and is headed \"Fillmore County Commissioner, District 4\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lccmr.mn.gov/about/members/langseth.html",
+    "source": "Legislative-Citizen Commission on Minnesota Resources (a commission of the Minnesota Legislature), its page \"LCCMR Member - Shona Langseth\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Legislative-Citizen Commission on Minnesota Resources (member, appointed by the Senate)",
+     "from": "",
+     "to": "now",
+     "source": "Legislative-Citizen Commission on Minnesota Resources, \"LCCMR Members\": Shona Langseth, term expires 12/31/29, appointing authority Senate. Her campaign site's About page (https://www.langseth-campaign.com/about) speaks of \"her service on the Legislative - Citizen Commission on Minnesota Resources\". Neither says when she was appointed",
+     "url": "https://www.lccmr.mn.gov/about/members/members-index.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-057",
+   "name": "Ted Van Kempen",
+   "offices": [
+    {
+     "office": "Mississippi Headwaters Board (member for Hubbard County)",
+     "from": "",
+     "to": "",
+     "source": "Mississippi Headwaters Board, a joint board of eight counties set up by state law, \"Board and Staff\": under \"2024 Board Members\" it lists \"Ted Van Kempen - Hubbard County\". The page gives no dates and does not name his county office",
+     "url": "https://www.mississippiheadwaters.org/thePeople.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0401-051",
+   "name": "Chad Van Santen",
+   "official_page": {
+    "url": "https://www.grantcountymn.gov/163/Auditor",
+    "source": "Grant County, Minnesota, \"Auditor\" page, which names Chad Van Santen as County Auditor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grant County Auditor",
+     "from": "",
+     "to": "now",
+     "source": "Grant County, Minnesota, \"Auditor\" page: \"County Auditor: Chad Van Santen\". The page does not say when he took the office",
+     "url": "https://www.grantcountymn.gov/163/Auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-061",
+   "name": "Joe Dasovich",
+   "offices": [
+    {
+     "office": "Itasca County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "KAXE, \"Itasca County Sheriff Joe Dasovich launches reelection campaign\", January 9, 2026: he \"announced his intention to seek a second term in office\" and is quoted on the work of \"the past three years\". The story does not give the day he took office",
+     "url": "https://www.kaxe.org/local-news/2026-01-09/itasca-county-sheriff-joe-dasovich-reelection-campaign",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-169",
+   "name": "John Hazelton",
+   "website": {
+    "url": "https://hazeltonforsheriff.com",
+    "how": "The site is titled \"Hazelton for Sheriff\" and headed \"Hazelton for Winona County Sheriff\"; its home page says \"I am John Hazelton, and I’m proud to be running for Winona County Sheriff\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-127",
+   "name": "Shannon Ness",
+   "official_page": {
+    "url": "https://redwoodcounty-mn.gov/departments/attorney/",
+    "source": "Redwood County, \"Attorney's Office\" page, whose staff list begins \"Shannon Ness, Redwood County Attorney\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Redwood County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Redwood County, \"Attorney's Office\" page, staff list: \"Shannon Ness, Redwood County Attorney\". The page does not say when the term began",
+     "url": "https://redwoodcounty-mn.gov/departments/attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20618-S",
+   "name": "Holly Bernatz",
+   "website": {
+    "url": "https://www.bernatzformayor.com",
+    "how": "The site's title is \"Holly Bernatz for Farmington Mayor\" and it says \"I'm running for mayor\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.farmingtonmn.gov/340/Mayor-City-Council",
+    "source": "City of Farmington, \"Mayor & City Council\" page, which lists Holly Bernatz as a Councilmember",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Farmington City Council",
+     "from": "elected November 2022",
+     "to": "now",
+     "source": "City of Farmington, \"Mayor & City Council\", Members: \"Holly Bernatz, Councilmember, Term expires: Dec. 31, 2026\". The election date is from her campaign site (https://www.bernatzformayor.com/): \"In November 2022, I was elected to the Farmington City Council.\"",
+     "url": "https://www.farmingtonmn.gov/340/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-01486",
+   "name": "Rick Engelhardt",
+   "official_page": {
+    "url": "https://www.andovermn.gov/258/City-Council",
+    "source": "City of Andover, \"City Council\" page, which lists Rick Engelhardt as a Council Member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Andover City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Andover, \"City Council\", Members: \"Rick Engelhardt, Council Member, term expires 1-5-27\". The page does not say when he joined the council",
+     "url": "https://www.andovermn.gov/258/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-20546",
+   "name": "Natalie Halverson"
+  },
+  {
+   "race_id": "2026-MN-1010-46924",
+   "name": "Katy Vondrasek"
+  },
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Joseph Kaliszewski",
+   "official_page": {
+    "url": "https://www.southstpaulmn.gov/229/Mayor-Council",
+    "source": "City of South St. Paul, \"Mayor & Council\" page, which lists him (as Joe Kaliszewski) among the council members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "South St. Paul City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of South St. Paul, \"Mayor & Council\", Mayor & Council Members: \"Joe Kaliszewski, Term expires January 1, 2027\". The page does not say when he joined the council",
+     "url": "https://www.southstpaulmn.gov/229/Mayor-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-46924",
+   "name": "Sean Allen",
+   "website": {
+    "url": "https://www.seanallen4northfield.org",
+    "how": "The site says \"I'm running for Northfield City Council Ward 1\" and \"My name is Sean Allen\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.northfieldmn.gov/103/Economic-Development-Authority",
+    "source": "City of Northfield, \"Economic Development Authority\" page, whose list of members includes Sean Allen",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Northfield Economic Development Authority (member)",
+     "from": "",
+     "to": "now",
+     "source": "City of Northfield, \"Economic Development Authority\", Members: \"Sean Allen, Member\", term expiration April 30, 2029. His campaign site says \"I’ve been serving on the City of Northfield’s Economic Development Commission\". Neither says when he was appointed",
+     "url": "https://www.northfieldmn.gov/103/Economic-Development-Authority",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Northfield City Council (appointed to a six-month vacancy)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"When a six month spot opened on the City Council I applied and was appointed to the Council\"; no year is given",
+     "url": "https://www.seanallen4northfield.org/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Northfield Planning Commission (member, and its chair)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"I was appointed to the Northfield Planning Commission\" and \"I was the chair of the Commission\"; no years are given",
+     "url": "https://www.seanallen4northfield.org/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Northfield Heritage Preservation Commission",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"Since I returned to Northfield, I have served on the Heritage Preservation Commission\"; no years are given",
+     "url": "https://www.seanallen4northfield.org/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-20906",
+   "name": "Alex Kutzke"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Adam Davis",
+   "review": [
+    {
+     "shows": "The campaign website Adam Davis filed with the Secretary of State: adamforschools.org.",
+     "problem": "On October 1 and 2, 2026 that name (with and without www) had no address on the network, so nothing answers there. A campaign site \"Paid and prepared for by Adam Davis for Columbia Heights School Board\" is at adam4schools.org, the same name written with a 4; it is still worded for the April 14, 2026 special election.",
+     "url": "https://www.adam4schools.org/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0186",
+   "name": "Pamela Johnson",
+   "official_page": {
+    "url": "https://www.isd186.org/district-home-page/school-board-information",
+    "source": "Pequot Lakes Public Schools, \"School Board Information\" page, which lists Pamela Johnson as School Board Vice Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pequot Lakes School Board",
+     "from": "2023",
+     "to": "now",
+     "source": "Pequot Lakes Public Schools, \"School Board Information\": \"Pamela Johnson, School Board Vice Chair, Term Expires: December 2026, Served since January 2023\"",
+     "url": "https://www.isd186.org/district-home-page/school-board-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "Caroline Long",
+   "website": {
+    "url": "https://long4rdale.carrd.co",
+    "how": "The page is headed \"Caroline Long\" and \"For District 281 School Board\" and says \"I am running to be re-elected on the school board for the Robbinsdale School District\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rdale.org/discover/school-board",
+    "source": "Robbinsdale Area Schools, \"School Board\" page (\"Meet the School Board Directors\"), which lists Caroline Long as a Director",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robbinsdale Area Schools Board",
+     "from": "2023",
+     "to": "now",
+     "source": "Robbinsdale Area Schools, \"School Board\" page, \"Meet the School Board Directors\": \"Caroline Long, Director (Term: January 2023-December 2026)\"",
+     "url": "https://www.rdale.org/discover/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Joe LaForge",
+   "website": {
+    "url": "https://votelaforge.com",
+    "how": "The site's title is \"JOE LAFORGE FOR RPS – Vote LaForge for School Board\" and it is prepared and paid for by Joseph LaForge for School Board, of Rochester. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Aaron Provancha",
+   "website": {
+    "url": "https://aaronforboard.com",
+    "how": "The page's own title reads only \"Home\", but its text says \"Bring balance and accountability back to Prior Lake Savage Area Schools\", is \"Prepared and paid for by Aaron for board\", and prints a supporter's letter naming Aaron Provancha for the \"Prior Lake School Board\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Christopher Lauer",
+   "website": {
+    "url": "https://chrislauerforstillwaterschools.com",
+    "how": "The site's title is \"Chris Lauer for Stillwater Schools\" and its \"About me\" section begins \"When I was appointed to the School Board in February of 2023\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stillwaterschools.org/our-district/school-board",
+    "source": "Stillwater Area Public Schools, \"School Board\" page, which lists him (as Chris Lauer) as Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stillwater Area Public Schools Board",
+     "from": "2023",
+     "to": "now",
+     "source": "Stillwater Area Public Schools, \"School Board Members\": \"Chris Lauer, Treasurer, Appointed: 4/2023, Term expires: 12/2026\". His campaign site says he \"was appointed to the School Board in February of 2023\"",
+     "url": "https://www.stillwaterschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Nicole Culbert-Dahl",
+   "official_page": {
+    "url": "https://rrps.org/district/school-board/",
+    "source": "Rock Ridge Public Schools, \"School Board\" page, which lists Nicole Culbert-Dahl as Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Ridge Public Schools Board",
+     "from": "",
+     "to": "now",
+     "source": "Rock Ridge Public Schools, \"School Board\": \"Nicole Culbert-Dahl, Clerk (Term Ends Jan. 2027)\". The page does not say when she joined the board",
+     "url": "https://rrps.org/district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8327-MN",
+   "name": "Jennifer L. Verdeja"
+  },
+  {
+   "race_id": "2026-MN-9121-MN",
+   "name": "Seamus P. Duffy",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District (appointed by Governor Tim Walz to the seat chambered at Mahnomen)",
+     "from": "2024 (appointment reported April 11, 2024)",
+     "to": "not stated",
+     "source": "KAXE, \"Itasca, Pennington county attorneys chosen for 9th Judicial District\", April 11, 2024: Governor Walz appointed \"Pennington County Attorney Seamus Duffy\" to one of two vacancies, and \"Duffy will fill the Mahnomen opening\"",
+     "url": "https://www.kaxe.org/local-news/2024-04-11/itasca-pennington-county-attorneys-chosen-for-9th-judicial-district",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Pennington County Attorney",
+     "from": "",
+     "to": "not stated (he held the office when he was appointed to the bench in April 2024)",
+     "source": "KAXE, \"Itasca, Pennington county attorneys chosen for 9th Judicial District\", April 11, 2024: \"Duffy is the county attorney in the Pennington County Attorney’s Office\"",
+     "url": "https://www.kaxe.org/local-news/2024-04-11/itasca-pennington-county-attorneys-chosen-for-9th-judicial-district",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "held_for_john": [
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Adam Davis",
+   "field": "past_party",
+   "finding": [
+    {
+     "what": "Republican candidate for the Minnesota House, District 50A, in the general election of November 7, 2006 (not elected)",
+     "year": 2006,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Adam Davis of Columbia Heights: State House, District 50A, general election of November 7, 2006, Republican, 30.68 percent, lost. The record cites the Minneapolis Star Tribune of November 1, 2006",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/adam-davis/",
+     "kind": "secondary"
+    },
+    {
+     "what": "Republican candidate for the Minnesota House, District 50A, in the general election of November 5, 2002 (not elected), after that year's Republican primary",
+     "year": 2002,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Adam Davis of Columbia Heights: State House, District 50A, general election of November 5, 2002, Republican, 33.82 percent, lost; Republican primary of September 10, 2002, 100 percent, won",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/adam-davis/",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "The archive's page for \"Adam Davis\" gives his residence as Columbia Heights and his party as Republican, and lists three contests in State House District 50A: the Republican primary of September 10, 2002 (won), the general election of November 5, 2002 (lost) and the general election of November 7, 2006 (lost).",
+   "held": "No page read says in so many words that the 2002 and 2006 candidate is the Adam Davis running for the Columbia Heights school board in 2026. The tie is the name, the city, and the archive's occupation line, which is like the heading of his 2026 campaign site; his site says nothing of an earlier run. A party label on the wrong person would be a guess at someone's politics, so these two items are kept out of the loadable keys. Held for John to decide.",
+   "verified": true,
+   "verifier": "The archive page was re-opened on October 2, 2026 and reads as set out. Nothing ties it to this year's candidate beyond the name and the city, so it stays out of the loadable keys."
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Adam Davis",
+   "field": "website",
+   "url": "https://www.adam4schools.org",
+   "why": "The page opens and is \"Paid and prepared for by Adam Davis for Columbia Heights School Board\", but every line of it is about the April 14, 2026 special election; it says nothing of the November race, so it is not a site for this race. The review item about his filed address is kept, and names this site."
+  },
+  {
+   "race_id": "2026-MN-0285-MN",
+   "name": "Carlie Kotyza-Witthuhn",
+   "field": "website",
+   "url": "https://www.carlieforhouse.com",
+   "why": "The site's robots.txt asks every script to stay out, so the verifier could not open it and could not see that it names her and the office. The Minnesota DFL's endorsed list does link this address for House District 49B (seen October 2, 2026), and it is the address she filed."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in this file was opened again on October 2, 2026 with the kit's honest User-Agent, one at a time. All answered except carlieforhouse.com (not asked: its robots.txt) and adamforschools.org (no address on the network, as the review item says).",
+  "Sentences that rested on pages this file gives no address for (KAXE's Pequot Lakes and Rock Ridge guides, KYMN Radio's Northfield candidates page, the library's dates for Keith Ellison's time in Congress) were cut from the source lines; the findings themselves stand on the pages named.",
+  "Andrew Lang: the Kandiyohi County Republicans' home page names him but no longer carries a link to langforsenate.com; the Renville County page does. The address still shows the gambling site. Our roster's terms for Lang and Paul Anderson read as the review items say.",
+  "Shona Langseth: the campaign site's line about the commission is on its About page, not its home page. The commission's own page about her gives the town her campaign site gives."
+ ]
+}

@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.081 — 2026-10-02 — Minnesota, finished: your precinct, your ballot, and who is on it
+
+- A real map for Minnesota's ballot. One map draws every kind of district (counties, cities and townships, wards, county commissioner districts, school districts, state House and Senate, Congress, judicial, soil and water, hospital and park districts), and you can drag it, pinch it on a phone, and zoom from the whole state down to a street. Tap any district to see its name and its races.
+- "Use my location" drops a pin, finds your precinct on your own device, names every district you are in, and shows exactly the contests on your ballot. Streets appear only if you switch them on; they come from OpenStreetMap, whose servers then see which map squares are asked for. Nothing else leaves your device.
+- State and local candidates now show more than a name. For statewide offices, the Legislature, judges, county offices, mayors, councils and school boards: the campaign's website, a photo from the candidate's own site (119 so far, each looked at first), offices held, a birth year where a citable source gives one, and the issue headings from their own site, each with where it comes from. Township and small district candidates show what they filed. Never an address, a phone number, a family member or a word about anyone's views.
+- "The record, not a label." Most local offices are nonpartisan, and this site does not guess anyone's politics. A race page shows what is on the record: a party's own published endorsement (256 so far), an earlier run or office under a party label, the candidate's own words, and how the place itself voted in past elections, from official results.
+- The statewide races have their polls and prediction-market prices as tabs, under the same rules as Congress. Where no market lists a statewide or county race, the page says why that is usual.
+- Ads now fold under one heading in groups of five, and every "Where this comes from" folds by kind of source.
+- Polling places are not on the map yet: Minnesota sells that list rather than posting it, and the page says so and links the Secretary of State's own finder.
+
 ## v4.0.080 — 2026-10-01 — More faces, and more candidates in their own words
 
 - 143 more candidates for Congress now have a photograph on their card, each taken from the candidate's own campaign website, credited and linked. Every option was looked at first: a photo is used only when it is plainly the site's own portrait of its candidate, one adult alone. Where the options showed several people, an event, a logo, or anything unclear, the card keeps the candidate's initials. Nobody is ever identified by their face.

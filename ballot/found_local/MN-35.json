@@ -1,0 +1,442 @@
+{
+ "state": "MN",
+ "part": 35,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance ran out after one or two searches a candidate; after that only addresses already found were read, directly, with the kit's honest User-Agent and each site's robots.txt obeyed. No search engine was read in place of the search tool.",
+  "Todd Podgorski: the election archive files him under Democratic-Farmer-Labor because of his 2016 Senate primary run; in 2026 he is on the ballot as a Republican, and his own site says \"Dual Party Endorsed by the Republican Party and the MN Forward Independence Party\" (cut to the first seven words for the twelve-word limit). No party's own page confirming that was found, so endorsed_by is empty.",
+  "Justin M. Cook: the district's own board page is drawn by script and could not be read; the finding rests on KAAL's 2022 election report.",
+  "No finding (nothing confirmed from a page that could be opened): Julie Kelzer, Michael Gardner, Timothy Catlin, Brian R. Smith, Casey Namken, Blake M Roberts, Marissa Carroll, Christopher Eric Pierce, Danielle Bollman, Tyler C. Fehrman, Nate Truesdell, David Strub, Bruce V. Henry, Dillon Ziegler. Pete Kelzenberg and Casey Venema: the official pages give no start year."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0137-MN",
+   "name": "Julie Kelzer"
+  },
+  {
+   "race_id": "2026-MN-0173-MN",
+   "name": "Todd Podgorski",
+   "website": {
+    "url": "https://toddpodgorski.com/",
+    "how": "The site's title is \"Todd Podgorski for Minnesota State Senate District 53\" and it is paid for by Podgorski for Senate.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.southstpaul.org/229/Mayor-Council",
+    "source": "City of South St. Paul, Mayor & Council",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "source": "Minnesota Historical Election Archive (University of Minnesota), which cites the Minnesota Birth Certificate Index",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/todd-podgorski",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "South St. Paul School Board member",
+     "from": "2003",
+     "to": "2006",
+     "source": "His campaign site",
+     "url": "https://toddpodgorski.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "South St. Paul City Council member",
+     "from": "2011",
+     "to": "2018",
+     "source": "West St. Paul Reader, December 19, 2025",
+     "url": "https://weststpaulreader.com/2025/12/19/two-south-st-paul-elected-officials-running-for-state-senate-seat/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "South St. Paul City Council member",
+     "from": "2021",
+     "to": "now",
+     "source": "West St. Paul Reader, December 19, 2025; the city's Mayor & Council page lists him today (term expires January 1, 2029)",
+     "url": "https://weststpaulreader.com/2025/12/19/two-south-st-paul-elected-officials-running-for-state-senate-seat/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran in the primary for State Senate, District 52 (lost)",
+     "year": "2016",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/todd-podgorski",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Dual Party Endorsed by the Republican Party",
+    "url": "https://toddpodgorski.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0211-MN",
+   "name": "Michael Gardner"
+  },
+  {
+   "race_id": "2026-MN-0248-MN",
+   "name": "Harry Niska",
+   "website": {
+    "url": "https://harryniska.com/",
+    "how": "The site's title is \"Harry Niska for Minnesota House\", it names House District 31A and carries an \"Endorsements 2026\" page; paid for by Niska for Minnesota House.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Party of Minnesota",
+    "url": "https://harryniska.com/endorsements-2",
+    "note": "Listed under the heading \"Endorsed By\" on his \"Endorsements 2026\" page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0286-MN",
+   "name": "Julie Greene",
+   "website": {
+    "url": "https://www.greeneforminnesota.com/",
+    "how": "\"Greene for Minnesota\", paid for by the Greene for Minnesota Committee; its endorsements page speaks of her \"re-election campaign to the Minnesota House\" and names Edina and Bloomington.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-001",
+   "name": "Timothy Catlin"
+  },
+  {
+   "race_id": "2026-MN-0392-047",
+   "name": "Dawn Kaasa",
+   "official_page": {
+    "url": "https://www.freeborncountymn.gov/122/Board-of-Commissioners",
+    "source": "Freeborn County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Freeborn County Commissioner",
+     "from": "",
+     "to": "now",
+     "source": "Freeborn County, Board of Commissioners (listed as a commissioner; no district or years on the page)",
+     "url": "https://www.freeborncountymn.gov/122/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-027",
+   "name": "Jenny L. Mongeau",
+   "official_page": {
+    "url": "https://claycountymn.gov/directory.aspx?EID=157",
+    "source": "Clay County staff directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clay County Commissioner, District 3",
+     "from": "2015",
+     "to": "now",
+     "source": "Clay County: \"She has served on the Board of Commissioners since 2015.\"",
+     "url": "https://claycountymn.gov/directory.aspx?EID=157",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-049",
+   "name": "Laurel Stinson",
+   "born": {
+    "year": 1979,
+    "source": "Minnesota Historical Election Archive (University of Minnesota), which cites the Minnesota Birth Certificate Index",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/laurel-stinson",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing City Council member, at large",
+     "from": "2019",
+     "to": "2022",
+     "source": "Minnesota Historical Election Archive (University of Minnesota): \"Red Wing City Councilor: At-Large (2019-2022)\"",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/laurel-stinson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for State House, District 20A (won the primary, lost the general election)",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/laurel-stinson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-061",
+   "name": "Casey Venema",
+   "official_page": {
+    "url": "https://www.itascacountymn.gov/479/County-Board-of-Commissioners",
+    "source": "Itasca County, County Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Itasca County Commissioner, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Itasca County, County Board of Commissioners (term expires 2026)",
+     "url": "https://www.itascacountymn.gov/479/County-Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0402-001",
+   "name": "Lori A. Grams",
+   "official_page": {
+    "url": "https://aitkincountymn.gov/departments/treasurer/",
+    "source": "Aitkin County, Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Aitkin County Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Aitkin County, Treasurer",
+     "url": "https://aitkincountymn.gov/departments/treasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-065",
+   "name": "Brian R. Smith"
+  },
+  {
+   "race_id": "2026-MN-0404-173",
+   "name": "Casey Namken"
+  },
+  {
+   "race_id": "2026-MN-0405-133",
+   "name": "Jeffrey L. Haubrich",
+   "official_page": {
+    "url": "https://www.co.rock.mn.us/department_directory/county_attorney.php",
+    "source": "Rock County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock County Attorney",
+     "from": "2019",
+     "to": "now",
+     "source": "Rock County Star Herald, January 15, 2019 (sworn in January 7); the county's page names him County Attorney today",
+     "url": "https://www.star-herald.com/news/haubrich-said-he-expects-little-change-new-county-attorney",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-21770",
+   "name": "Blake M Roberts"
+  },
+  {
+   "race_id": "2026-MN-1010-01720",
+   "name": "Marissa Carroll"
+  },
+  {
+   "race_id": "2026-MN-1010-20618",
+   "name": "Christopher Eric Pierce"
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Danielle Bollman"
+  },
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Tyler C. Fehrman"
+  },
+  {
+   "race_id": "2026-MN-1020-53026",
+   "name": "Nate Truesdell"
+  },
+  {
+   "race_id": "2026-MN-1024-30392",
+   "name": "David Strub"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Laura Jean Palmer",
+   "official_page": {
+    "url": "https://www.colheights.k12.mn.us/district1/board-of-education/members",
+    "source": "Columbia Heights Public Schools, Board of Education Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Columbia Heights School Board member",
+     "from": "2010",
+     "to": "now",
+     "source": "Columbia Heights Public Schools: \"Laura Palmer, Clerk | Elected 2010, Reelected 2014, 2018 and 2022\"",
+     "url": "https://www.colheights.k12.mn.us/district1/board-of-education/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Bruce V. Henry"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "Kenneth Wutoh",
+   "official_page": {
+    "url": "https://www.rdale.org/fs/pages/682",
+    "source": "Robbinsdale Area Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robbinsdale Area Schools Board of Education member (appointed to a vacancy)",
+     "from": "2025",
+     "to": "now",
+     "source": "Robbinsdale Area Schools news: appointed in February, took the oath April 7, serves through December 2026",
+     "url": "https://ahs.rdale.org/discover/news/article/~board/district-news/post/kenneth-wutoh-takes-oath-joins-robbinsdale-school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Justin M. Cook",
+   "offices": [
+    {
+     "office": "Rochester School Board member",
+     "from": "",
+     "to": "",
+     "source": "ABC 6 News (KAAL), November 9, 2022: elected to the Rochester Public School Board as a new member",
+     "url": "https://kaaltv.com/?p=115368",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Dillon Ziegler"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Pete Kelzenberg",
+   "official_page": {
+    "url": "https://www.stillwaterschools.org/our-district/school-board",
+    "source": "Stillwater Area Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stillwater Area School Board member",
+     "from": "",
+     "to": "now",
+     "source": "Stillwater Area Public Schools, School Board (Director; term expires 12/2026)",
+     "url": "https://www.stillwaterschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0001",
+   "name": "Christin Crabtree",
+   "website": {
+    "url": "https://christincrabtree.com/",
+    "how": "The site says \"I am Christin Crabtree, and I am running for Minneapolis School Board At-Large\"; the Minneapolis DFL's page links to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minneapolis DFL",
+     "url": "https://minneapolisdfl.org/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8406-MN",
+   "name": "Dwight Luhmann",
+   "offices": [
+    {
+     "office": "Judge, Minnesota Third Judicial District",
+     "from": "2024",
+     "to": "now",
+     "source": "KTTC, published July 12, 2024 (sworn in that day)",
+     "url": "https://www.kttc.com/2024/07/13/judge-dwight-luhmann-sworn-minnesotas-third-district-court",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9203-MN",
+   "name": "Suzanne M Brown",
+   "offices": [
+    {
+     "office": "Judge, Minnesota Tenth Judicial District (appointed)",
+     "from": "2019",
+     "to": "now",
+     "source": "Minnesota Lawyer, July 16, 2019",
+     "url": "https://minnlawyer.com/2019/07/16/bar-buzz-brown-chosen-for-10th-district-bench/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "name": "Dwight Luhmann",
+   "field": "offices: Preston City Attorney, to 2024",
+   "why": "KTTC says only that he was serving as Preston's city attorney when sworn in; no end year (and no start year) is on the page."
+  },
+  {
+   "name": "(notes)",
+   "field": "notes",
+   "why": "Seven notes repeated things about named people that came from search summaries, a blog or pages nobody could open (a job, earlier offices, election years); none was a finding and none could be confirmed, so they were taken out."
+  }
+ ],
+ "corrected": [
+  "Dwight Luhmann: KTTC's report is dated July 12, 2024, not July 13, and does not say 'appointed'; that word was dropped.",
+  "Laurel Stinson: the office's source now names only the archive page that was opened; the newspaper profile had no address and was dropped from the wording.",
+  "Justin M. Cook: source wording now carries the report's date; the page gives no term years, so from and to stay blank.",
+  "Dawn Kaasa: the county's old address now redirects; the address is updated to the county's new domain.",
+  "Casey Venema: the county's old address now redirects; the address is updated to the county's new domain.",
+  "Julie Greene: the committee's mailing address detail (its city) was taken out of the wording."
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 (WebFetch, or states/net.py with the kit's User-Agent where the first lookup failed). All 23 answered.",
+  "Minneapolis DFL's own home page: \"Congratulations to our 2026 endorsed candidates! ... Christin Crabtree for School Board Member - At-Large\".",
+  "Harry Niska's endorsements page lists \"Republican Party of Minnesota\" under \"Endorsed By\"; that is his own statement, not the party's page, so it stays own_words only.",
+  "Birth years from the election archive are secondary and are kept as the year alone."
+ ]
+}

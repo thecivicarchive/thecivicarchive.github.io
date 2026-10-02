@@ -1,0 +1,328 @@
+{
+ "part": 57,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web search allowance was already used up (200 of 200) before this part began, so no searching was possible at all. Pages were opened directly with the kit's honest User-Agent (states/net.py), robots.txt read first and obeyed (also for Anthropic's agent names). Filed campaign websites were read from sl_websites in ballot_local_2026.sqlite (read-only). Campaign sites nobody filed, local party units' pages and news reports could not be found without searching, so a blank here is not proof that nothing exists; a second pass with searching would be worth it.",
+  "Not read, and nothing worked around: kathykeena.com answered 403 to the kit's reader (the filed address stays as filed; nothing recorded from it); Dakota County's County Attorney address led only to a general Government page that does not name the County Attorney; mncourts.gov was not asked (it refuses scripts), so nothing for Judge Jeannice M. Reding; isd381.org answered with a redirect the reader does not follow; marshall.k12.mn.us showed no board page at the addresses tried; inver Grove Heights Schools' and Woodbury's member lists were not found at the addresses tried; the Republican Party of Minnesota's '2026 Republican Nominees' page carried no text naming Patty Bradway or A.J. Prospect, so no Republican endorsement is recorded for either. The Legislative Reference Library's name search is a form and was not used; Drew Christensen's record was reached by its plain address.",
+  "Checked and not found on their government's own list of today's office holders, so nothing recorded: Lonny Witkofsky (Itasca County lists Cory Smith for District 1), Thomas Opheim (Norman County lists Lee Ann Hall for District 4), Jeff Rowan (Monticello), Jenny Stuhr (Buffalo), Kevin Sethre (Inver Grove Heights), Joseph \"JOE P.\" Petersen (Owatonna), Kristin Elizondo (Champlin lists Tom Moe for Ward 2), Ian Bergh (Willmar lists Rick Fagerlie and Justin Ask for Ward 3), Dan Solon (Elk River ISD 728), Gloria Colbenson (Monticello ISD 882; the district's page names her among the 2026 candidates), Brittany LaBore (ISD 622's election page calls only Caleb Anderson an incumbent). Martin County's site shows no page for a county surveyor, so nothing for Ben Madsen.",
+  "Left out on purpose: jobs, schools, family and party posts on the campaign sites; the private endorsements on Leah Hanson's and Drew Christensen's sites (not a party's own page); A.J. Prospect's site footer reads 'Republican Party of Minnesota' with no sentence around it, which is not an explicit statement, so no own_words. Start years of current terms are left blank where the government's page gives none."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0148-MN",
+   "name": "Max Glenna",
+   "website": {
+    "url": "https://maxforminnesota.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Max Glenna for State Senate - District 28' and names Chisago and Isanti Counties.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' ('The candidates listed below have been endorsed by the Minnesota DFL Party') lists Max Glenna, Senate District 28; the page prints no year, but its own page data says it was published 2026-03-30 and last changed 2026-09-16",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0186-MN",
+   "name": "Clare Oumou Verbeten",
+   "website": {
+    "url": "https://clareoumou.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Clare Oumou Verbeten', speaks as 'your State Senator and Assistant Majority Leader', links an 'About SD 66' page and reads 'Paid and prepared for by Clare Oumou Verbeten for Senate Committee'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' ('The candidates listed below have been endorsed by the Minnesota DFL Party') lists 'Clare Verbeten', Senate District 66; the page prints no year, but its own page data says it was published 2026-03-30 and last changed 2026-09-16",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0222-MN",
+   "name": "Leah Hanson",
+   "website": {
+    "url": "https://www.leahhansonforhouse.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Leah Hanson for MN House' and opens 'I am excited to run for State Representative in District 18A!'",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' ('The candidates listed below have been endorsed by the Minnesota DFL Party') lists Leah Hanson, House District 18A; the page prints no year, but its own page data says it was published 2026-03-30 and last changed 2026-09-16",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0259-MN",
+   "name": "Patty Bradway",
+   "website": {
+    "url": "https://bradway4house.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is headed 'Committee to Elect Patty Bradway - MN House District 36B' and '2026 Campaign - House District 36B'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0298-MN",
+   "name": "A.J. Prospect",
+   "website": {
+    "url": "https://ajprospectformn.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'A.J. Prospect for Minnesota State House', calls A.J. Prospect a longtime Apple Valley resident and is paid for by 'the AJ Prospect for MN committee'; it does not give the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-061",
+   "name": "Lonny Witkofsky"
+  },
+  {
+   "race_id": "2026-MN-0392-095",
+   "name": "Dan Whitcomb",
+   "official_page": {
+    "url": "https://www.millelacs.mn.gov/1256/Board-of-Commissioners",
+    "source": "Mille Lacs County: Board of Commissioners page, which lists 'Dan Whitcomb District 2' among the members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mille Lacs County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Mille Lacs County's Board of Commissioners page lists Dan Whitcomb as the District 2 member (no starting year given)",
+     "url": "https://www.millelacs.mn.gov/1256/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-077",
+   "name": "Joseph Grund",
+   "official_page": {
+    "url": "https://lotwcounty.gov/government/county-board-members/",
+    "source": "Lake of the Woods County: County Board Members page, which lists 'Joe Grund, County Commissioner District 3'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake of the Woods County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Lake of the Woods County's County Board Members page lists 'Joe Grund' as County Commissioner, District 3 (no starting year given)",
+     "url": "https://lotwcounty.gov/government/county-board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-107",
+   "name": "Thomas Opheim"
+  },
+  {
+   "race_id": "2026-MN-0395-139",
+   "name": "Drew Christensen",
+   "website": {
+    "url": "https://drewforsavage.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Drew Christensen for Commissioner' and says 'Now I'm running for Scott County Commissoner' [as spelled]; it is paid for by 'Drew Christensen for Commissioner'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1993,
+    "date": "1993-05-21",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Drew Christensen ('Date of Birth: 5/21/1993'); its notes say 'He is a candidate for Scott County Commissioner in district 5 in the 2026 election.'",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15431",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota House of Representatives, District 56A",
+     "from": "2015",
+     "to": "2018",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Drew Christensen ('House 2015-2018 (District 56A)', counties served Dakota and Scott)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15431",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Savage Planning Commission, member",
+     "from": "2019",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library: 'Municipal Board/Commission: Savage, Minnesota (Planning Commission); 02/22/2019 to ?' (no end date given); his campaign site's About page says he 'has served as a member of the Savage Planning Commission since 2019'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15431",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Savage Advisory Communications Commission, member (appointed)",
+     "from": "2012",
+     "to": "2014",
+     "source": "Minnesota Legislative Reference Library: 'Municipal Board/Commission: Savage, Minnesota (Advisory Communications Commission); 02/2012 to 11/2014 [Appointed]'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15431",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Minnesota House of Representatives, District 56A, 2015-2018",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Drew Christensen ('Party when first elected: Republican'; 'Elected: 11/4/2014' and 'Elected: 11/8/2016', each session 'Party: Republican')",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15431",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-149",
+   "name": "Nichole Olson Mahoney",
+   "official_page": {
+    "url": "https://www.co.stevens.mn.us/969/Recorder",
+    "source": "Stevens County: Recorder page, which names 'Nichole Mahoney, County Recorder' (without 'Olson')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stevens County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Stevens County's Recorder page names 'Nichole Mahoney, County Recorder' (no starting year given; the page writes the name without 'Olson')",
+     "url": "https://www.co.stevens.mn.us/969/Recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-101",
+   "name": "Heath Landsman",
+   "official_page": {
+    "url": "https://www.murraycountymn.com/county_departments/sheriff_s_office/index.php",
+    "source": "Murray County: Sheriff's Office page, which says 'Murray County Sheriff: Heath Landsman'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Murray County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Murray County's Sheriff's Office page says 'Murray County Sheriff: Heath Landsman' (no starting year given)",
+     "url": "https://www.murraycountymn.com/county_departments/sheriff_s_office/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-037",
+   "name": "Kathy Keena"
+  },
+  {
+   "race_id": "2026-MN-0407-091",
+   "name": "Ben Madsen"
+  },
+  {
+   "race_id": "2026-MN-1001-43774",
+   "name": "Jeff Rowan"
+  },
+  {
+   "race_id": "2026-MN-1010-08452",
+   "name": "Jenny Stuhr"
+  },
+  {
+   "race_id": "2026-MN-1010-31076",
+   "name": "Kevin Sethre"
+  },
+  {
+   "race_id": "2026-MN-1010-49300",
+   "name": "Joseph \"JOE P.\" Petersen"
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Soga William Mbilima"
+  },
+  {
+   "race_id": "2026-MN-1022-10846",
+   "name": "Kristin Elizondo"
+  },
+  {
+   "race_id": "2026-MN-1024-70420",
+   "name": "Ian Bergh"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0077",
+   "name": "Patrick Baker",
+   "website": {
+    "url": "https://www.patrickjbaker.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Patrick Baker | MAPS School Board'; its Election page (/election) says 'Election Day is November 3, 2026', that voters in the Mankato Area Public School District will vote for three candidates, and asks them to consider 're-electing me to another term on the School Board'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd77.org/experience/school-board",
+    "source": "Mankato Area Public Schools: School Board page, which lists 'Patrick Baker, Treasurer, Term ends: Dec. 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mankato Area Public Schools (ISD 77) School Board member; treasurer",
+     "from": "",
+     "to": "now",
+     "source": "The district's School Board page lists 'Patrick Baker, Treasurer, Term ends: Dec. 2026' (no starting year given); his campaign site's About page says 'I am completing my first term on the School Board and currently serve as board treasurer'",
+     "url": "https://www.isd77.org/experience/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0199",
+   "name": "Michael Wakefield"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0413",
+   "name": "Ashley Pippin"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0622",
+   "name": "Brittany LaBore",
+   "website": {
+    "url": "https://www.brittanylaboreforschoolboard.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is headed 'Brittany Sunshine LaBore', speaks of 'the ISD622 School Board' and 'Our Campaign Priorities', and is signed '2026 Brittany Sunshine LaBore Campaign'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0728",
+   "name": "Dan Solon"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0882",
+   "name": "Gloria Colbenson"
+  },
+  {
+   "race_id": "2026-MN-5010-ISD0381",
+   "name": "Steven VanHouse"
+  },
+  {
+   "race_id": "2026-MN-8556-MN",
+   "name": "Jeannice M. Reding"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every address in the file was opened again with the kit's reader on 2026-10-02 and each of the 26 findings was found on its page; the eight campaign addresses also match what was filed (sl_websites). Nothing was removed.",
+  "Wording corrected: the three DFL endorsements now say how the party's page is tied to 2026 (its own publication dates; the page prints no year); Clare Oumou Verbeten's site reads 'Paid and prepared for by'; Brittany LaBore's note no longer leans on a school district page that is not cited in this file; Patrick Baker's and Drew Christensen's quotations now name the page of the campaign site they are on; Drew Christensen's party source now rests on the Library's own election dates.",
+  "Same person: Stevens County's page writes 'Nichole Mahoney' and Lake of the Woods County's 'Joe Grund'; each is tied by the county and the office (and district 3) sought in 2026. A.J. Prospect's site gives no district number; it is tied by the filed address, 'Minnesota State House' and Apple Valley, which lies in House District 56A's county."
+ ]
+}

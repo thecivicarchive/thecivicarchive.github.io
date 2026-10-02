@@ -1,0 +1,303 @@
+{
+ "state": "MN",
+ "part": 63,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance was already used up (200 of 200) before this part began, so no search was made. Findings come from addresses read directly: the campaign websites the candidates filed with the Secretary of State (already in sl_websites, read from the database read-only), the Minnesota DFL's endorsed page, and each government's own site, reached from its home page. Pages were read with the kit's reader (honest User-Agent, robots.txt obeyed) or the fetch tool. Candidates with no findings are the ones this left out of reach.",
+  "Huldah Momanyi-Hiltsley (a sitting legislator): the website she filed, https://huldahforhouse.com, answered the kit's reader with 429 three times and the fetch tool could not find the host, so no website is recorded; it was not asked again.",
+  "Not holders according to the government's own page, so nothing recorded: Dennis Pletcher (Lake of the Woods County lists James \"Buck\" Nordlof for District 1), Jeff Gontarek (Otter Tail County lists Wayne D. Johnson for District 2), Christian Rider (not on Lakeville's council page), Morgan Baum (Hutchinson's council profiles list Tim Burley in Seat 1), Misty Bray (Bemidji lists Emelie Rivera for Ward 4). Joe Landherr and Jaime Guardado Jr. are not named on the Mower and Pipestone County board pages.",
+  "Reed Reinbold: the county's own page shows no elected or appointed office for him, so nothing is recorded.",
+  "Left alone: the City of Cambridge's site answered 403 (Bob Shogren); Hastings Public Schools' board page is on a host whose robots.txt asks scripts to stay out (Mark A. Zuzek); the Minnesota Judicial Branch refuses scripts, as earlier parts found, and was not asked (Paul J. Gunderson). The City of Mounds View's council page names no one (Julia Wolff). No working address was found for the City of Detroit Lakes (Zachary J Foltz) or for a Cloquet school board page (Daniel Lee). The Minneapolis DFL's home page links no 2026 school board endorsement page (Ben Lattimore). No campaign website was found for Gadisa Berkessa or Jennifer Compeau: the party's page links only a donation page.",
+  "Privacy: while checking the St. Cloud school district's board page, the reader's printout around the name showed two street addresses that the district prints beside its members (the script masks e-mail and phone numbers, not street addresses). Nothing from it was stored or written anywhere."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0151-MN",
+   "name": "Gadisa Berkessa",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0189-MN",
+   "name": "Jennifer Compeau",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0226-MN",
+   "name": "Heather Arndt",
+   "website": {
+    "url": "https://www.heatherforhouse20a.org/",
+    "how": "The site's title reads \"Heather for House 20A\"; the home page names Heather Arndt, speaks of the State Representative voters deserve, and is prepared and paid for by the Heather for House 20A Committee. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0262-MN",
+   "name": "Huldah Momanyi-Hiltsley",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "also": "The party's page lists her as \"Huldah Hiltsley, House District 38A\", the name the state roster uses for the seat's holder.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0301-MN",
+   "name": "Brian Cohn",
+   "website": {
+    "url": "https://briancohn4mn.com",
+    "how": "The site's title reads \"Brian Cohn for Minnesota House 57B, Lakeville\" and says he is running to represent Lakeville in the Minnesota House. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-111",
+   "name": "Jeff Gontarek",
+   "website": {
+    "url": "https://www.jeffgontarek.com/",
+    "how": "The home page reads \"Jeff Gontarek, Otter Tail County Commissioner, District 2\", gives the November 3, 2026 general election dates and is prepared and paid for by the Jeff Gontarek Campaign Committee. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0395-159",
+   "name": "Jon Kangas",
+   "official_page": {
+    "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+    "source": "Wadena County, County Commissioners page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wadena County Commissioner, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Wadena County, County Commissioners page",
+     "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+     "kind": "official",
+     "also": "The page lists \"Jon Kangas, District 5\" among the members and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-001",
+   "name": "Daniel Guida",
+   "official_page": {
+    "url": "https://www.co.aitkin.mn.us/departments/sheriff/",
+    "source": "Aitkin County, Sheriff's Office page (\"Dan Guida / County Sheriff\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Aitkin County Sheriff",
+     "from": "2019",
+     "to": "now",
+     "source": "Aitkin County, Sheriff History (\"Aitkin County Sheriffs since 1872\")",
+     "url": "https://www.co.aitkin.mn.us/departments/sheriff/sheriff-history.php",
+     "kind": "official",
+     "also": "The table reads \"Dan Guida | Jan 2019 - Present\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-045",
+   "name": "Brett Corson",
+   "official_page": {
+    "url": "https://www.co.fillmore.mn.us/departments/attorney/meet_your_county_attorney.php",
+    "source": "Fillmore County, Meet Your County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fillmore County Attorney",
+     "from": "2003",
+     "to": "now",
+     "source": "Fillmore County, Meet Your County Attorney",
+     "url": "https://www.co.fillmore.mn.us/departments/attorney/meet_your_county_attorney.php",
+     "kind": "official",
+     "also": "\"Brett A. Corson was elected Fillmore County Attorney in 2002 and began his four-year term in January 2003.\"",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0415-053",
+   "name": "John F Gibbs",
+   "website": {
+    "url": "https://www.commissionerjohngibbs.org/",
+    "how": "The site's title reads \"Three Rivers Commissioner John Gibbs\" and the page says he represents District 5 (Bloomington, Richfield, Eden Prairie), the seat he is running for. The page does not mention the 2026 election by name. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.threeriversparks.org/board-member/john-gibbs",
+    "source": "Three Rivers Park District, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Three Rivers Park District Board of Commissioners, District 5",
+     "from": "2011",
+     "to": "now",
+     "source": "Three Rivers Park District, Board of Commissioners: John Gibbs",
+     "url": "https://www.threeriversparks.org/board-member/john-gibbs",
+     "kind": "official",
+     "also": "\"He has served on the Board since 2011 and has served as Board Chair since 2023.\" His own site says \"Since 2010\".",
+     "verified": true
+    },
+    {
+     "office": "Hennepin County Library Board, member and president",
+     "from": "",
+     "to": "",
+     "source": "Three Rivers Park District, Board of Commissioners: John Gibbs",
+     "url": "https://www.threeriversparks.org/board-member/john-gibbs",
+     "kind": "official",
+     "also": "\"Prior to his election to the Three Rivers Board, John was a member and president of the Hennepin County Library Board.\" No years are given.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-52594",
+   "name": "Victor Lake",
+   "official_page": {
+    "url": "https://www.priorlakemn.gov/169/City-Council",
+    "source": "City of Prior Lake, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prior Lake City Council, councilmember",
+     "from": "",
+     "to": "now",
+     "source": "City of Prior Lake, City Council page",
+     "url": "https://www.priorlakemn.gov/169/City-Council",
+     "kind": "official",
+     "also": "The page lists \"Victor Lake, Councilmember\" and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0423",
+   "name": "Danny Olmstead",
+   "official_page": {
+    "url": "https://www.isd423.org/school-board/",
+    "source": "Hutchinson Public Schools, School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hutchinson Public Schools (ISD 423) School Board, director",
+     "from": "",
+     "to": "now",
+     "source": "Hutchinson Public Schools, School Board page",
+     "url": "https://www.isd423.org/school-board/",
+     "kind": "official",
+     "also": "The page lists \"Danny Olmstead, Director\" and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Bob Krominga",
+   "website": {
+    "url": "https://bobkrominga.org",
+    "how": "The site's title reads \"Bob Krominga for White Bear Lake School Board | ISD 624 | White Bear Lake, MN, USA\". The site answered the fetch tool; it answered the kit's own reader with 429 three times. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0742",
+   "name": "Heather Weems",
+   "official_page": {
+    "url": "https://www.isd742.org/about-us/school-board/board-members",
+    "source": "St. Cloud Area School District 742, Board Members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Cloud Area School District 742 Board of Education, member (clerk)",
+     "from": "",
+     "to": "now",
+     "source": "St. Cloud Area School District 742, Board Members page",
+     "url": "https://www.isd742.org/about-us/school-board/board-members",
+     "kind": "official",
+     "also": "\"Heather Weems, Clerk. Term expires Jan. 4, 2027\". No start date is given.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0883",
+   "name": "Beth Praska",
+   "official_page": {
+    "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+    "source": "Rockford Area School District 883, Board Members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rockford Area School District 883 School Board, director",
+     "from": "2019",
+     "to": "now",
+     "source": "Rockford Area School District 883, Board Members page",
+     "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+     "kind": "official",
+     "also": "\"Beth Praska - Director (Board term expires December 2026) ... Board member since 2019\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5010-SSD0001",
+   "name": "Ben Lattimore",
+   "website": {
+    "url": "https://www.lattimoreformps.org",
+    "how": "The site's title reads \"Ben Lattimore for MPS\"; its home page is about the Minneapolis Public Schools board and the schools in District 1, and has a \"Support the Campaign\" page. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every address was opened again. Five answered the fetch tool with a failed name lookup twice (this router drops lookups) and were then read with the kit's own reader, which reached them: briancohn4mn.com, jeffgontarek.com, commissionerjohngibbs.org, lattimoreformps.org and Fillmore County's page.",
+  "One correction: the note about Reed Reinbold named his job; a job is not collected, so the note now says only that no office was found."
+ ]
+}

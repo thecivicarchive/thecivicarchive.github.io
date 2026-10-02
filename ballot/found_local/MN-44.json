@@ -1,0 +1,459 @@
+{
+ "part": 44,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: one web search per candidate (30), after which the session's shared search allowance was spent; everything else was read by opening pages directly with the kit's honest User-Agent (states/net.py), each site's robots.txt obeyed, or with the page-reading tool. The campaign websites the candidates filed were learned from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; each was then opened.",
+  "Not read, and nothing worked around: www.jeremymunson.com and www.jessicaformnhouse.com (the sites Jeremy Munson and Jessica L. Johnson filed; each one's robots.txt asks scripts to stay out, so no website finding and no own words are recorded for them and the filed address stands on its own); judgedanielmoreno.com (the site Daniel C. Moreno filed: 404 without www, 429 with www on two tries, so not recorded); mncourts.gov (robots.txt: no court page for Judge Moreno or Judge Saterbak); mnbar.org (connection refused) and mcaa-mn.org (robots.txt), which carry the Governor's 2019 release on Melissa Saterbak's appointment, so nothing is recorded for her; www.ci.bemidji.mn.us (robots.txt: no city page for Audrey M. Thayer); www.perham.k12.mn.us (no answer on three tries: no district page for Justine Anderson); the Steele County Times's search (robots.txt).",
+  "No party endorsement is recorded for anyone. The Marshall Independent (May 6, 2026) reports that Brad Hennen received the Republican endorsement at the House District 15A convention in Cottonwood, and the Mankato Free Press is reported to describe a Senate District 22 Republican convention favouring Jeremy Munson; neither is a party's own page, and no Republican unit's own endorsement page for Munson, Lieske, Hennen, Johnson or Lopac was found (the state DFL's list, the Lyon County, Carver County and Isanti County Republican pages were read and name none of this part's candidates; no searches were left to find the other units).",
+  "Left blank on purpose. Rick Gnemi (Owatonna council, Ward 3): the Steele County Times (November 6, 2024) reports that a Rick Gnemi held Steele County's District 3 commissioner seat from 2016 until he lost in 2024, but no page was found tying that commissioner to this year's council candidacy, so the office is not recorded; a second reader with a search could settle it. Audrey M. Thayer: KAXE gives her age on Election Day (75), which does not fix a birth year, so none is recorded. The Minnesota Legislative Reference Library's page gives Jeremy Munson's date of birth as 12/31/1976; only the year is recorded, since a year-end day may be a placeholder. Corey R. Sik: Lincoln County's sheriff page names Bob Bushman as sheriff; nothing was found about Sik. Nothing was found for James Checkel (Dodge County's District 3 page is about the sitting commissioner, Rodney Peterson), Travis Bowman (the Le Sueur County News says he did not take part in its candidate profiles), Angie Skavnak beyond her own site (the district's election page lists her affidavit), Darren Romans, Douglas Witherington (the Shakopee district's election page calls him a new candidate), Lisa Moore, Tom Lopac beyond his own site, or Melissa Saterbak.",
+  "Things seen and not recorded, by rule: family, religion, schools, employers and jobs on the Legislative Reference Library's, the counties', the cities' and the campaigns' pages."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0142-MN",
+   "name": "Jeremy Munson",
+   "born": {
+    "year": 1976,
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Jeremy Munson, House 2018-2022 (District 23B); its notes say he announced a run for the Senate District 22 seat in 2026",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15496",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Minnesota House District 23B",
+     "from": "2018",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (elected in the special election of February 12, 2018, term from February 20, 2018; last term of office January 4, 2021 to January 1, 2023)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15496",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Representative, District 23B, in the special election of February 12, 2018, and again in November 2018 and November 2020 (\"Party when first elected: Republican\")",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15496",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0178-MN",
+   "name": "Bill Lieske",
+   "website": {
+    "url": "https://lieske4senate.com",
+    "how": "The site's title is \"Dr. Bill Lieske for Minnesota Senate\"; its About page speaks of him \"as your next State Senator\" and of Lonsdale, and it is \"Prepared and Paid for by Lieske for Senate\". It is the address filed with the Secretary of State. The page reads as written for his first run and does not name the district or the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0216-MN",
+   "name": "Bradley L Hennen",
+   "website": {
+    "url": "https://hennen4house.com",
+    "how": "The home page says \"Brad Hennen is running for State Representative in District 15A\" and is \"Prepared and paid for by Hennen for House\", dated 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0253-MN",
+   "name": "Jessica L. Johnson",
+   "past_party": [
+    {
+     "what": "Republican candidate for State House, District 33B, in the general election of November 5, 2024 (lost, 48.60%)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns), its page for Jessica L. Johnson",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/jessica-l-johnson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0291-MN",
+   "name": "Tom Lopac",
+   "website": {
+    "url": "https://lopacmnhouse.com",
+    "how": "The site's title is \"Tom Lopac for MN House\" and its home page says \"I'm Tom Lopac, and I'm running for Minnesota House District 52B\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-021",
+   "name": "Neal Gaalswyk",
+   "official_page": {
+    "url": "https://www.casscountymn.gov/directory.aspx?EID=127",
+    "source": "Cass County, County Commissioners directory: Neal Gaalswyk, 1st District Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cass County Commissioner, 1st District",
+     "from": "2011",
+     "to": "now",
+     "source": "Cass County's directory page (\"Term 2011 to 2026\"; \"began serving as a Cass County Commissioner in 2011\")",
+     "url": "https://www.casscountymn.gov/directory.aspx?EID=127",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Pillager School Board member",
+     "from": "",
+     "to": "",
+     "source": "Cass County's directory page (\"Prior to being elected as a County Commissioner, Neal served on the Pillager School Board, and the East Gull Lake City Council\"; no years given)",
+     "url": "https://www.casscountymn.gov/directory.aspx?EID=127",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "East Gull Lake City Council member",
+     "from": "",
+     "to": "",
+     "source": "Cass County's directory page (the same sentence; no years given)",
+     "url": "https://www.casscountymn.gov/directory.aspx?EID=127",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-059",
+   "name": "Bill Berg",
+   "official_page": {
+    "url": "https://www.isanticountymn.gov/481/Elected-Officials",
+    "source": "Isanti County, Elected Officials: Bill Berg is listed first under the Isanti County Board of Commissioners (the page does not give district numbers)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Isanti County Commissioner",
+     "from": "",
+     "to": "now",
+     "source": "Isanti County, Elected Officials page (lists him on the Board of Commissioners; it does not say since when)",
+     "url": "https://www.isanticountymn.gov/481/Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-089",
+   "name": "Gary A. Kiesow",
+   "official_page": {
+    "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+    "source": "Marshall County, Board of Commissioners: \"District 5 - Gary Kiesow\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Commissioner, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Marshall County, Commissioners page (\"Marshall County Commissioner Districts ... District 5 - Gary Kiesow\"; it does not say since when)",
+     "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-055",
+   "name": "Michelle Werner",
+   "official_page": {
+    "url": "https://hocomn.gov/departments/recorder/index.php",
+    "source": "Houston County, Recorder's Office: \"Houston County Recorder, Michelle Werner\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Houston County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Houston County, Recorder page (names her as Houston County Recorder; it does not say since when)",
+     "url": "https://hocomn.gov/departments/recorder/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-015",
+   "name": "Chuck Hanson",
+   "official_page": {
+    "url": "https://www.browncountymn.gov/169/County-Attorney",
+    "source": "Brown County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brown County Attorney",
+     "from": "elected 2014",
+     "to": "now",
+     "source": "Brown County, County Attorney page (\"was elected as the Brown County Attorney in 2014\")",
+     "url": "https://www.browncountymn.gov/169/County-Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-147",
+   "name": "Robert Jarrett",
+   "official_page": {
+    "url": "https://steelecountymn.gov/departments/attorney/index.php",
+    "source": "Steele County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Steele County Attorney (appointed by the Steele County Board of Commissioners for the remainder of the term)",
+     "from": "2024",
+     "to": "now",
+     "source": "Steele County, County Attorney page (\"appointed Robert Jarrett to serve as the Steele County Attorney commencing June 21, 2024, and for the remainder of the current term of office\")",
+     "url": "https://steelecountymn.gov/departments/attorney/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-30644",
+   "name": "Gary T Forcier",
+   "official_page": {
+    "url": "https://hutchinsonmn.gov/city-council/city-council-profiles/",
+    "source": "City of Hutchinson, Council Profiles: Mayor Gary Forcier",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Hutchinson",
+     "from": "2015",
+     "to": "now",
+     "source": "City of Hutchinson, Council Profiles (\"Came Into Office: 2015 / Current Term Expires: 2026\"; \"elected Mayor of Hutchinson in November, 2014 and took office in January of 2015\")",
+     "url": "https://hutchinsonmn.gov/city-council/city-council-profiles/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Hutchinson City Council member",
+     "from": "elected 2012",
+     "to": "",
+     "source": "City of Hutchinson, Council Profiles (\"He was elected to the Hutchinson City Council in 2012\")",
+     "url": "https://hutchinsonmn.gov/city-council/city-council-profiles/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-05068",
+   "name": "Audrey M. Thayer",
+   "offices": [
+    {
+     "office": "Bemidji City Council member, At Large",
+     "from": "2022",
+     "to": "now",
+     "source": "KAXE, \"Incumbent, former member advance in Bemidji City Council At-Large race\", August 12, 2026 (\"has served in the at-large role since 2022, after being elected to the Ward 1 seat in 2020\")",
+     "url": "https://www.kaxe.org/elections/2026-08-12/incumbent-former-member-advance-in-bemidji-city-council-at-large-race",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Bemidji City Council member, Ward 1",
+     "from": "elected 2020",
+     "to": "2022",
+     "source": "KAXE, August 12, 2026 (the same sentence)",
+     "url": "https://www.kaxe.org/elections/2026-08-12/incumbent-former-member-advance-in-bemidji-city-council-at-large-race",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-25118",
+   "name": "Tom Sutherland",
+   "official_page": {
+    "url": "https://cityofgrandrapidsmn.com/node/98",
+    "source": "City of Grand Rapids, City Council (the page dropped the kit's script's connection twice and was read with the page-reading tool)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grand Rapids City Councilor",
+     "from": "",
+     "to": "now",
+     "source": "City of Grand Rapids, City Council page (lists Councilor Tom Sutherland, term ending 12/31/2026; it does not say since when)",
+     "url": "https://cityofgrandrapidsmn.com/node/98",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47680",
+   "name": "Chenayi Shava (Ogunbanjo)",
+   "website": {
+    "url": "https://chenayiforoakdale.com",
+    "how": "The site's title is \"Chenayi Shava for Oakdale City Council\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commissioner, City of Oakdale Planning & Development Board (her site's words)",
+     "from": "",
+     "to": "",
+     "source": "her campaign's own website (no years given; the city's own page was not found)",
+     "url": "https://chenayiforoakdale.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-67036",
+   "name": "Greg Evansky",
+   "official_page": {
+    "url": "https://www.victoriamn.gov/government/city_council/index.php",
+    "source": "City of Victoria, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Victoria City Council member",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "City of Victoria, City Council page (\"Greg Evansky was elected as a Victoria City Council Member in 2022\")",
+     "url": "https://www.victoriamn.gov/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City of Victoria Finance Committee and Planning Commission member (appointed)",
+     "from": "2009",
+     "to": "",
+     "source": "City of Victoria, City Council page (\"has served the community in a volunteer capacity at the City since 2009 through appointments to the Finance Committee and Planning Commission\")",
+     "url": "https://www.victoriamn.gov/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-71734",
+   "name": "Amy Woitalewicz",
+   "official_page": {
+    "url": "https://www.worthingtonmn.gov/city-council",
+    "source": "City of Worthington, City Council: Amy Woitalewicz, Council Member - 1st Ward, term expires December 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Worthington City Council member, Ward 1 (appointed to serve the remainder of Larry Janssen's term)",
+     "from": "2025",
+     "to": "now",
+     "source": "The Globe (Worthington), \"Amy Woitalewicz appointed to Worthington City Council\", July 17, 2025 (sworn in at the council's meeting of July 14, 2025); the city's council page lists her today",
+     "url": "https://www.dglobe.com/news/local/amy-woitalewicz-appointed-to-worthington-city-council",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Worthington Planning and Zoning Commission member",
+     "from": "",
+     "to": "",
+     "source": "The Globe (Worthington), July 17, 2025, in her words: \"I also served seven years on the Planning and Zoning Commission\" (no years given)",
+     "url": "https://www.dglobe.com/news/local/amy-woitalewicz-appointed-to-worthington-city-council",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0022",
+   "name": "Mary Rotter",
+   "official_page": {
+    "url": "https://www.dlschools.net/about-us/school-board",
+    "source": "Detroit Lakes Public Schools, School Board: Mary Rotter, Vice Chair, term expires December 31, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Detroit Lakes School Board member",
+     "from": "2023",
+     "to": "now",
+     "source": "Detroit Lakes Tribune, \"Rotter, Okeson take oath to serve school district\", January 11, 2023 (won a seat in the November 2022 election and took the oath in January 2023); the district's board page lists her today",
+     "url": "https://www.dl-online.com/news/local/rotter-okeson-take-oath-to-serve-school-district",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0549",
+   "name": "Justine Anderson",
+   "offices": [
+    {
+     "office": "Perham School Board member",
+     "from": "elected 2018",
+     "to": "",
+     "source": "Perham Focus (on dl-online.com), \"Perham School Board election winners announced\", November 9, 2022 (\"Incumbent Justine Anderson earned 19.12% of the votes. She was originally elected to the board in 2018\"; one of the four elected in November 2022)",
+     "url": "https://www.dl-online.com/news/local/live-updates-perham-school-board-election-winners-announced",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Angie Skavnak",
+   "website": {
+    "url": "https://voteskavnakfor194.com",
+    "how": "The site's title is \"Vote Skavnak for School Board ISD 194\"; it says \"I'm running for the Lakeville Area School Board\" and \"My name is Angie Skavnak\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0877",
+   "name": "Matt Hoffman",
+   "official_page": {
+    "url": "https://www.bhmschools.org/school-board",
+    "source": "Buffalo-Hanover-Montrose Schools, School Board: Matt Hoffman, School Board Acting Clerk/Treasurer, term expires 12-31-26",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo-Hanover-Montrose School Board member",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Buffalo-Hanover-Montrose Schools, \"2022 Election Results\" (Matt Hoffman first with 5,543 votes; the page's words: \"The top three vote-getters will serve a four-year term beginning in January 2022\"); the district's board page lists him today with a term expiring 12-31-26",
+     "url": "https://www.bhmschools.org/2020-election",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8519-MN",
+   "name": "Daniel C. Moreno",
+   "offices": [
+    {
+     "office": "Judge, Fourth Judicial District (Hennepin County), appointed by Governor Tim Pawlenty",
+     "from": "",
+     "to": "",
+     "source": "Governor Pawlenty's release \"Governor Pawlenty appoints Moreno, Abrams, and Bra[ndt]\", as archived by the Minnesota Legislative Reference Library (\"announced the appointment of Daniel C. Moreno ... to three trial court bench vacancies in the Fourth Judicial District in Hennepin County\"; the archived text carries no date)",
+     "url": "https://www.leg.mn.gov/docs/2010/other/101582/www.governor.state.mn.us/mediacenter/pressreleases/printerfriendly/PROD006768.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

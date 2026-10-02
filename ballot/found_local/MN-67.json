@@ -1,0 +1,474 @@
+{
+ "part": 67,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web-search allowance was already spent when this part began (all six searches tried were refused), and the fetch tool could not look up campaign addresses, so every page was opened directly with the kit's honest User-Agent (states/net.py), one request at a time, robots.txt obeyed: the campaign websites the candidates filed with the Secretary of State (learned from a scratch copy of the database on which the kit's own files step had been run; the real database was only read), each county's, city's and school district's own site, the Minnesota DFL's endorsed list, the Legislative Reference Library, and Wikipedia.",
+  "Not reached, and nothing worked around: emilythabesformn.com and the inner pages of erikskogquist.com (HTTP 429 on every try, so Emily Thabes has no website finding here although she filed that address); milesfor742.com and the St. Louis County Schools site (no answer); the Republican units for House 21A, 39A and 58B (no address found without a search; mncd7gop.com did not answer), so no Republican endorsement is recorded for Krist Wollum, Andy Macko or Drew Roach; the Minnesota Judicial Branch site, which earlier parts found answers 403, was not asked, so Judge Robert Docherty has no findings.",
+  "Read and left out on purpose: Anders Folk's birth date on Wikipedia (it carries no citation) and Wikipedia's dates for his time as Acting U.S. Attorney; Drew Roach's birth date on Wikipedia (the article gives two different days; he is a sitting legislator with a record page); Scott Grice's post as Pine County chief deputy (a job, not an office); party posts, association and church boards, labor and personal endorsements; family, schools and employers on every page read. Drew Roach's own-words quote speaks of his 2024 endorsing convention, not 2026.",
+  "Candidates not on their government's current list of members, and so with no official page: Rodney Altena (Pipestone County lists another District 2 commissioner), Bob Redig (Winona County), Steven Haes (Lakeville), Ryan Reider (Champlin), Mark Gransee (Kasson-Mantorville), Vincent Miles (St. Cloud), Felicia Reed (Litchfield) and Melissa Roberts (White Bear Lake). Norman County's and Cloquet's board pages showed no member names to a plain reader."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0153-MN",
+   "name": "Nat Smith",
+   "website": {
+    "url": "https://www.natsmithformn.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Nat Smith for Minnesota Senate | District 33'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Washington County Community Development Block Grant Advisory Committee",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's About page",
+     "url": "https://www.natsmithformn.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, City of Stillwater Human Rights Commission",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's About page",
+     "url": "https://www.natsmithformn.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Minnesota Democratic-Farmer-Labor Party",
+     "unit": "Minnesota DFL (the state party's page 'Candidates Endorsed by the Minnesota DFL' lists 'Nat Smith, Senate District 33')",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0191-MN",
+   "name": "Emily Thabes",
+   "endorsed_by": [
+    {
+     "party": "Minnesota Democratic-Farmer-Labor Party",
+     "unit": "Minnesota DFL (the state party's page 'Candidates Endorsed by the Minnesota DFL' lists 'Emily Thabes, House District 2B')",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0228-MN",
+   "name": "Krist Wollum",
+   "website": {
+    "url": "https://wollum4house.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Wollum For House' and names Krist Wollum and District 21A of the Minnesota House",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, Marble Township",
+     "from": "",
+     "to": "",
+     "source": "his campaign site, which says 'Marble Township Supervisor for 20 years' without giving the years or the county",
+     "url": "https://wollum4house.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0264-MN",
+   "name": "Andy Macko"
+  },
+  {
+   "race_id": "2026-MN-0303-MN",
+   "name": "Drew Roach",
+   "website": {
+    "url": "https://drewforhouse.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Drew Roach for MN House 58B'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Drew was endorsed by the people of the Republican Party of Minnesota",
+    "url": "https://drewforhouse.com/endorsements/",
+    "note": "The sentence goes on: 'at the House District 58B endorsing convention on April 13th, 2024'; it is about 2024, not 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-103",
+   "name": "Marie Dranttel",
+   "official_page": {
+    "url": "https://www.nicolletcountymn.gov/370/Board-of-Commissioners",
+    "source": "Nicollet County, County Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicollet County Commissioner, District 1",
+     "from": "",
+     "to": "now",
+     "source": "Nicollet County's County Board page lists 'Marie Dranttel - District 1'",
+     "url": "https://www.nicolletcountymn.gov/370/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-117",
+   "name": "Rodney Altena"
+  },
+  {
+   "race_id": "2026-MN-0393-107",
+   "name": "Andrew Jossund"
+  },
+  {
+   "race_id": "2026-MN-0394-123",
+   "name": "Rena Moran",
+   "official_page": {
+    "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/rena-moran-district-4",
+    "source": "Ramsey County, 'Rena Moran, District 4'",
+    "verified": true
+   },
+   "born": {
+    "year": 1960,
+    "date": "1960-04-13",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15356",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Ramsey County's page for her, which says she retired from the House 'to run for Ramsey County Commissioner in 2022'",
+     "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/rena-moran-district-4",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives, District 65A",
+     "from": "2011",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library (sessions served: House 2011-2012 and 2013-2022, District 65A)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15356",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Minnesota House of Representatives, District 65A",
+     "year": "2011-2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library ('Party when first elected: Democratic-Farmer-Labor')",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15356",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-169",
+   "name": "Bob Redig"
+  },
+  {
+   "race_id": "2026-MN-0404-007",
+   "name": "Jason Riggs",
+   "official_page": {
+    "url": "https://www.co.beltrami.mn.us/our-government/elected-officials/",
+    "source": "Beltrami County, Elected Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Beltrami County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Beltrami County's Elected Officials page ('Jason Riggs, Sheriff')",
+     "url": "https://www.co.beltrami.mn.us/our-government/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-115",
+   "name": "Scott Grice"
+  },
+  {
+   "race_id": "2026-MN-0405-053",
+   "name": "Anders Folk",
+   "website": {
+    "url": "https://www.andersfolk.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Anders Folk For Hennepin County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Acting United States Attorney for the District of Minnesota",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's About page, which gives no years",
+     "url": "https://www.andersfolk.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "U.S. Marine. Federal Prosecutor. Democrat.",
+    "url": "https://www.andersfolk.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-01720",
+   "name": "Erik Skogquist",
+   "official_page": {
+    "url": "https://www.anokaminnesota.com/307/City-Council",
+    "source": "City of Anoka, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Anoka",
+     "from": "",
+     "to": "now",
+     "source": "City of Anoka's City Council page ('Erik Skogquist, Mayor; Term: 2 Years; Expires: December 31, 2026')",
+     "url": "https://www.anokaminnesota.com/307/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-45430",
+   "name": "Kari Niedfeldt-Thomas",
+   "website": {
+    "url": "https://www.votekarint.com",
+    "how": "Filed with the Secretary of State; the site is headed 'Kari Niedfeldt-Thomas for Mayor of New Brighton, MN'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.newbrightonmn.gov/m/directory/employee?eid=14",
+    "source": "City of New Brighton, directory page for the Mayor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of New Brighton",
+     "from": "2021",
+     "to": "now",
+     "source": "her campaign site's About page ('Assumed office as Mayor of New Brighton on January 1, 2021'); the city's directory lists her as Mayor, term expiring January 3, 2027",
+     "url": "https://www.votekarint.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-10918",
+   "name": "Denny Laufenburger",
+   "website": {
+    "url": "https://www.denny4chan.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Denny Laufenburger for Chanhassen City Council'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Chanhassen",
+     "from": "2015",
+     "to": "2018",
+     "source": "his campaign site's Bio page",
+     "url": "https://www.denny4chan.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Chanhassen City Council",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's Bio page ('Past member of the Chanhassen Planning Commission and City Council')",
+     "url": "https://www.denny4chan.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Chanhassen Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's Bio page ('Past member of the Chanhassen Planning Commission and City Council')",
+     "url": "https://www.denny4chan.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Vice Chair, Metropolitan Council Transportation Advisory Board",
+     "from": "2015",
+     "to": "2018",
+     "source": "his campaign site's Bio page",
+     "url": "https://www.denny4chan.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Vice Chair, Legislative Salary Council (Governor's appointee)",
+     "from": "2023",
+     "to": "2027",
+     "source": "his campaign site's Bio page, which gives the term as 2023-2027",
+     "url": "https://www.denny4chan.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Past Delegate and Chairman of the Carver County Republican Party",
+    "url": "https://www.denny4chan.com/about.html",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-35180",
+   "name": "Steven Haes"
+  },
+  {
+   "race_id": "2026-MN-1010-53620",
+   "name": "Janie Farrar",
+   "website": {
+    "url": "http://farrarforcouncil.com",
+    "how": "Filed with the Secretary of State as https://farrarforcouncil.com, which did not answer; the plain http address did, with a Google Sites page titled 'Farrar for City Council' that reads 'Janie M. Farrar for Red Wing City Council, At Large Seat'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.red-wing.org/381/City-Council",
+    "source": "City of Red Wing, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing City Council, Council Member At Large (Council President)",
+     "from": "",
+     "to": "now",
+     "source": "City of Red Wing's City Council page",
+     "url": "https://www.red-wing.org/381/City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Red Wing School Board (two terms; board chair for three years)",
+     "from": "2012",
+     "to": "",
+     "source": "her campaign site's 'Janie's Experience' page ('Elected to two terms on the Red Wing School Board beginning in 2012')",
+     "url": "https://sites.google.com/view/farrarforcitycouncil/janies-experience",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Goodhue County Park Board (appointed; chair 2020-2025)",
+     "from": "2017",
+     "to": "",
+     "source": "her campaign site's 'Janie's Experience' page",
+     "url": "https://sites.google.com/view/farrarforcitycouncil/janies-experience",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1018-53620",
+   "name": "Gerald Brylski",
+   "website": {
+    "url": "https://brylski4rw.com",
+    "how": "Filed with the Secretary of State; the site is headed 'Gerald Brylski for Red Wing', speaks of 'Advocating for Ward 1 & 2' and of the 2026 general election in Red Wing",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1022-22814",
+   "name": "Ryan Evanson",
+   "official_page": {
+    "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+    "source": "City of Fridley, Meet Your Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fridley City Council, Ward 2",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Fridley's Meet Your Council page ('Ryan Evanson - Councilmember Ward 2 ... Term 2023-2027')",
+     "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-10846-S",
+   "name": "Ryan Reider"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0094",
+   "name": "Shaun Williams"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0204",
+   "name": "Mark Gransee"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0465",
+   "name": "Felicia Reed"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Melissa Roberts"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0742",
+   "name": "Vincent Miles"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0885",
+   "name": "Tim Lewis",
+   "official_page": {
+    "url": "https://www.stma.k12.mn.us/our-district-new/school-board/members",
+    "source": "St. Michael-Albertville Schools, School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Michael-Albertville School Board (Treasurer)",
+     "from": "",
+     "to": "now",
+     "source": "the district's School Board Members page ('Tim Lewis, Treasurer ... Term Expires: 2026')",
+     "url": "https://www.stma.k12.mn.us/our-district-new/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5012-ISD2142",
+   "name": "Mallory Manick"
+  },
+  {
+   "race_id": "2026-MN-8614-MN",
+   "name": "Robert Docherty"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "name": "Erik Skogquist",
+   "race_id": "2026-MN-1001-01720",
+   "finding": "website",
+   "url": "https://erikskogquist.com",
+   "why": "erikskogquist.com answered HTTP 429 on three tries on 2026-10-02, so the page could not be read"
+  }
+ ]
+}

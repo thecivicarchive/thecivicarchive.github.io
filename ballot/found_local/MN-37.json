@@ -1,0 +1,429 @@
+{
+ "part": 37,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "Web search ran out for the session partway through this part (the tool reported 200 of 200 used) after one search each for 29 of the 30 candidates and a few follow-ups; the rest was done by reading known pages directly with the kit's User-Agent, robots.txt obeyed. Nothing usable was found, or could be searched further, for Jen Fracisco, Donald Jorgenson (not on the City of Vadnais Heights council page), Jason Jensen (the district's elections page lists his affidavit only), Eliza Robertson, Jennifer Anderson (listed only as a 2026 candidate on the district's page), Jacob Bases, Michael Baskins, Danny O. Lundell and Stuart Dukek. A missing website here is not proof that none exists.",
+  "Out of reach and not worked around: mncourts.gov answers 403 (no official page for either judge); cfb.mn.gov and www.clearwatercountymn.gov are closed to scripts by robots.txt (Clearwater County's officers page does list 'District 3 - Stuart Dukek', seen once through WebFetch before the robots.txt was read, and is not cited); www.mankatomn.gov is closed by robots.txt. The Forum Communications papers (Duluth News Tribune, Post Bulletin, St. Cloud Live) were not opened or cited.",
+  "Campaign websites seen but not confirmed, so left out: Wikipedia's article on Nick Frentz links https://www.frentzformnsenate.com/ (timed out three times); peggyscott.org reset the connection and may not be hers. Wayne Grimmer's site answered the kit's fetch but not WebFetch (a name lookup failure), so a verifier may need a second try.",
+  "Tanja Goering: KNSI Radio reported on March 17, 2026 that Republican delegates in House District 13A endorsed her (https://knsiradio.com/?p=817327). That is a news report, not the party's own page, so there is no endorsed_by entry. The DFL's June 5, 2026 release on its endorsed slate (dfl.org/icymi-dfl-endorsed-slate-of-candidates) names no legislative candidates, so nothing is recorded for Nick Frentz or Rick Olson.",
+  "Rick Olson: Wikipedia's article 'Rick Olson (Michigan politician)' gives a birth date and says he retired to Prior Lake, Minnesota, but the date carries no citation there, so no birth year is recorded. The Prior Lake News Compass article ties the Michigan service to this candidate (Prior Lake resident, DFL candidate for Senate District 54).",
+  "Frank Pafko: the election archive is neither Wikipedia nor a news organization; it is labelled secondary and the date is cut to the year, as part 5 did. The same person by Richfield residence, party and state legislative runs. His 2020 primary win in 63B is on the same page and not listed separately.",
+  "Nathan Burr: the district's school board page builds its text by script, so the kit's fetch saw no names; the listing (board member, chair, term ending 12/31/2026) was seen only in a web search result of that page. A verifier who cannot see it should remove it.",
+  "Tasha Connelly: the City's page about her still shows a term of January 1, 2023 to December 31, 2024. Patrick Keane: our record calls the seat 'Council Member, District 1'; the City and the news call it Ward 1. Neither is recorded as a review item.",
+  "Angela Conley's start is from MinnPost's report of the November 2018 election; Hennepin County's page gives no dates."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0174-MN",
+   "name": "Rick Olson",
+   "offices": [
+    {
+     "office": "State Representative, Michigan House of Representatives",
+     "from": "2011",
+     "to": "2012",
+     "source": "Prior Lake News Compass, September 3, 2025",
+     "url": "https://plnewscompass.org/?p=4380",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative in Michigan",
+     "year": "2011-12",
+     "party": "Republican",
+     "source": "Prior Lake News Compass, September 3, 2025",
+     "url": "https://plnewscompass.org/?p=4380",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0288-MN",
+   "name": "Frank Pafko",
+   "born": {
+    "year": 1953,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/frank-pafko",
+    "kind": "secondary",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for State Senate, District 51 (general election, lost)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/frank-pafko",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State House, District 63B (general election, lost)",
+     "year": "2020",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/frank-pafko",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State House, District 63B (general election, lost)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/frank-pafko",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State House, District 63B (general election, lost)",
+     "year": "2016",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/frank-pafko",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-003",
+   "name": "Wayne J. Grimmer",
+   "website": {
+    "url": "https://vote4grimmer.com",
+    "how": "The site is headed \"Wayne Grimmer for Anoka County Commissioner\" and says he is running for Anoka County Commissioner",
+    "corrected": "the claim about a search result naming it on his filing could not be re-seen and was dropped",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-053",
+   "name": "Angela Conley",
+   "official_page": {
+    "url": "https://www.hennepincounty.gov/your-government/leadership/4th-district",
+    "source": "Hennepin County",
+    "corrected": "address changed: hennepin.us now redirects to hennepincounty.gov",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hennepin County Commissioner, District 4",
+     "from": "elected 2018",
+     "to": "present",
+     "source": "MinnPost, November 2018 (elected November 2018); Hennepin County's page shows her in the seat today",
+     "url": "https://www.minnpost.com/metro/2018/11/election-leads-to-historic-shake-up-in-hennepin-county/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-065",
+   "name": "Tom Roeschlein",
+   "official_page": {
+    "url": "https://www.kanabeccounty.org/departments/board_information.php",
+    "source": "Kanabec County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kanabec County Commissioner, District 5 (term expires 2026)",
+     "from": "",
+     "to": "present",
+     "source": "Kanabec County",
+     "url": "https://www.kanabeccounty.org/departments/board_information.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0402-125",
+   "name": "Nick Knott",
+   "official_page": {
+    "url": "https://www.redlakecounty.gov/departments/treasurer/index.php",
+    "source": "Red Lake County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Lake County Treasurer",
+     "from": "",
+     "to": "present",
+     "source": "Red Lake County",
+     "url": "https://www.redlakecounty.gov/departments/treasurer/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-069",
+   "name": "Matt Vig",
+   "official_page": {
+    "url": "https://www.co.kittson.mn.us/government/departments/sheriff.php",
+    "source": "Kittson County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kittson County Sheriff",
+     "from": "",
+     "to": "present",
+     "source": "Kittson County",
+     "url": "https://www.co.kittson.mn.us/government/departments/sheriff.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-001",
+   "name": "James (Jim) Ratz",
+   "official_page": {
+    "url": "https://www.aitkincountymn.gov/departments/attorney/",
+    "source": "Aitkin County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Aitkin County Attorney",
+     "from": "",
+     "to": "present",
+     "source": "Aitkin County",
+     "url": "https://www.aitkincountymn.gov/departments/attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-137",
+   "name": "Kimberly J. Maki",
+   "official_page": {
+    "url": "https://www.stlouiscountymn.gov/departments-a-z/attorney",
+    "source": "St. Louis County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Louis County Attorney (sworn in September 29, 2021 to complete a term; elected to a four-year term in November 2022)",
+     "from": "2021",
+     "to": "present",
+     "source": "St. Louis County",
+     "url": "https://www.stlouiscountymn.gov/departments-a-z/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-25118",
+   "name": "Tasha Connelly",
+   "official_page": {
+    "url": "https://cityofgrandrapidsmn.com/node/2278",
+    "source": "City of Grand Rapids",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Grand Rapids (appointed by the City Council in January 2024)",
+     "from": "2024",
+     "to": "present",
+     "source": "KAXE, January 8, 2024",
+     "url": "https://www.kaxe.org/local-news/2024-01-08/council-appoints-connelly-as-new-grand-rapids-mayor",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Grand Rapids City Council member",
+     "from": "elected 2016",
+     "to": "2024",
+     "source": "KAXE, January 8, 2024",
+     "url": "https://www.kaxe.org/local-news/2024-01-08/council-appoints-connelly-as-new-grand-rapids-mayor",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-20618",
+   "name": "Philip Windschitl",
+   "offices": [
+    {
+     "office": "Farmington City Council member (appointed to an open seat; term through December 31, 2026)",
+     "from": "2026",
+     "to": "present",
+     "source": "Sun Thisweek / Dakota County Tribune (hometownsource.com), April 14, 2026",
+     "url": "https://www.hometownsource.com/sun_thisweek/community/dakota_county/phil-windschitl-appointed-to-open-seat-on-farmington-city-council/article_351c8fd0-4298-483e-9405-011724ab26ad.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Farmington Planning Commission member (appointed)",
+     "from": "2019",
+     "to": "2026",
+     "source": "Sun Thisweek / Dakota County Tribune (hometownsource.com), April 14, 2026",
+     "url": "https://www.hometownsource.com/sun_thisweek/community/dakota_county/phil-windschitl-appointed-to-open-seat-on-farmington-city-council/article_351c8fd0-4298-483e-9405-011724ab26ad.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Matt Peterson",
+   "official_page": {
+    "url": "https://www.northmankato.com/government/city_council/index.php",
+    "source": "City of North Mankato",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Mankato City Council member (term expires 2026)",
+     "from": "",
+     "to": "present",
+     "source": "City of North Mankato",
+     "url": "https://www.northmankato.com/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-54880",
+   "name": "Patrick Keane",
+   "official_page": {
+    "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+    "source": "City of Rochester",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester City Council member, Ward 1",
+     "from": "elected 2018",
+     "to": "present",
+     "source": "KTTC, March 12, 2026 (held since 2018, the year of his first election); the City's page lists him for the 1st Ward",
+     "url": "https://www.kttc.com/2026/03/12/patrick-keane-seeks-re-election-city-council-ward-1/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "ReNae Bowman",
+   "official_page": {
+    "url": "https://www.rdale.org/discover/school-board",
+    "source": "Robbinsdale Area Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robbinsdale Area Schools (ISD 281) School Board member (term January 2023 to December 2026)",
+     "from": "2023",
+     "to": "present",
+     "source": "Robbinsdale Area Schools",
+     "url": "https://www.rdale.org/discover/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Crystal",
+     "from": "2005",
+     "to": "2012",
+     "source": "CCX Media, January 10, 2024",
+     "url": "https://ccxmedia.org/news/robbinsdale-school-board-appoints-renae-bowman-chair",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0861",
+   "name": "Karl W Sonneman",
+   "official_page": {
+    "url": "https://www.winonaschools.org/school-board",
+    "source": "Winona Area Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona Area Public Schools (ISD 861) School Board member, At Large (term expires 2026)",
+     "from": "",
+     "to": "present",
+     "source": "Winona Area Public Schools",
+     "url": "https://www.winonaschools.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8416-MN",
+   "name": "Christopher A Neisen",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Third Judicial District (appointed by Governor Mark Dayton, announced May 2, 2018)",
+     "from": "2018",
+     "to": "present",
+     "source": "Office of Governor Mark Dayton, news release of May 2, 2018 (archived by the Legislative Reference Library)",
+     "url": "https://www.leg.mn.gov/DOCS/2018/other/181224/governor/newsroom/index3db1.htm",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Child Support Magistrate, First Judicial District",
+     "from": "",
+     "to": "",
+     "source": "Office of Governor Mark Dayton, news release of May 2, 2018 (archived by the Legislative Reference Library)",
+     "url": "https://www.leg.mn.gov/DOCS/2018/other/181224/governor/newsroom/index3db1.htm",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Deputy Scott County Examiner of Titles",
+     "from": "",
+     "to": "",
+     "source": "Office of Governor Mark Dayton, news release of May 2, 2018 (archived by the Legislative Reference Library)",
+     "url": "https://www.leg.mn.gov/DOCS/2018/other/181224/governor/newsroom/index3db1.htm",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9206-MN",
+   "name": "Viet-Hanh Winchell",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Tenth Judicial District (appointed by Governor Tim Walz)",
+     "from": "2024",
+     "to": "present",
+     "source": "Minnesota Lawyer, April 17, 2024",
+     "url": "https://minnlawyer.com/?p=487618",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-5000-ISD0015",
+   "name": "Nathan Burr",
+   "what": "official_page and office (school board member, ISD 15)",
+   "why": "https://isd15.org/page/school-board builds its text by script; no names could be seen in two tries (the kit's fetch and WebFetch)"
+  },
+  {
+   "race_id": "2026-MN-8416-MN",
+   "name": "Christopher A Neisen",
+   "what": "office: City prosecutor, City of New Prague",
+   "why": "the release states it, but it reads as legal work for a city rather than a public office held; unsure, so left out"
+  }
+ ]
+}

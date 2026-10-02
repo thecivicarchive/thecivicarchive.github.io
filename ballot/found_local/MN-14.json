@@ -1,0 +1,687 @@
+{
+ "part": 14,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "WebSearch could not be used for this part (the session's search budget, 200 searches, was already spent), so pages were reached directly: the campaign websites filed with the Secretary of State (read from John's saved lists by the kit's own reader, python -m ballot.local_sites files, on a scratch copy of the database), government, party and newspaper sites, and the search pages of two newspapers (hometownsource.com, winonapost.com). Candidates with nothing below are ones for whom no such page stated anything a card may show.",
+  "Sites that asked scripts to stay out or refused them: co.ym.mn.gov and co.wabasha.mn.us (robots.txt). Those two counties' commissioner pages were opened before their robots.txt was checked; nothing read there is used, so Greg Renneke and Rick Powers have no findings here. A person can read the two pages by hand: https://www.co.ym.mn.gov/commissioners and https://www.co.wabasha.mn.us/government/board_of_commissioners/index.php. columbiaheightsmn.gov and sartellmn.com (robots.txt; opened before the check, nothing used). mncourts.gov (403 on its judicial directory and on its robots.txt: no court page for Judges Staples and Rosenfeldt). mn.gov/governor (a CAPTCHA page; left at once). ballotpedia.org (an empty page to scripts). dfl-cd2.org (403).",
+  "Tim Miller (East Bethel, Council Member At Large): the City of East Bethel's own notice says the council member of that name, who had filed for re-election, died on August 1, 2026, and that his name stays on the November 3 ballot. It is recorded as a review item for John to read; how the page should show it is his decision.",
+  "Read and left out on purpose: jobs and employers, schools, family, religion, nonprofit boards and military service (the Legislative Reference Library's records and the campaign sites show some of these); labor and other non-party endorsements; a legislative staff post and a county attorney's office post in Karla Bigham's record, and a second 2025 appointment there whose wording is unclear. Charlotte Gabler's filed address (votegabler.com) shows only \"Launching Soon\" and names nobody, so no website finding is made for her.",
+  "Birth years: the Legislative Reference Library gives Robert Farnsworth's date of birth as June 17, 1978 and marks it \"(uncertain)\"; the Minnesota Historical Election Archive gives the same date without that mark. The year is recorded from the archive, as secondary, with the library's mark said in the source line.",
+  "party_support (a key the loader does not read, in the shape other parts use): two party units list candidates of this part on pages that do not use the word endorsed: the 8th Congressional District Republicans' \"2026 Candidates\" (Farnsworth, Warwas) and the Winona County Republicans' \"Candidates\" (Repinski). They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision. The St. Louis County Republican Party's list is under endorsed_by because its home page calls it \"the candidates endorsed by the St. Louis County Republican Party for 2026 elections\".",
+  "Two filed campaign sites still carry the text of an earlier run: repinskiforhouse.com (his first run; no 2026 date) and klangforsheriff.com (his 2022 announcement, under a 2026 copyright line). Both are the addresses filed for 2026.",
+  "Steve Soyka: Stearns County's own pages show their text only through scripts, so no official page is given. The county's news item of January 8, 2019 (\"Steve Soyka was sworn-in as the new Sheriff\") is in the news data that its Sheriff's Office page loads and can be seen in the page source; a reader in a browser may not see it. Alyssa Bowers: the Waseca district's directory address carries her family name as its search word, since the directory shows her only when searched."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0127-MN",
+   "name": "Robert Farnsworth",
+   "website": {
+    "url": "https://robfarnsworth.org/",
+    "how": "The site's title reads \"Rob Farnsworth for State Senate\" and its home page says he is serving his first term in the Minnesota Senate, representing District 7. It is the address filed with the Secretary of State, and the St. Louis County Republican Party's and the 8th Congressional District Republicans' 2026 candidate pages both link to it.",
+    "verified": true
+   },
+   "born": {
+    "year": 1978,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate record for Robert (Rob) Farnsworth of Hibbing, which lists his 2022 election to State Senate District 7. The Legislative Reference Library's record gives the same date and marks it uncertain.",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/robert-rob-farnsworth/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iron Range Resources and Rehabilitation Board, chair (a legislative member)",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (dates not given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15579",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "The GOP-endorsed candidate for Senate District 7",
+    "url": "https://robfarnsworth.org/campaign/",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "8th Congressional District Republicans (congressional district unit)",
+     "wording": "2026 Candidates",
+     "what": "Named \"SD 7 - Rob Farnsworth\" under District 7, with a link to his campaign site, on the unit's page titled \"2026 Candidates\". The page does not use the word endorsed.",
+     "url": "https://www.mncd8gop.com/2026-candidates",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "St. Louis County Republican Party (county unit)",
+     "wording": "Candidates Post Primary",
+     "what": "Shown under \"State Senators\" on the unit's page headed \"Candidates Post Primary\", with a link to his campaign site. The page itself does not use the word endorsed; the unit's home page links it both as \"2026 Endorsements\" (\"the candidates endorsed by the St. Louis County Republican Party for 2026 elections\") and as \"Post-Primary Candidates\".",
+     "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0163-MN",
+   "name": "Mike Freiberg",
+   "website": {
+    "url": "https://www.mikefreiberg.com/",
+    "how": "The site's banner reads \"Mike Freiberg For State Senator\"; its home page says he is running to be the next State Senator for District 43 and serves as State Representative for District 43B. It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates and the Senate District 43 DFL's convention results both link to it.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Golden Valley City Council member",
+     "from": "2004",
+     "to": "2012",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15398",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Minnesota House District 45B",
+     "from": "2013",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (\"House 2013-2022 (District 45B)\")",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15398",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL (district unit; its convention results read \"State Senator: Mike Freiberg was endorsed by a unanimous acclimation vote\")",
+     "url": "https://sd43dfl.org/convention",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\", under Senate District 43)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0201-MN",
+   "name": "Cal Warwas",
+   "website": {
+    "url": "https://calwarwas.com/",
+    "how": "The site's title reads \"Cal Warwas for House\" and its banner \"Cal Warwas for Minnesota House\". Its News page lists press items from his 2023 announcement (\"Warwas announces House 7B candidacy\", Mesabi Tribune, Oct 28, 2023); the home page itself does not give the district. It is the address filed with the Secretary of State, and the 8th Congressional District Republicans' 2026 candidates page links to it under \"HD 7B - Cal Warwas\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clinton Township Board supervisor (two terms)",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (dates not given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15648",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "ENDORSEMENTS ... Republican Party of Minnesota",
+    "url": "https://calwarwas.com/",
+    "note": "A heading and one entry of the list under it on the home page; other entries stand between them.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "8th Congressional District Republicans (congressional district unit)",
+     "wording": "2026 Candidates",
+     "what": "Named \"HD 7B - Cal Warwas\" under District 7, with a link to his campaign site, on the unit's page titled \"2026 Candidates\". The page does not use the word endorsed.",
+     "url": "https://www.mncd8gop.com/2026-candidates",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "St. Louis County Republican Party (county unit)",
+     "wording": "Candidates Post Primary",
+     "what": "Shown under \"State Representatives\" on the unit's page headed \"Candidates Post Primary\", with a link to his campaign site. The page itself does not use the word endorsed; the unit's home page links it both as \"2026 Endorsements\" (\"the candidates endorsed by the St. Louis County Republican Party for 2026 elections\") and as \"Post-Primary Candidates\".",
+     "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0238-MN",
+   "name": "Aaron Repinski",
+   "website": {
+    "url": "https://www.repinskiforhouse.com/",
+    "how": "The site's title reads \"Aaron Repinski for MN State House 26A\" and its home page welcomes readers to \"Winona County and Minnesota House District 26A\". It is the address filed with the Secretary of State, and the Winona County Republicans' candidates page links to it under MN House District 26A. The site's text dates from his first run and carries no 2026 date.",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "date": "1973-10-03",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15641",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona City Council member",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (dates not given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15641",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Winona County Republicans (county unit)",
+     "wording": "Candidates",
+     "what": "Named \"Repinski for House\" under \"MN House, District 26A\", with a link to his campaign site, on the unit's page headed \"Candidates\". The page does not use the word endorsed.",
+     "url": "https://winonacountyrepublicans.com/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0275-MN",
+   "name": "TJ Hawthorne",
+   "website": {
+    "url": "https://tjhawthorne.com/",
+    "how": "The home page is headed \"Independent Candidate • Minnesota District 44B\" above the name TJ Hawthorne, and says he is running as an Independent candidate for Minnesota State Representative.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I'm running as an Independent candidate for Minnesota State Representative",
+    "url": "https://tjhawthorne.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0317-MN",
+   "name": "Sebastian Ellefson",
+   "website": {
+    "url": "https://www.teamellefson.com/",
+    "how": "The site's title reads \"Sebastian Ellefson for MN House 65B\" and its disclaimer names the committee Team Ellefson for 65B. It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates links to the site for House District 65B.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\", under House District 65B)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Sebastian is a progressive Democrat with roots in his community.",
+    "url": "https://www.teamellefson.com/meet_sebastian",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-173",
+   "name": "Greg Renneke"
+  },
+  {
+   "race_id": "2026-MN-0392-157",
+   "name": "Rick Powers"
+  },
+  {
+   "race_id": "2026-MN-0394-003",
+   "name": "Jerry Koch",
+   "website": {
+    "url": "https://jerrykoch.com/",
+    "how": "The site's title reads \"Jerry Koch for Anoka County Commissioner — District 4\"; its About page says he has served 15 years on the Coon Rapids City Council, the last 12 as mayor. It is the address filed with the Secretary of State; it carries a 2026 copyright line and says it is still under development.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.coonrapidsmn.gov/167/Mayor",
+    "source": "City of Coon Rapids: Mayor page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Coon Rapids",
+     "from": "",
+     "to": "now",
+     "source": "City of Coon Rapids: Mayor page (term expires December 31, 2026)",
+     "url": "https://www.coonrapidsmn.gov/167/Mayor",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Coon Rapids City Council member (15 years on the council, the last 12 as mayor)",
+     "from": "",
+     "to": "",
+     "source": "his campaign's own site, About page",
+     "url": "https://jerrykoch.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-163",
+   "name": "Karla Bigham",
+   "website": {
+    "url": "https://www.karlabigham.com/",
+    "how": "The home page is headed \"Karla Bigham for Washington County Commissioner\" and carries a 2026 copyright line. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.washingtoncountymn.gov/1283/District-4-Commissioner-Karla-Bigham",
+    "source": "Washington County: District 4 Commissioner page",
+    "verified": true
+   },
+   "born": {
+    "year": 1979,
+    "date": "1979-03-09",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Commissioner, District 4",
+     "from": "2023",
+     "to": "now",
+     "source": "Washington County: District 4 Commissioner page (on the County Board since January 2023; chair of the board in 2026)",
+     "url": "https://www.washingtoncountymn.gov/1283/District-4-Commissioner-Karla-Bigham",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Washington County Commissioner (an earlier tenure)",
+     "from": "2015",
+     "to": "2018",
+     "source": "Washington County: District 4 Commissioner page",
+     "url": "https://www.washingtoncountymn.gov/1283/District-4-Commissioner-Karla-Bigham",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Senator, Minnesota Senate District 54",
+     "from": "2018",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (terms from February 20, 2018 to January 1, 2023)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Minnesota House District 57A",
+     "from": "2007",
+     "to": "2011",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (terms from January 1, 2007 to January 2, 2011)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Cottage Grove City Council member",
+     "from": "2005",
+     "to": "2006",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Amateur Sports Commission member (appointed by the Governor)",
+     "from": "2011",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (appointed June 24, 2011; end not given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Cottage Grove Public Safety, Health and Welfare Commission, chair",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (dates not given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Senator, District 54, in the special election of February 12, 2018 (re-elected in 2020)",
+     "year": 2018,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Elected State Representative, District 57A (re-elected in 2008)",
+     "year": 2006,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15281",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-059",
+   "name": "Kara Eastlund"
+  },
+  {
+   "race_id": "2026-MN-0404-035",
+   "name": "Eric Klang",
+   "website": {
+    "url": "https://www.klangforsheriff.com/",
+    "how": "The site's title reads \"Klang for Sheriff | Vote Eric Klang for Crow Wing County Sheriff\". It is the address filed with the Secretary of State. Its text is his announcement for the 2022 race; the page carries a 2026 copyright line and a countdown to Election Day.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.crowwing.gov/340/About-the-Sheriff",
+    "source": "Crow Wing County: About the Sheriff page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crow Wing County Sheriff",
+     "from": "elected November 2022",
+     "to": "now",
+     "source": "Crow Wing County: About the Sheriff page",
+     "url": "https://www.crowwing.gov/340/About-the-Sheriff",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Crow Wing County Sheriff (an earlier term)",
+     "from": "2003",
+     "to": "2006",
+     "source": "Crow Wing County: About the Sheriff page",
+     "url": "https://www.crowwing.gov/340/About-the-Sheriff",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chief of Police, City of Pequot Lakes",
+     "from": "2011",
+     "to": "2022",
+     "source": "Crow Wing County: About the Sheriff page",
+     "url": "https://www.crowwing.gov/340/About-the-Sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-145",
+   "name": "Steve Soyka",
+   "offices": [
+    {
+     "office": "Stearns County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "AM 1240 WJON (St. Cloud), August 13, 2026, which names him as the Stearns County Sheriff",
+     "url": "https://wjon.com/stearns-county-jail-capacity/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Stearns County Sheriff (sworn in as the new Sheriff in January 2019)",
+     "from": "2019",
+     "to": "",
+     "source": "Stearns County news item of January 8, 2019, \"County Elected Officials Take Oath\", carried in the news data of the county's Sheriff's Office page (it may not be shown on the page itself)",
+     "url": "https://www.stearnscountymn.gov/sheriffs-office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-093",
+   "name": "Brandi L. Schiefelbein",
+   "official_page": {
+    "url": "https://www.meekercountymn.gov/166/Attorney",
+    "source": "Meeker County: Attorney page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Meeker County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Meeker County: Attorney page (staff list: \"Brandi L. Schiefelbein, Meeker County Attorney\")",
+     "url": "https://www.meekercountymn.gov/166/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-12700",
+   "name": "Mark Miernicki"
+  },
+  {
+   "race_id": "2026-MN-1001-59350",
+   "name": "Angelica Contreras",
+   "website": {
+    "url": "https://contrerasformayor.com/",
+    "how": "The site's title reads \"Contreras for Mayor\" under the banner \"Forward Together, Shakopee\"; its home page introduces Angelica Contreras, elected to the Shakopee City Council in November 2018 and now in her second term. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+    "source": "City of Shakopee: Mayor & City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shakopee City Council member",
+     "from": "2019",
+     "to": "now",
+     "source": "City of Shakopee: Mayor & City Council page (first took office January 1, 2019; term expires December 31, 2026)",
+     "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-17486",
+   "name": "Tim Miller",
+   "offices": [
+    {
+     "office": "East Bethel City Council member",
+     "from": "2023",
+     "to": "2026",
+     "source": "City of East Bethel: notice of August 6, 2026 (took the oath of office January 9, 2023; served until August 1, 2026)",
+     "url": "https://www.ci.east-bethel.mn.us/CivicAlerts.aspx?AID=56",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Tim Miller is on the November 3, 2026 list for Council Member At Large, East Bethel",
+     "problem": "The City of East Bethel's notice of August 6, 2026 says Council Member Tim Miller, who had filed for re-election, died on August 1, 2026, and that his name will still appear on the city's November 3 ballot because of ballot-printing deadlines",
+     "url": "https://www.ci.east-bethel.mn.us/CivicAlerts.aspx?AID=56",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-43774",
+   "name": "Charlotte Gabler",
+   "official_page": {
+    "url": "https://www.monticellomn.gov/256/Charlotte-Gabler",
+    "source": "City of Monticello: Charlotte Gabler, Councilmember page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Monticello City Council member",
+     "from": "",
+     "to": "now",
+     "source": "City of Monticello: Charlotte Gabler, Councilmember page (current term January 1, 2023 to December 31, 2026; earlier terms are not given)",
+     "url": "https://www.monticellomn.gov/256/Charlotte-Gabler",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-58612",
+   "name": "Matt Dankers"
+  },
+  {
+   "race_id": "2026-MN-1020-18674",
+   "name": "Shelly Binsfeld",
+   "website": {
+    "url": "https://www.shellybinsfeld.com/",
+    "how": "The home page is headed \"Shelly Binsfeld, City Council Ward 1\" and reads \"Vote Shelly Binsfeld, Elk River City Council Ward 1\"; it carries a 2026 copyright line. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sherburneswcd.org/board-of-supervisors.html",
+    "source": "Sherburne Soil and Water Conservation District: Board of Supervisors page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sherburne Soil and Water Conservation District supervisor, District I (Elk River)",
+     "from": "2020",
+     "to": "now",
+     "source": "Sherburne Soil and Water Conservation District: Board of Supervisors page (\"Served as SWCD Supervisor since 2020\"; term ends December 31, 2028)",
+     "url": "https://www.sherburneswcd.org/board-of-supervisors.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-02908",
+   "name": "Kris Heichel"
+  },
+  {
+   "race_id": "2026-MN-1026-71032",
+   "name": "Raelynn Peter"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0138",
+   "name": "Sarah Grovender",
+   "official_page": {
+    "url": "https://www.isd138.org/page/school-board-information",
+    "source": "North Branch Area Public Schools: School Board Information page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Branch Area Public Schools Board member (vice chair)",
+     "from": "2017",
+     "to": "now",
+     "source": "North Branch Area Public Schools: School Board Information page (\"First Elected/Appointed: January 2017\"; term expires January 2027)",
+     "url": "https://www.isd138.org/page/school-board-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Elaine Olson",
+   "website": {
+    "url": "https://www.olsonforedina.com/",
+    "how": "The site's title reads \"Elaine Olson for Edina School Board\" and its pages end \"Vote Elaine Olson for Edina School Board, November 3, 2026\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Andrew Petersen"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0701",
+   "name": "Jeff Polcher",
+   "official_page": {
+    "url": "https://www.isd701.org/district/school-board/members",
+    "source": "Hibbing Public Schools: School Board Members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hibbing School Board member (clerk)",
+     "from": "",
+     "to": "now",
+     "source": "Hibbing Public Schools: School Board Members page",
+     "url": "https://www.isd701.org/district/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0829",
+   "name": "Alyssa Bowers",
+   "official_page": {
+    "url": "https://www.waseca.k12.mn.us/o/waseca-ps/page/about-waseca-school-board",
+    "source": "Waseca Public Schools: About Waseca School Board page (named in the caption of the board's photograph)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca School Board member",
+     "from": "",
+     "to": "now",
+     "source": "Waseca Public Schools: its own directory, which lists her with the title School Board",
+     "url": "https://www.waseca.k12.mn.us/staff?search=Bowers",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Anthony Paggen"
+  },
+  {
+   "race_id": "2026-MN-8105-MN",
+   "name": "Kelly A. Staples"
+  },
+  {
+   "race_id": "2026-MN-8929-MN",
+   "name": "Jade M. Rosenfeldt"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0127-MN",
+   "name": "Robert Farnsworth",
+   "field": "endorsed_by",
+   "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+   "why": "The page that names him is headed \"Candidates Post Primary\" and does not say endorsed; only the unit's home page, which does not name him, calls the list endorsements. Kept as party_support, not as an endorsement."
+  },
+  {
+   "race_id": "2026-MN-0201-MN",
+   "name": "Cal Warwas",
+   "field": "endorsed_by",
+   "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+   "why": "The page that names him is headed \"Candidates Post Primary\" and does not say endorsed; only the unit's home page, which does not name him, calls the list endorsements. Kept as party_support, not as an endorsement."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's own User-Agent; all 40 answered. Each finding was read against the page and against the race in our record (state plus office, place or district).",
+  "The St. Louis County Republican Party's list is no longer under endorsed_by (see removed): this replaces the last sentence of the researcher's sixth note.",
+  "Two findings are stated only in a page's source data, not in its visible text without scripts: Steve Soyka's swearing-in (Stearns County news item dated 2019-01-08) and Sarah Grovender's \"First Elected/Appointed: January 2017\" (North Branch Area Public Schools). Both were found there as recorded.",
+  "The reference to WJON's March 2, 2023 profile of Steve Soyka was taken out of the source line: that page is not among the addresses and was not opened. The sentence about Karla Bigham's About page was taken out for the same reason.",
+  "Official pages for Koch, Contreras, Gabler, Grovender, Polcher, Bigham and Schiefelbein also show phone numbers, e-mail or an address; none of that is in this file."
+ ]
+}

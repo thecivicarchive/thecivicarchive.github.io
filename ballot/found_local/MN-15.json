@@ -1,0 +1,616 @@
+{
+ "part": 15,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up when this part began (the first search was refused: 200 of 200 used), so none of these thirty candidates could be searched for. Everything below was found by opening pages directly with the kit's honest User-Agent, each site's robots.txt read first and obeyed: the campaign websites the candidates filed with the Secretary of State (learned by running the kit's own step, python -m ballot.local_sites files, on a scratch copy of the database; each was then opened and read), each government's own site, the two state parties' and local party units' own sites, the Legislative Reference Library, the University of Minnesota's election archive, and a few news sites. No search engine was read in place of the search tool. A second pass with searching would be worth it for the candidates with nothing below.",
+  "Nothing citable was found for Julian Rodriguez, Derek Armstrong, Christian Kirmeier, Sarah Phan-Budd, Peter Hardy, Chad Moser and the two judges (Matthew Schmidt, Stephanie L. Beckman); Emily Christie has a review item only. The judges: the Minnesota Judicial Branch's site and the Governor's pages were not requested, because other parts of this sweep had already found that they refuse scripts (a 403 or a Cloudflare check; a CAPTCHA), and no other page naming either judge could be reached without searching. The City of Shakopee's own list of candidates names Julian Rodriguez and gives no website for him. The Glencoe-Silver Lake district's own \"Meet the GSL School Board Candidates\" page carries Chad Moser's answers, which name no public office and no website (what they say of work and household is not recorded). The Hibbing district's and city's pages do not name Peter Hardy; Monticello's council and commission pages do not name Derek Armstrong; Winona's council and commission pages do not name Sarah Phan-Budd, and the Winona Journal's own site search finds nothing on that race.",
+  "Not read, and nothing worked around: columbiaheightsmn.gov and ci.sauk-rapids.mn.us (their robots.txt asks scripts to stay out, so Rachel James has no official page here and her council service rests on her own campaign site, and nothing could be checked for Christian Kirmeier); 5il.co, a document host one school district links to (robots.txt); slcgop.org (it leads to a social media page); the Senate District 8 Republicans, whose only web presence on the 8th Congressional District Republicans' list of local units is a social media page; martincountygop.com (404) and wrightcountyrepublicans.com (402).",
+  "James Tacheny's campaign site (the address the Senate District 44 Republicans publish for him) could not be read by the kit's reader on this machine: Python refused its certificate (\"self-signed certificate in certificate chain\"), over https and http alike. Certificate checking was not turned off. The page was read with the fetch tool instead, which reported the sentence quoted in his entry (twice, the same both times) but gave the page's title two ways, so no title is quoted; the second reader should open the site in a browser. Until the certificate is sorted out the kit's fetch step will record this site as not answering, so no photo options or issue headings will come from it.",
+  "Endorsements: the Minnesota DFL's own list names Daniel Horoshak (House District 7B), Dan Wilson (26A) and Leigh Finke (66A); the Winona County DFL's home page lists Dan Wilson among \"the candidates who are endorsed in the 2026 Elections\"; the Senate District 45 Republicans' \"Endorsed Candidates\" page calls Andrew Myers \"our endorsed Republican candidate to retain the House District 45A seat\". No party page that uses the word endorsed was found for Darrick Law (the 8th Congressional District Republicans list him under \"2026 Candidates\") or James Tacheny (the Senate District 44 Republicans list him under \"REPUBLICAN PARTY CANDIDATES\"), so neither has an endorsed_by entry.",
+  "party_support (a key the loader does not read, in the shape other parts use): the Senate District 31 Republicans' 2026 Voting Guide names Brian Kirkham under \"Recommended Nonpartisan Candidates\", a heading that is not the word endorsement, so it is kept apart from endorsed_by and no page should call it an endorsement; whether and how it is shown is John's decision.",
+  "Sitting legislators (Andrew Myers, Leigh Finke): the website, the party's endorsement, and what the Legislative Reference Library adds to the roster, which is Finke's birth date (the roster has none) and Myers's three local posts (the roster already has his birth date, and the Library's matches it). No review items: the Library's dates of service agree with the roster.",
+  "Dan Wilson's birth year is from the Minnesota Historical Election Archive (University of Minnesota Libraries). It is a university archive, not a news organization, and is labelled secondary for the second reader to judge; the sources it names for him are the Secretary of State's candidate filings, his campaign website and the Winona Journal, not a birth records index. The Winona Journal of August 4, 2025 gives his age as 37, which fits. The archive has no page under the names tried for Darrick Law, James Tacheny or Dan Horoshak.",
+  "Jay Maynard: Wikipedia's article on him gives a birth date with no citation attached, so no birth year is recorded. The City of Fairmont's Charter Commission page lists \"James R. Maynard, III\" among its appointees; no page read ties that name to Jay Maynard in so many words, so the commission seat rests on his own campaign site. That site's About page reads as written before he joined the council, and the city's Board of Zoning Appeals page does not list him today; both posts are recorded without dates.",
+  "Emily Christie: the review item rests on a news organization (the Sun Current, hometownsource.com), not on an official source. That site's robots.txt allows the kit's User-Agent but turns away several AI crawlers by name, Anthropic's among them; one article was read there and nothing else is taken from it. The same is true of two front pages that were read and not used (mesabitribune.com, willmarradio.com); a third, swnewsmedia.com, turns away other companies' AI crawlers. Whether such sites should be read at all is John's call.",
+  "Dave Dunn: the Waseca district's School Board page names him only in the caption of the board's photo; his seat and title come from the list that page links, \"2026 Waseca School Board of Education Members\", a document the district keeps on Google Docs (read as plain text; only names, titles and terms were looked at). David Marquardt and Dave Dunn: the Moorhead and Waseca district sites draw their pages by script, so a script finds the names inside the page's data, and a browser shows them on the page.",
+  "Two official pages print a home address beside the office holder's name, so they are not the pages cited here: Blue Earth County's own page about Kevin Paap (https://www.blueearthcountymn.gov/1567/Kevin-Paap, which also carries his portrait and \"Served Since: 2021\") and Watonwan County's County Officials table (https://www.co.watonwan.mn.us/121/County-Officials). The pages cited instead (Blue Earth County's Board of Commissioners table; Watonwan County's Human Services Board members) give the same facts without an address. Whether to link to the other two is John's decision.",
+  "Not recorded: staff jobs in government that two candidates' own sites describe (jobs, not public offices), and the party posts two other sites mention (not public offices either). Brad Canham's \"Member of Governor's WorkForce Council\" is recorded as his site lists it, with no years; the second reader may judge whether it was an appointed seat or part of a job.",
+  "Addresses tried and dropped, because nothing on them ties them to these races: christiankirmeier.com (not a campaign site), phanbudd.com and julianrodriguez.com (empty), emilychristie.com (a holding page), electchristie.com (it leads to another person's campaign elsewhere).",
+  "Second reader (2026-10-02): every address in this file was opened again with the kit's honest User-Agent (James Tacheny's site with the fetch tool, since Python still refuses its certificate). Kept as recorded, with small wording corrections where a claim could not be seen again: the 8th Congressional District Republicans' and Senate District 44 Republicans' pages are named in the notes without addresses, so the website entries no longer lean on them; Bobby Lambert's About-page timeline was not re-read. Removed: Brad Canham's own_words and his Governor's WorkForce Council entry (see \"removed\"). Dan Wilson's birth year stays labelled secondary: the University of Minnesota archive is neither Wikipedia nor a news organization, though the Winona Journal's age for him agrees; John may prefer to leave it out. Emily Christie's review item rests on a news report, not an official source, and is kept labelled as such. Dan Horoshak's own_words is a party post in his own words; the sentence around it on his site names a union, an employer and other memberships, none of which is recorded."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0128-MN",
+   "name": "Darrick Law",
+   "website": {
+    "url": "https://darrickformnsenate.com",
+    "how": "The website he filed with the Secretary of State for this race. Its home page is headed \"Darrick Law for MN State Senate - District 8\" (page title \"Home | Darrick For MN Senate\").",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0164-MN",
+   "name": "James Tacheny",
+   "website": {
+    "url": "https://www.jtachenyforsenate.com/",
+    "how": "The site's title is \"J Tacheny For Senate\". It says he \"became a state Delegate of Senate district 44\" and \"seeks your vote to serve his life long community as State Senator\", and names the communities of the district. The kit's reader cannot open it (Python refuses the site's certificate, and certificate checking was not turned off); it was read with the fetch tool both times.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0201-MN",
+   "name": "Dan Horoshak",
+   "website": {
+    "url": "https://horoshak2026.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title is \"Home | Horoshak2026\"; it is headed \"DAN HOROSHAK\" with the line \"Iron Range First\" and says it is paid for by \"the Daniel Horoshak Friends Of committee\". The site names the candidate and the Iron Range; it does not name the office in words.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Director of Saint Louis County 07 for the DFL",
+    "url": "https://horoshak2026.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0238-MN",
+   "name": "Dan Wilson",
+   "website": {
+    "url": "https://danwilsonforhouse.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title is \"Dan Wilson for Minnesota State House\" and it says \"He is running for House District 26A\"; the Minnesota DFL's list of endorsed candidates and the Winona County DFL both link to it beside his name and district.",
+    "verified": true
+   },
+   "born": {
+    "year": 1988,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Daniel Wilson, the 2022 DFL candidate in State Senate District 26: \"Born: March 1988\". The record names its sources: the Secretary of State's 2022 candidate filings, his campaign website, and the Winona Journal's \"Wilson Is Back, This Time for Winona House Seat\" (August 4, 2025)",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/daniel-wilson",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona County Economic Development Authority Board (member)",
+     "from": "",
+     "to": "now",
+     "source": "Winona County: Economic Development Authority Board, whose list of members names Daniel Wilson (no dates given); his campaign site says he serves on the Economic Development Authority",
+     "url": "https://www.co.winona.mn.us/382/Economic-Development-Authority-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Winona County DFL (county unit)",
+     "url": "https://winonadfl.org/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota Senate in District 26 against Jeremy Miller and lost",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Winona Journal (published August 4, 2025), which calls him \"a Democrat\" and says \"In 2022 he tried to unseat State Senate Jeremy Miller of Winona but lost 58% to 39%\"; the University of Minnesota's election archive lists that run under Democratic-Farmer-Labor",
+     "url": "https://www.winonajournal.com/wilson-is-back-this-time-for-house-26a-seat/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "my values line up with the historic Farm Labor Party",
+    "url": "https://danwilsonforhouse.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0276-MN",
+   "name": "Andrew Myers",
+   "website": {
+    "url": "https://voteandrewmyers.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title is \"Re-Elect Andrew Myers | House of Representatives District 45A\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnetonka Beach City Council",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Municipal Council/Aldermen: Minnetonka Beach, Minnesota (City Council); [Dates Unknown]\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15618",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnetonka Beach Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Municipal Board/Commission: Minnetonka Beach, Minnesota (Planning Commission); [Dates Unknown]\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15618",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Tonka Bay Parks and Docks Commission",
+     "from": "2020",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Municipal Board/Commission: Tonka Bay, Minnesota (Parks and Docks Commission); 2020 to 12/31/2022\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15618",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 45 Republicans (district unit)",
+     "url": "https://www.sd45.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0318-MN",
+   "name": "Leigh Finke",
+   "website": {
+    "url": "https://www.leighformn.com/",
+    "how": "The Minnesota DFL's list of endorsed candidates links to this site beside her name and House District 66A. The site's title is \"LEIGH for 66a\" and it asks readers to sign up for \"news and updates about Leigh for 66A\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1981,
+    "date": "1981-05-28",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (\"Leigh Dawn Finke\": Date of Birth 5/28/1981)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15575",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-003",
+   "name": "Brian Kirkham",
+   "website": {
+    "url": "https://electkirkham.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title is \"Kirkham for Commissioner – Election 2026\"; it says \"My name is Brian Kirkham, and I'm running for Anoka County Commissioner\" and asks \"the residents of Anoka County District 2\" for their support.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ci.ham-lake.mn.us/government/council/kirkham",
+    "source": "City of Ham Lake: Mayor Brian Kirkham",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Ham Lake",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Ham Lake: Mayor Brian Kirkham (\"Term Begins: January 1, 2023\"; \"Term Expires: December 31, 2026\")",
+     "url": "https://www.ci.ham-lake.mn.us/government/council/kirkham",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Ham Lake City Council",
+     "from": "elected 2018",
+     "to": "",
+     "source": "His campaign site: \"I was elected to the Ham Lake City Council in 2018, ran for mayor in 2022, and currently serve as mayor of Ham Lake.\"",
+     "url": "https://electkirkham.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Bethel City Council (elected twice)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"being elected twice to the Bethel City Council\" (no years given)",
+     "url": "https://electkirkham.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 31 Republicans (district unit)",
+     "wording": "Recommended Nonpartisan Candidates",
+     "what": "Named for District 2 under \"Recommended for the Anoka County Commission\", in the section headed \"Recommended Nonpartisan Candidates\" of the unit's 2026 Voting Guide. The guide says it lists \"the Republican endorsed or recommended (for nonpartisan races) candidates\" and uses the word \"Endorsed\" only for partisan offices.",
+     "url": "https://www.sd31gop.com/voting-guide.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-163",
+   "name": "Edison Vizuete",
+   "website": {
+    "url": "https://edisonvizuete.com",
+    "how": "Found by asking whether the likely address exists and then reading the site. Its title is \"Edison Vizuete for Washington County Commissioner | District 2\", and its footer carries the year 2026 beside the same words.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-013",
+   "name": "Kevin Paap",
+   "website": {
+    "url": "https://paapforcommissioner.com",
+    "how": "The website he filed with the Secretary of State for this race. It is titled \"Paap for Commissioner\", is headed \"District 4 Blue Earth County Commissioner\" and says \"I am Kevin Paap and I am running for Re-Election as your County Commissioner.\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+    "source": "Blue Earth County: Board of Commissioners (Kevin Paap, District 4)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Blue Earth County Commissioner, District 4",
+     "from": "2021",
+     "to": "now",
+     "source": "Blue Earth County: Board of Commissioners, whose table lists Kevin Paap for district 4 (\"Term Expires\": January 5, 2027; \"Sworn In\": 2021)",
+     "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Governor's Committee on Pollinator Protection (member)",
+     "from": "2016",
+     "to": "2019",
+     "source": "His campaign site's list of leadership activities, under the heading \"Governor's Committee on Pollinator Protection\": \"Committee Member, 2016-2019\"",
+     "url": "https://www.paapforcommissioner.com/leadership-activities",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Governor's Council on Biofuels (member)",
+     "from": "2020",
+     "to": "2021",
+     "source": "His campaign site's list of leadership activities, under the heading \"Governor's Council on Biofuels\": \"Council Member, 2020-2021\"",
+     "url": "https://www.paapforcommissioner.com/leadership-activities",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "State of Minnesota Biodiesel Task Force (member)",
+     "from": "2007",
+     "to": "2021",
+     "source": "His campaign site's list of leadership activities, under the heading \"State of Minnesota Biodiesel Task Force\": \"Task Force Member, 2007-2021\"",
+     "url": "https://www.paapforcommissioner.com/leadership-activities",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-165",
+   "name": "Scott Westman",
+   "official_page": {
+    "url": "https://www.co.watonwan.mn.us/331/Board-Members",
+    "source": "Watonwan County: Human Services Board, Board Members (Commissioners: Scott Westman - District 4)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Watonwan County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Watonwan County: Human Services Board, Board Members, which lists under Commissioners \"Scott Westman - District 4\" (no term dates given); the county's County Officials table lists him for the Fourth District too",
+     "url": "https://www.co.watonwan.mn.us/331/Board-Members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-061",
+   "name": "Austin M. Rohling",
+   "official_page": {
+    "url": "https://www.co.itasca.mn.us/directory.aspx?did=9",
+    "source": "Itasca County: Staff Directory, Auditor/Treasurer's Office (Austin Rohling, Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Itasca County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Itasca County: Staff Directory, Auditor/Treasurer's Office, which lists Austin Rohling with the title Auditor/Treasurer (no dates given)",
+     "url": "https://www.co.itasca.mn.us/directory.aspx?did=9",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-037",
+   "name": "Bobby Lambert",
+   "website": {
+    "url": "https://bobbylambert4sheriff.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title begins \"Bobby Lambert for Dakota County Sheriff\" and names the \"Bobby Lambert for Sheriff Committee\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-147",
+   "name": "Lon Thiele",
+   "official_page": {
+    "url": "https://www.steelecountymn.gov/departments/sheriff/index.php",
+    "source": "Steele County: Sheriff's Office (Sheriff: Lon Thiele)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Steele County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Steele County: Sheriff's Office, which names the Sheriff as Lon Thiele (no dates given)",
+     "url": "https://www.steelecountymn.gov/departments/sheriff/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-095",
+   "name": "Corey Haller",
+   "official_page": {
+    "url": "https://www.millelacs.mn.gov/2506/Elected-County-Officials",
+    "source": "Mille Lacs County: Elected County Officials (Corey Haller, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mille Lacs County Attorney",
+     "from": "2024 (appointed)",
+     "to": "now",
+     "source": "Mille Lacs County: Elected County Officials, which lists Corey Haller as County Attorney and says \"Appointed to office in 2024.\"",
+     "url": "https://www.millelacs.mn.gov/2506/Elected-County-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-12700",
+   "name": "Rachel James",
+   "website": {
+    "url": "https://www.racheljamesforheights.com",
+    "how": "The website she filed with the Secretary of State for this race. Its home page is headed \"Rachel James for Mayor of Columbia Heights\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Columbia Heights City Council (Council President)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Her campaign site: \"Rachel James is Council President of Columbia Heights, first elected to the City Council in 2022.\"",
+     "url": "https://www.racheljamesforheights.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-59350",
+   "name": "Julian Rodriguez"
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Brad Canham",
+   "website": {
+    "url": "https://brad4ep.com",
+    "how": "The website he filed with the Secretary of State for this race. Its title is \"Brad4EP City Council | Brad Canham for Eden Prairie City Council\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-43774",
+   "name": "Derek Armstrong"
+  },
+  {
+   "race_id": "2026-MN-1010-58684",
+   "name": "Christian Kirmeier"
+  },
+  {
+   "race_id": "2026-MN-1020-20330",
+   "name": "Jay Maynard",
+   "website": {
+    "url": "https://maynardforfairmont.org",
+    "how": "The website he filed with the Secretary of State for this race. Its pages end \"Prepared and paid for by\" Jay Maynard, above the words \"Fairmont City Council\" and \"Ward 1\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://fairmont.org/city-council/",
+    "source": "City of Fairmont: City Council (Ward 1: Jay Maynard)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fairmont City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Fairmont: City Council, which lists Jay Maynard for Ward 1 (no term dates given)",
+     "url": "https://fairmont.org/city-council/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Fairmont Charter Commission (member)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"I also serve as vice chairman of the Board of Zoning Appeals, and as a member of the Charter Commission.\" (no years given)",
+     "url": "https://maynardforfairmont.org/About-me/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Fairmont Board of Zoning Appeals (vice chairman)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"I also serve as vice chairman of the Board of Zoning Appeals, and as a member of the Charter Commission.\" (no years given; the city's Board of Zoning Appeals page does not list him today)",
+     "url": "https://maynardforfairmont.org/About-me/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-02908",
+   "name": "Oballa Oballa",
+   "official_page": {
+    "url": "https://www.ci.austin.mn.us/city-council",
+    "source": "City of Austin: City Council, Meet Your Council Members (Oballa Oballa, Council Third Ward)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin City Council (Third Ward)",
+     "from": "elected November 2020",
+     "to": "now",
+     "source": "City of Austin: City Council, which lists him as \"Council Third Ward\" and says he was elected to the Austin City Council in November 2020",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota State Board of Trustees (member; a two-year term by the Governor's appointment)",
+     "from": "",
+     "to": "",
+     "source": "City of Austin: City Council, which says Governor Tim Walz appointed him \"to a two-year term on the Minnesota State Board of Trustees, which oversees all 38 state colleges and seven universities in Minnesota\" (no years given)",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-71032",
+   "name": "Sarah Phan-Budd"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0152",
+   "name": "David Marquardt",
+   "official_page": {
+    "url": "https://www.isd152.org/page/meet-the-school-board",
+    "source": "Moorhead Area Public Schools: Meet the School Board (David Marquardt, Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Moorhead Area Public Schools School Board (Chair)",
+     "from": "2023",
+     "to": "now",
+     "source": "Moorhead Area Public Schools: Meet the School Board, which lists David Marquardt as \"Chair (2023-2027)\"",
+     "url": "https://www.isd152.org/page/meet-the-school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Emily Christie",
+   "review": [
+    {
+     "shows": "On the November 3, 2026 list as a candidate for the Edina School Board (ISD 273)",
+     "problem": "The Sun Current's voter's guide of October 1, 2026 says: \"Emily Christie will be listed on the ballot, but she confirmed to the Sun Current that she is no longer seeking office.\" This is a news organization's report, not an official record; her name stays on the ballot.",
+     "url": "https://www.hometownsource.com/sun_current/psa/voters-guide-meet-the-candidates-running-for-edina-school-board/article_86e37b25-feb6-41ef-9407-7b82056f4d0e.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Dan Schilling",
+   "official_page": {
+    "url": "https://www.lfalls.k12.mn.us/about/school-board",
+    "source": "Little Falls Community Schools (ISD 482): School Board (Dan Schilling, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Little Falls Community Schools School Board (Director)",
+     "from": "",
+     "to": "now",
+     "source": "Little Falls Community Schools (ISD 482): School Board, whose table of members lists Dan Schilling as Director, with the term expiring January 2027 (no starting year given)",
+     "url": "https://www.lfalls.k12.mn.us/about/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0701",
+   "name": "Peter Hardy"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0829",
+   "name": "Dave Dunn",
+   "official_page": {
+    "url": "https://www.waseca.k12.mn.us/page/about-waseca-school-board",
+    "source": "Waseca Public Schools: About Waseca School Board (the board's photo caption names Dave Dunn; the page links the 2026 list of members)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca Public Schools Board of Education (Chair)",
+     "from": "",
+     "to": "now",
+     "source": "Waseca Public Schools: \"2026 Waseca School Board of Education Members\", the list its School Board page links: \"Dave Dunn, Chair\", \"Term Expires 1/01/2027\" (no starting year given)",
+     "url": "https://docs.google.com/document/d/1kSraGPHbdLF8ngkPDd_yDRpSJFaCFd8m5-eKWIXy8dY/edit?usp=sharing",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Chad Moser"
+  },
+  {
+   "race_id": "2026-MN-8106-MN",
+   "name": "Matthew Schmidt"
+  },
+  {
+   "race_id": "2026-MN-9001-MN",
+   "name": "Stephanie L. Beckman"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "name": "Brad Canham",
+   "race_id": "2026-MN-1010-18116",
+   "what": "own_words",
+   "why": "The sentence is on his site as quoted and is twelve words, but \"independent change candidate\" is not an explicit party or endorsement statement, so it is not kept as one."
+  },
+  {
+   "name": "Brad Canham",
+   "race_id": "2026-MN-1010-18116",
+   "what": "offices: Governor's WorkForce Council (member)",
+   "why": "His site lists it as \"Department of Employment and Economic Development (DEED) - Member of Governor's WorkForce Council\" in a list of employers and roles, with no years; the page does not show it was an appointed public post and not part of a job. Unsure means left out."
+  }
+ ]
+}

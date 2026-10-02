@@ -1,0 +1,682 @@
+{
+ "part": 3,
+ "of": 73,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0232-MN",
+   "name": "Nick Ronnenberg",
+   "what": "website",
+   "url": "https://www.ronnenbergformn.com",
+   "why": "Could not be re-opened: the site answered the kit's script with 429 (too many requests) on two runs, robots.txt included, and the page-reading tool could not reach the host on two tries."
+  },
+  {
+   "race_id": "2026-MN-0232-MN",
+   "name": "Nick Ronnenberg",
+   "what": "own_words",
+   "url": "https://www.ronnenbergformn.com/about",
+   "why": "Could not be re-opened (the same site: 429 to the script twice, unreachable to the page-reading tool twice), so the quote was not seen."
+  },
+  {
+   "race_id": "2026-MN-1001-51730",
+   "name": "Clark Gregor",
+   "what": "endorsed_by",
+   "url": "https://sd43dfl.org/vote",
+   "why": "The page was read and lists Clark Gregor, Mayor, City of Plymouth under \"Letters of Support\", apart from its \"Endorsed Candidates\". A letter of support is not the party's endorsement, so it cannot stand under endorsed_by."
+  }
+ ],
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after five searches (the first two candidates). Everything else was read by opening pages directly, with the kit's honest User-Agent and each site's robots.txt obeyed, or with the page-reading tool: the candidates' own sites, each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates and local party units' pages, the University of Minnesota's election archive, Wikipedia, and a few local news sites' own pages (CCX Media, KYMN Radio, the Enterprise Dispatch, Southwest News Media, WJON). No search engine was read in place of the search tool.",
+  "The campaign websites the candidates filed were learned from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; each was then opened. Four more were found: Thaddeus Laugisch's (the Clay County DFL's page gives it), Peder Jothen's (KYMN Radio's candidate guide gives it), and Jeremiah Sedler's and Gerry Hoisington's (reached by trying an address; each was kept only because its own pages name the office, the place and this year's election). Other addresses that answered were not campaign sites for these races and were dropped.",
+  "Three campaign sites answered the kit's script with 429 (too many requests) on some or all requests and were read with the page-reading tool: danrogersmn.com, ronnenbergformn.com (its robots.txt could not be read either) and clarkforplymouth.com (which leads to www.clarkgregor.com; the Meet Clark page there did answer the script). The second reader may meet the same 429.",
+  "Clark Gregor: the address he filed, clarkforplymouth.com, redirects to www.clarkgregor.com. The filed address is given as the website so the loader sees it as the filed one; his campaign-sourced offices cite pages on www.clarkgregor.com. The Senate District 43 DFL's page lists him under \"Letters of Support\", which the DFL gives in nonpartisan races instead of an endorsement; it is recorded under endorsed_by with that wording kept in the unit text, for the second reader to judge. His campaign site lists his council seat as 2023 to present; the city's page gives only the end of the term, so the official entry has no start year.",
+  "Peder Jothen's own site says the DFL gave him a letter of support; no DFL page naming him was found (the Rice/Scott 58 DFL's candidates page does not), so it is recorded as his own words only.",
+  "Brad Olson: the election archive's page is for a Brad Olson of Brooklyn Park who was the Republican candidate in House District 38A in 2024. No page read states in so many words that he is this year's Senate District 38 candidate; the tie is the name, the party and the place (38A is half of Senate District 38), and CCX Media covered both runs. Left for the second reader to judge. His campaign site showed only its title.",
+  "The Minnesota Historical Election Archive (University of Minnesota Libraries) is the source for three earlier runs under a party label (Brad Olson, Thaddeus Laugisch, Jen Fox, all 2024). It is a university archive of official returns, not a news organization, and is labelled secondary for the second reader to judge. The birth dates it shows for the three were not taken, because the source it names for them is a birth records index.",
+  "No birth year is recorded for anyone. Wikipedia's article on Sarah Hennesy gives \"born 1969 or 1970\", which is not a year; Allen Miskowiec's site gives an age without a date.",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (403 to the script's robots.txt request and to the page-reading tool), so Sarah Hennesy has no official page here and nothing is recorded for Judge Andrew Pearson; Becker County's site (a certificate chain the kit's check would not accept at one address, a Radware page at the other); mshale.com and the Freeborn County Republicans' site (403 and no answer). The Governor's office release of April 22, 2024 announcing Sarah Hennesy's appointment (https://mn.gov/governor/newsroom/press-releases/?id=1055-621124) was read once; a second request to mn.gov met a Radware CAPTCHA and the host was left alone, so her offices rest on her campaign site.",
+  "The Detroit Lakes Tribune's robots.txt asks Claude by name to stay out. Two of its pages (the Election 2026 index and a story on the Becker County auditor-treasurer forum) were opened with the kit's script before that was noticed; nothing is cited from them, and the story named no public office or campaign website for Amy Rosing.",
+  "Republican endorsements: none could be recorded for Brad Olson or Nick Ronnenberg. mngop.com lists statewide nominees only, and no local unit's page naming either was found.",
+  "Patrick Barry's site lists \"Planning Commission\" and \"Charter Commission\" under civic leadership without naming the city or the years, so no office is recorded from it; his posts in the sheriff's office are employment, not offices. Gary Gray's county page also names a fire board, a library board and two industry boards; only the township board and the federal appointment are recorded.",
+  "Nothing citable was found for eight candidates, who are listed with no findings: Daniel Widmer, Jim Muelken, Amy Rosing, Tony Khambata, Chet Gunhus, Rick Deinken, Dario Garcia and Andrew Pearson. The official pages read show that six of them do not hold the office sought today: Sibley County lists Peter Koch for District 1 and Scott County lists Tom Wolf for District 2, and the Cottage Grove council page and the Eastern Carver County, Dassel-Cokato and Faribault school board pages do not list Tony Khambata, Chet Gunhus, Rick Deinken or Dario Garcia. Jeremiah Sedler is likewise not on the Cambridge council page.",
+  "Second reading, 2026-10-02: every address was re-opened with the kit's script (robots.txt read first for each host) and the wording compared. danrogersmn.com, clarkforplymouth.com and www.clarkgregor.com answered the script with 429 twice and were read with the page-reading tool, which confirmed them; www.ronnenbergformn.com could not be read either way, so both of Nick Ronnenberg's findings were deleted (his filed address is still in the Secretary of State's list). Clark Gregor's letter of support was taken out of endorsed_by because the unit's own page sets letters of support apart from endorsements. Kept for the reasons the first reader gave, and worth John's eye: Brad Olson's 2024 run (the archive does not mention 2026; name, state, party and place agree) and Samba Fall's website (it names him and the Maple Grove City Council, but every dated item on it is from 2024). The election archive is kept as secondary. 67 findings confirmed, 3 deleted."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0122-MN",
+   "name": "Dan R. Rogers",
+   "website": {
+    "url": "https://danrogersmn.com",
+    "how": "The home page names Dan Rogers and the office, \"MN Senate District 2\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: Senate District 2)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Hubbard County DFL (its 2026 Candidates page reads \"Dan Rogers - MN Senate District 2 - DFL Endorsed\")",
+     "url": "https://www.hubbardcountydfl.org/general-5",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Itasca County DFL (its Candidates page lists \"Dan Rogers Senate 2\" under the heading \"DFL Endorsed Candidates\")",
+     "url": "https://sites.google.com/site/itascacountydfl/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0158-MN",
+   "name": "Brad Olson",
+   "website": {
+    "url": "https://www.olson4mnsenate.com",
+    "how": "The site's title reads \"Brad Olson for MN Senate\". It names no district, and nothing else on the page loaded for a script or for the page reader (a Google Sites page).",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 38A (won the Republican primary; lost the general election)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Brad Olson gives his residence as Brooklyn Park, Hennepin County, his party as Republican, and two 2024 campaigns for State House, District 38A (primary won, general lost). The page does not mention the 2026 Senate race: the tie is the name, the state, the party our list shows, and the place (House District 38A is one half of Senate District 38)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/brad-olson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0195-MN",
+   "name": "Thaddeus Laugisch",
+   "website": {
+    "url": "https://tl4mnh4b.com/",
+    "how": "The site is titled \"Thaddeus Laugisch for MN House 4B\" and its home page reads \"I am running to be the Representative for Minnesota House District 4B in the Minnesota State House\". The Clay County DFL's candidates page gives this address for him.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 4B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Clay County DFL (its Candidates page, headed \"Connect with our endorsed candidates\", lists him for HD4B and spells the name Laugish)",
+     "url": "https://www.claycountydfl.org/candidates",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 4B, in the general election (lost)",
+     "year": "2024",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Thaddeus Laugisch gives his residence as Moorhead, Clay County",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/thaddeus-laugisch",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL Clay County Unit – Outreach Officer",
+    "url": "https://tl4mnh4b.com/about/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0232-MN",
+   "name": "Nick Ronnenberg"
+  },
+  {
+   "race_id": "2026-MN-0269-MN",
+   "name": "Jen Fox",
+   "website": {
+    "url": "https://jenfoxforhouse.com",
+    "how": "The site is titled \"Jen Fox for House | District 41b | Minnesota, USA\" and its home page reads \"My name is Jen Fox, and I am running for the House of Representatives for House District 41B\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Hastings City Council",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, Meet Jen page: \"Former member of the Hastings City Council\". No years are given.",
+     "url": "https://www.jenfoxforhouse.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Commissioner and Treasurer, Hastings Economic Development and Redevelopment Authority (HEDRA)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, Meet Jen page: \"Former Commissioner and Treasurer for the Hastings Economic Development and Redevelopment Authority (HEDRA)\". No years are given.",
+     "url": "https://www.jenfoxforhouse.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Dakota County 911 Board",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, Meet Jen page: \"Former member of the Dakota County 911 Board\". No years are given.",
+     "url": "https://www.jenfoxforhouse.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 41B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 41B, in the general election (lost)",
+     "year": "2024",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Jen Fox gives her residence as Hastings, Dakota County",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/jen-fox",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0309-MN",
+   "name": "Jamie Long",
+   "website": {
+    "url": "https://www.jamielong.com",
+    "how": "The site is titled \"Jamie Long for MN State House\" and its home page reads \"Jamie is running for his fifth term as the MN State House Representative for District 61B\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 61B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-143",
+   "name": "Daniel Widmer"
+  },
+  {
+   "race_id": "2026-MN-0392-139",
+   "name": "Jim Muelken"
+  },
+  {
+   "race_id": "2026-MN-0393-131",
+   "name": "Gerry Hoisington",
+   "website": {
+    "url": "https://gerryhoisington.com/",
+    "how": "The site is titled \"Gerry Hoisington | Rice County Commissioner District 3\" and reads \"Prepared and paid for by the Committee to Re-Elect Gerry Hoisington\" and \"© 2026 Gerry Hoisington Campaign\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ricecountymn.gov/directory.aspx?EID=159",
+    "source": "Rice County, staff directory page for Gerry Hoisington: \"Commissioner, District 3\" and \"Current term expires Dec. 31, 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rice County Commissioner, District 3",
+     "from": "2023",
+     "to": "now",
+     "source": "Rice County, staff directory page for Gerry Hoisington: \"Served on the Rice County Board of Commissioners since Jan. 3, 2023\" and \"Current term expires Dec. 31, 2026\"",
+     "url": "https://www.ricecountymn.gov/directory.aspx?EID=159",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-141",
+   "name": "Gary Howard Gray",
+   "official_page": {
+    "url": "https://www.co.sherburne.mn.us/1320/Gary-Gray",
+    "source": "Sherburne County, Board of Commissioners page for Gary Gray: \"District 4\" and \"Term: 2023 - 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sherburne County Commissioner, District 4",
+     "from": "2023",
+     "to": "now",
+     "source": "Sherburne County, Board of Commissioners page for Gary Gray: \"District 4\" and \"Term: 2023 - 2026\"",
+     "url": "https://www.co.sherburne.mn.us/1320/Gary-Gray",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Clear Lake Township Board (18 years, 12 of them as chairman, by the county's page)",
+     "from": "",
+     "to": "",
+     "source": "Sherburne County, Board of Commissioners page for Gary Gray: \"He has served on the Clear Lake Township Board for the past 18 years, with 12 years as Chairman\". No years are given.",
+     "url": "https://www.co.sherburne.mn.us/1320/Gary-Gray",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Potatoes USA (formerly the National Potato Promotion Board), appointed by the United States Secretary of Agriculture",
+     "from": "",
+     "to": "",
+     "source": "Sherburne County, Board of Commissioners page for Gary Gray: he \"was appointed by the United States Secretary of Agriculture\" to Potatoes USA, formerly the National Potato Promotion Board, \"for two six-year terms\". No years are given.",
+     "url": "https://www.co.sherburne.mn.us/1320/Gary-Gray",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-005",
+   "name": "Amy Rosing"
+  },
+  {
+   "race_id": "2026-MN-0404-019",
+   "name": "Patrick Barry",
+   "website": {
+    "url": "https://patrickbarryforcarvercountysheriff.com",
+    "how": "The site is titled \"Patrick Barry for Carver County Sheriff 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-129",
+   "name": "Scott D. Hable",
+   "official_page": {
+    "url": "https://www.renvillecountymn.gov/sheriff/",
+    "source": "Renville County, Sheriff's Office page, signed \"Sheriff Scott D. Hable, Renville County, MN\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Renville County Sheriff",
+     "from": "2011 (elected November 2010)",
+     "to": "now",
+     "source": "Renville County, Sheriff's Office history page: its list of sheriffs gives \"22. Sheriff Scott D. Hable\", its election history shows him elected in 2010, 2014, 2018 and 2022, and it says officials \"took their office in January of the next year\"",
+     "url": "https://www.renvillecountymn.gov/sheriff/general-info/history/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-067",
+   "name": "Shane Baker",
+   "official_page": {
+    "url": "https://www.kcmn.us/departments/attorney/contact.php",
+    "source": "Kandiyohi County, County Attorney's contact page: \"Shane Baker\", \"Kandiyohi County Attorney\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kandiyohi County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Kandiyohi County, County Attorney's contact page: \"Shane Baker\", \"Kandiyohi County Attorney\". The page does not say when he took office.",
+     "url": "https://www.kcmn.us/departments/attorney/contact.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-09370",
+   "name": "Jeremiah Sedler",
+   "website": {
+    "url": "https://sedlerformayor.com/",
+    "how": "The site is titled \"Sedler For Mayor\"; its home page reads \"I'm running for Mayor\" and speaks of Cambridge throughout, and its Voting page gives \"General Election: Tuesday, November 3, 2026\" and \"The City of Cambridge has two precincts\". The home page's text gives the family name; the given name Jeremiah appears only in the campaign's contact line.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Isanti County Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"I've served on the Isanti County Planning Commission\". No years are given.",
+     "url": "https://sedlerformayor.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-51730",
+   "name": "Clark Gregor",
+   "website": {
+    "url": "https://clarkforplymouth.com",
+    "how": "The address answers with a permanent redirect to www.clarkgregor.com, whose Meet Clark page is titled \"Meet Clark | Clark Gregor for Mayor\" and lists \"Plymouth City Council, at-large member, 2023–present\". The Senate District 43 DFL's 2026 voting guide prints clarkforplymouth.com beside \"Clark Gregor\", \"Mayor\", City of Plymouth. Both sites answered the kit's script with 429; they were read with the page-reading tool.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+    "source": "City of Plymouth, City Council Members page: \"Clark Gregor\", \"At Large\", \"Term expires: Jan. 4, 2027\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Plymouth City Council Member, At Large (term expires January 4, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Plymouth, City Council Members page: \"Clark Gregor\", \"At Large\", \"Term expires: Jan. 4, 2027\". The page does not say when he took office; his campaign site lists \"Plymouth City Council, at-large member, 2023–present\".",
+     "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Deputy Mayor of Plymouth (chosen by the council)",
+     "from": "2026",
+     "to": "now",
+     "source": "His campaign site, Meet Clark page: \"Deputy Mayor, 2026\" and \"This year, Clark was selected by his council colleagues to serve as deputy mayor\"",
+     "url": "https://www.clarkgregor.com/meet-clark",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Plymouth Environmental Quality Committee (chair 2020 to 2021)",
+     "from": "2017",
+     "to": "2021",
+     "source": "His campaign site, Meet Clark page: \"Plymouth Environmental Quality Committee, 2017–2021\" and \"Chair, 2020–2021\"",
+     "url": "https://www.clarkgregor.com/meet-clark",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Plymouth Charter Commission",
+     "from": "2019",
+     "to": "2022",
+     "source": "His campaign site, Meet Clark page: \"Plymouth Charter Commission, 2019–2022\"",
+     "url": "https://www.clarkgregor.com/meet-clark",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Plymouth Planning Commission",
+     "from": "2022",
+     "to": "2022",
+     "source": "His campaign site, Meet Clark page: \"Plymouth Planning Commission, 2022\"",
+     "url": "https://www.clarkgregor.com/meet-clark",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-13456",
+   "name": "Tony Khambata"
+  },
+  {
+   "race_id": "2026-MN-1010-40166",
+   "name": "Samba Fall",
+   "website": {
+    "url": "https://www.sambaforcitycouncil.com",
+    "how": "The home page reads \"I'm running for Maple Grove City Council\" and \"Samba Fall's campaign for Maple Grove's City Council\". Its posts are dated 2024 (one is titled \"Samba Fall for Maple Grove City Council 2024\") and nothing on the home page mentions 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-55726",
+   "name": "Paul Essler",
+   "official_page": {
+    "url": "https://www.rosemountmn.gov/707/Councilmember-Paul-Essler",
+    "source": "City of Rosemount, page for Councilmember Paul Essler: \"First elected: 2018\" and \"Current term expires: January 4, 2027\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rosemount City Council Member (first elected 2018; current term expires January 4, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Rosemount, page for Councilmember Paul Essler: \"First elected: 2018\" and \"Current term expires: January 4, 2027\". The page gives the year of his first election, not the year he took office.",
+     "url": "https://www.rosemountmn.gov/707/Councilmember-Paul-Essler",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Vice Mayor of Rosemount",
+     "from": "",
+     "to": "now",
+     "source": "City of Rosemount, page for Councilmember Paul Essler, under \"Current positions\": \"Vice Mayor\"",
+     "url": "https://www.rosemountmn.gov/707/Councilmember-Paul-Essler",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chair, City of Rosemount Port Authority",
+     "from": "",
+     "to": "now",
+     "source": "City of Rosemount, page for Councilmember Paul Essler, under \"Current positions\": \"City of Rosemount Port Authority Chair\"",
+     "url": "https://www.rosemountmn.gov/707/Councilmember-Paul-Essler",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, MVTA Board of Commissioners",
+     "from": "",
+     "to": "now",
+     "source": "City of Rosemount, page for Councilmember Paul Essler, under \"Current positions\": \"MVTA Board of Commissioners\"",
+     "url": "https://www.rosemountmn.gov/707/Councilmember-Paul-Essler",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-07966",
+   "name": "Allen Miskowiec",
+   "website": {
+    "url": "https://www.allenmiskowiec.com",
+    "how": "The site is titled \"Allen Miskowiec | Brooklyn Park City Council\" and its home page is headed \"Allen Miskowiec for Brooklyn Park Council\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am NOT a politician, have no official party affiliation",
+    "url": "https://www.allenmiskowiec.com/",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "The race is titled Council Member, Ward E, in Brooklyn Park.",
+     "problem": "The City of Brooklyn Park's council page does not speak of wards: it says voters elect two council members each from the west district, the central district and the east district, and it lists this seat's holder under East District.",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-51730",
+   "name": "Julie Peterson",
+   "website": {
+    "url": "https://www.petersonforplymouth.com",
+    "how": "The site is titled \"Candidate for Plymouth City Council Ward 2\" and its home page reads \"I am Julie Peterson\" and \"I am running for reelection to the Plymouth City Council in Ward 2\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+    "source": "City of Plymouth, City Council Members page: \"Julie Peterson\", \"Ward 2 (Southwest)\", \"Term expires: Jan. 4, 2027\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Plymouth City Council Member, Ward 2 (term expires January 4, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Plymouth, City Council Members page: \"Julie Peterson\", \"Ward 2 (Southwest)\", \"Term expires: Jan. 4, 2027\". The page does not say when she took office; her campaign site says \"I have been serving as the Ward 2 City Council member since 2022\".",
+     "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Plymouth Charter Commission",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site, Meet Julie page: \"I am a member of the Plymouth Charter Commission\"",
+     "url": "https://petersonforplymouth.com/meetjulie",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-46924",
+   "name": "Peder Jothen",
+   "website": {
+    "url": "https://votepeder.com/",
+    "how": "The site is titled \"Peder Jothen for Northfield City Council, Ward 4\" and reads \"Prepared and paid for by Peder Jothen for City Council\". KYMN Radio's 2026 Northfield City Council candidates page gives this address for him.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Northfield Park and Recreation Board",
+     "from": "2017",
+     "to": "2025",
+     "source": "His campaign site, Meet Peder page: \"I served on Northfield's Park and Recreation Board from 2017–25\"",
+     "url": "https://votepeder.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Riverfront Enhancement Advisory Committee (Northfield)",
+     "from": "2018",
+     "to": "2020",
+     "source": "His campaign site, Meet Peder page: \"and on the Riverfront Enhancement Advisory Committee from 2018–2020\", in the sentence about his service on Northfield's boards",
+     "url": "https://votepeder.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I have been officially given a letter of support from the DFL",
+    "url": "https://votepeder.com/news/2026-08-03-im-officially-dfl-supported/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Chet Gunhus"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0256",
+   "name": "Jim Bryant",
+   "official_page": {
+    "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+    "source": "Red Wing Public Schools, School Board page: \"Jim Bryant\", \"Director\", \"Member since 2019\", \"Term expires 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing School Board member (Director; term expires 2026)",
+     "from": "2019",
+     "to": "now",
+     "source": "Red Wing Public Schools, School Board page: \"Jim Bryant\", \"Director\", \"Member since 2019\", \"Term expires 2026\"",
+     "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Rick Deinken"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0656",
+   "name": "Dario Garcia"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0750",
+   "name": "Kayla Nierenhausen",
+   "official_page": {
+    "url": "https://www.rocori.k12.mn.us/information/school-board",
+    "source": "ROCORI School District, School Board page: \"School board members serving through December 31, 2026 include Jennifer Bohnsack, Kayla Nierenhausen, and Matt Thompson\"; it lists her with the title Director",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "ROCORI School Board member (Director; serving through December 31, 2026)",
+     "from": "",
+     "to": "now",
+     "source": "ROCORI School District, School Board page: \"School board members serving through December 31, 2026 include Jennifer Bohnsack, Kayla Nierenhausen, and Matt Thompson\"; it lists her with the title Director. The page does not say when she joined the board.",
+     "url": "https://www.rocori.k12.mn.us/information/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912",
+   "name": "Sara Grieser",
+   "official_page": {
+    "url": "https://www.milaca.k12.mn.us/school-board-home/",
+    "source": "Milaca Public Schools, School Board page: \"Sara Grieser\", \"Director\", term expires \"January 2027\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milaca School Board member (Director; term expires January 2027)",
+     "from": "",
+     "to": "now",
+     "source": "Milaca Public Schools, School Board page: \"Sara Grieser\", \"Director\", term expires \"January 2027\". The page does not say when she joined the board.",
+     "url": "https://www.milaca.k12.mn.us/school-board-home/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-7002-MN",
+   "name": "Sarah Hennesy",
+   "website": {
+    "url": "https://justicesarahhennesy.com",
+    "how": "The site is titled \"Justice Sarah Hennesy | Support Justice Hennesy Today\" and reads \"Prepared and paid for by Minnesotans for Justice Sarah Hennesy\"; its About page begins \"Justice Sarah Hennesy has served on the Minnesota Supreme Court since May 13, 2024\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice, Minnesota Supreme Court",
+     "from": "2024",
+     "to": "now",
+     "source": "Her campaign site, About page: \"Justice Sarah Hennesy has served on the Minnesota Supreme Court since May 13, 2024\"",
+     "url": "https://justicesarahhennesy.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chief Judge, Seventh Judicial District",
+     "from": "2021",
+     "to": "2024",
+     "source": "Her campaign site, About page: \"From 2021 to 2024, she served as Chief Judge of the Seventh Judicial District\"",
+     "url": "https://justicesarahhennesy.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Judge, Minnesota district court (Seventh Judicial District)",
+     "from": "2012",
+     "to": "2024",
+     "source": "Her campaign site, About page: \"Before her appointment, she spent 12 years as a district court judge, chambered first in Milaca and later in St. Cloud\" and \"until she took the bench in 2012\"",
+     "url": "https://justicesarahhennesy.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8910-MN",
+   "name": "Andrew Pearson"
+  }
+ ]
+}

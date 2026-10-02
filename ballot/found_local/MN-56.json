@@ -1,0 +1,367 @@
+{
+ "state": "MN",
+ "part": 56,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance was already used up when this part began (every search was refused), so nothing was searched. Everything was found by reading known addresses directly with the kit's honest User-Agent (states/net.py, patient lookups, robots.txt checked first for each site): the campaign websites the candidates filed with the Secretary of State (already in sl_websites; read-only), each government's own site reached from its home page, dfl.org/endorsed, mngop.com, and four Wikipedia election pages. Candidates with no entry are the ones this left out of reach.",
+  "Mark Koran (markkoranmn.com) and Todd Buchwald (toddformn.com): the filed campaign sites answered with a CAPTCHA page (/.well-known/sgcaptcha/). It was not worked around or asked again, so no website is recorded here for either; the filed address stays as filed.",
+  "Yellow Medicine County's site (co.ym.mn.gov) asks scripts to stay out in robots.txt, so nothing was read there and Mark Gruenes has no findings.",
+  "The Minnesota Judicial Branch and Governor's sites were not asked (earlier parts report a 403 and a CAPTCHA), so Carrie Ryan Gallia has no findings.",
+  "No findings, names not on the government's own page of sitting members or not reachable without a search: _ Rocco (Senate District 65; not on dfl.org, mngop.com's nominees page or Wikipedia's 2026 Senate page), John Hintz (not on Norman County's board page), TJ Lynch beyond his website, Jeffrey Sheridan, Mark Borland (not on Hibbing's council page), Dan Stone (not on Champlin's council page), Amy Reynertson, Virgil Aguirre Jr, Josh Perkerewicz (not on their districts' board pages).",
+  "TJ Lynch's campaign site says he served as Chief of Police in Lyle and is Captain of the Mower County Sheriff's Office; these are jobs without years, so they are not recorded as offices.",
+  "Samantha Wolf: the own_words quote is a line on her own Endorsements page; a letter of support is not a party endorsement and no party page for it could be reached (sd47dfl.org has no address), so there is no endorsed_by.",
+  "Some government pages print members' contact details next to their names; none was kept, and the reader blanked phone numbers and e-mail addresses before printing."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0222-MN",
+   "name": "Erica Schwartz",
+   "website": {
+    "url": "https://www.ericaformn.org",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"Erica Schwartz | Minnesota House of Representatives District 18A\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0259-MN",
+   "name": "Brion Curran",
+   "website": {
+    "url": "https://brioncurran.com",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"Brion Curran\", says \"As your incumbent State Representative\" and \"Brion is the only candidate for 36B committed to ...\", and has an Endorsements page",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its page \"Candidates Endorsed by the Minnesota DFL\" lists \"Brion Curran, House District 36B\")",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-061",
+   "name": "Cory Smith",
+   "official_page": {
+    "url": "https://www.co.itasca.mn.us/479/County-Board-of-Commissioners",
+    "source": "Itasca County, County Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Itasca County Commissioner, District 1 (2026 County Board Chair)",
+     "from": "",
+     "to": "now",
+     "source": "Itasca County's County Board of Commissioners page: \"Cory Smith, 2026 County Board Chair, Commissioner, District 1, Term Expires: 2026\"",
+     "url": "https://www.co.itasca.mn.us/479/County-Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-091",
+   "name": "Jaime Bleess",
+   "official_page": {
+    "url": "https://www.co.martin.mn.us/your_government/board_of_commissioners/district_2.php",
+    "source": "Martin County, District 2 - County Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Martin County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Martin County's page \"District 2 - County Commissioner\" names Jaime Bleess",
+     "url": "https://www.co.martin.mn.us/your_government/board_of_commissioners/district_2.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-075",
+   "name": "Richard \"Rick\" Hogenson",
+   "official_page": {
+    "url": "https://lakecountymn.gov/people/richard-c-rick-hogenson/",
+    "source": "Lake County, Richard C. (Rick) Hogenson, District 3 County Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Lake County's County Board of Commissioners page: \"Richard C. (Rick) Hogenson, District 3 County Commissioner\"",
+     "url": "https://lakecountymn.gov/county-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-143",
+   "name": "Kathy Dietz",
+   "official_page": {
+    "url": "https://www.sibleycounty.gov/259/Recorder",
+    "source": "Sibley County, Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sibley County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Sibley County's Recorder page lists \"Kathy Dietz, Recorder\"",
+     "url": "https://www.sibleycounty.gov/259/Recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-099",
+   "name": "TJ Lynch",
+   "website": {
+    "url": "https://tjlynchforsheriff.com",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"TJ Lynch for Sheriff\", speaks of the Mower County Sheriff's Office and is paid for by the Committee to Elect TJ Lynch for Sheriff",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-41696",
+   "name": "Stephanie Levine",
+   "website": {
+    "url": "https://stephanie4mayor.com",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"Stephanie Levine For Mayor\" and is paid for by the Stephanie Levine for Mayor of Mendota Heights Committee",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mendotaheightsmn.gov/259/City-Council",
+    "source": "City of Mendota Heights, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Mendota Heights",
+     "from": "2021",
+     "to": "now",
+     "source": "her campaign site: \"Serving as Mayor of Mendota Heights since 2021\"; the city's City Council page lists her as Mayor, current term January 1, 2025 through December 31, 2026",
+     "url": "https://stephanie4mayor.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mendota Heights Parks and Recreation Commissioner (eight years, two as Chair)",
+     "from": "",
+     "to": "",
+     "source": "her campaign site's About page: \"I spent eight years as a Mendota Heights Parks and Recreation Commissioner, including two years as Chair\"; no years given",
+     "url": "https://stephanie4mayor.com/about-stephanie-levine/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "School Board Member, West St. Paul-Mendota Heights-Eagan Area Schools (ISD 197) (seven years)",
+     "from": "",
+     "to": "",
+     "source": "her campaign site's About page: \"I served 7 years on the West St. Paul-Mendota Heights-Eagan Area School Board (ISD 197) including time as Treasurer and Vice-Chair\"; no years given",
+     "url": "https://stephanie4mayor.com/about-stephanie-levine/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-08452",
+   "name": "Erin Walsh",
+   "official_page": {
+    "url": "https://www.ci.buffalo.mn.us/243/Erin-Walsh",
+    "source": "City of Buffalo, Erin Walsh, Council Person",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo City Council Member",
+     "from": "",
+     "to": "now",
+     "source": "City of Buffalo's Mayor and City Council page: \"Erin Walsh, Council Member ... Term Expires: 12/31/26 (2-year term), Elected to council - November 2024\"; the page gives no starting date for the term",
+     "url": "https://www.ci.buffalo.mn.us/242/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-49300",
+   "name": "Dan Boeke",
+   "official_page": {
+    "url": "https://www.owatonna.gov/564/Mayor-City-Council",
+    "source": "City of Owatonna, Mayor & City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Owatonna City Council Member at Large",
+     "from": "",
+     "to": "now",
+     "source": "City of Owatonna's Mayor & City Council page: \"Dan Boeke, Council Member at Large ... Current term expires 12/31/2026\"",
+     "url": "https://www.owatonna.gov/564/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Samantha Wolf",
+   "website": {
+    "url": "https://www.wolf4woodbury.com",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"Samantha Wolf for Woodbury City Council\" and says \"Official Woodbury City Council Candidate for 2026\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "DFL SD47 Letter of Support",
+    "url": "https://www.wolf4woodbury.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1024-69700",
+   "name": "Wendy Berry",
+   "website": {
+    "url": "https://wendyforwsp.com",
+    "how": "the campaign website filed with the Minnesota Secretary of State for the November 3, 2026 election; the site is titled \"Re-Elect Wendy Berry to West St. Paul City Council\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.wspmn.gov/494/City-Council",
+    "source": "City of West St. Paul, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "West St. Paul City Council Member, Ward 3",
+     "from": "2019",
+     "to": "now",
+     "source": "her campaign site: \"It's been an honor to serve West St. Paul as one of your Ward 3 City Councilmembers since 2019\"; the city's City Council page lists \"Wendy Berry, Ward III, Term Expires December 2026\"",
+     "url": "https://wendyforwsp.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0077",
+   "name": "Kari Pratt",
+   "official_page": {
+    "url": "https://www.isd77.org/experience/school-board",
+    "source": "Mankato Area Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice Chair), Mankato Area Public Schools (ISD 77)",
+     "from": "",
+     "to": "now",
+     "source": "the district's School Board page lists \"Kari Pratt, Vice Chair\"",
+     "url": "https://www.isd77.org/experience/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0727",
+   "name": "Tonya Reasoner",
+   "official_page": {
+    "url": "https://www.biglakeschools.org/about/school-board",
+    "source": "Big Lake Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Board Chair), Big Lake Schools (ISD 727)",
+     "from": "",
+     "to": "now",
+     "source": "the district's School Board page: \"Meet the Board: Tonya Reasoner, Board Chair\"; the same page lists her 2022 campaign financial report certificate of filing",
+     "url": "https://www.biglakeschools.org/about/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0882",
+   "name": "Casey Root",
+   "official_page": {
+    "url": "https://www.monticello.k12.mn.us/school-board",
+    "source": "Monticello Independent School District 882, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice Chair/Treasurer), Monticello Public Schools (ISD 882)",
+     "from": "",
+     "to": "now",
+     "source": "the district's School Board page lists \"Casey Root, Vice Chair/Treasurer\" under School Board Members, and Casey Root among its 2026 candidates",
+     "url": "https://www.monticello.k12.mn.us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5008-ISD0206-S",
+   "name": "Kyle Momsen",
+   "official_page": {
+    "url": "https://www.alexschools.org/district/meet-the-school-board",
+    "source": "Alexandria Public Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director), Alexandria Public Schools (ISD 206), appointed",
+     "from": "2025",
+     "to": "now",
+     "source": "the district's Board of Education page: \"Kyle Momsen, Director, Appointed in 2025, Current Term 2026\"",
+     "url": "https://www.alexschools.org/district/meet-the-school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "verifier_notes": [
+  "Every address in the file was opened again with the kit's honest User-Agent; all answered on the first try and none showed a wall.",
+  "Each candidate was checked against the read-only record: the page names the same office or place the race is for (county and district, city and ward or seat, school district), in Minnesota.",
+  "Samantha Wolf's own_words line is a caption of its own on her Endorsements page (five words); it is a letter of support, not a party endorsement, and stays out of endorsed_by.",
+  "Stephanie Levine's and Wendy Berry's starting years come from their own campaign sites (kind campaign); the cities' pages confirm the office held today.",
+  "Tonya Reasoner: the district page does list a 2022 campaign financial report under her name.",
+  "Pages printed contact details beside the names; none was kept."
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MN-0395-139",
+   "name": "Bob Coughlen",
+   "field": "offices",
+   "what": "Savage City Council Member, 2023 to 2026",
+   "why": "The City of Savage page does list a Councilmember Bob Coughlen (current term January 1, 2023 to December 31, 2026; a previous term 2019 to 2022), but nothing on it ties him to the Scott County Commissioner District 5 race, and no second source could be opened (the session's web search allowance was used up). Same name in a Scott County city is not two anchors, so it is left out."
+  },
+  {
+   "race_id": "2026-MN-5008-ISD0206-S",
+   "name": "Kyle Momsen",
+   "field": "offices.source",
+   "what": "the clause saying the district's School Board Election 2026 page lists him for Position #6",
+   "why": "no address was recorded for that page, so it could not be re-opened; the office itself is confirmed on the Board of Education page"
+  },
+  {
+   "race_id": "2026-MN-0259-MN",
+   "name": "Brion Curran",
+   "field": "website.how",
+   "what": "the words \"Endorsements 2026\" as the page's name, and the shortened quote \"the only candidate for 36B\"",
+   "why": "the home page links a page called Endorsements (no year), and the sentence continues \"committed to upholding your rights ...\", so the short quote changed its meaning"
+  }
+ ]
+}

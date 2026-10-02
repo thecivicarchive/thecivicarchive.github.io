@@ -1,0 +1,720 @@
+{
+ "state": "MN",
+ "part": 24,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already spent when this part began (the one search asked was refused), so every page was reached directly, one request at a time, with the kit's honest User-Agent (states/net.py) and each site's robots.txt read first and obeyed: the campaign websites the candidates filed, each county's, city's, school district's and watershed district's own site, the Legislative Reference Library, the two state parties' sites and their local units' and caucuses' pages, the Green Party of Minnesota's site, the University of Minnesota's election archive, Wikipedia (one article), and four news organizations through their own site searches (KAXE, KAAL, Minnesota Lawyer, Southern Minnesota News). No search engine was read in place of the search tool. The page-reading tool was tried on four addresses that had failed or refused the script (the Senate District 47 DFL's site, two campaign addresses and the Belle Plaine district's site); it read nothing, because its address lookups failed or it met the same 404. The Senate District 47 DFL's site leaves two certificates out of its handshake; the reader fetched them from the addresses printed in the certificates themselves, as the kit's own repair does for one, and still required the chain to end at a root certifi trusts. The kit's reader, which follows one step only, may fail there.",
+  "The rule this part followed on robots.txt, stricter than the kit's own: stay out where a site turns away the kit's agent or Claude's reading agents by name, and also where it names AI assistants in general (it lists Anthropic's crawlers together with other makers' assistants). That kept this part out of the hometownsource.com papers (Star News of Elk River, Sun Post, ABC Newspapers, Morrison County Record), the Forum Communications papers (Brainerd Dispatch, Wadena Pioneer Journal, Post Bulletin, Worthington Globe), the Mankato Free Press, the Republican Eagle, Press Publications, the Aitkin Age, southernminn.com, KTTC, KEYC, MinnPost, the Pioneer Press and the Minnesota Reformer. Other parts cite hometownsource.com pages; whether that site's rule should be read this strictly is John's call. A site that names only Anthropic's training crawlers and leaves readers on a person's behalf alone was read: laurenforosseo.com (its campaign-site builder's standard robots.txt), KAAL, KSTP and Minnesota Lawyer. The kit's own fetch step checks robots.txt for the kit's agent only, so it will read laurenforosseo.com as well.",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site and the state's mn.gov pages (not asked at all: other parts met a 403 and a CAPTCHA there), so neither judge has an official page and their offices rest on news reports; the City of Mankato's site (its robots.txt turns every unlisted script away), so Michael McLaughlin has no official page; the City of Minneapolis's boards and commissions system (403 to its robots.txt), so two appointed city seats rest on a campaign page and a party page; the Senate District 33 Republicans' site (403); the site searches of Olmsted County, Ramsey County, Crow Wing County and MPR News (robots.txt). The Belle Plaine school district's site did not answer on either day (connection timed out), the Stonewall DFL's site did not answer, and the Stevens County DFL's address shows an unrelated page in another language. The Star Tribune's robots.txt answered 429, so its rules could not be read and the site was left alone.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read. Fifteen of this part's thirty candidates filed one, and each was opened. Thirteen are listed below. Two do not answer and are not listed: napierformayor.com (Dave Napier) has no address on the network today, and kamifornewbrighton.com (Kami Miller) answers 404 at every form of the address. Two that are listed arrive by a detour: Ethan Cha's www.ethanchamnhouse.com leads today to ethanchamnhouse.wordpress.com, and Jason Kalenborn's jason4edina.com does not answer over https and forwards over plain http to a Google Sites page. Carter Mc New's site is a single page drawn by script; its words were read in the script file the page loads (cartermcnew.com/assets/index-CqEVnJ4H.js). One more campaign site was found by asking whether a likely address exists and then reading it: Dawn Espe's espeforcrowwing.com, kept only because its own text names her, the office and 2026 (it is also drawn by script). Other likely addresses that exist were not campaign sites for these races and were dropped: workmanforcarvercounty.com (429 to the script, 404 to the reading tool), kellyforsheriff.com (no answer), castroforjudge.com (a parked-domain page).",
+  "For the second reader: (1) Julia Coleman and Ethan Cha are sitting members whose roster records have no birth date, so the Legislative Reference Library's is given, as parts 0, 1, 10 and 12 did. The Library marks Coleman's date \"(uncertain)\"; Wikipedia's article on her gives the same date. Only the year is recorded for her. (2) Tom Workman: the county's page says \"First elected to Carver County Board in 2002\"; the Library's record of him lists the county post as \"2013 to ?\". The county's own page is followed, and its election year is not turned into a start year. The Library gives his party as Independent Republican at his 1992 and 1994 elections and Republican at the three after, so there are two past_party entries, each in the Library's own word. (3) Jeffrey Veerkamp: the county's page gives only his latest election (\"Elected: 2022\"); the start year 2019 comes from the County Board's own synopses, which list Potter among the members present on December 18, 2018 and Veerkamp on January 8, 2019. The synopses give surnames only. (4) Travis J. Leiviska: the County Board's minutes of January 3, 2023 list the 2022 board without him and then record him sworn in that day. (5) Randy R Schreifels: the county's Auditor / Treasurer's Office page is drawn by script; the block headed with his name and the news items that call him Auditor-Treasurer are in the page's code, and a browser shows them. No page read says when he took office. (6) Matthew Westgaard, Kami Miller: the city pages list a \"Matt Westgaard\" and a \"Kami Miller\" on city bodies; no page read says in so many words that these are the candidates. The tie is the same name in the same city, on bodies of the government each is running to lead or join. Westgaard is not on the council today (the city's council page lists five other people); no page that could be read states any earlier service. (7) Carter Mc New: his campaign site and both government pages write the name McNew; a review item says so. His site's homeowners' association post is not a public office and is left out. (8) Michael McLaughlin: the one page found calls him Mike McLaughlin and does not name the ward; the tie is the name and the Mankato City Council, and nothing newer could be read, so no end is given. (9) Ruchi Gupta: the city's page names her chair of the Planning and Zoning Commission without years; the years are her campaign site's. (10) Hilary Birdsell: the district's page spells the name Hillary; a review item says so. Its Meet Our Board Members page is drawn by script and showed no text. (11) Leonardo Castro and Kimberly Wimmer: news reports only. Nothing read gives the day either took the bench, and nothing read from 2026 says in so many words that either sits today, so no end is given; each is the only candidate for the seat. (12) Kimberly Wimmer's school board seat is as of 2024; a judge would have had to give it up, but no page read says so. (13) Allyson Sellwood's campaign site says she served as a student trustee on \"the board governing Minnesota's state colleges and universities\" without years; the office is recorded in the site's own words. (14) Daniel Colten Schmidt's and Steven Young's seats on Minneapolis city advisory councils (the Green Zone Council, the Food Council) are appointed advisory posts without years; whether a card shows them is John's decision. Young's comes from the Green Party's page, so its kind is party, which the loader does not take for an office today. (15) Kari Dorry's 2022 run comes from the University's election archive, labelled secondary as parts 3 and 4 did; the birth date that archive shows was not taken, because the source it names is a birth records index. (16) The DFL Rural Caucus is a caucus of the state party; its page of 2026 endorsed candidates is recorded under endorsed_by for Dorry and Schmidt with the caucus named as the unit.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6, 10 and 14 use): two listings where a party unit names a candidate without the word endorsed. The Carver County Republican Party's 2026 elections page shows a picture labelled \"Tom Workman for Carver County Commissioner District 2\" and the sentence \"Tom Workman represents County Commissioner District 2\" in its local section, under no heading that says endorsed or recommended; the 8th Congressional District Republicans list \"HD 10A - Mark Striemer\" on a page titled \"2026 Candidates\". They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision. Mark Striemer's endorsement itself is recorded from the Aitkin County Republicans' page, which lists him among \"MN GOP endorsed candidates\" (the same list names the candidates the party's convention endorsed for statewide office, not the winners of the August primary). KAXE's headline on the primary result also calls him \"endorsed Striemer\" (https://www.kaxe.org/elections/2026-08-12/nathan-wesenberg-wins-primary-mark-striemer-advances).",
+  "Party pages read that name none of this part's candidates for nonpartisan offices: the Senate District 34 DFL (its letters of support for the Osseo school board went to three other candidates), the Senate District 37 DFL, the Senate District 50 DFL (its Edina letter of support went to other candidates), the Senate District 33, 30 and 36 DFL, the Senate District 35 Republicans (who recommend Jean Wayne's opponent in Coon Rapids Ward 3), the Senate District 37 Republicans' candidates page and the Senate District 50 Republicans' home page, the Kanabec, Crow Wing and Mille Lacs County Republicans, the Olmsted County Republicans' September newsletter, the Pope County DFL and the DFL Senior Caucus. Two campaign sites show endorsements as pictures only, which are not statements a card can quote: Kari Dorry's Endorsements page (logos of DFL caucuses; the Rural Caucus publishes its own list, which is recorded, and the Stonewall DFL's site did not answer) and Jean Wayne's post \"Endorsements are coming in!\".",
+  "Read and left out on purpose: ages given as \"Age on Election Day\" (KAXE's guides, for Bryan Savaloja and Scott Parsons), which do not fix a birth year; jobs, including posts in a sheriff's office and a county's emergency management, a county veterans service post, public defender work, legislative staff work and county staff work; military service; schools and graduation years; nonprofit, club and homeowners' association boards (among them the nonprofit boards Dawn Espe names in KAXE's guide); personal and labor endorsements; and everything campaign sites and the Library's records say of household, family and faith.",
+  "Nothing a card may show was found for Bryan Savaloja, Scott Parsons and Eric Johnson. Read for them: Wadena County's Sheriff page (the sheriff today is another person) and KAXE's stories and guide on the sheriff's race, which name no public office and no campaign website for Savaloja; the Brainerd district's Board of Education page (Parsons is not on the board) and KAXE's Brainerd School District guide, which names no public office he has held; for Eric Johnson, a common name, only the Belle Plaine district's own site could have tied anything to him, and it did not answer.",
+  "A slip to own up to: before the reader masked them, a few searches of raw page code printed contact addresses that pages publish (a party directory's unit contacts, two campaign sites' contact lines) into this part's working output. None was copied, stored or written into this file."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0132-MN",
+   "name": "Kari Dorry",
+   "website": {
+    "url": "https://www.kari4mnsenate.com",
+    "how": "The site is titled \"Kari For MN Senate\". Its pages name Kari Dorry, say she \"is running to bring compassion, common sense, and practical solutions to the Minnesota Senate\", and carry a 2026 copyright line. It does not name the district.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: Senate District 12)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Rural Caucus (a caucus of the state party; its page \"2026 Endorsed Candidates\" lists \"Kari Dorry, State Senate, District 12\")",
+     "url": "https://www.dflruralcaucus.org/2026-endorsements",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota Senate, District 12, in the general election (lost)",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Kari Dorry lists \"11/08/2022, State Senate, District 12, General, Democratic-Farmer-Labor\", result \"Lost\": the same seat she seeks in 2026",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/kari-dorry/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0168-MN",
+   "name": "Julia Coleman",
+   "website": {
+    "url": "https://colemanforsenate.com",
+    "how": "The site is titled \"Julia Coleman For MN Senate | Senate District 48\" and its home page reads \"Senator Julia Coleman is running for re-election\". The Carver County Republican Party's 2026 elections page links to it as her campaign website.",
+    "verified": true
+   },
+   "born": {
+    "year": 1991,
+    "date": "",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"Date of Birth: 12/19/1991 (uncertain)\". Only the year is recorded, because the Library marks its date uncertain",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15556",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Chanhassen City Council",
+     "from": "2019",
+     "to": "2021",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Chanhassen, Minnesota (City Council); 01/2019 to 01/2021\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15556",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit; its 2026 Elections page lists \"Julia Coleman SD 48, Running for Re-election\" under the heading \"Endorsed MN House and Senate Candidates\")",
+     "url": "https://carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0206-MN",
+   "name": "Mark Striemer",
+   "website": {
+    "url": "https://www.striemerforhouse.com",
+    "how": "The home page is headed \"Mark Striemer for MN House District 10A\" and reads \"MN State House · District 10A · 2026\". The Aitkin County Republicans' Election 2026 page gives this address for him.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Aitkin County Republicans (county unit; its Election 2026 page names \"State Represtentative 10A - Candidate: Mark Striemer\" in what it calls \"the list of MN GOP endorsed candidates who have reached out to Aitkin County Republicans for help\")",
+     "url": "https://www.aitkingop.com/election-2026",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the officially endorsed Republican candidate for Minnesota House of Representatives, District 10A",
+    "url": "https://www.striemerforhouse.com/platform",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "8th Congressional District Republicans (congressional district unit)",
+     "wording": "2026 Candidates",
+     "what": "Named \"HD 10A - Mark Striemer\" under District 10 on the unit's page titled \"2026 Candidates\". The page does not use the word endorsed.",
+     "url": "https://www.mncd8gop.com/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0243-MN",
+   "name": "Daniel Colten Schmidt",
+   "website": {
+    "url": "https://elect-schmidt.org",
+    "how": "The site is titled \"Elect Schmidt MN House 28B\"; its home page has a section headed \"ABOUT DANIEL COLTEN SCHMIDT\" and speaks of \"the public schools in District 28B\". The state DFL's list of endorsed candidates and the Chisago-Isanti DFL's candidates page both link to it.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Minneapolis Green Zone Council",
+     "from": "",
+     "to": "",
+     "source": "His campaign site's home page: \"I also served on the Minneapolis Green Zone Council\" (no years given). The City of Minneapolis's own record of its boards could not be read",
+     "url": "https://www.elect-schmidt.org/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 28B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Chisago-Isanti DFL (the party's Senate District 28 unit; its candidates page reads \"Daniel is the DFL endorsed candidate for Minnesota House in District 28B\" over the name Daniel Colten Schmidt)",
+     "url": "https://chisago-isantidfl.com/sd28-endorsed-candidates",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Rural Caucus (a caucus of the state party; its page \"2026 Endorsed Candidates\" lists \"Daniel Colten Schmidt, State House, District 28B\")",
+     "url": "https://www.dflruralcaucus.org/2026-endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0281-MN",
+   "name": "Ethan Cha",
+   "website": {
+    "url": "https://www.ethanchamnhouse.com",
+    "how": "The address leads today to ethanchamnhouse.wordpress.com, where the home page reads \"My name is Ethan Cha\" and \"I am running for Minnesota House District 47B Re-election\", and is signed \"Ethan Cha, State Representative, House District 47B\". The state DFL's list of endorsed candidates links to ethanchamnhouse.com.",
+    "verified": true
+   },
+   "born": {
+    "year": 1980,
+    "date": "1980-01-20",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"Date of Birth: 1/20/1980\"",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15621",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 47B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0331-MN",
+   "name": "Steven Young and Jane Kirby",
+   "website": {
+    "url": "https://steveformngov.info",
+    "how": "The site is titled \"Vote For Steven Young\"; its home page reads \"Elect me for Governor\" and says of Jane Kirby what she will do \"As Lt. Governor\". Its foot reads \"Paid for and authorized by the Campaign Fund of Steve Young\", with a 2026 copyright line.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Minneapolis Food Council",
+     "from": "",
+     "to": "",
+     "source": "Green Party of Minnesota, \"Our Candidates & Electeds\", under \"Steve Young & Jane Kirby, Candidates for Governor & Lt. Governor\": he \"has previously served as a member of the Minneapolis Food Council\" (no years given). The City of Minneapolis's own record of its boards could not be read",
+     "url": "https://www.mngreenparty.org/our_candidates_electeds",
+     "kind": "party",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Green",
+     "unit": "Green Party of Minnesota (state party; its post \"Meet Our Candidates!\" of September 19, 2026 says the party \"is proud to have endorsed seven candidates\" and names first \"Steven Young and Jane Kirby\", \"running for Governor and Lt. Gov.\")",
+     "url": "https://www.mngreenparty.org/our_2026_candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-019",
+   "name": "Tom Workman",
+   "official_page": {
+    "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/tom-workman-district-2",
+    "source": "Carver County's page \"Tom Workman, Chair (District 2)\", among its commissioner biographies",
+    "verified": true
+   },
+   "born": {
+    "year": 1959,
+    "date": "1959-09-29",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"Date of Birth: 9/29/1959\". The record is his: it lists Chanhassen's City Council and the Carver County board among his other government service, and the county's page lists the Minnesota House and the Chanhassen City Council as his prior public service",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 2, Carver County (chair of the board)",
+     "from": "elected 2002",
+     "to": "now",
+     "source": "Carver County's page \"Tom Workman, Chair (District 2)\": \"First elected to Carver County Board in 2002\" and \"Current term expires in 2026\"",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/tom-workman-district-2",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Minnesota House of Representatives, District 43A",
+     "from": "1993",
+     "to": "2003",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"House 1993-2002 (District 43A)\"; five terms of office, from 1/4/1993 to 1/5/2003",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Chanhassen City Council",
+     "from": "1989",
+     "to": "1992",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Chanhassen, Minnesota (City Council); 1989 to 1992\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Minnesota Regional Transit Board",
+     "from": "1991",
+     "to": "1992",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: \"Minnesota Regional Transit Board; 1991 to 1992\"",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 43A (1992 and 1994)",
+     "year": "1992",
+     "party": "Independent Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"Party when first elected: Independent Republican\"; elected 11/3/1992 and 11/8/1994",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Re-elected to the Minnesota House of Representatives, District 43A (1996, 1998 and 2000)",
+     "year": "1996",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: \"Party: Republican\" for the sessions that followed his elections of 11/5/1996, 11/3/1998 and 11/7/2000",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10724",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Tom Workman represents County Commissioner District 2",
+     "what": "Shown in the page's \"Local 2026 Elections\" section, after its endorsed House and Senate candidates and before \"Carver County Schools: Recommended Candidates\": a picture labelled \"Tom Workman for Carver County Commissioner District 2\" and the sentence \"Tom Workman represents County Commissioner District 2\", which links to the county's own page about him. No heading over it says endorsed or recommended.",
+     "url": "https://carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-001",
+   "name": "Travis J. Leiviska",
+   "official_page": {
+    "url": "https://www.co.aitkin.mn.us/commissioners/",
+    "source": "Aitkin County's Commissioners page: \"District 3 Commissioner: Travis Leiviska - Vice Chair\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Aitkin County (vice chair of the board)",
+     "from": "2023",
+     "to": "now",
+     "source": "Aitkin County's Commissioners page: \"District 3 Commissioner: Travis Leiviska - Vice Chair\", \"Term: 2023-2026\". The County Board's minutes of January 3, 2023 name the 2022 board without him and then record \"Commissioner Travis Leiviska from District 3\" sworn into office that day (https://www.co.aitkin.mn.us/board/2023/01-03-2023/pdf/Signed%20Minutes%2001.03.2023.pdf)",
+     "url": "https://www.co.aitkin.mn.us/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-035",
+   "name": "Dawn Espe",
+   "website": {
+    "url": "https://espeforcrowwing.com/",
+    "how": "Found by asking whether the address exists and then reading it. The site's own text reads \"Dawn Espe, Crow Wing County Commissioner, District Four\", \"Espe for CWC Commission 2026\" and \"Paid for by Campaign of Dawn Espe for Crow Wing Co Commission\". The page is drawn by script, so a plain reader finds these words in the page's code.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0395-015",
+   "name": "Jeffrey Veerkamp",
+   "official_page": {
+    "url": "https://www.browncountymn.gov/354/Brown-County-Commissioners",
+    "source": "Brown County's Commissioners page: \"Vice-Chairperson\", \"Fifth District - Jeffrey Veerkamp\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Fifth District, Brown County (vice-chairperson of the board)",
+     "from": "2019",
+     "to": "now",
+     "source": "Brown County's Commissioners page: \"Vice-Chairperson\", \"Fifth District - Jeffrey Veerkamp\", \"Elected: 2022, Term Expires: 2026\". The start year is from the County Board's own synopses, which give surnames only: that of January 8, 2019, the meeting that organized the board for 2019, lists \"Borchert, Berg, Windschitl, Simonsen, and Veerkamp\" as the members present (https://www.browncountymn.gov/DocumentCenter/View/1797/Synopsis-01_08_19), and the synopsis filed just before it lists Potter in that place (https://www.browncountymn.gov/DocumentCenter/View/1796)",
+     "url": "https://www.browncountymn.gov/354/Brown-County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-145",
+   "name": "Randy R Schreifels",
+   "official_page": {
+    "url": "https://www.stearnscountymn.gov/auditor-treasurers-office",
+    "source": "Stearns County's page \"Auditor / Treasurer's Office\", which carries a block headed \"Randy R. Schreifels\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stearns County Auditor-Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Stearns County's page \"Auditor / Treasurer's Office\": a block headed \"Randy R. Schreifels\", and news items that name \"Stearns County Auditor-Treasurer Randy Schreifels\". The page is drawn by script; a plain reader finds these in the page's code. It does not say when he took office",
+     "url": "https://www.stearnscountymn.gov/auditor-treasurers-office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-049",
+   "name": "Marty Kelly",
+   "official_page": {
+    "url": "https://goodhuecountymn.gov/sheriff/administration/",
+    "source": "Goodhue County's Sheriff's Office Administration page, a welcome signed \"Marty Kelly, Goodhue County Sheriff\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Goodhue County Sheriff",
+     "from": "2019",
+     "to": "now",
+     "source": "Goodhue County's page \"History of the Sheriff's Office\", in its list of sheriffs: \"Marty A. Kelly, 2019 - Present\"",
+     "url": "https://goodhuecountymn.gov/sheriff/administration/sheriff_history/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-159",
+   "name": "Bryan Savaloja"
+  },
+  {
+   "race_id": "2026-MN-0405-109",
+   "name": "Michael Walters",
+   "website": {
+    "url": "https://waltersforolmsted.com",
+    "how": "The site is titled \"Walters Works | For Olmsted County Attorney\"; its foot reads \"Prepared and paid for by Michael Walters for Olmsted County Attorney\", with a 2026 copyright line.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Olmsted County Attorney (appointed by the County Board to complete an unexpired term)",
+     "from": "2025",
+     "to": "now",
+     "source": "KAAL (ABC 6 News, Rochester), \"Olmsted County Attorney announces campaign for re-election\": \"Walters was sworn in as County Attorney in April 2025 to complete the unexpired term\" of his predecessor. The station's story on the swearing-in says the County Board appointed him on April 15 (https://www.kaaltv.com/news/new-olmsted-county-attorney-officially-sworn-in-on-monday/), and his campaign site says the same of April 2025. The county's own pages that were read do not name the County Attorney",
+     "url": "https://www.kaaltv.com/news/olmsted-county-attorney-announces-campaign-for-re-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-18674",
+   "name": "Matthew Westgaard",
+   "offices": [
+    {
+     "office": "Member, Utilities Commission, City of Elk River",
+     "from": "",
+     "to": "now",
+     "source": "City of Elk River's Utilities Commission page, under \"Utilities Commission Members\": \"Matt Westgaard\", \"Term Expires: 02/28/29\". Elk River Municipal Utilities' own commission page lists him the same way. Neither says when he joined",
+     "url": "https://www.elkrivermn.gov/297/Utilities-Commission",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chair, Economic Development Authority, City of Elk River",
+     "from": "",
+     "to": "now",
+     "source": "City of Elk River's Economic Development Authority page, under \"Economic Development Authority Members\": \"Matt Westgaard - Chair\", \"Term Expires: 12/31/30\". It does not say when he joined",
+     "url": "https://www.elkrivermn.gov/289/Economic-Development-Authority",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-69700",
+   "name": "Dave Napier",
+   "official_page": {
+    "url": "https://www.wspmn.gov/494/City-Council",
+    "source": "City of West St. Paul's City Council page: \"Dave Napier, Mayor\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of West St. Paul",
+     "from": "",
+     "to": "now",
+     "source": "City of West St. Paul's City Council page, under \"Members\": \"Dave Napier, Mayor\", \"Term Expires December 2026\". It does not say when he took office",
+     "url": "https://www.wspmn.gov/494/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "Jason Kalenborn",
+   "website": {
+    "url": "https://jason4edina.com",
+    "how": "The address does not answer over https; over plain http it forwards to a Google Sites page titled \"jason4edina.com\" and headed \"Jason Kalenborn for Edina City Council\" (https://sites.google.com/view/jason4edina-com/home). The page speaks of July 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-45430",
+   "name": "Kami Miller",
+   "offices": [
+    {
+     "office": "Chair, Equity Commission, City of New Brighton",
+     "from": "",
+     "to": "now",
+     "source": "City of New Brighton's Equity Commission page, in its list of the members who serve: \"Chair Kami Miller (term expires March 31, 2027)\". It does not say when she joined",
+     "url": "https://www.newbrightonmn.gov/225/Equity-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Carter Mc New",
+   "website": {
+    "url": "https://www.cartermcnew.com",
+    "how": "The site is titled \"Carter McNew for Shakopee City Council\" and describes itself as \"Carter McNew for Shakopee City Council 2026\". The page is drawn by script; its text says \"This website is an independent campaign site for Carter McNew, candidate for Shakopee City Council, 2026\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Manager and vice president, Lower Minnesota River Watershed District (appointed for Scott County)",
+     "from": "",
+     "to": "now",
+     "source": "Lower Minnesota River Watershed District, \"Our Board and Staff\": the district \"is governed by a board of five managers appointed by the counties they represent\"; it lists \"Carter McNew, Vice President, Scott County, Term Expires: March 2029\". His campaign site says he \"serves as vice president and finance chair of the Lower Minnesota River Watershed District\"",
+     "url": "https://lowermnriverwd.org/utility-nav/about-1/our-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Scott County Parks Advisory Commission",
+     "from": "",
+     "to": "now",
+     "source": "Scott County's Parks Advisory Commission page, among members \"appointed by the Board of Commissioners\": \"Carter McNew, Commissioner District 3: Current term ends December 31, 2027\". His campaign site says he \"sits on the Scott County Parks Advisory Commission\"",
+     "url": "https://www.scottcountymn.gov/741/Parks-Advisory-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The name on our November list, as filed: Carter Mc New",
+     "problem": "The Lower Minnesota River Watershed District's and Scott County's pages, and his own campaign site, write the name Carter McNew",
+     "url": "https://lowermnriverwd.org/utility-nav/about-1/our-board",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-39878",
+   "name": "Michael McLaughlin",
+   "offices": [
+    {
+     "office": "Member, Mankato City Council",
+     "from": "2023",
+     "to": "",
+     "source": "Southern Minnesota News, \"Mankato City Council swears in 2 new members\", January 10, 2023: \"Mike McLaughlin and Kevin Mettler took the oath of office\" at the council's first meeting of 2023, McLaughlin after winning the seat in the November election. The story does not name the ward, and nothing newer could be read: the city's own site asks scripts to stay out",
+     "url": "https://www.southernminnesotanews.com/mankato-city-council-swears-in-2-new-members/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-13114",
+   "name": "Jean Wayne",
+   "website": {
+    "url": "https://jeanwayneforcoonrapids.com",
+    "how": "The site is titled \"Jean Wayne for Coon Rapids | Coon Rapids City Council\"; its About page reads \"a political campaign dedicated to promoting Jean Wayne's candidacy for Coon Rapids City Council Ward 3\", with a 2026 copyright line.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1028-54880",
+   "name": "Ruchi Gupta",
+   "website": {
+    "url": "https://ruchi-for-rochester-mn.com",
+    "how": "The site is titled \"Ruchi for Rochester Ward 5 City Council\"; its home page names Ruchi Gupta, reads \"I am running for Rochester City Council, Ward 5\" and speaks of running \"in the 2026 election\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Rochester Planning and Zoning Commission (vice chair through 2024; chair in 2025 and 2026)",
+     "from": "2022",
+     "to": "now",
+     "source": "Her campaign site's About page: she \"was appointed to the Rochester Planning and Zoning Commission in 2022\" and \"was elected by the commission to serve as Vice Chair through 2024, and then as Chair in 2025 and 2026\". The City of Rochester's Planning & Zoning Commission page lists \"Ruchi Gupta - Chair\" today (https://www.rochestermn.gov/council-administration/boards-commissions-committees/planning-zoning-commission/)",
+     "url": "https://www.ruchi-for-rochester-mn.com/about-ruchi",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Joint Airport Zoning Board",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site's About page: \"I also serve on the Joint Airport Zoning Board, a newly formed regional body\" (no years given). The City of Rochester's page on the board says its members are appointed by the city's Common Council and four county boards; it names no members",
+     "url": "https://www.ruchi-for-rochester-mn.com/about-ruchi",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Scott Parsons"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Lauren Harris",
+   "website": {
+    "url": "https://laurenforosseo.com",
+    "how": "The site is titled \"Lauren Harris for Osseo School Board\" and describes itself as the \"official campaign website for Lauren Harris for Osseo School Board ISD 279\"; its Meet Lauren page reads \"I am running for Osseo School Board\" and speaks of \"the ISD 279 School Board\". The pages read do not give the election year; this is the address she filed for this race. Its robots.txt, the site builder's standard one, turns away training crawlers by name and leaves other readers alone.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0518",
+   "name": "Adam Blume",
+   "official_page": {
+    "url": "https://www.isd518.net/page/school-board",
+    "source": "Worthington Independent School District 518's School Board page: \"Adam Blume, Chairman\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member and chair, School Board, Worthington Independent School District 518",
+     "from": "",
+     "to": "now",
+     "source": "Worthington Independent School District 518's School Board page: \"Adam Blume, Chairman\", \"Term Expires: 12/31/2026\". The page is drawn by script; a plain reader finds these in the page's code. It does not say when he joined the board",
+     "url": "https://www.isd518.net/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0716",
+   "name": "Eric Johnson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0832",
+   "name": "Allyson Sellwood",
+   "website": {
+    "url": "https://allysonsellwood.com",
+    "how": "The site is titled \"Allyson Sellwood for Mahtomedi School Board\" and its home page reads \"Vote Tuesday, November 3, 2026 · Mahtomedi Public Schools, ISD 832\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Student trustee on the board governing Minnesota's state colleges and universities",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's home page: \"She served as a student trustee on the board governing Minnesota's state colleges and universities\" (no years given)",
+     "url": "https://allysonsellwood.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Hilary Birdsell",
+   "official_page": {
+    "url": "https://www.tcu2905.us/pages/d3064be8-16fa-4b76-87a8-e3c43159d45b",
+    "source": "Tri-City United Public Schools' School Board page, where the caption of the board's picture names \"Hillary Birdsell\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Board of Education, Tri-City United Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "Tri-City United Public Schools' School Board page: the caption of the picture of the \"Tri-City United Board of Education\" names \"Hillary Birdsell\" in the back row. It does not say when she joined the board",
+     "url": "https://www.tcu2905.us/pages/d3064be8-16fa-4b76-87a8-e3c43159d45b",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The name on our November list, as filed: Hilary Birdsell",
+     "problem": "The district's School Board page spells the board member's name Hillary Birdsell",
+     "url": "https://www.tcu2905.us/pages/d3064be8-16fa-4b76-87a8-e3c43159d45b",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8300-MN",
+   "name": "Leonardo Castro",
+   "offices": [
+    {
+     "office": "Judge, Second Judicial District (Ramsey County District Court)",
+     "from": "2012",
+     "to": "",
+     "source": "Minnesota Lawyer, \"Bar Buzz: Castro wins 2nd District chief judge post\", May 26, 2020: \"Castro was appointed to the bench in 2012\". The Judicial Branch's own site refuses scripts and was not read, so no page read says in so many words that he sits today",
+     "url": "https://minnlawyer.com/2020/05/26/bar-buzz-castro-wins-2nd-district-chief-judge-post/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chief Judge, Second Judicial District (elected by the district's judges)",
+     "from": "2020",
+     "to": "",
+     "source": "Minnesota Lawyer, \"Bar Buzz: Castro wins 2nd District chief judge post\", May 26, 2020: \"Judge Leonardo Castro will be the next chief judge of the Ramsey County District Court\", elected by his peers to take over when the sitting chief's term ended at the end of June 2020. The paper's story of February 26, 2024 still calls him \"Ramsey County Chief Judge Leonardo Castro\" (https://minnlawyer.com/2024/02/26/ramsey-county-veterans-treatment-court-celebrates-10th-anniversary/). No page read gives the day the post ended",
+     "url": "https://minnlawyer.com/2020/05/26/bar-buzz-castro-wins-2nd-district-chief-judge-post/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9104-MN",
+   "name": "Kimberly Wimmer",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District (appointed by Governor Tim Walz to a vacancy in Grand Rapids)",
+     "from": "2024 (the appointment was announced on November 21, 2024; the day she took the bench was not found)",
+     "to": "",
+     "source": "KAXE, \"Walz appoints 9th Judicial District judges in Itasca, Hubbard counties\", November 24, 2024: \"Gov. Tim Walz selected Kathryn Lorsbach and Kimberly Wimmer to fill retirement vacancies in Park Rapids and Grand Rapids\"; the two \"were selected Thursday, Nov. 21\". The Judicial Branch's own site refuses scripts and was not read",
+     "url": "https://www.kaxe.org/local-news/2024-11-24/walz-appoints-9th-judicial-district-judges-in-itasca-hubbard-counties",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Littlefork-Big Falls School Board",
+     "from": "",
+     "to": "",
+     "source": "KAXE, \"Walz appoints 9th Judicial District judges in Itasca, Hubbard counties\", November 24, 2024: \"She also serves on the Littlefork-Big Falls School Board\". KAXE's list of July 30, 2024 of who filed for northern Minnesota school boards marks her an incumbent on that board (https://www.kaxe.org/local-news/2024-07-30/see-whos-running-for-northern-minnesota-city-school-board-township-offices). Neither gives the years",
+     "url": "https://www.kaxe.org/local-news/2024-11-24/walz-appoints-9th-judicial-district-judges-in-itasca-hubbard-counties",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0281-MN",
+   "name": "Ethan Cha",
+   "key": "endorsed_by",
+   "what": "Senate District 47 DFL (district unit; its home page lists \"Re-Elect Rep. Ethan Cha, Minnesota House of Representatives (DFL), Senate District 47B, Woodbury\" under the heading \"Our Endorsed Candidates\")",
+   "url": "https://www.sd47.org/",
+   "why": "The page could not be opened in two tries: the kit's reader met a certificate chain it could not complete (the site leaves out more than the one certificate the kit repairs), and the page-reading tool could not look the address up. The state party's own list still records the endorsement."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the candidates' findings was opened again on 2026-10-02 with the kit's reader (states/net.py, its own User-Agent), and the words each finding quotes were looked for on the page, or, where a page is drawn by script, in the page's own code and the script files it loads. The two PDFs (Aitkin County's minutes of January 3, 2023 and Brown County's synopsis of January 8, 2019) were read with ballot/pdftext.py. Nothing behind a wall was asked for.",
+  "Corrected wording: Kari Dorry's 2022 run no longer gives a place of residence (the office, district and year tie it to her); Julia Coleman's birth year no longer cites Wikipedia, which was not opened; Steven Young's Food Council line no longer quotes his occupation; Jeffrey Veerkamp is shown as the county's page shows him, vice-chairperson, and the start year now cites the two synopses that were opened; Lauren Harris's site gives no election year, and the note says so; Ethan Cha's website note no longer leans on the Senate District 47 DFL's page.",
+  "For John, unchanged from the researcher's notes: Matthew Westgaard and Kami Miller are tied to the city pages by name and city only (the pages write Matt Westgaard and Kami Miller); Michael McLaughlin by name and the Mankato City Council (the story writes Mike McLaughlin and names no ward); party_support entries are listings without the word endorsed and are not endorsements."
+ ]
+}

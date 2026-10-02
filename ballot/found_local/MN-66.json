@@ -1,0 +1,446 @@
+{
+ "part": 66,
+ "of": 73,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "notes": [
+  "Web search was already used up for the session (200 of 200) before this part began, so nothing here was found by searching. Pages were read directly with the kit's own User-Agent, robots.txt obeyed: the campaign sites the candidates filed with the Secretary of State, governments' own sites (reached from their home pages or site maps), the state DFL's list of endorsed candidates and the University of Minnesota's election archive. A campaign site nobody filed could not be found this way, so a missing website here is not proof that none exists.",
+  "The 'website' entries are the addresses already filed with the Secretary of State, recorded here only where the site was opened and names the candidate and the office or place. Not confirmed: cherneyformn.com refused the kit (403) and, read once another way, names only 'Steve Cherney' with no office or district; jamiebarthel.com answered 503 each time.",
+  "Out of reach and not worked around: mncourts.gov answers scripts with 403 and mn.gov with a bot check (so nothing for Judge Troy G. Timmerman); Pope County's site returned an empty stub (nothing for Larry Lindor); the search pages of the Andover, Lakeville and New Brighton sites are closed to scripts by robots.txt; Cloquet's school site shows its menus by script.",
+  "Read and found not to be sitting members today: Andy Carlson is not on Meeker County's board page (District 1 is Beth Oberg); Mark Reese is not on Lakeville's council page; Jeffrey Nelson is not on New Brighton's; the Kasson-Mantorville, Hutchinson and St. Cloud school board pages do not list Jilaine Rendler, Tiffany Barnard or Steven Schiller (St. Cloud's election page names Steven Schiller as a candidate); the St. Michael-Albertville election page names Brent Harapat as a candidate. Nothing further was found for them, or for Justin R. Anderson (Grant County's directory shows the County Attorney's office without a name in its text) or Nathan Hallgren.",
+  "No Republican unit's page could be reached for Karin Housley (Senate District 33) or Steven E. Cherney (House District 58A): the state party's site has no list of endorsed legislative candidates, and the local units' addresses are not known without a search. So no endorsement is recorded for either; that is a gap in the search, not a finding.",
+  "Aaron Klemz, own_words: the two words 'Minnesota DFL' are the first entry under the heading 'Endorsements' on his campaign site; the quote is the entry itself, not a sentence.",
+  "Reed J. Olson: the election archive's page gives a full birth date and other personal details, which are not recorded (year only, marked secondary, as other parts do). The archive says his county office runs to the present, his own site speaks of it as past; the end year is left blank. His site's Endorsements page shows its content as pictures and was not read.",
+  "Shane Richard and Aaron Borchardt: their sites describe careers inside a sheriff's office, which are jobs, not public offices, so no offices are recorded.",
+  "Bryan Litsey's site says his campaign is independent of political parties; that is not a party or endorsement statement, so no own_words is recorded.",
+  "Verifier, 2026-10-02: every address in this file was opened again with the kit's own User-Agent (holmforhouse.com answered 429 once and opened on the second try). All 41 findings were confirmed and none removed. Wording was corrected where the page opened did not show what was written: Karin Housley's 'how' cited a Meet Karin page that was not re-opened (the home page's own sentence is used instead); Reed J. Olson's council entry quoted an About page that now answers 404 (the quote is dropped; the archive's line stands); Bryan Litsey's 'how' cited a City of Chanhassen page with no address given (dropped); John Brillhart's payer line and Aaron Borchardt's site description were reworded to what the pages show; the three DFL entries now give the date the party's page says it was last changed."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0153-MN",
+   "name": "Karin Housley",
+   "website": {
+    "url": "https://housleyforsenate.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Karin Housley | Senator For Stillwater, Forest Lake & the St. Croix Valley | Minnesota', its home page says 'In 2012, the people of Forest Lake, Stillwater, and the surrounding St. Croix Valley elected me to represent them in the Minnesota Senate', and it is paid for by Housley for Senate. The page carries no year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0190-MN",
+   "name": "Reed J. Olson",
+   "website": {
+    "url": "https://www.votereedolson.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Reed Olson for MN 2A', is dated 2026 and is paid for by the Vote Reed Olson Committee of Bemidji.",
+    "verified": true
+   },
+   "born": {
+    "year": 1975,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Reed Olson of Bemidji, which lists his runs for State House District 2A",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/reed-olson/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Bemidji City Council",
+     "from": "2013",
+     "to": "2016",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics): 'Bemidji City Councilor (2013-2016)'.",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/reed-olson/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Beltrami County Commissioner, District 2",
+     "from": "2017",
+     "to": "",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics): 'Beltrami County Commissioner: District 2 (2017-present)'. His own site calls him 'a two-term Beltrami County Commissioner' and speaks of the County Board in the past tense, so no end year is given here.",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/reed-olson/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page 'Candidates Endorsed by the Minnesota DFL' lists Reed Olson beside House District 2A; the page prints no year in its text, and its own page data says it was last changed on 2026-09-16)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State House, District 2A (general election; lost)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/reed-olson/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State House, District 2A (general election; lost)",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/reed-olson/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0227-MN",
+   "name": "Steve Holm",
+   "website": {
+    "url": "https://holmforhouse.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Holm for House | Minnesota House District 20B'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Saratoga Township Board",
+     "from": "",
+     "to": "",
+     "source": "His campaign site's home page: '41 years at Mayo Clinic, seven years on the Saratoga Township Board'; it gives no years.",
+     "url": "https://holmforhouse.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page 'Candidates Endorsed by the Minnesota DFL' lists Steve Holm beside House District 20B; the page prints no year in its text, and its own page data says it was last changed on 2026-09-16)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0264-MN",
+   "name": "Aaron Klemz",
+   "website": {
+    "url": "https://www.aaronklemz.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Aaron Klemz for Minnesota House 39A'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Fridley Environmental Quality and Energy Commission",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site: 'He is the Chair of the Fridley Environmental Quality and Energy Commission and a commissioner on the Fridley Planning Commission.' No years are given.",
+     "url": "https://www.aaronklemz.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Fridley Planning Commission",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site: 'He is the Chair of the Fridley Environmental Quality and Energy Commission and a commissioner on the Fridley Planning Commission.' No years are given.",
+     "url": "https://www.aaronklemz.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page 'Candidates Endorsed by the Minnesota DFL' lists Aaron Klemz beside House District 39A; the page prints no year in its text, and its own page data says it was last changed on 2026-09-16)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Minnesota DFL",
+    "url": "https://www.aaronklemz.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0302-MN",
+   "name": "Steven E. Cherney"
+  },
+  {
+   "race_id": "2026-MN-0391-093",
+   "name": "Andy Carlson"
+  },
+  {
+   "race_id": "2026-MN-0392-115",
+   "name": "Joshua Mohr",
+   "official_page": {
+    "url": "https://www.co.pine.mn.us/government/board_of_commissioners/index.php",
+    "source": "Pine County, Board of Commissioners page (under District Two: 'Joshua Mohr - 2026 Board Chair', term expires 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pine County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Pine County, Board of Commissioners page, which lists him under District Two as the 2026 Board Chair with a term expiring in 2026; it gives no start year",
+     "url": "https://www.co.pine.mn.us/government/board_of_commissioners/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-103",
+   "name": "Jack Kolars",
+   "official_page": {
+    "url": "https://www.co.nicollet.mn.us/370/Board-of-Commissioners",
+    "source": "Nicollet County, County Board page ('Jack Kolars, District Three (3) Commissioner')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicollet County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Nicollet County, County Board page, which lists him as the District Three Commissioner; it gives no start year",
+     "url": "https://www.co.nicollet.mn.us/370/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-121",
+   "name": "Larry Lindor"
+  },
+  {
+   "race_id": "2026-MN-0395-163",
+   "name": "Simi Patnaik",
+   "website": {
+    "url": "https://www.votesimi.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Simi Patnaik for Washington County Commissioner', speaks of District 5 and is dated 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sowashco.org/about-us/school-board",
+    "source": "South Washington County Schools, School Board page (lists her as a School Board Member)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, South Washington County School Board (ISD 833)",
+     "from": "",
+     "to": "now",
+     "source": "South Washington County Schools, School Board page, which lists her as a School Board Member. Her campaign site says: 'In 2019, I was elected to the South Washington County School Board, where I currently serve as Vice Chair.'",
+     "url": "https://www.sowashco.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member for District 5, Washington County Library Board",
+     "from": "2024",
+     "to": "now",
+     "source": "Her campaign site's About page: 'Since 2024, I have proudly served as the District 5 representative to the Washington County Library Board.'",
+     "url": "https://votesimi.com/about-simi-patnaik/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-005",
+   "name": "Shane Richard",
+   "website": {
+    "url": "https://www.shanerichardforsheriff.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Shane Richard for Becker County Sheriff'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-115",
+   "name": "Aaron Borchardt",
+   "website": {
+    "url": "https://borchardt4sheriff.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Borchardt for Pine County Sheriff', and the text it draws by script begins 'Aaron Borchardt is a dedicated law enforcement professional' and says 'As sheriff, Aaron Borchardt will prioritize public safety'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-051",
+   "name": "Justin R. Anderson"
+  },
+  {
+   "race_id": "2026-MN-1001-01486",
+   "name": "Jamie Barthel",
+   "official_page": {
+    "url": "https://www.andovermn.gov/258/City-Council",
+    "source": "City of Andover, City Council page ('Jamie Barthel, Mayor, term expires 1-5-27')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Andover",
+     "from": "",
+     "to": "now",
+     "source": "City of Andover, City Council page, which lists him as Mayor with a term expiring January 5, 2027; it gives no start year",
+     "url": "https://www.andovermn.gov/258/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-45430",
+   "name": "Jeffrey Nelson"
+  },
+  {
+   "race_id": "2026-MN-1010-10918",
+   "name": "Bryan Litsey",
+   "website": {
+    "url": "https://litseyforchanhassen.com",
+    "how": "Filed with the Secretary of State; the site is headed 'Vote Bryan Litsey for Chanhassen City Council on Tuesday, November 3, 2026' and is paid for by Bryan Litsey.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Chanhassen City Council",
+     "from": "2007",
+     "to": "2010",
+     "source": "His campaign site's About page: 'Former elected Chanhassen City Council Member (4 years, 2007-2010)'",
+     "url": "https://litseyforchanhassen.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Rules Advisory Committee, Minnesota Board of Peace Officer Standards and Training",
+     "from": "2020",
+     "to": "2024",
+     "source": "His campaign site's About page: 'Former appointed member on the Rules Advisory Committee for the Minnesota Board of Peace Officer Standards and Training (4 years, 2020-2024)'",
+     "url": "https://litseyforchanhassen.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-35180",
+   "name": "Mark Reese"
+  },
+  {
+   "race_id": "2026-MN-1010-53620",
+   "name": "Amber Dawn Plank",
+   "website": {
+    "url": "https://amberatlarge.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Amber Plank for Red Wing City Council' and says 'Amber Dawn Plank has filed to run for Red Wing City Council, At Large'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1015-30644",
+   "name": "Dave Sebesta",
+   "official_page": {
+    "url": "https://hutchinsonmn.gov/city-government/city-council/city-council-profiles/",
+    "source": "City of Hutchinson, Council Profiles page (Dave Sebesta, Council Seat 2)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Hutchinson City Council, Seat 2",
+     "from": "2019",
+     "to": "now",
+     "source": "City of Hutchinson, Council Profiles page: 'Council Seat 2', 'Came Into Office: 2019', 'Current Term Expires: 2026'",
+     "url": "https://hutchinsonmn.gov/city-government/city-council/city-council-profiles/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-22814",
+   "name": "John Brillhart",
+   "website": {
+    "url": "https://www.fridleyforward.com",
+    "how": "Filed with the Secretary of State; a site three Fridley council candidates share, with a page 'Ward 2 Brillhart' (https://www.fridleyforward.com/ward-2-brillhart) on which John Brillhart says 'I'm running for City Council'; the site's footer names three payers, one of them the Campaign Fund for John Brillhart.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1026-10846-S",
+   "name": "Lorraine Coan",
+   "website": {
+    "url": "https://lorrainecoanchamplincitycouncil.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Lorraine Coan For City Council' and says 'Vote Lorraine Coan for Champlin City Council on November 3, 2026!'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.champlinmn.gov/277/Mayor-City-Council",
+    "source": "City of Champlin, Mayor & City Council page (lists Lorraine Coan, Ward 4)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Champlin City Council, Ward 4",
+     "from": "",
+     "to": "now",
+     "source": "City of Champlin, Mayor & City Council page, which lists her for Ward 4; it gives no start date and does not say how she came to the seat",
+     "url": "https://www.champlinmn.gov/277/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0094",
+   "name": "Nathan Hallgren"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0204",
+   "name": "Jilaine Rendler"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0423",
+   "name": "Tiffany Barnard"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Dan Arcand",
+   "website": {
+    "url": "https://www.danarcandmn.com",
+    "how": "Filed with the Secretary of State; the site is titled 'Dan Arcand for White Bear Lake School Board' and is dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0742",
+   "name": "Steven D. Schiller"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0885",
+   "name": "Brent Harapat"
+  },
+  {
+   "race_id": "2026-MN-5012-ISD0861",
+   "name": "Michael Hanratty",
+   "official_page": {
+    "url": "https://www.winonaschools.org/school-board",
+    "source": "Winona Area Public Schools, School Board page (lists 'Michael Hanratty | Clerk')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Clerk), Winona Area Public Schools Board",
+     "from": "",
+     "to": "now",
+     "source": "Winona Area Public Schools, School Board page, which lists him among the board's members as Clerk; no start year was read",
+     "url": "https://www.winonaschools.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8612-MN",
+   "name": "Troy G. Timmerman"
+  }
+ ],
+ "removed": []
+}

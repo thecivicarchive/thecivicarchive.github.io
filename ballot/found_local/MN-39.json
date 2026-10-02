@@ -1,0 +1,281 @@
+{
+ "part": 39,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after nine searches (the five legislative candidates). Everything else was read by opening pages directly with the kit's honest User-Agent and each site's robots.txt obeyed: the candidates' filed campaign sites, the Minnesota DFL's list of endorsed candidates, the University of Minnesota's election archive, and the counties', cities' and school districts' own pages.",
+  "Filed campaign sites were learned from a scratch copy of the database (python -m ballot.local_sites files --db <copy>). Nolan West's (nolanwest.com) answered with a page drawn wholly by script and Lisa Atkinson's (lisaatkinsonforschoolboard.com) answered 429 three times, so neither is recorded here; both remain as filed.",
+  "Not read, by the sites' own wish or a fault: mncourts.gov, co.cook.mn.us, co.jackson.mn.us and mcaa-mn.org ask scripts to stay out (robots.txt); co.becker.mn.us fails its certificate check (never switched off), so nothing was found for Erica Jepson or Brian W. McDonald; no Republican unit's endorsement page could be found without a search.",
+  "Left out as unsure: an election archive entry for an earlier candidate named Justin Doyle could not be tied to the 2026 candidate in 13B by any page read, so nothing from it is recorded. The current official pages read do not list Casey Faken (Kittson County board), Brian Benck (Lac qui Parle sheriff's office), Geoffrey Norquist (Hastings council), Gregory Mark Johnson (Detroit Lakes school board) as holding those offices today; the Annandale and South St. Paul districts' own 2026 candidate pages name Caleb Mol and Andrew Hoffman as candidates only."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0139-MN",
+   "name": "Sam Powell",
+   "website": {
+    "url": "https://sampowellforsenate.com/",
+    "how": "The site is titled 'Sam Powell for Senate' and its home page says he is the DFL senate candidate for District 19 in Minnesota; the Minnesota DFL's list of endorsed candidates links to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: Senate District 19)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm the DFL senate candidate for District 19 in Minnesota.",
+    "url": "https://sampowellforsenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0175-MN",
+   "name": "Van Holston",
+   "born": {
+    "year": 1948,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Van Holston gives his residence as Burnsville, Dakota County, and his party as Republican. The page does not mention the 2026 Senate race: the tie is the name, the state, the party our list shows, and the place (House District 55B is one half of Senate District 55)",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/van-holston",
+    "kind": "secondary",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 55B, in the general election (lost)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Van Holston gives his residence as Burnsville, Dakota County, and his party as Republican. The page does not mention the 2026 Senate race: the tie is the name, the state, the party our list shows, and the place (House District 55B is one half of Senate District 55)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/van-holston",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 55B, in the general election (lost)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Van Holston gives his residence as Burnsville, Dakota County, and his party as Republican. The page does not mention the 2026 Senate race: the tie is the name, the state, the party our list shows, and the place (House District 55B is one half of Senate District 55)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/van-holston",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0213-MN",
+   "name": "Justin Doyle",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 13B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-051",
+   "name": "Dwight Walvatne",
+   "official_page": {
+    "url": "https://www.grantcountymn.gov/160/County-Commissioners",
+    "source": "Grant County, County Commissioners page (lists him as Board Chair; 'District 2- Walvatne')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 2, Grant County (Board Chair)",
+     "from": "",
+     "to": "now",
+     "source": "Grant County, County Commissioners page (the page gives no starting year)",
+     "url": "https://www.grantcountymn.gov/160/County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-015",
+   "name": "Mary Schreiner",
+   "official_page": {
+    "url": "https://www.browncountymn.gov/454/Recorder-Staff",
+    "source": "Brown County, Recorder Staff page (lists her as Brown County Recorder/Registrar of Titles)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder and Registrar of Titles, Brown County",
+     "from": "",
+     "to": "now",
+     "source": "Brown County, Recorder Staff page (the page gives no starting year)",
+     "url": "https://www.browncountymn.gov/454/Recorder-Staff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-139",
+   "name": "Ron Hocevar",
+   "website": {
+    "url": "https://ronhocevar.com",
+    "how": "Filed with the Minnesota Secretary of State as his campaign website; the home page reads 'Re-Elect Ron Hocevar for Scott County Attorney', general election November 3rd.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.scottcountymn.gov/m/directory/department?did=30",
+    "source": "Scott County, staff directory, County Attorney's Office (lists Ron Hocevar, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Scott County",
+     "from": "2015",
+     "to": "now",
+     "source": "His campaign site's Experience & Accomplishments page: 'Scott County Attorney (2015-Present)', elected in 2014",
+     "url": "https://ronhocevar.com/experience-accomplishments",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-01900",
+   "name": "John Bergman",
+   "official_page": {
+    "url": "https://www.applevalleymn.gov/27/City-Council",
+    "source": "City of Apple Valley, City Council page (lists him as Council Member, 'Served since 2003')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, City of Apple Valley",
+     "from": "2003",
+     "to": "now",
+     "source": "City of Apple Valley, City Council page ('Served since 2003')",
+     "url": "https://www.applevalleymn.gov/27/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Peter Garner",
+   "website": {
+    "url": "https://www.votepetergarner.com",
+    "how": "Filed with the Minnesota Secretary of State as his campaign website; the page is titled 'Peter Garner for North Mankato City Council' (the rest of the page is drawn by script and was not read).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-66460",
+   "name": "Kelly Jozwowski",
+   "official_page": {
+    "url": "https://www.cityvadnaisheights.com/233/City-Council",
+    "source": "City of Vadnais Heights, City Council page (lists her as Council Member, four year term expiring January 3, 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, City of Vadnais Heights",
+     "from": "",
+     "to": "now",
+     "source": "City of Vadnais Heights, City Council page (four year term expires January 3, 2027; the page gives no starting year)",
+     "url": "https://www.cityvadnaisheights.com/233/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Scott Hume",
+   "official_page": {
+    "url": "https://www.isd191.org/discover/board-of-education",
+    "source": "Burnsville-Eagan-Savage School District 191, Board of Education page (lists him as School Board Vice Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice Chair), Burnsville-Eagan-Savage School District 191",
+     "from": "",
+     "to": "now",
+     "source": "District 191, Board of Education page (the page gives no starting year)",
+     "url": "https://www.isd191.org/discover/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0309",
+   "name": "Colter Diekmann",
+   "official_page": {
+    "url": "https://www.parkrapids.k12.mn.us/school-board",
+    "source": "Park Rapids Area Schools, School Board page (lists him as Director, 2023-2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director, Park Rapids Area Schools (ISD 309)",
+     "from": "2023",
+     "to": "now",
+     "source": "Park Rapids Area Schools, School Board page ('Colter Diekmann, Director (2023-2026)')",
+     "url": "https://www.parkrapids.k12.mn.us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Lisa Atkinson",
+   "official_page": {
+    "url": "https://www.plsas.org/about-us/school-board/board-members",
+    "source": "Prior Lake-Savage Area Schools, Board Members page (lists her as Board Director, elected 2022, term expires 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director, Prior Lake-Savage Area Schools (ISD 719); elected 2022, term expires 2026",
+     "from": "",
+     "to": "now",
+     "source": "Prior Lake-Savage Area Schools, Board Members page ('Board Director, Elected 2022, Term expires 2026'; the page gives no starting date)",
+     "url": "https://www.plsas.org/about-us/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8500-MN",
+   "name": "William H. Koch",
+   "website": {
+    "url": "https://www.reelectjudgekoch.org",
+    "how": "Filed with the Minnesota Secretary of State as his campaign website; the site is titled 'Judge William H. Koch', has a section 'The 2026 Election' and speaks of the courts in Hennepin County (the 4th Judicial District).",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of District Court, Fourth Judicial District (Hennepin County); appointed by Governor Tim Pawlenty",
+     "from": "2007",
+     "to": "now",
+     "source": "His campaign site's Biography page: 'Governor Pawlenty ... appointed me to the bench in 2007'; '2007 - Present, Judge'",
+     "url": "https://www.reelectjudgekoch.org/biography",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every url re-opened on 2026-10-02; five needed a second try after a failed name lookup and then answered. 27 findings confirmed.",
+  "Corrected: Lisa Atkinson's office start year 2023 was an inference; the page says only \"Elected 2022, Term expires 2026\", so the start is left blank and the page's words are given. A note that repeated a birth year and county for an unmatched earlier Justin Doyle was shortened so no unconfirmed personal detail stays in the file.",
+  "Van Holston: the archive page does not mention 2026; kept on the state, the same party, and the same place (House 55B, Burnsville, lies inside Senate District 55), birth kept as a year only from a secondary source.",
+  "The DFL list links Justin Doyle to a social media post, not a campaign site, so no website is recorded for him."
+ ]
+}

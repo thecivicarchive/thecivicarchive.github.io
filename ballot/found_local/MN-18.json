@@ -1,0 +1,721 @@
+{
+ "state": "MN",
+ "part": 18,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "Web search: this session's allowance was already used up when this part began (the one search tried was refused: 200 of 200 used), so nothing here comes from a search. Everything was found by reading addresses directly with the kit's own polite reader (the honest User-Agent, each site's robots.txt read first and obeyed, a second between requests to one host): the campaign websites the candidates filed with the Secretary of State (read on a scratch copy of the database with the files step: 11 of the 30 filed one), each government's own site, the two state parties' sites and the local party units they point to, the Legislative Reference Library, and Wikipedia articles opened by title. No search engine was read in place of the search tool, and the fetch tool was not used. About 200 pages were asked for in all. A second pass with web search restored would most help the eight candidates with nothing below, and the two judges, whose appointment dates are in news stories this part had no way to find.",
+  "Addresses that were tried rather than found on a page: with no search, likely web addresses were asked of the network (an address lookup is not a request to any site) and the few that exist were read. Two are recorded, each because the site itself names the candidate and the office: shanemekeland.com and maguireformayor.org. The same method found the Senate District 45 Republicans (sd45gop.org leads to www.sd45.org, which says it is prepared and paid for by the 45th Senate District RPM). About 1,800 names were asked about for the candidates who filed no website; the other few that exist were not recorded, because nothing ties them to anyone here: petersonforsheriff.com and sarahforschoolboard.org are the sites of other people in other states (a sheriff's race in a Hancock County, which Minnesota does not have, and a Seattle school board race); connieforschoolboard.com, retainjudgejohnson.com and votepeterson.org would not let a script in (robots.txt), so whose they are is not known; the rest are empty holding pages. Names repeat, and a common name in a web address proves nothing.",
+  "Not read, and left alone: Wilkin County, Swift County and the City of Mankato (each one's robots.txt tells every robot to stay out); the Minnesota Judicial Branch, onealforhouse66b.com and the Senate District 33 Republicans' site (each refused the kit's reader its robots.txt with 403, which the reader takes as \"stay out\"); tombergersonformn.com and the City of Eagan (each answered with a bot check, which was not worked around); the City of Minnetrista (403). The Governor's site was not asked, since part 10 found that it shows this machine a CAPTCHA. suezmyslony.com answered one request and refused five with 429 (too many requests), so only its home page was read. The Sixth Congressional District Republicans' listed address (mncd6gop.com) now leads to an unrelated gambling site and was not used.",
+  "party_support (a key the loader does not read, used as in part 10): the Senate District 49 DFL lists Kathy Nelson under \"Local Candidates we support\", not under its endorsements, so it is kept apart from endorsed_by; whether and how it is shown is John's decision. The Senate District 34, 50 and 55 DFL pages publish \"Letter of Support\" lists or rules; none names a candidate of this part.",
+  "The two sitting legislators (Liish Kozlowski, Shane Mekeland) have roster records, so only a website, endorsements and review items are recorded. Both review items are birth dates on which the Legislative Reference Library differs from the roster. No party page naming Mekeland's 2026 endorsement was found: the House District 27A Republicans' site is a single welcome page and the state party's nominees page lists statewide and congressional candidates only. His own site's words \"Endorsed Republican Candidate\" are not recorded: he is a sitting member, the party must publish an endorsement, and that page's text is partly from an earlier campaign.",
+  "The two judges (Lauren M. Johnson, Benjamin Charles Pieh): that each now holds the seat rests on a county's notice of offices to be voted for, which names every judicial seat's incumbent (the lead is part 16's): Stevens County's own notice for the Eighth District seat (official), and McLeod County's notice as its Auditor-Treasurer had it published in the McLeod County Chronicle for the First District seat (secondary). Neither says when the judge took the bench, and no page about either judge on a government's own site could be read, so neither has an official_page. With no web search, and newspapers' own search pages closed to scripts by their robots.txt (the West Central Tribune's was tried), no story of either appointment could be looked for.",
+  "Nothing found for eight candidates. Jamie Rezac and John Reigstad: their counties' sites ask scripts to stay out; Wikipedia's Wilkin County article (its table dated April 2023) names another person as the District 2 commissioner. Jason Peterson: Douglas County's Sheriff's Office page names the present sheriff only. Gregory Brinkman: he is not on the City of Mounds View's council directory, its Council Tenure List or its commission pages. Brian Ewoldt: not on the City of Savage's council or commission pages. Connie Lyscio, Sarah Marrow: not on their districts' present boards. Joyce Peterson: Glencoe-Silver Lake's own \"Meet the GSL School Board Candidates\" page (https://www.gsl.k12.mn.us/district/school-board/school-board-candidates) carries her answers as she submitted them, but they name no public office, campaign website or party, so there is nothing of a kind this file records.",
+  "Earlier runs under a party label: Wikipedia's articles on the 2022 and 2024 Minnesota House elections and the 2022 Minnesota Senate election were read for the four legislative challengers of this part (Knutson, Bruce, Bergerson, O'Neal); none of them appears, so no past_party is recorded for them. Paul Gardner's comes from the Legislative Reference Library.",
+  "Left out on purpose, though the pages read state them: family members, churches and parish membership, an illness, employers and job histories, schools and degrees, private and nonprofit board seats, service clubs, and personal endorsers. Offices that are private or association posts (League of Minnesota Cities, Municipal Legislative Commission, Metro Cities, Greater MSP, Regional Council of Mayors, a community foundation, a union presidency) are not listed as public offices, nor are a sitting commissioner's committee assignments.",
+  "robots.txt: every page a finding rests on was read through the kit's own reader, which reads the site's robots.txt first and refuses a page it disallows for the kit's User-Agent; no page was read any other way."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0129-MN",
+   "name": "Krystyne M. Knutson",
+   "website": {
+    "url": "https://krystyneforsd9.com",
+    "how": "The site's title reads \"Krystyne Knutson for SD9\" and its text says \"District 9 deserves someone who will show up, listen, and do the work\"; it is the website she filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "also": "The page lists \"Krystyne Knutson\" under \"Senate District 9\" and says the candidates listed have been endorsed by the Minnesota DFL Party, by delegates to local and state conventions.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0165-MN",
+   "name": "Shannon Bruce",
+   "website": {
+    "url": "https://www.shannonformnstatesenate.com",
+    "how": "The site's title reads \"Shannon Bruce for State Senate\" and its Meet Shannon page reads \"Shannon Bruce is the endorsed Republican State Senate candidate in Senate District 45\"; the researcher recorded it as the website she filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnetrista City Council",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website (Meet Shannon)",
+     "url": "https://www.shannonformnstatesenate.com/meet-shannon/",
+     "kind": "campaign",
+     "also": "The page reads \"Shannon served on the Minnetrista City Council\" and gives no years. The City of Minnetrista's own site answered a script with 403 and was not asked again.",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 45 Republicans (district unit)",
+     "url": "https://www.sd45.org/candidates2026",
+     "also": "The page reads \"Shannon is our endorsed Republican candidate for the Senate District 45 seat\" and says the endorsements came from the Senate District 45 Convention held in April 2026.",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the endorsed Republican State Senate candidate in Senate District 45",
+    "url": "https://www.shannonformnstatesenate.com/meet-shannon/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0203-MN",
+   "name": "Liish Kozlowski",
+   "website": {
+    "url": "https://www.liishforduluth.com",
+    "how": "The site is titled \"Liish For Duluth\" and reads \"I'm running for re-election\" and \"as your State Representative\"; the Minnesota DFL's endorsed-candidates page links to it under \"Liish Kozlowski, House District 8B\"; it is the website filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "also": "The page lists \"Liish Kozlowski\" under \"House District 8B\".",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: date of birth January 12, 1988.",
+     "problem": "The Legislative Reference Library's record gives the date of birth as 1/21/1988 (January 21, 1988).",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15595",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0240-MN",
+   "name": "Shane Mekeland",
+   "review": [
+    {
+     "shows": "State roster: date of birth July 28, 1969.",
+     "problem": "The Legislative Reference Library's record gives the date of birth as \"7/28/1970 (uncertain)\": a year later, and marked uncertain by the Library itself.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15500",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0277-MN",
+   "name": "Thomas Bergerson",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 45 Republicans (district unit)",
+     "url": "https://www.sd45.org/candidates2026",
+     "also": "The page reads \"Thomas Bergerson Endorsed for House District 45B\" and \"Tom is our endorsed Republican candidate for the House District 45B seat\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0319-MN",
+   "name": "Mary O'Neal",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "House District 66B Republicans (district unit)",
+     "url": "https://mnhd66brepublicans.org/2026/09/29/mn-house-district-66a-66b-candidate-forum-oct-5th-7-830-pm/",
+     "also": "The post reads \"Mary O'Neal is the endorsed Republican for MN House District 66B\". The unit's Candidates page (https://mnhd66brepublicans.org/candidates/) lists her under House District 66B and says its endorsed House and Senate district candidates had no primary.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-009",
+   "name": "Edward \"Ed\" Popp",
+   "official_page": {
+    "url": "https://www.bentoncountymn.gov/384/Ed-Popp",
+    "source": "Benton County, County Board: Ed Popp, District 2",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Benton County Board of Commissioners, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Benton County, County Board page for Ed Popp",
+     "url": "https://www.bentoncountymn.gov/384/Ed-Popp",
+     "kind": "official",
+     "also": "The page reads \"Term Expires January 2027\" and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-167",
+   "name": "Jamie Rezac"
+  },
+  {
+   "race_id": "2026-MN-0394-017",
+   "name": "Susan (Sue) Zmyslony",
+   "official_page": {
+    "url": "https://www.carltoncountymn.gov/395/Susan-Zmyslony",
+    "source": "Carlton County, County Board of Commissioners: Susan Zmyslony, District 4 Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carlton County Board of Commissioners, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Carlton County, page for Commissioner Susan Zmyslony",
+     "url": "https://www.carltoncountymn.gov/395/Susan-Zmyslony",
+     "kind": "official",
+     "also": "The page reads \"Term Expires December 31, 2026\" and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-171",
+   "name": "Drew Scherber",
+   "website": {
+    "url": "https://scherber4commissioner.com",
+    "how": "The site's title reads \"Scherber For Wright County Commissioner\" and its text begins \"I am Drew Scherber, and I'm running for Wright County Commissioner\", naming District 4; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stma.k12.mn.us/our-district-new/school-board/members",
+    "source": "St. Michael-Albertville Schools, School Board members page (Drew Scherber, Chairperson)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Michael-Albertville School Board, chairperson",
+     "from": "",
+     "to": "now",
+     "source": "St. Michael-Albertville Schools, School Board members page",
+     "url": "https://www.stma.k12.mn.us/our-district-new/school-board/members",
+     "kind": "official",
+     "also": "The page reads \"Term Expires: 2028\" and gives no start date; his campaign site says he has served on the board \"for over 20 years\".",
+     "verified": true
+    },
+    {
+     "office": "St. Michael City Council",
+     "from": "",
+     "to": "",
+     "source": "His campaign's own website",
+     "url": "https://www.scherber4commissioner.com/",
+     "kind": "campaign",
+     "also": "The site reads \"My experience also includes serving as a St. Michael City Council member\" and gives no years. The City's own site was not read (part 10 found that it asks scripts to stay out).",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-089",
+   "name": "Scott Peters",
+   "official_page": {
+    "url": "https://www.marshallcountymn.gov/departments/auditor-treasurer/index.php",
+    "source": "Marshall County, Auditor-Treasurer page (Scott Peters, Auditor-Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Auditor-Treasurer (elected November 2002)",
+     "from": "2003",
+     "to": "now",
+     "source": "Marshall County, Auditor-Treasurer page",
+     "url": "https://www.marshallcountymn.gov/departments/auditor-treasurer/index.php",
+     "kind": "official",
+     "also": "The page reads \"Scott Peters was elected in November 2002 and officially took office January 2003.\"",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-041",
+   "name": "Jason Peterson"
+  },
+  {
+   "race_id": "2026-MN-0404-151",
+   "name": "John Reigstad"
+  },
+  {
+   "race_id": "2026-MN-0405-101",
+   "name": "Travis J. Smith",
+   "official_page": {
+    "url": "https://www.murraycountymn.com/county_departments/county_attorneys_office.php",
+    "source": "Murray County, County Attorney's Office page (Travis Smith, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Murray County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Murray County, County Attorney's Office page",
+     "url": "https://www.murraycountymn.com/county_departments/county_attorneys_office.php",
+     "kind": "official",
+     "also": "The page gives no start date and writes the name without the middle initial.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-17288",
+   "name": "Mike Maguire",
+   "website": {
+    "url": "https://maguireformayor.org",
+    "how": "The site's title reads \"Re-Elect Mayor Mike Maguire\"; its letter is signed \"Mike Maguire, Mayor, City of Eagan\", it asks for a vote \"On November 3rd\" and it reads \"Paid & prepared by Eagan Neighbors for Maguire\". He filed no website with the Secretary of State; this address was found by trying likely names as web addresses.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Eagan",
+     "from": "2007",
+     "to": "now",
+     "source": "His campaign's own website (Resume)",
+     "url": "https://maguireformayor.org/resume/",
+     "kind": "campaign",
+     "also": "Wikipedia's article on Eagan (https://en.wikipedia.org/wiki/Eagan,_Minnesota) reads \"Eagan's mayor since 2007 has been Mike Maguire\", citing the City's Council & Commission page. The City of Eagan's own site showed a script a bot check and was not read.",
+     "verified": true
+    },
+    {
+     "office": "Eagan City Council",
+     "from": "2003",
+     "to": "2007",
+     "source": "His campaign's own website (Resume)",
+     "url": "https://maguireformayor.org/resume/",
+     "kind": "campaign",
+     "also": "The page also speaks of \"his 2002 election to the Eagan City Council\".",
+     "verified": true
+    },
+    {
+     "office": "Governor's Task Force on Housing (appointed by Governor Dayton)",
+     "from": "2017",
+     "to": "2018",
+     "source": "His campaign's own website (Resume)",
+     "url": "https://maguireformayor.org/resume/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Council Housing Policy Plan Work Group",
+     "from": "2013",
+     "to": "2014",
+     "source": "His campaign's own website (Resume)",
+     "url": "https://maguireformayor.org/resume/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Governor's Work Group on Regional Public Safety Answering Points (appointed by Governor Pawlenty)",
+     "from": "2009",
+     "to": "2009",
+     "source": "His campaign's own website (Resume)",
+     "url": "https://maguireformayor.org/resume/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm a truly nonpartisan candidate — not endorsed by a party machine",
+    "url": "https://maguireformayor.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-59998",
+   "name": "Paul Gardner",
+   "website": {
+    "url": "https://www.gardner4shoreview.org",
+    "how": "The site is titled \"Paul Gardner for Shoreview\", reads \"I'm running for Shoreview Mayor\" and is paid for by Paul Gardner for Shoreview Mayor; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-Paul-Gardner",
+    "source": "City of Shoreview, City Council: Councilmember Paul Gardner",
+    "verified": true
+   },
+   "born": {
+    "year": 1967,
+    "date": "1967-11-19",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15277",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shoreview City Council",
+     "from": "2025",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15277",
+     "kind": "official",
+     "also": "The Library's record reads \"Shoreview, Minnesota (City Council); 2025 to ?; [Elected]\". The City of Shoreview's page about him reads \"Elected in 2024\" and \"Current term expires December 31, 2028\".",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives, District 53A",
+     "from": "2007",
+     "to": "2010",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15277",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Ramsey Conservation District, supervisor",
+     "from": "2013",
+     "to": "2016",
+     "source": "City of Shoreview, Councilmember Paul Gardner page",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-Paul-Gardner",
+     "kind": "official",
+     "also": "His campaign site calls the post \"Elected supervisor, Ramsey Conservation District, 2013-2016\".",
+     "verified": true
+    },
+    {
+     "office": "Shoreview Environmental Quality Committee, member and chair",
+     "from": "1999",
+     "to": "2004",
+     "source": "City of Shoreview, Councilmember Paul Gardner page",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-Paul-Gardner",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 53A, in 2006 and again in 2008 (served 2007 to 2010)",
+     "year": "2006",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15277",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Kathy Nelson",
+   "website": {
+    "url": "https://kathynelson.org/",
+    "how": "The Senate District 49 DFL's own page links to this site under \"Kathy Nelson - Eden Prairie City Council\"; the site is titled \"Kathy Nelson for Eden Prairie\", lists her as an Eden Prairie City Council member, asks for a vote on November 3 and is paid for by Kathy Nelson for Eden Prairie. She filed no website with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.edenprairiemn.gov/city-government/city-council/kathy-nelson",
+    "source": "City of Eden Prairie, City Council: Council Member Kathy Nelson",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eden Prairie City Council (re-elected to a fifth term in 2022)",
+     "from": "",
+     "to": "now",
+     "source": "City of Eden Prairie, Council Member Kathy Nelson page",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/kathy-nelson",
+     "kind": "official",
+     "also": "The City's page gives no first year and says her current term ends Dec. 31, 2026; her campaign site reads \"Eden Prairie City Council member - elected 2006\".",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie Planning Commission (six years, three as vice chair)",
+     "from": "",
+     "to": "2006",
+     "source": "Her campaign's own website",
+     "url": "https://kathynelson.org/",
+     "kind": "campaign",
+     "also": "The site reads \"6 years (3 years as Vice Chair), term ended in April 2006\". The City's page says she had been a longtime member of the Planning Commission before her election to the Council.",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie Board of Adjustment and Appeals (six years, four as chair)",
+     "from": "",
+     "to": "2000",
+     "source": "Her campaign's own website",
+     "url": "https://kathynelson.org/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Southwest Light Rail Transit Policy Board",
+     "from": "",
+     "to": "",
+     "source": "City of Eden Prairie, Council Member Kathy Nelson page",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/kathy-nelson",
+     "kind": "official",
+     "also": "The page reads \"Nelson has served on the Southwest Light Rail Transit Policy Board\" and gives no years.",
+     "verified": true
+    },
+    {
+     "office": "Southwest Suburban Cable Commission",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website",
+     "url": "https://kathynelson.org/",
+     "kind": "campaign",
+     "also": "Listed under \"Past\" without years.",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 49 DFL (district unit)",
+     "wording": "Local Candidates we support",
+     "what": "Named \"Kathy Nelson - Eden Prairie City Council\" under the heading \"Local Candidates we support\", with a link to her campaign site. The same page uses the word \"Endorsed\" only for legislative, statewide, federal and county attorney candidates.",
+     "url": "https://dfl49.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Gregory Brinkman"
+  },
+  {
+   "race_id": "2026-MN-1010-58738",
+   "name": "Brian Ewoldt"
+  },
+  {
+   "race_id": "2026-MN-1020-20906",
+   "name": "Laura Job",
+   "official_page": {
+    "url": "https://www.fergusfallsmn.gov/electedofficials",
+    "source": "City of Fergus Falls, Elected Officials page (Laura Job, City Council Ward One)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fergus Falls City Council, Ward One (elected to a four-year term in November 2022)",
+     "from": "",
+     "to": "now",
+     "source": "City of Fergus Falls, Elected Officials page",
+     "url": "https://www.fergusfallsmn.gov/electedofficials",
+     "kind": "official",
+     "also": "The page fills in its list of officials with a script (a data call to app.membershipware.com, the service the City's site is built on), so the names are not in the page's plain text; the list reads \"Laura Job\", \"City Council Ward One\", \"Elected to four-year term: November 2022\". It does not say when her term began.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-07966",
+   "name": "Bernice David-Cooper",
+   "website": {
+    "url": "https://www.bernicecooper.org",
+    "how": "The site reads \"I'm Bernice David-Cooper\" and \"I'm running for Brooklyn Park City Council\" and is paid for by the Bernice David Cooper campaign; it is the website she filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "The seat is written \"Council Member, Ward W\", after the Secretary of State's list (and the city's other seats \"Ward E\" and \"Ward C\").",
+     "problem": "The City of Brooklyn Park calls these districts, not wards: \"Voters elect two council members from the west district, two from the central district and two from the east district.\" The seat is a West District seat.",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-39878",
+   "name": "Bryan Schneider",
+   "website": {
+    "url": "https://bryan4mankato.com",
+    "how": "The site's title reads \"Mankato City Council campaign Bryan Schneider\" and its heading \"City Council Campaign Bryan Schneider Ward 5\"; it is paid for by Bryan Schneider for Mankato City Council; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mankato City Council",
+     "from": "2022",
+     "to": "2022",
+     "source": "His campaign's own website",
+     "url": "https://www.bryan4mankato.com/",
+     "kind": "campaign",
+     "also": "The page reads \"serving on the city council in 2022\". The City of Mankato's site asks scripts to stay out, so no official page was read.",
+     "verified": true
+    },
+    {
+     "office": "Mankato Public Safety Advisory Committee",
+     "from": "",
+     "to": "now",
+     "source": "His campaign's own website",
+     "url": "https://www.bryan4mankato.com/",
+     "kind": "campaign",
+     "also": "The page reads \"currently serve on the Mankato Public Safety Advisory Committee\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Connie Lyscio"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Peter Hulbert",
+   "website": {
+    "url": "https://www.peterhulbert.com",
+    "how": "The site's title reads \"Peter Hulbert for Edina School Board 2026\"; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edina Parks and Recreation Commission",
+     "from": "",
+     "to": "now",
+     "source": "City of Edina, Parks & Recreation Commission page",
+     "url": "https://www.edinamn.gov/1548/Parks-Recreation-Commission",
+     "kind": "official",
+     "also": "The City's table lists Peter Hulbert in seat 4, a partial term ending 03/01/27, and gives no start date; his campaign site says he serves \"as a Commissioner on the Edina Parks and Recreation Commission\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Sarah Marrow"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Amy Jo Pocrnich",
+   "official_page": {
+    "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+    "source": "Proctor Public Schools, School Board page (Amy Pocrnich, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Proctor Public Schools School Board, director (current term January 2023 to December 2026)",
+     "from": "",
+     "to": "now",
+     "source": "Proctor Public Schools, School Board page",
+     "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+     "kind": "official",
+     "also": "The page reads \"Amy Pocrnich, Director\" and \"Term: January 2023 - December 2026\", without the middle name (the text sits inside a script in the page's source). It gives the current term only, so no first year of service is recorded.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Andi Courneya",
+   "website": {
+    "url": "https://andiforflas.com",
+    "how": "The site's title reads \"Andi Courneya for Forest Lake School Board — ISD 831\" and it names the November 3, 2026 school board election; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Forest Lake Area Schools (ISD 831) Policy Advisory Committee",
+     "from": "2025",
+     "to": "now",
+     "source": "His campaign's own website",
+     "url": "https://andiforflas.com",
+     "kind": "campaign",
+     "also": "The site reads \"Policy Advisory Committee, 2025 - Present, ISD 831\". It is an advisory committee of the school district, not an elected office; keep it only if such a committee counts as a public post.",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I’m not here for partisan endorsements.",
+    "url": "https://andiforflas.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Joyce Peterson"
+  },
+  {
+   "race_id": "2026-MN-8114-MN",
+   "name": "Lauren M. Johnson",
+   "offices": [
+    {
+     "office": "Judge, First Judicial District Court, Seat 15",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County's Notice of Offices to Be Voted For at the 2026 State General Election, as published in the McLeod County Chronicle on May 1, 2026",
+     "url": "https://www.glencoenews.com/articles/pn-mcleod-co-mcc/mcleod-county-minnesota-notice-of-offices-to-be-voted-for-at-the-2026-state-general-election/",
+     "kind": "secondary",
+     "also": "The notice, dated April 20, 2026 by the McLeod County Auditor-Treasurer, lists \"First District Court Seat 15 (Incumbent: Lauren M. Johnson)\": the seat this candidate is on the ballot for. It does not say when the judge took the bench. The Judicial Branch's own site could not be read, and McLeod County's and Carver County's own sites do not carry a 2026 notice that could be found.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9009-MN",
+   "name": "Benjamin Charles Pieh",
+   "offices": [
+    {
+     "office": "Judge, Eighth Judicial District Court, Seat 10",
+     "from": "",
+     "to": "now",
+     "source": "Stevens County, Notice of Offices to Be Voted For at the 2026 State General Election",
+     "url": "https://www.co.stevens.mn.us/DocumentCenter/View/5019",
+     "kind": "official",
+     "also": "Under \"Eighth District Court (Five Seats)\", in the columns for seat and incumbent, the County's notice lists \"10 Benjamin Pieh\" (without the middle name): the seat this candidate is on the ballot for. It does not say when the judge took the bench. The Judicial Branch's own site could not be read.",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0240-MN",
+   "name": "Shane Mekeland",
+   "finding": "website",
+   "was": "https://shanemekeland.com/",
+   "why": "The site opens and names him and House District 27A, but nothing on it ties it to the 2026 race: it shows no year, asks for a vote \"this Nov. 4\" (the 2026 election is November 3) to keep \"representing the people of District 15B\", and says he is running again \"four years later\". He filed no website and the address was a guess. Not confirmed as this race's site."
+  },
+  {
+   "race_id": "2026-MN-0277-MN",
+   "name": "Thomas Bergerson",
+   "finding": "website",
+   "was": "https://tombergersonformn.com",
+   "why": "Behind a wall: the site answers with a CAPTCHA redirect, so it could not be seen to name him and the office. (The Senate District 45 Republicans' page does link www.tombergersonformn.com as his campaign website; that page was confirmed.)"
+  },
+  {
+   "race_id": "2026-MN-0319-MN",
+   "name": "Mary O'Neal",
+   "finding": "website",
+   "was": "https://onealforhouse66b.com/",
+   "why": "Behind a wall: the site refuses its robots.txt to the kit's reader, so it could not be read. (The House District 66B Republicans' post and Candidates page both give onealforhouse66b.com as her website; those pages were confirmed.)"
+  },
+  {
+   "race_id": "2026-MN-0394-017",
+   "name": "Susan (Sue) Zmyslony",
+   "finding": "website",
+   "was": "https://suezmyslony.com",
+   "why": "Not confirmed: the site answered 429 (too many requests) on every try, on two visits minutes apart."
+  },
+  {
+   "race_id": "2026-MN-0394-017",
+   "name": "Susan (Sue) Zmyslony",
+   "finding": "offices",
+   "was": "https://www.suezmyslony.com/",
+   "why": "Not confirmed: its only source is her campaign site's home page, which answered 429 on every try."
+  },
+  {
+   "race_id": "2026-MN-1024-07966",
+   "name": "Bernice David-Cooper",
+   "finding": "offices",
+   "was": "https://www.bernicecooper.org/about",
+   "why": "The page does read \"have served as a Human Rights Commissioner\", but names no body and no years, so it is not an office with a body that can be recorded or tied to a government."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's reader (honest User-Agent, robots.txt read first and obeyed). 69 findings checked: 63 kept, 6 removed, 4 reworded to match the page.",
+  "Reworded: Shannon Bruce's website (the Senate District 45 Republicans' candidates page links to its own page about her, not to her campaign site, so that clause was dropped); Mike Maguire's website (the page reads \"Paid & prepared by\"); Kathy Nelson's council entry (a sentence about the City's list of 2026 candidates had no address to check and was dropped); Laura Job's entry (the data call goes to app.membershipware.com, not to the City's own host).",
+  "Not re-checked: the statement that a website is the one \"filed with the Secretary of State\" rests on the researcher's reading of the Secretary's file; the verifier checked only that each site itself names the candidate and the office or place.",
+  "The Stevens County notice is a PDF and was read with ballot/pdftext.py: it lists \"10 Benjamin Pieh\" under \"Eighth District Court (Five Seats)\". The roster's birth dates quoted in the two review items (1988-01-12 and 1969-07-28) were confirmed in state_mn.sqlite, opened read-only; our record's \"Ward W\" for Brooklyn Park was confirmed in ballot_local_2026.sqlite.",
+  "For John to decide, unchanged from the researcher: Kathy Nelson's party_support (\"Local Candidates we support\", confirmed on the Senate District 49 DFL's page, and not an endorsement), and Andi Courneya's school district Policy Advisory Committee (confirmed on his site; an advisory committee, not an elected office)."
+ ]
+}

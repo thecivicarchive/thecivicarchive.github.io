@@ -15,7 +15,8 @@ split on semicolons and cut down, on the spot, to the cells named below; the res
 addresses, cities, ZIP codes, phones, websites, e-mail, a running mate's contact details) is dropped before anything
 else sees it, and is never printed, logged, cached or stored. The layouts were confirmed from the column note and from
 the kept cells alone; a file that no longer fits stops the loader, which names the file, the line number and the check,
-never the line.
+never the line. (From 2026-10-01, on John's order, the campaign website a candidate listed is read apart, by
+ballot/local_sites.py, with this loader's own `allowed_cells`; this loader still drops that cell with the rest.)
 
   Candidates in the General Election - Federal, State, and County Offices (21 cells a line)
       1 name; 2 office ID; 3 office title; 4 county ID (88 = statewide or several counties); 5 the order column;
@@ -56,8 +57,10 @@ states_cache/mn_local/):
     the Department's 2025-26 list does not have yet (ISD 2913 and 2918 on 2026-09-30) is named as the Secretary's file
     writes it ("ISD #2913"), with the Secretary's county.
 
-No candidate's name is ever used to look anything up. Nothing but names, offices, places and parties reaches the
-database: no photos, ages, websites, biographies, money or Wikipedia for anyone.
+No candidate's name is ever used to look anything up here. Nothing but names, offices, places and parties reaches the
+database from this loader: no photos, ages, websites, biographies, money or Wikipedia for anyone. (What the cards of
+statewide, legislative, court, county, city and school board candidates may show beyond the list, each with its
+source, is ballot/local_sites.py's work and lives in tables of its own.)
 
 The tables (the contract the page builder reads)
 ------------------------------------------------
@@ -919,8 +922,9 @@ def load(say=print, db=DB, refresh=False):
            "Candidates in the General Election: Federal, State, and County Offices (November 3, 2026)", CANDIDATE_SITE, gpath,
            len(grows) - congress_rows,
            f"Saved by hand from the Secretary of State's candidate site, which admits people rather than scripts: {os.path.basename(gpath)}. "
-           "Read: name, office ID, office title, county ID, the party order code and party. Addresses, cities, ZIP codes, phones, websites, "
-           "e-mail and running mates' contact details are never read. U.S. Senator and U.S. Representative rows are left to the federal pages. "
+           "Read: name, office ID, office title, county ID, the party order code and party. Addresses, cities, ZIP codes, phones, "
+           "e-mail and running mates' contact details are never read; the campaign website a candidate listed is read apart. "
+           "U.S. Senator and U.S. Representative rows are left to the federal pages. "
            "In a partisan race the ballot order is each candidate's rank by the party order code the file gives; nonpartisan candidates all "
            "carry the code 90, so the file gives no ballot position for them.")
     source("mn-sos-2026-general-local", "official candidate list", "Minnesota Secretary of State",
@@ -928,7 +932,7 @@ def load(say=print, db=DB, refresh=False):
            lpath, len(lrows),
            f"Saved by hand from the Secretary of State's candidate site: {os.path.basename(lpath)}. Read: office code, name, office ID, office "
            "title, county ID, MCD FIPS code and school district number. Every local office is nonpartisan; the file gives no ballot position. "
-           "Addresses, cities, ZIP codes, phones, websites and e-mail are never read.")
+           "Addresses, cities, ZIP codes, phones and e-mail are never read; the campaign website a candidate listed is read apart.")
     source("mn-sos-2026-filings-statecounty", "official candidate list", "Minnesota Secretary of State",
            "Candidate Filings: Federal, State, and County Offices (2026)", CANDIDATE_SITE, fpath, len(frows),
            f"Saved by hand from the same site: {os.path.basename(fpath)}. Used only for the August 11 partisan primaries (statewide offices and the Legislature): "

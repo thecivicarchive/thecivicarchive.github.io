@@ -1,0 +1,616 @@
+{
+ "part": 7,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after nine searches (the first three candidates). Everything else was read directly, with the kit's honest User-Agent and each site's robots.txt obeyed: the candidates' own sites, each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates and local party units' pages, the Legislative Reference Library, Wikipedia's election articles, and a few local news sites through their own search pages. No search engine was read in place of the search tool.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; each was then opened. Two more were found and read on the sites themselves: Pam Wolf's and Maggie Evers's (a voter guide's page names each address; it is not cited).",
+  "Three filed websites could not be confirmed, so no website finding is recorded for them: votejonathon.com (Jonathon Heinonen) asks all scripts to stay out in its robots.txt and was not read; olson4chisagolakes.com (Aaron Olson) shows a domain parking page today; judgejeannecochran.com (Jeanne Cochran) says only \"Launching Soon\".",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (403 to the script and to the reading tool), so the two judges have no official page here; the state's mn.gov pages (a Radware CAPTCHA); the City of Eagan's site (a bot check), so Gary Hansen has no official page; the City of Sartell's and Becker Township's sites (their robots.txt or a 403); the Forum Communications newspapers and MinnPost (their robots.txt turns Claude away). One Forum article was opened with the reading tool before that was noticed; nothing is cited from it.",
+  "Republican endorsements: Austin Peterson is listed for MN Senate SD4 on the Clay County Republicans' page headed \"Endorsed & Supported Candidates\", recorded under endorsed_by as part 0 records the same page, with the page's own two words kept in the unit text for the second reader to judge. None could be recorded for Pam Wolf or Kyle Bragg: mngop.com lists statewide and congressional nominees only, and the Minneapolis Republicans' site names no legislative endorsement (the Becker County Republicans' site names none either). The other party pages read (Carver County Republicans, Senate District 44 DFL, Olmsted County Republicans, Senate District 40 Republicans, Chisago-Isanti DFL, Senate District 19 DFL) name none of this part's candidates.",
+  "Balakrishna \"Bala\" Chintaginjala: Wikipedia's 2020 and 2022 Minnesota Senate election articles list a Bala Chintaginjala in the DFL primaries for Districts 47 and 48. The articles do not name Chanhassen; the tie is the unusual name and a voter guide that lists those runs beside this year's run for mayor. Left for the second reader to judge.",
+  "Terri Mallet: the City of Maplewood's Parks and Recreation Commission page lists a member of that name, and the city's 2026 candidate page lists the same name for City Council.",
+  "Pam Wolf: the Legislative Reference Library marks her birth date \"uncertain\"; her campaign site's Experience page gives the same year.",
+  "Mary Lewandowski: a voter guide says a St. Cloud LIVE story calls her a former Sartell City Council member, and a 2012 Newsleaders story names a Mary Lewandowski as a past member of that council; the story that would tie the two is on a Forum site and was not read, so nothing is recorded.",
+  "Ages given without a year were not turned into birth years (the Elk River Star News gives Mark Swanson's age).",
+  "Nothing was found for eight candidates: Justin Ohnstad, Mary Lewandowski, Adam Edward Kasprowicz, Rebecca Carlson, Jonathon Heinonen, Richard Olson, April St. Martin and Aaron Olson. They are listed with no findings. The school districts' own pages show Richard Olson (2024) and April St. Martin (2022 and 2024) ran for the same boards before; those were nonpartisan runs and are not findings.",
+  "Verifier, 2026-10-02: every url was re-opened with the kit's honest User-Agent (the two austin4mn.com pages also with the reading tool). 55 findings confirmed, 3 removed, 2 reworded. Pam Wolf's birth date stays: the Library's page gives 11/26/1963 (marked uncertain) and her own Experience page says 1963, four days after President Kennedy was assassinated. The Chintaginjala note above no longer has findings behind it."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0124-MN",
+   "name": "Austin Peterson",
+   "website": {
+    "url": "https://www.austin4mn.com",
+    "how": "The site is titled \"Austin Peterson for Minnesota State Senate\" for Senate District 4, and its home page calls him the Republican candidate for MN State Senate in District 4. The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.hawley.k12.mn.us/our-district/school-board/board-members",
+    "source": "Hawley Public Schools (ISD 150), Board Members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hawley School Board (ISD 150)",
+     "from": "",
+     "to": "now",
+     "source": "Hawley Public Schools (ISD 150), Board Members page, which lists Austin Peterson (his campaign site's About page, austin4mn.com/about.php, says he lives south of Hawley and currently serves on the local school board)",
+     "url": "https://www.hawley.k12.mn.us/our-district/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican candidate for MN State Senate in District 4",
+    "url": "https://www.austin4mn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0159-MN",
+   "name": "Pam Wolf",
+   "website": {
+    "url": "https://pamwolf.org",
+    "how": "The site is titled \"Pam Wolf for State Senate\"; its Experience page says she is seeking votes on November 3 for State Senate in district 39 and that she served in the Minnesota Senate in 2011 and 2012.",
+    "verified": true
+   },
+   "born": {
+    "year": 1963,
+    "date": "1963-11-26",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (the Library marks the date uncertain; her campaign site says she was born in 1963, four days after President Kennedy was assassinated)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15338",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Senate (District 51)",
+     "from": "2011",
+     "to": "2013",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15338",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota Senate, District 51",
+     "year": "2010",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15338",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota Senate, District 39 (general election; not elected)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, 2022 Minnesota Senate election (results cited to the Minnesota Secretary of State)",
+     "url": "https://en.wikipedia.org/wiki/2022_Minnesota_Senate_election#District_39",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota Senate, District 37 (general election; not elected)",
+     "year": "2012",
+     "party": "Republican",
+     "source": "Wikipedia, 2012 Minnesota Senate election (district results table; the article cites the Minnesota Secretary of State's results)",
+     "url": "https://en.wikipedia.org/wiki/2012_Minnesota_Senate_election#District_results",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0197-MN",
+   "name": "Maggie Evers",
+   "website": {
+    "url": "https://www.maggieevershouse5b.com/",
+    "how": "The site's title reads \"Maggie Evers for House 5B\" and \"MN DFL candidate\", and its home page is headed \"Maggie Evers for MN House 5B\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 5B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "MN DFL candidate",
+    "url": "https://www.maggieevershouse5b.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0234-MN",
+   "name": "Heather Holmes",
+   "website": {
+    "url": "https://holmesformn.com",
+    "how": "The site is titled \"Heather Holmes for MN House 24A\". The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Byron School Board",
+     "from": "2022",
+     "to": "2024",
+     "source": "Her campaign's own site (About page)",
+     "url": "https://holmesformn.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 24A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House, District 24A (general election; not elected)",
+     "year": "2024",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, 2024 Minnesota House of Representatives election (results cited to the Minnesota Secretary of State)",
+     "url": "https://en.wikipedia.org/wiki/2024_Minnesota_House_of_Representatives_election#District_24A",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0271-MN",
+   "name": "Ginny Klevorn",
+   "website": {
+    "url": "https://ginnyklevorn.com",
+    "how": "The site is titled \"Ginny Klevorn for Minnesota House 42B\". The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 42B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0312-MN",
+   "name": "Kyle Bragg",
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House, District 63A (general election; not elected)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, 2022 Minnesota House of Representatives election (results cited to the Minnesota Secretary of State)",
+     "url": "https://en.wikipedia.org/wiki/2022_Minnesota_House_of_Representatives_election#District_63A",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House, District 63A (general election; not elected)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Wikipedia, 2018 Minnesota House of Representatives election (district results table; the article cites the Minnesota Secretary of State's results)",
+     "url": "https://en.wikipedia.org/wiki/2018_Minnesota_House_of_Representatives_election#District_results",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House, District 63A (general election; not elected)",
+     "year": "2016",
+     "party": "Republican",
+     "source": "Wikipedia, 2016 Minnesota House of Representatives election (district results table; the article cites the Minnesota Secretary of State's results)",
+     "url": "https://en.wikipedia.org/wiki/2016_Minnesota_House_of_Representatives_election#District_results",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House, District 63A (general election; not elected)",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Wikipedia, 2014 Minnesota House of Representatives election (district results table; the article cites the Minnesota Secretary of State's results)",
+     "url": "https://en.wikipedia.org/wiki/2014_Minnesota_House_of_Representatives_election#District_results",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-147",
+   "name": "Justin Ohnstad"
+  },
+  {
+   "race_id": "2026-MN-0392-147",
+   "name": "John Glynn",
+   "official_page": {
+    "url": "https://www.steelecountymn.gov/departments/commissioners/district_2_john_glynn.php",
+    "source": "Steele County, Commissioners: District 2 - John Glynn",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Steele County Board of Commissioners, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Steele County, Commissioners: District 2 - John Glynn (term expiring January 4, 2027)",
+     "url": "https://www.steelecountymn.gov/departments/commissioners/district_2_john_glynn.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-141",
+   "name": "Mark Swanson",
+   "offices": [
+    {
+     "office": "Becker School Board",
+     "from": "",
+     "to": "",
+     "source": "Elk River Star News, primary voters guide (his own answers: previous elected offices held), August 1, 2026",
+     "url": "https://www.hometownsource.com/elk_river_star_news/sherburne-county-board-of-commissioners-district-3-primary-voters-guide-mark-swanson/article_d3d7896a-79af-4604-8d94-ac92143d92dc.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Becker Township Supervisor",
+     "from": "",
+     "to": "",
+     "source": "Elk River Star News, primary voters guide (his own answers: previous elected offices held), August 1, 2026",
+     "url": "https://www.hometownsource.com/elk_river_star_news/sherburne-county-board-of-commissioners-district-3-primary-voters-guide-mark-swanson/article_d3d7896a-79af-4604-8d94-ac92143d92dc.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Monticello Hospital Board",
+     "from": "",
+     "to": "",
+     "source": "Elk River Star News, primary voters guide (his own answers: previous elected offices held), August 1, 2026",
+     "url": "https://www.hometownsource.com/elk_river_star_news/sherburne-county-board-of-commissioners-district-3-primary-voters-guide-mark-swanson/article_d3d7896a-79af-4604-8d94-ac92143d92dc.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-153",
+   "name": "Lew Noska",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/boards_and_commissions/county_board/district_4.php",
+    "source": "Todd County, County Board of Commissioners: District 4 - Lew Noska",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Todd County Board of Commissioners, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Todd County, County Board of Commissioners: District 4 - Lew Noska (term expires 12/2026)",
+     "url": "https://www.toddcountymn.gov/government/boards_and_commissions/county_board/district_4.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-009",
+   "name": "Mary Lewandowski"
+  },
+  {
+   "race_id": "2026-MN-0404-025",
+   "name": "Brandon Thyen",
+   "website": {
+    "url": "https://thyenforsheriff.com",
+    "how": "The site is headed \"Elect Brandon Thyen for Chisago County Sheriff\" and its Welcome page says he is seeking re-election in November of 2026. The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.chisagocountymn.gov/794/Administration-Office",
+    "source": "Chisago County, Sheriff's Office: Administration Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chisago County Sheriff (appointed May 5, 2018; elected November 2018; re-elected 2022)",
+     "from": "2018",
+     "to": "now",
+     "source": "His campaign's own site (Welcome page); Chisago County's Sheriff's Office pages name him as Sheriff",
+     "url": "https://thyenforsheriff.com/our-vision",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-135",
+   "name": "Adam Edward Kasprowicz"
+  },
+  {
+   "race_id": "2026-MN-0405-075",
+   "name": "Lara R.M. Nygaard",
+   "official_page": {
+    "url": "https://lakecountymn.gov/people/lara-nygaard/",
+    "source": "Lake County, the county's page for Lara R.M. Nygaard, Lake County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Lake County, Attorney Staff page",
+     "url": "https://lakecountymn.gov/attorney/attorney-staff/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10918",
+   "name": "Balakrishna \"Bala\" Chintaginjala"
+  },
+  {
+   "race_id": "2026-MN-1001-54880",
+   "name": "Joe Powers",
+   "website": {
+    "url": "https://powersformayor.com",
+    "how": "The site is titled \"Joe Powers for Mayor\", a mayoral campaign in Rochester, MN. The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-17288",
+   "name": "Gary Hansen",
+   "website": {
+    "url": "https://hansenforcouncil.com",
+    "how": "The site says \"Re-Elect Gary Hansen for City Council\" in Eagan and \"On November 3, 2026, vote for Gary Hansen for City Council\". The same address is on the Secretary of State's candidate list.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eagan City Council",
+     "from": "2008",
+     "to": "now",
+     "source": "His campaign's own site (home page: \"Since joining the Eagan City Council in 2008\"; the About page says he was first elected in 2008)",
+     "url": "https://hansenforcouncil.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Valley Transit Authority Board of Commissioners",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Valley Transit Authority, 2026 Board of Commissioners page (lists Gary Hansen, Eagan City Councilmember)",
+     "url": "https://www.mvta.com/mvta-board/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Eagan Planning Commission (member and chair)",
+     "from": "",
+     "to": "",
+     "source": "His campaign's own site (About page)",
+     "url": "https://hansenforcouncil.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Dakota County Planning Commission (member and chair)",
+     "from": "",
+     "to": "",
+     "source": "His campaign's own site (About page)",
+     "url": "https://hansenforcouncil.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-40382",
+   "name": "Terri Mallet",
+   "offices": [
+    {
+     "office": "Maplewood Parks and Recreation Commission",
+     "from": "",
+     "to": "now",
+     "source": "City of Maplewood, Parks & Recreation Commission page (list of members)",
+     "url": "https://www.maplewoodmn.gov/259/Parks-Recreation-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55852",
+   "name": "Rebecca Carlson"
+  },
+  {
+   "race_id": "2026-MN-1020-10972",
+   "name": "Jon Grau",
+   "official_page": {
+    "url": "https://www.chaskamn.gov/144/City-Council",
+    "source": "City of Chaska, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chaska City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Chaska, City Council page (current term expires December 31, 2026)",
+     "url": "https://www.chaskamn.gov/144/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-69700",
+   "name": "John Justen",
+   "official_page": {
+    "url": "https://www.wspmn.gov/494/City-Council",
+    "source": "City of West St. Paul, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "West St. Paul City Council, Ward 2",
+     "from": "",
+     "to": "now",
+     "source": "City of West St. Paul, City Council page (term expires December 2026)",
+     "url": "https://www.wspmn.gov/494/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-53620",
+   "name": "Vicki Jo Lambert",
+   "official_page": {
+    "url": "https://www.red-wing.org/835/Vicki-Jo-Lambert",
+    "source": "City of Red Wing, City Council: Vicki Jo Lambert",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing City Council, Fourth Ward",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Red Wing, City Council: Vicki Jo Lambert (term: January 2023 - January 2027)",
+     "url": "https://www.red-wing.org/835/Vicki-Jo-Lambert",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Jonathon Heinonen"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0256",
+   "name": "Terese \"Mrs B\" Bjornstad",
+   "official_page": {
+    "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+    "source": "Red Wing Public Schools, School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing School Board",
+     "from": "2023",
+     "to": "now",
+     "source": "Red Wing Public Schools, School Board page (Terese Bjornstad, Director: member since 2023, term expires 2026)",
+     "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Eric D. Minks",
+   "official_page": {
+    "url": "https://www.isd477.org/district/school-board",
+    "source": "Princeton Public Schools (ISD 477), School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Princeton School Board (ISD 477)",
+     "from": "",
+     "to": "now",
+     "source": "Princeton Public Schools (ISD 477), Election page, his own answer: \"Have been a School Board member for 16 years\"",
+     "url": "https://www.isd477.org/district/school-board/election",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Princeton Township Planning Commission (12 years)",
+     "from": "",
+     "to": "",
+     "source": "Union-Times (Princeton), school board voters guide (his own answer), October 20, 2022",
+     "url": "https://www.hometownsource.com/union_times/news/princeton-school-board-general-election-voters-guide/article_909585c0-4fc8-11ed-a54a-e7e04256978d.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0656",
+   "name": "Richard Olson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "April St. Martin"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2144",
+   "name": "Aaron Olson"
+  },
+  {
+   "race_id": "2026-MN-7022-MN",
+   "name": "Jeanne Cochran",
+   "offices": [
+    {
+     "office": "Judge, Minnesota Court of Appeals, Seat 13 (appointed by Governor Mark Dayton)",
+     "from": "2018",
+     "to": "now",
+     "source": "Wikipedia, Minnesota Court of Appeals (table of judges, cited to the Minnesota Judicial Branch)",
+     "url": "https://en.wikipedia.org/wiki/Minnesota_Court_of_Appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8914-MN",
+   "name": "Ole Tvedten",
+   "offices": [
+    {
+     "office": "Judge, Seventh Judicial District (appointed by Governor Tim Walz; appointment reported August 13, 2024)",
+     "from": "2024",
+     "to": "now",
+     "source": "WJON (St. Cloud), \"Walz Appoints Tvedten to 7th District Court\", August 13, 2024",
+     "url": "https://wjon.com/walz-appoints-tvedten-to-7th-district-court/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0124-MN",
+   "name": "Austin Peterson",
+   "field": "endorsed_by",
+   "url": "https://www.claymnrepublicans.com/endorsedcandidates.html",
+   "why": "The Clay County Republicans' page is headed \"Endorsed & Supported Candidates\" and lists him for MN Senate SD4 without saying which word applies to him, so the page does not state an endorsement."
+  },
+  {
+   "race_id": "2026-MN-1001-10918",
+   "name": "Balakrishna \"Bala\" Chintaginjala",
+   "field": "past_party",
+   "url": "https://en.wikipedia.org/wiki/2022_Minnesota_Senate_election#District_48",
+   "why": "The Wikipedia table gives only the name Bala Chintaginjala in a Senate primary; nothing on the page ties that person to Chanhassen or to this race, so there is one anchor (the state), not two."
+  },
+  {
+   "race_id": "2026-MN-1001-10918",
+   "name": "Balakrishna \"Bala\" Chintaginjala",
+   "field": "past_party",
+   "url": "https://en.wikipedia.org/wiki/2020_Minnesota_Senate_election#Primary_elections_results",
+   "why": "The Wikipedia table gives only the name Bala Chintaginjala in a Senate primary; nothing on the page ties that person to Chanhassen or to this race, so there is one anchor (the state), not two."
+  }
+ ]
+}

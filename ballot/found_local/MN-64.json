@@ -1,0 +1,452 @@
+{
+ "state": "MN",
+ "part": 64,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance was already used up when this part began (every search was refused), so nothing here comes from a search engine. Everything was found by reading known addresses directly: the campaign websites the candidates filed with the Secretary of State (already in sl_websites; the database was opened read-only), each government's own site, dfl.org, the Legislative Reference Library, and one Wikipedia article. The Secretary of State's sites were never requested. Candidates with no findings are the ones this left out of reach.",
+  "Pages were read with the kit's honest User-Agent through states/net.py, each site's robots.txt first; the fetch tool was used for dfl.org/endorsed, stevegander.com, the City of Lakeville's council page and Wikipedia. Hastings Public Schools' site (a thrillshare.com host) asks scripts to stay out and was not read, so Melissa Kinneman has no findings.",
+  "Not holding the office today, by the government's own page, and nothing else found: Dennis R. Boucher (Polk County's board page lists Joan Lee for the 4th District), Terry Frost (Otter Tail County's sheriff page names Barry Fitzgibbons as Sheriff), Ronda Szlavich (not on Cambridge's council page), Johnathan Miller (Brainerd's council page lists Gabe Johnson for Ward 4), Robert W. Galler, Jr. (not on the St. Cloud district's board page).",
+  "Not reached: the City of Fergus Falls lists its council members by script, so nothing could be read about Erik T. Swanson; Cloquet Public Schools' board page was not found (Don Gentilini); the City of Ramsey's site answered neither address tried; the Minnesota Judicial Branch refuses scripts (part 10's note), so it was not asked about Stephen J. Ferrazzano II.",
+  "No Republican unit's endorsement page was found for Gander, Altendorf, Marvin or Witte: three guessed addresses of local units do not exist, and without search there was no way to find the real ones. dfl.org/endorsed lists Chris Ford for Senate District 32 (and, outside this part, Heather Arndt for 20A and Jennifer Compeau for 1B).",
+  "Rich Murray: the Legislative Reference Library's record is of a former House member from Albert Lea; the tie to the present mayor rests on the city of residence, the state, and Wikipedia's article, which says the former legislator has been mayor since 2023. The Library's record also carries family, religion and schooling, none of which is recorded here.",
+  "Official pages show phone numbers, e-mail and home addresses beside some names (Lyon County, Albert Lea, Mounds View); none was recorded.",
+  "Steve Gander, Pam Altendorf and Jeff Witte are sitting legislators with roster records, so only their websites are given."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0152-MN",
+   "name": "Chris Ford",
+   "website": {
+    "url": "https://chrisfordformn.com",
+    "how": "The site's title reads \"Chris Ford for MN\"; it says \"I'm running for State Senate in SD32\" and names Minnesota Senate District 32 and 2026. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.blainemn.gov/directory.aspx?EID=469",
+    "source": "City of Blaine, City Council directory: Chris Ford, Councilmember Ward 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Blaine City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Blaine, City Council directory",
+     "url": "https://www.blainemn.gov/directory.aspx?EID=469",
+     "kind": "official",
+     "also": "The city's page gives no start date; it reads \"Term Expires: December 31, 2028\". His campaign site (About) says he is a Blaine City Council Member, which ties the two.",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0189-MN",
+   "name": "Steve Gander",
+   "website": {
+    "url": "https://stevegander.com",
+    "how": "The site's title reads \"Home - Steve Gander for State Representative\"; it names Minnesota House District 1B and is prepared and paid for by Steve Gander for Minnesota. It is the address he filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0226-MN",
+   "name": "Pam Altendorf",
+   "website": {
+    "url": "https://pamaltendorf.com",
+    "how": "The site's title reads \"Mn District 20a | Altendorf For House | Red Wing\" and it calls her the State Representative of District 20A. It is the address she filed with the Secretary of State for 2026; the footer still reads 2022 and the page does not name the 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0263-MN",
+   "name": "Robert Marvin",
+   "website": {
+    "url": "https://marvinforhouse.com",
+    "how": "The site's title reads \"Marvin for House\" and its one page reads \"Robert Marvin for MN State House 38B (coming soon)\", copyright 2026. It is the address he filed with the Secretary of State; there is nothing else on it yet.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0301-MN",
+   "name": "Jeff Witte",
+   "website": {
+    "url": "https://www.witteforhouse.com",
+    "how": "The site's title reads \"Jeff Witte | House of Representatives District 57B\"; it reads \"Re-Elect Jeff Witte for Minnesota House representing Lakeville in District 57B\", is prepared and paid for by Witte for House, and has a page (witteforhouse.com/endorsements/) headed \"Endorsements and Distinctions - 2026\". It is the address he filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-083",
+   "name": "Thomas D Andries",
+   "official_page": {
+    "url": "https://www.lyonco.org/departments/county-board",
+    "source": "Lyon County, County Board page: Thomas Andries, Vice Chair (District 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lyon County Board of Commissioners, District 1",
+     "from": "2023",
+     "to": "now",
+     "source": "Lyon County, County Board page",
+     "url": "https://www.lyonco.org/departments/county-board",
+     "kind": "official",
+     "also": "The page reads \"Served on the County Board since: 2023\" and \"Term of office expires: 2026\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-111",
+   "name": "Wayne D. Johnson",
+   "website": {
+    "url": "https://waynejohnson4ottertail.com",
+    "how": "The site's title reads \"Re-Elect Wayne Johnson for Otter Tail County Commissioner District 2\" and it names November 3, 2026. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://ottertailcounty.gov/boards-commissions/board-of-commissioners/",
+    "source": "Otter Tail County, Board of Commissioners page: Wayne D. Johnson, District 2",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Otter Tail County Board of Commissioners, District 2",
+     "from": "2010",
+     "to": "now",
+     "source": "His campaign site, About page",
+     "url": "https://waynejohnson4ottertail.com/about.html",
+     "kind": "campaign",
+     "also": "The campaign page reads \"Wayne was elected to the Otter Tail County Board in November of 2010\"; the home page says he has served on the board since 2010. The county's own page lists Wayne D. Johnson for District 2 today and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-101",
+   "name": "Dennis Welgraven",
+   "official_page": {
+    "url": "https://www.murraycountymn.com/government/county_commissioners/district_3.php",
+    "source": "Murray County, County Commissioners: Dennis Welgraven - District 3",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Murray County Board of Commissioners, District 3",
+     "from": "2019",
+     "to": "now",
+     "source": "Murray County, County Commissioners: District 3 page",
+     "url": "https://www.murraycountymn.com/government/county_commissioners/district_3.php",
+     "kind": "official",
+     "also": "The page reads \"Term: 1/1/19 - 1/1/27\" and \"Next Election Date: November 2026\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-161",
+   "name": "Brad Krause",
+   "official_page": {
+    "url": "https://www.wasecacounty.gov/95/County-Board",
+    "source": "Waseca County, County Board page: Brad Krause, Vice Chair, District 5",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca County Board of Commissioners, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Waseca County, County Board page",
+     "url": "https://www.wasecacounty.gov/95/County-Board",
+     "kind": "official",
+     "also": "The page gives no start date; its table reads District 5, term expires 2026.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-003",
+   "name": "Brad Wise",
+   "official_page": {
+    "url": "https://www.anokacountymn.gov/3707/About-Sheriff-Brad-Wise",
+    "source": "Anoka County Sheriff's Office: About Sheriff Brad Wise",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anoka County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Anoka County Sheriff's Office: About Sheriff Brad Wise",
+     "url": "https://www.anokacountymn.gov/3707/About-Sheriff-Brad-Wise",
+     "kind": "official",
+     "also": "The page calls him the 18th Sheriff of Anoka County and gives no year of election.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-047",
+   "name": "David Walker",
+   "official_page": {
+    "url": "https://www.freeborncountymn.gov/100/County-Attorney",
+    "source": "Freeborn County, County Attorney page: David Walker, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Freeborn County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Freeborn County, County Attorney page",
+     "url": "https://www.freeborncountymn.gov/100/County-Attorney",
+     "kind": "official",
+     "also": "The page names him under Contact Us as County Attorney and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-00694",
+   "name": "Rich Murray",
+   "official_page": {
+    "url": "https://www.cityofalbertlea.org/government/city-council/",
+    "source": "City of Albert Lea, City Council page: Rich Murray, Mayor",
+    "verified": true
+   },
+   "born": {
+    "year": 1957,
+    "date": "1957-07-21",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15362",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota House of Representatives, District 27A",
+     "from": "2011",
+     "to": "2013",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15362",
+     "kind": "official",
+     "also": "The record reads \"House 2011-2012 (District 27A)\", term of office 1/3/2011 to 1/6/2013, city of residence Albert Lea.",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Albert Lea",
+     "from": "",
+     "to": "now",
+     "source": "City of Albert Lea, City Council page",
+     "url": "https://www.cityofalbertlea.org/government/city-council/",
+     "kind": "official",
+     "also": "The city's page lists him as Mayor with a term expiring Dec. 31, 2026 and gives no start date. Wikipedia's article on the former legislator (secondary: https://en.wikipedia.org/wiki/Rich_Murray_(politician)) says he has been mayor since 2023, which also ties the legislator to the mayor.",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to and served in the Minnesota House of Representatives, District 27A",
+     "year": "2010",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15362",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-44530",
+   "name": "Kathryn Smith",
+   "official_page": {
+    "url": "https://www.moundsviewmn.org/government/city_council/city_council_directory.php",
+    "source": "City of Mounds View, City Council Directory: Kathryn Smith, council member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mounds View City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Mounds View, City Council Directory",
+     "url": "https://www.moundsviewmn.org/government/city_council/city_council_directory.php",
+     "kind": "official",
+     "also": "The directory lists Kathryn Smith among the council members with a term ending 12-31-2028 and gives no start date (the city's Council Tenure List, a PDF, was not read). The same page shows Zach Lindstrom, who is also in this race, as the present Mayor.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-35180",
+   "name": "Joshua Lee",
+   "website": {
+    "url": "https://votelee.org",
+    "how": "The site's title reads \"Re-Elect Joshua Lee | Lakeville MN City Council\" and it is paid for by the Vote Lee Campaign Fund. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lakevillemn.gov/428/City-Council",
+    "source": "City of Lakeville, City Council page: Councilmember Joshua Lee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lakeville City Council",
+     "from": "2019",
+     "to": "now",
+     "source": "City of Lakeville, City Council page",
+     "url": "https://www.lakevillemn.gov/428/City-Council",
+     "kind": "official",
+     "also": "The city's page reads first elected to Council January 1, 2019, term expires December 31, 2026. His campaign site says he was first elected in 2018, the election before that date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-53026",
+   "name": "Debra Musgrove",
+   "website": {
+    "url": "https://musgrove4ramsey.com",
+    "how": "The site's title reads \"Ramsey Candidate At Large\" and its text is about Debra Musgrove and the Ramsey City Council. It is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey City Council, Ward 4",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, home page",
+     "url": "https://musgrove4ramsey.com/",
+     "kind": "campaign",
+     "also": "The page reads \"After serving six years as the Ward 4 representative on the Ramsey City Council\" and calls her a former city council member; it gives no years for the term (it says she has been a voice in the city \"since 2018\"). The City of Ramsey's own site could not be reached under either address tried, so no official page confirms the years.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1014-30644",
+   "name": "Tim Burley",
+   "official_page": {
+    "url": "https://hutchinsonmn.gov/city-government/city-council/city-council-profiles/",
+    "source": "City of Hutchinson, Council Profiles: Tim Burley, Council Seat 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hutchinson City Council, Seat 1",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Hutchinson, Council Profiles",
+     "url": "https://hutchinsonmn.gov/city-government/city-council/city-council-profiles/",
+     "kind": "official",
+     "also": "The page reads \"Came Into Office: 2023\" and \"Current Term Expires: 2026\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0423",
+   "name": "Garrett Luthens",
+   "official_page": {
+    "url": "https://www.isd423.org/school-board/",
+    "source": "Hutchinson Public Schools, School Board page: Garrett Luthens, Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hutchinson Public Schools (ISD 423) School Board",
+     "from": "",
+     "to": "now",
+     "source": "Hutchinson Public Schools, School Board page",
+     "url": "https://www.isd423.org/school-board/",
+     "kind": "official",
+     "also": "The page lists him as Chair and gives no start date; its November 8, 2022 election section lists a campaign financial report in his name.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Christina Streiff Oji",
+   "website": {
+    "url": "https://www.cso4schoolboard.com",
+    "how": "The page is headed \"For White Bear Lake School Board\" and is signed \"Chris Streiff Oji for School Board\"; it speaks of her candidacy for school board. It is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd624.org/about/school-board/members",
+    "source": "White Bear Lake Area Schools, School Board Members: Christina Streiff Oji",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "White Bear Lake Area Schools (ISD 624) School Board",
+     "from": "",
+     "to": "now",
+     "source": "White Bear Lake Area Schools, School Board Members",
+     "url": "https://www.isd624.org/about/school-board/members",
+     "kind": "official",
+     "also": "The page gives no start date; it reads \"Term Expires 12/31/26\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0883",
+   "name": "Eric Gordee",
+   "official_page": {
+    "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+    "source": "Rockford Area School District 883, Board Members: Eric Gordee, Vice Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rockford Area Schools (ISD 883) School Board",
+     "from": "2019",
+     "to": "now",
+     "source": "Rockford Area School District 883, Board Members",
+     "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+     "kind": "official",
+     "also": "The page reads \"Board member since 2019\" and \"Board term expires December 2026\".",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5012-ISD0728",
+   "name": "Sara Weis",
+   "official_page": {
+    "url": "https://www.isd728.org/about1/school-board/school-board-members",
+    "source": "Elk River Area ISD 728, School Board Members: Sara Weis, director, District 2",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Elk River Area School District (ISD 728) School Board, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Elk River Area ISD 728, School Board Members",
+     "url": "https://www.isd728.org/about1/school-board/school-board-members",
+     "kind": "official",
+     "also": "The page reads \"Re-Elected 2022 - District 2\" beside her name and gives no first year.",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every address in the file was re-opened with the kit's honest User-Agent on 2026-10-02 and all answered. Corrected: Dennis Welgraven (the county page does give a term, 1/1/19 to 1/1/27, so the start year is 2019, not blank); Jeff Witte (wording of the quoted line; the 2026 endorsements heading is on the endorsements page, not the home page). Pam Altendorf's, Debra Musgrove's, Joshua Lee's and Christina Streiff Oji's sites name the candidate and the office or place but not the year 2026."
+ ]
+}

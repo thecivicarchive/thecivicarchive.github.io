@@ -1,0 +1,450 @@
+{
+ "part": 51,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "Web search ran out for the whole session after ten searches in this part (the tool reported 200 of 200 used), so the rest was done by reading known pages directly with the kit's own User-Agent (states/net.py): the sites the candidates filed with the Secretary of State, government sites, the state DFL's endorsed list, the Minneapolis Republican Party's site and the University of Minnesota's election archive. A campaign site nobody filed could not be searched for, so a missing website here is not proof that none exists.",
+  "Out of reach and not worked around: jondorau.com (the site Jon Dorau filed) answers scripts with 403, so no website is recorded for him; bemidji.k12.mn.us fails its TLS handshake with both fetchers, so the Bemidji board page was not read (Robert P. Hagge); mncourts.gov was not requested (earlier parts found it answers 403), so no court page for Sarah S. West, the only candidate for her seat.",
+  "Diane Napper: the Minneapolis Republican Party's home page (https://www.mplsgop.org/) lists her under 'SD 63' among 'Our Candidates' with her site, but does not use the word endorsed, so no endorsed_by is recorded.",
+  "Julie Henslin: the DFL's list prints her as Julie Vossen-Henslin under House District 16B and links only a social media page from her name; no campaign website was found.",
+  "Not listed on their government's own page of current members (so no office recorded): Jim Reeder (Le Sueur County lists Danny O'Keefe for District 2), Jon Dorau (Pine County lists Matt Ludwig for District Five), Joshua R. Baird (Maple Grove), Brandon Wexler (Otsego), Kate Egelhof (Bemidji lists Josh Peterson for Ward 2), Sofi Villena (Robbinsdale lists Mia Parisian for Ward 3), Glen D. Goebel (Pine City schools), Nick Arnfelt (Delano schools), Nevin Brede (Alexandria schools). Martin County's Sheriff page names no sheriff, so nothing is recorded for Matt Owens.",
+  "Roger D. Pohlman's site also describes police and military careers; those are jobs, not offices, and are left out. Kevin M. Magnuson's site gives 2023 as the start of his elected term and no year for his appointment, so no start year is recorded.",
+  "Our record marks none of the county, city or school candidates in this part as an incumbent, while official pages show Larry Anderson, Roger D. Pohlman, Roger Tellinghuisen, Jenny Sanders, Brian Melton, Kevin Magnuson, Dan Jerzak, Andy Hjelle, Tony Reichenberger, Ken Mattson and Corey Stanger hold the offices they seek. The Secretary's list carries no incumbent mark for these offices, so this is a gap, not a contradiction, and no review items were written."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0145-MN",
+   "name": "Liz Boldon",
+   "website": {
+    "url": "https://www.lizboldon.com/",
+    "how": "The site's title reads \"Liz Boldon for MN Senate\" and its home page names Senate District 25; it is also the site she filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "url": "https://dfl.org/endorsed/",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, under Senate District 25)",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0183-MN",
+   "name": "Diane Napper",
+   "website": {
+    "url": "https://dianenapper.com",
+    "how": "The site's title reads \"Diane Napper for MN Senate\" and its home page says she is running to represent Senate District 63 in South Minneapolis; it is also the site she filed with the Secretary of State.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for State Senate, District 63 (lost the general election)",
+     "year": 2020,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), a curated archive of election results; not Wikipedia or a news organization",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/diane-napper/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for State House, District 63B (lost the general election)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), a curated archive of election results; not Wikipedia or a news organization",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/diane-napper/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0219-MN",
+   "name": "Julie Henslin",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "url": "https://dfl.org/endorsed/",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints her name as Julie Vossen-Henslin, House District 16B)",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0256-MN",
+   "name": "Zack Stephenson",
+   "website": {
+    "url": "https://www.zack.mn/",
+    "how": "The site's title reads \"Zack Stephenson for Minnesota State House\" and its home page says he is running for the Minnesota House of Representatives in district 35A; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "url": "https://dfl.org/endorsed/",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, under House District 35A)",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0295-MN",
+   "name": "Christopher Kartschoke",
+   "website": {
+    "url": "https://ck4mn.com/",
+    "how": "The site's title reads \"Christopher Kartschoke for MN 2026\" and its home page reads \"For Minnesota House Representative in District 54B\"; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "url": "https://dfl.org/endorsed/",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Chris Kartschoke, House District 54B)",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "seeking your DFL support at the polls this fall",
+    "url": "https://ck4mn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-033",
+   "name": "Larry Anderson",
+   "official_page": {
+    "url": "https://www.co.cottonwood.mn.us/government/county_commissioners/1st_district.php",
+    "source": "Cottonwood County's page for its 1st District commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Commissioner, District 1",
+     "from": "",
+     "to": "today",
+     "source": "Cottonwood County's 1st District page, which names Larry Anderson and gives no start year",
+     "url": "https://www.co.cottonwood.mn.us/government/county_commissioners/1st_district.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-079",
+   "name": "Jim Reeder"
+  },
+  {
+   "race_id": "2026-MN-0393-063",
+   "name": "Roger D. Pohlman",
+   "website": {
+    "url": "https://www.pohlmancommissioner.com",
+    "how": "The site's home page reads \"Re-elect Roger Pohlman for Jackson County MN Commissioner\" and announces his re-election bid for District 3; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.jacksoncountymn.gov/commissioners",
+    "source": "Jackson County's Commissioners page (Roger D. Pohlman, District 3 County Commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jackson County Commissioner, District 3",
+     "from": "",
+     "to": "today",
+     "source": "Jackson County's Commissioners page, which gives no start year",
+     "url": "https://www.jacksoncountymn.gov/commissioners",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Grand Forks School Board member (North Dakota), five years, two of them as board president",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, which gives no years",
+     "url": "https://www.pohlmancommissioner.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-095",
+   "name": "Roger Tellinghuisen",
+   "official_page": {
+    "url": "https://www.millelacs.mn.gov/1271/Roger-Tellinghuisen",
+    "source": "Mille Lacs County's page for its District 4 commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mille Lacs County Commissioner, District 4",
+     "from": "2007",
+     "to": "today",
+     "source": "Mille Lacs County's page for him (\"In Office Since: 2007\"; \"Term Expires: 2026\")",
+     "url": "https://www.millelacs.mn.gov/1271/Roger-Tellinghuisen",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-115",
+   "name": "Jon Dorau"
+  },
+  {
+   "race_id": "2026-MN-0403-097",
+   "name": "Jennifer (Jenny) Sanders",
+   "official_page": {
+    "url": "https://www.co.morrison.mn.us/directory.aspx?did=22",
+    "source": "Morrison County's staff directory for the Recorder's Office (Jenny Sanders, County Recorder)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Morrison County Recorder",
+     "from": "",
+     "to": "today",
+     "source": "Morrison County's Recorder's Office directory, which gives no start year",
+     "url": "https://www.co.morrison.mn.us/directory.aspx?did=22",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-091",
+   "name": "Matt Owens"
+  },
+  {
+   "race_id": "2026-MN-0405-027",
+   "name": "Brian Melton",
+   "website": {
+    "url": "https://melton4clay.com",
+    "how": "The site's home page reads \"Re-elect Brian Melton, Clay County Attorney\"; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.claycountymn.gov/161/County-Attorneys-Office",
+    "source": "Clay County's County Attorney's Office page (Brian J. Melton, Clay County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clay County Attorney",
+     "from": "elected in 2006",
+     "to": "today",
+     "source": "His campaign site (\"Elected County Attorney in 2006 and repeatedly re-elected\"); Clay County's County Attorney's Office page names him as County Attorney today",
+     "url": "https://melton4clay.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-163",
+   "name": "Kevin M. Magnuson",
+   "website": {
+    "url": "https://kevinmagnuson.com",
+    "how": "The site's title reads \"Kevin Magnuson - Washington County Attorney\" and its home page asks for a vote to re-elect him County Attorney on November 3; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.co.washington.mn.us/directory.aspx?did=19",
+    "source": "Washington County's staff directory for the County Attorney (Kevin Magnuson, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Attorney (appointed for a brief period, then elected to a four-year term)",
+     "from": "",
+     "to": "today",
+     "source": "His campaign site, which says he was \"elected to a four-year term in 2023\" after \"a brief period as the appointed County Attorney\"; the County's directory names him as County Attorney today",
+     "url": "https://kevinmagnuson.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-40166",
+   "name": "Joshua R. Baird"
+  },
+  {
+   "race_id": "2026-MN-1010-07948",
+   "name": "Dan Jerzak",
+   "website": {
+    "url": "https://www.danjerzak.com",
+    "how": "The site's title reads \"Jerzak 2026 Campaign\" and its About Me page (https://www.danjerzak.com/about-me) lists his work on the Brooklyn Center City Council; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.brooklyncentermn.gov/government/city-council",
+    "source": "The City of Brooklyn Center's City Council page (Councilmember Dan Jerzak)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Center City Council member",
+     "from": "2023",
+     "to": "today",
+     "source": "The City's City Council page (\"Councilmember Dan Jerzak ... Term of Office: 1/1/23 – 12/31/26\")",
+     "url": "https://www.brooklyncentermn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-28682",
+   "name": "Andy Hjelle",
+   "official_page": {
+    "url": "https://www.hermantownmn.com/government/elected-officials/",
+    "source": "The City of Hermantown's Elected Officials page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hermantown City Council member",
+     "from": "elected in November 2022",
+     "to": "today",
+     "source": "The City's Elected Officials page (\"Andy Hjelle and Brian LeBlanc were elected in November of 2022\")",
+     "url": "https://www.hermantownmn.com/government/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-49138",
+   "name": "Brandon Wexler"
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Chris Mog",
+   "website": {
+    "url": "https://www.votemog.com",
+    "how": "The site's title reads \"Chris Mog for Woodbury City Council\" and its home page gives the 2026 voting dates; it is also the site filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1022-05068",
+   "name": "Kate Egelhof"
+  },
+  {
+   "race_id": "2026-MN-1024-54808",
+   "name": "Sofi Villena"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0031",
+   "name": "Robert P. Hagge"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Tony Reichenberger",
+   "website": {
+    "url": "https://tonyreichenberger.com",
+    "how": "The site's title reads \"Tony Reichenberger for ISD 194 School Board\" and its home page asks for help with the campaign to re-elect him; it is also the site he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd194.org/district/school-board",
+    "source": "Lakeville Area Schools' School Board page (Tony Reichenberger, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lakeville Area Schools (ISD 194) School Board member",
+     "from": "2025",
+     "to": "today",
+     "source": "The district's School Board page (\"Serving Since: November 19, 2025\"; \"Term Expires: January 4, 2027\")",
+     "url": "https://www.isd194.org/district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0332",
+   "name": "Ken Mattson",
+   "official_page": {
+    "url": "https://www.moraschools.org/page/school-board",
+    "source": "Mora Public Schools' School Board page (Ken Mattson, Vice Chair/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mora Public Schools (ISD 332) School Board member",
+     "from": "",
+     "to": "today",
+     "source": "The district's School Board page (\"Term Expires - January, 2027\"; no start year given)",
+     "url": "https://www.moraschools.org/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0578",
+   "name": "Glen D. Goebel"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0726",
+   "name": "Corey Stanger",
+   "official_page": {
+    "url": "https://www.becker.k12.mn.us/home/school-board",
+    "source": "Becker Public Schools' School Board page (Corey Stanger, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Becker Public Schools (ISD 726) School Board member",
+     "from": "2023",
+     "to": "today",
+     "source": "The district's School Board page (\"Elected on January 1, 2023\")",
+     "url": "https://www.becker.k12.mn.us/home/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0879",
+   "name": "Nick Arnfelt"
+  },
+  {
+   "race_id": "2026-MN-5004-ISD0206",
+   "name": "Nevin Brede"
+  },
+  {
+   "race_id": "2026-MN-8534-MN",
+   "name": "Sarah S. West"
+  },
+  {
+   "race_id": "2026-MN-9237-MN",
+   "name": "Rebecca A. Waxse",
+   "website": {
+    "url": "https://waxseforjudge.com",
+    "how": "The site's title reads \"Rebecca Waxse for Judge | 10th Judicial District, Seat 38 | Minnesota 2026\"; it is also the site she filed with the Secretary of State.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0183-MN",
+   "name": "Diane Napper",
+   "finding": "born",
+   "why": "The only page giving it is the Minnesota Historical Election Archive, which is neither Wikipedia nor a named news organization, so it is not a permitted secondary source; the page lists a social media profile among its own sources."
+  }
+ ],
+ "verifier_notes": [
+  "Every url in the file was re-opened on 2026-10-02 with the kit's own User-Agent (states/net.py); all 25 pages answered. 42 findings checked: 41 kept, 1 removed, 1 kept with corrected wording.",
+  "Corrected: Dan Jerzak's office source quoted the Mayor's line (\"Held office since 1/1/23\"); his own line on the City's page reads \"Term of Office: 1/1/23 – 12/31/26\". The start year 2023 stands as the start of that term.",
+  "Diane Napper's two past_party entries are kept: the archive page states both runs as Republican in District 63 and 63B, Minnesota. The archive is a university library's curated collection, so 'secondary' is the nearest kind but not an exact fit; the source line now says so. Decide before showing them whether that source is acceptable.",
+  "Each 'filed with the Secretary of State' statement was checked against the website column of John's saved candidate files (name and website cells only) and holds for all eleven sites.",
+  "Mora Public Schools' board page is drawn by script; Ken Mattson, Vice Chair/Treasurer, \"Term Expires - January, 2027\" is in the page's own source. Chris Mog's site also gives the name as Christine Mog.",
+  "Official pages for Larry Anderson, Roger Tellinghuisen and others also carry addresses, phone numbers or family details; none of that is in this file."
+ ]
+}

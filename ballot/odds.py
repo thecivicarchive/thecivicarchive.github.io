@@ -8,14 +8,30 @@ nothing is matched from titles. The page shows the prices apart from the record,
 (not a poll, a forecast or an official record), and opens a market only through a notice: that these are bets, the
 age limits, that their legality is disputed in some states, and the national and state problem-gambling helplines.
 No referral codes, ever.
+
+State races (John, 2026-10-01; Minnesota first). The markets a person found for a state's own races are kept in a file
+for that state, ballot/odds_state_<code>.json ({race id in ballot_local_2026.sqlite: {"polymarket": slug or null,
+"kalshi": ticker or null, "checked": day, "note": what was checked}}), and the same run reads them into a snapshot of
+their own, ballot_cache/odds/odds_state_2026.json, which the state ballot pages read. The Congress snapshot is written
+exactly as before, so nothing the Congress pages count or show changes. Two things are different for the state races,
+because their markets are small: a Polymarket outcome that is not open for trading (the "Person A", "Other"
+placeholders an event is created with, which report a price of 0.5 nobody has paid) is left out; and a Kalshi outcome
+nobody has traded yet has no price at all (its last price reads 0), so it is named under "quiet" and given no row.
+
+    python -m ballot.odds state        only the state races (a handful of requests)
 """
 
 import datetime as dt
+import glob
 import json
 import os
+import sys
 
 from ballot.common import CACHE
 from states import net
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+STATE_SNAPSHOT = os.path.join(CACHE, "odds", "odds_state_2026.json")
 
 MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each checked by hand against the market's own title
     "2026-MN-S2": {"polymarket": "minnesota-senate-election-winner", "kalshi": "SENATEMN-26", "checked": "2026-09-30"},
@@ -66,24 +82,72 @@ MARKETS = {      # race -> Polymarket event slug and Kalshi event ticker, each c
 }
 
 
-def polymarket(slug):
+def polymarket(slug, open_only=False):
+    """open_only (the state races): an outcome that is not open for trading is left out. An event is created with
+    placeholders ("Person A", "Person B", "Other") that report a price of 0.5 before anyone can trade them."""
     ev = json.loads(net.get(f"https://gamma-api.polymarket.com/events?slug={slug}", accept="application/json"))[0]
     rows = []
     for m in ev.get("markets") or []:
         prices = json.loads(m.get("outcomePrices") or "null")
         if not prices or m.get("closed"):
             continue
+        if open_only and (m.get("active") is False or m.get("acceptingOrders") is False):
+            continue
         rows.append([m.get("groupItemTitle") or m.get("question"), round(float(prices[0]), 3), round(float(m.get("volume") or 0))])
     return {"title": ev.get("title"), "url": f"https://polymarket.com/event/{slug}", "rows": rows, "volume": round(float(ev.get("volume") or 0))}
 
 
-def kalshi(ticker):
+def kalshi(ticker, traded_only=False):
+    """traded_only (the state races): an outcome nobody has traded has no price (its last price reads 0), so it gets no
+    row; it is named under "quiet", so a page can say the market lists it."""
     d = json.loads(net.get(f"https://api.elections.kalshi.com/trade-api/v2/events/{ticker}?with_nested_markets=true", accept="application/json"))
     ev = d.get("event", {})
     rows = sorted([[m.get("yes_sub_title") or m.get("title"), round(float(m.get("last_price_dollars") or 0), 3), round(float(m.get("volume_fp") or 0))]
                    for m in ev.get("markets") or d.get("markets") or [] if m.get("status") == "active"], key=lambda r: -r[1])
-    return {"title": ev.get("title"), "url": f"https://kalshi.com/markets/{ev.get('series_ticker', ticker.split('-')[0]).lower()}", "rows": rows,
-            "volume": sum(r[2] for r in rows), "unit": "contracts"}
+    out = {"title": ev.get("title"), "url": f"https://kalshi.com/markets/{ev.get('series_ticker', ticker.split('-')[0]).lower()}", "rows": rows,
+           "volume": sum(r[2] for r in rows), "unit": "contracts"}
+    if traded_only:
+        out["rows"] = [r for r in rows if r[2] > 0]
+        quiet = [r[0] for r in rows if r[2] <= 0]
+        if quiet:
+            out["quiet"] = quiet
+    return out
+
+
+def state_markets():
+    """{race id: {"polymarket", "kalshi", "checked", "note"}} for every state's own races a person found markets for:
+    the ballot/odds_state_<code>.json files, each race checked by hand against the market's own title."""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(HERE, "odds_state_*.json"))):
+        try:
+            found = json.load(open(path, encoding="utf-8"))
+        except ValueError:
+            continue
+        for race, m in found.items():
+            if isinstance(m, dict) and m.get("checked") and (m.get("polymarket") or m.get("kalshi")):
+                out[race] = m
+    return out
+
+
+def load_state(say=print):
+    """The state races' markets, into their own snapshot (the Congress snapshot is not touched)."""
+    net.patient_lookups()
+    listed, out = state_markets(), {}
+    for race, m in listed.items():
+        got = {"at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "checked": m["checked"]}
+        for key, fn in (("polymarket", lambda s: polymarket(s, open_only=True)), ("kalshi", lambda t: kalshi(t, traded_only=True))):
+            if not m.get(key):
+                continue
+            try:
+                got[key] = fn(m[key])
+            except Exception as e:      # a market that cannot be read is left out, never guessed
+                say(f"    {race}: {key} could not be read ({e})")
+        out[race] = got
+    os.makedirs(os.path.dirname(STATE_SNAPSHOT), exist_ok=True)
+    json.dump(out, open(STATE_SNAPSHOT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    say(f"    Odds: {len(out)} state race(s) read into {os.path.relpath(STATE_SNAPSHOT)}"
+        + (f" ({', '.join(sorted({r.split('-')[1] for r in out}))})" if out else ""))
+    return out
 
 
 def load(con=None, say=print):
@@ -103,4 +167,15 @@ def load(con=None, say=print):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     json.dump(out, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     say(f"    Odds: {len(out)} race(s) read from Polymarket and Kalshi into {os.path.relpath(path)}")
+    try:      # the states' own races, into a snapshot of their own; nothing here can undo the Congress snapshot above
+        load_state(say)
+    except Exception as e:  # noqa: BLE001
+        say(f"    Odds: the state races could not be read ({e}); the Congress snapshot is written")
     return out
+
+
+if __name__ == "__main__":
+    if sys.argv[1:] == ["state"]:
+        load_state()
+    else:
+        load()

@@ -1,0 +1,810 @@
+{
+ "part": 5,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "Web search ran out for the whole session after eight searches in this part (the tool reported 200 of 200 used), so most of this part was done by reading known pages directly with the kit's own User-Agent, robots.txt obeyed: government sites, the campaign sites the candidates filed, party units' own sites, the Legislative Reference Library, the University of Minnesota's election archive, Wikipedia's API and the search pages of news sites whose robots.txt allows them. Campaign sites nobody filed could only be found where a party page or Wikipedia linked them, so a missing website here is not proof that none exists.",
+  "Out of reach and not worked around: mncourts.gov answers scripts with 403 (so no official page for either judge); mn.gov redirects scripts to a bot check; Roseau County's site shows a bot check; the Swift County and City of Detroit Lakes sites' robots.txt ask all scripts to stay out; Ballotpedia serves scripts an empty page; Stearns County's commissioner pages load their text by script.",
+  "The Forum Communications papers (Duluth News Tribune, Detroit Lakes Tribune, St. Cloud Live and the like) and the Pioneer Press name Claude's agents in robots.txt, so nothing here is cited from them.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6, 10 and 12 use): the Senate District 34 DFL lists Jason Schaal under 'Letter of Support Candidates', apart from its endorsed candidates. It is kept apart from endorsed_by so that no page calls it an endorsement; whether and how it is shown is John's decision.",
+  "Andrea Zupancich: the St. Louis County Republican Party's list page is headed 'Candidates Post Primary'; the party's home page (stlouisrpm.com) links it under the heading '2026 Endorsements', as the candidates the party endorsed for the 2026 elections (part 13 records the same list for another candidate). KAXE reported on May 7, 2026 that the GOP endorsed her, but that is a news report, not the party's page. Sources disagree on when she became mayor of Babbitt (WDIO, December 2025: nine years as mayor; the election archive: 2015), so no start year is given; the archive also ends her time as mayor in 2023, while the City's page lists her as Mayor today.",
+  "Birth years for Andrea Zupancich and Leslie Lienemann come from the Minnesota Historical Election Archive (University of Minnesota Libraries Publishing), which is neither Wikipedia nor a news organization; they are marked secondary, year only, as other parts do. Each page gives a full date and other personal details, which are not recorded.",
+  "Krista Knudsen's site still carries her 2024 wording on the home page; its Media page carries a message for November 3, the 2026 election day.",
+  "Tarryl L. Clark: Stearns County's own commissioner pages could not be read, so the official page given is the Legislature's record of her, which also lists her county office from 2019 with no end date. The address Wikipedia gives as her website (tarrylclark.com) now shows a gambling site and is not recorded.",
+  "Michelle Clark: the only source reached is the Morrison County Record's 2018 report of the Governor's appointment of Michelle L. Clark to the Seventh Judicial District bench, chambered at Alexandria; the judicial branch's own page could not be read to confirm she is the Seat 13 judge today, so the office has no end.",
+  "Nothing citable was found for Larry Mahoney, Jeff Stratton, Jamie Deraney, Scott Ray Johnson, Bret Yuker, Melinda O'Connor, Tiffany Toren and Steve Bistrup. The Rock County Star Herald calls Stratton the challenger to the sitting sheriff (the rest of its article is for subscribers); the Princeton district's election page says Bret Yuker declined to comment; the Sun Sailor's voter's guide gives no public office or website for Scott Ray Johnson, and the Faribault Daily News's forum report gives none for Melinda O'Connor; Toren and Bistrup are not on their districts' lists of sitting board members.",
+  "Bryan Welk: KAXE's Cass County guide gives his age on Election Day (50), not a birth year, so no year is recorded. The campaign address he used in 2022 (welkforsheriff.com) no longer serves a site."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0123-MN",
+   "name": "Andrea Zupancich",
+   "website": {
+    "url": "https://www.andreaformn.com",
+    "how": "The site is titled 'Andrea Zupancich for MN Senate District 3' and holds little else beyond a donation link; the St. Louis County Republican Party's 2026 candidate page links to it beside her entry as a candidate for Minnesota Senate District 3.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.babbittmn.gov/city-government/city-council",
+    "source": "City of Babbitt, City Council page (lists her as Mayor)",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Andrea Zupancich of Babbitt, which lists her 2022 run for State Senate District 3",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/andrea-zupancich/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Babbitt",
+     "from": "",
+     "to": "now",
+     "source": "City of Babbitt, City Council page, which lists her as Mayor; it gives no start year",
+     "url": "https://www.babbittmn.gov/city-government/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, St. Louis County Planning Commission",
+     "from": "",
+     "to": "now",
+     "source": "St. Louis County, Planning and Zoning, Boards and Committees: its list of the 2026 Planning Commission's members includes her",
+     "url": "https://www.stlouiscountymn.gov/departments-a-z/planning-zoning/boards-committees",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, St. Louis County Board of Adjustment",
+     "from": "",
+     "to": "now",
+     "source": "St. Louis County, Planning and Zoning, Boards and Committees: its list of the 2026 Board of Adjustment's members includes her",
+     "url": "https://www.stlouiscountymn.gov/departments-a-z/planning-zoning/boards-committees",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Babbitt City Council (two years)",
+     "from": "",
+     "to": "",
+     "source": "WDIO News, report of her 2026 candidacy, which says she served two years on the City Council as well as nine as mayor; it gives no years",
+     "url": "https://www.wdio.com/top-stories/andrea-zupancich-announces-candidacy-for-minnesota-senate-district-3-in-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "St. Louis County Republican Party (the list its home page links as the candidates it endorsed for the 2026 elections)",
+     "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Senator, District 3 (lost the general election by 703 votes)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "KAXE (Northern Community Radio), Jan. 7, 2026, which reports that she ran as a Republican for Senate District 3 in 2022 and lost by 703 votes",
+     "url": "https://www.kaxe.org/local-news/2026-01-07/zupancich-announces-mn-senate-campaign-hauschild-rematch",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0159-MN",
+   "name": "Mary K Kunesh",
+   "website": {
+    "url": "https://marykunesh.com/",
+    "how": "The site is titled 'Mary Kunesh for Minnesota State Senate' and has an 'Election 2026' page; the Minnesota DFL's list of endorsed candidates, which names her for Senate District 39, links to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: Senate District 39)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0196-MN",
+   "name": "Krista Knudsen",
+   "website": {
+    "url": "https://www.kristaknudsenforhouse.com/",
+    "how": "The site is titled 'Krista Knudsen | Minnesota House District 5A'; its Media page asks for votes for her for House District 5A on November 3rd, the 2026 election day.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "On November 3rd, vote Republican.",
+    "url": "https://www.kristaknudsenforhouse.com/media",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0233-MN",
+   "name": "Patricia Mueller",
+   "website": {
+    "url": "https://muellerforminnesota.com",
+    "how": "The site names Patricia Mueller and MN House 23B and has a '2026 Parades' page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0270-MN",
+   "name": "Kathy Burkett",
+   "website": {
+    "url": "https://www.kathyforhouse.com",
+    "how": "The site names Kathy Burkett for MN House District 42A, and its About page announces her run for State Representative in that district; the Senate District 42 Republicans' 2026 page for her links to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 42 Republicans (the party's local unit for Plymouth, Medicine Lake and part of Maple Grove; its 2026 page for her describes her as the GOP endorsed candidate for MN House 42A)",
+     "url": "https://www.sd42gop.com/kbformn",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 42A (lost the general election)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Kathy Burkett of Plymouth",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/kathy-burkett/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State Representative, District 42A (lost the general election)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Kathy Burkett of Plymouth",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/kathy-burkett/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0311-MN",
+   "name": "Anquam Mahamoud",
+   "website": {
+    "url": "https://anquam62b.com",
+    "how": "The site ('Anquam for 62b') opens with her announcing her campaign for re-election to the State House in District 62B and names the precinct caucuses of February 3, 2026; the Minnesota DFL's list of endorsed candidates links to it.",
+    "verified": true
+   },
+   "born": {
+    "year": 1989,
+    "date": null,
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Anquam Mahamoud: House, District 62B, 2025 to the present; the record gives the month and year only)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15639",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 62B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I humbly ask for your support for DFL endorsement",
+    "url": "https://www.anquam62b.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-145",
+   "name": "Tarryl L. Clark",
+   "official_page": {
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (the Legislature's record of Tarryl L. Clark, a former state senator; it also lists her as Stearns County Commissioner from 2019)",
+    "verified": true
+   },
+   "born": {
+    "year": 1961,
+    "date": "1961-07-31",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (the record's date of birth)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Stearns County",
+     "from": "2019",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service (elected; from 2019, with no end given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Senator, District 15 (Minnesota Senate)",
+     "from": "2006",
+     "to": "2011",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (terms of office from January 6, 2006 to January 2, 2011)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Minnesota State Board of Civil Legal Aid (appointed by the Governor)",
+     "from": "2025",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service (appointed; from April 16, 2025, with no end given)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Senator, District 15 (won the December 2005 special election and the 2006 general election)",
+     "year": 2006,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (party when first elected, and at each session served)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Candidate for U.S. Representative, 6th Congressional District (the party's endorsed candidate; lost)",
+     "year": 2010,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, General Notes",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Candidate for U.S. Representative, 8th Congressional District (ran in the party's primary without its endorsement and lost)",
+     "year": 2012,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, General Notes",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15190",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State Senator, District 15 (lost the general election)",
+     "year": 2002,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Tarryl Clark of Saint Cloud; the Legislature's record confirms she ran for the Senate in 2000 and 2002 without naming the party",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tarryl-clark/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State Senator, District 16 (lost the general election)",
+     "year": 2000,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Tarryl Clark of Saint Cloud; the Legislature's record confirms she ran for the Senate in 2000 and 2002 without naming the party",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tarryl-clark/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-141",
+   "name": "Raeanne Danielowski",
+   "official_page": {
+    "url": "https://www.co.sherburne.mn.us/582/Raeanne-Danielowski",
+    "source": "Sherburne County, Board of Commissioners (her own page: District 2)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 2, Sherburne County",
+     "from": "2019",
+     "to": "now",
+     "source": "Sherburne County, Board of Commissioners: her page gives District 2 and a term from 2019 to 2026",
+     "url": "https://www.co.sherburne.mn.us/582/Raeanne-Danielowski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor, City of Big Lake (elected 2012, re-elected 2016)",
+     "from": "elected 2012",
+     "to": "",
+     "source": "Elk River Star News, Nov. 9, 2018, which reports the two elections; the county's page says she was mayor for six years before joining the county board",
+     "url": "https://www.hometownsource.com/elk_river_star_news/community/sherburne_county/danielowski-edges-seefeld-to-win-seat-on-sherburne-board/article_474ab378-e464-11e8-abb4-7b3bf46a5c68.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Big Lake City Council (elected 2008, one term)",
+     "from": "elected 2008",
+     "to": "",
+     "source": "Elk River Star News, Nov. 9, 2018, which reports that she was elected to the council in 2008 and served one term",
+     "url": "https://www.hometownsource.com/elk_river_star_news/community/sherburne_county/danielowski-edges-seefeld-to-win-seat-on-sherburne-board/article_474ab378-e464-11e8-abb4-7b3bf46a5c68.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-135",
+   "name": "Levi M Novacek",
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Roseau County (in his first term)",
+     "from": "",
+     "to": "now",
+     "source": "WiLD 102 Radio (Roseau), local news of June 5, 2026, which reports that he, the incumbent, filed for a second term in District Three; the county's own site shows scripts a bot check and was not read",
+     "url": "https://www.wild102.com/local-news-friday-june-5-2026/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-151",
+   "name": "Larry Mahoney"
+  },
+  {
+   "race_id": "2026-MN-0400-007",
+   "name": "JoDee Treat",
+   "official_page": {
+    "url": "https://www.beltramicountymn.gov/our-government/elected-officials/",
+    "source": "Beltrami County, Elected Officials (lists her as Auditor-Treasurer, with a portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Auditor-Treasurer, Beltrami County",
+     "from": "",
+     "to": "now",
+     "source": "Beltrami County, Auditor-Treasurer's Office, which says the office is managed under her direction and is an elected office with a four-year term; it gives no start year",
+     "url": "https://www.beltramicountymn.gov/departments/auditor-treasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-021",
+   "name": "Bryan Welk",
+   "official_page": {
+    "url": "https://www.casscountymn.gov/1293/Sheriffs-Office",
+    "source": "Cass County, Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Cass County (elected in 2022)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Cass County, Sheriff's Office, which names him as the county's sheriff, elected in 2022",
+     "url": "https://www.casscountymn.gov/1293/Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-133",
+   "name": "Jeff Stratton"
+  },
+  {
+   "race_id": "2026-MN-0405-071",
+   "name": "Jeffrey S. Naglosky",
+   "official_page": {
+    "url": "https://www.koochiching.gov/158/Attorney",
+    "source": "Koochiching County, Attorney's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Koochiching County",
+     "from": "",
+     "to": "now",
+     "source": "Koochiching County, Attorney's Office, which names Jeffrey Naglosky as County Attorney; it gives no start year",
+     "url": "https://www.koochiching.gov/158/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10846",
+   "name": "Jason L. Schaal",
+   "website": {
+    "url": "https://schaal4champlin.com",
+    "how": "The site is titled 'Jason Schaal for Champlin Mayor' and gives the year 2026; the Senate District 34 DFL's 2026 candidates page links to it.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 34 DFL (district unit)",
+     "wording": "Letter of Support Candidates",
+     "what": "Named as the candidate for Mayor under Champlin, with a link to his campaign site, in the unit's list headed 'Letter of Support Candidates'. The page says municipal offices are non-partisan and that the unit granted these candidates letters of support at its August meeting; its endorsed candidates, all for the Legislature, are listed apart.",
+     "url": "https://www.sd34dfl.com/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-54214",
+   "name": "Mary Supple",
+   "website": {
+    "url": "https://marysupple.com",
+    "how": "The site is titled 'Mary Supple | Richfield Mayor' and says she is the current mayor and is running for re-election in November (its footer is dated 2026).",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.richfieldmn.gov/166/City-Council",
+    "source": "City of Richfield, City Council (its list of elected officials names her as Mayor, with a portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Richfield (elected in 2022)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Her campaign's own website, Meet Mary Supple, which says residents elected her Mayor in 2022 and that she is running for a second term; the City's page lists her as Mayor today",
+     "url": "https://marysupple.com/meet-mary-supple/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Council Member At Large, City of Richfield (a four-year term)",
+     "from": "2019 (elected 2018)",
+     "to": "",
+     "source": "Sun Current, Nov. 6, 2018, which reports that she won the at-large council seat for a four-year term starting in 2019",
+     "url": "https://www.hometownsource.com/sun_current/free/gonzalez-supple-win-richfield-mayoral-and-council-races/article_a5535062-e241-11e8-9dfc-afcf57d1ef89.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chair, Richfield Housing and Redevelopment Authority (during her term on the council)",
+     "from": "",
+     "to": "",
+     "source": "Sun Current, April 1, 2022, which reports that she chaired the authority during her first council term; it gives no years",
+     "url": "https://www.hometownsource.com/sun_current/community/richfield/councilmember-supple-announces-run-for-richfield-mayor/article_08c9276a-b206-11ec-9dbd-0f8d648a4fbd.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Trustee, Minnesota Teachers Retirement Association (the state teachers' pension board)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website, Meet Mary Supple, which says she served as a trustee; it gives no years",
+     "url": "https://marysupple.com/meet-mary-supple/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Mary Supple is endorsed by the Richfield DFL",
+    "url": "https://marysupple.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-15832",
+   "name": "Jamie Deraney"
+  },
+  {
+   "race_id": "2026-MN-1010-40382",
+   "name": "Leslie Lienemann",
+   "website": {
+    "url": "https://leslieformaplewood.com/",
+    "how": "The site ('Leslie Lienemann for Minnesota') says she is running for Maplewood City Council; the SD44 DFL's page of endorsed candidates links her entry to it.",
+    "verified": true
+   },
+   "born": {
+    "year": 1966,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Leslie Lienemann of Maplewood, an attorney, which lists her 2022 run for State Senate District 44",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/leslie-lienemann/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "SD44 DFL and Maplewood city DFL (the page says its candidates were endorsed at conventions the two units hosted; it lists her for the Maplewood City Council and spells her name Lieneman)",
+     "url": "https://www.sd44dfl.org/copy-of-team",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Senator, District 44, in the party's primary (lost)",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), candidate record for Leslie Lienemann of Maplewood",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/leslie-lienemann/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55852",
+   "name": "Bruce K. Bester",
+   "website": {
+    "url": "https://bruce4roseville.com",
+    "how": "The site is titled 'Bruce Bester for Roseville City Council'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Finance Commission, City of Roseville (an appointed city commission)",
+     "from": "",
+     "to": "",
+     "source": "City of Roseville, news item posted January 15, 2025, which says he chairs the Finance Commission and had served on it for four years; his campaign site says he chaired it for six years",
+     "url": "https://www.cityofroseville.com/m/newsflash/home/detail/3078",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-10846",
+   "name": "Kristofer Obrien",
+   "official_page": {
+    "url": "https://www.champlinmn.gov/282/Environmental-Resources-Commission",
+    "source": "City of Champlin, Environmental Resources Commission (its members include Kristofer O'Brien, Vice Chair, for Ward 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Vice Chair, Environmental Resources Commission, City of Champlin (an appointed city commission)",
+     "from": "",
+     "to": "now",
+     "source": "City of Champlin, Environmental Resources Commission, whose list of members names Kristofer O'Brien as Vice Chair, for Ward 1 (the ward whose council seat he seeks)",
+     "url": "https://www.champlinmn.gov/282/Environmental-Resources-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-51730",
+   "name": "Scott Ray Johnson"
+  },
+  {
+   "race_id": "2026-MN-1026-51730",
+   "name": "Julie Pointner",
+   "website": {
+    "url": "https://pointnerforplymouth.com",
+    "how": "The site is titled 'Re-elect Julie Pointner - Candidate for Plymouth City Council' and asks for votes in Ward 4.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+    "source": "City of Plymouth, City Council Members (lists her for Ward 4, with a portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 4, City of Plymouth",
+     "from": "",
+     "to": "now",
+     "source": "City of Plymouth, City Council Members, which lists her for Ward 4 with a term expiring Jan. 4, 2027; the page gives no start year (her campaign site says she was elected four years ago)",
+     "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Planning Commission, City of Plymouth (before her election to the council)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website, About Julie, which lists her service on the Plymouth Planning Commission before the council; it gives no years",
+     "url": "https://www.pointnerforplymouth.com/about-julie",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Jennifer Stone",
+   "website": {
+    "url": "https://www.jennystonefor112.com",
+    "how": "The site is headed 'Jenny Stone for School Board' and 'Eastern Carver County Schools', and she writes there as a sitting board member (its footer is dated 2026).",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.district112.org/community/school-board",
+    "source": "Eastern Carver County Schools, School Board (Meet the Board lists Jenny Stone as Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member and Treasurer, Eastern Carver County Schools (current term ends 2026)",
+     "from": "",
+     "to": "now",
+     "source": "Eastern Carver County Schools, School Board, Meet the Board, which lists Jenny Stone as Treasurer with a term ending in 2026; the page gives no start year",
+     "url": "https://www.district112.org/community/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0256",
+   "name": "Natasha Yates",
+   "offices": [
+    {
+     "office": "Member, Red Wing Public Library Board",
+     "from": "",
+     "to": "now",
+     "source": "Republican Eagle (Red Wing), candidates' questionnaire published Aug. 31, 2026, where her own answer says she currently serves on the board",
+     "url": "https://www.republicaneagle.com/news/six-candidates-up-for-three-at-large-seats-on-school-board/article_deec154b-1646-4862-b3e6-46446c413110.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Bret Yuker"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0656",
+   "name": "Melinda O'Connor"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0750",
+   "name": "Tiffany Toren"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912",
+   "name": "Steve Bistrup"
+  },
+  {
+   "race_id": "2026-MN-7010-MN",
+   "name": "Elizabeth Bentley",
+   "website": {
+    "url": "https://electjudgebentley.com",
+    "how": "The site is titled 'Elect Judge Elizabeth Bentley - Minnesota Court of Appeals' and asks for votes in November 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Minnesota Court of Appeals",
+     "from": "2024",
+     "to": "now",
+     "source": "Her campaign's own website, which says she has served on the Court of Appeals since August 2024",
+     "url": "https://electjudgebentley.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8912-MN",
+   "name": "Michelle Clark",
+   "offices": [
+    {
+     "office": "District Court Judge, Seventh Judicial District (chambered at Alexandria in Douglas County)",
+     "from": "2018",
+     "to": "",
+     "source": "Morrison County Record, May 31, 2018, which reports the Governor's announcement that day appointing Michelle L. Clark a District Court Judge in the Seventh Judicial District, chambered at Alexandria; nothing newer was read, so no end is given",
+     "url": "https://www.hometownsource.com/morrison_county_record/free/wetzel-and-clark-appointed-by-dayton-to-fill-seventh-judicial-district-vacancies/article_9c4df5b0-6516-11e8-be6b-67751b774b0d.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  {
+   "name": "Andrea Zupancich",
+   "field": "website.how",
+   "why": "The filing and the 8th Congressional District Republicans' page were not among the sources given, so those clauses were cut."
+  },
+  {
+   "name": "Mary K Kunesh",
+   "field": "website.how",
+   "why": "The home page does not itself name Senate District 39; the district comes from the party's list."
+  },
+  {
+   "name": "Krista Knudsen",
+   "field": "website.how",
+   "why": "The party page and Wikipedia were not among the sources given, so those clauses were cut."
+  },
+  {
+   "name": "Patricia Mueller",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Anquam Mahamoud",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Raeanne Danielowski",
+   "field": "offices[0].source",
+   "why": "Her page does not say Board Chair."
+  },
+  {
+   "name": "Jason L. Schaal",
+   "field": "website.how",
+   "why": "The filing and the Press & News guide were not among the sources given."
+  },
+  {
+   "name": "Mary Supple",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Bruce K. Bester",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Bruce K. Bester",
+   "field": "offices[0].source",
+   "why": "The City's list of members today was not among the sources given."
+  },
+  {
+   "name": "Kristofer Obrien",
+   "field": "offices[0].source",
+   "why": "The Press & News guide was not among the sources given."
+  },
+  {
+   "name": "Julie Pointner",
+   "field": "website.how",
+   "why": "The filing and the Sun Sailor report were not among the sources given."
+  },
+  {
+   "name": "Julie Pointner",
+   "field": "offices[0].source",
+   "why": "The Sun Sailor year in review was not among the sources given."
+  },
+  {
+   "name": "Jennifer Stone",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Natasha Yates",
+   "field": "offices[0].office",
+   "why": "The article does not say who appoints the board."
+  },
+  {
+   "name": "Natasha Yates",
+   "field": "offices[0].source",
+   "why": "The City's page was not among the sources given."
+  },
+  {
+   "name": "Elizabeth Bentley",
+   "field": "website.how",
+   "why": "The filing could not be seen by the verifier."
+  },
+  {
+   "name": "Elizabeth Bentley",
+   "field": "offices[0].source",
+   "why": "Trimmed to what the page states."
+  },
+  {
+   "name": "Michelle Clark",
+   "field": "offices[0].source",
+   "why": "The article is dated May 31, 2018 (updated June 1)."
+  }
+ ],
+ "verifier_notes": [
+  "Every url in the file was re-opened on 2026-10-02 with the kit's own User-Agent; all 50 answered and each states the fact recorded. No whole finding was removed; clauses resting on pages that were not among the given sources (the Secretary of State's filing, news guides without an address) were cut from the 'how' and 'source' wording.",
+  "The St. Louis County Republican Party's home page links the list that names Andrea Zupancich with the words 'See the candidates endorsed by the St. Louis County Republican Party for 2026 elections'; the list page itself is headed 'Candidates Post Primary'.",
+  "For John: the birth years of Andrea Zupancich (1969) and Leslie Lienemann (1966) rest on the Minnesota Historical Election Archive, a University of Minnesota compilation; the rules name only Wikipedia and news organizations as 'secondary'. The pages state the years and tie each person to her town and her 2022 run, so they are kept as secondary, year only; drop them if a university compilation is not to count.",
+  "party_support for Jason L. Schaal: the Senate District 34 DFL page states it as recorded (a letter of support, listed apart from the endorsed candidates). It is not an endorsement and stays out of endorsed_by."
+ ]
+}

@@ -1,0 +1,239 @@
+{
+ "part": 62,
+ "of": 73,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every url was re-opened on 2026-10-02 with the kit's own User-Agent and the text around each name read. All 22 findings were confirmed on the page cited.",
+  "Corrected wording: the four website entries said the site was also the one filed with the Secretary of State. The verifier could not see that for itself (the Secretary's sites are not requested, and no saved copy of the filed addresses was found), so the sentence was taken out. Each site still names the candidate and the office or place, which is what the rule asks.",
+  "None of the three campaign home pages for Kistler, Parkin or Puschinsky prints a year. Each names the office this person is on the 2026 list for; Abdul Abdi's says he is running for re-election.",
+  "The Moorhead and election-archive pages also carry family, occupation and residence details. None of that is recorded here."
+ ],
+ "notes": [
+  "Web search was already used up for the whole session (200 of 200) before this part began, so no search was run. Pages were read directly with the kit's own User-Agent, robots.txt obeyed: the campaign sites the candidates filed, the counties', cities' and school districts' own pages, the Minnesota DFL's endorsed list and the University of Minnesota's election archive. Campaign sites nobody filed, party-unit endorsement pages and news reports could not be looked for, so a blank here is not proof that nothing exists.",
+  "Out of reach and not worked around: cainforjudge.com (Christopher Cain's filed site) answers with a CAPTCHA page; meymanformn.com refused the connection; Wabasha County, the City of Bemidji and Three Rivers Park District ask scripts to stay out in robots.txt, as does the Hastings district's board page; the Cloquet and Marshall districts' board pages were not found at a readable address; the Faribault County Attorney page does not name the office holder.",
+  "Not on the present boards per the governments' own pages (so no office recorded): Gabe Perkins (Olmsted County lists David Senjem for the Second District), Jason Duffy (Mower District 3), Dan Delaney (Pipestone District 4), Alicia Schaupp (Lakeville council), Rachelle Hamilton (New Hope council), Amy Puschinsky (White Bear Lake board), Al Dahlgren (St. Cloud board; the district's election page shows him filing campaign finance reports in 2024, 2025 and 2026), Amy Smith (Rockford board).",
+  "Jon Koznick's own Endorsements page lists the Republican Party of Minnesota among his endorsers, but the site's dated posts are from 2020 and the page gives no year, so it is not recorded as a statement about 2026. No Republican party unit's own page was reached for him, Calvin Bahr or Charlie Kistler.",
+  "Tim Parkin's About page says he has worked for the Olmsted County Sheriff's Office since 2007 and is a Captain there today; that is employment, not an elected or appointed office, so it is not recorded under offices. Whether it should show is John's decision.",
+  "Bob Bambenek: the election archive's record (Winona County; offices held: Winona County Recorder) gives a full birth date; only the year is recorded, marked secondary. Two anchors: Winona County, Minnesota, and the Recorder's office.",
+  "Abdul Abdi: the district's Board Member Finder gives his term as 2023-2027, though the District 1 seat is on the November 2026 ballot; recorded as the page states it.",
+  "The DFL list spells Zack Meyman's first name Zach; the district (House 19B) matches.",
+  "Nothing citable was reached for Calvin Bahr and Jon Koznick (sitting legislators, whose record pages exist already), Gabe Perkins, Jason Duffy, Dan Delaney, Cory Kubista, Cameron Davis, Dan Rasmussen, Alicia Schaupp, Rachelle Hamilton, Marga Ybarra, Emelie Rivera, Annie Saboe, Kendal Larson, Sara Brink, Al Dahlgren, Amy Smith and Christopher Cain."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0188-MN",
+   "name": "Leanna Sandahl",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\": House District 1A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0225-MN",
+   "name": "Zack Meyman",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\": House District 19B, where the name is spelled \"Zach Meyman\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0262-MN",
+   "name": "Charlie Kistler",
+   "website": {
+    "url": "https://www.kistlerforhouse.com",
+    "how": "The site is titled \"Kistler For House\" and names \"Charlie Kistler Minnesota House 38A\"; its About page says he is running for the Minnesota House and names Brooklyn Park and Osseo.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-075",
+   "name": "Joe Baltich",
+   "official_page": {
+    "url": "https://lakecountymn.gov/county-board/",
+    "source": "Lake County, County Board of Commissioners page (lists him as District 1 County Commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1, Lake County",
+     "from": "",
+     "to": "now",
+     "source": "Lake County, County Board of Commissioners page, which lists him as District 1 County Commissioner; it gives no start year",
+     "url": "https://lakecountymn.gov/county-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-169",
+   "name": "Bob Bambenek",
+   "official_page": {
+    "url": "https://www.co.winona.mn.us/directory.aspx?did=41",
+    "source": "Winona County, staff directory, Recorder (lists him as County Recorder)",
+    "verified": true
+   },
+   "born": {
+    "year": 1951,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing), candidate record for Bob Bambenek of Winona County, which gives \"Winona County Recorder\" as an office held",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/bob-bambenek/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder, Winona County",
+     "from": "",
+     "to": "now",
+     "source": "Winona County, staff directory, Recorder, which lists him as County Recorder; it gives no start year",
+     "url": "https://www.co.winona.mn.us/directory.aspx?did=41",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Senator, District 32 (special primary of March 30 and special election of April 13, 1999)",
+     "year": 1999,
+     "party": "Reform",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing), candidate record for Bob Bambenek, which gives his offices held as Winona County Recorder",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/bob-bambenek/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-109",
+   "name": "Tim Parkin",
+   "website": {
+    "url": "https://timparkin4sheriff.com",
+    "how": "The site is titled \"Tim Parkin for Olmsted County Sherriff\" and says he is seeking election as Olmsted County Sheriff.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-43864",
+   "name": "Lisa A. Borgen",
+   "official_page": {
+    "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/",
+    "source": "City of Moorhead, Mayor and Council Members page (Council Member Lisa Borgen, Ward 3)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 3, Moorhead City Council (term ending 12/31/2028)",
+     "from": "",
+     "to": "now",
+     "source": "City of Moorhead, Mayor and Council Members page; it gives the end of her term but no start year",
+     "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "District Court Judge (Moorhead and Detroit Lakes)",
+     "from": "2006",
+     "to": "2013",
+     "source": "City of Moorhead, Mayor and Council Members page, Council Member Borgen's bio",
+     "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Clay County Attorney",
+     "from": "1999",
+     "to": "2006",
+     "source": "City of Moorhead, Mayor and Council Members page, Council Member Borgen's bio",
+     "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-09370",
+   "name": "Aaron Berg",
+   "official_page": {
+    "url": "https://www.ci.cambridge.mn.us/your-government/city-council",
+    "source": "City of Cambridge, City Council page (Aaron Berg, Council Member)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Cambridge City Council",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Cambridge, City Council page, which gives his term as 01/2023 - 01/2027",
+     "url": "https://www.ci.cambridge.mn.us/your-government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-52594",
+   "name": "Kimberly Churchill",
+   "official_page": {
+    "url": "https://www.priorlakemn.gov/169/City-Council",
+    "source": "City of Prior Lake, City Council page (Kimberly Churchill, Councilmember)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Councilmember, Prior Lake City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Prior Lake, City Council page, which lists her as Councilmember; it gives no years",
+     "url": "https://www.priorlakemn.gov/169/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Amy Puschinsky",
+   "website": {
+    "url": "https://www.amypforwbl.com",
+    "how": "The site is titled \"Amy Puschinsky for White Bear Lake School Board | ISD624\" and has a section \"Why I'm Running For White Bear Lake School Board\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5010-SSD0001",
+   "name": "Abdul Abdi",
+   "website": {
+    "url": "https://abdulforschools.org",
+    "how": "The site is titled \"Abdul Abdi for School Board | District 1\", names Minneapolis Public Schools, District 1, and says he is running for re-election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://boardfinder.mpschools.org/",
+    "source": "Minneapolis Public Schools, Board Member Finder (Abdul Abdi, District 1, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director, District 1, Minneapolis Public Schools (Treasurer of the board)",
+     "from": "2023",
+     "to": "now",
+     "source": "Minneapolis Public Schools, Board Member Finder, which gives his term as 2023-2027",
+     "url": "https://boardfinder.mpschools.org/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

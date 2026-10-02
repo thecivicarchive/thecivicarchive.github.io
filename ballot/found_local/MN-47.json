@@ -1,0 +1,303 @@
+{
+ "state": "MN",
+ "part": 47,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "WebSearch gave out after six queries (the session's search budget was spent), so the rest was reached directly with the kit's User-Agent (robots.txt asked first): the campaign websites filed with the Secretary of State, county, city and school district sites, the Minnesota DFL's endorsed list and the University of Minnesota's election archive. The 15 candidates of this part's 30 who are not listed below are ones for whom no such page stated anything a card may show.",
+  "Not read: co.hubbard.mn.us (robots.txt); genedornink.com (its certificate chain failed and was not bypassed), so no website is recorded for Gene Dornink, a sitting senator; mplsgop.com (timed out), so Abigail Wolters' endorsement is recorded only in her own words and not as endorsed_by; bemidji.k12.mn.us (TLS handshake failed); cityoframsey.com and ci.ramsey.mn.us (TLS name error); the Mahnomen County, Waconia, Big Lake, Mora and New Prague pages show their members only by script; mncourts.gov was not requested (earlier parts found it answers 403), so nothing is recorded for the two judges.",
+  "No Republican Party page listing 2026 endorsements was found (mngop.org shows none on its front page), so Patti Mikulski and Gene Dornink have no endorsed_by.",
+  "Abigail Wolters' birth year comes from the University of Minnesota Libraries' Minnesota Historical Election Archive, labelled secondary: it is an academic compilation, neither Wikipedia nor a news organization, and it cites the Minnesota Birth Certificate Index. Whether that source is acceptable is for the verifier and John. Only the year is recorded.",
+  "Seen and left out: jobs, schools, family and birthplace on campaign sites; the non-party endorsements Jason Heaser's site lists.",
+  "Verifier, 2026-10-02: every url was re-opened with the kit's User-Agent and each of the 30 findings was read on its page; each candidate is in part 47 and the office or place on the page matches our record. The Minnesota Historical Election Archive is a university compilation, not Wikipedia or a news organization; it is kept as secondary with its name in the source and the birth date cut to the year. John should say whether that kind of source is acceptable for a birth year."
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "what": "a notes passage naming a candidate's employer (Michael Burnett)",
+   "why": "employers are on the never-collected list, in any field"
+  },
+  {
+   "what": "a notes passage saying three candidates (Chisago 1, Koochiching 2, Oakdale) do not sit on those bodies today",
+   "why": "not a finding with a url; not confirmed"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0180-MN",
+   "name": "Abigail Wolters",
+   "website": {
+    "url": "https://abigailwolters.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Abigail Wolters for Minnesota Senate District 60 | 2026\")",
+    "verified": true
+   },
+   "born": {
+    "year": 1999,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate page for Abigail Wolters, which also lists her 2024 House 60B and 2025 Senate 60 runs",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/abigail-wolters/",
+    "kind": "secondary",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for State Senate, District 60 (special election, January 28, 2025; won the special primary of January 14)",
+     "year": 2025,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/abigail-wolters/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State House, District 60B (general election)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries)",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/abigail-wolters/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "She is endorsed by Minneapolis Republicans.",
+    "url": "https://abigailwolters.com/about-abigail-wolters/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0217-MN",
+   "name": "Keith R. Klawitter",
+   "website": {
+    "url": "https://klawitterforhouse.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Keith Klawitter for MN House District 15B\"); the site states no year",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list \"Candidates Endorsed by the Minnesota DFL\": Keith Klawitter, House District 15B; the page gives no year, and lists the Senate districts on the ballot in 2026)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0254-MN",
+   "name": "Jason Heaser",
+   "website": {
+    "url": "https://www.heaserforhouse.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Jason Heaser for MN House of Representatives District 34A\")",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list \"Candidates Endorsed by the Minnesota DFL\": Jason Heaser, House District 34A; the page gives no year, and lists the Senate districts on the ballot in 2026)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0293-MN",
+   "name": "Patti Mikulski",
+   "website": {
+    "url": "https://mikulski4house.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Mikulski for Minnesota House District 53B\"; the home page gives the family name only and states no year)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0395-099",
+   "name": "Mike Ankeny",
+   "official_page": {
+    "url": "https://www.mowercountymn.gov/200/County-Board-of-Commissioners",
+    "source": "Mower County, County Board of Commissioners page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mower County Commissioner, District 5",
+     "from": "not stated (the page gives his present term as expiring January 2027)",
+     "to": "now",
+     "source": "Mower County, County Board of Commissioners page (\"Mike Ankeny, Commissioner District 5, Vice-Chair\")",
+     "url": "https://www.mowercountymn.gov/200/County-Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-077",
+   "name": "Susan J. Ney",
+   "official_page": {
+    "url": "https://lotwcounty.gov/recorder/",
+    "source": "Lake of the Woods County, Recorder page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lake of the Woods County Recorder",
+     "from": "not stated",
+     "to": "now",
+     "source": "Lake of the Woods County, Recorder page (\"SUSAN J. NEY County Recorder\")",
+     "url": "https://lotwcounty.gov/recorder/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-021",
+   "name": "Benjamin T. Lindstrom",
+   "website": {
+    "url": "https://www.benlindstrom.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Re-elect Ben Lindstrom, Cass County Attorney\")",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.casscountymn.gov/Directory.aspx?did=22",
+    "source": "Cass County, staff directory of the Attorney's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cass County Attorney",
+     "from": "not stated",
+     "to": "now",
+     "source": "Cass County, staff directory of the Attorney's Office (\"Benjamin Lindstrom, County Attorney\")",
+     "url": "https://www.casscountymn.gov/Directory.aspx?did=22",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-155",
+   "name": "Matthew Franzese",
+   "official_page": {
+    "url": "https://traversecountymn.gov/departments/departments/attorney/",
+    "source": "Traverse County, County Attorney page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Traverse County Attorney",
+     "from": "not stated",
+     "to": "now",
+     "source": "Traverse County, County Attorney page (names \"Matt Franzese\")",
+     "url": "https://traversecountymn.gov/departments/departments/attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-35180",
+   "name": "Michael Burnett",
+   "website": {
+    "url": "https://michaelburnett.org",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Michael j. Burnett for Lakeville Mayor 2026\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-27530",
+   "name": "Angie Haus",
+   "official_page": {
+    "url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/",
+    "source": "City of Hastings, City Council and Mayor page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hastings City Council, Councilmember At Large",
+     "from": "elected 2022 (the page does not say when she took her seat)",
+     "to": "now",
+     "source": "City of Hastings, City Council and Mayor page (\"Angie Haus, Councilmember At Large ... Elected: 2022. Current term expires: December 31, 2026\")",
+     "url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-00694",
+   "name": "Larry Baker",
+   "official_page": {
+    "url": "https://www.cityofalbertlea.org/government/city-council/",
+    "source": "City of Albert Lea, City Council page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Albert Lea City Council, Ward 2",
+     "from": "not stated",
+     "to": "now",
+     "source": "City of Albert Lea, City Council page (\"Larry Baker, Ward 2 Councilor\")",
+     "url": "https://www.cityofalbertlea.org/government/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-53026",
+   "name": "Victor Jumah",
+   "website": {
+    "url": "https://www.victorforramsey.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Victor for Ramsey City Council\"; the page names Victor Jumah; it states neither the ward nor the year)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Drew Christianson",
+   "website": {
+    "url": "https://votechristiansonfor194.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; the site was opened and names the candidate and the office (\"Vote Christianson for Lakeville Area Schools ISD 194\"; the page names Drew Christianson)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0564",
+   "name": "Mike Spears",
+   "official_page": {
+    "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information/mike-spears",
+    "source": "Thief River Falls Public Schools, School Board Member Information: Mike Spears",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Thief River Falls School Board member (Clerk)",
+     "from": "1998",
+     "to": "now",
+     "source": "Thief River Falls Public Schools, his board member page (\"a member of the Thief River Falls School Board since 1998\"; term expires December 31, 2026)",
+     "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information/mike-spears",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006",
+   "name": "Timothy Felton",
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members page (listed as Tim Felton)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "South St. Paul School Board member",
+     "from": "not stated (the page gives his present term as expiring January 2027)",
+     "to": "now",
+     "source": "South St. Paul Public Schools, School Board Members page (\"Tim Felton ... Term Expires: January, 2027\")",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,159 @@
+{
+ "part": 40,
+ "of": 73,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after five searches (the five legislative candidates). Everything else was read by opening pages directly with the kit's honest User-Agent, each site's robots.txt obeyed: the candidates' own sites, each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, the University of Minnesota's election archive and one St. Cloud Live article.",
+  "The campaign websites the candidates filed were learned from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; each was then opened. One more was found: Erin Maye Quade's, reached by trying an address and kept because its own pages name her, the office and her city.",
+  "Not read: mncourts.gov and www.co.clearwater.mn.us ask scripts to stay out (robots.txt), so nothing was looked up there for the two judges or the Clearwater County Recorder. Nothing was found, by opening the governments' own pages, for Ann Skoe, Justin Peterson, Rodney C. Knutson, Cole Weick, Brett Lee Olson, Janine Schneider, Darrin Hoverson, Thea Fransen, Nancy Dager, Ann Schultz Counihan, Kerry W. Meyer or Justin Collins; the county, city and district pages that could be read do not list them as holding the office today.",
+  "Verifier, 2026-10-02: all 31 addresses were opened again with the kit's honest User-Agent (robots.txt obeyed) and every one answered. 44 findings checked; none removed. Two corrected: Koochiching County's board page gives \"Served Since: 2019\" for Jason Sjoblom (the 2023 lines belong to the commissioners listed around him); and School District 191's Board of Education page does not name Tyler Sachse as a member in its readable text (it only links the district's news post), so his official page now points at that post. The Minnesota DFL's list of endorsed candidates does not print a year; it is the party's current list and names each candidate with the district sought in 2026. Leslie Larson's campaign site ties her to the Blaine council seat in her own words (\"I also serve as your Ward 2 Councilmember\", Why I'm Running page)."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0140-MN",
+   "name": "Jason Lohmann",
+   "website": {"url": "https://www.lohmannformnsenate20.com", "how": "Filed with the Minnesota Secretary of State; the site is titled \"Jason Lohmann for MN State Senate\" and its footer reads \"Jason Lohmann for MN Senate District 20\".", "verified": true},
+   "official_page": {"url": "https://www.zmschools.us/page/school-board", "source": "Zumbrota-Mazeppa Public Schools, School Board page (lists Jason Lohmann, Vice Chair)", "verified": true},
+   "offices": [
+    {"office": "School Board Member, Zumbrota-Mazeppa Public Schools (\"in his tenth year\")", "from": "", "to": "now", "source": "The candidate's own campaign site, About Me page", "url": "https://www.lohmannformnsenate20.com/learn-more", "kind": "campaign", "verified": true},
+    {"office": "Board Member, Goodhue County Education District", "from": "", "to": "now", "source": "The candidate's own campaign site, About Me page", "url": "https://www.lohmannformnsenate20.com/learn-more", "kind": "campaign", "verified": true}
+   ],
+   "endorsed_by": [{"party": "Democratic-Farmer-Labor", "unit": "Minnesota DFL (the state party's list of DFL-endorsed candidates, Senate District 20)", "url": "https://dfl.org/endorsed", "verified": true}]
+  },
+  {
+   "race_id": "2026-MN-0176-MN",
+   "name": "Erin Maye Quade",
+   "website": {"url": "https://www.erinmayequade.com/", "how": "Found on the open web by trying the address: the site is titled \"Erin Maye Quade for MN State Senate\", says she is a lifelong Apple Valley resident and \"your State Senator\", and is paid for by the Erin Maye Quade for Senate committee. The home page does not print the year 2026.", "verified": true},
+   "endorsed_by": [{"party": "Democratic-Farmer-Labor", "unit": "Minnesota DFL (the state party's list of DFL-endorsed candidates, Senate District 56)", "url": "https://dfl.org/endorsed", "verified": true}]
+  },
+  {
+   "race_id": "2026-MN-0214-MN",
+   "name": "Abdi Daisane",
+   "website": {"url": "https://www.daisaneformn.com", "how": "Filed with the Minnesota Secretary of State; the home page reads \"Abdi Daisane - Candidate for Minnesota House, District 14A\" and speaks of 2026.", "verified": true},
+   "offices": [
+    {"office": "Board member, St. Cloud Housing and Redevelopment Authority", "from": "", "to": "", "source": "St. Cloud Live, \"Abdi Daisane launches another campaign for House District 14A\"", "url": "https://www.stcloudlive.com/news/local/abdi-daisane-launches-another-campaign-for-house-district-14a", "kind": "secondary", "verified": true}
+   ],
+   "endorsed_by": [{"party": "Democratic-Farmer-Labor", "unit": "Minnesota DFL (the state party's list of DFL-endorsed candidates, House District 14A)", "url": "https://dfl.org/endorsed", "verified": true}],
+   "past_party": [{"what": "Candidate for State House, District 14A (general election of November 5, 2024)", "year": 2024, "party": "Democratic-Farmer-Labor", "source": "Minnesota Historical Election Archive, University of Minnesota Libraries", "url": "https://mn.electionarchives.lib.umn.edu/candidate/abdi-daisane", "kind": "secondary", "verified": true}],
+   "own_words": {"quote": "Backed by 92% of delegates, we earned the DFL endorsement", "url": "https://www.daisaneformn.com", "verified": true}
+  },
+  {
+   "race_id": "2026-MN-0251-MN",
+   "name": "Leslie Larson",
+   "website": {"url": "https://leslielarsonformn.com", "how": "Filed with the Minnesota Secretary of State; the site is \"Leslie Larson for MN\", its About page is titled \"Leslie Larson for State Representative\", it names Blaine and Lexington, and its Why I'm Running page says she is running for the Minnesota House.", "verified": true},
+   "official_page": {"url": "https://www.blainemn.gov/567/City-Council", "source": "City of Blaine, City Council page (lists Leslie Larson, Councilmember Ward 2)", "verified": true},
+   "offices": [
+    {"office": "Councilmember, Ward 2, Blaine City Council", "from": "", "to": "now", "source": "City of Blaine, City Council page", "url": "https://www.blainemn.gov/567/City-Council", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-0289-MN",
+   "name": "Nathan Coulter",
+   "website": {"url": "https://www.neighborsfornathan.com", "how": "Filed with the Minnesota Secretary of State; the site (it answers at neighborsfornathan.com) is titled \"Nathan Coulter\", names Bloomington and his election to the House. The home page does not print the year 2026 or the district number.", "verified": true},
+   "endorsed_by": [{"party": "Democratic-Farmer-Labor", "unit": "Minnesota DFL (the state party's list of DFL-endorsed candidates, House District 51B)", "url": "https://dfl.org/endorsed", "verified": true}]
+  },
+  {
+   "race_id": "2026-MN-0392-053",
+   "name": "Irene Fernando",
+   "website": {"url": "https://voteirene.com", "how": "Filed with the Minnesota Secretary of State; the site (it answers at www.voteirene.com) is titled \"Re-elect Irene Fernando | Hennepin County Commissioner - District 2\".", "verified": true},
+   "official_page": {"url": "https://www.hennepin.us/your-government/leadership/2nd-district", "source": "Hennepin County, District 2 commissioner's page", "verified": true},
+   "offices": [
+    {"office": "Hennepin County Commissioner, District 2 (first elected in 2018; Board Chair since 2023)", "from": "2018", "to": "now", "source": "The candidate's own campaign site, About Irene page; Hennepin County's page confirms the office, the November 2018 election and the chair since 2023", "url": "https://www.voteirene.com/about-irene", "kind": "campaign", "verified": true}
+   ],
+   "own_words": {"quote": "The DFL, the labor movement, and leaders at every level of government", "url": "https://www.voteirene.com/endorsements", "verified": true}
+  },
+  {
+   "race_id": "2026-MN-0393-033",
+   "name": "Donna L. Gravley",
+   "official_page": {"url": "https://www.co.cottonwood.mn.us/government/county_commissioners/3rd_district.php", "source": "Cottonwood County, County Commissioners, 3rd District page (Donna Gravley)", "verified": true},
+   "offices": [
+    {"office": "County Commissioner, 3rd District, Cottonwood County", "from": "", "to": "now", "source": "Cottonwood County, 3rd District page", "url": "https://www.co.cottonwood.mn.us/government/county_commissioners/3rd_district.php", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-071",
+   "name": "Jason Sjoblom",
+   "official_page": {"url": "https://www.co.koochiching.mn.us/149/County-Board", "source": "Koochiching County, County Board page (District 4 Commissioner Jason Sjoblom)", "verified": true},
+   "offices": [
+    {"office": "County Commissioner, District 4, Koochiching County (\"Served Since: 2019\")", "from": "2019", "to": "now", "source": "Koochiching County, County Board page", "url": "https://www.co.koochiching.mn.us/149/County-Board", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-007",
+   "name": "David Louis Hanson",
+   "official_page": {"url": "https://www.co.beltrami.mn.us/our-government/county-attorney/", "source": "Beltrami County, County Attorney page (\"County Attorney, David Hanson\")", "verified": true},
+   "offices": [
+    {"office": "County Attorney, Beltrami County", "from": "", "to": "now", "source": "Beltrami County, County Attorney page", "url": "https://www.co.beltrami.mn.us/our-government/county-attorney/", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-141",
+   "name": "Dawn Nyhus",
+   "website": {"url": "https://www.nyhusforcountyattorney.com", "how": "Filed with the Minnesota Secretary of State; the site is titled \"Keep Dawn Nyhus for Sherburne County Attorney 2026\".", "verified": true},
+   "official_page": {"url": "https://www.co.sherburne.mn.us/282/County-Attorney", "source": "Sherburne County, County Attorney page (Dawn Nyhus, County Attorney)", "verified": true},
+   "offices": [
+    {"office": "County Attorney, Sherburne County (appointed in May 2025)", "from": "2025", "to": "now", "source": "The candidate's own campaign site; Sherburne County's page confirms the office", "url": "https://nyhusforcountyattorney.com/", "kind": "campaign", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-27530",
+   "name": "Mary D. Fasbender",
+   "official_page": {"url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/", "source": "City of Hastings, City Council and Mayor page", "verified": true},
+   "offices": [
+    {"office": "Mayor of Hastings (\"since 2018\", re-elected in 2022)", "from": "2018", "to": "now", "source": "City of Hastings, City Council and Mayor page", "url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-01900",
+   "name": "Maggie Bruecken",
+   "website": {"url": "https://www.maggieforapplevalley.com", "how": "Filed with the Minnesota Secretary of State; the site (it answers at maggieforapplevalley.com) is titled \"Maggie Bruecken for Apple Valley City Council\" and asks for a vote \"this November\"; it does not print the year.", "verified": true}
+  },
+  {
+   "race_id": "2026-MN-1010-21770",
+   "name": "Jamie Deitchman",
+   "website": {"url": "https://www.vote4jamie.com", "how": "Filed with the Minnesota Secretary of State; the home page asks readers to vote \"on November 3rd\" for \"Jamie Deitchman for City Council\" and sets out \"Priorities for Forest Lake\". The server leaves its issuer's certificate out of the handshake; the kit's reader repairs that as a browser does.", "verified": true}
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Sandra Oachs",
+   "official_page": {"url": "https://www.northmankato.com/government/city_council/index.php", "source": "City of North Mankato, City Council page (\"2026 North Mankato City Council\": Council Member Sandra Oachs)", "verified": true},
+   "offices": [
+    {"office": "Council Member, North Mankato City Council", "from": "", "to": "now", "source": "City of North Mankato, City Council page", "url": "https://www.northmankato.com/government/city_council/index.php", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-66460",
+   "name": "Patricia Youker",
+   "website": {"url": "https://youkerforcouncil.com", "how": "Filed with the Minnesota Secretary of State; the site is \"Patricia Youker for Council\" (copyright 2026), and its Meet Patricia page is titled \"City Council Candidate\" and names Vadnais Heights.", "verified": true},
+   "offices": [
+    {"office": "Council Member, Vadnais Heights City Council", "from": "2019", "to": "2022", "source": "The candidate's own campaign site, Meet Patricia page", "url": "https://youkerforcouncil.com/meet-patricia", "kind": "campaign", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-43864",
+   "name": "Deb White",
+   "official_page": {"url": "https://www.moorheadmn.gov/government/mayor-and-council-members/", "source": "City of Moorhead, Mayor and Council Members page (Council Member Deb White, Ward 3, term ending 12/31/2026)", "verified": true},
+   "offices": [
+    {"office": "Council Member, Ward 3, Moorhead City Council", "from": "", "to": "now", "source": "City of Moorhead, Mayor and Council Members page", "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Tyler Sachse",
+   "official_page": {"url": "https://www.isd191.org/discover/blog/post/~board/district-news/post/tyler-sachse-appointed-to-district-191-board", "source": "Burnsville-Eagan-Savage School District 191, \"Tyler Sachse appointed to District 191 Board\" (the district's Board of Education page links this post and does not otherwise name him in its text)", "verified": true},
+   "offices": [
+    {"office": "Board of Education member, Burnsville-Eagan-Savage School District 191 (appointed to a vacant seat, February 2025; the term ends in January 2027)", "from": "2025", "to": "now", "source": "School District 191, \"Tyler Sachse appointed to District 191 Board\"", "url": "https://www.isd191.org/discover/blog/post/~board/district-news/post/tyler-sachse-appointed-to-district-191-board", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0876",
+   "name": "Gena Marie Jacobson",
+   "official_page": {"url": "https://www.isd876.org/our-district/school-board", "source": "Annandale Public Schools (ISD 876), School Board page (Clerk: Gena Jacobson)", "verified": true},
+   "offices": [
+    {"office": "School Board Member (Clerk), Annandale Public Schools, ISD 876 (re-elected 2022; term up for election November 2026)", "from": "", "to": "now", "source": "Annandale Public Schools, School Board page", "url": "https://www.isd876.org/our-district/school-board", "kind": "official", "verified": true}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "part": 31,
+ "of": 73,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance ran out partway (about two dozen searches were answered, then \"200 of 200 used\"), so the legislative, statewide, county and court candidates were searched and most of the city and school board candidates were not. Pages were opened directly with the kit's honest User-Agent (states/net.py), robots.txt first and obeyed, one request at a time. The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read.",
+  "Ten of the thirty filed a website. Six are recorded, each opened and read (Seifert, Trautmann Cordova, Nelson, Filipovich, Choi, Wale). Houdek's was removed by the verifier: the site returned an empty page on every try. Not recorded: hudsonformn.com (Walter Hudson; its robots.txt asks scripts to stay out, so it was not opened); rolbiecki4sheriff.com (Charles Rolbiecki; it answered with an empty 168-byte page); lincolnfor281.my.canva.site (Anthony Lincoln; a Canva page whose only readable text is \"Home\"). A second reader with a browser could confirm those three.",
+  "Republican endorsements: only Jeff Houdek's is on a party's own page. The Marshall Independent (March 24, 2026, \"Seifert receives Republican endorsement in SD15\", https://www.marshallindependent.com/news/local-news/2026/03/seifert-receives-republican-endorsement-in-sd15/) reports that Braxton Seifert was endorsed at the Senate District 15 Republican convention; that is a newspaper, not the party's page, so no endorsed_by is recorded for him. No party page was found for Nathan Nelson or Walter Hudson (both sitting members).",
+  "Simon Trautmann Cordova's site says \"Simon is proud to be the Labor endorsed candidate for Senate District 51\"; that is not a party, so no own_words is recorded. The City of Richfield's pages opened here did not give the years of his council service.",
+  "John Choi and Zack Filipovich: no birth year found.",
+  "Judges: mncourts.gov asks scripts to stay out (robots.txt), so there is no official page for Kelly Olmstead or Patricia A. Aanes; their appointments come from Minnesota Lawyer and the archived Governor's release.",
+  "Ages printed in news stories were not turned into birth years: an age fits two birth years.",
+  "Nothing was found beyond what they filed for Joel A. Novak (the Douglas County board page lists Tim Kalina for District 2), Aaron Young (KAXE's Cass County guide: \"KAXE did not receive a response from this candidate\"), Justin Redalen, Charles Rolbiecki, David Pritzlaff, Mike Schmitz, Lexi Temple, Gusta G. Carr, Kris Johnson, Al Kremeier, Dijon Ledin, Anthony Lincoln, Joe \"Joe(Y)\" Christenson or Ashley Cegielski. The council or board pages of Farmington, Andover, South St. Paul, Northfield and Fergus Falls and of the Robbinsdale, Rochester and Stillwater schools were read and do not show them in office today; the Pequot Lakes schools' board page and the City of Faribault's site could not be reached. Walter Hudson and Nathan Nelson are sitting legislators with record pages already.",
+  "Verifier, 2026-10-02: every url in the file was re-opened with the kit's honest User-Agent (robots.txt read first). 32 findings checked; 31 kept, 4 of them with corrected wording or years (Filipovich's council source, Schmidt's start year, Wale's two city boards); 1 removed (Houdek's website). Notes that touched on a person's origin, job or age were cut, since those are never collected."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0135-MN",
+   "name": "Braxton John Seifert",
+   "website": {
+    "url": "https://seifertforsenate.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: the home page is headed \"Seifert for Senate\" and \"Minnesota Senate District 15\" and is \"Prepared and Paid for by Seifert for Senate\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0171-MN",
+   "name": "Simon Trautmann Cordova",
+   "website": {
+    "url": "https://simonfor51.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: its title is \"Simon Trautmann For MN Senate 51 | Senate District 51 Minnesota\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richfield City Council member",
+     "from": null,
+     "to": null,
+     "source": "His campaign site's About page: \"Simon Trautmann Cordova is a former Richfield City Councilmember ... running for MN Senate District 51\" (no years given)",
+     "url": "https://www.simonfor51.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates: \"Simon Trautmann Cordova, Senate District 51\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0209-MN",
+   "name": "Nathan Nelson",
+   "website": {
+    "url": "https://www.nathannelsonmn.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: the home page is headed \"Nathan Nelson for Minnesota House\" and is \"Prepared and paid for by Nathan Nelson for House\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0284-MN",
+   "name": "Jeff Houdek",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 49 Republicans (its page \"Election 2026\": \"Jeff Houdek was officially endorsed at the Senate District 49 special convention held on June 16th\" for Minnesota House District 49A)",
+     "url": "https://www.49mngop.com/election_2026",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0333-MN",
+   "name": "Zack Filipovich",
+   "website": {
+    "url": "https://www.zackformn.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: its title is \"Zack Filipovich, accountant for State Auditor\" and it is \"Prepared and paid for by Zack for MN Auditor\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Duluth City Councilor",
+     "from": 2014,
+     "to": 2022,
+     "source": "Wikipedia, \"2026 Minnesota State Auditor election\": \"Zack Filipovich, accountant and former Duluth City Councilor (2014–2022)\" (with a citation); his own site says \"eight years as Duluth City Councilor\", and the Minnesota DFL's release calls him \"a former City Council President from Duluth\"",
+     "url": "https://en.wikipedia.org/wiki/2026_Minnesota_State_Auditor_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's release \"DFL Endorses Zack Filipovich for State Auditor\"; he is also on its list of endorsed candidates, https://dfl.org/endorsed/, under State Auditor)",
+     "url": "https://dfl.org/dfl-endorses-zack-filipovich-for-state-auditor/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-041",
+   "name": "Shane Schmidt",
+   "official_page": {
+    "url": "https://www.douglascountymn.gov/board-of-commissioners",
+    "source": "Douglas County, Board of Commissioners: \"District 5 - Shane Schmidt (Chairperson)\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Douglas County Commissioner, District 5",
+     "from": null,
+     "to": null,
+     "source": "Alexandria Echo Press, November 9, 2022: \"Tim Kalina, Shane Schmidt emerge as winners for seats on the Douglas County Board ... Schmidt, who will now represent District 5, beat out incumbent Heather Larson\" (elected November 2022; the story prints no date for taking office, so no start year is recorded); the county's own page lists him for District 5 today",
+     "url": "https://www.echopress.com/news/tim-kalina-shane-schmidt-emerge-as-winners-for-seats-on-the-douglas-county-board",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-169",
+   "name": "Chelsi Wilbright",
+   "official_page": {
+    "url": "https://www.winonacounty.gov/168/Auditor-Treasurer",
+    "source": "Winona County, Auditor-Treasurer page: \"Chelsi Wilbright, Auditor - Treasurer\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona County Auditor-Treasurer",
+     "from": null,
+     "to": null,
+     "source": "Winona County's Auditor-Treasurer page names her as Auditor - Treasurer (no start date given)",
+     "url": "https://www.winonacounty.gov/168/Auditor-Treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-059",
+   "name": "Wayne Seiberlich",
+   "official_page": {
+    "url": "https://www.isanticountymn.gov/481/Elected-Officials",
+    "source": "Isanti County, Elected Officials: \"Wayne Seiberlich, Sheriff\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Isanti County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "Isanti County's Elected Officials page lists \"Wayne Seiberlich, Sheriff\" (no start date given)",
+     "url": "https://www.isanticountymn.gov/481/Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-123",
+   "name": "John Choi",
+   "website": {
+    "url": "https://johnchoi.org",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: its title is \"John Choi for Ramsey County Attorney\"; \"I am running for re-election as your Ramsey County Attorney\"; \"Prepared and paid for by Volunteers for Choi\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ramseycountymn.gov/your-government/leadership/county-attorneys-office",
+    "source": "Ramsey County, County Attorney's Office: \"John Choi, County Attorney\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Attorney",
+     "from": 2011,
+     "to": null,
+     "source": "Wikipedia, \"John Choi (attorney)\": \"has served as the county attorney of Ramsey County, Minnesota since 2011\" (assumed office January 2011); Ramsey County's own page names him County Attorney today",
+     "url": "https://en.wikipedia.org/wiki/John_Choi_(attorney)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Saint Paul City Attorney (appointed by the mayor)",
+     "from": 2006,
+     "to": 2010,
+     "source": "Wikipedia, \"John Choi (attorney)\": \"He served as Saint Paul City Attorney from 2006 to 2010\"",
+     "url": "https://en.wikipedia.org/wiki/John_Choi_(attorney)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Ramsey County Attorney (a nonpartisan office) with the Democratic-Farmer-Labor Party's endorsement",
+     "year": 2010,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, \"John Choi (attorney)\": in 2010 \"He received the Democratic-Farmer-Labor Party's endorsement and won the August 2010 primary election\"",
+     "url": "https://en.wikipedia.org/wiki/John_Choi_(attorney)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-46924",
+   "name": "Adam Wale",
+   "website": {
+    "url": "https://www.voteadamnorthfield.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website on the November 3, 2026 candidate list; opened and read: the site is headed \"ADAM WALE | FOR NORTHFIELD CITY COUNCIL AT LARGE\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Human Rights Commission (Northfield)",
+     "from": 2022,
+     "to": 2024,
+     "source": "His campaign site's About page: \"He has served as ... a member of the Parks and Recreation Advisory Board, and as Chair of the Human Rights Commission\", and its list: \"Human Rights Commission - Chair; 2022-2024\"",
+     "url": "https://www.voteadamnorthfield.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Parks and Recreation Advisory Board (Northfield)",
+     "from": 2021,
+     "to": 2021,
+     "source": "His campaign site's About page, the same sentence, and its list: \"Park & Recreation Advisory Board; 2021\" (one year printed)",
+     "url": "https://www.voteadamnorthfield.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0012",
+   "name": "Tom Knisely",
+   "official_page": {
+    "url": "https://www.isd12.org/discover/school-board",
+    "source": "Centennial School District, School Board: \"Tom Knisely, School Board Chair ... Seat up for election in 2026. (Expires 1/2027)\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Centennial School Board member (Chair)",
+     "from": null,
+     "to": null,
+     "source": "The district's School Board page lists \"Tom Knisely, School Board Chair\", seat expiring January 2027 (no start date given)",
+     "url": "https://www.isd12.org/discover/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0717",
+   "name": "Matt Bertrang",
+   "official_page": {
+    "url": "https://www.isd717.org/about-us/school-board",
+    "source": "Jordan Public Schools, School Board: \"Matt Bertrang, Director\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jordan School Board member (Director)",
+     "from": null,
+     "to": null,
+     "source": "The district's School Board page lists \"Matt Bertrang, Director\" (no start date given)",
+     "url": "https://www.isd717.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Lisa Westby",
+   "official_page": {
+    "url": "https://rrps.org/district/school-board/",
+    "source": "Rock Ridge Public Schools, School Board: \"Lisa Westby, Vice Chair (Term Ends Jan. 2027)\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Ridge School Board member (Vice Chair)",
+     "from": null,
+     "to": null,
+     "source": "The district's School Board page lists \"Lisa Westby, Vice Chair (Term Ends Jan. 2027)\" (no start date given)",
+     "url": "https://rrps.org/district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8326-MN",
+   "name": "Kelly Olmstead",
+   "offices": [
+    {
+     "office": "Judge of District Court, Second Judicial District (appointed)",
+     "from": 2018,
+     "to": null,
+     "source": "Minnesota Lawyer, June 21, 2018, \"Bar Buzz: New judges in Ramsey County\": JaPaul J. Harris and Kelly L. Olmstead \"have been appointed to the Second Judicial District bench\" (the first sentence spells the name Olmsted, the next Olmstead). 2018 is the year of the appointment",
+     "url": "https://minnlawyer.com/2018/06/21/bar-buzz-new-judges-in-ramsey-county/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9120-MN",
+   "name": "Patricia A. Aanes",
+   "offices": [
+    {
+     "office": "Judge of District Court, Ninth Judicial District (appointed by Governor Mark Dayton; appointment announced December 24, 2018)",
+     "from": null,
+     "to": null,
+     "source": "Office of Governor Mark Dayton, release of December 24, 2018, archived by the Minnesota Legislative Reference Library: \"Governor Dayton Appoints Patricia Alander Aanes and Charles D. Halverson to Fill Ninth Judicial District Vacancies\"; \"Ms. Aanes will be replacing\" Judge David J. Ten Eyck in Crow Wing County. The release does not say when she took the bench",
+     "url": "https://www.leg.mn.gov/DOCS/2018/other/181224/governor/newsroom/index1f47.htm",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MN-0284-MN",
+   "name": "Jeff Houdek",
+   "finding": "website",
+   "url": "https://houdekformn.com",
+   "why": "Opened twice on 2026-10-02 (the kit's fetch and WebFetch); both times the site returned an empty page, so it could not be confirmed that the site itself names the candidate and the office. The Senate District 49 Republicans' page does print the address, and his endorsement there is kept."
+  }
+ ]
+}

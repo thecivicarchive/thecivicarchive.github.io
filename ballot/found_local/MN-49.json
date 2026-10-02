@@ -1,0 +1,349 @@
+{
+ "part": 49,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after eleven searches (the five legislative candidates, the Mankato mayor's race and the two county attorneys), so everything else was read directly, one page at a time, with the kit's honest User-Agent (states/net.py) and each site's robots.txt obeyed: the candidates' own sites, each county's, city's and school district's own pages, the Minnesota DFL's list of endorsed candidates, the Scott County Republicans' site, and two news stories. A voter guide (theballotbrief.com) was read for leads only: it gave the address of Aaron Paul's campaign site, which was then opened and read.",
+  "Campaign websites already filed with the Secretary of State (read from sl_websites in the real database, opened read-only) were each opened before being listed. Xp Lee's filed site (https://xpleeformnhouse.com) answered 429 Too Many Requests three times and was not read, so it is not listed here; the filed address stands in our record.",
+  "Not read, and nothing worked around: Cook County's and the City of Mankato's sites and the Minnesota Judicial Branch's directory (robots.txt disallows our reader), Nobles County's site (an empty page without scripts), Bemidji Area Schools (a TLS handshake failure; certificate checking was not turned off), the Secretary of State's appointments site (never requested). So Debra K. White, Chris Dybevick, Dave Wall and Elizabeth H. Strand have no findings.",
+  "Looked for on the government's own page and not there as a sitting member (so nothing is recorded): Adam A. Gast (Marshall County's sheriff page names another sheriff), Dolly Wussow (Brainerd council), Lee Albert Wickboldt (Hastings council), Travis Sundberg (Oakdale council), Liz Magill (Red Wing council), Mel Joseph (Lakeville board; the district's election page lists Mel Joseph as a filed candidate, nothing more), Jason Spry (Delano board page), Jon Beulke (New Prague). Nick Gleason (Waconia) and Dakota S Helmbrecht (Mora): the council and board pages could not be found without a search.",
+  "For the second reader: (1) 'elected 2010' and 'elected 2018' are written in 'from' where the page gives an election year and not the year a term began, as in part 16. (2) Itasca County writes 'John Johnson' and Martin County 'Richard Koons' without the middle name our list carries; each is tied to the race by the county and the district seat sought, whose term the page says ends in 2026, but John Johnson is a common name: if the District 3 race has a challenger of the same name, the county's page cannot tell them apart. (3) Jason Baskin's port authority, human rights commission and housing authority posts are city public bodies named on the city's own page, without years; his seats on private boards on the same page were left out. (4) Aaron Paul's own Endorsements page is headed 'Previous Endorsements and Distinctions - 2024' and says the Scott County GOP endorsed him on May 8th, 2024; that is about 2024, so it is not recorded as an endorsement or as his own words for 2026. The Scott County Republicans' 'Endorsed/Recommended Candidates' page shows no names as text. No Republican party page with a 2026 endorsement of Aaron Paul or Scott Van Binsbergen was found, and no campaign site for Van Binsbergen. (5) Julia Hamann's Endorsements page also thanks the Blue Earth County DFL for a 'letter of support' and says the DFL cannot endorse for the nonpartisan office; it is on her site, not the party's, so it is not an endorsed_by. (6) Simon Glaser's Endorsements page shows its endorsers as images, so no own_words for him. (7) Scott Dibble's own_words carries a 'where' key (which the loader does not read) because the quoted words are a list entry under a heading. (8) endorsed_by entries carry 'listed_as', the line on the DFL's page. (9) Read and left out on purpose for everyone: jobs and employers, schools, family and household, faith, and seats on private boards and associations."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0144-MN",
+   "name": "Simon Glaser",
+   "website": {
+    "url": "https://www.simonglaser.com",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Simon Glaser for State Senate\" and is paid for by the Simon Glaser for Senate Committee, Rochester.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "listed_as": "Simon Glaser, Senate District 24",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0181-MN",
+   "name": "Scott Dibble",
+   "website": {
+    "url": "https://www.scottdibble.com",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Scott Dibble for Minnesota Senate\", prepared and paid for by Volunteers for Dibble, Minneapolis.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "listed_as": "Scott Dibble, Senate District 61",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Minnesota Democratic-Farmer-Labor Party",
+    "url": "https://www.scottdibble.com/endorsements",
+    "where": "the first name listed under the page's heading \"2026 Endorsements\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0255-MN",
+   "name": "Xp Lee",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "listed_as": "XP Lee, House District 34B",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0294-MN",
+   "name": "Aaron Paul",
+   "website": {
+    "url": "https://aaronpaulmn.com/",
+    "how": "Found on the open web: the site is headed \"Vote Aaron Paul, Minnesota House of Representatives 54A - Shakopee\" and is prepared and paid for by Aaron Paul for Minnesota House. The home page names no election year; its own page data says it was last changed on 2026-01-28.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for Minnesota House District 54A in the 2024 general election",
+     "year": 2024,
+     "party": "Republican",
+     "source": "MPR News, \"DFL candidate holds 14 vote lead for Shakopee-area House race\" (2024-11-09): \"incumbent Rep. Brad Tabke, Democrat, and Aaron Paul, Republican\"",
+     "url": "https://www.mprnews.org/story/2024/11/09/dfl-candidate-holds-14-vote-lead-for-shakopee-area-house-race",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-073",
+   "name": "DeRon Brehmer",
+   "official_page": {
+    "url": "https://www.lqpco.com/198/Current-Commissioners",
+    "source": "Lac qui Parle County, Current Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lac qui Parle County Commissioner, District 2",
+     "from": "elected 2010",
+     "to": "now",
+     "source": "Lac qui Parle County, Current Commissioners: \"District 2, DeRon Brehmer, 2026 Board Chair ... Elected: 2010, 2014, 2018, 2022\"",
+     "url": "https://www.lqpco.com/198/Current-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-061",
+   "name": "John A. Johnson",
+   "official_page": {
+    "url": "https://www.co.itasca.mn.us/479/County-Board-of-Commissioners",
+    "source": "Itasca County, County Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Itasca County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Itasca County, County Board of Commissioners: \"John Johnson, Commissioner, District 3, Term Expires: 2026\"",
+     "url": "https://www.co.itasca.mn.us/479/County-Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-091",
+   "name": "Richard Allan Koons",
+   "official_page": {
+    "url": "https://www.co.martin.mn.us/your_government/board_of_commissioners/district_4.php",
+    "source": "Martin County, District 4 - County Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Martin County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Martin County, District 4 - County Commissioner: \"Richard Koons ... Current Term Expires: December 31, 2026\"",
+     "url": "https://www.co.martin.mn.us/your_government/board_of_commissioners/district_4.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-081",
+   "name": "Michelle Facile",
+   "official_page": {
+    "url": "https://www.co.lincoln.mn.us/departments_agencies/recorder.php",
+    "source": "Lincoln County, Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lincoln County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Lincoln County, Recorder: \"Michelle Facile, Recorder\"",
+     "url": "https://www.co.lincoln.mn.us/departments_agencies/recorder.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-025",
+   "name": "Janet Reiter",
+   "official_page": {
+    "url": "https://www.chisagocountymn.gov/159/County-Attorney",
+    "source": "Chisago County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chisago County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Chisago County, County Attorney: \"Under Chisago County Attorney Janet Reiter, the Chisago County Attorney's Office employs ...\"",
+     "url": "https://www.chisagocountymn.gov/159/County-Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-159",
+   "name": "Kyra L. Ladd",
+   "official_page": {
+    "url": "https://www.co.wadena.mn.us/154/Attorney",
+    "source": "Wadena County, Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wadena County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Wadena County, Attorney: \"Kyra L Ladd, County Attorney\"",
+     "url": "https://www.co.wadena.mn.us/154/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-39878",
+   "name": "Julia Hamann",
+   "website": {
+    "url": "https://voteforjulia.com",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Julia Hamann for Mankato Mayor\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "this campaign is not associated with a specific political party",
+    "url": "https://voteforjulia.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1022-02908",
+   "name": "Jason Baskin",
+   "website": {
+    "url": "https://jasonbaskin.net",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Jason Baskin - Austin City Councilman, Ward 2\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ci.austin.mn.us/city-council",
+    "source": "City of Austin, Mayor & Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin City Council Member, Second Ward",
+     "from": "elected 2018",
+     "to": "now",
+     "source": "City of Austin, Mayor & Council: \"Jason Baskin, Council Second Ward ... was elected to the Austin City Council in November 2018 and is currently serving his second term\"",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "President, Austin Port Authority",
+     "from": "",
+     "to": "now",
+     "source": "City of Austin, Mayor & Council: \"Baskin serves as President of the Austin Port Authority\"",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chair, Austin Human Rights Commission",
+     "from": "",
+     "to": "",
+     "source": "City of Austin, Mayor & Council: \"His previous roles include Board Secretary for the Austin Housing & Redevelopment Authority (HRA), Chair of the Austin Human Rights Commission\"",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Board Secretary, Austin Housing & Redevelopment Authority",
+     "from": "",
+     "to": "",
+     "source": "City of Austin, Mayor & Council: \"His previous roles include Board Secretary for the Austin Housing & Redevelopment Authority (HRA)\"",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0564",
+   "name": "Ryan Walseth",
+   "official_page": {
+    "url": "https://www.trfschools.org/our-district/school-board/school-board-member-information/ryan-walseth",
+    "source": "Thief River Falls Public Schools, School Board Member Information",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director (Board Chair), Thief River Falls Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "Thief River Falls Public Schools, Ryan Walseth: \"elected as a Director on the Thief River Falls School Board ... I am serving my third year as Board Chair\"; term \"Expires: December 31, 2026\"",
+     "url": "https://www.trfschools.org/our-district/school-board/school-board-member-information/ryan-walseth",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0721",
+   "name": "Jon Beulke",
+   "website": {
+    "url": "https://jonbeulke4npschoolboard.com",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Jon Beulke for New Prague School Board 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006-S",
+   "name": "Amy Wardell",
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, South St. Paul Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "South St. Paul Public Schools, School Board Members: \"Amy Wardell ... Term Expires: November, 2026\"",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8529-MN",
+   "name": "Jennifer Olson",
+   "website": {
+    "url": "https://www.judgejenniferolson.com",
+    "how": "Filed with the Minnesota Secretary of State (already in our record); opened and read: the site is titled \"Judge Jennifer Olson for Hennepin County Judge\", prepared and paid for by Citizens for Judge Jennifer Olson.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Hennepin County District Court (4th Judicial District)",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site: \"Judge Olson is proud to serve the people of Hennepin County ... She is running to retain her seat in 2026\"; \"Before she was appointed to the bench ...\" (no year given)",
+     "url": "https://www.judgejenniferolson.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every url in this file was opened again on 2026-10-02 with the kit's reader; each answered on the first try. All 35 findings were on the page as recorded and tied to the race by the state plus the office, district or place in our record (commissioner districts 2, 3 and 4 and Austin Ward 2 match the record's district column). Nothing was removed. One wording was corrected: Aaron Paul's website note now says the home page gives no election year."
+ ]
+}

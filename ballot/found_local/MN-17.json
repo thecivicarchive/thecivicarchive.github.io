@@ -1,0 +1,766 @@
+{
+ "state": "MN",
+ "part": 17,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "No web search. The session's web search allowance was already spent when this part began (its first search was refused), so nothing here comes from the search tool and no search engine was read in its place. Everything was found by reading known addresses with the kit's honest User-Agent, one request at a time, each site's robots.txt read first: each government's own site, the state parties' and their local units' sites, the Legislative Reference Library, the campaign websites the candidates filed with the Secretary of State (read on a scratch copy of the database with the files step), a few addresses guessed from a candidate's name (an address lookup first, then one request), and local news organizations' election pages reached from their front pages (on Eden Prairie Local News also through the site's own search box, which its robots.txt allows).",
+  "A question for John, and what was set aside because of it. Every page a finding rests on is allowed by its site's robots.txt for the kit's User-Agent, checked the way the kit's own reader does it. But this part was run by one of Anthropic's models, and four sites it read carry a list in robots.txt asking Anthropic's named agents to stay out (ClaudeBot and anthropic-ai on all four, Claude-Web on three), although the kit's own name is not on the list: hometownsource.com (the Sun newspapers, ABC Newspapers, the Monticello Times, the Morrison County Record), presspubs.com (the Shoreview Press), re-electbirdman.org (a campaign site built on CampaignPartner) and sd8dfl.org (the Senate District 8 DFL, with Squarespace's switch against AI crawlers turned on). The lists were noticed only after the pages had been read. Rather than decide for John whether such a list binds the kit, nothing from those four sites is among the findings; what they would have given is under held_for_john at the end of this file, each with its page, so that John can open the page himself or say the kit may use it. They were not opened again after the lists were noticed, and the second reader should not open them for this part. On hometownsource.com the site's own search box was used seven times before that. Where a site names Claude-User, the name for a reader acting on a person's request, nothing past its front page was asked for: the Wahpeton Daily News and the Forum Communications papers (West Central Tribune, Detroit Lakes Tribune). The Proctor Journal and the Waseca County News carry lists like hometownsource.com's. Of these five only the front pages had been asked for, and nothing is kept from them. News sites with no such list were read and are cited: Eden Prairie Local News and the Pine Knot News.",
+  "Left alone, and nothing worked around: jordanrasmusson.com, markthell.com, stevenscountytimes.com and Pope County's site (each answered with a bot check; whether markthell.com is the candidate's is not known, so nothing is recorded about it); Becker County's site (its newer address shows a bot-check page, and its older address presents a certificate chain that neither the kit's reader nor the fetch tool, tried once, could verify; certificate checking is never switched off), so David Meyer has no findings; Wilkin County's and the City of Sauk Rapids' sites (their robots.txt asks unlisted scripts to stay out), so Steven Arnhalt and Nicholas Sauer have no findings; the Minnesota Judicial Branch's site (it answers 403, robots.txt included), so the two judges have no official page; the Austin Daily Herald (403); the Pope County Tribune's search page (robots.txt).",
+  "Michael D. Wentzell: the website he filed with the Secretary of State (judgewentzell.com, with or without www) now leads to a registrar's holding page (\"A Brand New Domain!\"), so no website is recorded for him. Gregory M. Davids filed none; gregdavids.com exists but is a parked page.",
+  "Candidates with nothing found, beyond those named above: Tabitha Johnson (not on the City of Fairmont's council page or any of its nine board pages); Nicholas A Prozinski, Allison Hoffbauer and Elizabeth Griebel (none is on their district's list of sitting board members; Glencoe-Silver Lake's own page of candidates' answers names no public office or website for Liz Griebel); Laurence J. Stratton (no reachable source). No party's own page naming a 2026 endorsement of Jordan Rasmusson or Gregory M. Davids was found: the Otter Tail and Fillmore County Republican sites list them as office holders, without the word endorsed.",
+  "party_support (a key the loader does not read): the Senate District 34 DFL lists Thomas Huling under \"Letter of Support Candidates\", apart from its endorsed candidates. As in other parts of this sweep it is kept apart from endorsed_by so that no page calls it an endorsement; whether and how it is shown is John's decision. A lead for the endorsements step, about people who are not in this part: the Senate District 35 Republicans' page (https://www.sd35gop.com/recommended-candidat.html) has a table headed \"Nonpartisan local offices up for election in 2026\", described as candidates the unit heard from at its June meeting and \"a partial list\", that names Pat Carlson (Coon Rapids Mayor) and Brian Armstrong (Coon Rapids City Council, Ward 5), the other candidates in two of this part's races. It does not call them endorsed.",
+  "Terra Fleming's birth year is worked out from her campaign site's sentence about a 60th birthday \"this July\", not printed there as a year; the reasoning is beside the finding. A newspaper's questionnaire prints an age for Thuba Nguyen; an age on a given day is not a birth year, so none is recorded for her.",
+  "For the second reader: two sources are harder to open than a web page. Carlton County's minutes of January 8, 2019 draw their text inside form objects, which the kit's PDF reader does not read (a browser shows them); the Moorhead and Waseca school districts' pages are drawn by script, and the lines cited are in the page's own data. The legislators' findings were kept to what the task asks for sitting members (website, endorsements, review items), plus public offices outside the Legislature that the Library's records give for two of them.",
+  "Privacy. The reader used for this part masks e-mail addresses, telephone numbers and street addresses before a page is shown, and candidates' statements were read for sentences about public offices, websites and party. Before the mask and that narrowing were in place, some pages were shown whole or in part to this session's output: three campaign sites' own pages about the candidate, the Library's record for one legislator, one school district's page of candidates' answers, candidates' profiles in news stories (family, religion, schooling, employers and ages appear on them), and two board members' office telephone numbers and e-mail addresses on Proctor Public Schools' own board page. None of it is recorded here or anywhere else."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0129-MN",
+   "name": "Jordan Rasmusson"
+  },
+  {
+   "race_id": "2026-MN-0165-MN",
+   "name": "Ann Johnson Stewart",
+   "website": {
+    "url": "https://www.annjohnsonstewart.com",
+    "how": "The site's title reads \"Home - Ann Johnson Stewart for Senate\" and its home page says she is the District 45 senator and is running for reelection in 2026; the Minnesota DFL's and the Senate District 45 DFL's endorsement pages link to it; it is the website she filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 45 DFL (district unit)",
+     "url": "https://www.sd45dfl.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0202-MN",
+   "name": "Peter Johnson",
+   "website": {
+    "url": "https://www.votepete8a.com",
+    "how": "The site's title reads \"Vote Pete Johnson - 8A MN State Representative\" and it is headed \"For Minnesota House District 8A\"; the Minnesota DFL's endorsement page links to it; it is the website he filed with the Secretary of State for this race.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0239-MN",
+   "name": "Gregory M. Davids",
+   "offices": [
+    {
+     "office": "Preston City Council (appointed)",
+     "from": "1986",
+     "to": "1986",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10123",
+     "kind": "official",
+     "also": "The record reads: \"Municipal Council/Aldermen: Preston, Minnesota (City Council); 08/26/1986 to 1986 [Appointed]\".",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Preston",
+     "from": "1987",
+     "to": "1991",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10123",
+     "kind": "official",
+     "also": "The record reads: \"Municipal Mayor: Preston, Minnesota (City Mayor); 1987 to 02/13/1991 [Elected]\".",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: a House term in District 28B with no start date, ending January 3, 2023, then District 26B from January 3, 2023; the roster's first term start reads January 3, 2023.",
+     "problem": "The Legislative Reference Library gives House service from 1991, with one break: \"House 1991-92 (District 32B); House 1993-2006 (District 31B); House 2009-2012 (District 31B); House 2013-2022 (District 28B); House 2023-Present (District 26B)\". Its notes say he lost the 2006 election after a recount.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10123",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0277-MN",
+   "name": "Patty Acomb",
+   "website": {
+    "url": "https://www.pattyacomb.com",
+    "how": "The site's title reads \"Home | Patty Acomb for MN\" and the page says she is \"running to continue serving as your state representative\"; the Minnesota DFL's and the Senate District 45 DFL's endorsement pages link to it; it is the website she filed with the Secretary of State for this race.",
+    "also": "The site answered the kit's reader with \"429 Too Many Requests\" three times (a rate limit, not a bot check); the fetch tool read it.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnetonka City Council",
+     "from": "2012",
+     "to": "2019",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"Municipal Council/Aldermen: Minnetonka, Minnesota (City Council; About 7 years); 02/2012 to 2019 [Elected]\".",
+     "verified": true
+    },
+    {
+     "office": "Minnetonka Park Board (vice-chair)",
+     "from": "2009",
+     "to": "2012",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"Municipal Board/Commission: Minnetonka, Minnesota (City Park Board; Vice-Chair); 2009 to 02/2012\".",
+     "verified": true
+    },
+    {
+     "office": "Bassett Creek Watershed Management Commission",
+     "from": "2014",
+     "to": "2016",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"Watershed District: Bassett Creek Watershed Management Commission; 2014 to 2016\".",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Board of Water and Soil Resources (appointed by the Governor)",
+     "from": "2015",
+     "to": "2018",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"State Board/Commission/Council: Minnesota Board of Water and Soil Resources (Appointed by Governor Mark Dayton); 2015 to 2018 [Appointed]\".",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Area Water Supply Advisory Committee of the Metropolitan Council",
+     "from": "2015",
+     "to": "2018",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"State Board/Commission/Council: Metropolitan Council (Metropolitan Area Water Supply Advisory Committee); 2015 to 2018\".",
+     "verified": true
+    },
+    {
+     "office": "Governmental Advisory Committee of the United States Environmental Protection Agency, member",
+     "from": "2016",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15513",
+     "kind": "official",
+     "also": "The record reads: \"U.S. Executive Branch: United States Environmental Protection Agency (Governmental Advisory Committee Member); 2016 to ?\": the Library gives no end. Left out on purpose: lines of the record that are not offices with dates and a title.",
+     "corrected": "The note listed lines the first reader left out and in doing so named employers; that wording is cut.",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 45 DFL (district unit)",
+     "url": "https://www.sd45dfl.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0319-MN",
+   "name": "Athena Hollins",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-005",
+   "name": "David Meyer"
+  },
+  {
+   "race_id": "2026-MN-0392-165",
+   "name": "Bill B. Miller",
+   "official_page": {
+    "url": "https://www.watonwancountymn.gov/121/County-Officials",
+    "source": "Watonwan County, County Officials page (Bill Miller, commissioner for the Second District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Watonwan County Board of Commissioners, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Watonwan County, County Officials page",
+     "url": "https://www.watonwancountymn.gov/121/County-Officials",
+     "kind": "official",
+     "also": "Under \"County Commissioners\" the page lists \"Second: Bill Miller\". It gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-017",
+   "name": "Mark Thell",
+   "offices": [
+    {
+     "office": "Carlton County Board of Commissioners, District 4",
+     "from": "",
+     "to": "2022",
+     "source": "Carlton County Board of Commissioners, minutes of December 27, 2022 and January 3, 2023",
+     "url": "https://www.carltoncountymn.gov/AgendaCenter/ViewFile/Minutes/_12272022-1196",
+     "kind": "official",
+     "also": "The minutes of December 27, 2022 read \"Members present: Bodie, Brenner, Peterson, and Thell\" and speak of \"Commissioner Thell\". The minutes of January 3, 2023 record the oath of \"Susan Zmyslony County Commissioner District Four\" (https://www.carltoncountymn.gov/AgendaCenter/ViewFile/Minutes/_01032023-1198), so his term ended as hers began. Secondary, for the district and the start: the Pine Knot News of May 29, 2026 calls him \"former commissioner Mark Thell\", challenger to the District 4 commissioner, and says of the district's races that Zmyslony took 2014 and 2022 \"and Thell winning the 2018 election\" (https://www.pineknotnews.com/story/2026/05/29/elections/office-filings-begin/14922.html). No start year is recorded: the first reader's source for 2019, the minutes of January 8, 2019 (https://www.carltoncountymn.gov/AgendaCenter/ViewFile/Minutes/_01082019-659), opened but its text could not be read by the kit's PDF reader, by a second reading of its streams, or by the fetch tool.",
+     "verified": true,
+     "corrected": "\"from\" was 2019, resting on minutes the second reader could not read; the start year is taken out and the finding now rests on the two sets of minutes that were read."
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-167",
+   "name": "Steven Arnhalt"
+  },
+  {
+   "race_id": "2026-MN-0400-081",
+   "name": "Deborah Vierhuf",
+   "official_page": {
+    "url": "https://www.lincolncountymn.gov/departments_agencies/auditor_-_treasurer/index.php",
+    "source": "Lincoln County, Auditor - Treasurer page (Deb Vierhuf, Auditor-Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lincoln County Auditor-Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Lincoln County, Auditor - Treasurer page",
+     "url": "https://www.lincolncountymn.gov/departments_agencies/auditor_-_treasurer/index.php",
+     "kind": "official",
+     "also": "The page's contact block reads \"Deb Vierhuf, Auditor-Treasurer\" and gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-039",
+   "name": "Scott Rose",
+   "official_page": {
+    "url": "https://www.dodgecountymn.gov/departments/sheriff_s_office.php",
+    "source": "Dodge County, Sheriff's Office page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dodge County Sheriff",
+     "from": "elected November 2014",
+     "to": "now",
+     "source": "Dodge County, Sheriff's Office page",
+     "url": "https://www.dodgecountymn.gov/departments/sheriff_s_office.php",
+     "kind": "official",
+     "also": "The page reads: \"In November of 2014, Scott Rose was elected the 26th Sheriff of Dodge County.\" It does not say on what day the term began, so no start year is given.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-149",
+   "name": "Jason Dingman",
+   "official_page": {
+    "url": "https://www.stevenscountymn.gov/868/Sheriff",
+    "source": "Stevens County, Sheriff's Office page (Sheriff Jason Dingman)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stevens County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Stevens County, Sheriff's Office page",
+     "url": "https://www.stevenscountymn.gov/868/Sheriff",
+     "kind": "official",
+     "also": "Under \"Department Information\" the page reads \"Sheriff Jason Dingman\". It gives no start date.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-099",
+   "name": "Kristen Nelsen",
+   "offices": [
+    {
+     "office": "Mower County Attorney",
+     "from": "",
+     "to": "",
+     "source": "Mower County Board of Commissioners, minutes of the meeting of January 3, 2023",
+     "url": "https://www.mowercountymn.gov/AgendaCenter/ViewFile/Minutes/_01032023-386",
+     "kind": "official",
+     "also": "The minutes read: \"Also in attendance were County Attorney Kristen Nelsen ...\". The county's Attorney's Office page names no one and the board's later minutes sit in a portal drawn by script, so neither a start year nor \"now\" is recorded: the minutes show her in the office in January 2023.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-13114",
+   "name": "Thuba Nguyen",
+   "website": {
+    "url": "https://thubaforcoonrapids.com",
+    "how": "The site's title reads \"Home | Thuba for Coon Rapids 2026\" and its description says \"Thuba Nguyen is running for mayor of Coon Rapids\"; it is the website she filed with the Secretary of State for this race.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-59998",
+   "name": "Josh Wing",
+   "official_page": {
+    "url": "https://www.shoreviewmn.gov/Government/Committees-commissions/Economic-development-authority",
+    "source": "City of Shoreview, Economic Development Authority page (Josh Wing, treasurer, at-large member)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shoreview Economic Development Authority, at-large member and treasurer",
+     "from": "",
+     "to": "now",
+     "source": "City of Shoreview, Economic Development Authority page",
+     "url": "https://www.shoreviewmn.gov/Government/Committees-commissions/Economic-development-authority",
+     "kind": "official",
+     "also": "The page's member list reads \"Josh Wing, Treasurer (At-large member)\" and gives no dates. The tie to the race is the place and the name: the City of Shoreview's own board, and a candidate for Mayor of Shoreview. A newspaper's voters' guide in which the candidate for mayor lists this same post is among the pages held for John below.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Greg Lehman",
+   "offices": [
+    {
+     "office": "Eden Prairie School Board, member",
+     "from": "",
+     "to": "",
+     "source": "Eden Prairie Local News, \"Meet Eden Prairie's seven City Council candidates\", August 19, 2026",
+     "url": "https://eplocalnews.org/2026/08/19/meet-eden-prairies-seven-city-council-candidates/",
+     "kind": "secondary",
+     "also": "The profile reads: \"Lehman previously served on the Eden Prairie School Board\". The same paper says so in its forum report of October 1, 2026 (https://eplocalnews.org/2026/10/01/eden-prairie-candidates-discuss-issues-at-forum/) and in a story of September 1, 2022 (https://eplocalnews.org/2022/09/01/city-candidates-define-themselves-at-forum/). None gives the years. The profile links six candidates' campaign websites and none for him; the city's own candidates page lists him without the word incumbent.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-43774",
+   "name": "Tracy Hinz",
+   "official_page": {
+    "url": "https://www.monticellomn.gov/255/Tracy-Hinz",
+    "source": "City of Monticello, council member's page (Tracy Hinz, Councilmember)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Monticello City Council",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Monticello, council member's page",
+     "url": "https://www.monticellomn.gov/255/Tracy-Hinz",
+     "kind": "official",
+     "also": "The page reads \"Term: January 1, 2023 to December 31, 2026\"; it does not say whether she served before that term. It lists her city committees too (Economic Development Authority, Library Board), which are council assignments and are not recorded as offices.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-58684",
+   "name": "Nicholas Sauer"
+  },
+  {
+   "race_id": "2026-MN-1020-20330",
+   "name": "Tabitha Johnson"
+  },
+  {
+   "race_id": "2026-MN-1024-06382",
+   "name": "Terra Fleming",
+   "website": {
+    "url": "https://terrafleming.com",
+    "how": "The site's title reads \"Terra Fleming For Blaine City Council - Home\"; its home page says she has represented the City of Blaine for the past four years and has decided to run for City Council once again.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.blainemn.gov/567/City-Council",
+    "source": "City of Blaine, City Council page (Terra Fleming, Councilmember Ward 3)",
+    "verified": true
+   },
+   "born": {
+    "year": 1966,
+    "date": "",
+    "source": "Her campaign's own website",
+    "url": "https://terrafleming.com",
+    "kind": "campaign",
+    "also": "The home page reads: \"This July, I will celebrate my 60th birthday\". The same page speaks of \"the past four years\" in office, of running \"once again\", and of training taken \"In 2024\", so it was written for the 2026 campaign, the July is July 2026 and the year is 1966. The page does not print the year itself: it is worked out, and the second reader re-read each of those sentences and is satisfied.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Blaine City Council, Ward 3",
+     "from": "",
+     "to": "now",
+     "source": "City of Blaine, City Council page",
+     "url": "https://www.blainemn.gov/567/City-Council",
+     "kind": "official",
+     "also": "The page lists \"Terra Fleming, Councilmember Ward 3\" and gives no dates. Her campaign site speaks of \"the past four years\" in office.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Thomas Huling"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0152",
+   "name": "Lorilee Bergin",
+   "official_page": {
+    "url": "https://www.isd152.org/page/meet-the-school-board",
+    "source": "Moorhead Area Public Schools, Meet the school board page (Lorilee Bergin, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Moorhead Area Public Schools board, director",
+     "from": "2023",
+     "to": "now",
+     "source": "Moorhead Area Public Schools, Meet the school board page",
+     "url": "https://www.isd152.org/page/meet-the-school-board",
+     "kind": "official",
+     "also": "The page reads \"Lorilee Bergin, Director (2023-2027)\": the present term. It does not say whether she served before it. The page is drawn by script; the line is in the page's own data.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Michael Birdman",
+   "official_page": {
+    "url": "https://www.edinaschools.org/about/school-board",
+    "source": "Edina Public Schools, School Board page (Michael Birdman, Assistant Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edina Public Schools board (assistant clerk)",
+     "from": "",
+     "to": "now",
+     "source": "Edina Public Schools, School Board page",
+     "url": "https://www.edinaschools.org/about/school-board",
+     "kind": "official",
+     "also": "The page reads \"Michael Birdman, Assistant Clerk ... Term Expires: 12/31/26\" and gives no start date.",
+     "verified": true
+    },
+    {
+     "office": "Intermediate School District 287 board, director for Edina",
+     "from": "",
+     "to": "now",
+     "source": "Intermediate District 287, School Board page",
+     "url": "https://www.district287.org/our-district/school-board",
+     "kind": "official",
+     "also": "The page reads \"Michael Birdman, Board Director ... Edina ... Representing District 273 & 287\", and says the board is one representative from each member district, appointed by that district's school board. It gives no start date for him.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Nicholas A Prozinski"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Allison Hoffbauer"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0829",
+   "name": "Theron A. Kruger",
+   "official_page": {
+    "url": "https://www.waseca.k12.mn.us/o/waseca-ps/page/about-waseca-school-board",
+    "source": "Waseca Public Schools, About Waseca School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca Public Schools board, director",
+     "from": "",
+     "to": "now",
+     "source": "Waseca Public Schools, About Waseca School Board page and the list of board members it links",
+     "url": "https://www.waseca.k12.mn.us/o/waseca-ps/page/about-waseca-school-board",
+     "kind": "official",
+     "also": "The page's photograph caption names Theron Kruger among the board, and the page links the district's own document \"2026 Waseca School Board of Education Members\" (updated January 8, 2026), which reads \"Theron Kruger, Director ... Term Expires 1/01/2027\": https://docs.google.com/document/d/1kSraGPHbdLF8ngkPDd_yDRpSJFaCFd8m5-eKWIXy8dY/edit?usp=sharing (that document also carries members' contact details, which are not copied). No start date is given. The page is drawn by script; the caption and the link are in the page's own data.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Elizabeth Griebel"
+  },
+  {
+   "race_id": "2026-MN-8111-MN",
+   "name": "Michael D. Wentzell"
+  },
+  {
+   "race_id": "2026-MN-9006-MN",
+   "name": "Laurence J. Stratton"
+  }
+ ],
+ "held_for_john": [
+  {
+   "race_id": "2026-MN-0202-MN",
+   "name": "Peter Johnson",
+   "field": "endorsed_by",
+   "finding": {
+    "party": "Democratic-Farmer-Labor",
+    "unit": "Senate District 8 DFL (district unit)",
+    "url": "https://www.sd8dfl.org/vote"
+   },
+   "as_read": "Under \"Your DFL-Endorsed Candidates\": \"Pete Johnson — State House, District 8A\".",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Michael Birdman",
+   "field": "website",
+   "finding": {
+    "url": "https://re-electbirdman.org",
+    "how": "The site's title reads \"RE-ELECT Michael Birdman for Edina School Board | Edina, MN\"."
+   },
+   "as_read": "Not on the Secretary of State's list. The address was first seen in the Sun Current's voters' guide (also held).",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Michael Birdman",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Edina Public Schools board, director",
+     "from": "2022",
+     "to": "now",
+     "source": "His campaign's own website (Meet Michael)",
+     "url": "https://re-electbirdman.org/meet_michael",
+     "kind": "campaign"
+    },
+    {
+     "office": "Intermediate School District 287 board, director for Edina",
+     "from": "2022",
+     "to": "now",
+     "source": "His campaign's own website (Meet Michael)",
+     "url": "https://re-electbirdman.org/meet_michael",
+     "kind": "campaign"
+    },
+    {
+     "office": "City of Edina Heritage Preservation Commission, member and chair",
+     "from": "2013",
+     "to": "2021",
+     "source": "His campaign's own website (Meet Michael)",
+     "url": "https://re-electbirdman.org/meet_michael",
+     "kind": "campaign"
+    },
+    {
+     "office": "City of Edina Zoning Appeals Board, member",
+     "from": "2009",
+     "to": "2011",
+     "source": "His campaign's own website (Meet Michael)",
+     "url": "https://re-electbirdman.org/meet_michael",
+     "kind": "campaign"
+    }
+   ],
+   "as_read": "The page lists: \"Edina School Board Director - (2022 - Present)\"; \"Edina Board Director - Intermediate School District 287 - (2022 - Present)\"; \"City of Edina Heritage Preservation Commission – Board Member & Chairperson, (2013 – 2021)\"; \"City of Edina Zoning Appeals Board – Board Member, (2009 – 2011)\". The first two would give start years to the two offices recorded above from official pages.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Michael Birdman",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Edina Public Schools board",
+     "from": "elected 2021",
+     "to": "now",
+     "source": "Sun Current (hometownsource.com), voters' guide for the Edina School Board, October 1, 2026",
+     "url": "https://www.hometownsource.com/sun_current/psa/voters-guide-meet-the-candidates-running-for-edina-school-board/article_86e37b25-feb6-41ef-9407-7b82056f4d0e.html",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "The guide calls him an incumbent; his own entry reads \"Elected to School Board 2021\" and gives re-electbirdman.org as the way to reach his campaign.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Greg Lehman",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Eden Prairie School Board, elected member (resigned before the end of a term that ran to January 2020)",
+     "from": "",
+     "to": "",
+     "source": "Sun Current (hometownsource.com), \"Karla Bratrud appointed to fill empty EP School Board seat\", January 16, 2019",
+     "url": "https://www.hometownsource.com/sun_current/community/edenprairie/karla-bratrud-appointed-to-fill-empty-ep-school-board-seat/article_89f367b8-1daa-11e9-94c5-abede4c1a7cc.html",
+     "kind": "secondary"
+    },
+    {
+     "office": "Intermediate District 287 board, member",
+     "from": "",
+     "to": "",
+     "source": "Sun Sailor (hometownsource.com), \"Eden Prairie City Council Voter's Guide 2022\", October 4, 2022",
+     "url": "https://www.hometownsource.com/sun_sailor/free/eden-prairie-city-council-voter-s-guide-2022/article_6881c308-43ef-11ed-9292-b39207ddae84.html",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "2019: the board chair says the open seat \"belonged to Greg Lehman\", that \"he resigned\", and that the appointee fills the remainder of his term, \"which would end in January 2020\". 2022: his entry reads \"elected Eden Prairie School Board alumnus and an Intermediate District 287 board member\"; the guide shows he ran for the City Council in 2022, a nonpartisan office.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-1010-43774",
+   "name": "Tracy Hinz",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Monticello City Council",
+     "from": "2023 (first elected 2022)",
+     "to": "now",
+     "source": "Monticello Times (hometownsource.com), \"Monticello City Council field grows to four as three vie for mayor's seat\", July 15, 2026",
+     "url": "https://www.hometownsource.com/monticello_times/monticello-city-council-field-grows-to-four-as-three-vie-for-mayors-seat/article_cccdd7b1-67d4-4c91-95d0-d91f28212b41.html",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "\"Hinz, who was first elected in 2022, said she is seeking another term\". With the city's own page (term from January 1, 2023) it settles that 2023 is when she first took office.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-1001-59998",
+   "name": "Josh Wing",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Shoreview Economic Development Commission, member and chair",
+     "from": "",
+     "to": "",
+     "source": "Shoreview Press (Press Publications), 2026 Voters' Guide, September 22, 2026, page 14",
+     "url": "https://www.presspubs.com/shoreview/news/2026-voters-guide/article_c3df9c91-90ad-49bb-9176-50c1e8f0d17d.html",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "Under \"Shoreview Mayor (elect 1)\", Josh Wing's entry lists as civic roles: \"Current member and treasurer — Shoreview Economic Development Authority\" and \"Past member and chair — Shoreview Economic Development Commission\". The guide is a PDF offered on that page.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-8111-MN",
+   "name": "Michael D. Wentzell",
+   "field": "offices",
+   "finding": [
+    {
+     "office": "Judge of the Minnesota District Court, First Judicial District (appointed by Governor Mark Dayton, December 2012)",
+     "from": "",
+     "to": "",
+     "source": "Sun Patriot (hometownsource.com), \"Gov. Dayton appoints Wentzell\", December 20, 2012",
+     "url": "https://www.hometownsource.com/sun_patriot/news/local/gov-dayton-appoints-wentzell/article_aafae348-3847-5a57-8ce4-21859f3848f0.html",
+     "kind": "secondary"
+    }
+   ],
+   "as_read": "\"Governor Mark Dayton announced the appointment of Mr. Michael D. Wentzell as District Court Judge in Minnesota's First Judicial District on Wednesday, Dec. 12 ... The judgeship will be chambered at Chaska in Carver County.\" The story does not say when he took the bench. It is the only source found for him.",
+   "held": "The site's robots.txt asks Anthropic's named agents to stay out; the kit's own User-Agent is not on its list. Read before that was noticed and not opened again. Held for John to decide."
+  },
+  {
+   "race_id": "2026-MN-0319-MN",
+   "name": "Athena Hollins",
+   "field": "website",
+   "finding": {
+    "url": "https://www.athenahollins.com",
+    "how": "The site's home page says \"My name is Athena Hollins, and I’m running to be the State Representative for District 66B in St. Paul\"; the Minnesota DFL's endorsement page links to it; it is the website she filed with the Secretary of State for this race."
+   },
+   "as_read": "By the first reader only. Confirmed without opening the site: dfl.org/endorsed/ links https://www.athenahollins.com/ beside \"Athena Hollins House District 66B\".",
+   "held": "The site's robots.txt asks Anthropic's named agents (anthropic-ai, ClaudeBot) to stay out; the kit's own User-Agent is not on its list. The first reader recorded it without noticing the list; the second reader saw the list before opening the page and did not open it, so this is NOT verified. Held for John to decide, as with the four sites above."
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Thomas Huling",
+   "field": "website",
+   "finding": {
+    "url": "https://thomashuling.com",
+    "how": "The site's title reads \"THOMAS HULING FOR WARD 5\" and its description says \"Support Thomas Huling for Ward 5, Coon Rapids city council\"; it is the website he filed with the Secretary of State for this race."
+   },
+   "as_read": "By the first reader only.",
+   "held": "The site's robots.txt asks Anthropic's named agents (anthropic-ai, ClaudeBot) to stay out; the kit's own User-Agent is not on its list. The first reader recorded it without noticing the list; the second reader saw the list before opening the page and did not open it, so this is NOT verified. Held for John to decide, as with the four sites above."
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Thomas Huling",
+   "field": "party_support",
+   "finding": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 34 DFL (district unit)",
+     "kind": "letter of support",
+     "url": "https://www.sd34dfl.com/2026-candidates",
+     "as_listed": "Letter of Support Candidates: Coon Rapids, City Council Ward 5 - Thomas Huling",
+     "also": "The page keeps this apart from \"the endorsed DFL candidates for our district\": it says municipal offices are non-partisan and that the listed candidates \"were granted Letters of Support at the SD34 DFL meeting this August\"."
+    }
+   ],
+   "as_read": "By the first reader only.",
+   "held": "The site's robots.txt asks Anthropic's named agents (anthropic-ai, ClaudeBot) to stay out; the kit's own User-Agent is not on its list. The first reader recorded it without noticing the list; the second reader saw the list before opening the page and did not open it, so this is NOT verified. Held for John to decide, as with the four sites above."
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0129-MN",
+   "name": "Jordan Rasmusson",
+   "field": "website",
+   "url": "https://www.jordanrasmusson.com",
+   "why": "The site answers with a bot check, so its own wording cannot be read; the rules say to delete what sits behind a wall. Seen on reopening: the Otter Tail County Republican Party's Elected Officials page does link jordanrasmusson.com beside \"Jordan Rasmusson Senate District 9\"."
+  },
+  {
+   "race_id": "2026-MN-0319-MN",
+   "name": "Athena Hollins",
+   "field": "website",
+   "url": "https://www.athenahollins.com",
+   "why": "Not opened by the second reader: the site's robots.txt names Anthropic's agents. Moved to held_for_john. The Minnesota DFL's endorsed page does link this address beside her name."
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Thomas Huling",
+   "field": "website",
+   "url": "https://thomashuling.com",
+   "why": "Not opened by the second reader: the site's robots.txt names Anthropic's agents. Moved to held_for_john."
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Thomas Huling",
+   "field": "party_support",
+   "url": "https://www.sd34dfl.com/2026-candidates",
+   "why": "Not opened by the second reader: sd34dfl.com's robots.txt names Anthropic's agents. Moved to held_for_john. It was never an endorsement: the first reader recorded a letter of support."
+  }
+ ],
+ "verifier_notes": [
+  "Every url under candidates was reopened on 2026-10-02 with the kit's User-Agent (states/net.py), robots.txt read first for each site, pages masked for e-mail, telephone and street address before any line was shown; pattyacomb.com through the fetch tool after three 429 answers. 49 findings checked: 45 kept (2 of them corrected), 4 removed (3 of those moved to held_for_john).",
+  "Three more sites carry the same robots.txt list naming Anthropic's agents that the first reader set four sites aside for: athenahollins.com, thomashuling.com and sd34dfl.com. The first reader had missed the list on these. They were not opened; their findings are under held_for_john, unverified. Nothing under held_for_john was opened or verified by the second reader, and nothing there carries \"verified\".",
+  "Checked against the party's own page: dfl.org/endorsed/ (\"The candidates listed below have been endorsed by the Minnesota DFL Party\") lists Ann Johnson Stewart (Senate 45), Pete Johnson (House 8A), Patty Acomb (House 45B) and Athena Hollins (House 66B); the Senate District 45 DFL's page lists Acomb under \"Endorsed Candidates for MN House\" and Johnson Stewart under \"Endorsed Candidate for MN Senate\".",
+  "Gregory M. Davids's review item was checked on both sides: state_mn.sqlite shows terms 28B (no start, to 2023-01-03) and 26B (from 2023-01-03), and the Library's record reads as quoted.",
+  "Same-person anchors for the local offices were checked against sl_races: Watonwan commissioner district 2, Carlton district 4, Blaine Ward 3 and each county or district office match the race. Josh Wing rests on the city and the name (the City of Shoreview's own board; a candidate for Mayor of Shoreview). Greg Lehman rests on Eden Prairie Local News naming him as a 2026 council candidate who \"previously served on the Eden Prairie School Board\" (secondary; no years).",
+  "Theron A. Kruger: the district's page links its own list of members, a Google document, which reads \"Theron Kruger, Director ... Term Expires 1/01/2027 Updated: January 08,2026\". Privacy: while checking that document its first line, with the board chair's district telephone number and e-mail address, was printed once to this session's output before the mask was applied; it is recorded nowhere. Official pages for Watonwan County and Monticello print members' addresses and telephone numbers; they were masked and are not recorded.",
+  "The birth dates and the religion line on the Legislative Reference Library's records were seen and not recorded: sitting legislators take only a website, endorsements and review items, plus the public offices the first reader kept."
+ ]
+}

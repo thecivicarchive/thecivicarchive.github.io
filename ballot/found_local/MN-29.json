@@ -1,0 +1,609 @@
+{
+ "state": "MN",
+ "part": 29,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already spent when this part began (the first search was refused: 200 of 200 used), so none of these thirty candidates could be searched for. Everything below was found by opening pages directly with the kit's honest User-Agent (states/net.py), one request at a time and at least a second apart on any one host, with each site's robots.txt read first: the campaign websites the candidates filed, each county's, city's, township's and school district's own site, the Legislative Reference Library, the two state parties' and local party units' own sites, the University of Minnesota's election archive, and a few news organizations' own pages and site searches (KAXE, WTIP, the Faribault County Register, the Fairmont Sentinel and Minnesota Lawyer; Southern Minnesota News, Lakeland PBS, the New Ulm Journal and Sahan Journal were searched and gave nothing). The Fairmont Sentinel's and the New Ulm Journal's searches were asked the way their own search pages ask them, by a request their robots.txt opens by name. A page was not asked for when its site's robots.txt closes it to the kit's reader or to any of Claude's named agents (Minnesota Lawyer is the one exception, explained below). No search engine was read in place of the search tool. A second pass with searching would be worth it for the candidates with nothing below.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read. Eight of the thirty filed one (Perryman, Michaelson, Dotseth, Rehm, Reeves, Ibinger, Prince, Howie), and each was opened and read before it was listed here. Four more campaign sites were found by asking only whether a likely address exists and then reading the site: Hollee Klesh's, Joe Ackerman's, John Doan's and Judge Veena Iyer's. Each names the candidate and the office or place. Addresses that exist and are not these campaigns' sites were dropped: marionrarick.com, tonyforsheriff.com and jenevenson.com (holding pages), votebode.com (for sale), kellyschaefer.com and deborahpauly.com (they lead to unrelated sites), votemarion.com (a Florida county's elections office), edinarepublicans.com, edinagop.com and carvercountydfl.org (holding pages), dfl48.org and bentoncountygop.com (unrelated), holleeklesh.com (it did not answer).",
+  "Not read, and nothing worked around. Their robots.txt turns Claude's agents away by name: mankatofreepress.com, keyc.com, southernminn.com, hometownsource.com, presspubs.com, mesabitribune.com, wdio.com and walkermn.com. Their robots.txt asks every unlisted script to stay out: Cook County's site (so nothing official from the county for Christopher Homyak), stjamesnews.com and www.forwardindependencemn.org (taken to be the Minnesota party whose label Jay Reeves runs under). Closed to every reader by robots.txt: MPR News's search and the City of North Branch's site search. KROX radio's search answered 403. Not requested at all, because other parts of this sweep found that they refuse scripts or show a CAPTCHA: the Minnesota Judicial Branch's site (mncourts.gov), the state's mn.gov pages and the Secretary of State's sites. So the two judges have no court page here, and their appointments rest on Minnesota Lawyer's reports.",
+  "Minnesota Lawyer (minnlawyer.com) was read, and the second reader should know why. Its robots.txt turns away the crawlers that gather text for training models, ClaudeBot among them, and in a group of its own lets Claude-User and Claude-SearchBot in, saying in its comments that reading in order to cite the paper stays allowed; its general rules leave its story pages and its search open to the kit's reader. That is not the plain stay-out the sites listed above give, so its own search (three questions) and six of its stories were read: the appointment of Veena Iyer in 2024, two reports of Jana Austad's in 2013 and the 2020 election report that names her, and items of 2014 and 2000 found under Greg Widseth's name. If John would rather treat any naming of ClaudeBot as a stay-out, the two judges' offices below should be dropped with it. For the other parts' judges: that site's search finds the Governor's appointment announcements by a judge's name.",
+  "This part's mistakes, with nothing kept from them. (1) kdhlradio.com: its robots.txt closes /search/ to every script; a search typed at the site's front address was passed on into /search/ and one results page was read before that was noticed. It showed only primary vote counts; nothing is cited from it and the site was not asked again. The reader now checks the address a request leads to as well as the one asked. (2) Contact details shown in this session's working output, and nowhere else: one campaign page (the letters on owen4senate.com's Endorsements page) was printed with two letter-writers' street addresses before the reader masked such text, and one look inside the Crosby-Ironton district's board page printed the phone numbers and e-mail addresses the district publishes for its six board members. None of it was stored, written to a file or recorded here.",
+  "Jay Reeves: his filed site is drawn entirely by script (a Base44 app), so the kit's fetch step will find its name and nothing else: no photo options or issue headings will come from it. The Forward Party's national candidates page calls the list \"our Forward endorsed candidates\" and gives his affiliation as \"Forward\". Our record carries his party as FI, the Secretary of State's abbreviation, with a note that the full name is not in the files; no page that could be read spells that name out (the state party's own site asks scripts to stay out, and the Independence-Alliance Party's older site, mnip.org, speaks only of a merger with the Forward Party of Minnesota being voted on). The election archive has no page for him, so no earlier run is recorded.",
+  "Owen Michaelson: no party page with a 2026 endorsement was found. The Senate District 50 Republicans' site carries its 2024 release endorsing him for House seat 50A and nothing on this year's Senate race; the 3rd Congressional District Republicans list him under \"Republican Candidates for Minnesota Senate\" without the word endorsed. His school board years were not found on a page that could be read (the Edina district's site names no past members; the local paper is on hometownsource.com). The election archive is a university archive, not a news organization, and is labelled secondary for the second reader to judge, as other parts do. The birth date it shows was not taken, because the source it names for it is a birth records index.",
+  "Republican endorsements. Bernie Perryman: the Senate District 14 Republicans' home page is the party's own page and uses the word endorsed; the debates it lists are this year's (Perryman and Putnam; Conway and Daisane; Ek and Dorholt). Jeff Dotseth: the St. Louis County Republican Party's list is headed \"Candidates Post Primary\" and is reached from the party's home page under \"2026 Endorsements\"; parts 5 and 13 record the same list for other candidates. The 8th Congressional District Republicans list him under \"2026 Candidates\" and the Pine County Republicans under their legislators, neither with the word endorsed; the Carlton County Republicans' site is drawn by script and showed nothing. His own site says the Minnesota Republican Party endorsed him and points to a list on mngop.com that no longer exists (404); the state party's site lists statewide and congressional nominees only. Marion (O'Neill) Rarick: the Republican Party of Wright County lists her among elected officials and shows her addressing its 2026 endorsing convention, but no page says in words that she was endorsed, so she has no endorsed_by.",
+  "Marion (O'Neill) Rarick has no findings. She filed no website. An older site of her committee still answers at http://www.mariononeill.com/ over plain http only (its https certificate belongs to another name): \"Representative Marion O'Neill, Serving House District 29B\", prepared and paid for by O'Neill for House. It uses her former name, names no election year and carries no date (the page builder's own stamp in its code is from May 2020), so it is not recorded as this year's campaign website; whether to show it is John's decision. The Legislative Reference Library's record of her matches the roster (it adds only a staff job and things a card never shows).",
+  "Sitting legislators (Perryman, Dotseth, Rarick, Rehm): the website, the party's endorsement, and what the Legislative Reference Library adds to the roster, which is a birth date for Dotseth and for Rehm (the roster has none for either; it already has Perryman's and Rarick's, and the Library's match) and three local posts (Perryman's seat on the St. Cloud Economic Development Authority, Rehm's on the Chanhassen City Council and Environmental Commission), all with dates the Library marks unknown. No review items: the Library's districts and names agree with our record.",
+  "For the second reader. (a) Christopher Homyak: no page read says in so many words that the candidate is the township supervisor, and the official page given is the township's page about him as a supervisor, not a page of the county board he is running for. The tie is the full name on Lutsen Township's own page, the place (the kit's copy of the Secretary of State's voting-districts data puts Lutsen Township in Cook County's Commissioner District 5, the seat he is running for), and WTIP, which covers his candidacy as Chris Homyak and quotes \"Lutsen Township Supervisor Chris Homyak\" on town business. (b) Kameron Gustafson: the tie is the same uncommon name on a board of the city whose council he is running for; the city's council page shows he is not a council member today. (c) Kelly Schaefer: the district's wording is \"Elected: 2026\", although this November's election has not been held; it is taken to mean she joined the board in 2026, since the other members are shown with the year they were elected (2007, 2022, 2024). If that is not enough, leave the start year out. (d) Deborah Pauly: the district writes Deb Pauly. Gregory Widseth: the county writes Greg Widseth. Rick Von Holdt: the city writes both \"von Holdt\" and \"Von Holdt\". (e) Tanya Prince: \"from\" is written \"elected 2018\" because her site gives the election year, not the day her term began; her site also lists seats and roles in private organizations, which are not public offices and are not recorded. (f) Flora Howie: the two entries are state advisory groups her site lists under \"public service and leadership\", with no years; whether such groups belong on a card as public offices is John's decision. (g) John Doan: the five offices are as the City of Shoreview's own page about him lists them; the three state posts have no years there. Left out: military service, his work, and the presidency of an association of local governments that his campaign site mentions. (h) Veena Iyer: the year is that of the Governor's announcement of her appointment as Minnesota Lawyer reported it (May 13, 2024); the court's and the Governor's own pages could not be read, and her own site gives no year. Her seats on the county law library's board and a court committee are part of the judgeship and are not recorded. (i) Jana Austad: Minnesota Lawyer reported her appointment in April 2013 as Jana M. Austad, and its report of the November 2020 election calls her the incumbent of the 9th District's Court 19, the seat she is on the list for this year, leading her challenger on election night. Nothing read says in words that she holds the seat today (she is the only candidate for it), so the office is given no end, as part 5 did for another judge; the second reader may judge that \"now\" is fair.",
+  "Staff jobs in government are not public offices and are not recorded: what the Fairmont Sentinel (October 1, 2026) says of Peter Bode and what KAXE (February 18, 2026) says of Tony Petrie are jobs on a city's and a sheriff's staff, not elected or appointed posts. Arron Kalis told the Faribault County Register (July 26, 2026) that he had chaired the Faribault County Development Corporation's board, which is a development corporation and not a government body, so it is not recorded either.",
+  "Nothing citable was found for seven candidates, who are listed with no findings: Marion (O'Neill) Rarick, Dave Karge, Arron Kalis, Anthony (Tony) Petrie, Peter Bode, Amilee Ellis and Jen Evenson; and nothing beyond a website for Hollee Klesh and Joe Ackerman. Read for them: Blue Earth County's board, elections, filing and news pages and Southern Minnesota News's own search (nothing on Dave Karge anywhere); Faribault County's commissioner pages and the Register's three election stories (Kalis; Tom Loveall holds District 4 and is retiring); KAXE's story on the Hubbard County sheriff's race (Petrie); the Fairmont Sentinel's forum story and its own search, the City of Fairmont's council page and six of its board and commission pages (Bode and Klesh are on none; Randy Lubenow holds Ward 3); the Stillwater district's board and election page and the League of Women Voters' forum page (Ellis is a candidate, not a member); the Rock Ridge district's board and election pages (Evenson is not on the board); the Centennial district's board page (Ackerman is a candidate, not a member). The election archive has no page under the names tried for anyone in this part but Owen Michaelson, so no other earlier run for state or federal office is recorded. Cass County's court pages and KAXE's and Lakeland PBS's own searches gave nothing on Judge Austad's appointment.",
+  "For whoever holds race 2026-MN-0393-013-S (Blue Earth County Commissioner District 3, special election): the county's own Board of Commissioners page still lists Mark Piepho for District 3 with a term expiring January 2, 2029, and no county page read says why the seat is on this year's ballot. For whoever keeps the list: the Faribault County Register reports that the District 4 race had four candidates in the August 11 primary, of whom Arron Kalis and Jacob Kral advanced; our record holds no local primaries, so this is a gap and not a disagreement."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0134-MN",
+   "name": "Bernie Perryman",
+   "website": {
+    "url": "https://bernieperryman.com",
+    "how": "The address she filed. The site is titled \"Bernie Perryman for Senate | Senate District 14 | Minnesota\" and carries her announcement of a run for the Minnesota Senate in District 14.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Commissioner, St. Cloud Economic Development Authority",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Bernie Perryman (Other Government Service: Municipal Board/Commission, \"St. Cloud City Economic Development Authority Commissioner\", dates unknown)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15599",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 14 Republicans (the unit's home page lists \"Bernie Perryman Senate 14\" with its House and congressional candidates above the heading \"Congratulations\" and the line \"To our endorsed candidates\"; the address leads to sd14mngop.weebly.com)",
+     "url": "https://sd14mngop.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0170-MN",
+   "name": "Owen Michaelson",
+   "website": {
+    "url": "https://www.owen4senate.com",
+    "how": "The address he filed. The home page names Owen Michaelson under \"Problem Solving for Minnesota Senate\" and speaks of the people of Bloomington and Edina; it does not give the district's number, and its title misspells him \"Owen Michelson for Senate\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edina School Board member (four years; chair of its policy committee)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site's Meet Owen page speaks of \"his four-year service on the Edina School Board\" and gives no years",
+     "url": "https://www.owen4senate.com/meet-owen.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 50A, in the general election (lost)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): 11/05/2024, State House, District 50A, General, Republican, Lost; its page for Owen Michaelson gives his residence as Edina and \"Edina School Board member\" under offices held",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/owen-michaelson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0208-MN",
+   "name": "Jeff Dotseth",
+   "website": {
+    "url": "https://www.dotsethmn.com",
+    "how": "The address he filed. The site is titled \"Jeff Dotseth for District 11A\" and says he is \"looking to continue on as your Minnesota State Representative for District 11A\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1967,
+    "date": "1967-07-08",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Jeff Dotseth (Date of Birth: 7/8/1967)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15598",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "St. Louis County Republican Party (its page \"Candidates Post Primary\" shows his campaign's banner among its candidates and a section headed \"From Jeff Dotseth website\"; the party's home page links that page under \"2026 Endorsements\" as \"the candidates endorsed by the St. Louis County Republican Party for 2026 elections\")",
+     "url": "https://stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "The Minnesota Republican Party has given Jeff their full backing",
+    "url": "https://www.dotsethmn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0245-MN",
+   "name": "Marion (O'Neill) Rarick"
+  },
+  {
+   "race_id": "2026-MN-0283-MN",
+   "name": "Lucille \"Lucy\" Rehm",
+   "website": {
+    "url": "https://lucyrehm.com",
+    "how": "The address she filed. The site is titled \"Lucy Rehm for Minnesota State House\" and says \"I'm running for re-election in Minnesota House district 48B\".",
+    "verified": true
+   },
+   "born": {
+    "year": 1966,
+    "date": "1966-03-03",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Lucille \"Lucy\" Rehm (Date of Birth: 3/3/1966)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15622",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chanhassen City Council member",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Lucille \"Lucy\" Rehm (Other Government Service: Municipal Council, Chanhassen, Minnesota, City Council, dates unknown)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15622",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chanhassen Environmental Commission member",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Lucille \"Lucy\" Rehm (Other Government Service: Municipal Board/Commission, Chanhassen Environmental Commission, dates unknown)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15622",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 48B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0333-MN",
+   "name": "Jay Reeves",
+   "website": {
+    "url": "https://jayreevesformn.com",
+    "how": "The address he filed. The page names itself \"Jay Reeves for Minnesota State Auditor\" in its header and in its app manifest; everything else on it is drawn by script, so a script sees only that name. The Forward Party's candidates page links this address from his entry.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Forward Party",
+     "unit": "Forward Party (the national party's page of \"our Forward endorsed candidates running for office in our current election cycle\" lists him: Minnesota, State Auditor, Forward, 2026)",
+     "url": "https://www.forwardparty.com/candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-039",
+   "name": "Tim Tjosaas",
+   "official_page": {
+    "url": "https://www.co.dodge.mn.us/county_board/district_2.php",
+    "source": "Dodge County: Commissioner, District 2 (Tim Tjosaas)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dodge County Commissioner, District 2",
+     "from": "2014",
+     "to": "now",
+     "source": "Dodge County's District 2 page: \"Commissioner Tjosaas was first elected by the District in February of 2014 and his current term will end 1/2027\"",
+     "url": "https://www.co.dodge.mn.us/county_board/district_2.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-013-S",
+   "name": "Dave Karge"
+  },
+  {
+   "race_id": "2026-MN-0394-043",
+   "name": "Arron Kalis"
+  },
+  {
+   "race_id": "2026-MN-0395-031",
+   "name": "Christopher Homyak",
+   "official_page": {
+    "url": "https://www.lutsentownship.com/staff",
+    "source": "Lutsen Township: Staff (Supervisor: Christopher Homyak)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lutsen Township Supervisor",
+     "from": "",
+     "to": "now",
+     "source": "Lutsen Township's own Staff page lists \"Supervisor: Christopher Homyak\" among the town's supervisors and gives no start year. Lutsen Township is in Cook County's Commissioner District 5, and WTIP reported on May 28, 2026 what \"Lutsen Township Supervisor Chris Homyak\" said for the town board: https://wtip.org/state-funding-secured-to-support-gitchi-gami-trail-expansion-in-lutsen/",
+     "url": "https://www.lutsentownship.com/staff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-159",
+   "name": "Heather Olson",
+   "official_page": {
+    "url": "https://www.wadenacounty.gov/148/AuditorTreasurer",
+    "source": "Wadena County: Auditor/Treasurer (Heather Olson, Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wadena County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Wadena County's Auditor/Treasurer page names \"Heather Olson, Auditor/Treasurer\" as the office's contact; it gives no start year",
+     "url": "https://www.wadenacounty.gov/148/AuditorTreasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-057",
+   "name": "Anthony (Tony) Petrie"
+  },
+  {
+   "race_id": "2026-MN-0404-165",
+   "name": "Jared Bergeman",
+   "official_page": {
+    "url": "https://www.watonwancountymn.gov/200/Sheriff",
+    "source": "Watonwan County: Sheriff (Jared Bergeman, County Sheriff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Watonwan County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Watonwan County's Sheriff page names \"Jared Bergeman, County Sheriff\"; it gives no start year",
+     "url": "https://www.watonwancountymn.gov/200/Sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-119",
+   "name": "Gregory Widseth",
+   "official_page": {
+    "url": "https://www.polkcountymn.gov/m/directory/department?did=14",
+    "source": "Polk County: staff directory, Attorney's Office (Greg Widseth, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Polk County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Polk County's staff directory for the Attorney's Office lists \"Greg Widseth, County Attorney\"; it gives no start year. Minnesota Lawyer of February 11, 2014 already says \"Widseth is the Polk County Attorney\": https://minnlawyer.com/2014/02/11/candidates-recommended-for-court-of-appeals-ninth-district/",
+     "url": "https://www.polkcountymn.gov/m/directory/department?did=14",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Peter Bode"
+  },
+  {
+   "race_id": "2026-MN-1001-71734",
+   "name": "Rick Von Holdt",
+   "official_page": {
+    "url": "https://www.worthingtonmn.gov/Our-City/Mayor-City-Council",
+    "source": "City of Worthington: Mayor & City Council (Rick von Holdt, Mayor, term expires December 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Worthington",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Worthington council minutes of January 9, 2023: the meeting \"was called to order ... by Mayor Rick Von Holdt\". The minutes of December 27, 2022 show the mayor before him presiding and list Rick Von Holdt among others present: https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2022/12-27-2022-city-council-minutes.pdf . The city's Mayor & City Council page lists him as Mayor today, with a term expiring December 2026",
+     "url": "https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2023/01-09-2023-city-council-minutes.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-20546",
+   "name": "Kameron Gustafson",
+   "offices": [
+    {
+     "office": "Faribault Park & Recreation Advisory Board member (a city advisory board)",
+     "from": "",
+     "to": "now",
+     "source": "City of Faribault: Park & Recreation Advisory Board page, which lists \"Kameron Gustafson, Member, Term Expires: January 31, 2029\"",
+     "url": "https://www.faribaultmn.gov/310/Park-Recreation-Advisory-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-46798",
+   "name": "Jim Ibinger",
+   "website": {
+    "url": "https://ibingerfornorthbranch.com",
+    "how": "The address he filed. The site is titled \"Jim Ibinger for North Branch City Council\"; it is one page and names no year.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.northbranchmn.gov/165/Mayor-and-City-Council",
+    "source": "City of North Branch: Mayor and City Council (Jim Ibinger, Councilmember)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Branch City Council member",
+     "from": "",
+     "to": "now",
+     "source": "City of North Branch: Mayor and City Council page, which lists \"Jim Ibinger, Councilmember\" and gives no start year",
+     "url": "https://www.northbranchmn.gov/165/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59998",
+   "name": "John Doan",
+   "website": {
+    "url": "https://www.doan4shoreview.com/",
+    "how": "The site is titled \"John Doan for Shoreview\" under the heading \"Shoreview City Council\" and is \"prepared and paid for by Friends of Doan\"; its About John page says he \"has served on the Shoreview City Council since April 2022\". It names no election year; the site's own sitemap dates its pages July 13, 2026. Found by trying the address; he filed no website.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+    "source": "City of Shoreview: John Doan, Councilmember",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shoreview City Council member",
+     "from": "2022",
+     "to": "now",
+     "source": "City of Shoreview's page about him: \"Appointed in spring 2022 and elected in fall 2022. Current term expires December 31, 2026\"",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Shoreview Planning Commission, chair and member",
+     "from": "2015",
+     "to": "2022",
+     "source": "City of Shoreview's page about him: \"Chair and member of the Shoreview Planning Commission 2015-2022\"",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chair, Council on Asian Pacific Minnesotans (a state council)",
+     "from": "",
+     "to": "",
+     "source": "City of Shoreview's page about him lists \"Chair of the State Council on Asian Pacific Minnesotans\" under current and prior community service, without years",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Council member",
+     "from": "",
+     "to": "",
+     "source": "City of Shoreview's page about him lists \"Councilmember on the Metropolitan Council\" under current and prior community service, without years",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Board on Aging member",
+     "from": "",
+     "to": "",
+     "source": "City of Shoreview's page about him lists \"Member of the Minnesota Board on Aging\" under current and prior community service, without years",
+     "url": "https://www.shoreviewmn.gov/Government/City-council/Councilmember-John-Doan",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-43864",
+   "name": "Ryan Nelson",
+   "official_page": {
+    "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/",
+    "source": "City of Moorhead: Mayor and Council Members (Council Member Ryan Nelson, Ward 1, term ending 12/31/2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Moorhead City Council member, Ward 1",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Moorhead: Past City of Moorhead Mayors and Council, which lists for Ward 1 \"Ryan Nelson, January 1, 2023 to December 31, 2026\". The city's Mayor and Council Members page lists him today for Ward 1: https://www.moorheadmn.gov/government/mayor-and-council-members/",
+     "url": "https://www.moorheadmn.gov/government/mayor-and-council-members/past-city-of-moorhead-mayors-and-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-20330",
+   "name": "Hollee Klesh",
+   "website": {
+    "url": "https://kleshforfairmont.com/",
+    "how": "The site is titled \"Klesh for Fairmont\" and reads \"vote HOLLEE KLESH, Fairmont City Council Candidate | WARD 3\". It names no year; the site's own sitemap dates the page September 15, 2026. Found by trying the address; she filed no website.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0012",
+   "name": "Joe Ackerman",
+   "website": {
+    "url": "https://joe4isd12.com/",
+    "how": "The site is titled \"Joe Ackerman for Centennial School Board · ISD 12\", says \"I'm running for Centennial School Board\" and carries a 2026 copyright line. Found by trying an address; he filed no website.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0182",
+   "name": "Kelly Schaefer",
+   "official_page": {
+    "url": "https://www.ci.k12.mn.us/page/about-ci",
+    "source": "Crosby-Ironton Public Schools: About C-I, \"Our Board of Education\" (Kelly Schaefer is one of the six members pictured and listed)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crosby-Ironton School Board member (ISD 182)",
+     "from": "",
+     "to": "now",
+     "source": "Crosby-Ironton Public Schools' About C-I page, under \"Our Board of Education\": she is one of the six members named in the board's photo, and her entry reads \"Elected: 2026\" (the other members' entries read 2007, 2022, 2024, 2024 and 2026). The page does not say what \"Elected: 2026\" means before this November's election, so no start year is given. The page draws its text by script; a script finds these words inside the page's data",
+     "url": "https://www.ci.k12.mn.us/page/about-ci",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Tanya Prince",
+   "website": {
+    "url": "https://tanyaforosseo.com",
+    "how": "The address she filed. The site is titled \"Tanya Prince for Osseo School Board\" and is signed \"Tanya Prince, ISD279 School Board Chair\"; its foot reads \"Re-Elect Tanya Prince for School Board\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.osseoschools.org/about-us/school-board",
+    "source": "Osseo Area Schools: School Board (Tanya Prince, School Board Member, Chair, term expires January 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Osseo Area Schools (ISD 279) School Board member; board chair today",
+     "from": "elected 2018",
+     "to": "now",
+     "source": "Osseo Area Schools' School Board page lists \"Tanya Prince, School Board Member, Chair, Term Expires January 2027\". The year comes from her campaign site, which says \"In 2018, I ran for school board\" and thanks voters \"for electing me to serve over the past eight years\": https://www.tanyaforosseo.com/",
+     "url": "https://www.osseoschools.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Brooklyn Park Budget Advisory Commission, commissioner",
+     "from": "2017",
+     "to": "2018",
+     "source": "Her campaign site's list of organizations and roles: \"Brooklyn Park Budget Advisory Commission – Commissioner 2017-2018\"",
+     "url": "https://www.tanyaforosseo.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Flora Howie",
+   "website": {
+    "url": "https://www.florahowieschoolboard.com",
+    "how": "The address she filed. The site is titled \"Flora Howie For School Board\" and its home page reads \"rochester public schools\" and \"Running for Board Member\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Autism Council Working Group, member (a state advisory group)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Me page: \"having served on the Minnesota Autism Council Working Group\" (no years given)",
+     "url": "https://www.florahowieschoolboard.com/about-me",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Minnesota State Early Intensive Developmental Behavioral Intervention Advisory Group, member (a state advisory group)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Me page: \"having served on ... the Minnesota State Early Intensive Developmental Behavioral Intervention Advisory Group\" (no years given)",
+     "url": "https://www.florahowieschoolboard.com/about-me",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0717",
+   "name": "Deborah Pauly",
+   "official_page": {
+    "url": "https://www.isd717.org/about-us/school-board",
+    "source": "Jordan Public Schools: School Board (Deb Pauly, Chairperson)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jordan School Board member (ISD 717); chairperson today",
+     "from": "",
+     "to": "now",
+     "source": "Jordan Public Schools' School Board page lists \"Deb Pauly, Chairperson\" first among the board's seven members; it gives no years",
+     "url": "https://www.isd717.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Amilee Ellis"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Jen Evenson"
+  },
+  {
+   "race_id": "2026-MN-8323-MN",
+   "name": "Veena Iyer",
+   "website": {
+    "url": "https://judgeveenaiyer.com/",
+    "how": "The site is titled \"Judge Veena Iyer\", is headed \"Keep Judge Veena Iyer\" and \"Ramsey County District Court\", and ends \"Flip the ballot and vote to keep Judge Iyer on November 3!\". The address leads to judgeveenaiyer.godaddysites.com. Found by trying the address; she filed no website.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, Second Judicial District (Ramsey County)",
+     "from": "2024",
+     "to": "now",
+     "source": "Minnesota Lawyer, May 13, 2024: \"Gov. Tim Walz has announced the appointments of Veena Iyer and Jennifer Verdeja as district court judges in Minnesota's 2nd Judicial District\". Her campaign site says she \"is a Ramsey County District Court judge appointed by Governor Tim Walz\": https://judgeveenaiyer.com/",
+     "url": "https://minnlawyer.com/2024/05/13/walz-appoints-iyer-verdeja-to-2nd-judicial-district-vacancies/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9118-MN",
+   "name": "Jana Austad",
+   "offices": [
+    {
+     "office": "District Court Judge, Ninth Judicial District (chambered at Walker, Cass County)",
+     "from": "2013",
+     "to": "",
+     "source": "Minnesota Lawyer, April 23, 2013: \"Gov. Mark Dayton appointed three judges in the 9th Judicial District ... Judge John P. Smith will be replaced by Jana M. Austad, who will be chambered at Walker in Cass County\". Its election report of November 4, 2020 lists \"9th Judicial District, Court 19: Jana M. Austad (incumbent)\" ahead of a challenger: https://minnlawyer.com/2020/11/04/legislative-balance-of-power-still-up-in-air/",
+     "url": "https://minnlawyer.com/2013/04/23/three-appointed-to-the-bench-in-the-9th/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's honest User-Agent, one request at a time; all answered. 58 findings checked, all kept; none removed.",
+  "Corrected wording: Bernie Perryman: office source cut to the Library's page, the one page given and re-opened; Owen Michaelson: website wording cut to what the home page says; the past_party source no longer cites the Senate District 50 Republicans' release, whose address was a third-party relay (openwith.link) and whose own address answers 404; Jeff Dotseth: website wording cut to the home page (the Endorsements page was not among the addresses given); Lucille \"Lucy\" Rehm: council office source cut to the Library's page; Jim Ibinger: office source cut to the council page; John Doan: the 'since April 2022' sentence is on the site's About John page, not its home page; Joe Ackerman: website wording cut to what the page shows; Kelly Schaefer: start year left out: the page says only \"Elected: 2026\", which is not a stated start of service; Flora Howie: website wording cut to what the home page shows; Veena Iyer: a secondary source's date cut to the year; Jana Austad: a secondary source's date cut to the year.",
+  "Same-person checks: each finding ties the name to the 2026 race by the state and by the office or place in our record (Heather Olson and Ryan Nelson, common names, are tied by the very office and ward they are running for; Christopher Homyak by the full name on Lutsen Township's page and WTIP's report naming the Lutsen supervisor; Kameron Gustafson by the name on a board of the city whose council he seeks).",
+  "Minnesota Lawyer's three stories opened without a wall and state what is recorded; whether to keep them given that site's robots.txt naming ClaudeBot is John's decision, as the researcher's note says.",
+  "Nothing from the never-collected list is in any field. Pages re-opened carry contact details and family or work lines (county and school pages, the Shoreview page, the election archive); none was copied."
+ ]
+}

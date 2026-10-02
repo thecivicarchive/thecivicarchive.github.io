@@ -1,0 +1,453 @@
+{
+ "part": 1,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "The session's web-search allowance ran out after seven searches, so nearly all of this part was found by opening pages directly with the kit's honest User-Agent: campaign websites, government, party and newspaper sites, and those sites' own search pages where their robots.txt allows it. Which candidates had filed a campaign website was read from a scratch copy of the database on which the project's own filed-websites step had been run; the real database was only read. A filed address is listed here only where the site itself was opened and names the candidate and the office or place.",
+  "Sites that refused the reader or asked scripts to stay out, so nothing was taken from them and nothing was worked around: bradyhoag.com (a bot check, so Brady Hoag has no website finding and no own words here, although the Senate District 37 Republicans' page links to that address as his website); mohamudnoor.org (HTTP 402; the Senate District 60 DFL links to it, and the state DFL's list links his name to a social media page instead); mncourts.gov (403: no court page for Judge Engelking); mn.gov (a CAPTCHA page; not asked again); co.jackson.mn.us (robots.txt: no county page for Kristi Meyeraan); Red Lake County's site (its certificate does not match its name; the plain address is dead); albertleatribune.com, axios.com and Pine Knot News's search page (403); Ballotpedia (it answered a script with a blank page, and is not a source this sweep cites in any case); the search pages of star-herald.com, redwoodfallsgazette.com, wjon.com and maplegrovemn.gov, and the city sites of Rockville, Cold Spring and Richmond (robots.txt). The Jackson County Pilot and the Timberjay show only the opening lines of their stories to non-subscribers; only those lines were read.",
+  "Read and left out on purpose: ages printed in news stories, which do not fix a birth year; jobs, union posts, nonprofit boards and a party unit's chairmanship; an advisory task force and an association seat held as part of a council term (Kristy Barnett); a tribal police department's civilian advisory board (Dan Danielson); labor and personal endorsements; the Scott County Republicans' page 'Endorsed/Recommended Candidates', which links a banner image dated 2024 to Terry Stier's site with no text naming him, the office or the year. Not opened at all: the affidavits of candidacy the City of Moorhead posts (they carry home addresses), and news stories whose headlines were about a legal matter.",
+  "For the second reader: (1) Mark Johnson's campaign site carries a 2022 copyright line; it names him and the office and is the address Wikipedia gives as his official campaign website, but nothing on it is dated 2026. (2) Mark Johnson and Mohamud Noor are sitting members whose roster records have no birth date, so the Legislative Reference Library's is given, as part 0 did; the Library gives only the year for Noor. (3) Annie Harala: the Duluth News Tribune's August 5 story says both 'appointed to the seat in 2023' and 'since taking office in January 2023', while its August 12 story says she 'was elected to the St. Louis County Board in 2022'; only the start year 2023 is used. (4) Kristi Meyeraan's office has no end year because the one page found reports her appointment in April 2022 and nothing later; she is the only candidate for the office on the 2026 list. (5) Judge Engelking: the Morrison County Record's October 2020 list of 7th District Court judges 'all running unopposed' names 'Judge 8 - Matthew E. Engelking' (https://www.hometownsource.com/morrison_county_record/free/who-s-on-your-ballot-it-depends-upon-where-you-live/article_7cad71d6-1ad1-11eb-84c6-77ac39a70689.html), so the seat was his by 2020, but no page read gives the year he took the bench. (6) Michael Haatvedt's post is a seat on a city board that promotes tourism; whether a card shows it is John's decision. (7) Ryan Schatz's review item rests on a news report, not an official record: he stays on the ballot. (8) An 'Abdi Abdulle' lost the DFL primary for U.S. House District 2 on August 11; no page ties him to Abdirahman Ahmed Abdulle of the Rosemount council race (the questionnaire he answered speaks of earlier runs in Minneapolis and Lakeville), so nothing was recorded. (9) The Minneapolis DFL's 2026 endorsement for School Board District 5 went to the other candidate, so Molly Chase has own words but no endorsed_by.",
+  "Nothing was found beyond what they filed for Dennis Hartman, Al Kokesch, Chris Johnson (the Mesabi Tribune's story on his candidacy says he 'has never before run for elected office'), Kelly Brekke, Abdirahman Ahmed Abdulle, Alex Tierney, Richard (Rick) Rask, Kasey Wolters, Teresa Glass, Gary Distel and Joshua Hurt: no campaign website that could be confirmed, and no public office that a page states. Their cities', counties' and school districts' own pages of members, boards and commissions were read where they answer; none names them."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0121-MN",
+   "name": "Mark Johnson",
+   "website": {
+    "url": "https://www.markjohnsonmnsenate.com/",
+    "how": "The site is titled 'Mark Johnson, Senator 1', is headed 'Mark Johnson for Minnesota Senate', says 'I am running to be your State Senator' for Northwest Minnesota and is paid for by Mark Johnson for State Senate. Its copyright line reads 2022: it is the campaign's standing site and was not rewritten for 2026.",
+    "verified": true
+   },
+   "born": {
+    "year": 1983,
+    "date": "1983-12-09",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Mark T. Johnson: Senate, District 01, 2017 to the present)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15485",
+    "kind": "official",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0157-MN",
+   "name": "Brady Hoag",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 37 Republicans",
+     "url": "https://www.sd37gop.com/candidates-corner.html",
+     "note": "The page lists him under 'Meet Your Endorsed Senate District Candidates' as 'Minnesota State Senate - 37'. It prints no year; the federal and statewide candidates beside him are this year's.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0194-MN",
+   "name": "Erika Yoney",
+   "website": {
+    "url": "https://www.yoney4mnhouse.com/",
+    "how": "The site is titled 'Yoney for Minnesota House District 4A' and names Erika Yoney as a candidate for MN House 4A in Moorhead; the Clay County DFL's candidates page links to the same address.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Clay County DFL",
+     "url": "https://www.claycountydfl.org/candidates",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL endorsed candidate for MN House 4A.",
+    "url": "https://www.yoney4mnhouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0231-MN",
+   "name": "Terry Matthew Stier",
+   "website": {
+    "url": "https://stierforhouse.com",
+    "how": "The site is titled 'Terry Stier for Minnesota House — District 22B', asks readers to re-elect Terry Stier and is paid for by Terry Stier for House.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican-Endorsed Candidate",
+    "url": "https://stierforhouse.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0268-MN",
+   "name": "Cole Birkeland",
+   "website": {
+    "url": "https://www.colebirkeland.com",
+    "how": "The site ('Cole for House') says 'I am running for Minnesota House District 41A', names Cole Birkeland and is paid for by the Neighbors for Cole Birkeland committee.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Cole Birkeland receives unanimous endorsement at DFL convention",
+    "url": "https://www.colebirkeland.com/press/dfl-convention",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0307-MN",
+   "name": "Mohamud Noor",
+   "born": {
+    "year": 1978,
+    "date": null,
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Mohamud Noor: House, District 60B, 2019 to the present; the record gives the year only)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15528",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 60 DFL",
+     "url": "https://sd60dfl.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-137",
+   "name": "Annie Harala",
+   "website": {
+    "url": "https://annieharala.com/",
+    "how": "The site is titled 'Annie Harala for St. Louis County Board District 1' and says 'I'm seeking re-election to the St. Louis County Board of Commissioners'; it gives November 3, 2026 as the general election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stlouiscountymn.gov/our-county/board-of-commissioners/current-commissioners",
+    "source": "St. Louis County, Current Commissioners (1st District: Commissioner Annie Harala, with the county's portrait of her)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Louis County Board of Commissioners (District 1)",
+     "from": "2023",
+     "to": "now",
+     "source": "Duluth News Tribune, August 5, 2026, 'Trio of candidates vie for county commissioner seat': the incumbent District 1 commissioner, 'since taking office in January 2023'",
+     "url": "https://www.duluthnewstribune.com/news/local/trio-of-candidates-vie-for-county-commissioner-seat",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chair of the St. Louis County Board of Commissioners",
+     "from": "2025",
+     "to": "2025",
+     "source": "Duluth News Tribune, August 12, 2026, 'Eilers, Harala move forward in St. Louis County race': 'Harala served as chair during 2025'",
+     "url": "https://www.duluthnewstribune.com/news/local/eilers-harala-move-forward-in-st-louis-county-race",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-133",
+   "name": "Dennis Hartman"
+  },
+  {
+   "race_id": "2026-MN-0393-127",
+   "name": "Al Kokesch"
+  },
+  {
+   "race_id": "2026-MN-0394-137",
+   "name": "Paul McDonald",
+   "official_page": {
+    "url": "https://www.stlouiscountymn.gov/our-county/board-of-commissioners/current-commissioners",
+    "source": "St. Louis County, Current Commissioners (4th District: Commissioner Paul McDonald, with the county's portrait of him)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Louis County Board of Commissioners (District 4)",
+     "from": "2019",
+     "to": "now",
+     "source": "The Timberjay, February 5, 2026, 'McDonald announces re-election bid': he will seek re-election to represent District 4, 'a position he has held since 2019' (the opening lines are public; the rest of the story is for subscribers)",
+     "url": "https://www.timberjay.com/stories/mcdonald-announces-re-election-bid,23978",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0396-137",
+   "name": "Chris Johnson"
+  },
+  {
+   "race_id": "2026-MN-0404-017",
+   "name": "Dan Danielson",
+   "offices": [
+    {
+     "office": "Cloquet School Board",
+     "from": "",
+     "to": "",
+     "source": "Pine Knot News, April 17, 2026, 'Top deputy will run for sheriff', about the Carlton County sheriff candidate: 'before the pandemic struck he served two terms on the Cloquet school board' (the years are not given)",
+     "url": "https://www.pineknotnews.com/story/2026/04/17/elections/top-deputy-will-run-for-sheriff/14679.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-125",
+   "name": "Kelly Brekke"
+  },
+  {
+   "race_id": "2026-MN-0405-063",
+   "name": "Kristi L. Meyeraan",
+   "offices": [
+    {
+     "office": "Jackson County Attorney",
+     "from": "2022",
+     "to": "",
+     "source": "Jackson County Pilot, April 7, 2022, 'Meyeraan appointed county attorney': 'The Jackson County Board of Commissioners on Tuesday formally appointed Kristi Meyeraan to the position of Jackson County attorney' (the opening lines are public; the rest of the story is for subscribers, and the page does not say when the service ends)",
+     "url": "https://www.jacksoncountypilot.com/articles/meyeraan-appointed-county-attorney/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-07966",
+   "name": "Shelle Page",
+   "website": {
+    "url": "https://www.spforbp.com",
+    "how": "The site ('SP for BP') is signed 'Shelle Page for Mayor FOR Brooklyn Park', is paid for by the Shelle Page for Mayor Campaign Committee, calls her a Council Member 'now running to lead our entire city forward' and says she was elected to the Brooklyn Park City Council as Central District representative in 2024. The home page does not print the year of the election.",
+    "corrected": "Reworded from the home page; the About page the researcher quoted did not answer on the second reading.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.brooklynpark.org/city-council/",
+    "source": "City of Brooklyn Park, City Council (Shelle Page, Council Member/EDA Commissioner, Central District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Park City Council (Central District)",
+     "from": "",
+     "to": "now",
+     "source": "City of Brooklyn Park, City Council page, which lists Shelle Page as 'Council Member/EDA Commissioner Central District', 'Elected through 2028' (the page does not give the year the term began; her campaign site says she was elected in 2024)",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-47221",
+   "name": "John Monge",
+   "official_page": {
+    "url": "https://www.northstpaul.org/194/City-Council",
+    "source": "City of North St. Paul, City Council (John Monge, Mayor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of North St. Paul",
+     "from": "2023",
+     "to": "now",
+     "source": "City of North St. Paul, City Council page, which lists John Monge as 'Mayor (2023-2026)'",
+     "url": "https://www.northstpaul.org/194/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-13456",
+   "name": "Michael D Haatvedt",
+   "offices": [
+    {
+     "office": "Cottage Grove Convention and Visitors Bureau, a city board (Director)",
+     "from": "",
+     "to": "now",
+     "source": "City of Cottage Grove, Boards & Commissions, Convention and Visitors Bureau page: 'Members ... Michael Haatvedt, Director' (no dates are given)",
+     "url": "https://www.cottagegrovemn.gov/582/Convention-and-Visitors-Bureau-CVB",
+     "kind": "official",
+     "corrected": "The researcher's sentence quoting the Pioneer Press gave no address to re-open, so it was taken out. The tie to this race is the name and the city whose council he seeks; the page does not give a middle initial.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-40166",
+   "name": "Kristy Barnett",
+   "website": {
+    "url": "https://www.kristyforcouncil.com/",
+    "how": "The site is paid for by Kristy Barnett's volunteer committee and asks 'for the opportunity to serve again' on the City Council in Maple Grove; its About page ('About Kristy') says she was first elected to the Maple Grove City Council in 2016 and asks for the chance 'to serve the residents of Maple Grove once again'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Maple Grove City Council",
+     "from": "elected 2016",
+     "to": "",
+     "source": "Kristy Barnett's campaign site, About page: 'I was first elected to the Maple Grove City Council in 2016 and was honored to be re-elected in 2020', eight years on the council, and 'I chose not to seek re-election in 2024' (the page gives election years, not the dates the terms began and ended)",
+     "url": "https://www.kristyforcouncil.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55726",
+   "name": "Abdirahman Ahmed Abdulle"
+  },
+  {
+   "race_id": "2026-MN-1020-06382",
+   "name": "Alex Tierney"
+  },
+  {
+   "race_id": "2026-MN-1022-43864",
+   "name": "Ryan Schatz"
+  },
+  {
+   "race_id": "2026-MN-1026-43864",
+   "name": "Richard (Rick) Rask"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0111",
+   "name": "Hunter Feldt",
+   "official_page": {
+    "url": "https://www.wm.k12.mn.us/about-us/school-board",
+    "source": "Watertown-Mayer Public Schools, School Board (Hunter Feldt, Board Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Watertown-Mayer School Board (Board Chair today)",
+     "from": "2019",
+     "to": "now",
+     "source": "Watertown-Mayer Public Schools, School Board page, which lists Hunter Feldt as 'Board Chair' and 'Member since November 2019'",
+     "url": "https://www.wm.k12.mn.us/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0241",
+   "name": "Kasey Wolters"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Jenna Kantola",
+   "official_page": {
+    "url": "https://www.isd466.org/our-district/school-board-policies",
+    "source": "Dassel-Cokato Schools, School Board (Jenna Kantola, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dassel-Cokato School Board (Director)",
+     "from": "2023",
+     "to": "now",
+     "source": "Dassel-Cokato Schools, School Board page: 'Jenna Kantola - Director', 'Terms: 2023-2026'",
+     "url": "https://www.isd466.org/our-district/school-board-policies",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0625",
+   "name": "Teresa Glass"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0750",
+   "name": "Gary Distel"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912",
+   "name": "Joshua Hurt"
+  },
+  {
+   "race_id": "2026-MN-5018-SSD0001",
+   "name": "Molly Chase",
+   "website": {
+    "url": "https://mollyforminneapolis.com",
+    "how": "The site ('Molly for Minneapolis') says 'Molly Chase, your candidate for MPLS School Board District 5'; its About page is titled 'About Minneapolis School Board Candidate District 5 Molly Chase'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Perpich Center for Arts Education, board member (appointed by the Governor)",
+     "from": "2020",
+     "to": "2024",
+     "source": "Molly Chase's campaign site, About page: 'a board member of Perpich Center for Arts Education (2020-2024)'; the home page calls it 'a governor-appointed school board role' and lists 'School board experience (Perpich, 2020-2024)'",
+     "url": "https://mollyforminneapolis.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "A life-long Dem/DFLer, I love our public schools",
+    "url": "https://mollyforminneapolis.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-8907-MN",
+   "name": "Matthew E. Engelking",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court (sitting in Stearns County District Court)",
+     "from": "",
+     "to": "now",
+     "source": "Morrison County Record (hometownsource.com), December 30, 2025, on a hearing in Stearns County District Court: 'Judge Matthew E. Engelking presided over the hearing' (the story does not say when he took the bench)",
+     "url": "https://www.hometownsource.com/morrison_county_record/free/herzing-makes-first-court-appearance-bail-set-conditions-outlined/article_5183fb41-465e-4302-ac91-8a9e0efdc4e1.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-1010-13456",
+   "name": "Michael D Haatvedt",
+   "field": "official_page",
+   "url": "https://www.cottagegrovemn.gov/582/Convention-and-Visitors-Bureau-CVB",
+   "why": "An official page is for someone holding office today. This is the city's page for a tourism board that lists him among its directors, not a page about an office holder; the same page stays as the source of the board seat under offices."
+  },
+  {
+   "race_id": "2026-MN-1022-43864",
+   "name": "Ryan Schatz",
+   "field": "review",
+   "url": "https://www.inforum.com/news/moorhead/candidate-for-moorhead-city-councils-ward-2-announces-end-of-campaign",
+   "why": "The page was re-opened and says what was recorded (InForum, October 1, 2026: he announced the end of his campaign and cannot take his name off the ballot). It was removed because a review item is something an official source contradicts: this is a news report resting on a social media post, and our record (he is on the November list) is right. Whether a card mentions it is John's decision."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's own downloader (30 pages, all answered). 41 findings were read against their pages: 39 kept, 2 removed, 2 reworded.",
+  "Mark Johnson's site names him and the office but carries a 2022 copyright line and no 2026 date; it is kept as the campaign's standing site, as the researcher noted.",
+  "The state DFL's endorsed page, the Clay County DFL's page and the Senate District 37 Republicans' page print no year in their text; the DFL page was last changed on 2026-09-16 and each lists this year's candidates.",
+  "Dassel-Cokato's page prints each member's terms after that member's own words; the line after Jenna Kantola's is 'Terms: 2023-2026'.",
+  "St. Louis County's page does carry the county's portraits of Annie Harala and Paul McDonald.",
+  "Nothing from the never-collected list is in any field. The pages themselves carry phone numbers, postal addresses and e-mail; none was copied."
+ ]
+}

@@ -1,0 +1,475 @@
+{
+ "state": "MN",
+ "part": 26,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "WebSearch could not be used for this part (the session's search budget was already spent), so pages were reached directly, with the kit's own User-Agent and each site's robots.txt obeyed: the campaign websites filed with the Secretary of State, county, city and school district sites, party sites, the Legislative Reference Library, Wikipedia, and the search pages newspapers and broadcasters offer on their own sites (hometownsource.com, wjon.com, thenewsleaders.com, lptv.org, kaxe.org) or their election index pages (dl-online.com, wctrib.com, dglobe.com). Candidates with nothing below are ones for whom no page reached that way stated anything a card may show: Ashley Martin, Brittney Jordan, Krystaline Krumrey, Rollie Nissen, Duane Maupin, Larry P. Magrath, Paul Baillos, Gretchen A. O'Donnell, Josh Edel and Lesley Vavra. For Maupin, Baillos, Krumrey, Vavra, O'Donnell, Magrath and Edel a page was read (a voter's guide, a forum report, or the council or board roster of the body they are running for) and it gave no website and no public office; none of the seven is shown as a member of that body today. Rollie Nissen is on neither the Willmar council page nor the Kandiyohi County Board page today, and the one West Central Tribune story reached says only that he is a candidate for mayor; the Todd County page names the other candidate as the sitting Auditor-Treasurer.",
+  "Sites that asked scripts to stay out, refused them or did not answer, and so were not read: seth4mnsos.org and khaiforcarvercounty.com (robots.txt), sheriffwitt.org (a bot check page), isaacschultzmn.com (HTTP 500 on three tries), mncourts.gov (robots.txt: no court page for either judge), cityofdetroitlakes.com and sd41dfl.com (robots.txt), startribune.com (429), trftimes.com (403), the search page of postbulletin.com (robots.txt), ballotpedia.org (an empty challenge page), and jimnashformn.com after its home page (429: its Endorsements page was not read). The Belle Plaine district's old address, belleplaine.k12.mn.us, does not answer; its site is isd716.org. mncd6gop.com now leads to an unrelated site and carvercountydfl.org to a holding page.",
+  "Read and left out on purpose: jobs (county staff, campaign staff, legislative staff, a sheriff's office career, law practice), schools, family, church membership and ages; military service; seats on nonprofit boards, a homeowners' association and civic committees; advisory task forces and an ex-officio panel seat; endorsements by people, unions, business and issue groups; and Mustafa Sandhu's 2024 run for the same nonpartisan council. No birth year is given for anyone: the two sitting legislators have theirs in the state roster, and no official, campaign or cited page gave a year for anyone else (an age printed as of one day does not fix a year, and none was taken).",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): Patrick Gage, Edina City Council. Two DFL district units publish that he received their \"Letter of Support\", which each keeps apart from its endorsed candidates (the Senate District 50 DFL under its own heading at the foot of its Endorsed Candidates page, the Senate District 46 DFL on a page of its own). They are not entered as endorsed_by, so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "Party pages read that named nobody in this part, or published no endorsement for them: the SD13 Republicans' site (it names no Senate candidate) and the Benton County Republicans' site (Isaac Schultz is listed among elected officials; no endorsement is stated for him or for Jared Gapinski), the Kanabec County Republicans, the state Republican party's \"2026 Republican Nominees\" page, the Scott County Republicans' \"Endorsed/Recommended Candidates\" page (no names in its text), the SD32 and SD37 Republicans, the Minneapolis DFL and the Senate District 34, 37, 43, 55 and 60 DFL sites. The Carver County Republican Party's page names Jim Nash and no candidate for County Commissioner District 5.",
+  "For the second reader: (1) Dawanna Witt's past_party item rests on Wikipedia, whose article carries a banner warning that it may hold machine-written text; the claim has a footnote to the Star Tribune of May 15, 2022, whose headline says the same, but that page answered 429 and was not read. No endorsed_by is given for 2026: Wikipedia's article on the 2026 Hennepin County Attorney election cites a Star Tribune story of June 13, 2026 headed \"Hennepin County Sheriff Dawanna Witt fails to secure DFL endorsement\", and the Senate District 50 DFL's page names an endorsed candidate for County Attorney and none for Sheriff. (2) Mustafa Sandhu: the city's table gives March 7, 2024 as the date appointed, his own site says \"Since 2022, I've served for three years\"; the city's date is the one entered. (3) Nathan Haase: the county's page for the Attorney's Office names him and nobody else but prints no title, so only the official page is given and no office. (4) Colleen Kinkaid: \"Elected: 2026\" is what the district prints, although the regular election is in November 2026; the page does not say how the seat was filled. (5) Daniel M. Hawley: the source prints \"Daniel Hawley\" with no middle initial; it is taken to be him because it reports an appointment to the Ninth Judicial District bench in June 2025 and the 2026 list has one Hawley among that district's judges. (6) Kris Babler's quote and the sentences in his \"how\" are in the script file that draws his pages (krisbabler.com/assets/index-f98c463a.js); the bare page holds only his name until a browser runs it. (7) Jim Nash is a sitting member: his two Waconia offices are not in the roster, and the review item is the roster's missing start year, as part 6 reported for another member. (8) Rick Greene: the county's page for District #2 (chisagocountymn.gov/919/District-2) prints his board posts back to \"Vice Chair, County Board of Commissioners, 2009\" but also a home address and telephone, so the County Board page is given as the official page instead. (9) Jenny Peterson: the district's page puts her among two Directors whose terms expire January 4, 2027; the start year is hers. (10) Jared Gapinski: neither the county nor his own site gives the year he joined the County Board.",
+  "Verifier, 2026-10-02: every address was opened again with the kit's User-Agent (robots.txt obeyed); jimnashformn.com and judgestacystennes.com answered 429 to it and were read with WebFetch instead. Three filed websites could not be read and were removed (see \"removed\"). Rick Greene: the mention of board posts back to 2009 was taken out of \"from\" (it rests on a page not cited here), and the article's date was corrected to June 18, 2026, updated July 17. The Crosby-Ironton and Mahtomedi school pages are drawn by script; the facts were read in the page's own data. Mustafa Sandhu's \"since 2022\" is on his site's About page (mustafasandhu.com/about). Jim Nash's review item was checked against member_terms in state_mn.sqlite and the Library's record. The two Letter of Support items for Patrick Gage are confirmed as worded and remain outside endorsed_by."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0133-MN",
+   "name": "Jared J. Gapinski",
+   "website": {
+    "url": "https://gapinskiformnsenate.com",
+    "how": "The site's title is \"Jared Gapinski for Minnesota Senate – District 13\" and its footer reads \"Prepared and Paid for by Jared Gapinski for MN Senate\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.bentoncountymn.gov/386/Jared-Gapinski",
+    "source": "Benton County, County Board: his page as the District 4 commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Benton County Commissioner, District 4",
+     "from": "not stated (the county's page gives only the end of the term, January 2029)",
+     "to": "now",
+     "source": "Benton County, County Board: his page (\"District 4\", \"Term Expires January 2029\"); his campaign site calls him \"a Benton County Commissioner\"",
+     "url": "https://www.bentoncountymn.gov/386/Jared-Gapinski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Sauk Rapids City Council (a former member)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "The Newsleaders, \"Gapinski will be on Aug. 11 primary ballot\", August 10, 2026 (\"a former Sauk Rapids city council member\")",
+     "url": "https://thenewsleaders.com/gapinski-will-be-on-aug-11-primary-ballot/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0169-MN",
+   "name": "Kris Babler",
+   "website": {
+    "url": "https://krisbabler.com",
+    "how": "The site says \"Kris Babler is a candidate for the Minnesota State Senate in District 49\" and is \"Prepared and paid for by Babler for Senate (SD49)\". Its pages are drawn by a script, so the words were read in the site's own script file; a browser shows them. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Independent for Senate SD49",
+    "url": "https://krisbabler.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0207-MN",
+   "name": "Isaac Schultz"
+  },
+  {
+   "race_id": "2026-MN-0244-MN",
+   "name": "Emily Dahlgren",
+   "website": {
+    "url": "https://dahlgren4mn.com",
+    "how": "The site's title is \"Emily Dahlgren for MN House 29A\" and its home page reads \"I'm Emily Dahlgren and I'd like your vote for House District 29A.\" The Minnesota DFL's list of endorsed candidates links it from her picture, under House District 29A. She listed no website with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 29A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0282-MN",
+   "name": "Jim Nash",
+   "website": {
+    "url": "https://www.jimnashformn.com",
+    "how": "The site's title is \"Jim Nash for Minnesota | State Representative HD48A\" and its home page ends \"Prepared and paid for by Jim Nash for Minnesota.\" The Carver County Republican Party's \"2026 Elections\" page links it as his campaign website. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waconia City Council",
+     "from": "2008",
+     "to": "not stated (the Library's record reads \"2008 to ?\")",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, under Other Government Service",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15441",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Waconia",
+     "from": "2010 (November 2010)",
+     "to": "2014 (December 2014)",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, under Other Government Service",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15441",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party, the county unit (its page \"2026 Elections\", under \"Endorsed MN House and Senate Candidates\": \"Jim Nash (HD48A), Running for Re-election\")",
+     "url": "https://carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: his House term in District 48A begins January 3, 2023, and that date is also kept as the start of his first term; the earlier term names District 47A and has no start date, so the record reads as service that began in 2023 or at some unknown time before it.",
+     "problem": "The Legislative Reference Library's record gives House service since the 2015 session: \"House 2015-2022 (District 47A); House 2023-Present (District 48A)\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15441",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0332-MN",
+   "name": "Seth Kuhl-Stennes",
+   "website": {
+    "url": "https://seth4mnsos.org",
+    "how": "The Green Party of Minnesota's page \"Meet Our Candidates!\" (mngreenparty.org/our_2026_candidates) gives this address: \"We have a Secretary of State Candidate, Seth Kuhl-Stennes ... His website is\", and the Green Party's release on its Minnesota endorsements links it from his name. It is the address filed with the Secretary of State. The site's robots.txt asks scripts to stay out, so the site itself was not read. Verified from the two party pages, which name him, the office and this address; the site itself was again left unread.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Green",
+     "unit": "Green Party of Minnesota, the state party, at its state endorsing convention on April 18, 2026 (the party's release of May 17, 2026, carried on the Green Party of the United States' site: \"endorsed ... Seth Kuhl-Stennes for Secretary of State\")",
+     "url": "https://www.gp.org/green_party_of_mn_endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-025",
+   "name": "Rick Greene",
+   "official_page": {
+    "url": "https://www.chisagocountymn.gov/175/County-Board-of-Commissioners",
+    "source": "Chisago County, County Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chisago County Commissioner, District 2",
+     "from": "not stated (the county's page gives the current term, January 3, 2023 to December 31, 2026)",
+     "to": "now",
+     "source": "Chisago County, County Board of Commissioners (\"Rick Greene, District #2; Chair, (Term = January 3, 2023 to 12/31/2026)\")",
+     "url": "https://www.chisagocountymn.gov/175/County-Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Amador Township Board (township supervisor)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "County News Review (hometownsource.com), \"Rick Greene files for re-election for Chisago County Board\", June 18, 2026, updated July 17, 2026 (he \"began his public service on the Amador Township Board before joining the Chisago County Board\")",
+     "url": "https://www.hometownsource.com/county_news_review/free/rick-greene-files-for-re-election-for-chisago-county-board/article_dab64938-e0d5-416f-8c32-66ccc242a669.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-003",
+   "name": "Melissa \"Mel\" Lawlis",
+   "website": {
+    "url": "https://mellawlisforcountycommissioner.com",
+    "how": "The site's title is \"Mel Lawlis for County Commissioner\"; its home page says \"Help elect Mel Lawlis\" and its About page speaks of Anoka County and of serving District 3. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-039",
+   "name": "Ashley Martin"
+  },
+  {
+   "race_id": "2026-MN-0395-019",
+   "name": "Khai Tran"
+  },
+  {
+   "race_id": "2026-MN-0400-153",
+   "name": "Brittney Jordan"
+  },
+  {
+   "race_id": "2026-MN-0404-053",
+   "name": "Dawanna Witt",
+   "official_page": {
+    "url": "https://www.hennepinsheriff.org/about/elected-sheriff",
+    "source": "Hennepin County Sheriff's Office, Elected Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hennepin County Sheriff",
+     "from": "2023 (elected November 8, 2022; sworn in January 3, 2023)",
+     "to": "now",
+     "source": "Hennepin County Sheriff's Office, Elected Sheriff (\"was elected as the Hennepin County Sheriff on November 8, 2022 and she was sworn in on January 3, 2023\")",
+     "url": "https://www.hennepinsheriff.org/about/elected-sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Hennepin County Sheriff, a nonpartisan office, and won; the DFL endorsed her for the office in May 2022",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, \"Dawanna Witt\", citing the Star Tribune, \"DFL endorses Moriarty, Witt for Hennepin County Attorney, sheriff\", May 15, 2022",
+     "url": "https://en.wikipedia.org/wiki/Dawanna_Witt",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-161",
+   "name": "Jay Dulas",
+   "official_page": {
+    "url": "https://www.wasecacounty.gov/132/Sheriffs-Office",
+    "source": "Waseca County, Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca County Sheriff",
+     "from": "not stated",
+     "to": "now",
+     "source": "Waseca County, Sheriff's Office page (\"Jay Dulas, County Sheriff\")",
+     "url": "https://www.wasecacounty.gov/132/Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-113",
+   "name": "Nathan Haase",
+   "official_page": {
+    "url": "https://co.pennington.mn.us/index.php/services/attorney",
+    "source": "Pennington County, Attorney's Office (the page names him at the County Attorney's Office; it gives no title and no dates)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Krystaline Krumrey"
+  },
+  {
+   "race_id": "2026-MN-1001-70420",
+   "name": "Rollie Nissen"
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "Patrick Gage",
+   "website": {
+    "url": "https://www.patrickforedina.com",
+    "how": "The site's title is \"Patrick Gage for Edina City Council\" and it is \"Prepared and paid for by Patrick Gage for Edina City Council\". The Senate District 46 DFL's page of candidates with its Letter of Support gives the same address. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 50 DFL (district unit)",
+     "wording": "DFL Letter of Support",
+     "what": "Named \"Edina City Council: Patrick Gage, Alicia Gibson\" under the heading \"DFL Letter of Support\", at the foot of the unit's page \"Endorsed Candidates\" and apart from the candidates it lists under \"Our 2026 Endorsed Candidates\".",
+     "url": "https://www.sd50dfl.org/endorsed-candidates",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 46 DFL (district unit)",
+     "wording": "Letter of Support",
+     "what": "Named \"Edina City Council, Patrick Gage ... Letter of Support\" on the unit's page \"2026 LoS Candidates\", headed \"Meet the 2026 Edina City Council Candidates who received our Letter of Support!\". The unit keeps a separate page, \"2026 Endorsed DFL Candidates\", and he is not on it.",
+     "url": "https://sd46dfl.org/2026-los-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-45628",
+   "name": "Duane Maupin"
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Mustafa Sandhu",
+   "website": {
+    "url": "https://mustafasandhu.com",
+    "how": "The site's title is \"Mustafa Sandhu for Shakopee City Council\"; it reads \"Vote November 3, 2026\" and \"Paid for by Mustafa Sandhu for Shakopee City Council\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.shakopeemn.gov/government/mayor_city_council/boards_commissions.php",
+    "source": "City of Shakopee, Boards & Commissions (the members of the Planning Commission and Board of Adjustment and Appeals)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shakopee Planning Commission and Board of Adjustment and Appeals, one body of seven appointed members (Vice Chair of the Board, 2nd Vice Chair of the Commission)",
+     "from": "2024 (the city's page: \"Date Appointed: Mar. 7, 2024\"; his campaign site says he has served \"since 2022\")",
+     "to": "now",
+     "source": "City of Shakopee, Boards & Commissions (\"Mustafa Sandhu (Vice Chair - BOAA, 2nd Vice Chair - Planning Commission)\", appointed March 7, 2024, term expires February 28, 2028)",
+     "url": "https://www.shakopeemn.gov/government/mayor_city_council/boards_commissions.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-40688",
+   "name": "Larry P. Magrath"
+  },
+  {
+   "race_id": "2026-MN-1024-15832",
+   "name": "Matt Boeke",
+   "offices": [
+    {
+     "office": "Detroit Lakes City Council, Ward 3 (alderman)",
+     "from": "not stated (the paper counts 11 years as an alderman)",
+     "to": "now",
+     "source": "Detroit Lakes Tribune (dl-online.com), \"Matt Boeke, Natalie Bly contend for Ward 3 Detroit Lakes City Council seat\", September 17, 2026 (\"Incumbent Matt Boeke is running for reelection\")",
+     "url": "https://www.dl-online.com/news/local/matt-boeke-natalie-bly-contend-for-ward-3-detroit-lakes-city-council-seat",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1030-00694",
+   "name": "Brian \"BJ\" Anderson",
+   "official_page": {
+    "url": "https://www.cityofalbertlea.org/government/city-council/",
+    "source": "City of Albert Lea, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Albert Lea City Council, Ward 6",
+     "from": "not stated (the city's page gives only the end of the term, December 31, 2026)",
+     "to": "now",
+     "source": "City of Albert Lea, City Council page (\"Brian Anderson, Ward 6 Councilor\")",
+     "url": "https://www.cityofalbertlea.org/government/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0182",
+   "name": "Colleen Kinkaid",
+   "official_page": {
+    "url": "https://www.ci.k12.mn.us/page/about-ci",
+    "source": "Crosby-Ironton Public Schools, About C-I (\"Our Board of Education\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crosby-Ironton School Board (Board of Education)",
+     "from": "2026 (the district's page: \"Elected: 2026\")",
+     "to": "now",
+     "source": "Crosby-Ironton Public Schools, About C-I, \"Our Board of Education\" (her entry: \"Elected: 2026\")",
+     "url": "https://www.ci.k12.mn.us/page/about-ci",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Paul Baillos"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0518",
+   "name": "Gretchen A. O'Donnell"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0716",
+   "name": "Josh Edel"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0832",
+   "name": "Jenny Peterson",
+   "website": {
+    "url": "https://www.jenny832.com",
+    "how": "The site's title is \"Jenny Peterson for Mahtomedi School Board · Re-Election 2026\" and its home page reads \"Seeking Re-Election · ISD 832\" and \"Re-elect Jenny Peterson\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mahtomedi.k12.mn.us/page/school-board",
+    "source": "Mahtomedi Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mahtomedi School Board",
+     "from": "2022 (her site: \"Serving on the Mahtomedi School Board since 2022\")",
+     "to": "now",
+     "source": "her campaign's own website; the district's School Board page lists her today as a Director whose term expires January 4, 2027",
+     "url": "https://www.jenny832.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Lesley Vavra"
+  },
+  {
+   "race_id": "2026-MN-8312-MN",
+   "name": "Stacy Stennes",
+   "website": {
+    "url": "https://judgestacystennes.com",
+    "how": "The site's title is \"Home | Keep Judge Stacy Stennes\"; it says \"Judge Stennes is running to retain the seat in 2026\" on the Ramsey County District Court and its footer reads, in capitals, \"PREPARED AND PAID FOR BY COMMITTEE TO KEEP JUDGE STENNES\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Second Judicial District (Ramsey County District Court), appointed by Governor Tim Walz",
+     "from": "2024",
+     "to": "now",
+     "source": "her campaign's own website (\"appointed by Governor Tim Walz to the Ramsey County District Court after a merit selection process in 2024\")",
+     "url": "https://www.judgestacystennes.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9112-MN",
+   "name": "Daniel M. Hawley",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District, appointed by Governor Tim Walz (chambered in Aitkin)",
+     "from": "2025 (the appointment was announced June 6, 2025)",
+     "to": "not stated",
+     "source": "Lakeland PBS (Lakeland News), \"Daniel Hawley Selected as New Judge for MN 9th Judicial District\", June 6, 2025",
+     "url": "https://lptv.org/daniel-hawley-selected-as-new-judge-for-mn-9th-judicial-district/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0207-MN",
+   "name": "Isaac Schultz",
+   "what": "website https://isaacschultzmn.com: the site answered HTTP 500 on every try (with and without www), so nothing on it could be confirmed"
+  },
+  {
+   "race_id": "2026-MN-0395-019",
+   "name": "Khai Tran",
+   "what": "website https://khaiforcarvercounty.com: the site answered HTTP 403 and its robots.txt keeps scripts out; no other page read confirms it"
+  },
+  {
+   "race_id": "2026-MN-0404-053",
+   "name": "Dawanna Witt",
+   "what": "website https://sheriffwitt.org: the site answered with an empty bot-check page, so nothing on it could be confirmed"
+  }
+ ]
+}

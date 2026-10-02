@@ -1,0 +1,426 @@
+{
+ "part": 46,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's shared web-search allowance ran out after seven searches (the five legislative candidates), so the rest was read directly, one page at a time, with the kit's honest User-Agent (states/net.py) and each site's robots.txt obeyed: the candidates' filed campaign sites, each county's, city's and school district's own site, and Wikipedia. The Minnesota DFL's list of endorsed candidates was read with the fetch tool.",
+  "No new campaign website was found. Ten candidates in this slice already have one filed with the Secretary of State (Hanson, Theis, Nadeau, Clardy, Greene, Hellier, Specht, Carly Anderson, Davis, Wilcox); those were read, not listed again. www.judgemattwilcox.com answered 404, and www.sanderiaforsspschools.com gave a plain reader only its title.",
+  "Not read: the Minnesota Judicial Branch's site and mn.gov (bot checks reported by other parts; not asked), so the two judges have no findings; Jackson County's site (its robots.txt asks scripts to stay out). The official pages of Mahnomen County, Ham Lake, Albert Lea, Victoria, Detroit Lakes and South St. Paul do not list Swiers, Willman, Caucutt, Almquist, Grzybowski or Davis among today's members, so no office is recorded for them. Nothing was found for Moore, Kimlinger or Aleathea Anderson.",
+  "Danny Nadeau's own site shows no party endorsement for 2026 in the parts read, and without search no Republican party page naming him or Geri Theis was found; Theis's endorsement is recorded only in her own words on her own site."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0143-MN",
+   "name": "Angie Hanson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/"
+    }
+   ],
+   "offices": [
+    {
+     "office": "Albert Lea school board member (elected)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, Meet Angie: \"Angie ran for and was elected to the school board\" (no years given)",
+     "url": "https://www.angiehansonmnsenate.com",
+     "kind": "campaign"
+    },
+    {
+     "office": "Albert Lea Human Rights Commission member",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site, Meet Angie: \"now serves on the HRC board\"",
+     "url": "https://www.angiehansonmnsenate.com",
+     "kind": "campaign"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0179-MN",
+   "name": "Bobby Joe Champion",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0217-MN",
+   "name": "Geri Theis",
+   "own_words": {
+    "quote": "Geri earned the Republican endorsement on the first ballot",
+    "url": "https://theisforhouse.com"
+   }
+  },
+  {
+   "race_id": "2026-MN-0254-MN",
+   "name": "Danny Nadeau"
+  },
+  {
+   "race_id": "2026-MN-0292-MN",
+   "name": "Mary Frances Clardy",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-023",
+   "name": "Matt Gilbertson",
+   "official_page": {
+    "url": "https://www.co.chippewa.mn.us/Directory.aspx?EID=25",
+    "source": "Chippewa County: directory entry for Matt Gilbertson, District 1 County Commissioner"
+   },
+   "offices": [
+    {
+     "office": "Chippewa County Commissioner, District 1",
+     "from": "",
+     "to": "now",
+     "source": "Chippewa County staff directory",
+     "url": "https://www.co.chippewa.mn.us/Directory.aspx?EID=25",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-063",
+   "name": "Jay Moore"
+  },
+  {
+   "race_id": "2026-MN-0393-053",
+   "name": "Marion Greene",
+   "official_page": {
+    "url": "https://www.hennepin.us/your-government/leadership/3rd-district",
+    "source": "Hennepin County: District 3, Marion Greene"
+   },
+   "born": {
+    "year": 1970,
+    "date": "",
+    "source": "Wikipedia, Marion Greene (cited article)",
+    "url": "https://en.wikipedia.org/wiki/Marion_Greene",
+    "kind": "secondary"
+   },
+   "offices": [
+    {
+     "office": "Hennepin County Commissioner, District 3",
+     "from": "2014",
+     "to": "now",
+     "source": "Wikipedia, Marion Greene (assumed office 2014); Hennepin County's own page says she was elected to her third term in 2022",
+     "url": "https://en.wikipedia.org/wiki/Marion_Greene",
+     "kind": "secondary"
+    },
+    {
+     "office": "Minnesota House of Representatives, District 60A",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, Marion Greene; Hennepin County's page calls her a former State Representative",
+     "url": "https://en.wikipedia.org/wiki/Marion_Greene",
+     "kind": "secondary"
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Minnesota House of Representatives, District 60A",
+     "year": "2011",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, Marion Greene",
+     "url": "https://en.wikipedia.org/wiki/Marion_Greene",
+     "kind": "secondary"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-087",
+   "name": "Joe Swiers"
+  },
+  {
+   "race_id": "2026-MN-0395-097",
+   "name": "Greg Blaine",
+   "official_page": {
+    "url": "https://www.co.morrison.mn.us/Directory.aspx?EID=74",
+    "source": "Morrison County: directory entry for Greg Blaine, District 5 Commissioner"
+   },
+   "born": {
+    "year": 1961,
+    "date": "",
+    "source": "Wikipedia, Greg Blaine (cited article)",
+    "url": "https://en.wikipedia.org/wiki/Greg_Blaine",
+    "kind": "secondary"
+   },
+   "offices": [
+    {
+     "office": "Morrison County Commissioner, District 5",
+     "from": "2018",
+     "to": "now",
+     "source": "Wikipedia, Greg Blaine (won the seat in April 2018, re-elected 2022); Morrison County's directory lists him as District 5 Commissioner today",
+     "url": "https://en.wikipedia.org/wiki/Greg_Blaine",
+     "kind": "secondary"
+    },
+    {
+     "office": "Minnesota House of Representatives, District 12B",
+     "from": "2001",
+     "to": "2006",
+     "source": "Wikipedia, Greg Blaine",
+     "url": "https://en.wikipedia.org/wiki/Greg_Blaine",
+     "kind": "secondary"
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Minnesota House of Representatives, District 12B",
+     "year": "2001",
+     "party": "Republican",
+     "source": "Wikipedia, Greg Blaine",
+     "url": "https://en.wikipedia.org/wiki/Greg_Blaine",
+     "kind": "secondary"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-071",
+   "name": "Lindsay K. Frank",
+   "official_page": {
+    "url": "https://www.co.koochiching.mn.us/Directory.aspx",
+    "source": "Koochiching County: staff directory (Lindsay Frank, County Recorder)"
+   },
+   "offices": [
+    {
+     "office": "Koochiching County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Koochiching County staff directory",
+     "url": "https://www.co.koochiching.mn.us/Directory.aspx",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-085",
+   "name": "Tim Langenfeld",
+   "official_page": {
+    "url": "https://www.mcleodcountymn.gov/",
+    "source": "McLeod County: home page list of elected officials (Tim Langenfeld, Sheriff)"
+   },
+   "offices": [
+    {
+     "office": "McLeod County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County's home page list of elected officials",
+     "url": "https://www.mcleodcountymn.gov/",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-019",
+   "name": "Mark Metz",
+   "official_page": {
+    "url": "https://www.carvercountymn.gov/government/county-attorney",
+    "source": "Carver County: County Attorney - Mark Metz, County Attorney"
+   },
+   "offices": [
+    {
+     "office": "Carver County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Carver County Attorney's Office page",
+     "url": "https://www.carvercountymn.gov/government/county-attorney",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-153",
+   "name": "John Eric Lindemann",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/departments/county_attorney/index.php",
+    "source": "Todd County: County Attorney (John E. Lindemann, County Attorney)"
+   },
+   "offices": [
+    {
+     "office": "Todd County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Todd County Attorney's Office page, which prints the name as John E. Lindemann",
+     "url": "https://www.toddcountymn.gov/government/departments/county_attorney/index.php",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-35180",
+   "name": "Luke Hellier",
+   "official_page": {
+    "url": "https://www.lakevillemn.gov/Directory.aspx?EID=48",
+    "source": "City of Lakeville: directory entry for Luke Hellier, Mayor"
+   },
+   "offices": [
+    {
+     "office": "Mayor of Lakeville",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Lakeville directory: \"First elected as Mayor: January 3, 2023\"; term expires December 31, 2026",
+     "url": "https://www.lakevillemn.gov/Directory.aspx?EID=48",
+     "kind": "official"
+    },
+    {
+     "office": "Lakeville City Council member",
+     "from": "2017",
+     "to": "",
+     "source": "City of Lakeville directory: \"First elected to Council: January 3, 2017\"",
+     "url": "https://www.lakevillemn.gov/Directory.aspx?EID=48",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-05752",
+   "name": "Kim Noding",
+   "official_page": {
+    "url": "https://www.biglakemn.org/Directory.aspx?EID=126",
+    "source": "City of Big Lake: directory entry for Kim Noding, Council Member"
+   },
+   "offices": [
+    {
+     "office": "Big Lake City Council member",
+     "from": "",
+     "to": "now",
+     "source": "City of Big Lake staff directory",
+     "url": "https://www.biglakemn.org/Directory.aspx?EID=126",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-26738",
+   "name": "Robb Willman"
+  },
+  {
+   "race_id": "2026-MN-1010-47680",
+   "name": "Jennifer Kimlinger"
+  },
+  {
+   "race_id": "2026-MN-1010-67036",
+   "name": "Thomas Almquist"
+  },
+  {
+   "race_id": "2026-MN-1022-00694",
+   "name": "John Caucutt"
+  },
+  {
+   "race_id": "2026-MN-1024-53026",
+   "name": "Dan Specht",
+   "offices": [
+    {
+     "office": "Ramsey City Council member, Ward 3",
+     "from": "2019",
+     "to": "now",
+     "source": "His campaign site: \"honored to serve the City of Ramsey Ward 3 since 2019\"",
+     "url": "https://danspecht4ramsey.com",
+     "kind": "campaign"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0022",
+   "name": "Tim Grzybowski"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Carly Anderson",
+   "official_page": {
+    "url": "https://www.isd194.org/district/school-board",
+    "source": "Lakeville Area Schools: School Board (Carly Anderson, Vice Chair)"
+   },
+   "offices": [
+    {
+     "office": "Lakeville Area School Board member (ISD 194)",
+     "from": "2023",
+     "to": "now",
+     "source": "Lakeville Area Schools' School Board page: \"Serving Since: January 3, 2023\", term expires January 4, 2027",
+     "url": "https://www.isd194.org/district/school-board",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0332",
+   "name": "Aleathea Anderson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0564",
+   "name": "Michelle Westerman",
+   "official_page": {
+    "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information",
+    "source": "Thief River Falls Public Schools: School Board Member Information (Michelle Westerman, Director)"
+   },
+   "offices": [
+    {
+     "office": "Thief River Falls School Board member (ISD 564)",
+     "from": "",
+     "to": "now",
+     "source": "Thief River Falls Public Schools' board member page; term expires December 31, 2026",
+     "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0720",
+   "name": "Kristi Peterson",
+   "official_page": {
+    "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+    "source": "Shakopee Public Schools: Meet the Board (Kristi Peterson, Board Chair)"
+   },
+   "offices": [
+    {
+     "office": "Shakopee School Board member (ISD 720)",
+     "from": "",
+     "to": "now",
+     "source": "Shakopee Public Schools' Meet the Board page; present term expires January 2027",
+     "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0877",
+   "name": "Sheila Smude",
+   "official_page": {
+    "url": "https://www.bhmschools.org/school-board",
+    "source": "Buffalo-Hanover-Montrose Schools: School Board (Sheila Smude, Vice Chair)"
+   },
+   "offices": [
+    {
+     "office": "Buffalo-Hanover-Montrose School Board member (ISD 877)",
+     "from": "",
+     "to": "now",
+     "source": "Buffalo-Hanover-Montrose Schools' School Board page; term expires December 31, 2026",
+     "url": "https://www.bhmschools.org/school-board",
+     "kind": "official"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006",
+   "name": "Sanderia Davis"
+  },
+  {
+   "race_id": "2026-MN-8526-MN",
+   "name": "Matthew M. Wilcox"
+  },
+  {
+   "race_id": "2026-MN-9223-MN",
+   "name": "Karin L. McCarthy"
+  }
+ ]
+}

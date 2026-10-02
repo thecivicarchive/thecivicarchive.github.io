@@ -1,0 +1,764 @@
+{
+ "part": 28,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance was already spent (200 of 200) before this part's first search, so nothing here comes from a search engine. Every page was opened directly with the kit's honest User-Agent (states/net.py), one request at a time, through a small reader that reads a site's robots.txt first and obeys it: the campaign websites the candidates filed, each county's, city's and school district's own site (council and board minutes included), the two state parties' sites and local party units' own pages, the Legislative Reference Library, the Legislature's own site search and the state documents it holds, Wikipedia at its ordinary /wiki/ addresses, the University of Minnesota's election archive, and three news sites through their own pages (KAXE, the Fillmore County Journal, the Fairmont Sentinel). The pages were read on the evening of October 1, 2026 and in the first hours of October 2.",
+  "A find for the other parts, the judges above all: the Minnesota Legislative Manual 2025-2026 (the Blue Book, published by the Office of the Secretary of State) is held by the Legislative Reference Library at https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf (24.8 MB; the kit's ballot/pdftext.py reads it). Pages 355 to 381 of the PDF list every district judge by district, in order of seniority, with the seat number in parentheses, the appointment date and the election years; pages 401 to 429 list every county's officers with the year each term expires; and pages 509 to 575 give the 2024 general election results by House district, with the party of every legislative and congressional candidate. Both judges of this part, Mark Larson, Brian Swedberg and three 2024 runs rest on it. The Library's site was reached through the Legislature's own site search (the page https://www.leg.mn.gov/search.aspx fetches https://www.leg.mn.gov/search_functions.aspx?q=...&q_all=...&default=AND&c=full, and answers in JSON), which also finds the Governors' archived appointment releases; the Minnesota Judicial Branch's own site was not asked at all.",
+  "A stricter line on robots.txt than some earlier parts took, because this sweep is run by Claude: a page was read only when the site's robots.txt lets in both the kit's reader and Anthropic's agents by name (ClaudeBot, Claude-User, Claude-SearchBot, anthropic-ai, Claude-Web), as part 16 did for one campaign site. That closed the hometownsource.com papers (the Caledonia Argus among them), southernminn.com (the Faribault Daily News), presspubs.com (the Shoreview Press) and the Voice of Alexandria, whose robots.txt lets the kit's reader in but turns ClaudeBot, anthropic-ai and Claude-Web away, as well as the Forum Communications papers. Nothing was read on them, so a few start years those papers probably report are missing here (see the last note).",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read. Fourteen of this part's thirty candidates filed one. Thirteen were opened and read and are listed below with what ties each to the race. The fourteenth, Tad Jude's tadjude.com, answered the reader with a redirect to a CAPTCHA page, so it was not read and is a review item, not a website finding. Two filed addresses lead to another name: sebastianformayor.com to www.sebastianforwoodbury.com, and www.calebformn.com to calebformn.com (three more only add www); the filed address is the one given, so the loader sees it as the filed one. Likely campaign addresses for candidates who filed none were tried only by asking whether the name has an address on the network; none led to a campaign site that could be read (joeatkins.com returns an empty page; daltonswanson.com asks every script to stay out and is not known to be the candidate's; edpaschke.com was not opened, since a well-known painter had that name).",
+  "Not read, and nothing worked around: tadjude.com (a CAPTCHA redirect); the Minnesota Judicial Branch's site and the state's mn.gov pages (a bot wall and a CAPTCHA to this machine, by the earlier parts' reports; not requested at all), so neither judge has an official page here; Clearwater County's site (its robots.txt asks every unlisted script to stay out), so Mark Larson has no official page and his office rests on the Legislative Manual; Houston County's site (the secure handshake fails at one address and the other does not answer), so Brian Swedberg has none either; the Crookston Times (robots.txt keeps everyone out) and KROX radio's site search (HTTP 403); the Senate District 29 DFL's site (no answer) and the Senate District 47 DFL's (a certificate the reader would not accept). A published spreadsheet of candidates that the Rock Ridge district links to was not opened, since such lists carry contact columns.",
+  "For the second reader. (a) Chris Swanson of Cloquet is not the Chris Swanson who was mayor of Two Harbors: his own site says he was born and raised in Cloquet and has served 'on the Cloquet City Council for Wards 3 and 1', KAXE's House District 11A guide gives his community as Cloquet and quotes him on his work 'as a Cloquet City Councilor', and the City of Cloquet lists him as Councilor Ward 1. His offices are dated from the city's own council minutes: appointed to Ward 3 on July 16, 2019; the canvass in the minutes of November 15, 2022 shows him elected again in Ward 3, while the same minutes already speak of the Ward 3 vacancy and the minutes of December 6 and 20, 2022 no longer list him, so his Ward 3 service is ended at 2022; he took the oath for Ward 1 on March 18, 2025, when the council also named him to the seat on the Cloquet Area Fire District Board that a council member had held. That board seat came with the council seat and no page read says whether he holds it today, so it has no end; the second reader may prefer to drop it, as part 1 dropped a seat held as part of a council term. (b) Tad Jude: the Hennepin County commissioner's start (1989) is the Legislative Reference Library's, which leaves the end as '19??'; the end year 1993 is Wikipedia's, citing Ballotpedia. Wikipedia's opening paragraph says he was a district judge 'from 2001 to 2011', which its own later paragraph (elected 2010, re-elected 2016, ten years on the bench) and the Library (01/2011 to 01/2022) contradict; the Library's years are the ones recorded. His earlier runs under a party label come from the Library where it names the party, from the University of Minnesota's election archive for the 1992 primary and the 1996 general election (a university archive of returns, not a news organization; marked secondary as other parts mark it), from Wikipedia for the 2022 attorney general's race, and from the Legislative Manual for 2024. His first House election, in 1972, was nonpartisan, so the first entry is dated 1974, the first election the Library records under the DFL label. His 2022 run for Hennepin County Attorney was for a nonpartisan office and is not a finding. The party's name from 1975 to 1995 was Independent-Republican, and is written that way. (c) Joe Atkins: the tie between the commissioner and the former legislator is stated on both sides: the Library's record lists 'Dakota County, Minnesota (County Commissioner); 2017 to ?', and the county's background sheet says he was mayor of Inver Grove Heights for ten years and a state legislator before joining the county board. (d) Steven J. Heinen: Benton County's pages write Steve Heinen and give no starting year; the start year 2019 rests on the county board's minutes (not among the commissioners on December 18, 2018; among them on January 8, 2019, the first meeting of the year). (e) The two judges: the Legislative Manual gives 'Appointed December 18, 2017. Elected 2020.' for Sophia Y. Vuelo (seat 15) and 'Appointed April 7, 2006. Elected 2008, 2014, 2020.' for Tamara L. Yon (seat 15); the seat numbers match the two races. The Governors' releases announcing the appointments are dated a little earlier (November 30, 2017 and January 20, 2006) and are given in the source text; Wikipedia, citing the Star Tribune, says Judge Vuelo was sworn in on January 4, 2018. Wikipedia gives her birth as '1971 or 1972', which is not a year, and the 2006 release gives Judge Yon's age, so no birth year is recorded for either. (f) Mark Larson and Brian Swedberg: the Legislative Manual lists each with a term that expires in 2027 and no starting year. 'to' is written 'now' for both on the strength of that term; for the sheriff a newspaper item of August 10, 2026 says so as well, for Mark Larson no page of 2026 was read, and the second reader may prefer to leave his end blank. (g) Alison Sherman: the Stillwater district's page gives 'First elected: 11/2020' for her where it gives January dates for members who won regular elections (1/2021, 1/2023, 1/2025) and 'Appointed: 4/2023' for an appointee, so the column reads as the month a member joined the board, and her 'from' is written '2020'; her own site says only that she 'was elected to the Stillwater Area School Board in 2020'. (h) Cathy Nathan: 'elected 2018' is an election year (her own site: 'elected to the Rochester Public School Board in 2018 and 2022'), not a start year. (i) Jessica Schwinn's start year (sworn in January 2023) and Kyle Coryell's (appointed January 2025) are stated in so many words, the first on her own site and the second on the city's page. (j) John Sebastian's site never gives his first name on the pages read; it is the address he filed, it is about the Woodbury mayor's race, and it speaks of 'both mayoral candidates', of whom our list has two. (k) Caleb Steffenhagen's site carries no year on the pages read; it is the address he filed, and the Carver County Republican Party's 2026 page links to it as his campaign website. (l) Aric Putnam is a sitting member with a roster record, so only his website and endorsements are given; the Library's record of him agrees with the roster's birth date.",
+  "party_support (a key the loader does not read, in the shape parts 0, 5, 6, 10 and 12 use): two listings where a party unit publishes its backing of a candidate for a nonpartisan office under a heading that is not the word endorsement. The Senate District 34 DFL lists Stacey Yurcek under 'Letter of Support Candidates' (part 5 records the same page for another candidate). The Olmsted 20/24 DFL's '2026 DFL Voting Guide' lists Cathy Nathan among its recommendations for the Rochester school board. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "Party endorsements: the Minnesota DFL's list of endorsed candidates names Aric Putnam, Karla Hult, Chris Swanson and Colton Kratky; the Senate District 14 and Senate District 50 units publish their own lists too. Our list shows a contested DFL primary on August 11 in Karla Hult's and Colton Kratky's races; the pages read list both as endorsed today and do not say when the endorsement was given. For the Republicans, the state party published its endorsement of Tad Jude on May 29, 2026, and the Carver County Republican Party lists Caleb Steffenhagen under 'Endorsed MN House and Senate Candidates' (it also lists Tad Jude under 'State-Wide Endorsed Candidates', which is not recorded a second time). The party pages that could be read for the nonpartisan candidates (the Senate District 43, 33, 32 and 19 DFL units, the Clay County Republicans, the St. Louis County Republicans' 2026 list, the Olmsted County Republicans' September newsletter) name none of this part's other candidates; the Clay County DFL's and Senate District 41 DFL's pages are drawn by script and showed no names.",
+  "Read and left out on purpose: an age on Election Day (KAXE gives Chris Swanson's) and an age in an appointment release, neither of which fixes a birth year; employment; schools and degrees; nonprofit, association and church boards; labor and other non-party endorsements; what candidates said at forums; and the family and religion lines of the Legislative Reference Library's records and of the Governors' releases. Advisory seats were left out as well, since no page read shows them to be offices one is elected or appointed to in the usual sense: Stacey Yurcek's seat on the Osseo district's District Planning Advisory Council (the district says membership 'is based on interest' and lasts a year), Sophia Vuelo's past membership of the Saint Paul-Ramsey County Community Health Services Advisory Committee (her own site, no years), and Chris Swanson's time on Cloquet's Citizens Advisory Board and as the council's liaison to its Library Board. Committee seats that come with a school board or council seat were not listed either. The affidavits of candidacy and campaign finance reports the City of Moorhead posts were not opened.",
+  "Nothing a card may show was found for six candidates, who are listed with no findings. Nathanael S. Landsteiner and Edward (Ed) Paschke: the City of Fairmont's council page and its nine board and commission pages name neither, and the Fairmont Sentinel's report of the mayoral forum (October 1, 2026) names no public office or campaign website for Landsteiner. Christine Thompson: Shoreview's list of council members and its nine committee and commission pages do not name her. Dalton Swanson: the City of Moorhead lists him as a Ward 1 candidate and none of its eleven board and commission pages names him. Jessica Ruehling: the Crosby-Ironton district's page lists six sitting board members and she is not one of them. Alan Sherek: KAXE's Rock Ridge School District guide says it received no response from him and does not list him among the sitting members. The Legislature's site search finds no state document that says anything a card may show about any of the six. A second pass with the search tool would be worth it for them.",
+  "Start years still missing for sitting officials whose own government names the office but not when it began: Charlie Meyer (Douglas County's posted minutes go back only to 2022), Mark Larson, Kit Johnson, Damain D. Sandy, John Rowan, Corinne Hennen (the Jordan district's profile pages open only by script) and Brian Swedberg (the Fillmore County Journal reported his candidacy in May 2022, when he was not yet sheriff; no page read says when he took office). The Legislature's site search shows which editions of the Legislative Manual name each county officer, which would bracket a start between two editions, but an edition is not a start year and none was taken from it."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0134-MN",
+   "name": "Aric Putnam",
+   "website": {
+    "url": "https://aricformn.com",
+    "how": "The address he filed. The site is titled 'Together With Purpose - Aric for MN'; its home page says 'I'm Aric Putnam, and I've had the honor of serving as the State Senator for the St. Cloud region since January 2021', carries news items dated through October 1, 2026, and says it is paid for by Aric for MN.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, Senate District 14)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 14 DFL (district unit, St. Cloud Area Democrats; its page 'DFL Endorsed Candidates for 2026' names 'Aric Putnam for State Senate, SD14')",
+     "url": "https://www.sd14dfl.com/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0170-MN",
+   "name": "Karla Hult",
+   "website": {
+    "url": "https://karlahultforsenate.com",
+    "how": "The address she filed; it leads to www.karlahultforsenate.com, titled 'Karla Hult for Minnesota Senate', where she signs as 'Candidate for the Minnesota State Senate District 50' and writes 'Onward to Nov. 3!'; it says it is paid for by Karla Hult for Senate.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, Senate District 50)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 50 DFL (district unit; she is listed on its page 'Our 2026 Endorsed Candidates')",
+     "url": "https://www.sd50dfl.org/endorsed-candidates",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I ask for your support to be your next Democratic Senator",
+    "url": "https://www.karlahultforsenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0208-MN",
+   "name": "Chris Swanson",
+   "website": {
+    "url": "https://chrisswansonforhouse.com",
+    "how": "The address he filed. The site is titled 'Chris Swanson For House', says he 'is running for the Minnesota House of Representatives', and is prepared and paid for by the Chris Swanson for MN House 11A Committee.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cloquetmn.gov/our-city/city-council",
+    "source": "City of Cloquet: Cloquet City Council (Chris Swanson, Councilor Ward 1, term expires 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cloquet City Council member, Ward 1",
+     "from": "2025",
+     "to": "now",
+     "source": "City of Cloquet: Cloquet City Council page, which lists 'Chris Swanson, Councilor Ward 1, Term Expires 2026'. The council's minutes of March 18, 2025 record that the City Administrator 'administered the Oath of Office to Ward 1 City Councilor Chris Swanson': https://www.cloquetmn.gov/home/showpublisheddocument/6932/638792040472700000. His campaign site's About page says he has served 'on the Cloquet City Council for Wards 3 and 1'",
+     "url": "https://www.cloquetmn.gov/our-city/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Cloquet City Council member, Ward 3",
+     "from": "2019",
+     "to": "2022",
+     "source": "City of Cloquet council minutes of July 16, 2019: a motion 'to appoint Chris Swanson as Ward 3 Council Member until a Special Election can be held'. The minutes of November 15, 2022 show him elected again for Ward 3 in that month's canvass and already speak of 'the vacancy for Ward 3 Councilor' (https://www.cloquetmn.gov/home/showpublisheddocument/5351/638060231282170000); the minutes of January 17, 2023 call it 'the vacancy left by Chris Swanson' (https://www.cloquetmn.gov/home/showpublisheddocument/5477/638114480450000000)",
+     "url": "https://www.cloquetmn.gov/home/showpublisheddocument/3025/637013031791570000",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Cloquet Area Fire District Board member (a seat filled by the Cloquet City Council)",
+     "from": "2025",
+     "to": "",
+     "source": "City of Cloquet council minutes of March 18, 2025: a motion 'to appoint Chris Swanson to fill the CAFD vacant seat left by Councilor Carlson'. His campaign site's About page lists the Cloquet Area Fire District Board among the boards he has been a member of; no page read says whether he holds the seat today",
+     "url": "https://www.cloquetmn.gov/home/showpublisheddocument/6932/638792040472700000",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, House District 11A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I consider myself a conservative Democrat",
+    "url": "https://chrisswansonforhouse.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0245-MN",
+   "name": "Colton Kratky",
+   "website": {
+    "url": "https://kratky4mn.com",
+    "how": "The address he filed. The home page is headed 'Colton Kratky for Minnesota State House 29B', carries a 2026 copyright line, and says it is prepared and paid for by 'the Colton Kratky Committee to Elect to House committee'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, House District 29B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "DFL candidate for Minnesota House District 29B in the general election (not elected)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), State General Election of November 5, 2024, results by House district: 'House District 29B', 'Colton Kratky (DFL) 7,909 (33.39%)' (page 537 of the PDF)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0283-MN",
+   "name": "Caleb Steffenhagen",
+   "website": {
+    "url": "https://www.calebformn.com",
+    "how": "The address he filed; it leads to calebformn.com, whose title reads 'Vote Caleb Steffenhagen' and 'House of Representatives District 48B', and which says it is prepared and paid for by Caleb for MN. No page read carries a year; the Carver County Republican Party's 2026 Elections page links to the same address as his campaign website.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit; its 2026 Elections page lists him under 'Endorsed MN House and Senate Candidates')",
+     "url": "https://www.carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican candidate for Minnesota House District 48B in the general election (not elected)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), State General Election of November 5, 2024, results by House district: 'House District 48B', 'Caleb Steffenhagen (R) 12,728 (49.52%)' (page 556 of the PDF)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0332-MN",
+   "name": "Tad Jude",
+   "born": {
+    "year": 1951,
+    "date": "1951-12-13",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Thaddeus \"Tad\" Jude (Date of Birth: 12/13/1951); the same record says he announced his intention to run for secretary of state in 2026",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota House of Representatives, District 42A",
+     "from": "1973",
+     "to": "1983",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'House 1973-82 (District 42A)'; first elected 11/7/1972; last House term 1/5/1981 to 1/2/1983",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Senate, District 48",
+     "from": "1983",
+     "to": "1989",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Senate 1983-88 (District 48)'; terms 1/3/1983 to 1/2/1989, the last left unfinished when he was elected a Hennepin County commissioner",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Hennepin County Commissioner",
+     "from": "1989",
+     "to": "1993",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: 'Hennepin County, Minnesota (County Commissioner); 01/03/1989 to 19??' (elected). The end year is from Wikipedia's article on him, which says he 'served on the Hennepin County Board of Commissioners from 1989 to 1993' and cites Ballotpedia: https://en.wikipedia.org/wiki/Tad_Jude",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, Minnesota District Court, 10th Judicial District",
+     "from": "2011",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: '10th Judicial District Court, Minnesota (District Court Judge); 01/2011 to 01/2022' (elected)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Minnesota (the state party's release of May 29, 2026, 'Republican Party of Minnesota Congratulates Tad Jude on GOP Endorsement for Secretary of State')",
+     "url": "https://mngop.com/republican-party-of-minnesota-congratulates-tad-jude-on-gop-endorsement-for-secretary-of-state/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Re-elected to the Minnesota House of Representatives, District 42A, as a DFL member (and again in 1976, 1978 and 1980); his first election, in 1972, was nonpartisan, and he sat with the DFL caucus",
+     "year": 1974,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present ('Party when first elected: Nonpartisan Election-Democratic-Farmer-Labor Caucus'; Democratic-Farmer-Labor at each session from 1975-1976 on; elected 11/7/1972, 11/5/1974, 11/2/1976, 11/7/1978 and 11/4/1980)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Elected to the Minnesota Senate, District 48 (re-elected in 1986)",
+     "year": 1982,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Democratic-Farmer-Labor at each Senate session served)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for U.S. Representative, 6th Congressional District, in the DFL primary (lost)",
+     "year": 1992,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns), candidate record for Tad Jude: 09/15/1992, U.S. House, District 06, Primary, Democratic-Farmer-Labor, lost. The Legislature's record says he 'ran unsuccessfully for the Democratic-Farmer-Labor party endorsement' for that seat in the 1992 election",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tad-jude/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Announced that he was switching from the Democratic-Farmer-Labor party to the Independent Republican party (December 1992)",
+     "year": 1992,
+     "party": "Independent-Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, General Notes: 'He announced that he was switching from the Democratic-Farmer-Labor party to the Independent Republican party in December 1992.'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Independent-Republican candidate for U.S. Representative, 6th Congressional District (the party's endorsed candidate; lost the general election)",
+     "year": 1994,
+     "party": "Independent-Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, General Notes: 'He ran unsuccessfully as the Independent Republican endorsed candidate for the United States House of Representatives in the 6th Congressional District in the 1994 election.'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10299",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Republican candidate for U.S. Representative, 6th Congressional District (lost the general election)",
+     "year": 1996,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns), candidate record for Tad Jude: 11/05/1996, U.S. House, District 06, General, Republican, lost",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tad-jude/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for Minnesota Attorney General as a Republican; withdrew after being eliminated at the endorsing convention",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Wikipedia, Tad Jude: 'A member of the Republican Party, Jude was a candidate in the 2022 Minnesota Attorney General election but withdrew and endorsed Jim Schultz on May 13, 2022, after being eliminated at the convention', citing WXOW and a report of May 14, 2022, 'MN Republicans endorse Jim Schultz for attorney general'. The Legislature's record says the same without naming the party",
+     "url": "https://en.wikipedia.org/wiki/Tad_Jude",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Republican candidate for U.S. Representative, 3rd Congressional District (lost the general election)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), State General Election of November 5, 2024: the results by House district print 'U.S. Congress District 3' with 'Tad Jude (R)' and 'Kelly Morrison (DFL)' (page 539 of the PDF, among others), and the U.S. Representative District 3 table totals 170,427 votes to 240,209 (page 502). The Legislative Reference Library's record of him says he 'was an unsuccessful candidate for the 3rd U.S. Congressional District in 2024'",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "The campaign website Tad Jude filed: tadjude.com.",
+     "problem": "On October 1, 2026 the address answered this script with a redirect to a CAPTCHA page and no content, so the site was not read and nothing here confirms what it says. Nothing was worked around. The Republican Party of Minnesota's '2026 Republican Nominees' page (https://mngop.com/2026-republican-nominees/) and the Carver County Republican Party's 2026 Elections page both link his name to that address.",
+     "url": "https://tadjude.com",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-037",
+   "name": "Joe Atkins",
+   "official_page": {
+    "url": "https://dakotacountymn.gov/government/board-of-commissioners/district2",
+    "source": "Dakota County: Joe Atkins - District 2 (Board of Commissioners; current term expires 2026)",
+    "verified": true
+   },
+   "born": {
+    "year": 1965,
+    "date": "1965-10-06",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Joseph \"Joe\" Atkins (Date of Birth: 10/6/1965); the same record lists him as a Dakota County Commissioner from 2017",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10753",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dakota County Commissioner, District 2",
+     "from": "2017",
+     "to": "now",
+     "source": "Dakota County: Joe Atkins - District 2 page ('Current term expires 2026', 'Served on county board since 2017')",
+     "url": "https://dakotacountymn.gov/government/board-of-commissioners/district2",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives, District 39B, then District 52B",
+     "from": "2003",
+     "to": "2017",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'House 2003-2012 (District 39B); House 2013-2016 (District 52B)'; first term from 1/6/2003, last term to 1/1/2017",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10753",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Inver Grove Heights",
+     "from": "1993",
+     "to": "2002",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: 'Inver Grove Heights, Minnesota (City Mayor); 1993 to 2002'. Dakota County's background sheet on him says he 'served as the Mayor of Inver Grove Heights for 10 years and as a state legislator' before joining the county board: https://dakotacountymn.gov/content/dam/site/main/documents/government/AtkinsBackground.pdf",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10753",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Inver Grove Heights School Board member",
+     "from": "1987",
+     "to": "1990",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, Other Government Service: 'Inver Grove Heights, Minnesota (School Board); 1987 to 1990'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10753",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 39B (re-elected through 2014, from District 52B after 2012; served until January 2017)",
+     "year": 2002,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Party when first elected: Democratic-Farmer-Labor'; elected 11/5/2002; Democratic-Farmer-Labor at each session served",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10753",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-009",
+   "name": "Steven J. Heinen",
+   "official_page": {
+    "url": "https://www.bentoncountymn.gov/385/Steve-Heinen",
+    "source": "Benton County: Steve Heinen, District 3 (Benton County Board Chair; term expires January 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Benton County Commissioner, District 3",
+     "from": "2019",
+     "to": "now",
+     "source": "Benton County: Steve Heinen page (District 3; 'Term Expires January 2027'; no starting year given). The county board's minutes of January 8, 2019, its first meeting that year, are the first to list him among the commissioners (https://www.bentoncountymn.gov/AgendaCenter/ViewFile/Minutes/_01082019-360); the minutes of December 18, 2018 list five others (https://www.bentoncountymn.gov/AgendaCenter/ViewFile/Minutes/_12182018-356). The Minnesota Legislative Manual 2025-2026 writes the name as on our list: 'Commissioner District 3 Steven Heinen', Benton County, term expires 2027 (page 402 of https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf)",
+     "url": "https://www.bentoncountymn.gov/385/Steve-Heinen",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-041",
+   "name": "Charlie Meyer",
+   "official_page": {
+    "url": "https://www.douglascountymn.gov/board-of-commissioners",
+    "source": "Douglas County: Board of Commissioners (District 4 - Charlie Meyer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Douglas County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Douglas County: Board of Commissioners page, which lists 'District 4 - Charlie Meyer' among the members of the County Board (no starting year given)",
+     "url": "https://www.douglascountymn.gov/board-of-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-029",
+   "name": "Mark Larson",
+   "offices": [
+    {
+     "office": "Clearwater County Commissioner, District 5",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Clearwater County: 'Commissioner District 5 Mark Larson', term expires 2027 (no starting year given; page 405 of the PDF). The end is left blank: the Manual shows the term running to 2027, and no page of 2026 was read that names him in the seat today",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-155",
+   "name": "Kit Johnson",
+   "official_page": {
+    "url": "https://traversecountymn.gov/departments/departments/auditortreasurer/",
+    "source": "Traverse County: Auditor/Treasurer (Kit Johnson, County Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Traverse County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Traverse County: Auditor/Treasurer page, which names Kit Johnson as County Auditor/Treasurer (no starting year given)",
+     "url": "https://traversecountymn.gov/departments/departments/auditortreasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-055",
+   "name": "Brian Swedberg",
+   "offices": [
+    {
+     "office": "Houston County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), county government pages, Houston County: 'Sheriff Brian Swedberg', term expires 2027 (no starting year given; page 410 of the PDF). The Fillmore County Journal of August 10, 2026 reports on 'Sheriff Brian Swedberg of the Houston Sheriff's Office' (https://fillmorecountyjournal.com/sheriff-swedberg-completes-5th-session-of-the-national-sheriffs-institute-communicating-for-impact-course/); the same paper reported on May 16, 2022 that he would be a candidate for Houston County Sheriff in that year's election (https://fillmorecountyjournal.com/swedberg-announces-candidacy-for-houston-county-sheriff/)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-163",
+   "name": "Jeremy Bolen",
+   "website": {
+    "url": "https://www.bolenforsheriff.com",
+    "how": "The address he filed. The site is titled 'Jeremy Bolen for Washco Sheriff', is headed 'Jeremy Bolen for Washington County Sheriff', and asks readers to vote in the primary election of August 11, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-117",
+   "name": "Damain D. Sandy",
+   "official_page": {
+    "url": "https://www.pipestone-county.com/government/departments/attorney.php",
+    "source": "Pipestone County: Attorney (Damain Sandy, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pipestone County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Pipestone County: Attorney page, which names Damain Sandy as County Attorney (no starting year given)",
+     "url": "https://www.pipestone-county.com/government/departments/attorney.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Nathanael S. Landsteiner"
+  },
+  {
+   "race_id": "2026-MN-1001-71428",
+   "name": "John Sebastian",
+   "website": {
+    "url": "https://sebastianformayor.com",
+    "how": "The address he filed; it leads to www.sebastianforwoodbury.com, titled 'Sebastian for Mayor'. Its About page begins 'I've called Woodbury home for 25 years', and its News and Events page (/newsevents-page) thanks the League of Women Voters for the Woodbury mayoral forum. The pages read give the surname only, never the first name.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-20546",
+   "name": "John Rowan",
+   "official_page": {
+    "url": "https://www.faribaultmn.gov/277/City-Council",
+    "source": "City of Faribault: City Council (John Rowan, City Council Member, term expires December 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Faribault City Council member",
+     "from": "",
+     "to": "now",
+     "source": "City of Faribault: City Council page, which lists 'John Rowan, City Council Member', 'Term expires: December 2026' (no starting year given)",
+     "url": "https://www.faribaultmn.gov/277/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-45628",
+   "name": "Kyle Coryell",
+   "website": {
+    "url": "https://www.coryellfornewhope.com",
+    "how": "The address she filed. The site's title begins 'Coryell for New Hope'; it is headed 'Kyle Coryell, Current New Hope City Council Member', says 'I'm running for election to continue serving New Hope', and is signed '© 2026 Kyle Coryell for New Hope City Council'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.newhopemn.gov/city_hall/city_council/council_members",
+    "source": "City of New Hope: Council Members (Council Member Kyle Coryell, 2025-2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "New Hope City Council member",
+     "from": "2025",
+     "to": "now",
+     "source": "City of New Hope: Council Members page, under 'Council Member Kyle Coryell (2025-2026)': 'Council Member Coryell was appointed to the New Hope City Council in January 2025 to fill a vacant seat'",
+     "url": "https://www.newhopemn.gov/city_hall/city_council/council_members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59998",
+   "name": "Christine Thompson"
+  },
+  {
+   "race_id": "2026-MN-1020-43864",
+   "name": "Dalton Swanson"
+  },
+  {
+   "race_id": "2026-MN-1024-20330",
+   "name": "Edward (Ed) Paschke"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0012",
+   "name": "Jessica Schwinn",
+   "website": {
+    "url": "https://jessicaschwinn4isd12.com",
+    "how": "The address she filed. The site is titled 'Jessica Schwinn for School Board', says 'I am running for re-election', and is signed '© 2026 Jessica Schwinn for School Board'; its About page says she 'ran for Centennial ISD 12 School Board in 2022'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd12.org/discover/school-board",
+    "source": "Centennial School District: School Board (Jessica Schwinn, School Board Treasurer; seat up for election in 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Centennial School District (ISD 12) board member (Treasurer today)",
+     "from": "2023",
+     "to": "now",
+     "source": "Centennial School District: School Board page, which lists 'Jessica Schwinn, School Board Treasurer', 'Seat up for election in 2026. (Expires 1/2027)' (no starting year given). Her campaign site's About page says: 'I ran for Centennial ISD 12 School Board in 2022 and was elected by the community. I was sworn in to my position in January of 2023' (https://jessicaschwinn4isd12.com/about/)",
+     "url": "https://www.isd12.org/discover/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0182",
+   "name": "Jessica Ruehling"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Stacey Yurcek",
+   "website": {
+    "url": "https://staceyforosseo.com",
+    "how": "The address she filed; it leads to www.staceyforosseo.com, titled 'Stacey Yurcek for Osseo School Board', where she writes 'I'm running for the ISD 279 School Board'.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 34 DFL (district unit)",
+     "wording": "Letter of Support Candidates",
+     "what": "Named 'School Board - Stacey Yurcek' under Osseo in the list headed 'Letter of Support Candidates'. The page says school board offices are non-partisan and that the listed candidates 'were granted Letters of Support at the SD34 DFL meeting this August'. A letter of support is not an endorsement.",
+     "url": "https://www.sd34dfl.com/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Cathy Nathan",
+   "website": {
+    "url": "https://www.cathynathan.com",
+    "how": "The address she filed. The site is headed 'Vote for Cathy Nathan for Rochester School Board November 3!' and says 'I am running for re-election to the Rochester School Board'; one of its pages is titled 'ENDORSEMENTS 2026', and it says it is prepared and paid for by the Cathy Nathan for School Board Campaign Committee.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rochesterschools.org/page/meet-the-board",
+    "source": "Rochester Public Schools: Meet the Board (Cathy Nathan, Chair, Seat #6; term expires December 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester Public Schools (ISD 535) board member (Chair today)",
+     "from": "elected 2018",
+     "to": "now",
+     "source": "Rochester Public Schools: Meet the Board page, which lists 'Cathy Nathan, Chair / Seat #6', 'Term Expires: December 2026' (no starting year given). Her campaign site's About Cathy page says: 'I was honored to be elected to the Rochester Public School Board in 2018 and 2022' (https://www.cathynathan.com/about-cathy)",
+     "url": "https://www.rochesterschools.org/page/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Olmsted 20/24 DFL (organizing unit)",
+     "wording": "2026 DFL Voting Guide (recommendations)",
+     "what": "Listed as 'School Board (ISD #535) (Elect 4) Cathy Nathan (I)' under 'NONPARTISAN RACES AND BALLOT MEASURES' in the unit's sample ballot, which calls its entries recommendations ('We make no recommendations in city or school board elections outside of Rochester'). It names three candidates for the four seats. Not an endorsement.",
+     "url": "https://olmsted2024dfl.com/s/DFL-voting-guide-2026.pdf",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0717",
+   "name": "Corinne Hennen",
+   "official_page": {
+    "url": "https://www.isd717.org/about-us/school-board",
+    "source": "Jordan Public Schools: School Board (Corinne Hennen, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jordan Public Schools (ISD 717) board member (Treasurer today)",
+     "from": "",
+     "to": "now",
+     "source": "Jordan Public Schools: School Board page, which lists 'Corinne Hennen, Treasurer' among the seven board members (no starting year given)",
+     "url": "https://www.isd717.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Alison Sherman",
+   "website": {
+    "url": "https://alisonshermanfor834.com",
+    "how": "The address she filed; it leads to www.alisonshermanfor834.com, titled 'Alison Sherman for 834' and headed 'Re-Elect Alison Sherman'; its About page says she 'was elected to the Stillwater Area School Board in 2020'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stillwaterschools.org/our-district/school-board",
+    "source": "Stillwater Area Public Schools: School Board (Alison Sherman, Chair; term expires 12/2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stillwater Area Public Schools (ISD 834) board member (Chair today)",
+     "from": "2020",
+     "to": "now",
+     "source": "Stillwater Area Public Schools: School Board page, which lists 'Alison Sherman, Chair', 'First elected: 11/2020', 'Term expires: 12/2026'. Her campaign site's About page says she 'was elected to the Stillwater Area School Board in 2020' (https://www.alisonshermanfor834.com/about-alison)",
+     "url": "https://www.stillwaterschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Alan Sherek"
+  },
+  {
+   "race_id": "2026-MN-8314-MN",
+   "name": "Sophia Vuelo",
+   "website": {
+    "url": "https://reelectjudgevuelo.org",
+    "how": "The address she filed. The site is named 'Re-Elect Judge Sophia Vuelo', says the Governor appointed her 'to the Ramsey County District Court in December 2017' and that her 'current term extends through January 2027', and says it is prepared and paid for by Re-elect Judge Sophia Vuelo.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Second Judicial District (Ramsey County), Seat 15",
+     "from": "2017",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), Second District judges, where seat numbers are shown in parentheses: 'Sophia Y. Vuelo (15)', 'Appointed December 18, 2017. Elected 2020.' (page 361 of the PDF). The Governor's office announced the appointment on November 30, 2017, to a seat chambered at St. Paul in Ramsey County: https://www.leg.mn.gov/docs/2018/other/181224/governor/newsroom/index9123.htm. Her campaign site says her 'current term extends through January 2027'",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9114-MN",
+   "name": "Tamara L. Yon",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Ninth Judicial District, Seat 15",
+     "from": "2006",
+     "to": "now",
+     "source": "Minnesota Legislative Manual 2025-2026 (published by the Office of the Minnesota Secretary of State; the copy held by the Minnesota Legislative Reference Library), Ninth District judges, where seat numbers are shown in parentheses: 'Tamara L. Yon (15)', 'Appointed April 7, 2006. Elected 2008, 2014, 2020.' (page 377 of the PDF). The Governor's office announced the appointment on January 20, 2006, to a seat chambered at Crookston in Polk County: https://www.leg.mn.gov/docs/2010/other/101583/www.governor.state.mn.us/mediacenter/pressreleases/appointments/2006/january/PROD006744.html",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  "notes: the jobs named for Jeremy Bolen, Brian Swedberg, Sophia Vuelo and Tad Jude (employment is on the never-collected list)",
+  "notes: the mention of a news story about a settlement and pay (legal and money matters are on the never-collected list)",
+  "Chris Swanson, website: the clause citing a KAXE guide (no address was given for it, so it could not be re-opened); the website itself is confirmed"
+ ],
+ "corrected": [
+  "Karla Hult, website: the signature line quoted as the page prints it (no comma)",
+  "Tad Jude, Hennepin County Commissioner: kind changed from official to secondary, because the end year 1993 is Wikipedia's (citing Ballotpedia); the Legislative Reference Library gives the start, 01/03/1989, and leaves the end as '19??'",
+  "Mark Larson, Clearwater County Commissioner: 'to' changed from 'now' to blank (the only source is the 2025-2026 Legislative Manual)",
+  "John Sebastian, website: the page that mentions the Woodbury mayoral forum is named correctly (News and Events)"
+ ],
+ "verifier_notes": [
+  "Every address in the candidates' findings was opened again on October 2, 2026 with the kit's honest User-Agent (states/net.py), 55 pages and PDFs in all, each answered on the first try; PDFs (the Legislative Manual, Cloquet and Benton County minutes, the Dakota County background sheet, the Olmsted DFL voting guide) were read with ballot/pdftext.py. tadjude.com was not requested: the researcher met a CAPTCHA there, and the review item rests on the two party pages that link to it, which were re-opened and do link to it.",
+  "The thirteen filed websites were checked against the Secretary of State's list by running the kit's own step on an in-memory copy of the database (the real database was only read): each address is the one filed for that race and name.",
+  "Same person: every finding is tied to its race by the place and the office (our record's district or seat number matches the page: Dakota 2, Benton 3, Douglas 4, Clearwater 5, judges' seat 15 in the Second and Ninth Districts). Chris Swanson's Cloquet offices rest on his own campaign site (Cloquet City Council, Wards 3 and 1; the Fire District Board) together with the city's page and minutes. Joe Atkins the commissioner and Joe Atkins the former legislator are tied by the Library's record and the county's background sheet.",
+  "Kept as recorded though inferred from two official pages rather than stated in one: Steven J. Heinen's start in 2019 (absent from the minutes of December 18, 2018, present on January 8, 2019) and the end of Chris Swanson's Ward 3 service in 2022. The Cloquet Area Fire District Board seat is kept with no end, as the minutes record the appointment and his own site lists the board.",
+  "party_support entries (not read by the loader) were re-opened and say what is recorded: a letter of support and a voting-guide recommendation, neither called an endorsement."
+ ]
+}

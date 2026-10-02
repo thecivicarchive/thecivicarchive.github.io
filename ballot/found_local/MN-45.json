@@ -1,0 +1,388 @@
+{
+ "state": "MN",
+ "part": 45,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance ran out after 28 searches (the five legislative candidates, the county candidates and five of the city candidates were searched; Sarah Sanchez, every school board candidate and the two judges were not). Everything after that was read by opening known addresses directly with the kit's honest User-Agent: the filed campaign websites, each county's, city's and school district's own site, the Minnesota DFL's and the Republican Party of Minnesota's sites, and news pages the earlier searches had already named. No search engine was read in place of the search tool.",
+  "The nine campaign websites filed in this slice were read from the record (sl_websites, read-only) and each was opened; all nine name the candidate and the office or place. They are repeated here as website findings so the second reader checks them.",
+  "Nothing recorded, and why. Don Wachal: Jackson County's own Commissioners page names him as District 2 commissioner, but the county's robots.txt asks every script to stay out; the page had been read once through the fetch tool before the robots.txt was checked, so nothing from it is kept and the site was not asked again. Joseph P. Glasrud: Stevens County's County Attorney page and staff directory, as served to a script, do not name the county attorney. The two judges (Michelle A. Hatcher, Catherine (Kate) McPherson): mncourts.gov answered 403 once and was not asked again. Aiden VanBeck, Judson Sandahl, Mariajose Saenz, Sarah Sanchez, Janet Johnson, Monica Kunkel and Nicholas Schaefer: no campaign site is filed, and the Victoria, Worthington, Owatonna, Shakopee, Buffalo-Hanover-Montrose and South St. Paul pages of today's council or board members do not show Sandahl, Saenz, Sanchez, Johnson, Kunkel or Schaefer in office; with searching gone nothing more could be looked for. Keith Friedsam: the Perham-Dent district's site did not answer (three tries). A second pass with searching would be worth it for these.",
+  "Republican endorsement of AJ Gubash: none could be recorded. mngop.com's \"2026 Republican Nominees\" page does not name him; no site of the Senate District 53 or Dakota County Republicans could be reached without searching; his own site's home and About pages do not use the words Republican or endorsed.",
+  "Ages printed in KAXE's guides (Patrick Rafferty, Ron Johnson) were not turned into birth years: an age on election day fits two birth years. Marisa Ulmen: the Minnesota Historical Election Archive (University of Minnesota Libraries) shows a full birth date taken from a birth records index; it was not taken, as in other parts of this sweep. The archive is used only for her two earlier runs under the DFL label; it is a university archive of official returns, labelled secondary for the second reader to judge. What ties the archive's page to this candidate: the same name, the DFL label, Madelia in Watonwan County (her campaign site's home page gives Madelia for the campaign), and House District 22A lying inside Senate District 22.",
+  "For the second reader: (1) 'elected 2021' is written in 'from' for Abdihakim Arabow Ibrahim's school board seat because his site gives the election year and not the year the term began, as other parts do. (2) Patrick Rafferty's and Ron Johnson's offices rest on their own answers as printed by KAXE; Rafferty's two planning and zoning seats have no years. His answer also lists a year as executive director of, and three years on the board of, Cass County economic development; it is not clear that is a government body, so it was left out. (3) Eric Wallen: the county's history page says 2018-Present; his own site says he has served 'the past eight years' and seeks a third term. (4) Al Parranto: the city's page gives only the current term's dates; a North Metro TV story (northmetrotv.com/news-headlines/parranto-added-to-ham-lake-city-council) reports the council appointing him, then a planning and zoning commissioner, to an open seat, but the story as read carries no date, so no start year is given. (5) Jeffrey Boucher's official page gives no date; the start year rests on Pine Knot News. (6) Abdihakim Arabow Ibrahim's own_words is the home page's line 'Democrat running to end status quo failures and fight for greater affordability, healthcare, and safety', cut to seven words; his endorsements page lists people and organizations, no party unit, and the state DFL's page lists no county candidates. (7) Read and left out on purpose for everyone: jobs and employers, schools, military service, family, and seats on private boards and associations.",
+  "Verifier, 2026-10-02: all 25 addresses were re-opened with the kit's User-Agent and every finding (39) was found on its page as recorded, each name matched to its race in the record. Two wordings corrected: Michelle Okeson's source no longer cites the district's 2022 election page, which is not among the addresses and was not re-opened; Abdihakim Arabow Ibrahim's page says he was 'a vice chair' of the school board, not a 'former' one. The Ulmen note now rests on the campaign site's home page rather than an About page title that named an occupation. Nothing removed."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0142-MN",
+   "name": "Marisa Ulmen",
+   "website": {
+    "url": "https://ulmenforsenate.org",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the home page says \"the official campaign website for Marisa Ulmen\" and \"MARISA ULMEN for Minnesota State Senate\"; the Minnesota DFL's endorsed list links it beside her name for Senate District 22",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own page \"Candidates Endorsed by the Minnesota DFL\" lists the name under \"District 22 ... Senate District 22\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 22A, general election (lost, 30.49%)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive, University of Minnesota Libraries: candidate page for Marisa Ulmen of Madelia, Watonwan County",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/marisa-ulmen",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for State Representative, District 22A, general election (lost, 30.88%)",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive, University of Minnesota Libraries: candidate page for Marisa Ulmen of Madelia, Watonwan County",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/marisa-ulmen",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0178-MN",
+   "name": "Mark Legvold",
+   "website": {
+    "url": "https://legvold4mnsenate58.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the page is titled \"Legvold for MN Senate | Support Mark Legvold\" and is \"Prepared and paid for by the Mark Legvold for Senate Committee\"; the Minnesota DFL's endorsed list links it beside his name for Senate District 58",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own page \"Candidates Endorsed by the Minnesota DFL\" lists the name under \"District 58 ... Senate District 58\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0216-MN",
+   "name": "Nathan Schmig",
+   "website": {
+    "url": "https://schmigforminnesota.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the page is titled \"Nathan Schmig for District 15A\" (the rest of the page is drawn by script and was not read); the Minnesota DFL's endorsed list links it beside his name for House District 15A",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own page \"Candidates Endorsed by the Minnesota DFL\" lists the name under \"District 15 ... House District 15A\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0253-MN",
+   "name": "Josiah Hill",
+   "website": {
+    "url": "https://josiahhill.org",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the home page says \"Josiah Hill for MN House (District 33B)\" and \"Re-elect Josiah Hill to the Minnesota House of Representatives\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own page \"Candidates Endorsed by the Minnesota DFL\" lists the name under \"District 33 ... House District 33B\")",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0292-MN",
+   "name": "AJ Gubash",
+   "website": {
+    "url": "https://ajgubashforhouse.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the page is titled \"AJ Gubash for State House\", names \"District 53A\" and is \"Paid for by AJ Gubash for Minnesota House\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-021",
+   "name": "Patrick J Rafferty",
+   "offices": [
+    {
+     "office": "Member, City of Lake Shore Planning and Zoning (the guide prints his own answer: \"6 years on City of Lake Shore Planning & Zoning\"; no years given)",
+     "from": "",
+     "to": "",
+     "source": "KAXE, \"Cass County 2026 Election Guide\", September 28, 2026: the candidate's own answers, under Cass County Commissioner District 1",
+     "url": "https://www.kaxe.org/2026-09-28/cass-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Cass County Planning and Zoning (his own answer: \"3 years Cass County Planning & Zoning\"; no years given)",
+     "from": "",
+     "to": "",
+     "source": "KAXE, \"Cass County 2026 Election Guide\", September 28, 2026: the candidate's own answers, under Cass County Commissioner District 1",
+     "url": "https://www.kaxe.org/2026-09-28/cass-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-053",
+   "name": "Abdihakim Arabow Ibrahim",
+   "website": {
+    "url": "https://www.abdihakimibrahim.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the home page says \"Abdihakim Ibrahim for Hennepin County Commissioner, District 3\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, St. Louis Park School Board (his site: \"In 2021, I was elected to the St. Louis Park School Board\"; it also says he served as a vice chair; no end year given)",
+     "from": "elected 2021",
+     "to": "",
+     "source": "His campaign site, \"Meet Abdihakim\"",
+     "url": "https://abdihakimibrahim.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, St. Louis Park Police Advisory Commission (before the school board; no years given)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, \"Meet Abdihakim\"",
+     "url": "https://abdihakimibrahim.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Democrat running to end status quo failures",
+    "url": "https://www.abdihakimibrahim.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-081",
+   "name": "Joe Drietz",
+   "official_page": {
+    "url": "https://lincolncountymn.gov/county_board/commissioners.php",
+    "source": "Lincoln County, Minnesota: its Commissioners page lists Joe Drietz against district 4",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lincoln County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Lincoln County's own Commissioners page (it gives no start year)",
+     "url": "https://lincolncountymn.gov/county_board/commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-093",
+   "name": "Steve Schmitt",
+   "official_page": {
+    "url": "https://www.meekercountymn.gov/261/Board-of-Commissioners",
+    "source": "Meeker County: its Board of Commissioners page lists \"Steve Schmitt, District 5\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Meeker County Commissioner, District 5",
+     "from": "",
+     "to": "now",
+     "source": "Meeker County's own Board of Commissioners page (it gives no start year)",
+     "url": "https://www.meekercountymn.gov/261/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-061",
+   "name": "Nicolle Zuehlke",
+   "official_page": {
+    "url": "https://www.itascacountymn.gov/294/Recorders-Office",
+    "source": "Itasca County: its Recorder's Office page names \"Nicolle Zuehlke, Recorder / Registrar of Titles and Vital Records\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Itasca County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Itasca County's own Recorder's Office page (it gives no start year)",
+     "url": "https://www.itascacountymn.gov/294/Recorders-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-083",
+   "name": "Eric Wallen",
+   "website": {
+    "url": "https://wallenforsheriff.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the home page says \"Sheriff Eric Wallen for Lyon County Sheriff\" and \"I am seeking a third term as your elected Sheriff of Lyon County\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lyoncountymn.gov/departments/sheriff",
+    "source": "Lyon County: its Sheriff page names \"Sheriff Eric Wallen\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lyon County Sheriff",
+     "from": "2018",
+     "to": "now",
+     "source": "Lyon County's own \"Sheriff History\" page: \"Eric D. Wallen 2018-Present\"",
+     "url": "https://www.lyoncountymn.gov/departments/sheriff/general-information/sheriff-history",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-017",
+   "name": "Jeffrey Boucher",
+   "official_page": {
+    "url": "https://www.carltoncountymn.gov/151/Attorney",
+    "source": "Carlton County: its Attorney page says \"County Attorney Jeffrey Boucher leads an office staff ...\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carlton County Attorney (appointed by the County Board to serve the rest of the term after the county attorney resigned in September 2025)",
+     "from": "2025",
+     "to": "now",
+     "source": "Pine Knot News, \"Boucher will run for county attorney\", May 8, 2026",
+     "url": "https://www.pineknotnews.com/story/2026/05/08/news/boucher-will-run-for-county-attorney/14802.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-05068",
+   "name": "Ron Johnson",
+   "offices": [
+    {
+     "office": "Bemidji City Council member, Ward 3 (the guide prints his own answer: \"24 years experience serving on the Bemidji City Council representing Ward 3 from 2001 to 2024\")",
+     "from": "2001",
+     "to": "2024",
+     "source": "KAXE, \"Bemidji 2026 Election Guide\", September 28, 2026: the candidate's own answers, under Bemidji City Council At-Large",
+     "url": "https://www.kaxe.org/2026-09-28/bemidji-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-26738",
+   "name": "Al Parranto",
+   "official_page": {
+    "url": "https://www.hamlakemn.gov/node/822",
+    "source": "City of Ham Lake: \"Councilmember Al Parranto\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ham Lake City Council member (the city's page: \"Term Begins: January 1, 2023. Term Expires: December 31, 2026\"; it does not say when he first joined the council)",
+     "from": "",
+     "to": "now",
+     "source": "City of Ham Lake's own page for Councilmember Al Parranto",
+     "url": "https://www.hamlakemn.gov/node/822",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47680",
+   "name": "Christine Fountaine",
+   "website": {
+    "url": "https://www.christinefountainecandidateforoakdalecitycouncil.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the page is titled \"Christine Fountaine Candidate for Oakdale City Council\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0022",
+   "name": "Michelle Okeson",
+   "official_page": {
+    "url": "https://www.dlschools.net/about-us/school-board",
+    "source": "Detroit Lakes Public Schools: its School Board page lists \"Michelle Okeson, Treasurer ... Term Expires: December 31, 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member (Treasurer), Detroit Lakes Public Schools (ISD #22); term expires December 31, 2026",
+     "from": "",
+     "to": "now",
+     "source": "Detroit Lakes Public Schools' own School Board page (it gives no start year)",
+     "url": "https://www.dlschools.net/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Brian Thompson",
+   "website": {
+    "url": "https://www.votethompsonfor194.com",
+    "how": "Filed with the Minnesota Secretary of State as the campaign website; opened and read: the home page says \"Re-elect Brian Thompson for Lakeville Area Schools ISD 194\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd194.org/district/school-board",
+    "source": "Lakeville Area Schools: its School Board page lists \"Brian Thompson ... Serving Since: January 3, 2023. Term Expires: January 4, 2027\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member, Lakeville Area Schools (ISD #194)",
+     "from": "2023",
+     "to": "now",
+     "source": "Lakeville Area Schools' own School Board page: \"Serving Since: January 3, 2023\"",
+     "url": "https://www.isd194.org/district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0318",
+   "name": "David Marty",
+   "official_page": {
+    "url": "https://www.isd318.org/administration/board-of-education",
+    "source": "Grand Rapids Area Schools (ISD #318): its Board of Education page names \"Clerk David Marty\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member (Clerk), Grand Rapids Public School District (ISD #318)",
+     "from": "",
+     "to": "now",
+     "source": "Grand Rapids Area Schools' own Board of Education page (it gives no start year)",
+     "url": "https://www.isd318.org/administration/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

@@ -1,0 +1,274 @@
+{
+ "state": "MN",
+ "part": 50,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "This part is NOT finished. The session's web search allowance was already spent (the first search went through, the next six were refused), so pages were read directly with the kit's honest User-Agent (states/net.py), one request at a time, robots.txt read first for each site (and a site was left alone if its robots.txt turns away the kit's name or any of Anthropic's named agents). After the campaign websites filed with the Secretary of State and the party pages had been read, the session's permission system refused the next batch of requests: the thirteen county and city governments' own pages for the county and city candidates. Nothing was done to get around that refusal and no further pages were asked for, so the following have no findings because they were never researched, not because nothing exists: Matt Kelm, Danny O'Keefe, Robert Preble, Jennae Hoffman, James Kunze, Michelle Duncan, Mark Ellerbusch, Rachel V. Cornelius, Najwa Massad, Wayne B. Erickson, Aaron G. Stritesky, Jerome Christenson, Klaus Weber, Jenny Frenzel, Jessica Gravening, Cami Babolik, Karen S. Steinhoff, Mike Florkowski, Maddie Elliott. For the same reason no official page was looked for (Josh Peterson on the City of Bemidji's site, Judge Mokri, the three sitting legislators' pages are already in the record), and the years of Amber Gustafson's judgeship and of Josh Peterson's council service were not looked up.",
+  "The campaign websites the candidates filed were read from the real database's sl_websites table (read-only). Each was opened before being listed. John Howie's filed site (howieforsenate.com, with and without www) answered 404 Not Found on 2026-10-02, so no website is recorded for him. Omar Fateh and Dave Baker filed none; omarfateh.com is a domain-for-sale page and is not his.",
+  "Brad Tabke's site (bradtabke.com) was found by trying the address; only its front page's first lines were read (title 'Tabke for Minnesota - Moving Shakopee Forward', with Donate, Volunteer, Yard Signs, Issues, Endorsements in its menu). The second reader should confirm it names the office or the 2026 race.",
+  "party_support (a key the loader does not read, in the shape other parts use): two party units name a candidate on their own pages without the word endorsed. Kept apart from endorsed_by; whether it is shown is John's decision.",
+  "Offices without years: Amber Gustafson's and Josh Peterson's are stated on their own campaign sites without dates; from and to are left empty rather than filled from memory. Read and left out on purpose: jobs (prosecutor, administrative law judge and judicial referee and public defender posts stated without dates, broadcast and tourism work), schools, family, church and club posts, bar association posts, and the Wellstone quotation on Mitchel Kulage's site (a quotation, not a party statement).",
+  "Privacy: the reader blanks e-mail addresses and telephone numbers before showing a page. Campaign pages shown to this session's output carried family details, schooling, employers, a church and campaign committees' mailing addresses; none of it is recorded here or anywhere else.",
+  "Verifier, 2026-10-02: all 13 addresses were opened again with the kit's User-Agent and each of the 18 findings was read on its page; every one is confirmed and nothing was removed. Two wordings were corrected: Brad Tabke's website note (the page names him, 'Shakopee's State Representative' and his committee, but not the year 2026) and Josh Peterson's office (the page says 'Currently Mayor Pro Tem' under 'Council accomplishments'; it does not use the words 'member of the council'). The two party_support items are confirmed as worded (the pages list the candidate without the word endorsed for him) and stay out of endorsed_by. The nineteen candidates the researcher never reached are still unresearched; the verifier does not research."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0145-MN",
+   "name": "John Howie",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Olmsted County Republicans (county unit), in its September 2026 newsletter's list of GOP endorsed candidates for 2026: 'MN SENATE DISTRICT 25 John Howie'",
+     "url": "https://olmstedgop.org/newsletter/sep2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0182-MN",
+   "name": "Omar Fateh",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates: 'Omar Fateh Senate District 62')",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0219-MN",
+   "name": "Dave Baker",
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Kandiyohi County Republicans (county unit)",
+     "wording": "2026 Republican Ticket",
+     "what": "Named \"Dave Baker - MN House District 16B\" on the unit's home page in its list of the 2026 Republican ticket (Federal & MN Legislature). The page does not use the word endorsed for him.",
+     "url": "https://www.kandigop.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0256-MN",
+   "name": "Josh Jungling",
+   "website": {
+    "url": "https://www.joshjungling.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Josh Jungling for State House', 'Common Sense Leadership for Anoka and Coon Rapids', 'Prepared and paid for by Josh Jungling for State Representative'",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, House District 35A (general election; lost to Zack Stephenson)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, '2024 Minnesota House of Representatives election', District 35A: 'Josh Jungling was the Republican challenger', with the results table (Republican, Josh Jungling, 10,950 votes, 48.01%)",
+     "url": "https://en.wikipedia.org/wiki/2024_Minnesota_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 35 Republicans (district unit)",
+     "wording": "REPUBLICAN CANDIDATES",
+     "what": "Named \"HOUSE DISTRICT 35A JOSH JUNGLING\" under \"Candidates from SD 35 for State House of Representatives\" on the unit's page headed \"REPUBLICAN CANDIDATES\". The page's title is \"Senate District 35 Republicans - Endorsements\"; the lines read do not use the word endorsed for him.",
+     "url": "https://www.sd35gop.com/recommended-candidat.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0294-MN",
+   "name": "Brad Tabke",
+   "website": {
+    "url": "https://www.bradtabke.com",
+    "how": "Not filed with the Secretary of State; found by trying the address. Opened 2026-10-02: 'Tabke for Minnesota - Moving Shakopee Forward', 'I'm honored to be Shakopee's State Representative', 'Elected to the Minnesota House of Representatives in 2018 and 2022', 'Prepared and paid for by the Tabke (Brad) for MN committee'. The page names him, the office and the place; it does not print the year 2026.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates: 'Brad Tabke House District 54A')",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-031",
+   "name": "Matt Kelm"
+  },
+  {
+   "race_id": "2026-MN-0392-079",
+   "name": "Danny O'Keefe"
+  },
+  {
+   "race_id": "2026-MN-0393-061",
+   "name": "Robert Preble"
+  },
+  {
+   "race_id": "2026-MN-0394-095",
+   "name": "Jennae Hoffman"
+  },
+  {
+   "race_id": "2026-MN-0395-115",
+   "name": "James Kunze"
+  },
+  {
+   "race_id": "2026-MN-0403-091",
+   "name": "Michelle Duncan"
+  },
+  {
+   "race_id": "2026-MN-0404-089",
+   "name": "Mark Ellerbusch"
+  },
+  {
+   "race_id": "2026-MN-0405-027",
+   "name": "Amber Gustafson",
+   "website": {
+    "url": "https://www.amber4clayattorney.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Elect Amber Gustafson | Clay County Attorney | 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge (Minnesota)",
+     "from": null,
+     "to": null,
+     "source": "Her campaign site: 'from running my own law office to serving as a District Court Judge. I stepped down from the bench ...' (no years, and no district, are given there)",
+     "url": "https://www.amber4clayattorney.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-161",
+   "name": "Rachel V. Cornelius"
+  },
+  {
+   "race_id": "2026-MN-1001-39878",
+   "name": "Najwa Massad"
+  },
+  {
+   "race_id": "2026-MN-1010-07300",
+   "name": "Wayne B. Erickson"
+  },
+  {
+   "race_id": "2026-MN-1010-27530",
+   "name": "Mitchel Kulage",
+   "website": {
+    "url": "https://www.kulageatlarge.com",
+    "how": "Filed with the Minnesota Secretary of State (as kulageatlarge.com; it answered at the www address); opened 2026-10-02: 'Kulage for At Large', 'I am running to be a member of your City Council', 'a neighbor in Hastings', 'Hastings City Council Wards'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-49138",
+   "name": "Aaron G. Stritesky"
+  },
+  {
+   "race_id": "2026-MN-1010-71032",
+   "name": "Jerome Christenson"
+  },
+  {
+   "race_id": "2026-MN-1022-05068",
+   "name": "Josh Peterson",
+   "website": {
+    "url": "https://www.joshpetersonbemidji.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Josh Peterson - Bemidji City Council - Ward 2', 'Election Day - November 3, 2026'",
+    "verified": true
+   },
+   "born": {
+    "year": 1981,
+    "source": "His campaign site, 'About Josh Peterson': 'Born in 1981, Josh was raised in Bemidji'",
+    "url": "https://www.joshpetersonbemidji.com",
+    "kind": "campaign",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor Pro Tem, Bemidji City Council",
+     "from": null,
+     "to": "now",
+     "source": "His campaign site ('Josh Peterson - Bemidji City Council - Ward 2'), under 'COUNCIL ACCOMPLISHMENTS': 'Currently Mayor Pro Tem' (no starting year is given there, and the page does not otherwise spell out his council seat)",
+     "url": "https://www.joshpetersonbemidji.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-54808",
+   "name": "Klaus Weber"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0031",
+   "name": "Jenny Frenzel"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Nathaniel Bliss",
+   "website": {
+    "url": "https://voteblissfor194.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Vote Bliss for School Board ISD 194', 'My name is Nathaniel Bliss', 'I am running for Lakeville Area School Board'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0332",
+   "name": "Jessica Gravening"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0578",
+   "name": "Cami Babolik"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0721",
+   "name": "Karen S. Steinhoff"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0879",
+   "name": "Mike Florkowski"
+  },
+  {
+   "race_id": "2026-MN-5004-ISD0206",
+   "name": "Maddie Elliott"
+  },
+  {
+   "race_id": "2026-MN-8531-MN",
+   "name": "Mariam Mokri",
+   "website": {
+    "url": "https://www.judgemariammokri.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Judge Mariam Mokri', 'Serving the Fourth Judicial District since 2025', 'prepared and paid for by Citizens for Judge Mariam Mokri'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Fourth Judicial District Court (Hennepin County)",
+     "from": 2025,
+     "to": "now",
+     "source": "Her campaign site: 'Serving the Fourth Judicial District since 2025'; 'Currently, Judge Mokri presides over criminal cases in Hennepin County'",
+     "url": "https://www.judgemariammokri.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9237-MN",
+   "name": "Ben Lacy",
+   "website": {
+    "url": "https://www.lacyforjudge.com",
+    "how": "Filed with the Minnesota Secretary of State; opened 2026-10-02: 'Ben Lacy for Judge | District 10 Seat 38 Minnesota', 'General Election 2026'",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

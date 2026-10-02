@@ -1,0 +1,377 @@
+{
+ "part": 41,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after 21 searches (the first 21 candidates of the slice, through Brian Vroman). Everything after that was read by opening pages directly with the kit's honest User-Agent (robots.txt obeyed) or with the page-reading tool: the candidates' own sites, each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, the Olmsted County Republicans' newsletter, the University of Minnesota's election archive and two named news organizations.",
+  "Campaign websites as filed were learned from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; each was then opened. Rick Storlie's filed site (https://storlie4plsas.com) could not be read: the kit's script got a script-only page and the page-reading tool an empty one, so it is not recorded here.",
+  "Left blank on purpose: the two judges (Dean Eyler, Thomas Robert Lehmann), because mncourts.gov refuses scripts and answered the page-reading tool 403, and it was not pressed; Tim Luoma (the Lake County Sheriff's pages read do not name him); Kenneth Warning, Marisa Allen, Evett Ellis, Jonathan Melgaard, Lerew Kaas, Brian Vroman, Zachary Simon Blumberg and Rick Storlie (their city's or district's board pages do not list them as members, and nothing else was tied to them by two anchors). KAXE's guides give an age on Election Day for Craig Gaasvig (58) and Marisa Allen (44), which fits two birth years each, so no birth year is recorded. Steven E Jacob and Matt Norris are sitting legislators with record pages, so only a website and an endorsement were sought; no campaign site was found for Jacob.",
+  "Not recorded: news reports say the DFL endorsed the incumbent in Sharon El-Amin's race, which is no finding about her. Nicole Farrelly's site says she serves as Vice Chair of SD56, District Five, a party post and not a public office. KNSI (May 20, 2026) reports Mike Conway filed for the Republican primary without the party's endorsement."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0140-MN",
+   "name": "Steven E Jacob",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Olmsted County (its September 2026 newsletter, under \"GOP Endorsed Candidates for 2026\": MN Senate District 20, Steve Jacob)",
+     "url": "https://olmstedgop.org/newsletter/sep2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0176-MN",
+   "name": "Raymond David Petersen",
+   "website": {
+    "url": "https://rayforsenate.com",
+    "how": "Filed with the Minnesota Secretary of State; the site is titled \"Raymond Petersen for Senate\", speaks of the 2026 primary and the general election, and its About the Campaign page names Minnesota Senate District 56.",
+    "verified": true
+   },
+   "born": {
+    "year": 1967,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate page for Raymond D. Petersen of Apple Valley, Republican",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/raymond-d-petersen",
+    "kind": "secondary",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for U.S. Senator in the Republican primary of August 13, 2024 (16,237 votes, 8.36%; lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate page for Raymond D. Petersen",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/raymond-d-petersen",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Your Common Sense Conservative, Independent Republican choice for Minnesota Senate District 56.",
+    "url": "https://rayforsenate.com/about-the-campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0251-MN",
+   "name": "Matt Norris",
+   "website": {
+    "url": "https://www.votefornorris.com",
+    "how": "Filed with the Minnesota Secretary of State; the site is titled \"Matt Norris for MN House\" and reads \"Candidate for Minnesota House of Representatives in Blaine & Lexington\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 32B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0290-MN",
+   "name": "Christos Roy Jensen",
+   "website": {
+    "url": "https://www.votechristos.com",
+    "how": "Filed with the Minnesota Secretary of State; the site is titled \"Christos Jensen for MN house\" and says he is running for the open Minnesota House seat in district 52A.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 52A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am seeking the DFL endorsement.",
+    "url": "https://www.votechristos.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-007",
+   "name": "Craig Gaasvig",
+   "official_page": {
+    "url": "https://www.beltramicountymn.gov/our-government/board-of-commissioners/craig-gaasvig/",
+    "source": "Beltrami County, Board of Commissioners (his own page: District 1 County Commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Beltrami County Commissioner, District 1 (elected in 2018)",
+     "from": "2018",
+     "to": "now",
+     "source": "Beltrami County, Board of Commissioners, Craig Gaasvig",
+     "url": "https://www.beltramicountymn.gov/our-government/board-of-commissioners/craig-gaasvig/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Supervisor, Port Hope Township Board (12 years, before he was elected commissioner)",
+     "from": "",
+     "to": "",
+     "source": "Beltrami County, Board of Commissioners, Craig Gaasvig",
+     "url": "https://www.beltramicountymn.gov/our-government/board-of-commissioners/craig-gaasvig/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-053",
+   "name": "Sharon El-Amin",
+   "website": {
+    "url": "https://sharonelamin.org",
+    "how": "Filed with the Minnesota Secretary of State; the site is titled \"Sharon for Hennepin\" and reads \"Sharon El-Amin for Hennepin County Commissioner\", naming District 2.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mpschools.org/about-mps/school-board/post-details/~board/school-board/post/el-amin",
+    "source": "Minneapolis Public Schools, School Board (her own page: she represents District 2)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director, District 2, Minneapolis Public Schools (\"currently serving in her second term\"; previously chair of the board)",
+     "from": "",
+     "to": "now",
+     "source": "The candidate's own campaign site, About page",
+     "url": "https://sharonelamin.org/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-035",
+   "name": "Jessica Tabatt",
+   "website": {
+    "url": "https://www.jessicatabatt.com",
+    "how": "Filed with the Minnesota Secretary of State; the home page says she is Dr. Jessica Tabatt, running for Crow Wing County Commissioner, District 3. The page does not print the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-073",
+   "name": "Ben Bothun",
+   "official_page": {
+    "url": "http://www.lqpcomn.gov/198/Current-Commissioners",
+    "source": "Lac qui Parle County, Current Commissioners (lists Ben Bothun, District 4)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lac qui Parle County Commissioner, District 4 (elected 2018 and 2022)",
+     "from": "2018",
+     "to": "now",
+     "source": "Lac qui Parle County, Current Commissioners",
+     "url": "http://www.lqpcomn.gov/198/Current-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-033",
+   "name": "Susan R. Horkey",
+   "official_page": {
+    "url": "http://www.cottonwoodcountymn.gov/departments/administrative/recorder/index.php",
+    "source": "Cottonwood County, Recorder's page (names Susan R. Horkey, County Recorder)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Cottonwood County, Recorder's page",
+     "url": "http://www.cottonwoodcountymn.gov/departments/administrative/recorder/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-009",
+   "name": "Kathleen Reuter",
+   "official_page": {
+    "url": "http://www.bentoncountymn.gov/159/County-Attorney",
+    "source": "Benton County, County Attorney page (names Kathleen L. Reuter, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Benton County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Benton County, County Attorney page",
+     "url": "http://www.bentoncountymn.gov/159/County-Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-141",
+   "name": "Hans Larson",
+   "website": {
+    "url": "https://larsonforsherburne.com",
+    "how": "Filed with the Minnesota Secretary of State; the site names Hans Larson and the office of Sherburne County Attorney. The page does not print the year. (It answered the page-reading tool; the kit's script got an unreadable reply.)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-01900",
+   "name": "Nicole Farrelly",
+   "website": {
+    "url": "https://nicoleforapplevalley.com",
+    "how": "Filed with the Minnesota Secretary of State; the site is \"Nicole for Apple Valley\", says she decided to run for Apple Valley City Council and asks for support \"this November\". Its pages give her first name only; the family name comes from the filing.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-21770",
+   "name": "Kevin Miller",
+   "official_page": {
+    "url": "https://www.ci.forest-lake.mn.us/294/City-Council",
+    "source": "City of Forest Lake, City Council page (lists Kevin Miller, Councilmember)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Councilmember, Forest Lake City Council (appointed in February 2025 to fill the 2022-2026 term; serves through 2026)",
+     "from": "2025",
+     "to": "now",
+     "source": "City of Forest Lake, City Council page",
+     "url": "https://www.ci.forest-lake.mn.us/294/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47221",
+   "name": "Jason Nordby",
+   "official_page": {
+    "url": "https://www.northstpaul.org/194/City-Council",
+    "source": "City of North St. Paul, City Council page (lists Jason Nordby, Council Member, 2023-2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, North St. Paul City Council (term 2023-2026)",
+     "from": "2023",
+     "to": "now",
+     "source": "City of North St. Paul, City Council page",
+     "url": "https://www.northstpaul.org/194/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-67036",
+   "name": "Andy Reiff",
+   "offices": [
+    {
+     "office": "Council Member, Victoria City Council (won one of two open four-year seats in the election of November 8, 2022)",
+     "from": "",
+     "to": "",
+     "source": "Southwest News Media (Chanhassen Villager), \"New Victoria councilors looking closely at city's growth\", November 23, 2022",
+     "url": "https://swnewsmedia.com/chanhassen_villager/new-victoria-councilors-looking-closely-at-citys-growth/article_d2dcde58-69c5-11ed-a018-8b624c553936.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-62824",
+   "name": "Ryan Collins",
+   "website": {
+    "url": "https://ryancollins4council.com",
+    "how": "Filed with the Minnesota Secretary of State; the site reads \"Re-Elect Ryan Collins\" and \"Stillwater City Council Ward 1\", and speaks of events in 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stillwatermn.gov/city-government/mayor-council",
+    "source": "City of Stillwater, Mayor and Council page (lists Council Member Ryan Collins, Ward 1, term expires 01/03/2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 1, Stillwater City Council (term expires January 3, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Stillwater, Mayor and Council page",
+     "url": "https://www.stillwatermn.gov/city-government/mayor-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0876",
+   "name": "Melissa Muehring-Paulson",
+   "official_page": {
+    "url": "https://www.isd876.org/our-district/school-board",
+    "source": "Annandale Public Schools, School Board page (lists Melissa Muehring-Paulson, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Treasurer), Annandale Public Schools (\"Re-Elected 2022\"; four-year term up for election November 2026)",
+     "from": "",
+     "to": "now",
+     "source": "Annandale Public Schools, School Board page",
+     "url": "https://www.isd876.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006",
+   "name": "Anne Claflin",
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members page (lists Anne Claflin, Vice Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice Chair), South St. Paul Public Schools (term expires January 2027)",
+     "from": "",
+     "to": "now",
+     "source": "South St. Paul Public Schools, School Board Members page",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0214-MN",
+   "name": "Mike Conway",
+   "finding": "official_page",
+   "why": "The City of St. Cloud's council page does list a Mike Conway, Council President - 4th Ward, but nothing in the file ties that person to the House District 14A race; the name is a common one and the page gives only one anchor."
+  },
+  {
+   "race_id": "2026-MN-0214-MN",
+   "name": "Mike Conway",
+   "finding": "offices",
+   "why": "Same reason: the council page confirms the office, not that its holder is the 14A candidate."
+  }
+ ],
+ "verifier_notes": [
+  "Every url was re-opened on 2026-10-02. Six pages failed address lookups twice in the page-reading tool (the router) and were then read with the kit's own fetcher; all answered.",
+  "Three county pages have moved to new addresses (Lac qui Parle, Benton, Cottonwood); the urls now give the address that answers.",
+  "The election archive gives Raymond D. Petersen a full birth date; only the year is kept, as the source is secondary."
+ ]
+}

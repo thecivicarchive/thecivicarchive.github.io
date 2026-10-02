@@ -1,0 +1,383 @@
+{
+ "part": 48,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web-search allowance ran out after five searches (the five legislative candidates), so the rest was read directly, one page at a time, with the kit's honest User-Agent (states/net.py) and each site's robots.txt obeyed: the campaign sites filed with the Secretary of State (learned from sl_websites in the database, opened read-only), each county's, city's and school district's own site, the Minnesota DFL's endorsed list, the Legislative Reference Library and two news stories.",
+  "Nothing found, and left blank (11 of 30): Mark Titera (Clearwater County's site: robots.txt forbids our reader), Donn Hoffman (Hubbard County: robots.txt), Matthew C. Stinson (Wabasha County: robots.txt), Julie Laue (Martin County's District 4 page names Richard Koons as the sitting commissioner), Scott Zettervall, Jim Lohan, Colleen Bakken (Bemidji schools' site refused the TLS handshake), Connie Schulz, Benjamin Pecarina, Jacob Fischmann (the Judicial Branch's site is behind a bot check and was not asked), Todd M. Fellman (his filed site, toddfellmanforjudge.com, answered a plain reader with an empty page).",
+  "Nels Pierson's Republican endorsement for 2026 was reported by KAAL-TV, but no page of the party's own was found, so it is not recorded as endorsed_by. Ruth Bittner and David Torgelson: no campaign site was found (ruthbittner.com is a business site, not a campaign site, and is not listed).",
+  "Directory pages give no starting year for most offices, so 'from' is left empty. The Hastings page says only \"Elected: 2022\" for Dave Pemble, so his 'from' is left empty too (verifier).",
+  "The Koochiching, Le Sueur, Chippewa and Little Canada directory pages, the Mahnomen sheriff page and the school board pages also show contact details; none was recorded."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0144-MN",
+   "name": "Nels T. Pierson",
+   "website": {
+    "url": "https://www.nels.com",
+    "how": "Filed with the Secretary of State; opened and read: titled \"Nels Pierson for Senate\", headed \"Nels Pierson for Senate District 24\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1972,
+    "date": "1972-12-29",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15443",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, District 26B (Minnesota House)",
+     "from": "2015",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (House 2015-2022, District 26B; last term of office 1/4/2021 to 1/1/2023)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15443",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, House District 26B (elected 2014, 2016, 2018 and 2020)",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15443",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0180-MN",
+   "name": "Doron Clark",
+   "website": {
+    "url": "https://doronforsenate.com",
+    "how": "Filed with the Secretary of State as www.doronforsenate.com, which did not resolve here; the bare address answered: titled \"Doron Clark for Senate\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own list, \"Candidates Endorsed by the Minnesota DFL\"; the page names the district and gives no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0218-MN",
+   "name": "David J Torgelson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own list, \"Candidates Endorsed by the Minnesota DFL\"; the page names the district and gives no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0255-MN",
+   "name": "Ruth Bittner",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, House District 34B, special election of September 16, 2025",
+     "year": "2025",
+     "party": "Republican",
+     "source": "MPR News",
+     "url": "https://www.mprnews.org/story/2025/08/05/minnesota-house-of-representatives-34b-election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0293-MN",
+   "name": "Rick Hansen",
+   "website": {
+    "url": "https://www.votehansen.com",
+    "how": "Filed with the Secretary of State; opened and read: titled \"Rick Hansen for House\"; its About page (https://www.votehansen.com/about, the menu's \"Meet Rick\") says he is the state representative for District 53B",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's own list, \"Candidates Endorsed by the Minnesota DFL\"; the page names the district and gives no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-071",
+   "name": "Ricky Roche",
+   "official_page": {
+    "url": "https://www.co.koochiching.mn.us/directory",
+    "source": "Koochiching County staff directory (County Commission: Ricky Roche, District 2 Commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 2, Koochiching County",
+     "from": "",
+     "to": "now",
+     "source": "Koochiching County staff directory",
+     "url": "https://www.co.koochiching.mn.us/directory",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-103",
+   "name": "Kurt Zins",
+   "official_page": {
+    "url": "https://www.nicolletcountymn.gov/370/Board-of-Commissioners",
+    "source": "Nicollet County, County Board page (Kurt Zins - District 5)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 5, Nicollet County",
+     "from": "",
+     "to": "now",
+     "source": "Nicollet County, County Board page",
+     "url": "https://www.nicolletcountymn.gov/370/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-079",
+   "name": "Sharon J. Budin",
+   "official_page": {
+    "url": "https://www.lesueurcounty.gov/directory.aspx",
+    "source": "Le Sueur County staff directory (Recorder's Office: Sharon J. Budin, Recorder)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder, Le Sueur County",
+     "from": "",
+     "to": "now",
+     "source": "Le Sueur County staff directory",
+     "url": "https://www.lesueurcounty.gov/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-087",
+   "name": "Josh Guenther",
+   "official_page": {
+    "url": "https://www.co.mahnomen.mn.us/department/departments_i_z/sheriff/index.php",
+    "source": "Mahnomen County, Sheriff page (Sheriff Josh Guenther)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Mahnomen County",
+     "from": "",
+     "to": "now",
+     "source": "Mahnomen County, Sheriff page",
+     "url": "https://www.co.mahnomen.mn.us/department/departments_i_z/sheriff/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-023",
+   "name": "Matthew Haugen",
+   "official_page": {
+    "url": "https://www.co.chippewa.mn.us/Directory.aspx",
+    "source": "Chippewa County staff directory (Matthew Haugen, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Chippewa County",
+     "from": "",
+     "to": "now",
+     "source": "Chippewa County staff directory",
+     "url": "https://www.co.chippewa.mn.us/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-37502",
+   "name": "Tom Fischer",
+   "website": {
+    "url": "https://fischer4littlecanada.com",
+    "how": "Filed with the Secretary of State; opened and read: \"Tom Fischer for Mayor\", seeking a third term as Mayor of the City of Little Canada, November 3, 2026",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.littlecanadamn.org/directory.aspx",
+    "source": "City of Little Canada staff directory (City Council: Tom Fischer, Mayor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Little Canada",
+     "from": "",
+     "to": "now",
+     "source": "City of Little Canada staff directory",
+     "url": "https://www.littlecanadamn.org/directory.aspx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Council Member, City of Little Canada (eight years before becoming mayor; the site gives no years)",
+     "from": "",
+     "to": "",
+     "source": "his campaign site's home page, which says he was a Councilmember for eight years before becoming Mayor",
+     "url": "https://fischer4littlecanada.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-27530",
+   "name": "Dave Pemble",
+   "official_page": {
+    "url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/",
+    "source": "City of Hastings, City Council and Mayor page (Dave Pemble, Councilmember At Large; elected 2022; current term expires December 31, 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, At Large, City of Hastings (elected 2022)",
+     "from": "",
+     "to": "now",
+     "source": "City of Hastings, City Council and Mayor page: \"Elected: 2022. Current term expires: December 31, 2026\"",
+     "url": "https://www.hastingsmn.gov/government-transparency/city-council-and-mayor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-47680",
+   "name": "Thomas Willenbring",
+   "website": {
+    "url": "https://willenbringforcitycouncil.com",
+    "how": "Filed with the Secretary of State; opened and read: \"Thomas Willenbring for Oakdale City Council 2026\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1022-00928",
+   "name": "Roger Thalman",
+   "official_page": {
+    "url": "https://alexandriamn.city/city-department/city-council/",
+    "source": "City of Alexandria, City Council page (Roger Thalman, Council Member - Ward II)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 2, City of Alexandria",
+     "from": "",
+     "to": "now",
+     "source": "City of Alexandria, City Council page",
+     "url": "https://alexandriamn.city/city-department/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-53620",
+   "name": "Janet Hansmeier",
+   "website": {
+    "url": "https://hansmeierforcouncil.com",
+    "how": "Filed with the Secretary of State; opened and read: \"Candidate for City Council, Ward 3 - Red Wing, MN\", general election of November 3, 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0194",
+   "name": "Laura Fangel",
+   "website": {
+    "url": "https://www.fangelforisd194.com",
+    "how": "Filed with the Secretary of State; opened and read: \"Laura Fangel for ISD 194 (Lakeville) School Board\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0564",
+   "name": "Misty Hempel",
+   "official_page": {
+    "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information",
+    "source": "Thief River Falls Public Schools, School Board Member Information (Misty Hempel listed among the seven members)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, Thief River Falls School District (ISD #564)",
+     "from": "",
+     "to": "now",
+     "source": "Thief River Falls Public Schools, School Board Member Information",
+     "url": "https://www.trf.k12.mn.us/our-district/school-board/school-board-member-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0721",
+   "name": "Dan Call",
+   "official_page": {
+    "url": "https://www.npaschools.org/apps/pages/index.jsp?uREC_ID=3656963&type=d&pREC_ID=2415805",
+    "source": "New Prague Area Schools, Meet the Board (Dan Call, School Board Clerk, term ends 12/31/2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Clerk), New Prague Area Schools (ISD #721)",
+     "from": "",
+     "to": "now",
+     "source": "New Prague Area Schools, Meet the Board",
+     "url": "https://www.npaschools.org/apps/pages/index.jsp?uREC_ID=3656963&type=d&pREC_ID=2415805",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006",
+   "name": "Wendy Woods Felton",
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members (listed as \"Wendy Felton (Clerk)\", term expires January 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Clerk), South St. Paul Public School District (SSD #6)",
+     "from": "",
+     "to": "now",
+     "source": "South St. Paul Public Schools, School Board Members (the page writes the name \"Wendy Felton\")",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "All 21 addresses were re-opened with the kit's honest User-Agent, robots.txt obeyed; every one answered and states what is recorded. 37 findings confirmed, none removed.",
+  "Corrected: Dave Pemble's 'from' (2023 was inferred; the page states only the election year); the source wording of Tom Fischer's council service (a long quotation replaced by a plain description); the page named for Rick Hansen's District 53B statement (/about).",
+  "Wendy Woods Felton: the district's page writes \"Wendy Felton (Clerk)\"; kept on the given name, family name and the same board, with the difference stated in the finding.",
+  "The DFL's endorsed list carries no year; it is the party's current list (it names this year's non-incumbent candidates by district), and each of the three names sits under the district our record shows."
+ ]
+}

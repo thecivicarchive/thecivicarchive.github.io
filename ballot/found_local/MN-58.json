@@ -1,0 +1,435 @@
+{
+ "state": "MN",
+ "part": 58,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance was already used up (200 of 200) before this part's first search, so nothing here comes from a search. Everything was read directly, one page at a time, with the kit's honest User-Agent (states/net.py) and each site's robots.txt obeyed (for the kit's name and for Claude's named agents): the campaign websites the candidates filed with the Secretary of State (read from sl_websites in the real database, opened read-only), each county's, city's and school district's own pages, the Minnesota DFL's list of endorsed candidates and the House District 66B Republicans' site. A campaign site nobody filed could not be looked for, so a missing website here is not proof that none exists.",
+  "Not read, and nothing worked around: Andrew Tweeten's filed site (www.judgetweeten.com has no address on the network today, by the kit's reader and by the reading tool) and the Minnesota Judicial Branch's site (other parts found it refuses scripts; not asked), so the judge has no findings; Nobles County's site (an empty page without scripts), so Gene Metz has no findings; Three Rivers Park District's site (its robots.txt asks scripts to stay out); Marshall Public Schools' site (its pages are drawn by script), so nothing for Bob Prince; Dodge County's Attorney page names no one, so nothing for Crysta Parkin.",
+  "Looked for on the government's own page and not there as a sitting member, so nothing is recorded: A. Bradley \"Brad\" DeBoer (Sibley County's board page lists another commissioner for District 5), Tony Jurowski (Owatonna's Mayor & City Council page), Michael Sorvig (Champlin's Mayor & City Council page lists another member for Ward 2), Tracy N. Frederick (Mankato Area Public Schools' board page), Earl Smith (Elk River's School Board Members page), Kent Holme (Monticello's School Board page names him only in its list of six 2026 candidates).",
+  "For the second reader: (1) Todd County writes \"Kim Bosl\" where our list has Kimberly Bosl; the tie is the county and the office sought. (2) No start years are given where the government's page states only the current term (Ripka, Graupmann, Hilgart, T'Kach, Morris, Fagerlie, Petersen, Bosl, Anderson). ISD 622's board page also carries a 2018 results table with Caleb Anderson's name first, but the page does not say in words that he was elected then. Steve Morris's own site says he is finishing his second term on the City Council, without years. (3) Sarah Larsen's 'from' is the first year in the district's own \"Member (2022-2026)\"; that may be the election year rather than the year the term began. (4) Kathleen Bart's endorsement is on the home page of the House District 66B Republicans, a unit inside Senate District 66; the sentence is a post on that page and may move down or off it. (5) Aaron Petersen: the filed address with www fails its certificate check (the certificate is for another name); certificate checking was not turned off, and the address without www answers. Only the page's title could be read. (6) Mary T'Kach's Planning Commission service comes from her own site, with no years; her other listed bodies (a task force, a team, a committee) were left out as not clearly public offices. (7) Kathleen Bart's and Darci Smith's sites speak about parties in passing, but neither carries an explicit party or endorsement statement short enough to quote, so no own_words; Declan McCrory's Endorsements page shows no party.",
+  "Read and left out on purpose: family, upbringing, schools, jobs and employers, union posts, committee mailing addresses printed on campaign and county pages, and seats on advisory or association boards.",
+  "Verifier, 2026-10-02: every address in this file was opened again with the kit's reader and each recorded fact was found on its page. Three wordings were corrected: the clauses citing a second page (\"calls him/her an incumbent\") were dropped from Sarah Larsen's and Caleb Anderson's sources, because that page is not the one cited, and Anderson's source now carries the term end the page states; Mary T'Kach's Planning Commission entry no longer names the city, since her sentence does not. Nothing was removed."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0149-MN",
+   "name": "Louis McNutt",
+   "website": {
+    "url": "https://louismcnuttformnsenate.com",
+    "how": "The address he filed with the Secretary of State. The site is titled \"Louis McNutt for Minnesota Senate\", names State Senate District 29 and says Election Day is November 3.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\"; listed for Senate District 29)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Senate District 29 DFL Endorsed Candidate",
+    "url": "https://louismcnuttformnsenate.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0186-MN",
+   "name": "Kathleen Bart",
+   "website": {
+    "url": "https://kathleenbartforsenate.com",
+    "how": "The address she filed with the Secretary of State. The site is titled \"Kathleen Bart For Senate\" and asks for a vote \"November 3rd for Senate District 66\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "House District 66B Republicans (district unit; its home page says \"Kathleen Bart is the endorsed Republican Candidate for Senate District 66\")",
+     "url": "https://mnhd66brepublicans.org/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0223-MN",
+   "name": "Luke Frederick",
+   "website": {
+    "url": "https://www.frederickforhouse.com",
+    "how": "The address he filed with the Secretary of State. The site is titled \"Luke Frederick for State Representative\" and names House District 18B.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\"; listed for House District 18B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL & Labor Endorsed",
+    "url": "https://www.frederickforhouse.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0260-MN",
+   "name": "Darci Smith",
+   "website": {
+    "url": "https://smithformnhouse.com",
+    "how": "The address she filed with the Secretary of State. The site is titled \"Darci Smith for Minnesota House 37A\" and lists the district's cities.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\"; listed for House District 37A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0298-MN",
+   "name": "Robert Bierman",
+   "website": {
+    "url": "https://www.electrobertbierman.com/",
+    "how": "The address he filed with the Secretary of State (electrobertbierman.com leads here). The site says he is running for re-election as the Representative for Apple Valley's district 56A, and speaks of 2026.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list \"Candidates Endorsed by the Minnesota DFL\"; listed for House District 56A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-065",
+   "name": "Peter Ripka",
+   "official_page": {
+    "url": "https://www.kanabeccounty.org/departments/board_information.php",
+    "source": "Kanabec County: County Board Members and Information",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1, Kanabec County",
+     "from": "",
+     "to": "now",
+     "source": "Kanabec County's board page lists Peter Ripka for District 1, term expires 2026",
+     "url": "https://www.kanabeccounty.org/departments/board_information.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-105",
+   "name": "Gene Metz"
+  },
+  {
+   "race_id": "2026-MN-0393-083",
+   "name": "Paul Graupmann",
+   "official_page": {
+    "url": "https://www.lyoncountymn.gov/departments/county-board",
+    "source": "Lyon County: County Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Lyon County",
+     "from": "",
+     "to": "now",
+     "source": "Lyon County's County Board page lists Paul Graupmann (District 3)",
+     "url": "https://www.lyoncountymn.gov/departments/county-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-109",
+   "name": "Brian Mueller",
+   "official_page": {
+    "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/brian-mueller",
+    "source": "Olmsted County: Brian Mueller, Olmsted County Commissioner, Fourth District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Fourth District, Olmsted County",
+     "from": "2023",
+     "to": "now",
+     "source": "Olmsted County's page for him: \"Served on the county board since 2023\"; term of office expires 2026",
+     "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/brian-mueller",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-143",
+   "name": "A. Bradley \"Brad\" DeBoer"
+  },
+  {
+   "race_id": "2026-MN-0403-153",
+   "name": "Kimberly Bosl",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/departments/recorder/index.php",
+    "source": "Todd County: Recorder (the page names Kim Bosl, County Recorder)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder, Todd County",
+     "from": "",
+     "to": "now",
+     "source": "Todd County's Recorder page names Kim Bosl, County Recorder",
+     "url": "https://www.toddcountymn.gov/government/departments/recorder/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-103",
+   "name": "Aaron Petersen",
+   "website": {
+    "url": "https://petersenforsheriff.com",
+    "how": "The address he filed with the Secretary of State, without the www (the www form fails its certificate check and was not read). The page is titled \"Aaron Petersen for Nicollet County Sheriff\"; the rest of the page is drawn by script and was not read.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.nicolletcountymn.gov/m/directory/department?did=14",
+    "source": "Nicollet County: staff directory, Sheriff's Office (Aaron Petersen, Sheriff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Nicollet County",
+     "from": "",
+     "to": "now",
+     "source": "Nicollet County's staff directory lists Aaron Petersen as Sheriff",
+     "url": "https://www.nicolletcountymn.gov/m/directory/department?did=14",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-039",
+   "name": "Crysta Parkin"
+  },
+  {
+   "race_id": "2026-MN-0411-053",
+   "name": "Declan McCrory",
+   "website": {
+    "url": "https://www.declanforthreerivers.com/",
+    "how": "The address he filed with the Secretary of State (declanforthreerivers.com leads here). The site names Declan McCrory, the Three Rivers Park Board Commissioner seat for District One and the general election on November 3rd.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-43774",
+   "name": "Lloyd Hilgart",
+   "official_page": {
+    "url": "https://www.monticellomn.gov/241/City-Council",
+    "source": "City of Monticello: City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Monticello",
+     "from": "",
+     "to": "now",
+     "source": "The City's City Council page: Lloyd Hilgart, Mayor, term January 1, 2025 to December 31, 2026 (the page gives the current term only)",
+     "url": "https://www.monticellomn.gov/241/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-08794",
+   "name": "Catarina \"Cati\" Gómez",
+   "website": {
+    "url": "https://www.gomezforburnsville.com/",
+    "how": "The address she filed with the Secretary of State (gomezforburnsville.com leads here). The site names Catarina \"Cati\" Gómez, the Burnsville City Council and the November 3, 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-31076",
+   "name": "Mary T'Kach",
+   "website": {
+    "url": "https://marytkach.com/",
+    "how": "The address she filed with the Secretary of State (www.marytkach.com leads here). The site is titled \"Mary T'Kach - Inver Grove Heights City Council\"; its Vote page says \"Vote for Mary September 18th through November 3rd\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ighmn.gov/28/Mayor-Council",
+    "source": "City of Inver Grove Heights: Mayor & Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Inver Grove Heights",
+     "from": "",
+     "to": "now",
+     "source": "The City's Mayor & Council page lists Mary T'Kach, term to December 31, 2026",
+     "url": "https://www.ighmn.gov/28/Mayor-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Planning Commission member",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Me page says she has served on \"the Planning Commission\" (no years given; the page does not name the city in that sentence)",
+     "url": "https://marytkach.com/about-me",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-49300",
+   "name": "Tony Jurowski"
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Steve Morris",
+   "website": {
+    "url": "https://stevemorris4woodbury.com",
+    "how": "The address he filed (morris4woodbury.com) shows only \"visit SteveMorris4Woodbury.com\"; that site is titled \"Steve Morris for Woodbury\", is prepared by the Steve Morris for Woodbury City Council Committee and carries a 2026 copyright line.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+    "source": "City of Woodbury: Mayor and City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Woodbury",
+     "from": "",
+     "to": "now",
+     "source": "The City's Mayor and City Council page lists Steve Morris, Council Member, term expires January 4, 2027",
+     "url": "https://www.woodburymn.gov/574/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-10846",
+   "name": "Michael Sorvig"
+  },
+  {
+   "race_id": "2026-MN-1024-70420",
+   "name": "Rick Fagerlie",
+   "official_page": {
+    "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+    "source": "City of Willmar: Mayor & City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Ward 3, Willmar",
+     "from": "",
+     "to": "now",
+     "source": "The City's Mayor & City Council page: Rick Fagerlie \"Represents Ward 3 until January 2027\"",
+     "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0077",
+   "name": "Tracy N. Frederick"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0199",
+   "name": "Sarah Larsen",
+   "official_page": {
+    "url": "https://www.isd199.org/our-district/school-board",
+    "source": "Inver Grove Heights Schools (ISD 199): School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, Inver Grove Heights Schools (ISD 199)",
+     "from": "2022",
+     "to": "now",
+     "source": "The district's School Board page: \"Sarah Larsen, Member (2022-2026)\"",
+     "url": "https://www.isd199.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0413",
+   "name": "Bob Prince"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0622",
+   "name": "Caleb Anderson",
+   "official_page": {
+    "url": "https://www.isd622.org/about/school-board",
+    "source": "North St. Paul-Maplewood-Oakdale School District 622: School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice Chair), North St. Paul-Maplewood-Oakdale School District (ISD 622)",
+     "from": "",
+     "to": "now",
+     "source": "The district's School Board page lists Caleb Anderson, School Board Vice Chair, term ends Dec. 31, 2026",
+     "url": "https://www.isd622.org/about/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0728",
+   "name": "Earl Smith"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0882",
+   "name": "Kent Holme"
+  },
+  {
+   "race_id": "2026-MN-5010-ISD0728",
+   "name": "Mindy Freiberg",
+   "official_page": {
+    "url": "https://www.isd728.org/about1/school-board/school-board-members",
+    "source": "Elk River Area ISD 728: School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Clerk), District 1, Elk River Area School District (ISD 728)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "The district's School Board Members page: \"Elected 2022 - District 1, Mindy Freiberg, clerk\"",
+     "url": "https://www.isd728.org/about1/school-board/school-board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8560-MN",
+   "name": "Andrew Tweeten"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

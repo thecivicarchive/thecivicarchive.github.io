@@ -16,6 +16,13 @@ the state's list gives, or by surname where the list gives no ballot order, neve
 grade of any person; parties are printed exactly as the official list prints them. Nothing is shown for a state
 until its official list is loaded; the page says which states are still to come.
 
+Two things start folded (John, 2026-10-01). Under each candidate, "The ads themselves" is one closed fold whose summary
+says how many ads and of what kinds; its list is fetched when it is first opened and shown five ads at a time, each
+five a closed fold of its own headed by its numbers and dates. And every page's sources ("Where this comes from",
+"Sources and methods") are one closed fold with a closed fold inside it for each kind of source the page has, the
+page's own rules filed under the kind they are about. The script that draws those folds sits between the
+"source folds" landmarks in PAGE, and build_ballot_state_dev.py takes it from there, so the state pages fold the same way.
+
 Data: ballot_2026.sqlite (run_ballot.py), congress_119.sqlite for who holds each seat, and the draft site's member
 files (site/dev/us/data/member/) for a sitting member's record, so both sides say the same thing. The page takes
 the site's stylesheet and a few shared script parts from build_site_dev.py by the landmarks build_state_dev.py uses.
@@ -568,10 +575,22 @@ PAGE = r"""<!DOCTYPE html>
 .k-doors{background:#B85C38}.k-buys{background:#8A8F98}.k-production{background:#C9B79C}
 .adsp{margin-top:8px;font-size:13px}.adsp summary{cursor:pointer;color:var(--accent);font-weight:600}.adsp ul{margin:6px 0 0;padding-left:18px}
 .adlinks{font-size:12.5px;color:var(--muted);margin:10px 0 0}
-/* the ads themselves: links to Google's ad library, labelled from the record only */
-.adlib{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+/* the ads themselves: links to Google's ad library, labelled from the record only. One closed fold under each candidate, its
+   summary saying how many ads and of what kinds; inside it the ads five at a time, each five a closed fold of its own (John, 2026-10-01) */
+.adlib{margin-top:12px;border-top:1px solid var(--line);padding-top:4px}
+.adlib.none{padding-top:10px}
 .adlib h4{margin:0 0 4px;font-size:14.5px}
+.adlib>summary,.adgrp>summary{cursor:pointer;list-style:none;position:relative;padding:8px 0 8px 20px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.adlib>summary::-webkit-details-marker,.adgrp>summary::-webkit-details-marker{display:none}
+.adlib>summary::before,.adgrp>summary::before{content:"\25B8";position:absolute;left:0;top:8px;font-size:18px;line-height:1.05;color:var(--ink)}
+.adlib[open]>summary::before,.adgrp[open]>summary::before{content:"\25BE"}
+.adlib>summary h4{display:inline;margin:0 6px 0 0;color:var(--ink)}
+.adlib>summary:focus-visible,.adgrp>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
 .adlib .adn{font-size:13px;color:var(--muted);margin:0}
+.adgroups{margin-top:8px}
+.adgrp{border-top:1px solid var(--line)}.adgrp:last-of-type{border-bottom:1px solid var(--line)}
+.adgrp>summary b{font-size:13px;color:var(--ink);margin-right:6px}
+.adgrp>.adlist{margin:0 0 10px}
 .adlist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:7px}
 .adlist li{font-size:13px;line-height:1.45;padding:8px 10px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}
 .adlist li small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
@@ -677,10 +696,21 @@ PAGE = r"""<!DOCTYPE html>
 .fnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 .srclist{display:grid;gap:10px;margin-top:12px}
 .srcitem{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface);font-size:14px}
-.srcitem small{display:block;color:var(--muted);margin-top:4px;word-break:break-all}
+.srcitem small{display:block;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}      /* a long address breaks where it must; ordinary words are left whole */
 .method li{margin:6px 0}
+/* sources, folded (John, 2026-10-01): one closed fold for a page's sources, a closed fold inside it for each kind of source,
+   and a long list broken up again; the page's own rules sit in the fold of the kind they are about */
+.srcfold{margin-top:30px}
+.fold{scroll-margin-top:78px}      /* a fold the menu goes to ("Sources", "Senate races") lands below the page's fixed header, not under it */
+.srcfold .sfold .srclist{margin-top:0}
+.srcfold .sfold .sfold{margin-left:16px}.srcfold .sfold .sfold>summary b{font-size:14.5px}
+.srcfold .srcitem{background:var(--bg)}
+.srcfold .method{margin:0 0 12px;padding-left:20px;color:var(--muted);font-size:14.5px;line-height:1.5;max-width:86ch}
+.srcfold .method b{color:var(--ink)}
+.tag.note{background:none;color:var(--muted);border:1px dashed var(--line-strong)}
 .bfoot{border-top:1px solid var(--hair,var(--line));margin-top:40px;padding:20px 0 90px;color:var(--muted);font-size:13px}
 .bfoot a{color:inherit}
+@media (max-width:1220px){.bfoot{padding-left:20px;padding-right:20px}}      /* on a narrow screen the footer's words keep off the edge, as the page's do */
 .backlink{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
 </style>
 </head>
@@ -1001,32 +1031,56 @@ function adLibBlock(r, c){
   const whose = !n ? "" : n[0] && n[1] ? `Of these, ${num(n[0])} ${n[0] === 1 ? "is" : "are"} their campaign's own and ${num(n[1])} ${n[1] === 1 ? "is" : "are"} by outside groups that ${OUT}.`
     : n[0] ? (t === 1 ? "It is their campaign's own." : "All are their campaign's own.")
     : (t === 1 ? `It is by an outside group that ${OUT}.` : `All are by outside groups that ${OUT}.`);
-  return `<div class="adlib" id="adlib-${esc(c.fec)}" data-k="${esc(c.fec)}"><h4>The ads themselves</h4>
-    ${t ? `<p class="adn">${num(t)} ad${t === 1 ? "" : "s"} in Google's ad library: ${kinds.join(", ")}. ${whose} Newest first.</p><ul class="adlist"><li>Loading the list&hellip;</li></ul>`
-      : `<p class="adn">Google's ad library holds no ad tied to them.</p>`}
-    <p class="adlinks"><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library for ${esc(c.n)}</a>: Meta's ads are not in Google's data.</p></div>`;
+  const meta = `<p class="adlinks"><a href="${metaSearch(c.n)}" target="_blank" rel="noopener">Search Meta's ad library for ${esc(c.n)}</a>: Meta's ads are not in Google's data.</p>`;
+  if (!t) return `<div class="adlib none" id="adlib-${esc(c.fec)}"><h4>The ads themselves</h4><p class="adn">Google's ad library holds no ad tied to them.</p>${meta}</div>`;
+  /* one closed fold (John, 2026-10-01): its summary says how many ads and of what kinds; the list inside is fetched when it is first opened */
+  return `<details class="adlib" id="adlib-${esc(c.fec)}" data-k="${esc(c.fec)}"><summary><h4>The ads themselves</h4> <span>${num(t)} ad${t === 1 ? "" : "s"} in Google's ad library: ${kinds.join(", ")}</span></summary>
+    <p class="adn">${whose} ${t > AD_RUN ? "Newest first, five at a time: each group is headed by the dates its ads ran between." : t > 1 ? "Newest first." : ""}</p>
+    <div class="adgroups"><p class="adn">Loading the list&hellip;</p></div>
+    ${meta}</details>`;
 }
+const AD_RUN = 5, AD_BATCH = 10;      // five ads to a group; where a list is long, ten groups at a time
 const adFiles = {};
-function mountAdLib(r){      // the list is fetched only when a race page with ads opens
-  const boxes = $$(".adlib[data-k]").filter(b => adCount(adN(r, {fec: b.dataset.k})));
-  if (!boxes.length) return;
-  const f = adFiles[r.id] || (adFiles[r.id] = fetch(`data/ads/${encodeURIComponent(r.id)}.json?v=${encodeURIComponent(BOOT.generated)}`).then(x => x.ok ? x.json() : Promise.reject(x.status)));
-  f.then(d => boxes.forEach(b => { if (b.isConnected) fillAdList(b, (d.cands || {})[b.dataset.k] || []); }),
-    () => { delete adFiles[r.id]; boxes.forEach(b => { const ul = $(".adlist", b); if (ul) ul.innerHTML = `<li>The list could not be loaded just now. <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Open Google's ad library</a> and search the name.</li>`; }); });
+function mountAdLib(r){      // a race's list of ads is one file, fetched the first time a reader opens a candidate's ads
+  $$("details.adlib[data-k]").forEach(b => b.addEventListener("toggle", () => {
+    if (!b.open || b.dataset.filled) return;
+    const f = adFiles[r.id] || (adFiles[r.id] = fetch(`data/ads/${encodeURIComponent(r.id)}.json?v=${encodeURIComponent(BOOT.generated)}`).then(x => x.ok ? x.json() : Promise.reject(x.status)));
+    f.then(d => { if (b.isConnected && !b.dataset.filled) fillAdList(b, (d.cands || {})[b.dataset.k] || []); },
+      () => { delete adFiles[r.id];      // not marked as filled: opening the fold again asks again
+        const box = $(".adgroups", b); if (box) box.innerHTML = `<p class="adn">The list could not be loaded just now. <a href="https://adstransparency.google.com/political?region=US" target="_blank" rel="noopener">Open Google's ad library</a> and search the name.</p>`; });
+  }));
+}
+function adGroup(list, i){      // five ads, closed, under their numbers and the dates they ran between: "Ads 6 to 10: Sep 2 to Sep 29, 2026"
+  const part = list.slice(i, i + AD_RUN), first = part.map(a => a.first).filter(Boolean).sort()[0], last = part.map(a => a.last || a.first).filter(Boolean).sort().pop();
+  return `<details class="adgrp"><summary><b>${part.length === 1 ? `Ad ${num(i + 1)}` : `Ads ${num(i + 1)} to ${num(i + part.length)}`}:</b> <span>${esc(adSpan({first, last}))}</span></summary><ul class="adlist">${part.map(adItem).join("")}</ul></details>`;
 }
 function fillAdList(b, list){
-  const ul = $(".adlist", b); if (!ul) return;
-  ul.innerHTML = list.length ? list.slice(0, 6).map(adItem).join("") : "<li>None found in the list.</li>";
-  if (list.length <= 6) return;
-  const btn = document.createElement("button");
-  btn.type = "button"; btn.className = "adall"; btn.textContent = `Show all ${num(list.length)}`;
-  btn.addEventListener("click", () => { ul.insertAdjacentHTML("beforeend", list.slice(6).map(adItem).join("")); btn.remove(); const a = ul.children[6] && ul.children[6].querySelector("a"); if (a) a.focus(); });
-  ul.after(btn);
+  const box = $(".adgroups", b); if (!box) return;
+  b.dataset.filled = "1";
+  if (!list.length) { box.innerHTML = `<p class="adn">None found in the list.</p>`; return; }
+  if (list.length <= AD_RUN) { box.innerHTML = `<ul class="adlist">${list.map(adItem).join("")}</ul>`; return; }      // five or fewer: the one fold is enough
+  const groups = Math.ceil(list.length / AD_RUN), take = left => left <= AD_BATCH + 2 ? left : AD_BATCH; let shown = 0;
+  const more = () => {      // the next groups, each closed; a long list comes ten groups at a time
+    const from = shown, n = take(groups - shown); let h = "";
+    for (let g = from; g < from + n; g++) h += adGroup(list, g * AD_RUN);
+    shown += n;
+    const old = $(".adall", box); if (old) old.remove();
+    box.insertAdjacentHTML("beforeend", h);
+    if (shown < groups) { const next = take(groups - shown), btn = document.createElement("button");
+      btn.type = "button"; btn.className = "adall";
+      btn.textContent = `Show the ${next === groups - shown ? "last" : "next"} ${next === 1 ? "group" : next + " groups"}: ads ${num(shown * AD_RUN + 1)} to ${num(Math.min(list.length, (shown + next) * AD_RUN))} of ${num(list.length)}`;
+      btn.addEventListener("click", () => { const at = shown; more(); const s = $$("details.adgrp > summary", box)[at]; if (s) s.focus(); });
+      box.appendChild(btn); }
+  };
+  box.innerHTML = ""; more();
 }
-document.addEventListener("click", e => {      // "N ads in Google's library" in the comparison: to that candidate's list, without changing the page
+document.addEventListener("click", e => {      // "N ads in Google's library" in the comparison: to that candidate's ads, opened, without changing the page
   const a = e.target.closest("a[data-jump]"); if (!a) return;
   const t = document.getElementById(a.dataset.jump); if (!t) return;
-  e.preventDefault(); t.setAttribute("tabindex", "-1"); t.scrollIntoView({block: "start", behavior: calm() ? "auto" : "smooth"}); t.focus({preventScroll: true});
+  e.preventDefault();
+  const fold = t.tagName === "DETAILS", f = fold ? $("summary", t) : t;
+  if (fold) t.open = true; else t.setAttribute("tabindex", "-1");
+  t.scrollIntoView({block: "start", behavior: calm() ? "auto" : "smooth"}); if (f) f.focus({preventScroll: true});
 });
 const adSrcItem = () => { const s = BOOT.sources["google-political-ads"]; if (!s) return "";
   return `<div class="srcitem"><b>Google</b>: Political Ads Transparency Report, data bundle. Google's public record of the election ads run on its services: each ad's advertiser and the FEC number or other registration Google verified it under, its kind (video, image or text), the dates it ran, its spending and impressions as ranges, and the places it was aimed at. ${num(s.rows || 0)} of its ads are tied to 2026 candidates here, each linked to its own page in Google's Ads Transparency Center (adstransparency.google.com); nothing is copied.<small><span class="tag fact">Fact</span> <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>${s.pub ? ` &middot; updated by Google ${esc(fmtDate(String(s.pub).slice(0, 10)))}` : ""} &middot; fetched ${esc(s.fetched)} &middot; SHA-256 ${esc((s.sha || "").slice(0, 16))}&hellip;</small></div>`; };
@@ -1087,8 +1141,8 @@ function oddsHTML(r){
     return `<div class="mkt"><div class="mh"><b>${name}</b><span>${esc(M.title || "")}</span></div>${M.rows.map(([label, p]) => `<div class="mrowo"><span>${esc(label)}</span><span class="mbar"><i style="width:${(100 * p).toFixed(1)}%"></i></span><b>${Math.round(100 * p)}&cent;</b></div>`).join("")}
       <p class="fnote">${Number(M.volume).toLocaleString()} ${M.unit === "contracts" ? "contracts" : "dollars"} traded in all. A price of 60&cent; means a contract paying $1 if that happens trades at 60&cent;.</p>
       <button type="button" class="mgo" data-url="${esc(M.url)}" data-name="${name}">Go to ${name}&hellip;</button></div>`; };
-  const at = new Date(O.at);
-  return `<section class="bsec" id="odds"><h2>What bettors are paying</h2><p class="sub">Prices on two prediction markets, as information only. Not a poll, not a forecast and not an official record.</p>
+  const at = new Date(O.at), shown = ["polymarket", "kalshi"].filter(k => O[k] && (O[k].rows || []).length).length;      // the count is of the markets shown below
+  return `<section class="bsec" id="odds"><h2>What bettors are paying</h2><p class="sub">Prices on ${shown === 1 ? "one prediction market" : "two prediction markets"}, as information only. Not a poll, not a forecast and not an official record.</p>
     <div class="mgrid">${block("polymarket", "Polymarket")}${block("kalshi", "Kalshi")}</div>
     <p class="fnote">Read from each market's public data on ${esc(at.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"}))}. Prices move all day; the markets' own pages have the current ones. The Civic Archive takes no money from either market and uses no referral links.</p></section>`;
 }
@@ -1443,7 +1497,6 @@ function home(anchor){
 }
 function statePage(st){
   const rs = byState[st] || []; if (!rs.length) { home(); return; }
-  const src = Object.values(BOOT.sources).filter(s => s.state === st);
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><span>${esc(NAMES[st])}</span></nav>
   <section class="bhero"><span class="eyebrow">On The Ballot &middot; ${esc(NAMES[st])}</span><h1>${esc(NAMES[st])}</h1>
     <p class="lede">${rs.filter(r => r.o === "H").length} House ${rs.filter(r => r.o === "H").length === 1 ? "seat" : "seats"}${rs.some(r => r.o === "S") ? " and a Senate seat" : ""} on the November 3 ballot. ${listed.has(st) ? "Candidates from the state's official list." : "The state's official candidate list is not loaded yet; each race says who holds the seat today."}</p>
@@ -1452,7 +1505,7 @@ function statePage(st){
   ${stateMapHTML(st)}
   ${rs.some(r => r.o === "S") ? `<details class="fold"><summary><h2>Senate</h2><span class="fsum">${foldSum(rs.filter(r => r.o === "S"))}</span></summary><div class="fbody"><div class="rlist">${rs.filter(r => r.o === "S").map(raceRow).join("")}</div></div></details>` : ""}
   <details class="fold"><summary><h2>House</h2><span class="fsum">${foldSum(rs.filter(r => r.o === "H"))}</span></summary><div class="fbody"><div class="rlist">${rs.filter(r => r.o === "H").map(raceRow).join("")}</div></div></details>
-  ${src.length ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${src.map(srcItem).join("")}</div></section>` : ""}`;
+  ${stateSources(st)}`;
   mountStateMap(st);
 }
 function holderLine(r){
@@ -1472,7 +1525,6 @@ function holderLine(r){
 function racePage(id){
   const r = R[id]; if (!r) { home(); return; }
   const prim = Object.keys(r.el || {}).filter(k => k !== "general" && k !== "open-primary").sort();
-  const srcs = [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean);
   CMP_OPEN = new Set();
   $("#app").innerHTML = `<nav class="crumbs"><a href="#">Congress</a><span>&rsaquo;</span><a href="#state=${r.st}">${esc(NAMES[r.st])}</a><span>&rsaquo;</span><span>${esc(raceShort(r))}</span></nav>
   <section class="bhero withloc"><div><span class="eyebrow">${r.o === "S" ? "U.S. Senate" : "U.S. House"} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceName(r))}</h1>
@@ -1481,7 +1533,7 @@ function racePage(id){
   ${general(r).length ? arena(r) : `<div class="notebox">${hasList(r) ? "No candidate for this race is on the state's list." : `${notLoaded(r)} We add each state from its own election office, largest first.`}</div>`}
   ${adsHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${prim.length === 1 && prim[0] === "primary" ? `${esc(NAMES[r.st])}'s primary is top-${TOPN[r.st] || "two"}: every candidate, of every party preference, on one ballot, and the ${TOPN[r.st] || "two"} with the most votes go on to November${r.st === "AK" ? ", where the vote is counted by ranked choice" : ""}.` : "Each party chose its nominee in its own primary. A party with a single candidate held none."}</p>${prim.map(k => field(r, k)).join("")}</section>` : ""}
-  ${srcs.length || ADL.races[r.id] ? `<section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcs.map(srcItem).join("")}${ADL.races[r.id] ? adSrcItem() : ""}</div></section>` : ""}`;
+  ${raceSources(r)}`;
   mountLocator(r);
   mountAdLib(r);
   wireTabs();
@@ -1529,27 +1581,182 @@ function wireArena(r){      // the comparison's open button; the cards' and colu
   box.addEventListener("drop", e => { const c = e.target.closest(".bcard[data-k]"); if (!dragK || !c) return; e.preventDefault(); if (c.dataset.k !== dragK) { arrMove(r, dragK, c.dataset.k); redraw(); } dragK = null; });
 }
 const srcItem = s => `<div class="srcitem"><b>${esc(s.agency)}</b>: ${esc(s.title)}<small><span class="tag fact">Fact</span> <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a> &middot; fetched ${esc(s.fetched)} &middot; ${Number(s.rows || 0).toLocaleString()} rows &middot; SHA-256 ${esc((s.sha || "").slice(0, 16))}&hellip;${s.note ? " &middot; " + esc(s.note) : ""}</small></div>`;
-function sourcesHTML(){
-  return `<section class="bsec" id="sources"><h2>Sources and methods</h2>
-    <ul class="method sub">
-      <li><b>Who is running</b> comes only from each state's own election office: its certified list of candidates, or its official results where the list is the result of a primary. A state appears once its list is loaded; until then its races say who holds the seat today and nothing more.</li>
-      <li><b>Order.</b> Candidates appear in the order the state's list gives them, or by surname where the list gives no ballot order. Never by money, polls or party.</li>
-      <li><b>Parties</b> are printed exactly as the official list prints them. Colours are for telling the cards apart only.</li>
-      <li><b>Money</b> is the 2026 cycle from the Federal Election Commission's bulk files: what each campaign reported, organizations named, people only as a total. A candidate's own fundraising committees and joint fundraising committees are moved in, not donors. Outside spending is kept apart, because the campaign never received it.</li>
-      <li><b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.</li>
-      <li><b>Found on the open web.</b> Where no official record gives a candidate's birth year or earlier offices, the page shows what a government's own page, the campaign's own website, Wikipedia or a named news organization states. Each is labelled by which of those it is ("according to" a government page or the campaign, "as reported by" Wikipedia or a news organization) and linked to the page that states it, and each was checked twice: found by one reader and confirmed against its source by a second. An age from a birth year alone reads "about", and offices found this way are listed but their years are not added up. A campaign website found the same way is marked as such. Never an address, family, or anything about a person's views.</li>
-      <li><b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.</li>
-      <li><b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.</li>
-      <li><b>The ads themselves</b> are Google's: each one opens on its own page in Google's Ads Transparency Center, where a video plays; nothing is copied here. An ad is tied to a candidate only on the record: Google verified its advertiser under the candidate's campaign committee (or, where Google gives no FEC number the FEC's files know, the advertiser's name is the committee's own), or under the FEC number of a committee that reported spending in the race. A campaign's own ad is labelled "Paid for by their campaign", with no word about its tone. An outside group's ad is labelled with what the group itself swore to the FEC: how much it spent for and against each candidate in the race. Google's data does not tell which candidate an outside ad is about, or what it says, and this page never guesses. Meta's ads are not in Google's data; a link searches Meta's own library by name.</li>
-      <li><b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.</li>
-      <li><b>Still to come:</b> vote counts for primaries where only the winner is loaded, and the remaining states' lists.</li>
-    </ul>
-    <div class="srclist">${Object.entries(BOOT.sources).filter(([id]) => id !== "google-political-ads").map(([, s]) => s).sort((a, b) => (NAMES[a.state] || a.state || "").localeCompare(NAMES[b.state] || b.state || "")).map(srcItem).join("")}
-      <div class="srcitem"><b>Federal Election Commission</b>: bulk data files for the 2025&ndash;2026 cycle (candidates, committees, campaign totals, committee payments)<small><span class="tag fact">Fact</span> <a href="https://www.fec.gov/data/browse-data/?tab=bulk-data" target="_blank" rel="noopener">fec.gov/data/browse-data/?tab=bulk-data</a></small></div>
-      ${adSrcItem()}
-      <div class="srcitem"><b>National Conference of State Legislatures</b>: the notes on new district lines<small><span class="tag analysis">Secondary</span> <a href="https://www.ncsl.org/redistricting-and-census/changing-the-maps-tracking-mid-decade-redistricting" target="_blank" rel="noopener">Changing the Maps: Tracking Mid-Decade Redistricting</a>, updated September 11, 2026</small></div>
-    </div></section>`;
+const srcRow = s => ({h: srcItem(s), g: NAMES[s.state] || "", a: s.agency || ""});      // with the state it belongs to: a long list is folded state by state
+const srcHost = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return "the page"; } };
+const T_FACT = `<span class="tag fact">Fact</span>`, T_SEC = `<span class="tag analysis">Secondary</span>`, tagNote = words => `<span class="tag note">${words}</span>`;
+const ext = (u, words, nofollow) => `<a href="${esc(u)}" target="_blank" rel="noopener${nofollow ? " nofollow" : ""}">${words}</a>`;
+const srcBox = (who, what, small) => `<div class="srcitem"><b>${who}</b>: ${what}<small>${small}</small></div>`;
+/* ---------- the page's own rules, each with the kind of source it is about: it is shown in that kind's fold, above the sources ---------- */
+const METHODS = [
+  ["lists", `<b>Who is running</b> comes only from each state's own election office: its certified list of candidates, or its official results where the list is the result of a primary. A state appears once its list is loaded; until then its races say who holds the seat today and nothing more.`],
+  ["lists", `<b>Order.</b> Candidates appear in the order the state's list gives them, or by surname where the list gives no ballot order. Never by money, polls or party.`],
+  ["lists", `<b>Parties</b> are printed exactly as the official list prints them. Colours are for telling the cards apart only.`],
+  ["results", `<b>Primaries.</b> Each primary shows everyone who was on its ballot and who went on to November. Votes are shown only as certified in the state's official results; where they are not loaded yet, the race says so, and who went on comes from the state's candidate list.`],
+  ["money", `<b>Money</b> is the 2026 cycle from the Federal Election Commission's bulk files: what each campaign reported, organizations named, people only as a total. A candidate's own fundraising committees and joint fundraising committees are moved in, not donors. Outside spending is kept apart, because the campaign never received it.`],
+  ["people", `<b>Age and offices held</b> come from official records only: the Biographical Directory of the U.S. Congress for anyone who serves or served there, and the Open States roster for state legislators and statewide officials. Years in office count every office on record once, however they overlap; "at least" means a record lacks a start date. Where no record gives a birth date or an office, the card says so; nothing is estimated.`],
+  ["web", `<b>Found on the open web.</b> Where no official record gives a candidate's birth year or earlier offices, the page shows what a government's own page, the campaign's own website, Wikipedia or a named news organization states. Each is labelled by which of those it is ("according to" a government page or the campaign, "as reported by" Wikipedia or a news organization) and linked to the page that states it, and each was checked twice: found by one reader and confirmed against its source by a second. An age from a birth year alone reads "about", and offices found this way are listed but their years are not added up. A campaign website found the same way is marked as such. Never an address, family, or anything about a person's views.`],
+  ["people", `<b>Photos</b> are shown to help you recognise people: official portraits for members of Congress (public domain) and state legislators (their legislature's own, via Open States). Where no official photo exists, initials stand in; photos from candidates' own campaign websites, credited and linked, are being added.`],
+  ["own", `<b>Campaign websites.</b> A candidate's website is the address the campaign gave the FEC or the state's candidate list, or the campaign's own site found on the open web and checked against the race it names; the comparison says which.`],
+  ["own", `<b>In their own words.</b> The topics a campaign's issues page lists are shown as headings, with a link to the page; nothing is summarized.`],
+  ["maps", `<b>Maps.</b> District lines are the Census Bureau's cartographic boundary file for the 119th Congress: the lines on the 2026 ballot in every state that did not draw new ones. Where a state drew new lines for 2026, its districts are listed but not drawn until its new lines are loaded, because the old ones would be the wrong districts. A seat's colour is the party of the member who holds it today; striped means that member is not on the seat's November ballot. The colours say who holds a seat, never who will win it.`],
+  ["ads", `<b>The ads themselves</b> are Google's: each one opens on its own page in Google's Ads Transparency Center, where a video plays; nothing is copied here. An ad is tied to a candidate only on the record: Google verified its advertiser under the candidate's campaign committee (or, where Google gives no FEC number the FEC's files know, the advertiser's name is the committee's own), or under the FEC number of a committee that reported spending in the race. A campaign's own ad is labelled "Paid for by their campaign", with no word about its tone. An outside group's ad is labelled with what the group itself swore to the FEC: how much it spent for and against each candidate in the race. Google's data does not tell which candidate an outside ad is about, or what it says, and this page never guesses. Meta's ads are not in Google's data; a link searches Meta's own library by name.`],
+  ["ads", `<b>Ad spending</b> is from the Federal Election Commission's filings: what each campaign reported spending on ads, and what others spent for and against it on their own. Each expense's kind is read from the purpose its spender wrote ("digital ads", "direct mail"); "medium not stated" means exactly that. An expense reported twice, in a quick 24- or 48-hour report and again later, is counted once. Outside spenders are named only when they are committees.`],
+  ["polls", `<b>Polls</b> are shown only from pollsters in the American Association for Public Opinion Research's Transparency Initiative, who publish how each poll was done: the latest from up to five of them, each checked against the pollster's own release, and our own average of the ten most recent, with the arithmetic shown. Polls by other pollsters are counted and named, not shown. A poll is a measure of opinion when it was taken, with a margin of error, not a forecast.`],
+  ["polls", `<b>Betting markets.</b> Prices on two prediction markets, Polymarket and Kalshi, are shown as information only: not a poll, not a forecast and not an official record. They are read from each market's public data, and prices move all day. A notice comes before any link to a market. The Civic Archive takes no money from either market and uses no referral links.`],
+  ["page", `<b>Nobody is scored or graded.</b> The cards show the record; the judging is yours.`],
+  ["page", `<b>Still to come:</b> vote counts for primaries where only the winner is loaded, and the remaining states' lists.`]];
+/* ---------- where a page's facts come from, source by source; the folds themselves are drawn by the block after this one ---------- */
+const FEC_BULK = () => ext("https://www.fec.gov/data/browse-data/?tab=bulk-data", "fec.gov/data/browse-data/?tab=bulk-data");
+const SRC = {      // the sources that read the same on every page
+  fec: () => srcBox("Federal Election Commission", "bulk data files for the 2025&ndash;2026 cycle (candidates, committees, campaign totals, committee payments)", `${T_FACT} ${FEC_BULK()}`),
+  fecAds: () => srcBox("Federal Election Commission", "independent expenditure reports and the campaigns' own operating expenditures, 2025&ndash;2026: what each campaign, and others for and against it, reported spending on ads, by kind", `${T_FACT} ${FEC_BULK()}`),
+  aapor: () => srcBox("American Association for Public Opinion Research", "the Transparency Initiative's members, who publish how each poll was done: only their polls are shown", `${T_FACT} ${ext("https://aapor.org/standards-and-ethics/transparency-initiative/", "aapor.org/standards-and-ethics/transparency-initiative")}`),
+  roster: () => srcBox("The congress-legislators project", "the roster of members of Congress, keyed to the Biographical Directory of the U.S. Congress: who holds each seat today, and members' birth dates and terms", `${T_FACT} ${ext("https://github.com/unitedstates/congress-legislators", "github.com/unitedstates/congress-legislators")} &middot; public domain`),
+  portraits: () => srcBox("The unitedstates/images project", "official portraits of members of Congress", `${T_FACT} ${ext("https://github.com/unitedstates/images", "github.com/unitedstates/images")} &middot; public domain`),
+  openstates: () => srcBox("Open States", "its roster of state legislators and statewide officials: the offices they hold and have held, birth dates where it has them, and each legislature's own portraits", `${T_FACT} ${ext("https://github.com/openstates/people", "github.com/openstates/people")} &middot; public domain (CC0)`),
+  record: () => srcBox("The Civic Archive", "the record of the 119th Congress on this site: a sitting member's votes and bills, from the Government Publishing Office's Bill Status data and the House Clerk's and the Senate's roll calls", `${T_FACT} <a href="../../us/">The record of the 119th Congress</a>`),
+  lines: () => srcBox("U.S. Census Bureau", "cartographic boundary file of the congressional districts: the lines on the 2026 ballot in every state that did not draw new ones", `${T_FACT} ${ext("https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html", "census.gov cartographic boundary files")}${BOOT.dist.vintage ? ` &middot; ${esc(BOOT.dist.vintage)}` : ""}`),
+  outlines: () => srcBox("U.S. Census Bureau", "the states' outlines, from the us-atlas project's copy of the Bureau's cartographic boundary files", `${T_FACT} ${ext("https://github.com/topojson/us-atlas", "github.com/topojson/us-atlas")}`)};
+const srcDay = iso => { const d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"}); };
+const pollSrc = p => srcBox(esc(p.pollster), `its poll ending ${esc(fmtDate(p.end))}`, `${T_FACT} ${ext(p.url, esc(srcHost(p.url)))}${p.checked ? ` &middot; checked against the release ${esc(fmtDate(p.checked))}` : ""}`);
+const wikiPollSrc = L => srcBox("Wikipedia", "its list of this race's polls, used only to find them and to count those by pollsters outside the Initiative", `${T_SEC} ${ext(L.found_in, esc(srcHost(L.found_in)))}${L.checked ? ` &middot; checked ${esc(fmtDate(L.checked))}` : ""}`);
+const marketSrc = (name, M, at) => srcBox(name, `the market's own public data${M.title ? `: &ldquo;${esc(M.title)}&rdquo;` : ""}`, `${tagNote("Bets, not facts")}${srcDay(at) ? ` read ${esc(srcDay(at))} &middot;` : ""} the way to the market is under &ldquo;What bettors are paying&rdquo;, behind a notice`);
+function noteSrc(n, st){      // the source of a state's note on new district lines: "Agency, what it published"
+  const t = String(n.st || ""), i = t.indexOf(", "), who = i > 0 ? t.slice(0, i) : t, what = i > 0 ? t.slice(i + 2) : "";
+  return srcBox(esc(who), `${what ? esc(what) + ": " : ""}${st ? `the note on ${esc(NAMES[st])}'s district lines` : "the notes on new district lines"}`, `${/^National Conference of State Legislatures/.test(t) ? T_SEC : T_FACT} ${ext(n.su, esc(srcHost(n.su)))}`);
 }
+function peopleSources(cands, record){      // the official records behind these candidates' ages, offices and portraits: only the ones used
+  const uses = f => cands.some(c => f(P(c), c));
+  const roster = uses((p, c) => p.ds === "Congress" || (p.off || []).some(o => o.src === "Congress") || !!(c.bio && BOOT.members[c.bio]));
+  const items = [];
+  if (roster) items.push(SRC.roster());
+  if (uses(p => p.ps === "Congress")) items.push(SRC.portraits());
+  if (uses(p => p.ds === "State roster" || p.ps === "State roster" || (p.off || []).some(o => o.src === "State roster"))) items.push(SRC.openstates());
+  if (record && uses((p, c) => !!(c.bio && BOOT.members[c.bio]))) items.push(SRC.record());
+  return {items, roster};
+}
+function campaignSites(cands){      // each campaign's own website, with what the page takes from it: the address, the issue headings, a photograph
+  return cands.map(c => { const p = P(c), I = (BOOT.issues || {})[c.k], web = p.web || (I && I[0]), photo = p.ps === "Campaign"; if (!web && !photo) return null;
+    const what = [p.web ? "its website" : "", I ? "the issue headings on its issues page" : "", photo ? "the photograph" : ""].filter(Boolean).join(", ");
+    const links = [web ? ext(web, esc(srcHost(web)), true) : "", I && I[0] !== p.web ? ext(I[0], "the issues page", true) : "", photo && p.pu ? ext(p.pu, "the photograph", true) : ""].filter(Boolean).join(" &middot; ");
+    const how = !p.web ? "" : p.wf ? "found on the open web and checked against the race it names" : "the address the campaign gave the FEC or the state's candidate list";
+    return {h: srcBox(`${esc(c.n)}'s campaign`, what, `${tagNote("The campaign's own")} ${links}${how ? ` &middot; ${how}` : ""}`)}; }).filter(Boolean);
+}
+function foundPages(pairs){      // every page the open-web sweep is quoted from for these candidates: who states it, where, which kind of source, and what
+  const by = new Map();
+  const put = (c, r, who, url, kind, what) => { const x = by.get(url) || {who, url, kind, st: r.st, by: new Map()}; by.set(url, x); if (!x.by.has(c.n)) x.by.set(c.n, new Set()); x.by.get(c.n).add(what); };
+  pairs.forEach(([c, r]) => { const p = P(c);
+    if (!p.dob && p.fb) put(c, r, p.fb[2], p.fb[3], p.fb[4], "birth year");
+    if (!service(c)) (p.fo || []).forEach(o => put(c, r, o[3], o[4], o[5], "public offices held")); });
+  const tag = k => k === "official" ? T_FACT : k === "campaign" ? tagNote("The campaign's own site") : T_SEC;
+  return [...by.values()].sort((a, b) => (NAMES[a.st] || "").localeCompare(NAMES[b.st] || "") || String(a.who).localeCompare(String(b.who)))
+    .map(x => ({h: srcBox(esc(x.who), [...x.by].map(([n, f]) => `${esc(n)}: ${[...f].join(" and ")}`).join("; "), `${tag(x.kind)} ${ext(x.url, esc(srcHost(x.url)), true)}`), g: NAMES[x.st] || "", a: x.who}));
+}
+function raceSources(r){      // a race page: the kinds of source this race has, and no others
+  const g = general(r), parts = {}, add = (k, x) => { (parts[k] = parts[k] || {items: []}).items.push(x); };
+  [...new Set(Object.values(r.el || {}).flat().map(c => c.src))].map(s => BOOT.sources[s]).filter(Boolean).forEach(s => add(sourceKind(s), srcRow(s)));
+  if (g.length) add("money", {h: SRC.fec()});
+  if (g.some(c => c.fec && BOOT.ads[c.fec])) add("ads", {h: SRC.fecAds()});
+  if (ADL.races[r.id] && adSrcItem()) add("ads", {h: adSrcItem()});
+  const P0 = (BOOT.polls || {})[r.id], O = (BOOT.odds || {})[r.id];
+  if (P0) { add("polls", {h: SRC.aapor()}); (P0.polls || []).forEach(p => add("polls", {h: pollSrc(p)})); if (P0.left_out && P0.left_out.found_in) add("polls", {h: wikiPollSrc(P0.left_out)}); }
+  if (O) [["polymarket", "Polymarket"], ["kalshi", "Kalshi"]].forEach(([k, name]) => { if (O[k] && (O[k].rows || []).length) add("polls", {h: marketSrc(name, O[k], O.at)}); });
+  const who = peopleSources(g, true);
+  who.items.forEach(h => add("people", {h}));
+  if (r.h && !who.roster) { add("holders", {h: SRC.roster()}); parts.holders.label = "Who holds the seat today"; }
+  campaignSites(g).forEach(x => add("own", x));
+  foundPages(g.map(c => [c, r])).forEach(x => add("web", x));
+  if (r.o === "H" && (BOOT.dist.states || []).includes(r.st)) add("maps", {h: SRC.lines()});
+  add("maps", {h: SRC.outlines()});
+  if (r.o === "H" && BOOT.notes[r.st] && BOOT.notes[r.st].su) add("maps", {h: noteSrc(BOOT.notes[r.st], r.st)});
+  return sourceFold("Where this comes from", parts);
+}
+function stateSources(st){      // a state's page: its lists and results, who holds its seats, and the lines its map draws
+  const rs = byState[st] || [], cands = rs.flatMap(general), parts = {}, add = (k, x) => { (parts[k] = parts[k] || {items: []}).items.push(x); };
+  Object.values(BOOT.sources).filter(s => s.state === st).forEach(s => add(sourceKind(s), srcRow(s)));
+  const who = peopleSources(cands, false);
+  who.items.forEach(h => add("people", {h}));
+  if (rs.some(r => r.h) && !who.roster) add("holders", {h: SRC.roster()});
+  const photos = cands.filter(c => P(c).ps === "Campaign").length;
+  if (photos) add("own", {h: srcBox("The campaigns' own websites", photos === 1 ? "the photograph of one candidate, credited and linked on that race's page" : `the photographs of ${num(photos)} candidates, each credited and linked on its race's page`, tagNote("The campaigns' own")), n: photos});
+  if (houseOf(st).length > 1 && (BOOT.dist.states || []).includes(st)) add("maps", {h: SRC.lines()});
+  add("maps", {h: SRC.outlines()});
+  if (BOOT.notes[st] && BOOT.notes[st].su) add("maps", {h: noteSrc(BOOT.notes[st], st)});
+  return sourceFold("Where this comes from", parts);
+}
+function sourcesHTML(){      // the home page: every source, kind by kind, each kind under the rules of the page that are about it
+  const parts = {}, add = (k, x) => { (parts[k] = parts[k] || {items: []}).items.push(x); };
+  Object.entries(BOOT.sources).filter(([id]) => id !== "google-political-ads").map(([, s]) => s)
+    .sort((a, b) => (NAMES[a.state] || a.state || "").localeCompare(NAMES[b.state] || b.state || "")).forEach(s => add(sourceKind(s), srcRow(s)));
+  const pairs = BOOT.races.flatMap(r => general(r).map(c => [c, r])), cands = pairs.map(x => x[0]);
+  add("money", {h: SRC.fec()});
+  add("ads", {h: SRC.fecAds()}); if (adSrcItem()) add("ads", {h: adSrcItem()});
+  const polled = Object.values(BOOT.polls || {}), nPolls = polled.reduce((t, p) => t + (p.polls || []).length, 0), nRaces = polled.filter(p => (p.polls || []).length).length, nWiki = polled.filter(p => p.left_out && p.left_out.found_in).length;
+  if (polled.length) { add("polls", {h: SRC.aapor()});
+    if (nPolls) add("polls", {h: srcBox("The pollsters' own releases", `${num(nPolls)} ${nPolls === 1 ? "poll" : "polls"} of ${num(nRaces)} ${nRaces === 1 ? "race" : "races"}, each checked against its release and linked from its race's Polls tab`, T_FACT), n: nPolls});
+    if (nWiki) add("polls", {h: srcBox("Wikipedia", `its lists of the polls of ${num(nWiki)} ${nWiki === 1 ? "race" : "races"}, used only to find polls and to count those by pollsters outside the Initiative`, `${T_SEC} each list is linked from its race's Polls tab`), n: nWiki}); }
+  const odds = Object.values(BOOT.odds || {}), at = odds.map(o => o.at || "").sort().pop();
+  [["polymarket", "Polymarket"], ["kalshi", "Kalshi"]].forEach(([k, name]) => { const n = odds.filter(o => o[k] && (o[k].rows || []).length).length;
+    if (n) add("polls", {h: srcBox(name, `the market's own public data, for ${num(n)} ${n === 1 ? "race" : "races"}`, `${tagNote("Bets, not facts")}${srcDay(at) ? ` read ${esc(srcDay(at))} &middot;` : ""} the way to a market is on its race's page, behind a notice`)}); });
+  peopleSources(cands, true).items.forEach(h => add("people", {h}));
+  const sites = cands.filter(c => P(c).web).length, issues = cands.filter(c => (BOOT.issues || {})[c.k]).length, photos = cands.filter(c => P(c).ps === "Campaign").length;
+  if (sites) add("own", {h: srcBox("The campaigns' own websites", `${num(sites)} of them${issues ? `, with the issue headings of ${num(issues)}` : ""}${photos ? ` and the photographs of ${num(photos)} candidates` : ""}; each is linked on its candidate's race page`, tagNote("The campaigns' own")), n: sites});
+  foundPages(pairs).forEach(x => add("web", x));
+  add("maps", {h: SRC.lines()}); add("maps", {h: SRC.outlines()});
+  const noted = new Map(); Object.entries(BOOT.notes || {}).forEach(([st, n]) => { if (n.st && n.su) noted.set(n.st, (noted.get(n.st) || []).concat([[st, n]])); });
+  noted.forEach(list => add("maps", {h: noteSrc(list[0][1], list.length === 1 ? list[0][0] : "")}));
+  METHODS.forEach(([k, m]) => { const p = parts[k] = parts[k] || {items: []}; (p.notes = p.notes || []).push(m); });
+  return sourceFold("Sources and methods", parts, "sources");
+}
+
+/* ---------- source folds (John, 2026-10-01): every "Where this comes from" and "Sources and methods" is one closed fold, and
+   inside it a closed fold for each kind of source the page has, its summary saying how many it holds. A long list is broken
+   up again: under the state or the office its sources carry, otherwise ten at a time. The state ballot pages take this block
+   as it stands, so every ballot page folds its sources the same way; all it asks of a page is esc(). ---------- */
+const SOURCE_KINDS = [      // [key, what the fold is called, the words a source's own "kind" uses for it]; the folds appear in this order
+  ["lists", "The candidate lists", /candidate (list|filing)|\bballots?\b|certification|contest list|pamphlet|party (key|list)/],
+  ["results", "Official results", /result|canvass/],
+  ["rules", "Laws, notices and calendars", /statute|\blaw\b|\brule\b|constitution|notice|calendar|schedule|guide|manual|history|proclamation|release|procedure|setup|\bpage\b/],
+  ["money", "Campaign money", /money|finance/],
+  ["ads", "Ads", /^ads?$|ad library/],
+  ["polls", "Polls and markets", /\bpolls?\b|market/],
+  ["people", "Who the candidates are", /biograph|portrait|photo/],
+  ["own", "The campaigns' own websites", /campaign|website/],
+  ["web", "Found on the open web", /open web/],
+  ["holders", "Who holds each seat today", /roster/],
+  ["places", "Places and their names", /\bcodes?\b|place names|geography|precinct table|district list|directory|election authorities/],
+  ["maps", "Maps and lines", /boundar|\blines\b|\bmaps?\b/],
+  ["other", "Other sources", null],
+  ["page", "How this page works", null]];
+function sourceKind(s){      // which fold a source belongs in: the fold it names itself, or else what its own "kind" says (and, for a certification, what its title says it certifies)
+  if (s && s.fold && SOURCE_KINDS.some(x => x[0] === s.fold)) return s.fold;
+  const k = String((s && s.kind) || "").toLowerCase(), t = String((s && s.title) || "");
+  if (/certification|procedure/.test(k)) return /canvass|returns|results/i.test(t) ? "results" : /certification/.test(k) || /ballot|candidate|nominee/i.test(t) ? "lists" : "rules";
+  const hit = SOURCE_KINDS.find(x => x[2] && x[2].test(k));
+  return hit ? hit[0] : "other";
+}
+const sourceCount = items => items.reduce((t, x) => t + (x.n || 1), 0);      // a line that stands for many sources carries their number
+const sourceWords = (n, one) => `${Number(n).toLocaleString("en-US")} ${one}${n === 1 ? "" : "s"}`;
+function sourceRuns(items){      // a kind's sources: as they are when few; when many, under the state or office they carry, otherwise ten at a time
+  const list = part => `<div class="srclist">${part.map(x => x.h).join("")}</div>`;
+  if (items.length <= 12) return list(items);
+  const fold = (label, sub, body) => `<details class="sfold"><summary><b>${label}</b>${sub ? `<span>${sub}</span>` : ""}</summary><div class="fbody">${body}</div></details>`;
+  const by = new Map(); items.forEach(x => { const g = x.g || ""; if (!by.has(g)) by.set(g, []); by.get(g).push(x); });
+  if (by.size > 1 && !by.has("")) return [...by].sort((x, y) => x[0].localeCompare(y[0])).map(([g, part]) => fold(esc(g), sourceWords(sourceCount(part), "source"), sourceRuns(part.map(x => ({...x, g: "", a: x.a === g ? "" : x.a}))))).join("");
+  let out = "";
+  for (let i = 0; i < items.length; i += 10) { const part = items.slice(i, i + 10), a = part[0].a || "", b = part[part.length - 1].a || "";
+    out += fold(part.length === 1 ? `Source ${i + 1}` : `Sources ${i + 1} to ${i + part.length}`, a && b && a !== b ? `${esc(a)} to ${esc(b)}` : esc(a || b), list(part)); }
+  return out;
+}
+function sourceFold(title, parts, id){      // parts: {kind: {items: [{h: the source as HTML, n, g, a}], notes: [HTML], label}}; nothing at all when a page has no source
+  const kinds = SOURCE_KINDS.map(x => [x[0], x[1], parts[x[0]]]).filter(x => x[2] && ((x[2].items || []).length || (x[2].notes || []).length));
+  if (!kinds.length) return "";
+  const total = kinds.reduce((t, x) => t + sourceCount(x[2].items || []), 0), withSources = kinds.filter(x => (x[2].items || []).length).length;
+  return `<details class="fold srcfold"${id ? ` id="${id}"` : ""}><summary><h2>${title}</h2><span class="fsum">${sourceWords(total, "source")} &middot; ${sourceWords(withSources, "kind")}</span></summary><div class="fbody">${kinds.map(([k, label, p]) => {
+    const items = p.items || [], notes = p.notes || [], n = sourceCount(items);
+    return `<details class="sfold" data-kind="${k}"><summary><b>${p.label || label}</b><span>${n ? sourceWords(n, "source") : sourceWords(notes.length, "note")}</span></summary><div class="fbody">${notes.length ? `<ul class="method">${notes.map(m => `<li>${m}</li>`).join("")}</ul>` : ""}${items.length ? sourceRuns(items) : ""}</div></details>`; }).join("")}</div></details>`;
+}
+/* ---------- end of source folds ---------- */
 
 /* ---------- the address decides the page ---------- */
 function route(){

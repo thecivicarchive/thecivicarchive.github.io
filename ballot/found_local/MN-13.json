@@ -1,0 +1,694 @@
+{
+ "state": "MN",
+ "part": 13,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "The session's WebSearch allowance ran out after eight searches of this slice (the first two candidates); everyone after that was researched by reading pages directly with the kit's honest User-Agent: government sites, party sites, local newspapers' own search pages, Wikipedia's API. Checked afterwards against the campaign website cell of the Secretary of State's list, read by the kit's own step on a scratch copy of the database (python -m ballot.local_sites files --db <copy>): the eight websites below are the eight this slice's candidates filed, and nobody else in the slice filed one. A candidate with a site they did not file could still have been missed.",
+  "Jennifer Geisler's campaign site shows, under \"Supported by\", the logos of the Senate District 35 DFL and the Anoka County DFL beside the DFL Senior Caucus's. Only the Senior Caucus publishes its endorsement on a page of its own that could be read (the address the state party gives for Senate District 35's site no longer answers, and it gives none for the county unit), so only that one is recorded.",
+  "The Minnesota Judicial Branch's site (mncourts.gov) answers both the kit's reader and WebFetch with 403, so the two judges have no official page here and their appointments rest on newspaper reports. The Yellow Medicine County and Houston County sites could not be read either (robots.txt asks scripts to stay out; the other fails its secure handshake).",
+  "Ages printed in ABC Newspapers' voter guides (Jennifer Geisler 64 in July 2026; Tammy Gimpl 53 in October 2024) are not birth years and were left out.",
+  "For whoever holds race 2026-MN-1010-17486 (East Bethel council): ABC Newspapers reported on August 7, 2026 that Tim Miller, who is on the November list, died on August 1 after filing, and that his name stays on the ballot: https://www.hometownsource.com/abc_newspapers/community/east-bethel-council-member-tim-miller-dies-at-60/article_80983ad4-2711-4e0a-b53b-5e3f67762138.html"
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0127-MN",
+   "name": "Kim (Kotonias) McLaughlin",
+   "website": {
+    "url": "https://www.kimforsd7.com/",
+    "how": "The site is titled \"Kim McLaughlin 4 SD7\", names Kim Kotonias McLaughlin, says she is running for the Minnesota Senate and is signed \"Kim McLaughlin for Senate District 7\"; the Minnesota DFL's list of the candidates it has endorsed links to it beside her name and Senate District 7.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.hibbing.k12.mn.us/district/school-board/members",
+    "source": "Hibbing Public Schools: School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hibbing School Board (ISD 701); chair pro tem and treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Hibbing Public Schools: School Board Members",
+     "url": "https://www.hibbing.k12.mn.us/district/school-board/members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Arrowhead Regional Development Commission, member",
+     "from": "",
+     "to": "now",
+     "source": "WDIO-TV",
+     "url": "https://www.wdio.com/top-stories/hibbing-school-board-members-enters-minnesota-senate-district-07-race/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Hibbing Fire Civil Service Commission, chair (a former commissioner, by her campaign's account)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website",
+     "url": "https://www.kimforsd7.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of the candidates it has endorsed)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran in the DFL primary for Minnesota Senate, District 7",
+     "year": 2022,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Duluth News Tribune",
+     "url": "https://www.duluthnewstribune.com/opinion/editorials/our-view-endorsement-put-finance-expertise-on-ballot-for-dfl",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL Endorsed",
+    "url": "https://www.kimforsd7.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0162-MN",
+   "name": "Kevin Peterson",
+   "website": {
+    "url": "https://www.kpformn.com/",
+    "how": "The site is titled \"Kevin Peterson for MN Senate\" and says he is running for State Senator, SD42, with a \"Senate District 42\" page of its own.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 42 Republicans (the party's local unit for Plymouth, Medicine Lake and part of Maple Grove)",
+     "url": "https://www.sd42gop.com/2026_mn_senate",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0200-MN",
+   "name": "Spencer Igo",
+   "website": {
+    "url": "https://spencerigo.com/",
+    "how": "The site is headed \"Spencer Igo - Your State Representative\" and says he is running for re-election in Minnesota House District 7A.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "St. Louis County Republican Party (its home page links this list with the words \"See the candidates endorsed by the St. Louis County Republican Party for 2026 elections\"; the list itself is headed as its post-primary candidates and shows him under State Representatives)",
+     "url": "https://www.stlouisrpm.com/PagesFolder/Endorsement%202026_1.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0237-MN",
+   "name": "Wes Lund",
+   "past_party": [
+    {
+     "what": "Republican candidate for Minnesota House, District 25B (general election)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Minnesota House of Representatives election (citing the Minnesota Secretary of State's candidate filings)",
+     "url": "https://en.wikipedia.org/wiki/2024_Minnesota_House_of_Representatives_election#District_25B",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0275-MN",
+   "name": "Leon M. Lillie",
+   "born": {
+    "year": 1961,
+    "date": "1961-06-28",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12269",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Saint Paul City Council",
+     "from": "1995",
+     "to": "2004",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12269",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives (District 55A, then 43B from 2013 and 44B from 2023)",
+     "from": "2005",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12269",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of the candidates it has endorsed)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: Minnesota House, District 43B with no start date, ending January 3, 2023; then District 44B from January 3, 2023.",
+     "problem": "The Legislative Reference Library's record gives continuous House service since 2005: District 55A for 2005 to 2012, District 43B for 2013 to 2022, District 44B from 2023 to the present.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12269",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0316-MN",
+   "name": "Samakab Hussein",
+   "website": {
+    "url": "https://samakabhussein.com/",
+    "how": "The site is headed \"Samakab for House\" and names Rep. Samakab Hussein, House District 65A; the Minnesota DFL's list of the candidates it endorsed for 2026 links to it. Its home page still carries his message of November 2024.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of the candidates it has endorsed)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "secured the DFL endorsement for Minnesota House District 65A with unanimous support",
+    "url": "https://samakabhussein.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-173",
+   "name": "Adam Anderson"
+  },
+  {
+   "race_id": "2026-MN-0392-155",
+   "name": "Kayla Schmidt",
+   "official_page": {
+    "url": "https://traversecountymn.gov/departments/departments/county-commissioners/",
+    "source": "Traverse County: County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Traverse County Board of Commissioners, Second District",
+     "from": "",
+     "to": "now",
+     "source": "Traverse County: County Commissioners",
+     "url": "https://traversecountymn.gov/departments/departments/county-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-003",
+   "name": "Jennifer (Jenny) Geisler",
+   "website": {
+    "url": "https://geislerforanokacounty.com/",
+    "how": "The site is headed Jenny Geisler, says she is running to bring collaboration to county government in Anoka County, and is paid for by Geisler for Anoka County.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Coon Rapids City Council, Ward 4 (did not file for re-election in 2024)",
+     "from": "",
+     "to": "",
+     "source": "ABC Newspapers",
+     "url": "https://www.hometownsource.com/abc_newspapers/community/coonrapids/coon-rapids-ward-4-goes-to-geisler/article_1972d4f0-9c62-11ef-9c44-4b1b2af8f442.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Coon Rapids Planning Commission (nine years)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website",
+     "url": "https://geislerforanokacounty.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Coon Rapids Economic Development Commission (two years)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website",
+     "url": "https://geislerforanokacounty.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Council, Land Use Advisory (four years)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website",
+     "url": "https://geislerforanokacounty.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Senior Caucus",
+     "url": "https://www.dflseniors.org/endorsements/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-161",
+   "name": "DeAnne (De) Malterer",
+   "official_page": {
+    "url": "https://www.co.waseca.mn.us/95/County-Board",
+    "source": "Waseca County: County Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca County Board of Commissioners, District 4; board chair",
+     "from": "",
+     "to": "now",
+     "source": "Waseca County: County Board",
+     "url": "https://www.co.waseca.mn.us/95/County-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-055",
+   "name": "Amy Sylling"
+  },
+  {
+   "race_id": "2026-MN-0404-033",
+   "name": "Jason J. Purrington",
+   "official_page": {
+    "url": "https://www.co.cottonwood.mn.us/departments/courts___legal/sheriff/index.php",
+    "source": "Cottonwood County: Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Sheriff",
+     "from": "elected 2007",
+     "to": "now",
+     "source": "Cottonwood County: County Elected Officials",
+     "url": "https://www.co.cottonwood.mn.us/departments/county_elected_officials/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-143",
+   "name": "Wayne Nagel",
+   "website": {
+    "url": "https://nagel4sheriff.com/",
+    "how": "The site is titled \"Running for Sheriff of Sibley County - Wayne Nagel For Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-091",
+   "name": "Taylor McGowan",
+   "official_page": {
+    "url": "https://www.co.martin.mn.us/your_government/departments/county_attorney.php",
+    "source": "Martin County: County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Martin County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Martin County: County Attorney",
+     "url": "https://www.co.martin.mn.us/your_government/departments/county_attorney.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-12160",
+   "name": "Sheila Lamb",
+   "official_page": {
+    "url": "https://www.cloquetmn.gov/our-city/city-council",
+    "source": "City of Cloquet: Cloquet City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cloquet City Council, Ward 2",
+     "from": "",
+     "to": "now",
+     "source": "City of Cloquet: Cloquet City Council",
+     "url": "https://www.cloquetmn.gov/our-city/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-58612",
+   "name": "Ryan Fitzthum",
+   "official_page": {
+    "url": "https://www.sartellmn.com/government/mayor___city_council.php",
+    "source": "City of Sartell: Mayor & City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Sartell (first elected in 2018)",
+     "from": "elected 2018",
+     "to": "now",
+     "source": "The Newsleaders (Sartell-St. Stephen)",
+     "url": "https://thenewsleaders.com/mayor-fitzthum-two-newcomers-file-for-office/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Sartell City Council (two years, before he became mayor)",
+     "from": "",
+     "to": "",
+     "source": "The Newsleaders (Sartell-St. Stephen)",
+     "url": "https://thenewsleaders.com/mayor-fitzthum-two-newcomers-file-for-office/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-17486",
+   "name": "Tammy Gimpl"
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Will Stein",
+   "website": {
+    "url": "https://will4council.com/",
+    "how": "The site is titled \"Will Stein for Mendota Heights City Council\", is paid for by Will Stein for City Council, and names the city's Natural Resources Commission, which he chairs.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mendota Heights Natural Resources Commission; chair",
+     "from": "2022",
+     "to": "now",
+     "source": "City of Mendota Heights: 2026 Candidate Profiles (printed as the candidates submitted them)",
+     "url": "https://www.mendotaheightsmn.gov/CivicAlerts.aspx?AID=302",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-58612",
+   "name": "Colin Anderson",
+   "offices": [
+    {
+     "office": "Sartell Planning Commission (appointed for 2023)",
+     "from": "2023",
+     "to": "",
+     "source": "The Newsleaders (Sartell-St. Stephen)",
+     "url": "https://thenewsleaders.com/city-council-makes-appointments-for-2023/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Sartell Planning Commission, vice chair",
+     "from": "",
+     "to": "now",
+     "source": "The Newsleaders (Sartell-St. Stephen)",
+     "url": "https://thenewsleaders.com/mayor-fitzthum-two-newcomers-file-for-office/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-18674",
+   "name": "Cory Grupa",
+   "official_page": {
+    "url": "https://www.elkrivermn.gov/352/Mayor-and-City-Council",
+    "source": "City of Elk River: City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Elk River City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Elk River: City Council",
+     "url": "https://www.elkrivermn.gov/352/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Elk River City Council, Ward 1 (sworn in January 3, 2023, after winning the seat the November before)",
+     "from": "2023",
+     "to": "",
+     "source": "Elk River Star News",
+     "url": "https://www.hometownsource.com/elk_river_star_news/dietz-wagner-and-grupa-sworn-in/article_0b9ad380-8e33-11ed-a47f-53e7a01df122.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-00694-S",
+   "name": "Ted Herman",
+   "official_page": {
+    "url": "https://www.cityofalbertlea.org/government/city-council/",
+    "source": "City of Albert Lea: City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Albert Lea City Council, Ward 3 (appointed February 9, 2026, for the remainder of 2026)",
+     "from": "2026",
+     "to": "now",
+     "source": "City of Albert Lea: City News",
+     "url": "https://www.cityofalbertlea.org/council-appoints-former-officer-to-open-seat/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Freeborn County Board of Commissioners, District 5",
+     "from": "2021",
+     "to": "2023",
+     "source": "City of Albert Lea: City News",
+     "url": "https://www.cityofalbertlea.org/council-appoints-former-officer-to-open-seat/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-70420",
+   "name": "Sarah Kretschmann"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0138",
+   "name": "Jesse LaValla",
+   "official_page": {
+    "url": "https://www.isd138.org/page/school-board-information",
+    "source": "North Branch Area Public Schools: School Board Information",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Branch Area Public Schools Board (ISD 138); treasurer",
+     "from": "February 2021",
+     "to": "now",
+     "source": "North Branch Area Public Schools: School Board Information",
+     "url": "https://www.isd138.org/page/school-board-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Mariana \"Mari\" Verdugo",
+   "website": {
+    "url": "https://www.mariforep.com/",
+    "how": "The site is titled \"Mari Verdugo for Eden Prairie School Board | Vote Nov 3rd\" and is paid for by Mari Verdugo for Eden Prairie School Board.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Adam James Petrich"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0700",
+   "name": "Matthew Munger",
+   "official_page": {
+    "url": "https://www.hermantown.k12.mn.us/page/2026-school-board-candidates",
+    "source": "Hermantown Community Schools: 2026 School Board Candidates",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hermantown School Board (ISD 700), current member",
+     "from": "",
+     "to": "now",
+     "source": "Hermantown Community Schools: 2026 School Board Candidates (the statement he submitted)",
+     "url": "https://www.hermantown.k12.mn.us/page/2026-school-board-candidates",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Timothy O'Connor"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2752",
+   "name": "Michael P. Edman",
+   "official_page": {
+    "url": "https://www.fairmont.k12.mn.us/page/sb-membership-resources",
+    "source": "Fairmont Area Schools: School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fairmont Area Schools Board (ISD 2752); vice-president",
+     "from": "",
+     "to": "now",
+     "source": "Fairmont Area Schools: School Board",
+     "url": "https://www.fairmont.k12.mn.us/page/sb-membership-resources",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8103-MN",
+   "name": "Tracy Perzel",
+   "offices": [
+    {
+     "office": "Judge of the District Court, First Judicial District, chambered at Hastings in Dakota County (appointed by Governor Mark Dayton; reported September 26, 2018)",
+     "from": "appointed 2018",
+     "to": "",
+     "source": "Sun Thisweek",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/area-briefs-for-the-week-of-sept-28/article_c50aa354-c1b9-11e8-ac61-9357d0561d63.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8927-MN",
+   "name": "Antoinette C. Wetzel",
+   "offices": [
+    {
+     "office": "Judge of the District Court, Seventh Judicial District, chambered at Little Falls in Morrison County (appointed by Governor Mark Dayton; announced May 31, 2018)",
+     "from": "2018",
+     "to": "",
+     "source": "Morrison County Record",
+     "url": "https://www.hometownsource.com/morrison_county_record/free/wetzel-and-clark-appointed-by-dayton-to-fill-seventh-judicial-district-vacancies/article_9c4df5b0-6516-11e8-be6b-67751b774b0d.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "City attorney for Royalton and Little Falls (when she was appointed a judge)",
+     "from": "",
+     "to": "",
+     "source": "Morrison County Record",
+     "url": "https://www.hometownsource.com/morrison_county_record/free/wetzel-and-clark-appointed-by-dayton-to-fill-seventh-judicial-district-vacancies/article_9c4df5b0-6516-11e8-be6b-67751b774b0d.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  {
+   "race_id": "2026-MN-0127-MN",
+   "name": "Kim (Kotonias) McLaughlin",
+   "field": "website.how",
+   "was": "The site is titled \"Kim McLaughlin 4 SD7\", names Kim Kotonias McLaughlin and says she is running for the Minnesota Senate; the Mesabi Tribune's April 23, 2026 report on her Senate District 7 candidacy gives this address.",
+   "why": "the Mesabi Tribune report was not among the pages given, so the link on the DFL's own list, which was seen, is cited instead"
+  },
+  {
+   "race_id": "2026-MN-0162-MN",
+   "name": "Kevin Peterson",
+   "field": "website.how",
+   "was": "The site is titled \"Kevin Peterson for MN Senate\" and says he is running for State Senator in Senate District 42; the Senate District 42 Republicans' page about him links to an address that leads here.",
+   "why": "no link to this address could be seen in the Senate District 42 Republicans' page as fetched, so that clause was taken out"
+  },
+  {
+   "race_id": "2026-MN-0200-MN",
+   "name": "Spencer Igo",
+   "field": "endorsed_by.unit",
+   "was": "St. Louis County Republican Party (the list its home page links as its 2026 endorsements)",
+   "why": "the list page does not use the word endorsed in its text; the party's home page does, and the wording now says where"
+  },
+  {
+   "race_id": "2026-MN-0275-MN",
+   "name": "Leon M. Lillie",
+   "field": "review.shows",
+   "was": "State roster: Minnesota House, District 43B with no start date, then District 44B from January 2023; the first term is given as starting on January 3, 2023.",
+   "why": "our roster gives the first term no start date; January 3, 2023 is where it ends and the second begins"
+  },
+  {
+   "race_id": "2026-MN-0404-033",
+   "name": "Jason J. Purrington",
+   "field": "offices.from",
+   "was": "2007",
+   "why": "the county's page says \"Elected: 2007\""
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Will Stein",
+   "field": "website.how",
+   "was": "The site is titled \"Will Stein for Mendota Heights City Council\" and names the city commission he chairs; it is the address on his line of the Secretary of State's candidate list.",
+   "why": "the Secretary of State's list is not a page a verifier may open, so that clause was taken out"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Mariana \"Mari\" Verdugo",
+   "field": "website.how",
+   "was": "The site is titled \"Mari Verdugo for Eden Prairie School Board | Vote Nov 3rd\"; Eden Prairie Local News links it from her name in its guide to the six school board candidates.",
+   "why": "the Eden Prairie Local News guide was not among the pages given, so that clause was taken out"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0138",
+   "name": "Jesse LaValla",
+   "field": "offices.from",
+   "was": "2021",
+   "why": "the district's page says \"First Elected/Appointed: February 2021\""
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was re-opened on 2026-10-02 with the kit's reader. Three school district pages (North Branch, Hermantown, Fairmont) keep their words in the page's embedded data rather than its visible markup; the names and titles were read there.",
+  "The Minnesota DFL's endorsed list carries no year in its text; it was taken as the 2026 list because it names Senate candidates (the Senate is on the ballot in 2026 and was not in 2024) and its pictures were uploaded in 2026.",
+  "Samakab Hussein's quoted sentence stands on his own site beside a message dated November 2024; the site does not say which year's endorsement it means.",
+  "The Legislative Reference Library's page for Leon M. Lillie also carries ancestry and religion; neither is recorded here."
+ ]
+}

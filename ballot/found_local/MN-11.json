@@ -1,0 +1,453 @@
+{
+ "part": 11,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "Web searching stopped answering after 20 searches (the session's allowance was used up), so most of this slice was researched by reading known addresses directly: the campaign sites, the counties', cities' and school districts' own pages, and the parties' own pages. The candidates with nothing below who could not be searched for are Roger B. Hess Jr., Neil Garlock, Hailey Flickinger, Lindsey Cooksey, Christopher Klinghagen, Brandon Taylor, Betsy Tino, Mike Wobbe and the two judges; a second pass with searching would be worth it for them.",
+  "Not read, because the site refuses scripts or asks them to stay out (nothing was worked around): mncourts.gov (403, so no judge pages), mn.gov (a CAPTCHA; not requested again, so no Governor's appointment notices), co.wabasha.mn.us, stmichaelmn.gov and cityofdetroitlakes.com (robots.txt asks scripts to stay out), beckercountydfl.org, sd40mngop.com and lwvrosevillearea.org (a bot check).",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; each was then opened and read. No Republican party page was found that publishes its 2026 endorsement of Tom Dippel or Justin Middaugh (the Senate District 44 Republicans list Middaugh under 'Republican Party Candidates' without the word endorsed), so neither has an endorsed_by entry."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0126-MN",
+   "name": "Denise Slipy",
+   "website": {
+    "url": "https://slipy4senate.com/",
+    "how": "The site's title is \"Denise Slipy for Senate | Minnesota Senate District 6\"; the Minnesota DFL's list of endorsed candidates links to it beside her name and district.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran as the DFL candidate in the April 2025 special election for Minnesota Senate District 6",
+     "year": 2025,
+     "party": "Democratic-Farmer-Labor",
+     "source": "KAXE, July 14, 2025",
+     "url": "https://www.kaxe.org/local-news/2025-07-14/denise-slipy-announces-2026-run-for-sd6",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0161-MN",
+   "name": "Tom Dippel",
+   "website": {
+    "url": "https://dippelformn.com/",
+    "how": "The site's title is \"Vote Tom Dippel | Tom Dippel for Senate | Senate District 41\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0199-MN",
+   "name": "Nicky Hardy",
+   "website": {
+    "url": "https://nickyhardy.com/",
+    "how": "Its About page (nickyhardy.com/about-nicky) says \"I am running for House District 6B\"; the Minnesota DFL's list of endorsed candidates links to the site beside her name and district.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Described as \"a Pequot Lakes DFLer\" when she withdrew from the special election for Minnesota Senate District 6 to support the DFL-endorsed candidate",
+     "year": 2025,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Pine and Lakes Echo Journal, April 1, 2025",
+     "url": "https://www.pineandlakes.com/news/local/nicky-hardy-withdraws-from-state-senate-district-6-race",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0236-MN",
+   "name": "Kim Hicks",
+   "website": {
+    "url": "https://www.kimhicksformnhouse25a.com/",
+    "how": "The site's title is \"Kim Hicks for MN House 25A\" and it says \"I am running for MN House 25A\"; the Minnesota DFL's list of endorsed candidates links to it beside her name and district.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0274-MN",
+   "name": "Justin Middaugh",
+   "website": {
+    "url": "https://justinforhouse.us/",
+    "how": "The site's title is \"Justin Middaugh for State Representative – District 44A\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0314-MN",
+   "name": "Meg Luger-Nikolai",
+   "website": {
+    "url": "https://www.megfor64a.com/",
+    "how": "The site says she is \"running for the Minnesota House in District 64A\" and gives the dates \"Primary Aug. 11 | Election Day Nov. 3\"; the Minnesota DFL's list of endorsed candidates links to it beside her name and district.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "The DFL has been her political home for her entire adult life.",
+    "url": "https://www.megfor64a.com/meet-meg",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-171",
+   "name": "Christine A Husom",
+   "offices": [
+    {
+     "office": "Wright County Commissioner (former)",
+     "from": "",
+     "to": "",
+     "source": "Wright County news item \"Four Commissioner Candidates Move On\", which calls her \"Former Commissioner Christine Husom\" (no years given)",
+     "url": "https://www.wrightcountymn.gov/CivicAlerts.aspx?AID=5265",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-153",
+   "name": "Tim Denny",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/boards_and_commissions/county_board/district_2.php",
+    "source": "Todd County: County Board of Commissioners, District 2 - Tim Denny",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Todd County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Todd County: County Board of Commissioners, District 2 - Tim Denny (term expires 12/2026; no starting year given)",
+     "url": "https://www.toddcountymn.gov/government/boards_and_commissions/county_board/district_2.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-171",
+   "name": "Jeanne Holland",
+   "official_page": {
+    "url": "https://www.wrightcountymn.gov/1566/Commissioner-Districts-Contact-Informati",
+    "source": "Wright County: Commissioner Districts & Contact Information",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wright County Commissioner, District 3",
+     "from": "2023",
+     "to": "now",
+     "source": "Wright County: Commissioner Districts & Contact Information (\"Commissioner Holland began her service on the County Board in 2023\")",
+     "url": "https://www.wrightcountymn.gov/1566/Commissioner-Districts-Contact-Informati",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "No campaign website was filed for Jeanne Holland.",
+     "problem": "A site titled \"Jeanne Holland for Wright County Commissioner\" says it is paid for by \"Jeanne Holland for Wright County Commissioner\" and, in the same line, \"Not authorized by any candidate or candidate's committee\". It is not recorded as her campaign website until someone confirms whose it is.",
+     "url": "https://hollandforcommissioner.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-157",
+   "name": "Mike Wobbe"
+  },
+  {
+   "race_id": "2026-MN-0400-033",
+   "name": "Carolyn Rempel",
+   "official_page": {
+    "url": "https://www.cottonwoodcountymn.gov/departments/administrative/auditor_treasurer/index.php",
+    "source": "Cottonwood County: Auditor/Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Cottonwood County: Auditor/Treasurer page, which names her as Auditor/Treasurer (no starting year given)",
+     "url": "https://www.cottonwoodcountymn.gov/departments/administrative/auditor_treasurer/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-031",
+   "name": "Ben Hallberg",
+   "website": {
+    "url": "https://www.benhallbergforsheriff.com/",
+    "how": "The site's title is \"Ben Hallberg for Cook County Sheriff\" and it says \"I am running to be the next Cook County Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-141",
+   "name": "Benjamin Zawacki",
+   "website": {
+    "url": "https://zawackiforsheriff.com/",
+    "how": "The site is headed \"BEN ZAWACKI for Sherburne County Sheriff\" and is signed \"© 2026 Zawacki For Sheriff and Campaign fund of Ben Zawacki\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-085",
+   "name": "Ryan Hansch",
+   "official_page": {
+    "url": "https://www.mcleodcountymn.gov/government/attorney/index.php",
+    "source": "McLeod County: County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McLeod County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County: County Attorney page, which names him as McLeod County Attorney (no starting year given)",
+     "url": "https://www.mcleodcountymn.gov/government/attorney/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10972",
+   "name": "Taylor Hubbard",
+   "website": {
+    "url": "https://www.taylor4chaska.org/",
+    "how": "The site's title is \"Taylor Hubbard for Chaska Mayor\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.chaskamn.gov/144/City-Council",
+    "source": "City of Chaska: City Council (lists Taylor Hubbard as Mayor, current term expiring December 31, 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Chaska",
+     "from": "2024",
+     "to": "now",
+     "source": "Her campaign site's About page (\"Mayor of Chaska (2024–Present)\")",
+     "url": "https://www.taylor4chaska.org/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chaska City Council member, Ward 2",
+     "from": "2019",
+     "to": "2024",
+     "source": "Her campaign site's About page (\"Chaska City Council, Ward 2 (2019–2024)\")",
+     "url": "https://www.taylor4chaska.org/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Vice Chair, Chaska Human Rights Commission",
+     "from": "2008",
+     "to": "2014",
+     "source": "Her campaign site's About page (\"Vice Chair, Chaska Human Rights Commission (2008–2014)\")",
+     "url": "https://www.taylor4chaska.org/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "City representative and executive committee member, Transportation Advisory Board (TAB)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About page (\"Executive Committee Member and City Representative, Transportation Advisory Board (TAB)\"; no years given)",
+     "url": "https://www.taylor4chaska.org/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-55852",
+   "name": "Roger B. Hess Jr."
+  },
+  {
+   "race_id": "2026-MN-1010-17486",
+   "name": "Jim Smith",
+   "official_page": {
+    "url": "https://www.ci.east-bethel.mn.us/113/City-Council",
+    "source": "City of East Bethel: City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "East Bethel City Council member",
+     "from": "",
+     "to": "now",
+     "source": "City of East Bethel: City Council page, which lists Jim Smith as a Council Member whose term ends on December 31, 2026 (no starting year given)",
+     "url": "https://www.ci.east-bethel.mn.us/113/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Neil Garlock"
+  },
+  {
+   "race_id": "2026-MN-1010-57346",
+   "name": "Hailey Flickinger"
+  },
+  {
+   "race_id": "2026-MN-1020-15832",
+   "name": "Lindsey Cooksey"
+  },
+  {
+   "race_id": "2026-MN-1022-71032",
+   "name": "Jeff Hyma",
+   "official_page": {
+    "url": "https://www.winonamn.gov/325/Jeff-Hyma",
+    "source": "City of Winona: Jeff Hyma, 2nd Ward Council Member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona City Council member, 2nd Ward",
+     "from": "",
+     "to": "now",
+     "source": "City of Winona: Jeff Hyma, 2nd Ward Council Member (term expires December 31, 2026; no starting year given)",
+     "url": "https://www.winonamn.gov/325/Jeff-Hyma",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-56896-S",
+   "name": "Joe Baratta",
+   "website": {
+    "url": "https://www.joe4ward4.com/",
+    "how": "The site's own description reads \"I am Joe Baratta, and I'm running for St. Cloud City Council in Ward 4\" and it is signed \"© 2026 Joe 4 Ward 4\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am the only candidate in Ward 4 supported by the DFL.",
+    "url": "https://www.joe4ward4.com/blank-5",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "A nonpartisan office; our record carries no party endorsement for Joe Baratta.",
+     "problem": "Not an endorsement: the SD14 DFL (St. Cloud Area Democrats) lists \"Joe Baratta for St. Cloud City Council, Ward 4\" under \"Candidates Who Have Received a Letter of Support\" and says a letter of support \"does not constitute a DFL endorsement\". It is left out of endorsed_by; John may want to decide whether a letter of support is shown at all.",
+     "url": "https://www.sd14dfl.com/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Tracy Rundell",
+   "website": {
+    "url": "https://www.tracyfor112.com/",
+    "how": "The site is titled \"Tracy for 112\" and carries the lines \"Tracy Rundell\" and \"For Eastern Carver County School Board\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Laura Wall",
+   "website": {
+    "url": "https://votelaurawall.com/",
+    "how": "The site's title is \"Vote Laura Wall for School Board\" and it says \"As a member of the Eden Prairie School Board, I will listen carefully\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477-S",
+   "name": "Christopher Klinghagen"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0700",
+   "name": "Brandon Taylor"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Elizabeth Hedlund",
+   "official_page": {
+    "url": "https://www.isd761.org/our-district/school-board",
+    "source": "Owatonna Public Schools: School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Owatonna Public Schools board member",
+     "from": "",
+     "to": "now",
+     "source": "Owatonna Public Schools: School Board page, which lists Elizabeth Hedlund with a term expiring January 2027 (no starting year given)",
+     "url": "https://www.isd761.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2752",
+   "name": "Betsy Tino"
+  },
+  {
+   "race_id": "2026-MN-8101-MN",
+   "name": "Krista M. Marks",
+   "review": [
+    {
+     "shows": "The campaign website Krista M. Marks filed: kristamarksforjudge.com.",
+     "problem": "On October 1, 2026 the address showed only a holding page headed \"Coming soon!\", with no campaign content and nothing naming the office.",
+     "url": "https://kristamarksforjudge.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8925-MN",
+   "name": "Mark J. Herzing"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's own fetcher and each recorded phrase was found on its page; nothing sat behind a wall.",
+  "Corrected wording (5): Nicky Hardy's About page is at /about-nicky, and the newspaper calls her \"a Pequot Lakes DFLer\" rather than saying she announced as one; the claims that a Republican district page (Middaugh), the City of Chaska's candidates page (Hubbard) and the SD14 DFL page (Baratta) link to the campaign sites were dropped from 'how', because the first two pages are not cited in the file and the SD14 DFL page names Baratta without linking to his site. The websites themselves stand on their own titles and text.",
+  "The three review items (Holland, Baratta, Marks) say what their pages say, but none is an official source contradicting our record in the strict sense of the rules; they are kept as flags for John."
+ ]
+}

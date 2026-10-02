@@ -1,0 +1,455 @@
+{
+ "state": "MN",
+ "part": 43,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance ran out after the five searches for the legislative candidates. Everything else was read at known addresses with the kit's honest User-Agent (states/net.py), each page checked against its site's robots.txt first: governments' own sites, the Legislative Reference Library, one local party unit, and the campaign websites already filed with the Secretary of State. No search engine was read in place of the search tool.",
+  "Not reached, so no findings: the City of Hugo's site asks scripts to stay out (robots.txt), so Tom Weidt is blank; Houston County's site failed the TLS handshake (Eric Johnson); the City of Grand Rapids' site closed the connection (Dale Adams); Perham-Dent's district site timed out (Duane (DJ) Altstadt Jr); Dakota County's commissioner pages are drawn by script and showed no names (Laurie Halverson's facts are from the Legislative Reference Library); the Minnesota Judicial Branch site was not asked, since it answered earlier parts with 403 (Gina M Brandt, Tricia Loehr).",
+  "Looked for on their body's own page and not listed as sitting members, so blank: Rachel Lucas (North St. Paul council), Donna Tarantino-Walker (Victoria council), Marcy Kim Busho (Owatonna council), Kurt Christianson (Detroit Lakes board), Michael A. Rivera Jr. (Farmington board), Dan Wolf (Grand Rapids ISD 318 board), Debra Dodge (Buffalo-Hanover-Montrose board).",
+  "Stacey Stout's birth year and her 2012 and 2014 runs come from the University of Minnesota Libraries' Minnesota Historical Election Archive, labelled secondary; it is an academic compilation, not Wikipedia or a news organization, so the verifier or John may prefer to drop it. The archive's page ties her to Mahtomedi and the Mahtomedi School Board, as her campaign site does.",
+  "No party's own page naming an endorsement was found for Chris Knoll, Zach Duckworth, Stacey Stout or Bianca Virnig (the state Republican nominees page lists statewide offices only; local unit addresses were not known without search). Knoll's own site says he is the endorsed Republican candidate, kept as own_words.",
+  "Privacy: one early read of a campaign home page printed the committee's street address and phone line from the page footer to the working log; nothing of it was stored, and the reader was changed to mask phone numbers, e-mail and street addresses before any further page was read.",
+  "Verifier, 2026-10-02: every address was re-opened with the kit's User-Agent and each fact read on the page. Corrected: Laurie Halverson's commissioner entry now ends as the Library writes it (2021 to ?), not now; Chad Johnson's source no longer cites a second page that has no address in this file. For John: Stacey Stout's 2012 and 2014 runs rest on a university archive labelled secondary; drop them if only Wikipedia and news organizations may be secondary."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0141-MN",
+   "name": "Chris Knoll",
+   "website": {
+    "url": "https://knollformnsenate.com",
+    "how": "The site is headed 'Chris Knoll for Minnesota Senate District 21'; it is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Watonwan County Health and Human Services board",
+     "from": "",
+     "to": "now",
+     "source": "Marshall Independent, 'Knoll seeks Minnesota Senate seat in District 21' (February 2026); the article gives no dates",
+     "url": "https://www.marshallindependent.com/news/local-news/2026/02/knoll-seeks-minnesota-senate-seat-in-district-21/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "As the endorsed Republican candidate",
+    "url": "https://knollformnsenate.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0177-MN",
+   "name": "Zach Duckworth",
+   "website": {
+    "url": "https://www.voteduckworth.com",
+    "how": "The site is titled 'Vote Zach Duckworth For State Senate'; it is the address he filed with the Secretary of State. It answers only with www; without it the certificate does not match.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0215-MN",
+   "name": "Zachary \"Zach\" Dorholt",
+   "website": {
+    "url": "https://www.zacharydorholt.com",
+    "how": "The site says 'Zach is running to represent MN House District 14B'; it is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd742.org/about-us/school-board/board-members",
+    "source": "St. Cloud Area School District 742, Board Member Profiles: 'Zachary Dorholt, Vice Chair', term expires Jan. 4, 2027",
+    "verified": true
+   },
+   "born": {
+    "year": 1980,
+    "date": "1980-09-01",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15393",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Minnesota House District 14B",
+     "from": "2013",
+     "to": "2014",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15393",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "School Board Member (Vice Chair), St. Cloud Area School District 742",
+     "from": "",
+     "to": "now",
+     "source": "St. Cloud Area School District 742, Board Member Profiles (term expires Jan. 4, 2027; the page gives no start year)",
+     "url": "https://www.isd742.org/about-us/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 14 DFL (St. Cloud Area Democrats)",
+     "url": "https://www.sd14dfl.com/candidates",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Minnesota House, District 14B; party when first elected Democratic-Farmer-Labor",
+     "year": "2013",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15393",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0252-MN",
+   "name": "Stacey Stout",
+   "website": {
+    "url": "https://staceystout.com",
+    "how": "The site is titled 'Stacey Stout for House | House of Representatives District 33A'; it is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, Mahtomedi School Board (four years as Chair)",
+     "from": "2016",
+     "to": "now",
+     "source": "Her campaign site: 'Currently serving on the Mahtomedi School Board where she has served since 2016, including 4 years as Chair'",
+     "url": "https://staceystout.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for State House, District 43A (general election, lost)",
+     "year": "2012",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate page for Stacey Stout, Mahtomedi",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/stacey-stout",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for State House, District 43A (general election, lost)",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate page for Stacey Stout, Mahtomedi",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/stacey-stout",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0291-MN",
+   "name": "Bianca Virnig",
+   "website": {
+    "url": "https://www.biancavirnig.com",
+    "how": "The site is titled 'Bianca Virnig | Candidate for State House in 52B'; it is the address she filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-013",
+   "name": "Patty O'Connor",
+   "official_page": {
+    "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+    "source": "Blue Earth County, Board of Commissioners: 'Patty O'Connor - Chair', District 1, term expires January 5, 2027, sworn in 2022",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1, Blue Earth County (Chair)",
+     "from": "2022",
+     "to": "now",
+     "source": "Blue Earth County, Board of Commissioners (the table's 'Sworn In' column reads 2022)",
+     "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-037",
+   "name": "Laurie Halverson",
+   "born": {
+    "year": 1969,
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (the record gives the year only)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15399",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Minnesota House District 51B",
+     "from": "2013",
+     "to": "2020",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15399",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "County Commissioner, District 3, Dakota County",
+     "from": "2021",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present, County Board/Commissioner: 'Dakota County, Minnesota (County Commissioner, District 3); 2021 to ?' (the record gives no end year)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15399",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Minnesota House, District 51B; party when first elected Democratic-Farmer-Labor",
+     "year": "2013",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15399",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-079",
+   "name": "David Preisler",
+   "website": {
+    "url": "https://preisler4commissioner.org",
+    "how": "The site is headed 'David Preisler ... Re-Elect for Commissioner Le Sueur County - District #4'; it is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lesueurcounty.gov/318/Board-of-Commissioners",
+    "source": "Le Sueur County, Board of Commissioners: members list, 'David Preisler, District 4'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 4, Le Sueur County",
+     "from": "",
+     "to": "now",
+     "source": "Le Sueur County, Board of Commissioners (the page gives no start year)",
+     "url": "https://www.lesueurcounty.gov/318/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Vice Chair, Cannon River Watershed District",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site, Service page: 'Current Vice Chair of Cannon River Watershed District'",
+     "url": "https://www.preisler4commissioner.org/career",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-085",
+   "name": "Tom Dahl",
+   "official_page": {
+    "url": "https://www.mcleodcountymn.gov/government/county_board/district_five.php",
+    "source": "McLeod County, County Board: 'Fifth District Commissioner Tom Dahl', term of office expires in January 2027",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Fifth District, McLeod County",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County, County Board, Fifth District page (no start year given)",
+     "url": "https://www.mcleodcountymn.gov/government/county_board/district_five.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-051",
+   "name": "HollyJo Wevley",
+   "official_page": {
+    "url": "https://www.co.grant.mn.us/177/Recorder",
+    "source": "Grant County, Recorder: 'Holly Jo Wevley, County Recorder' (the county writes the given name as two words)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder, Grant County",
+     "from": "",
+     "to": "now",
+     "source": "Grant County, Recorder page (no start year given)",
+     "url": "https://www.co.grant.mn.us/177/Recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-079",
+   "name": "Brett V.P. Mason",
+   "official_page": {
+    "url": "https://www.lesueurcounty.gov/306/Sheriffs-Office",
+    "source": "Le Sueur County, Sheriff's Office: 'Sheriff Brett V.P. Mason'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Le Sueur County",
+     "from": "",
+     "to": "now",
+     "source": "Le Sueur County, Sheriff's Office page (no start year given)",
+     "url": "https://www.lesueurcounty.gov/306/Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-013",
+   "name": "Pat McDermott",
+   "official_page": {
+    "url": "https://www.blueearthcountymn.gov/92/County-Attorneys-Office",
+    "source": "Blue Earth County, County Attorney's Office: 'Pat McDermott, County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Blue Earth County",
+     "from": "",
+     "to": "now",
+     "source": "Blue Earth County, County Attorney's Office page (no start year given)",
+     "url": "https://www.blueearthcountymn.gov/92/County-Attorneys-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-145",
+   "name": "Janelle Kendall",
+   "website": {
+    "url": "https://www.janellekendall.com",
+    "how": "The site says it is 'Prepared and paid for by the Kendall for Stearns County Attorney Committee'; it is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Stearns County",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site: 'My name is Janelle Kendall, and I am the Stearns County Attorney' (no start year given)",
+     "url": "https://www.janellekendall.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-02908",
+   "name": "Jeffrey Austin",
+   "official_page": {
+    "url": "https://www.ci.austin.mn.us/city-council",
+    "source": "City of Austin, Mayor & Council: 'Jeff Austin, Council Member-At-Large'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, First Ward, Austin City Council (three terms)",
+     "from": "2006",
+     "to": "2018",
+     "source": "City of Austin, Mayor & Council: 'elected to the Austin City Council in November of 2006 to represent the First Ward. After serving three terms ... he was elected to serve as Council Member-At-Large in 2018' (the years are election years)",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Council Member At-Large, Austin City Council",
+     "from": "2018",
+     "to": "now",
+     "source": "City of Austin, Mayor & Council: 'elected to serve as Council Member-At-Large in 2018' (the year is the election year)",
+     "url": "https://www.ci.austin.mn.us/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-70420",
+   "name": "Carl Shuldes",
+   "official_page": {
+    "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+    "source": "City of Willmar, Mayor & City Council: 'Carl Shuldes, represents Ward 1 until January 2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 1, Willmar City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Willmar, Mayor & City Council page (represents Ward 1 until January 2027; no start year given)",
+     "url": "https://www.willmarmn.gov/government/mayor_and_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0720",
+   "name": "Chad Johnson",
+   "official_page": {
+    "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+    "source": "Shakopee Public Schools, Meet the Board: 'Chad Johnson, Board Member. Present term expires January 2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, Shakopee Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "Shakopee Public Schools, Meet the Board (present term expires January 2027; no start year given)",
+     "url": "https://www.shakopee.k12.mn.us/our-district/school-board/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0006",
+   "name": "Kim Humann",
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members: 'Kim Humann (Chair)', term expires January 2027",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Chair), South St. Paul Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "South St. Paul Public Schools, School Board Members (term expires January 2027; no start year given)",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0252-MN",
+   "name": "Stacey Stout",
+   "finding": "born",
+   "why": "The year is stated only by the Minnesota Historical Election Archive (University of Minnesota Libraries), which is neither Wikipedia nor a named news organization, so it does not fit the kind secondary; the archive does not say which of its sources gave the date. Her two runs under a party label on the same page are kept: they are the archive's election returns, and the page ties her to Mahtomedi and its school board, as her campaign site does."
+  }
+ ]
+}

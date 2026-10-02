@@ -1,0 +1,461 @@
+{
+ "part": 21,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already spent when this part began (the first two searches were refused), so nothing here comes from a search engine. Every page was opened directly with the kit's honest User-Agent, one request a second per site and each site's robots.txt obeyed: the campaign websites the candidates filed with the Secretary of State (learned by running the kit's own step, python -m ballot.local_sites files, on a scratch copy of the database; the real database was only read), each county's, city's and school district's own site, the Minnesota DFL's list and local party units' sites, the Legislative Reference Library, and local newspapers through their own search pages.",
+  "Not read, and nothing worked around: charlesformn.com, swtransit.org and chisagogop.org (each answered the script with a bot check); popecountymn.gov (it refused the script's request for robots.txt with a 403, which is read as stay out, so Stephanie Rust has no official page here); votemoga.com (its robots.txt asks all scripts to stay out, so it is not confirmed as anyone's campaign site); pineknotnews.com and the search pages of pctribune.com (robots.txt); ottertaildfl.com (HTTP 429); nicholashanson.com (HTTP 403; not confirmed as anyone's campaign site). The Minnesota Judicial Branch's site and the state's mn.gov pages were not requested at all, since other parts found they refuse scripts; so neither judge has an official page here.",
+  "John DeGeorge: the campaign website he filed with the Secretary of State (degeorge4sheriff.com) had no address on the network on October 1, 2026 (address lookups repeated over several minutes found no such host), so no website is recorded for him.",
+  "Nicholas Hanson: the Minnesota DFL's list links only a social media page under his name, which is not a campaign website, so none is recorded.",
+  "Republican endorsement of Jason Rarick: no party page that publishes one for 2026 was found. The Pine County Republicans list him as the sitting senator and link his site (their page of 2026 endorsed candidates is statewide offices only); the Carlton County Republicans list him among elected officials; the Kanabec County Republicans' home page names no legislative endorsement; the Chisago County Republicans' site showed a bot check.",
+  "Party pages read for the candidates for nonpartisan offices, none of which names anyone in this part: the candidates pages of the Senate District 33, 45 and 49 DFL units, the Senate District 36 DFL's home and elected-officials pages, the Senate District 48 DFL's home page, the Carver County Republicans' 2026 elections page, and the home pages of the Senate District 31 and 32 Republicans.",
+  "Read and left out on purpose: work. For four candidates (Patrick Moga, Ardie Anderson, Tony Arndt and Henry C. Ambelang) the pages read describe jobs, some of them with a county, a city or the courts; a job is not a public office held, so none is recorded and none is described here. The pages are the Winona Post's county board story of September 23, 2026, ABC Newspapers' East Bethel voters guide of October 5, 2024, the candidate's own site, and KAXE's filings story of May 20, 2026. An age printed without a year (ABC Newspapers, for Ardie Anderson) was not turned into a birth year.",
+  "Sitting legislators (Jason Rarick, Amanda Hemmingsen-Jaeger, Cheryl Youakim, Jay Xiong): only a website, an endorsement, own words and review items are recorded, plus a birth year for the two whose roster record has none (Hemmingsen-Jaeger, Xiong). The Library's other entries for them (earlier city and advisory posts) are left to the roster.",
+  "For the second reader: (1) Jason Rarick's site is his committee's own (\"Prepared and Paid for by Rarick for Senate\") and names the office, but it names no year and its pages read as written for an earlier Senate run. (2) Jay Xiong's birth year: the Legislative Reference Library prints \"12/??/1983 (uncertain)\"; Wikipedia's article says \"born 1983\" and cites a Pioneer Press election profile of October 23, 2018, which was not read. (3) Greg Urban: the tie between the 2026 candidate for mayor and the council member in the 2022 story is the name and the city; two letters to the editor in the same paper in September 2026 (opinion, not cited) speak of Greg Urban, running for mayor, as a former council member. (4) Theresa Marie Cermak: the city's tenure list is a PDF, read with the kit's own PDF reader; it shows her on the council in its rows for 2021, 2022, 2023 and 2024 and counts \"Theresa Marie Cermak 4\" years. (5) Michael L. Kearney's and Ardie Anderson's start years rest on the government page's term dates together with a newspaper's report of the swearing-in or the election. (6) Tanya Olympia O'Brien: the Pioneer Press reported her appointment in 2018; that she sits today rests on a Sun Thisweek court story of June 5, 2026 that titles her Judge. (7) Jill Christenson's own words are about her 2022 election, as the quote itself says. (8) McKayla Hatfield's chair of SouthWest Transit is in her own site's words; the transit agency's site could not be read.",
+  "Seen on official pages about these races, for whoever keeps the record: the seat is open in Carlton County District 2 (the county's page lists Marv Bodie there today), in the Traverse County sheriff's race (the county's page names Trevor J. Wright as Sheriff) and in Owatonna's Fifth Ward (the city's page lists Brent Svenby). KAXE (August 13, 2026) reports that Cass County District 4 held a primary on August 11, 2026, and that Tyler Seifert and the sitting commissioner, Scott D. Bruns, advanced; our record carries the November list only. Glencoe-Silver Lake's own page introducing its school board candidates says of Timothy Dilworth that no response was received by its deadline.",
+  "Nothing citable was found for ten candidates, who are listed with no findings: Ann Gustafson, Patrick Moga, Tyler Seifert, Stephanie Rust, Andy Miller, Thomas Wavra, Dale A Fairbanks, Mark Lelwica, Timothy Dilworth and Henry C. Ambelang. None of them filed a campaign website, none sits today on the body they are running for (by that body's own page, where it could be read), and a few likely addresses that were tried turned out to be unrelated or parked sites.",
+  "Verifier, 2026-10-02: every url in the file was opened again with the kit's honest User-Agent. 42 findings checked, 40 kept, 2 removed (listed under \"removed\"), 8 reworded so that each says only what its own cited page says: references to newspaper stories with no url in the file were cut from Kearney, Anderson, Bayliss, Borchers and O'Brien; Anderson's start year (the page gives only the term's end) and O'Brien's \"now\" (the 2018 story cannot show it) became \"not stated\"; Urban's end is 2022 alone; Rarick's website note keeps only what the site and the Secretary of State's file show, and his review item says only what the roster table holds. The earlier notes are the researcher's and were not re-checked beyond the urls in the findings. District anchors were checked against sl_races; the filed addresses were confirmed by counting matches in John's saved Secretary of State files, with no other column read."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0131-MN",
+   "name": "Jason Rarick",
+   "website": {
+    "url": "https://www.jasonrarick.com",
+    "how": "The site's title is \"Rarick For Senate\"; its own description reads \"Jason Rarick is a Life Long Pine County Resident Running for the Minnesota State Senate, District 11\" and its footer \"Prepared and Paid for by Rarick for Senate\". It is the address filed with the Secretary of State. The home page names no year.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "State roster: a House term in District 11B with no start date, ending February 12, 2019, then Senate District 11 from February 13, 2019.",
+     "problem": "The Legislative Reference Library gives House service from 2015: \"House 2015-2019 (District 11B); Senate 2019-Present (District 11)\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15445",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0167-MN",
+   "name": "Amanda Hemmingsen-Jaeger",
+   "website": {
+    "url": "https://www.amandaformn.com",
+    "how": "The site's title is \"Amanda for MN Senate\"; its home page reads \"I am running for re-election to the Minnesota Senate in Woodbury and Maplewood\" and its About page begins \"Amanda Hemmingsen-Jaeger is running for the Minnesota Senate\". It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates links it.",
+    "verified": true
+   },
+   "born": {
+    "year": 1984,
+    "date": "1984-05-08",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Amanda Hemmingsen-Jaeger: Date of Birth 5/8/1984)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15620",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\" names her for Senate District 47)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0204-MN",
+   "name": "Nicholas Hanson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\" names him for House District 9A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0241-MN",
+   "name": "Charles A. McConaughay",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\" names him, as Charles McConaughay, for House District 27B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0279-MN",
+   "name": "Cheryl Youakim",
+   "website": {
+    "url": "https://www.cherylyouakim.com",
+    "how": "The site's title is \"Cheryl Youakim - Minnesota State Representative 46B\"; it counts down to \"Election Day - November 3, 2026\" and its footer says it is prepared and paid for by the Youakim for State Representative Committee. The Minnesota DFL's list of endorsed candidates links it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\" names her for House District 46B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0321-MN",
+   "name": "Jay Xiong",
+   "website": {
+    "url": "https://jayxiong.org",
+    "how": "The site's title is \"Representative Jay Xiong\"; it speaks of \"representing the great East Side at the Minnesota Legislature in House District 67B\", carries the heading \"2026 Proudly endorsed by\" and the footer \"Prepared & paid for by Jay for MN House Committee\". The Minnesota DFL's list of endorsed candidates links it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\" names him for House District 67B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL & LABOR ENDORSED",
+    "url": "https://jayxiong.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-017",
+   "name": "Ann Gustafson"
+  },
+  {
+   "race_id": "2026-MN-0392-169",
+   "name": "Patrick Moga"
+  },
+  {
+   "race_id": "2026-MN-0394-021",
+   "name": "Tyler Seifert"
+  },
+  {
+   "race_id": "2026-MN-0395-001",
+   "name": "Michael L. Kearney",
+   "official_page": {
+    "url": "https://www.co.aitkin.mn.us/commissioners/",
+    "source": "Aitkin County, Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Aitkin County Commissioner, District 5",
+     "from": "2023",
+     "to": "now",
+     "source": "Aitkin County, Commissioners page (it lists Michael Kearney as District 5 Commissioner, \"Term: 2023-2026\")",
+     "url": "https://www.co.aitkin.mn.us/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-121",
+   "name": "Stephanie Rust"
+  },
+  {
+   "race_id": "2026-MN-0404-045",
+   "name": "John DeGeorge",
+   "official_page": {
+    "url": "https://www.co.fillmore.mn.us/departments/sheriff/meet_your_sheriff.php",
+    "source": "Fillmore County, Sheriff: Meet Your Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fillmore County Sheriff",
+     "from": "2019",
+     "to": "now",
+     "source": "Fillmore County Journal, January 14, 2019, \"County conducts annual new year business\": at the county board's first meeting of 2019, \"We have a new sheriff, John DeGeorge\". Fillmore County's own Sheriff pages name him as Sheriff today",
+     "url": "https://fillmorecountyjournal.com/county-conducts-annual-new-year-business/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-155",
+   "name": "Andy Miller"
+  },
+  {
+   "race_id": "2026-MN-0405-107",
+   "name": "Elizabeth Brainard",
+   "official_page": {
+    "url": "https://www.normanmn.gov/departments/county_attorney.php",
+    "source": "Norman County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Norman County Attorney",
+     "from": "not stated",
+     "to": "now",
+     "source": "Norman County, County Attorney page (\"Elizabeth Brainard, County Attorney\"); the page does not say when she took the office",
+     "url": "https://www.normanmn.gov/departments/county_attorney.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-17486",
+   "name": "Ardie Anderson",
+   "official_page": {
+    "url": "https://www.ci.east-bethel.mn.us/113/City-Council",
+    "source": "City of East Bethel, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of East Bethel",
+     "from": "not stated (the page gives only the current term, which ends December 31, 2026)",
+     "to": "now",
+     "source": "City of East Bethel, City Council page (it lists Ardie Anderson as Mayor, \"Term ends on December 31, 2026\", and says \"The term for the mayor is two years\"); the page does not say when the term began",
+     "url": "https://www.ci.east-bethel.mn.us/113/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-66460",
+   "name": "Greg Urban",
+   "offices": [
+    {
+     "office": "Vadnais Heights City Council member",
+     "from": "not stated",
+     "to": "2022",
+     "source": "Vadnais Heights Press (Press Publications), \"Mayor, council members receive gift from city\": \"Council Members Greg Urban and Patricia Youker were recognized at the last City Council meeting of the year\" (2022), as members leaving the council. The story does not say when he joined the council",
+     "url": "https://www.presspubs.com/vadnais/news/mayor-council-members-receive-gift-from-city/article_85f529e6-86f4-11ed-8337-c7b88ee4fef2.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Tony Arndt",
+   "website": {
+    "url": "https://electarndt.com",
+    "how": "The site's title is \"Tony Arndt for Eden Prairie City Council\" and it reads \"Vote Tony Arndt · Nov 3, 2026\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Theresa Marie Cermak",
+   "offices": [
+    {
+     "office": "Mounds View City Council member",
+     "from": "2021",
+     "to": "2024",
+     "source": "City of Mounds View, City Council Tenure List (\"History of Mounds View Mayors and Council Members\"): its rows for 2021, 2022, 2023 and 2024 list Theresa Cermak in a council seat, and its count of years reads \"Theresa Marie Cermak 4\"",
+     "url": "https://www.moundsviewmn.gov/document_center/City%20Council/Council%20Tenure%20List.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-58738",
+   "name": "Thomas Wavra"
+  },
+  {
+   "race_id": "2026-MN-1020-28790",
+   "name": "James Bayliss",
+   "official_page": {
+    "url": "https://www.hibbingmn.gov/260/City-Council",
+    "source": "City of Hibbing, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hibbing City Councilor, Ward 1",
+     "from": "2019",
+     "to": "now",
+     "source": "Mesabi Tribune, \"New year, new council\" (January 2019): \"Ward 1 Councilor James Bayliss\", \"This is Bayliss' first time in an elected position\". The City of Hibbing's council page lists him for Ward 1 today (\"Term Expires: 12/31/2026\")",
+     "url": "https://www.mesabitribune.com/news/local/new-year-new-council/article_03da3b7e-f3cf-5b8e-83c3-c3ce3badaa18.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-10972",
+   "name": "McKayla Hatfield",
+   "website": {
+    "url": "https://www.hatfield4chaska.com",
+    "how": "The site's home page reads \"Re-Elect for Chaska City Council Ward 3\" above her name, and its footer \"© 2026 Prepared and Paid for by McKayla Hatfield for Chaska\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.chaskamn.gov/144/City-Council",
+    "source": "City of Chaska, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chaska City Council member, Ward 3",
+     "from": "2019",
+     "to": "now",
+     "source": "Her campaign site's About page (\"Chaska City Council Member 2019-Present\"); the City of Chaska's council page lists her for Ward 3 (\"Current term expires December 31, 2026\")",
+     "url": "https://www.hatfield4chaska.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chair, SouthWest Transit (her site's words: \"Chair of Southwest Transit - 2026\")",
+     "from": "2026",
+     "to": "now",
+     "source": "Her campaign site's About page: \"In addition to serving on the City Council, I currently serve as Chair of Southwest Transit\"; the transit agency's own site answered the script with a bot check and was not read",
+     "url": "https://www.hatfield4chaska.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-49300",
+   "name": "Dale A Fairbanks"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Mark Lelwica"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0278",
+   "name": "Sarah Borchers",
+   "official_page": {
+    "url": "https://www.oronoschools.org/about/school-board",
+    "source": "Orono Schools (ISD 278), School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Orono School Board member (Chair)",
+     "from": "not stated",
+     "to": "now",
+     "source": "Orono Schools, School Board page (\"Sarah Borchers, Chair\", \"Term expires January 1, 2027\"); the page does not say when she joined the board",
+     "url": "https://www.oronoschools.org/about/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0492",
+   "name": "Dan Zielke",
+   "official_page": {
+    "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+    "source": "Austin Public Schools (ISD 492), Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin School Board member (Clerk)",
+     "from": "not stated",
+     "to": "now",
+     "source": "Austin Public Schools, Board Members page (\"Clerk Dan Zielke\", \"Term expires 1/4/2027\"); the page does not say when he joined the board",
+     "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Larry Shelton",
+   "official_page": {
+    "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+    "source": "Proctor Public Schools (ISD 704), School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Proctor School Board member (Director)",
+     "from": "not stated (the district's page gives only his current term, January 2023 - December 2026)",
+     "to": "now",
+     "source": "Proctor Public Schools, School Board page (\"Larry Shelton, Director\", \"Term: January 2023 - December 2026\"); the page does not say whether he served before that term",
+     "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Jill Christenson",
+   "website": {
+    "url": "https://jillforflas.com",
+    "how": "The site's title is \"Jill Christenson for Forest Lake Area Schools, ISD 831\" and it reads \"Running for reelection, November 3, 2026\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.flaschools.org/our-district/school-board",
+    "source": "Forest Lake Area Schools (ISD 831), School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Forest Lake Area Schools (ISD 831) School Board member",
+     "from": "2022",
+     "to": "now",
+     "source": "Her campaign's own website (\"Board member since 2022\"); the district's School Board page lists her (\"School Board Member, Term expires: Jan. 4, 2027\")",
+     "url": "https://jillforflas.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Won 2022 without outside group funding or political endorsements",
+    "url": "https://jillforflas.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Timothy Dilworth"
+  },
+  {
+   "race_id": "2026-MN-8126-MN",
+   "name": "Tanya Olympia O'Brien",
+   "offices": [
+    {
+     "office": "Judge of the District Court, First Judicial District (appointed by Governor Mark Dayton)",
+     "from": "2018 (appointment announced March 5, 2018)",
+     "to": "not stated (the source reports the 2018 appointment only)",
+     "source": "Pioneer Press, March 5, 2018, \"Ramsey County attorney appointed to fill First Judicial District vacancy\": \"Gov. Mark Dayton on Monday announced the appointment of Tanya O'Brien to the bench in Minnesota's First Judicial District\"",
+     "url": "https://www.twincities.com/2018/03/05/ramsey-county-attorney-appointed-to-fill-first-judicial-district-vacancy/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9101-MN",
+   "name": "Henry C. Ambelang"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0241-MN",
+   "name": "Charles A. McConaughay",
+   "finding": "website",
+   "url": "https://charlesformn.com",
+   "why": "The site answered both tries with a bot check, so it could not be read and nothing on it could be confirmed. (The address is the one in the Secretary of State's file and the Minnesota DFL's list links it; the kit's own filed-website step can still carry it.)"
+  },
+  {
+   "race_id": "2026-MN-0321-MN",
+   "name": "Jay Xiong",
+   "finding": "born",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15533",
+   "why": "The Legislative Reference Library prints the date as \"12/??/1983 (uncertain)\"; a year the source itself marks uncertain is not stated as a fact, so it is left out."
+  }
+ ]
+}

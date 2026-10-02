@@ -1,0 +1,598 @@
+{
+ "part": 8,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after this part's first thirteen searches (five of the six legislative candidates). Everything else was read directly, one request at a time: each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates and local party units' sites, the Legislative Reference Library, Wikipedia, the campaign websites the candidates filed with the Secretary of State, campaign addresses that official, party or news pages link to, and two local news sites' own election pages (Eden Prairie Local News, CCX Media). No search engine was read in place of the search tool. Likely campaign and party-unit addresses were also tried by asking only whether the name has an address on the network; three campaign sites were first found that way and then read (bendavismn.com, leeforowatonna.com, judgekevinross.com).",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read. Ten of the thirty filed one, and each was opened and read before it was listed here: Kupec, Marty, Ajouri, Schuette, Sencer-Mura, Narverud, Groff, Bielefeldt, Salway and Ross. Four more were found and read: Ben Davis's (the 8th Congressional District Republicans' 2026 Candidates page links it for HD 6A), Alejandro Caceres Aranda's (CCX Media's candidate page and the Senate District 43 DFL link it), Aaron Casper's (Eden Prairie Local News links it) and Christopher Lee's (the site names the Owatonna School Board, ISD 761).",
+  "Reading tools: pages were read with the kit's honest User-Agent (states/net.py), with each site's robots.txt read first and obeyed by that reader. Every page a finding below rests on is one its site's robots.txt opens to that reader and to Claude's named agents alike. kupec4mnsenate.com answers the kit's reader with HTTP 429 (its robots.txt too), so that site was read with the WebFetch tool only.",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (HTTP 403 to the kit's reader and to WebFetch), so neither judge has a court page here; the state's mn.gov pages, which hold the State Law Library's judge biographies (a Radware CAPTCHA page); Roseau County's site (a Radware CAPTCHA page), so nothing official for the sheriff; the City of Eagan's site (a bot check); Clearwater County's site (its robots.txt asks all other scripts to stay out), so nothing official for the Auditor-Treasurer race; Ballotpedia (a bot check); narverud.com (robots.txt). Stearns County's County Commissioners page draws its list of members by script, so nothing on it could be read and Jeff Bertram has no official page here.",
+  "This part's mistake, for the record: the Forum Communications newspapers (postbulletin.com, brainerddispatch.com, pineandlakes.com, wctrib.com, dl-online.com) and hometownsource.com name Claude's agents in their robots.txt and turn them away. The kit's reader obeys the rules written for its own name, so about fifteen article and section pages on those sites were opened (one of them with WebFetch) before this was noticed. Nothing below is cited from them or rests on them, and they were not opened again.",
+  "Read and left out on purpose: family, religion, health, ethnicity, schools, employers and jobs (teaching, law enforcement, firefighting and court clerkships among them), seats on nonprofit boards, testimonials by individuals, and anything in a source that touches discipline or legal matters. The Post Bulletin's report that John Michael Ajouri received the Republican endorsement is not cited; the party unit's own newsletter is.",
+  "Ben Davis has no endorsed_by: no party page using the word endorsement was found for his 2026 race. The 8th Congressional District Republicans list him under \"2026 Candidates\" and the Crow Wing County GOP's 2026 page names no candidates.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6, 10 and 12 use): three listings where a party unit publishes its backing of a candidate for a nonpartisan office under a heading that is not the word endorsement. The Carver County Republican Party names Ken Salway and Jerry McDonald under \"Recommended Candidates\"; the Senate District 43 DFL names Alejandro Caceres Aranda under \"Letters of Support\" and says in so many words that a letter of support is not a DFL endorsement. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "For the second reader: (1) Jeff Bertram. The Legislative Reference Library's record is of former Rep. Jeff Bertram of Paynesville and does not mention the Stearns County Board; no page was found that says in words that the commissioner candidate is the former legislator. What ties them is the name, Minnesota, Stearns among the counties he served, and Paynesville: the record gives it as his city (and its City Council from 2005), and the Secretary of State's voting-districts data in the kit (states_cache/mn_local/sos_votingdistricts_attributes.json) puts Paynesville in Stearns County's Commissioner District 3, the seat he is running for. If that is not enough, leave his four findings unverified. (2) John Michael Ajouri. The Olmsted County Republicans' September 2026 newsletter lists \"John Ajouri III\" under \"GOP Endorsed Candidates for 2026\", MN House District 24B; his own site's About page gives his name as John Michael Ajouri III. (3) Kevin G. Ross. The year his service began comes only from Wikipedia's table of the court's members (seat 15, Kevin Ross, February 23, 2006), whose citation is the Judicial Branch's own list of judges; the court's page itself could not be read. (4) Aaron A. Casper. \"from\" is written \"elected November 2019\" because the district's page gives election dates, not the day a term began. (5) Jerry A. McDonald. Two council entries, because the city's page describes an appointment in 2007 and a reappointment on January 11, 2021 without saying when the first stretch ended. (6) The own_words for Robin Bielefeldt and Christopher Lee are endorsements by organizations that are not parties (a PAC, a teachers' association), quoted from their own sites; their offices come from their campaign sites only. (7) Kevin Jullie. The City of Rogers' page shows his name, title and portrait and gives no dates.",
+  "Nothing was found for eight candidates, who are listed with no findings: David Salberg, Niki Broten, Steven J. Gust, Jerome Mulvihill (the City of Mendota Heights' 2026 Candidate Profiles page carries the profile he submitted; it names no public office and no website), Christopher Jeffords, Jeremy Yuker (Princeton Public Schools' election page says he declined to comment), Amy Forkner and Robert J. Raupp."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0124-MN",
+   "name": "Rob Kupec",
+   "website": {
+    "url": "https://www.kupec4mnsenate.com/",
+    "how": "The home page (titled Kupec 4 MN Senate, paid for by Kupec 4 MN Senate) asks voters to re-elect Rob Kupec to the Minnesota Senate and names Becker and Clay counties, the two counties Senate District 4 covers.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates, Senate District 4)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0160-MN",
+   "name": "John Marty",
+   "website": {
+    "url": "https://www.johnmarty.org/",
+    "how": "The site is titled Senator John Marty, calls him a member of the Minnesota State Senate, and is prepared and paid for by the Senator John Marty Volunteer Committee; the Minnesota DFL's list of endorsed candidates links it; it is the website he filed with the Secretary of State.",
+    "corrected": true,
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates, Senate District 40)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0198-MN",
+   "name": "Ben Davis",
+   "website": {
+    "url": "https://bendavismn.com/",
+    "how": "The site is titled Ben Davis for Minnesota - Ben Davis House District 6A and is prepared and paid for by Ben Davis for MN House Rep; it is the website he filed with the Secretary of State.",
+    "corrected": true,
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0235-MN",
+   "name": "John Michael Ajouri",
+   "website": {
+    "url": "https://www.ajouri.org/",
+    "how": "The home page reads John Michael Ajouri For House, speaks of District 24B, and is paid for by the John Ajouri for House committee of Rochester, Minnesota; it is the website he filed with the Secretary of State.",
+    "corrected": true,
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Olmsted County Republicans",
+     "url": "https://olmstedgop.org/newsletter/sep2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0272-MN",
+   "name": "Kyrstin Schuette",
+   "website": {
+    "url": "https://kyrstinforminnesota.com/",
+    "how": "The home page says she is Kyrstin Schuette, running to represent District 43A in the Minnesota State House; the Senate District 43 DFL's convention page and the Minnesota DFL's list of endorsed candidates both link it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL",
+     "url": "https://sd43dfl.org/convention",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates, House District 43A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0312-MN",
+   "name": "Samantha Sencer-Mura",
+   "website": {
+    "url": "https://sencer-mura.org/",
+    "how": "The site, The People for Sencer-Mura, is written by the sitting representative for South Minneapolis, who says she is running for re-election; the Minnesota DFL's list of endorsed candidates links it for House District 63A.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (the state party's list of endorsed candidates, House District 63A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-149",
+   "name": "Bob Kopitzke",
+   "official_page": {
+    "url": "https://www.co.stevens.mn.us/897/County-District-1",
+    "source": "Stevens County's own page for County District 1 (Commissioner Bob Kopitzke)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stevens County Commissioner, District 1",
+     "from": "2013",
+     "to": "now",
+     "source": "Stevens County's own page for County District 1, which says he started in 2013",
+     "url": "https://www.co.stevens.mn.us/897/County-District-1",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-149",
+   "name": "Jeanne Ennen",
+   "official_page": {
+    "url": "https://www.co.stevens.mn.us/898/County-District-2",
+    "source": "Stevens County's own page for County District 2 (Commissioner Jeanne Ennen)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stevens County Commissioner, District 2",
+     "from": "2011",
+     "to": "now",
+     "source": "Stevens County's own page for County District 2, which says she started in 2011",
+     "url": "https://www.co.stevens.mn.us/898/County-District-2",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram"
+  },
+  {
+   "race_id": "2026-MN-0394-155",
+   "name": "David Salberg"
+  },
+  {
+   "race_id": "2026-MN-0400-029",
+   "name": "Niki Broten"
+  },
+  {
+   "race_id": "2026-MN-0404-027",
+   "name": "Mark Empting",
+   "official_page": {
+    "url": "https://claycountymn.gov/165/Sheriffs-Office",
+    "source": "Clay County's own Sheriff's Office page, which names Mark Empting as Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clay County Sheriff",
+     "from": "2019",
+     "to": "now",
+     "source": "Clay County's own list of the sheriffs who have served the county (Mark Empting, 2019 to present)",
+     "url": "https://claycountymn.gov/1712/Sheriffs-That-Have-Served-Clay-County",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-135",
+   "name": "Steven J. Gust"
+  },
+  {
+   "race_id": "2026-MN-0405-079",
+   "name": "Brent Christian",
+   "official_page": {
+    "url": "https://www.lesueurcounty.gov/222/County-Attorney",
+    "source": "Le Sueur County's own County Attorney page, which names the current County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Le Sueur County Attorney",
+     "from": "2003",
+     "to": "now",
+     "source": "Le Sueur County's own County Attorney page (2003 through present)",
+     "url": "https://www.lesueurcounty.gov/222/County-Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10918",
+   "name": "Jerry A. McDonald",
+   "official_page": {
+    "url": "https://www.chanhassenmn.gov/government/city-council",
+    "source": "City of Chanhassen's own City Council page (Council Member Jerry McDonald)",
+    "corrected": true,
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chanhassen City Council member (appointed in 2007 to fill a vacancy, elected in 2008)",
+     "from": "2007",
+     "to": "not stated",
+     "source": "City of Chanhassen's own City Council page",
+     "url": "https://www.chanhassenmn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chanhassen City Council member (reappointed January 11, 2021, re-elected in 2022)",
+     "from": "2021",
+     "to": "now",
+     "source": "City of Chanhassen's own City Council page",
+     "url": "https://www.chanhassenmn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chanhassen Planning Commission member for three years, chairman for two, before joining the council",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "City of Chanhassen's own City Council page",
+     "url": "https://www.chanhassenmn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Recommended Candidates",
+     "what": "Named \"Jerry McDonald for Mayor\" under \"City Council and Mayors: Recommended Candidates\", followed by \"City Council (elect 2)\" naming Denny Laufenburger and Paul Haik. The page's text does not name the city; its links in that group go to the City of Chanhassen's candidates pages. The same page uses the word \"Endorsed\" only for statewide and legislative candidates.",
+     "url": "https://carvergop.org/2026-elections.html",
+     "corrected": true,
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-55186",
+   "name": "Kevin Jullie",
+   "official_page": {
+    "url": "https://www.rogersmn.gov/citycouncil",
+    "source": "City of Rogers' own City Council page, which lists Kevin Jullie as a Council Member, with a portrait",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rogers City Council member",
+     "from": "not stated",
+     "to": "now",
+     "source": "City of Rogers' own City Council page (no dates given)",
+     "url": "https://www.rogersmn.gov/citycouncil",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-17288",
+   "name": "Jason Narverud",
+   "website": {
+    "url": "https://voteforjason.org/",
+    "how": "The site is titled Jason Narverud for Eagan, says he is running for Eagan City Council and asks for a vote on November 3; it is the website he filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Jerome Mulvihill"
+  },
+  {
+   "race_id": "2026-MN-1010-55852",
+   "name": "Wayne Groff",
+   "website": {
+    "url": "https://vote4wayne.org/",
+    "how": "The site is titled Wayne Groff - Roseville City Council and says he is campaigning for re-election to the Roseville City Council on November 3; it is the website he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cityofroseville.com/56/Members",
+    "source": "City of Roseville's own City Council Members page (Councilmember Wayne Groff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Roseville City Council member",
+     "from": "2019",
+     "to": "now",
+     "source": "City of Roseville's own City Council Members page (terms 2019-2022 and 2023-2026)",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Roseville Planning Commission member, before joining the council",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "City of Roseville's own City Council Members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Roseville Human Rights Commission member (two terms)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "City of Roseville's own City Council Members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-10972",
+   "name": "Robin Bielefeldt",
+   "website": {
+    "url": "https://b4cc.net/",
+    "how": "The site is titled Robin Bielefeldt for Chaska City Council and reads For Chaska City Council (Ward 1); it is the website he filed with the Secretary of State.",
+    "corrected": true,
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carver County Board of Adjustment member (vice-chair)",
+     "from": "not stated",
+     "to": "now",
+     "source": "his campaign's own website",
+     "url": "https://b4cc.net/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Carver County University of Minnesota Extension Committee member (chair)",
+     "from": "not stated",
+     "to": "now",
+     "source": "his campaign's own website",
+     "url": "https://b4cc.net/",
+     "kind": "campaign",
+     "corrected": true,
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Proudly Endorsed by VoteVets PAC.",
+    "url": "https://b4cc.net/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1022-70420",
+   "name": "Christopher Jeffords"
+  },
+  {
+   "race_id": "2026-MN-1026-54808",
+   "name": "Alejandro Caceres Aranda",
+   "website": {
+    "url": "https://www.alejandro4ward4.com/",
+    "how": "The site is titled Alejandro for Robbinsdale Ward 4, is paid for by Aranda for Ward 4, and its writer says the council appointed him to its Ward 4 seat; the Senate District 43 DFL's voting page links it under the name Alejandro Caceres Aranda, City Council, Ward 4.",
+    "corrected": true,
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.robbinsdalemn.gov/directory.aspx?EID=10",
+    "source": "City of Robbinsdale's own directory page for the Ward 4 Councilmember",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robbinsdale City Council member, Ward 4 (appointed to serve the remainder of the term)",
+     "from": "2026",
+     "to": "now",
+     "source": "City of Robbinsdale's own directory page (sworn in February 4, 2026; the term runs until January 4, 2027)",
+     "url": "https://www.robbinsdalemn.gov/directory.aspx?EID=10",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am proud to have the Minnesota DFL’s letter of support",
+    "url": "https://www.alejandro4ward4.com/endorsements",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL (district unit)",
+     "wording": "Letters of Support",
+     "what": "Named under City of Robbinsdale as \"Alejandro Caceres Aranda, City Council, Ward 4\", with a link to his campaign site, in the unit's list headed \"Letters of Support\". The unit's own explanation says a letter of support identifies a candidate who supports the principles of the DFL Party and does not constitute a DFL endorsement.",
+     "url": "https://sd43dfl.org/vote",
+     "explained_at": "https://sd43dfl.org/vote/letter-of-support",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Ken Salway",
+   "website": {
+    "url": "https://www.voteforken.org/",
+    "how": "The site is titled Ken Salway for ISD 112 School Board and says he is running for the Eastern Carver County School Board (ISD 112); it is the website he filed with the Secretary of State.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Recommended Candidates",
+     "what": "Named \"Ken Salway\" (with Joe Scott and Makiza Johnson), with a link to his campaign site, under \"Carver County Schools: Recommended Candidates\", beside a link to Eastern Carver County Schools' School Board page. The same page uses the word \"Endorsed\" only for statewide and legislative candidates.",
+     "url": "https://carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Aaron A. Casper",
+   "website": {
+    "url": "https://www.casper4schoolboard.com/",
+    "how": "The site is titled Aaron Casper for Eden Prairie School Board and asks voters to re-elect him on November 3, saying he was first elected in November 2019 and is the current board chair, as the school district's own page also shows.",
+    "corrected": true,
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://community.edenpr.org/school-board",
+    "source": "Eden Prairie Schools' own School Board page (Aaron Casper, Chair, with a portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eden Prairie School Board member (chair)",
+     "from": "elected November 2019",
+     "to": "now",
+     "source": "Eden Prairie Schools' own School Board page (elected November 2019 and 2022; current term ends January 2027)",
+     "url": "https://community.edenpr.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Jeremy Yuker"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0659",
+   "name": "Ben Miller",
+   "official_page": {
+    "url": "https://northfieldschools.org/about/school-board/members/",
+    "source": "Northfield Public Schools' own page of currently serving School Board members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Northfield School Board member",
+     "from": "not stated",
+     "to": "now",
+     "source": "Northfield Public Schools' own page of currently serving School Board members (term expires 01/2027; no start date given)",
+     "url": "https://northfieldschools.org/about/school-board/members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Christopher Lee",
+   "website": {
+    "url": "https://leeforowatonna.com/",
+    "how": "The site is titled Christopher Lee for Owatonna School Board and calls him a candidate for the Owatonna School Board (ISD 761).",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "ISD 761 Transportation Safety Advisory Committee member",
+     "from": "not stated",
+     "to": "now",
+     "source": "his campaign's own website",
+     "url": "https://leeforowatonna.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Endorsed by Owatonna Education Association",
+    "url": "https://leeforowatonna.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2144",
+   "name": "Amy Forkner"
+  },
+  {
+   "race_id": "2026-MN-7024-MN",
+   "name": "Kevin G. Ross",
+   "website": {
+    "url": "https://www.judgekevinross.com/",
+    "how": "The site, by Minnesota Citizens for Judge Kevin Ross, asks voters on November 3, 2026 to keep Judge Kevin Ross on the Minnesota Court of Appeals, where it says he has served two decades.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Minnesota Court of Appeals (seat 15)",
+     "from": "2006",
+     "to": "now",
+     "source": "Wikipedia, Minnesota Court of Appeals: the table of members (seat 15, Kevin Ross, service began February 23, 2006), which cites the Minnesota Judicial Branch's list of the court's judges",
+     "url": "https://en.wikipedia.org/wiki/Minnesota_Court_of_Appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8920-MN",
+   "name": "Robert J. Raupp"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram",
+   "key": "born",
+   "what": "born 1960",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10053",
+   "why": "The Legislative Reference Library's record (and Wikipedia's article) is of former Rep. Jeff Bertram of Paynesville, born 1960; neither mentions the Stearns County Board or a 2026 candidacy, and Stearns County's commissioners page shows no names to a plain reader. No page ties the candidate to the former legislator, so after two tries the findings are left out (names repeat)."
+  },
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram",
+   "key": "offices",
+   "what": "Minnesota House of Representatives, District 16B (1987-92) and District 14B (1993-96)",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10053",
+   "why": "The Legislative Reference Library's record (and Wikipedia's article) is of former Rep. Jeff Bertram of Paynesville, born 1960; neither mentions the Stearns County Board or a 2026 candidacy, and Stearns County's commissioners page shows no names to a plain reader. No page ties the candidate to the former legislator, so after two tries the findings are left out (names repeat)."
+  },
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram",
+   "key": "offices",
+   "what": "Minnesota Ethical Practices Board (appointed)",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10053",
+   "why": "The Legislative Reference Library's record (and Wikipedia's article) is of former Rep. Jeff Bertram of Paynesville, born 1960; neither mentions the Stearns County Board or a 2026 candidacy, and Stearns County's commissioners page shows no names to a plain reader. No page ties the candidate to the former legislator, so after two tries the findings are left out (names repeat)."
+  },
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram",
+   "key": "offices",
+   "what": "Paynesville City Council",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10053",
+   "why": "The Legislative Reference Library's record (and Wikipedia's article) is of former Rep. Jeff Bertram of Paynesville, born 1960; neither mentions the Stearns County Board or a 2026 candidacy, and Stearns County's commissioners page shows no names to a plain reader. No page ties the candidate to the former legislator, so after two tries the findings are left out (names repeat)."
+  },
+  {
+   "race_id": "2026-MN-0393-145",
+   "name": "Jeff Bertram",
+   "key": "past_party",
+   "what": "Elected five times to the Minnesota House of Representatives (1986, 1988, 1990, 1992 and 1994)",
+   "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=10053",
+   "why": "The Legislative Reference Library's record (and Wikipedia's article) is of former Rep. Jeff Bertram of Paynesville, born 1960; neither mentions the Stearns County Board or a 2026 candidacy, and Stearns County's commissioners page shows no names to a plain reader. No page ties the candidate to the former legislator, so after two tries the findings are left out (names repeat)."
+  }
+ ],
+ "verifier_notes": [
+  "Every url in the file was re-opened on 2026-10-02 with the kit's reader (states/net.py, each site's robots.txt obeyed). kupec4mnsenate.com answered once and then with HTTP 429; the one reading showed what is recorded.",
+  "\"It is the website he filed with the Secretary of State\" was checked against the files John saved in states_cache/mn_local/sos/20261103/ (the address appears there); the Secretary's sites were not requested.",
+  "Where a website's \"how\" leaned on a page not cited in this file (a news site, a party page, an About page), the wording was cut back to what the cited page itself shows; those findings carry \"corrected\": true.",
+  "party_support is not a key in the rules and is not an endorsement. The three entries say what the party pages say (\"Recommended Candidates\", \"Letters of Support\") and are marked verified only in that sense; whether they are shown is John's decision.",
+  "Jeff Bertram: the five findings from the legislator's record were removed, see \"removed\". If John can confirm the candidate is the former legislator, they can be restored from the Legislative Reference Library's page."
+ ]
+}

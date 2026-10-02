@@ -1,0 +1,692 @@
+{
+ "state": "MN",
+ "part": 23,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "WebSearch could not be used for this part: its first call was answered that the session's search allowance was already spent. Pages were reached directly, with the kit's honest User-Agent and each site's robots.txt read first: the campaign websites the candidates filed with the Secretary of State (read from the scratch copy of the database that had run the files step), each government's own site, the two state parties' sites and local party units' sites, the Minnesota Historical Election Archive by a candidate's own address, KAXE's and Eden Prairie Local News's own site search, and pages those link to. No search engine was read in place of the search tool. Candidates with nothing below are the ones this left out of reach.",
+  "Not read, because the site refused scripts or asks them to stay out: mncourts.gov (403, robots.txt included: no court page for either judge, and nothing at all for Adam Johnson); Wabasha County's site (robots.txt: nothing for Jason Bade); the City of Hugo's site (robots.txt: nothing for Mark Koll); the Senate District 33 Republicans' site (403); vote4edina.com, the website David Frenkel filed, whose robots.txt tells Claude's readers by name to stay out, so the site was not read and no website finding is recorded for him (the filed address stands on its own); and newspapers whose robots.txt names Claude's readers (hometownsource.com, presspubs.com, southernminn.com, mankatofreepress.com, republicaneagle.com, messagemedia.co, postbulletin.com) or closes its search pages to scripts (inforum.com, brainerddispatch.com, duluthnewstribune.com, pineknotnews.com). Belle Plaine Public Schools' site did not answer (connection refused); Tri-City United's board page and the Clay County DFL's candidates page draw their names by script and gave none.",
+  "Tim Dummer: the state DFL's list of endorsed candidates links, beside his name, an address on Google Sites (sites.google.com/view/timdummerformn) that today shows a page about a card-game app in Hindi and nothing about him. It is not recorded. The website recorded for him was found through the Chisago-Isanti DFL's page and read. John may want the state party's link left out wherever a page copies it.",
+  "Birth years from the Minnesota Historical Election Archive: for Tim Dummer, Ron Case and Brendan VanAlstyne the archive's page gives a full date and names a state birth certificate index among its sources (parts 6 and 9 met the same thing). Only the year is recorded, each with a note; whether a year with that trail is shown is John's decision. Dan Kessler's page cites only the Chaska Herald.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): the Carver County Republican Party names \"Tim Litfin for Mayor\" beside the City of Waconia's logo under \"City Council and Mayors: Recommended Candidates\", and keeps the word \"Endorsed\" for statewide and legislative candidates. It is kept apart from endorsed_by so that no page calls it an endorsement. The same page says of the other candidate in Chrissy Ahola's race only that he \"represents County Commissioner District 2\".",
+  "Read and left out on purpose: ages given as \"age on Election Day\" (KAXE's guides, for Monique Doward and Sarah Speer), which do not fix a birth year; jobs, schools, family and faith, wherever a page gave them; boards that are not government posts (an electric cooperative, a lake association, nonprofit boards); Sean Thomas's fire department post and his seat on a district input team; Chrissy Ahola's own description of her views on her home page, which names no party; Tom Murphy's line \"I am a township supervisor for Maine Township\" on a campaign page dated 2022 (he is a sitting legislator and the Legislative Reference Library lists no other government service for him); county party units' pages that list Lisa Demuth among their candidates (Carver, Olmsted, Goodhue, Clay), since the state party's own release is cited; and the Forward Party's Minnesota page, which shows only a feed of sign-ups and no endorsement. Home addresses and other contact details printed on some official pages were not recorded anywhere.",
+  "Monique Doward: our list carries her party as \"FI\" with a note that the full name is not in the Secretary's files. KAXE's guide gives \"Party: Forward Independence\", and her answer there speaks of herself \"as a Forward Independence candidate\". No party page publishing an endorsement of her was found.",
+  "For the second reader: (1) Shelley Buck and Tom Murphy are sitting legislators with roster records; for Buck two posts the Legislative Reference Library lists under other government service are given (not her House seat; one is an elected office in a tribal government, which her own campaign site also leads with, and whether a card shows it is John's decision), and the Library gives no birth date for her (\"uncertain\"); for Murphy only the website. No party page naming Murphy's 2026 endorsement was found (the Otter Tail County Republicans' site has no candidates page). (2) Lisa Demuth's leadership posts take their years from the session the Library files them under. Her own_words quote is cut from a longer sentence on her About page so as to leave out the part that speaks of race. (3) Ron Case's and Timothy Litfin's mayoral start years are left blank because no page prints them (see each \"also\"). (4) Kip Bruender has a page of his own on the county's site, which also prints a home address; the Board of Commissioners page carries the same facts without it and is the one cited. Austin Public Schools' Board Members page prints members' contact details beside their titles; it is the only district page that states Peggy Young's office. (5) Charles D. Halverson's entry rests on a 2020 radio piece and has no dates. (6) Patrick Murphy: KAXE's guide has \"District 1\" in one line and District 3 everywhere else. (7) Brendan VanAlstyne's own site and the archive spell the family name \"Van Alstyne\"; the same person by Shakopee, the office and the campaign site filed for this race. (8) Karen MacLaughlin's site shows a script-drawn page, so the kit's fetch step may take nothing from it.",
+  "No findings: Scott Steffes (the county's page shows another commissioner holds the seat and is not on the list; the Clay County Republicans' candidates page lists no county race), Joshua Stehr (the Goodhue County Republicans' pages name no one for sheriff), Jason Bade, David Frenkel, Mark Koll, Rebecca Rand (the City of Owatonna's page shows another member holds the Fifth Ward seat), Christopher Potter, Brandon A Brockway and Adam Johnson. None of them has a page in the election archive, and no review item arose: nothing our record shows was contradicted by an official page.",
+  "Verifier, 2026-10-02: every address in this file was opened again with the kit's fetcher, each one answered, and each finding was read on its page. Also re-read: the two candidates' About pages, Eden Prairie Local News, KAXE's Brainerd guide and Orono's 2026 election page named under \"also\". The Carver County Republicans' page does place \"Tim Litfin for Mayor\" after the City of Waconia's logo under Recommended Candidates; it stays under party_support, not endorsed_by. The state DFL's list still links Tim Dummer to the Google Sites address; the Chisago-Isanti DFL links to timdummerformn.com. Karen MacLaughlin's site gives only its description line to a script. Contact details printed on several official and campaign pages were not recorded."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0131-MN",
+   "name": "Monique Doward",
+   "website": {
+    "url": "https://dowardforsenate.com",
+    "how": "The site's title is \"Monique Doward for Minnesota Senate District 11\" and its footer reads \"Prepared and paid for by the Committee to Elect Monique Doward, Kettle River, Minnesota\". It is the address filed with the Secretary of State, and KAXE's Senate District 11 election guide gives the same address beside her name.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kettle River City Council",
+     "from": "2021",
+     "to": "2024",
+     "source": "KAXE (Northern Community Radio), Senate District 11 2026 Election Guide: her answer to the station's questionnaire, \"I served on the Kettle River City Council from 2021 to 2024\"",
+     "url": "https://www.kaxe.org/2026-09-28/legislature-state-senate-district-11-mn-2026-election-guide",
+     "kind": "secondary",
+     "also": "Her campaign site's home page calls her \"Former Kettle River City Councilor\" and gives no years (https://dowardforsenate.com).",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0168-MN",
+   "name": "Dan Kessler",
+   "website": {
+    "url": "https://kesslerforsenate.com",
+    "how": "The site's title is \"Dan Kessler for Minnesota Senate District 48\" and its footer reads \"Prepared and paid for by the Dan Kessler for Minnesota Senate Committee\", Chaska. It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates links to it beside Senate District 48.",
+    "verified": true
+   },
+   "born": {
+    "year": 1965,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Dan Kessler: \"Born: February 1965\", resided Chaska, Carver County; the page cites the Chaska Herald, \"Q&A with House District 47B Candidate Dan Kessler,\" September 24, 2020",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/dan-kessler",
+    "kind": "secondary",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Senate District 48)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota Senate, District 48, in the general election of November 8, 2022 (lost; he had won the DFL primary on August 9, 2022)",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Dan Kessler, which gives his residence as Chaska, Carver County",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/dan-kessler",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 47B, in the general election of November 3, 2020 (lost)",
+     "year": "2020",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Dan Kessler, which gives his residence as Chaska, Carver County, and cites the Chaska Herald's \"Q&A with House District 47B Candidate Dan Kessler\" of September 24, 2020",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/dan-kessler",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Dan Kessler is the DFL-endorsed candidate for Minnesota State Senate District 48",
+    "url": "https://kesslerforsenate.com/meet-dan",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0205-MN",
+   "name": "Tom Murphy",
+   "website": {
+    "url": "https://www.tommurphymn.com",
+    "how": "The site is titled \"Tom Murphy\" and its footer reads \"Prepared and Paid for by Team Tom Murphy for House\", Underwood; its About page (/aboutme) speaks of Otter Tail County and Maine Township. No page read names a district, and the footer is dated 2022. It is the address filed with the Secretary of State for this race.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0242-MN",
+   "name": "Tim Dummer",
+   "website": {
+    "url": "https://www.timdummerformn.com",
+    "how": "The Chisago-Isanti DFL (the party's Senate District 28 unit, whose address the state DFL's own list of units gives) calls him \"the DFL endorsed candidate for Minnesota House in District 28A\" and sends readers to this address. The site's title is \"TIM DUMMER FOR MN 28A\" and its footer reads \"TIM DUMMER FOR MINNESOTA HOUSE 28A\" and \"Dummer for MN House 28A Committee\", Cambridge. He filed no website with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1950,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Tim Dummer, which gives his residence as Cambridge, Isanti County, lists his 2024 run for State House District 28A, and cites the Nebraska Birth Certificate Index, the County News Review (\"Dummer files for House District 28A,\" June 27, 2024) and his campaign website",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/tim-dummer",
+    "kind": "secondary",
+    "note": "For the second reader: the page gives a full date and names a public birth index among its sources; only the year is recorded here.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 28A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Chisago-Isanti DFL, the party's Senate District 28 unit (its page of endorsed candidates: \"Tim Dummer is the DFL endorsed candidate for Minnesota House in District 28A\")",
+     "url": "https://www.chisago-isantidfl.com/sd28-endorsed-candidates",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 28A, in the general election of November 5, 2024 (lost; he had won the DFL primary on August 13, 2024)",
+     "year": "2024",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Tim Dummer, which gives his residence as Cambridge, Isanti County, and cites the County News Review, \"Dummer files for House District 28A,\" June 27, 2024",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tim-dummer",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0280-MN",
+   "name": "Shelley Buck",
+   "website": {
+    "url": "https://buckforhouse.com",
+    "how": "The site's title is \"Shelley Buck for House | Minnesota District 47A\" and its footer reads \"Prepared and paid for by the Shelley Buck for House Committee\". It is the address filed with the Secretary of State, and the Minnesota DFL's list of endorsed candidates links to it beside House District 47A.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prairie Island Indian Community, tribal government (13 years; President for 6 years)",
+     "from": "2011",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Other Government Service, Tribal Government: 2011 to 12/2023)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15655",
+     "kind": "official",
+     "also": "Her campaign site calls her \"a former President of the Prairie Island Tribal Council\" (https://buckforhouse.com).",
+     "verified": true
+    },
+    {
+     "office": "Minnesota State Emblems Redesign Commission",
+     "from": "2023",
+     "to": "2023",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Other Government Service, State Board/Commission/Council: 05/2023 to 12/2023)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15655",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 47A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0331-MN",
+   "name": "Lisa Demuth and Ryan Wilson",
+   "website": {
+    "url": "https://lisaformn.com",
+    "how": "The site's title is \"Lisa Demuth for Governor\" and its footer reads \"Prepared and Paid for by the Lisa Demuth for Governor Committee\". It is the address filed with the Secretary of State, and the Republican Party of Minnesota's page \"2026 Republican Nominees\" links to it under Governor & Lieutenant Governor.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.house.mn.gov/members/profile/15498",
+    "source": "Minnesota House of Representatives, member page (Rep. Lisa Demuth, District 13A, Speaker of the House)",
+    "verified": true
+   },
+   "born": {
+    "year": 1967,
+    "date": "1967-02-10",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota House of Representatives, District 13A",
+     "from": "2019",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (\"House 2019-2022 (District 13A); House 2023-Present (District 13A)\")",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Speaker of the Minnesota House of Representatives",
+     "from": "2025",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (leadership position in the 94th Legislative Session, 2025-2026)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "also": "Her House member page gives the same title today; her campaign site dates it from February 2025.",
+     "verified": true
+    },
+    {
+     "office": "Minority Leader, Minnesota House of Representatives",
+     "from": "2023",
+     "to": "2024",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (leadership position in the 93rd Legislative Session, 2023-2024)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Assistant Minority Leader, Minnesota House of Representatives",
+     "from": "2021",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (leadership position in the 92nd Legislative Session, 2021-2022)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "ROCORI School District school board, Cold Spring (elected)",
+     "from": "2007",
+     "to": "2018",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Other Government Service: 2007 to 12/31/2018)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Paynesville Human Rights Commission",
+     "from": "1995",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (Other Government Service, Municipal Board/Commission: \"Paynesville, Minnesota (Human Right Commission); 1995 to ?\", as the page prints it)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Minnesota, State Central Committee (the state party; its release dated September 1, 2026 says the committee \"today endorsed Lisa Demuth, Ryan Wilson, Scott Jensen and Michele Tafoya by acclamation\" after the primary)",
+     "url": "https://mngop.com/mngop-unites-behind-winning-statewide-ticket/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 13A (first elected November 6, 2018; elected again in 2020, 2022 and 2024)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (\"Party when first elected: Republican\", and Republican in each session since)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15498",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "first Republican woman to serve as Speaker of the House",
+    "url": "https://lisaformn.com/about/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-019",
+   "name": "Chrissy Ahola",
+   "website": {
+    "url": "https://www.chrissyforcarvercounty.com",
+    "how": "The site's title is \"Chrissy for Carver County Commissioner for District 2 (NE Carver County)\", its home page names Chrissy Ahola, and its footer reads \"Prepared and paid for by Chrissy For Carver County Committee\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1983,
+    "date": null,
+    "source": "Her campaign's own website (About): \"I was born in 1983\"",
+    "url": "https://www.chrissyforcarvercounty.com/about",
+    "kind": "campaign",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I was awarded Volunteer of the Year by the DFL",
+    "url": "https://www.chrissyforcarvercounty.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0393-001",
+   "name": "Patrick Murphy",
+   "offices": [
+    {
+     "office": "Glen Township Board of Supervisors (Aitkin County), supervisor",
+     "from": "",
+     "to": "now",
+     "source": "KAXE (Northern Community Radio), Aitkin County 2026 Election Guide: his answer to the station's questionnaire, \"Currently serve as elected Glen Township Supervisor\"",
+     "url": "https://www.kaxe.org/2026-09-28/aitkin-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "also": "The guide's one-line introduction of him says \"District 1\"; its summary and its list of candidates place him in District 3 with Travis J. Leiviska, as our list does, and his own answer speaks of District 3. Left out as not government posts: a seat on an electric cooperative's board and the presidency of a lake association.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-027",
+   "name": "Scott Steffes"
+  },
+  {
+   "race_id": "2026-MN-0395-013",
+   "name": "Kip Bruender",
+   "official_page": {
+    "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+    "source": "Blue Earth County, Board of Commissioners page (Kip Bruender, District 5)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Blue Earth County Board of Commissioners, District 5",
+     "from": "2003",
+     "to": "now",
+     "source": "Blue Earth County, Board of Commissioners page (its table gives District 5, \"Sworn In\" 2003, term expires January 5, 2027)",
+     "url": "https://www.blueearthcountymn.gov/94/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-137",
+   "name": "Nancy Nilsen",
+   "official_page": {
+    "url": "https://www.stlouiscountymn.gov/departments-a-z/auditor",
+    "source": "St. Louis County, Auditor page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Louis County Auditor-Treasurer",
+     "from": "2019",
+     "to": "now",
+     "source": "St. Louis County, Auditor page: \"Nancy Nilsen was sworn in on January 3, 2019 as the St. Louis County Auditor-Treasurer\"; the page gives no later date",
+     "url": "https://www.stlouiscountymn.gov/departments-a-z/auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-049",
+   "name": "Joshua Stehr"
+  },
+  {
+   "race_id": "2026-MN-0404-157",
+   "name": "Jason Bade"
+  },
+  {
+   "race_id": "2026-MN-0405-109",
+   "name": "Karen MacLaughlin",
+   "website": {
+    "url": "https://maclaughlin4oca.com",
+    "how": "The page's own description reads \"Karen MacLaughlin for Olmsted County Attorney\". The rest of the site is drawn by a script, so neither the kit's reader nor the page reader could read more of it. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-18116",
+   "name": "Ron Case",
+   "official_page": {
+    "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+    "source": "City of Eden Prairie, its page for Mayor Ron Case",
+    "verified": true
+   },
+   "born": {
+    "year": 1955,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Ron Case, which gives his residence as Eden Prairie, Hennepin County, lists \"Eden Prairie City Councilor\" among offices held, and cites the Kentucky Birth Certificate Index and Southwest News Media (\"State Senate District 42 Candidate Profile: Ron Case,\" October 15, 2010)",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/ron-case",
+    "kind": "secondary",
+    "note": "For the second reader: the page gives a full date and names a public birth index among its sources; only the year is recorded here.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Eden Prairie (re-elected in 2022 after one earlier term; current term ends December 31, 2026)",
+     "from": "",
+     "to": "now",
+     "source": "City of Eden Prairie, its page for Mayor Ron Case",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+     "kind": "official",
+     "also": "Eden Prairie Local News of August 20, 2026 (https://eplocalnews.org/2026/08/20/ron-case-unopposed-in-bid-for-third-term-as-eden-prairie-mayor/) says he \"is completing his second four-year term as mayor\" and has served on the council for 30 years, eight of them as mayor. Two four-year terms ending December 31, 2026 would have begun in January 2019, but neither page prints that year, so the start is left blank.",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie City Council (five and a half terms before becoming mayor)",
+     "from": "",
+     "to": "",
+     "source": "City of Eden Prairie, its page for Mayor Ron Case",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie Heritage Preservation Commission",
+     "from": "",
+     "to": "",
+     "source": "City of Eden Prairie, its page for Mayor Ron Case",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Suburban Rate Authority (chair)",
+     "from": "",
+     "to": "",
+     "source": "City of Eden Prairie, its page for Mayor Ron Case (\"has chaired such regional commissions as the Suburban Rate Authority and the Southwest Suburban Cable Commission\")",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Southwest Suburban Cable Commission (chair)",
+     "from": "",
+     "to": "",
+     "source": "City of Eden Prairie, its page for Mayor Ron Case (\"has chaired such regional commissions as the Suburban Rate Authority and the Southwest Suburban Cable Commission\")",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/ron-case",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota Senate, District 42, in the general election of November 2, 2010 (lost)",
+     "year": "2010",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Ron Case, which gives his residence as Eden Prairie, Hennepin County, lists \"Eden Prairie City Councilor\" among offices held, and cites Southwest News Media's \"State Senate District 42 Candidate Profile: Ron Case\" of October 15, 2010",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/ron-case",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-67432",
+   "name": "Timothy Litfin",
+   "official_page": {
+    "url": "https://www.waconiamn.gov/414/City-Council-Members",
+    "source": "City of Waconia, City Council Members page (Tim Litfin, Mayor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Waconia (current term January 2025 through December 2026)",
+     "from": "",
+     "to": "now",
+     "source": "City of Waconia, City Council Members page",
+     "url": "https://www.waconiamn.gov/414/City-Council-Members",
+     "kind": "official",
+     "also": "The page gives only the current term; the city's Mayor & City Council page says the mayor is elected for a 2-year term. No page read says whether he held city office before January 2025, so the start is left blank.",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Recommended Candidates",
+     "what": "Named \"Tim Litfin for Mayor\" beside the City of Waconia's logo under \"City Council and Mayors: Recommended Candidates\". The same page uses the word \"Endorsed\" only for statewide and legislative candidates.",
+     "url": "https://www.carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18188",
+   "name": "David Frenkel"
+  },
+  {
+   "race_id": "2026-MN-1010-45430",
+   "name": "Graeme Allen",
+   "website": {
+    "url": "https://www.allenfornb.com",
+    "how": "The site's banner reads \"Graeme Allen For New Brighton City Council\", its footer reads \"Prepared by the Allen for Council Campaign Committee\", and its About page says \"I'm running for reelection to the City Council\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.newbrightonmn.gov/192/City-Council",
+    "source": "City of New Brighton, City Council page (Graeme Allen, Councilmember)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "New Brighton City Council, councilmember (term expires January 3, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of New Brighton, directory entry for Graeme Allen, Councilmember",
+     "url": "https://www.newbrightonmn.gov/Directory.aspx?EID=18",
+     "kind": "official",
+     "also": "His campaign site's About page says \"For the past 8+ years\" he has represented New Brighton; neither page gives the year he took office.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-59350",
+   "name": "Brendan VanAlstyne",
+   "website": {
+    "url": "https://brendanvforshakopee.org",
+    "how": "The site's title is \"Brendan Van Alstyne for Shakopee City Council\" (the site spells the family name as two words). It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1999,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Brendan Van Alstyne, which gives his residence as Shakopee, Scott County, lists his 2022 run for State House District 54B, and cites the Nevada Birth Certificate Index and Southwest News Media (\"Q-and-A with House Seat 54B Candidate Brendan Van Alstyne,\" October 21, 2022)",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/brendan-van-alstyne",
+    "kind": "secondary",
+    "note": "For the second reader: the page gives a full date and names a public birth index among its sources; only the year is recorded here.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 54B, in the general election of November 8, 2022 (lost)",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; curated by Smart Politics), candidate page for Brendan Van Alstyne, which gives his residence as Shakopee, Scott County, and cites Southwest News Media's \"Q-and-A with House Seat 54B Candidate Brendan Van Alstyne\" of October 21, 2022",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/brendan-van-alstyne",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-30392",
+   "name": "Mark Koll"
+  },
+  {
+   "race_id": "2026-MN-1024-12160",
+   "name": "Iris Keller",
+   "official_page": {
+    "url": "https://www.cloquetmn.gov/our-city/city-council",
+    "source": "City of Cloquet, City Council page (Iris Keller, Councilor Ward 3)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cloquet City Council, Ward 3 councilor (term expires 2026)",
+     "from": "",
+     "to": "now",
+     "source": "City of Cloquet, City Council page (its list \"2025 City Councilors\")",
+     "url": "https://www.cloquetmn.gov/our-city/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-49300",
+   "name": "Rebecca Rand"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Sarah Speer",
+   "official_page": {
+    "url": "https://www.isd181.org/board-of-education-home",
+    "source": "Brainerd Public Schools, Board of Education page (Sarah Speer, Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brainerd Public Schools Board of Education, chair (term ends 2026)",
+     "from": "",
+     "to": "now",
+     "source": "Brainerd Public Schools, Board of Education page",
+     "url": "https://www.isd181.org/board-of-education-home",
+     "kind": "official",
+     "also": "KAXE's Brainerd School District 2026 Election Guide marks her \"Incumbent\" (https://www.kaxe.org/2026-09-30/brainerd-school-district-mn-2026-election-guide). Neither page gives the year she joined the board.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0278",
+   "name": "Wendy Lundsgaard",
+   "website": {
+    "url": "https://wendylundsgaard.org",
+    "how": "The site is titled \"Wendy Lundsgaard\", its footer reads \"2026 RE-ELECT WENDY LUNDSGAARD\" and \"Prepared and Paid for by Lundsgaard for School Board Committee\", and its pages speak of Orono's schools and her work on the school board. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.oronoschools.org/about/school-board",
+    "source": "Orono Schools, School Board page (Wendy Lundsgaard, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Orono School Board, treasurer (term expires January 1, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "Orono Schools, School Board page",
+     "url": "https://www.oronoschools.org/about/school-board",
+     "kind": "official",
+     "also": "The same page lists her among the candidates of the district's 2026 school board election, and the district's 2026 election page (https://www.oronoschools.org/fs/pages/1784) calls her \"Current Board Treasurer\". Neither gives the year she took office.",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0492",
+   "name": "Peggy Young",
+   "official_page": {
+    "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+    "source": "Austin Public Schools, Board Members page (Vice-Chairperson Peggy Young)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin Public Schools School Board, vice-chairperson (term expires 1/4/2027)",
+     "from": "",
+     "to": "now",
+     "source": "Austin Public Schools, Board Members page",
+     "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0716",
+   "name": "Christopher Potter"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Sean Thomas",
+   "website": {
+    "url": "https://seanthomas4fl.com",
+    "how": "The site's title is \"Sean Thomas for Forest Lake Area Schools Board | Common Sense for Our Schools\" and its home page reads \"Running for School Board\" and \"ISD 831\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2905",
+   "name": "Brandon A Brockway"
+  },
+  {
+   "race_id": "2026-MN-8135-MN",
+   "name": "Adam Johnson"
+  },
+  {
+   "race_id": "2026-MN-9103-MN",
+   "name": "Charles D. Halverson",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District Court",
+     "from": "",
+     "to": "",
+     "source": "KAXE (Northern Community Radio), \"Meet Judge Charles D. Halverson from the 9th Judicial District\", August 26, 2020: it introduces him as a judge of the Ninth Judicial District \"who is running for reelection\" that November, in what the interviewer calls \"the first time you've been up for elections\" after a governor's appointment",
+     "url": "https://www.kaxe.org/vote-2020/2020-08-26/meet-judge-charles-d-halverson-from-the-9th-judicial-district",
+     "kind": "secondary",
+     "also": "The piece gives no year for the appointment. The Minnesota Judicial Branch's site refuses scripts (403), so no court page was read; no page read says in so many words that he sits today, which is why the end is left blank.",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0131-MN",
+   "name": "Monique Doward",
+   "field": "offices",
+   "what": "Minnesota Statewide Independent Living Council",
+   "why": "KAXE's guide does carry her words, but among community service and without years; no official page could be opened in two tries (the council's own address does not resolve, and the state's page for it was not found) to show it is an appointed government post or that she sat on it, so it is left out."
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+{
+ "part": 71,
+ "of": 73,
+ "researched": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-MN-0155-MN",
+   "name": "Jim Abeler",
+   "website": {
+    "url": "https://jimabeler.com",
+    "how": "Filed with the Secretary of State and opened: the site is titled \"Jim Abeler | MN Senate\" and reads \"Jim Abeler for Minnesota Senate\". It leads to www.jimabeler.com and does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0193-MN",
+   "name": "Aaron Schweiger",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\" lists \"Aaron Schweiger, House District 3B\"; the page prints no year)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 41B (won the DFL primary; lost the general election)",
+     "year": "2004",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Aaron Schweiger says he ran for House District 41B in 2004 from Edina and for House District 3B in 2026 from Duluth",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/aaron-schweiger/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0230-MN",
+   "name": "Bjorn Olson"
+  },
+  {
+   "race_id": "2026-MN-0266-MN",
+   "name": "Luis Withrow",
+   "website": {
+    "url": "https://www.luisfor40a.com",
+    "how": "Filed with the Secretary of State and opened: the home page reads \"Luis Withrow for House\" and \"Republican Endorsed Candidate for MN House District 40A\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Endorsed Candidate for MN House District 40A",
+    "url": "https://www.luisfor40a.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0305-MN",
+   "name": "Kenneth Smoron",
+   "website": {
+    "url": "https://www.smoronformnhouse.com",
+    "how": "Filed with the Secretary of State and opened (it leads to smoronformnhouse.com): the site is titled \"SmoronForMNHouse\", reads \"Ken Smoron for MN House\" and \"Restore Minneapolis\", and carries a 2026 copyright line. It does not print the district number.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 59B, in the general election (lost)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Kenneth Smoron gives his residence as Minneapolis and his party as Republican; the district is the one sought in 2026",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/kenneth-smoron/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-125",
+   "name": "Casey J. Klipping"
+  },
+  {
+   "race_id": "2026-MN-0392-127",
+   "name": "Heidi Wersal"
+  },
+  {
+   "race_id": "2026-MN-0393-123",
+   "name": "Garrison McMurtrey",
+   "website": {
+    "url": "https://electgarrison.com",
+    "how": "Filed with the Secretary of State and opened (it leads to www.electgarrison.com): the home page reads \"Re-Elect Garrison for Ramsey County Commissioner\" and \"Garrison McMurtrey serves as the Ramsey County Commissioner for District 3\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/garrison-mcmurtrey-district-3",
+    "source": "Ramsey County: Board of Commissioners, Garrison McMurtrey (District 3)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Commissioner, District 3",
+     "from": "2025",
+     "to": "now",
+     "source": "Ramsey County's page for him: \"McMurtrey began his term in February 2025\"",
+     "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/garrison-mcmurtrey-district-3",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Commissioner, Saint Paul Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County's page for him: \"has previously served as ... commissioner on the St. Paul Planning and Charter Commissions\". No years are given.",
+     "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/garrison-mcmurtrey-district-3",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Commissioner, Saint Paul Charter Commission",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County's page for him: \"has previously served as ... commissioner on the St. Paul Planning and Charter Commissions\". No years are given.",
+     "url": "https://www.ramseycountymn.gov/your-government/leadership/board-commissioners/garrison-mcmurtrey-district-3",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL & Labor Endorsed",
+    "url": "https://www.electgarrison.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-131",
+   "name": "Steve Underdahl",
+   "official_page": {
+    "url": "https://www.ricecountymn.gov/169/Board-of-Commissioners",
+    "source": "Rice County: Board of Commissioners (lists \"Steve Underdahl, Commissioner - District 4, Term expires December 2026\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rice County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Rice County's Board of Commissioners page: \"Steve Underdahl, Commissioner - District 4, Term expires December 2026\". No start year is given.",
+     "url": "https://www.ricecountymn.gov/169/Board-of-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0396-109",
+   "name": "Bob Hopkins",
+   "website": {
+    "url": "https://bobhopkins.org",
+    "how": "Filed with the Secretary of State and opened: the site is titled \"Bob Hopkins - For Olmsted County Commissioner | District 6\" and reads \"Re-Elect Bob Hopkins\"; the home page is dated July 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/bob-hopkins",
+    "source": "Olmsted County: Elected officials, Bob Hopkins, Olmsted County Commissioner, Sixth District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Olmsted County Commissioner, District 6",
+     "from": "2025",
+     "to": "now",
+     "source": "Olmsted County's page for him: \"Olmsted County Commissioner, Sixth District. Term of Office Expires 2026. Served on County Board since 2025\"",
+     "url": "https://www.olmstedcounty.gov/government/about-olmsted-county/elected-officials/bob-hopkins",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-013",
+   "name": "Jeff Wersal",
+   "official_page": {
+    "url": "https://www.blueearthcountymn.gov/m/directory/department?did=16",
+    "source": "Blue Earth County: staff directory, Sheriff's Office & Jail (lists \"Jeff Wersal, Sheriff\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Blue Earth County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Blue Earth County's directory for the Sheriff's Office & Jail: \"Jeff Wersal, Sheriff\". No start year is given.",
+     "url": "https://www.blueearthcountymn.gov/m/directory/department?did=16",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-121",
+   "name": "Nathan Brecht"
+  },
+  {
+   "race_id": "2026-MN-0405-059",
+   "name": "Jeffrey R. Edblad",
+   "official_page": {
+    "url": "https://www.isanticountymn.gov/231/Attorney",
+    "source": "Isanti County: Attorney (lists \"Jeff Edblad, County Attorney\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Isanti County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Isanti County's Attorney page: \"Jeff Edblad, County Attorney\". No start year is given.",
+     "url": "https://www.isanticountymn.gov/231/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-07948",
+   "name": "Alexander Koenig",
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 40B, in the DFL primary (lost)",
+     "year": "2018",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns). Its page for Alexander Koenig notes that he was a candidate for Brooklyn Center City Council in 2016; it does not mention the 2026 race for mayor, so the tie is the name, the state and the city",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/alexander-koenig/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-47068",
+   "name": "Joe Tougas"
+  },
+  {
+   "race_id": "2026-MN-1010-12700",
+   "name": "Judah Scharnhorst"
+  },
+  {
+   "race_id": "2026-MN-1010-37502",
+   "name": "Mike Mui",
+   "website": {
+    "url": "https://mikemui4littlecanada.com",
+    "how": "Filed with the Secretary of State and opened: the site is titled \"Mike Mui for Little Canada\", says \"As a council member, I will\", and its agenda is dated 9/20/2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Little Canada Parks & Recreation Commission",
+     "from": "",
+     "to": "now",
+     "source": "City of Little Canada's Parks & Recreation Commission page: \"Mike Mui - Chair (Term Ends: December 31, 2027)\". His campaign site also calls him Chair of the Parks & Recreation Commission. No start year is given.",
+     "url": "https://www.littlecanada.gov/380/Parks-Recreation-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55186",
+   "name": "Christian Grams"
+  },
+  {
+   "race_id": "2026-MN-1020-00928",
+   "name": "Bill Franzen",
+   "official_page": {
+    "url": "https://alexandriamn.city/official/bill-franzen/",
+    "source": "City of Alexandria: Bill Franzen (the City Council page lists him as \"Council Member - Ward I\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Alexandria City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Alexandria's City Council page: \"Bill Franzen, Council Member - Ward I\"; his own page there says \"Term expires end of 2026\". No start year is given.",
+     "url": "https://alexandriamn.city/city-department/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-40688-S",
+   "name": "Eric DeGroot"
+  },
+  {
+   "race_id": "2026-MN-1026-20906",
+   "name": "Miranda Lape",
+   "website": {
+    "url": "https://mirandalape.com",
+    "how": "Filed with the Secretary of State and opened: the site is titled \"Miranda Lape for Fergus Falls City Council\", and the page's own data reads \"Fergus Falls - Ward 4\" (the ward sought). It prints no year, and says \"Vote for me on November 4th\", which is not this election's date (November 3, 2026).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0110",
+   "name": "Kimberly Kelzer-Breeden",
+   "official_page": {
+    "url": "https://isd110.org/about-us/school-board",
+    "source": "Waconia Public Schools (ISD 110): School Board (lists \"Kimberly Kelzer-Breeden, Treasurer\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Waconia Public Schools Board (ISD 110)",
+     "from": "2023",
+     "to": "now",
+     "source": "Waconia Public Schools' School Board page: \"Term: Jan. 1, 2023-Dec. 31, 2026. Kimberly Kelzer-Breeden, Treasurer\"",
+     "url": "https://isd110.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0241",
+   "name": "Erin Stoneking"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Clint Scherping"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0625",
+   "name": "Omar Syed",
+   "website": {
+    "url": "https://voteomarsyed.com",
+    "how": "Filed with the Secretary of State and opened (it leads to www.voteomarsyed.com): the site is titled \"Omar Syed for School Board\" and headed \"Omar Syed for Saint Paul School Board\". It prints no election year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0748",
+   "name": "Nate Crowe"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0911",
+   "name": "Kevin Gross",
+   "official_page": {
+    "url": "https://www.c-ischools.org/page/school-board",
+    "source": "Cambridge-Isanti Schools: School Board (lists \"Kevin Gross, Board Director, Current Term Expires Jan. 2027\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Board Director, Cambridge-Isanti Schools Board (ISD 911)",
+     "from": "",
+     "to": "now",
+     "source": "Cambridge-Isanti Schools' School Board page: \"Kevin Gross. Board Director, Current Term Expires Jan. 2027\". No start year is given. The page's words sit in the page's data, so a plain text reader may need the page source.",
+     "url": "https://www.c-ischools.org/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5018-ISD0381",
+   "name": "Jeff Radle"
+  },
+  {
+   "race_id": "2026-MN-8810-MN",
+   "name": "Steven Bradley Hanke"
+  }
+ ],
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up (no search ran), so everything was read by opening pages directly with the kit's honest User-Agent, robots.txt read first for each host: the campaign websites as filed with the Secretary of State (learned from a scratch copy of the database on which python -m ballot.local_sites files had been run), each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, and the University of Minnesota's election archive. No campaign site was found beyond those filed.",
+  "Filed websites not recorded: Aaron Schweiger's (www.aaronformn.com answers, but shows a script and the page reader only the word \"Aaron\": no office or place) and Alexander Koenig's (brooklyncenter2030.org shows a registrar's \"Coming Soon\" holding page).",
+  "No birth year is recorded. The election archive shows birth dates for Kenneth Smoron and Aaron Schweiger, but the source it names is a birth records index, so they were not taken (as in other parts). Luis Withrow's site gives an age without a date.",
+  "The election archive is labelled secondary, as in other parts. Alexander Koenig's 2018 run rests on name, state and city (the archive ties its Koenig to Brooklyn Center); it does not mention 2026. Worth the second reader's eye.",
+  "Garrison McMurtrey's campaign site says \"DFL & Labor Endorsed\" (his own words); no DFL page naming him for 2026 was found (dfl.org's list does not; saintpauldfl.org speaks only of a coming school board convention), so no endorsed_by. The same for Luis Withrow (\"Republican Endorsed Candidate\"): mngop.com names no legislative candidates and no local unit's page was reached. Omar Syed's endorsements page names officeholders, not a party unit endorsing him. Chair of the Saint Paul DFL (McMurtrey) is a party post, not an office, and was left out; family details on campaign and county pages were not taken.",
+  "Not sitting in the office sought, by the government's own pages: Heidi Wersal (Redwood County lists Jim Salfer for District 2), Alexander Koenig, Joe Tougas, Christian Grams, Eric DeGroot and Miranda Lape (not on their cities' council pages), Erin Stoneking (not on Albert Lea's board page).",
+  "Not reached, nothing worked around: Red Lake County's site (its certificate is not valid for the address), Pope County's site (an empty shell to a script), Columbia Heights (robots.txt asks scripts to stay out), the Minnesota Judicial Branch (robots.txt, so nothing for Judge Steven Bradley Hanke), the Dassel-Cokato and Sartell-St. Stephen school sites (no answer), Lake Superior School District (a redirect that never lands). Bjorn Olson filed no website and none was found by trying addresses.",
+  "Nothing citable for thirteen: Bjorn Olson, Casey J. Klipping, Heidi Wersal, Nathan Brecht, Joe Tougas, Judah Scharnhorst, Christian Grams, Eric DeGroot, Erin Stoneking, Clint Scherping, Nate Crowe, Jeff Radle, Steven Bradley Hanke.",
+  "Verifier, 2026-10-02: all 23 cited pages were opened again with the kit's honest User-Agent and every one answered; all 33 findings stand. Each filed website was found in the Secretary of State's filing files beside the candidate's name. Two wordings corrected (Miranda Lape's site: the ward is in the page's data, and the date it prints is November 4th; the DFL list prints no year). The election archive's note on Aaron Schweiger spells the name \"Schweigert\" once; its heading, its 2004 rows (primary won, general lost) and the 2026 District 3B run from Duluth fit. Alexander Koenig's 2018 run is kept on two anchors (Minnesota, Brooklyn Center, where the archive says he lived and ran for council in 2016); the archive does not mention 2026."
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

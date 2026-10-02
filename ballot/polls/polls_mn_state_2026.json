@@ -1,0 +1,89 @@
+{
+ "rule": "Minnesota's state and local races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-MN-0331-MN": {
+   "polls": [
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-02-06",
+     "end": "2026-02-08",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3.0,
+     "shares": {
+      "Amy Klobuchar": 51,
+      "Lisa Demuth": 38
+     },
+     "rest": 11,
+     "note": "Asked in February as a matchup between likely nominees, six months before the August 11 primary. The question named the two candidates for governor, not their running mates. Of the rest, 4.6% chose someone else and 6.6% were undecided.",
+     "url": "https://emersoncollegepolling.com/minnesota-2026-poll-democrats-lead-gop-as-voters-cite-threats-to-democracy/",
+     "checked": "2026-10-01"
+    }
+   ],
+   "left_out": {
+    "n": 15,
+    "pollsters": [
+     "SurveyUSA (seven, for KSTP: three of November's matchup, three of the Republican primary only, and one of Tim Walz against four Republicans, September 15-18, 2025)",
+     "Big Data Poll (two, the Republican primary, for Mike Lindell's campaign)",
+     "co/efficient",
+     "TIPP Insights (for the League of American Workers)",
+     "Mason-Dixon Polling & Strategy (for the Minnesota Star Tribune, KARE 11 and the University of Minnesota's Hubbard School of Journalism and Mass Communication)",
+     "Minnesota Private Business Council (the Republican primary; the group's own internal poll)",
+     "Peak Insights (the Republican primary, for Michele Tafoya's campaign for U.S. Senate)",
+     "RMG Research (Tim Walz against an unnamed Republican, December 10-16, 2025, for Alpha News)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Minnesota_gubernatorial_election",
+    "checked": "2026-10-01",
+    "note": "Emerson's February survey is the only poll of this race by a pollster in the Transparency Initiative. Emerson's own site lists no later Minnesota release, and ActiVote's 2026 page says it has published no statewide poll yet (both read 2026-10-01). RealClearPolling's list answered our check with 403 and was not read."
+   }
+  },
+  "2026-MN-0335-MN": {
+   "polls": [],
+   "left_out": {
+    "n": 5,
+    "pollsters": [
+     "SurveyUSA (five, for KSTP)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Minnesota_Attorney_General_election",
+    "checked": "2026-10-01",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Emerson's February 2026 Minnesota survey did not ask it."
+   }
+  },
+  "2026-MN-0332-MN": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "SurveyUSA (two, for KSTP)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Minnesota_Secretary_of_State_election",
+    "checked": "2026-10-01",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Emerson's February 2026 Minnesota survey did not ask it."
+   }
+  },
+  "2026-MN-0333-MN": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "SurveyUSA (two, for KSTP)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Minnesota_State_Auditor_election",
+    "checked": "2026-10-01",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Emerson's February 2026 Minnesota survey did not ask it."
+   }
+  },
+  "2026-MN-0405-053": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Hennepin_County_Attorney_election",
+    "checked": "2026-10-01",
+    "note": "County Attorney, Hennepin County: a county race, listed here because Kalshi runs a market on it (ballot/odds_state_mn.json). Wikipedia's page has no polling section and two news searches found no published poll."
+   }
+  }
+ }
+}

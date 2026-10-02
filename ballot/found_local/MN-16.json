@@ -1,0 +1,747 @@
+{
+ "state": "MN",
+ "part": 16,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "WebSearch could not be used for this part: the session's search allowance was already spent (the one search tried was refused), and no search engine was read in its place. Everything below was found by opening known addresses with the kit's honest User-Agent, a second or more apart and with each site's robots.txt read first: the campaign websites the candidates filed with the Secretary of State (read by the kit's own files step on a scratch copy of the database: 13 of the 30 filed one; 11 were read and are confirmed below, and the two that were not are review items), each county's, city's and school district's own site, the Legislative Reference Library, the state parties' and local party units' own sites, the University of Minnesota's election archive, and two local news sites' own search pages (Eden Prairie Local News, McLeod County Chronicle). A candidate with a campaign site they did not file could have been missed.",
+  "Nothing citable was found for James Jawaski, Andrew Messner, Scott Cutsforth, Joe Kampa, Myron \"Bruce\" Eastlund, Maia Gunderson, Jared Festler and Taylor Zinkle. None of them filed a website, and none is named on the pages of their city, county or school district that were read (Monticello's and Blaine's council and board pages, Fairmont's council and board pages, the Little Falls and Waseca school board pages, Stevens County's Sheriff page). The Glencoe-Silver Lake district's own page 'Meet the GSL School Board Candidates' says no response was received from Donna VonBerge.",
+  "Not read, because the site asked scripts to stay out or refused them (nothing was worked around): co.wilkin.mn.us, ci.sauk-rapids.mn.us and ci.minnetonka-beach.mn.us (robots.txt shuts out every script but the big search engines), which is why James Jawaski's county, Joe Kampa's city and Tracey Breazeale's council have no page of their own here; mncourts.gov's Judicial Officer Directory (403); mn.gov/governor (a Radware CAPTCHA page); armstrong4council.com, stevenscountytimes.com and dfl57.org (a CAPTCHA redirect); the Scott County Republicans' endorsed and recommended candidates page (403, asked twice) and sd13dfl.org (403); wrightcountyrepublicans.com (402); pctribune.com's search page (robots.txt); the Benton County Herald's Elections 2026 story (cut off for non-subscribers); sd50gop.org, cd8gop.com, cd4gop.com, sd66.org, stevenscountydfl.org and sd56dfl.org (certificate or handshake failures; certificate checking was never turned off); sd7dfl.org, sd19dfl.com and washingtoncountyrepublicans.org (no answer). The Fairmont Sentinel's search page shows nothing without scripts. Two addresses tried by guesswork exist but are not these candidates' (andrewmessner.com is another person's page; votemaia.com is empty) and were dropped.",
+  "A robots.txt question for John, not decided here. Five sites let the kit's own User-Agent in but shut out Anthropic's reading agents by name (Claude-Web or Claude-User, with ClaudeBot and anthropic-ai): markbornformn.com (the campaign site Mark Born filed) and four newspaper sites, hometownsource.com (ABC Newspapers, the Sun papers, Monticello Times, Morrison County Record), southernminn.com (Waseca County News), mesabitribune.com and wahpetondailynews.com. This sweep is run by Claude, so it took that as addressed to itself. Mark Born's home page and Meet Mark page were read before the rule was noticed; nothing read there is kept, which is why he has only a review item. The newspaper sites were not read: one hometownsource.com search page was fetched before the check, and that copy was deleted without being read. Other parts cite hometownsource.com under the kit's own name, which its robots.txt allows; if John decides that is what counts, these sites can be read for this part's candidates too (the Coon Rapids, Blaine, Monticello, Edina, Little Falls, Waseca and Hibbing races are the ones it would help). Sites that shut out only training crawlers (Squarespace's switch: sd8dfl.org, alliewolfformnhouse.org) were read, since nothing read here trains anything.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): three listings where a party unit publishes its backing of a candidate for a nonpartisan office in words other than endorsement. The Senate District 49 DFL names Dirk Tedmon under \"Local Candidates we support\". The Senate District 35 Republicans name Pat Carlson and Brian Armstrong in a table of nonpartisan local candidates to whom the unit gives \"our support and recommendation\"; the page is called \"Endorsements\" in the site's menu, but the word endorsed is not used on it, and the unit's own sentence about those candidates' politics is not repeated here. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "No Republican endorsement could be recorded for Allan Kehr II or Mark Born. mngop.com lists statewide and congressional nominees only; the St. Louis County Republicans' 2026 endorsement page pictures five House candidates and not Kehr; the 8th Congressional District Republicans list 'HD 8A - Alan Kehr II' under '2026 Candidates' without the word endorsed; no site was found for the Senate District 66 Republicans. saintpaulrepublicans.us calls Mark Born an endorsed candidate, but says of itself that it is 'not an official website of the Republican Party of Minnesota, nor affiliated with them', so it is not a party's own page and was not used.",
+  "The Minnesota Historical Election Archive (University of Minnesota Libraries) is the source for the earlier runs under a party label of Allan Kehr II, Allie Wolf and Tracey Breazeale. It is a university archive of official returns, not a news organization, and is labelled secondary for the second reader to judge. Its page for 'Allan Kehr' of Duluth carries the note 'Born Allan Harry Kehr II' and ends with the 2022 Republican primary in House District 8A, the seat he is on the ballot for now; that is what ties it to this candidate. The birth dates the archive shows were not taken (it names a birth records index as their source); Allie Wolf's birth year is from her own campaign site.",
+  "The two district judges: incumbency rests on county notices of offices to be voted for, which name each seat's incumbent: Stevens County's own notice (official) for Melissa Listug, and McLeod County's notice as published in the McLeod County Chronicle (secondary) for Patrick Goggins. Neither says when the judge took the bench, and no page about either judge on a government's own site could be read, so neither has an official_page.",
+  "For the second reader: (1) 'elected 2014', 'elected 2020' and 'elected 2022' are written in 'from' where a page gives an election year and not the year a term began; the loader reads those as no year. (2) Stan Karwoski: the county's page gives both 'since January 2016' and 'first elected in a special election in November 2016'; only the year is used. His council seat is given a start (appointed 2001) and no end, because the page says '14 years' and 'before being elected mayor in 2014' without an end date. (3) Keith Vogt: the district writes 'Treasurer' and '(2019-2027)'; 2019 is taken as the year he joined the board. (4) Matt Lehman: the city's 'First Took Office: Jan. 1, 2002' is his start on the council, and neither the city nor his site says when he became mayor. (5) Jen McEwen is a sitting member whose roster record has no birth date, so the Legislative Reference Library's is given; its record of her service (Senate 2021-2022 in District 7, 2023 to now in District 8) agrees with the roster. (6) Tracey Breazeale's council years: her site gives none; the archive's 2024 page says 2019-present, which is quoted in the source and not used as a start year. (7) Sam Rosemark's school board seat: the district gives the end of his term only. (8) Allie Wolf's own words are three words from a longer sentence on her Issues page about ranked choice voting: 'I want to make it easier for you to vote DFLers like me and Republicans like Greg Davids out of office.' (9) Karen Gabler's Experience page also lists a 'Community Education Services Advisory Committee: 2015-2021' without saying whose committee it is; it was left out. (10) Where a source is quoted in several short pieces ('Pat Carlson', 'At Large', 'Term expires: December 31, 2028'), the page shows them on separate lines of one entry. (11) Read and left out on purpose for everyone: jobs and employers, schools, military service, family and household, faith, health, and seats on private boards and associations.",
+  "For whoever holds Brian Kirkham (race 2026-MN-0392-003, Regan Birr's opponent): the Senate District 31 Republicans' 2026 Voting Guide names him under 'Recommended for the Anoka County Commission', 'District 2': https://www.sd31gop.com/voting-guide.html",
+  "Verifier, 2026-10-02: every address in this file was asked for again with the kit's own User-Agent, a second or more apart, and each recorded statement was looked for in the page's text (Moorhead's board page keeps its text in the page's data, where 'Keith Vogt', 'Treasurer' and '(2019-2027)' were found; Stevens County's notice is a PDF read with ballot/pdftext.py). Not opened: sd8dfl.org and alliewolfformnhouse.org, whose robots.txt names anthropic-ai and ClaudeBot (no Claude-Web or Claude-User line); the findings resting on them are listed under 'removed' with the reason, and are not shown to be wrong. dfl.org/endorsed carries no year, but lists this year's ticket (statewide offices and all 67 Senate districts), so it is taken as the 2026 list. The Senate District 35 Republicans' page still does not use the word endorsed, and the Senate District 49 DFL's page still lists Dirk Tedmon under 'Local Candidates we support', so the party_support entries stay apart from endorsed_by. The archive pages show full birth dates and other personal details; none is in this file. Jen McEwen's full birth date is from the Legislative Reference Library, an official page."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0128-MN",
+   "name": "Jen McEwen",
+   "website": {
+    "url": "https://www.votemcewen.com",
+    "how": "The site is titled 'Jen McEwen for MN State Senate', says 'Senator Jen McEwen represents Duluth in the Minnesota State Senate' and reads 'Prepared and paid for by Jen McEwen for Senate'. It is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "date": "1977-05-14",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Date of Birth: 5/14/1977'",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15537",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0164-MN",
+   "name": "Sam Rosemark",
+   "website": {
+    "url": "https://samrosemark.com",
+    "how": "The site is titled 'Home | Sam Rosemark for Senate District 44', says he is 'ready to serve you in the State Senate' and reads 'Prepared and paid for by Sam Rosemark for Minnesota'. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd622.org/about/school-board",
+    "source": "North St. Paul-Maplewood-Oakdale School District (ISD 622), School Board page, which lists 'Samuel Rosemark' as 'Director'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Director, North St. Paul-Maplewood-Oakdale School District (ISD 622)",
+     "from": "",
+     "to": "now",
+     "source": "North St. Paul-Maplewood-Oakdale School District (ISD 622), School Board page, which lists 'Samuel Rosemark' as 'Director' with 'Term ends Dec 31, 2026'. The page gives no start date; his campaign site's Meet Sam page says he was 'Elected to fill a one-year vacancy'.",
+     "url": "https://www.isd622.org/about/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Washington County Heading Home committee (appointed)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, Meet Sam: 'Washington County Heading Home Committee – Appointed to provide community input on homelessness prevention and housing support'. No years are given.",
+     "url": "https://samrosemark.com/meet-sam/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 44 DFL (district unit)",
+     "url": "https://www.sd44dfl.org/copy-of-team",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Sam is DFL & Labor Endorsed!",
+    "url": "https://samrosemark.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0202-MN",
+   "name": "Allan Kehr II",
+   "past_party": [
+    {
+     "what": "Ran in the Republican primary for the Minnesota House of Representatives, District 8A (lost)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allan Kehr gives his residence as Duluth, St. Louis County, notes 'Born Allan Harry Kehr II', and lists each campaign with its votes; the latest is the 2022 Republican primary in House District 8A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allan-kehr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran as the Republican candidate for the Minnesota House of Representatives, District 7B, in the general election (lost)",
+     "year": 2008,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allan Kehr gives his residence as Duluth, St. Louis County, notes 'Born Allan Harry Kehr II', and lists each campaign with its votes; the latest is the 2022 Republican primary in House District 8A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allan-kehr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran as the Republican candidate for the Minnesota House of Representatives, District 7A, in the general election (lost)",
+     "year": 2000,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allan Kehr gives his residence as Duluth, St. Louis County, notes 'Born Allan Harry Kehr II', and lists each campaign with its votes; the latest is the 2022 Republican primary in House District 8A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allan-kehr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran as the Republican candidate for the Minnesota House of Representatives, District 7A, in a special election (lost)",
+     "year": 1999,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allan Kehr gives his residence as Duluth, St. Louis County, notes 'Born Allan Harry Kehr II', and lists each campaign with its votes; the latest is the 2022 Republican primary in House District 8A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allan-kehr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran as the Republican candidate for the Minnesota House of Representatives, District 7A, in the general election (lost)",
+     "year": 1998,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allan Kehr gives his residence as Duluth, St. Louis County, notes 'Born Allan Harry Kehr II', and lists each campaign with its votes; the latest is the 2022 Republican primary in House District 8A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allan-kehr",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0239-MN",
+   "name": "Allie Wolf",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran as the DFL candidate for the Minnesota House of Representatives, District 26B, in the general election (lost)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Allie Wolf gives her residence as Spring Valley, Fillmore County, and her 2024 primary and general election results in House District 26B",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/allie-wolf",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0276-MN",
+   "name": "Tracey Breazeale",
+   "website": {
+    "url": "https://traceyformnhouse.com",
+    "how": "The site is titled 'Tracey Breazeale for Minnesota House 45A', says 'I’m running for the Minnesota House in District 45A' and reads 'Prepared and paid for by the Tracey for MN House committee'. It is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnetonka Beach City Council Member (two terms)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, About Tracey: 'I served two terms on Minnetonka Beach City Council'. The page gives no years; the Minnesota Historical Election Archive's page for her 2024 run lists 'Minnetonka Beach City Councilor (2019-present)'. The city's own site asks scripts to stay out and was not read.",
+     "url": "https://traceyformnhouse.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 45 DFL (district unit)",
+     "url": "https://sd45dfl.org/2026-candidates",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran as the DFL candidate for the Minnesota House of Representatives, District 45A, in the general election (lost)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Tracey Breazeale lists her as a Minnetonka Beach city councilor and gives her 2024 general election result in House District 45A",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/tracey-breazeale",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0318-MN",
+   "name": "Mark Born",
+   "review": [
+    {
+     "shows": "The campaign website Mark Born filed: markbornformn.com.",
+     "problem": "The site's robots.txt lets the kit's own reader in but shuts out Anthropic's reading agents by name (Claude-Web, with ClaudeBot and anthropic-ai). This sweep is run by Claude, so nothing read on the site is kept: no 'how' for the website, no quotation and no offices. Whether the kit's reader, under its own name, should read the site is John's call.",
+     "url": "https://markbornformn.com/robots.txt",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-003",
+   "name": "Regan Birr",
+   "website": {
+    "url": "https://www.reganforcountycommissioner.com",
+    "how": "The home page reads 'I’m running for Anoka County Commissioner in District 2 (Ham Lake, Bethel, East Bethel, and parts of St. Francis, Oak Grove and Blaine)', carries her announcement of May 26, 2026 and ends 'Regan Birr for Anoka County Commissioner'. The browser title still reads 'Regan Birr – Motivational Speaker'. It is the address she filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-163",
+   "name": "Stan Karwoski",
+   "website": {
+    "url": "https://stankarwoskicommissioner.com",
+    "how": "The home page is headed 'Stan Karwoski - Washington County Commissioner', 'District 2', 'Serving 2016 to 2026' and speaks of his re-election; its Donate page asks for donations to 'Citizens for Stan Karwoski'. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+    "source": "Washington County, District 2 Commissioner, Stan Karwoski",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Commissioner, District 2",
+     "from": "2016",
+     "to": "now",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'Served on County Board since January 2016. Term of office expires December 2026.' and 'He was first elected in a special election in November 2016 and was reelected in 2018 and 2022.' (the page gives both months for 2016)",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Oakdale (elected in 2014)",
+     "from": "elected 2014",
+     "to": "",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'He went on to serve 14 years on the City Council before being elected mayor in 2014'; the page goes on to say that in 2016 he 'successfully ran for the District 2 seat in a special election'. It gives no other dates for his time as mayor.",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Oakdale City Council Member (appointed to a vacancy in 2001; 14 years on the council)",
+     "from": "2001",
+     "to": "",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'he was appointed to fill a vacancy in 2001. He went on to serve 14 years on the City Council before being elected mayor in 2014'",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Washington County Park and Open Space Commission (past chair and former member)",
+     "from": "",
+     "to": "",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'He is a past chair and former member of the Washington County Park and Open Space Commission'. No years are given.",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Oakdale Tree Board (founding member)",
+     "from": "1996",
+     "to": "2023",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'a founding member of the Oakdale Tree Board (1996-2023)'",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Oakdale Planning Commission and Parks Commission",
+     "from": "1994",
+     "to": "1999",
+     "source": "Washington County, District 2 Commissioner, Stan Karwoski: 'a former member of Oakdale’s Planning and Parks Commissions (1994-1999)'",
+     "url": "https://www.washingtoncountymn.gov/1281/District-2-Commissioner-Stan-Karwoski",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-015",
+   "name": "Brian H. Braun",
+   "official_page": {
+    "url": "https://www.co.brown.mn.us/354/Brown-County-Commissioners",
+    "source": "Brown County, Brown County Commissioners page: 'Fourth District - Brian H Braun'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brown County Commissioner, Fourth District (vice-chairperson of the board)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Brown County, Brown County Commissioners page: 'Fourth District - Brian H Braun', 'Elected: 2022, Term Expires: 2026', 'Vice-Chairperson'. The page gives the election year of the present term and does not say whether he served before it.",
+     "url": "https://www.co.brown.mn.us/354/Brown-County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-167",
+   "name": "James Jawaski"
+  },
+  {
+   "race_id": "2026-MN-0400-071",
+   "name": "Joan Nelson",
+   "official_page": {
+    "url": "https://www.co.koochiching.mn.us/159/Auditor-Treasurer",
+    "source": "Koochiching County, Auditor / Treasurer page, which names 'Joan Nelson' as 'Auditor/Treasurer'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Koochiching County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Koochiching County, Auditor / Treasurer page, which names 'Joan Nelson' as 'Auditor/Treasurer' at the head of the office; it does not say when she took office",
+     "url": "https://www.co.koochiching.mn.us/159/Auditor-Treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-037",
+   "name": "Joe Leko",
+   "website": {
+    "url": "https://joelekoforsheriff.com",
+    "how": "The site is titled 'Joe Leko For Dakota County Sheriff | Home', speaks of 'my first term' and of 'serving you as your Sheriff since 2023', and reads 'Prepared and paid for by the Joe Leko For Dakota County Sheriff Committee'. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://dakotacountymn.gov/government/county-sheriff/leko",
+    "source": "Dakota County, Meet Joe Leko (the County Sheriff's biography)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dakota County Sheriff",
+     "from": "2023",
+     "to": "now",
+     "source": "Dakota County, Meet Joe Leko: 'Leko was elected Dakota County’s 21st sheriff in 2022 and took office in January 2023'",
+     "url": "https://dakotacountymn.gov/government/county-sheriff/leko",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-149",
+   "name": "Andrew Messner"
+  },
+  {
+   "race_id": "2026-MN-0405-097",
+   "name": "Brian Middendorf",
+   "official_page": {
+    "url": "https://www.co.morrison.mn.us/216/ATTORNEY",
+    "source": "Morrison County, Attorney page, which names 'Brian Middendorf' as 'County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Morrison County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Morrison County, Attorney page, which names 'Brian Middendorf' as 'County Attorney'; it does not say when he took office",
+     "url": "https://www.co.morrison.mn.us/216/ATTORNEY",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-13114",
+   "name": "Pat Carlson",
+   "website": {
+    "url": "https://patcarlsonformayor.com",
+    "how": "The site is titled 'Pat Carlson for Mayor – Pat Carlson for Mayor of Coon Rapids, MN', thanks voters for the August 11 primary 'helping me to move forward to the November 3rd Election' and reads 'Prepared and paid for by volunteers of Pat Carlson for Mayor'. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.coonrapidsmn.gov/166/City-Council",
+    "source": "City of Coon Rapids, City Council page, which lists 'Pat Carlson' as 'At Large'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Coon Rapids City Council Member, At Large",
+     "from": "elected 2020",
+     "to": "now",
+     "source": "City of Coon Rapids, City Council page, which lists 'Pat Carlson', 'At Large', 'Term expires: December 31, 2028'. His campaign site says 'I was elected to Council At-Large in 2020 and re-elected in 2024'.",
+     "url": "https://www.coonrapidsmn.gov/166/City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Anoka County Community Corrections Advisory Board",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: 'Member of the Anoka County Community Corrections Advisory Board'. No years are given.",
+     "url": "https://patcarlsonformayor.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 35 Republicans (district unit)",
+     "wording": "our support and recommendation",
+     "what": "Named \"Pat Carlson\" for \"Coon Rapids Mayor\" in a table headed \"Nonpartisan local offices up for election in 2026\", which the unit introduces by saying of the candidates it lists, \"we want to give them our support and recommendation\", and calls \"a partial list\". The page is called \"Endorsements\" in the site's menu and title; it does not use the word endorsed for anyone.",
+     "url": "https://www.sd35gop.com/recommended-candidat.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-59350",
+   "name": "Matt Lehman",
+   "website": {
+    "url": "http://re-elect-lehman.com",
+    "how": "The site is titled 'Matt Lehman for Mayor', reads 'This site prepared and paid for by Matt Lehman' and speaks of Shakopee throughout; its Experienced page ends 'Please vote to re-elect Matt Lehman as Mayor!'. It names no election year: the home page thanks Shakopee voters and still discusses 'The 2023 budget proposal'. On October 2, 2026 it answered only over plain http (the https address refused the connection). It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+    "source": "City of Shakopee, Mayor & City Council page: 'Mayor Matt Lehman'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Shakopee",
+     "from": "",
+     "to": "now",
+     "source": "City of Shakopee, Mayor & City Council page: 'Mayor Matt Lehman', 'First Took Office: Jan. 1, 2002', 'Term expires: Dec. 31, 2026'. The page says the Mayor serves a four-year term; it does not say when he became mayor (2002 is when he first took office, on the council).",
+     "url": "https://www.shakopeemn.gov/government/mayor_city_council/index.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Shakopee City Council Member (20 years and more)",
+     "from": "2002",
+     "to": "",
+     "source": "His campaign site, Community Involvement page: 'the oath of office in January 2002'; its Experienced page says 'I have served 20 years plus on the Shakopee City Council'. The City of Shakopee's Mayor & City Council page gives 'First Took Office: Jan. 1, 2002'.",
+     "url": "http://re-elect-lehman.com/community.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Dirk Tedmon",
+   "website": {
+    "url": "https://forwardwithdirk.com",
+    "how": "The site is titled 'Dirk Tedmon for City Council | Eden Prairie | Forward. Together.', says 'I’m running for City Council so we can move Eden Prairie forward, together' and reads 'Prepared and paid for by the Campaign Fund of Dirk Tedmon'. It is the address he filed with the Secretary of State.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Campaigned for the DFL endorsement for the Minnesota Senate, District 49; that campaign ended before this one began",
+     "year": 2026,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Eden Prairie Local News, 'Meet Eden Prairie’s seven City Council candidates', August 19, 2026: 'After his campaign for the DFL endorsement in Minnesota Senate District 49 ended earlier this year, Tedmon said he had not planned another campaign.'",
+     "url": "https://eplocalnews.org/2026/08/19/meet-eden-prairies-seven-city-council-candidates/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 49 DFL (district unit)",
+     "wording": "Local Candidates we support",
+     "what": "Named \"Dirk Tedmon - Eden Prairie City Council\" under the heading \"Local Candidates we support\". The same page uses the word \"Endorsed\" only for partisan offices and the county attorney.",
+     "url": "https://dfl49.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-43774",
+   "name": "Scott Cutsforth"
+  },
+  {
+   "race_id": "2026-MN-1010-58684",
+   "name": "Joe Kampa"
+  },
+  {
+   "race_id": "2026-MN-1020-20330",
+   "name": "Myron \"Bruce\" Eastlund"
+  },
+  {
+   "race_id": "2026-MN-1024-06382",
+   "name": "Maia Gunderson"
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Brian Armstrong",
+   "official_page": {
+    "url": "https://www.coonrapidsmn.gov/166/City-Council",
+    "source": "City of Coon Rapids, City Council page, which lists 'Brian Armstrong' for 'Ward 5'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Coon Rapids City Council Member, Ward 5",
+     "from": "",
+     "to": "now",
+     "source": "City of Coon Rapids, City Council page, which lists 'Brian Armstrong', 'Ward 5', 'Term expires: December 31, 2026'. The page does not say when he first took office.",
+     "url": "https://www.coonrapidsmn.gov/166/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 35 Republicans (district unit)",
+     "wording": "our support and recommendation",
+     "what": "Named \"Brian Armstrong\" for \"Coon Rapids City Council, Ward 5\" in a table headed \"Nonpartisan local offices up for election in 2026\", which the unit introduces by saying of the candidates it lists, \"we want to give them our support and recommendation\", and calls \"a partial list\". The page is called \"Endorsements\" in the site's menu and title; it does not use the word endorsed for anyone.",
+     "url": "https://www.sd35gop.com/recommended-candidat.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0152",
+   "name": "Keith Vogt",
+   "official_page": {
+    "url": "https://www.isd152.org/page/meet-the-school-board",
+    "source": "Moorhead Area Public Schools, Meet the School Board, which lists 'Keith Vogt' as 'Treasurer'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Moorhead Area Public Schools Board (ISD 152); board treasurer",
+     "from": "2019",
+     "to": "now",
+     "source": "Moorhead Area Public Schools, Meet the School Board, which lists 'Keith Vogt' as 'Treasurer' with the years '(2019-2027)'",
+     "url": "https://www.isd152.org/page/meet-the-school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Karen Gabler",
+   "website": {
+    "url": "https://electgabler.com",
+    "how": "The site is titled 'Karen Gabler for Edina School Board | Empower Education Today - Vote Karen', says 'I am running for re-election to Edina School Board', names November 3, 2026 and reads 'Prepared and paid for by Karen Gabler for Edina School Board'. It is the address she filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.edinaschools.org/about/school-board",
+    "source": "Edina Public Schools, School Board page, which lists 'Karen Gabler' as 'Chair'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Edina School Board (ISD 273); board chair since 2025",
+     "from": "2022",
+     "to": "now",
+     "source": "Her campaign site, Experience page: 'School Board Member: Jan. 2022-present' and 'Edina Public Schools Board Chair: 2025-present'. Edina Public Schools' own School Board page lists her as Chair, 'Term expires: 12/31/26'.",
+     "url": "https://electgabler.com/experience",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Executive Board Member, Brightworks (a statewide educational cooperative)",
+     "from": "2023",
+     "to": "now",
+     "source": "Her campaign site, Experience page, under 'EPS Board Experience and Leadership': 'Brightworks (Statewide Educational Cooperative) Executive Board Member: 2023-current'",
+     "url": "https://electgabler.com/experience",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Jared Festler"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0701",
+   "name": "Sarah Gabardi",
+   "official_page": {
+    "url": "https://www.hibbing.k12.mn.us/district/school-board/members",
+    "source": "Hibbing Public Schools, School Board Members page, which lists 'Ms. Sarah Gabardi' as 'Director'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Director, Hibbing School Board (ISD 701)",
+     "from": "",
+     "to": "now",
+     "source": "Hibbing Public Schools, School Board Members page, which lists 'Ms. Sarah Gabardi' as 'Director'; it does not say when she joined the board",
+     "url": "https://www.hibbing.k12.mn.us/district/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0829",
+   "name": "Taylor Zinkle"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Donna VonBerge",
+   "offices": [
+    {
+     "office": "Member, Glencoe-Silver Lake School Board (ISD 2859); an incumbent in 2024 who did not run for re-election that year",
+     "from": "",
+     "to": "",
+     "source": "McLeod County Chronicle, 'Local candidates announced for upcoming election', September 27, 2024, on filings in the Glencoe area: 'At the school board level ... incumbents Clark Christianson and Donna VonBerge are not running for re-election'. It does not say when she joined the board.",
+     "url": "https://www.glencoenews.com/articles/news-mcc/local-candidates-announced-for-upcoming-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8108-MN",
+   "name": "Patrick Goggins",
+   "offices": [
+    {
+     "office": "Judge, First Judicial District Court, Seat 9",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County's Notice of Offices to Be Voted For at the 2026 State General Election, as published in the McLeod County Chronicle on May 1, 2026: 'First District Court Seat 9 (Incumbent: Patrick Goggins)'. It does not say when he took the bench; the Judicial Branch's own site refuses scripts and was not read.",
+     "url": "https://www.glencoenews.com/articles/pn-mcleod-co-mcc/mcleod-county-minnesota-notice-of-offices-to-be-voted-for-at-the-2026-state-general-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9003-MN",
+   "name": "Melissa Listug",
+   "offices": [
+    {
+     "office": "Judge, Eighth Judicial District Court, Seat 4",
+     "from": "",
+     "to": "now",
+     "source": "Stevens County, 'NOTICE OF OFFICES TO BE VOTED FOR AT THE 2026 STATE GENERAL ELECTION' (the document the county's Elections page links as its 2026 notice of election filing): under 'Eighth District Court (Five Seats)', in the columns for seat and incumbent, it lists '4 Melissa J. Listug'. It does not say when she took the bench; the Judicial Branch's own site refuses scripts and was not read.",
+     "url": "https://www.co.stevens.mn.us/DocumentCenter/View/5019",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0128-MN",
+   "name": "Jen McEwen",
+   "key": "endorsed_by",
+   "url": "https://www.sd8dfl.org/vote",
+   "why": "not opened by the verifier: the site's robots.txt shuts out Anthropic's crawlers by name (anthropic-ai, ClaudeBot), and this session was not permitted to read past that; the researcher had read it as a training-crawler rule only. Not shown to be wrong; John can decide whether the kit's reader may open it, and the finding can be restored then."
+  },
+  {
+   "race_id": "2026-MN-0239-MN",
+   "name": "Allie Wolf",
+   "key": "website",
+   "url": "https://alliewolfformnhouse.org",
+   "why": "not opened by the verifier: the site's robots.txt shuts out Anthropic's crawlers by name (anthropic-ai, ClaudeBot), and this session was not permitted to read past that; the researcher had read it as a training-crawler rule only. Not shown to be wrong; John can decide whether the kit's reader may open it, and the finding can be restored then."
+  },
+  {
+   "race_id": "2026-MN-0239-MN",
+   "name": "Allie Wolf",
+   "key": "born",
+   "url": "https://alliewolfformnhouse.org/about",
+   "why": "not opened by the verifier: the site's robots.txt shuts out Anthropic's crawlers by name (anthropic-ai, ClaudeBot), and this session was not permitted to read past that; the researcher had read it as a training-crawler rule only. Not shown to be wrong; John can decide whether the kit's reader may open it, and the finding can be restored then."
+  },
+  {
+   "race_id": "2026-MN-0239-MN",
+   "name": "Allie Wolf",
+   "key": "own_words",
+   "url": "https://alliewolfformnhouse.org/issues",
+   "why": "not opened by the verifier: the site's robots.txt shuts out Anthropic's crawlers by name (anthropic-ai, ClaudeBot), and this session was not permitted to read past that; the researcher had read it as a training-crawler rule only. Not shown to be wrong; John can decide whether the kit's reader may open it, and the finding can be restored then."
+  },
+  {
+   "race_id": "2026-MN-1028-13114",
+   "name": "Brian Armstrong",
+   "key": "review",
+   "url": "https://www.armstrong4council.com",
+   "why": "the address answers with a CAPTCHA redirect and no page (168 bytes), asked once on 2026-10-02; behind a wall, so the review item about the filed website cannot be confirmed either way"
+  }
+ ],
+ "corrected": [
+  {
+   "race_id": "2026-MN-0128-MN",
+   "name": "Jen McEwen",
+   "key": "website",
+   "what": "dropped the clause about an Endorsements page headed '2026 Endorsements': the home page does not carry it and the page at /endorsements answered 404"
+  },
+  {
+   "race_id": "2026-MN-1001-59350",
+   "name": "Matt Lehman",
+   "key": "website",
+   "what": "url changed from https to http (https refuses the connection; http answers); 'how' now says the site names no election year"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Karen Gabler",
+   "key": "offices",
+   "what": "the district page's wording is 'Term expires: 12/31/26', now quoted as written"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Donna VonBerge",
+   "key": "offices",
+   "what": "source cut to what the cited article says; the sentences about board minutes of January 8, 2024 and about the district's page had no address and were not seen"
+  }
+ ]
+}

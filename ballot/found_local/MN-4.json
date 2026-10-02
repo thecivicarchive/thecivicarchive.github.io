@@ -1,0 +1,603 @@
+{
+ "part": 4,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after the first fifteen candidates (through Jim Godfrey). The rest were researched by opening pages directly: each city's, county's and school district's own site, the Minnesota DFL's list and local party units' own pages, the Legislative Reference Library, the University of Minnesota's election archive, and local newspapers' own election sections. A campaign site reached by trying an address was kept only when its own pages name the candidate and the office; addresses that turned out not to be campaign sites for these races were dropped.",
+  "The Minnesota Judicial Branch's site (mncourts.gov) refuses scripts (403 to robots.txt and to pages), so no court page was read. Nothing is recorded for Kevin M. Miller; Paul Thissen's facts come from the Legislature's library, whose record of him also gives his appointment.",
+  "Stearns County's own commissioner pages are drawn by script and showed no text, so Bob Johnson has no official page here and his offices rest on MPR News and St. Cloud LIVE.",
+  "No Republican endorsement could be recorded: mngop.com lists statewide nominees only, the Senate District 41 Republicans' site announces its endorsing convention (March 28, 2026) without the result, and the Scott County Republicans' endorsed-candidates page refused the script (403). The DFL's list names no Senate candidate for District 38 (Susan Pha), and names Dan Mitchell for 5A with a link to a social media page only, which is not a campaign website.",
+  "The Minnesota Historical Election Archive (University of Minnesota Libraries) is the source for three earlier runs under a party label (Jim Godfrey in 2008 and 2010; the 2025 special primary in House District 34B). It is a university archive of official returns, not a news organization, and is labelled secondary for the second reader to judge. The birth dates it shows were not taken, because the source it names for them is a birth records index.",
+  "Two candidates share a name with a better-known person (Sarah Anderson in Plymouth; Ellie Krug in Eastern Carver County). No page ties either candidate to that other record, and Sarah Anderson's own campaign site does not claim it, so nothing was taken from those records.",
+  "Matthew Thompson: the ROCORI district writes its sitting board member's name Matt Thompson (term through December 31, 2026). Sara Herr Larsen: the Milaca board page writes Sara Larsen and the district's campaign finance report list writes Sara Herr-Larsen.",
+  "Nothing citable was found for John G Pioske, Kim Frederick, George Hanson, Celeste Koppe, Ellie Krug, Kim L. Hudson, Bopha Sar and Kevin M. Miller. The news profiles read for them (Henderson Independent, Detroit Lakes Tribune, KAXE, Red Wing Republican Eagle) name no public office held and no campaign website; what they say of work and household is not recorded.",
+  "Verifier, 2026-10-02: every address in this file was re-opened with the kit's own User-Agent and the quoted words looked for on the page. 60 findings checked, 58 kept, 2 removed (see removed), 5 reworded (see corrected). The DFL list is the party's own page, titled 'Candidates Endorsed by the Minnesota DFL'. Paul Thissen's and Aisha Gomez's sites name the candidate and the office but no 2026 date; Thissen's news items are from 2020. The Minnesota Historical Election Archive is neither official nor a news organization; it is kept under secondary, named as a university archive. Matt Thompson (ROCORI) and Sara Larsen (Milaca) are read as the candidates Matthew Thompson and Sara Herr Larsen: same board, a term ending with this election, and for Larsen the district's own Herr-Larsen spelling on the same page."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0122-MN",
+   "name": "Steve Green",
+   "website": {
+    "url": "https://www.stevegreenforsenate.com/",
+    "how": "The home page says it is 'Prepared and paid for by the Committee to Elect Steve Green' and speaks of 'Minnesota's Second District'; its Meet Steve page (/meet-steve-mp.html) says 'In 2022, the voters of Senate District 2 sent me to the Minnesota Senate'. The browser title still reads 'Steve Green, Representative 2B'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0158-MN",
+   "name": "Susan Pha",
+   "website": {
+    "url": "https://susanphaforsenate.com/",
+    "how": "The page is titled 'Susan Pha — Minnesota Senate, District 38', its site name is 'Susan Pha for Senate' and its description begins 'Senator Susan Pha — Minnesota Senate, District 38'. The rest of the page is drawn by script. The page names votesusanpha.com as its main address; that address refused this script (HTTP 403) and was not read.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0196-MN",
+   "name": "Dan S. Mitchell",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party: its own list, Candidates Endorsed by the Minnesota DFL, names Dan Mitchell for House District 5A",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0233-MN",
+   "name": "Christoph Dundas",
+   "website": {
+    "url": "https://www.dundasformnhouse.com/",
+    "how": "The home page reads 'We need Christoph Dundas for House District 23B!' and 'Paid for by the Dundas for MN House Committee'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party: its own list, Candidates Endorsed by the Minnesota DFL, names Christoph Dundas for House District 23B",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0269-MN",
+   "name": "William Beck",
+   "website": {
+    "url": "https://beckforhouse.com/",
+    "how": "The site is titled 'William Beck for HD 41B', says he is 'running for the Minnesota House 41B seat' and reads 'Paid for by Beck for Minnesota House'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Heritage Preservation Commissioner, City of Hastings",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, Meet William: 'Serving as a heritage preservation commissioner in Hastings'; the home page lists 'Hastings HPC Member'. Neither page gives years.",
+     "url": "https://beckforhouse.com/about-william.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0310-MN",
+   "name": "Aisha Gomez",
+   "website": {
+    "url": "https://www.aishagomez.com/",
+    "how": "The site is titled 'Re-elect Aisha Gomez for MN House 62A' and reads 'Paid for by Neighbors for Aisha Gomez'. The home page names no election year.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party: its own list, Candidates Endorsed by the Minnesota DFL, names Aisha Gomez for House District 62A",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-143",
+   "name": "John G Pioske"
+  },
+  {
+   "race_id": "2026-MN-0392-139",
+   "name": "Mike Robole",
+   "website": {
+    "url": "https://www.vote4robole.com/",
+    "how": "The home page reads 'Mike Robole', 'For Scott County Commissioner', 'District 2 - Scott County' and '©2026 by Vote4Robole.com. Created and Paid for by Friends of Vote For Robole.'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0393-131",
+   "name": "Sam Temple",
+   "website": {
+    "url": "https://samuelftemple.com/",
+    "how": "The home page reads 'My name is Sam Temple and I am running to be your District 3 Rice County Commissioner' and 'Paid for by Samuel F. Temple'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Faribault Planning Commission",
+     "from": "",
+     "to": "2024",
+     "source": "His campaign site: 'I continued serving on the Faribault Planning Commission and the Heritage Preservation Commission through early 2024'. It does not say when he joined.",
+     "url": "https://samuelftemple.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Faribault Heritage Preservation Commission",
+     "from": "",
+     "to": "2024",
+     "source": "His campaign site: 'I continued serving on the Faribault Planning Commission and the Heritage Preservation Commission through early 2024'. It does not say when he joined.",
+     "url": "https://samuelftemple.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am not working on behalf of a political party.",
+    "url": "https://samuelftemple.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-145",
+   "name": "Bob Johnson",
+   "offices": [
+    {
+     "office": "Stearns County Commissioner, District 4",
+     "from": "2025",
+     "to": "now",
+     "source": "MPR News, November 4, 2025: he 'won a special election for a vacant seat on the Stearns County Board of Commissioners' (District 4) and serves the rest of the term, which ends in December 2026",
+     "url": "https://www.mprnews.org/story/2025/11/04/bob-johnson-wins-stearns-county-commissioner-seat",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "St. Cloud City Council Member (three terms; council president in his last term)",
+     "from": "",
+     "to": "",
+     "source": "St. Cloud LIVE, questions put to the Stearns County District 4 candidates (his own answer): 'I have served three terms on the St. Cloud City Council and was council president in my last term'. No years are given.",
+     "url": "https://www.stcloudlive.com/news/local/stearns-county-commission-candidates-answer-questions",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-005",
+   "name": "Kim Frederick"
+  },
+  {
+   "race_id": "2026-MN-0404-021",
+   "name": "Aaron Ammerman"
+  },
+  {
+   "race_id": "2026-MN-0404-131",
+   "name": "Nathan Budin",
+   "website": {
+    "url": "https://budinforsheriff.com/",
+    "how": "The site is titled 'Vote for Nathan Budin for Rice County Sheriff', asks for 'your vote on November 3rd' and says it is paid for by 'Nathan Budin for Sheriff Campaign'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-069",
+   "name": "George Hanson"
+  },
+  {
+   "race_id": "2026-MN-1001-09370",
+   "name": "Jim Godfrey",
+   "official_page": {
+    "url": "https://www.ci.cambridge.mn.us/your-government/city-council",
+    "source": "City of Cambridge, City Council page: 'Jim Godfrey, Mayor' and 'Term: 1/2023 - 01/2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Cambridge (current term January 2023 to January 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Cambridge, City Council page: 'Jim Godfrey, Mayor' and 'Term: 1/2023 - 01/2027'. The page gives the current term only, not the year he first took office.",
+     "url": "https://www.ci.cambridge.mn.us/your-government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 17A, in the general election (lost)",
+     "year": "2010",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Jim Godfrey gives his residence as Cambridge, Isanti County, and cites the Minneapolis Star Tribune of October 30, 2008",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/jim-godfrey",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran for the Minnesota House of Representatives, District 17A, in the general election (lost)",
+     "year": "2008",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Jim Godfrey gives his residence as Cambridge, Isanti County, and cites the Minneapolis Star Tribune of October 30, 2008",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/jim-godfrey",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-51730",
+   "name": "Jeff Wosje",
+   "website": {
+    "url": "https://www.jeffformayor.com/",
+    "how": "The site's title ends 'Jeff Wosje for Mayor of Plymouth'; the home page reads 'Re-Elect' above 'Mayor Jeff Wosje', '© 2026 by Jeff Wosje for Plymouth Mayor' and 'Paid for by the friends of Jeff Wosje'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+    "source": "City of Plymouth, City Council Members page: 'Jeffry Wosje', 'Mayor', 'Term expires: Jan. 4, 2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Plymouth (term expires January 4, 2027)",
+     "from": "",
+     "to": "now",
+     "source": "City of Plymouth, City Council Members page: 'Jeffry Wosje', 'Mayor', 'Term expires: Jan. 4, 2027'. The page does not say when he first took office.",
+     "url": "https://www.plymouthmn.gov/departments/city-council/city-council-members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Plymouth City Council Member (8 years, by his campaign site's count)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: '8 years serving as Mayor. 8 years serving on the City Council.' No years are given.",
+     "url": "https://www.jeffformayor.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Transportation Advisory Board of the Metropolitan Council",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: 'Member of the Transportation Advisory Board of the Metropolitan Council'. No years are given.",
+     "url": "https://www.jeffformayor.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Hennepin-Carver Workforce Development Board",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: 'Member Hennepin/Carver County Workforce Development Board'. No years are given.",
+     "url": "https://www.jeffformayor.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-15832",
+   "name": "Celeste Koppe"
+  },
+  {
+   "race_id": "2026-MN-1010-40382",
+   "name": "Kathleen A. \"Kathy\" Juenemann",
+   "official_page": {
+    "url": "https://www.maplewoodmn.gov/1975/Kathleen-Juenemann",
+    "source": "City of Maplewood, City Council: 'Kathleen Juenemann, Councilmember', term expires December 31, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Maplewood City Council Member (term expires December 31, 2026)",
+     "from": "",
+     "to": "now",
+     "source": "City of Maplewood, the City Council's page for her: 'Kathleen Juenemann, Councilmember', term expires December 31, 2026. The page does not say when she first took office.",
+     "url": "https://www.maplewoodmn.gov/1975/Kathleen-Juenemann",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55726",
+   "name": "Tami Klimpel",
+   "website": {
+    "url": "https://tamiforrosemount.com/",
+    "how": "The home page is headed 'TAMI KLIMPEL' and 'FOR ROSEMOUNT CITY COUNCIL' and reads 'Prepared and paid for by Klimpel Campaign'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rosemountmn.gov/879/Councilmember-Tami-Klimpel",
+    "source": "City of Rosemount, Councilmember Tami Klimpel: 'First elected: 2023' and 'Current term expires: January 4, 2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rosemount City Council Member (current term expires January 4, 2027)",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Rosemount, Councilmember Tami Klimpel: 'First elected: 2023' and 'Current term expires: January 4, 2027'. Her campaign site's About page (tamiforrosemount.com/about) says 'I have been a member of the Rosemount City Council since February 2023'.",
+     "url": "https://www.rosemountmn.gov/879/Councilmember-Tami-Klimpel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Rosemount Port Authority (Vice Chair 2023 to 2025; Chair 2025)",
+     "from": "2023",
+     "to": "",
+     "source": "City of Rosemount, Councilmember Tami Klimpel, Current & Past Positions: 'Chair, Rosemount Port Authority (2025)' and 'Vice Chair, Rosemount Port Authority (2023-2025)'",
+     "url": "https://www.rosemountmn.gov/879/Councilmember-Tami-Klimpel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Acting (Vice) Mayor of Rosemount",
+     "from": "2025",
+     "to": "2025",
+     "source": "City of Rosemount, Councilmember Tami Klimpel, Current & Past Positions: 'City of Rosemount Acting/Vice Mayor (2025)'",
+     "url": "https://www.rosemountmn.gov/879/Councilmember-Tami-Klimpel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Rosemount's alternate on the Minnesota Valley Transit Authority board",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Rosemount, Councilmember Tami Klimpel, Current & Past Positions: 'Rosemount Alternate to MVTA Board of Commissioners (2023-present)'",
+     "url": "https://www.rosemountmn.gov/879/Councilmember-Tami-Klimpel",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-07966",
+   "name": "Christian Eriksen",
+   "website": {
+    "url": "https://www.eriksenforbrooklynpark.com/",
+    "how": "The home page reads 'RE-ELECT', 'Brooklyn Park City Council' and 'East District' beside his name, and 'Website prepared and paid for by Christian Eriksen for Brooklyn Park Council Committee'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.brooklynpark.org/city-council/",
+    "source": "City of Brooklyn Park, City Council page: Eriksen is listed under East District as 'Council Member/EDA Commissioner East District', 'Elected through 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Park City Council Member, East District (elected through 2026)",
+     "from": "",
+     "to": "now",
+     "source": "City of Brooklyn Park, City Council page: Eriksen is listed as 'Council Member/EDA Commissioner East District', 'Elected through 2026'. The page does not say when he first took office.",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran in the special DFL primary for the Minnesota House of Representatives, District 34B (lost)",
+     "year": "2025",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns); its page for Eriksen lists him as Brooklyn Park City Councilor, East District, and cites KSTP of July 9, 2025",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/christian-eriksen",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Council Member, Ward E, Brooklyn Park (and Ward C and Ward W for the city's other two council races)",
+     "problem": "The city's own council page names these seats East District, Central District and West District, not wards.",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-51730",
+   "name": "Sarah Anderson",
+   "website": {
+    "url": "https://sarah4plymouth.com/",
+    "how": "The home page reads 'Vote Sarah Anderson for Plymouth City Council on November 3, 2026', 'Independent candidate for Plymouth City Council, Ward 2' and 'Prepared & Paid for by Sarah Anderson for Plymouth City Council'.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Independent candidate for Plymouth City Council, Ward 2.",
+    "url": "https://sarah4plymouth.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1026-51730",
+   "name": "Aiden Schmidt",
+   "website": {
+    "url": "https://schmidtforplymouth.com/",
+    "how": "The site is titled 'Aiden Schmidt for Ward 4 – Plymouth, Minnesota City Council', reads 'Vote for me November 3rd' and 'Paid for by Aiden Schmidt for Plymouth'.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I gain support from people, not parties.",
+    "url": "https://schmidtforplymouth.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Ellie Krug"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0256",
+   "name": "Kim L. Hudson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Bopha Sar"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0656",
+   "name": "John Bellingham",
+   "official_page": {
+    "url": "https://www.faribault.k12.mn.us/about-us/school-board",
+    "source": "Faribault Public Schools, School Board page: John Bellingham is listed among the board's members, and his portrait there is labelled 'School Board Vice Chair John Bellingham'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Faribault Public Schools Board Member (Vice Chair)",
+     "from": "",
+     "to": "now",
+     "source": "Faribault Public Schools, School Board page: John Bellingham is listed among the board's members, and his portrait there is labelled 'School Board Vice Chair John Bellingham'. The page gives no years.",
+     "url": "https://www.faribault.k12.mn.us/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0750",
+   "name": "Matthew Thompson",
+   "official_page": {
+    "url": "https://www.rocori.k12.mn.us/information/school-board",
+    "source": "ROCORI School District, School Board page: 'School board members serving through December 31, 2026 include Jennifer Bohnsack, Kayla Nierenhausen, and Matt Thompson'; it lists Matt Thompson as Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "ROCORI School Board Member (Treasurer; serving through December 31, 2026)",
+     "from": "",
+     "to": "now",
+     "source": "ROCORI School District, School Board page, which writes his name Matt Thompson: 'School board members serving through December 31, 2026 include Jennifer Bohnsack, Kayla Nierenhausen, and Matt Thompson'. The district's Campaign Finance Information page lists Matt Thompson under the 2022 election.",
+     "url": "https://www.rocori.k12.mn.us/information/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912",
+   "name": "Sara Herr Larsen",
+   "official_page": {
+    "url": "https://www.milaca.k12.mn.us/school-board-home/",
+    "source": "Milaca Public Schools, School Board page: 'Sara Larsen, Vice-Chairperson', term expires January 2027; the campaign finance reports on the same page name her Sara Herr-Larsen",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milaca School Board Member (Vice-Chairperson; term expires January 2027)",
+     "from": "",
+     "to": "now",
+     "source": "Milaca Public Schools, School Board page, which lists her as Sara Larsen, Vice-Chairperson, term expiring January 2027, and files her campaign finance report under Sara Herr-Larsen. The page does not say when she first took office.",
+     "url": "https://www.milaca.k12.mn.us/school-board-home/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-7005-MN",
+   "name": "Paul Thissen",
+   "website": {
+    "url": "https://paulthissen.com/",
+    "how": "The site is headed 'Justice Paul Thissen', speaks of serving 'as an Associate Justice on the Minnesota Supreme Court' and reads 'Prepared and Paid for by Minnesotans for Justice Paul Thissen'. Its news items date from his 2020 election, and its home page does not mention 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Paul Thissen (the Legislature's own record of him, which also gives his appointment to the Supreme Court; the Judicial Branch's own site refuses scripts and was not read)",
+    "verified": true
+   },
+   "born": {
+    "year": 1966,
+    "date": "1966-12-10",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Date of Birth: 12/10/1966'",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Associate Justice, Minnesota Supreme Court (appointed by Governor Dayton)",
+     "from": "2018",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Minnesota Supreme Court (Associate Justice, Appointed by Governor Dayton); 07/24/2018 to ?'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Minnesota House of Representatives (District 63A, then District 61B)",
+     "from": "2003",
+     "to": "2018",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'House 2003-2012 (District 63A); House 2013-2018 (District 61B)'; his last term ended 4/20/2018, when he was appointed to the Supreme Court",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Speaker of the Minnesota House of Representatives",
+     "from": "2013",
+     "to": "2014",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: '88th Legislative Session (2013-2014) ... Leadership Position: Speaker of the House'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 63A (re-elected through 2016; served until 2018)",
+     "year": "2002",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'Party when first elected: Democratic-Farmer-Labor'; elected 11/5/2002",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran to become the Democratic-Farmer-Labor Party's candidate for Governor (dropped out during the state convention)",
+     "year": "2010",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: 'He ran unsuccessfully to become the Democratic-Farmer-Labor Party candidate for Governor of Minnesota in the 2010 election. He dropped out during the state convention.'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=10791",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8911-MN",
+   "name": "Kevin M. Miller"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0404-021",
+   "name": "Aaron Ammerman",
+   "what": "website (https://www.ammermanforsheriff.com/)",
+   "why": "The site answered HTTP 429 (Too Many Requests) on three separate attempts, so the page could not be read."
+  },
+  {
+   "race_id": "2026-MN-0404-021",
+   "name": "Aaron Ammerman",
+   "what": "offices: School Board Member, Northland Community Schools (https://www.ammermanforsheriff.com/meet-aaron)",
+   "why": "The same site answered HTTP 429 on three separate attempts, so the statement could not be confirmed."
+  }
+ ],
+ "corrected": [
+  "Steve Green: website wording (the Meet Steve page's address given)",
+  "Aisha Gomez: website wording (the page shows no year; the remark that it dates from 2024 could not be confirmed and was dropped)",
+  "Jeff Wosje: website wording (a remark about another outlet's link, which had no address to re-open, was dropped)",
+  "Christian Eriksen: website wording (the same remark dropped; the paid-for line quoted as the page prints it)",
+  "Tami Klimpel: council office source wording (the campaign statement is on her About page, not the home page; quoted)"
+ ]
+}

@@ -1,0 +1,683 @@
+{
+ "part": 19,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up, so every page was opened directly with the kit's honest User-Agent: campaign sites, each county's, city's and school district's own site, party units' own sites (the Republican units through the state party's 'Find Your Local Republicans' directory, the DFL through its endorsed list), the University of Minnesota's election archive, and local newspapers' own site searches (hometownsource.com, the Mankato Free Press, the Forum Communications papers).",
+  "Which candidates had filed a campaign website was read from a scratch copy of the database on which the project's own filed-websites step had already been run (the real database has no websites table yet and was only read). Fourteen of the thirty filed one. A website is recorded here only where the site itself was opened and names the candidate and the office. The address for Christopher Albers was found by trying it; no website is filed for him.",
+  "Campaign sites that could not be read, so no website and no words are recorded from them: shawnsavela.com and supina4eagan.com (which leads to mikesupina.com) each showed this script a bot check; votejennifermcpherson67a.com answers 503 with its host's holding page ('If you are the owner of this site, please contact Campaign Partner Support'); tedforstillwater.com answers 500 with a WordPress 'critical error' page; quayleforedina.com answered 429 (too many requests) on each of three tries; judgeluismorales.com shows only 'Launching Soon'. hoffmanforsheriff.com exists and also shows only 'Launching Soon', naming nobody, so it is not recorded for Mike Hoffman. The 8th Congressional District Republicans' page links Shawn Savela's name to shawnsavela.com, and the Sun Current's voter's guide prints Sarah Quayle's own answer 'Visit quayleforedina.com'.",
+  "Three filed addresses answer only with www in front: wesenbergforsenate.com without it fails its certificate check (the certificate is for another name), and mnkarlolson.org and wrightformn.org without it have no address at all. The pages were read at the www addresses given here.",
+  "Government sites not read: the City of Eagan's site (cityofeagan.com) showed this script a bot check, so Mike Supina has no official page here and his council service rests on Sun Thisweek. The Governor's newsroom on mn.gov answered with a CAPTCHA page on the first request and was not asked again, and the Judicial Branch's site was not requested at all (another part found it refuses scripts), so neither judge has an official page and their appointments rest on newspapers. Neither story says the judge serves today, so the end of each judgeship is left blank. The Austin Daily Herald's site answered 403.",
+  "Party endorsements: the Senate District 46 Republicans' own home page lists Kayla Wright and Karl Olson as endorsed, and the Minnesota DFL's list names Vanessa Davenport. Nathan Wesenberg's own site says he is endorsed by Senate District 10, but no party unit's page saying so was found: the state party's directory gives no site for a Senate District 10 or Morrison County unit, the address the Benton County Republicans link for 'SD10' (morrisoncountygop.com) has no address, and the pages opened on the Crow Wing, Aitkin and Kanabec units' sites name no endorsed legislative candidates. The 8th Congressional District Republicans' '2026 Candidates' page lists 'SD 10 - Nathan Wesenberg' and 'HD 8B - Shawn Savela' but does not call the list endorsements, so it is not recorded as one. The St. Louis County Republicans' post-primary page does not name Savela, and the page the state party's directory gives for the Senate District 8 Republicans is on a social network. The home pages of the local DFL units' sites that were opened (Senate Districts 52, 39, 33 and 55) show no endorsements for the nonpartisan city and school races in this part.",
+  "Shawn Savela's 2024 run is from the Minnesota Historical Election Archive (University of Minnesota Libraries), a university archive of official returns that cites the State Canvassing Report; it is labelled secondary for the second reader to judge, as in other parts. The archive's page for him also shows a birth date without naming a source for it; it was not taken. The archive has no page for Kayla Wright, Karl Olson, Vanessa Davenport or Jennifer McPherson.",
+  "No birth year is recorded for anyone. Two of the newspaper stories cited here give an age rather than a year (for Mike Supina and Jessica Hatanpa); an age is not a birth year, so nothing was taken.",
+  "Offices are elected or appointed seats on public bodies only. What the candidates' own pages and the news stories say of paid work, careers, military service, schooling and household is not recorded, and seats on private groups' boards were left out. One case for the second reader to judge: a staff post in county emergency management that one candidate's own site describes as part of a sheriff's office job was treated as a job. Tonja West-Hafner's site also lists city task forces of 2006 to 2018 that are not recorded one by one, and Sarah Quayle's one entry is a seat on a school district committee, labelled as such.",
+  "Names: the Sun Thisweek story on the First District appointment writes Luis Rangel Morales and our list writes Luis Morales (his filed address is judgeluismorales.com); the City of Breckenridge writes Russ Wilson and Russell Wilson and our list writes Russel E Wilson; the campaign site for Faribault County Sheriff writes Chris Albers and our list writes Christopher Albers.",
+  "Julie Clark: the City of Mounds View's City Council Directory, given as her official page, also prints council members' home addresses and telephone numbers; nothing of that was recorded, and the second reader may prefer to leave the link out. Her start is left blank because the city's tenure list shows her from the 2024 row, after a special election on 11/07/2023, without the day she took the seat.",
+  "Wilkin County's own County Board page lists Jonathan Green as the 2nd District commissioner (2023-2026); neither candidate for that seat on our list holds it. Proctor's School Board page does not list Anna Carlson among its members, and Glencoe-Silver Lake's does not list Kevin Kuester today.",
+  "Nothing citable was found for Jennifer McPherson and Anna Carlson: each has a name others share, and no page read ties either to her 2026 race beyond the list itself."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0130-MN",
+   "name": "Nathan Wesenberg",
+   "website": {
+    "url": "https://www.wesenbergforsenate.com/",
+    "how": "The site is titled 'Wesenberg For Senate'; its home page is headed with his name and 'Senate District 10', and the page's own description begins 'Senator Nathan Wesenberg is the endorsed candidate for Senate District 10'. It answers with www in front; without it the certificate does not match the name.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Not only is Senator Wesenberg endorsed by Senate District 10",
+    "url": "https://www.wesenbergforsenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0166-MN",
+   "name": "Kayla Wright",
+   "website": {
+    "url": "https://www.wrightformn.org/",
+    "how": "The site is titled 'Kayla Wright SD 46 2026'. Its home page reads 'Hi, I'm Kayla Wright', says her 'roots run deep in State Senate District 46' and 'I am running for the State Senate'. The Senate District 46 Republicans' own site links her name to this address. It answers only with www in front.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 46 Republicans: the unit's own home page lists 'SD 46 Endorsed Republican Candidates', beginning 'Senate District 46: Kayla Wright'",
+     "url": "https://www.sd46gop.com/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Today, my values align firmly with the Republican party",
+    "url": "https://www.wrightformn.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0203-MN",
+   "name": "Shawn Savela",
+   "past_party": [
+    {
+     "what": "Republican candidate for Minnesota House, District 8B, in the general election of November 5, 2024 (not elected)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), State House, District 08B, 2024 general election: Shawn Savela, Republican, 7,954 votes, 31.25 percent; the archive cites the State Canvassing Report of November 21, 2024, p. 26",
+     "url": "https://mn.electionarchives.lib.umn.edu/election/232024109997108B/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0240-MN",
+   "name": "Vanessa Davenport",
+   "website": {
+    "url": "https://www.davenportmn27a.house/",
+    "how": "The site is titled 'Davenport for Minnesota House 27A' and reads 'Paid for by Davenport for Minnesota House 27A'; its About page (https://www.davenportmn27a.house/the-patriot-newspaper-articles-1) is headed 'About Vanessa' and begins 'I'm running for the Minnesota House of Representatives in District 27A'. The Minnesota DFL's endorsed list links her name to this address.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party: its own list, Candidates Endorsed by the Minnesota DFL, names Vanessa Davenport for House District 27A",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0278-MN",
+   "name": "Karl Olson",
+   "website": {
+    "url": "https://www.mnkarlolson.org/",
+    "how": "The site is titled 'Karl Olson for HD 46A'; its home page begins 'Karl Olson put his name on the ballot in St. Louis Park (46A) to give the voters a choice' and is signed 'MN KARL OLSON COMMITTEE'. The Senate District 46 Republicans' own site links his name to this address. It answers only with www in front.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 46 Republicans: the unit's own home page lists 'SD 46 Endorsed Republican Candidates', among them 'House District 46A: Karl Olson'",
+     "url": "https://www.sd46gop.com/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0320-MN",
+   "name": "Jennifer McPherson"
+  },
+  {
+   "race_id": "2026-MN-0392-011",
+   "name": "Wade Athey",
+   "official_page": {
+    "url": "https://bigstonecounty.gov/departments/board-of-commissioners/",
+    "source": "Big Stone County, Board of Commissioners page: its table of the five commissioners lists 'District 2: Wade Athey'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Big Stone County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Big Stone County, Board of Commissioners page, which lists Wade Athey as the commissioner for District 2 (the page does not say when he took office)",
+     "url": "https://bigstonecounty.gov/departments/board-of-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-167",
+   "name": "Russel E Wilson",
+   "official_page": {
+    "url": "https://www.breckenridgemn.net/citycouncil",
+    "source": "City of Breckenridge, City Council page: 'Russ Wilson, Mayor'; the council minutes on the same page write 'Mayor Russell Wilson'. This is the office he holds today, not the county seat he seeks",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Breckenridge",
+     "from": "",
+     "to": "now",
+     "source": "Wahpeton Daily News, June 16, 2026, 'Wilson won't seek another term as Breckenridge mayor': Mayor Russell Wilson 'will not seek another term as mayor when his current term expires in January and instead plans to run for a seat on the Wilkin County Board of Commissioners'. The story does not say when he became mayor; the city's City Council page lists 'Russ Wilson, Mayor' today. Our list writes his name Russel E Wilson",
+     "url": "https://www.wahpetondailynews.com/news/local/wilson-wont-seek-another-term-as-breckenridge-mayor",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-019",
+   "name": "Tim Lynch",
+   "official_page": {
+    "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/tim-lynch-district-4",
+    "source": "Carver County, County Board of Commissioners, commissioner biographies: 'Tim Lynch, Vice Chair (District 4)'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carver County Commissioner, District 4",
+     "from": "elected 2004",
+     "to": "now",
+     "source": "Carver County, commissioner biography of Tim Lynch: 'First elected to Carver County Board in 2004' and 'Current term expires in 2026'",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/tim-lynch-district-4",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Hollywood Township Board of Supervisors (Carver County)",
+     "from": "",
+     "to": "",
+     "source": "Carver County, commissioner biography of Tim Lynch, under 'Prior Public Service Involvement': 'Hollywood Township Board of Supervisors' (no years are given)",
+     "url": "https://www.carvercountymn.gov/government/county-board-of-commissioners/commissioner-biographies/tim-lynch-district-4",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-171",
+   "name": "Nadine Schoen",
+   "official_page": {
+    "url": "https://www.wrightcountymn.gov/1566/Commissioner-Districts-Contact-Informati",
+    "source": "Wright County, Commissioner Districts & Contact Information: 'District 4 Commissioner Nadine Schoen'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wright County Commissioner, District 4",
+     "from": "2023",
+     "to": "now",
+     "source": "Wright County, Commissioner Districts & Contact Information: 'Commissioner Schoen began her service on the County Board in 2023. Her current term will end December 31, 2026.'",
+     "url": "https://www.wrightcountymn.gov/1566/Commissioner-Districts-Contact-Informati",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "St. Michael City Council",
+     "from": "",
+     "to": "",
+     "source": "Crow River News (hometownsource.com), October 1, 2026, 'VOTER'S GUIDE: Two candidates running for Wright County Commissioner District 4': her entry lists, under community involvement, 'St. Michael City Council, St. Michael Planning Commission, Economic Development Authority, FYCC Board, Trailblazer Transit Board, Joint Powers Water Board' (no years are given)",
+     "url": "https://www.hometownsource.com/press_and_news/psa/voter-s-guide-two-candidates-running-for-wright-county-commissioner-district-4/article_a1902f5e-ee96-48f8-b969-c46a39375950.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "St. Michael Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Crow River News (hometownsource.com), October 1, 2026, 'VOTER'S GUIDE: Two candidates running for Wright County Commissioner District 4': her entry lists, under community involvement, 'St. Michael City Council, St. Michael Planning Commission' (no years are given)",
+     "url": "https://www.hometownsource.com/press_and_news/psa/voter-s-guide-two-candidates-running-for-wright-county-commissioner-district-4/article_a1902f5e-ee96-48f8-b969-c46a39375950.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-097",
+   "name": "Shannon Coyle",
+   "official_page": {
+    "url": "https://morrisoncountymn.gov/218/AUDITOR-TREASURER",
+    "source": "Morrison County, Auditor / Treasurer page: 'Shannon Coyle, Auditor/Treasurer'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Morrison County Auditor/Treasurer",
+     "from": "2023 (appointed interim in June 2023)",
+     "to": "now",
+     "source": "Morrison County, Auditor / Treasurer page: 'Shannon was appointed to the Interim Auditor/Treasurer position in June 2023'; the page and the county's staff directory list Shannon Coyle as Auditor/Treasurer today",
+     "url": "https://morrisoncountymn.gov/218/AUDITOR-TREASURER",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-043",
+   "name": "Christopher Albers",
+   "website": {
+    "url": "https://albersforsheriff.com/",
+    "how": "The site is titled 'Chris Albers for Faribault County Sheriff'; it reads 'On November 3, 2026, vote for Chris Albers for Faribault County Sheriff' and 'Political advertisement paid for and approved by Chris Albers for Faribault County Sheriff', and its voter information link leads to Faribault County's elections page. Our list writes his name Christopher Albers. The address was found by trying it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-151",
+   "name": "Mike Hoffman",
+   "official_page": {
+    "url": "https://swiftcounty.gov/sheriff",
+    "source": "Swift County, Sheriff page: under Staff, 'Mike Hoffman - Interim Sheriff'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Interim Sheriff, Swift County",
+     "from": "",
+     "to": "now",
+     "source": "Swift County, Sheriff page: 'Mike Hoffman - Interim Sheriff' (the page does not say when he was named)",
+     "url": "https://swiftcounty.gov/sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-103",
+   "name": "Michelle Zehnder Fischer",
+   "official_page": {
+    "url": "https://www.nicolletcountymn.gov/142/County-Attorneys-Office",
+    "source": "Nicollet County, County Attorney's Office page: 'Michelle Zehnder Fischer, County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicollet County Attorney",
+     "from": "2011",
+     "to": "now",
+     "source": "Mankato Free Press, May 18, 2018, 'Nicollet County attorney seeking re-election': 'Zehnder Fischer has been the county's top prosecutor since 2011.' That she holds the office today is on the county's own County Attorney's Office page",
+     "url": "https://www.mankatofreepress.com/news/local_news/nicollet-county-attorney-seeking-re-election/article_81b10dbe-5ab7-11e8-b12e-97da8167c7e7.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-17288",
+   "name": "Mike Supina",
+   "offices": [
+    {
+     "office": "Eagan City Council Member",
+     "from": "elected 2020",
+     "to": "now",
+     "source": "Sun Thisweek (hometownsource.com), May 26, 2026, 'Eagan Council Member Mike Supina announces bid for Eagan mayor': 'Supina was first elected to the City Council in 2020 and he has served in that role since'",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/eagan-council-member-mike-supina-announces-bid-for-eagan-mayor/article_9bf56ca6-4d05-4fa7-9418-6d02ba00b0e6.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Eagan Advisory Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), June 11, 2026, 'Mike Supina wants to lead as Eagan mayor': 'He previously served on the Eagan Advisory Planning Commission' (no years are given)",
+     "url": "https://www.hometownsource.com/sun_thisweek/community/eagan/mike-supina-wants-to-lead-as-eagan-mayor/article_d66e00d9-3a06-4c29-9028-fa0df1a79d62.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-62824",
+   "name": "Ted Kozlowski",
+   "official_page": {
+    "url": "https://www.stillwatermn.gov/city-government/mayor-council",
+    "source": "City of Stillwater, Mayor & Council page: 'Mayor Ted Kozlowski', 'Term Expires: 01/03/2027'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Stillwater",
+     "from": "elected 2014",
+     "to": "now",
+     "source": "Stillwater Gazette (hometownsource.com), July 1, 2024, 'Hoof prints: From Silicon Valley to Mayor of Stillwater', a profile by a student newspaper (the Pony Express) that the Gazette published: 'Teddy Kozlowski has been mayor of Stillwater since 2014'. That he is mayor today, with a term expiring 01/03/2027, is on the city's Mayor & Council page",
+     "url": "https://www.hometownsource.com/stillwater_gazette/free/hoof-prints-from-silicon-valley-to-mayor-of-stillwater/article_dacb9060-34cf-11ef-86a4-93706258af7c.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Stillwater City Council",
+     "from": "elected 2012",
+     "to": "",
+     "source": "Stillwater Gazette (hometownsource.com), July 1, 2024, the same profile: 'On a frigid Dec. 4, 2012' he 'secured victory in the city council election', and ran for mayor 'After two years on the city council' (the ward and the day his council service ended are not given)",
+     "url": "https://www.hometownsource.com/stillwater_gazette/free/hoof-prints-from-silicon-valley-to-mayor-of-stillwater/article_dacb9060-34cf-11ef-86a4-93706258af7c.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Mark Freiberg",
+   "official_page": {
+    "url": "https://www.edenprairiemn.gov/city-government/city-council/mark-freiberg",
+    "source": "City of Eden Prairie, City Council: 'Mark Freiberg, Council Member'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eden Prairie City Council Member",
+     "from": "",
+     "to": "now",
+     "source": "City of Eden Prairie, Mark Freiberg: 'Mark Freiberg was re-elected to a second term as a member of the Eden Prairie City Council in the 2022 election. His current term ends Dec. 31, 2026.' (the page does not give the year his first term began)",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/mark-freiberg",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie Heritage Preservation Commission",
+     "from": "2013",
+     "to": "2016",
+     "source": "City of Eden Prairie, Mark Freiberg: 'Freiberg served on the City's Heritage Preservation Commission from 2013 to 2016, and the Planning Commission from 2016 to 2018.'",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/mark-freiberg",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Eden Prairie Planning Commission",
+     "from": "2016",
+     "to": "2018",
+     "source": "City of Eden Prairie, Mark Freiberg: 'Freiberg served on the City's Heritage Preservation Commission from 2013 to 2016, and the Planning Commission from 2016 to 2018.'",
+     "url": "https://www.edenprairiemn.gov/city-government/city-council/mark-freiberg",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Julie Clark",
+   "offices": [
+    {
+     "office": "Mounds View City Council Member",
+     "from": "",
+     "to": "now",
+     "source": "City of Mounds View, 'History of Mounds View Mayors and Council Members' (the Council Tenure List): Julie Clark is in the rows for 2024, 2025 and 2026, first appearing after the list's note 'Special Election 11/07/2023' (the list does not give the day she took the seat)",
+     "url": "https://www.moundsviewmn.gov/document_center/City%20Council/Council%20Tenure%20List.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-58738",
+   "name": "Stacy Crakes",
+   "website": {
+    "url": "https://crakes4savage.com/",
+    "how": "The site is titled 'Stacy Crakes for Savage City Council'; its home page reads 'I am currently on the Savage City Council' and 'I am running for a second term'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.savagemn.gov/government/city-council",
+    "source": "City of Savage, Mayor & City Council page: 'Councilmember Stacy Crakes', current term January 1, 2023 to December 31, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Savage City Council Member",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Savage, Mayor & City Council page: 'Councilmember Stacy Crakes', 'Current Term: January 1, 2023 to December 31, 2026'",
+     "url": "https://www.savagemn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Savage Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site, About Stacy: 'I have also served on the Savage Planning Commission and other community boards' (no years are given)",
+     "url": "https://crakes4savage.com/about-stacy",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Valley Transit Authority Board, the City of Savage's representative",
+     "from": "",
+     "to": "now",
+     "source": "Her campaign site, About Stacy: 'I also serve as the Savage representative on the Minnesota Valley Transit Authority (MVTA) Board'; the city's Mayor & City Council page lists the Minnesota Valley Transit Authority among her committees",
+     "url": "https://crakes4savage.com/about-stacy",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-22814",
+   "name": "Emily Villanueva",
+   "website": {
+    "url": "https://www.fridleyforward.com/ward-1-villanueva",
+    "how": "The page is titled 'Ward 1 Villanueva' and headed 'EMILY VILLANUEVA'; it quotes her, 'I am running for Fridley City Council', and reads 'Prepared and paid for by the Campaign Fund of Emily Villanueva'. It is her page on a site she shares with the candidates for Fridley's Ward 2 and Ward 3 seats.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1024-07966",
+   "name": "Tonja West-Hafner",
+   "website": {
+    "url": "https://www.tonjawest-hafnerforbrooklynpark.com/",
+    "how": "The site describes itself as 'Tonja West-Hafner running for Brooklyn Park City Council' and reads 'Prepared and paid for by Tonja West-Hafner for Brooklyn Park City Council --WEST District'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Park City Council, Central District",
+     "from": "elected 2018",
+     "to": "2022",
+     "source": "Her campaign site, Meet Tonja: 'I was elected to the Brooklyn Park City Council in 2018 to 2022, representing the Central District.'",
+     "url": "https://www.tonjawest-hafnerforbrooklynpark.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor Pro Tem of Brooklyn Park",
+     "from": "2021",
+     "to": "2021",
+     "source": "Her campaign site, Meet Tonja: 'I served as Mayor Pro Tem for eight months (January through August 2021) during the special election for Mayor.'",
+     "url": "https://www.tonjawest-hafnerforbrooklynpark.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Brooklyn Park Planning Commission",
+     "from": "2011",
+     "to": "2017",
+     "source": "Her campaign site, Meet Tonja: 'the Brooklyn Park Planning Commission (April 2011 to March 2017) Vice Chair 2014, Chair April 2015-March 2017'",
+     "url": "https://www.tonjawest-hafnerforbrooklynpark.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Brooklyn Park Citizen Long Range Improvement Committee (CLIC)",
+     "from": "2009",
+     "to": "2011",
+     "source": "Her campaign site, Meet Tonja: 'I have also served on the Brooklyn Park Citizen Long Range Improvement Committee (CLIC) (2009-2011) Chair (2009-2011)'",
+     "url": "https://www.tonjawest-hafnerforbrooklynpark.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-39878",
+   "name": "Jessica Hatanpa",
+   "official_page": {
+    "url": "https://www.mankatomn.gov/your-government/city-council",
+    "source": "City of Mankato, Mankato City Council page: 'Jessica Hatanpa, Ward 5'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mankato City Council, Ward 5",
+     "from": "elected 2018",
+     "to": "now",
+     "source": "Mankato Free Press, September 4, 2022, 'Hatanpa, Bores look for votes in a very different Ward 5': 'Running for an open seat, Hatanpa cruised to victory in 2018 in her first run for public office.' That she holds the Ward 5 seat today is on the city's own City Council page",
+     "url": "https://www.mankatofreepress.com/news/elections/hatanpa-bores-look-for-votes-in-a-very-different-ward-5/article_40858498-28a6-11ed-a572-eff16233bc35.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "DJ Dondelinger",
+   "official_page": {
+    "url": "https://www.isd181.org/board-of-education-home",
+    "source": "Brainerd Public Schools, Board of Education page: 'DJ Dondelinger, Vice Chair, Term Ends 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brainerd School Board (Board of Education), Vice Chair",
+     "from": "",
+     "to": "now",
+     "source": "Brainerd Public Schools, Board of Education page: 'DJ Dondelinger, Vice Chair, Term Ends 2026' (the page does not say when he joined the board; it says members serve four-year terms)",
+     "url": "https://www.isd181.org/board-of-education-home",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0273",
+   "name": "Sarah Quayle",
+   "offices": [
+    {
+     "office": "Edina Public Schools' Comprehensive Achievement and Civic Readiness Committee (a district committee), member",
+     "from": "",
+     "to": "now",
+     "source": "Sun Current (hometownsource.com), October 1, 2026, 'VOTER'S GUIDE: Meet the candidates running for Edina School Board', in her own answer: 'Serves on Edina Public Schools' Comprehensive Achievement and Civic Readiness Committee' (no years are given)",
+     "url": "https://www.hometownsource.com/sun_current/psa/voters-guide-meet-the-candidates-running-for-edina-school-board/article_86e37b25-feb6-41ef-9407-7b82056f4d0e.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0492",
+   "name": "Carol McAlister",
+   "official_page": {
+    "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+    "source": "Austin Public Schools, Board Members page: 'Director Carol McAlister', term expires 1/4/2027, with the district's portrait of her",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin School Board, Director",
+     "from": "",
+     "to": "now",
+     "source": "Austin Public Schools, Board Members page: 'Director Carol McAlister', 'Term expires 1/4/2027' (the page does not say when she joined the board)",
+     "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Anna Carlson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Claire Luger",
+   "website": {
+    "url": "https://lugerforflas.com/",
+    "how": "The site describes itself as 'Claire Luger for Forest Lake Area Schools School Board'; it reads 'please vote for claire luger for forest lake area schools school board on november 3rd!' and 'prepared by luger for flas'. The page is drawn by script, and its words were read from the page's own data.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.wyomingmn.org/mayorcouncil",
+    "source": "City of Wyoming, Mayor & City Council page: 'Claire Luger, Council Member, Term Expires: December 2026'. This is the office she holds today, not the school board seat she seeks; her campaign site says she serves on the Wyoming City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wyoming City Council Member (City of Wyoming, Minnesota)",
+     "from": "",
+     "to": "now",
+     "source": "City of Wyoming, Mayor & City Council page: 'Claire Luger, Council Member, Term Expires: December 2026'. Her campaign site says 'I have also served my community on the Wyoming City Council for nearly 12 years' (neither page gives the year she began)",
+     "url": "https://www.wyomingmn.org/mayorcouncil",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Wyoming Park Board (City of Wyoming, Minnesota)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site: 'I have also served my community on the Wyoming City Council for nearly 12 years, and on Wyoming's Park Board prior to that' (no years are given)",
+     "url": "https://lugerforflas.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Kevin Kuester",
+   "offices": [
+    {
+     "office": "Glencoe-Silver Lake School Board",
+     "from": "",
+     "to": "",
+     "source": "Glencoe-Silver Lake School District, Meet the GSL School Board Candidates, in his own answer: 'I have served on the GSL School Board and was currently asked to run again by people in the district' (no years are given; the district's School Board Members page does not list him today)",
+     "url": "https://www.gsl.k12.mn.us/district/school-board/school-board-candidates",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8115-MN",
+   "name": "Luis Morales",
+   "offices": [
+    {
+     "office": "Judge, First Judicial District",
+     "from": "2024 (the appointment was reported on June 7, 2024)",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), June 7, 2024, 'Luis Rangel Morales appointed to fill First Judicial District vacancy': he 'was appointed to a First Judicial District judge vacancy by Gov. Tim Walz' and 'will be chambered in Hastings in Dakota County'. The story writes his name Luis Rangel Morales; our list writes Luis Morales. It does not give the day he took the bench",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/luis-rangel-morales-appointed-to-fill-first-judicial-district-vacancy/article_759d3cf8-24d4-11ef-916a-57d21853dd11.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "St. Paul Planning Commission, chair",
+     "from": "",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), June 7, 2024, the same story: his 'community involvement includes serving as chair of the St. Paul Planning Commission and vice-chair of St. Paul's Board of Zoning Appeals' (no years are given)",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/luis-rangel-morales-appointed-to-fill-first-judicial-district-vacancy/article_759d3cf8-24d4-11ef-916a-57d21853dd11.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "St. Paul Board of Zoning Appeals, vice-chair",
+     "from": "",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), June 7, 2024, the same story: his 'community involvement includes serving as chair of the St. Paul Planning Commission and vice-chair of St. Paul's Board of Zoning Appeals' (no years are given)",
+     "url": "https://www.hometownsource.com/sun_thisweek/free/luis-rangel-morales-appointed-to-fill-first-judicial-district-vacancy/article_759d3cf8-24d4-11ef-916a-57d21853dd11.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9010-MN",
+   "name": "Allison T. Whalen",
+   "offices": [
+    {
+     "office": "Judge, Eighth Judicial District (the seat chambered in Benson)",
+     "from": "2024 (the appointment was announced on January 9, 2024)",
+     "to": "",
+     "source": "West Central Tribune, January 9, 2024, 'Gov. Walz appoints Whalen to fill Eighth Judicial District vacancy': the Governor's office announced that day that Allison Whalen 'has been appointed to the seat chambered in Benson', in the Eighth Judicial District. The story does not give the day she took the bench. Our list writes her name Allison T. Whalen",
+     "url": "https://www.wctrib.com/news/local/allison-whalen-appointed-to-eighth-judicial-district-seat-in-benson-minnesota",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Julie Clark",
+   "field": "official_page",
+   "url": "https://www.moundsviewmn.gov/government/city_council/city_council_directory.php",
+   "why": "The page opens and lists her as a Council Member with a term expiring 12-31-2026, but the same page prints council members' home addresses and telephone numbers, which are never collected; the link is left out so the site does not lead readers to them. Her council seat stands on the city's tenure list."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's honest User-Agent; all answered, and the recorded words were found on each page. The Mounds View tenure list (a PDF) was read with the kit's own PDF reader.",
+  "Corrected wording: Shawn Savela's 2024 primary is not on the cited general-election page, so it was dropped from the entry; the Davenport site's About page is now named by its address; the West Central Tribune story's headline is given as the page prints it, and a second story cited without an address was dropped; the Stillwater profile's words are quoted as printed (it writes Teddy Kozlowski).",
+  "Kept for John to judge: Sarah Quayle's seat on a school district committee and Tonja West-Hafner's on a city citizens' committee are appointed advisory seats, labelled as such; Kevin Kuester's past board service is his own answer on the district's candidates page."
+ ]
+}

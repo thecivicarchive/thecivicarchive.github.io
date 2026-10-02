@@ -1,0 +1,378 @@
+{
+ "state": "MN",
+ "part": 69,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "WebSearch could not be used for this part (the session's search budget was already spent: 200 of 200), so pages were reached directly: the campaign websites filed with the Secretary of State (as sl_websites holds them), government and school district sites, and the state DFL's list of endorsed candidates. No Republican unit's endorsement page could be found without a search (Karen Attia in Senate District 34 and KT Jacobs in House District 39B were not looked up on a party page); guessed addresses did not resolve.",
+  "Not read: attiaforsenate.org (Karen Attia's filed address) showed a bot check instead of the site, so no website is recorded for her here. bergstromfor110.org (Jesse Bergstrom's filed address) failed its certificate check (hostname mismatch; with www, a missing issuer) and was not read. www.co.houston.mn.us refused the TLS handshake (no page for the county attorney, Daniel Coogan). www.isd2142.k12.mn.us did not answer (Ron Marinaro). mncourts.gov is known to answer 403 and mn.gov shows a CAPTCHA, so nothing was looked up for Judge Robert C. Friday.",
+  "Looked up and not found on the government's own page, so nothing is recorded: Jay Samuelson (Pine County's board page lists Steve Hallan for District 1), Curtis Knutson (Polk County's page lists Warren Strandell for District 2), Joshua Iverson (Pennington County's page lists Neil Peterson for District 3), Paul Haik (the City of Chanhassen's 2026 candidates page lists him and gives no website), Logan Drews (Hibbing's council page lists Jay Hildenbrand for Ward 2), Eric Johnson (Elk River's council page lists Jennifer Wagner for Ward 4), Kris Taylor (not on the Saint Paul board's members page). The board pages of Litchfield, Cambridge-Isanti and the City of Crystal load their member lists by script and could not be read (Jordan Papke, DeEtta N. Moos; Forest Eidbo's council seat rests on his own site). Sartell-St. Stephen's district site was not found (Emily Larson).",
+  "Read and left out on purpose: jobs (sheriff's office ranks, teaching, banking), military service, schools, family, transit and joint-powers board seats listed without dates, club memberships, and endorsements by people, unions and other non-party groups. Aaron Kania's site shows a DFL badge among its supporters' logos but no sentence of his own to quote. KT Jacobs's site names no party of her own.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): the Senate District 43 DFL lists Forest Eidbo on its Vote page under \"Letters of Support\", which is not an endorsement (the verifier did not find the words \"Letter of Support\" on his own site's home page, so that part of the note was taken out). Kept apart from endorsed_by; whether and how it is shown is John's decision.",
+  "Clint Hooppaw: the city's page says \"Served since 2011\" beside the title Mayor; his own site splits it into council member 2011-2021 and mayor from 2021, which is what is recorded. Jon Wilson, KT Jacobs and Eric Johnson give lengths of service without years; the years are left as not stated."
+ ],
+ "party_support": [
+  {
+   "race_id": "2026-MN-1019-14158",
+   "name": "Forest Eidbo",
+   "party": "Democratic-Farmer-Labor",
+   "unit": "Senate District 43 DFL (its Vote page, under \"Letters of Support\", City of Crystal: \"Forest Eidbo, City Council, Section II\")",
+   "url": "https://www.sd43dfl.org/vote",
+   "verified": true
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0192-MN",
+   "name": "Aaron Kania",
+   "website": {
+    "url": "https://kaniaforhouse.com",
+    "how": "The site's title is \"Aaron Kania for Minnesota House | District 3A\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 3A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0229-MN",
+   "name": "Jon Wilson",
+   "website": {
+    "url": "https://jonwilsonformnhouse21b.com",
+    "how": "The site's title is \"Wilson For Minnesota House 21B\" and its heading is \"Jon Wilson for MN House\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of St. James",
+     "from": "not stated (his page says \"two years\")",
+     "to": "not stated",
+     "source": "His campaign site, About (\"I served two years as Mayor of St. James and five years as a member of the Fairmont School Board\")",
+     "url": "https://jonwilsonformnhouse21b.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Fairmont School Board member",
+     "from": "not stated (his page says \"five years\")",
+     "to": "not stated",
+     "source": "His campaign site, About (the same sentence)",
+     "url": "https://jonwilsonformnhouse21b.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 21B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Today, I am running as a Centrist Democrat",
+    "url": "https://jonwilsonformnhouse21b.com/about/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0265-MN",
+   "name": "KT Jacobs",
+   "website": {
+    "url": "https://www.ktforhouse.com",
+    "how": "The site's heading names her \"for House 39B\" and it says \"I have decided to take my experience to Saint Paul and run for Minnesota House in District 39B\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Columbia Heights City Council member",
+     "from": "not stated (her page says \"four years\")",
+     "to": "not stated",
+     "source": "Her campaign site (\"It was an honor to serve as a Columbia Heights Council Member for four years.\")",
+     "url": "https://www.ktforhouse.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0304-MN",
+   "name": "Fue Lee",
+   "website": {
+    "url": "https://www.fuelee.org",
+    "how": "The site's title is \"Neighbors for Fue Lee\"; it lists his legislative work (headed \"2021 Legislative Accomplishments\"), carries a link labelled \"MN Legislative Profile Page\" and a Minneapolis, MN committee disclaimer. It does not name the 2026 race or the district in words. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 59A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0396-037",
+   "name": "Jacob Borealis",
+   "website": {
+    "url": "https://www.borealisformn.org/",
+    "how": "The site's title is \"Jacob Borealis for Dakota County Commissioner | Get Involved Today\" and the page names District 6. The filed address, borealisformn.org, leads here.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-009",
+   "name": "Joel M Schmidt",
+   "website": {
+    "url": "https://joelschmidtforsheriff.com",
+    "how": "The site's heading is \"Joel Schmidt For Benton County Sheriff\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-117",
+   "name": "Edison Dengler",
+   "website": {
+    "url": "https://www.denglerforsheriff.org",
+    "how": "The site's title is \"Edison Dengler for Pipestone County Sheriff\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-01900",
+   "name": "Clint Hooppaw",
+   "website": {
+    "url": "https://www.clinthooppaw.com/",
+    "how": "The site's heading is \"Clint Hooppaw - Apple Valley Mayor\" and its \"2026 Campaign Announcement\" page says he is seeking re-election as Mayor of Apple Valley in the November 2026 election. The filed address, clinthooppaw.com, leads here.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.applevalleymn.gov/27/City-Council",
+    "source": "City of Apple Valley, City Council page (\"Mayor Clint Hooppaw, Served since 2011\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Apple Valley",
+     "from": "2021",
+     "to": "now",
+     "source": "His campaign site, 2026 Campaign Announcement (\"has served as Mayor of Apple Valley since 2021 and as Councilmember since 2011\"); the city's council page lists him as Mayor, \"Served since 2011\"",
+     "url": "https://www.clinthooppaw.com/2026-campaign-announcement.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Apple Valley City Council member",
+     "from": "2011",
+     "to": "2021",
+     "source": "His campaign site, About (\"Apple Valley City Council (2011 - 2021)\")",
+     "url": "https://www.clinthooppaw.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Airport Relations Advisory Commission member, City of Eagan",
+     "from": "2003",
+     "to": "2005",
+     "source": "His campaign site, About (\"Airport Relations Advisory Commission - City of Eagan 2003-2005\")",
+     "url": "https://www.clinthooppaw.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Waste Reduction Advisory Commission member, City of Eagan",
+     "from": "2001",
+     "to": "2003",
+     "source": "His campaign site, About (\"Waste Reduction Advisory Commission - City of Eagan 2001- 2003\")",
+     "url": "https://www.clinthooppaw.com/about.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-46798",
+   "name": "Kevin Schieber",
+   "website": {
+    "url": "https://northbranchmayor.com",
+    "how": "The site's title is \"Kevin Schieber for Mayor of North Branch\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.northbranchmn.gov/165/Mayor-and-City-Council",
+    "source": "City of North Branch, Mayor and City Council page (lists \"Kevin Schieber, Mayor\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of North Branch",
+     "from": "not stated (his own site speaks of \"the past four years\")",
+     "to": "now",
+     "source": "City of North Branch, Mayor and City Council page",
+     "url": "https://www.northbranchmn.gov/165/Mayor-and-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-37502",
+   "name": "Dave Miller",
+   "official_page": {
+    "url": "https://www.littlecanada.gov/818/Little-Canada-Council-Members",
+    "source": "City of Little Canada, Little Canada Council Members page (\"Dave Miller, Term: 2023-2026\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Little Canada City Council member",
+     "from": "not stated (the page gives his present term as 2023-2026)",
+     "to": "now",
+     "source": "City of Little Canada, Little Canada Council Members page",
+     "url": "https://www.littlecanada.gov/818/Little-Canada-Council-Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Little Canada Parks & Recreation Commission member (chair since 2016)",
+     "from": "2014",
+     "to": "not stated",
+     "source": "City of Little Canada, Little Canada Council Members page (\"He has served on the Little Canada Parks & Recreation Commission since 2014, and been the Chair since 2016.\")",
+     "url": "https://www.littlecanada.gov/818/Little-Canada-Council-Members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-54214",
+   "name": "Sharon Christensen",
+   "official_page": {
+    "url": "https://www.richfieldmn.gov/166/City-Council",
+    "source": "City of Richfield, City Council page (lists \"Sharon Christensen, At-large\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richfield City Council member, At-large",
+     "from": "not stated",
+     "to": "now",
+     "source": "City of Richfield, City Council page",
+     "url": "https://www.richfieldmn.gov/166/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1019-14158",
+   "name": "Forest Eidbo",
+   "website": {
+    "url": "https://forestforcrystal.com",
+    "how": "The site's title is \"Forest For Crystal City Council - Section II\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crystal City Council member, Section II",
+     "from": "2023",
+     "to": "now",
+     "source": "His campaign site (\"has served our community since January 2023 as the Crystal City Council Member for Section II\"; his Meet Forest page says he \"was elected to serve on the Crystal City Council in 2022\")",
+     "url": "https://forestforcrystal.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Crystal Parks and Recreation Commission member",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "His campaign site, Meet Forest (\"He has served on the Crystal Parks and Recreation Commission\")",
+     "url": "https://forestforcrystal.com/Meet-Forest/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-18674",
+   "name": "Eric Johnson",
+   "website": {
+    "url": "https://johnson4elkriver.com",
+    "how": "The site's heading is \"Eric Johnson for Elk River City Council\" (it does not name the ward). It is the address filed with the Secretary of State. It answered the kit's own reader with \"429 Too Many Requests\" twice and was read through WebFetch.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Elk River Planning Commission member",
+     "from": "not stated (his site says \"over 17 years\")",
+     "to": "not stated",
+     "source": "His campaign site (\"With over 17 years of dedicated service on the Elk River City Planning Commission\")",
+     "url": "https://johnson4elkriver.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0110",
+   "name": "Jesse Bergstrom",
+   "official_page": {
+    "url": "https://isd110.org/about-us/school-board",
+    "source": "Waconia Public Schools, School Board page (\"Jesse Bergstrom, Vice Chair/Clerk\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waconia Public Schools (ISD 110) School Board member",
+     "from": "not stated (the page gives his present term as Jan. 1, 2023 to Dec. 31, 2026)",
+     "to": "now",
+     "source": "Waconia Public Schools, School Board page",
+     "url": "https://isd110.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0204",
+   "name": "Patrick Madery",
+   "official_page": {
+    "url": "https://www.komets.k12.mn.us/district/school-board/school-board-members",
+    "source": "Kasson-Mantorville Schools, School Board Members page (lists Patrick Madery)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kasson-Mantorville School Board member",
+     "from": "2023 (the page's table gives January 1, 2023 as the start beside his name, and January 1, 2027 as the end)",
+     "to": "now",
+     "source": "Kasson-Mantorville Schools, School Board Members page",
+     "url": "https://www.komets.k12.mn.us/district/school-board/school-board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0394-129",
+   "name": "Greg Snow",
+   "what": "official_page and offices (Renville County Commissioner, District 4, from 2019)",
+   "why": "www.renvillecountymn.gov did not resolve on the first try and answered 503 Service Unavailable on the second and third; the page could not be re-read.",
+   "url": "https://www.renvillecountymn.gov/government/county-board/"
+  }
+ ],
+ "verifier_notes": [
+  "Every url was re-opened. Pages WebFetch could not resolve twice (jonwilsonformnhouse21b.com, www.fuelee.org, northbranchmayor.com, forestforcrystal.com) were read with the kit's own reader (states/net.py, patient lookups) and confirmed there.",
+  "Nothing from the never-collected list is in any field. Jon Wilson's quote is eight words, on his own site."
+ ]
+}

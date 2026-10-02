@@ -1,0 +1,344 @@
+{
+ "part": 70,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance was already used up (all six of this part's first searches were refused), so nothing here comes from a search. Every page was read directly with the kit's honest User-Agent (states/net.py), one request at a time, after reading the site's robots.txt and staying out where it turns unlisted scripts or Claude's agents away. The Minnesota DFL's list of endorsed candidates was read once with the fetch tool. Read: the ten campaign websites the candidates filed (from sl_websites in the real database, opened read-only), each county's, city's and school district's own site where it answered, the Legislative Reference Library, and one Wikipedia article at its ordinary /wiki/ address (Mary Liz Holberg; used only to see that the Library's county-board end year is out of date).",
+  "Not read, and nothing worked around: Hubbard County's site and the City of Columbia Heights' site (robots.txt asks scripts to stay out; so John A. Olson has no finding and Brie LaPlante's commission seat rests on her own site); marjformnhouse.com (HTTP 429 three times, so Marj J Fogelman's filed site is not listed here because it was never read; the filing itself stands in sl_websites); Pope County's site (popecountymn.gov answers with an empty script page; co.pope.mn.us did not resolve); Pennington County's site, the Sartell-St. Stephen and Dassel-Cokato district sites and the Minneapolis board site (no address or no answer, tried twice); the Minnesota Judicial Branch and mn.gov (earlier parts found a bot check and a CAPTCHA there; not asked), so Judge Jessica J. Fralich has no finding. Dakota County's commissioner pages, and the board or council pages of Saint Paul Public Schools, Albert Lea, Cambridge-Isanti, Crystal and Fergus Falls, are drawn by script and showed no names to a plain reader, so nothing can be said from them either way.",
+  "No Republican party page with a 2026 endorsement of Roger J. Skraba or Marj J Fogelman was looked for beyond their own sites (Skraba's home page links to mngop.org without an endorsement sentence that could be quoted). No own_words for Angela Nelson or Esther Agbaje: their pages as read carry no party sentence (the address of Nelson's endorsements page was not found; Agbaje's endorsements page shows no party name in its text).",
+  "Nothing a card may show was found for Marj J Fogelman, Paul Gremmels, Leonard Vonasek, Neil Peterson, Mark Hlady, Mark Brown, Mike Norland, John A. Olson, Eric Thorson, Adam Hunt, DuWayne Cookman, Craig Rosell, Andy Engh, Michael Schell, Jen Smith, Keith Koehler and Jessica J. Fralich. Read for them: Polk County's Board of Commissioners and Sheriff's Office pages (neither names Vonasek or Mike Norland; the sheriff's page names a Lt. Brad Norland in a photo caption, a different given name, and Sheriff Jim Tadman); Rice County's board page (District 4 is held by Steve Underdahl, term ending December 2026; Hlady is not on it); Big Stone County's sheriff page (names nobody); Little Canada's council directory (Thorson is not on it); Rogers' council page (Hunt is not on it). What the candidates' sites say of work, schools and household is not recorded, and lengths of residence were not turned into anything.",
+  "For the second reader: (a) Mary Liz Holberg's site never names Dakota County or District 6; the two anchors are the filing and 'Commissioner' on the site, with the Library's record of a Dakota County commissioner of the same name. (b) Shawn Williams's township clerk post has no years and may deserve a second look at how the page pairs its figures with their captions. (c) Dave Badeaux's 'from' is empty because the city's directory gives no year. (d) Aisha Elmquist's own_words joins the page's heading 'Endorsements' to the first name listed under it; the colon is ours. (e) The Library's address is written fulldetail?ID=10262 as its own search results link it."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0155-MN",
+   "name": "Angela Nelson",
+   "website": {
+    "url": "https://nelsonformn.com",
+    "how": "The address she filed; it leads to www.nelsonformn.com, titled 'Angela Nelson For Minnesota State Senate | District 35' and prepared and paid for by Campaign for Angela Nelson.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints the name under Senate District 35)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0192-MN",
+   "name": "Roger J. Skraba",
+   "website": {
+    "url": "https://skrabaforhouse.com",
+    "how": "The address he filed. The site is titled 'Rep. Roger Skraba, MN House District 3A | Skraba for House', headed 'Roger Skraba for MN House 3A', dated 2026 and prepared and paid for by the Roger Skraba Campaign Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0229-MN",
+   "name": "Marj J Fogelman"
+  },
+  {
+   "race_id": "2026-MN-0266-MN",
+   "name": "Aisha Elmquist",
+   "website": {
+    "url": "https://www.voteelmquist.com",
+    "how": "The address she filed. The site is titled 'Elmquist for House'; its Meet Aisha page (/meet) says 'I’m running to represent District 40A in the Minnesota House of Representatives' and it is paid for by Neighbors for Aisha Elmquist.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints the name under House District 40A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Minnesota Democratic-Farmer-Labor Party",
+    "url": "https://www.voteelmquist.com/endorsements",
+    "verified": true,
+    "note": "The first name listed under the heading 'Endorsements' on her own site; the earlier wording joined the heading and the name with a colon that is not on the page."
+   }
+  },
+  {
+   "race_id": "2026-MN-0305-MN",
+   "name": "Esther Agbaje",
+   "website": {
+    "url": "https://www.estheragbaje.com",
+    "how": "The address she filed; it leads to estheragbaje.com, titled 'Esther for State Representative', where she writes that she serves as 'State Representative for District 59B'; prepared and paid for by Esther Agbaje for State Representative.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints the name under House District 59B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-121",
+   "name": "Paul Gremmels"
+  },
+  {
+   "race_id": "2026-MN-0392-119",
+   "name": "Leonard Vonasek"
+  },
+  {
+   "race_id": "2026-MN-0393-113",
+   "name": "Neil Peterson"
+  },
+  {
+   "race_id": "2026-MN-0394-131",
+   "name": "Mark Hlady"
+  },
+  {
+   "race_id": "2026-MN-0396-037",
+   "name": "Mary Liz Holberg",
+   "website": {
+    "url": "https://www.maryliz.org",
+    "how": "The address she filed. The site is titled 'Home | Mary Liz Holberg', is headed 'Commissioner Mary Liz Holberg' with 'ELECTION NOVEMBER 3, 2026', and is copyright 2026 by Holberg Volunteer Committee. It names no county or district; the tie to this race is the filing and the title Commissioner.",
+    "verified": true
+   },
+   "born": {
+    "year": 1959,
+    "date": "1959-11-13",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg (Date of Birth: 11/13/1959)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Lakeville Planning Commission",
+     "from": "1989",
+     "to": "1996",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg, Other Government Service",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Lakeville City Council",
+     "from": "1996",
+     "to": "1998",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg, Other Government Service",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota State Representative (Districts 37B, 36A, 58A)",
+     "from": "1999",
+     "to": "2015",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg (House 1999-2002, 2003-2012, 2013-2014; last term of office 1/7/2013 to 1/4/2015)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Dakota County Commissioner",
+     "from": "2015",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg, Other Government Service: 'Dakota County, Minnesota (County Commissioner); 2015 to 2022 [Elected]'. The Library's end year is not recorded here because her own campaign site (www.maryliz.org) is headed 'Commissioner Mary Liz Holberg' for the election of November 3, 2026; no county page could be read to settle it, so the end is left empty",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives (served 1999 to 2015)",
+     "year": "1998",
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Mary Liz Holberg (Party when first elected: Republican; sessions served from 1999)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=10262",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-011",
+   "name": "Mark Brown"
+  },
+  {
+   "race_id": "2026-MN-0404-119",
+   "name": "Mike Norland"
+  },
+  {
+   "race_id": "2026-MN-0405-057",
+   "name": "John A. Olson"
+  },
+  {
+   "race_id": "2026-MN-1001-07300",
+   "name": "Dave Badeaux",
+   "official_page": {
+    "url": "https://www.ci.brainerd.mn.us/m/directory/department?did=19",
+    "source": "City of Brainerd, Staff Directory, City Council: 'Dave Badeaux, Mayor'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Brainerd",
+     "from": "",
+     "to": "now",
+     "source": "City of Brainerd, Staff Directory, City Council (lists him as Mayor; gives no years)",
+     "url": "https://www.ci.brainerd.mn.us/m/directory/department?did=19",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-46798",
+   "name": "Shawn Williams",
+   "website": {
+    "url": "https://www.mayorwilliams2026.com",
+    "how": "The address he filed. The page is headed 'Shawn Williams, Vote Williams for Mayor Nov. 3rd, 2026' and speaks of North Branch throughout.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk, North Branch Township",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, under 'Experience that matters': 'Clerk for North Branch Township'. The page sets '30+ Years' near it, but the figures and their captions are printed apart, so no years are recorded",
+     "url": "https://www.mayorwilliams2026.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-12700",
+   "name": "Brie LaPlante",
+   "website": {
+    "url": "https://laplanteforheights.com",
+    "how": "The address she filed. The site is titled 'Brie LaPlante for Columbia Heights City Council', says 'Vote on November 3rd' and is prepared and paid for by LaPlante for Heights.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Columbia Heights Sustainability Commission",
+     "from": "2023",
+     "to": "now",
+     "source": "Her campaign site, Meet Brie: 'I have served on the city’s Sustainability Commission since 2023'",
+     "url": "https://laplanteforheights.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-37502",
+   "name": "Eric Thorson"
+  },
+  {
+   "race_id": "2026-MN-1010-55186",
+   "name": "Adam Hunt"
+  },
+  {
+   "race_id": "2026-MN-1019-14158",
+   "name": "Matthew Majerus",
+   "review": [
+    {
+     "shows": "The campaign website he filed: https://mjr-auto.com",
+     "problem": "The address filed is not a campaign site. Its front page carries one notice that he 'has decided to run for the City Council seat in Section 2' in Crystal; nothing else on it is about the race, and the rest is on the never-collected list, so it should not be shown as his campaign website.",
+     "url": "https://mjr-auto.com",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-40688",
+   "name": "See Moua Leske",
+   "official_page": {
+    "url": "https://www.ci.marshall.mn.us/administration/city_council/index.php",
+    "source": "City of Marshall, City Council: 'Councilmembers-Ward II, See Moua Leske'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall City Council Member, Ward 2",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Marshall, City Council: 'Serving her 1st term as Councilmember (Ward II) - 2023 to present'",
+     "url": "https://www.ci.marshall.mn.us/administration/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-20906",
+   "name": "DuWayne Cookman"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0110",
+   "name": "Kelly Amott",
+   "official_page": {
+    "url": "https://www.isd110.org/about-us/school-board",
+    "source": "Waconia Public Schools, School Board, Members: 'Kelly Amott, Chair'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waconia School Board Member (ISD 110), Chair in 2026",
+     "from": "2023",
+     "to": "now",
+     "source": "Waconia Public Schools, School Board: 'Kelly Amott, Chair ... Term: Jan. 1, 2023-Dec. 31, 2026'. The district's home page (www.isd110.org) names her among 'the four current board members' who filed for the four seats. The page gives the current term only; whether she served before 2023 was not found",
+     "url": "https://www.isd110.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0241",
+   "name": "Craig Rosell"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Andy Engh"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0625",
+   "name": "Michael Schell"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0748",
+   "name": "Jen Smith"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0911",
+   "name": "Keith Koehler"
+  },
+  {
+   "race_id": "2026-MN-5014-SSD0001",
+   "name": "Shannon Gibney",
+   "website": {
+    "url": "https://shannonforschoolboard.com",
+    "how": "The address she filed. The site is titled 'Shannon Gibney for Minneapolis School Board', says 'I'm running to be your next District 3 Minneapolis School Board Director' and is prepared and paid for by Shannon for School Board.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-8803-MN",
+   "name": "Jessica J. Fralich"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every url in the file was re-opened once with the kit's honest User-Agent (states/net.py) on 2026-10-02 and all answered; each race and name was checked against sl_races and sl_candidates (read-only). 27 findings checked, 27 kept, none removed, 3 reworded.",
+  "Reworded: Aisha Elmquist's own_words (now the page's own words only); Mary Liz Holberg's Dakota County Commissioner source (the Library's page reads '2015 to 2022'; the mention of Wikipedia, which is not a cited page, is taken out; start year confirmed, end left empty); Matthew Majerus's review item (the description of his work is taken out).",
+  "The DFL list (dfl.org/endorsed/, last changed 2026-09-16) says 'The candidates listed below have been endorsed by the Minnesota DFL Party' and prints Angela Nelson under Senate District 35, Aisha Elmquist under House District 40A and Esther Agbaje under House District 59B.",
+  "The Library's record confirms: born 11/13/1959; Lakeville Planning Commission 1989 to 1996; Lakeville City Council 1996 to 1998; House 1999-2002 (37B), 2003-2012 (36A), 2013-2014 (58A), first elected 11/3/1998, last term 1/7/2013 to 1/4/2015; party when first elected Republican; counties served Dakota, Scott. Waconia's home page still names Kelly Amott among 'the four current board members' who filed.",
+  "For John: Mary Liz Holberg's site names no county or district (the tie is her filing plus 'Commissioner' and the November 3, 2026 election date). Shawn Williams's site prints the figures '40+ Years, 30+ Years, 30+ Years' apart from their captions, so the township clerk post rightly carries no years."
+ ]
+}

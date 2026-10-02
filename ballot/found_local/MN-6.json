@@ -1,0 +1,647 @@
+{
+ "part": 6,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "The session's web-search allowance ran out after the first six candidates (thirteen searches), so the rest were researched by reading pages directly: the candidates' own sites, government sites, party units' sites and a few named news sites, always with the kit's honest User-Agent and each site's robots.txt obeyed. No search engine was read in place of the search tool.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; each was then opened and read. Four more campaign sites were found another way and read: Bob Sullentrop's (linked from the Minneapolis Republican Party's site), Mike Hang's (linked from the Senate District 44 DFL's page of endorsed candidates), and Christine Scherbing's and Ann Miller's (by asking whether the likely address exists, then reading the site; each names the candidate, the office and 2026).",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (a Cloudflare check), the state's mn.gov pages (a Radware CAPTCHA), Karen A. Larson's filed campaign site (a bot check), the Swift County and City of Detroit Lakes sites (their robots.txt asks scripts to stay out), the Forum Communications newspapers (their robots.txt turns Claude away).",
+  "Nothing was found for six candidates: Gary Spatenka, Tom Walsh, Thomas R. Klyve, Patrick Allan Voss, Chuck Kobes and Mike Cross. They are listed with no findings.",
+  "party_support (a key the loader does not read, in the shape part 10 uses): Joe Scott is named by the Carver County Republican Party under 'Recommended Candidates', a heading that is not the word endorsement, so it is kept apart from endorsed_by and no page should call it an endorsement; whether and how it is shown is John's decision.",
+  "Jonathan Claussen: KAXE reports that Republican delegates endorsed him, and his own site says so, but no party page that says endorsed was found (the Wadena County and Todd County Republicans list him as a candidate), so there is no endorsed_by entry for him.",
+  "Ages stated without a year were not turned into birth years (KAXE gives Jonathan Claussen's age on Election Day; Ngone Niang's and Jess Garcia's own sites give an age)."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0123-MN",
+   "name": "Grant Hauschild",
+   "website": {
+    "url": "https://grantformn.com/",
+    "how": "The home page is titled 'Grant Hauschild for Minnesota State Senate', carries a 'MN District 3' section and is prepared and paid for by the Grant Hauschild for the Minnesota State Senate Committee.",
+    "verified": true
+   },
+   "born": {
+    "year": 1989,
+    "date": "1989-03-31",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15577",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hermantown City Council member",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "His campaign website: the home page's own description calls him 'a Hermantown city councilor', and the About page (https://grantformn.com/about-grant/) says he 'represented his neighbors as a local city councilor'",
+     "url": "https://grantformn.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "state party (its list of candidates endorsed by the Minnesota DFL Party, Senate District 3)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0159-MN",
+   "name": "Ngone Saliou Niang",
+   "website": {
+    "url": "https://niangforsenate.nationbuilder.com/",
+    "how": "The site is titled 'Niang for Senate', is headed 'State Senate District 39' and is paid for by the Campaign Fund of Ngone Niang.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Green",
+     "unit": "state party (the Green Party of Minnesota, at its state endorsing convention in April 2026; the release is on the national party's site)",
+     "url": "https://www.gp.org/green_party_of_mn_endorsements",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I’m proud to align with the values of the Green Party",
+    "url": "https://niangforsenate.nationbuilder.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0197-MN",
+   "name": "Jonathan Claussen",
+   "website": {
+    "url": "https://www.claussenforhouse.org/",
+    "how": "The site reads 'Dr Jonathan Claussen, Republican Candidate for the MN House of Representatives 5B' and is paid for by the Committee to elect Jonathan Claussen.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "REPUBLICAN ENDORSED",
+    "url": "https://www.claussenforhouse.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0234-MN",
+   "name": "Duane Quam",
+   "website": {
+    "url": "https://duanequam.com/",
+    "how": "The site is titled 'Duane Quam for Minnesota House', says he is putting himself forward 'to be the servant of the people of HD 24A' and is paid for by the Quam for House Committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Byron School Board member",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (other government service; dates unknown, elected)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15366",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "county unit (Olmsted County Republicans, in its September 2026 newsletter under 'GOP Endorsed Candidates for 2026', MN House District 24A)",
+     "url": "https://olmstedgop.org/newsletter/sep2026/",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "State roster: his House term in District 24A begins January 3, 2023; the earlier term has no start date and names only District 25A, so the record reads as service that began in 2023 or at some unknown time before it.",
+     "problem": "The Legislative Reference Library's record gives continuous House service since the 2011 session: District 29A for 2011 to 2012, District 25A for 2013 to 2022, and District 24A from 2023 to the present.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15366",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0270-MN",
+   "name": "Ned Carroll",
+   "website": {
+    "url": "https://nedformn.com/",
+    "how": "The site is titled 'Ned Carroll for House', is headed 'Minnesota House District 42 A' and is paid for by the Carroll for MN House Committee.",
+    "verified": true
+   },
+   "born": {
+    "year": 1956,
+    "date": "1956-10-05",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15617",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Plymouth City Council member (eight years)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (other government service; dates unknown, elected)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15617",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Deputy Mayor of Plymouth",
+     "from": "2019",
+     "to": "not stated",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (other government service; '2019 to ?')",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15617",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "state party (its list of candidates endorsed by the Minnesota DFL Party, House District 42A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0311-MN",
+   "name": "Bob Sullentrop",
+   "website": {
+    "url": "https://bobsullentropformndistrict62b.com/",
+    "how": "The site is titled 'Bob Sullentrop for MN District 62B' and says he also ran for the State House in District 62B in 2024; the Minneapolis Republican Party's site links to it as his website. He listed no website with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1946,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Bob Sullentrop of Minneapolis, which lists his 2024 run for State House District 62B and cites a birth index, the 1950 census and his campaign website",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/bob-sullentrop",
+    "kind": "secondary",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for State Representative, District 62B, in the general election of November 5, 2024 (lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Bob Sullentrop; his own campaign site also says he ran for the State House in District 62B in 2024",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/bob-sullentrop",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-147",
+   "name": "Gary Spatenka"
+  },
+  {
+   "race_id": "2026-MN-0392-143",
+   "name": "Christian Lilienthal",
+   "official_page": {
+    "url": "https://www.sibleycounty.gov/517/District-2---Christian-Lilienthal",
+    "source": "Sibley County, Board of Commissioners: the District 2 commissioner's page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sibley County Commissioner, District 2 (current term: January 2023 to January 2027)",
+     "from": "not stated",
+     "to": "now",
+     "source": "Sibley County, Board of Commissioners: the District 2 commissioner's page",
+     "url": "https://www.sibleycounty.gov/517/District-2---Christian-Lilienthal",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-141",
+   "name": "Gregg Felber",
+   "website": {
+    "url": "https://voteforfelber.com/",
+    "how": "The site is titled 'Gregg Felber for Sherburne County Commissioner District 3' and says he is running for the seat again in 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.co.sherburne.mn.us/1319/Gregg-Felber",
+    "source": "Sherburne County, Board of Commissioners: Gregg Felber, District 3",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sherburne County Commissioner, District 3",
+     "from": "2023",
+     "to": "now",
+     "source": "Sherburne County, Board of Commissioners: Gregg Felber, District 3 ('Term: 2023 - 2026')",
+     "url": "https://www.co.sherburne.mn.us/1319/Gregg-Felber",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Orrock Township Supervisor (two years, before he was elected to the County Board)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Sherburne County, Board of Commissioners: Gregg Felber, District 3",
+     "url": "https://www.co.sherburne.mn.us/1319/Gregg-Felber",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-151",
+   "name": "Tom Walsh"
+  },
+  {
+   "race_id": "2026-MN-0400-009",
+   "name": "Christine Scherbing",
+   "website": {
+    "url": "https://christinescherbing.com/",
+    "how": "The site is headed 'Christine Scherbing for Auditor-Treasurer' and says 'Benton County Auditor-Treasurer Christine Scherbing is seeking re-election'; its copyright line is dated 2026. She listed no website with the Secretary of State; the address was found by trying it.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.co.benton.mn.us/directory.aspx?did=8",
+    "source": "Benton County, staff directory of the Auditor-Treasurer's office, which lists Christine Scherbing as Auditor Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Benton County Auditor-Treasurer",
+     "from": "not stated",
+     "to": "now",
+     "source": "Benton County, staff directory of the Auditor-Treasurer's office",
+     "url": "https://www.co.benton.mn.us/directory.aspx?did=8",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "St. George Township Clerk (12 years)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Her campaign website",
+     "url": "https://christinescherbing.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-023",
+   "name": "Derek Olson",
+   "official_page": {
+    "url": "https://www.co.chippewa.mn.us/190/Sheriff",
+    "source": "Chippewa County, Sheriff page, which names Derek Olson as Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chippewa County Sheriff",
+     "from": "not stated",
+     "to": "now",
+     "source": "Chippewa County, Sheriff page",
+     "url": "https://www.co.chippewa.mn.us/190/Sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-133",
+   "name": "Matthew Sorenson",
+   "official_page": {
+    "url": "https://www.co.rock.mn.us/department_directory/sheriff_office/index.php",
+    "source": "Rock County, Sheriff's Office page, which names Matthew Sorenson as Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock County Sheriff",
+     "from": "not stated",
+     "to": "now",
+     "source": "Rock County, Sheriff's Office page",
+     "url": "https://www.co.rock.mn.us/department_directory/sheriff_office/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-073",
+   "name": "Richard G. Stulz",
+   "official_page": {
+    "url": "https://www.lqpco.com/188/Attorneys-Office",
+    "source": "Lac qui Parle County, Attorney's Office page, which names Richard Stulz as County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lac qui Parle County Attorney",
+     "from": "not stated",
+     "to": "now",
+     "source": "Lac qui Parle County, Attorney's Office page",
+     "url": "https://www.lqpco.com/188/Attorneys-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10846",
+   "name": "Ryan Sabas",
+   "website": {
+    "url": "https://sabasforchamplin.com/",
+    "how": "The site is titled 'Ryan Sabas for Mayor of Champlin, MN' and asks for a vote 'For Mayor Of Champlin' on November 3, 2026; it is paid for by Ryan Sabas for Champlin.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://champlinmn.gov/277/Mayor-City-Council",
+    "source": "City of Champlin, Mayor & City Council page, which lists Ryan Sabas as Mayor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Champlin",
+     "from": "not stated",
+     "to": "now",
+     "source": "City of Champlin, Mayor & City Council page",
+     "url": "https://champlinmn.gov/277/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Champlin City Council member",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "His campaign website, Accomplishments page ('my 10 years serving as Mayor and City Councilmember')",
+     "url": "https://sabasforchamplin.com/accomplishments",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-54880",
+   "name": "Jess Garcia",
+   "website": {
+    "url": "https://drjessgarcia.com/",
+    "how": "The site is titled 'Dr. Jess Garcia for Mayor', speaks to 'the people of Rochester' and is paid for by the Jess Garcia for Mayor Committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester Public Schools School Board member",
+     "from": "2021",
+     "to": "2024",
+     "source": "KTTC, 'Dr. Jess Garcia announces run for Rochester mayor', May 18, 2026 ('She served on the RPS School Board from 2021-2024')",
+     "url": "https://www.kttc.com/2026/05/18/dr-jess-garcia-announces-run-rochester-mayor/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Council on LGBTQIA2S+ Minnesotans, appointed member",
+     "from": "2023",
+     "to": "not stated",
+     "source": "Her campaign website, biography ('In 2023 I was appointed to serve on the Minnesota Council on LGBTQIA2S+ Minnesotans')",
+     "url": "https://drjessgarcia.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-15832",
+   "name": "Thomas R. Klyve"
+  },
+  {
+   "race_id": "2026-MN-1010-40382",
+   "name": "Mike Hang",
+   "website": {
+    "url": "https://mikeforcitycouncil.org/",
+    "how": "The site is titled 'Mike Hang for Maplewood City Council' and describes itself 'Mike Hang is running for Maplewood City Council'; the footer its script draws reads '2026 Mike Hang for Maplewood City Council. Paid for by Friends of Mike Hang.'; the Senate District 44 DFL's page of endorsed candidates links to it as his campaign website. He listed no website with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "local units (Senate District 44 DFL and Maplewood city DFL: 'endorsed by public consensus at conventions hosted by SD44 DFL and Maplewood city DFL', City Council - Maplewood)",
+     "url": "https://www.sd44dfl.org/copy-of-team",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55852",
+   "name": "Cassie Iverson",
+   "website": {
+    "url": "https://cassie4roseville.com/",
+    "how": "The site is titled 'Cassie Iverson for Roseville MN City Council 2026' and is paid for by the Cassie Iverson for Roseville City Council Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1020-10846",
+   "name": "Patrick Allan Voss"
+  },
+  {
+   "race_id": "2026-MN-1022-56896-S",
+   "name": "Karen A. Larson",
+   "official_page": {
+    "url": "https://www.ci.stcloud.mn.us/directory.aspx?EID=173",
+    "source": "City of St. Cloud, City Council directory, which lists Karen Larson as Councilmember - 2nd Ward",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Cloud City Council member, 2nd Ward",
+     "from": "not stated",
+     "to": "now",
+     "source": "City of St. Cloud, City Council directory",
+     "url": "https://www.ci.stcloud.mn.us/directory.aspx?EID=173",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-53620",
+   "name": "Chet Charles",
+   "website": {
+    "url": "https://redwingcommunity.wixsite.com/chet4ward4",
+    "how": "The site calls itself 'Chet Charles for Ward 4 City Council Official Campaign website' and speaks of the Red Wing City Council.",
+    "verified": true
+   },
+   "born": {
+    "year": 1987,
+    "date": "1987-05-29",
+    "source": "His campaign website, Biography ('Chet Charles was born May 29th, 1987')",
+    "url": "https://redwingcommunity.wixsite.com/chet4ward4/bio",
+    "kind": "campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Joe Scott",
+   "website": {
+    "url": "https://www.reelectjoescott.com/",
+    "how": "The site is titled 'Reelect Joe Scott' and speaks of the school board election; its About page says 'I'm currently serving you as an Eastern Carver County Schools board member'; it is paid for by Re-elect Joe Scott.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.district112.org/community/school-board",
+    "source": "Eastern Carver County Schools, School Board page, which lists Joe Scott as a Director whose current term ends 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eastern Carver County Schools School Board, Director (current term ends 2026)",
+     "from": "not stated",
+     "to": "now",
+     "source": "Eastern Carver County Schools, School Board page",
+     "url": "https://www.district112.org/community/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chanhassen Planning Commission (a past leadership position)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "His campaign website, About page ('past leadership positions with the Chanhassen Planning Commission')",
+     "url": "https://www.reelectjoescott.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Recommended Candidates",
+     "what": "Named \"Joe Scott\" (with Ken Salway and Makiza Johnson, two others on the same school board list) under \"Carver County Schools: Recommended Candidates\". The same page uses the word \"Endorsed\" only for statewide and legislative candidates.",
+     "url": "https://carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0256",
+   "name": "Rachel Marshall Schoenfelder",
+   "official_page": {
+    "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+    "source": "Red Wing Public Schools, School Board page, which lists Rachel Marshall Schoenfelder as a Director",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Wing School Board, Director",
+     "from": "2023",
+     "to": "now",
+     "source": "Red Wing Public Schools, School Board page ('Member since 2023', 'Term expires 2026')",
+     "url": "https://www.redwing.k12.mn.us/our-district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Chuck Kobes"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0656",
+   "name": "Mike Cross"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Ann Miller",
+   "website": {
+    "url": "https://annmillerforschoolboard.com/",
+    "how": "The site is titled 'Ann Miller for School Board', describes itself as 'Ann Miller for School Board, Owatonna, Owatonna School Board, 2026' and is signed 'Ann Miller for Owatonna School Board'. She listed no website with the Secretary of State; the address was found by trying it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912-S",
+   "name": "Jere L. Day",
+   "official_page": {
+    "url": "https://www.milaca.k12.mn.us/school-board-home/",
+    "source": "Milaca Public Schools, School Board page, which lists Jere Day as Treasurer with a term expiring January 2027",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milaca School Board member (Treasurer; current term expires January 2027)",
+     "from": "not stated",
+     "to": "now",
+     "source": "Milaca Public Schools, School Board page",
+     "url": "https://www.milaca.k12.mn.us/school-board-home/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-7016-MN",
+   "name": "Rachel Bond",
+   "website": {
+    "url": "https://www.judgebond.com/",
+    "how": "The site reads 'Rachel Bond is a judge on the Minnesota Court of Appeals. She was appointed by Governor Walz in 2025 and she is running to retain her seat in 2026.'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Minnesota Court of Appeals (appointed by Governor Walz)",
+     "from": "2025",
+     "to": "now",
+     "source": "Her campaign website",
+     "url": "https://www.judgebond.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Minnesota Supreme Court Advisory Committee on the Rules of Civil Appellate Procedure, member (before she joined the court)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Her campaign website, About page",
+     "url": "https://www.judgebond.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8913-MN",
+   "name": "Meriel Lester",
+   "offices": [
+    {
+     "office": "District Court judge, Seventh Judicial District (appointed by Governor Walz; chambered in Little Falls, Morrison County)",
+     "from": "2025 (appointment announced June 25, 2025)",
+     "to": "not stated",
+     "source": "Lakeland News (Lakeland PBS), 'Meriel Lester Appointed as Judge in MN's 7th Judicial District', June 25, 2025",
+     "url": "https://lptv.org/meriel-lester-appointed-as-judge-in-mns-7th-judicial-district/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Grant Hauschild, website: the statement that the DFL's list of endorsed candidates links to the site was taken out; that page names him under Senate District 3 but carries no link to grantformn.com.",
+  "Grant Hauschild, offices: the word Hermantown is on the campaign site's home page (its own description), not on the About page, so the finding now points to the home page and names the About page beside it.",
+  "Ned Carroll, website: the statement that the DFL's list of endorsed candidates links to the site was taken out; that page names him under House District 42A but carries no link to nedformn.com.",
+  "Mike Hang, website: the wording now quotes the footer exactly as the site's script carries it."
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's honest User-Agent; all answered, none showed a wall.",
+  "Duane Quam's review item was checked against state_mn.sqlite (two terms: 25A with no start date ending 2023-01-02, and 24A from 2023-01-03) and against the Legislative Reference Library's record, which reads House 2011-2012 (29A), 2013-2022 (25A), 2023-Present (24A).",
+  "Bob Sullentrop's birth year comes from a secondary source that gives a full date; only the year is kept, as the rules require.",
+  "Ngone Niang's endorsement is the Green Party of Minnesota's own release, carried on the national Green Party's site (gp.org), not on the state party's own site; it is kept as a party's own page, and John may wish to know where it sits.",
+  "Joe Scott's party_support entry was confirmed as worded ('Recommended Candidates', not 'Endorsed') and stays apart from endorsed_by."
+ ]
+}

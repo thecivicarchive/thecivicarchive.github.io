@@ -1,0 +1,304 @@
+{
+ "state": "MN",
+ "part": 33,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: about sixty web searches (the session's allowance of 200 ran out before every candidate had a second search), then pages opened directly with the kit's honest User-Agent (states/net.py), robots.txt read first and obeyed. Every finding below was read on the page it cites.",
+  "Left out and why: creggformn.com (linked beside Wendy Cregg's name on the Senate District 49 Republicans' page, but it answers with a bot check, so it was not read and is not recorded; that party page announces her candidacy without the word 'endorsed', and the endorsement is reported only by Eden Prairie Local News, so no endorsement is recorded). mncourts.gov answered 403, so neither judge has an official page here. albertleatribune.com, pineandlakes.com and minnlawyer.com ask Claude's agents to stay out, so the years Christopher Shoff (search results say first elected 2006), Ross Nelson (appointed to the Pequot Lakes board, 2024-25) and Kelsie Kingstrom (County Attorney since 2022) took office are not recorded; the Pequot Lakes district's board page answered 404. Ages given in newspaper candidate profiles were not turned into birth years. Jobs (chief deputy, county finance officer) are not public offices and are not recorded.",
+  "Nothing found beyond the filing for: Cyle Cramer, Joseph Fischer, Brenda Davis, Adam Koch, Matt Treichler, Nicholas Gessell, Jackie Young, Paul Wunderlich, Benton Bakke, Margaret Durenberger, Brad Flemming, Cristin Craig, Ross Nelson, John Peck, Elizabeth Taylor-Schiro, Paul Peltier, Wendy Cregg. A second pass with searching would be worth it for campaign websites.",
+  "Verifier, 2026-10-02: all 21 findings re-opened with the kit's User-Agent and confirmed on the page cited. One corrected: Amy Bullyan's start year 2023 rested on a newspaper not cited by url; the district's page says 'Elected 2022', so the start year is left blank and the office line says elected 2022."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0136-MN",
+   "name": "Kathy Jorgenson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0172-MN",
+   "name": "Liz Reyer",
+   "website": {
+    "url": "https://lizreyer.com/",
+    "how": "The site is titled 'Liz Reyer For State Senate', says she served six years in the Minnesota House and is running for the Minnesota Senate, and is paid for by the Liz Reyer Election Committee of Eagan; the Minnesota DFL's endorsed list links to it beside Senate District 52.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0210-MN",
+   "name": "Talitha Anderson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0247-MN",
+   "name": "Keenan Gentry",
+   "website": {
+    "url": "https://www.gentryformnhouse.org/",
+    "how": "The site is titled 'Keenan Gentry for State House Rep district 30B' and is paid for by 'Keenan Gentry for MN House SD30B'; the Minnesota DFL's endorsed list links to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0285-MN",
+   "name": "Wendy Cregg"
+  },
+  {
+   "race_id": "2026-MN-0335-MN",
+   "name": "Ronald J. Schutz",
+   "website": {
+    "url": "https://www.ronformnag.com/",
+    "how": "The site is titled 'Ron Schutz for MN AG' and speaks of his run for Minnesota Attorney General.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Minnesota (state convention, announced May 29, 2026)",
+     "url": "https://mngop.com/for-immediate-release/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-043",
+   "name": "Greg Young",
+   "official_page": {
+    "url": "https://www.faribaultcountymn.gov/Directory.aspx?EID=8",
+    "source": "Faribault County staff directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Faribault County Commissioner, District 2",
+     "from": "",
+     "to": "now",
+     "source": "Faribault County staff directory",
+     "url": "https://www.faribaultcountymn.gov/Directory.aspx?EID=8",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-025",
+   "name": "Cyle Cramer"
+  },
+  {
+   "race_id": "2026-MN-0394-047",
+   "name": "Christopher Niles Shoff",
+   "official_page": {
+    "url": "https://www.co.freeborn.mn.us/directory.aspx",
+    "source": "Freeborn County staff directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Freeborn County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Freeborn County staff directory",
+     "url": "https://www.co.freeborn.mn.us/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-059",
+   "name": "Joseph Fischer"
+  },
+  {
+   "race_id": "2026-MN-0401-141",
+   "name": "Brenda Davis"
+  },
+  {
+   "race_id": "2026-MN-0404-063",
+   "name": "Adam Koch"
+  },
+  {
+   "race_id": "2026-MN-0404-171",
+   "name": "Matt Treichler"
+  },
+  {
+   "race_id": "2026-MN-0405-129",
+   "name": "Kelsie Kingstrom",
+   "official_page": {
+    "url": "https://www.renvillecountymn.gov/attorney/",
+    "source": "Renville County, County Attorney's page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Renville County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Renville County, County Attorney's page",
+     "url": "https://www.renvillecountymn.gov/attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20618-S",
+   "name": "Nicholas Gessell"
+  },
+  {
+   "race_id": "2026-MN-1010-01720",
+   "name": "Jackie Young"
+  },
+  {
+   "race_id": "2026-MN-1010-20546",
+   "name": "Paul Wunderlich"
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Benton Bakke"
+  },
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Margaret Durenberger"
+  },
+  {
+   "race_id": "2026-MN-1020-49300",
+   "name": "Brad Flemming"
+  },
+  {
+   "race_id": "2026-MN-1024-22814",
+   "name": "Ann Bolkcom",
+   "official_page": {
+    "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+    "source": "City of Fridley, Meet Your Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fridley City Council Member, Ward 3",
+     "from": "",
+     "to": "now",
+     "source": "City of Fridley, Meet Your Council (current term given as 2023-2027)",
+     "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Cristin Craig"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0186",
+   "name": "Ross Nelson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "DJ Brynteson",
+   "offices": [
+    {
+     "office": "Robbinsdale Area Schools Board of Education member (appointed to a vacant seat)",
+     "from": "2026",
+     "to": "now",
+     "source": "Robbinsdale Area Schools news release, December 5, 2025",
+     "url": "https://www.rdale.org/discover/news/article/~board/district-news/post/school-board-appoints-dj-richard-brynteson-to-fill-vacant-school-board-seat",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "John Peck"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Amy Bullyan",
+   "official_page": {
+    "url": "https://www.priorlake-savage.k12.mn.us/about-us/school-board/board-members",
+    "source": "Prior Lake-Savage Area Schools, Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prior Lake-Savage Area Schools Board member (elected 2022; Board Chair in 2026)",
+     "from": "",
+     "to": "now",
+     "source": "Prior Lake-Savage Area Schools, Board Members ('Elected 2022, term expires 2026')",
+     "url": "https://www.priorlake-savage.k12.mn.us/about-us/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Elizabeth Taylor-Schiro"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Paul Peltier"
+  },
+  {
+   "race_id": "2026-MN-8403-MN",
+   "name": "Jacob C. Allen",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Third Judicial District (appointed by Governor Mark Dayton)",
+     "from": "2018",
+     "to": "now",
+     "source": "Office of the Governor, news release of July 18, 2018, as archived by the Minnesota Legislature",
+     "url": "https://www.leg.mn.gov/docs/2018/other/181224/governor/newsroom/indexabe1.htm",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9200-MN",
+   "name": "Juanita C. Freeman",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court, Tenth Judicial District (appointed by Governor Mark Dayton)",
+     "from": "2018",
+     "to": "now",
+     "source": "Office of the Governor, news release of October 3, 2018, as archived by the Minnesota Legislature",
+     "url": "https://www.leg.mn.gov/DOCS/2018/other/181224/governor/newsroom/indexc11e.htm",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

@@ -1,0 +1,461 @@
+{
+ "state": "MN",
+ "part": 0,
+ "of": 73,
+ "researched": "2026-10-01",
+ "verified_on": "2026-10-02",
+ "notes": [
+  "WebSearch could not be used for this part (the session's search budget was already spent), so pages were reached directly: the campaign websites filed with the Secretary of State, government, party and newspaper sites, and those sites' own search pages. Candidates with nothing below are ones for whom no such page stated anything a card may show.",
+  "Sites that asked scripts to stay out or refused them, and so were not read: rockholdforhouse.com and columbiaheightsmn.gov (robots.txt), tkforheights.com (403), mncourts.gov (403: no court page for the judge), mn.gov (a CAPTCHA page), co.roseau.mn.us (a CAPTCHA page on its commissioners page), ramseycountymn.granicus.com and sd67dfl.org (robots.txt), austindailyherald.com and albertleatribune.com (403), and the search pages of pinejournal.com and inforum.com (robots.txt).",
+  "Read and left out on purpose: ages given as \"age on Election Day\" (KAXE's guides), which do not fix a birth year; jobs, including assistant county attorney and sheriff's office posts; schools; labor and other non-party endorsements; and a 2024 candidacy Wikipedia lists as \"did not file\" on the strength of a social media post.",
+  "party_support (a key the loader does not read, in the shape parts 6 and 10 use): two listings where a party unit publishes its backing under a heading that is not plainly an endorsement. The Senate District 37 DFL names Justin Navratil under \"DFL Supported Candidates\", apart from its endorsed candidates; the Clay County Republicans name Andrew Rockhold on a page titled \"Endorsed & Supported Candidates\" that does not say which word applies to whom. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "From the researcher, still standing: David Gottfried is a sitting member whose roster record has no birth date, so the Legislative Reference Library's date is given; Mai Chong Xiong's start year is the county page's \"was elected in 2023\"; Tamara Mattison's county post takes its years from her own site, and the county's own record that she sat on that commission is its minutes of January 10, 2024, at https://assets.ramseycountymn.gov/files/migrated-files/01.10.24_Parks_Commission_Minutes.pdf.",
+  "Verifier, 2026-10-02: every address below was opened again with the kit's own User-Agent (robots.txt asked first) and each finding read on the page. Every campaign address was also found in the Secretary of State files John saved. rockholdforhouse.com still asks scripts to stay out, so that site was not read; its address is confirmed by the Clay County Republicans' page, which links it under \"MN House HD4A, Andrew Rockhold\". Judge Leeser's appointment now rests on InForum's report, which spells his name as our list does (the WJON page printed \"Michael Lesser\"). The Rogers voter's guide prints Rick Ihli's name as \"Rick Ilhi\"; the December 2024 article spells it as our list does and states the same three posts. What was removed and why is under \"removed\"."
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MN-1001-07966",
+   "name": "Hollies J. Winston",
+   "finding": "past_party",
+   "why": "The Sun Post article does say \"Winston was endorsed by the DFL\" in 2022, but the office is nonpartisan, so it was not a run under a party label, and a newspaper's report is not the party's own page. It fits neither kind of record the rules allow."
+  },
+  {
+   "race_id": "2026-MN-1001-07966",
+   "name": "Hollies J. Winston",
+   "finding": "own_words",
+   "why": "The quote joined two separate pieces of his page (the heading \"Endorsed BY BROOKLYN PARK'S BEST\" and, further on, the label \"Brooklyn Park DFL\") with an ellipsis. The page has no single sentence that says it, so it is not a quotation of his own words."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0121-MN",
+   "name": "Bjorn Solberg",
+   "website": {
+    "url": "https://www.bjornforminnesota.com",
+    "how": "The site's title is \"Bjorn Solberg for Minnesota Senate District 1\" and it calls him \"Minnesota Senate District 1 Candidate\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Senate District 1)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0156-MN",
+   "name": "Heidi Heino",
+   "website": {
+    "url": "https://www.heidiheino.com",
+    "how": "The site's title is \"Heidi Heino for MN State Senate District 36\" and its page data gives the election date as November 3, 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0194-MN",
+   "name": "Andrew Rockhold",
+   "website": {
+    "url": "https://www.rockholdforhouse.com",
+    "how": "The Clay County Republicans' page \"Endorsed & Supported Candidates\" links this address under \"MN House HD4A, Andrew Rockhold\", and it is the address filed with the Secretary of State. The site's robots.txt asks scripts to stay out, so the site itself was not read.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Clay County Republicans (county unit)",
+     "wording": "Endorsed & Supported Candidates",
+     "what": "Named \"MN House HD4A: Andrew Rockhold\", with a link to his campaign site, on the unit's page titled \"Endorsed & Supported Candidates\". The page does not say which of the candidates it lists are endorsed and which supported.",
+     "url": "https://www.claymnrepublicans.com/endorsedcandidates.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0231-MN",
+   "name": "Mary Nesgoda",
+   "website": {
+    "url": "https://mnesgoda22b.org",
+    "how": "The site's title is \"Mary Nesgoda for Minnesota House 22B\" and its footer is dated 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 22B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I’m running as the DFL candidate for Minnesota House 22B",
+    "url": "https://mnesgoda22b.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0267-MN",
+   "name": "David Gottfried",
+   "website": {
+    "url": "https://www.david-gottfried.com",
+    "how": "The site's title is \"David Gottfried for MN40B\" and its menu carries a page named \"Endorsements & Distinctions\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1993,
+    "date": "1993-01-26",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15650",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 40B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0306-MN",
+   "name": "Sydney Jordan",
+   "website": {
+    "url": "https://sydneyjordan.org",
+    "how": "The site's title is \"Sydney Jordan for Minnesota House\" and it speaks of her as \"your state representative\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 60A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL & LABOR ENDORSED.",
+    "url": "https://sydneyjordan.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-135",
+   "name": "Shane Horner"
+  },
+  {
+   "race_id": "2026-MN-0392-129",
+   "name": "John Robinson",
+   "official_page": {
+    "url": "https://www.renvillecountymn.gov/government/county-board/",
+    "source": "Renville County, County Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Renville County Commissioner, District 2",
+     "from": "2023",
+     "to": "now",
+     "source": "Renville County, County Board page (\"began representing District 2 as a Renville County Commissioner in January of 2023\")",
+     "url": "https://www.renvillecountymn.gov/government/county-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-125",
+   "name": "Eric Mickelson",
+   "official_page": {
+    "url": "https://redlakecounty.gov/government/board_of_commissioners/county_commissioners.php",
+    "source": "Red Lake County, County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Red Lake County Commissioner, District 3",
+     "from": "not stated",
+     "to": "now",
+     "source": "Red Lake County, County Commissioners page",
+     "url": "https://redlakecounty.gov/government/board_of_commissioners/county_commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-133",
+   "name": "Sherri Thompson",
+   "official_page": {
+    "url": "https://www.co.rock.mn.us/county_board/board_of_commissioners.php",
+    "source": "Rock County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock County Commissioner, District 4",
+     "from": "not stated (the page gives her present term as 2023-2026)",
+     "to": "now",
+     "source": "Rock County, Board of Commissioners page",
+     "url": "https://www.co.rock.mn.us/county_board/board_of_commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0396-123",
+   "name": "Mai Chong Xiong",
+   "website": {
+    "url": "https://www.maichongxiong.org",
+    "how": "The site's description reads \"I'm Mai Chong Xiong, your candidate for Ramsey County Commissioner District 6\", and its footer is dated 2026 and reads \"Prepared and paid for by Mai Chong for County Commissioner\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ramseycounty.us/your-government/leadership/board-commissioners/mai-chong-xiong-district-6-board-vice-chair",
+    "source": "Ramsey County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Commissioner, District 6",
+     "from": "2023 (the county's page says she \"was elected in 2023\"; her campaign site says voters elected her in 2022)",
+     "to": "now",
+     "source": "Ramsey County, Board of Commissioners",
+     "url": "https://www.ramseycounty.us/your-government/leadership/board-commissioners/mai-chong-xiong-district-6-board-vice-chair",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-017",
+   "name": "Chad Walsh"
+  },
+  {
+   "race_id": "2026-MN-0404-125",
+   "name": "Brad Johnson"
+  },
+  {
+   "race_id": "2026-MN-0405-061",
+   "name": "Devin J. Gorski"
+  },
+  {
+   "race_id": "2026-MN-1001-07966",
+   "name": "Hollies J. Winston",
+   "website": {
+    "url": "https://www.hollieswinston.org",
+    "how": "The site reads \"Hollies Winston For Brooklyn Park\", \"Mayor Winston is running for reelection in November 2026\" and \"Paid for by Hollies Winston for Brooklyn Park Mayor\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.brooklynpark.org/contact/hollies-winston/",
+    "source": "City of Brooklyn Park",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Brooklyn Park",
+     "from": "not stated (the Sun Post reported his election on November 8, 2022)",
+     "to": "now",
+     "source": "City of Brooklyn Park, City Council page (Mayor; \"Elected through 2026\")",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Brooklyn Park Budget Advisory Commission (two terms)",
+     "from": "not stated",
+     "to": "not stated",
+     "source": "Sun Post (hometownsource.com), \"Winston wins Brooklyn Park mayor's race\", November 8, 2022",
+     "url": "https://www.hometownsource.com/sun_post/free/winston-wins-brooklyn-park-mayors-race/article_be5def02-5fe9-11ed-b811-8b720ccc86d9.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-47221",
+   "name": "Christopher Tenquist"
+  },
+  {
+   "race_id": "2026-MN-1010-12700",
+   "name": "Tom Kaiser"
+  },
+  {
+   "race_id": "2026-MN-1010-40166",
+   "name": "Justin Navratil",
+   "website": {
+    "url": "https://justinformaplegrovecitycouncil.com",
+    "how": "The site's title is \"Justin Navratil for Maple Grove | Maple Grove city council candidate\" and it is \"Prepared and paid for by Justin Navratil for Maple Grove City Council\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 37 DFL (district unit)",
+     "wording": "DFL Supported Candidates",
+     "what": "Named \"Justin Navratil, Maple Grove City Council\" under the heading \"Meet Our DFL Supported Candidates\". The same page lists its legislative candidates apart, under \"Meet Our SD37 DFL Endorsed Candidates\".",
+     "url": "https://www.sd37dfl.org/meet-the-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-55186",
+   "name": "Rick Ihli",
+   "offices": [
+    {
+     "office": "Mayor of Rogers",
+     "from": "not stated (the council's tribute counted 10 years as mayor)",
+     "to": "2024 (the article reports his last meeting as mayor, December 2024)",
+     "source": "Press & News (hometownsource.com), \"Rogers OKs drone contract; recognizes event donors, election judges, outgoing mayor\", December 22, 2024; the paper's 2026 voter's guide for this race says he \"Spent five terms as Rogers mayor\"",
+     "url": "https://www.hometownsource.com/press_and_news/news/local/rogers-oks-drone-contract-recognizes-event-donors-election-judges-outgoing-mayor/article_faa9151e-b8c9-11ef-ae13-f7c671c1f46d.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Rogers City Council",
+     "from": "not stated (four years)",
+     "to": "not stated",
+     "source": "Press & News / Crow River News (hometownsource.com), primary voter's guide for the Rogers City Council, July 9, 2026 (the guide prints his name \"Rick Ilhi\"; the paper's December 2024 article, which spells it Ihli, also counts four years on the City Council)",
+     "url": "https://www.hometownsource.com/psa/primary-voters-guide-6-seek-voter-approval-for-2-seats-on-rogers-city-council/article_84447b56-065f-4fa1-a200-4f86b7f6d3a9.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Rogers Planning Commission",
+     "from": "not stated (four years)",
+     "to": "not stated",
+     "source": "Press & News / Crow River News (hometownsource.com), primary voter's guide for the Rogers City Council, July 9, 2026 (the guide prints his name \"Rick Ilhi\"; the paper's December 2024 article, which spells it Ihli, also counts four years on the Planning Commission)",
+     "url": "https://www.hometownsource.com/psa/primary-voters-guide-6-seek-voter-approval-for-2-seats-on-rogers-city-council/article_84447b56-065f-4fa1-a200-4f86b7f6d3a9.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-02908",
+   "name": "Tom Compton"
+  },
+  {
+   "race_id": "2026-MN-1022-43864",
+   "name": "Heather Nesemeier",
+   "website": {
+    "url": "https://heatherfor56560.com",
+    "how": "The site's title is \"Heather for Moorhead - Ward 2\" and its About page begins \"I am Heather Nesemeier, Candidate for Ward 2, City of Moorhead\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cityofmoorhead.com/government/mayor-and-council-members/",
+    "source": "City of Moorhead, Mayor and Council Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Moorhead City Council, Ward 2",
+     "from": "2021",
+     "to": "now",
+     "source": "City of Moorhead, Past City of Moorhead Mayors and Council (her first term is listed from May 10, 2021); the city's Mayor and Council Members page lists her today",
+     "url": "https://www.cityofmoorhead.com/government/mayor-and-council-members/past-city-of-moorhead-mayors-and-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-43864",
+   "name": "Charley Johnson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0111",
+   "name": "Björn J. Peterson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0241",
+   "name": "Jeff Miller"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0466",
+   "name": "Jake Nelson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0625",
+   "name": "Tamara Mattison",
+   "website": {
+    "url": "https://drtamara4sppsboard.com",
+    "how": "The site's title is \"Dr. Tamara Mattison — Saint Paul School Board\" and it calls her \"Candidate — Saint Paul School Board\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Parks and Recreation Commission (her site's words: \"Ramsey County Commissioner for Parks & Recreation\")",
+     "from": "2023",
+     "to": "2025",
+     "source": "her campaign's own website, for the years; the commission's minutes of January 10, 2024, on Ramsey County's site, list her among its members (an advisory commission, not the elected County Board)",
+     "url": "https://drtamara4sppsboard.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0750",
+   "name": "Chris Weber"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0912",
+   "name": "Jennifer Corrow",
+   "official_page": {
+    "url": "https://www.milaca.k12.mn.us/school-board-home/",
+    "source": "Milaca Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milaca School Board",
+     "from": "2019",
+     "to": "now",
+     "source": "Union-Times (hometownsource.com), Milaca School Board voters guide, October 20, 2022, in her own answer: on the board \"since 2019\". That she serves today, as Clerk, is on the district's School Board page",
+     "url": "https://www.hometownsource.com/union_times/news/milaca-school-board-general-election-voters-guide/article_3dbb1a48-4fca-11ed-ab29-5fedb6a6f85a.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5018-SSD0001",
+   "name": "Becca Dryden",
+   "website": {
+    "url": "https://www.beccadryden.com",
+    "how": "The site's title is \"Becca for School Board District 5 | Strong Schools Mean A Strong Minneapolis\" and it is \"Prepared and paid for by Becca Dryden for School Board\". It is the address filed with the Secretary of State, and the Minneapolis DFL's page links it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minneapolis DFL (\"our 2026 endorsed candidates\": School Board Member, District 5)",
+     "url": "https://minneapolisdfl.org/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8901-MN",
+   "name": "Michael Leeser",
+   "offices": [
+    {
+     "office": "Judge, Seventh Judicial District (appointed by Governor Tim Walz)",
+     "from": "2024 (appointment announced August 13, 2024)",
+     "to": "not stated",
+     "source": "InForum (The Forum of Fargo-Moorhead), \"Walz appoints Clay County attorney to district court judgeship\", August 13, 2024",
+     "url": "https://www.inforum.com/news/moorhead/walz-appoints-clay-county-attorney-to-district-court-judgeship",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

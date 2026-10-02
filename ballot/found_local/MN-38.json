@@ -1,0 +1,414 @@
+{
+ "state": "MN",
+ "part": 38,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web search allowance ran out after twelve searches (the five legislative candidates, the two county attorneys, the sheriff and the Minneapolis school board race). Everything else was found by reading known addresses directly: the campaign websites filed with the Secretary of State (already in sl_websites), each government's own site, and the state DFL's list. No search engine was read in place of the search tool. This machine's address lookups failed often, so several sites were out of reach.",
+  "No findings (left blank rather than guessed): Daniel Bergstrom (Becker County's site leaves a certificate out and was not read with checking off), Dawn L. Johansen (not on Grant County's commissioners page), David Mills (Cook County's robots.txt asks scripts to stay out; not requested), Bob Schuldt (Houston County's site refused the secure handshake), Tanya Huffman (not on Farmington's council page), Patrick Cusack (not on North Mankato's council page), Emmeline Bartnes (not on the Detroit Lakes board page), John Magnuson (the Fergus Falls district site showed no board page to a script), Stephanie Johnson (not on the Minneapolis DFL's list of endorsed school board candidates; no campaign site found), and the two judges, Jeffrey M Johnson and Laura A. Pietan (the Judicial Branch site refuses scripts and was not requested).",
+  "Dawn Loberg: KNSI Radio and St. Cloud Live report that Republican delegates endorsed her for House District 13B, but no party page of its own stating that was found, so no endorsement is recorded. John R. Jasinski: no party page stating a 2026 endorsement was found.",
+  "Allen Andersen's birth year is worked out from a newspaper's line of October 20, 2022 (\"32. (Turns 33 on 10/31)\"), which gives 1989; only the year is kept.",
+  "Two filed campaign sites still show an earlier campaign (John R. Jasinski's title says District 24; Brad Johnson's says \"VOTE NOV 8th\" and 2022). Each names the candidate and the office; the 'how' says so, and whether to show them is for the verifier and John.",
+  "Brad Johnson's county page was read as far as \"served as manager on the Coon Creek Watershed District Boa...\" (the line was cut by the reader); the verifier should confirm the body's full name.",
+  "Verifier, 2026-10-02: every address was re-opened. Corrected wording: Lindsey Port's site description (title as the page gives it; no mention of where the committee is), Amanda Matchett's site description and quote (the page's words are \"DFL-Endorsed Candidate for House District 32A\", in the home page's title), and Jessica Olstad's site description (the site never gives her surname). John R. Jasinski's site still carries District 24 in its title, as the researcher said. Brad Johnson's county page gives the body's full name as \"Coon Creek Watershed District Board of Managers\"."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0139-MN",
+   "name": "John R. Jasinski",
+   "website": {
+    "url": "https://www.jasinskiforsenate.com",
+    "how": "The site's title is \"Re-elect John Jasinski for Minnesota State Senate District 24\" and it calls itself his \"Official campaign website\"; its text speaks of representing \"the people of District 19\". The title still carries the number his district had before 2023 (the Legislative Reference Library lists him in District 24 for 2017-2022 and District 19 since 2023), so the site has not been rewritten for 2026. It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0175-MN",
+   "name": "Lindsey Port",
+   "website": {
+    "url": "https://www.lindseyportmn.com",
+    "how": "The site's title is \"Re-elect Senate Lindsey Port\"; it reads \"Senator Lindsey Port fights for what's right\" and \"Join our campaign to re-elect Lindsey\", names Senate District 55, and its footer reads \"Paid for by Lindsey Port for MN\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under Senate District 55)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0213-MN",
+   "name": "Dawn Loberg",
+   "website": {
+    "url": "https://lobergformnhouse.com",
+    "how": "The site's title is \"Loberg for MN House\"; its About page reads \"Dawn is running for the Minnesota House in District 13B\" and its footer \"Prepared and paid for by Loberg For MN House\". It is the address filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0250-MN",
+   "name": "Amanda Matchett",
+   "website": {
+    "url": "https://matchett4minnesota.com",
+    "how": "The site's title is \"Amanda Matchett for Minnesota State House | DFL-Endorsed Candidate for House District 32A\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 32A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL-Endorsed Candidate for House District 32A",
+    "url": "https://matchett4minnesota.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0288-MN",
+   "name": "Michael Howard",
+   "website": {
+    "url": "https://michaelhowardmn.com",
+    "how": "The site's title is \"Howard for MN House\"; it reads \"My name is Michael Howard. I am so honored to serve as your state representative\" and \"Prepared and paid for by: Howard for Minnesota House\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL, the state party (its list \"Candidates Endorsed by the Minnesota DFL\", under House District 51A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL - Endorsed",
+    "url": "https://www.michaelhowardmn.com/partners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0395-067",
+   "name": "Duane Anderson",
+   "official_page": {
+    "url": "https://www.kcmn.us/departments/commissioners/index.php",
+    "source": "Kandiyohi County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kandiyohi County Commissioner, District 5 (the page also names him the board's 2025 Vice-Chairman)",
+     "from": "",
+     "to": "now",
+     "source": "Kandiyohi County, Board of Commissioners",
+     "url": "https://www.kcmn.us/departments/commissioners/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-001",
+   "name": "Tara L. Snyder",
+   "official_page": {
+    "url": "https://www.co.aitkin.mn.us/departments/recorder/",
+    "source": "Aitkin County, Recorder's Office (names \"Tara Snyder, County Recorder\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Aitkin County Recorder",
+     "from": "",
+     "to": "now",
+     "source": "Aitkin County, Recorder's Office",
+     "url": "https://www.co.aitkin.mn.us/departments/recorder/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-071",
+   "name": "Perryn Hedlund",
+   "official_page": {
+    "url": "https://www.koochiching.gov/179/Law-Enforcement-Center",
+    "source": "Koochiching County, Law Enforcement Center (names \"Perryn Hedlund, Sheriff\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Koochiching County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "Koochiching County, Law Enforcement Center",
+     "url": "https://www.koochiching.gov/179/Law-Enforcement-Center",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-003",
+   "name": "Brad Johnson",
+   "official_page": {
+    "url": "https://anokacountymn.gov/914/County-Attorney-Brad-Johnson",
+    "source": "Anoka County, County Attorney's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anoka County Attorney",
+     "from": "2023 (the county's page says he \"was sworn in as the Anoka County Attorney on January 3, 2023\")",
+     "to": "now",
+     "source": "Anoka County, County Attorney's Office",
+     "url": "https://anokacountymn.gov/914/County-Attorney-Brad-Johnson",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Coon Rapids City Council member (two terms)",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, County Attorney's Office",
+     "url": "https://anokacountymn.gov/914/County-Attorney-Brad-Johnson",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Coon Creek Watershed District Board of Managers, manager",
+     "from": "",
+     "to": "",
+     "source": "Anoka County, County Attorney's Office",
+     "url": "https://anokacountymn.gov/914/County-Attorney-Brad-Johnson",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-139",
+   "name": "Allen Andersen",
+   "website": {
+    "url": "https://allenandersen.com",
+    "how": "The site reads \"Allen Andersen for Scott County Attorney\" and \"Prepared and Paid for by Allen Andersen for Scott County Attorney\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "born": {
+    "year": 1989,
+    "source": "Jordan Independent (Southwest News Media), \"Q and A with Scott County attorney candidate Allen Andersen\", October 20, 2022: \"Allen Andersen, 32. (Turns 33 on 10/31)\"",
+    "url": "https://swnewsmedia.com/jordan_independent/q-and-a-with-scott-county-attorney-candidate-allen-andersen/article_1bdd07f2-4bd2-11ed-be69-fb9cfc8cf1ae.html",
+    "kind": "secondary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1001-26738",
+   "name": "Jim Doyle",
+   "official_page": {
+    "url": "https://www.hamlakemn.gov/government/council/doyle",
+    "source": "City of Ham Lake, Councilmember Jim Doyle",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ham Lake City Council member",
+     "from": "2023 (the city's page gives \"Term Begins: January 1, 2023\"; it does not say whether he served earlier terms)",
+     "to": "now (\"Term Expires: December 31, 2026\")",
+     "source": "City of Ham Lake, Councilmember Jim Doyle",
+     "url": "https://www.hamlakemn.gov/government/council/doyle",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-01900",
+   "name": "Jodi Kurtz",
+   "offices": [
+    {
+     "office": "Apple Valley Planning Commission, Chair",
+     "from": "",
+     "to": "now",
+     "source": "City of Apple Valley, Advisory Committees",
+     "url": "https://www.applevalleymn.gov/94/Advisory-Committees",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Apple Valley Economic Development Authority, member",
+     "from": "",
+     "to": "now",
+     "source": "City of Apple Valley, Advisory Committees",
+     "url": "https://www.applevalleymn.gov/94/Advisory-Committees",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-66460",
+   "name": "Katherine Doll Kanne",
+   "website": {
+    "url": "https://dollkanne.com",
+    "how": "The site's title is \"Katherine Doll Kanne for City Council\"; it reads \"Kelly & Katherine for Vadnais Heights\", speaks of \"my re-election campaign\" and \"Prepared and paid for by the Elect Katherine Doll Kanne Committee\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cityvadnaisheights.com/233/City-Council",
+    "source": "City of Vadnais Heights, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Vadnais Heights City Council member",
+     "from": "not stated (the city's page gives a \"four year term expires January 3, 2027\")",
+     "to": "now",
+     "source": "City of Vadnais Heights, City Council",
+     "url": "https://www.cityvadnaisheights.com/233/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-56896-S",
+   "name": "Charlie Hobbs",
+   "website": {
+    "url": "https://charliehobbsforstcloud.org",
+    "how": "The site reads \"Charlie Hobbs for St. Cloud City Council\" and speaks of \"the peoples of Ward 1\" and \"a St Cloud City Council representative\". It is the address filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Cloud Planning Commission, member",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site: he \"currently serves on the city planning commission\"",
+     "url": "https://charliehobbsforstcloud.org",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-40688",
+   "name": "Craig D. Schafer",
+   "official_page": {
+    "url": "https://ci.marshall.mn.us/administration/city_council/index.php",
+    "source": "City of Marshall, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall City Council member, Ward 3",
+     "from": "2015",
+     "to": "now",
+     "source": "City of Marshall, City Council (\"Serving 3rd term as a Councilmember (Ward III) - 2015 to present\")",
+     "url": "https://ci.marshall.mn.us/administration/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Lesley Chester",
+   "official_page": {
+    "url": "https://www.isd191.org/discover/board-of-education",
+    "source": "Burnsville-Eagan-Savage School District 191, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member, Burnsville-Eagan-Savage School District 191",
+     "from": "",
+     "to": "now",
+     "source": "Burnsville-Eagan-Savage School District 191, Board of Education",
+     "url": "https://www.isd191.org/discover/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0309",
+   "name": "Clayton Hoyt",
+   "official_page": {
+    "url": "https://www.parkrapids.k12.mn.us/school-board",
+    "source": "Park Rapids Area Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member, Park Rapids Area Schools (Vice Chair)",
+     "from": "2023 (the district's page gives his term as \"(2023-2026)\"; it does not say whether he served earlier terms)",
+     "to": "now",
+     "source": "Park Rapids Area Schools, School Board",
+     "url": "https://www.parkrapids.k12.mn.us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Jessica Olstad",
+   "website": {
+    "url": "https://jess4plsas.com",
+    "how": "The site is titled \"Yes 4 Jess\" and reads \"I stepped up to serve on our Prior Lake-Savage Area Schools (PLSAS) School Board\" and \"I'm running for re-election\". It gives the first name only and never the surname; it is tied to Jessica Olstad because it is the address she filed with the Secretary of State and the district's own page lists her with a term expiring in 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plsas.org/about-us/school-board/board-members",
+    "source": "Prior Lake-Savage Area Schools, School Board members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member, Prior Lake-Savage Area Schools (Board Vice-Chair/Clerk)",
+     "from": "2022 (\"Elected 2022\")",
+     "to": "now (\"Term expires 2026\")",
+     "source": "Prior Lake-Savage Area Schools, School Board members",
+     "url": "https://www.plsas.org/about-us/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0861",
+   "name": "Nancy Denzer",
+   "official_page": {
+    "url": "https://www.winonaschools.org/school-board",
+    "source": "Winona Area Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board member, At Large, Winona Area Public Schools (Board Chair)",
+     "from": "",
+     "to": "now (\"At Large - Term Expires 2026\")",
+     "source": "Winona Area Public Schools, School Board",
+     "url": "https://www.winonaschools.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0405-003",
+   "name": "Brad Johnson",
+   "field": "website",
+   "url": "https://www.anokacountyattorney.com",
+   "why": "Could not be re-opened in two tries (the address did not resolve, then the site answered 429 Too Many Requests). The researcher also noted it still showed the 2022 campaign."
+  }
+ ]
+}

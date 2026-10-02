@@ -1,0 +1,545 @@
+{
+ "state": "MN",
+ "part": 10,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "The session's web search allowance was used up after the first six searches of this part (one for each legislative candidate). Everything else was found by reading known addresses directly with the kit's honest User-Agent: each government's own site, the two state parties' sites, local party units' sites, the campaign websites the candidates filed with the Secretary of State (read on a scratch copy of the database with the files step), and campaign addresses that official or party pages link to. No search engine was read in place of the search tool. Candidates with no findings below are the ones this left out of reach.",
+  "The Minnesota Judicial Branch site answered both a script and the fetch tool with 403, and the Governor's site showed a CAPTCHA; neither was worked around or asked again, so the two judges (Ann M. Offermann, Karl L. Schmidt) have no findings.",
+  "Therese N. Kiser: the website she filed with the Secretary of State has no address on the network (repeated address lookups on 2026-10-01 found no such host), so no website is recorded for her. The only web presence a party page lists for her is a social media page, which is never a source.",
+  "party_support (a key the loader does not read): three listings where a party unit publishes its backing of a candidate for a nonpartisan office under a heading that is not the word endorsement (\"Recommended Candidates\", \"Local Candidates we support\", \"Letters of Support\"). The Senate District 43 DFL says in so many words that a letter of support is not a DFL endorsement. They are kept apart from endorsed_by so that no page calls them endorsements; whether and how they are shown is John's decision.",
+  "robots.txt: every page a finding below rests on, and every page used to tie a campaign site to its race, was checked against its site's robots.txt for the kit's User-Agent, the way the kit's own reader does it, and all are allowed. Four government sites ask scripts to stay out: Cook County, Swift County, Wabasha County and the City of St. Michael. A few pages on each were read before that check was made, which was this part's mistake; nothing read there is kept (so Braidy Powers, whose only source was Cook County's own page, has no findings) and they were not asked again. Wikipedia's search interface was asked eight questions, found nothing, and is also outside what its robots.txt allows a script.",
+  "Left alone because they refused scripts: the City of Eagan's site (403) and the Scott County Republicans' endorsed candidates page (403). The Wright County Republicans' older address answered 402.",
+  "Judy Seeberger and Josh Heintzeman are sitting legislators with roster records. For Seeberger the Legislative Reference Library gives a birth date the roster lacks and one city office; for Heintzeman only the website and a review item are recorded. No party page naming Heintzeman's 2026 endorsement was found (the Republican Party of Minnesota's nominees page lists statewide and congressional candidates only; the Crow Wing County unit's site was not found)."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0125-MN",
+   "name": "Skylar Fynboh",
+   "website": {
+    "url": "https://www.skylarfynboh.com/",
+    "how": "The site's title reads \"Skylar Fynboh for Minnesota Senate District 5\" and its footer is dated 2026.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0161-MN",
+   "name": "Judy Seeberger",
+   "website": {
+    "url": "https://judyforsenate.com",
+    "how": "The site's title reads \"Judy Seeberger for MN Senate\"; it calls her Senator Judy Seeberger and is prepared and paid for by Judy Seeberger For Senate.",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "date": "1969-09-03",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15584",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bayport City Council",
+     "from": "2009",
+     "to": "2011",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15584",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0199-MN",
+   "name": "Josh Heintzeman",
+   "website": {
+    "url": "https://www.joshheintzeman.com/",
+    "how": "The site's title reads \"Josh Heintzeman for State Representative\" and it is prepared and paid for by the Committee to Elect Josh Heintzeman.",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "State roster: a House term in District 10A with no start date, ending January 2, 2023, then District 6B from January 3, 2023; the roster's first term start reads January 3, 2023.",
+     "problem": "The Legislative Reference Library gives House service from 2015: \"House 2015-2022 (District 10A); House 2023-Present (District 6B)\".",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15435",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0236-MN",
+   "name": "Brad Trahan",
+   "website": {
+    "url": "https://www.trahanmn25a.com",
+    "how": "The site's title reads \"Brad Trahan for Minnesota House District 25A\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester Police Civil Service Commission, commissioner",
+     "from": "",
+     "to": "now",
+     "source": "City of Rochester, Police Civil Service Commission page (current commission members)",
+     "url": "https://www.rochestermn.gov/council-administration/boards-commissions-committees/police-civil-service-commission/",
+     "kind": "official",
+     "also": "The city's page lists \"Bradley Trahan\" under Current Commission Members and gives no start date; his campaign site (Meet Brad) reads \"2023 - Present, Rochester Police Department, Police Civil Service Commission, Commissioner.\"",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Olmsted County (county unit)",
+     "url": "https://olmstedgop.org/newsletter/sep2026/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am running for Minnesota House District 25A, as a Republican",
+    "url": "https://www.trahanmn25a.com/meet_brad",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0273-MN",
+   "name": "Jess Lewis",
+   "website": {
+    "url": "https://www.votejesslewis.com",
+    "how": "The site's title reads \"Jess Lewis for MN 43B\" and says she is running for the Minnesota State House to represent District 43B.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL (district unit)",
+     "url": "https://sd43dfl.org/convention",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0313-MN",
+   "name": "Nicholas Peters",
+   "website": {
+    "url": "https://nick4mn.com/",
+    "how": "The site's author, Nick Peters, says he is the Republican candidate challenging State House member Emma Greenman in November; our record shows Emma Greenman holding House District 63B and Nicholas Peters as her only opponent there.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am the Republican candidate challenging our State House legislator",
+    "url": "https://nick4mn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-169",
+   "name": "Chris Meyer",
+   "official_page": {
+    "url": "https://www.co.winona.mn.us/371/Winona-County-Board",
+    "source": "Winona County, County Board page (Chris M. Meyer, First District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona County Board of Commissioners, First District",
+     "from": "",
+     "to": "now",
+     "source": "Winona County, County Board page",
+     "url": "https://www.co.winona.mn.us/371/Winona-County-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-151",
+   "name": "Troy Kennedy"
+  },
+  {
+   "race_id": "2026-MN-0393-161",
+   "name": "Brad Milbrath",
+   "official_page": {
+    "url": "https://www.wasecacounty.gov/95/County-Board",
+    "source": "Waseca County, County Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Waseca County Board of Commissioners, District 3",
+     "from": "2024",
+     "to": "now",
+     "source": "Waseca County, directory entry for the District 3 commissioner",
+     "url": "https://www.wasecacounty.gov/Directory.aspx?EID=257",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-157",
+   "name": "Jim Warren"
+  },
+  {
+   "race_id": "2026-MN-0400-031",
+   "name": "Braidy Powers"
+  },
+  {
+   "race_id": "2026-MN-0404-029",
+   "name": "Clarence LaCroix",
+   "website": {
+    "url": "https://lacroixforsheriff.com",
+    "how": "The site names Clarence LaCroix, is prepared and paid for by the LaCroix for Sheriff Committee and lists his work at the Clearwater County Sheriff's Office.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Copley Township Board",
+     "from": "",
+     "to": "",
+     "source": "His campaign's own website",
+     "url": "https://lacroixforsheriff.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-139",
+   "name": "Luke W. Hennen",
+   "official_page": {
+    "url": "https://www.scottcountymn.gov/1517/Message-from-the-Scott-County-Sheriff",
+    "source": "Scott County Sheriff's Office, Message from the Scott County Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Scott County Sheriff (appointed May 26, 2016)",
+     "from": "2016",
+     "to": "now",
+     "source": "Scott County, History of Sheriff's Office",
+     "url": "https://www.scottcountymn.gov/1520/History-of-Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "POST (Police Officer Standards and Training) Board, appointed 2021, Board Chair 2023 to 2026",
+     "from": "2021",
+     "to": "now",
+     "source": "Scott County, History of Sheriff's Office",
+     "url": "https://www.scottcountymn.gov/1520/History-of-Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Scott County Mental Health Local Advisory Council",
+     "from": "2014",
+     "to": "2024",
+     "source": "Scott County, History of Sheriff's Office",
+     "url": "https://www.scottcountymn.gov/1520/History-of-Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Murdered and Missing Indigenous Women Task Force",
+     "from": "2020",
+     "to": "2021",
+     "source": "Scott County, History of Sheriff's Office",
+     "url": "https://www.scottcountymn.gov/1520/History-of-Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-083",
+   "name": "Abby Wikelius",
+   "official_page": {
+    "url": "https://www.lyonco.org/departments/attorney",
+    "source": "Lyon County, County Attorney's page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lyon County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Lyon County, County Attorney's page",
+     "url": "https://www.lyonco.org/departments/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10972",
+   "name": "David Meissner",
+   "website": {
+    "url": "https://meissner4mayor.com/",
+    "how": "The site is titled \"Meissner for Mayor\" and names the office as Mayor of Chaska, dated 2026; the Carver County Republican Party's 2026 elections page links to it from \"David Meissner for Mayor\" beside the City of Chaska's logo.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Carver County Republican Party (county unit)",
+     "wording": "Recommended Candidates",
+     "what": "Named \"David Meissner for Mayor\" beside the City of Chaska's logo, with a link to his campaign site, under \"City Council and Mayors: Recommended Candidates\". The same page uses the word \"Endorsed\" only for statewide and legislative candidates.",
+     "url": "https://www.carvergop.org/2026-elections.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-55852",
+   "name": "Dan Roe",
+   "website": {
+    "url": "https://roe4roseville.org",
+    "how": "The site is titled \"Roe for Roseville\", paid for by Roe for Roseville and dated 2026; its Meet Dan page reads \"Re-Elect Dan Roe for Roseville Mayor\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.cityofroseville.com/56/Members",
+    "source": "City of Roseville, City Council members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Roseville",
+     "from": "2011",
+     "to": "now",
+     "source": "City of Roseville, City Council members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Roseville City Council",
+     "from": "2007",
+     "to": "2010",
+     "source": "City of Roseville, City Council members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "North Suburban Communications Commission, the City of Roseville's representative",
+     "from": "",
+     "to": "now",
+     "source": "City of Roseville, City Council members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Council Land Use Advisory Committee",
+     "from": "",
+     "to": "now",
+     "source": "City of Roseville, City Council members page",
+     "url": "https://www.cityofroseville.com/56/Members",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Roseville Planning Commission",
+     "from": "2005",
+     "to": "2006",
+     "source": "His campaign's own website (Meet Dan)",
+     "url": "https://www.roe4roseville.org/meet-dan/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-17288",
+   "name": "Scott Armitage",
+   "website": {
+    "url": "https://votescottarmitage.com",
+    "how": "The site reads \"Vote Scott Armitage for Eagan City Council\" and is dated 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Michael Oxley",
+   "website": {
+    "url": "https://www.mikeoxleyforcouncil.com/",
+    "how": "The site is titled \"Mendota Heights City Council Candidate | Mike Oxley for Council\" and is paid for by Mike Oxley for Mendota Heights City Council.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-57346",
+   "name": "Chad Barthel"
+  },
+  {
+   "race_id": "2026-MN-1020-14158",
+   "name": "Therese N. Kiser",
+   "official_page": {
+    "url": "https://www.crystalmn.gov/government/city_council",
+    "source": "City of Crystal, City Council page (Therese Kiser, Council Member Ward 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crystal City Council, Ward 1",
+     "from": "",
+     "to": "now",
+     "source": "City of Crystal, City Council page",
+     "url": "https://www.crystalmn.gov/government/city_council",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 43 DFL (district unit)",
+     "wording": "Letters of Support",
+     "what": "Named under City of Crystal as \"Therese Kiser, City Council, Ward 1\" in the unit's list headed \"Letters of Support\". The unit's own explanation says a letter of support identifies a candidate who supports the principles of the DFL Party and does not constitute a DFL endorsement.",
+     "url": "https://sd43dfl.org/vote",
+     "explained_at": "https://sd43dfl.org/vote/letter-of-support",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-71032",
+   "name": "Autumn Leigh Cole"
+  },
+  {
+   "race_id": "2026-MN-1026-56896-S",
+   "name": "Craig Heurung",
+   "website": {
+    "url": "https://craigheurung.com",
+    "how": "The site's title reads \"Craig Heurung for St. Cloud City Council Ward 4\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Tim Klein",
+   "official_page": {
+    "url": "https://www.district112.org/community/school-board",
+    "source": "Eastern Carver County Schools, School Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eastern Carver County Schools School Board, director",
+     "from": "",
+     "to": "now",
+     "source": "Eastern Carver County Schools, School Board page",
+     "url": "https://www.district112.org/community/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Kellie Stecher",
+   "website": {
+    "url": "https://votekellie.org",
+    "how": "The site reads \"Kellie Stecher for Eden Prairie School Board\" and is dated 2026 and paid for by Kellie for Eden Prairie School Board.",
+    "verified": true
+   },
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 49 DFL (district unit)",
+     "wording": "Local Candidates we support",
+     "what": "Named \"Kellie Stecher - Eden Prairie School Board\" under the heading \"Local Candidates we support\". The same page uses the word \"Endorsed\" only for partisan offices and the county attorney.",
+     "url": "https://dfl49.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477-S",
+   "name": "Adrian Feigl"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0700",
+   "name": "Allen Worden"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Darren Albers"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2144",
+   "name": "Sarah Aadland",
+   "website": {
+    "url": "https://aadland4education.com",
+    "how": "The site reads \"Re-Elect Sarah Aadland for Chisago Lakes School Board\" and is dated 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.isd2144.org/about-us/school-board",
+    "source": "Chisago Lakes Schools, School Board page (Sarah Aadland, Director)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chisago Lakes School Board (appointed in 2021, then elected)",
+     "from": "2021",
+     "to": "now",
+     "source": "Her campaign's own website",
+     "url": "https://aadland4education.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8100-MN",
+   "name": "Ann M. Offermann"
+  },
+  {
+   "race_id": "2026-MN-8923-MN",
+   "name": "Karl L. Schmidt"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0236-MN",
+   "name": "Brad Trahan",
+   "field": "offices",
+   "what": "Minnesota Autism Task Force, chair",
+   "url": "https://www.trahanmn25a.com/meet_brad",
+   "why": "The campaign page does read \"2012 - Minnesota Autism Task Force, Chair.\", but two tries at the Legislative Reference Library's agency records found no official page showing this was a government body or that he chaired it, so it is not confirmed as a public office."
+  }
+ ],
+ "verifier_notes": [
+  "All 36 addresses in this file were re-opened on 2026-10-02 with the kit's honest User-Agent, each after its site's robots.txt allowed it; all answered. 53 findings checked: 52 kept, 1 removed.",
+  "Website notes were reworded to say only what the site itself (or a page whose address is in this file) shows. The statements that a site was the one filed with the Secretary of State, or was linked from a city's or school district's candidate list or another party page, were taken out of the wording because no address was given to re-open; each site still names the candidate and the office or place on its own.",
+  "Josh Heintzeman's review item: the Legislative Reference Library's line was confirmed word for word. What our own roster shows was not re-checked here.",
+  "party_support (three entries) is not a key in the rules. Each page was confirmed to say what is recorded, under the heading recorded (\"Recommended Candidates\", \"Letters of Support\", \"Local Candidates we support\"), and none uses the word endorsement for these candidates. They are not endorsements and must not be shown as such; whether they are shown at all is John's decision.",
+  "The City of Crystal's page carries Therese Kiser's entry (\"Therese Kiser - Council Member Ward 1\") inside the page's tab data rather than its visible text. That entry also holds family and contact details, none of which is recorded here."
+ ]
+}

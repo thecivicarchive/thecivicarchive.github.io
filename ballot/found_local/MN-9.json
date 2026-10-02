@@ -1,0 +1,658 @@
+{
+ "part": 9,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "The session's web-search allowance ran out after the first few candidates, so most of this part was found by opening official, party, campaign and newspaper sites directly (their own site searches included), always with the kit's honest User-Agent.",
+  "Which candidates had already filed a campaign website was read with the project's own filed-websites step, run on a scratch copy of the database (the real database was only read). A filed address is listed here only where the site itself was opened and names the candidate and the office.",
+  "Sites that refused the kit's reader, so nothing was taken from them and nothing was worked around: the Minnesota Judicial Branch's site (403; no judge's page could be opened), mn.gov (a CAPTCHA page; not asked again), the City of Eagan's site (a bot check), voteramsay.com (403; not confirmed as anyone's campaign site), pineknotnews.com (403).",
+  "Nothing was found for Taylor Engelstad, John Larrive, Andy Dehmer, Brenda Carlson, Terry VanVeldhuizen, Damian Baum or Doug Clark beyond what they filed: no campaign website that could be confirmed, and no public office that a page states.",
+  "Verifier, 2026-10-02: every address in this file was opened again with the kit's honest User-Agent and all 37 answered. 66 findings checked: 61 kept, 5 removed (listed under 'removed'), 6 website descriptions reworded to what the pages show."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0125-MN",
+   "name": "Mike Wiener",
+   "website": {
+    "url": "https://www.mikewienerformn.com/",
+    "how": "Linked from Mike Wiener's entry (MN Senate District 5) on the Wadena County Republicans' page of general election candidates; the site's own title reads 'Mike Wiener for Minnesota Senate District 5 | Conservative Republican'.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Mike Wiener for Minnesota Senate District 5 | Conservative Republican",
+    "url": "https://www.mikewienerformn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0160-MN",
+   "name": "Rachel Japuntich",
+   "website": {
+    "url": "https://www.rachel4mn.com/",
+    "how": "Linked from Rachel Japuntich's entry (Candidate for Senate District 40) on the Senate District 40 Republicans' 2026 candidates page; the site's title reads 'Rachel Japuntich for State Senator' and its text names Minnesota State Senate District 40.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Shoreview Economic Development Authority, at-large member (vice president)",
+     "from": "",
+     "to": "now",
+     "source": "City of Shoreview, Economic development authority (members list)",
+     "url": "https://www.shoreviewmn.gov/Government/Committees-commissions/Economic-development-authority",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Shoreview Economic Development Commission, member",
+     "from": "",
+     "to": "now",
+     "source": "City of Shoreview, Economic development commission (members list)",
+     "url": "https://www.shoreviewmn.gov/Government/Committees-commissions/Economic-development-commission",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 40 Republicans (its page titled '2026 CANDIDATES', under 'Endorsed Republican Senate & House Candidates'; the page's address still says 2022)",
+     "url": "https://www.sd40mngop.com/2022-candidates",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for State Senate, District 40 (general election; lost)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), citing the State Canvassing Board's report of November 29, 2022",
+     "url": "https://mn.electionarchives.lib.umn.edu/election/232022109997040/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0198-MN",
+   "name": "Samuel Grigsby",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which names him as Sam Grigsby, House District 6A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Filed as a candidate in the special election for State Senate, District 6",
+     "year": 2025,
+     "party": "Democratic-Farmer-Labor",
+     "source": "KAXE (Northern Community Radio), \"Grand Rapids' Grigsby files for Senate District 6, considers next steps\", March 31, 2025",
+     "url": "https://www.kaxe.org/local-news/2025-03-31/grand-rapids-samuel-patrick-grigsby-files-senate-district-6-considers-next-steps",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0235-MN",
+   "name": "Tina Liebling",
+   "website": {
+    "url": "https://www.tinaliebling.com/",
+    "how": "Linked from Tina Liebling's entry (House District 24B) on the Minnesota DFL's list of endorsed candidates; the site reads 'Re-Elect Tina Liebling, Your State Representative'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "elected to the Minnesota Legislature with a DFL label",
+    "url": "https://www.tinaliebling.com/about",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "State roster: Minnesota House service in District 26A with no start date, then District 24B from January 2023; no earlier seat.",
+     "problem": "The Legislative Reference Library's record gives House 2005-2012 (District 30A), House 2013-2022 (District 26A) and House 2023 to the present (District 24B): the roster leaves out District 30A and the 2005 start.",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=12268",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0272-MN",
+   "name": "Todd Hesemann",
+   "website": {
+    "url": "https://todd4mnhouse.com/",
+    "how": "The site's title reads 'Todd Hesemann for MN House District 43A | New Hope & Crystal MN'. (The researcher took the address from the filed candidate list; that list was not re-opened by the verifier.)",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for State Representative, District 43A (general election; lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries Publishing; curated by Smart Politics), citing the State Canvassing Report of November 21, 2024",
+     "url": "https://mn.electionarchives.lib.umn.edu/election/232024109997143A/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am a Republican because it is the political vehicle",
+    "url": "https://todd4mnhouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0313-MN",
+   "name": "Emma Greenman",
+   "website": {
+    "url": "https://www.emmagreenman.org/",
+    "how": "The Minnesota DFL's list of endorsed candidates links emmagreenman.com from her entry (House District 63B); that address leads on to www.emmagreenman.org, whose title reads 'Emma Greenman | For Minnesota House'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-159",
+   "name": "Ron Noon",
+   "official_page": {
+    "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+    "source": "Wadena County, County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wadena County Commissioner, District 1 (board chairperson)",
+     "from": "",
+     "to": "now",
+     "source": "Wadena County, County Commissioners",
+     "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-151",
+   "name": "Edward Pederson",
+   "official_page": {
+    "url": "https://swiftcounty.gov/district2",
+    "source": "Swift County, District 2 Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Swift County Commissioner, District 2",
+     "from": "2015",
+     "to": "now",
+     "source": "Swift County, District 2 Commissioner: 'Edward has served District 2 since 2015.'",
+     "url": "https://swiftcounty.gov/district2",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-159",
+   "name": "Bill Stearns",
+   "official_page": {
+    "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+    "source": "Wadena County, County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wadena County Commissioner, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Wadena County, County Commissioners",
+     "url": "https://www.wadenacounty.gov/229/County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-155",
+   "name": "Jerrel Olson",
+   "official_page": {
+    "url": "https://traversecountymn.gov/departments/departments/county-commissioners/",
+    "source": "Traverse County, County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Traverse County Commissioner, Fourth District",
+     "from": "",
+     "to": "now",
+     "source": "Traverse County, County Commissioners",
+     "url": "https://traversecountymn.gov/departments/departments/county-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-029",
+   "name": "Taylor Engelstad"
+  },
+  {
+   "race_id": "2026-MN-0404-029",
+   "name": "Adam Gunderson",
+   "website": {
+    "url": "https://gundersonforsheriff.com/",
+    "how": "Given as the candidate's website in KAXE's Clearwater County 2026 Election Guide; the site's title reads 'Adam Gunderson for Clearwater County Sheriff' and it asks for a vote for sheriff on November 3, 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chief of Police, City of Bagley",
+     "from": "",
+     "to": "now",
+     "source": "Adam Gunderson for Clearwater County Sheriff (campaign site), About: 'Today, I serve as the Police Chief in Bagley.'",
+     "url": "https://gundersonforsheriff.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chief of Police, City of Royalton (the candidate says 14 years; no dates given)",
+     "from": "",
+     "to": "",
+     "source": "The candidate's own answer in KAXE's Clearwater County 2026 Election Guide (Northern Community Radio), September 28, 2026",
+     "url": "https://www.kaxe.org/2026-09-28/clearwater-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chief of Police, City of Menahga (no dates given)",
+     "from": "",
+     "to": "",
+     "source": "The candidate's own answer in KAXE's Clearwater County 2026 Election Guide (Northern Community Radio), September 28, 2026",
+     "url": "https://www.kaxe.org/2026-09-28/clearwater-county-mn-2026-election-guide",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-137",
+   "name": "Gordon Scott Ramsay",
+   "official_page": {
+    "url": "https://www.stlouiscountymn.gov/departments-a-z/sheriff",
+    "source": "St. Louis County, Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Louis County Sheriff",
+     "from": "2023",
+     "to": "now",
+     "source": "St. Louis County, Sheriff's Office: 'Sheriff Gordon Ramsay was elected in November 2022 and sworn in as Sheriff on January 10, 2023.'",
+     "url": "https://www.stlouiscountymn.gov/departments-a-z/sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-081",
+   "name": "Glen A. Petersen",
+   "official_page": {
+    "url": "https://www.lincolncountymn.gov/departments_agencies/county_attorney.php",
+    "source": "Lincoln County, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lincoln County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Lincoln County, County Attorney",
+     "url": "https://www.lincolncountymn.gov/departments_agencies/county_attorney.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-10918",
+   "name": "Mark von Oven",
+   "official_page": {
+    "url": "https://www.chanhassenmn.gov/government/city-council",
+    "source": "City of Chanhassen, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chanhassen City Council member (elected in 2022)",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "City of Chanhassen, City Council: 'Mark von Oven was elected to the City Council in 2022.'",
+     "url": "https://www.chanhassenmn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chanhassen Planning Commission",
+     "from": "2020",
+     "to": "2022",
+     "source": "City of Chanhassen, City Council: 'Before the City Council, Mark served on the Planning Commission from 2020-2022.'",
+     "url": "https://www.chanhassenmn.gov/government/city-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-55726",
+   "name": "Jeffery D. Weisensel",
+   "website": {
+    "url": "https://www.weisensel4rosemountcitycouncil.com/",
+    "how": "The site's title reads 'Jeff Weisensel - Mayor of Rosemount, MN' and its banner reads 'Re-Elect Rosemount Mayor · Serving 2023–2026'. (The researcher took the address from the filed candidate list; that list was not re-opened by the verifier.)",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+    "source": "City of Rosemount, Mayor Jeff Weisensel",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Rosemount",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Rosemount, Mayor Jeff Weisensel",
+     "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Rosemount City Council",
+     "from": "2009",
+     "to": "now",
+     "source": "City of Rosemount, Mayor Jeff Weisensel",
+     "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Rosemount Port Authority (chair 2010 to 2021)",
+     "from": "2009",
+     "to": "now",
+     "source": "City of Rosemount, Mayor Jeff Weisensel",
+     "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Metropolitan Council Transportation Advisory Board",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Rosemount, Mayor Jeff Weisensel",
+     "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Rosemount Planning Commission (chair 2001 to 2004)",
+     "from": "1997",
+     "to": "2004",
+     "source": "City of Rosemount, Mayor Jeff Weisensel",
+     "url": "https://www.rosemountmn.gov/544/Mayor-Jeff-Weisensel",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-17288",
+   "name": "Paul Bakken",
+   "offices": [
+    {
+     "office": "Eagan City Council member (the candidate says more than 20 years; no dates given)",
+     "from": "",
+     "to": "now",
+     "source": "Sun Thisweek (hometownsource.com), 'Field will be reduced by one after Eagan City Council primary', July 31, 2026: the article calls him an incumbent and prints his questionnaire answer",
+     "url": "https://www.hometownsource.com/psa/field-will-be-reduced-by-one-after-eagan-city-council-primary/article_71a3f63e-5e04-4a67-8d5a-0fa9ec745606.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Eagan Advisory Planning Commission (before the City Council; no dates given)",
+     "from": "",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), 'Field will be reduced by one after Eagan City Council primary', July 31, 2026: the candidate's questionnaire answer",
+     "url": "https://www.hometownsource.com/psa/field-will-be-reduced-by-one-after-eagan-city-council-primary/article_71a3f63e-5e04-4a67-8d5a-0fa9ec745606.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "John Larrive"
+  },
+  {
+   "race_id": "2026-MN-1010-57346",
+   "name": "Andy Dehmer"
+  },
+  {
+   "race_id": "2026-MN-1020-12160",
+   "name": "Brenda Carlson"
+  },
+  {
+   "race_id": "2026-MN-1022-70420",
+   "name": "Terry VanVeldhuizen"
+  },
+  {
+   "race_id": "2026-MN-1026-54808",
+   "name": "Melodie Neff",
+   "website": {
+    "url": "https://melodieward4.com/",
+    "how": "Named in the Sun Post's voter's guide for Robbinsdale City Council ('Learn more at melodieward4.com'); the site's own description reads 'Committee to Elect Melodie Neff' and 'Melodie Neff for Robbinsdale Ward 4'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Makiza Johnson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Abby Libsack",
+   "official_page": {
+    "url": "https://community.edenpr.org/school-board",
+    "source": "Eden Prairie Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eden Prairie School Board member (vice chair; elected November 2022)",
+     "from": "elected November 2022",
+     "to": "now",
+     "source": "Eden Prairie Schools, School Board (her entry reads Vice Chair, 'Elected November 2022' and 'Current term ends January 2027')",
+     "url": "https://community.edenpr.org/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0477",
+   "name": "Melissa Lynch",
+   "official_page": {
+    "url": "https://www.isd477.org/district/school-board",
+    "source": "Princeton Public Schools (ISD 477), School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Princeton School Board member (clerk)",
+     "from": "",
+     "to": "now",
+     "source": "Princeton Public Schools (ISD 477), School Board",
+     "url": "https://www.isd477.org/district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0659",
+   "name": "Jeff Quinnell",
+   "official_page": {
+    "url": "https://northfieldschools.org/about/school-board/members/",
+    "source": "Northfield Public Schools, School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Northfield School Board member (term expires January 2027)",
+     "from": "",
+     "to": "now",
+     "source": "Northfield Public Schools, School Board Members",
+     "url": "https://northfieldschools.org/about/school-board/members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Damian Baum"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2144",
+   "name": "Jennifer Penzenstadler",
+   "official_page": {
+    "url": "https://www.isd2144.org/about-us/school-board",
+    "source": "Chisago Lakes School District, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chisago Lakes School Board member (clerk)",
+     "from": "",
+     "to": "now",
+     "source": "Chisago Lakes School District, School Board (listed as 'Jen Penzenstadler, Clerk'; the portrait is captioned Jennifer Penzenstadler)",
+     "url": "https://www.isd2144.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-7027-MN",
+   "name": "JaPaul J. Harris",
+   "website": {
+    "url": "https://www.japaulharris.com/",
+    "how": "The site's title ends 'Elect Judge Harris' and its text says he was appointed to the Minnesota Court of Appeals in 2024. (The researcher took the address from the filed candidate list; that list was not re-opened by the verifier.)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Minnesota Court of Appeals",
+     "from": "2024",
+     "to": "now",
+     "source": "Elect Judge Harris (campaign site): 'In 2024, I had the great honor of being appointed to the Minnesota Court of Appeals.'",
+     "url": "https://www.japaulharris.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "District Court Judge, Ramsey County",
+     "from": "2018",
+     "to": "2024",
+     "source": "Elect Judge Harris (campaign site): appointed a district court judge in Ramsey County in May 2018, and to the Court of Appeals in 2024",
+     "url": "https://www.japaulharris.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "District Court Judicial Referee, Hennepin County (the site gives the 2012 appointment and no end date)",
+     "from": "2012",
+     "to": "",
+     "source": "Elect Judge Harris (campaign site): 'In 2012, I was appointed District Court Judicial Referee in Hennepin County.'",
+     "url": "https://www.japaulharris.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Saint Paul Human Rights and Equal Economic Opportunity Commission (chair 2010 to 2017)",
+     "from": "2007",
+     "to": "2017",
+     "source": "Elect Judge Harris (campaign site)",
+     "url": "https://www.japaulharris.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Minnesota State Board on Aging, member",
+     "from": "2012",
+     "to": "2013",
+     "source": "Elect Judge Harris (campaign site)",
+     "url": "https://www.japaulharris.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8921-MN",
+   "name": "Doug Clark"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0125-MN",
+   "name": "Mike Wiener",
+   "finding": "endorsed_by",
+   "url": "https://www.wadenacountyrepublicans.org/endorsed-candidates.html",
+   "why": "The Wadena County Republicans' page was opened: its heading reads 'General Election Candidates' and the word endorsed appears only in the page's address, never in its text. A news guide's 'Party Endorsed' mark is not the party's own page. Not a published endorsement."
+  },
+  {
+   "race_id": "2026-MN-0160-MN",
+   "name": "Rachel Japuntich",
+   "finding": "born",
+   "url": "https://mn.electionarchives.lib.umn.edu/candidate/rachel-japuntich/",
+   "why": "The page was opened and does give a birth date, but the source is neither Wikipedia nor a named news organization (the only secondary kinds the rules allow), and the date comes from a birth-record index. Left out."
+  },
+  {
+   "race_id": "2026-MN-0272-MN",
+   "name": "Todd Hesemann",
+   "finding": "born",
+   "url": "https://mn.electionarchives.lib.umn.edu/candidate/todd-hesemann/",
+   "why": "The page was opened and does give a birth date, but the source is neither Wikipedia nor a named news organization (the only secondary kinds the rules allow), and the date comes from a birth-record index. Left out."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Makiza Johnson",
+   "finding": "website",
+   "url": "https://www.makizajohnson4district112.com/",
+   "why": "The site was opened: it names Makiza Johnson and District 112 but is marked 2022 and says nothing of 2026, so it is not shown to be the campaign's site for this race."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0112",
+   "name": "Makiza Johnson",
+   "finding": "endorsed_by",
+   "url": "https://carvergop.org/2026-elections.html",
+   "why": "The Carver County Republican Party's page was opened: it lists her under 'Recommended Candidates' and keeps the word 'Endorsed' for other offices. A recommendation is not a published endorsement."
+  }
+ ]
+}

@@ -1,0 +1,528 @@
+{
+ "part": 20,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up, so nothing was looked up through a search engine. Pages were opened directly with the kit's honest User-Agent, robots.txt first and one request at a time: the campaign websites, each county's, city's and school district's own site, the two state parties' sites and local party units' sites, and the news sites' own search pages where their robots.txt allows it (hometownsource.com, winonapost.com, grandrapidsmn.com, kaxe.org, eplocalnews.org, faribaultcountyregister.com). Some campaign addresses were tried by name (an address lookup only); none of the names that exist turned out to be a campaign site for this slice.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; each of the eight filed in this slice was then opened and read. Two more were found another way and read: Tara Killen's (the Minnesota DFL's list of endorsed candidates links it) and Tina Culbertson's (Eden Prairie Local News's story on the council candidates links it).",
+  "Bryan Lawrence filed no website. The 8th Congressional District Republicans' page \"2026 Candidates\" links lawrenceformn.com under \"HD 27B - Bryan Lawrence\"; the site itself showed this reader a bot check and was not opened, so the website finding rests on the party page alone and the second reader may want to open the site in a browser. The same listing is kept under party_support, a key other parts of this sweep also use for a party page that names a candidate without the word endorsed; it is not an endorsement.",
+  "Not read, and nothing worked around: mncourts.gov (it answers scripts 403, so there is no court page for the two judges); Yellow Medicine County's site (its robots.txt asks all scripts to stay out); Nobles County's site and lawrenceformn.com (each answers a script with a bot check); the Campaign Finance Board's candidate viewer and Wikipedia's search (robots.txt); the Worthington Globe and the Austin Daily Herald (their robots.txt turns Claude's reader away); sd67dfl.org (robots.txt); sd33mngop.com and the Scott County Republicans' endorsed-candidates page (403).",
+  "Republican endorsements: none could be recorded. mngop.com lists statewide nominees only; the Otter Tail County Republican Party lists Jeff Backer under \"Our Republicans in public office\", which is not a 2026 endorsement; the Isanti County and Mille Lacs County Republicans' pages name Bryan Lawrence only as a sitting representative.",
+  "Nonpartisan offices: the party pages that publish local support in these places were read (the Senate District 46 and 49 DFL, the Crow Wing County and Winona County DFL, the Carver County, Isanti County, Todd County and Crow Wing County Republicans, the 3rd District and Senate District 32 and 40 Republicans). None names a candidate of this slice in a nonpartisan race. The Senate District 49 DFL's \"Local Candidates we support\" names two other Eden Prairie council candidates, not Tina Culbertson.",
+  "Nothing was found for D.J. Bullerman, Braden Hoefert, Adam Miller, Brian Hendey, Sherie Wagner, Tai Tran, Bruce Nelson, Ed Shaw or Jennifer Frank beyond what they filed. The council, commission and board pages of East Bethel, Vadnais Heights, Mounds View, Savage, Owatonna, the Brainerd schools and the Orono schools show none of them in office today; Orono's own candidates page calls Jennifer Frank a \"New Candidate\" and lists no website for her. The Faribault County Register names a D.J. Bullerman only in his work as a deputy, which is a job and not a public office, so nothing is recorded. KAXE's election guide prints Ed Shaw's answers; they state no public office. The White Bear/Vadnais Heights Press's 2026 Voters' Guide (September 16, 2026) prints \"Candidate Brian Hendey did not respond\".",
+  "Ages printed in voters' guides (KAXE for Tara Killen and Ed Shaw, the Forest Lake Times for Curt Rebelein) were not turned into birth years: an age on election day fits two birth years.",
+  "Starting years: where a page gives only an election year or the current term (\"Elected: 2022\", \"Term: January 2023 - December 2026\", \"Term expires 1/4/2027\"), the 'from' is left empty or written 'elected 2022' and the page's own words are in the source. Scott Bruns's 2015 is Cass County's own \"Term 2015 to 2026\"; Mike Allen's 2023 is the county's own list of sheriffs; Curt Rebelein's 2023 and Luke Cardona's 2025 are each stated by a second source as well.",
+  "Christian Sean Wilton: the Judicial Branch's site could not be read, so the only sources are court reports in Sun Thisweek: one of May 19, 2017 that calls him a Scott County judge, and the paper's 2015 year in review (https://www.hometownsource.com/sun_thisweek/news/local/year-in-review-2015-apple-valley-sees-triumph-scandal-and-heartbreak/article_a36fc7bc-d869-5f85-a35a-a7bfa3ec2897.html), which calls him a judge in a Dakota County case. Scott and Dakota counties are both in the First Judicial District. The 2017 story's headline names a defendant, so the headline is left out of the source line. His first name is also kept out of the office and source wording, because the loader's guard words include it and would hold the finding back by mistake.",
+  "Ron Antony: the county's own site may not be read by scripts. The one page found is the board list of Area II Minnesota River Basin Projects, a joint powers board of nine counties whose directors and alternates are, by its own About page (https://www.area2.org/about), county commissioners. It is marked official for the second reader to judge.",
+  "Sarah Hueser's About page names two boards she serves on. Only the school district's community education advisory board is recorded; the other belongs to a church, which is not a public office and not something a card may show. Her site (a Wix site) let this reader open one page and then answered 429, Too Many Requests, for a long while; the home page and the About page were each read once, some time apart, and were not asked for again.",
+  "Every page cited here except Sarah Hueser's two was opened a second time at the end, and the words quoted from it were found on it again.",
+  "Matti Adam: the end year for Itasca County Attorney is the year the Governor appointed her to the bench (reported April 10 and 11, 2024); neither story gives the day she left that office or the year she first took it.",
+  "The University of Minnesota Libraries' Minnesota Historical Election Archive (official returns for federal, statewide and legislative offices) was checked by name for every candidate here who is not a sitting legislator. It lists only Dwayne Voegeli's 2024 primary. It also has a Bruce Nelson who ran for State Senate as a Republican in 2000 and 2002 in districts in another part of the state; nothing ties him to the Owatonna candidate, so nothing is taken. The birth dates the archive shows were not taken: it draws them from a records index.",
+  "hometownsource.com (the Sun, ABC and Forest Lake Times papers) asks the crawlers that gather training text to stay out, ClaudeBot among them, but not ordinary readers or this kit's reader; its stories were read one at a time with the kit's honest User-Agent, as other parts of this sweep read them. Where a site's robots.txt names Claude's own reader for people's requests (Claude-User), it was left alone.",
+  "Dwayne Voegeli: the Winona Post's stories also describe his work outside public office; none of that is recorded. Its February 18, 2026 story says he announced he would not run again for the Minnesota House, which is why the 2024 run is the only one under a party label here."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0130-MN",
+   "name": "Tara Killen",
+   "website": {
+    "url": "https://tkforanewday.com/",
+    "how": "The site's title reads \"Tara Killen's campaign for Minnesota State Senate District 10\". The Minnesota DFL's list of endorsed candidates (https://dfl.org/endorsed/) links to it beside her name and \"Senate District 10\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Tara Killen for Senate District 10)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0166-MN",
+   "name": "Ron Latz",
+   "website": {
+    "url": "https://www.ronlatz.org/",
+    "how": "The site's title is \"Ron Latz for Minnesota State Senate\" and it calls him \"an experienced and trusted leader for SD46\". The Minnesota DFL's list of endorsed candidates (https://dfl.org/endorsed/) links to it beside his name and \"Senate District 46\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Ron Latz for Senate District 46)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 46 DFL (district unit; its page \"2026 Endorsed DFL Candidates\" lists Ron Latz under \"State Senate 46\")",
+     "url": "https://sd46dfl.org/2026-endorsed-dfl-candidates/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Vote for DFL-Endorsed Ron Latz on or before November 3rd.",
+    "url": "https://www.ronlatz.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0204-MN",
+   "name": "Jeff Backer",
+   "website": {
+    "url": "https://jeffbacker.com/",
+    "how": "The site's title is \"Jeff Backer - Home Page\"; it reads \"Re-Elect a Proven Fighter\", speaks of his work \"As a state representative\" for \"West-Central Minnesota\" and is \"Prepared and Paid for by Citizens for Jeff Backer Jr.\" The page does not print the district number.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0241-MN",
+   "name": "Bryan Lawrence",
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "8th Congressional District Republicans (congressional district unit)",
+     "wording": "2026 Candidates",
+     "what": "Named \"HD 27B - Bryan Lawrence\" under District 27, with a link to his campaign site, on the unit's page titled \"2026 Candidates\". The page does not use the word endorsed.",
+     "url": "https://mncd8gop.com/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0278-MN",
+   "name": "Larry Kraft",
+   "website": {
+    "url": "https://www.larrykraftslp.org/",
+    "how": "The site's title is \"Larry Kraft for MN House\" and it says \"I hope to continue representing our shared values in House District 46A\". The Minnesota DFL's and the Senate District 46 DFL's lists of endorsed candidates both link to it.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Larry Kraft for House District 46A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 46 DFL (district unit; its page \"2026 Endorsed DFL Candidates\" lists Larry Kraft under \"State House District 46A\")",
+     "url": "https://sd46dfl.org/2026-endorsed-dfl-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0320-MN",
+   "name": "Liz Lee",
+   "website": {
+    "url": "https://www.lizlee.org/",
+    "how": "The site's title is \"Liz Lee for MN House District 67A\". The Minnesota DFL's list of endorsed candidates (https://dfl.org/endorsed/) links to it beside her name and \"House District 67A\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Liz Lee for House District 67A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Liz Lee is the DFL-endorsed candidate in MN House District 67A.",
+    "url": "https://www.lizlee.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0392-015",
+   "name": "Anton (Tony) Berg",
+   "official_page": {
+    "url": "https://www.co.brown.mn.us/354/Brown-County-Commissioners",
+    "source": "Brown County, Brown County Commissioners page (\"Second District - Anton Berg\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brown County Commissioner, Second District",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Brown County, Brown County Commissioners page: \"Second District - Anton Berg\", \"Elected: 2022, Term Expires: 2026\" (the page gives an election year and the end of the term; it does not say when he first took office)",
+     "url": "https://www.co.brown.mn.us/354/Brown-County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-169",
+   "name": "Dwayne Voegeli",
+   "official_page": {
+    "url": "https://www.co.winona.mn.us/465/Dwayne-A-Voegeli",
+    "source": "Winona County, the county's page for Dwayne A. Voegeli, Second District commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winona County Board of Commissioners, Second District",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "Winona Post, February 18, 2026, 'Many incumbents to run for office this fall': \"he was elected to the board again in 2022\". The county's own page for him (https://www.co.winona.mn.us/465/Dwayne-A-Voegeli) reads \"Dwayne A. Voegeli, Second District\" today",
+     "url": "https://www.winonapost.com/news/many-incumbents-to-run-for-office-this-fall/article_6114b8ea-0258-4819-806a-9c766589f7f2.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Winona County Board of Commissioners (an earlier period on the board)",
+     "from": "2003",
+     "to": "2010",
+     "source": "Winona Post, February 18, 2026, 'Many incumbents to run for office this fall': \"Voegeli previously served on the County Board from 2003-2010\"",
+     "url": "https://www.winonapost.com/news/many-incumbents-to-run-for-office-this-fall/article_6114b8ea-0258-4819-806a-9c766589f7f2.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chair of the Winona County Board (named as chair in November 2024)",
+     "from": "",
+     "to": "",
+     "source": "Winona Post, November 6, 2024, 'Election results: Hedin wins WAPS write-in', which calls him \"County Board Chair Dwayne Voegeli\" (it does not say when his time as chair began or ended)",
+     "url": "https://www.winonapost.com/news/election-results-hedin-wins-waps-write-in/article_76b8b1da-9c39-11ef-ba04-3b4cae609b35.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran in the DFL primary for Minnesota House District 26A (August 13, 2024)",
+     "year": 2024,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Winona Post, August 7, 2024, 'DFL House candidates debate': \"Sarah Kruger and Dwayne Voegeli are competing to be the Democrat-Farmer-Labor (DFL) candidate for Winona's Minnesota State House seat, District 26A\". The University of Minnesota Libraries' Minnesota Historical Election Archive lists him in that primary, held August 13, 2024, under Democratic-Farmer-Labor (https://mn.electionarchives.lib.umn.edu/candidate/dwayne-voegeli/)",
+     "url": "https://www.winonapost.com/news/dfl-house-candidates-debate/article_149e8ab8-54ce-11ef-95da-977159888d34.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-021",
+   "name": "Scott D Bruns",
+   "official_page": {
+    "url": "https://www.casscountymn.gov/Directory.aspx?EID=130",
+    "source": "Cass County, Staff Directory entry for Scott Bruns, 4th District Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cass County Commissioner, 4th District",
+     "from": "2015",
+     "to": "now",
+     "source": "Cass County, Staff Directory entry for Scott Bruns: \"4th District Commissioner\", and under Term, \"2015 to 2026\"",
+     "url": "https://www.casscountymn.gov/Directory.aspx?EID=130",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-173",
+   "name": "Ron Antony",
+   "offices": [
+    {
+     "office": "Yellow Medicine County commissioner serving as the county's alternate on the board of Area II Minnesota River Basin Projects (a joint powers board of nine counties)",
+     "from": "",
+     "to": "now",
+     "source": "Area II Minnesota River Basin Projects, Board of Directors page, which lists \"Ron Antony - Alternate\" under Yellow Medicine; the organization's About page says its board \"is comprised of two (2) county commissioners from each county representing a delegate and an alternate\" (no years are given)",
+     "url": "https://www.area2.org/board-of-directors",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-101",
+   "name": "Heidi E. Winter",
+   "official_page": {
+    "url": "https://www.murraycountymn.com/county_departments/auditor_treasurer/index.php",
+    "source": "Murray County, Auditor/Treasurer page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Murray County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Murray County, Auditor/Treasurer page, headed \"MURRAY COUNTY AUDITOR/TREASURER – HEIDI WINTER\" (no starting year is given)",
+     "url": "https://www.murraycountymn.com/county_departments/auditor_treasurer/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-043",
+   "name": "D.J. Bullerman"
+  },
+  {
+   "race_id": "2026-MN-0404-153",
+   "name": "Mike Allen",
+   "official_page": {
+    "url": "https://www.toddcountymn.gov/government/departments/sheriff/index.php",
+    "source": "Todd County, Sheriff page (names Michael Allen as Sheriff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Todd County Sheriff",
+     "from": "2023",
+     "to": "now",
+     "source": "Todd County, History of Todd County Sheriffs Office: its list \"Sheriffs of Todd County\" gives a year beside each name and ends \"2019 Steve Och\", \"2023 Michael Allen\". The county's Sheriff page names Michael Allen as Sheriff today",
+     "url": "https://www.toddcountymn.gov/government/departments/sheriff/history_of_todd_county_sheriffs_office.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-105",
+   "name": "Braden Hoefert"
+  },
+  {
+   "race_id": "2026-MN-1001-17486",
+   "name": "Adam Miller"
+  },
+  {
+   "race_id": "2026-MN-1001-66460",
+   "name": "Brian Hendey"
+  },
+  {
+   "race_id": "2026-MN-1010-18116",
+   "name": "Tina Culbertson",
+   "website": {
+    "url": "https://tinacforep.com/",
+    "how": "The site's title is \"Tina Culbertson for Eden Prairie City Council\" and it is \"Prepared and paid for by the TinaCforEP Committee\", with an Eden Prairie, MN committee line.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-44530",
+   "name": "Sherie Wagner"
+  },
+  {
+   "race_id": "2026-MN-1010-58738",
+   "name": "Tai Tran"
+  },
+  {
+   "race_id": "2026-MN-1020-22814",
+   "name": "Luke Cardona",
+   "website": {
+    "url": "https://lukeforfridley.com/",
+    "how": "The site's title is \"Luke Cardona for Fridley City Council | Elect Luke Cardona\" and it says \"I'm proud to serve Ward 1 on the Fridley City Council and am running to continue\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+    "source": "City of Fridley, Meet Your Council page (\"Luke Cardona - Councilmember Ward 1\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fridley City Council, Ward 1",
+     "from": "2025",
+     "to": "now",
+     "source": "City of Fridley, Meet Your Council page: \"Luke Cardona - Councilmember Ward 1\", \"Term 2025-2027\". ABC Newspapers reported on March 6, 2025 that the council appointed him to the Ward 1 vacancy and that he was sworn in on March 4",
+     "url": "https://www.fridleymn.gov/Your-Government/City-Council-Commissions/Meet-Your-City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Fridley Parks and Recreation Commission",
+     "from": "2023",
+     "to": "",
+     "source": "ABC Newspapers (hometownsource.com), March 6, 2025, 'Luke Cardona appointed to Fridley Ward 1 council vacancy': \"Cardona has served on Fridley's Parks and Recreation Board since 2023\". His campaign site calls him a \"former parks & recreation commissioner\"; neither says when he left it",
+     "url": "https://www.hometownsource.com/abc_newspapers/community/fridley/luke-cardona-appointed-to-fridley-ward-1-council-vacancy/article_acbc2272-facf-11ef-bbb8-e36ba5f7a817.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-10972",
+   "name": "Catherine Tarbell Hull",
+   "website": {
+    "url": "https://hull4chaska.com/",
+    "how": "The site's title is \"Catherine Tarbell Hull For Chaska\" and it reads \"Catherine Hull for Chaska City Council Ward 3\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Belle Plaine Planning Commission",
+     "from": "",
+     "to": "",
+     "source": "Her campaign's own website: \"Served 3 years on the Belle Plaine Planning Commission\" (the years are not given)",
+     "url": "https://hull4chaska.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1028-49300",
+   "name": "Bruce Nelson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0181",
+   "name": "Ed Shaw"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0278",
+   "name": "Jennifer Frank"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0492",
+   "name": "Carolyn Dube",
+   "official_page": {
+    "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+    "source": "Austin Public Schools, Board Members page (\"Chairperson Dr. Carolyn Dubé\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Austin Public Schools School Board (Chairperson today)",
+     "from": "",
+     "to": "now",
+     "source": "Austin Public Schools, Board Members page: \"Chairperson Dr. Carolyn Dubé\", \"Term expires 1/4/2027\" (no starting year is given)",
+     "url": "https://www.austin.k12.mn.us/district-offices/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0704",
+   "name": "Joe Ward",
+   "official_page": {
+    "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+    "source": "Proctor Public Schools, School Board page (\"Joe Ward, Chair\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Proctor School Board (Chair today)",
+     "from": "",
+     "to": "now",
+     "source": "Proctor Public Schools, School Board page: \"Joe Ward, Chair\", \"Term: January 2023 - December 2026\" (the page gives the current term; it does not say whether he served before it)",
+     "url": "https://www.proctor.k12.mn.us/o/ppsd/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0831",
+   "name": "Curt Rebelein, Junior",
+   "website": {
+    "url": "https://curt4schoolboard.com/",
+    "how": "The site's home page is headed \"Curt Rebelein, Junior -- Forest Lake Area School Board, ISD 831\" and is \"Prepared and paid for by Curt Rebelein, Junior for School Board\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.flaschools.org/our-district/school-board",
+    "source": "Forest Lake Area Schools, School Board page (\"Curt Rebelein Jr.\", School Board Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Forest Lake Area School Board (School Board Chair today)",
+     "from": "2023",
+     "to": "now",
+     "source": "Forest Lake Times (hometownsource.com), November 21, 2022, 'Hagglund, Christenson, Rebelein Jr. elected to school board': elected on November 8, 2022 to one of three seats to be taken \"at the start of the 2023 term\". The district's School Board page lists him today as \"School Board Chair, Term expires: Jan. 4, 2027\"",
+     "url": "https://www.hometownsource.com/forest_lake_times/news/hagglund-christenson-rebelein-jr-elected-to-school-board/article_6bfe06b6-69d5-11ed-b6cc-3ba499379ce2.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Northeast Metro Intermediate School District 916 School Board, director (Forest Lake's member)",
+     "from": "",
+     "to": "now",
+     "source": "Northeast Metro Intermediate School District 916, School Board page: \"Curt Rebelein, Jr.\", \"Director • Forest Lake\" (no starting year is given)",
+     "url": "https://www.916schools.org/o/nmisd196/page/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Sarah Hueser"
+  },
+  {
+   "race_id": "2026-MN-8117-MN",
+   "name": "Christian Sean Wilton",
+   "offices": [
+    {
+     "office": "Judge, Minnesota District Court (reported as a Scott County judge in 2017, and on the bench in a Dakota County case in 2015)",
+     "from": "",
+     "to": "",
+     "source": "Sun Thisweek (hometownsource.com), May 19, 2017: a report of a sentencing hearing, which names him as a Scott County judge. The same paper's 'Year in Review 2015' for Apple Valley, December 31, 2015, already calls him a judge, in a Dakota County case. Neither says when he took the bench",
+     "url": "https://www.hometownsource.com/sun_thisweek/news/local/hartley-sentenced-to-10-years-in-hit-and-run-death/article_e5269302-2303-5336-9c82-4d9dd95ba5a1.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9100-MN",
+   "name": "Matti Adam",
+   "offices": [
+    {
+     "office": "Judge, Ninth Judicial District (appointed by Governor Tim Walz to the seat chambered in Bemidji)",
+     "from": "2024 (the appointment was reported on April 11, 2024)",
+     "to": "",
+     "source": "KAXE, April 11, 2024, 'Itasca, Pennington county attorneys chosen for 9th Judicial District': Gov. Tim Walz appointed \"Itasca County Attorney Matti Adam\" to a vacancy in the Ninth Judicial District; \"Adam will fill the seat chambered in Bemidji\"",
+     "url": "https://www.kaxe.org/local-news/2024-04-11/itasca-pennington-county-attorneys-chosen-for-9th-judicial-district",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Itasca County Attorney (in office in April 2024, in her second term)",
+     "from": "",
+     "to": "",
+     "source": "Grand Rapids Herald-Review, April 10, 2024, 'Itasca County Attorney Adam selected by governor for judge vacancy': \"Adam is currently serving in her second term as Itasca County's chief attorney\" (neither the year she took the office nor the day she left it is given)",
+     "url": "https://www.grandrapidsmn.com/news/itasca-county-attorney-adam-selected-by-governor-for-judge-vacancy/article_ffb77c96-f784-11ee-a420-eb3a2e280adf.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-0241-MN",
+   "name": "Bryan Lawrence",
+   "what": "website https://lawrenceformn.com/",
+   "why": "The site answered the kit's reader with a bot check (an empty page) and was not opened, so it could not be seen to name the candidate and the office. The party page that links it is kept under party_support."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Sarah Hueser",
+   "what": "website https://www.sarahhueser.com/",
+   "why": "The site answered 429, Too Many Requests, on every try (three, some minutes apart), so nothing on it could be confirmed."
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2859",
+   "name": "Sarah Hueser",
+   "what": "office: GSL Community Education Advisory Board (source https://www.sarahhueser.com/about-sarah)",
+   "why": "The same site, 429 on every try; the sentence could not be seen."
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the file was opened again on 2026-10-02 with the kit's honest User-Agent, one at a time, and the words recorded were found on the page; three script-drawn pages (Proctor schools, District 916, lukeforfridley.com) carry their words in the page's own data, where they were read.",
+  "Wording about a website being 'the address filed with the Secretary of State', and about pages that were named without an address (the Crow Wing County DFL, the Otter Tail County Republicans, Eden Prairie Local News, the campaign-site mention of the District 916 seat), was taken out of the 'how' and 'source' lines: the verifier did not see them. Each website still stands on its own title and words.",
+  "Matti Adam: the end year for Itasca County Attorney was an inference from her appointment and is now blank; the story says only that she held the office in April 2024.",
+  "Bryan Lawrence: party_support was confirmed on the 8th Congressional District Republicans' page (\"HD 27B - Bryan Lawrence\" under District 27, linking lawrenceformn.com; the word endorsed does not appear). It is not an endorsement and is not one of the rules' keys; the loader should treat it as a listing only.",
+  "Christian Sean Wilton: both Sun Thisweek stories were opened; the 2017 one says \"Scott County Judge Christian Wilton\" and the 2015 review says \"Judge Christian Wilton\". Scott County is in the 1st Judicial District, the seat sought. The cited story's address carries a defendant's surname; the card should show the paper and date, not the address text.",
+  "Ron Antony: Area II's board page lists \"Ron Antony - Alternate\" under Yellow Medicine and its About page says the board is made of county commissioners; kept as recorded, with no years and no district."
+ ]
+}

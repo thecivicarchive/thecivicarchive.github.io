@@ -1,0 +1,2177 @@
+{
+ "state": "MN",
+ "made": "2026-10-01",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its place code, which the candidate list's MCD code equals for Minnesota's cities, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "54880",
+   "name": "Rochester city",
+   "census_name": "Rochester city",
+   "population": 122330,
+   "margin": 55,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "07966",
+   "name": "Brooklyn Park city",
+   "census_name": "Brooklyn Park city",
+   "population": 83876,
+   "margin": 42,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "51730",
+   "name": "Plymouth city",
+   "census_name": "Plymouth city",
+   "population": 79220,
+   "margin": 41,
+   "races": 4,
+   "candidates": 10
+  },
+  {
+   "id": "71428",
+   "name": "Woodbury city",
+   "census_name": "Woodbury city",
+   "population": 78305,
+   "margin": 34,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "id": "35180",
+   "name": "Lakeville city",
+   "census_name": "Lakeville city",
+   "population": 74354,
+   "margin": 43,
+   "races": 2,
+   "candidates": 9
+  },
+  {
+   "id": "06382",
+   "name": "Blaine city",
+   "census_name": "Blaine city",
+   "population": 72488,
+   "margin": 34,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "40166",
+   "name": "Maple Grove city",
+   "census_name": "Maple Grove city",
+   "population": 71173,
+   "margin": 36,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "56896",
+   "name": "St. Cloud city",
+   "census_name": "St. Cloud city",
+   "population": 70629,
+   "margin": 45,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "17288",
+   "name": "Eagan city",
+   "census_name": "Eagan city",
+   "population": 68000,
+   "margin": 47,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "08794",
+   "name": "Burnsville city",
+   "census_name": "Burnsville city",
+   "population": 64463,
+   "margin": 63,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "13114",
+   "name": "Coon Rapids city",
+   "census_name": "Coon Rapids city",
+   "population": 63468,
+   "margin": 40,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "18116",
+   "name": "Eden Prairie city",
+   "census_name": "Eden Prairie city",
+   "population": 63051,
+   "margin": 51,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "01900",
+   "name": "Apple Valley city",
+   "census_name": "Apple Valley city",
+   "population": 55679,
+   "margin": 41,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "18188",
+   "name": "Edina city",
+   "census_name": "Edina city",
+   "population": 53262,
+   "margin": 32,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "59350",
+   "name": "Shakopee city",
+   "census_name": "Shakopee city",
+   "population": 46012,
+   "margin": 33,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "39878",
+   "name": "Mankato city",
+   "census_name": "Mankato city",
+   "population": 45473,
+   "margin": 51,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "43864",
+   "name": "Moorhead city",
+   "census_name": "Moorhead city",
+   "population": 45036,
+   "margin": 68,
+   "races": 5,
+   "candidates": 15
+  },
+  {
+   "id": "13456",
+   "name": "Cottage Grove city",
+   "census_name": "Cottage Grove city",
+   "population": 40992,
+   "margin": 50,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "40382",
+   "name": "Maplewood city",
+   "census_name": "Maplewood city",
+   "population": 40695,
+   "margin": 64,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "54214",
+   "name": "Richfield city",
+   "census_name": "Richfield city",
+   "population": 36642,
+   "margin": 56,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "31076",
+   "name": "Inver Grove Heights city",
+   "census_name": "Inver Grove Heights city",
+   "population": 35906,
+   "margin": 75,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "55852",
+   "name": "Roseville city",
+   "census_name": "Roseville city",
+   "population": 35802,
+   "margin": 56,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "01486",
+   "name": "Andover city",
+   "census_name": "Andover city",
+   "population": 33035,
+   "margin": 31,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "58738",
+   "name": "Savage city",
+   "census_name": "Savage city",
+   "population": 32889,
+   "margin": 37,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "07948",
+   "name": "Brooklyn Center city",
+   "census_name": "Brooklyn Center city",
+   "population": 32479,
+   "margin": 43,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "22814",
+   "name": "Fridley city",
+   "census_name": "Fridley city",
+   "population": 30241,
+   "margin": 39,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "10972",
+   "name": "Chaska city",
+   "census_name": "Chaska city",
+   "population": 28706,
+   "margin": 30,
+   "races": 3,
+   "candidates": 7
+  },
+  {
+   "id": "47680",
+   "name": "Oakdale city",
+   "census_name": "Oakdale city",
+   "population": 28585,
+   "margin": 45,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "53026",
+   "name": "Ramsey city",
+   "census_name": "Ramsey city",
+   "population": 28421,
+   "margin": 70,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "52594",
+   "name": "Prior Lake city",
+   "census_name": "Prior Lake city",
+   "population": 28016,
+   "margin": 57,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "55726",
+   "name": "Rosemount city",
+   "census_name": "Rosemount city",
+   "population": 27562,
+   "margin": 36,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "18674",
+   "name": "Elk River city",
+   "census_name": "Elk River city",
+   "population": 26793,
+   "margin": 26,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "59998",
+   "name": "Shoreview city",
+   "census_name": "Shoreview city",
+   "population": 26714,
+   "margin": 100,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "49300",
+   "name": "Owatonna city",
+   "census_name": "Owatonna city",
+   "population": 26498,
+   "margin": 62,
+   "races": 4,
+   "candidates": 13
+  },
+  {
+   "id": "02908",
+   "name": "Austin city",
+   "census_name": "Austin city",
+   "population": 26358,
+   "margin": 28,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "71032",
+   "name": "Winona city",
+   "census_name": "Winona city",
+   "population": 26009,
+   "margin": 57,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "10918",
+   "name": "Chanhassen city",
+   "census_name": "Chanhassen city",
+   "population": 26006,
+   "margin": 26,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "20546",
+   "name": "Faribault city",
+   "census_name": "Faribault city",
+   "population": 24631,
+   "margin": 28,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "20618",
+   "name": "Farmington city",
+   "census_name": "Farmington city",
+   "population": 23902,
+   "margin": 51,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "10846",
+   "name": "Champlin city",
+   "census_name": "Champlin city",
+   "population": 23294,
+   "margin": 27,
+   "races": 4,
+   "candidates": 11
+  },
+  {
+   "id": "45430",
+   "name": "New Brighton city",
+   "census_name": "New Brighton city",
+   "population": 22710,
+   "margin": 34,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "14158",
+   "name": "Crystal city",
+   "census_name": "Crystal city",
+   "population": 22476,
+   "margin": 29,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "49138",
+   "name": "Otsego city",
+   "census_name": "Otsego city",
+   "population": 22245,
+   "margin": 35,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "12700",
+   "name": "Columbia Heights city",
+   "census_name": "Columbia Heights city",
+   "population": 22155,
+   "margin": 35,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "27530",
+   "name": "Hastings city",
+   "census_name": "Hastings city",
+   "population": 22117,
+   "margin": 28,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "69700",
+   "name": "West St. Paul city",
+   "census_name": "West St. Paul city",
+   "population": 21382,
+   "margin": 28,
+   "races": 4,
+   "candidates": 4
+  },
+  {
+   "id": "70420",
+   "name": "Willmar city",
+   "census_name": "Willmar city",
+   "population": 21378,
+   "margin": 44,
+   "races": 5,
+   "candidates": 8
+  },
+  {
+   "id": "45628",
+   "name": "New Hope city",
+   "census_name": "New Hope city",
+   "population": 21181,
+   "margin": 49,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "46924",
+   "name": "Northfield city",
+   "census_name": "Northfield city",
+   "population": 20742,
+   "margin": 169,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "21770",
+   "name": "Forest Lake city",
+   "census_name": "Forest Lake city",
+   "population": 20729,
+   "margin": 27,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "61492",
+   "name": "South St. Paul city",
+   "census_name": "South St. Paul city",
+   "population": 20611,
+   "margin": 42,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "57346",
+   "name": "St. Michael city",
+   "census_name": "St. Michael city",
+   "population": 20010,
+   "margin": 30,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "58612",
+   "name": "Sartell city",
+   "census_name": "Sartell city",
+   "population": 19758,
+   "margin": 285,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "62824",
+   "name": "Stillwater city",
+   "census_name": "Stillwater city",
+   "population": 19355,
+   "margin": 35,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "00694",
+   "name": "Albert Lea city",
+   "census_name": "Albert Lea city",
+   "population": 18330,
+   "margin": 60,
+   "races": 5,
+   "candidates": 8
+  },
+  {
+   "id": "01720",
+   "name": "Anoka city",
+   "census_name": "Anoka city",
+   "population": 17970,
+   "margin": 63,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "53620",
+   "name": "Red Wing city",
+   "census_name": "Red Wing city",
+   "population": 16758,
+   "margin": 32,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "26738",
+   "name": "Ham Lake city",
+   "census_name": "Ham Lake city",
+   "population": 16702,
+   "margin": 49,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "08452",
+   "name": "Buffalo city",
+   "census_name": "Buffalo city",
+   "population": 16499,
+   "margin": 61,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "30392",
+   "name": "Hugo city",
+   "census_name": "Hugo city",
+   "population": 16340,
+   "margin": 30,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "28790",
+   "name": "Hibbing city",
+   "census_name": "Hibbing city",
+   "population": 16057,
+   "margin": 19,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "05068",
+   "name": "Bemidji city",
+   "census_name": "Bemidji city",
+   "population": 15569,
+   "margin": 41,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "43774",
+   "name": "Monticello city",
+   "census_name": "Monticello city",
+   "population": 14858,
+   "margin": 41,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "00928",
+   "name": "Alexandria city",
+   "census_name": "Alexandria city",
+   "population": 14735,
+   "margin": 62,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "30644",
+   "name": "Hutchinson city",
+   "census_name": "Hutchinson city",
+   "population": 14680,
+   "margin": 26,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "07300",
+   "name": "Brainerd city",
+   "census_name": "Brainerd city",
+   "population": 14468,
+   "margin": 25,
+   "races": 4,
+   "candidates": 5
+  },
+  {
+   "id": "54808",
+   "name": "Robbinsdale city",
+   "census_name": "Robbinsdale city",
+   "population": 14234,
+   "margin": 54,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "47068",
+   "name": "North Mankato city",
+   "census_name": "North Mankato city",
+   "population": 14211,
+   "margin": 29,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "20906",
+   "name": "Fergus Falls city",
+   "census_name": "Fergus Falls city",
+   "population": 14181,
+   "margin": 28,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "46042",
+   "name": "New Ulm city",
+   "census_name": "New Ulm city",
+   "population": 14056,
+   "margin": 24,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "40688",
+   "name": "Marshall city",
+   "census_name": "Marshall city",
+   "population": 13896,
+   "margin": 70,
+   "races": 4,
+   "candidates": 5
+  },
+  {
+   "id": "58684",
+   "name": "Sauk Rapids city",
+   "census_name": "Sauk Rapids city",
+   "population": 13852,
+   "margin": 26,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "71734",
+   "name": "Worthington city",
+   "census_name": "Worthington city",
+   "population": 13780,
+   "margin": 60,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "55186",
+   "name": "Rogers city",
+   "census_name": "Rogers city",
+   "population": 13685,
+   "margin": 35,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "67432",
+   "name": "Waconia city",
+   "census_name": "Waconia city",
+   "population": 13434,
+   "margin": 29,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "34244",
+   "name": "Lake Elmo city",
+   "census_name": "Lake Elmo city",
+   "population": 13140,
+   "margin": 41,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "44530",
+   "name": "Mounds View city",
+   "census_name": "Mounds View city",
+   "population": 12926,
+   "margin": 45,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "66460",
+   "name": "Vadnais Heights city",
+   "census_name": "Vadnais Heights city",
+   "population": 12838,
+   "margin": 40,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "47221",
+   "name": "North St. Paul city",
+   "census_name": "North St. Paul city",
+   "population": 12570,
+   "margin": 35,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "12160",
+   "name": "Cloquet city",
+   "census_name": "Cloquet city",
+   "population": 12537,
+   "margin": 70,
+   "races": 4,
+   "candidates": 6
+  },
+  {
+   "id": "05752",
+   "name": "Big Lake city",
+   "census_name": "Big Lake city",
+   "population": 12367,
+   "margin": 33,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "17486",
+   "name": "East Bethel city",
+   "census_name": "East Bethel city",
+   "population": 12115,
+   "margin": 28,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "41696",
+   "name": "Mendota Heights city",
+   "census_name": "Mendota Heights city",
+   "population": 11612,
+   "margin": 28,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "46798",
+   "name": "North Branch city",
+   "census_name": "North Branch city",
+   "population": 11565,
+   "margin": 24,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "67036",
+   "name": "Victoria city",
+   "census_name": "Victoria city",
+   "population": 11295,
+   "margin": 27,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "25118",
+   "name": "Grand Rapids city",
+   "census_name": "Grand Rapids city",
+   "population": 11207,
+   "margin": 64,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "37502",
+   "name": "Little Canada city",
+   "census_name": "Little Canada city",
+   "population": 10514,
+   "margin": 29,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "09370",
+   "name": "Cambridge city",
+   "census_name": "Cambridge city",
+   "population": 10307,
+   "margin": 25,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "20330",
+   "name": "Fairmont city",
+   "census_name": "Fairmont city",
+   "population": 10296,
+   "margin": 53,
+   "races": 3,
+   "candidates": 12
+  },
+  {
+   "id": "28682",
+   "name": "Hermantown city",
+   "census_name": "Hermantown city",
+   "population": 10218,
+   "margin": 18,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "15832",
+   "name": "Detroit Lakes city",
+   "census_name": "Detroit Lakes city",
+   "population": 10025,
+   "margin": 34,
+   "races": 4,
+   "candidates": 9
+  }
+ ],
+ "school_districts": [
+  {
+   "id": "SSD0001",
+   "name": "Minneapolis Public School District (SSD #1)",
+   "census_name": "Minneapolis Public School District",
+   "census_geo_id": "9700000US2721240",
+   "population": 427246,
+   "margin": 96,
+   "races": 4,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0625",
+   "name": "Saint Paul Public Schools (ISD #625)",
+   "census_name": "St. Paul Public School District",
+   "census_geo_id": "9700000US2733840",
+   "population": 307284,
+   "margin": 47,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0279",
+   "name": "Osseo Public School District (ISD #279)",
+   "census_name": "Osseo Public School District",
+   "census_geo_id": "9700000US2725200",
+   "population": 154618,
+   "margin": 2367,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0535",
+   "name": "Rochester Public School District (ISD #535)",
+   "census_name": "Rochester Public School District",
+   "census_geo_id": "9700000US2731800",
+   "population": 137394,
+   "margin": 486,
+   "races": 1,
+   "candidates": 10
+  },
+  {
+   "id": "ISD0742",
+   "name": "St. Cloud Public School District (ISD #742)",
+   "census_name": "St. Cloud Public School District",
+   "census_geo_id": "9700000US2733510",
+   "population": 103484,
+   "margin": 859,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0281",
+   "name": "Robbinsdale Public School District (ISD #281)",
+   "census_name": "Robbinsdale Public School District",
+   "census_geo_id": "9700000US2731780",
+   "population": 100936,
+   "margin": 1726,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0728",
+   "name": "Elk River Public School District (ISD #728)",
+   "census_name": "Elk River School District",
+   "census_geo_id": "9700000US2711370",
+   "population": 82523,
+   "margin": 1190,
+   "races": 3,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0622",
+   "name": "North St. Paul-Maplewood Oakdale Public School District (ISD #622)",
+   "census_name": "North St. Paul-Maplewood-Oakdale School District",
+   "census_geo_id": "9700000US2723850",
+   "population": 81104,
+   "margin": 1167,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0191",
+   "name": "Burnsville-Eagan-Savage School District (ISD #191)",
+   "census_name": "Burnsville-Eagan-Savage School District",
+   "census_geo_id": "9700000US2707290",
+   "population": 71946,
+   "margin": 1771,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0077",
+   "name": "Mankato Public School District (ISD #77)",
+   "census_name": "Mankato Public School District",
+   "census_geo_id": "9700000US2718780",
+   "population": 70678,
+   "margin": 411,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0834",
+   "name": "Stillwater Area Public Schools (ISD #834)",
+   "census_name": "Stillwater Area Public School District",
+   "census_geo_id": "9700000US2738190",
+   "population": 69665,
+   "margin": 1248,
+   "races": 1,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0194",
+   "name": "Lakeville Area Schools (ISD #194)",
+   "census_name": "Lakeville Public School District",
+   "census_geo_id": "9700000US2717780",
+   "population": 65088,
+   "margin": 1679,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "ISD0112",
+   "name": "Eastern Carver County Public Schools (ISD #112)",
+   "census_name": "Eastern Carver County Public Schools",
+   "census_geo_id": "9700000US2708190",
+   "population": 65075,
+   "margin": 715,
+   "races": 1,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0624",
+   "name": "White Bear Lake School District (ISD #624)",
+   "census_name": "White Bear Lake School District",
+   "census_geo_id": "9700000US2742360",
+   "population": 64865,
+   "margin": 895,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "ISD0272",
+   "name": "Eden Prairie Public School District (ISD #272)",
+   "census_name": "Eden Prairie Public School District",
+   "census_geo_id": "9700000US2714220",
+   "population": 59082,
+   "margin": 796,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0720",
+   "name": "Shakopee Public School District (ISD #720)",
+   "census_name": "Shakopee Public School District",
+   "census_geo_id": "9700000US2733000",
+   "population": 51919,
+   "margin": 780,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0831",
+   "name": "Forest Lake Public School District (ISD #831)",
+   "census_name": "Forest Lake Public School District",
+   "census_geo_id": "9700000US2712270",
+   "population": 50384,
+   "margin": 1015,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0152",
+   "name": "Moorhead Area Public School District (ISD #152)",
+   "census_name": "Moorhead Public School District",
+   "census_geo_id": "9700000US2721420",
+   "population": 48515,
+   "margin": 450,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0719",
+   "name": "Prior Lake-Savage Area Schools (ISD #719)",
+   "census_name": "Prior Lake-Savage Area Schools",
+   "census_geo_id": "9700000US2730060",
+   "population": 47168,
+   "margin": 1056,
+   "races": 1,
+   "candidates": 10
+  },
+  {
+   "id": "ISD0197",
+   "name": "West St. Paul-Mendota Heights-Eagan (ISD #197)",
+   "census_name": "West St. Paul-Mendota Heights-Eagan",
+   "census_geo_id": "9700000US2742270",
+   "population": 46207,
+   "margin": 796,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0181",
+   "name": "Brainerd Public School District (ISD #181)",
+   "census_name": "Brainerd Public School District",
+   "census_geo_id": "9700000US2706090",
+   "population": 46195,
+   "margin": 558,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0273",
+   "name": "Edina Public School District (ISD #273)",
+   "census_name": "Edina Public School District",
+   "census_geo_id": "9700000US2711250",
+   "population": 42936,
+   "margin": 756,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0031",
+   "name": "Bemidji Public School District (ISD #31)",
+   "census_name": "Bemidji Public School District",
+   "census_geo_id": "9700000US2704440",
+   "population": 39427,
+   "margin": 402,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0192",
+   "name": "Farmington Public School District (ISD #192)",
+   "census_name": "Farmington Public School District",
+   "census_geo_id": "9700000US2711820",
+   "population": 38884,
+   "margin": 1350,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0861",
+   "name": "Winona Area Public School District (ISD #861)",
+   "census_name": "Winona Area Public School District",
+   "census_geo_id": "9700000US2744070",
+   "population": 38233,
+   "margin": 329,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0012",
+   "name": "Centennial Public School District (ISD #12)",
+   "census_name": "Centennial Public School District",
+   "census_geo_id": "9700000US2708100",
+   "population": 35427,
+   "margin": 1193,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0877",
+   "name": "Buffalo-Hanover-Montrose Schools (ISD #877)",
+   "census_name": "Buffalo-Hanover-Montrose Public Schools",
+   "census_geo_id": "9700000US2707200",
+   "population": 35165,
+   "margin": 964,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0015",
+   "name": "St. Francis Area Schools (ISD #15)",
+   "census_name": "St. Francis Area Schools",
+   "census_geo_id": "9700000US2733540",
+   "population": 34557,
+   "margin": 891,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "ISD0911",
+   "name": "Cambridge-Isanti Public School District (ISD #911)",
+   "census_name": "Cambridge-Isanti Public School District",
+   "census_geo_id": "9700000US2707410",
+   "population": 32911,
+   "margin": 506,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0206",
+   "name": "Alexandria Public School District (ISD #206)",
+   "census_name": "Alexandria Public School District",
+   "census_geo_id": "9700000US2703060",
+   "population": 32374,
+   "margin": 282,
+   "races": 5,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0200",
+   "name": "Hastings Public School District (ISD #200)",
+   "census_name": "Hastings Public School District",
+   "census_geo_id": "9700000US2713530",
+   "population": 31589,
+   "margin": 587,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0656",
+   "name": "Faribault Public School District (ISD #656)",
+   "census_name": "Faribault Public School District",
+   "census_geo_id": "9700000US2711760",
+   "population": 31179,
+   "margin": 313,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0761",
+   "name": "Owatonna Public School District (ISD #761)",
+   "census_name": "Owatonna Public School District",
+   "census_geo_id": "9700000US2728050",
+   "population": 30190,
+   "margin": 206,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "ISD0659",
+   "name": "Northfield Public School District (ISD #659)",
+   "census_name": "Northfield Public School District",
+   "census_geo_id": "9700000US2723880",
+   "population": 29658,
+   "margin": 452,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "ISD0199",
+   "name": "Inver Grove Heights Schools (ISD #199)",
+   "census_name": "Inver Grove Heights Schools",
+   "census_geo_id": "9700000US2715030",
+   "population": 29638,
+   "margin": 623,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0492",
+   "name": "Austin Public School District (ISD #492)",
+   "census_name": "Austin Public School District",
+   "census_geo_id": "9700000US2703450",
+   "population": 29375,
+   "margin": 253,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0318",
+   "name": "Grand Rapids Public School District (ISD #318)",
+   "census_name": "Grand Rapids Public School District",
+   "census_geo_id": "9700000US2713170",
+   "population": 28325,
+   "margin": 387,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0013",
+   "name": "Columbia Heights Public School District (ISD #13)",
+   "census_name": "Columbia Heights Public School District",
+   "census_geo_id": "9700000US2709510",
+   "population": 28266,
+   "margin": 820,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0885",
+   "name": "St. Michael-Albertville School District (ISD #885)",
+   "census_name": "St. Michael-Albertville School District",
+   "census_geo_id": "9700000US2733790",
+   "population": 28015,
+   "margin": 692,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0347",
+   "name": "Willmar Public School District (ISD #347)",
+   "census_name": "Willmar Public School District",
+   "census_geo_id": "9700000US2742720",
+   "population": 27331,
+   "margin": 343,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0047",
+   "name": "Sauk Rapids-Rice Public Schools (ISD #47)",
+   "census_name": "Sauk Rapids-Rice Public Schools",
+   "census_geo_id": "9700000US2732880",
+   "population": 24743,
+   "margin": 436,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0241",
+   "name": "Albert Lea Public School District (ISD #241)",
+   "census_name": "Albert Lea Public School District",
+   "census_geo_id": "9700000US2702970",
+   "population": 23459,
+   "margin": 251,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0882",
+   "name": "Monticello Public School District (ISD #882)",
+   "census_name": "Monticello Public School District",
+   "census_geo_id": "9700000US2721390",
+   "population": 23315,
+   "margin": 691,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD2144",
+   "name": "Chisago Lakes School District (ISD #2144)",
+   "census_name": "Chisago Lakes School District",
+   "census_geo_id": "9700000US2700017",
+   "population": 22943,
+   "margin": 357,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0110",
+   "name": "Waconia Public School District (ISD #110)",
+   "census_name": "Waconia Public School District",
+   "census_geo_id": "9700000US2741460",
+   "population": 22791,
+   "margin": 772,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0477",
+   "name": "Princeton Public School District (ISD #477)",
+   "census_name": "Princeton Public School District",
+   "census_geo_id": "9700000US2730030",
+   "population": 22358,
+   "margin": 543,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "ISD0138",
+   "name": "North Branch Area Public Schools (ISD #138)",
+   "census_name": "North Branch Public Schools",
+   "census_geo_id": "9700000US2723820",
+   "population": 21393,
+   "margin": 407,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0748",
+   "name": "Sartell-St. Stephen School District (ISD #748)",
+   "census_name": "Sartell-St. Stephen School District",
+   "census_geo_id": "9700000US2732820",
+   "population": 21161,
+   "margin": 504,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0721",
+   "name": "New Prague Area Schools (ISD #721)",
+   "census_name": "New Prague Area Schools",
+   "census_geo_id": "9700000US2723430",
+   "population": 20880,
+   "margin": 735,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0727",
+   "name": "Big Lake Public School District (ISD #727)",
+   "census_name": "Big Lake Public School District",
+   "census_geo_id": "9700000US2705460",
+   "population": 20430,
+   "margin": 584,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0544",
+   "name": "Fergus Falls Public School District (ISD #544)",
+   "census_name": "Fergus Falls Public School District",
+   "census_geo_id": "9700000US2711880",
+   "population": 20377,
+   "margin": 407,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "SSD0006",
+   "name": "South St. Paul Public School District (SSD #6)",
+   "census_name": "South St. Paul Public School District",
+   "census_geo_id": "9700000US2733270",
+   "population": 20377,
+   "margin": 143,
+   "races": 2,
+   "candidates": 11
+  },
+  {
+   "id": "ISD0256",
+   "name": "Red Wing Public School District (ISD #256)",
+   "census_name": "Red Wing Public School District",
+   "census_geo_id": "9700000US2730480",
+   "population": 20146,
+   "margin": 281,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0088",
+   "name": "New Ulm Public School District (ISD #88)",
+   "census_name": "New Ulm Public School District",
+   "census_geo_id": "9700000US2723490",
+   "population": 19847,
+   "margin": 308,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD2909",
+   "name": "Rock Ridge Public Schools (ISD #2909)",
+   "census_name": "Rock Ridge Public Schools",
+   "census_geo_id": "9700000US2700466",
+   "population": 18757,
+   "margin": 404,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0423",
+   "name": "Hutchinson Public School District (ISD #423)",
+   "census_name": "Hutchinson Public School District",
+   "census_geo_id": "9700000US2714970",
+   "population": 18506,
+   "margin": 270,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0022",
+   "name": "Detroit Lakes Public School District (ISD #22)",
+   "census_name": "Detroit Lakes Public School District",
+   "census_geo_id": "9700000US2710230",
+   "population": 18290,
+   "margin": 479,
+   "races": 1,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0482",
+   "name": "Little Falls Community Schools (ISD #482)",
+   "census_name": "Little Falls Public School District",
+   "census_geo_id": "9700000US2718240",
+   "population": 17771,
+   "margin": 359,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD2142",
+   "name": "St. Louis County School District (ISD #2142)",
+   "census_name": "St. Louis County School District",
+   "census_geo_id": "9700000US2700008",
+   "population": 17271,
+   "margin": 662,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0701",
+   "name": "Hibbing Public School District (ISD #701)",
+   "census_name": "Hibbing Public School District",
+   "census_geo_id": "9700000US2713980",
+   "population": 17237,
+   "margin": 231,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0518",
+   "name": "Worthington Public School District (ISD #518)",
+   "census_name": "Worthington Public School District",
+   "census_geo_id": "9700000US2744160",
+   "population": 16800,
+   "margin": 216,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0413",
+   "name": "Marshall Public School District (ISD #413)",
+   "census_name": "Marshall Public School District",
+   "census_geo_id": "9700000US2718940",
+   "population": 15980,
+   "margin": 251,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0094",
+   "name": "Cloquet Public School District (ISD #94)",
+   "census_name": "Cloquet Public School District",
+   "census_geo_id": "9700000US2709420",
+   "population": 14761,
+   "margin": 280,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0832",
+   "name": "Mahtomedi Public School District (ISD #832)",
+   "census_name": "Mahtomedi Public School District",
+   "census_geo_id": "9700000US2718750",
+   "population": 14261,
+   "margin": 697,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD2905",
+   "name": "Tri-City United School District (ISD #2905)",
+   "census_name": "Tri-City United School District",
+   "census_geo_id": "9700000US2700379",
+   "population": 13956,
+   "margin": 543,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0381",
+   "name": "Lake Superior Public School District (ISD #381)",
+   "census_name": "Lake Superior Public School District",
+   "census_geo_id": "9700000US2740740",
+   "population": 13791,
+   "margin": 326,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0564",
+   "name": "Thief River Falls School District (ISD #564)",
+   "census_name": "Thief River Falls School District",
+   "census_geo_id": "9700000US2738850",
+   "population": 13331,
+   "margin": 135,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0309",
+   "name": "Park Rapids Public School District (ISD #309)",
+   "census_name": "Park Rapids Public School District",
+   "census_geo_id": "9700000US2728080",
+   "population": 12930,
+   "margin": 358,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0726",
+   "name": "Becker Public School District (ISD #726)",
+   "census_name": "Becker Public School District",
+   "census_geo_id": "9700000US2703870",
+   "population": 12914,
+   "margin": 543,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0750",
+   "name": "ROCORI Public School District (ISD #750)",
+   "census_name": "Rocori Public School District",
+   "census_geo_id": "9700000US2709440",
+   "population": 12842,
+   "margin": 412,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0278",
+   "name": "Orono Public School District (ISD #278)",
+   "census_name": "Orono Public School District",
+   "census_geo_id": "9700000US2725080",
+   "population": 12631,
+   "margin": 778,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0912",
+   "name": "Milaca Public School District (ISD #912)",
+   "census_name": "Milaca Public School District",
+   "census_geo_id": "9700000US2720670",
+   "population": 12502,
+   "margin": 340,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0704",
+   "name": "Proctor Public School District (ISD #704)",
+   "census_name": "Proctor Public School District",
+   "census_geo_id": "9700000US2730090",
+   "population": 12455,
+   "margin": 604,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD2859",
+   "name": "Glencoe-Silver Lake School District (ISD #2859)",
+   "census_name": "Glencoe-Silver Lake School District",
+   "census_geo_id": "9700000US2700128",
+   "population": 12429,
+   "margin": 386,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "ISD0829",
+   "name": "Waseca Public School District (ISD #829)",
+   "census_name": "Waseca Public School District",
+   "census_geo_id": "9700000US2741880",
+   "population": 12254,
+   "margin": 216,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD2752",
+   "name": "Fairmont Area School District (ISD #2752)",
+   "census_name": "Fairmont Area School District",
+   "census_geo_id": "9700000US2700124",
+   "population": 12178,
+   "margin": 161,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0700",
+   "name": "Hermantown Community Schools (ISD #700)",
+   "census_name": "Hermantown Public School District",
+   "census_geo_id": "9700000US2713920",
+   "population": 12175,
+   "margin": 206,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0879",
+   "name": "Delano Public School District (ISD #879)",
+   "census_name": "Delano Public School District",
+   "census_geo_id": "9700000US2710170",
+   "population": 12017,
+   "margin": 701,
+   "races": 1,
+   "candidates": 9
+  },
+  {
+   "id": "ISD0465",
+   "name": "Litchfield Public School District (ISD #465)",
+   "census_name": "Litchfield Public School District",
+   "census_geo_id": "9700000US2718210",
+   "population": 11757,
+   "margin": 306,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0186",
+   "name": "Pequot Lakes Public Schools (ISD #186)",
+   "census_name": "Pequot Lakes Public Schools",
+   "census_geo_id": "9700000US2728200",
+   "population": 11395,
+   "margin": 551,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0549",
+   "name": "Perham-Dent Public School District (ISD #549)",
+   "census_name": "Perham-Dent Public School District",
+   "census_geo_id": "9700000US2728230",
+   "population": 11331,
+   "margin": 389,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0578",
+   "name": "Pine City Public School District (ISD #578)",
+   "census_name": "Pine City Public School District",
+   "census_geo_id": "9700000US2728380",
+   "population": 11278,
+   "margin": 330,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0111",
+   "name": "Watertown-Mayer Public School District (ISD #111)",
+   "census_name": "Watertown-Mayer Public School District",
+   "census_geo_id": "9700000US2741910",
+   "population": 11096,
+   "margin": 656,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0332",
+   "name": "Mora Public Schools (ISD #332)",
+   "census_name": "Mora Public School District",
+   "census_geo_id": "9700000US2721480",
+   "population": 11058,
+   "margin": 290,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "ISD0204",
+   "name": "Kasson-Mantorville School District (ISD #204)",
+   "census_name": "Kasson-Mantorville School District",
+   "census_geo_id": "9700000US2716980",
+   "population": 10742,
+   "margin": 299,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0182",
+   "name": "Crosby-Ironton Public School District (ISD #182)",
+   "census_name": "Crosby-Ironton Public School District",
+   "census_geo_id": "9700000US2709750",
+   "population": 10715,
+   "margin": 406,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "ISD0876",
+   "name": "Annandale Public School District (ISD #876)",
+   "census_name": "Annandale Public School District",
+   "census_geo_id": "9700000US2703150",
+   "population": 10600,
+   "margin": 394,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0595",
+   "name": "East Grand Forks Public Schools (ISD #595)",
+   "census_name": "East Grand Forks Public School District",
+   "census_geo_id": "9700000US2711130",
+   "population": 10532,
+   "margin": 140,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "ISD0466",
+   "name": "Dassel-Cokato Public School District (ISD #466)",
+   "census_name": "Dassel-Cokato Public School District",
+   "census_geo_id": "9700000US2710060",
+   "population": 10441,
+   "margin": 504,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "ISD0717",
+   "name": "Jordan Public School District (ISD #717)",
+   "census_name": "Jordan Public School District",
+   "census_geo_id": "9700000US2715750",
+   "population": 10229,
+   "margin": 424,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0883",
+   "name": "Rockford Public School District (ISD #883)",
+   "census_name": "Rockford Public School District",
+   "census_geo_id": "9700000US2732070",
+   "population": 10172,
+   "margin": 619,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "ISD0716",
+   "name": "Belle Plaine Public School District (ISD #716)",
+   "census_name": "Belle Plaine Public School District",
+   "census_geo_id": "9700000US2704050",
+   "population": 10040,
+   "margin": 289,
+   "races": 1,
+   "candidates": 5
+  }
+ ],
+ "just_under": [
+  {
+   "kind": "school district",
+   "id": "ISD0001",
+   "name": "Aitkin Public School District (ISD #1)",
+   "census_name": "Aitkin Public School District",
+   "census_geo_id": "9700000US2702760",
+   "population": 9896,
+   "margin": 286,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0531",
+   "name": "Byron Public School District (ISD #531)",
+   "census_name": "Byron Public School District",
+   "census_geo_id": "9700000US2707350",
+   "population": 9814,
+   "margin": 337,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0534",
+   "name": "Stewartville Public School District (ISD #534)",
+   "census_name": "Stewartville Public School District",
+   "census_geo_id": "9700000US2738160",
+   "population": 9807,
+   "margin": 271,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "kind": "school district",
+   "id": "ISD2170",
+   "name": "Staples-Motley School District (ISD #2170)",
+   "census_name": "Staples-Motley School District",
+   "census_geo_id": "9700000US2733900",
+   "population": 9782,
+   "margin": 505,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0051",
+   "name": "Foley Public School District (ISD #51)",
+   "census_name": "Foley Public School District",
+   "census_geo_id": "9700000US2712240",
+   "population": 9771,
+   "margin": 371,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "kind": "city",
+   "id": "02026",
+   "name": "Arden Hills city",
+   "census_name": "Arden Hills city",
+   "population": 9658,
+   "margin": 26,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "kind": "school district",
+   "id": "ISD2149",
+   "name": "Minnewaska School District (ISD #2149)",
+   "census_name": "Minnewaska School District",
+   "census_geo_id": "9700000US2700019",
+   "population": 9623,
+   "margin": 139,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "kind": "school district",
+   "id": "ISD2753",
+   "name": "Long Prairie-Grey Eagle School District (ISD #2753)",
+   "census_name": "Long Prairie-Grey Eagle School District",
+   "census_geo_id": "9700000US2700109",
+   "population": 9470,
+   "margin": 381,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0745",
+   "name": "Albany Public School District (ISD #745)",
+   "census_name": "Albany Public School District",
+   "census_geo_id": "9700000US2702930",
+   "population": 9449,
+   "margin": 525,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0345",
+   "name": "New London-Spicer School District (ISD #345)",
+   "census_name": "New London-Spicer School District",
+   "census_geo_id": "9700000US2723400",
+   "population": 9413,
+   "margin": 359,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "kind": "school district",
+   "id": "ISD2687",
+   "name": "Howard Lake-Waverly-Winsted (ISD #2687)",
+   "census_name": "Howard Lake-Waverly-Winsted",
+   "census_geo_id": "9700000US2700123",
+   "population": 9400,
+   "margin": 509,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0740",
+   "name": "Melrose Public School District (ISD #740)",
+   "census_name": "Melrose Public School District",
+   "census_geo_id": "9700000US2720550",
+   "population": 9270,
+   "margin": 335,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "kind": "city",
+   "id": "68296",
+   "name": "Waseca city",
+   "census_name": "Waseca city",
+   "population": 9164,
+   "margin": 22,
+   "races": 4,
+   "candidates": 4
+  },
+  {
+   "kind": "city",
+   "id": "47690",
+   "name": "Oak Grove city",
+   "census_name": "Oak Grove city",
+   "population": 9130,
+   "margin": 30,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0593",
+   "name": "Crookston Public School District (ISD #593)",
+   "census_name": "Crookston Public School District",
+   "census_geo_id": "9700000US2709720",
+   "population": 9126,
+   "margin": 200,
+   "races": 1,
+   "candidates": 9
+  },
+  {
+   "kind": "city",
+   "id": "37556",
+   "name": "Little Falls city",
+   "census_name": "Little Falls city",
+   "population": 9121,
+   "margin": 51,
+   "races": 5,
+   "candidates": 11
+  },
+  {
+   "kind": "city",
+   "id": "44476",
+   "name": "Mound city",
+   "census_name": "Mound city",
+   "population": 9107,
+   "margin": 20,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "kind": "city",
+   "id": "15022",
+   "name": "Dayton city",
+   "census_name": "Dayton city",
+   "population": 9095,
+   "margin": 26,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "kind": "school district",
+   "id": "ISD0361",
+   "name": "International Falls School District (ISD #361)",
+   "census_name": "International Falls School District",
+   "census_geo_id": "9700000US2715000",
+   "population": 9091,
+   "margin": 240,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "kind": "city",
+   "id": "17612",
+   "name": "East Grand Forks city",
+   "census_name": "East Grand Forks city",
+   "population": 9028,
+   "margin": 20,
+   "races": 3,
+   "candidates": 3
+  }
+ ],
+ "no_population_figure": [
+  {
+   "kind": "school district",
+   "id": "ISD2913",
+   "name": "ISD #2913",
+   "races": 1,
+   "candidates": 4,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  },
+  {
+   "kind": "school district",
+   "id": "ISD2918",
+   "name": "ISD #2918",
+   "races": 1,
+   "candidates": 5,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  }
+ ],
+ "cities_found_by_name_not_code": [
+  {
+   "id": "03282",
+   "name": "Baldwin city",
+   "census_name": "Baldwin township, Sherburne County, Minnesota",
+   "population": 7076,
+   "margin": 26,
+   "races": 2,
+   "candidates": 6,
+   "note": "not under this code among the file's places; found by name among the county subdivisions"
+  },
+  {
+   "id": "43270",
+   "name": "Minnetonka Beach city",
+   "census_name": "Village of Minnetonka Beach city, Hennepin County, Minnesota",
+   "population": 469,
+   "margin": 132,
+   "races": 3,
+   "candidates": 4,
+   "note": "not under this code among the file's places; found by name among the county subdivisions"
+  }
+ ],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Bloomington city",
+  "Duluth city",
+  "Golden Valley city",
+  "Hopkins city",
+  "Lino Lakes city",
+  "Minneapolis city",
+  "Minnetonka city",
+  "St. Louis Park city",
+  "St. Paul city",
+  "St. Peter city",
+  "White Bear Lake city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {
+  "Utility Board Commissioner": 1
+ },
+ "school_names_tied_after_setting_words_aside": [
+  {
+   "id": "ISD0138",
+   "state_list": "North Branch Area Public Schools",
+   "census": "North Branch Public Schools"
+  },
+  {
+   "id": "ISD0152",
+   "state_list": "Moorhead Area Public School District",
+   "census": "Moorhead Public School District"
+  },
+  {
+   "id": "ISD0194",
+   "state_list": "Lakeville Area Schools",
+   "census": "Lakeville Public School District"
+  },
+  {
+   "id": "ISD0264",
+   "state_list": "Herman-Norcross Community School",
+   "census": "Herman-Norcross School District"
+  },
+  {
+   "id": "ISD0271",
+   "state_list": "Bloomington Public Schools",
+   "census": "Bloomington Public School District"
+  },
+  {
+   "id": "ISD0286",
+   "state_list": "Brooklyn Center Community Schools",
+   "census": "Brooklyn Center School District"
+  },
+  {
+   "id": "ISD0332",
+   "state_list": "Mora Public Schools",
+   "census": "Mora Public School District"
+  },
+  {
+   "id": "ISD0435",
+   "state_list": "Waubun-Ogema-White Earth Schools",
+   "census": "Waubun-Ogema-White Earth Public Schools"
+  },
+  {
+   "id": "ISD0482",
+   "state_list": "Little Falls Community Schools",
+   "census": "Little Falls Public School District"
+  },
+  {
+   "id": "ISD0595",
+   "state_list": "East Grand Forks Public Schools",
+   "census": "East Grand Forks Public School District"
+  },
+  {
+   "id": "ISD0622",
+   "state_list": "North St. Paul-Maplewood Oakdale Public School District",
+   "census": "North St. Paul-Maplewood-Oakdale School District"
+  },
+  {
+   "id": "ISD0625",
+   "state_list": "Saint Paul Public Schools",
+   "census": "St. Paul Public School District"
+  },
+  {
+   "id": "ISD0700",
+   "state_list": "Hermantown Community Schools",
+   "census": "Hermantown Public School District"
+  },
+  {
+   "id": "ISD0728",
+   "state_list": "Elk River Public School District",
+   "census": "Elk River School District"
+  },
+  {
+   "id": "ISD0741",
+   "state_list": "Paynesville Area Schools",
+   "census": "Paynesville Public School District"
+  },
+  {
+   "id": "ISD0771",
+   "state_list": "Chokio-Alberta Public Schools",
+   "census": "Chokio-Alberta Public School District"
+  },
+  {
+   "id": "ISD0833",
+   "state_list": "South Washington County Schools",
+   "census": "South Washington County School District"
+  },
+  {
+   "id": "ISD0834",
+   "state_list": "Stillwater Area Public Schools",
+   "census": "Stillwater Area Public School District"
+  },
+  {
+   "id": "ISD0877",
+   "state_list": "Buffalo-Hanover-Montrose Schools",
+   "census": "Buffalo-Hanover-Montrose Public Schools"
+  },
+  {
+   "id": "ISD2169",
+   "state_list": "Murray County Central Schools",
+   "census": "Murray County Central School District"
+  },
+  {
+   "id": "ISD2174",
+   "state_list": "Pine River-Backus School District",
+   "census": "Pine River-Backus Public School District"
+  },
+  {
+   "id": "ISD2365",
+   "state_list": "GFW Public Schools",
+   "census": "G.F.W."
+  },
+  {
+   "id": "ISD2536",
+   "state_list": "Granada Huntley East Chain",
+   "census": "Granada-Huntley-East Chain"
+  },
+  {
+   "id": "ISD2683",
+   "state_list": "Greenbush Middle River School District",
+   "census": "Greenbush-Middle River School District"
+  },
+  {
+   "id": "ISD2835",
+   "state_list": "Janesville-Waldorf-Pemberton Public School District",
+   "census": "Janesville-Waldorf-Pemberton"
+  },
+  {
+   "id": "ISD2860",
+   "state_list": "Blue Earth Area School District",
+   "census": "Blue Earth Area Public Schools"
+  },
+  {
+   "id": "ISD2899",
+   "state_list": "Plainview-Elgin-Millville Community Schools",
+   "census": "Plainview-Elgin-Millville"
+  }
+ ]
+}

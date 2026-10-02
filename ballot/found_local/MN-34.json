@@ -1,0 +1,393 @@
+{
+ "state": "MN",
+ "part": 34,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance (shared, 200) ran out after seventeen searches, so the five legislative candidates, the five commissioners and four other county candidates were searched for and the sixteen city, school and court candidates were not. Campaign websites are the ones filed with the Secretary of State (read from a scratch copy of the database on which python -m ballot.local_sites files had been run; only race, name and the website cell were looked at), each opened with the kit's honest User-Agent, robots.txt read first and obeyed. Sitting officials were looked for on their own county's, city's and school district's site, and the two DFL candidates on the Minnesota DFL's list of endorsed candidates.",
+  "Left blank on purpose: Carrie A. Doom's filed site (judgecarriedoom.com) shows only \"Launching Soon\" and names neither her nor the office, so it is not recorded; mncourts.gov asks scripts to stay out (robots.txt), so there is no court page for either judge; co.jackson.mn.us likewise. No Republican unit's own endorsement page was found for Gruenhagen, Franson or Wedum (no searches were left to find the units' sites). Brian Walker's own site says he \"ran in 2022\" as a Republican; no official result page for that run was found, so no past_party is recorded. Not on their body's current member page, so no official page: Blomgren and Lindquist (Farmington), Johnson Quinton (North Mankato), McManimon (Owatonna), Novotny (Fridley), Hammerseng (Robbinsdale), Koestler (Rochester), Witt (Prior Lake-Savage), Haroldson (Stillwater, listed there only as a candidate), Loisel (Rock Ridge). Kevin Dather is not a sitting Goodhue County commissioner. No birth year was found for anyone. A second pass with searching would be worth it for the candidates with nothing below.",
+  "For the verifier: sherburnecountyauditor.com answered the kit's reader 429 each time and was read once through the page-reading tool. Isanti County writes LaRowe's term as \"2023 to 2027\" although the seat is on the 2026 ballot. Several county pages print commissioners' home addresses and phone numbers beside the facts recorded here; none of that was kept.",
+  "Verifier, 2026-10-02: all 27 addresses were opened again with the kit's honest User-Agent and every one answered. Each of the 15 websites is on the candidate's own line in the Secretary of State's filing files John saved (host and family name on the same line; nothing else on the line was read). Each of the 37 findings was confirmed on its page; four were reworded; none was removed. Paul Cumings's school board seat is tied to him by his own campaign site (\"local school board member\", committee in South St. Paul). Brian Walker's quote is nine words and on his own home page."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0137-MN",
+   "name": "Glenn H Gruenhagen",
+   "website": {
+    "url": "https://glenngruenhagen.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Glenn Gruenhagen\" and it quotes him on \"my re-election to the MN Senate\". The endorsements it lists are labelled \"2022 endorsements\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0173-MN",
+   "name": "Paul Cumings",
+   "website": {
+    "url": "https://paulcumings.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Paul Cumings for MN Senate\" and its home page is headed \"Why Am I Running for State Senator in DISTRICT 53?\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sspps.org/about/school-board/members",
+    "source": "South St. Paul Public Schools, School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Treasurer), South St. Paul Public Schools",
+     "from": null,
+     "to": "term expires January 2029",
+     "source": "South St. Paul Public Schools, School Board Members: \"Paul Cumings (Treasurer) ... Term Expires: January, 2029\"",
+     "url": "https://www.sspps.org/about/school-board/members",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Paul Cumings for Senate District 53)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0211-MN",
+   "name": "Mary Franson",
+   "website": {
+    "url": "https://www.teamfranson.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Re-Elect Mary Franson for State Representative | District 12B MN\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0248-MN",
+   "name": "Brian Walker",
+   "website": {
+    "url": "https://walkerforward.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Walker Forward - Brian Walker for MN31A - Ramsey and Andover\" and its description reads \"Brian Walker is running for Minnesota House District 31A.\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's page \"Candidates Endorsed by the Minnesota DFL\", which lists Brian Walker for House District 31A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "That’s part of why I left the Republican Party.",
+    "url": "https://walkerforward.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0286-MN",
+   "name": "Chris Wedum"
+  },
+  {
+   "race_id": "2026-MN-0391-001",
+   "name": "J. Mark Wedel",
+   "official_page": {
+    "url": "https://aitkincountymn.gov/commissioners",
+    "source": "Aitkin County, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1 (Chair), Aitkin County",
+     "from": "2023",
+     "to": "2026 (current term)",
+     "source": "Aitkin County, Board of Commissioners: \"District 1 Commissioner J. Mark Wedel - Chair ... Term: 2023 - 2026\"",
+     "url": "https://aitkincountymn.gov/commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-045",
+   "name": "Randy Dahl",
+   "official_page": {
+    "url": "https://www.co.fillmore.mn.us/government/commissioners.php",
+    "source": "Fillmore County, Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 2, Fillmore County",
+     "from": "2001",
+     "to": "present term expires December 31, 2026",
+     "source": "Fillmore County, Commissioners: \"Commissioner Randy Dahl's first term as Commissioner began in January 2001. Dahl's present term as District 2 Commissioner expires on December 31, 2026.\" (the page gives his first term and his present one; it does not say whether his service was unbroken between them)",
+     "url": "https://www.co.fillmore.mn.us/government/commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-025",
+   "name": "Marlys L. Dunne",
+   "official_page": {
+    "url": "https://www.chisagocountymn.gov/920/District-3",
+    "source": "Chisago County, County Commissioner District #3",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Chisago County (Vice Chair of the board 2023, Chair 2024)",
+     "from": "elected November 2020",
+     "to": "current term January 3, 2023 to December 31, 2026",
+     "source": "Chisago County, County Commissioner District #3: \"TERM: January 3, 2023 to December 31, 2026 ... Chair, County Board of Commissioners, 2024 - Vice Chair, County Board of Commissioners, 2023 - Elected Chisago County Commissioner November 2020\"; the page names \"Marlys Dunne Commissioner District #3\"",
+     "url": "https://www.chisagocountymn.gov/920/District-3",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-049",
+   "name": "Kevin Dather"
+  },
+  {
+   "race_id": "2026-MN-0395-059",
+   "name": "Kristi L. LaRowe",
+   "official_page": {
+    "url": "https://www.isanticountymn.gov/163/Kristi-LaRowe",
+    "source": "Isanti County, Kristi LaRowe, District 5 Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 5, Isanti County",
+     "from": "2023",
+     "to": "2027 (current term, as the county writes it)",
+     "source": "Isanti County: \"Kristi LaRowe District 5 Commissioner ... Term : 2023 to 2027\"",
+     "url": "https://www.isanticountymn.gov/163/Kristi-LaRowe",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0401-141",
+   "name": "Michael Tonsager",
+   "website": {
+    "url": "https://sherburnecountyauditor.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title begins \"Local County Auditor Campaign | Michael Tonsager For\" and it reads \"I am running to bring new leadership to Sherburne County. As your County Auditor...\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-063",
+   "name": "Mike DeJong",
+   "website": {
+    "url": "https://dejongforsheriff.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Mike DeJong For Jackson County Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-171",
+   "name": "Rob Mossman",
+   "website": {
+    "url": "https://www.voteforrobforsheriff.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Rob Mossman for Wright County Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-131",
+   "name": "Brian Mortenson",
+   "website": {
+    "url": "https://votemortenson.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Brian Mortenson for Rice County Attorney | Home\". The site's footer is dated 2022 and it reads \"I am seeking election for Rice County Attorney\"; it is the address on his 2026 filing.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.ricecountymn.gov/m/directory/department?did=37",
+    "source": "Rice County, Staff Directory, Attorney's Office (\"Brian Mortenson County Attorney\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Rice County",
+     "from": "elected November 2022",
+     "to": "present",
+     "source": "KYMN Radio (Northfield), \"How Brian Mortenson Won Rice County Attorney\", November 25, 2022: \"Rice County Attorney-Elect Brian Mortenson defeated incumbent John Fossum\"; Rice County's staff directory lists him as County Attorney today",
+     "url": "https://kymnradio.net/2022/11/25/how-brian-mortenson-won-rice-county-attorney/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-20618-S",
+   "name": "R. Floyd Lindquist",
+   "website": {
+    "url": "https://floydformayor.xyz",
+    "how": "Filed with the Secretary of State as the campaign website. The site's description reads \"Official campaign website for R. Floyd Lindquist, 2026 candidate for Mayor of Farmington, Minnesota.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-01720",
+   "name": "Joelle Alvord",
+   "website": {
+    "url": "https://www.joellealvord.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Joelle Alvord for Anoka City Council\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice Chair), economic development committee, City of Anoka",
+     "from": null,
+     "to": "present",
+     "source": "Her campaign site's About page: \"currently serve on the economic development committee (edc) as Vice chair in the city of Anoka\"",
+     "url": "https://www.joellealvord.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-20618",
+   "name": "Ben Blomgren"
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Bridget Johnson Quinton"
+  },
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Matthew Thompson",
+   "official_page": {
+    "url": "https://www.southstpaulmn.gov/229/Mayor-Council",
+    "source": "City of South St. Paul, Mayor & Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, South St. Paul",
+     "from": null,
+     "to": "term expires January 1, 2027",
+     "source": "City of South St. Paul, Mayor & Council: \"Matthew Thompson Term expires January 1, 2027\"",
+     "url": "https://www.southstpaulmn.gov/229/Mayor-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1020-49300",
+   "name": "Tim McManimon"
+  },
+  {
+   "race_id": "2026-MN-1024-22814",
+   "name": "Liz Novotny",
+   "website": {
+    "url": "https://www.fridleyforward.com/ward-3-novotny",
+    "how": "Filed with the Secretary of State as the campaign website. It is her page on a site three Fridley council candidates share: titled \"Ward 3 Novotny\", it reads \"LIZ NOVOTNY\" and \"I'm running for Fridley City Council\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0013",
+   "name": "Jessica Medearis",
+   "website": {
+    "url": "https://www.jessicamedearis.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Jessica Medearis for Columbia Heights School Board\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.colheights.k12.mn.us/district1/board-of-education/members",
+    "source": "Columbia Heights Public Schools, Board of Education Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director), Columbia Heights Public Schools",
+     "from": "elected 2022",
+     "to": "present",
+     "source": "Columbia Heights Public Schools, Board of Education Members: \"Jessica Medearis, Director | Elected 2022\"",
+     "url": "https://www.colheights.k12.mn.us/district1/board-of-education/members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Abigail Alt",
+   "official_page": {
+    "url": "https://www.isd191.org/discover/board-of-education",
+    "source": "Burnsville-Eagan-Savage School District 191, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Chair), Burnsville-Eagan-Savage School District 191",
+     "from": null,
+     "to": "present",
+     "source": "School District 191, Board of Education Members: \"ABIGAIL ALT Titles: SCHOOL BOARD - CHAIR\"",
+     "url": "https://www.isd191.org/discover/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "Kath Hammerseng",
+   "website": {
+    "url": "https://justkathfor281.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"281 School Board Candidate | Kath Hammerseng | JustKathFor281\" and it speaks of \"the future of Robbinsdale School District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Josh Koestler",
+   "website": {
+    "url": "https://www.joshkoestler.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Josh Koestler for School Board | Rochester, MN\" and its description reads \"Josh Koestler is running for Rochester Public Schools Board of Education\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Amy Witt",
+   "website": {
+    "url": "https://www.amy4schoolboard.com",
+    "how": "Filed with the Secretary of State as the campaign website. The site's title is \"Amy Witt for Prior Lake-Savage Area Schools Board\" (the site says it is under construction).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Jillien Haroldson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "Troy Loisel"
+  },
+  {
+   "race_id": "2026-MN-8405-MN",
+   "name": "Karen R. Duncan"
+  },
+  {
+   "race_id": "2026-MN-9201-MN",
+   "name": "Carrie A. Doom"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Glenn H Gruenhagen, website: added that the site's endorsement list is labelled 2022.",
+  "Michael Tonsager, website: the note about the site answering 429 taken out; it answered the kit's own reader on 2026-10-02.",
+  "Brian Mortenson, website: added that the site's footer is dated 2022 and its text has not been rewritten for 2026.",
+  "Joelle Alvord, offices: \"(appointed)\" taken out; her page says she serves on the committee as Vice chair and does not say how she came to the seat."
+ ]
+}

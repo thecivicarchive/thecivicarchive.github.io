@@ -1,0 +1,327 @@
+{
+ "part": 65,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance was already used up, so no search was run. Pages were opened directly with the kit's honest User-Agent (robots.txt read first for each host) or with the page-reading tool: the twelve campaign websites the candidates filed (read from sl_websites in the database, read-only), each county's, city's and school district's own site, and the Minnesota DFL's list of endorsed candidates.",
+  "Official pages read that do NOT list the candidate as holding the office sought today: Pine County (District 2: Joshua Mohr), Murray County (District 3: Dennis Welgraven), Polk County (4th District: Joan Lee), Albert Lea (Mayor: Rich Murray), the Cambridge council, the Hutchinson council (Seat 2) and Hutchinson school board, and the White Bear Lake, Elk River (District 2: Sara Weis), Kasson-Mantorville and St. Cloud school boards. So no office is recorded for Denise Weis, Tyson VanPeursem, Michael (Mike) Wedin, Tiffany Fearing, Tom Schibilla, Aaron French, Lisa Rasmussen, Colleen Berquist, Shari Knip, Albert J. Brand or Sonia Eizenhoefer.",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (403 to the page-reading tool), so nothing is recorded for Patrick Rohland; Fergus Falls's Elected Officials page (the roster loads by script), so nothing for Scott Kvamme; Cloquet Public Schools' site (no board page could be reached), so nothing for Elizabeth Kersting-Peterson; the City of Ramsey's site did not answer the script.",
+  "No Republican endorsement could be recorded for Michael Kreun, Bidal Duran Jr or Sara Bertschinger: without a search, no party unit's page naming them was found. Sara Bertschinger's own site calls her the endorsed Republican candidate; that is recorded as her own words only.",
+  "Brian McCoy's own Endorsements page lists \"DFL47 Minnesota Senate District\" among the organizations supporting him; no page of that party unit was found, so it is recorded as his own words only, not under endorsed_by. His two county appointments rest on his campaign site; Washington County's own page for them was not found.",
+  "Luke Sweere's site describes posts in the Frazee Police Department and the Becker County Sheriff's Office; those are employment, not offices, and are not recorded.",
+  "The Mounds View City Council Directory, cited as Zach Lindstrom's official page, is the city's own page and also prints council members' contact details; only his name, title and term end were taken. No birth year was found for anyone.",
+  "Sitting legislators (Kreun, Duran, Vang, Pursell): only the website, endorsements and own words were looked for.",
+  "Verifier, 2026-10-02: every url re-opened (several needed a second try because of lost address lookups). All 29 findings confirmed. Corrected: Marshall County's page has moved to marshallcountymn.gov (the old address forwards there); the wording of how three websites were recognised (Bertschinger, Eizenhoefer, Brand). Nothing removed. The DFL list names Amanda Hemmingsen-Jaeger for Senate District 47 and does not name Brian McCoy, so his DFL47 line stays his own words only."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0152-MN",
+   "name": "Michael Kreun",
+   "website": {
+    "url": "https://michaelformnsenate.com",
+    "how": "The filed address. The home page reads \"Senator Michael Kreun is running for re-election for Senate District 32\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0190-MN",
+   "name": "Bidal Duran Jr",
+   "website": {
+    "url": "https://duranforhouse.com",
+    "how": "The filed address. The home page is headed \"Duran for Minnesota State Representative District 2A\" and names Bidal Duran; its copyright line still reads 2024.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0227-MN",
+   "name": "Sara Bertschinger",
+   "website": {
+    "url": "https://bertschingerforhouse.com",
+    "how": "The filed address. The home page reads \"Sara Bertschinger here\" and \"Endorsed Republican Candidate for Minnesota State House – District 20B\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Endorsed Republican Candidate for Minnesota State House – District 20B",
+    "url": "https://bertschingerforhouse.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0263-MN",
+   "name": "Samantha Vang",
+   "website": {
+    "url": "https://samanthavang.org",
+    "how": "The filed address. The home page is headed \"MN State Representative 38B\" and reads \"Meet Samantha\"; it names no election year.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 38B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "a Democrat, and a longtime Brooklyn Center resident",
+    "url": "https://samanthavang.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0302-MN",
+   "name": "Kristi Pursell",
+   "website": {
+    "url": "https://www.kristipursell.com",
+    "how": "The filed address. The home page reads \"I am running for re-election\" and names her as the Minnesota House Representative for District 58A.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates: House District 58A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-089",
+   "name": "Jim \"Ducky\" Duckstad",
+   "official_page": {
+    "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+    "source": "Marshall County's Commissioners page, which lists \"District 1: Jim Duckstad\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Commissioner, District 1",
+     "from": "",
+     "to": "now",
+     "source": "Marshall County's Commissioners page (it gives no start year)",
+     "url": "https://www.marshallcountymn.gov/board_of_commissioners/commissioners/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-115",
+   "name": "Denise Weis"
+  },
+  {
+   "race_id": "2026-MN-0393-101",
+   "name": "Tyson VanPeursem"
+  },
+  {
+   "race_id": "2026-MN-0394-119",
+   "name": "Michael (Mike) Wedin"
+  },
+  {
+   "race_id": "2026-MN-0395-163",
+   "name": "Brian McCoy",
+   "website": {
+    "url": "https://www.brian-mccoy.com",
+    "how": "The filed address. The home page reads \"Vote Brian McCoy on November 3\" and \"Washington County Commissioner District 5\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Washington County Planning Advisory Commission (appointed)",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site's About page: \"Today, Brian serves Washington County as a member of the Planning Advisory Commission and the Board of Adjustment & Appeals\" (no years given)",
+     "url": "https://www.brian-mccoy.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Washington County Board of Adjustment and Appeals (appointed)",
+     "from": "",
+     "to": "now",
+     "source": "His campaign site's About page, the same sentence (no years given)",
+     "url": "https://www.brian-mccoy.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL47 Minnesota Senate District",
+    "url": "https://www.brian-mccoy.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-005",
+   "name": "Luke Sweere",
+   "website": {
+    "url": "https://lukesweereforsheriff.com",
+    "how": "The filed address. The site is titled \"Elect Luke Sweere For Becker County Sheriff\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-113",
+   "name": "Seth Vettleson",
+   "official_page": {
+    "url": "https://penningtonsheriff.org/",
+    "source": "The Pennington County Sheriff's Office's own site, whose welcome reads \"I am Sheriff Seth Vettleson\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pennington County Sheriff",
+     "from": "",
+     "to": "now",
+     "source": "The Pennington County Sheriff's Office's own site (it gives no start year)",
+     "url": "https://penningtonsheriff.org/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-049",
+   "name": "Stephen (Steve) O'Keefe",
+   "official_page": {
+    "url": "https://www.goodhuecountymn.gov/county_attorney/",
+    "source": "Goodhue County's County Attorney page, which names \"Stephen F. O'Keefe, County Attorney\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Goodhue County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Goodhue County's County Attorney page (it gives no start year)",
+     "url": "https://www.goodhuecountymn.gov/county_attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-00694",
+   "name": "Tiffany Fearing"
+  },
+  {
+   "race_id": "2026-MN-1001-44530",
+   "name": "Zach Lindstrom",
+   "official_page": {
+    "url": "https://www.moundsviewmn.gov/government/city_council/city_council_directory.php",
+    "source": "The City of Mounds View's City Council Directory, which lists \"Zach Lindstrom (MAYOR)\" with a term ending 12-31-2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Mounds View",
+     "from": "",
+     "to": "now",
+     "source": "The City of Mounds View's City Council Directory (term ends 12-31-2026; no start year given)",
+     "url": "https://www.moundsviewmn.gov/government/city_council/city_council_directory.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-09370",
+   "name": "Tom Schibilla"
+  },
+  {
+   "race_id": "2026-MN-1010-35180",
+   "name": "Julie Burnett",
+   "website": {
+    "url": "https://michaelburnett.org",
+    "how": "The filed address. It is a site shared with another candidate: its banner reads \"Michael J. Burnett for Lakeville Mayor 2026 & Julie Burnett for Lakeville city council\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-53026",
+   "name": "Kelly Muchowski",
+   "website": {
+    "url": "https://www.votekellyforcouncil.com",
+    "how": "The filed address. The site is titled \"Kelly for Ramsey City Council\" and reads \"Meet Kelly Muchowski\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1015-30644",
+   "name": "Aaron French"
+  },
+  {
+   "race_id": "2026-MN-1022-20906",
+   "name": "Scott Kvamme"
+  },
+  {
+   "race_id": "2026-MN-1026-10846-S",
+   "name": "Charles A. Boakai",
+   "website": {
+    "url": "https://www.charles4ward4.org",
+    "how": "The filed address. The home page reads \"Vote Charles Boakai for Champlin City Council on November 3, 2026\" and names Ward 4.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0094",
+   "name": "Elizabeth Kersting-Peterson"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0204",
+   "name": "Albert J. Brand",
+   "website": {
+    "url": "https://votebrandforkmschoolboard.com",
+    "how": "The filed address. The page's title reads \"Albert Brand for Kasson-Mantorville School Board 2026\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0423",
+   "name": "Lisa Rasmussen"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0624",
+   "name": "Colleen Berquist"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0742",
+   "name": "Sonia Eizenhoefer",
+   "website": {
+    "url": "https://soniafor742.com",
+    "how": "The filed address (it forwards to soniafor742.weebly.com). The site is titled \"Sonia for 742\", names Sonia Eizenhoefer and reads \"As a school board member I want to help the St. Cloud area schools (District 742)\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0883",
+   "name": "Jamie Hillstrom",
+   "official_page": {
+    "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+    "source": "Rockford Area Schools' Board Members page, which lists \"Jamie Hillstrom - Clerk (Board term expires December 2026)\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Clerk), Rockford Area Schools Board of Education (ISD #883)",
+     "from": "",
+     "to": "now",
+     "source": "Rockford Area Schools' Board Members page (term expires December 2026; no start year given)",
+     "url": "https://www.rockford883.org/district/school-board/boardmembers-clone",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5012-ISD0728",
+   "name": "Shari Knip"
+  },
+  {
+   "race_id": "2026-MN-8611-MN",
+   "name": "Patrick Rohland"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

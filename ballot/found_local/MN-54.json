@@ -1,0 +1,343 @@
+{
+ "part": 54,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": "WebSearch was out of budget for this session, so this part was researched only by opening pages directly: government sites, the two parties' own pages, campaign sites those pages link to, Wikipedia, and the Minnesota Legislative Manual 2025-2026 (https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf, read with ballot/pdftext.py). Candidates with no entry beyond their name were not found on their jurisdiction's own page of current office holders, and no campaign site could be found without a search. For the verifier: (1) Pam Myhra's and Dan Sparks's Wikipedia articles do not mention the 2026 race. Myhra is tied by state, party (Republican) and Burnsville, which House District 55A covers; Sparks by state and by Austin and Mower County, where he is the sitting District 4 commissioner on the county's own page. If that tie is judged too thin, delete their born, offices and past_party entries. (2) The Legislative Manual prints Judge Marttila's name as 'Kristen Martilla', with the seat number (47) of the 4th District beside it; mncourts.gov answered 403 and was not asked again. (3) The manual (early 2025) lists other people as Cottonwood County Attorney and Redwood County Recorder; the counties' own pages today name Nicholas Anderson (appointed May 2025) and Amy Gewerth. (4) co.hubbard.mn.us answered 403 and was left alone. Not found on their bodies' current-member pages: Andrew McFarlane (the manual lists another District 1 commissioner), Nahid Khan, Miranda McKay-Chambers, Shawn Overocker, Kelly Lindstrom (a Woodbury News Net guide says 'Current office: None'), Ashyante Shantell Gill, Marcus Hill, Amanda Holweger, Sara Brisco, Sarah Moore, Rebecca Church (the manual lists another Winona County Attorney), Robert Bushard. The Minnesota DFL's endorsed list names other candidates in Senate 27, Senate 64 and House 55A; the Republican Party of Minnesota's nominees page lists only statewide and congressional candidates.",
+ "candidates": [
+  {
+   "race_id": "2026-MN-0147-MN",
+   "name": "Andrew Mathews"
+  },
+  {
+   "race_id": "2026-MN-0184-MN",
+   "name": "Robert Bushard"
+  },
+  {
+   "race_id": "2026-MN-0221-MN",
+   "name": "Ben Wieman",
+   "website": {
+    "url": "https://benformnhouse.com/",
+    "how": "The Minnesota DFL's endorsed list (https://dfl.org/endorsed/) links his portrait, captioned Ben Wieman and filed as House District 17B, to it; the site is headed 'Ben Wieman for MN House 17B'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party's endorsed list, House District 17B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL & Education MN Endorsed",
+    "url": "https://benformnhouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0258-MN",
+   "name": "Jim DeMay",
+   "website": {
+    "url": "https://www.demayforhouse.com/",
+    "how": "The Minnesota DFL's endorsed list (https://dfl.org/endorsed/) links his portrait, captioned Jim DeMay and filed as House District 36A, to it; the site is headed 'Minnesota House District 36A' and speaks of November 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member, Mounds View Public Schools",
+     "from": "2019",
+     "to": "present",
+     "source": "His campaign site's About page: 'He has served on the Mounds View School Board since 2019'",
+     "url": "https://www.demayforhouse.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL (state party's endorsed list, House District 36A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0296-MN",
+   "name": "Pam Myhra",
+   "born": {
+    "year": 1957,
+    "source": "Wikipedia, 'Pam Myhra'",
+    "url": "https://en.wikipedia.org/wiki/Pam_Myhra",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota House of Representatives, District 40A, then District 56A",
+     "from": "2011",
+     "to": "2015",
+     "source": "Wikipedia, 'Pam Myhra' (term January 4, 2011 to January 5, 2015)",
+     "url": "https://en.wikipedia.org/wiki/Pam_Myhra",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Minnesota House of Representatives",
+     "year": "2011-2015",
+     "party": "Republican",
+     "source": "Wikipedia, 'Pam Myhra'",
+     "url": "https://en.wikipedia.org/wiki/Pam_Myhra",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-057",
+   "name": "Andrew McFarlane"
+  },
+  {
+   "race_id": "2026-MN-0392-087",
+   "name": "David Geray",
+   "official_page": {
+    "url": "https://www.mahnomencounty.gov/nav/county_commissioners.php",
+    "source": "Mahnomen County, County Commissioners page: 'David Geray, Commissioner, District 2', '2026 Chairman' (the county's old address, co.mahnomen.mn.us, now forwards here)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0393-069",
+   "name": "Loren Younggren",
+   "official_page": {
+    "url": "https://www.co.kittson.mn.us/government/boards_committees/county_board.php",
+    "source": "Kittson County, County Board page: District 3, Loren Younggren, Board Chair",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-099",
+   "name": "Dan Sparks",
+   "official_page": {
+    "url": "https://www.mowercountymn.gov/200/County-Board-of-Commissioners",
+    "source": "Mower County, County Board of Commissioners page: 'Dan Sparks, Commissioner District 4, Chair. Term expires: January 2027'",
+    "verified": true
+   },
+   "born": {
+    "year": 1968,
+    "source": "Wikipedia, 'Dan Sparks' (born in Austin, Minnesota)",
+    "url": "https://en.wikipedia.org/wiki/Dan_Sparks",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota Senate, District 27",
+     "from": "2003",
+     "to": "2021",
+     "source": "Wikipedia, 'Dan Sparks' (term January 7, 2003 to January 5, 2021; the district included Mower County)",
+     "url": "https://en.wikipedia.org/wiki/Dan_Sparks",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Minnesota Senate, District 27",
+     "year": "2003-2021",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, 'Dan Sparks'",
+     "url": "https://en.wikipedia.org/wiki/Dan_Sparks",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-123",
+   "name": "Rebecca Noecker",
+   "website": {
+    "url": "https://www.rebeccanoecker.org/",
+    "how": "Opened directly (rebeccanoecker.com shows the same site); headed 'Vote Rebecca Noecker for Ramsey County District 5 Commissioner'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.stpaul.gov/department/city-council/ward-2-councilmember-rebecca-noecker",
+    "source": "City of Saint Paul, City Council, Ward 2 - Rebecca Noecker (the office she holds today; she is not the sitting county commissioner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Saint Paul City Council Member, Ward 2",
+     "from": "2016",
+     "to": "present",
+     "source": "Her campaign site's Meet Rebecca page, under Service",
+     "url": "https://www.rebeccanoecker.org/meet-rebecca",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Saint Paul City Council President",
+     "from": "2025",
+     "to": "present",
+     "source": "Her campaign site's Meet Rebecca page, under Service; the city's Ward 2 page also says she serves as President of the City Council",
+     "url": "https://www.rebeccanoecker.org/meet-rebecca",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Saint Paul Planning Commission, member",
+     "from": "2012",
+     "to": "2015",
+     "source": "Her campaign site's Meet Rebecca page, under Service",
+     "url": "https://www.rebeccanoecker.org/meet-rebecca",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-127",
+   "name": "Amy Gewerth",
+   "official_page": {
+    "url": "https://redwoodcounty-mn.gov/departments/recorder/",
+    "source": "Redwood County, Recorder's Office page: 'Amy Gewerth - County Recorder'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-097",
+   "name": "Shawn Larsen",
+   "official_page": {
+    "url": "https://morrisoncountymn.gov/182/SHERIFF",
+    "source": "Morrison County, Sheriff page: names Shawn Larsen as the Sheriff's Office contact, Morrison County Sheriff",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0405-033",
+   "name": "Nicholas Anderson",
+   "official_page": {
+    "url": "https://www.cottonwoodcountymn.gov/departments/county_elected_officials/index.php",
+    "source": "Cottonwood County, County Elected Officials page: 'County Attorney Nicholas Anderson'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Attorney (appointed to fill the remainder of the term)",
+     "from": "2025",
+     "to": "present",
+     "source": "Cottonwood County, County Elected Officials page: 'Appointed to fill remainder of term: May 2025, Present Term Expires: January 2027'",
+     "url": "https://www.cottonwoodcountymn.gov/departments/county_elected_officials/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-169",
+   "name": "Rebecca Church"
+  },
+  {
+   "race_id": "2026-MN-1001-40382",
+   "name": "Marylee Abrams",
+   "official_page": {
+    "url": "https://www.maplewoodmn.gov/253/City-Council",
+    "source": "City of Maplewood, City Council page: 'Marylee Abrams, Mayor'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-07948",
+   "name": "Nahid Khan"
+  },
+  {
+   "race_id": "2026-MN-1010-28682",
+   "name": "Miranda McKay-Chambers"
+  },
+  {
+   "race_id": "2026-MN-1010-49138",
+   "name": "Shawn Overocker"
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Kelly Lindstrom"
+  },
+  {
+   "race_id": "2026-MN-1022-07966",
+   "name": "Ashyante Shantell Gill"
+  },
+  {
+   "race_id": "2026-MN-1024-56896-S",
+   "name": "Hudda Ibrahim",
+   "official_page": {
+    "url": "https://www.ci.stcloud.mn.us/1030/City-Council-Members",
+    "source": "City of St. Cloud, City Council Members page: 'Hudda Ibrahim, Councilmember - 3rd Ward'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0047",
+   "name": "Robyn L Holthaus",
+   "official_page": {
+    "url": "https://www.isd47.org/about/school-board",
+    "source": "Sauk Rapids-Rice Public Schools, School Board page: 'Treasurer: Robyn L. Holthaus'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0197",
+   "name": "Marcus Hill"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0347",
+   "name": "Mary Amon",
+   "official_page": {
+    "url": "https://www.willmar.k12.mn.us/about-us/school-board",
+    "source": "Willmar Public Schools, School Board page: 'Mary Amon, Clerk. Term ends Jan. 4, 2027'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0595",
+   "name": "Amanda Holweger"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0727",
+   "name": "Ashley Schabilion",
+   "official_page": {
+    "url": "https://www.biglakeschools.org/about/school-board",
+    "source": "Big Lake Schools, School Board page: 'Ashley Schabilion, Board Clerk. Term Expires 12/31/2026'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0879",
+   "name": "Sara Brisco"
+  },
+  {
+   "race_id": "2026-MN-5006-ISD0206",
+   "name": "Sarah Moore"
+  },
+  {
+   "race_id": "2026-MN-8546-MN",
+   "name": "Kristen Marttila",
+   "offices": [
+    {
+     "office": "Judge, Fourth Judicial District Court (seat 47)",
+     "from": "2024",
+     "to": "present",
+     "source": "Minnesota Legislative Manual 2025-2026, Fourth District judges (page 367 of the PDF): 'Kristen Martilla (47) ... Appointed January 8, 2024' (the manual's spelling)",
+     "url": "https://www.lrl.mn.gov/docs/2025/mandated/251328.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": "Every url re-opened on 2026-10-02 and every finding confirmed (30). Wikipedia's Pam Myhra and Dan Sparks articles cite the Legislature's own 'Legislators Past & Present' records for service and party; neither mentions the 2026 race. Myhra is tied by the state, Burnsville (inside House District 55A) and the Republican label our record also shows; Sparks by the state and by Austin and Mower County, where the county's own page lists him as District 4 commissioner. Both births are kept as the year only. Judge Marttila's entry in the Legislative Manual (PDF page 367) is spelled 'Kristen Martilla', seat 47, 'Appointed January 8, 2024'. Corrected: the Mahnomen County address (moved to mahnomencounty.gov), the wording of how the DFL list links the Wieman and DeMay sites, and the Morrison County source wording."
+}

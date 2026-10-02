@@ -2,7 +2,8 @@
 """
 run_ballot.py - On The Ballot: who is on the ballot, race by race, from each state's own official candidate list.
 
-    python run_ballot.py                  everything: races, fec, lists, match, people, found, campaign, ads, adlib, odds, local, check, site
+    python run_ballot.py                  everything: races, fec, lists, match, people, found, campaign, ads, adlib, odds, local, localfacts,
+                                          check, site
     python run_ballot.py races            the federal races on the November 3, 2026 ballot, and each state's notes
     python run_ballot.py fec              the 2026 cycle from the FEC's bulk files, for every House and Senate candidate
     python run_ballot.py lists [ca fl]    official candidate lists (every state with a loader, or the ones named)
@@ -17,6 +18,14 @@ run_ballot.py - On The Ballot: who is on the ballot, race by race, from each sta
     python run_ballot.py local [mn wi]    the states' own races (statewide, legislature, courts; and the county and local races of the
                                           states whose loaders reach them), every ballot/state_local_<code>.py loader, or the ones
                                           named, into ballot_local_2026.sqlite
+    python run_ballot.py localfacts       what a state or local candidate's card may show beyond the list (Minnesota first): the campaign
+                                          website each filed with the Secretary of State, the open-web findings a second reader confirmed
+                                          (ballot/found_local/MN-*.json) and the photo choices (ballot/photo_choice_local.json).
+                                          Nothing is downloaded. See ballot/local_sites.py
+    python run_ballot.py localfetch       reads those candidates' own websites, one request at a time: photo options (to be looked at
+                                          before any is used) and issue headings. Not part of "everything": run it by name. It picks up
+                                          where it stopped; --limit N stops after N sites, --only "race|name;race|name" keeps to those
+                                          named, --again failed (or all) re-reads sites that did not answer (or every site)
     python run_ballot.py check            write ballot_report.md: what is loaded, from which files, what is missing
     python run_ballot.py site             build site/dev/ballot/ (its door, the Congress pages, each state's page, with its county
                                           pages where its rows reach the counties, and the states/ chooser) and the front door
@@ -27,7 +36,9 @@ official lists state by state, biggest states first; after the three-second hove
 polls only from pollsters in AAPOR's Transparency Initiative (not loaded yet).
 
 Options: --db <file> works on another copy of the federal database (for trying a stage out); --only "<person>;<person>"
-keeps the campaign stage's photo and issue fetches to the people named (a person is an FEC number, or "race|name").
+keeps the campaign stage's photo and issue fetches to the people named (a person is an FEC number, or "race|name");
+--local-db <file> points the local, localfacts and localfetch stages at another copy of ballot_local_2026.sqlite (the
+site stage always builds from the kit's own databases).
 """
 
 import datetime as dt
@@ -165,6 +176,27 @@ def stage_local(con, codes):
         say(f"    the loaders for {', '.join(failed)} stopped (see above); their earlier rows, if any, are unchanged. Re-run: python run_ballot.py local {' '.join(c.lower() for c in failed)}")
 
 
+def stage_localfacts(con):
+    """Beside the state and local list: filed campaign websites, verified open-web findings and photo choices, into
+    tables of their own in ballot_local_2026.sqlite. No network."""
+    say("== localfacts: campaign websites as filed, the open-web findings a second reader confirmed, and the photo choices")
+    con.commit()
+    if not os.path.exists(LOCAL_DB):
+        say("    no ballot_local_2026.sqlite yet (python run_ballot.py local)")
+        return
+    importlib.import_module("ballot.local_sites").stage_facts(LOCAL_DB, say=say)
+
+
+def stage_localfetch(con, only=None, limit=None, again=""):
+    """Reads each state or local candidate's own website, one request at a time, for photo options and issue headings."""
+    say("== localfetch: photo options and issue headings from the state and local candidates' own websites, to be looked at before use")
+    con.commit()
+    if not os.path.exists(LOCAL_DB):
+        say("    no ballot_local_2026.sqlite yet (python run_ballot.py local)")
+        return
+    importlib.import_module("ballot.local_sites").stage_fetch(LOCAL_DB, say=say, only=only, limit=limit, again=again)
+
+
 def stage_check(con):
     say("== check: ballot_report.md")
     q = lambda s, *p: con.execute(s, p).fetchall()
@@ -215,9 +247,9 @@ def stage_site(con):
 
 
 def main():
-    global LOG
+    global LOG, LOCAL_DB
     raw, opts = sys.argv[1:], {}
-    for flag in ("--db", "--only"):      # taken out before the rest is lower-cased: a path and a name keep their capitals
+    for flag in ("--db", "--only", "--local-db", "--limit", "--again"):      # taken out before the rest is lower-cased: a path and a name keep their capitals
         if flag in raw:
             i = raw.index(flag)
             if i + 1 >= len(raw):
@@ -226,14 +258,22 @@ def main():
             del raw[i:i + 2]
     db = os.path.abspath(opts["--db"]) if "--db" in opts else DB
     only = {p.strip() for p in opts.get("--only", "").split(";") if p.strip()} or None
+    if "--limit" in opts and not opts["--limit"].isdigit():
+        raise SystemExit("--limit needs a whole number")
+    if opts.get("--again", "failed") not in ("failed", "all"):
+        raise SystemExit("--again takes failed or all")
     args = [a.lower() for a in raw]
-    every = ["races", "fec", "lists", "match", "people", "found", "campaign", "ads", "adlib", "odds", "local", "check", "site"]
-    stages = [a for a in args if a in every] or every
+    every = ["races", "fec", "lists", "match", "people", "found", "campaign", "ads", "adlib", "odds", "local", "localfacts", "check", "site"]
+    by_name = ["localfetch"]      # hours of polite reading the first time: only when asked for
+    stages = [a for a in args if a in every + by_name] or every
     codes = [a for a in args if len(a) == 2 and a.upper() in STATE_NAMES]
     os.makedirs(os.path.join(HERE, "logs"), exist_ok=True)
     LOG = open(os.path.join(HERE, "logs", f"ballot-{dt.datetime.now():%Y%m%d-%H%M%S}-{'-'.join(stages)}.log"), "w", encoding="utf-8")
     if db != DB:
         say(f"Working on {db}, not the kit's own ballot_2026.sqlite")
+    if "--local-db" in opts:
+        LOCAL_DB = os.path.abspath(opts["--local-db"])
+        say(f"The local, localfacts and localfetch stages work on {LOCAL_DB}, not the kit's own ballot_local_2026.sqlite")
     con = connect(db)
     for s in stages:
         if s == "lists":
@@ -242,9 +282,12 @@ def main():
             stage_local(con, codes)
         elif s == "campaign":
             stage_campaign(con, only)
+        elif s == "localfetch":
+            stage_localfetch(con, only, int(opts["--limit"]) if "--limit" in opts else None, opts.get("--again", ""))
         else:
             {"races": stage_races, "fec": stage_fec, "match": stage_match, "people": stage_people, "found": stage_found,
-             "ads": stage_ads, "adlib": stage_adlib, "odds": stage_odds, "check": stage_check, "site": stage_site}[s](con)
+             "ads": stage_ads, "adlib": stage_adlib, "odds": stage_odds, "localfacts": stage_localfacts, "check": stage_check,
+             "site": stage_site}[s](con)
     say(f"Done. Log: {LOG.name}")
 
 

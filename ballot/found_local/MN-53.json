@@ -1,0 +1,505 @@
+{
+ "state": "MN",
+ "part": 53,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "All nine campaign websites recorded here were already in the record as filed with the Secretary of State; each was opened and names the candidate and the office. Laura Knudsen's filed site answered 429 twice and was not asked again, so it is not repeated here.",
+  "The Minnesota Judicial Branch site answered 403; it was not asked again or worked around, so the two judges (Bridget Ann Sullivan, Jennifer D. Peterson) have no findings.",
+  "María Isa Pérez-Vega: the Ramsey County race is nonpartisan and reports say the DFL convention for the seat ended with no endorsement, so none is recorded.",
+  "Jay Lawton: West Central Tribune (August 17, 2022, carried at https://news.yahoo.com/five-candidates-running-three-seats-063500056.html) says he was elected in 2018; the district's own page gives only the end of the term, so no start year is recorded.",
+  "Jeffrey Dahl (Otsego): the search results were about a different Jeffrey Dahl (a city administrator elsewhere) and the city's council page does not list him; nothing recorded. No findings either for Nathan Ryan, Emma Richtman, Lisa Loidolt, Scott Milliman or Philip Norgaard.",
+  "A few campaign pages print a committee mailing address in their disclaimer; none of that was kept.",
+  "Verifier: every url was re-opened on 2026-10-02. dfl.org and two campaign sites would not resolve through the search reader (the router dropping lookups) and were read with the kit's own fetcher instead. The DFL list gives each candidate under their district, which is the second anchor."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0146-MN",
+   "name": "Jack Hedin",
+   "website": {
+    "url": "https://www.jackhedin.org",
+    "how": "The site is titled Jack Hedin for Senate and names Senate District 26. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0184-MN",
+   "name": "Erin Murphy",
+   "website": {
+    "url": "https://murphyfor64.com",
+    "how": "The site is titled Erin Murphy, Candidate for MN Senate - 64. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL, Labor, and teacher endorsed",
+    "url": "https://murphyfor64.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0220-MN",
+   "name": "Mali Anderson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0257-MN",
+   "name": "Steve Pape",
+   "website": {
+    "url": "https://www.papeformnhouse.com",
+    "how": "The site says Steve Pape is running for the Minnesota House for District 35B. This is also the site filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0296-MN",
+   "name": "Jessica Hanson",
+   "website": {
+    "url": "https://www.jesshansonforhouse.com",
+    "how": "The site says she is running for re-election to the Minnesota House for District 55A. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (its list of endorsed candidates; listed as Jess Hanson, House District 55A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-037",
+   "name": "Nathan Ryan"
+  },
+  {
+   "race_id": "2026-MN-0392-085",
+   "name": "Doug Krueger",
+   "official_page": {
+    "url": "https://mcleodcountymn.gov/government/county_board/district_two.php",
+    "source": "McLeod County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Second District, McLeod County",
+     "from": "",
+     "to": "now",
+     "source": "McLeod County (Commissioner Doug Krueger, Chair; term expires January 2027)",
+     "url": "https://mcleodcountymn.gov/government/county_board/district_two.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0393-067",
+   "name": "Dale H. Anderson",
+   "official_page": {
+    "url": "https://www.kcmn.us/departments/commissioners/",
+    "source": "Kandiyohi County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Kandiyohi County",
+     "from": "",
+     "to": "now",
+     "source": "Kandiyohi County",
+     "url": "https://www.kcmn.us/departments/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-097",
+   "name": "Robert F Kasper",
+   "official_page": {
+    "url": "https://morrisoncountymn.gov/311/County-Board",
+    "source": "Morrison County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 4, Morrison County",
+     "from": "",
+     "to": "now",
+     "source": "Morrison County",
+     "url": "https://morrisoncountymn.gov/311/County-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-123",
+   "name": "María Isa Pérez-Vega",
+   "website": {
+    "url": "https://votemariaisa.org",
+    "how": "The site is headed Rep. María Isa Pérez-Vega for Ramsey County Commissioner, District 5. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15574",
+    "source": "Minnesota Legislative Reference Library, Legislators Past and Present",
+    "verified": true
+   },
+   "born": {
+    "year": 1987,
+    "date": "1987-05-01",
+    "source": "Minnesota Legislative Reference Library, Legislators Past and Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15574",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, District 65B, Minnesota House of Representatives",
+     "from": "2023",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15574",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Representative, District 65B",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library (party when first elected)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15574",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0403-121",
+   "name": "Sarah Green"
+  },
+  {
+   "race_id": "2026-MN-0404-095",
+   "name": "Kyle A. Burton",
+   "official_page": {
+    "url": "https://www.millelacs.mn.gov/directory.aspx?EID=67",
+    "source": "Mille Lacs County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff, Mille Lacs County",
+     "from": "2023",
+     "to": "now",
+     "source": "Mille Lacs County (\"Elected to office in 2023\")",
+     "url": "https://www.millelacs.mn.gov/directory.aspx?EID=67",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-031",
+   "name": "Jeanne Peterson",
+   "offices": [
+    {
+     "office": "County Attorney, Cook County (appointed by the County Board on November 26, 2024 to finish the term)",
+     "from": "2025",
+     "to": "now",
+     "source": "WTIP North Shore Community Radio, November 28, 2024",
+     "url": "https://wtip.org/?p=32061",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-167",
+   "name": "Jason M. Hastings",
+   "official_page": {
+    "url": "https://wilkincounty.gov/attorney",
+    "source": "Wilkin County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Wilkin County",
+     "from": "",
+     "to": "now",
+     "source": "Wilkin County",
+     "url": "https://wilkincounty.gov/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-40382",
+   "name": "Chonburi Lee",
+   "website": {
+    "url": "https://www.chonburilee.com",
+    "how": "The site is titled Chonburi Lee for Mayor of Maplewood. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://maplewoodmn.gov/directory.aspx?EID=576",
+    "source": "City of Maplewood",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Maplewood City Council",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Maplewood",
+     "url": "https://maplewoodmn.gov/directory.aspx?EID=576",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-07948",
+   "name": "Mark Viste",
+   "website": {
+    "url": "https://www.viste4brooklyncenter.com",
+    "how": "The site is titled Viste for Brooklyn Center, Brooklyn Center City Council 2026. This is also the site filed with the Secretary of State.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1010-28682",
+   "name": "Emma Richtman"
+  },
+  {
+   "race_id": "2026-MN-1010-49138",
+   "name": "Jeffrey Dahl"
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Jory DeLoach",
+   "website": {
+    "url": "https://www.jorydeloach.com",
+    "how": "The site is titled Jory DeLoach for Woodbury City Council. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Economic Development Commission, City of Woodbury",
+     "from": "",
+     "to": "",
+     "source": "The candidate's campaign site",
+     "url": "https://www.jorydeloach.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-07300",
+   "name": "Kelly Bevans",
+   "official_page": {
+    "url": "https://brainerdmn.gov/Directory.aspx?did=19",
+    "source": "City of Brainerd",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member (Alderman), Ward 2, Brainerd City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Brainerd",
+     "url": "https://brainerdmn.gov/Directory.aspx?did=19",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1024-54880",
+   "name": "Norman Wahl",
+   "website": {
+    "url": "https://normanwahl.com",
+    "how": "The site is titled Re-elect Norman Wahl, Rochester Ward 3 City Councilmember. This is also the site filed with the Secretary of State.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+    "source": "City of Rochester",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 3, Rochester City Council (elected 2022)",
+     "from": "",
+     "to": "now",
+     "source": "City of Rochester (\"Elected 2022, Ward 3 City Council Member\")",
+     "url": "https://www.rochestermn.gov/council-administration/city-council/councilmembers/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "School Board Member, Kiester, Minnesota",
+     "from": "",
+     "to": "",
+     "source": "Post Bulletin (Rochester), May 31, 2022",
+     "url": "https://www.postbulletin.com/news/local/wahl-seeking-ward-3-council-seat-to-continue-focus-on-practical-leadership",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0047",
+   "name": "Lisa Loidolt"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0197",
+   "name": "Jon Vaupel",
+   "official_page": {
+    "url": "https://www.isd197.org/fs/pages/1753",
+    "source": "School District 197 (West St. Paul-Mendota Heights-Eagan)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Vice-Chair/Clerk), School District 197",
+     "from": "",
+     "to": "now",
+     "source": "School District 197",
+     "url": "https://www.isd197.org/fs/pages/1753",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0347",
+   "name": "Jay Lawton",
+   "official_page": {
+    "url": "https://www.willmar.k12.mn.us/about-us/school-board",
+    "source": "Willmar Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director), Willmar Public Schools",
+     "from": "",
+     "to": "now",
+     "source": "Willmar Public Schools",
+     "url": "https://www.willmar.k12.mn.us/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0578-S",
+   "name": "Scott Milliman"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0726",
+   "name": "Philip Norgaard"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0879",
+   "name": "Ryan Schaust",
+   "official_page": {
+    "url": "https://www.delano.k12.mn.us/our-district/school-board",
+    "source": "Delano Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director; Vice Chair in 2025), Delano Public Schools",
+     "from": "2023",
+     "to": "now",
+     "source": "Delano Public Schools (\"Director (1-2023 thru 12-2026)\")",
+     "url": "https://www.delano.k12.mn.us/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5006-ISD0206",
+   "name": "Laura Knudsen",
+   "official_page": {
+    "url": "https://www.alexschools.org/fs/pages/2384",
+    "source": "Alexandria Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member (Director), Alexandria Public Schools (elected 2022)",
+     "from": "2023",
+     "to": "now",
+     "source": "Alexandria Public Schools",
+     "url": "https://www.alexschools.org/fs/pages/2384",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8542-MN",
+   "name": "Bridget Ann Sullivan"
+  },
+  {
+   "race_id": "2026-MN-9244-MN",
+   "name": "Jennifer D. Peterson"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "name": "Erin Murphy",
+   "what": "endorsed_by: Stonewall DFL",
+   "why": "The page does list the candidate, but Stonewall DFL is a caucus within the party, not the party or one of its endorsing units; the party's own endorsement is already recorded from dfl.org."
+  },
+  {
+   "name": "Steve Pape",
+   "what": "born (1952)",
+   "why": "The page states it, but the Minnesota Historical Election Archive (University of Minnesota Libraries) is not an official, campaign or party page, nor Wikipedia or a news organization, so the kind cannot be labelled truthfully under the rules."
+  },
+  {
+   "name": "Steve Pape",
+   "what": "past_party (2024, State Representative 35B, Republican)",
+   "why": "Same source: the page states it, but the source fits none of the four kinds. An official results page would do."
+  },
+  {
+   "name": "Jessica Hanson",
+   "what": "endorsed_by: Stonewall DFL",
+   "why": "The page does list the candidate, but Stonewall DFL is a caucus within the party, not the party or one of its endorsing units; the party's own endorsement is already recorded from dfl.org."
+  },
+  {
+   "name": "Sarah Green",
+   "what": "official_page and offices (County Recorder, Pope County)",
+   "why": "Pope County's recorder page came back empty twice (it is drawn by script), so the page could not be seen to name her."
+  }
+ ]
+}

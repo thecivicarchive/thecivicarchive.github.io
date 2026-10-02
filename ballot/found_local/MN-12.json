@@ -1,0 +1,526 @@
+{
+ "part": 12,
+ "of": 73,
+ "researched": "2026-10-01",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after this part's first eight searches (the legislative candidates), so everything else was found by reading pages directly with the kit's honest User-Agent (states/net.py), one request at a time, with each site's robots.txt obeyed by that reader (the lapses are listed under this part's mistakes below): the candidates' own sites, each county's, city's and school district's own site (their council minutes and directories included), the Minnesota DFL's list of endorsed candidates and local party units' pages, the Legislative Reference Library, Wikipedia's election articles, and local newspapers through their own election sections and search pages where robots.txt allows. A voter guide (theballotbrief.com) and the University of Minnesota's election archive were read for leads only and are not cited. Likely campaign and party-unit addresses were tried by asking only whether the name has an address on the network; a campaign site (madalynnforep.com) and a candidate's personal site (www.shauncarlson.com, which links to his campaign site) were found that way and then read.",
+  "The campaign websites the candidates filed were learned from a scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; the real database was only read. Each filed site was opened and read before it was listed here. Two more campaign sites were found and read: Madalynn Gerold's (the Senate District 49 DFL's candidates page links to it from her name) and Shaun Carlson's (his personal site's City Council page links to it as his campaign website).",
+  "Not read, and nothing worked around: the Minnesota Judicial Branch's site (HTTP 403 with a bot check, to the kit's reader and to the fetch tool), the state's mn.gov pages (a Radware CAPTCHA; not asked again), ballotpedia.org (a bot check), DuckDuckGo's HTML page (allowed by its robots.txt, asked once, showed a bot check), the search pages of the Thief River Falls Times and the Pine Knot News (403), the search pages of the Worthington Globe and the Waseca County Pioneer (robots.txt), Becker County's site (its certificate chain could not be verified), and the Arlington Enterprise's story on the Sibley County sheriff's race (a paywall after the first lines). So the two judges, Dannia L. Edwards and Tammy L. Merkins, have no findings.",
+  "This part's mistakes, with nothing kept from them: (1) the City of St. Michael's and the City of Detroit Lakes' sites ask unlisted scripts to stay out in robots.txt; the kit's reader stopped there, but their council pages were then opened with the fetch tool before it was settled that a stay-out applies to every reader. Nothing read there is kept (Tom Hamilton's and Ryan Gleason's council seats rest on the Press & News instead, and Shaun Carlson has no official page), and the two sites should not be asked again. (2) One InForum story and one search page on twincities.com were opened with the kit's reader before it was noticed that those sites' robots.txt turns Claude's own agents away; nothing is cited from either. (3) Wikipedia's search interface (the api.php address the kit's profile loader also uses) was asked eight questions, although robots.txt does not open /w/ to scripts; the one Wikipedia page cited below was read at its ordinary /wiki/ address. (4) The GDELT open news index was asked five questions (three were refused as too many); nothing is cited from it.",
+  "For the second reader: (a) Bonnie Westlin is a sitting member whose roster record has no birth date, so the Legislative Reference Library's is given, as parts 0, 1 and 10 did. (b) Where one page shows that an office is held and another gives the year it began or ended, the finding's url is the first page and the second page's address is written out in the source text (Ryan Dunlap, Dave Hallback, Tom Hamilton, Ryan Gleason, Mike Kuhle, Michael Polehna). A from that reads 'elected 2020' is an election year, not a start year. (c) Dave Hallback: the Pine Knot News says he 'served as Cloquet's mayor from 2014-2018'; the city's own minutes show his oath on January 6, 2015 and his successor's on January 2, 2019, and the minutes' years are the ones recorded. (d) Mike Kuhle: three stretches of service, all from the City of Worthington's council minutes. No page read says in so many words that the Ward 2 member seated on November 12, 2024 is the former mayor; the tie is the same name on the same council, which is the body he is running for. (e) Tom Hamilton: the newest page read that calls him a council member is the Press & News story of May 21, 2026 ('Councilmember Tom Hamilton'); with the four-year term he was sworn into on January 14, 2025, his 'to' is given as now, and the second reader may prefer to leave it empty. Ryan Gleason's rests on the same paper's September 17, 2026 voter's guide ('incumbent Ryan Gleason'). (f) Sally Lorberbaum's three appointed posts come from her campaign site, which gives lengths of service and no years. (g) Madalynn Gerold: her own site and Eden Prairie Local News say she ran for the Minnesota House in 2018 without naming a party; Wikipedia's results table gives the party and district (the University of Minnesota's election archive agrees). The birth date that archive shows was not taken, because the source it names is a birth records index. (h) Peter M Fischer's campaign site still shows a 2024 copyright line and a 2024 endorsements page; its home page announces the run for re-election in House District 44A without a year.",
+  "party_support (a key the loader does not read, in the shape parts 0, 6 and 10 use): the Senate District 49 DFL names Madalynn Gerold under 'Local Candidates we support', a heading that is not the word endorsement (part 10 records the same page for another candidate in her race). It is kept apart from endorsed_by so that no page calls it an endorsement; whether and how it is shown is John's decision.",
+  "For whoever holds race 2026-MN-1010-17486 (East Bethel Council Member, At Large): the City of East Bethel's own notice of August 6, 2026 says Council Member Tim Miller, who is on our November list, died on August 1, 2026 after filing, and that his name will still be printed on the city's ballots. It is written as a review item under Mark Duchene, the candidate of that race in this part, although it is not about him. ABC Newspapers reported on August 13, 2026 that the council appointed Dino Perfetti to hold the seat until the candidate elected in November takes office; the same paper's list of candidates (compiled with AI assistance, by its own note) also names Perfetti as a candidate, which our list, the Secretary of State's, does not.",
+  "No Republican party page with a 2026 endorsement of Keri Heintzeman was found: the Republican Party of Minnesota's '2026 Republican Nominees' pages list statewide and congressional candidates only, the Itasca County Republicans' site lists her under 'Our Legislators' without the word endorsed, and no site was found for the Crow Wing or Cass County units.",
+  "Nothing a card may show was found for Terry Strege, Jacob Vold, Ty Backlund, Denley Kompelien, Mark Duchene, Aaron Sinclair, Cara McClincy, Nikki Gieseke and the two judges. Read for them: Wright County's news posts on the commissioner races and KRWC's May 14, 2026 story (Strege; the story says he lost the same seat's 2022 election, a nonpartisan run); Traverse County's commissioner, city-official and township-officer pages (Vold is on none); WTIP's January 23 and September 30, 2026 stories (Backlund); East Bethel's council and commission pages (Duchene is on none); the Little Falls district's board page and the Morrison County Record's election coverage (Sinclair is not on the board; the paper's July 27 filing story predates his filing); the Hermantown district's own '2026 School Board Candidates' page, which carries McClincy's introduction and names no public office; the Owatonna district's board and election pages (Gieseke is not on the board; the district's campaign-finance list shows she also ran in 2022 and 2024, nonpartisan runs). What those pages say of work, schools and household is not recorded. Ages and graduation years were not turned into birth years."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0126-MN",
+   "name": "Keri Heintzeman",
+   "website": {
+    "url": "https://heintzemanforsenate.com",
+    "how": "The address she filed. The site is headed 'Keri Heintzeman for Senate District 6' and says it is prepared and paid for by Heintzeman for Senate; its browser title still reads 'Vote Keri Heintzeman in the Senate Dist. 6 Special Election' (the April 2025 race), but the page now announces the precinct caucuses of Feb. 3rd, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0162-MN",
+   "name": "Bonnie Westlin",
+   "website": {
+    "url": "https://backbonnie.com",
+    "how": "The address she filed; it leads to www.bonniewestlinformnsenate.com, headed 'Bonnie Westlin, Candidate for MN Senate District 42', where she writes 'I'm Senator Bonnie Westlin, and I'm running for re-election'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1962,
+    "date": "1962-07-24",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Bonnie Westlin (Date of Birth: 7/24/1962)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15585",
+    "kind": "official",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0200-MN",
+   "name": "Erin McCabe Ningen",
+   "website": {
+    "url": "https://teamerin7a.com",
+    "how": "The address she filed. The site's title is 'Erin McCabe Ningen for Minnesota House 7A | DFL Endorsed' and it says it is prepared and paid for by the McCabe Ningen for 7a Committee.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints her name as Erin Ningen, House District 7A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Erin McCabe Ningen for Minnesota House 7A | DFL Endorsed",
+    "url": "https://teamerin7a.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0237-MN",
+   "name": "Andy Smith",
+   "website": {
+    "url": "https://andysmithmn.com",
+    "how": "The address he filed; it leads to www.andysmithmn.com, titled 'Rep. Andy Smith for MN House' and paid for by the Andy Smith for House Committee of Rochester. Its Meet Andy page (/meetandy) says he 'was first elected to the Minnesota House of Representatives in 2022'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0274-MN",
+   "name": "Peter M Fischer",
+   "website": {
+    "url": "https://www.fischerforrep.com",
+    "how": "The address he filed. The site's title is 'Peter Fischer for State Representative' and its home page says 'I am excited to announce I am running for ReElection in House District 44A.'",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, which prints his name as Peter Fischer, House District 44A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0315-MN",
+   "name": "Dave Pinto",
+   "website": {
+    "url": "https://www.davepinto.com",
+    "how": "The address he filed; it leads to davepinto.com, paid for by Pinto Volunteer Committee. Its About page says 'Dave represents the Highland Park, Mac-Groveland, and Fort Road / West Seventh neighborhoods of St. Paul in the Minnesota House', and its Endorsements page ends 'Check back here as additional 2026 endorsements are announced'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Minnesota HD 64B DFL",
+    "url": "https://davepinto.com/endorsements/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0391-171",
+   "name": "Terry Strege"
+  },
+  {
+   "race_id": "2026-MN-0392-155",
+   "name": "Jacob Vold"
+  },
+  {
+   "race_id": "2026-MN-0393-171",
+   "name": "Ryan Dunlap",
+   "website": {
+    "url": "https://www.rjdunlap.com",
+    "how": "The address he filed. The home page is headed 'Wright County Commissioner 2026', says 'More about Ryan Dunlap' and carries a 'Donate today!' link.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.otsegomn.gov/m/directory/employee?eid=21",
+    "source": "City of Otsego: directory entry for Ryan Dunlap, Council Member, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Otsego City Council member",
+     "from": "elected 2022",
+     "to": "now",
+     "source": "City of Otsego: directory entry for Ryan Dunlap, Council Member (term expires December 31, 2026; no starting year given). The election year is from his campaign site's About page, https://www.rjdunlap.com/about ('In 2022, I was elected to the Otsego City Council')",
+     "url": "https://www.otsegomn.gov/m/directory/employee?eid=21",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-161",
+   "name": "Curt Keyes",
+   "offices": [
+    {
+     "office": "Iosco Township board member (Waseca County)",
+     "from": "2012 (elected by write-in that year)",
+     "to": "now",
+     "source": "Waseca County Pioneer, 'Curt Keyes seeks seat as district 4 commissioner' (Deb Bently, September 3, 2026): 'he ran a successful write-in campaign in 2012, and has served on the Iosco township board ever since'",
+     "url": "https://www.wasecacountypioneer.com/news/curt-keyes-seeks-seat-district-4-commissioner",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-041",
+   "name": "Vicki Doehling",
+   "official_page": {
+    "url": "https://www.douglascountymn.gov/auditor-treasurer",
+    "source": "Douglas County: Auditor/Treasurer's Office (contact: Vicki Doehling, County Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Douglas County Auditor/Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Douglas County: Auditor/Treasurer's Office page, which names her as County Auditor/Treasurer (no starting year given)",
+     "url": "https://www.douglascountymn.gov/auditor-treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-031",
+   "name": "Ty Backlund"
+  },
+  {
+   "race_id": "2026-MN-0404-143",
+   "name": "Denley Kompelien"
+  },
+  {
+   "race_id": "2026-MN-0405-089",
+   "name": "Christopher Rokke",
+   "official_page": {
+    "url": "https://www.marshallcountymn.gov/departments/attorney/index.php",
+    "source": "Marshall County: County Attorney (Christopher Rokke)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "Marshall County: County Attorney page, which names him (no starting year given)",
+     "url": "https://www.marshallcountymn.gov/departments/attorney/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-12160",
+   "name": "Dave Hallback",
+   "offices": [
+    {
+     "office": "Mayor of Cloquet",
+     "from": "2015",
+     "to": "2019",
+     "source": "City of Cloquet council minutes of January 6, 2015: 'New Mayor Dave Hallback took the Oath of Office for his new term as Mayor'. His successor took the oath on January 2, 2019 (minutes at https://www.cloquetmn.gov/home/showpublisheddocument/2585/636832388391770000). The Pine Knot News of June 5, 2026 calls the candidate 'former mayor Dave Hallback' (https://www.pineknotnews.com/story/2026/06/05/elections/cloquet-mayors-race-will-go-to-primary/14965.html)",
+     "url": "https://www.cloquetmn.gov/home/showpublisheddocument/908/636691046403870000",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-57346",
+   "name": "Tom Hamilton"
+  },
+  {
+   "race_id": "2026-MN-1010-17486",
+   "name": "Mark Duchene",
+   "review": [
+    {
+     "shows": "Tim Miller is one of the four candidates on our November list for this race (East Bethel Council Member, At Large; voters choose 2), with no note.",
+     "problem": "About another candidate in this race, not about Mark Duchene: the City of East Bethel's notice of August 6, 2026 says Council Member Tim Miller, first elected in 2022, died on August 1, 2026 after filing for re-election, and that 'his name will still appear on the city ballots for the General Election on November 3, 2026'.",
+     "url": "https://www.ci.east-bethel.mn.us/CivicAlerts.aspx?AID=56",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-41696",
+   "name": "Sally Lorberbaum",
+   "website": {
+    "url": "https://sallyforcouncil.com",
+    "how": "The address she filed. The site's title is 'Sally Lorberbaum for City Council - Mendota Heights, Minnesota'; it carries a 2026 copyright line and says it is prepared and paid for by the Sally for Council committee.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mendotaheightsmn.gov/259/City-Council",
+    "source": "City of Mendota Heights: City Council (Sally Lorberbaum, Council Member)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mendota Heights City Council member",
+     "from": "2023",
+     "to": "now",
+     "source": "City of Mendota Heights: City Council page, which lists her as a Council Member with 'Current Term: January 1, 2023 to December 31, 2026'; her campaign site says she has served on the council 'these past four years'",
+     "url": "https://www.mendotaheightsmn.gov/259/City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mendota Heights Planning Commission member (14 years; chair for 6)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Sally page: 'Mendota Heights Planning Commission – past chair 6 years, served 14 years' (no years given)",
+     "url": "https://sallyforcouncil.com/about-sally",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mendota Heights Airport Relations Commission member (13 years)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Sally page: 'Mendota Heights Airport Relations Commission – past co-chair 1 year, past vice chair 7 years, served 13 years' (no years given)",
+     "url": "https://sallyforcouncil.com/about-sally",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Dakota County Special Board of Equalization & Tax Appeal member (9 years; chair for 8)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site's About Sally page: 'Dakota County Special Board of Equalization & Tax Appeal – chair 8 years, served 9 years' (no years given)",
+     "url": "https://sallyforcouncil.com/about-sally",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-57346",
+   "name": "Ryan Gleason"
+  },
+  {
+   "race_id": "2026-MN-1020-15832",
+   "name": "Shaun Carlson",
+   "website": {
+    "url": "https://detroitlakes.shauncarlson.com",
+    "how": "Not filed with the Secretary of State. The site is headed 'Re-elect Shaun Carlson for Detroit Lakes City Council, Ward 1', writes of the 2026 levy, and is reached from his personal site's City Council page (www.shauncarlson.com/city-council), which calls it his campaign website and says it is prepared and paid for by the Shaun Carlson for DL City Council committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Detroit Lakes City Council member, Ward 1",
+     "from": "2023",
+     "to": "now",
+     "source": "His campaign site: 'I've been one of your Ward 1 representatives since 2023'",
+     "url": "https://detroitlakes.shauncarlson.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Detroit Lakes Planning Commission member (its chair today)",
+     "from": "2021",
+     "to": "now",
+     "source": "His campaign site: 'on the Planning Commission since 2021' and 'I'm current the Chair of the Detroit Lakes Planning Commission'",
+     "url": "https://detroitlakes.shauncarlson.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-71734",
+   "name": "Mike Kuhle",
+   "official_page": {
+    "url": "https://www.worthingtonmn.gov/Our-City/Mayor-City-Council",
+    "source": "City of Worthington: Mayor & City Council (Mike Kuhle, Council Member - 2nd Ward, term expires December 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Worthington City Council member, Ward 2",
+     "from": "2024",
+     "to": "now",
+     "source": "City of Worthington council minutes of November 12, 2024: the mayor 'introduced and welcomed Mike Kuhle as the new Ward 2 Council Member', 'filling the unexpired term in Ward 2 which was effective immediately'. The city's Mayor & City Council page lists him today, with a term expiring December 2026",
+     "url": "https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2024/11-12-24-cc-minutes.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Worthington",
+     "from": "2015",
+     "to": "2022",
+     "source": "City of Worthington council minutes of December 27, 2022: 'Mayor Kuhle gave his final remarks regarding his 16 year tenure as a Council Member and Mayor'. The minutes of December 22, 2014 show another mayor presiding with Mike Kuhle as a council member, and those of January 9, 2015 show the meeting called to order by Mayor Mike Kuhle: https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2015/01-09-2015-city-council-special-meeting-minutes.pdf",
+     "url": "https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2022/12-27-2022-city-council-minutes.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Worthington City Council member (before he was mayor)",
+     "from": "",
+     "to": "2014",
+     "source": "City of Worthington council minutes of December 22, 2014, which list Mike Kuhle among the council members present (no starting year given; the minutes of December 27, 2022 speak of a 16 year tenure as a Council Member and Mayor)",
+     "url": "https://www.worthingtonmn.gov/files/assets/city/v/1/city-council/minutes/2014/12-22-2014-city-council-minutes.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1026-62824",
+   "name": "Michael Polehna",
+   "official_page": {
+    "url": "https://www.stillwatermn.gov/city-government/mayor-council",
+    "source": "City of Stillwater: Mayor & Council (Council Member Michael Polehna, Ward 4)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stillwater City Council member, Ward 4",
+     "from": "",
+     "to": "now",
+     "source": "City of Stillwater: Mayor & Council page, which lists Council Member Michael Polehna, Ward 4, Term Expires: 01/03/2027 (no starting year given)",
+     "url": "https://www.stillwatermn.gov/city-government/mayor-council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0138",
+   "name": "Adam Trampe",
+   "official_page": {
+    "url": "https://www.isd138.org/page/school-board-information",
+    "source": "North Branch Area Public Schools: School Board Information (Adam Trampe, Director, with a portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Branch Area Public Schools board member (Director)",
+     "from": "2022",
+     "to": "now",
+     "source": "North Branch Area Public Schools: School Board Information page, which lists 'Adam Trampe, Director', 'Term Expires: January 2027', 'First Elected/Appointed: March 2022'",
+     "url": "https://www.isd138.org/page/school-board-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0272",
+   "name": "Madalynn Gerold",
+   "website": {
+    "url": "https://madalynnforep.com",
+    "how": "Not filed with the Secretary of State. The site's title is 'Madalynn Gerold for School Board | Thoughtful, Data-Driven Leadership', it is signed '© 2026 Madalynn Gerold for School Board', and its About page (madalynnforep.com/About-me/) says she 'decided to run for the Eden Prairie School Board'; the Senate District 49 DFL's candidates page links to it from her name. Its server leaves an intermediate certificate out of the handshake, which the kit's issuer repair (states/net.py) mends.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "DFL candidate for Minnesota House District 47A in the general election (not elected)",
+     "year": 2018,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Wikipedia, 2018 Minnesota House of Representatives election: the District 47A row of the results table names Madalynn Gerold (DFL), citing the Chanhassen Villager's 'Q&A with House District 47A candidate Madalynn Gerold'. Her campaign site's About page (https://madalynnforep.com/About-me/) says she 'previously ran for the Minnesota House in 2018'",
+     "url": "https://en.wikipedia.org/wiki/2018_Minnesota_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "party_support": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Senate District 49 DFL (district unit)",
+     "wording": "Local Candidates we support",
+     "what": "Named \"Madalynn Gerold - Eden Prairie School Board\" under the heading \"Local Candidates we support\", with a link to her campaign site. The same page uses the word \"Endorsed\" only for partisan offices and the county attorney.",
+     "url": "https://dfl49.org/2026-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0482",
+   "name": "Aaron Sinclair"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0700",
+   "name": "Cara McClincy"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0761",
+   "name": "Nikki Gieseke"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2752",
+   "name": "Jen Harris",
+   "official_page": {
+    "url": "https://www.fairmont.k12.mn.us/page/sb-membership-resources",
+    "source": "Fairmont Area Schools: School Board (Jen Harris, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fairmont Area Schools board member (Treasurer)",
+     "from": "",
+     "to": "now",
+     "source": "Fairmont Area Schools: School Board page, whose board table and photo caption list Jen Harris as Treasurer (no starting year given)",
+     "url": "https://www.fairmont.k12.mn.us/page/sb-membership-resources",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8102-MN",
+   "name": "Dannia L. Edwards"
+  },
+  {
+   "race_id": "2026-MN-8926-MN",
+   "name": "Tammy L. Merkins"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-1001-57346",
+   "name": "Tom Hamilton",
+   "finding": "offices: St. Michael City Council member (elected 2020 to now)",
+   "url": "https://www.hometownsource.com/press_and_news/st-michael-city-council-approves-pud-plans-for-two-developments/article_3237a1e3-4204-4be8-9fec-f8a8dac8ea54.html",
+   "why": "hometownsource.com's robots.txt turns Anthropic's agents away (ClaudeBot, anthropic-ai), so the page was not opened by the verifier and the finding could not be confirmed; the city's own site asks scripts to stay out as well"
+  },
+  {
+   "race_id": "2026-MN-1010-57346",
+   "name": "Ryan Gleason",
+   "finding": "offices: St. Michael City Council member (elected 2018 to now)",
+   "url": "https://www.hometownsource.com/press_and_news/psa/voter-s-guide-four-candidates-running-for-st-michael-city-council/article_2c17120f-d6b2-4112-8774-380e7e798ade.html",
+   "why": "hometownsource.com's robots.txt turns Anthropic's agents away (ClaudeBot, anthropic-ai), so the page was not opened by the verifier and the finding could not be confirmed; the city's own site asks scripts to stay out as well"
+  },
+  {
+   "race_id": "2026-MN-1026-62824",
+   "name": "Michael Polehna",
+   "finding": "offices: Mayor of Stillwater, 2014 (as vice mayor, filled the vacancy)",
+   "url": "https://www.hometownsource.com/stillwater_gazette/news/local/2014-year-in-review/article_37c9ecf5-aed2-5121-a6ab-0d5b2ecb379c.html",
+   "why": "hometownsource.com's robots.txt turns Anthropic's agents away (ClaudeBot, anthropic-ai), so the page was not opened by the verifier and the finding could not be confirmed"
+  },
+  {
+   "finding": "notes: an unverified lead about the two judges' appointments and earlier posts, taken from a voter guide",
+   "why": "not a finding and not confirmed by any page that could be opened; left out"
+  }
+ ],
+ "verifier_notes": [
+  "Every address in the findings was opened again on 2026-10-02 with the kit's reader (states/net.py), robots.txt read first for the kit's name and for Anthropic's agents. Nothing was asked of the Secretary of State, no wall was worked around, the Browser pane was not used.",
+  "Removed: three findings that rest on hometownsource.com (Press & News, Stillwater Gazette), whose robots.txt turns Anthropic's agents away. Tom Hamilton and Ryan Gleason therefore carry no findings; Michael Polehna keeps the city's own page. Clauses citing those papers were also taken out of Ryan Dunlap's website note and Michael Polehna's council entry.",
+  "Corrected: Vicki Doehling's and Christopher Rokke's source lines no longer mention a second county page that the file gave no address for; Jen Harris's source line now says what the page shows (a board table and a photo caption); Madalynn Gerold's About page is at /About-me/ and Andy Smith's Meet Andy page at /meetandy.",
+  "dfl.org/endorsed/ carries no year; it is headed 'Candidates Endorsed by the Minnesota DFL', and the offices and districts beside the five names match our 2026 list (it prints Erin Ningen, House District 7A, and Peter Fischer, House District 44A).",
+  "The 'notes' above are the researcher's account of pages read for leads; the verifier did not re-open pages that support no finding (KRWC, WTIP, ABC Newspapers, the school districts' candidate pages), so statements there about Terry Strege, Nikki Gieseke and the East Bethel appointment are unverified and should not be shown.",
+  "Heintzeman's site still carries the 2025 special-election browser title; it names her and Senate District 6 and announces the February 3, 2026 caucuses, so it is kept. Mike Kuhle: the tie between the Ward 2 member seated in 2024 and the former mayor is the same name on the same council, as the researcher said; all four city pages state what is recorded. party_support for Madalynn Gerold is on the Senate District 49 DFL's own page under 'Local Candidates we support', not the word endorsed; it stays outside endorsed_by."
+ ]
+}

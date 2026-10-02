@@ -1,0 +1,382 @@
+{
+ "state": "MN",
+ "part": 36,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: one search per candidate, then the session's search allowance ran out (200 of 200) early in the second round, so follow-up searches for campaign sites, local party pages and news reports could not be made. Pages were then opened directly with the kit's honest User-Agent (states/net.py), robots.txt read first and obeyed. Filed campaign websites were learned from an existing scratch copy of the database on which the kit's own step (python -m ballot.local_sites files) had been run; only race, name and the website cell were looked at. A second pass with searching would be worth it for the candidates with nothing below.",
+  "Not read, and nothing worked around: mncourts.gov (403 to scripts and to the page-reading tool, so no court page for Judge Erin Lindhart Felten or Judge Stoney L. Hiljus; search results say Felten was appointed by Governor Walz in 2024 and Hiljus by Governor Dayton in 2012, but no page stating it could be opened: mnbar.org refused the connection, and cfb.mn.gov's robots.txt asks scripts to stay out); co.ym.mn.gov (robots.txt; Yellow Medicine County sheriff); mankatomn.gov (robots.txt); kttc.com (robots.txt names ClaudeBot). mn.gov and the Secretary of State's sites were never asked.",
+  "Republican endorsements: none could be recorded for Jackie Henry (Senate 18) or Ben Bakeberg (Senate 54). mngop.com's '2026 Republican Nominees' page names neither, and no local unit's page was found without searching. A search result quoted the Mankato Free Press saying Henry's campaign has no website.",
+  "Left out on purpose. John Heinrich: the Legislative Reference Library marks his birth year 'uncertain', so no birth year. Bruce R. Anderson (Forest Lake mayor): search results return the late state senator Bruce D. Anderson, a different person; the city's council page shows Blake Roberts as mayor; nothing recorded. Don Friend (Mankato Ward 3): a search result says a Don Friend ran for the same ward in 2022 and lost narrowly, but the article could not be opened to tie him to this race. Pat \"Pot\" Farmer and Matthew Beukema: search results mention earlier school board runs (Rochester 2024, St. Francis 2024), which are not offices held. Jen Bloomquist's own About page mentions party posts in California; party posts are not public offices. Candidates' jobs are not recorded.",
+  "Nothing found for: Jackie Henry, Chad Ryan, Craig Smith, Michael Jenson, Kristy Kjos (Roseau County's site showed no page naming the county attorney), Bruce R. Anderson, David Sieburg, Duane Rader, Craig Johnson, Don Friend, Matthew Beukema, Chris Peach, Pat \"Pot\" Farmer, Zack Dinzeo (the district's own page lists him only as a candidate), Erin Lindhart Felten, Stoney L. Hiljus.",
+  "Verifier, 2026-10-02: every address was opened again (the page-reading tool, and the kit's downloader with its honest User-Agent where this machine's router dropped the lookup). Grant County, the City of Anoka and Prior Lake-Savage Area Schools have moved to new addresses (grantcountymn.gov, anokamn.gov, plsas.org); the old ones forward there, and the new ones are recorded. One finding removed (see 'removed')."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0138-MN",
+   "name": "Jackie Henry"
+  },
+  {
+   "race_id": "2026-MN-0174-MN",
+   "name": "Ben Bakeberg",
+   "website": {
+    "url": "https://www.benbakebergmn.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Ben Bakeberg for Senate | Senate District 54' and names Shakopee, Prior Lake and Jordan.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0212-MN",
+   "name": "Arlis Sayler",
+   "website": {
+    "url": "https://arlisformn.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The page is headed 'Arlis Sayler for Minnesota House District 13A' (Stearns County), and the Minnesota DFL's endorsed list links to it beside his name.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists Arlis Sayler, House District 13A (the page gives no year; it is the party's current list and links to this campaign's site)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0249-MN",
+   "name": "Jen Bloomquist",
+   "website": {
+    "url": "https://www.jenformnhouse.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Jen for MN House 31B', and the Minnesota DFL's endorsed list links to it beside her name.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists Jen Bloomquist, House District 31B (the page gives no year; it is the party's current list and links to this campaign's site)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0287-MN",
+   "name": "Steve Elkins",
+   "website": {
+    "url": "https://www.elkinsforhouse.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Elkins For House' and opens 'Meet Steve Elkins, Your Representative for Minnesota House District 50B'; it announces a September 3rd, 2026 event.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL: 'Candidates Endorsed by the Minnesota DFL' lists Steve Elkins, House District 50B (the page gives no year; it is the party's current list and links to this campaign's site)",
+     "url": "https://dfl.org/endorsed",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0391-003",
+   "name": "John Heinrich",
+   "website": {
+    "url": "https://heinrichforanokacounty.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Heinrich for Anoka county Commissioner', is headed 'John Heinrich for Anoka County Commissioner' and names District 1 (Anoka, Nowthen, Ramsey and St. Francis).",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.anokacountymn.gov/directory.aspx?EID=30",
+    "source": "Anoka County: directory entry for John Heinrich, District 1 Commissioner, Board of Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anoka County Commissioner, District 1",
+     "from": "2025",
+     "to": "now",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John Heinrich ('County Board/Commissioner: Anoka County, Minnesota (Commissioner, District 1); 2025 to ? [Elected]'); the county's own directory lists him as District 1 Commissioner today",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15506",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Minnesota House of Representatives, District 35A",
+     "from": "2019",
+     "to": "2022",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John Heinrich ('House 2019-2022 (District 35A)', counties served: Anoka). Anoka County's page says he 'served as a state legislator for two terms in District 35A'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15506",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House of Representatives, District 35A",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John Heinrich (91st session: elected 11/6/2018, party Republican)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15506",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Re-elected to the Minnesota House of Representatives, District 35A",
+     "year": 2020,
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John Heinrich (92nd session: elected 11/3/2020, party Republican)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15506",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-049",
+   "name": "Chad Ryan"
+  },
+  {
+   "race_id": "2026-MN-0393-027",
+   "name": "Thomas Berglind",
+   "website": {
+    "url": "https://tom4clay.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The page's title is 'Tom Berglind for Clay County Commission · District 3' (the rest is drawn by script and was not read).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0394-051",
+   "name": "Bill LaValley",
+   "official_page": {
+    "url": "https://www.grantcountymn.gov/160/County-Commissioners",
+    "source": "Grant County: County Commissioners page, which lists 'Bill LaValley - Vice Chair' among the board members and 'District 4 - LaValley, City - Elbow Lake'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grant County Commissioner, District 4",
+     "from": "",
+     "to": "now",
+     "source": "Grant County's County Commissioners page lists Bill LaValley as Vice Chair of the board and as the District 4 commissioner (no starting year given)",
+     "url": "https://www.grantcountymn.gov/160/County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0395-065",
+   "name": "Craig Smith"
+  },
+  {
+   "race_id": "2026-MN-0402-051",
+   "name": "Jamie Kruize",
+   "official_page": {
+    "url": "https://www.grantcountymn.gov/180/Treasurer",
+    "source": "Grant County: Treasurer page, which names Jamie Kruize under the heading 'Grant County Treasurer'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grant County Treasurer",
+     "from": "",
+     "to": "now",
+     "source": "Grant County's Treasurer page names Jamie Kruize under 'Grant County Treasurer' (no starting year given)",
+     "url": "https://www.grantcountymn.gov/180/Treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-067",
+   "name": "Eric Tollefson",
+   "website": {
+    "url": "https://tollefsonforsheriff.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Tollefson For Sheriff' and is about the Kandiyohi County sheriff's office. It names no year for this race: its banner reads 'Remember to vote Tollefson November 8th!' and its copyright line says 2022, so it looks unchanged since his 2022 run for the same office.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0404-173",
+   "name": "Michael Jenson"
+  },
+  {
+   "race_id": "2026-MN-0405-135",
+   "name": "Kristy Kjos"
+  },
+  {
+   "race_id": "2026-MN-1001-21770",
+   "name": "Bruce R. Anderson"
+  },
+  {
+   "race_id": "2026-MN-1010-01720",
+   "name": "Sam Scott",
+   "website": {
+    "url": "https://votesamscott.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site reads 'Re-Elect · Anoka City Council 2026' and 'Hi, I'm Sam Scott. I'm your neighbor, your City Councilmember' (its browser title still says 'Anoka City Council 2025').",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.anokamn.gov/307/City-Council",
+    "source": "City of Anoka: City Council page, 'Sam Scott, Councilmember, Term: 4 Years, Expires: December 31, 2026'",
+    "verified": true
+   },
+   "born": {
+    "year": 1983,
+    "date": null,
+    "source": "Minnesota Historical Election Archive (University of Minnesota Libraries), candidate record for Sam Scott, who 'Resided: Anoka, Minnesota' and whose offices held are 'Anoka City Councilor (2021-present)'; it cites the Minnesota Birth Certificate Index",
+    "url": "https://mn.electionarchives.lib.umn.edu/candidate/sam-scott",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anoka City Council member",
+     "from": "2021",
+     "to": "now",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries): 'Offices Held: Anoka City Councilor (2021-present)'. The City of Anoka's council page lists him as a councilmember whose four-year term expires December 31, 2026",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/sam-scott",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran as the Democratic-Farmer-Labor candidate for the Minnesota House of Representatives, District 35B, in the general election (lost), after winning the DFL primary",
+     "year": 2012,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Historical Election Archive (University of Minnesota Libraries; a university archive of election returns): its page for Sam Scott of Anoka, Anoka City Councilor, lists the 11/06/2012 general election and the 08/14/2012 primary in State House District 35B",
+     "url": "https://mn.electionarchives.lib.umn.edu/candidate/sam-scott",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-20618",
+   "name": "David Sieburg"
+  },
+  {
+   "race_id": "2026-MN-1010-47068",
+   "name": "Duane Rader"
+  },
+  {
+   "race_id": "2026-MN-1010-66460",
+   "name": "Craig Johnson"
+  },
+  {
+   "race_id": "2026-MN-1020-54880",
+   "name": "Lisa Ross"
+  },
+  {
+   "race_id": "2026-MN-1024-39878",
+   "name": "Don Friend"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0015",
+   "name": "Matthew Beukema"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0191",
+   "name": "Chris Peach"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0281",
+   "name": "Madalyn Bailey",
+   "website": {
+    "url": "https://baileyforschoolboard.crd.co",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The page is titled 'Bailey for School Board' and reads 'Hi, I'm Madalyn and I'm running for School Board in the Robbinsdale School District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Pat \"Pot\" Farmer"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0719",
+   "name": "Dustin Smith",
+   "website": {
+    "url": "https://www.dustinsmithforplsasschoolboard.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. It forwards to https://dustinsmithforplsas.com/, titled 'Dustin Smith for PLSAS School Board', which reads 'I'm running for reelection to the Prior Lake-Savage School Board'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.plsas.org/about-us/school-board/board-members",
+    "source": "Prior Lake-Savage Area Schools: Board Members page, 'Dustin Smith, Board Director, Elected 2025, Term expires 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prior Lake-Savage Area Schools board director",
+     "from": "elected 2025",
+     "to": "now",
+     "source": "Prior Lake-Savage Area Schools, Board Members: 'Dustin Smith, Board Director, Elected 2025, Term expires 2026'",
+     "url": "https://www.plsas.org/about-us/school-board/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Zack Dinzeo"
+  },
+  {
+   "race_id": "2026-MN-5000-SSD0001",
+   "name": "Collin Beachy",
+   "website": {
+    "url": "https://beachy4schoolboard.com",
+    "how": "The address filed with the Secretary of State for the November 3, 2026 list. The site is titled 'Collin Beachy for Minneapolis School Board' and reads 'RE-ELECT Collin Beachy, Minneapolis School Board At-Large'.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mpschools.org/about-mps/school-board",
+    "source": "Minneapolis Public Schools: School Board page, 'Collin Beachy, Chair, Term: 2023-2027, At-Large'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minneapolis Public Schools Board of Education, at-large member (Chair)",
+     "from": "2023",
+     "to": "now",
+     "source": "Minneapolis Public Schools, School Board page: 'Collin Beachy, Chair, Term: 2023-2027, At-Large'",
+     "url": "https://www.mpschools.org/about-mps/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minneapolis DFL: 'Congratulations to our 2026 endorsed candidates! Collin Beachy for School Board Member - At-Large'",
+     "url": "https://minneapolisdfl.org/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Proudly endorsed by: Minneapolis DFL",
+    "url": "https://beachy4schoolboard.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-8414-MN",
+   "name": "Erin Lindhart Felten"
+  },
+  {
+   "race_id": "2026-MN-9205-MN",
+   "name": "Stoney L. Hiljus"
+  }
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MN-1020-54880",
+   "name": "Lisa Ross",
+   "field": "offices",
+   "what": "Rochester Planning & Zoning Commission, commissioner",
+   "why": "The city's page does list 'Lisa Ross - Commissioner', but nothing on it ties that person to the Ward 1 council race; the only tie was a KTTC headline seen in search results, and kttc.com's robots.txt keeps this tool out. One anchor only, so left out."
+  }
+ ],
+ "verified_on": "2026-10-02"
+}

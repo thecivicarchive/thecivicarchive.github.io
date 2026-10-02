@@ -1,0 +1,380 @@
+{
+ "part": 55,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "Web search was already used up for the session (the tool reported 200 of 200) before this part began, so no search was run for any of the 30 candidates. Everything here was read directly with the kit's own User-Agent, robots.txt obeyed: the campaign sites the candidates filed, the governments' own pages, the Legislative Reference Library, the University of Minnesota's regents pages and its election archive. A campaign site nobody filed could not be looked for, so a missing website is not proof that none exists.",
+  "Nothing found, and no way to search further: Brandon Van Dover (no election-archive page; no party unit site found), David De La Hunt, Danny Geronsin, Naomi Larson, Judy Onken LaBoda, Daryl Wicklund, Holly Menke, Vincent \"Vinny\" Jay Peterson, Luke Christian, Joel Hollerich, Patti Johnson, Gwen Ulland, Nicole Karch, Emily J. Froehle. The governments' own pages show that Geronsin (Martin County names Jaime Bleess in District 2), Larson (Kittson County names Loren Younggren in District 3), Onken LaBoda (Murray County names Jackie Meier in District 4), Menke (Sherburne County names Michelle Ashe as Recorder), Peterson (not on Otsego's council page), Christian (St. Cloud names Hudda Ibrahim in the 3rd Ward), Hollerich, Johnson and Karch (not on their districts' board pages) do not hold the seat they seek today.",
+  "Out of reach and not worked around: www.co.hubbard.mn.us is closed to scripts by robots.txt (David De La Hunt); www.co.roseau.mn.us answered with a Radware CAPTCHA page (Daryl Wicklund); mncourts.gov answers 403 (Emily J. Froehle); the East Grand Forks district's board page draws its names by script (Gwen Ulland); dfl.org and Wikipedia's API shut out Claude's agents in robots.txt, so nothing is cited from them; mngop.com's nominees page draws its list by script. Mower County's Sheriff's Office page does not name the sheriff, so Steven Sandvik has no official page here and his office rests on his own campaign site.",
+  "No party's own endorsement page could be found for anyone in this part, so there is no endorsed_by entry. Robyn Gulley's own site says \"Proudly DFL & Labor Endorsed\" (kept as own_words). The Senate District 55 DFL's site (sd55dfl.org) does not name Hunter Cantrell on the pages that could be read. Bobbie Harder's and Sebastian Stoss's endorsement sections show images only.",
+  "Bobbie Harder is a sitting legislator with a record page, so only her website is recorded (her site also says she served two terms as a Sibley County Commissioner).",
+  "Nicole Mitchell: the same person as the former state senator: her campaign site says she grew up and lives in Woodbury and speaks of her legislative work from 2023 to 2025, and the Library's record gives Senate District 47, Woodbury, a term from January 2, 2023 to July 25, 2025 (it records that she resigned) and says she announced a run for the Woodbury City Council in 2026. The Library's page carries other details that are not collected here.",
+  "Hunter Cantrell: his own site says he served in the Minnesota House from 2019 to 2021, matching the Library's record (term of office January 7, 2019 to January 3, 2021). Bradley Dahl is written Brad Dahl by the City of Buffalo. Brian Lutes: co.wright.mn.us/attorney redirects to the address given."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0185-MN",
+   "name": "Robyn Gulley",
+   "website": {
+    "url": "https://www.robyngulley.com",
+    "how": "Filed with the Secretary of State; the site is titled \"Gulley for Senate\", speaks of District 65 and is \"Paid for and prepared by Robyn Gulley for Senate\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.wspmn.gov/494/City-Council",
+    "source": "City of West St. Paul",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "West St. Paul City Council Member, Ward II (term expires December 2028)",
+     "from": "elected 2020",
+     "to": "present",
+     "source": "Her campaign site (\"elected to the West St. Paul City Council in 2020 and 2024\"); the City's council page lists her in Ward II today",
+     "url": "https://www.robyngulley.com/robyn",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Regent of the University of Minnesota, Congressional District 2 (term expires 2029)",
+     "from": "2023",
+     "to": "present",
+     "source": "University of Minnesota Board of Regents (its page says she serves on the West St. Paul City Council)",
+     "url": "https://regents.umn.edu/robyn-j-gulley",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Proudly DFL & Labor Endorsed",
+    "url": "https://www.robyngulley.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0221-MN",
+   "name": "Bobbie Harder",
+   "website": {
+    "url": "https://harderforhouse.com",
+    "how": "Filed with the Secretary of State; the site is headed \"Elect Bobbie Harder for State Representative\", names House District 17B and is paid for by the Harder For House Committee",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0258-MN",
+   "name": "Sebastian Stoss",
+   "website": {
+    "url": "https://stossforhouse.com",
+    "how": "Filed with the Secretary of State; the site is titled \"Sebastian Stoss For State House\" and is paid for by the Sebastian Stoss Campaign Committee",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0297-MN",
+   "name": "Hunter Cantrell",
+   "website": {
+    "url": "https://www.huntercantrell.com",
+    "how": "Filed with the Secretary of State; the site is titled \"Hunter Cantrell for State Representative\" and its About page names House District 55B",
+    "verified": true
+   },
+   "born": {
+    "year": 1995,
+    "date": "1995-07-10",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15524",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Minnesota House District 56A",
+     "from": "2019",
+     "to": "2021",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15524",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Representative, House District 56A",
+     "year": "2018",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15524",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-099",
+   "name": "Steven Sandvik",
+   "website": {
+    "url": "https://www.sandvik4sheriff.com",
+    "how": "Filed with the Secretary of State; the site is titled \"Steve Sandvik for Mower County Sheriff\" and is paid for by Sandvik for Sheriff, Mower County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mower County Sheriff",
+     "from": "2019",
+     "to": "present",
+     "source": "His campaign site (\"2019: First Sworn in as Sheriff\"; \"two-term Mower County Sheriff\")",
+     "url": "https://www.sandvik4sheriff.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-035",
+   "name": "Kelsey Hopps",
+   "website": {
+    "url": "https://kelseyhopps.com",
+    "how": "Filed with the Secretary of State; the page is titled \"Kelsey Hopps - Crow Wing County Attorney\" (the rest of the page is drawn by script and was not read)",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.crowwing.gov/454/Attorney",
+    "source": "Crow Wing County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crow Wing County Attorney (appointed by the County Board on August 12, 2025)",
+     "from": "2025",
+     "to": "present",
+     "source": "Crow Wing County",
+     "url": "https://www.crowwing.gov/454/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0405-171",
+   "name": "Brian Lutes",
+   "official_page": {
+    "url": "https://www.wrightcountymn.gov/133/Attorney",
+    "source": "Wright County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wright County Attorney (appointed, started January 4, 2021; elected 2022)",
+     "from": "2021",
+     "to": "present",
+     "source": "Wright County",
+     "url": "https://www.wrightcountymn.gov/133/Attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1001-41696",
+   "name": "John Maczko",
+   "website": {
+    "url": "https://maczkoformayor.com",
+    "how": "Filed with the Secretary of State; the site is titled \"John Maczko for Mayor | Mendota Heights\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mendotaheightsmn.gov/259/City-Council",
+    "source": "City of Mendota Heights",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mendota Heights City Council Member (current term January 1, 2025 to December 31, 2028)",
+     "from": "2025",
+     "to": "present",
+     "source": "City of Mendota Heights",
+     "url": "https://www.mendotaheightsmn.gov/259/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-08452",
+   "name": "Bradley Dahl",
+   "official_page": {
+    "url": "https://www.ci.buffalo.mn.us/242/City-Council",
+    "source": "City of Buffalo",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Buffalo City Council Member (\"Elected to council - January 2023\"; term expires 12/31/26)",
+     "from": "2023",
+     "to": "present",
+     "source": "City of Buffalo, which writes his name Brad Dahl",
+     "url": "https://www.ci.buffalo.mn.us/242/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-28790",
+   "name": "Justin Fosso",
+   "official_page": {
+    "url": "https://www.hibbingmn.gov/260/City-Council",
+    "source": "City of Hibbing",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hibbing City Council, Member-at-Large (term expires 12/31/2026)",
+     "from": "",
+     "to": "present",
+     "source": "City of Hibbing",
+     "url": "https://www.hibbingmn.gov/260/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1010-71428",
+   "name": "Nicole Mitchell",
+   "website": {
+    "url": "https://nicolemitchell.org",
+    "how": "Filed with the Secretary of State; the site is titled \"Nicole Mitchell for Woodbury City Council\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1974,
+    "date": "1974-10-10",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15586",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Senator, Minnesota Senate District 47",
+     "from": "2023",
+     "to": "2025",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present (residence Woodbury; her campaign site speaks of her legislative work from 2023 to 2025)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15586",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Senator, Senate District 47",
+     "year": "2022",
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail.aspx?ID=15586",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-1022-07966",
+   "name": "Nichole Klonowski",
+   "official_page": {
+    "url": "https://www.brooklynpark.org/city-council/",
+    "source": "City of Brooklyn Park",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brooklyn Park City Council Member, Central District (\"Elected through 2026\")",
+     "from": "",
+     "to": "present",
+     "source": "City of Brooklyn Park",
+     "url": "https://www.brooklynpark.org/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0197",
+   "name": "Sarah Larsen",
+   "official_page": {
+    "url": "https://www.isd197.org/district/school-board/school-board-members",
+    "source": "School District 197",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "School Board Member and Chair, School District 197 (term expires 2026)",
+     "from": "",
+     "to": "present",
+     "source": "School District 197",
+     "url": "https://www.isd197.org/district/school-board/school-board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0879",
+   "name": "Sarah Baker",
+   "website": {
+    "url": "https://bakerfordelanoschoolboard.weebly.com",
+    "how": "Filed with the Secretary of State; the site is headed \"Re-Elect Sarah Baker for Delano School Board\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.delano.k12.mn.us/our-district/school-board",
+    "source": "Delano Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Delano School Board Member (Director, 1-2023 thru 12-2026; Clerk in 2025)",
+     "from": "2023",
+     "to": "present",
+     "source": "Delano Public Schools",
+     "url": "https://www.delano.k12.mn.us/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Delano School Board Member",
+     "from": "2010",
+     "to": "2016",
+     "source": "Her campaign site (\"My first term on the Delano school board was for six years from 2010-2016\")",
+     "url": "https://bakerfordelanoschoolboard.weebly.com/about-me.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5007-ISD0206",
+   "name": "Maureen Eigen",
+   "official_page": {
+    "url": "https://www.alexschools.org/district/meet-the-school-board",
+    "source": "Alexandria Public Schools",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Alexandria School Board Member, Vice Chair (\"Elected in 2021, Current Term 2023-2026\")",
+     "from": "elected 2021",
+     "to": "present",
+     "source": "Alexandria Public Schools",
+     "url": "https://www.alexschools.org/district/meet-the-school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "Every url re-opened on 2026-10-02 with the kit's User-Agent; all 39 findings are stated on the page cited. Corrected: the committee's city taken out of the Stoss website note; the Mitchell note reworded to what her site and the Library say (the site's home page does not give a birthplace). Hunter Cantrell's District 55B and 2019-2021 service are on huntercantrell.com/about."
+ ]
+}

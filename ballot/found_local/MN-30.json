@@ -1,0 +1,592 @@
+{
+ "part": 30,
+ "of": 73,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance was already used up when this part began (the one search tried was refused: 200 of 200 used), so nothing here comes from a search engine. Every page was opened directly with the kit's honest User-Agent (states/net.py), one request at a time and at least a second and a half apart on one site, with each site's robots.txt read first and obeyed. A stay-out written for every reader, for the kit's own name or for any of Claude's named agents was treated as a stay-out for this sweep, so every page a finding rests on is one its site opens to all of them. Read this way: the campaign websites the candidates filed, each county's, city's and school district's own site, the Minnesota DFL's list of endorsed candidates, the Republican Party of Minnesota's site and the Senate District 51 Republicans' site, the Legislative Reference Library, Wikipedia articles opened by title, and the pages and site searches of three news sites (KAXE, Southern Minnesota News, the Fairmont Sentinel). A few other news sites were asked one question each and showed nothing about these candidates (the Dodge County Independent's front page, Southwest News Media's archive, whose newest stories are from April 2024, the Asian American Press and the Hmong Times). The page-reading tool (WebFetch) was used twice, on two filed campaign sites the kit's reader could not read (juline4senate.com and votejudgederyang.org); it got nothing from either. A second pass with web search would be worth it for the candidates with nothing below.",
+  "The campaign websites the candidates filed were learned by running the kit's own step (python -m ballot.local_sites files) on a scratch copy of the database; the real database was only read. Eleven of the thirty filed one. Eight were opened and read and are listed below (Boettger, L'Heureux, Smyth, Falconer, Jensen, Gannon, Brooks, Marvin). Three could not be read, so no website finding is made for them: juline4senate.com (Juline Birgersson) showed the kit's reader a bot check and gave the fetch tool an empty page, though the Senate District 51 Republicans link that address as her website; www.andrewfor834.com (Andrew Thelander) asks every script to stay out in its robots.txt and was not opened; votejudgederyang.org (Der Yang) answered only with a maintenance notice (her review item; the Internet Archive's index and two of its copies of that address were read to see whether the site had ever carried campaign content, and it had not). One campaign site nobody filed was found by trying an address and then reading it: Brian Ducklinsky's (www.ducklinsky.com, which leads to ducklinsky.therwnb.com; the address without www did not answer). Other likely addresses were tried only by asking whether the name has an address on the network, which is not a request to any site; none of the others exists.",
+  "Not read, and nothing worked around: Wilkin County's site at both of its addresses and Hubbard County's site (robots.txt asks every script to stay out), so Anthony (Tony) Harris has no official page here and nothing official could be read about the Hubbard County sheriff's office; Pope County's site (a bot check instead of the site), so Neil Nelson has none; the City of Winnebago's site (it refused the request for its robots.txt, which is read as stay out); cityofmora.com (HTTP 403); the Mankato Free Press, KEYC, southernminn.com, the Minnesota Reformer and MyVillager (their robots.txt turns Claude's agents away; only robots.txt was asked for); the Wahpeton Daily News (robots.txt names Claude's agents and closes its search to everyone); the search pages of MPR News and the Dodge County Independent (robots.txt). The Minnesota Judicial Branch's site and the state's mn.gov pages were not requested at all, since other parts found that they refuse scripts or show a CAPTCHA, so neither judge has a court page here. hometownsource.com and the Forum Communications papers were not opened either (other parts found that their robots.txt turns Claude's agents away), which leaves the Andover, Centennial, Osseo, Stillwater, Moorhead, Rochester, Pequot Lakes and Hubbard County races without their local paper. The search pages of the New Ulm Journal, the Fairmont Sentinel and Sahan Journal answer but draw their results by script, so a script sees none.",
+  "Official pages that print personal contact details: the City of New Ulm's own page about Andrea S. Boettger (https://www.newulmmn.gov/263/Andrea-S-Boettger) and Cottonwood County's 5th District page about Tom Appel (https://www.cottonwoodcountymn.gov/government/county_commissioners/5th_district.php) each print what reads as a home address beside the name, so they are not the pages cited. The pages cited instead (New Ulm's Mayor & City Council list; Cottonwood County's County Commissioners list) give the office without it. Rock Ridge's School Board page, cited for John Uhan, prints a cell phone number under each member's name, and the second reader may prefer to leave that link out. Nothing of any address or number was recorded. Whether to link to these pages is John's decision.",
+  "Jack Considine, for the second reader: the Legislative Reference Library's record is of former Rep. John 'Jack' Considine, Jr. of Mankato (House District 19B, 2015 to 2020, and the Mankato City Council before that) and does not mention the county board. No page read says in so many words that the candidate in Blue Earth County's District 3 special election is the former legislator: the local news sites that would say so (the Mankato Free Press, KEYC) turn Claude's agents away, Southern Minnesota News has nothing on the race, and Wikipedia's article on him (last edited July 24, 2026) does not mention it. What ties them is the name, Minnesota, Blue Earth County (the one county he represented) and Mankato: the Secretary of State's voting-districts data in the kit (states_cache/mn_local/sos_votingdistricts_attributes.json) puts five Mankato precincts and Skyline, and nothing else, in the county's Commissioner District 3. A second person of the same name cannot be ruled out from the pages read. If that is not enough, leave his four findings unverified; a news report of his filing would settle it. Blue Earth County's own Board of Commissioners page lists Mark Piepho for District 3 with a term to January 2, 2029, which fits a special election for the rest of that term.",
+  "Michael Patrick Grover, for the second reader: the one page found is KAXE's report of September 11, 2025 that Governor Walz appointed Michael Grover, of Roseau County, a district court judge in the Ninth Judicial District on September 10, 2025, to take the bench in Roseau County when another judge retired. Our list writes Michael Patrick Grover, Seat 20; the page gives no middle name and no seat number, and KAXE's 2026 guide to the Ninth District's judicial races names only the one contested seat. The tie is the name, Minnesota and the office: a Ninth District judgeship that reaches the ballot at the first general election more than a year after the appointment. The page does not say when he took the bench or that he serves today, so the start is written 'appointed 2025' (an appointment year, not a start year) and the end is left blank. What the page says of his work before the appointment is a job and is not recorded.",
+  "Three sources draw their pages by script, so a script finds the words in the data the page loads and a browser shows them on the page: Joey Smyth's site (the sentences are in https://smythforstatehouse.com/assets/index-C88_0OEG.js; the one quoted shows on its Meet Joey page, and the same file calls him 'your DFL-endorsed candidate for House District 30A' in an event notice), Thomas Brooks's site (https://thomasbrooksfor279.com/assets/index-BlbDry2P.js; the About page's text and the home page's Endorsements strip), and Rochester Public Schools' Meet the Board page (the members' cards are in the page's own data). The script files' names change when a site is rebuilt.",
+  "own_words, for the second reader: (a) Andrea Boettger's is the first line under 'Organizations' on her site's Endorsements page, which lists 'DFL Rural Caucus' and 'MYDFL' and then four organizations that are not party bodies. (b) Thomas Brooks's and Laura Gannon's are endorsements by organizations that are not parties (a teachers' union local; a political action committee), quoted from their own sites as part 8 did. Other parts left such endorsements out, so whether they are shown is John's decision. Gannon's site lists two more lines under the same heading, neither from a party. (c) Brian Ducklinsky's is his own statement of how he voted, not a party label and not an endorsement. It stands on his campaign page among the reasons he gives 'NOT TO VOTE FOR ME', where he also writes that the council is non-partisan. It is recorded because it is the candidate's own explicit words about party politics on his own campaign site; the second reader or John may prefer to leave it out. That page also says much that a card must never show; none of it is recorded. (d) Alex Falconer's site shows its endorsers as logos, with no words a script can read; the pages read on Jack L'Heureux's, Scott Jensen's and Jean Marvin's sites name no party.",
+  "party_support (a key the loader does not read, in the shape other parts use): the Senate District 51 Republicans list Juline Birgersson on a page titled '2026 Candidates', which does not use the word endorsed, so it is kept apart from endorsed_by and no page should call it an endorsement; whether and how it is shown is John's decision. The Republican Party of Minnesota's '2026 Republican Nominees' pages list statewide and congressional candidates only.",
+  "Endorsements: the Minnesota DFL's own list (dfl.org/endorsed, last changed September 16, 2026) names Andrea Boettger (Senate District 15), Jack L'Heureux (House District 11B), Joey Smyth (House District 30A) and Alex Falconer (House District 49A). Scott Jensen's is the Republican Party of Minnesota's own release dated September 1, 2026: its State Central Committee endorsed him 'by acclamation' after the August primary, which our record already shows he won. The release names him without the office; the party's nominees page lists him for State Auditor and links his site.",
+  "Scott Jensen: the Legislative Reference Library's record ties itself to this race in its own notes (he 'withdrew to run for state auditor in 2026'). It gives no exact years for the Waconia School Board ('199? to ?'); Wikipedia says the 1990s and 2000s, and his campaign site says he chaired the board. The Library's line for the Attorney General's task force is recorded as an appointed post; the second reader may judge whether an advisory task force belongs on a card. His 2022 run for Governor is recorded from Wikipedia because the Library's note on it does not name the party. A party post that Wikipedia mentions is not a public office and is not recorded.",
+  "Alex Falconer is a sitting member with a roster record, so only his website and the party's endorsement are recorded. No review item: the Legislative Reference Library's record (https://www.lrl.mn.gov/legdb/fulldetail?ID=15630) gives the same birth date as the roster. The Library gives his term of office as beginning January 6, 2025; the roster says January 14, 2025, the day the House convened, as it does for all 21 House members first seated in 2025, so the difference is noted here once and not as a review item.",
+  "Offices are elected or appointed seats on public bodies only. Jack L'Heureux's five come from his campaign site's Meet Jack page, which lists the first four under 'Public Office' and the housing authority seat under 'Community'; no City of Mora page that answers a script was found to check them against. Not recorded from that page: seats on an area agency on aging's board and a hospital's board (the page does not show that either was a public body), a chamber of commerce board, and his paid work. Andrea Boettger's seat on the board of the Coalition of Greater Minnesota Cities is an association post and is left out, as are the committee assignments Cottonwood County lists for Tom Appel as a sitting commissioner. Where an official page shows that an office is held and the candidate's own site gives the year it began, the finding's url is the official page and the other address is written out in the source text (Thomas Brooks, Jean Marvin). Andrew Thelander's start year is the district's own line, 'First elected: 1/2023'. No starting year was found for Andrea Boettger, Tom Appel, Kelly Pauling, Randy Lubenow or John Uhan. Watonwan County's site calls Kelly Pauling the County Auditor; the office on the 2026 ballot is County Auditor/Treasurer.",
+  "Birth years: Scott Jensen's and Jack Considine's are the Legislative Reference Library's dates; Brian Ducklinsky's is his own sentence on his campaign site, which gives the year only. An age or a graduation year printed on a page was never turned into a birth year. What the pages read say of work, schooling, household, faith, health, money and legal matters is not recorded.",
+  "Nothing a card may show was found for eleven candidates, who are listed with no findings: Troy Stafford, Jacob Kral, Jimmy Hansen, Anthony (Tony) Harris, Neil Nelson, Todd Smith, Greg S. Mueller, Katie Howard, Pete Johnson, Sarah Opitz and Dustin Kempf. Der Yang has a review item only, and Juline Birgersson the party_support entry only. What was read for them: Dodge County's District 2 page (the seat is Tim Tjosaas's, whom the county says the district first elected in February 2014), the City of Kasson's council and board pages and the Kasson-Mantorville school board page (Stafford is on none); Faribault County's Board of Commissioners page (neither candidate for District 4 sits on the board today); KAXE's Hubbard County 2026 Election Guide of September 28, 2026 (the sitting sheriff, Cory Aukes, is running for the County Board, and KAXE had no response from Jimmy Hansen); the City of Fairmont's council and forums pages and the Fairmont Sentinel's report of the September 29 mayoral forum (Todd Smith holds no city office the pages name, and the sitting mayor is not among the six candidates); the City of Andover's council, commission and elections pages (Mueller sits on none; the city lists a 2024 campaign finance report under his name, a nonpartisan run); the City of Faribault's council, board and elections pages (Howard sits on none); the City of North Branch's council, commission and elections pages (Jim Ibinger sits on the council; Pete Johnson is on none of them); the City of Moorhead's council, boards and candidates pages (the Ward 1 seat up this year is Ryan Nelson's; the affidavits and finance reports the city posts were not opened, since affidavits carry home addresses); Jordan Public Schools' board and elections pages (Kempf is not on the board; four seats, four candidates). For Der Yang, no page about her appointment could be reached: the court's and the Governor's pages were not requested, and the news sites tried either turn Claude's agents away or show a script no search results.",
+  "Second reader, October 2, 2026: every cited address was opened again with the kit's honest User-Agent, each site's robots.txt read first; all answered except votejudgederyang.org (HTTP 503, as the review item says). The two script files (Smyth, Brooks) and the Rochester page's data carry the words as recorded. Jack Considine: one web search was allowed this time. KEYC's headline of June 26, 2026 reads 'Former state lawmaker, Mankato council member announces bid for county commissioner' (the page itself was not opened: KEYC turns Claude's agents away), and The Ballot Brief's Blue Earth County page, which was read, says the District 3 candidate is a former longtime Mankato council member who served in the House from 2015 to 2021. With the name, Minnesota, Mankato and Blue Earth County that is the same person, so his findings stand. For John: the same page says, citing KEYC News of August 12 and 18, 2026, that Considine ended his campaign in July 2026, after the deadline to take his name off, and remains on the November 3 ballot. No official page says so, so it is not a review item; it is worth knowing before his card shows. Radio Mankato's report of the August 11 special primary has Karge 624, Considine 438, Arneson 422. Juline Birgersson's party_support entry was confirmed as worded (the page does not say endorsed). Rock Ridge's board page does print a cell number under each member; nothing of it is in this file, and whether to link that page stays John's decision. One thing removed: Brian Ducklinsky's own_words."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MN-0135-MN",
+   "name": "Andrea Boettger",
+   "website": {
+    "url": "https://www.boettgerformnsenate.com",
+    "how": "The address she filed. The site's title is 'Andrea Boettger for MN Senate'; its About page begins 'My name is Andrea Boettger, and I am honored to be your Senate Candidate for District 15', and the site says it is prepared and paid for by the Andrea Boettger Senate Committee. The Minnesota DFL's list of endorsed candidates links the same address.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.newulmmn.gov/259/Mayor-City-Council",
+    "source": "City of New Ulm: Mayor & City Council (Andrea S. Boettger, Council President)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "New Ulm City Council President",
+     "from": "",
+     "to": "now",
+     "source": "City of New Ulm: Mayor & City Council page, which lists 'Andrea S. Boettger, Council President' (no starting year given). Her campaign site's About page says 'As New Ulm City Council President, I represent the citizens of New Ulm in a non-partisan role' (https://www.boettgerformnsenate.com/about)",
+     "url": "https://www.newulmmn.gov/259/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Region Nine Development Commission member, for the City of New Ulm (its vice chair, by her campaign site)",
+     "from": "",
+     "to": "now",
+     "source": "Region Nine Development Commission: its list of Region Nine Commissioners names 'Andrea Boettger, City of New Ulm' under Brown County (no years given). Her campaign site's About page says she serves 'as the Vice Chair for Region Nine Development Commission' (https://www.boettgerformnsenate.com/about)",
+     "url": "https://www.rndc.org/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, Senate District 15)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "DFL Rural Caucus",
+    "url": "https://www.boettgerformnsenate.com/endorsements",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0171-MN",
+   "name": "Juline Birgersson",
+   "party_support": [
+    {
+     "party": "Republican",
+     "unit": "Senate District 51 Republicans of Minnesota (district unit)",
+     "wording": "2026 Candidates",
+     "what": "Named 'Juline Birgersson, Candidate, MN Senate District 51', with a link labelled Website to juline4senate.com, under the heading '2026 Candidates for Senate District 51'. The page does not use the word endorsed.",
+     "url": "https://sd51gop.org/2026-candidates.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0209-MN",
+   "name": "Jack L'Heureux",
+   "website": {
+    "url": "https://www.jackformnhouse.com",
+    "how": "The address he filed. The site's title is 'Jack L’Heureux for MN House' and its description reads 'Jack L’Heureux, 2026 candidate for Minnesota House District 11b'; it says it is prepared and paid for by L’Heureux (Jack) for MN House Committee.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Mora",
+     "from": "2015",
+     "to": "2018",
+     "source": "His campaign site's Meet Jack page, under 'Public Office': 'Mayor of the City of Mora 2015–2018'",
+     "url": "https://www.jackformnhouse.com/meetjack",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mora City Council member",
+     "from": "2019",
+     "to": "2020",
+     "source": "His campaign site's Meet Jack page, under 'Public Office': 'Mora City Council Member 2019–2020'",
+     "url": "https://www.jackformnhouse.com/meetjack",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mora EDA (economic development authority) board member",
+     "from": "2012",
+     "to": "2019",
+     "source": "His campaign site's Meet Jack page, under 'Public Office': 'Mora EDA Board Member 2012–2019'",
+     "url": "https://www.jackformnhouse.com/meetjack",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Kanabec County EDA (economic development authority) board member",
+     "from": "2016",
+     "to": "2018",
+     "source": "His campaign site's Meet Jack page, under 'Public Office': 'Kanabec County EDA Board Member 2016–2018'",
+     "url": "https://www.jackformnhouse.com/meetjack",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mora Housing and Redevelopment Authority board member",
+     "from": "2024",
+     "to": "now",
+     "source": "His campaign site's Meet Jack page, under 'Community': 'Board Member of the Mora Housing and Redevelopment Authority of Mora 2024+'; the same page says of the authority 'I am still an active member of their board'",
+     "url": "https://www.jackformnhouse.com/meetjack",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, House District 11B)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0246-MN",
+   "name": "Joey Smyth",
+   "website": {
+    "url": "https://www.smythforstatehouse.com",
+    "how": "The address he filed; it leads to smythforstatehouse.com, titled 'Joey Smyth for State House', whose description reads 'I’m running for State House to make District 30A more affordable, accountable, and accessible.' The site draws its pages by script; its own text says it is paid for by the Joey Smyth For House District 30A Committee. The Minnesota DFL's list of endorsed candidates links the same site.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, House District 30A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "As a moderate Democrat, I'm running for House District 30A",
+    "url": "https://smythforstatehouse.com/meet-joey",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-0284-MN",
+   "name": "Alex Falconer",
+   "website": {
+    "url": "https://www.alexforhouse.org",
+    "how": "The address he filed. The site is titled 'Alex for House | Running for you'; its home page is headed 'Alex Falconer', 'Minnesota State House District 49A', and says 'I am running for re-election to the Minnesota State House'. It carries a 2026 copyright line and says it is prepared and paid for by Campaign Fund of Alexander Falconer.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-Farmer-Labor",
+     "unit": "Minnesota DFL Party (the state party's list of endorsed candidates, House District 49A)",
+     "url": "https://dfl.org/endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0333-MN",
+   "name": "Scott Jensen",
+   "website": {
+    "url": "https://www.drscottjensen.com",
+    "how": "The address he filed. The site's description says 'Scott Jensen, Minnesota family doctor and former state senator, is running for State Auditor'; its home page carries his release of February 9, 2026, 'Scott Jensen Announces Run for State Auditor', and says it is prepared and paid for by Scott Jensen for Minnesota. The Republican Party of Minnesota's 2026 Republican Nominees page links the same address from his name.",
+    "verified": true
+   },
+   "born": {
+    "year": 1954,
+    "date": "1954-11-19",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Scott Jensen (Date of Birth: 11/19/1954)",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15484",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota State Senator, District 47",
+     "from": "2017",
+     "to": "2021",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Scott Jensen, 'Senate 2017-2020 (District 47)', term of office 1/2/2017 to 1/3/2021. The record's notes say he 'withdrew to run for state auditor in 2026'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15484",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Waconia School Board member (its chair, by his campaign site)",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Scott Jensen, under Other Government Service, 'Waconia School District, Minnesota (School Board)', with the years given only as '199? to ?'. His campaign site's About page says 'Scott was Chair of the Waconia School Board' (https://www.drscottjensen.com/about.html)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15484",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Attorney General's Advisory Task Force on Lowering Pharmaceutical Drug Prices, co-chair",
+     "from": "2019",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Scott Jensen, under Other Government Service (State Board/Commission/Council), with the years given as '2019 to ?'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15484",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Minnesota, State Central Committee (endorsed by acclamation on September 1, 2026, after the primary; the party's nominees page lists him for State Auditor)",
+     "url": "https://mngop.com/mngop-unites-behind-winning-statewide-ticket/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota Senate, District 47",
+     "year": 2016,
+     "party": "Republican",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: Scott Jensen ('Party when first elected: Republican'; elected 11/8/2016)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15484",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Republican nominee for Governor; lost the general election",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Wikipedia, 'Scott Jensen (Minnesota politician)': 'He was the Republican nominee for governor in 2022', with the party's endorsement, the primary and the result cited to the Associated Press, MinnPost and the New York Times. The Legislative Reference Library's record says he 'ran unsuccessfully for governor in the 2022 election' without naming the party",
+     "url": "https://en.wikipedia.org/wiki/Scott_Jensen_(Minnesota_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0392-039",
+   "name": "Troy Stafford"
+  },
+  {
+   "race_id": "2026-MN-0393-013-S",
+   "name": "Jack Considine",
+   "born": {
+    "year": 1955,
+    "date": "1955-01-21",
+    "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John 'Jack' Considine, Jr. (Date of Birth: 1/21/1955). Tied to this race by The Ballot Brief's Blue Earth County page (https://www.theballotbrief.com/state/minnesota/blue-earth-county), which, citing KEYC News, describes the District 3 candidate as a former longtime Mankato city council member who served in the Minnesota House from 2015 to 2021",
+    "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15432",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Minnesota State Representative, District 19B",
+     "from": "2015",
+     "to": "2021",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John 'Jack' Considine, Jr., 'House 2015-2020 (District 19B)', terms of office 1/5/2015 to 1/3/2021; city of residence Mankato, county served Blue Earth. 'He did not seek reelection in 2020'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15432",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Mankato City Council member",
+     "from": "",
+     "to": "",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John 'Jack' Considine, Jr., under Other Government Service, 'Mankato, Minnesota (City Council)', with the years given as '[Dates Unknown]'",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15432",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Minnesota House, District 19B (re-elected in 2016 and 2018)",
+     "year": 2014,
+     "party": "Democratic-Farmer-Labor",
+     "source": "Minnesota Legislative Reference Library, Legislators Past & Present: John 'Jack' Considine, Jr. ('Party when first elected: Democratic-Farmer-Labor'; elected 11/4/2014, 11/8/2016 and 11/6/2018)",
+     "url": "https://www.lrl.mn.gov/legdb/fulldetail?ID=15432",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0394-043",
+   "name": "Jacob Kral"
+  },
+  {
+   "race_id": "2026-MN-0395-033",
+   "name": "Tom Appel",
+   "official_page": {
+    "url": "https://www.cottonwoodcountymn.gov/government/county_commissioners/index.php",
+    "source": "Cottonwood County: County Commissioners (Tom Appel, 5th District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cottonwood County Commissioner, 5th District",
+     "from": "",
+     "to": "now",
+     "source": "Cottonwood County: County Commissioners page, which lists 'Tom Appel, 5th District' (no starting year given)",
+     "url": "https://www.cottonwoodcountymn.gov/government/county_commissioners/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0400-165",
+   "name": "Kelly Pauling",
+   "official_page": {
+    "url": "https://www.watonwancountymn.gov/116/Auditor",
+    "source": "Watonwan County: Auditor (Kelly Pauling, County Auditor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Watonwan County Auditor",
+     "from": "",
+     "to": "now",
+     "source": "Watonwan County: Auditor page, which names 'Kelly Pauling, County Auditor' (no starting year given). The office on the 2026 ballot is County Auditor/Treasurer",
+     "url": "https://www.watonwancountymn.gov/116/Auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-0404-057",
+   "name": "Jimmy Hansen"
+  },
+  {
+   "race_id": "2026-MN-0404-167",
+   "name": "Anthony (Tony) Harris"
+  },
+  {
+   "race_id": "2026-MN-0405-121",
+   "name": "Neil Nelson"
+  },
+  {
+   "race_id": "2026-MN-1001-20330",
+   "name": "Todd Smith"
+  },
+  {
+   "race_id": "2026-MN-1010-01486",
+   "name": "Greg S. Mueller"
+  },
+  {
+   "race_id": "2026-MN-1010-20546",
+   "name": "Katie Howard"
+  },
+  {
+   "race_id": "2026-MN-1010-46798",
+   "name": "Pete Johnson"
+  },
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Brian Ducklinsky",
+   "website": {
+    "url": "https://www.ducklinsky.com",
+    "how": "Not filed with the Secretary of State; found by trying the address. It leads to ducklinsky.therwnb.com, titled 'Brian Ducklinsky for City Council' and headed 'VOTE BRIAN DUCKLINSKY for South St Paul City Council 2026'; the page begins 'Hello my name is Brian Ducklinsky and I am running for the South St Paul city council in 2026'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "date": "",
+    "source": "His campaign site: 'I was born in 1977'",
+    "url": "https://www.ducklinsky.com",
+    "kind": "campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-1020-43864",
+   "name": "Sarah Opitz"
+  },
+  {
+   "race_id": "2026-MN-1024-20330",
+   "name": "Randy Lubenow",
+   "official_page": {
+    "url": "https://fairmont.org/city-council/",
+    "source": "City of Fairmont: City Council (Ward 3: Randy Lubenow)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fairmont City Council member, Ward 3",
+     "from": "",
+     "to": "now",
+     "source": "City of Fairmont: City Council page, which lists Randy Lubenow under Ward 3 (no starting year given)",
+     "url": "https://fairmont.org/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0012",
+   "name": "Laura Gannon",
+   "website": {
+    "url": "https://lauragannon4isd12.com",
+    "how": "The address she filed. The site's title is 'Laura Gannon for School Board'; its home page says 'I'm Laura Gannon, and I'm running for Centennial ISD 12 School Board', and it carries a 2026 copyright line and says it is paid for by the Campaign Committee for Laura Gannon.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "3.14 Action 2026 Endorsement",
+    "url": "https://lauragannon4isd12.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0186",
+   "name": "Dena Moody",
+   "official_page": {
+    "url": "https://www.isd186.org/district-home-page/school-board-information",
+    "source": "Pequot Lakes Public Schools: School Board Information (Dena Moody, School Board Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pequot Lakes School Board member (the board's clerk today)",
+     "from": "2019",
+     "to": "now",
+     "source": "Pequot Lakes Public Schools: School Board Information page, which lists 'Dena Moody, School Board Clerk', 'Term Expires: December 2026', 'Served since January 2019'",
+     "url": "https://www.isd186.org/district-home-page/school-board-information",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0279",
+   "name": "Thomas Brooks",
+   "website": {
+    "url": "https://thomasbrooksfor279.com",
+    "how": "The address he filed. The site's title is 'Thomas Brooks – Osseo School Board' and its description begins 'Re-elect Thomas Brooks for Osseo School Board'. The site draws its pages by script; its own text says it is paid for by Thomas Brooks for 279.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.osseoschools.org/about-us/school-board",
+    "source": "Osseo Area Schools: School Board (Thomas Brooks, School Board Member, Vice Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Osseo Area Schools (ISD 279) School Board member (the board's vice chair today)",
+     "from": "2020",
+     "to": "now",
+     "source": "Osseo Area Schools: School Board page, which lists 'Thomas Brooks, School Board Member, Vice Chair, Term Expires January 2027' (no starting year given). The year is from his campaign site's About page, which speaks of his 'joining the board in 2020' (https://thomasbrooksfor279.com/about)",
+     "url": "https://www.osseoschools.org/about-us/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Education Minnesota–Osseo Endorsed Candidate",
+    "url": "https://thomasbrooksfor279.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0535",
+   "name": "Jean Marvin",
+   "website": {
+    "url": "https://www.jeanmarvinforschoolboard.com",
+    "how": "The address she filed. The site's title is 'Jean Marvin for Rochester Public School Board | 2026 Election' and its description begins 'Jean Marvin is running for re-election as a member of the Rochester Public School Board'; it carries a 2026 copyright line of the Jean Marvin for School Board Committee.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rochesterschools.org/page/meet-the-board",
+    "source": "Rochester Public Schools: Meet the Board (Jean Marvin, Director, Seat # 5)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rochester Public Schools (ISD 535) School Board member",
+     "from": "2015",
+     "to": "now",
+     "source": "Rochester Public Schools: Meet the Board page, which lists 'Jean Marvin, Director | Seat # 5', 'Term Expires: December 2026' (no starting year given). The year is from her campaign site's Meet Jean page, 'ISD #535 Board Member since 2015' (https://www.jeanmarvinforschoolboard.com/meet-jean); the same site's description begins its account of her work 'Since 2014', and its home page speaks of 'the last 12 years' on the board",
+     "url": "https://www.rochesterschools.org/page/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0717",
+   "name": "Dustin Kempf"
+  },
+  {
+   "race_id": "2026-MN-5000-ISD0834",
+   "name": "Andrew Thelander",
+   "official_page": {
+    "url": "https://www.stillwaterschools.org/our-district/school-board",
+    "source": "Stillwater Area Public Schools: School Board (Andrew Thelander, Vice Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stillwater Area Public Schools (ISD 834) School Board member (the board's vice chair today)",
+     "from": "2023",
+     "to": "now",
+     "source": "Stillwater Area Public Schools: School Board page, which lists 'Andrew Thelander, Vice Chair', 'First elected: 1/2023', 'Term expires: 12/2026'",
+     "url": "https://www.stillwaterschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-5000-ISD2909",
+   "name": "John Uhan",
+   "official_page": {
+    "url": "https://rrps.org/district/school-board/",
+    "source": "Rock Ridge Public Schools: School Board (John Uhan, Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Ridge School Board member (the board's chair today)",
+     "from": "",
+     "to": "now",
+     "source": "Rock Ridge Public Schools: School Board page, which lists 'John Uhan, Chair (Term Ends Jan. 2027)' (no starting year given). KAXE's Rock Ridge School District 2026 Election Guide of September 30, 2026 names him among the current board members running for reelection (https://www.kaxe.org/2026-09-30/rock-ridge-school-district-mn-2026-election-guide)",
+     "url": "https://rrps.org/district/school-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-8325-MN",
+   "name": "Der Yang",
+   "review": [
+    {
+     "shows": "The campaign website Der Yang filed: votejudgederyang.org.",
+     "problem": "On October 2, 2026 the address answered with HTTP 503 (Service Unavailable), so no campaign content could be read. The Internet Archive's index lists one readable copy, of June 11, 2026, titled 'Vote For Me': a newly installed WordPress site with its sample post ('Hello world!') and nothing naming her or the office; its later copies, of August 28, 2026, are 503 answers. This is not an official source contradicting the record, only a filed address with no campaign site behind it.",
+     "url": "https://votejudgederyang.org/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MN-9119-MN",
+   "name": "Michael Patrick Grover",
+   "offices": [
+    {
+     "office": "District Court Judge, Ninth Judicial District",
+     "from": "appointed 2025",
+     "to": "",
+     "source": "KAXE (Northern Community Radio), September 11, 2025: Gov. Tim Walz announced the appointment of Michael Grover as a district court judge in the Ninth Judicial District on September 10, 2025, to 'assume the bench in Roseau County' when another judge retired. The page gives no seat number and does not say when he took the bench",
+     "url": "https://www.kaxe.org/local-news/2025-09-11/roseau-attorney-michael-grover-ninth-judicial-district-judge",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MN-1010-61492",
+   "name": "Brian Ducklinsky",
+   "finding": "own_words",
+   "why": "The sentence is on his campaign page as quoted, but it says how he voted for President. It is neither a party label nor an endorsement, which is all an own_words finding may be, and the same page says the council is non-partisan."
+  }
+ ]
+}

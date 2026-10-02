@@ -1,0 +1,32 @@
+{
+ "2026-MN-0331-MN": {
+  "polymarket": "minnesota-governor-winner-2026",
+  "kalshi": "GOVPARTYMN-26",
+  "checked": "2026-10-01",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Minnesota Governor Election Winner\" and resolves on the winner of the 2026 Minnesota gubernatorial election; it offers Amy Klobuchar (D) and Lisa Demuth (R). Kalshi's event is titled \"Minnesota Governor winner?\" (In 2026); its two markets are by party, labelled Amy Klobuchar and Lisa Demuth. Both name the candidates for governor without running mates, and neither offers the Green Party's ticket. Left out on purpose: the margin-of-victory and Senate-and-Governor combination markets on both, and Kalshi's turnout and vote-share markets."
+ },
+ "2026-MN-0335-MN": {
+  "polymarket": "minnesota-attorney-general-election-winner-2026",
+  "kalshi": "KXATTYGENMN-26",
+  "checked": "2026-10-01",
+  "note": "Attorney General. Polymarket's event is titled \"Minnesota Attorney General Election Winner\" and resolves on the party of the candidate who wins the election of November 3, 2026; Kalshi's is \"Minnesota Attorney General winner?\" (In 2026), also by party. Both label the outcomes Keith Ellison and Ronald J. Schutz. Polymarket's event also carries three placeholder outcomes (Person A, Person B, Other) that are not open for trading yet report a price of 0.5: ballot/odds.py's polymarket() keeps them, so it needs to skip outcomes that are not active before this race is shown."
+ },
+ "2026-MN-0332-MN": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATEMN-26NOV03",
+  "checked": "2026-10-01",
+  "note": "Secretary of State. Kalshi's event is titled \"Minnesota Secretary of State winner?\" (in 2026), one market per candidate: Steve Simon, Tad Jude, Seth Kuhl-Stennes and George \"Chip\" Tangen, the four on our list. It opened September 10, 2026 and is lightly traded (under 12,000 contracts when checked). Polymarket lists no market for this race (its search and the likely slug, 2026-10-01)."
+ },
+ "2026-MN-0333-MN": {
+  "polymarket": null,
+  "kalshi": "KXMNSTATEAUDITOR-26NOV03",
+  "checked": "2026-10-01",
+  "note": "State Auditor. Kalshi's event is titled \"Minnesota State Auditor winner?\" (in 2026), one market per candidate: Zack Filipovich, Scott Jensen and Jay Reeves, the three on our list. It opened September 10, 2026 and is lightly traded (about 6,300 contracts when checked), so the three last prices added to 107 cents. Polymarket lists no market for this race (its search and two likely slugs, 2026-10-01)."
+ },
+ "2026-MN-0405-053": {
+  "polymarket": null,
+  "kalshi": "KXHENNEPINCOUNTYATTORNEY-26",
+  "checked": "2026-10-01",
+  "note": "County Attorney, Hennepin County (a county race, not a state one). Kalshi's event is titled \"Hennepin County Attorney winner?\" (In 2026), one market each for Cedrick Frazier and Anders Folk, the two on our list. Barely traded: 84 contracts when checked, all on Frazier. Folk's market had never traded, so its last price reads 0 although the standing offers were 74 to 84 cents; ballot/odds.py's kalshi() would show him at 0%. Ask John before showing this market. Polymarket lists no market for this race."
+ }
+}
