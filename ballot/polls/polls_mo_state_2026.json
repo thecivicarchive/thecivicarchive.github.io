@@ -1,0 +1,29 @@
+{
+ "rule": "Missouri's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Missouri elects no governor in 2026: the office was filled in 2024 and is next on the ballot in 2028, as are the Lieutenant Governor, Secretary of State, Treasurer and Attorney General. The State Auditor is the only statewide office on this ballot; one judge of the Supreme Court stands for a statewide retention vote.",
+ "races": {
+  "2026-MO-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Saint Louis University/YouGov (the SLU/YouGov Poll, August 13-24, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Missouri_State_Auditor_election",
+    "checked": "2026-10-02",
+    "note": "State Auditor. The one published poll of this race is the SLU/YouGov Poll of August 13-24, 2026, fielded by YouGov for Saint Louis University from YouGov's opt-in panel (Wikipedia's table lists it alone; the university's own release of September 2026 was read, 2026-10-02). Neither Saint Louis University nor YouGov is on AAPOR's list of Transparency Initiative members, so it is left out, as YouGov's polls are on the Congress pages. Two news searches found no other poll, so no pollster in the Transparency Initiative has published one."
+   }
+  },
+  "2026-MO-SCRET-1": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Missouri_elections",
+    "checked": "2026-10-02",
+    "note": "Judge of the Supreme Court (a statewide retention vote, a nonpartisan office; listed here because Kalshi runs a market on it, ballot/odds_state_mo.json). No poll of this vote was looked for beyond the two news searches made for Missouri's 2026 state races, which found none; the Wikipedia page named was not read for it. None is counted and none is left out."
+   }
+  }
+ }
+}

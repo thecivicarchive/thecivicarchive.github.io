@@ -1,0 +1,352 @@
+{
+ "part": 1,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "Web search was not available to this part (the session's search allowance was already spent), so findings come only from pages reached directly: government sites, Wikipedia, the parties' own pages, and campaign sites linked from the Missouri House Democrats' candidate page or found at a plain address. A blank here means not looked up by search, not that nothing exists. Left alone because a script could not read them: courts.mo.gov (refused), ballotpedia.org, and jacobs4mo.com (listed for Martin (Marty) Jacobs on the House Democrats' page, but it shows nothing without a browser).",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-associate-circuit-judge-division-11",
+   "name": "Roger Johnson",
+   "website": {
+    "url": "https://johnsonforboone.com/",
+    "how": "The site is titled \"Roger Johnson for Associate Judge, Boone County, Division 11\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.boonemo.gov/pa/",
+    "source": "Boone County's Prosecuting Attorney page, headed \"Roger Johnson Prosecuting Attorney\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prosecuting Attorney, Boone County",
+     "from": "",
+     "to": "present",
+     "source": "The Missouri Times (press release, July 31, 2025): \"Roger Johnson, the current Boone County Prosecuting Attorney, today announced his candidacy for Associate Judge, Division 11 ... Since his election as Boone County Prosecutor in 2022\" (the release gives the election year, not the year the term began)",
+     "url": "https://themissouritimes.com/press-release-boone-county-prosecutor-roger-johnson-announces-candidacy-for-associate-judge/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29037-presiding-commissioner",
+   "name": "Bob Huston"
+  },
+  {
+   "race_id": "2026-MO-29051-presiding-commissioner",
+   "name": "Mike Bernskoetter"
+  },
+  {
+   "race_id": "2026-MO-29077-county-clerk",
+   "name": "Shane Schoeller",
+   "official_page": {
+    "url": "https://greenecountymo.gov/about/bio.php?id=412",
+    "source": "Greene County's own biography of the County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Clerk, Greene County",
+     "from": "",
+     "to": "present",
+     "source": "Greene County: \"In 2014, Shane was elected by an overwhelming margin of Greene County voters to serve as their County Clerk. Now in his third term\" (the page gives the election year, not the year the term began)",
+     "url": "https://greenecountymo.gov/about/bio.php?id=412",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Missouri House of Representatives, 139th district",
+     "from": "2007",
+     "to": "2013",
+     "source": "Wikipedia: \"Member of the Missouri House of Representatives from the 139th district, in office January 2007 - January 2013\"; Speaker Pro Tem for the 96th General Assembly",
+     "url": "https://en.wikipedia.org/wiki/Shane_Schoeller",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican nominee for Missouri Secretary of State",
+     "year": "2012",
+     "party": "Republican",
+     "source": "Wikipedia: \"Shane was the Republican nominee for Missouri Secretary of State in the 2012 election\"",
+     "url": "https://en.wikipedia.org/wiki/Shane_Schoeller",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-6",
+   "name": "Tony Lawson"
+  },
+  {
+   "race_id": "2026-MO-29099-associate-circuit-judge-division-14",
+   "name": "Timothy Miller",
+   "offices": [
+    {
+     "office": "Municipal Judge, Jefferson County",
+     "from": "",
+     "to": "2010",
+     "source": "Missouri Lawyers Media (2010): \"Since Municipal Judge Tim Miller is running for associate circuit judge in Div. 14 of the Jefferson County Circuit Court, that will leave his seat unfilled ... Miller will run uncontested for Div. 14 in the November election\"",
+     "url": "https://molawyersmedia.com/?p=183390",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29165-collector",
+   "name": "Jim Bosch"
+  },
+  {
+   "race_id": "2026-MO-29183-county-council-3",
+   "name": "Mike Elam",
+   "website": {
+    "url": "https://www.mikeelam.com/",
+    "how": "The site reads \"VOTE Mike Elam for St. Charles County Council on November 3, 2026!\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sccmo.org/1355/Mike-Elam---District-3",
+    "source": "St. Charles County's own page for the District 3 council member",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Council, District 3, St. Charles County",
+     "from": "2014",
+     "to": "present",
+     "source": "St. Charles County: \"Mike Elam - District 3 ... Year(s) in office 2014-present\"",
+     "url": "https://www.sccmo.org/1355/Mike-Elam---District-3",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-ACJRET-21-32",
+   "name": "Julia Pusateri Lasater",
+   "official_page": {
+    "url": "https://stlcountycourts.com/our-judges/division-32/",
+    "source": "St. Louis County Courts, 21st Judicial Circuit: \"Division 32, Honorable Julia Pusateri Lasater\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-CJ-26-3",
+   "name": "Aaron Koeppen"
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-14",
+   "name": "Heather J. Hays",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/judges/index.php",
+    "source": "The 22nd Judicial Circuit's list of judges, which names Heather J. Hays (the list gives this year's docket assignment, not the seat number on the ballot)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-M-64082-council-ward-four-S",
+   "name": "Steven Felder"
+  },
+  {
+   "race_id": "2026-MO-SH103",
+   "name": "Dave Hinman"
+  },
+  {
+   "race_id": "2026-MO-SH111",
+   "name": "Stacey Hagen",
+   "website": {
+    "url": "https://www.staceyformo.com/",
+    "how": "The site is headed \"Stacey Hagen for MO House District 111\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH120",
+   "name": "John W Hewkin"
+  },
+  {
+   "race_id": "2026-MO-SH128",
+   "name": "Shane Sawyer"
+  },
+  {
+   "race_id": "2026-MO-SH137",
+   "name": "Bryce F. Lockwood"
+  },
+  {
+   "race_id": "2026-MO-SH146",
+   "name": "Lucas Green"
+  },
+  {
+   "race_id": "2026-MO-SH155",
+   "name": "Joshua Berzins",
+   "website": {
+    "url": "https://www.joshuaberzinsforstaterep.com/",
+    "how": "The site is titled \"Joshua Berzins For State Rep\" and says \"I'm running for State Representative\" in the Ozarks, Missouri; it does not print the district number (the Missouri House Democrats' candidate page lists this address for District 155); its paid-for line names the committee Joshua Berzins for State Representative",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH17",
+   "name": "Susan Hoisington",
+   "website": {
+    "url": "https://www.drsusanformo.com/",
+    "how": "Its About page says \"Susan Hoisington is ... running for State Representative in House District 17\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH29",
+   "name": "Robert Bruette"
+  },
+  {
+   "race_id": "2026-MO-SH38",
+   "name": "Martin (Marty) Jacobs"
+  },
+  {
+   "race_id": "2026-MO-SH46",
+   "name": "David Tyson Smith"
+  },
+  {
+   "race_id": "2026-MO-SH56",
+   "name": "Staci Czar",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Cass County Democratic Central Committee",
+     "url": "http://www.casscountydemocrats.com/vote_august_4th",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH64",
+   "name": "Amber Teson",
+   "website": {
+    "url": "https://amberteson4mo.com/",
+    "how": "The site is titled \"Amber Teson - Missouri House District 64\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH74",
+   "name": "Marla Smith"
+  },
+  {
+   "race_id": "2026-MO-SH85",
+   "name": "Jerron J Sutton"
+  },
+  {
+   "race_id": "2026-MO-SH95",
+   "name": "Meredith Sumenek",
+   "website": {
+    "url": "https://www.sumenekformo.com/",
+    "how": "The site reads \"Meredith Sumenek for State Representative for Missouri's 95th District in South St. Louis County\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SS2",
+   "name": "Nick Schroer"
+  },
+  {
+   "race_id": "2026-MO-SS4",
+   "name": "Gina Mitten",
+   "website": {
+    "url": "https://ginamitten.com/",
+    "how": "The site is titled \"Gina Mitten for State Senate District 4\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, 83rd district",
+     "from": "2013",
+     "to": "2021",
+     "source": "Wikipedia: \"served in the Missouri House of Representatives from the 83rd district from 2013 to 2021\"",
+     "url": "https://en.wikipedia.org/wiki/Gina_Mitten",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "City Council, Richmond Heights",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site: \"serving her community in elected office - first on the Richmond Heights City Council and then in the Missouri House of Representatives\" (years not given)",
+     "url": "https://ginamitten.com/meet-gina",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Missouri House of Representatives, 83rd district (a body whose members sit by party); acting Minority Leader, 2018 to 2019",
+     "year": "2013",
+     "party": "Democratic",
+     "source": "Wikipedia, Gina Mitten (infobox: Party Democratic; Minority Leader of the Missouri House of Representatives, acting)",
+     "url": "https://en.wikipedia.org/wiki/Gina_Mitten",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "As a Democratic leader in the House, Gina championed ethics",
+    "url": "https://ginamitten.com/",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MO-29037-presiding-commissioner",
+   "name": "Bob Huston",
+   "what": "official_page",
+   "why": "The county's site could not be reached in five tries (the name lookup failed each time), so the page was not seen."
+  },
+  {
+   "race_id": "2026-MO-29037-presiding-commissioner",
+   "name": "Bob Huston",
+   "what": "offices",
+   "why": "The county's site could not be reached in five tries (the name lookup failed each time), so the page was not seen."
+  },
+  {
+   "race_id": "2026-MO-29051-presiding-commissioner",
+   "name": "Mike Bernskoetter",
+   "what": "born",
+   "why": "Wikipedia gives the birth date without a citation."
+  },
+  {
+   "race_id": "2026-MO-29051-presiding-commissioner",
+   "name": "Mike Bernskoetter",
+   "what": "offices",
+   "why": "The Wikipedia article does not mention Cole County or the 2026 race for Presiding Commissioner, so only one anchor (the state) ties it to this candidate."
+  },
+  {
+   "race_id": "2026-MO-29051-presiding-commissioner",
+   "name": "Mike Bernskoetter",
+   "what": "past_party",
+   "why": "The Wikipedia article does not mention Cole County or the 2026 race for Presiding Commissioner, so only one anchor (the state) ties it to this candidate."
+  },
+  {
+   "race_id": "2026-MO-29077-county-clerk",
+   "name": "Shane Schoeller",
+   "what": "born",
+   "why": "Wikipedia gives the birth date without a citation."
+  },
+  {
+   "race_id": "2026-MO-SH137",
+   "name": "Bryce F. Lockwood",
+   "what": "website",
+   "why": "The page sits on a site-building service and says it was paid for by the Missouri House Democratic Campaign Committee, a party committee, so it is not clearly the campaign's own site."
+  },
+  {
+   "race_id": "2026-MO-SS4",
+   "name": "Gina Mitten",
+   "what": "born",
+   "why": "Wikipedia gives the birth date without a citation."
+  }
+ ]
+}

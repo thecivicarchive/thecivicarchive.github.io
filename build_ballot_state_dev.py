@@ -20,7 +20,8 @@ One small page per state, routed by its address, and the data it fetches:
   #county=<fips>   every county, conservation district, city or town, township, school and other district contest
                    reaching that county, grouped by place, with the court contests whose counties include it
                    (the three-digit county code, #county=053; the five-digit code is understood too)
-  #race=<race_id>  one contest: the candidates as same-size cards, the primary where there was one, the sources
+  #race=<race_id>  one contest: the candidates as same-size cards a reader may move or hide, the comparison the cards
+                   open into (a column a candidate), the primary where there was one, the sources
   #map=<layer>:<id>  the home page with that shape on the map, where the state has its map files (#map=ward:00694|Ward 2)
 
 Each state's folder holds index.html (the shell), data/<code>.json (the races and candidates), data/districts.json (the
@@ -75,14 +76,31 @@ every other state's page (the marks <extras> and <plain> in PAGE).
     office's page: a party's own published endorsement, an earlier run or office under a party label and the
     candidate's own words, each linked; and how the place voted in past partisan elections, as plain bars with counts
     and the file's own note (data/votes/, one small file for each kind of place). Nobody is called by a party here.
+
+A race's page is the Congress pages' race page (John, 2026-10-02: the governor, the other statewide offices and the
+local levels should look like the higher ones). The cards are that page's card, with its controls: move left, move
+right, hide, drag to reorder, "Put back the official order"; the line above them says when the order is one the reader
+chose; the arrangement is kept on the reader's device, race by race, and shared with the comparison's columns. "Step
+into the arena: compare them side by side" opens the same kind of table, its sections closed to start: On the ballot
+(the party as filed or that the office is nonpartisan, the ballot order or why none is given, the list's marks and its
+notes about a candidate); Who they are (what the page used to set out in cards of its own under that heading: age,
+offices on record, the government's own page, the photo, the campaign website, the issue headings, each with its
+source line and link); The record, not a label (for a nonpartisan office that may show it, what the record holds about
+each candidate; how the place has voted stays on the page under the same heading); In office (a sitting legislator or
+statewide official: what the card says they hold, and the link to their record). There is no money section. A section
+appears only when it has something to show, and the comparison itself only when there is something beyond the cards:
+an office that shows only what was filed gets it where a candidate listed a website or the list carries a note.
+Nothing is shown that the race page did not show before, with one addition: the notes the lists carry about a
+candidate (a running mate, a retention vote, a nomination after the primary), which the data held and no page showed.
   - Polls and prediction markets of the statewide races (ballot/polls/polls_<code>_state_2026.json and the snapshot
     ballot/odds.py keeps of the markets named in ballot/odds_state_<code>.json), shown as the Congress pages show
     theirs: the part of build_ballot_dev.PAGE that draws them is borrowed whole.
 
 One look, one code path: the site's stylesheet and the shared script parts (the changelog badge and the map arithmetic
 behind "use my location") come from the federal page by the landmarks in build_state_dev.BORROWED, and the ballot pages'
-own stylesheet (the arena, the cards, the primary fields, the maps) and the script that folds a page's sources (one
-closed fold, a closed fold inside it for each kind of source) from build_ballot_dev.PAGE by the landmarks below. If
+own stylesheet (the arena, the cards, the primary fields, the maps), the script that folds a page's sources (one
+closed fold, a closed fold inside it for each kind of source) and the script of a race's arena (a reader's arrangement,
+the cards drawn in it, the comparison's frame, the controls) from build_ballot_dev.PAGE by the landmarks below. If
 a landmark can no longer be found, the build stops and names it; nothing is copied by hand. Every state's page is the same
 page: what differs (the state's name, its chambers, its election office, its primary date) is worked out here from the
 record and handed to the page as BOOT.st.
@@ -118,8 +136,16 @@ DB = os.path.join(HERE, "ballot_local_2026.sqlite")
 ROOT = os.path.join(HERE, "site", "dev", "ballot")
 FED_DB = os.path.join(HERE, "ballot_2026.sqlite")
 GENERAL_DATE = "2026-11-03"
-SHELL_LIMIT = 320_000      # the shell of a state that has its lists alone (raised from 300,000 at v4.0.088: the general code Ohio and Michigan needed brought it to 301-304 KB, about 78 KB as the server sends it)
-SHELL_LIMIT_EXTRAS = 380_000      # ... and of a state that has every extra, polls and markets included (the map's own script is a file beside it, fetched when a map opens). Raised from 345,000 at v4.0.087: the five finished states sit at 350 to 366 KB (about 95 KB as the server sends it, compressed), and the warning should mean growth, not the settled size
+SHELL_LIMIT = 340_000      # the shell of a state that has its lists alone
+SHELL_LIMIT_EXTRAS = 405_000      # ... and of a state that has every extra, polls and markets included (the map's own script is a file beside it, fetched when a map opens)
+# The history of the two: 300,000 and 345,000 until v4.0.087 and v4.0.088, then 320,000 and 380,000 (the general code
+# the finished states needed; the warning should mean growth, not the settled size). Both raised on 2026-10-02 (by
+# 20,000 and 25,000) for the race page's cards and comparison,
+# which are now the Congress pages' own: every shell grew by about 20 KB, of which 10.6 KB is the script taken from the
+# Congress page (a reader's arrangement, the cards drawn in it, the comparison's frame, the arena's controls) and the
+# rest this page's sections of the comparison and the cards' styles, less the "Who they are" cards they replace. A
+# state with its lists alone now sits at 324 to 327 KB, one with every extra at 390 to 400 KB: the largest (Michigan,
+# 400,234 bytes) has under 5 KB of room, so the next thing added to every page will, and should, trip the warning.
 # The parts of the page only a state with extras needs sit between these marks in PAGE and are left out of every other
 # state's page, so a state without the data keeps the page (and the weight) it had; the "plain" part holds what stands
 # in for them there.
@@ -153,9 +179,23 @@ DEAD_SITE = re.compile(r"no such address|HTTP 40[4]|HTTP 410|holding page|social
 # for each kind of source, a long list broken up again), so both kinds of ballot page fold their sources the same way,
 # and the polls and betting markets of a race (the two tabs above the cards, the notice before a market, the helplines),
 # so a statewide race here shows them exactly as a race for Congress does.
+# And, so that a state or local race is arranged and compared exactly as a race for Congress is (John, 2026-10-02): a
+# reader's own arrangement of a race (cards hidden, an order of their own, kept on the device under "ballot:arr:<race>";
+# the arrows and the x on a card or a column), the cards drawn in that arrangement with "vs" between them and the bars
+# beneath, the frame of the comparison (taken in three parts: this page puts its own sections between the second and the
+# third) and the arena's controls (the button that opens the comparison, the arrows, hide and show, the sections' folds,
+# dragging a card). What a card says and what the comparison's sections hold are this page's own: card(), headWords(),
+# arena() and the sections inside compare() in PAGE.
 BALLOT_BORROWED = {"BALLOT_CSS": (":root{--pR:var(--rep)", "</style>\n</head>"),
                    "SOURCEFOLD": ("/* ---------- source folds", "/* ---------- end of source folds ---------- */"),
-                   "MARKETS": ("/* ---------- betting markets: information only", "/* ---------- maps: the districts on the ballot")}
+                   "MARKETS": ("/* ---------- betting markets: information only", "/* ---------- maps: the districts on the ballot"),
+                   "ARRANGE": ("/* ---------- a reader's own arrangement of a race", "/* ---------- end of the arrangement"),
+                   "ARENACARDS": ("/* ---------- the arena's cards as the reader arranged them", "/* ---------- end of the arena's cards"),
+                   "CMP_OPEN": ("/* ---------- the comparison. The state ballot pages take its frame", "  /* -- the frame's opening ends here"),
+                   "CMP_ROWS": ("  /* -- the frame: making sections and rows", "  /* -- this page's own sections"),
+                   "CMP_CLOSE": ("  /* -- the frame: the close", "/* ---------- end of the comparison"),
+                   "WIREARENA": ("/* ---------- the arena's controls", "/* ---------- end of the arena's controls")}
+ARENA_PARTS = ("ARRANGE", "ARENACARDS", "CMP_OPEN", "CMP_ROWS", "CMP_CLOSE", "WIREARENA")      # each stands in PAGE as __NAME__
 
 
 def borrow_ballot(name):
@@ -1827,7 +1867,9 @@ def page_words(code, P, data, lines, nest, local, sources, off, prim_votes, loca
                 keep.append(c)
                 if re.search(r"\bballot order\b", c, re.I):
                     break
-            said = ["; ".join(keep) + "."]
+            # a sentence that only reaches the order at the end of a list of other things (what a state's local lists
+            # leave out, item by item) is not a sentence about the order: the plain words below stand in for it
+            said = ["; ".join(keep) + "."] if len(keep) == 1 else []
         st["orderNote"] = said[0] if said else "The lists read here give no ballot order."
     cty = county_lines(code) if local else {}
     c_lines = bool(cty.get("counties"))
@@ -2793,15 +2835,48 @@ html,body{overflow-x:hidden}
 .filterbar{margin-top:14px}
 .filterbar input{box-sizing:border-box;height:44px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);padding:0 16px;font:500 14.5px var(--sans);width:min(440px,100%)}
 .filterbar input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* a race's cards (John, 2026-10-02): the Congress pages' card, with its controls. A card here can hold more words than one for
+   Congress (a long office, a link to a record), so that card's size is its least height and it grows with what it holds; every card
+   is then made as tall as the tallest (--ch, set by evenCards). The controls and the flag share a row of their own above the
+   portrait and never cover it; where they do not fit side by side the flag goes under the controls. */
 .st .acards{align-items:stretch}
 .st .vs{align-self:center}
-.st .bcard{aspect-ratio:auto;min-height:clamp(250px,30vw,300px)}
+.st .bcard{aspect-ratio:auto;min-height:max(var(--ch,0px),calc(clamp(148px,22vw,220px)*1.44));--hatch:repeating-linear-gradient(135deg,color-mix(in srgb,var(--pc) 9%,transparent) 0 7px,transparent 7px 14px)}
+.st .bcard.solo{min-height:max(var(--ch,0px),calc(clamp(170px,26vw,240px)*1.44))}
 .st .bcard .band span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st .bcard .hatch{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--hatch)}
+.st .bcard .hatch .mono{background:none;padding:2px 0 8px}
+.st .bcard .crow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:5px 6px 4px}
+.st .bcard .crow .ctl{position:static;transform:none}
+.st .bcard .crow .flag{position:static;margin-left:auto;letter-spacing:.04em;padding:4px 6px}      /* "In this seat today" beside the three controls on a card of full width */
 .st .bcard .who{display:block}      /* the record side's stylesheet lays its own .who out as a grid of 240px columns, wider than a card */
 .st .bcard .who b{overflow-wrap:anywhere}
 .st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 .st .bcard.np .mono span{border-style:dashed}
-@media (max-width:640px){.st .bcard{min-height:0}}
+.st.unopp .vs,.st .acards:not([data-n="2"]) .vs{display:none}      /* elected without a vote: nobody stands against anybody. And "vs" stands between two, as on these pages before: a contest here can fill several seats (a school board, justices of the peace), where a chain of "vs" would say what is not so */
+.st.unopp .acards .bcard,:root.calm .st .acards .bcard{transform:none}      /* ... and with Motion off the cards stand straight */
+.st .aopen{max-width:100%;height:auto;min-height:44px;padding:6px 20px}.st .aopen svg{flex:none}      /* on a narrow screen its words go onto two lines; they are never cut off */
+.st .aopen[hidden]{display:none}      /* nothing to compare beyond the cards */
+/* the comparison (the Congress pages' frame): a sentence at the head of a section, row names that may wrap, and columns that keep a
+   width a person can read however many candidates there are. The table then slides sideways inside its box, and what says where a
+   reader is stays in view while it does: the bar, each section's name and sentence, and the names of the rows. */
+.st .cmp{container-type:inline-size}
+.st .cmp .cmpbar,.st .cmp .gbtn,.st .cmp .gnote p{position:sticky;left:0;max-width:100cqw}
+.st .cmp .gnote p{margin:0;left:12px;max-width:min(92ch,calc(100cqw - 24px));color:var(--muted);font-size:13px;line-height:1.5}
+.st .cmp tbody th[scope="row"]{white-space:normal;width:150px;min-width:108px}
+.st .cmp tbody th[scope="row"],.st .cmp thead th:first-child{position:sticky;left:0;z-index:1;background:var(--surface)}
+.st .cmp tbody th[scope="row"]{box-shadow:inset 0 -1px 0 var(--line)}      /* its own rule under it: a cell that stays put loses the table's */
+.st .cmp thead th:not(:first-child){min-width:150px}
+.st .cmp td{overflow-wrap:anywhere}
+@media (max-width:640px){      /* a phone: the card lies on its side as the Congress pages' does; its controls keep a row of their own under the band, large enough for a thumb */
+  .st .acards{align-items:center}
+  .st .bcard,.st .bcard.solo{min-height:0}
+  .st .bcard .hatch{display:contents}
+  .st .bcard .hatch .mono{background:var(--hatch);padding:0}
+  .st .bcard .mono .ph{width:58px}      /* a portrait as large as the initials it replaces */
+  .st .bcard .crow{width:100%;box-sizing:border-box;padding:6px 9px;border-bottom:1px solid var(--line)}
+  .st .crow .ctl button,.st .cmp .colctl button{width:30px;height:30px;font-size:16px}
+  .st .cmp tbody th[scope="row"]{width:96px;min-width:84px}.st .cmp thead th:not(:first-child){min-width:136px}}
 .loading{padding:60px 0;text-align:center}
 .lanes .lane .nm a{color:inherit}
 .dist-counties{font-size:12.5px;color:var(--muted);margin:2px 0 0}
@@ -2868,24 +2943,12 @@ details.lmore summary:focus-visible{outline:2px solid var(--accent);outline-offs
 .glist a{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:12px;padding:8px 11px}
 .glist a:hover{border-color:var(--line-strong)}.glist b{display:block;font-size:14px;line-height:1.25}.glist span{font-size:12.5px;color:var(--muted)}
 .mapside .linkbtn{font-size:13px}
-/* who the candidates are, each fact with its source; and, for a nonpartisan office, the record and never a label */
+/* who the candidates are, each fact with its source, and, for a nonpartisan office, the record and never a label: both are sections
+   of the comparison, a column a candidate */
 .st .bcard.np .mono .ph{border-style:solid}
-.wgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));margin-top:14px}
-.wcard{border:1px solid var(--line);border-top:4px solid var(--pc,var(--line-strong));background:var(--surface);border-radius:16px;padding:12px 14px;min-width:0}
-.wcard h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.1;margin:0;overflow-wrap:anywhere}
-.wcard .wfor{display:block;font-size:12px;color:var(--muted);margin-top:3px}
-.wcard dl{margin:8px 0 0;font-size:13.5px}
-.wcard dt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
-.wcard dd{margin:3px 0 0;overflow-wrap:anywhere}
-.wcard dd small,.lrow small{display:block;color:var(--muted);font-size:12px;margin-top:2px;line-height:1.4}
-.wcard a,.lrow a,.pvotes a{color:var(--accent-ink,var(--accent))}
-.wcard .soon{color:var(--muted);font-style:italic}
-.wcard .topics span{border-radius:10px;line-height:1.3;padding:3px 8px}
-.wcard dd .item{display:block;margin-top:6px}.wcard dd .item:first-child{margin-top:0}
-.lean{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));margin-top:14px}
-.lrow{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:11px 14px;min-width:0;overflow-wrap:anywhere}
-.lrow h4{font:700 15px var(--sans);margin:0 0 4px}
-.lrow ul{margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.45}.lrow li{margin-top:8px}.lrow p{margin:0;font-size:13.5px;color:var(--muted)}
+.st .cmp td .item{display:block;margin-top:8px}.st .cmp td .item:first-child{margin-top:0}
+.st .cmp .topics span{border-radius:10px;line-height:1.3;padding:3px 8px}
+.pvotes a{color:var(--accent-ink,var(--accent))}
 .pvotes{margin-top:22px}
 .pvotes h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.6vw,30px);margin:0}
 .pvgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));margin-top:12px}
@@ -3139,7 +3202,9 @@ const rosterRows = () => { const rows = Object.values(D.sources).filter(s => sou
 
 function index(){
   D.races.forEach(r => { r.date = r.date || D.election;      // what the file leaves out because the page can put it back
-    for (const [k, list] of Object.entries(r.el || {})) list.forEach(c => { c.date = c.date || (k === "general" ? r.date : D.primary); c.src = c.src || r.src; if (!r.pt) { c.p = "Nonpartisan office"; c.pc = "N"; } }); });
+    for (const [k, list] of Object.entries(r.el || {})) list.forEach(c => { c.date = c.date || (k === "general" ? r.date : D.primary); c.src = c.src || r.src; if (!r.pt) { c.p = "Nonpartisan office"; c.pc = "N"; } });
+    const seen = {};      // a candidate's key in a reader's own arrangement of the race: the name as filed (a second of the same name is told apart)
+    ((r.el || {}).general || []).forEach(c => { const i = seen[c.n] = (seen[c.n] || 0) + 1; c.k = i > 1 ? `${c.n} (${i})` : c.n; }); });
   R = Object.fromEntries(D.races.map(r => [r.id, r]));
   LEG = {upper: {}, lower: {}};
   D.races.forEach(r => { const key = r.k === "state_senate" ? "upper" : r.k === "state_house" ? "lower" : null;
@@ -3174,75 +3239,49 @@ function nowOffice(p){      // the office a candidate holds today: the roster's,
   const held = (p.fo || []).filter(x => x[2] === "now"), f = held.find(x => x[5] === "official") || held[0];      // a named source's word counts too; "Who they are" says which
   return f ? `${esc(f[0])}${f[1] ? `, since ${f[1]}` : ""}` : "";
 }
+const officeNow = (c, r) => nowOffice(facts(c, r)) || (c.inc || serves(c, r) ? "This office: marked incumbent on the list" : "No office on record");      // a card's "In office now", and the comparison's
 
-/* ---------- a candidate's card, and the arena ---------- */
-function card(c, r, k){
+/* ---------- a candidate's card, and the arena: the Congress pages' own (John, 2026-10-02). A reader's arrangement of a race, the cards
+   drawn in it, the frame of the comparison and the arena's controls are that page's script, taken from it when this page is built, so
+   a state or local race is arranged and compared exactly as a race for Congress is. What a card says, the line above the cards and the
+   comparison's sections are this page's own: what the race page showed before, and the notes the lists carry about a candidate. ---------- */
+/* ===== a part shared with the Congress ballot page (taken from it when this page is built): a reader's own arrangement of a race ===== */
+__ARRANGE__
+/* ===== end of that part ===== */
+function card(c, r, k, n){      // k: its place among the cards shown; n: how many are shown
   const sv = serves(c, r), href = c.m ? recordHref(c.m) : "", L = c.m && D.links[c.m], p = facts(c, r), age = ageOf(p.dob);
   const flag = c.wi ? "Write-in" : sv ? "In this seat today" : c.inc ? "Incumbent" : "";
   const band2 = r.lv === "legislature" ? (r.k === "state_senate" ? `${ST.upAbbr} ${r.d}` : `${ST.loAbbr} ${r.d}`) : r.s ? seatWords2(r.s) : r.d ? (r.lv === "court" ? (/^court_of_appeals/.test(r.k) ? raceWhere(r) : judicialName(r.d)) : distWords(r.d)) : (r.lv === "statewide" ? "Statewide" : "");
-  const rec = href ? `<a class="rec" href="${href}">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
+  const rec = href ? `<a class="rec" href="${href}" draggable="false">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
+  const many = general(r).length > 1;      // one name for the office: nothing to move or hide, so its card has no controls (the comparison's column has none either)
   const order = ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"];
-  const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", nowOffice(p) || (c.inc || sv ? "This office: marked incumbent on the list" : "No office on record")], order]
+  const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", officeNow(c, r)], order]
     : [["Party", r.pt ? esc(partyShort(c, r)) : "Nonpartisan"], order];
-  return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}">
+  return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}${n === 1 ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}" data-k="${esc(c.k)}" draggable="true">
     <div class="band"><span>${esc(partyShort(c, r))}</span><span>${esc(band2)}</span></div>
-    ${flag ? `<span class="flag">${esc(flag)}</span>` : ""}
-    <div class="mono">${p.ph ? `<span class="ph"><img src="${esc(p.ph)}" alt="" loading="lazy" decoding="async"></span>` : `<span aria-hidden="true">${esc(initials(c.n))}</span>`}</div>
+    <div class="hatch">${many || flag ? `<div class="crow">${many ? `<div class="ctl" role="group" aria-label="Arrange ${esc(c.n)}'s card">${ctlBtns(c, k, n, "mv")}</div>` : ""}${flag ? `<span class="flag">${esc(flag)}</span>` : ""}</div>` : ""}
+      <div class="mono">${p.ph ? `<span class="ph"><img src="${esc(p.ph)}" alt="" loading="lazy" decoding="async" draggable="false"></span>` : `<span aria-hidden="true">${esc(initials(c.n))}</span>`}</div></div>
     <div class="who"><b>${esc(c.n)}</b><small>${esc(partyWords(c, r))}</small>${rec}</div>
     <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
 }
 /* <plain> */
-const tabsFor = () => "", whoHTML = () => "", leanHTML = () => "", moreSources = () => {}, mountVotes = () => {}, quietMarkets = () => {};      // a state with its lists alone: none of what follows is in its page
+const tabsFor = () => "", leanHTML = () => "", moreSources = () => {}, mountVotes = () => {}, quietMarkets = () => {};      // a state with its lists alone: none of what follows is in its page
 /* </plain> */
 /* <extras> */
-function whoHTML(r){      // what a record or a named source says about each candidate, with where it comes from
-  const g = general(r); if (!g.length || !BOOT.who) return "";
-  if (!r.f && !g.some(c => facts(c, r).web)) return "";      // an office that shows what was filed: only a website a candidate listed
-  const ext = (url, words) => `<a href="${esc(url)}" target="_blank" rel="noopener nofollow">${words}</a>`;
-  const site = p => p.web ? `${ext(p.web, esc(hostOf(p.web)))}<small>${p.wf ? "The campaign&rsquo;s own website, found on the open web and checked against the race it names" : `The address the candidate gave the ${WHO} list`}</small>`
-    : `<span class="soon">${r.f ? "None on the list or found" : "None on the list"}</span>`;
-  const one = c => { const p = facts(c, r), age = ageOf(p.dob), rows = [], ticket = r.k === "governor" && firstOf(c.n) !== String(c.n);
-    if (r.f) {
-      rows.push(["Age", age != null ? `${age}<small>Born ${esc(String(p.dob).slice(0, 4))}, according to ${ROSTER_NAME}</small>`
-        : p.fb ? `${fAge(p.fb)}<small>Born ${p.fb[0]}, ${fSrc(p.fb[2], p.fb[3], p.fb[4])}${p.fb[1] ? "" : "; the age is worked out from the year alone"}</small>`
-        : `<span class="soon">Not on record</span>`]);
-      // the roster often lacks the date a long-serving member began: then the earliest date it does give is "or earlier", never a start
-      const when = o => { const a = o[1] ? esc(String(o[1]).slice(0, 4)) : "", b = o[2] ? esc(String(o[2]).slice(0, 4)) : "";
-        return o[3] ? (b ? `${a ? a + " or earlier" : "start not on record"} to ${b}` : a ? `since ${a} or earlier` : "today; start not on record") : b ? `${a}&ndash;${b}` : `since ${a}`; };
-      const held = (p.off || []).map(o => `<span class="item">${esc(o[0])}, ${when(o)}<small>${yearsIn(o[1], o[2], o[3])}; ${ROSTER_NAME}</small></span>`)
-        .concat((p.fo || []).map(o => `<span class="item">${esc(o[0])}${fYears(o)}<small>${fSrc(o[3], o[4], o[5])}</small></span>`));
-      rows.push(["Public offices held", held.length ? held.join("") : `<span class="soon">None on record</span>`]);
-      if (p.op) rows.push(["Their official page", `${ext(p.op[0], esc(p.op[1]))}<small>A government&rsquo;s own page about an officeholder</small>`]);
-    }
-    rows.push(["Campaign website", site(p)]);
-    if (r.f) rows.push(["In their own words", p.iss ? `<span class="topics">${p.iss[1].map(t => `<span>${esc(t)}</span>`).join("")}</span>${ext(p.iss[0], "Read them in their own words")}<small>The topics their campaign&rsquo;s issues page lists, as headings; nothing is summarized</small>`
-      : `<span class="soon">${p.web ? "No issue headings read from their site" : "Nothing found"}</span>`]);
-    if (r.f && p.ph) rows.push(["Photo", `${esc(p.pc || "")}${p.pu ? `<small>${ext(p.pu, "Where it comes from")}</small>` : ""}`]);
-    return `<article class="wcard" style="--pc:${pcVar(c)}"><h3>${esc(c.n)}</h3>${ticket && r.f ? `<small class="wfor">These are about ${esc(firstOf(c.n))}, the candidate for governor</small>` : ""}<dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`; };
-  return `<section class="bsec" id="who"><h2>${r.f ? "Who they are" : "Campaign websites"}</h2><p class="sub">${r.f ? "What a record or a named source says about each candidate, with where it comes from. A blank means nothing was found, not that there is nothing. Nobody is described, scored or graded."
-    : `Candidates for this office are shown as they filed. Where one listed a campaign website with the ${WHO} office, it is linked here.`}</p><div class="wgrid">${g.map(one).join("")}</div></section>`;
-}
-/* ---------- a nonpartisan office: the record, never a label (John, 2026-10-01). A party's own published endorsement, an earlier run or
-   office under a party label and a candidate's own words, each linked; and how the place itself has voted, from the official results ---------- */
+/* ---------- a nonpartisan office: the record, never a label (John, 2026-10-01). What the record holds about each candidate (a party's own
+   published endorsement, an earlier run or office under a party label, a candidate's own words, each linked) is a section of the comparison;
+   on the page itself, under the same heading, is how the place has voted, from the official results ---------- */
+const leanWords = noms => `a party&rsquo;s own published endorsement${noms ? " or its convention&rsquo;s nomination" : ""}, an earlier run or office under a party label, and a candidate&rsquo;s own words on their own campaign site, each linked to where it stands`;
+const leanHas = (c, r) => { const p = facts(c, r); return !!((p.en || []).length || (p.nom || []).length || (p.pp || []).length || p.ow); };      // is anything of these kinds on record for a candidate?
 function leanHTML(r){
   if (r.pt || (!BOOT.who && !BOOT.votes)) return "";
   const g = general(r), people = !!(r.f && BOOT.who && g.length);
-  const link = (url, words) => `<a href="${esc(url)}" target="_blank" rel="noopener nofollow">${words}</a>`;
-  const person = c => { const p = facts(c, r), items = [], by = {};
-    const seen = {};      // one party unit, named once, however many of its pages say it
-    (p.en || []).forEach(([party, unit, url]) => { if (seen[party + "|" + unit]) return; seen[party + "|" + unit] = 1; (by[party] = by[party] || []).push(link(url, esc(unit))); });
-    Object.entries(by).forEach(([party, units]) => items.push(`<li><b>Endorsed by a party.</b> ${esc(party)}: ${units.join(", ")}<small>as the party&rsquo;s own page says</small></li>`));
-    // a party's convention nominated them for an office the ballot prints without a party, and its page does not say "endorsed": said in those words, apart
-    (p.nom || []).forEach(([party, unit, url]) => items.push(`<li><b>Nominated at a party&rsquo;s convention.</b> Nominated by the ${link(url, esc(unit))} at its convention<small>as the party&rsquo;s own page says; the page does not call it an endorsement, and the ballot prints no party for this office</small></li>`));
-    (p.pp || []).forEach(o => items.push(`<li><b>Earlier, under a party label.</b> ${esc(o[0])}${o[1] && !String(o[0]).includes(String(o[1])) ? ` (${o[1]})` : ""}<small>${o[2] ? `${esc(o[2])} &middot; ` : ""}${fSrc(o[3], o[4], o[5])}</small></li>`));
-    if (p.ow) items.push(`<li><b>In their own words.</b> &ldquo;${esc(p.ow[0])}&rdquo;<small>on ${link(p.ow[1], "their campaign&rsquo;s own site")}</small></li>`);
-    return `<div class="lrow"><h4>${esc(c.n)}</h4>${items.length ? `<ul>${items.join("")}</ul>` : `<p>Nothing of these kinds was found.</p>`}</div>`; };
-  const any = people && g.some(c => { const p = facts(c, r); return (p.en || []).length || (p.nom || []).length || (p.pp || []).length || p.ow; });
-  const noms = people && g.some(c => (facts(c, r).nom || []).length);
+  const noms = people && g.some(c => (facts(c, r).nom || []).length), found = people && g.some(c => leanHas(c, r));      // nothing found for anybody: said here, and the comparison has no such section to send a reader to
   return `<section class="bsec" id="lean"><h2>The record, not a label</h2>
-    <p class="sub">This is a nonpartisan office, and this page never calls a person or a place by a party of its own choosing. ${people ? `What is on the record is shown instead: a party&rsquo;s own published endorsement${noms ? " or its convention&rsquo;s nomination" : ""}, an earlier run or office under a party label, and a candidate&rsquo;s own words on their own campaign site, each linked to where it stands. A blank means only that nothing was found.`
+    <p class="sub">This is a nonpartisan office, and this page never calls a person or a place by a party of its own choosing. ${found ? `What is on the record is shown instead. About each candidate it is in the comparison above, under &ldquo;The record, not a label&rdquo;: ${leanWords(noms)}. About the place it is here: how it has voted before.`
+      : people ? `What is on the record is shown instead: ${leanWords(false)}. Nothing of these kinds was found for ${g.length === 1 ? "the candidate" : "any candidate"} in this contest; a blank means only that nothing was found. About the place it is here: how it has voted before.`
       : BOOT.votes ? "What the record holds about the place is shown instead." : "For this office the page would show how the place has voted before, from the official results."}</p>
-    ${!people ? "" : any ? `<div class="lean">${g.map(person).join("")}</div>` : `<p class="ynote">Nothing of these kinds was found for ${g.length === 1 ? "the candidate" : "any candidate"} in this contest.</p>`}
+    ${found ? `<p class="ynote"><button type="button" class="linkbtn" id="leango">Open the comparison at &ldquo;The record, not a label&rdquo;</button></p>` : ""}
     ${BOOT.votes ? `<div id="pvotes" class="pvotes"><p class="muted">Loading how this place has voted&hellip;</p></div>`
       : `<div class="pvotes"><h3>How this place has voted</h3><p class="ynote">Not loaded yet for ${NM}: the official results of past partisan elections have not been added up by place here, so no figures are shown. They will appear here once they are.</p></div>`}</section>`;
 }
@@ -3310,22 +3349,120 @@ function quietMarkets(r){      // outcomes a market lists that nobody has traded
     if (b) b.querySelector(".mgo").insertAdjacentHTML("beforebegin", `<p class="fnote">${name} also lists ${andList(off.map(t => `&ldquo;${esc(t)}&rdquo;`))}, which ${off.length === 1 ? "names" : "name"} nobody on the November ballot: no row is drawn for ${off.length === 1 ? "it" : "them"} here.</p>`); });
 }
 /* </extras> */
+function headWords(r){      // the line at the arena's top right, in plain words: the controls write it back as text when the reader moves or hides a card
+  const g = general(r), unopp = g.every(c => c.out === "unopposed"), gone = g.length - arrShown(r).length, mine = arrOrderChanged(r);
+  const hid = gone ? `, ${gone} hidden by you` : "";
+  if (unopp) return `Not printed on the ballot: nobody else qualified${g.length > 1 && (gone || mine) ? `. ${g.length} names${hid}${mine ? ", in an order you chose on this device" : ""}` : ""}`;
+  if (g.length === 1) return "One name for this office";
+  return plain(`${g.length} candidates${hid}, ${mine ? "in an order you chose on this device"
+    : g.some(c => c.o != null) ? `in the ballot order the ${whoOf(r)} list gives` : "by surname: the list gives no ballot order"}`);
+}
+/* ===== a part shared with the Congress ballot page: the cards in the reader's arrangement, "vs" between them, and the bars beneath ===== */
+__ARENACARDS__
+/* ===== end of that part ===== */
+/* is there anything to compare beyond the cards? An office that may show more than was filed always has (r.f); any other only where a
+   candidate listed a campaign website. A note kept with the list is not a reason by itself: most only repeat the card or the line above
+   the cards (a write-in, a name not printed because nobody else qualified, how the list prints capitals). Without it the page offers no comparison. */
+const cmpMore = r => !!r.f || general(r).some(c => facts(c, r).web);
 function arena(r){
   const g = general(r); if (!g.length) return "";
-  const parts = []; g.forEach((c, i) => { if (i && g.length === 2) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i)); });
-  const ordered = g.some(c => c.o != null);
+  const ordered = g.some(c => c.o != null), A = arenaCards(r);
   // What November 3 is for this contest, from the record: a loader marks a candidate elected with no vote as
   // "unopposed" (Louisiana, Florida: the name is not printed), and begins the race's note "Open primary" where the
   // day is an open primary with a later general election (Louisiana's local offices).
   const unopp = g.every(c => c.out === "unopposed"), openP = /^Open primary\b/.test(r.note || "");
   const title = unopp ? "Elected without a vote" : openP ? "Open primary" : r.sp ? "Special election" : "General election";
-  return `<section class="arena deal st" id="arena" aria-label="${unopp ? "Elected without a vote" : openP ? "The open primary" : "The general election"}, ${esc(fmtDate(r.date))}">
-    <div class="ahead"><b>${title} &middot; ${esc(fmtDate(r.date))}</b><span>${unopp ? "Not printed on the ballot: nobody else qualified" : g.length === 1 ? "One name for this office" : `${g.length} candidates, ${ordered ? `in the ballot order the ${whoOf(r)} list gives` : "by surname: the list gives no ballot order"}`}</span></div>
-    <div class="acards" data-n="${g.length}">${parts.join("")}</div>
-    <p class="anote">${r.f ? `Every card is the same size. A card shows the name as filed${r.pt ? " and the party it was filed under" : ""}, an age and the office a candidate holds today where a record or a named source gives them, and the ballot order. Where each comes from is set out under &ldquo;Who they are&rdquo; below; an age that reads &ldquo;about&rdquo; is worked out from a birth year alone. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`
-      : `Every card is the same size. A card holds what the ${whoOf(r)} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan) and the ballot order. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`}${ordered && !r.pt ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}${!ordered && ST.orderNote && g.length > 1 ? " " + esc(ST.orderNote) : ""}</p>
+  return `<section class="arena deal st${unopp ? " unopp" : ""}" id="arena" aria-label="${unopp ? "Elected without a vote" : openP ? "The open primary" : "The general election"}, ${esc(fmtDate(r.date))}">
+    <div class="ahead"><b>${title} &middot; ${esc(fmtDate(r.date))}</b><span id="ahead">${esc(headWords(r))}</span></div>
+    <div class="acards" data-n="${A.n}">${A.cards}</div>
+    <div id="abars">${A.bars}</div>
+    <button class="aopen" id="aopen" type="button" aria-expanded="false" aria-controls="cmp"${cmpMore(r) ? "" : " hidden"}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4l8 8-8 8"/></svg><span>Step into the arena: compare them side by side</span></button>
+    <div class="cmp" id="cmp" hidden></div>
+    <p class="anote">${r.f ? `Every card is the same size. A card shows the name as filed${r.pt ? " and the party it was filed under" : ""}, an age and the office a candidate holds today where a record or a named source gives them, and the ballot order. Where each comes from is set out in the comparison, under &ldquo;Who they are&rdquo;; an age that reads &ldquo;about&rdquo; is worked out from a birth year alone. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`
+      : `Every card is the same size. A card holds what the ${whoOf(r)} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan) and the ballot order. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`}${ordered && !r.pt ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}${!ordered && ST.orderNote && g.length > 1 ? " " + esc(ST.orderNote) : ""}${g.length > 1 ? " You can hide a card (&times;) or move the cards about (drag one, or use its arrows). That arrangement is yours alone, kept on this device; the list&rsquo;s own order is unchanged, and this site ranks no one." : ""}</p>
   </section>`;
 }
+/* ===== a part shared with the Congress ballot page: the comparison's frame. It opens the table, a column a candidate in the reader's
+   arrangement; this page's own sections follow, each only when it has something to show; then the frame closes the table ===== */
+__CMP_OPEN__
+__CMP_ROWS__
+  /* this page's own sections. Everything the race page set out under "Who they are" and, for a nonpartisan office, under "The record,
+     not a label" is here, with the same source lines and links; there is no money section on a state or local race's page. */
+  const F = c => facts(c, r), any = fn => all.some(fn), dash = "&ndash;", ordered = any(c => c.o != null);
+  const head = (id, words) => { const i = groups.length - 1;      // a sentence at the head of the section just made: what it holds and what it does not
+    groups[i] = groups[i].replace("</tr>", () => `</tr><tr data-g="${id}"${CMP_OPEN.has(id) ? "" : " hidden"}><td class="gnote" colspan="${n + 1}"><p>${words}</p></td></tr>`); };
+  // a write-in is said once: where the party cell already reads "Write-in" the line under it adds only what that means, and the note's own sentence saying the same is left out of the notes row
+  const filed = [[r.pt ? "Party, as filed" : "Party", c => esc(partyWords(c, r)) + (c.wi ? `<small>${/write-in/i.test(partyWords(c, r)) ? "The" : "Write-in: the"} name is not printed on the ballot</small>` : "")],
+    ["Ballot order", c => c.o != null ? esc(String(c.o)) : c.out === "unopposed" ? "None: the name is not printed" : `Not given${ordered || ST.orderNote ? "" : "<small>The list gives none</small>"}`]];      // why a state's lists give no order is said in the note under the cards
+  const marked = c => c.inc && !serves(c, r);      // the list's own mark, as the card's flag shows it; that the roster has a candidate in the seat is said under "In office"
+  if (any(marked)) filed.push(["Marked on the list", c => marked(c) ? "Incumbent" : dash]);
+  const noteOf = c => c.wi ? String(c.note || "").split(/(?<=[.!?])\s+/).filter(s => !/^(a )?(declared )?write-in candidate\b/i.test(s)).join(" ") : c.note || "";
+  if (any(noteOf)) filed.push(["Notes kept with the list", c => noteOf(c) ? esc(noteOf(c)) : dash]);      // what was noted about a candidate when the list was read: a running mate, a retention vote, a second party line
+  grp("ballot", "On the ballot", filed);
+  // a special election is said here as the page's heading says it
+  if (r.sp) head("ballot", `A special election${r.note ? "" : ", for the rest of a term"}.`);
+/* <extras> */
+  const ext = (url, words) => `<a href="${esc(url)}" target="_blank" rel="noopener nofollow">${words}</a>`;
+  if (BOOT.who && (r.f || any(c => F(c).web))) {      // who they are: what a record or a named source says, with where it comes from; for an office that shows what was filed, only a website a candidate listed
+    const site = c => { const p = F(c); return p.web ? `${ext(p.web, esc(hostOf(p.web)))}<small>${p.wf ? "The campaign&rsquo;s own website, found on the open web and checked against the race it names" : `The address the candidate gave the ${WHO} list`}</small>`
+      : soon(r.f ? "None on the list or found" : "None on the list"); };
+    if (!r.f) { grp("who", "Campaign websites", [["Campaign website", site]]); head("who", `Candidates for this office are shown as they filed. Where one listed a campaign website with the ${WHO} office, it is linked here.`); }
+    else {
+      // the roster often lacks the date a long-serving member began: then the earliest date it does give is "or earlier", never a start
+      const when = o => { const a = o[1] ? esc(String(o[1]).slice(0, 4)) : "", b = o[2] ? esc(String(o[2]).slice(0, 4)) : "";
+        return o[3] ? (b ? `${a ? a + " or earlier" : "start not on record"} to ${b}` : a ? `since ${a} or earlier` : "today; start not on record") : b ? `${a}&ndash;${b}` : `since ${a}`; };
+      const ticket = c => r.k === "governor" && firstOf(c.n) !== String(c.n), rows = [];
+      if (any(ticket)) rows.push(["These are about", c => ticket(c) ? `${esc(firstOf(c.n))}, the candidate for governor` : dash]);
+      rows.push(["Age", c => { const p = F(c), age = ageOf(p.dob); return age != null ? `${age}<small>Born ${esc(String(p.dob).slice(0, 4))}, according to ${ROSTER_NAME}</small>`
+          : p.fb ? `${fAge(p.fb)}<small>Born ${p.fb[0]}, ${fSrc(p.fb[2], p.fb[3], p.fb[4])}${p.fb[1] ? "" : "; the age is worked out from the year alone"}</small>` : soon("Not on record"); }],
+        ["Offices on record", c => { const p = F(c);
+          return (p.off || []).map(o => `<span class="item">${esc(o[0])}, ${when(o)}<small>${yearsIn(o[1], o[2], o[3])}; ${ROSTER_NAME}</small></span>`)
+            .concat((p.fo || []).map(o => `<span class="item">${esc(o[0])}${fYears(o)}<small>${fSrc(o[3], o[4], o[5])}</small></span>`)).join("") || soon("None on record"); }]);
+      if (any(c => F(c).op)) rows.push(["Their official page", c => { const p = F(c); return p.op ? `${ext(p.op[0], esc(p.op[1]))}<small>A government&rsquo;s own page about an officeholder</small>` : dash; }]);
+      if (any(c => F(c).ph)) rows.push(["Photo", c => { const p = F(c); return p.ph ? `${esc(p.pc || "")}${p.pu ? `<small>${ext(p.pu, "Where it comes from")}</small>` : ""}` : dash; }]);
+      rows.push(["Campaign website", site], ["In their own words", c => { const p = F(c);
+        return p.iss ? `<span class="topics">${p.iss[1].map(t => `<span>${esc(t)}</span>`).join("")}</span>${ext(p.iss[0], "Read them in their own words")}<small>The topics their campaign&rsquo;s issues page lists, as headings; nothing is summarized</small>`
+          : soon(p.web ? "No issue headings read from their site" : "Nothing found"); }]);
+      grp("who", "Who they are", rows);
+      head("who", "What a record or a named source says about each candidate, with where it comes from. A blank means nothing was found, not that there is nothing. Nobody is described, scored or graded.");
+    }
+  }
+  if (!r.pt && r.f && BOOT.who) {      // a nonpartisan office: the record, never a label; a row for each kind of record that somebody in the contest has
+    const items = list => list.map(x => `<span class="item">${x}</span>`).join("") || dash, rows = [];
+    const endorsed = c => { const by = {}, seen = {};      // one party unit, named once, however many of its pages say it
+      (F(c).en || []).forEach(([party, unit, url]) => { if (seen[party + "|" + unit]) return; seen[party + "|" + unit] = 1; (by[party] = by[party] || []).push(ext(url, esc(unit))); });
+      return items(Object.entries(by).map(([party, units]) => `${esc(party)}: ${units.join(", ")}<small>as the party&rsquo;s own page says</small>`)); };
+    if (any(c => (F(c).en || []).length)) rows.push(["Endorsed by a party", endorsed]);
+    // a party's convention nominated them for an office the ballot prints without a party, and its page does not say "endorsed": said in those words, apart
+    if (any(c => (F(c).nom || []).length)) rows.push(["Nominated at a party&rsquo;s convention", c => items((F(c).nom || []).map(([party, unit, url]) => `Nominated by the ${ext(url, esc(unit))} at its convention<small>as the party&rsquo;s own page says; the page does not call it an endorsement, and the ballot prints no party for this office</small>`))]);
+    if (any(c => (F(c).pp || []).length)) rows.push(["Earlier, under a party label", c => items((F(c).pp || []).map(o => `${esc(o[0])}${o[1] && !String(o[0]).includes(String(o[1])) ? ` (${o[1]})` : ""}<small>${o[2] ? `${esc(o[2])} &middot; ` : ""}${fSrc(o[3], o[4], o[5])}</small>`))]);
+    if (any(c => F(c).ow)) rows.push(["In their own words", c => { const p = F(c); return p.ow ? `&ldquo;${esc(p.ow[0])}&rdquo;<small>on ${ext(p.ow[1], "their campaign&rsquo;s own site")}</small>` : dash; }]);
+    if (rows.length) {      // a section only when it has something to show: where nothing was found for anybody, the page says so under the same heading
+      grp("lean", "The record, not a label", rows);
+      head("lean", `This is a nonpartisan office, and this page never calls a person or a place by a party of its own choosing. What is on the record is shown instead: ${leanWords(any(c => (F(c).nom || []).length))}. A blank means only that nothing was found.`);
+    }
+  }
+/* </extras> */
+  const rec = c => c.m ? recordHref(c.m) : "";
+  if (any(c => rec(c) || serves(c, r) || (r.f && nowOffice(F(c))))) {      // in office: whoever a card says holds an office today (a roster's word, or a named source's), as the card says it, with the way to a record page where there is one
+    const roster = c => { const L = c.m && D.links[c.m]; return serves(c, r) ? "Serves in this seat today" : L ? (L[0] === "official" ? `${esc(L[1])} today` : `Serves in the ${NM} ${esc(L[1])} today`) : ""; };
+    const rows = [["In office today", c => r.f ? `${officeNow(c, r)}${roster(c) ? `<small>${roster(c)}</small>` : ""}` : roster(c) || dash]];
+    if (any(rec)) rows.push(["Their record", c => rec(c) ? `<a href="${rec(c)}">Open their page on the record side</a>` : dash]);
+    grp("office", "In office", rows);
+  }
+__CMP_CLOSE__
+/* ===== end of that part ===== */
+/* ===== a part shared with the Congress ballot page: the arena's controls ===== */
+__WIREARENA__
+/* ===== end of that part ===== */
+/* every card as tall as the tallest, whichever row it wraps to: the cards of a row already stretch to that row's tallest, and this gives
+   every row the height of the tallest row. Done when the cards are drawn, when a reader moves or hides one, and when the window changes. */
+function evenCards(){
+  const box = $("#arena .acards"); if (!box) return;
+  box.style.removeProperty("--ch");
+  const h = Math.max(0, ...$$(".bcard", box).map(c => c.offsetHeight)); if (h) box.style.setProperty("--ch", h + "px");
+}
+addEventListener("resize", evenCards);
 /* ---------- a partisan primary, and its field ---------- */
 function field(r, key){
   const list = r.el[key] || []; if (!list.length) return "";
@@ -3704,7 +3841,8 @@ function mountYours(){
     if (hd) hd.innerHTML = `<option value="">Your ${esc(dWord("lower"))}</option>` + D.hds.map(d => `<option value="${esc(d)}"${d === MINE.hd ? " selected" : ""}>${esc(ST.loD)} ${esc(d)}${senateOf(d) ? ` (${UP} ${esc(senateOf(d))})` : ""}</option>`).join("");
     if (sdp) sdp.innerHTML = `<option value="">Your ${esc(dWord("upper"))}</option>` + D.sds.map(d => `<option value="${esc(d)}"${d === MINE.sd ? " selected" : ""}>${esc(ST.upD)} ${esc(d)}</option>`).join("");
   }
-  function paint(){ out.innerHTML = ballotHTML(MINE); forgetB.hidden = !(MINE.c || MINE.hd || MINE.sd || MINE.m || MINE.s); const svg = $("#cmap"); if (svg) $$("path.cty", svg).forEach(p => p.classList.toggle("me", p.dataset.c === MINE.c)); }
+  const arranged = () => { try { return Object.keys(localStorage).some(k => k.startsWith("ballot:arr:")); } catch (e) { return false; } };      // a race's cards moved or hidden by the reader: also theirs to forget
+  function paint(){ out.innerHTML = ballotHTML(MINE); forgetB.hidden = !(MINE.c || MINE.hd || MINE.sd || MINE.m || MINE.s || arranged()); const svg = $("#cmap"); if (svg) $$("path.cty", svg).forEach(p => p.classList.toggle("me", p.dataset.c === MINE.c)); }
   // a choice made by hand: the precinct found by location no longer stands, and where there is a map it shows what was picked
   const byHand = (kind, id) => { const had = !!MINE.z; delete MINE.z; note.textContent = had ? `You changed a choice by hand, so the ballot below is put together from your choices. Use your location again for your exact ${UNIT}.` : "";
     if (GEO_ON && window.GEOKIT) { GEOKIT.unpin(); GEOKIT.refresh(); if (kind && id) GEOKIT.show(kind, id); } };
@@ -3715,7 +3853,9 @@ function mountYours(){
   }
   if (hd) hd.addEventListener("change", () => { MINE.hd = hd.value; byHand("house", hd.value); save(); paint(); });
   if (sdp) sdp.addEventListener("change", () => { MINE.sd = sdp.value; byHand("senate", sdp.value); save(); paint(); });
-  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k)); fill(); paint(); if (GEO_ON && window.GEOKIT) GEOKIT.forget(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
+  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k));
+    try { Object.keys(localStorage).filter(k => k.startsWith("ballot:arr:")).forEach(k => store.del(k)); } catch (e) {}      // and every race's cards as the reader arranged or hid them: a choice kept on the device like the others
+    Object.keys(ARR).forEach(k => delete ARR[k]); fill(); paint(); if (GEO_ON && window.GEOKIT) GEOKIT.forget(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
   // where the state has its map files: the precinct at the reader's spot, found on this device, and every district it is in
   const exact = (lon, lat, acc) => needKit().then(() => GEOKIT.locate(lon, lat, acc)).then(z => {
     if (!z) { note.textContent = `That spot isn't inside ${ST.name} on the map. Pick from the lists instead.`; return false; }
@@ -3987,6 +4127,7 @@ function racePage(id){
   const back = r.lv === "statewide" ? `<a href="#statewide">Statewide offices</a>` : r.lv === "legislature" ? `<a href="#legislature">The Legislature</a>` : r.lv === "court" ? `<a href="#courts">Judges</a>`
     : (r.c || []).length ? `<a href="#county=${esc(r.c[0])}">${esc(cName(r.c[0]))}</a>` : `<a href="#counties">${esc(capital(COS))}</a>`;
   const prim = primaries(r);
+  CMP_OPEN = new Set();      // every section of the comparison starts closed
   const everyone = Object.values(r.el || {}).flat(), listIds = [...new Set(everyone.map(c => c.src).filter(Boolean))], placeSrc = (placeOf(r) || {}).src;
   const where = raceWhere(r), cs = (r.c || []).map(f => `<a href="#county=${esc(f)}">${esc(cName(f))}</a>`).join(", ");
   const loc = r.lv === "legislature" || (ST.cLines && (r.c || []).length && r.lv !== "statewide");
@@ -4008,12 +4149,23 @@ function racePage(id){
     ${r.sp ? `<p class="holder">A special election${r.note ? "" : ", for the rest of a term"}.</p>` : ""}${r.note && !gaps.some(g => g.r === r.note) ? `<p class="holder">${esc(r.note)}</p>` : ""}${onMap}${privacyFor(r)}</div>${loc ? locatorHTML() : ""}</section>
   ${tabsFor(r)}
   ${general(r).length ? arena(r) : named ? "" : `<div class="notebox">${EMPTY ? EMPTY + "." : `No candidate for this office is on the ${whoOf(r)} list for November 3.`}</div>`}${gapBox(gaps)}
-  ${whoHTML(r)}${leanHTML(r)}
+  ${leanHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${howTheyGotHere(r, prim)}</p>${prim.map(k => field(r, k)).join("")}</section>`
     : r.pt || !ST.npLine ? "" : `<p class="fnote">${ST.npLine}</p>`}
   ${sourceFold("Where this comes from", src)}`;
   if (r.lv === "legislature") mountLegLocator(r); else if (loc) mountCountyMap("locsvg", r.c || [], "loccap");
   if ($("#rtabs")) { wireTabs(); quietMarkets(r); }
+  wireArena(r);
+  const A = $("#arena"), box = A && $(".acards", A);
+  if (box) { evenCards(); new MutationObserver(evenCards).observe(box, {childList: true}); if (document.fonts) document.fonts.ready.then(evenCards);
+    if ($("#aopen").hidden) A.addEventListener("click", e => {      // no comparison for the keyboard to go back to: "Put back the official order" hands it to the first card
+      if (e.target.closest("[data-reset]")) { const f = $(".bcard .ctl button:not(:disabled)", A); if (f) f.focus(); } }); }
+/* <extras> */
+  const go = $("#leango");      // from "The record, not a label" on the page to the candidates' part of it: the comparison, open at that section
+  if (go) go.addEventListener("click", () => { const b = $("#aopen"), cmp = $("#cmp"); if (!b || !cmp) return; if (cmp.hidden) b.click();
+    const s = $('.gbtn[data-g="lean"]', cmp) || b; if (s !== b && s.getAttribute("aria-expanded") !== "true") s.click();
+    s.scrollIntoView({block: "center", behavior: calm() ? "auto" : "smooth"}); s.focus({preventScroll: true}); });
+/* </extras> */
   mountVotes(r);
 }
 function sourcesHTML(){      // every source the state's lists were read from, kind by kind, each kind under the rules of the page that are about it
@@ -4295,7 +4447,7 @@ def write_chooser(root, summaries, css, bcss, version):
 
 def build_state(code, db, out, site_root, parts, changelog, version):
     """One state's page, its data and its lines."""
-    css, bcss, clog, geo_js, fold, markets = parts
+    css, bcss, clog, geo_js, fold, markets, arena_parts = parts
     lc = code.lower()
     out_dir = os.path.dirname(os.path.abspath(out))
     lines = lines_for(code)
@@ -4344,6 +4496,10 @@ def build_state(code, db, out, site_root, parts, changelog, version):
     has_extras = bool(X["who"] or X["votes"] or X["geo"] or X["markets"])
     page = page_for(has_extras).replace("__CSS__", css).replace("__BALLOT_CSS__", bcss).replace("__CHANGELOG__", clog).replace("__GEO__", geo_js)
     page = page.replace("__SOURCEFOLD__", fold).replace("__MARKETS__", markets if X["markets"] else "")
+    for name, part in arena_parts.items():      # the Congress page's arrangement, cards, comparison frame and controls
+        if page.count(f"__{name}__") != 1:
+            raise SystemExit(f"build_ballot_state_dev: PAGE should hold __{name}__ exactly once (it holds it {page.count(f'__{name}__')} times).")
+        page = page.replace(f"__{name}__", part.rstrip("\n"))
     page = page.replace("__NAME__", html_esc(st["name"])).replace("__DESC__", html_esc(st["desc"])).replace("__NAV__", st["nav"])
     page = page.replace("__FOOT__", html_esc(st["foot"]).replace("&amp;rsquo;", "&rsquo;"))
     page = page.replace("__RECORD__", f' &middot; <a href="../../{lc}/">{html_esc(st["name"])}&rsquo;s Legislature on the record side</a>' if record else "")
@@ -4435,7 +4591,8 @@ def main():
     if args.out and len(want) != 1:
         sys.exit("--out names one page: give it with one --state.")
     root = os.path.abspath(args.root)
-    parts = (borrow("CSS"), borrow_ballot("BALLOT_CSS"), borrow("CHANGELOG"), borrow("GEO"), borrow_ballot("SOURCEFOLD"), borrow_ballot("MARKETS"))
+    parts = (borrow("CSS"), borrow_ballot("BALLOT_CSS"), borrow("CHANGELOG"), borrow("GEO"), borrow_ballot("SOURCEFOLD"), borrow_ballot("MARKETS"),
+             {name: borrow_ballot(name) for name in ARENA_PARTS})
     changelog = read_changelog(os.path.join(HERE, "CHANGELOG.md"))
     version = (changelog[0].get("version") if changelog else "") or ""
     print(f"Version {version}")

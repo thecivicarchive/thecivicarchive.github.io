@@ -23,6 +23,11 @@ five a closed fold of its own headed by its numbers and dates. And every page's 
 page's own rules filed under the kind they are about. The script that draws those folds sits between the
 "source folds" landmarks in PAGE, and build_ballot_state_dev.py takes it from there, so the state pages fold the same way.
 
+The state builder takes four more parts of PAGE's script by their landmarks (John, 2026-10-02: the state and local race
+pages should look and behave like these): a reader's own arrangement of a race, the cards drawn in it (arenaCards), the
+frame of the comparison (compare, in three parts, around the state pages' own sections) and the arena's controls
+(wireArena). A change inside those landmarks is a change to every state's race pages too: rebuild them and look at one.
+
 Data: ballot_2026.sqlite (run_ballot.py), congress_119.sqlite for who holds each seat, and the draft site's member
 files (site/dev/us/data/member/) for a sitting member's record, so both sides say the same thing. The page takes
 the site's stylesheet and a few shared script parts from build_site_dev.py by the landmarks build_state_dev.py uses.
@@ -855,6 +860,9 @@ function arrMove(r, k, toKey){      // the moved one takes the other's place: af
 function arrHide(r, k, hide){ const a = arrOf(r); if (hide) a.h.add(k); else a.h.delete(k); arrSave(r); }
 function arrReset(r){ delete ARR[r.id]; store.del(arrKey(r)); }
 const ctlBtns = (c, pos, n, attr) => `<button type="button" data-${attr}="-1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} earlier" title="Move earlier"${pos === 0 ? " disabled" : ""}>&lsaquo;</button><button type="button" data-${attr}="1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} later" title="Move later"${pos >= n - 1 ? " disabled" : ""}>&rsaquo;</button><button type="button" data-${attr === "mv" ? "hide" : "chide"}="${esc(c.k)}" aria-label="Hide ${esc(c.n)}${attr === "mv" ? "'s card" : "'s column"}" title="Hide">&times;</button>`;
+/* ---------- end of the arrangement. The state ballot pages take it as it stands, from its landmark above to here, and with it
+   arenaCards(), the comparison's frame and wireArena() below, so every ballot page arranges a race the same way. What they ask of
+   a page: general(r), card(), headWords(), pcVar(), store, esc(), calm(), $ and $$, and candidates that carry a key k and a name n ---------- */
 
 function card(c, r, k, n){
   const M = money(c), pp = P(c), age = ageOf(pp.dob), sv = service(c);
@@ -877,6 +885,7 @@ function headWords(r){
   if (g.length === 1) return "One name for this office";
   return `${g.length} candidates${shown.length < g.length ? `, ${g.length - shown.length} hidden by you` : ""}, ${arrOrderChanged(r) ? "in an order you chose on this device" : "in the order the state's list gives, or by surname"}${op ? ". Every party on one ballot: more than half the votes wins the seat; otherwise the top two meet on December 12" : ""}`;
 }
+/* ---------- the arena's cards as the reader arranged them (taken as it stands by the state ballot pages) ---------- */
 function arenaCards(r){      // the cards in the reader's arrangement, and the bars beneath: the hidden names, and the way back to the official order
   const shown = arrShown(r), hidden = arrHidden(r), parts = [];
   shown.forEach((c, i) => { if (i) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i, shown.length)); });
@@ -884,6 +893,7 @@ function arenaCards(r){      // the cards in the reader's arrangement, and the b
   const reset = arrChanged(r) ? `<div class="hidbar"><button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button></div>` : "";
   return {cards: parts.join("") || `<p class="anote">Every card is hidden. Show them again below.</p>`, bars: hid + reset, n: shown.length};
 }
+/* ---------- end of the arena's cards ---------- */
 function arena(r){
   const g = general(r); if (!g.length) return "";
   const op = openPrimary(r), when = op ? g[0].date : r.date, A = arenaCards(r);
@@ -896,18 +906,23 @@ function arena(r){
     <p class="anote">Every card is the same size. The cards show what the records hold: age, the office a candidate holds now and for how long, their years in any office on record, and the money their campaign reported to the FEC. No score or grade of any person.${g.some(c => !P(c).dob && P(c).fb || !service(c) && fNow(c)) ? " Where no official record gives a birth year, an age that reads &ldquo;about&rdquo; comes from a year stated on a government page, the campaign's own site, Wikipedia or a news organization; the comparison below names and links the page." : ""}${g.length > 1 ? " You can hide a card (&times;) or move the cards about (drag one, or use its arrows). That arrangement is yours alone, kept on this device; the state's own order is unchanged, and this site ranks no one." : ""}</p>
   </section>`;
 }
+/* ---------- the comparison. The state ballot pages take its frame in three parts (the opening, the making of sections and rows,
+   the close) and put their own sections in it; the lines between the parts are this page's own ---------- */
 let CMP_OPEN = new Set();      // the comparison's sections a reader has opened on this page; every section starts closed
 function compare(r){
   const g = arrShown(r), n = g.length, all = general(r);
   if (!n) return `<p class="empty">Every candidate is hidden. Show them again above to compare them.</p>`;
   const cell = (fn) => g.map(c => `<td>${fn(c)}</td>`).join("");
+  /* -- the frame's opening ends here; the next line is this page's own -- */
   const M = c => money(c) || {}, mem = c => (c.bio && BOOT.members[c.bio]) || null;
+  /* -- the frame: making sections and rows -- */
   const soon = t => `<span class="soon">${t}</span>`;
   let curG = "";
   const row = (label, fn) => `<tr data-g="${curG}"${CMP_OPEN.has(curG) ? "" : " hidden"}><th scope="row">${label}</th>${cell(fn)}</tr>`;
   const groups = [];
   const grp = (id, label, rows) => { curG = id; const body = rows.map(([l, fn]) => row(l, fn)).join("");
     groups.push(`<tr class="grp"><th colspan="${n + 1}"><button class="gbtn" type="button" data-g="${id}" aria-expanded="${CMP_OPEN.has(id) ? "true" : "false"}">${label}<small>${rows.map(x => x[0]).join(" &middot; ")}</small></button></th></tr>${body}`); };
+  /* -- this page's own sections -- */
   const orgs = c => { const o = M(c).orgs || []; return o.length ? o.map(x => `${esc(x[0])} <small>${esc(BOOT.kinds[x[1]] || "")}: ${usd(x[2])}</small>`).join("") : (c.fec ? "None itemized yet" : "&ndash;"); };
   const side = (c, s) => { const m = M(c), t = m[s] || 0, w = m[s === "for" ? "forw" : "agw"] || []; return t ? `${usd(t)}${w.map(x => `<small>${esc(x[0])}: ${usd(x[1])}</small>`).join("")}` : "None reported"; };
   grp("ballot", "On the ballot", [
@@ -953,6 +968,7 @@ function compare(r){
   grp("polls", "Polls (Transparency Initiative members only)", [
     ["Latest poll", c => pollCell(r, c, "latest")],
     ["Our average", c => pollCell(r, c, "average")]]);
+  /* -- the frame: the close -- */
   const hidden = arrHidden(r);
   const bar = `<div class="cmpbar"><button type="button" data-gall="1">Open every section</button><button type="button" data-gall="0">Close every section</button>
     ${all.length > 1 ? `<span>Each section opens on a click. The arrows under a name move its column; &times; hides it.</span>` : ""}
@@ -960,6 +976,7 @@ function compare(r){
     ${arrChanged(r) ? `<button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button>` : ""}</div>`;
   return `${bar}<table><thead><tr><th></th>${g.map((c, i) => `<th scope="col" style="--pc:${pcVar(c)}" data-k="${esc(c.k)}">${esc(c.n)}${all.length > 1 ? `<div class="colctl" role="group" aria-label="Arrange ${esc(c.n)}'s column">${ctlBtns(c, i, n, "cmv")}</div>` : ""}</th>`).join("")}</tr></thead><tbody>${groups.join("")}</tbody></table>`;
 }
+/* ---------- end of the comparison ---------- */
 
 /* ---------- a primary, and its field ---------- */
 function field(r, key){
@@ -1547,6 +1564,7 @@ function racePage(id){
     catch (e) { if (e && e.name !== "AbortError") { sh.textContent = url; } }
   });
 }
+/* ---------- the arena's controls (taken as it stands by the state ballot pages) ---------- */
 function wireArena(r){      // the comparison's open button; the cards' and columns' arrows, hides and shows; the sections' folds; dragging a card
   const A = $("#arena"); if (!A) return;
   const b = $("#aopen"), cmp = $("#cmp"), box = $(".acards", A);
@@ -1576,12 +1594,14 @@ function wireArena(r){      // the comparison's open button; the cards' and colu
   /* dragging a card onto another: it takes that card's place. The browser's own drag and drop, so nothing captures the pointer;
      on a touch screen the arrows do the same */
   let dragK = null;
-  box.addEventListener("dragstart", e => { const c = e.target.closest(".bcard[data-k]"); if (!c) return; dragK = c.dataset.k; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", c.dataset.k); } catch (x) {} });
+  const cardAt = e => { const t = e.target && (e.target.closest ? e.target : e.target.parentElement); return t ? t.closest(".bcard[data-k]") : null; };      // a drag of selected words starts on the text itself, which has no closest()
+  box.addEventListener("dragstart", e => { const c = cardAt(e); if (!c) return; dragK = c.dataset.k; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", c.dataset.k); } catch (x) {} });
   box.addEventListener("dragend", () => { dragK = null; $$(".bcard.dragging, .bcard.over", box).forEach(x => x.classList.remove("dragging", "over")); });
-  box.addEventListener("dragover", e => { if (!dragK) return; const c = e.target.closest(".bcard[data-k]"); if (!c) return; e.preventDefault(); e.dataTransfer.dropEffect = "move"; if (c.dataset.k !== dragK && !c.classList.contains("over")) { $$(".bcard.over", box).forEach(x => x.classList.remove("over")); c.classList.add("over"); } });
-  box.addEventListener("dragleave", e => { const c = e.target.closest(".bcard[data-k]"); if (c && !c.contains(e.relatedTarget)) c.classList.remove("over"); });
-  box.addEventListener("drop", e => { const c = e.target.closest(".bcard[data-k]"); if (!dragK || !c) return; e.preventDefault(); if (c.dataset.k !== dragK) { arrMove(r, dragK, c.dataset.k); redraw(); } dragK = null; });
+  box.addEventListener("dragover", e => { if (!dragK) return; const c = cardAt(e); if (!c) return; e.preventDefault(); e.dataTransfer.dropEffect = "move"; if (c.dataset.k !== dragK && !c.classList.contains("over")) { $$(".bcard.over", box).forEach(x => x.classList.remove("over")); c.classList.add("over"); } });
+  box.addEventListener("dragleave", e => { const c = cardAt(e); if (c && !c.contains(e.relatedTarget)) c.classList.remove("over"); });
+  box.addEventListener("drop", e => { const c = cardAt(e); if (!dragK || !c) return; e.preventDefault(); if (c.dataset.k !== dragK) { arrMove(r, dragK, c.dataset.k); redraw(); } dragK = null; });
 }
+/* ---------- end of the arena's controls ---------- */
 const srcItem = s => `<div class="srcitem"><b>${esc(s.agency)}</b>: ${esc(s.title)}<small><span class="tag fact">Fact</span> <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a> &middot; fetched ${esc(s.fetched)} &middot; ${Number(s.rows || 0).toLocaleString()} rows &middot; SHA-256 ${esc((s.sha || "").slice(0, 16))}&hellip;${s.note ? " &middot; " + esc(s.note) : ""}</small></div>`;
 const srcRow = s => ({h: srcItem(s), g: NAMES[s.state] || "", a: s.agency || ""});      // with the state it belongs to: a long list is folded state by state
 const srcHost = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return "the page"; } };

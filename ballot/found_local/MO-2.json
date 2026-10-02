@@ -1,0 +1,236 @@
+{
+ "part": 2,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first six candidates, so the rest were looked up only on pages whose addresses were already known (county and city sites, Wikipedia's own search, named news pages). Blanks here mean not looked for by search, not that nothing exists. courts.mo.gov and Ballotpedia refused the kit's requests, so judges have no findings.",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MO-SH103",
+   "name": "Don Crozier",
+   "what": "past_party (2010 Missouri Senate District 2, Democratic): the Wikipedia table lists a Don Crozier but gives no county or other second anchor tying him to the 2026 House District 103 candidate"
+  },
+  {
+   "race_id": "2026-MO-SS6",
+   "name": "J. Don Salcedo",
+   "what": "past_party (2022 Missouri House District 60, Democratic): the Wikipedia tables list J. Don Salcedo exactly as recorded, but the page names no county or other second anchor tying him to the 2026 Senate District 6 race; the name matches exactly, so worth a second look by a person"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-associate-circuit-judge-division-5",
+   "name": "Kimberly Shaw"
+  },
+  {
+   "race_id": "2026-MO-29037-prosecuting-attorney",
+   "name": "Ben Butler",
+   "offices": [
+    {
+     "office": "Prosecuting Attorney, Cass County",
+     "from": "2015",
+     "to": "",
+     "source": "Wikipedia, \"Teresa Hensley\" (her term ended January 2, 2015; succeeded by Ben Butler; the page gives his start only)",
+     "url": "https://en.wikipedia.org/wiki/Teresa_Hensley",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Cass County Prosecuting Attorney as the Republican candidate, defeating the incumbent",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Wikipedia, \"Teresa Hensley\", citing the Bethany Republican-Clipper of November 12, 2014",
+     "url": "https://en.wikipedia.org/wiki/Teresa_Hensley",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29051-prosecuting-attorney",
+   "name": "Locke Thompson"
+  },
+  {
+   "race_id": "2026-MO-29077-presiding-commissioner",
+   "name": "Bob Dixon",
+   "official_page": {
+    "url": "https://greenecountymo.gov/commission/",
+    "source": "Greene County Commission",
+    "verified": true
+   },
+   "born": {
+    "year": "1969",
+    "source": "Wikipedia, \"Bob Dixon (Missouri politician)\"",
+    "url": "https://en.wikipedia.org/wiki/Bob_Dixon_(Missouri_politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Presiding Commissioner, Greene County (first elected 2018, again 2022)",
+     "from": "2019",
+     "to": "",
+     "source": "Greene County Commission (first elected in 2018 and again in 2022); Wikipedia gives January 3, 2019 as the day he took office",
+     "url": "https://greenecountymo.gov/commission/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Missouri Senate, District 30",
+     "from": "2011",
+     "to": "2018",
+     "source": "Wikipedia, \"Bob Dixon (Missouri politician)\"; the county's page says he was elected to the Senate in 2010",
+     "url": "https://en.wikipedia.org/wiki/Bob_Dixon_(Missouri_politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Missouri House of Representatives, District 140",
+     "from": "2003",
+     "to": "2011",
+     "source": "Wikipedia, \"Bob Dixon (Missouri politician)\"; the county's page says he was elected to the House in 2002 and served until 2010",
+     "url": "https://en.wikipedia.org/wiki/Bob_Dixon_(Missouri_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Republican primary for Greene County Presiding Commissioner",
+     "year": "2018",
+     "party": "Republican",
+     "source": "KSMU",
+     "url": "https://www.ksmu.org/post/dixon-soundly-defeats-cirtin-republican-presiding-commissioner-primary",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29095-county-executive",
+   "name": "Alan Rohlfing",
+   "website": {
+    "url": "https://www.rohlfing4jacksoncounty.com/",
+    "how": "Linked as his campaign site from KCUR's interview of September 3, 2026 with the Republican candidate for Jackson County Executive (https://www.kcur.org/podcast/up-to-date/2026-09-03/jackson-county-executive-alan-rohlfing-republican); the site's footer reads \"Paid for by Rohlfing for Jackson County\" and its Background page names Alan and Jackson County; the site itself does not spell out the office",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29099-associate-circuit-judge-division-15",
+   "name": "Michelle Hughes"
+  },
+  {
+   "race_id": "2026-MO-29165-county-clerk",
+   "name": "Hans Peter"
+  },
+  {
+   "race_id": "2026-MO-29183-county-council-5",
+   "name": "Terry Hollander"
+  },
+  {
+   "race_id": "2026-MO-ACJRET-21-33",
+   "name": "Nicolette Antonia Klapp"
+  },
+  {
+   "race_id": "2026-MO-CJ-32-1",
+   "name": "Scott A. Lipke"
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-15",
+   "name": "David A. Roither"
+  },
+  {
+   "race_id": "2026-MO-M-64082-council-ward-four-S",
+   "name": "Tom Bruening",
+   "official_page": {
+    "url": "https://www.stcharlescitymo.gov/256/City-Council",
+    "source": "City of St. Charles, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member, Ward 4, St. Charles City Council",
+     "from": "",
+     "to": "",
+     "source": "City of St. Charles, City Council (lists him in the Ward 4 seat today; no start date given)",
+     "url": "https://www.stcharlescitymo.gov/256/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH103",
+   "name": "Don Crozier"
+  },
+  {
+   "race_id": "2026-MO-SH112",
+   "name": "Dave Rekosh"
+  },
+  {
+   "race_id": "2026-MO-SH120",
+   "name": "Ray Bruno"
+  },
+  {
+   "race_id": "2026-MO-SH129",
+   "name": "John Gray"
+  },
+  {
+   "race_id": "2026-MO-SH137",
+   "name": "Darin Chappell"
+  },
+  {
+   "race_id": "2026-MO-SH146",
+   "name": "Mary Harriet Talbut"
+  },
+  {
+   "race_id": "2026-MO-SH155",
+   "name": "Matthew Overcast"
+  },
+  {
+   "race_id": "2026-MO-SH18",
+   "name": "Eric Woods"
+  },
+  {
+   "race_id": "2026-MO-SH29",
+   "name": "Tedi H. Rowland"
+  },
+  {
+   "race_id": "2026-MO-SH38",
+   "name": "Mary Hill"
+  },
+  {
+   "race_id": "2026-MO-SH47",
+   "name": "Adrian Plank"
+  },
+  {
+   "race_id": "2026-MO-SH56",
+   "name": "Steve Baker"
+  },
+  {
+   "race_id": "2026-MO-SH64",
+   "name": "Deanna Self"
+  },
+  {
+   "race_id": "2026-MO-SH75",
+   "name": "Brandon Wilke"
+  },
+  {
+   "race_id": "2026-MO-SH85",
+   "name": "Yolonda Fountain Henderson"
+  },
+  {
+   "race_id": "2026-MO-SH96",
+   "name": "Brad Christ"
+  },
+  {
+   "race_id": "2026-MO-SS2",
+   "name": "Susan Shumway"
+  },
+  {
+   "race_id": "2026-MO-SS6",
+   "name": "J. Don Salcedo"
+  }
+ ]
+}

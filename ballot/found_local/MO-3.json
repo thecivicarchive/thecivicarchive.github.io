@@ -1,0 +1,225 @@
+{
+ "part": 3,
+ "of": 19,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "Web search stopped after eleven queries (the session's search budget was used up), so candidates from the court races onward were looked up only where an address was already known; most are blank and worth a second pass. Left out on purpose: lorirook.com (a news report links it as Lori Rook's campaign site, but it answers scripts 429) and marycalvilloforplatteclerk.com (named by the Platte County Landmark, but the name did not resolve from this machine).",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-associate-circuit-judge-division-9",
+   "name": "Bill Ellis"
+  },
+  {
+   "race_id": "2026-MO-29037-recorder-of-deeds",
+   "name": "Art Ruiz"
+  },
+  {
+   "race_id": "2026-MO-29051-recorder-of-deeds",
+   "name": "Judy K Ridgeway",
+   "offices": [
+    {
+     "office": "Recorder of Deeds, Cole County",
+     "from": null,
+     "to": null,
+     "note": "The article of February 23, 2022 says she had been recorder for the last four years and was seeking a second term; it states no start year and cannot speak for today",
+     "source": "Jefferson City News Tribune, February 23, 2022",
+     "url": "https://www.newstribune.com/news/2022/feb/23/ridgeway-files-for-second-term-as-county-recorder/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Republican primary for Cole County Recorder of Deeds",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Jefferson City News Tribune, August 8, 2018",
+     "url": "https://www.newstribune.com/news/2018/aug/08/former-staffer-wins-gop-nod-recorder-deeds/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29077-prosecuting-attorney",
+   "name": "Dan Patterson",
+   "official_page": {
+    "url": "https://greenecountymoprosecutor.gov/",
+    "source": "Greene County Prosecuting Attorney's Office: its home page names Dan Patterson, Prosecuting Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prosecuting Attorney, Greene County",
+     "from": null,
+     "to": "present",
+     "note": "The office's page names him as Prosecuting Attorney today; no start year is stated there",
+     "source": "Greene County Prosecuting Attorney's Office",
+     "url": "https://greenecountymoprosecutor.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29095-county-executive",
+   "name": "Stacy Lake",
+   "website": {
+    "url": "https://www.jacksoncountyexecutive.com/",
+    "how": "Linked as her campaign site in KCUR's report of August 4, 2026 on the Democratic primary for Jackson County Executive; the site's home page names Stacy Lake, Jackson County and the November 3rd, 2026 election",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran in the Democratic primary for Jackson County Executive",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "KCUR (Kansas City Public Radio), August 4, 2026",
+     "url": "https://www.kcur.org/politics-elections-and-government/2026-08-04/jackson-county-stacy-lake-jackson-county-executive-democrat-primary",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29099-auditor",
+   "name": "Kristy Apprill",
+   "official_page": {
+    "url": "https://www.jeffcomo.gov/217",
+    "source": "Jefferson County, Missouri: Auditor's Office page, which names Kristy L. Apprill, Auditor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Auditor, Jefferson County",
+     "from": null,
+     "to": "present",
+     "note": "Elected at the general election of November 6, 2018 (official summary); the county's page names her as Auditor today",
+     "source": "Jefferson County, Missouri",
+     "url": "https://www.jeffcomo.gov/217",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Jefferson County Auditor; printed on the general election ballot as KRISTY L. APPRILL (REP)",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Jefferson County, Missouri: Election Summary Report, General Election, November 6, 2018 (official results)",
+     "url": "https://www.jeffcomo.gov/DocumentCenter/View/3500/11-2018---General-Election-Summary-PDF",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29165-county-clerk",
+   "name": "Mary Calvillo"
+  },
+  {
+   "race_id": "2026-MO-29183-county-council-7",
+   "name": "Monica Balestreri"
+  },
+  {
+   "race_id": "2026-MO-ACJRET-21-34",
+   "name": "Justin W. Ruth"
+  },
+  {
+   "race_id": "2026-MO-CJ-36",
+   "name": "Kacey L. Proctor"
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-2",
+   "name": "Clinton Robert Wright"
+  },
+  {
+   "race_id": "2026-MO-S-510-city-of-st-louis-board-of-education-school-board",
+   "name": "Aneetra Williams Jones"
+  },
+  {
+   "race_id": "2026-MO-SH104",
+   "name": "Tara Murray"
+  },
+  {
+   "race_id": "2026-MO-SH112",
+   "name": "Ed Callahan"
+  },
+  {
+   "race_id": "2026-MO-SH121",
+   "name": "Keith Pritchard"
+  },
+  {
+   "race_id": "2026-MO-SH129",
+   "name": "Will Worsham"
+  },
+  {
+   "race_id": "2026-MO-SH138",
+   "name": "Burt Whaley"
+  },
+  {
+   "race_id": "2026-MO-SH147",
+   "name": "Greg Tlapek"
+  },
+  {
+   "race_id": "2026-MO-SH156",
+   "name": "Brian H. Seitz"
+  },
+  {
+   "race_id": "2026-MO-SH19",
+   "name": "Karen Irene Spalding"
+  },
+  {
+   "race_id": "2026-MO-SH3",
+   "name": "Corey Luebbering"
+  },
+  {
+   "race_id": "2026-MO-SH39",
+   "name": "Mark Meirath"
+  },
+  {
+   "race_id": "2026-MO-SH48",
+   "name": "Hope Tinker"
+  },
+  {
+   "race_id": "2026-MO-SH57",
+   "name": "Matt Sergent"
+  },
+  {
+   "race_id": "2026-MO-SH65",
+   "name": "Dale Conoyer"
+  },
+  {
+   "race_id": "2026-MO-SH75",
+   "name": "Chanel Mosley"
+  },
+  {
+   "race_id": "2026-MO-SH86",
+   "name": "Jeff Hales"
+  },
+  {
+   "race_id": "2026-MO-SH96",
+   "name": "Matt Vitale"
+  },
+  {
+   "race_id": "2026-MO-SS20",
+   "name": "Lori Rook",
+   "past_party": [
+    {
+     "what": "Ran in the Republican primary for Missouri State Treasurer (127,970 votes, 19.39 percent; not nominated)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Missouri State Treasurer election (Republican primary results table, cited)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_State_Treasurer_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SS6",
+   "name": "Jake Vogel"
+  }
+ ],
+ "removed": []
+}

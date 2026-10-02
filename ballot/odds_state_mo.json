@@ -1,0 +1,32 @@
+{
+ "2026-MO-AUD": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Auditor. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has state auditor series for Ohio, Iowa and Minnesota and none for Missouri, and seven likely event tickers answered not found. Polymarket: its search for \"missouri auditor\" returned no election event and five likely slugs returned nothing."
+ },
+ "2026-MO-SCRET-1": {
+  "polymarket": null,
+  "kalshi": "KXMOSUPREMECOURT-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Judge of the Supreme Court (retention vote). Kalshi's event is titled \"Will Paul Wilson be retained on the Missouri Supreme Court?\" (In 2026), a single yes-or-no market that resolves Yes if Paul C. Wilson is retained, the judge on our list. It opened September 4, 2026 and is barely traded: about 55 contracts when checked, last price 90 cents for Yes. Its one row is labelled \"Yes\", not a name, so the page's matching of rows to names would not place it. Ask John before showing this market. Polymarket lists no market for this race (its search for Missouri and the likely slugs, 2026-10-02)."
+ },
+ "2026-MO-SS8": {
+  "polymarket": null,
+  "kalshi": "KXMOSD8-26",
+  "checked": "2026-10-02",
+  "note": "State Senator, District 8 (a legislative race, not a statewide one, so the page holds it back until John says). Kalshi's event is titled \"Missouri State Senate District 8 winner?\" (In 2026), one market per candidate: Jon Patterson and Keri Ingle, the two on our list. It opened August 24, 2026 and is lightly traded: about 2,160 contracts on Patterson (last price 67 cents) and 1,876 on Ingle (31 cents) when checked. Ask John before showing this market. Polymarket lists no market for this race (its search for Missouri and the likely slugs, 2026-10-02)."
+ },
+ "2026-MO-SS30": {
+  "polymarket": null,
+  "kalshi": "KXMOSD30-26",
+  "checked": "2026-10-02",
+  "note": "State Senator, District 30 (a legislative race, not a statewide one). Kalshi's event is titled \"Missouri State Senate District 30 winner?\" (In 2026), with markets for Melanie Stinnett and Betsy Fogle; the Libertarian on our list, Cecil Ince, has none. It opened September 8, 2026 and has all but never traded: about 5 contracts on Stinnett (last price 58 cents) and 19 on Fogle (50 cents) when checked, so the two last prices add to 108 cents. Ask John before showing this market: two dozen contracts are not a price. Polymarket lists no market for this race (its search for Missouri and the likely slugs, 2026-10-02)."
+ },
+ "_no_governor": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Missouri elects no governor in 2026. Kalshi's GOVPARTYMO-28, \"Missouri governor winner? (2028)\", is about the 2028 election and its GOVPARTYMO-24 is over; Polymarket's missouri-governor-election-winner is the closed 2024 event. Kalshi's \"AG race Missouri\" series (KXATTYGENMO) has no event for 2026, when that office is not on the ballot. Not races of ours and left out on purpose: Kalshi's Missouri ballot-measure and redistricting markets (Amendments 4 and 5, Proposition A, the redistricting referendum and court review) and its primary-winner series."
+ }
+}

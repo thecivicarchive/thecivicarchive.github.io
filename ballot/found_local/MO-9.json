@@ -1,0 +1,358 @@
+{
+ "part": 9,
+ "of": 19,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first eight candidates, so the rest were looked up only at addresses that could be worked out (official county and court sites, and plausible campaign addresses that were then read). A blank here often means not searched, not that nothing exists.",
+ "removed": [
+  {
+   "race_id": "2026-MO-29099-county-council-3",
+   "name": "Lori Arons",
+   "what": "offices: Jefferson County Planning and Zoning Commission",
+   "why": "The county's page speaks only of her experience with the planning and zoning commission; it does not say she held a seat on it."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-presiding-commissioner",
+   "name": "Kip Kendrick",
+   "website": {
+    "url": "https://kipkendrick.com/",
+    "how": "The site is paid for by Friends of Kip Kendrick and thanks the voters of Boone County for electing him Presiding Commissioner; it is his campaign committee's site and does not mention 2026.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.boonemo.gov/commission/",
+    "source": "Boone County Commission",
+    "verified": true
+   },
+   "born": {
+    "year": 1981,
+    "source": "Wikipedia, Kip Kendrick (with a citation)",
+    "url": "https://en.wikipedia.org/wiki/Kip_Kendrick",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, District 45",
+     "from": "2015",
+     "to": "2021",
+     "source": "Wikipedia, Kip Kendrick",
+     "url": "https://en.wikipedia.org/wiki/Kip_Kendrick",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Boone County Presiding Commissioner (elected 2022)",
+     "from": "",
+     "to": "present",
+     "source": "Wikipedia, Kip Kendrick, which says he was elected in 2022 and does not say when he took office; the Boone County Commission's page names him Presiding Commissioner",
+     "url": "https://en.wikipedia.org/wiki/Kip_Kendrick",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Missouri House of Representatives, District 45",
+     "year": "2015 to 2021",
+     "party": "Democratic",
+     "source": "Wikipedia, Kip Kendrick",
+     "url": "https://en.wikipedia.org/wiki/Kip_Kendrick",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29043-collector",
+   "name": "Chris Snyder"
+  },
+  {
+   "race_id": "2026-MO-29071-collector",
+   "name": "Doug Trentmann",
+   "official_page": {
+    "url": "https://www.franklinmo.gov/collector",
+    "source": "Franklin County, Missouri",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-2",
+   "name": "Venessa Huskey",
+   "website": {
+    "url": "https://www.electvenessahuskey.com/",
+    "how": "The site is Venessa Huskey's re-election site for Jackson County 2nd District Legislator, and gives the 2026 primary and the November 3, 2026 general election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.jacksongov.org/Government/County-Legislature/Venessa-Huskey-2nd-District",
+    "source": "Jackson County, Missouri",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jackson County Legislator, 2nd District (first elected 2022)",
+     "from": "2022",
+     "to": "present",
+     "source": "The Beacon: Kansas City",
+     "url": "https://thebeaconnews.org/stories/2026/07/21/jackson-county-legislature-primary-2026-venessa-huskey-j-erik-dickinson/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Democratic primary for Jackson County Legislature, 2nd District",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "KCUR",
+     "url": "https://www.kcur.org/politics-elections-and-government/2022-10-20/jackson-county-legislature-elections-the-2022-candidates-for-kansas-city-and-lees-summit",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29097-collector",
+   "name": "Steven E. McIntosh",
+   "offices": [
+    {
+     "office": "Jasper County Collector (elected November 2018, sworn in March 2019)",
+     "from": "2019",
+     "to": "",
+     "source": "KSNF/KODE, FourStatesHomepage.com, 'New Jasper County collector sworn in' (March 2, 2019), which calls him Steve McIntosh",
+     "url": "https://digital-release.fourstateshomepage.com/?p=23545",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29099-county-council-3",
+   "name": "Lori Arons",
+   "website": {
+    "url": "https://www.loriarons.com/",
+    "how": "The site speaks as the County Councilwoman for District 3 in Jefferson County and is paid for by Friends of Lori Arons; it does not give the election year.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.jeffcomo.gov/405/District-3---Lori%20Arons",
+    "source": "Jefferson County, Missouri",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jefferson County Council, District 3 (appointed January 29, 2024, to fill a vacancy)",
+     "from": "2024",
+     "to": "present",
+     "source": "Jefferson County, Missouri",
+     "url": "https://www.jeffcomo.gov/405/District-3---Lori%20Arons",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29165-treasurer",
+   "name": "Chris Kendall",
+   "official_page": {
+    "url": "https://www.co.platte.mo.us/treasurer",
+    "source": "Platte County, Missouri",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Platte County Treasurer (appointed by the county commission in March 2025 to fill a vacancy)",
+     "from": "2025",
+     "to": "2025",
+     "source": "The Platte County Landmark",
+     "url": "https://plattecountylandmark.com/2026/03/01/chris-kendall-seeking-to-remain-county-treasurer/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Platte County Treasurer (appointed by the Governor, announced September 12, 2025)",
+     "from": "2025",
+     "to": "present",
+     "source": "Office of the Governor of Missouri, which names him Christopher Kendall, of Farley",
+     "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-announces-two-gubernatorial-appointments",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29183-prosecuting-attorney",
+   "name": "Joseph G McCulloch",
+   "offices": [
+    {
+     "office": "St. Charles County Prosecuting Attorney (appointed by the County Executive, April 2023)",
+     "from": "2023",
+     "to": "present",
+     "source": "Spectrum News",
+     "url": "https://spectrumlocalnews.com/mo/st-louis/news/2023/04/20/st--charles-county-executive-appoints-joseph-mcculloch-as-new-prosecuting-attorney",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-ACJRET-31-21",
+   "name": "Philip M. Fuhrman"
+  },
+  {
+   "race_id": "2026-MO-CJRET-16-4",
+   "name": "Patrick C. Edwards",
+   "official_page": {
+    "url": "https://www.16thcircuit.org/division-4-judge-patrick-c-edwards",
+    "source": "16th Circuit Court of Jackson County, Missouri",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Judge, 16th Judicial Circuit, Division 4 (appointed to the bench 2024)",
+     "from": "2024",
+     "to": "present",
+     "source": "16th Circuit Court of Jackson County, Missouri",
+     "url": "https://www.16thcircuit.org/division-4-judge-patrick-c-edwards",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-8",
+   "name": "Timothy J. Boyer",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/",
+    "source": "22nd Judicial Circuit Court, City of St. Louis (lists Div. 08: Timothy J. Boyer)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH1",
+   "name": "Jeff Farnan"
+  },
+  {
+   "race_id": "2026-MO-SH107",
+   "name": "Gary Wester",
+   "website": {
+    "url": "https://electgarywester.com/",
+    "how": "The address leads to his page headed Elect Gary Wester, which says he is running to be the representative in Missouri House District 107.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH115",
+   "name": "David George"
+  },
+  {
+   "race_id": "2026-MO-SH124",
+   "name": "Kevin Onstott",
+   "website": {
+    "url": "https://www.kevinonstott.com/",
+    "how": "The site is Kevin Onstott's, for Missouri House of Representatives District 124, Miller and Pulaski Counties.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Conservative Republican",
+    "url": "https://www.kevinonstott.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH131",
+   "name": "Bill Owen"
+  },
+  {
+   "race_id": "2026-MO-SH140",
+   "name": "Julia E. Curran"
+  },
+  {
+   "race_id": "2026-MO-SH149",
+   "name": "Scott Crumpecker"
+  },
+  {
+   "race_id": "2026-MO-SH159",
+   "name": "Joel Mace"
+  },
+  {
+   "race_id": "2026-MO-SH20",
+   "name": "Mike Steinmeyer",
+   "website": {
+    "url": "https://www.steinmeyerformo.com/",
+    "how": "The site is for Mike Steinmeyer, Missouri State Representative, District 20, and says vote Mike Steinmeyer November 3rd.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH32",
+   "name": "Jennifer Cassidy"
+  },
+  {
+   "race_id": "2026-MO-SH40",
+   "name": "Thomas D McBeth"
+  },
+  {
+   "race_id": "2026-MO-SH50",
+   "name": "Gregg Bush",
+   "website": {
+    "url": "https://www.greggbushformo.org/",
+    "how": "The site is Gregg Bush's, for Missouri House District 50 (the address first recorded, greggbush.com, leads here); it does not give the election year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH6",
+   "name": "John Davison"
+  },
+  {
+   "race_id": "2026-MO-SH69",
+   "name": "Chris Chapman",
+   "website": {
+    "url": "https://chapmanformo.com/",
+    "how": "The address leads to his page headed Elect Chris Chapman for Missouri State Representative, Missouri House District 69.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH79",
+   "name": "Rachel D’Souza",
+   "website": {
+    "url": "https://www.racheldsouzaformo.com/",
+    "how": "The site is Rachel D'Souza for Missouri, for the Missouri State House, District 79.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Appointed official with the St. Louis Housing Authority (her own description; no post or years given)",
+     "from": "",
+     "to": "present",
+     "source": "Her campaign site",
+     "url": "https://www.racheldsouzaformo.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH89",
+   "name": "George Hruza"
+  },
+  {
+   "race_id": "2026-MO-SH99",
+   "name": "Tori Schafer"
+  },
+  {
+   "race_id": "2026-MO-SS26",
+   "name": "Ben Brown",
+   "website": {
+    "url": "https://www.benbrownformo.com/",
+    "how": "The address leads to his Missouri State Senate campaign site, which names the 26th Senatorial District and its counties; it does not give the election year.",
+    "verified": true
+   }
+  }
+ ]
+}

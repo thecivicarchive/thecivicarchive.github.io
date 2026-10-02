@@ -1,0 +1,692 @@
+{
+ "state": "MO",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the official lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Missouri differs from Minnesota: its parties nominate in the August 4 partisan primary, county offices and circuit judges included, and afterwards their pages list their nominees; very few party pages endorse anyone. Only a page that itself says 'endorse' or 'endorsed' for a named candidate in a 2026 race, on a party committee's own site, is under endorsements: two county committees' pages (Cass County's, published before the primary, and Boone County's). Under other_support, kept apart and not for showing as an endorsement, with the page's own word in 'kind': the Jackson County Republican Committee's 'GOP Voter Guide' (a list of the party's November nominees that does not say endorsed), and the August primary endorsements of the South Kansas City Democrats, which is a Democratic club and not a committee of the party. A bare list of a party's nominees is not collected: it adds nothing to the party label already on the ballot. The state parties endorsed positions on ballot questions only; ballot questions, federal offices and party offices are outside this file. 'election' appears only when the candidate is on a primary list and not on the November list. Names are spelled as our record spells them; 'as_listed' keeps the page's wording. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first: the four state parties' sites (Democratic, Republican, Libertarian, Green), and every county unit's own website linked from the Democratic and Republican state directories or found by search (home page plus its candidate, election and news pages, ten pages a site at most; every page was searched for the words endorse, recommend, slate and voter guide, not read line by line). Most county units have only a social media page, which is never read. Every page in 'lists' was opened again after it was read, and a record is kept only if the page still showed it. No site read forbids programs in its robots.txt, so nothing is held. 'not_read' names the pages looked at and why nothing was taken, and the units that could not or should not be read.",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Cass County Democratic Central Committee",
+   "title": "Cass County Democratic Central Committee Recommendations for the August 4 Primary: Cass County Democratic Candidate Endorsements",
+   "url": "http://www.casscountydemocrats.com/vote_august_4th",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boone County Democratic Party",
+   "title": "Boone County Democrats endorse Boone County Auditor Kyle Rieman for re-election (July 19, 2026)",
+   "url": "https://boonecountydems.org/boone-county-democrats-endorse-boone-county-auditor-kyle-rieman-for-re-election/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "title": "GOP Voter Guide, November 3, 2026 (home page)",
+   "url": "https://www.jacomo.gop/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "title": "2026 August Endorsements (home page)",
+   "url": "https://southkcdems.com",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-MO-SH55",
+   "name": "Jon Pennell",
+   "party": "Democratic",
+   "unit": "Cass County Democratic Central Committee",
+   "url": "http://www.casscountydemocrats.com/vote_august_4th",
+   "as_listed": "Jon Pennell, Missouri House District 55"
+  },
+  {
+   "race_id": "2026-MO-SH56",
+   "name": "Staci Czar",
+   "party": "Democratic",
+   "unit": "Cass County Democratic Central Committee",
+   "url": "http://www.casscountydemocrats.com/vote_august_4th",
+   "as_listed": "Staci Czar, Missouri House District 56"
+  },
+  {
+   "race_id": "2026-MO-SH62",
+   "name": "Liz Davenport",
+   "party": "Democratic",
+   "unit": "Cass County Democratic Central Committee",
+   "url": "http://www.casscountydemocrats.com/vote_august_4th",
+   "as_listed": "Liz Davenport, Missouri House District 62"
+  },
+  {
+   "race_id": "2026-MO-29037-recorder-of-deeds",
+   "name": "Art Ruiz",
+   "party": "Democratic",
+   "unit": "Cass County Democratic Central Committee",
+   "url": "http://www.casscountydemocrats.com/vote_august_4th",
+   "as_listed": "Art Ruiz, Cass County Recorder of Deeds"
+  },
+  {
+   "race_id": "2026-MO-29019-auditor",
+   "name": "Kyle Rieman",
+   "party": "Democratic",
+   "unit": "Boone County Democratic Party",
+   "url": "https://boonecountydems.org/boone-county-democrats-endorse-boone-county-auditor-kyle-rieman-for-re-election/",
+   "as_listed": "Kyle Rieman, Boone County Auditor"
+  }
+ ],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-MO-AUD",
+   "name": "Scott Fitzpatrick",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Auditor - Scott Fitzpatrick",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SS8",
+   "name": "Jon Patterson",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Senator District 8 - Jon Patterson",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH19",
+   "name": "Karen Irene Spalding",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 19 - Karen Spalding",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH20",
+   "name": "Mike Steinmeyer",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 20 - Mike Steinmeyer",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH21",
+   "name": "Michael Young",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 21 - Michael Young",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH28",
+   "name": "Steven W Hinton",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 28 - Steven Hinton",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH29",
+   "name": "Robert Bruette",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 29 - Robert Bruette",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH30",
+   "name": "Jeff Martin",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 30 - Jeff Martin",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH31",
+   "name": "Ron Fowler",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 31 - Ron Fowler",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH32",
+   "name": "Michael Todd",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 32 - Michael Todd",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH33",
+   "name": "Carolyn Caton",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 33 - Carolyn Caton",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH34",
+   "name": "Sean Smith",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 34 - Sean Smith",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH35",
+   "name": "Jacquie Aziere Stenger",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 35 - Jacquie Stenger",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-SH36",
+   "name": "Dave Thomas",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "State Rep District 36 - Dave Thomas",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-executive",
+   "name": "Alan Rohlfing",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Executive - Alan Rohlfing",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-1st-district-at-large",
+   "name": "Lance Pollard",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - 1st DAL - Lance Pollard",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-2nd-district-at-large",
+   "name": "Gresia Cabrera",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - 2nd DAL - Gresia Cabrera",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-3",
+   "name": "Scott Qualls",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - District 3 - Scott Qualls",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-4",
+   "name": "Lon McDonald",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - District 4 - Lon McDonald",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-5",
+   "name": "Dale Carter",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - District 5 - Dale Carter",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-6",
+   "name": "Bill Haley",
+   "party": "Republican",
+   "unit": "Jackson County Republican Committee",
+   "url": "https://www.jacomo.gop/",
+   "as_listed": "County Legislature - District 6 - Bill Haley",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MO-29095-county-executive",
+   "name": "Stacy Lake",
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "url": "https://southkcdems.com",
+   "as_listed": "County Executive: Stacy Lake",
+   "kind": "club endorsement (August primary)"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-3rd-district-at-large",
+   "name": "Susan B. Wilson",
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "url": "https://southkcdems.com",
+   "as_listed": "Jackson County Legislature, 3rd At Large: Susan Wilson",
+   "kind": "club endorsement (August primary)"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-1",
+   "name": "Kelly Thompson",
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "url": "https://southkcdems.com",
+   "as_listed": "Jackson County Legislature, 1st District: Kelly Thompson",
+   "kind": "club endorsement (August primary)"
+  }
+ ],
+ "other_support_unmatched": 2,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "url": "https://southkcdems.com",
+   "as_listed": "Jackson County Legislature, 1st At Large: Jalen Anderson",
+   "kind": "club endorsement (August primary)",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Kansas City Democrats (a Democratic club, not a party committee)",
+   "url": "https://southkcdems.com",
+   "as_listed": "Jackson County Legislature, 4th District: John Maloney",
+   "kind": "club endorsement (August primary)",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Missouri Democratic Party",
+   "url": "https://www.missouridemocrats.org/2026-general-election",
+   "why": "read; nothing taken: the page says the party 'unanimously endorsed' a position on each November ballot question (outside this file) and otherwise lists and links the party's candidates without the word endorsed. Its news pages endorse 'NO' on Amendments 4 and 5 and no candidate"
+  },
+  {
+   "party": "Republican",
+   "unit": "Missouri Republican Party",
+   "url": "https://missouri.gop/latest-news-2/",
+   "why": "read; nothing taken: the State Committee's 2025 and 2026 endorsements on the party's news pages are of constitutional amendments (outside this file); no page endorses a candidate for a 2026 state or local office"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Missouri Libertarian Party",
+   "url": "https://lpmo.org/candidates/",
+   "why": "not collected: a list of the party's own candidates (State Auditor, the Legislature, and four county offices in St. Louis, St. Charles, Franklin and Jefferson counties); the page does not use the word endorsed, and it adds nothing to the party label already on the ballot. The party's news pages endorse no candidate"
+  },
+  {
+   "party": "Green",
+   "unit": "Missouri Green Party",
+   "url": "https://www.missourigreenparty.org/candidates_elections",
+   "why": "read; nothing taken: the page explains how the party endorses and links its 2024 voter guide; no page names or endorses a 2026 candidate (one Green candidate, for St. Louis Recorder of Deeds, is on the lists loaded)"
+  },
+  {
+   "party": "Green",
+   "unit": "Gateway Green Alliance (Green Party of St. Louis)",
+   "url": "https://www.gateway-greens.org",
+   "why": "read; nothing taken: no page uses the word endorse for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Missouri House Democratic Campaign Committee",
+   "url": "https://www.mohousedems.com/candidates",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed, and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Boone County Republicans",
+   "url": "https://boonecountyrepublicans.wordpress.com/",
+   "why": "read; nothing taken: the newest election page is the 'Boone County Missouri Republican Party Slate' for the 2024 general election; nothing for 2026"
+  },
+  {
+   "party": "Republican",
+   "unit": "Buchanan County Republicans",
+   "url": "https://www.buchanangop.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Callaway County Republicans",
+   "url": "https://www.callawayrepublicans.com/",
+   "why": "the address did not resolve (tried again later, patiently); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Cass County Republicans",
+   "url": "https://www.cassmorepublicans.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Christian County Republicans",
+   "url": "https://www.ccrccmo.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Clay County Republicans",
+   "url": "https://claycogop.com/",
+   "why": "read; nothing taken: the only endorsement on the news page is about the United States Senate's leadership (2024); no candidate in a 2026 race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Franklin County Republicans",
+   "url": "https://www.fcrcc.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Gasconade County Republicans",
+   "url": "https://www.gasconadecountyrepublican.com",
+   "why": "read; nothing taken: the address the state party's directory gives for the county committee shows general news items and nothing from a party unit"
+  },
+  {
+   "party": "Republican",
+   "unit": "Greene County Republicans",
+   "url": "https://greenecountygop.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Harrison County Republicans",
+   "url": "https://www.harrisongop.com/",
+   "why": "read; nothing taken: the address the state party's directory gives is the site of a Harrison County Republican Party in Indiana, not Missouri's"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jasper County Republicans",
+   "url": "https://jaspercountyrepublicans.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republicans",
+   "url": "https://jeffcomogop.org/",
+   "why": "the site's certificate is for another name; certificate checking is never turned off, so the site was left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Livingston County Republicans",
+   "url": "https://www.livingstonrepublicans.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Macon County Republicans",
+   "url": "https://www.macongop.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Newton County Republicans",
+   "url": "http://www.newtoncountyrepublicans.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Pettis County Republicans",
+   "url": "https://www.pettisgop.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Phelps County Republicans",
+   "url": "https://phelpscountygop.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Platte County Republicans",
+   "url": "https://www.platterepublicans.org/",
+   "why": "read; nothing taken: the news pages speak of candidate vetting in 2023 and of withholding the committee's endorsement in future; no page endorses a candidate in a 2026 race"
+  },
+  {
+   "party": "Republican",
+   "unit": "St. Charles County Republicans",
+   "url": "https://stcharlesgop.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "St. Louis County Republicans",
+   "url": "https://www.stl-gop.com/home",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "Webster County Republicans",
+   "url": "https://www.webstercountyrepublicans.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Republican",
+   "unit": "St. Louis City Republican Central Committee",
+   "url": "https://stl-gop.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Barry County Democrats",
+   "url": "https://barrycountymodemocrats.com",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Benton County Democrats",
+   "url": "https://bentoncountydemocraticparty.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonecountydems.net/",
+   "why": "read; partly taken: the endorsement of the county auditor is under endorsements. The page '2026 Democratic Candidates' is a list of the party's nominees that does not say endorsed (not collected)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Callaway County Democrats",
+   "url": "http://www.callawaydemocrats.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Cape Girardeau County Democrats",
+   "url": "https://capedems.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Cass County Democrats",
+   "url": "http://www.casscountydemocrats.com/",
+   "why": "read; partly taken: the four endorsements published before the August 4 primary are under endorsements. The same page's positions on constitutional amendments are outside this file, and it says the committee chose not to endorse in the congressional primary"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Christian County Democrats",
+   "url": "https://www.christiancountydemocrats.com/",
+   "why": "read; nothing taken: the only endorsements on the site are the state party's positions on ballot questions; the candidates page lists the party's nominees without the word endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clay County Democrats",
+   "url": "http://www.claycountydemocrats.org/",
+   "why": "the address did not resolve (tried again later, patiently); left alone. The committee's other address (ccdemscc.org) answered with an empty page"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Cooper County Democrats",
+   "url": "http://www.coopercountydemocrats.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Crawford County Democrats",
+   "url": "https://crawforddems.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Southwest Missouri Democrats (Dade, Jasper, Lawrence and Newton counties)",
+   "url": "https://www.swmodemocrats.com/2026-election/our-candidates",
+   "why": "the address in the state party's directory closed the connection; the group's current site was read instead. Not collected: a list of the party's own nominees county by county; the page does not use the word endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Dent County Democrats (the state party's directory gives the same address for Dunklin County)",
+   "url": "http://dcmodems.org/",
+   "why": "the site refused this program (HTTP 403); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Greene County Democrats",
+   "url": "http://www.gcmodems.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democrats",
+   "url": "http://www.jacksoncountydemocraticcommittee.org/",
+   "why": "read, with the committee's current site (jacksoncodems.org); nothing taken: 'Local Candidates and Electeds' lists the party's nominees with their campaign sites and does not say endorsed; the '2026 Voter Guide' page is about absentee and early voting"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jefferson County Democrats",
+   "url": "https://www.jeffersoncountymodemcentralcommittee.org/",
+   "why": "the address the state party's directory gives answers 'not found' (HTTP 404)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lincoln County Democrats",
+   "url": "http://www.lcmodems.com/",
+   "why": "the address did not resolve (tried again later, patiently); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Platte County Democrats",
+   "url": "http://www.plattedems.org/",
+   "why": "read; nothing taken: '2026 Candidates' is a list of the party's nominees and the 'Voter Guide' is about how to vote; neither says endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Ray County Democrats",
+   "url": "http://raycodems.org/",
+   "why": "the address did not resolve (tried again later, patiently); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Scott County Democrats",
+   "url": "http://scottcodems.org/",
+   "why": "the address the state party's directory gives answers 'not found' (HTTP 404)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "St. Charles County Democrats",
+   "url": "http://stcdems.org/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "St. Louis City Democratic Central Committee",
+   "url": "http://stlcitydems.com/",
+   "why": "read; nothing taken: the newest pages are from 2017 and 2018 (ward clubs' primary endorsements then); one says the Central Committee, as a body, does not make endorsements"
+  },
+  {
+   "party": "Democratic",
+   "unit": "St. Louis County Democrats",
+   "url": "https://stldems.org/",
+   "why": "read; nothing taken: the committee's endorsements are of petitions and referendums (outside this file); its candidate events page says a listing does not imply endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Vernon County Democrats",
+   "url": "http://www.vernoncomodems.com",
+   "why": "the address did not resolve (tried again later, patiently); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Buchanan County Democrats",
+   "url": "https://buchanancountydemocrats.com",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lincoln County Democratic Club",
+   "url": "https://lcmodemclub.com/",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lee's Summit Democrats (a Democratic club, not a party committee)",
+   "url": "https://www.lsdems.com/endorsements",
+   "why": "the site has an Endorsements page, which answered 'too many requests' (HTTP 429) twice; left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Blue Springs Democrats (a Democratic club, not a party committee)",
+   "url": "https://www.bluespringsdems.com/endorsements.html",
+   "why": "read; nothing taken: the page's one endorsement is for the April 2026 municipal election, which is not on the November ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "West County Democrats (a Democratic club, not a party committee)",
+   "url": "https://westcountydemocrats.org",
+   "why": "read (home page and its candidate, election and news pages); nothing taken: no page uses the word endorse, recommend or slate for a candidate in a 2026 state or local race"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Missouri Young Democrats",
+   "url": "https://www.moyoungdemocrats.org/",
+   "why": "read; nothing taken: not a committee of the party, and its site does not use the word endorse for a 2026 candidate"
+  },
+  {
+   "party": "Republican",
+   "unit": "68 county Republican committees whose only address is a social media page",
+   "url": "https://missouri.gop/your-local-gop/",
+   "why": "not read: social media is never read. The counties: Adair, Andrew, Audrain, Barry, Barton, Bates, Benton, Bollinger, Butler, Caldwell, Camden, Cape Girardeau, Carroll, Carter, Cedar, Chariton, Clinton, Cole, Cooper, Crawford, Dallas, Daviess, DeKalb, Dent, Douglas, Dunklin, Grundy, Johnson, Knox, Laclede, Lafayette, Lawrence, Lewis, Lincoln, Linn, Madison, Maries, Marion, McDonald, Miller, Monroe, Nodaway, Oregon, Osage, Perry, Pike, Pulaski, Ralls, Randolph, Ray, Reynolds, Ripley, Saint Clair, Saint Francois, Saline, Schuyler, Scotland, Scott, Shelby, Stoddard, Stone, Sullivan, Taney, Texas, Vernon, Warren, Washington, Wayne"
+  },
+  {
+   "party": "Republican",
+   "unit": "25 county Republican committees with no address at all in the state party's directory",
+   "url": "https://missouri.gop/your-local-gop/",
+   "why": "nothing to read. The counties: Atchison, Clark, Dade, Gentry, Henry, Hickory, Holt, Howard, Howell, Iron, Mercer, Mississippi, Moniteau, Montgomery, Morgan, New Madrid, Ozark, Pemiscot, Polk, Putnam, Sainte Genevieve, Shannon, St Louis, Worth, Wright"
+  },
+  {
+   "party": "Democratic",
+   "unit": "43 county Democratic committees whose only address is a social media page",
+   "url": "https://www.missouridemocrats.org/county-parties",
+   "why": "not read: social media is never read. The counties: Adair, Bates, Butler, Caldwell, Camden, Carter, Cedar, Chariton, Cole, Dallas, Franklin, Gasconade, Howard, Howell, Johnson, Knox, Laclede, Lafayette, Lewis, Linn, Macon, Madison, Maries, Moniteau, Morgan, Osage, Pettis, Phelps, Pike, Polk, Pulaski, Randolph, Ripley, Sainte Genevieve, Saline, Shannon, Shelby, St Clair, St Francois, Stoddard, Texas, Wayne, Worth"
+  },
+  {
+   "party": "Democratic",
+   "unit": "45 county Democratic committees with no address of their own on the state party's directory",
+   "url": "https://www.missouridemocrats.org/county-parties",
+   "why": "nothing to read beyond the state party's page for the county, which names its officers only. The counties: Andrew, Atchison, Audrain, Barton, Bollinger, Buchanan, Carroll, Clark, Clinton, Daviess, Dekalb, Douglas, Gentry, Grundy, Harrison, Henry, Hickory, Holt, Iron, Livingston, Marion, Mcdonald, Mercer, Miller, Mississippi, Monroe, Montgomery, New Madrid, Nodaway, Oregon, Ozark, Pemiscot, Perry, Putnam, Ralls, Reynolds, Schuyler, Scotland, Stone, Sullivan, Taney, Warren, Washington, Webster, Wright"
+  },
+  {
+   "party": "Democratic",
+   "unit": "St. Louis ward organizations (4th Ward, 6th Ward), St. Louis County township clubs (Bonhomme, Clayton, Concord) and Northland Forward",
+   "url": "https://bluevoterguide.org/endorsers?state=MO",
+   "why": "not read: these groups publish their endorsements only on social media, which is never read. A voter guide run by others (Blue Voter Guide) repeats them; it is not a party's own page, so it was used only to find each group's own address and nothing was taken from it"
+  }
+ ]
+}

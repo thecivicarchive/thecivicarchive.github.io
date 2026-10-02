@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.089 — 2026-10-02 — State and local races get the Congress cards
+
+- Every state and local race page (Governor and the other statewide offices, the Legislature, judges, county, city, township and school races, in every state) now has the same cards as the Congress race pages: the same card with its slight tilt and "vs" when two people face each other, and the same controls on each card: move it earlier or later, hide it, or drag it, with "Put back the official order" beneath. The arrangement is yours alone and stays on your device; the list's own order never changes, and the page ranks no one.
+- "Step into the arena: compare them side by side" opens the same kind of table the Congress pages have: one column a candidate (the columns move and hide with the cards), and sections that open on a click and start closed: On the ballot; Who they are; The record, not a label; In office. It replaces the "Who they are" boxes and carries everything they held, with the same source lines and links. State and local pages show no campaign money, so there is no money section.
+- Where voters choose several people (a school board, two Supreme Court seats) there is no "vs" between the names. A race with one name has no move or hide controls. A township or small district race gets the comparison only when a candidate filed a campaign website.
+- "Forget my location and choices" now also clears any card arrangement you made.
+- The comparison's "On the ballot" section shows the note the list keeps about a candidate, such as "standing for retention as the sitting judge" or "unopposed: declared elected without a vote", as the Congress pages do.
+
 ## v4.0.088 — 2026-10-02 — Michigan gets the same treatment
 
 - Michigan's ballot page now has the real map, drawn on the Bureau of Elections' own 2026 precinct lines, with the districts each precinct sits in (county, city or township and village, ward, county commission district, House, Senate, Congress, district and circuit court, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot; a reader in a village gets the township's contests too.

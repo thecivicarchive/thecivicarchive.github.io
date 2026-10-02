@@ -1,0 +1,300 @@
+{
+ "part": 14,
+ "of": 19,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MO-SS14",
+   "name": "Raychel Proudie",
+   "what": "official_page, offices (State Representative, District 73) and past_party (sits in the House as a Democrat)",
+   "why": "the Missouri House member page given as the source answered 404 Not Found on two tries"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MO-29051-associate-circuit-judge-division-6",
+   "name": "Joseph Shetler",
+   "offices": [
+    {
+     "office": "Judge, 19th Judicial Circuit (Cole County), appointed by the Governor",
+     "from": "2024",
+     "to": "",
+     "source": "Jefferson City News Tribune",
+     "url": "https://www.newstribune.com/news/2024/sep/14/jefferson-city-attorney-appointed-as-circuit-judge/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-3rd-district-at-large",
+   "name": "Susan B. Wilson",
+   "website": {
+    "url": "https://www.electsusanwilson.com",
+    "how": "The site names Susan Wilson as a candidate for Jackson County Legislator, 3rd District At-Large, with the 2026 election dates",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Jackson County COMBAT Commission",
+     "from": "",
+     "to": "",
+     "source": "her campaign site",
+     "url": "https://www.electsusanwilson.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29183-associate-circuit-judge-division-12",
+   "name": "William Byrnes",
+   "offices": [
+    {
+     "office": "Associate Circuit Judge, 11th Judicial Circuit (St. Charles County), appointed by the Governor",
+     "from": "2024",
+     "to": "",
+     "source": "Missouri Lawyers Media",
+     "url": "https://molawyersmedia.com/?p=500144",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29510-recorder-of-deeds",
+   "name": "Jerome H. Bauer",
+   "past_party": [
+    {
+     "what": "Green Party nominee for St. Louis City Recorder of Deeds (won the party's August primary; not elected)",
+     "year": "2022",
+     "party": "Green",
+     "source": "Green Party of the United States elections database",
+     "url": "https://www.gpelections.org/races/jerome-bauer-runs-for-city-recorder-of-deeds-2022/",
+     "kind": "party",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-AUD",
+   "name": "Quentin Wilson",
+   "website": {
+    "url": "https://quentin4mo.com/",
+    "how": "Titled 'Quentin Wilson for Missouri State Auditor'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Director, Missouri Department of Revenue",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://quentin4mo.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Governor's Cabinet Director, Missouri",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://quentin4mo.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Deputy Director of Economic Development, Missouri",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://quentin4mo.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "State Commissioner of Higher Education, Missouri",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://quentin4mo.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJRET-21-21",
+   "name": "Ellen Wyatt Dunne",
+   "offices": [
+    {
+     "office": "Circuit Judge, 21st Judicial Circuit (St. Louis County)",
+     "from": "2025",
+     "to": "",
+     "source": "Office of the Governor of Missouri, release of March 4, 2025",
+     "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-announces-two-judicial-appointments",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Associate Circuit Judge, 21st Judicial Circuit (St. Louis County)",
+     "from": "2017",
+     "to": "2025",
+     "source": "Office of the Governor of Missouri, release of March 4, 2025",
+     "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-announces-two-judicial-appointments",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-COARET-E1",
+   "name": "Virginia W. Lay",
+   "offices": [
+    {
+     "office": "Judge, Missouri Court of Appeals, Eastern District (appointed November 2024)",
+     "from": "2024",
+     "to": "",
+     "source": "KOAM News",
+     "url": "https://www.koamnewsnow.com/news/missouri-news/gov-parson-announces-judicial-appointments-for-missouri-courts/article_c78bf802-9e18-11ef-9f58-17cee3d52001.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Circuit Judge, 21st Judicial Circuit",
+     "from": "",
+     "to": "2024",
+     "source": "KOAM News",
+     "url": "https://www.koamnewsnow.com/news/missouri-news/gov-parson-announces-judicial-appointments-for-missouri-courts/article_c78bf802-9e18-11ef-9f58-17cee3d52001.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH126",
+   "name": "Melissa Perry",
+   "website": {
+    "url": "https://perryformo.com/",
+    "how": "Titled 'Melissa Perry for State Representative'; the page names Missouri House of Representatives District 126",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH152",
+   "name": "Corretta Bishop",
+   "website": {
+    "url": "https://www.correttabishopforthepeople.com/",
+    "how": "Titled 'Corretta Bishop for Missouri State Representative District 152'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of city boards (Disabilities Advisory Board, Art and Museum Advisory Board, Historical Preservation Commission, Fair Housing Commission, Tree Advisory Board, Building and Standards Board)",
+     "from": "",
+     "to": "",
+     "source": "her campaign site",
+     "url": "https://www.correttabishopforthepeople.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH161",
+   "name": "Aaron Joseph Metzger",
+   "website": {
+    "url": "https://metzgerformissouri.com/",
+    "how": "Titled 'Aaron Joseph Metzger for Missouri House District 161'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Aaron Joseph Metzger for Missouri House District 161 — Joplin Democrat",
+    "url": "https://metzgerformissouri.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH24",
+   "name": "Kevin Garner",
+   "website": {
+    "url": "https://garnerformissouri.com/",
+    "how": "Titled 'Garner for Missouri State Representative'; the page names Kevin Garner and Missouri House District 24",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Kevin Garner - Democrat",
+    "url": "https://garnerformissouri.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH71",
+   "name": "Nicole Greer",
+   "website": {
+    "url": "https://votegreer.com/",
+    "how": "Titled 'Nicole Greer for Missouri House District 71'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Creve Coeur City Council Member, Ward 2",
+     "from": "2020",
+     "to": "2024",
+     "source": "her campaign site",
+     "url": "https://votegreer.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Creve Coeur City Council Member",
+     "from": "2025",
+     "to": "",
+     "source": "her campaign site",
+     "url": "https://votegreer.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "President, Creve Coeur City Council",
+     "from": "2023",
+     "to": "2024",
+     "source": "her campaign site",
+     "url": "https://votegreer.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH81",
+   "name": "James (Jimmy) Lappe",
+   "website": {
+    "url": "https://www.jimmylappe.com/",
+    "how": "The site says Jimmy Lappe is running 'for State Representative for the 81st District'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Alderman, 11th Ward, City of St. Louis (elected to finish an unexpired term)",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://www.jimmylappe.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SS14",
+   "name": "Raychel Proudie",
+   "website": {
+    "url": "https://www.raychelproudie.com",
+    "how": "The site names Raychel Proudie as a candidate for Missouri State Senate, District 14",
+    "verified": true
+   }
+  }
+ ]
+}

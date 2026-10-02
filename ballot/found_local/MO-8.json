@@ -1,0 +1,446 @@
+{
+ "part": 8,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance ran out after the first eight candidates; the rest were researched from pages fetched directly (county, court and campaign sites, Wikipedia, and a ballot directory used only to find campaign sites). The site that directory gives for Carrie Tergin answered 429 twice and was left out. Jamie Ray Gragg's older campaign blog names no year and was left out. No party's own endorsement page was found.",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-county-clerk",
+   "name": "Brianna L. Lennon",
+   "official_page": {
+    "url": "https://www.boonemo.gov/clerk/bio.asp",
+    "source": "Boone County, About the Boone County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Boone County Clerk",
+     "from": "2018",
+     "to": "present",
+     "source": "Boone County, About the Boone County Clerk (\"elected as Boone County Clerk in November 2018, and sworn into office on December 31st, 2018\")",
+     "url": "https://www.boonemo.gov/clerk/bio.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29043-circuit-clerk",
+   "name": "Barbara Barnett-Stillings",
+   "official_page": {
+    "url": "https://courts.christiancountymo.gov/location.html",
+    "source": "Christian County courts, locations page (\"Barb Stillings, Clerk of the Circuit Court\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29071-circuit-clerk",
+   "name": "Connie S. Ward",
+   "official_page": {
+    "url": "https://www.franklinmo.gov/171/Circuit-Court-Clerk",
+    "source": "Franklin County, Circuit Court Clerk page (\"Connie Ward, Circuit Clerk\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-1st-district-at-large",
+   "name": "Lance Pollard",
+   "website": {
+    "url": "https://lancepollardforjacksoncounty.com/",
+    "how": "The site is titled \"Lance Pollard | Jackson County, MO Legislature, 1st District\"; its About page says he is a candidate for the Jackson County Legislature's 1st District At-Large seat; the footer is dated 2026.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Grain Valley School District Board of Education",
+     "from": "2023",
+     "to": "present",
+     "source": "Grain Valley Schools, Board of Education page (\"Lance Pollard began serving on the board in 2023\"); his campaign site's About page names the same board",
+     "url": "https://www.grainvalleyschools.org/340827_2",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29097-circuit-clerk",
+   "name": "Melissa Holcomb",
+   "website": {
+    "url": "https://www.melissaholcomb.com/",
+    "how": "The site is titled \"Melissa Holcomb for Jasper County Circuit Clerk\" and speaks of the Aug. 4th, 2026 election.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jasper County Circuit Clerk",
+     "from": "2013",
+     "to": "2025",
+     "source": "Her campaign site (\"has served as Jasper County Circuit Clerk since July 29, 2013 ... elected by the voters in 2014 and re-elected in 2018 and 2022\"); KSNF Joplin reported on 2025-02-12 that she had stepped down the month before (https://www.yahoo.com/news/jasper-county-circuit-clerk-steps-213333322.html), so the end year is from that report, not from her site",
+     "url": "https://www.melissaholcomb.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29099-county-council-1",
+   "name": "John T Parker"
+  },
+  {
+   "race_id": "2026-MO-29165-recorder-of-deeds",
+   "name": "Christopher L. Wright",
+   "official_page": {
+    "url": "https://www.co.platte.mo.us/recorder",
+    "source": "Platte County, Recorder's Office page (\"Elected Officeholder: Christopher L. Wright\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Platte County Recorder of Deeds",
+     "from": "2023",
+     "to": "present",
+     "source": "The Platte County Landmark, \"New recorder of deeds highlights first 100 days\" (2023-04-14)",
+     "url": "https://plattecountylandmark.com/2023/04/14/new-recorder-of-deeds-highlights-first-100-days/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29183-director-of-elections",
+   "name": "Kurt Bahr",
+   "website": {
+    "url": "https://kurtbahr.com/",
+    "how": "The site is titled \"Kurt Bahr for Director of Elections\", names St. Charles County, and its footer reads \"Re-elect Kurt Bahr · 2026\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sccmo.org/410/Election-Authority",
+    "source": "St. Charles County, Election Authority page (\"Kurt Bahr, Director\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "St. Charles County Director of Elections",
+     "from": "2019",
+     "to": "present",
+     "source": "Wikipedia, \"Kurt Bahr\"",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Bahr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Missouri House of Representatives, District 102",
+     "from": "2013",
+     "to": "2019",
+     "source": "Wikipedia, \"Kurt Bahr\"",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Bahr",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Missouri House of Representatives, District 19",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, \"Kurt Bahr\"",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Bahr",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sat in the Missouri House of Representatives as a Republican",
+     "year": "2011-2019",
+     "party": "Republican",
+     "source": "Wikipedia, \"Kurt Bahr\"",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Bahr",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-ACJRET-22-28",
+   "name": "Michael R. Dauphin",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R246.php",
+    "source": "22nd Judicial Circuit Court, Div. 28: Michael R. Dauphin",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Associate Circuit Judge, 22nd Judicial Circuit (City of St. Louis)",
+     "from": "2024",
+     "to": "present",
+     "source": "22nd Judicial Circuit Court, Div. 28 page (\"appointed associate circuit judge in December 2024\")",
+     "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R246.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Assessor, City of St. Louis",
+     "from": "2018",
+     "to": "2024",
+     "source": "22nd Judicial Circuit Court, Div. 28 page (\"served as the St. Louis city assessor from 2018 until his appointment\")",
+     "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R246.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJRET-16-2",
+   "name": "Kenneth R. Garrett, III",
+   "official_page": {
+    "url": "https://www.16thcircuit.org/division-2-judge-kenneth-r-garrett-iii",
+    "source": "16th Circuit Court of Jackson County, Division 2 - Judge Kenneth R. Garrett III",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Judge, 16th Judicial Circuit (Jackson County), Division 2",
+     "from": "2013",
+     "to": "present",
+     "source": "16th Circuit Court of Jackson County, Division 2 page (\"Appointed to the Bench: 2013\")",
+     "url": "https://www.16thcircuit.org/division-2-judge-kenneth-r-garrett-iii",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-7",
+   "name": "Joseph P. Whyte",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R207.php",
+    "source": "22nd Judicial Circuit Court, Div. 7: Joseph P. Whyte",
+    "verified": true
+   },
+   "born": {
+    "year": 1962,
+    "source": "22nd Judicial Circuit Court, Div. 7 page (\"Born 1962 in St. Louis, Missouri\")",
+    "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R207.php",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Judge, 22nd Judicial Circuit (City of St. Louis)",
+     "from": "2018",
+     "to": "present",
+     "source": "22nd Judicial Circuit Court, Div. 7 page (\"appointed circuit judge in 2018 and retained in office by the voters ... in 2020\")",
+     "url": "https://www.stlcitycircuitcourt.com/business_detail_T5_R207.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SCRET-1",
+   "name": "Paul C. Wilson",
+   "born": {
+    "year": 1961,
+    "source": "Wikipedia, \"Paul C. Wilson\" (the date carries no footnote of its own; the paragraph's footnote is to the court's biography)",
+    "url": "https://en.wikipedia.org/wiki/Paul_C._Wilson",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Supreme Court of Missouri",
+     "from": "2012",
+     "to": "present",
+     "source": "Wikipedia, \"Paul C. Wilson\"",
+     "url": "https://en.wikipedia.org/wiki/Paul_C._Wilson",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chief Justice, Supreme Court of Missouri",
+     "from": "2021",
+     "to": "2023",
+     "source": "Wikipedia, \"Paul C. Wilson\"",
+     "url": "https://en.wikipedia.org/wiki/Paul_C._Wilson",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Circuit Judge, 19th Judicial Circuit (Cole County)",
+     "from": "2010",
+     "to": "2011",
+     "source": "Wikipedia, \"Paul C. Wilson\"",
+     "url": "https://en.wikipedia.org/wiki/Paul_C._Wilson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH106",
+   "name": "Travis Wilson"
+  },
+  {
+   "race_id": "2026-MO-SH115",
+   "name": "Bill Lucas"
+  },
+  {
+   "race_id": "2026-MO-SH123",
+   "name": "Jeff Vernetti",
+   "website": {
+    "url": "https://vernetti123.com/",
+    "how": "The site is titled \"Jeff Vernetti - Missouri State Representative 123rd District\" and is paid for by the Committee to Elect Jeff Vernetti. It does not name the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH131",
+   "name": "Ashley Cossins",
+   "website": {
+    "url": "https://cossinsformissouri.com/",
+    "how": "Her own domain, which forwards to her campaign page on a campaign-site host; the page names Ashley Cossins and Missouri House District 131 and says it is paid for by the Missouri House Democratic Campaign Committee.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH140",
+   "name": "Jamie Ray Gragg"
+  },
+  {
+   "race_id": "2026-MO-SH149",
+   "name": "John Armbruster"
+  },
+  {
+   "race_id": "2026-MO-SH158",
+   "name": "Scott Cupps"
+  },
+  {
+   "race_id": "2026-MO-SH20",
+   "name": "Jeff Spicer",
+   "website": {
+    "url": "https://www.jeffspicer4mo.com/",
+    "how": "The site is titled \"Jeff Spicer For Missouri\" and says he \"is running for Missouri House District 20\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH31",
+   "name": "Ron Fowler"
+  },
+  {
+   "race_id": "2026-MO-SH40",
+   "name": "Sheri Jay"
+  },
+  {
+   "race_id": "2026-MO-SH5",
+   "name": "Roth Mcelvain",
+   "website": {
+    "url": "https://mcelvainformissouri.com/",
+    "how": "The site is titled \"Roth McElvain\" and is paid for by the Committee to Elect Roth McElvain; its About page says he is running and that he is President of the Palmyra R-1 School Board of Education. The pages read do not name the office or the district.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Palmyra R-1 School Board of Education",
+     "from": "",
+     "to": "present",
+     "source": "His campaign site's About page (\"Currently Roth serves as the President of the Palmyra R-1 School Board of Education\")",
+     "url": "https://mcelvainformissouri.com/about-me",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "With his conservative Republican roots, Roth supports",
+    "url": "https://mcelvainformissouri.com/about-me",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH59",
+   "name": "Carrie Tergin",
+   "offices": [
+    {
+     "office": "Mayor of Jefferson City",
+     "from": "2015",
+     "to": "2023",
+     "source": "Wikipedia, \"Carrie Tergin\"",
+     "url": "https://en.wikipedia.org/wiki/Carrie_Tergin",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Jefferson City Council",
+     "from": "",
+     "to": "2015",
+     "source": "Wikipedia, \"Carrie Tergin\" (\"served on the Jefferson City council for six years\" before being elected mayor)",
+     "url": "https://en.wikipedia.org/wiki/Carrie_Tergin",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH68",
+   "name": "Kem Smith",
+   "website": {
+    "url": "https://www.drkemformo.com/",
+    "how": "The site is titled \"Dr Kem Smith For Missouri\", names \"Missouri House District 68\" and is paid for by Friends to Elect Dr Kem Smith. It does not name the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH79",
+   "name": "Mike Hebron"
+  },
+  {
+   "race_id": "2026-MO-SH89",
+   "name": "Bryan Troop",
+   "website": {
+    "url": "https://troopformissouri.com/",
+    "how": "The site is titled \"Troop for Missouri\", describes Missouri State House District 89, and its About page names Bryan Troop, MD.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH98",
+   "name": "Timothy Bosch"
+  },
+  {
+   "race_id": "2026-MO-SS24",
+   "name": "Tracy McCreery",
+   "website": {
+    "url": "https://tracymccreery.com/",
+    "how": "The site is titled \"Tracy McCreery State Senator - District 24\" and reads \"Tracy McCreery for State Senate - District 24\"; paid for by McCreery for Missouri.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MO-CJRET-22-7",
+   "name": "Joseph P. Whyte",
+   "what": "offices: Assistant Attorney General",
+   "why": "A staff job, not an elected or appointed public office; the page gives no years."
+  },
+  {
+   "race_id": "2026-MO-SH59",
+   "name": "Carrie Tergin",
+   "what": "born 1972",
+   "why": "The article gives the year without a footnote that could be confirmed."
+  },
+  {
+   "race_id": "2026-MO-SH79",
+   "name": "Mike Hebron",
+   "what": "past_party 2024 U.S. House District 1 Republican primary",
+   "why": "The name was not found on the page in two readings."
+  },
+  {
+   "race_id": "2026-MO-SH79",
+   "name": "Mike Hebron",
+   "what": "past_party 2020 Missouri Senate District 5",
+   "why": "The page lists a Michael Hebron as the Republican in Senate District 5 but nothing ties him to this 2026 House District 79 race by two anchors."
+  }
+ ]
+}

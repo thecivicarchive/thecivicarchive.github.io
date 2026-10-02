@@ -1,0 +1,273 @@
+{
+ "part": 10,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after eight searches, so most of this part was read from pages already known or from guessed campaign addresses that were then read; a blank here means not looked up, not that nothing exists. Two campaign-looking addresses refused the fetch (403 and 503) and were left out unread.",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-prosecuting-attorney",
+   "name": "Melissa “Mel” Buchanan"
+  },
+  {
+   "race_id": "2026-MO-29043-county-clerk",
+   "name": "Paula Brumfield",
+   "official_page": {
+    "url": "https://www.christiancountymo.gov/offices/county-clerk/",
+    "source": "Christian County, Missouri (the County Clerk's page names \"Christian County Clerk: Paula Brumfield\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29071-county-clerk",
+   "name": "Tim Baker"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-2nd-district-at-large",
+   "name": "Donna Peyton",
+   "official_page": {
+    "url": "https://jacksongov.org/Government/Elected-Officials/2nd-District-At-Large-Legislator",
+    "source": "Jackson County, Missouri (\"Donna Peyton, 2nd District At-Large Legislator\")",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jackson County Legislator, 2nd District At-Large",
+     "from": "2023",
+     "to": "",
+     "source": "The Beacon (Kansas City), 20 July 2026: \"a position she has held since 2023\"",
+     "url": "https://thebeaconnews.org/stories/2026/07/20/jackson-county-election-at-large-primary-democrats/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Board member, Raytown C-2 School District",
+     "from": "2021",
+     "to": "",
+     "source": "Jackson County, Missouri: \"Donna was elected to serve the residents of Raytown C-2 School District in 2021.\"",
+     "url": "https://jacksongov.org/Government/Elected-Officials/2nd-District-At-Large-Legislator",
+     "kind": "official",
+     "verified": true,
+     "note": "the page gives the year elected (2021) and no end year"
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29097-county-clerk",
+   "name": "Charlie Davis",
+   "born": {
+    "year": 1965,
+    "source": "Wikipedia, \"Charlie Davis (politician)\" (Missouri House member for the 162nd district, 2011 to 2019; the date is cited there to Project Vote Smart), cut to the year",
+    "url": "https://en.wikipedia.org/wiki/Charlie_Davis_(politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, District 162",
+     "from": "2011",
+     "to": "2019",
+     "source": "Wikipedia, \"Charlie Davis (politician)\"",
+     "url": "https://en.wikipedia.org/wiki/Charlie_Davis_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Jasper County Clerk",
+     "from": "2018",
+     "to": "",
+     "source": "KSN/KODE (Four States Home Page), \"Jasper County clerk sworn in\", 28 December 2018: Charlie Davis, a state representative for the previous eight years, was sworn in as the new Jasper County clerk",
+     "url": "https://digital-release.fourstateshomepage.com/?p=30215",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Missouri House of Representatives, District 162, seated as a Republican",
+     "year": "2011-2019",
+     "party": "Republican",
+     "source": "Wikipedia, \"Charlie Davis (politician)\"",
+     "url": "https://en.wikipedia.org/wiki/Charlie_Davis_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29099-county-council-5",
+   "name": "Danielle \"Dani\" Elliott",
+   "endorsed_by": [
+    {
+     "party": "Libertarian",
+     "unit": "Libertarian Party of Missouri (its Candidates page lists \"Danielle Elliott, Jefferson County Council, District 5\")",
+     "url": "https://lpmo.org/candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29165-treasurer",
+   "name": "Krysten Jury"
+  },
+  {
+   "race_id": "2026-MO-29183-recorder-of-deeds",
+   "name": "Mary E Dempsey"
+  },
+  {
+   "race_id": "2026-MO-ACJRET-31-22",
+   "name": "Margaret Palmietto"
+  },
+  {
+   "race_id": "2026-MO-CJRET-21-16",
+   "name": "Jeffery McPherson",
+   "official_page": {
+    "url": "https://stlcountycourts.com/our-judges/",
+    "source": "St. Louis County Courts, 21st Judicial Circuit (\"Hon. Jeffery T. McPherson, Circuit Judge - Division 16\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-9",
+   "name": "Scott A. Millikan",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/judges",
+    "source": "St. Louis 22nd Circuit Court (\"Div. 09: Scott A. Millikan\")",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH10",
+   "name": "LaTonya T. Williams"
+  },
+  {
+   "race_id": "2026-MO-SH107",
+   "name": "Mark Matthiesen"
+  },
+  {
+   "race_id": "2026-MO-SH116",
+   "name": "Jason Green"
+  },
+  {
+   "race_id": "2026-MO-SH124",
+   "name": "Tara Hallmark"
+  },
+  {
+   "race_id": "2026-MO-SH132",
+   "name": "Jeremy Dean",
+   "website": {
+    "url": "https://jeremydean4mo.com/",
+    "how": "read: the address forwards to a page headed \"Mo House District 132, Re-Elect Jeremy Dean for MO State Representative\"; its footer reads \"Paid for by Missouri House Democratic Campaign Committee\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH141",
+   "name": "Darrel (Mike) Swofford"
+  },
+  {
+   "race_id": "2026-MO-SH15",
+   "name": "Kenneth Jamison",
+   "website": {
+    "url": "https://kenjamison.com/",
+    "how": "guessed address, read: page title \"Missouri Democrat | House of Representatives | Ken Jamison\", \"to Represent District 15\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "A Democratic Party Voice",
+    "url": "https://kenjamison.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH16",
+   "name": "Chris Brown",
+   "website": {
+    "url": "https://chrisbrownformo.com/",
+    "how": "guessed address, read: \"Chris Brown For State Representative\", \"Representing the Northland\" (the sitting member's site)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH21",
+   "name": "Michael Young",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Jackson County Republican Committee (its GOP Voter Guide for November 3, 2026 lists, under \"congratulate the following Republican August 2026 Candidates for the November 3 election\", \"State Rep District 21 - Michael Young\")",
+     "url": "https://www.jacomo.gop/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH32",
+   "name": "Michael Todd",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Jackson County Republican Committee (its GOP Voter Guide for November 3, 2026 lists, under \"congratulate the following Republican August 2026 Candidates for the November 3 election\", \"State Rep District 32 - Michael Todd\")",
+     "url": "https://www.jacomo.gop/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH41",
+   "name": "Dalton P. Johnson",
+   "endorsed_by": [
+    {
+     "party": "Libertarian",
+     "unit": "Libertarian Party of Missouri (its Candidates page lists \"Dalton Johnson, Missouri House, District 41\")",
+     "url": "https://lpmo.org/candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH51",
+   "name": "Ron Fauss"
+  },
+  {
+   "race_id": "2026-MO-SH6",
+   "name": "Kelly Gatts",
+   "website": {
+    "url": "https://kellygattsformo.com/",
+    "how": "guessed address, read with WebFetch (the site answered the kit's fetch 429): Kelly Gatts for Missouri House District 6",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH69",
+   "name": "Scott Miller"
+  },
+  {
+   "race_id": "2026-MO-SH8",
+   "name": "Amy Minich",
+   "website": {
+    "url": "https://minichformissouri.com/",
+    "how": "guessed address, read: page title \"Amy Minich: Missouri District 8 Candidate\", \"Paid for by Minich for Missouri\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH9",
+   "name": "Dean VanSchoiack"
+  },
+  {
+   "race_id": "2026-MO-SS10",
+   "name": "John Wells"
+  },
+  {
+   "race_id": "2026-MO-SS26",
+   "name": "Vicky Wors",
+   "website": {
+    "url": "https://vickywors.com/",
+    "how": "guessed address, read: \"Vicky Wors for Missouri State Senate District 26\", \"Paid for by Wors for Missouri\"",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "All 21 findings re-opened and confirmed. Three addresses failed a name lookup twice through WebFetch and were then read with the kit's own fetch. The two party pages list the party's own candidates for November 2026; neither uses the word \"endorse\"."
+}

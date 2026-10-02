@@ -1,0 +1,336 @@
+{
+ "part": 16,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already spent when this part began, so candidates were looked up only on pages whose addresses were known (the Missouri House, court and county sites, Wikipedia). Most of this part is blank for that reason, not because nothing exists; it deserves a second pass with search.",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29037-auditor",
+   "name": "Jack Bondon",
+   "offices": [
+    {
+     "office": "State Representative, District 56, Missouri House of Representatives",
+     "from": "2015",
+     "to": "2021",
+     "source": "Wikipedia, Jack Bondon (cites a Missouri Times candidate profile, which places the 56th District in Cass and Bates counties)",
+     "url": "https://en.wikipedia.org/wiki/Jack_Bondon",
+     "kind": "secondary",
+     "corrected": true,
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Missouri House seat for District 56 as a Republican, with no primary opponent",
+     "year": 2014,
+     "party": "Republican",
+     "source": "The Missouri Times, candidate profile",
+     "url": "https://themissouritimes.com/11911/candidate-profile-jack-bondon-jr/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29051-circuit-clerk",
+   "name": "Mark Eichholz"
+  },
+  {
+   "race_id": "2026-MO-29077-auditor",
+   "name": "Angela Crawford"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-4",
+   "name": "Lon McDonald"
+  },
+  {
+   "race_id": "2026-MO-29099-associate-circuit-judge-division-10",
+   "name": "Lucas Null"
+  },
+  {
+   "race_id": "2026-MO-29099-recorder-of-deeds",
+   "name": "Debbie (Dunnegan) Waters"
+  },
+  {
+   "race_id": "2026-MO-29183-associate-circuit-judge-division-8",
+   "name": "Peter A Lassiter"
+  },
+  {
+   "race_id": "2026-MO-ACJRET-16-25",
+   "name": "Abbie Rothermich",
+   "official_page": {
+    "url": "https://www.16thcircuit.org/division-25-judge-abbie-rothermich",
+    "source": "16th Judicial Circuit Court of Missouri",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Associate Circuit Judge, Division 25, 16th Judicial Circuit (Jackson County)",
+     "from": "2023",
+     "to": "present",
+     "source": "16th Judicial Circuit Court page (\"Appointed to the Bench: 2023\")",
+     "url": "https://www.16thcircuit.org/division-25-judge-abbie-rothermich",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJ-11-1",
+   "name": "Brittney R. Smith"
+  },
+  {
+   "race_id": "2026-MO-CJRET-21-7",
+   "name": "Mary Elizabeth Ott",
+   "official_page": {
+    "url": "https://stlcountycourts.com/our-judges/division-7/",
+    "source": "St. Louis County Circuit Court (21st Judicial Circuit)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-COARET-E3",
+   "name": "Angela Turner Quigless",
+   "offices": [
+    {
+     "office": "Judge, Missouri Court of Appeals, Eastern District",
+     "from": null,
+     "to": "present",
+     "source": "Wikipedia, Angela T. Quigless (start year not given in the text read)",
+     "url": "https://en.wikipedia.org/wiki/Angela_T._Quigless",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Circuit Judge, 22nd Judicial Circuit (City of St. Louis)",
+     "from": "2003",
+     "to": null,
+     "source": "Wikipedia, Angela T. Quigless",
+     "url": "https://en.wikipedia.org/wiki/Angela_T._Quigless",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Associate Circuit Judge, 22nd Judicial Circuit (City of St. Louis)",
+     "from": "1995",
+     "to": "2003",
+     "source": "Wikipedia, Angela T. Quigless",
+     "url": "https://en.wikipedia.org/wiki/Angela_T._Quigless",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH101",
+   "name": "Jeff Coleman",
+   "past_party": [
+    {
+     "what": "Libertarian nominee for State Representative, District 101 (won the Libertarian primary, lost the general election)",
+     "year": 2022,
+     "party": "Libertarian",
+     "source": "Wikipedia, 2022 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2022_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH11",
+   "name": "Taylor Crouse"
+  },
+  {
+   "race_id": "2026-MO-SH119",
+   "name": "Amy Thompson",
+   "past_party": [
+    {
+     "what": "Democratic nominee for State Representative, District 119 (unopposed in the Democratic primary, lost the general election)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH127",
+   "name": "Marvin Manring",
+   "past_party": [
+    {
+     "what": "Democratic nominee for State Representative, District 127",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Democratic nominee for State Representative, District 127",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Wikipedia, 2022 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2022_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH135",
+   "name": "John Michael (Johnny) Chiles"
+  },
+  {
+   "race_id": "2026-MO-SH144",
+   "name": "Andrew J Eye",
+   "past_party": [
+    {
+     "what": "Democratic nominee for State Representative, District 144 (unopposed in the Democratic primary)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH153",
+   "name": "Keith Wayne Elliott"
+  },
+  {
+   "race_id": "2026-MO-SH162",
+   "name": "Roger Koch"
+  },
+  {
+   "race_id": "2026-MO-SH26",
+   "name": "Tiffany Price"
+  },
+  {
+   "race_id": "2026-MO-SH35",
+   "name": "Michael Scott"
+  },
+  {
+   "race_id": "2026-MO-SH43",
+   "name": "Rich Gold"
+  },
+  {
+   "race_id": "2026-MO-SH54",
+   "name": "Brandon Phelps"
+  },
+  {
+   "race_id": "2026-MO-SH62",
+   "name": "Liz Davenport"
+  },
+  {
+   "race_id": "2026-MO-SH72",
+   "name": "Patrick James Wroblewski"
+  },
+  {
+   "race_id": "2026-MO-SH83",
+   "name": "Andrew Bolin",
+   "past_party": [
+    {
+     "what": "Libertarian nominee for State Representative, District 83",
+     "year": 2024,
+     "party": "Libertarian",
+     "source": "Wikipedia, 2024 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Libertarian nominee for State Representative, District 83",
+     "year": 2022,
+     "party": "Libertarian",
+     "source": "Wikipedia, 2022 Missouri House of Representatives election (primary and general election result tables)",
+     "url": "https://en.wikipedia.org/wiki/2022_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH93",
+   "name": "Bridget Walsh Moore",
+   "website": {
+    "url": "https://bridgetformissouri.com/",
+    "how": "Listed as her website on Wikipedia's article about her; the site says \"State Representative Bridget Walsh Moore\" and asks readers to \"help send Bridget back to represent District 93 in the Missouri House.\" The year 2026 is not printed on the page read.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SS16",
+   "name": "Bill Hardwick",
+   "official_page": {
+    "url": "https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=121",
+    "source": "Missouri House of Representatives",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, District 121, Missouri House of Representatives",
+     "from": "2020",
+     "to": "present",
+     "source": "Missouri House of Representatives member page (\"elected to his first two-year term in 2020\"; the page does not name an earlier district number)",
+     "url": "https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=121",
+     "kind": "official",
+     "corrected": true,
+     "verified": true
+    },
+    {
+     "office": "Commissioner, Missouri Military Preparedness and Enhancement Commission",
+     "from": null,
+     "to": null,
+     "source": "Missouri House of Representatives member page (years not given)",
+     "url": "https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=121",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City Prosecutor, St. Robert",
+     "from": null,
+     "to": null,
+     "source": "Missouri House of Representatives member page (years not given)",
+     "url": "https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=121",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Re-elected State Representative, District 121, as the Republican nominee",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Missouri House of Representatives election (result tables)",
+     "url": "https://en.wikipedia.org/wiki/2024_Missouri_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SS32",
+   "name": "Imma J Curl"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MO-COARET-E3",
+   "name": "Angela Turner Quigless",
+   "what": "born",
+   "why": "Wikipedia gives the birth date with no citation, so it is not a secondary source the rules accept"
+  },
+  {
+   "race_id": "2026-MO-SS16",
+   "name": "Bill Hardwick",
+   "what": "office: Assistant Prosecuting Attorney, Pulaski County",
+   "why": "a staff job, not a public office held"
+  }
+ ]
+}

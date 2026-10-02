@@ -1,0 +1,35 @@
+{
+ "state": "MO",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 557,
+ "by_level": {
+  "statewide": 3,
+  "legislature": 339,
+  "court": 89,
+  "county": 118,
+  "city": 3,
+  "school": 5
+ },
+ "races_by_level": {
+  "statewide": 1,
+  "legislature": 180,
+  "court": 87,
+  "county": 93,
+  "city": 1,
+  "school": 1
+ },
+ "races": 363,
+ "on_the_november_list_in_all": 557,
+ "per_part": 30,
+ "parts": 19,
+ "cities_in": 1,
+ "city_candidates": 3,
+ "school_districts_in": 1,
+ "school_candidates": 5,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "Missouri's cities, school districts and special districts elect their officers on the general municipal election day in April (RSMo 115.121; April 7, 2026), so the November 3, 2026 lists carry a city or school seat only where a charter or a vacancy puts one there. Missouri has no statewide list of county candidates: the county offices and the associate circuit judges elected by party here are those on the lists of the 13 election authorities read so far, and the other counties' are not loaded yet. In six judicial circuits, and for the appellate courts, voters answer Yes or No on keeping each judge: those judges are in the scope as the one name on a retention vote."
+}

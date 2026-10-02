@@ -1,0 +1,296 @@
+{
+ "part": 11,
+ "of": 19,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "notes": "The session's web search allowance ran out after the first ten candidates, so the rest were looked up by opening pages directly (The Ballot Brief's county guides as a finding aid, then each campaign site or government page itself). Not confirmed and left out: costlowformissouri.com (Mike Costlow; the site answered 500 twice); the three judges (courts.mo.gov answered 403; nothing recorded); jaspercountymo.gov answered 429; birth years for Dave Schatz and Jered Taylor (Wikipedia's dates could not be seen to carry a citation). No party endorsement pages were found.",
+ "removed": [
+  {
+   "race_id": "2026-MO-29043-presiding-commissioner",
+   "name": "Jered Taylor",
+   "what": "offices and past_party (Missouri House, District 139, 2015 to 2023, Republican; Wikipedia)",
+   "why": "Wikipedia states the service, but no page in the file ties that person to the 2026 Christian County race: the KSMU report named as the tie had no address to re-open, and the search allowance was used up. One anchor only, so left out."
+  },
+  {
+   "race_id": "2026-MO-SH16",
+   "name": "Dan Kinate",
+   "what": "website https://www.dankinate.com",
+   "why": "The site names the candidate and Missouri but no office, district or election year; the tie to House District 16 rested on a guide that was not in the file to re-open."
+  },
+  {
+   "race_id": "2026-MO-SH51",
+   "name": "Stephanie Gooden",
+   "what": "official_page and offices (Saline County Commissioner, Northern District)",
+   "why": "The county's page does name Stephanie Gooden as Northern Commissioner, but no page in the file says the House District 51 candidate is that commissioner; the guide named as the tie had no address to re-open. One anchor only, so left out."
+  },
+  {
+   "race_id": "2026-MO-SH8",
+   "name": "Josh Hurlbert",
+   "what": "website https://joshhurlbert.com",
+   "why": "The site answered on the third try: it names the candidate but no office or district, and its footer is dated 2024, so it cannot be confirmed as the site for this 2026 race."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MO-29019-recorder-of-deeds",
+   "name": "Bob Nolte",
+   "official_page": {
+    "url": "https://www.boonemo.gov/recorder/bio.asp",
+    "source": "Boone County, Recorder of Deeds: \"Bob Nolte was elected as Boone County Recorder in November 2022, and sworn into office on January 1, 2023.\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Boone County Recorder of Deeds",
+     "from": "2023",
+     "to": "",
+     "source": "Boone County's own page: elected November 2022, sworn in January 1, 2023",
+     "url": "https://www.boonemo.gov/recorder/bio.asp",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Democratic primary for Boone County Recorder of Deeds",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "KOMU 8 News, \"Bob Nolte wins Democratic primary for recorder of deeds\", August 2, 2022",
+     "url": "https://www.komu.com/news/elections/bob-nolte-wins-democratic-primary-for-recorder-of-deeds/article_7eb1e5a4-0fca-5a4c-a30c-84211865c56b.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29043-presiding-commissioner",
+   "name": "Jered Taylor"
+  },
+  {
+   "race_id": "2026-MO-29071-presiding-commissioner",
+   "name": "Dave Schatz",
+   "offices": [
+    {
+     "office": "Franklin County Presiding Commissioner (appointed)",
+     "from": "2025",
+     "to": "",
+     "source": "St. Louis Public Radio, \"3 Republicans vie for Franklin County presiding commissioner\" (appointed March 2025; \"He served in the Missouri House of Representatives and the Senate.\")",
+     "url": "https://www.stlpr.org/government-politics-issues/2026-07-27/3-republicans-vie-for-franklin-county-presiding-commissioner",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Missouri Senate, District 26",
+     "from": "2015",
+     "to": "2023",
+     "source": "Wikipedia, \"Dave Schatz\" (with citations); St. Louis Public Radio's report on this race says he served in the House and the Senate",
+     "url": "https://en.wikipedia.org/wiki/Dave_Schatz",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Missouri House of Representatives, District 61",
+     "from": "2011",
+     "to": "2015",
+     "source": "Wikipedia, \"Dave Schatz\" (with citations); St. Louis Public Radio's report on this race says he served in the House and the Senate",
+     "url": "https://en.wikipedia.org/wiki/Dave_Schatz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Missouri Senate, District 26",
+     "year": "2015-2023",
+     "party": "Republican",
+     "source": "Wikipedia, \"Dave Schatz\"",
+     "url": "https://en.wikipedia.org/wiki/Dave_Schatz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-2nd-district-at-large",
+   "name": "Gresia Cabrera",
+   "website": {
+    "url": "https://cabrera4office.com/",
+    "how": "The site's title: \"Gresia Cabrera - Commonsense Leadership for Jackson County | Jackson County Legislator 2nd District\"; the page reads \"Jackson County Legislator - 2nd District At Large\". Found through The Ballot Brief's Jackson County guide.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29097-county-commissioner-eastern-district",
+   "name": "Jimmy Morris",
+   "offices": [
+    {
+     "office": "Jasper County Commissioner, Eastern District (appointed by the Governor)",
+     "from": "2025",
+     "to": "",
+     "source": "KSNF Joplin (carried by Yahoo News), \"Jimmy Morris sworn in as Eastern District commissioner\", November 3, 2025",
+     "url": "https://www.yahoo.com/news/articles/jimmy-morris-sworn-eastern-district-224547979.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29099-county-council-5",
+   "name": "Timothy Bennett",
+   "offices": [
+    {
+     "office": "Jefferson County Council, District 5 (chosen by the Council to fill a vacancy)",
+     "from": "2026",
+     "to": "",
+     "source": "The Jefferson Review, \"Six Candidates. One Seat. Council Chooses Bennett for District 5\", March 25, 2026 (names him Tim Bennett, also running in the August primary)",
+     "url": "https://www.thejeffersonreview.com/p/six-candidates-one-seat-council-chooses-bennett-for-district-5",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29183-assessor",
+   "name": "Travis Welge",
+   "official_page": {
+    "url": "https://www.sccmo.org/151/Assessor",
+    "source": "St. Charles County, Assessor: names Travis Welge as County Assessor (no start date given)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-29183-sheriff",
+   "name": "Scott A Lewis",
+   "official_page": {
+    "url": "https://www.sccmo.org/Directory.aspx?DID=26",
+    "source": "St. Charles County staff directory, Sheriff Department: Scott Lewis, Sheriff (no start date given)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-ACJRET-6-4",
+   "name": "Susan M. Casey"
+  },
+  {
+   "race_id": "2026-MO-CJRET-21-17",
+   "name": "Lorne Baker"
+  },
+  {
+   "race_id": "2026-MO-CJRET-31-7",
+   "name": "Nathan Taylor"
+  },
+  {
+   "race_id": "2026-MO-SH10",
+   "name": "Paul Gatewood"
+  },
+  {
+   "race_id": "2026-MO-SH108",
+   "name": "Mike Costlow"
+  },
+  {
+   "race_id": "2026-MO-SH116",
+   "name": "Whitney Wisker-Brooks",
+   "website": {
+    "url": "https://whitneyfor116.com/",
+    "how": "The site's title: \"Whitney Wisker-Brooks for State Representative Missouri House District 116\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH125",
+   "name": "Dane Diehl"
+  },
+  {
+   "race_id": "2026-MO-SH132",
+   "name": "Russ Gosselin"
+  },
+  {
+   "race_id": "2026-MO-SH141",
+   "name": "Melissa Schmidt"
+  },
+  {
+   "race_id": "2026-MO-SH150",
+   "name": "Cameron Bunting Parker"
+  },
+  {
+   "race_id": "2026-MO-SH16",
+   "name": "Dan Kinate"
+  },
+  {
+   "race_id": "2026-MO-SH21",
+   "name": "Will Jobe",
+   "website": {
+    "url": "https://www.jobeforindependence.com/",
+    "how": "The site's title: \"Will Jobe, State Representative\"; it names Missouri House District 21 and the election of November 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SH33",
+   "name": "Carolyn Caton"
+  },
+  {
+   "race_id": "2026-MO-SH41",
+   "name": "Doyle Justus"
+  },
+  {
+   "race_id": "2026-MO-SH51",
+   "name": "Stephanie Gooden"
+  },
+  {
+   "race_id": "2026-MO-SH6",
+   "name": "Robert Johnson"
+  },
+  {
+   "race_id": "2026-MO-SH7",
+   "name": "Adrian Cooper"
+  },
+  {
+   "race_id": "2026-MO-SH8",
+   "name": "Josh Hurlbert"
+  },
+  {
+   "race_id": "2026-MO-SH9",
+   "name": "Gena Puckett",
+   "website": {
+    "url": "https://www.puckett4mo.com/",
+    "how": "The site names Gena Puckett as running for the Missouri House of Representatives, District 9.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "She is choosing to run as a Democrat",
+    "url": "https://www.puckett4mo.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SS10",
+   "name": "Mike Deering",
+   "website": {
+    "url": "https://deeringformo.com",
+    "how": "The site's title: \"Mike Deering for Missouri State Senate (District 10)\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-SS28",
+   "name": "Mike McCaffree",
+   "website": {
+    "url": "https://mccaffree4mosenate.com/",
+    "how": "The site reads \"Paid for by Mike McCaffree for State Senate\" and names Nevada, Missouri; it does not name the district. Found through The Ballot Brief's Pettis County guide, which lists it under State Senate District 28.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nevada R-5 Board of Education (17 years; the site gives no dates)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"Mike has dedicated 17 years to serving on the Nevada R-5 Board of Education\"",
+     "url": "https://mccaffree4mosenate.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

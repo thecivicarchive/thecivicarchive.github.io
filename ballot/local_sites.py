@@ -32,7 +32,10 @@ website cell; its "local_note" says why a city seat is on the list only for an u
 rows are those of the boards read so far, and its legislative races, which carry no jurisdiction, are named by
 district in the scope file. Michigan (2026-10-02) has no website cell either; its "local_note" says the city, village
 and school rows are those of the nine county clerks' lists read so far, and its Court of Appeals races, which carry no
-jurisdiction, are named by district in the scope file as its legislative races are.
+jurisdiction, are named by district in the scope file as its legislative races are. Missouri (2026-10-02) has no
+website cell either; its "local_note" says its cities and schools vote in April and that the county rows are those of
+the 13 election authorities read so far; its legislative races, whose jurisdiction is the state's own name, are named
+by district in the scope file, and the City of St. Louis Board of Education is tied to the Census Bureau's row by name.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -229,7 +232,21 @@ STATES = {"MN": {"name": "Minnesota"},
                                "commissioners and township boards were elected for four years in 2024 (MCL 168.200, 46.410, 168.358), so "
                                "the county rows are the two county executives and seats filled for the rest of a term. Township offices, "
                                "community college trustees, library boards, village presidents and a city's clerk, treasurer or assessor "
-                               "are outside the scope's rule and are not in it."}}
+                               "are outside the scope's rule and are not in it."},
+          # Missouri (2026-10-02): the Secretary of State's certification has no contact columns and no website cell, and the
+          # election authorities' notices and sample ballots have none this module reads, so its websites come from verified
+          # findings only. Its legislative races give "Missouri" as their jurisdiction, so the scope names the district
+          # (`scope`). "school_names": the City of St. Louis Board of Education governs the district the Census Bureau
+          # names "St. Louis City School District" (read side by side on 2026-10-02)
+          "MO": {"name": "Missouri", "legislature": r"\bmissouri (?:state )?(?:house|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "school_names": {"MO-S-510-city-of-st-louis-board-of-education": "St. Louis City School District"},
+                 "local_note": "Missouri's cities, school districts and special districts elect their officers on the general municipal "
+                               "election day in April (RSMo 115.121; April 7, 2026), so the November 3, 2026 lists carry a city or school "
+                               "seat only where a charter or a vacancy puts one there. Missouri has no statewide list of county "
+                               "candidates: the county offices and the associate circuit judges elected by party here are those on the "
+                               "lists of the 13 election authorities read so far, and the other counties' are not loaded yet. In six "
+                               "judicial circuits, and for the appellate courts, voters answer Yes or No on keeping each judge: those "
+                               "judges are in the scope as the one name on a retention vote."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1393,6 +1410,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             if r["office_kind"] == "governor":
                 office += " (one ticket: findings are about the candidate for Governor, who is named first)"
             where = r["jurisdiction"]
+            if where == words and state != "MN" and r["level"] == "legislature":      # Missouri's give the state's own name
+                where = ""
             if not where and r["level"] == "legislature" and r["district"]:      # Ohio's legislative races name no jurisdiction
                 where = f"{'Senate' if r['office_kind'] == 'state_senate' else 'House'} District {r['district']}"
             elif not where and r["office_kind"] == "court_of_appeals" and r["district"]:      # Michigan's, likewise

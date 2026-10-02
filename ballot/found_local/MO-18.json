@@ -1,0 +1,247 @@
+{
+ "part": 18,
+ "of": 19,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already spent (200 of 200) before this part began, and Wikipedia's search answered 429, so candidates were looked up only on pages whose addresses could be reasoned out (Wikipedia articles by title, court and county sites). Blanks mean not found by search, not that nothing exists. No campaign websites or party endorsements could be looked for. Left out for want of a second anchor: Wikipedia's \"Renee Reuter\" (House District 112; the article names a 2026 Senate District 22 run, not the Jefferson County judgeship, so it may or may not be the same candidacy) and Wikipedia's \"Dave Griffith\" (House District 60; the article does not mention Cole County or the clerk's race). courts.mo.gov and house.mo.gov member pages refused or returned 404. Platte County's auditor page names the sitting auditor, not Laura Waldon.",
+ "candidates": [
+  {
+   "race_id": "2026-MO-29037-collector",
+   "name": "Chris Molendorp",
+   "born": {
+    "year": 1969,
+    "source": "Wikipedia, \"Chris Molendorp\" (cites house.mo.gov and a 2018 Kansas City news article on his run for Cass County Collector)",
+    "url": "https://en.wikipedia.org/wiki/Chris_Molendorp",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, District 123",
+     "from": "2009",
+     "to": "2013",
+     "source": "Wikipedia, \"Chris Molendorp\"",
+     "url": "https://en.wikipedia.org/wiki/Chris_Molendorp",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Missouri House of Representatives, District 56",
+     "from": "2013",
+     "to": "2015",
+     "source": "Wikipedia, \"Chris Molendorp\"",
+     "url": "https://en.wikipedia.org/wiki/Chris_Molendorp",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sat in the Missouri House of Representatives as a Republican",
+     "year": "2009-2015",
+     "party": "Republican",
+     "source": "Wikipedia, \"Chris Molendorp\"",
+     "url": "https://en.wikipedia.org/wiki/Chris_Molendorp",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-29051-county-clerk",
+   "name": "Dave Griffith"
+  },
+  {
+   "race_id": "2026-MO-29077-circuit-clerk",
+   "name": "Bryan Feemster"
+  },
+  {
+   "race_id": "2026-MO-29095-county-council-5",
+   "name": "Dale Carter"
+  },
+  {
+   "race_id": "2026-MO-29099-associate-circuit-judge-division-12",
+   "name": "Renee Reuter"
+  },
+  {
+   "race_id": "2026-MO-29165-auditor",
+   "name": "Laura Waldon"
+  },
+  {
+   "race_id": "2026-MO-29183-collector",
+   "name": "Michelle D McBride"
+  },
+  {
+   "race_id": "2026-MO-ACJRET-16-27",
+   "name": "Kea S. Bird-Riley",
+   "official_page": {
+    "url": "https://www.16thcircuit.org/division-27",
+    "source": "16th Judicial Circuit Court of Jackson County, Division 27",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Associate Circuit Judge, 16th Judicial Circuit, Division 27",
+     "from": "2020",
+     "to": "",
+     "source": "16th Judicial Circuit Court of Jackson County (\"Appointed to the Bench: 2020\")",
+     "url": "https://www.16thcircuit.org/division-27",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-CJ-19-2",
+   "name": "Daniel Green"
+  },
+  {
+   "race_id": "2026-MO-CJRET-22-10",
+   "name": "Calea Stovall-Reid",
+   "official_page": {
+    "url": "https://www.stlcitycircuitcourt.com/judges",
+    "source": "22nd Judicial Circuit Court, City of St. Louis, list of judges (Division 10)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MO-COARET-W1",
+   "name": "Lisa White Hardwick",
+   "offices": [
+    {
+     "office": "Judge, Missouri Court of Appeals, Western District (chief judge 2010 to 2012)",
+     "from": "2001",
+     "to": "",
+     "source": "Wikipedia, \"Missouri Court of Appeals\", table of Western District judges",
+     "url": "https://en.wikipedia.org/wiki/Missouri_Court_of_Appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SH102",
+   "name": "David Rogers"
+  },
+  {
+   "race_id": "2026-MO-SH110",
+   "name": "Niles Stephens"
+  },
+  {
+   "race_id": "2026-MO-SH12",
+   "name": "Jerry Hickey"
+  },
+  {
+   "race_id": "2026-MO-SH128",
+   "name": "Christopher D. Warwick"
+  },
+  {
+   "race_id": "2026-MO-SH136",
+   "name": "Jacey Buckles"
+  },
+  {
+   "race_id": "2026-MO-SH145",
+   "name": "Bryant Wolfin"
+  },
+  {
+   "race_id": "2026-MO-SH154",
+   "name": "Jojo Stewart"
+  },
+  {
+   "race_id": "2026-MO-SH163",
+   "name": "Cathy Jo Loy"
+  },
+  {
+   "race_id": "2026-MO-SH28",
+   "name": "Donna Barnes"
+  },
+  {
+   "race_id": "2026-MO-SH36",
+   "name": "Dave Thomas"
+  },
+  {
+   "race_id": "2026-MO-SH44",
+   "name": "John Martin"
+  },
+  {
+   "race_id": "2026-MO-SH55",
+   "name": "Jon Pennell"
+  },
+  {
+   "race_id": "2026-MO-SH63",
+   "name": "Donald R Looney Jr"
+  },
+  {
+   "race_id": "2026-MO-SH73",
+   "name": "Kennedy Moore"
+  },
+  {
+   "race_id": "2026-MO-SH84",
+   "name": "Del Taylor"
+  },
+  {
+   "race_id": "2026-MO-SH94",
+   "name": "Maryellen Murphy"
+  },
+  {
+   "race_id": "2026-MO-SS18",
+   "name": "Greg Sharpe",
+   "born": {
+    "year": 1956,
+    "source": "Wikipedia, \"Greg Sharpe\" (an article with citations; states \"born 1956\")",
+    "url": "https://en.wikipedia.org/wiki/Greg_Sharpe",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, District 4",
+     "from": "2019",
+     "to": "",
+     "source": "Wikipedia, \"Greg Sharpe\" (which also states his 2026 candidacy for Senate District 18)",
+     "url": "https://en.wikipedia.org/wiki/Greg_Sharpe",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Missouri House, District 4, as the Republican nominee",
+     "year": "2018, 2020, 2022",
+     "party": "Republican",
+     "source": "Wikipedia, \"Greg Sharpe\", election tables for House District 4 listing him as the Republican candidate",
+     "url": "https://en.wikipedia.org/wiki/Greg_Sharpe",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MO-SS34",
+   "name": "Mike Jones",
+   "offices": [
+    {
+     "office": "Missouri House of Representatives, District 12",
+     "from": "2025",
+     "to": "",
+     "source": "Wikipedia, \"Mike Jones (Missouri politician)\" (which also states his 2026 candidacy for Senate District 34)",
+     "url": "https://en.wikipedia.org/wiki/Mike_Jones_(Missouri_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Missouri House, District 12, as the Republican nominee",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wikipedia, \"Mike Jones (Missouri politician)\", citing the Missouri Secretary of State's results",
+     "url": "https://en.wikipedia.org/wiki/Mike_Jones_(Missouri_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}
