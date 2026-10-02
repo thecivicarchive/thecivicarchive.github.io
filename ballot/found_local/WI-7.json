@@ -1,0 +1,452 @@
+{
+ "part": 7,
+ "of": 9,
+ "researched": "2026-10-02",
+ "state": "WI",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after about twenty searches. Everything else was read directly with the kit's honest User-Agent, each site's robots.txt obeyed (through ballot.local_sites' polite fetcher), or with the reading tool: the candidates' own sites, county and school district sites, the Democratic Party of Wisconsin's and county parties' pages, the American Solidarity Party's page, Wikipedia, and WisPolitics. A voter guide (The Ballot Brief) and Wikipedia's links were used only to learn campaign addresses; each address was then opened and is recorded only where the site itself names the candidate and the office.",
+  "Party pages: the entries under endorsed_by are lists of a party's own candidates (\"Our Candidates\", \"Your 2026 Republican Ticket\", a candidate page marked \"Current Candidate\"), not statements using the word \"endorse\"; the unit text says so for the second reader to judge. The La Crosse County Republican Party's site says \"Candidate pages are not an endorsement\", so nothing is recorded from it for Jim Green. No Republican party page was found naming Rice, Maze, Kjorlie or Severson.",
+  "Not recorded: adamneylon.com (the address Wikipedia gives for Adam Neylon) is today titled \"Adam Neylon for Waukesha County Executive\", a different race, so he has no website here. steffen4wisconsin.com (David Steffen) and robkreibich.com ask scripts to stay out in robots.txt and were not read. The City of Marshfield's site asks scripts to stay out, so nothing was read about Krista J. James. Sauk County's coroner page names the present coroner only; nothing was found about Amber Giddings. Nothing was found for Jim Green or Jeffrey L. Mursau (no campaign site found), nor a site of his or her own for Nathan Tataje, Aleaner Pabonnie, Mark Becker or Travis Maze.",
+  "Sitting legislators (Madison, Neylon, Kreibich, August, Mursau, Steffen, Roe, Tucker, Subeck, Maxey, Moses, Marklein) were looked up only for a website and endorsements, as the rules say.",
+  "A voter guide says Mark Becker was a Brown County supervisor and chaired the Republican Party of Brown County; no official or named news page stating it was opened, so it is not recorded."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-WI-55055-sheriff",
+   "name": "Travis Maze",
+   "official_page": {
+    "url": "https://www.jeffersoncountywi.gov/sheriff_br_law_enforcement___public_safety/index.php",
+    "source": "Jefferson County, Sheriff's Office page (names Travis Maze, Sheriff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, Jefferson County (appointed by the Governor to an unexpired term ending January 2027)",
+     "from": "2024",
+     "to": "present",
+     "source": "Governor Evers's press release of July 3, 2024, as published by WisPolitics",
+     "url": "https://www.wispolitics.com/?p=339602",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-55111-coroner",
+   "name": "Amber Giddings"
+  },
+  {
+   "race_id": "2026-WI-55139-sheriff",
+   "name": "Darin M. Rice",
+   "website": {
+    "url": "https://riceforsheriff.com/",
+    "how": "the site's title: \"Home - Darin Rice for Winnebago County Sheriff\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH10",
+   "name": "Darrin Madison",
+   "website": {
+    "url": "https://www.darrinmadison.com/",
+    "how": "the site's heading: \"Darrin Madison for State Assembly | District 10\" (it answered our script 429; read with the reading tool)",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 10 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH15",
+   "name": "Adam Neylon"
+  },
+  {
+   "race_id": "2026-WI-SH19",
+   "name": "Yasmine B. Outlaw",
+   "website": {
+    "url": "https://www.outlaw.vote/",
+    "how": "the site's title: \"Outlaw for State Assembly District 19\"; the page names Yasmine Outlaw; linked from the Republican Party of Milwaukee County's candidates page",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Milwaukee County: listed for Assembly District 19 on its page \"Your 2026 Republican Ticket\" (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://www.mkegop.com/candidates_elected_officials",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH23",
+   "name": "Aleaner Pabonnie",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Milwaukee County: listed for Assembly District 23 on its page \"Your 2026 Republican Ticket\" (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://www.mkegop.com/candidates_elected_officials",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH28",
+   "name": "Rob Kreibich",
+   "website": {
+    "url": "https://www.kreibichforassembly.com/",
+    "how": "the site's heading: \"Conservative Republican Rob Kreibich\"; it has a section \"About Assembly District 28\" and the line \"Paid For by Kreibich for Assembly\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Conservative Republican",
+    "url": "https://www.kreibichforassembly.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH31",
+   "name": "Tyler August",
+   "website": {
+    "url": "https://tyleraugust.com/",
+    "how": "the site's title: \"Tyler August for State Assembly\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH36",
+   "name": "Jeffrey L. Mursau"
+  },
+  {
+   "race_id": "2026-WI-SH4",
+   "name": "David Steffen"
+  },
+  {
+   "race_id": "2026-WI-SH44",
+   "name": "Ann Roe",
+   "website": {
+    "url": "https://www.annroeforwi.org/",
+    "how": "the site's title: \"Ann Roe for Wisconsin State Assembly\", 44th District",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 44 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH48",
+   "name": "Mark Kjorlie",
+   "website": {
+    "url": "https://markkjorlie.com/",
+    "how": "the site's title: \"Mark Kjorlie For 48th Assembly District\" (the rest of the page is drawn by script and was not read)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH51",
+   "name": "Nathan Tataje",
+   "endorsed_by": [
+    {
+     "party": "American Solidarity Party",
+     "unit": "American Solidarity Party (national): its candidate page for him, marked \"Current Candidate\", \"Wisconsin General Assembly, District 51 (November 3, 2026)\" (the page does not use the word \"endorse\" of him)",
+     "url": "https://www.solidarity-party.org/candidates/nathan-tataje",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH55",
+   "name": "Alex Corrigan",
+   "website": {
+    "url": "https://www.alexfor55th.com/",
+    "how": "the site's title: \"Alex Corrigan for 55th\"; linked from the Winnebago County Democratic Party's 2026 candidates page under Assembly District 55",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Clerk), Board of Education, Neenah Joint School District (term ends April 2027)",
+     "to": "present",
+     "source": "Neenah Joint School District, Board of Education page; her campaign site says she serves \"on the school board\"",
+     "url": "https://www.neenah.k12.wi.us/about/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 55 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Winnebago County Democratic Party: listed under State Assembly Candidates on its \"2026 Fall Candidates\" page (a list; the page does not use the word \"endorse\")",
+     "url": "https://www.winnebagodems.org/our-candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH59",
+   "name": "Jack Holzman",
+   "website": {
+    "url": "https://www.jackforwi.com/",
+    "how": "the site's title: \"Jack Holzman for Assembly 59\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 59 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Ozaukee County: \"Jack Holzman for District 59\" on its \"Democratic candidates\" page (a list; the page does not use the word \"endorse\")",
+     "url": "https://www.ozdems.org/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH63",
+   "name": "Eddie Phanichkul",
+   "website": {
+    "url": "https://www.eddieforwi.com/",
+    "how": "the site's heading: \"Eddie Phanichkul for Wisconsin State Assembly District 63\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 63 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH67",
+   "name": "Indiana Thompson",
+   "website": {
+    "url": "https://www.thompsonforassembly67.com/",
+    "how": "the site's title: \"Indiana Thompson for 67 | Wisconsin 67th district\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 67 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH70",
+   "name": "Stephanie Stuve Bodeen",
+   "website": {
+    "url": "https://stephanieforassembly.com/",
+    "how": "the site's heading: \"Stephanie Stuve-Bodeen for Assembly District 70\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As the Democratic candidate for Wisconsin Assembly District 70",
+    "url": "https://stephanieforassembly.com/",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 70 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH75",
+   "name": "Duke Tucker",
+   "website": {
+    "url": "https://dukeforwisconsin.com/",
+    "how": "the site's title: \"Home - Duke for Wisconsin | Duke Tucker for the 75th Assembly District\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Meet Duke Tucker, a Republican from Grantsburg, WI.",
+    "url": "https://dukeforwisconsin.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH79",
+   "name": "Lisa Subeck",
+   "website": {
+    "url": "https://lisasubeck.com/",
+    "how": "the site's heading: \"Reelect Lisa Subeck to the State Assembly, District 79\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Lisa Subeck, Democrat for State Assembly",
+    "url": "https://lisasubeck.com/",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 79 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH83",
+   "name": "Dave Maxey",
+   "website": {
+    "url": "https://www.maxeyforassembly.com/",
+    "how": "the site says \"the incumbent running for the State Assembly District 83\" and \"Friends of Dave Maxey\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH88",
+   "name": "Brandy Tollefson",
+   "website": {
+    "url": "https://www.brandyforwisconsin.com/",
+    "how": "the site names Brandy Tollefson and Assembly District 88 (it answered our script 429; read with the reading tool)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Board of Education, Unified School District of De Pere",
+     "to": "present",
+     "source": "her campaign site: \"Treasurer of the De Pere School Board\" (the district's own site did not answer)",
+     "url": "https://www.brandyforwisconsin.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Assembly District 88 on its \"Our Candidates\" page (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH92",
+   "name": "Clint Moses",
+   "website": {
+    "url": "https://www.mosesforwi.com/",
+    "how": "the site's heading: \"Clint Moses for Assembly\", \"Representing Wisconsin's 92nd Assembly District\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH96",
+   "name": "Jim Green"
+  },
+  {
+   "race_id": "2026-WI-SS1",
+   "name": "Mark Becker",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Party of Wisconsin: listed for Senate District 1 on its \"Our Candidates\" page, though he is on the ballot as an independent (a list; the page does not use the word \"endorse\")",
+     "url": "https://wisdems.org/our-party/our-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SS17",
+   "name": "Howard Marklein",
+   "website": {
+    "url": "https://www.howardmarklein.com/",
+    "how": "the site's title: \"Vote Howard Marklein for State Senate\"; it says he serves the 17th Senate District",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS25",
+   "name": "Erik Severson",
+   "website": {
+    "url": "https://severson4senate.com/",
+    "how": "the site's title: \"Erik Severson for Wisconsin's 25 Senate District\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1974,
+    "source": "Wikipedia, \"Erik Severson\"",
+    "url": "https://en.wikipedia.org/wiki/Erik_Severson",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Wisconsin State Assembly, 28th district",
+     "from": "2011",
+     "to": "2015",
+     "source": "Wikipedia, \"Erik Severson\" (citing the state's canvass reports); his campaign site says he served \"as the State Assemblyman for the 28th District\"",
+     "url": "https://en.wikipedia.org/wiki/Erik_Severson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Wisconsin State Assembly, 28th district",
+     "year": "2010",
+     "party": "Republican",
+     "source": "Wikipedia, \"Erik Severson\"",
+     "url": "https://en.wikipedia.org/wiki/Erik_Severson",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SS5",
+   "name": "Mike Roberts",
+   "website": {
+    "url": "https://www.mikerobertswi.com/",
+    "how": "the site's title: \"Mike Roberts for State Senate\"; its page \"Senate District 5\" names the district; linked from the Republican Party of Milwaukee County's candidates page",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Republican Party of Milwaukee County: listed for Senate District 5 on its page \"Your 2026 Republican Ticket\" (a list of the party's candidates; the page does not use the word \"endorse\")",
+     "url": "https://www.mkegop.com/candidates_elected_officials",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-X-marshfield-area-municipal-court-S",
+   "name": "Krista J. James"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Darin M. Rice: website title wording",
+  "Rob Kreibich: website 'how' now quotes the page's heading and district",
+  "Dave Maxey: the page does print his first name (\"Friends of Dave Maxey\")",
+  "Duke Tucker: website title wording"
+ ]
+}

@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.082 — 2026-10-02 — Wisconsin gets the same treatment
+
+- Wisconsin's ballot page now has the real map: every one of its 7,161 wards with the districts it sits in (county, municipality, aldermanic and county board districts, Assembly, Senate, Congress, the Court of Appeals districts, school districts), drag and pinch, zoom to a street, and streets from OpenStreetMap only if you switch them on. "Use my location" finds your ward on your own device and shows your exact ballot.
+- Wisconsin's candidates for Governor, the other statewide offices and the Legislature now show their campaign websites (146), issue headings from their own sites, offices held, and photos from their own campaign sites where one was plainly the candidate's portrait, each with where it comes from.
+- "The record, not a label" for Wisconsin too: a party's own published endorsement, an earlier run under a party label, the candidate's own words, and how each county, municipality and district voted in 2020, 2022 and 2024, from official ward results.
+- The Governor's race has its polls (Marquette Law School) and prediction-market prices as tabs; where no market lists a race the page says why that is usual.
+- On Wisconsin's November ballot the only county offices are sheriff, clerk of circuit court and a few coroners, and only ten counties' lists are loaded so far; cities, towns and school boards vote in April. Polling places wait on a file from the Elections Commission.
+
 ## v4.0.081 — 2026-10-02 — Minnesota, finished: your precinct, your ballot, and who is on it
 
 - A real map for Minnesota's ballot. One map draws every kind of district (counties, cities and townships, wards, county commissioner districts, school districts, state House and Senate, Congress, judicial, soil and water, hospital and park districts), and you can drag it, pinch it on a phone, and zoom from the whole state down to a street. Tap any district to see its name and its races.

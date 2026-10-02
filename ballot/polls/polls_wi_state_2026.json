@@ -1,0 +1,94 @@
+{
+ "rule": "Wisconsin's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-WI-GOV": {
+   "polls": [
+    {
+     "pollster": "Marquette Law School Poll",
+     "member": "Marquette University Law School Poll",
+     "start": "2026-09-16",
+     "end": "2026-09-23",
+     "n": 692,
+     "pop": "likely voters",
+     "moe": 4.8,
+     "shares": {
+      "David Crowley": 49,
+      "Tom Tiffany": 46
+     },
+     "rest": 5,
+     "note": "The question named the two candidates for governor, not their running mates. The rest, 5%, were undecided. Among all 843 registered voters interviewed (margin 4.3 points) the release gives Crowley 46%, Tiffany 45% and 9% undecided.",
+     "url": "https://law.marquette.edu/poll/2026/09/30/mlsp91-press-release/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Marquette Law School Poll",
+     "member": "Marquette University Law School Poll",
+     "start": "2026-08-12",
+     "end": "2026-08-20",
+     "n": 738,
+     "pop": "likely voters",
+     "moe": 4.5,
+     "shares": {
+      "David Crowley": 49,
+      "Tom Tiffany": 44
+     },
+     "rest": 7,
+     "note": "Taken just after the August 11 primary. The rest, 7%, were undecided. Among all 891 registered voters interviewed (margin 4 points) the release gives Crowley 44%, Tiffany 44% and 12% undecided.",
+     "url": "https://law.marquette.edu/poll/2026/08/26/marquette-law-poll-finds-crowley-leading-tiffany-among-likely-voters-tied-among-all-registered-voters/",
+     "checked": "2026-10-02"
+    }
+   ],
+   "left_out": {
+    "n": 18,
+    "pollsters": [
+     "TIPP Insights (four, for the League of American Workers: November 2025, February, March and August 2026; the August one asked Crowley against Tiffany)",
+     "Platform Communications (two, its Badger Battleground Poll: September 2025, and Crowley against Tiffany on August 12-13, 2026)",
+     "RMG Research (two)",
+     "GBAO (Crowley against Tiffany, for Protect Our Wisconsin PAC, a group backed by the Democratic Governors Association)",
+     "State Navigate (two, the Democratic primary)",
+     "Public Policy Polling (two, the Democratic primary, for David Crowley's campaign)",
+     "Impact Research (two: October 2025 for The Long Run PAC, and the Democratic primary in July 2026)",
+     "Wedgewood Polls (July 2026, for the Isthmus Political Report)",
+     "The Public Sentiment Institute (the Democratic primary, for the Great Lakes Perspective)",
+     "a poll of the Republican primary of July 28-31, 2025, reported by the Daily Caller (Wikipedia's table credits it to Marquette; its link is to the Daily Caller, not to a Marquette release)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wisconsin_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "The count is of separate surveys as Wikipedia lists them, primaries and earlier matchups included; several of its rows name one pollster beside a link to another, and 270toWin's list gives different figures for two of them, so the count is a guide, not a record. Marquette Law School's poll is the only Transparency Initiative member that has asked November's matchup, twice. Wikipedia also lists five earlier Marquette surveys (October 2025, February, March and two in July 2026): they asked the primaries, or matchups with Democrats who are not on the November ballot, and are neither shown nor counted above. Emerson's site lists no 2026 Wisconsin poll (searched 2026-10-02)."
+   }
+  },
+  "2026-WI-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wisconsin_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "No poll of this race by anyone was found: Wikipedia's page has no polling section and a news search found none. Marquette Law School's August and September 2026 surveys asked whether voters had a favorable or unfavorable view of Josh Kaul and Eric Toney, not whom they would vote for, so they are not polls of the race."
+   }
+  },
+  "2026-WI-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wisconsin_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "No poll of this race by anyone was found: Wikipedia's page has no polling section, and Marquette Law School's August and September 2026 releases report no question on it."
+   }
+  },
+  "2026-WI-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "State Navigate (two, the Democratic primary only: July 23-26, 2026, for Main Street Action and UpNorthNews, and August 3-6, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wisconsin_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race, and no one has published one of the November matchup. Marquette Law School's August and September 2026 releases report no question on it."
+   }
+  }
+ }
+}

@@ -1,0 +1,369 @@
+{
+ "part": 6,
+ "of": 9,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web-search allowance ran out after 24 searches, so most candidates were looked up only through known pages (campaign sites, government pages, links in Wikipedia articles); a blank here means not found, not that nothing exists. Parties' own endorsement pages for legislative races were not searched.",
+ "candidates": [
+  {
+   "race_id": "2026-WI-55055-clerk-of-court",
+   "name": "Cindy R. Hamre Incha",
+   "official_page": {
+    "url": "https://www.wicourts.gov/courts/circuit/clerkcontact.htm",
+    "source": "Wisconsin Court System, clerks of circuit court (lists Hamre Incha, Cindy for Jefferson County)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-55111-clerk-of-court",
+   "name": "Carrie A. Wastlick",
+   "official_page": {
+    "url": "https://www.wicourts.gov/courts/circuit/clerkcontact.htm",
+    "source": "Wisconsin Court System, clerks of circuit court (lists Wastlick, Carrie for Sauk County)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk of Circuit Court, Sauk County",
+     "from": "1999",
+     "to": "",
+     "source": "Baraboo News Republic, 2022-12-29: \"reelected to the position she has held since 1999\"",
+     "url": "https://wiscnews.com/community/baraboonewsrepublic/article_15900857-1371-5213-9aac-0bf46d6b6c06.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-55139-sheriff",
+   "name": "Danielle Falesnik",
+   "website": {
+    "url": "https://daniforsheriff.com",
+    "how": "Site title \"Danielle Falesnik for Winnebago County Sheriff\"; names Neenah, WI and the 2026 race",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "independent candidate for Winnebago County Sheriff",
+    "url": "https://daniforsheriff.com",
+    "verified": true
+   },
+   "review": [
+    {
+     "shows": "On the November 3, 2026 ballot for Winnebago County Sheriff",
+     "problem": "Her own campaign site (not an official source) announces the withdrawal of her candidacy (August 30, 2026) and her endorsement of another candidate; whether her name stays on the ballot should be checked against the county clerk's list",
+     "url": "https://daniforsheriff.com",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH1",
+   "name": "Renee A. Paplham",
+   "past_party": [
+    {
+     "what": "Candidate for Assembly District 1",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Civic Media, 2024 Wisconsin State Legislature Voter Guide: Assembly District 1",
+     "url": "https://civicmedia.us/posts/2024/09/19/2024-wisconsin-state-legislature-voter-guide-assembly-district-1",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH14",
+   "name": "Angelito Tenorio",
+   "website": {
+    "url": "https://www.angelitotenorio.com",
+    "how": "\"Angelito for Assembly\"; names the 14th Assembly District and West Allis (the page does not give the year 2026)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I'm a Progressive Democrat",
+    "url": "https://www.angelitotenorio.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH19",
+   "name": "Ryan Clancy"
+  },
+  {
+   "race_id": "2026-WI-SH22",
+   "name": "Paul Melotik",
+   "website": {
+    "url": "https://www.melotikforassembly.com",
+    "how": "\"Re-Elect Paul Melotik on Nov. 3rd\"; names Wisconsin's 22nd Assembly District",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH27",
+   "name": "Lindee Brill",
+   "website": {
+    "url": "https://www.lindeeforwiassembly.com/",
+    "how": "\"I am running for a second term to represent the people of Wisconsin's 27th Assembly District\" (the page does not give the year 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH31",
+   "name": "John Perryman",
+   "website": {
+    "url": "https://perryman4assembly.com/",
+    "how": "Site title \"John Perryman for Wisconsin Assembly District 31\"; \"Vote November 3\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH35",
+   "name": "Elizabeth McCrank",
+   "website": {
+    "url": "https://www.mccrankforthepeople.com",
+    "how": "Names Elizabeth McCrank, the 35th Assembly District, Merrill and the Lincoln County Board (the page does not give the year 2026)",
+    "verified": true
+   },
+   "born": {
+    "year": 1963,
+    "date": "1963-07-04",
+    "source": "her campaign site: \"Elizabeth McCrank was born in Milwaukee Wisconsin, July 4th 1963\"",
+    "url": "https://www.mccrankforthepeople.com",
+    "kind": "campaign",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, Lincoln County Board of Supervisors",
+     "from": "2020",
+     "to": "",
+     "source": "her campaign site: \"Since 2020, McCrank has served on the Lincoln County Board of Supervisors\"",
+     "url": "https://www.mccrankforthepeople.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for Assembly District 35",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "WXPR, 2024-10-23",
+     "url": "https://www.wxpr.org/election/2024-10-23/wisconsin-state-assembly-district-35-democrat-elizabeth-mccrank",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH4",
+   "name": "Alexia Unertl"
+  },
+  {
+   "race_id": "2026-WI-SH43",
+   "name": "Paul McGraw",
+   "website": {
+    "url": "https://www.votepaulmcgraw.com",
+    "how": "\"Elect Dr. Paul McGraw For Wisconsin Assembly District #43\" (the page does not give the year 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH48",
+   "name": "Andrew Hysell"
+  },
+  {
+   "race_id": "2026-WI-SH51",
+   "name": "Ben Gruber",
+   "website": {
+    "url": "https://www.ben-gruber.com",
+    "how": "Site title \"Ben Gruber for State Assembly | Southwest Wisconsin\"; the page names Assembly District 51 and is dated 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH54",
+   "name": "Tim Paterson",
+   "official_page": {
+    "url": "https://www.winnebagocountywi.gov/directory.aspx?EID=212",
+    "source": "Winnebago County, County Board of Supervisors directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, District 11, Winnebago County Board of Supervisors",
+     "from": "2024",
+     "to": "",
+     "source": "Winnebago County directory: \"District 11\", \"Elected 2024\"",
+     "url": "https://www.winnebagocountywi.gov/directory.aspx?EID=212",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH59",
+   "name": "Bradley Petersen",
+   "official_page": {
+    "url": "https://www.kewaskumschools.org/board-of-education/board-members",
+    "source": "Kewaskum School District, Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice-President), Kewaskum School District Board of Education",
+     "from": "2022",
+     "to": "",
+     "source": "Kewaskum School District board page: Bradley Petersen, Vice-President; \"Board member since: April 2022\"",
+     "url": "https://www.kewaskumschools.org/board-of-education/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH62",
+   "name": "Mike Bellagio"
+  },
+  {
+   "race_id": "2026-WI-SH67",
+   "name": "David Armstrong",
+   "website": {
+    "url": "http://www.armstrongforassembly.com/",
+    "how": "\"I am running for reelection to again represent the 67th Assembly District on the November 2026 ballot\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH70",
+   "name": "Nancy VanderMeer"
+  },
+  {
+   "race_id": "2026-WI-SH74",
+   "name": "Paul Johnson"
+  },
+  {
+   "race_id": "2026-WI-SH79",
+   "name": "John Fons"
+  },
+  {
+   "race_id": "2026-WI-SH82",
+   "name": "Rico Camacho",
+   "website": {
+    "url": "https://www.camachoforwi.com",
+    "how": "Site title \"Rico Camacho for Assembly\"; the About page names Waukesha and his aldermanic district (the district number and the year 2026 are not on the pages read)",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.waukesha-wi.gov/about_the_common_council/index.php",
+    "source": "City of Waukesha, About the Common Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Alderman, District 15, Waukesha Common Council",
+     "from": "",
+     "to": "",
+     "source": "City of Waukesha, About the Common Council: Aldermanic District 15, Rico Camacho",
+     "url": "https://www.waukesha-wi.gov/about_the_common_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH88",
+   "name": "Ben Franklin",
+   "website": {
+    "url": "https://www.franklinforwisconsin.com/",
+    "how": "\"Ben Franklin for Assembly\"; \"Re-elect for the 88th Assembly District\" (the page does not give the year 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH91",
+   "name": "Jodi Emerson",
+   "website": {
+    "url": "http://emersonforassembly.com",
+    "how": "Names Jodi Emerson and Wisconsin State Assembly District 91; \"Jodi is running for re-election\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Democrat for Wisconsin State Assembly District 91",
+    "url": "http://emersonforassembly.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH95",
+   "name": "Paul Michael Weber"
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Pete Karas",
+   "website": {
+    "url": "https://petekaras.com/",
+    "how": "\"Pete Karas for Wisconsin Secretary of State\" (the page does not give the year 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS15",
+   "name": "Scott Fleming",
+   "website": {
+    "url": "https://scottflemingforwi.com",
+    "how": "\"Scott Fleming For State Senate District 15\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "First Supervisor, Town of Johnstown (Rock County)",
+     "from": "",
+     "to": "",
+     "source": "his campaign site: \"As First Supervisor for the Town of Johnstown\"",
+     "url": "https://scottflemingforwi.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SS25",
+   "name": "Charly Ray"
+  },
+  {
+   "race_id": "2026-WI-SS33",
+   "name": "Mike Van Someren"
+  },
+  {
+   "race_id": "2026-WI-X-marshfield-area-municipal-court-S",
+   "name": "Alanna Feddick-Goodwin"
+  }
+ ],
+ "removed": [
+  {
+   "race_id": "2026-WI-55111-clerk-of-court",
+   "name": "Carrie A. Wastlick",
+   "finding": "past_party (Republican, 2022)",
+   "why": "The Baraboo News Republic article says she was reelected to the post held since 1999; it gives no party and does not say she was unopposed"
+  },
+  {
+   "race_id": "2026-WI-SH19",
+   "name": "Ryan Clancy",
+   "finding": "website https://clancyforassembly.com",
+   "why": "The address did not resolve in four tries (with and without www), so the page could not be seen"
+  },
+  {
+   "race_id": "2026-WI-SH48",
+   "name": "Andrew Hysell",
+   "finding": "website https://hysellforassembly.com/",
+   "why": "Page title reads \"Democrat for Wisconsin Assembly District 46\", the 48th appears only inside a quoted endorsement, and no election year is given: cannot confirm it is the site for the 2026 race in District 48"
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Pete Karas",
+   "finding": "endorsed_by (Wisconsin Green Party, https://www.wisconsingreenparty.org/candidates)",
+   "why": "The party's address did not resolve in four tries, so the page could not be seen; the mention of that page was also taken out of the website note"
+  }
+ ]
+}

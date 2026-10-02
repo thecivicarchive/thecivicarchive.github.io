@@ -1,0 +1,519 @@
+{
+ "state": "WI",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the official lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Wisconsin differs from Minnesota: its parties nominate in the August 11 partisan primary and, after it, mostly publish lists of their nominees rather than endorsements. Only a page that itself says 'endorse' is under endorsements (one record). Support in other words (supported, recommended, a list under a sentence about 'endorsed candidates') is under other_support with the page's own word in 'kind', kept apart and not for showing as an endorsement. A bare list of a party's candidates is not collected at all: it adds nothing to the party label already on the ballot. Governor and lieutenant governor are one November ticket, so a page's two lines are one record. Federal offices on these pages are outside this file; so are spring (April) offices. The same candidate stands on several lists: count once per party. Every page in 'lists' was opened again on the day it was read and a record is kept only if the page still showed the name; pages were fetched with the kit's honest User-Agent after checking each site's robots.txt, and a site that forbids programs was not opened (see not_read). Only 10 of Wisconsin's 72 counties have county races loaded, so county endorsements elsewhere cannot match yet.",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Sheboygan County",
+   "title": "Home page: \"Wisconsin Democrats heartily endorse\"",
+   "url": "http://sheboygandems.com",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "title": "Home page: General Election November 3rd, \"Candidates as follows\"",
+   "url": "https://www.washingtoncountygop.org",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "title": "Candidates",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "title": "Election 2026 Voter Guide",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "title": "Candidates We Support",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Manitowoc County Democratic Party",
+   "title": "Home page: \"the Democratic Candidates we support in the November Election\"",
+   "url": "http://www.manitowocdems.org",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-WI-SS9",
+   "name": "Christian Ellis",
+   "party": "Democratic",
+   "unit": "Democratic Party of Sheboygan County",
+   "url": "http://sheboygandems.com",
+   "as_listed": "Wisconsin Democrats heartily endorse Christian Ellis, An Independent Candidate for Wisconsin State Senate, District 9"
+  }
+ ],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "Tom Tiffany / David Varnam",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "Tom Tiffany - Governor; David Varnam - LT Governor",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Jay Schroeder",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "Jay Schroeder - Secretary of State",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-AG",
+   "name": "Eric Toney",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "Eric Toney - Attorney General",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-TREAS",
+   "name": "John S. Leiber",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "John Leiber - Treasurer",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-SH58",
+   "name": "Bernie Newman",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "Bernie Newman - Assembly 58th District",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-SH59",
+   "name": "Bradley Petersen",
+   "party": "Republican",
+   "unit": "Republican Party of Washington County",
+   "url": "https://www.washingtoncountygop.org",
+   "as_listed": "Bradley Petersen - Assembly 59th District",
+   "kind": "listed under the page's sentence about the party's 'endorsed candidates'"
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "Tom Tiffany / David Varnam",
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "Governor: Tom Tiffany; Lt Governor: David Varnam",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-AG",
+   "name": "Eric Toney",
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "Attorney General: Eric Toney",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Jay Schroeder",
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "Secretary of State: Jay Schroeder",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-TREAS",
+   "name": "John S. Leiber",
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "State Treasurer: John Leiber",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SH70",
+   "name": "Nancy VanderMeer",
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "State Assembly: Nancy VanderMeer",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "Tom Tiffany / David Varnam",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Candidate for Governor: Tom Tiffany; Candidates for Lt. Governor: David Varnam",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Jay Schroeder",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Secretary of State: Jay Schroeder",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-TREAS",
+   "name": "John S. Leiber",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Wisconsin State Treasurer: John Leiber",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-AG",
+   "name": "Eric Toney",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Wisconsin State Attorney General: Eric Toney",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-SH40",
+   "name": "Julie Helmer",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "40th Assembly District: Julie Helmer",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-SH41",
+   "name": "Tony Kurtz",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "41st Assembly District: Tony Kurtz",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-55111-sheriff",
+   "name": "Matt Burch",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Sauk County Sheriff: Matt Burch",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-55111-coroner",
+   "name": "Don Skrabel",
+   "party": "Republican",
+   "unit": "Republican Party of Sauk County",
+   "url": "https://saukgop.org/spring-election-2026-candidate-information",
+   "as_listed": "Sauk County Coroner: Don Skrabel",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-WI-SH37",
+   "name": "LaToya Bates",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "LaToya Bates, State Assembly District 37",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SH38",
+   "name": "Terri Wenkman",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "Terri Wenkman, State Assembly District 38",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SH59",
+   "name": "Jack Holzman",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "Jack Holzman, State Assembly District 59",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SS33",
+   "name": "Mike Van Someren",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "Mike Van Someren, State Senate District 33",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-TREAS",
+   "name": "Yee Leng Xiong",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "Yee Leng Xiong, State Treasurer",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "David Crowley / Sarah Godlewski",
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "David Crowley, Governor; Sarah Godlewski, Lieutenant Governor",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SH25",
+   "name": "Christopher Able",
+   "party": "Democratic",
+   "unit": "Manitowoc County Democratic Party",
+   "url": "http://www.manitowocdems.org",
+   "as_listed": "Chris Able for State Assembly (the page names him as the Assembly District 25 candidate)",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SH2",
+   "name": "Alicia Saunders",
+   "party": "Democratic",
+   "unit": "Manitowoc County Democratic Party",
+   "url": "http://www.manitowocdems.org",
+   "as_listed": "Alicia Saunders for State Assembly District 2",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-SS9",
+   "name": "Christian Ellis",
+   "party": "Democratic",
+   "unit": "Manitowoc County Democratic Party",
+   "url": "http://www.manitowocdems.org",
+   "as_listed": "Christian Ellis, Independent Candidate for State Senate District 9",
+   "kind": "supported"
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "David Crowley / Sarah Godlewski",
+   "party": "Democratic",
+   "unit": "Manitowoc County Democratic Party",
+   "url": "http://www.manitowocdems.org",
+   "as_listed": "David Crowley for Governor",
+   "kind": "supported"
+  }
+ ],
+ "other_support_unmatched": 4,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "Sheriff: Kristen Bills-Garcia",
+   "kind": "supported",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://jackson.nationbuilder.com/candidates",
+   "as_listed": "Clerk of Courts: Jean Sahr",
+   "kind": "supported",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "Sasha Ripley, State Senate District 12",
+   "kind": "supported",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Dodge County",
+   "url": "https://www.dodgecodems.org/candidates-we-support",
+   "as_listed": "JoCasta Zamirripa, Secretary of State",
+   "kind": "supported",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Wisconsin",
+   "url": "https://wisdems.org/our-party/our-candidates/",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended). Among them is an independent, Mark Becker (Senate District 1)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Wisconsin",
+   "url": "https://wisgop.org/",
+   "why": "no list of candidates or endorsements on the site. News organizations report that the party's convention endorsed Tom Tiffany for governor on May 16, 2026 and endorsed nobody for attorney general or lieutenant governor, but no page of wisgop.org says so, and a news report is not the party's own page"
+  },
+  {
+   "party": "Wisconsin Green",
+   "unit": "Wisconsin Green Party",
+   "url": "https://www.wisconsingreenparty.org/candidates",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended) (Pete Karas, David Schupbach and Rob Longwell-Grice, all on the ballot under the party's own label)"
+  },
+  {
+   "party": "Constitution",
+   "unit": "Constitution Party of Wisconsin",
+   "url": "https://constitutionpartyofwisconsin.com/",
+   "why": "a CAPTCHA page; left alone"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Wisconsin",
+   "url": "https://lpwi.org/",
+   "why": "no 2026 candidates or endorsements on the site, and no Libertarian is on the state and county lists loaded"
+  },
+  {
+   "party": "American Solidarity Party",
+   "unit": "American Solidarity Party (national)",
+   "url": "https://www.solidarity-party.org/candidates",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended) (Nathan Tataje, Assembly District 51, is shown as a \"Current Candidate\")"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Brown County",
+   "url": "https://browncountydems.com/fall-2026-election/",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended); the Elections page above it says \"who we endorse\", the guide itself only lists names"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Dane County Democratic Party",
+   "url": "https://danedems.org/endorsements",
+   "why": "its endorsements are for the nonpartisan spring elections only; the page says the spring 2026 cycle has ended"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Kenosha County",
+   "url": "https://kenoshacountydems.org/?page_id=210",
+   "why": "an endorsement policy, no endorsements listed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Ozaukee County",
+   "url": "http://ozaukeedemocrats.org/events",
+   "why": "not collected: the page names candidates that another group (Ozaukee Indivisible) is endorsing, which is not the party's endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Waushara County Democratic Party",
+   "url": "https://www.wausharacountydemocrats.org/",
+   "why": "the site's robots.txt forbids programs (Disallow: /); not opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Dunn County",
+   "url": "http://dunngop.org",
+   "why": "the site's robots.txt forbids programs (Disallow: /); not opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Jackson County",
+   "url": "https://assets.nationbuilder.com/jackson/pages/206/attachments/original/1771620788/2026_Winter_Caucus_Endorsement_Results.doc",
+   "why": "the party's \"local candidate endorsements\" file (2026 Winter Caucus Endorsement Results) refused this program (HTTP 403); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Polk County Democrats",
+   "url": "http://polkcountywisconsindemocrats.org",
+   "why": "a CAPTCHA page; left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Marinette County Democrats",
+   "url": "http://www.marinettedems.org",
+   "why": "a CAPTCHA page; left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Chippewa County Democrats",
+   "url": "https://chippewademocrats.org/",
+   "why": "a CAPTCHA page; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Langlade County",
+   "url": "https://rplc-langlade.com",
+   "why": "a CAPTCHA page; left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Burnett County Democrats",
+   "url": "http://www.burnettcountydemocrats.org/",
+   "why": "the site refused this program (HTTP 403); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Green Lake County Democratic Party",
+   "url": "http://www.greenlakecountydemocraticparty.org",
+   "why": "the site refused this program (HTTP 403); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Juneau County",
+   "url": "https://www.gopjuneaucowi.org",
+   "why": "answered 'too many requests' (HTTP 429); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oneida County Democrats",
+   "url": "https://www.oneidawidems.org/",
+   "why": "the connection could not be made securely; not opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Columbia County",
+   "url": "https://www.RPofCC.com",
+   "why": "the connection could not be made securely; not opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Manitowoc County",
+   "url": "http://manitowocgop.com",
+   "why": "the address the state party's directory gives no longer exists"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican county parties of Milwaukee, St. Croix, Winnebago, Green, Monroe, Brown, Waukesha and Vernon",
+   "url": "https://www.mkegop.com/candidates_elected_officials",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended). Their pages: mkegop.com/candidates_elected_officials, stcroixgop.com/voter_guide, winnebagogop.org/information-on-statewide-candidates-2026, greencountygop.org/candidate-info, monroecountywigop.com/candidates, bcrepublicans.net/2026_general_election, waukeshagop.org/2026_fall_voter_guide, vernoncountygop.com/candidates"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic county parties with a plain candidates page (Barron, Buffalo, Door, Eau Claire, La Crosse, Marathon, Monroe, Pierce, St. Croix, Vilas, Wood and others)",
+   "url": "https://wisdems.org/our-party/county-parties/",
+   "why": "not collected: a list of the party's candidates on the November ballot that does not use the word endorsed (or supported, or recommended). All 56 county sites in the state party's directory were opened (home page and up to six election or candidate pages each) and searched for endorse, support and recommend"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican county parties with no website in the state party's directory (about 30 of 72 counties, among them Ozaukee, Sheboygan, Rock, Dodge, Wood and Portage)",
+   "url": "https://wisgop.org/",
+   "why": "the state party's county pages give no website for them; not searched for further"
+  }
+ ]
+}

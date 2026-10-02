@@ -15,6 +15,15 @@ of its own; the list tables (sl_races, sl_candidates, sl_places) are only read.
                                              (nothing is downloaded)
     python -m ballot.local_sites sheets      numbered contact sheets of the photo options nobody has looked at yet
     ... --db <file>                          works on another copy of ballot_local_2026.sqlite
+    ... --state WI                           scope, found: another state (Minnesota when left out). Its files are
+                                             <code>_scope*.json and <ST>-*.json, and its sheet for a person to read is
+                                             REVIEW-<ST>.md; Minnesota's is REVIEW.md
+
+Other states (Wisconsin first, 2026-10-02). Only Minnesota's candidate files carry a campaign website cell, so `files`
+reads Minnesota alone. Any other state gets its websites from verified findings: `python run_ballot.py localfacts`
+loads the findings of every state in STATES that has a scope file beside the findings (`found_states()`), after
+Minnesota's, each state touching only its own rows. Fetch, headings, choices and sheets never were Minnesota's alone.
+A new state is added to STATES with its name and the words its roster's legislative service is found by.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -152,6 +161,10 @@ MARK = "Found on the open web"
 KINDS = ("official", "campaign", "secondary")
 PER_PART = 30
 QUOTE_MAX = 300
+# the states this module serves: the name a reader would say, and (beyond the general words) how a finding names a
+# seat in that state's legislature, so a sitting member's service is left to the state roster
+STATES = {"MN": {"name": "Minnesota"},
+          "WI": {"name": "Wisconsin", "legislature": r"\bwisconsin (?:state )?(?:senate|assembly|legislat\w+)|\b(?:state )?assembly\b"}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -200,7 +213,7 @@ def _november(con, state=None):
 
 def _first_named(name, office_kind):
     """The person a site or a finding is about: on a ticket for Governor and Lieutenant Governor, the one named first."""
-    return re.split(r"\s+and\s+", name)[0] if office_kind == "governor" else name
+    return re.split(r"\s+and\s+|\s+/\s+", name)[0] if office_kind == "governor" else name
 
 
 def _family(name):
@@ -482,10 +495,28 @@ def _roster(state):
     return _rosters[code]
 
 
+def _in_legislature(state):
+    """A test for words naming a seat in the state's legislature: the general ones, and the state's own (STATES)."""
+    more = STATES.get(state, {}).get("legislature")
+    if not more:
+        return LEGISLATURE.search
+    own = re.compile(more, re.I)
+    return lambda text: LEGISLATURE.search(text) or own.search(text)
+
+
+def review_name(state):
+    """The sheet for a person to read: REVIEW.md for Minnesota (as it always was), REVIEW-<ST>.md for another state."""
+    return "REVIEW.md" if state == "MN" else f"REVIEW-{state}.md"
+
+
 def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
     """Verified findings in <folder>/<ST>-*.json -> sl_websites and sl_found_facts. Each finding is tied to a candidate by
-    race and the exact name on the November list; only findings a second reader marked "verified": true are read."""
+    race and the exact name on the November list; only findings a second reader marked "verified": true are read.
+    Only this state's rows are rewritten, and its sheet for a person to read is `review_name(state)`."""
     con.executescript(SCHEMA)
+    in_legislature = _in_legislature(state)
+    sheet = review_name(state)
+    lead = "" if state == "MN" else f"{STATES.get(state, {}).get('name', state)}: "
     like = f"2026-{state}-%"
     with con:      # only this step's own rows
         con.execute("DELETE FROM sl_websites WHERE race_id LIKE ? AND source LIKE ?", (like, MARK + "%"))
@@ -594,7 +625,7 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
                     n["malformed"] += 1
                 elif why:
                     hold(race, name, "office", why, url)
-                elif member in roster["legislators"] and LEGISLATURE.search(office):
+                elif member in roster["legislators"] and in_legislature(office):
                     on_record.append(f"- {race} | {_line(name)} | {office}, {_line(o.get('from')) or 'start not stated'} to {_line(o.get('to')) or 'end not stated'} "
                                      f"({kind}) | the state roster already gives this member's service in the Legislature | {url}")
                 else:
@@ -663,10 +694,10 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
         lines += ["", f"## A website that differs from the one the candidate filed ({len(differs)}; the filed one is kept)", ""] + differs
         lines += ["", f"## Held back by the loader's own guards ({len(held)}; the wording is not repeated here)", ""] + held
         lines += ["", f"## Found, but an official record already covers it ({len(on_record)}; not loaded, since a found fact fills a blank only)", ""] + on_record
-        with open(os.path.join(folder, "REVIEW.md"), "w", encoding="utf-8", newline="\n") as fh:
+        with open(os.path.join(folder, sheet), "w", encoding="utf-8", newline="\n") as fh:
             fh.write("\n".join(lines) + "\n")
     kinds = lambda f: ", ".join(f"{v} {k}" for k, v in sorted(by[f].items())) or "0"      # noqa: E731
-    say(f"    Found on the open web ({n['files']} files in {_rel(folder)}): {len(sites)} websites added, "
+    say(f"    {lead}Found on the open web ({n['files']} files in {_rel(folder)}): {len(sites)} websites added, "
         f"{n['confirmed the filed website']} confirmed the filed one, {len(differs)} differ (the filed one kept); "
         f"birth years: {kinds('born')}; offices: {kinds('office')}; official pages: {sum(by['official_page'].values())}; "
         f"party endorsements: {sum(by['endorsed_by'].values())}; earlier runs under a party label: {kinds('past_party')}; "
@@ -675,7 +706,7 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
     if left or held or on_record or review:
         say("    not loaded: " + (", ".join(f"{v} {k}" for k, v in sorted(left.items())) or "none")
             + f"; {len(held)} held back by the guards, {len(on_record)} already on an official record, {len(review)} review items"
-            + (" (see REVIEW.md beside the findings)" if paths else ""))
+            + (f" (see {sheet} beside the findings)" if paths else ""))
     return {"websites": len(sites), "facts": {f: dict(c) for f, c in by.items()}, "held": len(held), "review": len(review),
             "differs": len(differs), "on_record": len(on_record), "skipped": dict(left)}
 
@@ -1177,18 +1208,22 @@ def school_crosswalk(places, census, say=print):
     if len(set(out.values())) != len(out):
         raise SystemExit("    school districts: two districts were tied to one Census row; stopping")
     say(f"    school districts tied to the Census Bureau's rows by name: {len(out):,} of {len(places):,} ({len(out) - len(pairs):,} letter for letter; "
-        f"{len(pairs)} once Public, Area, Schools and School District are set aside, listed in mn_scope_places.json)")
+        f"{len(pairs)} once Public, Area, Schools and School District are set aside, listed in the scope's places file)")
     return out, pairs
 
 
-def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD):
-    """Minnesota: who the open-web sweep should research, written to mn_scope.json (race_id, name, level, office,
-    jurisdiction; by race, then name), with mn_scope_counts.json (counts by level, and how many parts of thirty) and
-    mn_scope_places.json (the Census file, and which cities and school districts are in). In: every statewide,
-    legislative and court race, every county-level race, and the mayor, council and school board races of cities and
-    school districts with at least `threshold` people in the Census Bureau's file."""
-    races, november = _races(con, "MN"), _november(con, "MN")
-    pop, sources = census_population(say=say)
+def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
+    """One state (Minnesota when not said): who the open-web sweep should research, written to <code>_scope.json
+    (race_id, name, level, office, jurisdiction; by race, then name), with <code>_scope_counts.json (counts by level,
+    and how many parts of thirty) and <code>_scope_places.json (the Census file, and which cities and school districts
+    are in). In: every statewide, legislative and court race, every county-level race, and the mayor, council and
+    school board races of cities and school districts with at least `threshold` people in the Census Bureau's file.
+    A city is found in that file by its place code (the race's jurisdiction_id) with the names agreeing, a school
+    district by name; a state whose November list has no city or school race (Wisconsin, which votes on them in
+    April) gets a sentence saying so in the counts and places files."""
+    st_code, words = state.lower(), STATES.get(state, {}).get("name", state)
+    races, november = _races(con, state), _november(con, state)
+    pop, sources = census_population(say=say, stusab=state)
     per_race = collections.Counter(r for (r, _n) in november)
     cities, schools = {}, {}
     for r in races.values():
@@ -1198,7 +1233,7 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD):
             cities[r["jurisdiction_id"]]["races"].append(r["race_id"])
         elif r["level"] == "school":
             schools.setdefault(r["jurisdiction_id"], {"name": r["jurisdiction"], "races": []})["races"].append(r["race_id"])
-    school_places = dict(con.execute("SELECT id, name FROM sl_places WHERE kind = 'school' AND source_id LIKE 'mn-%'"))
+    school_places = dict(con.execute("SELECT id, name FROM sl_places WHERE kind = 'school' AND source_id LIKE ?", (st_code + "-%",)))
     walk, pairs = school_crosswalk(school_places, pop["school"], say=say)
 
     def count(entry):
@@ -1255,12 +1290,17 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD):
     big_quiet = sorted(v["name"] for code, v in pop["place"].items() if v["population"] >= threshold and code not in cities)
     other_city = collections.Counter(r["office"] for r in races.values() if r["level"] == "city" and r["office_kind"] not in FULL_CITY
                                      and pop["place"].get(r["jurisdiction_id"], {"population": 0})["population"] >= threshold)
+    none_local = (None if state == "MN" or by_level["city"] or by_level["school"] or cities or schools else
+                  f"No city or school board race is on {words}'s November 3, 2026 list in the database, so no place was "
+                  f"picked by its population; the Census file is named so that the cities of {threshold:,} or more can be read from it.")
+    where = ("A city is found by its place code, which the candidate list's MCD code equals for Minnesota's cities, and "
+             "the two names must agree; a school district by its name." if state == "MN" else
+             "A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name.")
     places = {
-        "state": "MN", "made": made, "threshold": threshold, "rule": rule,
+        "state": state, "made": made, "threshold": threshold, "rule": rule,
         "population_source": {"agency": "U.S. Census Bureau", "title": ACS_TITLE, "fetched_without_a_key": True, "files": sources,
                               "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives "
-                                      "none). A city is found by its place code, which the candidate list's MCD code equals for Minnesota's cities, and "
-                                      "the two names must agree; a school district by its name."},
+                                      "none). " + where},
         "cities": sorted([c for c in city_rows if c["id"] in in_city], key=lambda c: -c["population"]),
         "school_districts": sorted([s for s in school_rows if s["id"] in in_school], key=lambda s: -s["population"]),
         "just_under": sorted(just_under, key=lambda c: -c["population"]),
@@ -1269,17 +1309,19 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD):
         "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": big_quiet,
         "other_city_offices_in_those_cities_left_out": dict(other_city),
         "school_names_tied_after_setting_words_aside": [{"id": sid, "state_list": a, "census": b} for sid, a, b in pairs]}
-    counts = {"state": "MN", "made": made, "rule": rule, "candidates": len(rows), "by_level": {lv: by_level[lv] for lv in levels},
+    counts = {"state": state, "made": made, "rule": rule, "candidates": len(rows), "by_level": {lv: by_level[lv] for lv in levels},
               "races_by_level": {lv: races_by_level[lv] for lv in levels}, "races": sum(races_by_level.values()),
               "on_the_november_list_in_all": len(november), "per_part": PER_PART, "parts": parts,
               "cities_in": len(in_city), "city_candidates": by_level["city"], "school_districts_in": len(in_school), "school_candidates": by_level["school"],
               "just_under": {"places": len(just_under), "candidates": sum(c["candidates"] for c in just_under)}}
+    if none_local:
+        places["note"] = counts["note"] = none_local
     os.makedirs(out_dir, exist_ok=True)
-    for fname, obj in (("mn_scope.json", rows), ("mn_scope_counts.json", counts), ("mn_scope_places.json", places)):
+    for fname, obj in ((f"{st_code}_scope.json", rows), (f"{st_code}_scope_counts.json", counts), (f"{st_code}_scope_places.json", places)):
         with open(os.path.join(out_dir, fname), "w", encoding="utf-8", newline="\n") as fh:
             json.dump(obj, fh, indent=1, ensure_ascii=False)
             fh.write("\n")
-    say(f"    Minnesota scope for the open-web sweep: {len(rows):,} candidates in {counts['races']:,} races: "
+    say(f"    {words} scope for the open-web sweep: {len(rows):,} candidates in {counts['races']:,} races: "
         + ", ".join(f"{lv} {by_level[lv]:,}" for lv in levels))
     say(f"    cities of {threshold:,} or more with a mayor or council race: {len(in_city)} ({by_level['city']:,} candidates); school districts: "
         f"{len(in_school)} ({by_level['school']:,} candidates); just under ({NEAR:,} to {threshold - 1:,}): {len(just_under)} places, "
@@ -1290,15 +1332,23 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD):
 
 # ---------------------------------------------------------------- the two stages, and the command line
 
-def stage_facts(db=DB, say=print):
-    """python run_ballot.py localfacts: the filed websites, the verified findings and the photo choices. No network."""
+def found_states(folder=FOUND_DIR):
+    """The states beyond Minnesota whose findings are loaded: those in STATES with a scope file in the folder."""
+    return [st for st in sorted(STATES) if st != "MN" and os.path.exists(os.path.join(folder, f"{st.lower()}_scope.json"))]
+
+
+def stage_facts(db=DB, say=print, folder=FOUND_DIR):
+    """python run_ballot.py localfacts: the filed websites (Minnesota, whose files carry them), the verified findings
+    (Minnesota, then every other state with a scope file) and the photo choices. No network."""
     con = connect(db)
     try:
         try:
             file_websites(con, say=say)
         except SystemExit as e:      # the Secretary's files are not there, or no longer fit: say so and go on
             say(str(e) or "    Minnesota: the Secretary of State's candidate files could not be read")
-        load_found(con, say=say)
+        load_found(con, say=say, folder=folder)
+        for st in found_states(folder):
+            load_found(con, say=say, folder=folder, state=st)
         apply_choices(con, say=say)
     finally:
         con.close()
@@ -1331,21 +1381,25 @@ def main(argv=None):
     ap.add_argument("--folder", default=FOUND_DIR, help="found: the folder of findings files; scope: where the scope files go")
     ap.add_argument("--choice", default=CHOICE, help="choices, sheets: another photo choice file")
     ap.add_argument("--sheets", default=SHEETS, help="sheets: another folder for the contact sheets")
+    ap.add_argument("--state", default="MN", help="scope, found: the state (two letters; Minnesota when left out)")
     ap.add_argument("--limit", type=int, default=None, help="fetch: stop after this many websites")
     ap.add_argument("--only", default="", help='fetch: only these candidates, "race_id|name;race_id|name"')
     ap.add_argument("--again", default="", choices=["", "failed", "all"], help="fetch: also re-read sites that did not answer, or every site")
     a = ap.parse_args(argv)
     db = os.path.abspath(a.db)
+    state = a.state.upper()
+    if state not in STATES:
+        raise SystemExit(f"    {state} is not a state this module serves yet (STATES in ballot/local_sites.py)")
     if a.what == "scope":      # reads the list, writes three files; the database is not changed
         con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
-        scope(con, say=_say, out_dir=a.folder)
+        scope(con, say=_say, out_dir=a.folder, state=state)
         con.close()
         return
     con = connect(db)
     if a.what == "files":
         file_websites(con, say=_say)
     elif a.what == "found":
-        load_found(con, say=_say, folder=a.folder)
+        load_found(con, say=_say, folder=a.folder, state=state)
     elif a.what == "choices":
         apply_choices(con, say=_say, path=a.choice)
     elif a.what == "fetch":

@@ -1037,6 +1037,65 @@ the November lists only; state and local candidates stay under the strict rule.
   review before any appears (`ballot/photo_choice.json`).
 - Many campaign sites answer scripts with 429 or a CAPTCHA; those findings were deleted, never worked around.
 
+## Minnesota, finished (v4.0.081), and how the next state is done
+
+John's order (2026-10-01): finish Minnesota's state and local ballot page, publish it, then give every other state the
+same treatment, outward from Minnesota. His three decisions change the earlier "name, office, party only" rule for
+state and local candidates; the binding text is `ballot/found_local/RULES.md` (every agent reads it first):
+
+- Shown for statewide offices, the Legislature, judges, county offices, mayors, councils and school boards: campaign
+  website, a photo from the candidate's own campaign site (or the roster's official portrait), a birth year, offices
+  held, issue headings, each with its source and kind (official, campaign, party, secondary). Township and small
+  district candidates: what they filed, plus a filed campaign website. Never addresses, phones, e-mail, family,
+  employers, health, views; never social media, people-search sites or voter files as a source.
+- Lean is "the record, not a label": a party's own published endorsement, an earlier run or office under a party
+  label, the candidate's own words (twelve words at most), and how the PLACE voted before, from official results.
+  Nobody's politics is guessed. Parties' "letters of support" are kept apart and not shown.
+- Streets on the map are OpenStreetMap tiles, off until the reader switches them on, with the credit and a sentence
+  saying OpenStreetMap's servers see which map squares are asked for. No Google Maps.
+
+The pieces, in the order they are run for a state (Minnesota's file names; another state gets its own):
+1. `ballot/local_sites.py` (stages `localfacts`, `localfetch` of `run_ballot.py`): reads ONLY the campaign website
+   cell of the state's candidate files into `sl_websites`; loads verified findings into `sl_found_facts`; fetches photo
+   options (`sl_photo_options`) and issue headings (`sl_issues`, with a `FURNITURE` filter;
+   `python -m ballot.local_sites headings` re-filters) from the campaign sites; applies
+   `ballot/photo_choice_local.json` into `sl_photos`. Run long fetches as `cmd /c "... > log 2>&1"`: PowerShell's own
+   redirection turns a Pillow warning into a failure and stops the run.
+2. Scope and research: `ballot/found_local/mn_scope.json` (statewide, legislature, courts, every county office, and
+   cities and school districts of about 10,000 people or more: 2,171 candidates in 73 parts), researched by one agent
+   a part and re-opened by a second (`ballot/found_local/MN-<k>.json`; only `"verified": true` is loaded). The tiny
+   workflow script `mn-research-batch` takes `{"n", "verify": [...], "find": [...]}`. Check afterwards that every part
+   file exists: one part was reported done and never written.
+3. The record of lean: `ballot/lean/mn_endorsements.json` (71 lists on the parties' own pages) and
+   `ballot/mn_place_votes.py` -> `ballot/lean/mn_place_votes.json` (precinct results from the Minnesota Geospatial
+   Commons added up to county, city or township and district, with control totals).
+4. Geography: `ballot/mn_geo.py` -> `ballot_geo/mn/` (TopoJSON: one precinct file per county, 13 outline layers,
+   school districts; ids match `sl_places` and `sl_races`; reader `ballot/mn_geo_reader.js`; a self-test of known
+   points). Polling places: Minnesota sells its list (Secretary of State order form, $46): the builder shows them when
+   `ballot_geo/mn/polling_places.json` exists, from a file John saves as
+   `states_cache/mn_local/sos/pollingplaces/polling_place_list_20261103.txt`, and says why not when it does not.
+5. Polls and markets: `ballot/polls/polls_mn_state_2026.json`, `ballot/odds_state_mn.json`; `ballot/odds.py` snapshots
+   state markets into `ballot_cache/odds/odds_state_2026.json`. Where no market lists a statewide or county race the
+   page says why that is usual, and gives no advice about starting or using one.
+6. The page (`build_ballot_state_dev.py`): one Web Mercator map with twelve kinds of line, drag, wheel, pinch,
+   keyboard and a Find box; "Use my location" drops a pin, finds the precinct on the device, names every zone and cuts
+   the ballot to it (the exact spot is not kept; a copy rounded to about half a mile stays on the device until
+   "Forget"); candidate facts with sources; the record section; polls and market tabs; ads in folds of five and sources
+   folded by kind (also on the Congress pages).
+7. The photo look (`ballot/photo_choice_local.json`, keys "race_id|name"): stricter than for Congress, because many are
+   private citizens: one adult alone AND the picture's own address or file name says it is the candidate's portrait;
+   anything else, none.
+8. Land it: `localfacts`, `localfetch`, `headings`, `localfacts`, `python run_ballot.py odds`, `python run_ballot.py
+   site`, `python quiet_pages.py site\dev`, `python -m ballot.scan_local_privacy <code>`, a look in the Browser pane,
+   the smoke test, save, and (when John has said so) `publish_dev.ps1`, which retries the two things that fail here:
+   git blocked from writing a file, and the router losing the lookup during a push.
+
+Usage, learned the hard way (2026-10-02): a CronCreate job does not run while a workflow runs, so it cannot guard
+anything; a 110-agent max-effort wave ran through the session limit and spent $92.09 of John's paid extra usage. Run
+agents in batches of about 10M tokens or less, read `get_usage` between batches, never start a batch above 40 percent
+of the 5-hour window or 90 percent of the week, and stop at 99 percent of the week. Research at effort high and
+verification at medium cost about a third of max.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

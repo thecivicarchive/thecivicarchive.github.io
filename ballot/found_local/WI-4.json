@@ -1,0 +1,428 @@
+{
+ "part": 4,
+ "of": 9,
+ "state": "WI",
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's shared web-search allowance (200) ran out about two thirds of the way through; after that, pages were opened directly: each government's own site, the candidates' own sites, Wikipedia's election articles and named news organizations. Campaign addresses came from a voter-guide site's links (used only as leads) or from trying an address; each was kept only when the site's own pages name the candidate and the office or place.",
+  "No birth year is recorded for anyone. Wikipedia gives a birth date for John S. Leiber (1977) but no citation was seen beside it, so it is left out; ages printed in WisPolitics interviews (Bill Oemichen, Bernie Newman) fit two birth years each and are left out.",
+  "No party's own published endorsement was found for these 30; ballot/lean/wi_endorsements.json already holds the party pages that list Jay Schroeder, John S. Leiber and Bernie Newman in other words. Endorsements shown on candidates' own sites are not party pages and are not recorded.",
+  "Left out on purpose: Mike Morgan's only listed campaign page is a social media page; donovanforassembly.com names Bob Donovan and District 61 but its newest item is from August 2024, so it is not recorded as his 2026 site; Tom Hausner's earlier police posts are jobs, not offices, and only the undersheriff post is recorded.",
+  "Nothing found under the rules for: Brandon White (the City of Jefferson's municipal court page names no judge), Joel Richmond, Maureen McCarville, Randy Udell, Bernie Newman (a TMJ4 report of his plan commission service could not be reopened), Bob Donovan, Karen Kirsch, Henry Johnson, Mark S. Maier, Bob Look, Jeff Foster. Michele Magadance Skinner's residency lawsuit is a legal matter and is not recorded.",
+  "Pages that publish contact details (county supervisor lists, campaign footers) were read for the name, title and term only; no address, phone or e-mail is in this file.",
+  "For the verifier: dylanforassembly.com, dowlingforassembly.com and schnitzlerforassembly.com answer the kit's fetcher with 429 and were read with WebFetch; the 2024 runs are in the results table of Wikipedia's article (districts 73, 90, 95).",
+  "Verifier, 2026-10-02: every url was reopened (WebFetch, and the kit's fetcher where WebFetch could not find the host). Pages that carry contact details were read for name, title, office and term only."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-WI-55031-clerk-of-court",
+   "name": "Michele Wick",
+   "official_page": {
+    "url": "https://www.douglascountywi.gov/170/Clerk-of-Courts",
+    "source": "Douglas County, Clerk of Courts page (names Michele Wick, Clerk of Courts)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-55097-clerk-of-court",
+   "name": "Lisa M. Roth",
+   "official_page": {
+    "url": "https://www.co.portage.wi.gov/directory.aspx?did=40",
+    "source": "Portage County staff directory, Clerk Of Circuit Court (names Lisa M. Roth, Clerk of Circuit Court)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-55127-sheriff",
+   "name": "Tom Hausner",
+   "website": {
+    "url": "https://hausnerforsheriff.com/",
+    "how": "The site is titled 'Tom Hausner for Sheriff – One Team, One Mission.' and says 'Tom Hausner for Walworth County Sheriff'. The page carries no year.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Undersheriff, Walworth County Sheriff's Office",
+     "from": "2023",
+     "to": "present",
+     "source": "His campaign site's About page: 'currently serves as Undersheriff for the Walworth County Sheriff's Office'; 'he has served as Undersheriff since January 2023'",
+     "url": "https://hausnerforsheriff.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-M-37900-municipal-court-S",
+   "name": "Brandon White"
+  },
+  {
+   "race_id": "2026-WI-SH13",
+   "name": "Mike Morgan",
+   "offices": [
+    {
+     "office": "Member, Wauwatosa City Council",
+     "from": null,
+     "to": null,
+     "source": "WUWM candidate questionnaire, his own answer: 'like I have on the Wauwatosa City Council over the last six years' (years not given)",
+     "url": "https://www.wuwm.com/wisconsin-state-assembly-district-13-candidates",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH18",
+   "name": "Joel Richmond"
+  },
+  {
+   "race_id": "2026-WI-SH21",
+   "name": "Dylan Pfaffenbach",
+   "website": {
+    "url": "https://dylanforassembly.com/",
+    "how": "The site names Dylan Pfaffenbach and 'State Assembly', and the places Oak Creek, Greenfield and Milwaukee. It gives no district number and no year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH26",
+   "name": "Joe Sheehan",
+   "website": {
+    "url": "https://sheehanforassembly.com/",
+    "how": "Titled 'Home - Joe Sheehan for Wisconsin'; 'Reelect Representative Joe Sheehan', 'Trusted Leader for District 26', 'Assembly District 26'. The page carries no year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH30",
+   "name": "Kevin Knoke",
+   "website": {
+    "url": "https://kevinknoke.com/",
+    "how": "Titled 'Kevin Knoke for Assembly | Wisconsin Election 2026 | Hudson, WI, USA'; the page shows a map of Assembly District 30.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I identify as a Democrat",
+    "url": "https://www.kevinknoke.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH34",
+   "name": "Rob Swearingen",
+   "website": {
+    "url": "https://www.robswearingen.com/",
+    "how": "'Rob Swearingen for Assembly'; a welcome dated 5/3/2026 says he is seeking re-election for an eighth term in the 34th Assembly District.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Candidate for the 34th Assembly District",
+    "url": "https://www.robswearingen.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH39",
+   "name": "Alex Dallman",
+   "website": {
+    "url": "https://alexdallman.com/",
+    "how": "Titled 'Alex Dallman for the 39th Assemby District - Home' (the site's spelling); the only year is its 2026 copyright line.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH42",
+   "name": "Maureen McCarville"
+  },
+  {
+   "race_id": "2026-WI-SH47",
+   "name": "Randy Udell"
+  },
+  {
+   "race_id": "2026-WI-SH50",
+   "name": "Bill Oemichen",
+   "offices": [
+    {
+     "office": "Member, New Glarus School Board",
+     "from": null,
+     "to": "present",
+     "source": "New Glarus School District, School Board page (names Bill Oemichen among the members, with no title). WisPolitics' 2026 primary interview calls him president of the board; the district's page does not say so.",
+     "url": "https://www.ngsd.k12.wi.us/school-board",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, St. Croix County Board",
+     "from": null,
+     "to": null,
+     "source": "WisPolitics, 'Primary interview series: Three Dems running for open 50th AD seat' (2026): 'previously served on the St. Croix County Board' (years not given)",
+     "url": "https://www.wispolitics.com/2026/primary-interview-series-three-dems-running-for-open-50th-ad-seat/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH53",
+   "name": "Rachael Dowling",
+   "website": {
+    "url": "https://www.dowlingforassembly.com/",
+    "how": "The site names Rachael Dowling, the Wisconsin State Assembly and Assembly District 53.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.winnebagocountywi.gov/Directory.aspx?EID=188",
+    "source": "Winnebago County directory page for Rachael Dowling (Elected 2022, District 1; a committee seat)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Winnebago County Board Supervisor, District 1",
+     "from": "2022",
+     "to": "present",
+     "source": "Her campaign site: 'Winnebago County Board Supervisor (2022-present)'; the county's page says 'Elected 2022', 'District 1'",
+     "url": "https://www.dowlingforassembly.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH58",
+   "name": "Bernie Newman"
+  },
+  {
+   "race_id": "2026-WI-SH61",
+   "name": "Bob Donovan"
+  },
+  {
+   "race_id": "2026-WI-SH66",
+   "name": "Gina Cefalu Paulick",
+   "website": {
+    "url": "https://www.voteginapaulick.com/",
+    "how": "Titled 'Gina Paulick for Wisconsin State Assembly District 66 | Common-Sense Leadership for District 66'. The page carries no year.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.mtpleasantwi.gov/319/Village-Board",
+    "source": "Village of Mount Pleasant, Village Board page (Gina Cefalu-Paulick, Trustee Seat No. 2, term expires April 2028)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Seat No. 2, Village of Mount Pleasant",
+     "from": null,
+     "to": "present (term expires April 2028)",
+     "source": "Village of Mount Pleasant, Village Board page",
+     "url": "https://www.mtpleasantwi.gov/319/Village-Board",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Gina chose to run as a Republican",
+    "url": "https://www.voteginapaulick.com/meet-gina",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH7",
+   "name": "Karen Kirsch"
+  },
+  {
+   "race_id": "2026-WI-SH73",
+   "name": "Frank Kostka",
+   "past_party": [
+    {
+     "what": "Ran for the Assembly, District 73 (general election; lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Wisconsin State Assembly election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2024_Wisconsin_State_Assembly_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH78",
+   "name": "Henry Johnson"
+  },
+  {
+   "race_id": "2026-WI-SH81",
+   "name": "Mark S. Maier"
+  },
+  {
+   "race_id": "2026-WI-SH87",
+   "name": "Bob Look"
+  },
+  {
+   "race_id": "2026-WI-SH90",
+   "name": "Jessica Henderson",
+   "past_party": [
+    {
+     "what": "Ran for the Assembly, District 90 (general election; lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Wisconsin State Assembly election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2024_Wisconsin_State_Assembly_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH95",
+   "name": "Cedric Schnitzler",
+   "website": {
+    "url": "https://schnitzlerforassembly.com/",
+    "how": "The site names Cedric Schnitzler, the Wisconsin State Assembly and the 95th Assembly District. Read with WebFetch.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.co.monroe.wi.us/government/county-board-of-supervisors/districts-supervisors",
+    "source": "Monroe County, Districts & Supervisors page (County Board Chair Cedric Schnitzler; supervisor for District 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, District 1, and Chair, Monroe County Board of Supervisors",
+     "from": null,
+     "to": "present",
+     "source": "Monroe County, Districts & Supervisors page",
+     "url": "https://www.co.monroe.wi.us/government/county-board-of-supervisors/districts-supervisors",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Assembly, District 95 (general election; lost)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Wisconsin State Assembly election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2024_Wisconsin_State_Assembly_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SOS",
+   "name": "Jay Schroeder",
+   "past_party": [
+    {
+     "what": "Republican nominee for Secretary of State (lost the general election)",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Wikipedia, 2018 Wisconsin Secretary of State election",
+     "url": "https://en.wikipedia.org/wiki/2018_Wisconsin_Secretary_of_State_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran in the Republican primary for Secretary of State (second, 39.90%)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Wikipedia, 2022 Wisconsin Secretary of State election",
+     "url": "https://en.wikipedia.org/wiki/2022_Wisconsin_Secretary_of_State_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SS15",
+   "name": "Christopher Dean",
+   "website": {
+    "url": "https://www.christopherdeanforwisconsin.com/",
+    "how": "Titled 'Christopher Dean for Wisconsin State Senate District 15'; carries the ballot label 'Serving People Not Parties'.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As an independent candidate, I have no party line to follow",
+    "url": "https://www.christopherdeanforwisconsin.com/issues",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS23",
+   "name": "Jeff Foster"
+  },
+  {
+   "race_id": "2026-WI-SS31",
+   "name": "Michele Magadance Skinner",
+   "website": {
+    "url": "https://micheleskinner.com/",
+    "how": "Titled 'Michele Magadance Skinner for Senate | Michele Magadance Skinner - State Senate'; calls her an Eau Claire County Supervisor. The page names no district number and no year.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Supervisor, Eau Claire County Board",
+     "from": null,
+     "to": "present",
+     "source": "Her campaign site: 'currently serving her second term on the Eau Claire County Board'",
+     "url": "https://micheleskinner.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-TREAS",
+   "name": "John S. Leiber",
+   "website": {
+    "url": "https://www.leiberfortreasurer.com/",
+    "how": "Titled 'Home | John Leiber for Treasurer'; speaks of the Office of the State Treasurer, of Wisconsin's school fund, of his work 'Since January 2023' and of getting re-elected 'this November'. Wikipedia's 2026 Wisconsin State Treasurer election article links to it.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://statetreasurer.wi.gov/Pages/About/Treasurer.aspx",
+    "source": "Wisconsin Office of the State Treasurer, 'State Treasurer John Leiber'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Treasurer of Wisconsin",
+     "from": "2023",
+     "to": "present",
+     "source": "Office of the State Treasurer: 'elected Wisconsin State Treasurer in November 2022 and began serving in January 2023'",
+     "url": "https://statetreasurer.wi.gov/Pages/About/Treasurer.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Treasurer as the Republican nominee",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Wikipedia, John Leiber",
+     "url": "https://en.wikipedia.org/wiki/John_Leiber",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Ran in the Republican primary for the Assembly, District 62 (lost)",
+     "year": 2018,
+     "party": "Republican",
+     "source": "Wikipedia, John Leiber",
+     "url": "https://en.wikipedia.org/wiki/John_Leiber",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-WI-SH90",
+   "name": "Jessica Henderson",
+   "field": "website",
+   "url": "https://henderson4wisconsin.com/",
+   "why": "The page names Jessica Henderson and 'the 90th district' but gives no office and no year (its footer year is a template's placeholder). She ran for the same district in 2024, so the page cannot be confirmed as her site for the 2026 race."
+  }
+ ]
+}

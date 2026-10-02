@@ -1,0 +1,421 @@
+{
+ "part": 2,
+ "of": 9,
+ "researched": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-WI-55021-clerk-of-court",
+   "name": "Julie Kayartz",
+   "official_page": {
+    "url": "https://www.wicourts.gov/courts/circuit/clerkcontact.htm",
+    "source": "Wisconsin Court System, list of clerks of circuit court (Columbia County)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-55073-clerk-of-court",
+   "name": "Kelly Schremp",
+   "official_page": {
+    "url": "https://www.marathoncounty.gov/about-us/departments/clerk-of-courts",
+    "source": "Marathon County, Clerk of Courts page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk of Circuit Court, Marathon County",
+     "from": "2021",
+     "to": "present",
+     "source": "Wausau Pilot & Review (appointed to the role in 2021)",
+     "url": "https://wausaupilotandreview.com/2022/08/09/kelly-schremp-wins-clerk-of-marathon-county-circuit-court-primary-with-no-democratic-challenger/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Republican primary for Clerk of Marathon County Circuit Court",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wausau Pilot & Review",
+     "url": "https://wausaupilotandreview.com/2022/08/09/kelly-schremp-wins-clerk-of-marathon-county-circuit-court-primary-with-no-democratic-challenger/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-55127-clerk-of-court",
+   "name": "Michele Jacobs",
+   "official_page": {
+    "url": "https://www.wicourts.gov/courts/circuit/clerkcontact.htm",
+    "source": "Wisconsin Court System, list of clerks of circuit court (Walworth County)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "David Crowley / Sarah Godlewski",
+   "website": {
+    "url": "https://crowleyforwi.com/",
+    "how": "the site is titled \"David Crowley for Wisconsin\" and says he is going to deliver results \"as Wisconsin's next Governor\"; the site's home page does not name Sarah Godlewski",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://county.milwaukee.gov/EN/County-Executive",
+    "source": "Milwaukee County, County Executive page",
+    "verified": true
+   },
+   "born": {
+    "year": "1986",
+    "source": "Wikipedia, David Crowley (Wisconsin politician)",
+    "url": "https://en.wikipedia.org/wiki/David_Crowley_(Wisconsin_politician)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Milwaukee County Executive",
+     "from": "2020",
+     "to": "present",
+     "source": "Milwaukee County, County Executive page (\"In May of 2020, David Crowley became the youngest county executive\")",
+     "url": "https://county.milwaukee.gov/EN/County-Executive",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member of the Wisconsin State Assembly, 17th district",
+     "from": "2017",
+     "to": "2020",
+     "source": "Wikipedia, David Crowley (Wisconsin politician)",
+     "url": "https://en.wikipedia.org/wiki/David_Crowley_(Wisconsin_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Wisconsin State Assembly, 17th district, as a Democrat",
+     "year": "2017",
+     "party": "Democratic",
+     "source": "Wikipedia, David Crowley (Wisconsin politician)",
+     "url": "https://en.wikipedia.org/wiki/David_Crowley_(Wisconsin_politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH12",
+   "name": "Russell Antonio Goodwin, Sr.",
+   "website": {
+    "url": "https://www.goodwinforassembly.com/",
+    "how": "the site is titled \"RE-ELECT RUSSELL GOODWIN For Assembly District 12 (Wisconsin)\" and reads \"Official Re-Election Website of Rep. Russell Antonio Goodwin, Sr.\" and \"RE-ELECT RUSSELL GOODWIN 2026\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH17",
+   "name": "Charlene Abughrin"
+  },
+  {
+   "race_id": "2026-WI-SH20",
+   "name": "Kyle Cleary",
+   "website": {
+    "url": "https://www.clearyforwisconsin.com/",
+    "how": "the site is titled \"Home | Cleary for Assembly\" and names Kyle Cleary and the 20th Assembly District (read through WebFetch; the kit's fetcher was answered HTTP 429); PBS Wisconsin's candidate page for Assembly District 20 (pbswisconsin.org/candidate/kyle-cleary/) links it as \"Cleary for Assembly\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH25",
+   "name": "Christopher Able",
+   "website": {
+    "url": "https://www.able.vote/",
+    "how": "PBS Wisconsin's candidate page for Christopher Able, Assembly District 25 (pbswisconsin.org/candidate/christopher-able/) links it; its About Me page asks for support \"to be your Representative to the Wisconsin State Assembly\" and names the 25th Assembly District. The site itself calls him \"Chris\" and never prints his full name",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Alderman, District 3, City of Manitowoc",
+     "from": "2007",
+     "to": "2017",
+     "source": "his campaign site, About Me (\"Manitowoc's District 3 Alderman for 5 terms (2007 to 2017)\")",
+     "url": "https://www.able.vote/home/about-me",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH3",
+   "name": "Michael J. Goodwin"
+  },
+  {
+   "race_id": "2026-WI-SH33",
+   "name": "Steve Wicklund",
+   "website": {
+    "url": "https://wicklundforassembly.com/",
+    "how": "the site is titled \"Steve Wicklund for Wisconsin State Assembly, District 33\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Village President, Village of Union Grove",
+     "from": "2021",
+     "to": "present",
+     "source": "Channel 3000 (WISC-TV), 23 Feb 2026 (\"has served as Union Grove's village president since 2021\")",
+     "url": "https://www.channel3000.com/news/union-grove-village-president-launches-campaign-to-succeed-robin-vos/article_9bb27e51-e022-4ece-a5d7-4fa3b2449876.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Party Republican",
+    "url": "https://wicklundforassembly.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH38",
+   "name": "Terri Wenkman",
+   "website": {
+    "url": "https://www.voteterriwenkman.com",
+    "how": "the site is titled \"Terri Wenkman for WI Assembly\" and reads \"campaign for WI Assembly 38\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Jefferson School Board",
+     "from": null,
+     "to": null,
+     "source": "her campaign site (\"For over a decade, Terri has served on the Jefferson School Board\"); years not given",
+     "url": "https://www.voteterriwenkman.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH41",
+   "name": "Zach Commons"
+  },
+  {
+   "race_id": "2026-WI-SH46",
+   "name": "Joan Fitzgerald",
+   "website": {
+    "url": "https://www.joanfitzgeraldforassembly.com/",
+    "how": "the site is titled \"Joan Fitzgerald for Assembly\" and names the 46th Assembly District. It does not print the year 2026, and its footer still reads \"Copyright 2024\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH5",
+   "name": "Joy Goeben"
+  },
+  {
+   "race_id": "2026-WI-SH53",
+   "name": "Becky Nichols",
+   "website": {
+    "url": "https://www.beckynicholsforassembly.com/",
+    "how": "the site is titled \"Becky Nichols for Assembly | WI Assembly District 53\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Menasha City Council (Common Council)",
+     "from": "2013",
+     "to": null,
+     "source": "her campaign site (\"I ran for City Council in 2013\"; \"served 12 years on Menasha City Council\"); the end year is not stated",
+     "url": "https://www.beckynicholsforassembly.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Supervisor, Winnebago County Board",
+     "from": "2022",
+     "to": "2024",
+     "source": "her campaign site, About (\"In 2022, I was also elected to the Winnebago County Board\"; \"I served two years on the Winnebago County Board\")",
+     "url": "https://www.beckynicholsforassembly.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH57",
+   "name": "Joey Marschall",
+   "website": {
+    "url": "https://www.joey4wisconsin.com/",
+    "how": "the site's header reads \"Joey Marschall for Wisconsin's 57th District\" and \"Wisconsin 57th District Candidate\". Its browser title still says \"Joey Marschall for Congress ... Wisconsin's 6th District\", from an earlier campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH60",
+   "name": "Tiffany Brault",
+   "website": {
+    "url": "https://www.tiffanybraultforwi.com/",
+    "how": "the site is titled \"Tiffany Brault for Wisconsin State Assembly\"; its About page names her Fond du Lac city and county offices. The site does not print the district number",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Fond du Lac City Council",
+     "from": "2021",
+     "to": "present",
+     "source": "her campaign site, About (\"first elected to local office in 2021\"; \"elected to the Fond du Lac City Council\"; \"currently Council Vice President\")",
+     "url": "https://www.tiffanybraultforwi.com/about",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Supervisor, District 20, Fond du Lac County Board",
+     "from": "2022",
+     "to": "present",
+     "source": "her campaign site, About (\"In 2022, Tiffany was elected to represent District 20 on the Fond du Lac County Board\")",
+     "url": "https://www.tiffanybraultforwi.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Tiffany Brault, Independent.",
+    "url": "https://www.tiffanybraultforwi.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH65",
+   "name": "Ben DeSmidt",
+   "website": {
+    "url": "https://www.benforwisconsin.com/",
+    "how": "the site reads \"Ben DeSmidt for Assembly - District 65\" and \"the Wisconsin State Assembly\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH69",
+   "name": "Karen Hurd",
+   "website": {
+    "url": "https://www.karenhurdforassembly.com/",
+    "how": "the site reads \"Karen Hurd, Republican Candidate for Representative to the Wisconsin Assembly, 69th District\" and says she is running for a third term",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH72",
+   "name": "Scott Krug"
+  },
+  {
+   "race_id": "2026-WI-SH77",
+   "name": "Jane McCormick",
+   "website": {
+    "url": "https://www.janefordane.com/",
+    "how": "the site is titled \"Jane for Dane - Assembly 77\" and reads \"Wisconsin Assembly District 77, Meet Jane McCormick\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH80",
+   "name": "Simran Arora"
+  },
+  {
+   "race_id": "2026-WI-SH86",
+   "name": "Andy Wuethrich"
+  },
+  {
+   "race_id": "2026-WI-SH9",
+   "name": "Sam Guerrero",
+   "website": {
+    "url": "https://guerreroforwisconsin.com/",
+    "how": "the site is titled \"Sam Guerrero for Wisconsin State Assembly - Milwaukee\" and reads \"Candidate for WI State Assembly District 9\"; PBS Wisconsin's candidate page for Assembly District 9 links it",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH94",
+   "name": "Keith Purnell",
+   "website": {
+    "url": "https://www.keithpurnellassembly.com/",
+    "how": "the site is titled \"Keith Purnell for Assembly\" (\"Paid for by Keith Purnell For Assembly\") and names the University of Wisconsin-La Crosse; PBS Wisconsin's candidate page for Keith Purnell, Assembly District 94 (pbswisconsin.org/candidate/keith-purnell/) links it. The site itself does not print the district number",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH98",
+   "name": "Matt Philibert",
+   "website": {
+    "url": "https://www.mattphilibert.com/",
+    "how": "the site is titled \"Matt Philibert for Wisconsin State Assembly\" and reads \"Serving the people of District 98\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS13",
+   "name": "John Jagler",
+   "website": {
+    "url": "https://www.votejagler.com/",
+    "how": "the site reads \"State Senator John Jagler\" and \"make Wisconsin a better place\" (\"Paid for by Taxpayers for John Jagler\"). The page does not print the district number or the year",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS21",
+   "name": "Jim Croft",
+   "website": {
+    "url": "https://croftforsenate.com/",
+    "how": "the site is titled \"Jim Croft for Senate - Vote Nov. 3rd!\" and reads \"Jim Croft for State Senate\" and \"lifelong Wisconsinite\". The site does not print the district number; PBS Wisconsin's candidate page lists Jim Croft for Senate District 21",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS3",
+   "name": "Tim Carpenter",
+   "website": {
+    "url": "https://www.votetimcarpenter.com/",
+    "how": "the site is titled \"2026 Election | Tim Carpenter | Wisconsin\" and its About Tim page \"Tim Carpenter for State Senate\" (\"Paid for by Friends of Tim Carpenter\"). The site does not print the district number",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS9",
+   "name": "Amy Binsfeld",
+   "website": {
+    "url": "https://www.binsfeldforwi.com/",
+    "how": "the site is titled \"Binsfeld For WI\" and reads \"Elect Amy Binsfeld for Senate on November 3rd\" (\"Paid for by Binsfeld for Senate\")",
+    "verified": true
+   },
+   "born": {
+    "year": "1976",
+    "source": "Wikipedia, Amy Binsfeld",
+    "url": "https://en.wikipedia.org/wiki/Amy_Binsfeld",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member of the Wisconsin State Assembly, 27th district",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wisconsin Legislature, 2023 session page for Representative Amy E. Binsfeld, Assembly District 27 (\"Elected to Assembly 2022\"); the January 2025 end of her term is from Wikipedia's article on her",
+     "url": "https://docs.legis.wisconsin.gov/2023/legislators/assembly/2541",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Wisconsin State Assembly, 27th district, as a Republican (\"R - Sheboygan\")",
+     "year": "2023",
+     "party": "Republican",
+     "source": "Wisconsin Legislature, 2023 session page",
+     "url": "https://docs.legis.wisconsin.gov/2023/legislators/assembly/2541",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

@@ -1,0 +1,375 @@
+{
+ "part": 3,
+ "of": 9,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-WI-SH17",
+   "name": "Supreme Moore Omokunde",
+   "field": "website",
+   "url": "https://www.supremeforassembly.com/",
+   "why": "The page opens and names him and Assembly District 17, but it reads \"Vote Tuesday, November 8, 2022\": it is his 2022 campaign page, not a site for the 2026 race."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-WI-55021-sheriff",
+   "name": "Roger L. Brandner",
+   "official_page": {
+    "url": "https://www.co.columbia.wi.us/columbiacounty/sheriff/",
+    "source": "Columbia County Sheriff's Office home page (the county's own site), which names \"ROGER L. BRANDNER SHERIFF\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-55073-sheriff",
+   "name": "Chad D. Billeb",
+   "official_page": {
+    "url": "https://marathoncounty.gov/about-us/departments/sheriff-s-office",
+    "source": "Marathon County's own Sheriff's Office page, which lists \"Billeb, Chad\" as Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, Marathon County",
+     "from": "2023",
+     "to": "",
+     "source": "WAOW (news, 2023-01-03): \"Chad Billeb was sworn in as Marathon County's 52nd Sheriff on Tuesday.\"",
+     "url": "https://www.waow.com/news/chad-billeb-sworn-in-as-marathon-county-sheriff/article_81490cc4-8bc1-11ed-971f-733f08b36698.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-55127-sheriff",
+   "name": "Csaba Keller"
+  },
+  {
+   "race_id": "2026-WI-GOV",
+   "name": "Tom Tiffany / David Varnam",
+   "website": {
+    "url": "https://www.tomtiffany.com/",
+    "how": "The page title reads \"Tom Tiffany for Governor: Fighting for Wisconsin Families\" and the page says \"Join Tom Tiffany's Campaign for Governor today\".",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://tiffany.house.gov/about",
+    "source": "U.S. House of Representatives: \"Congressman Tom Tiffany represents the 7th Congressional District of Wisconsin.\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1957,
+    "source": "Wikipedia, \"Tom Tiffany\" (birth date given with a footnote in the opening paragraph; year only kept)",
+    "url": "https://en.wikipedia.org/wiki/Tom_Tiffany",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "U.S. Representative, Wisconsin's 7th Congressional District",
+     "from": "2020",
+     "to": "",
+     "source": "His House page: \"Rep. Tiffany was elected in May 2020 in a special election for the seat.\"",
+     "url": "https://tiffany.house.gov/about",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Wisconsin State Senator, 12th District",
+     "from": "2013",
+     "to": "2020",
+     "source": "Wikipedia, \"Tom Tiffany\" (infobox). His House page confirms the office without years: \"served in the Wisconsin State Assembly and State Senate for the 12th District\"",
+     "url": "https://en.wikipedia.org/wiki/Tom_Tiffany",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Wisconsin State Assembly, 35th District",
+     "from": "2011",
+     "to": "2013",
+     "source": "Wikipedia, \"Tom Tiffany\" (infobox). His House page confirms Assembly service without years",
+     "url": "https://en.wikipedia.org/wiki/Tom_Tiffany",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH13",
+   "name": "Amy Zimmerman",
+   "website": {
+    "url": "https://www.amyforwi.com/",
+    "how": "Titled \"Amy Zimmerman for Assembly\"; the home page reads \"I'm Amy Zimmerman, and I'm running to represent Wisconsin's 13th Assembly District.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH17",
+   "name": "Supreme Moore Omokunde"
+  },
+  {
+   "race_id": "2026-WI-SH21",
+   "name": "Daniel J. Bukiewicz",
+   "website": {
+    "url": "https://www.danbukiewicz.com/",
+    "how": "Titled \"Dan Bukiewicz for WI Assembly District 21 | Oak Creek, WI\"; footer \"(c) 2026 - Paid for by Dan Bukiewicz for Assembly\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Oak Creek",
+     "from": "2017",
+     "to": "",
+     "source": "His campaign's announcement of 2026-01-15 for the 21st Assembly District, published by Urban Milwaukee as a press release: \"Bukiewicz has served as the Mayor of Oak Creek since 2017\". His campaign site says he is \"currently serving his third term as Mayor\".",
+     "url": "https://urbanmilwaukee.com/pressrelease/dan-j-bukiewicz-announces-assembly-bid/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Alderman, City of Oak Creek (five terms; the page gives no years)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"served five terms as an Alderman\"",
+     "url": "https://www.danbukiewicz.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH25",
+   "name": "Paul Tittl"
+  },
+  {
+   "race_id": "2026-WI-SH3",
+   "name": "Ron Tusler",
+   "website": {
+    "url": "https://rontuslerforassembly.com/",
+    "how": "Titled \"Ron Tusler Wisconsin State Assembly\": \"I am running to be your state representative for Wisconsin's 3rd assembly district.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH34",
+   "name": "Merlin Van Buren",
+   "website": {
+    "url": "https://www.vanburen4wi.com/",
+    "how": "\"Welcome to the official campaign site of Merlin Van Buren for Wisconsin's 34th Assembly District.\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.rhinelander.k12.wi.us/district/school-board.cfm",
+    "source": "School District of Rhinelander's School Board page, which lists \"Van Buren, Merlin\", Board Member. WXPR's report of his 2026 Assembly campaign (2026-06-11) says he \"pointed to his years on the school board\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, School Board, School District of Rhinelander (the page gives no start year; current term ends April 2029)",
+     "from": "",
+     "to": "",
+     "source": "School District of Rhinelander, School Board page",
+     "url": "https://www.rhinelander.k12.wi.us/district/school-board.cfm",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for the Wisconsin State Assembly, 34th District (lost the general election to Rob Swearingen)",
+     "year": "2012",
+     "party": "Democratic",
+     "source": "Wikipedia, \"2012 Wisconsin State Assembly election\", district 34 row: \"Rob Swearingen (Rep.) 57.16%\", \"Merlin Van Buren (Dem.) 36.15%\". The run itself is also reported by WXPR (2026-06-11, https://www.wxpr.org/election/2026-06-11/democrat-merlin-van-buren-announces-campaign-for-34th-district-state-representative): \"Fourteen years ago, Merlin Van Buren ran for the 34th Assembly seat\"; that article does not give his 2012 party.",
+     "url": "https://en.wikipedia.org/wiki/2012_Wisconsin_State_Assembly_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH38",
+   "name": "William Penterman"
+  },
+  {
+   "race_id": "2026-WI-SH42",
+   "name": "Keith F. Miller"
+  },
+  {
+   "race_id": "2026-WI-SH46",
+   "name": "John Donohue"
+  },
+  {
+   "race_id": "2026-WI-SH5",
+   "name": "Justin Schumacher",
+   "website": {
+    "url": "https://www.justinschumacherforwisconsin.org/",
+    "how": "Titled \"Justin Schumacher for Wisconsin | Wisconsin Assembly District 5\"; the page's description calls him \"a candidate in the November 2026 election for the Wisconsin Assembly - District 5\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Town Chair, Town of Freedom (Outagamie County; the page gives no years)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site, which says he serves as \"Town Chair of Freedom\"",
+     "url": "https://www.justinschumacherforwisconsin.org/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH53",
+   "name": "David Daniels"
+  },
+  {
+   "race_id": "2026-WI-SH57",
+   "name": "Kevin Krentz",
+   "website": {
+    "url": "https://www.krentzforassembly.com/",
+    "how": "Titled \"Kevin Krentz for State Assembly\"; the page speaks of Wisconsin and of his service on the Aurora Town Board. The home page names no district number.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Aurora Town Board (Waushara County), ten years; Chairperson 2010-2014",
+     "from": "",
+     "to": "",
+     "source": "His campaign site: \"He was elected to the Aurora Town Board for 10 years, and also served as Chairperson between 2010-2014.\"",
+     "url": "https://www.krentzforassembly.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH61",
+   "name": "Ben Brist",
+   "website": {
+    "url": "https://www.bristforassembly.com/",
+    "how": "Titled \"Ben Brist for State Assembly | 61st District\".",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Ben Brist: Democrat for state assembly",
+    "url": "https://www.bristforassembly.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH65",
+   "name": "Valerie Kretchmer",
+   "website": {
+    "url": "https://vkretchmer4district65.com/",
+    "how": "Titled \"Valerie Kretchmer for District 65\": she \"has announced her candidacy for the Wisconsin State Assembly in District 65, representing parts of Kenosha and Pleasant Prairie\".",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Pleasant Prairie Parks Commission (the page gives no years)",
+     "from": "",
+     "to": "",
+     "source": "Her campaign site: \"She has been an active member of the Pleasant Prairie Parks Commission\"",
+     "url": "https://vkretchmer4district65.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SH69",
+   "name": "Roger Halls",
+   "website": {
+    "url": "https://hallsforwi.com/",
+    "how": "Titled \"Halls for WI\": \"I'm Roger Halls, and I'm running to give rural Wisconsin a real voice in Madison\" and \"I will fight for the 69th Assembly District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH73",
+   "name": "Angela Stroud",
+   "website": {
+    "url": "https://stroudforwisconsin.com/",
+    "how": "Titled \"Angela Stroud For Wisconsin - Assembly Candidate in Wisconsin's 73rd District\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH77",
+   "name": "Renuka Mayadev",
+   "website": {
+    "url": "https://mayadevforwi.com/",
+    "how": "Titled \"Renuka Mayadev\": \"I am honored to be the State Representative for Assembly District 77.\" The page has donate, volunteer and endorsement links; it speaks of the 2024 election and of a majority in 2027, and does not name the 2026 election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH81",
+   "name": "Alex Joers",
+   "website": {
+    "url": "https://www.alexforwi.com/",
+    "how": "Titled \"Home | Alex Joers for Wisconsin\": \"Alex Joers was elected to the Wisconsin State Assembly in 2022.\" and \"He proudly serves the residents of District 81.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH86",
+   "name": "John Spiros"
+  },
+  {
+   "race_id": "2026-WI-SH90",
+   "name": "Amaad Rivera-Wagner",
+   "website": {
+    "url": "https://www.amaadforgb.com/",
+    "how": "Titled \"Amaad Rivera Wagner for Assembly\": \"Re-Elect Amaad Rivera-Wagner to the Assembly\"; the page's description reads \"Re-elect State Rep. Amaad Rivera-Wagner for the 90th District.\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH94",
+   "name": "Steve Doyle",
+   "website": {
+    "url": "https://www.doyleforassembly.com",
+    "how": "Titled \"Doyle for Assembly\": \"Reelect Steve Doyle\", with a page called \"The 94th Map\"; the page's description reads \"Steve Doyle represents Wisconsin Assembly District 94\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SH99",
+   "name": "Barbara Dittrich"
+  },
+  {
+   "race_id": "2026-WI-SS13",
+   "name": "Sasha Ripley",
+   "website": {
+    "url": "https://www.ripleyforwisconsin.com/",
+    "how": "Titled \"Sasha Ripley for Wisconsin - Candidate for Wisconsin's 13th Senate District\": \"I am running for Wisconsin State Senate\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WI-SS21",
+   "name": "Trevor Jung",
+   "offices": [
+    {
+     "office": "Member, Racine Common Council (the article gives no years)",
+     "from": "",
+     "to": "",
+     "source": "Wisconsin Examiner (2025-09-18), reporting his run for state Senate District 21: \"He previously served as the youngest member of the Racine Common Council\"",
+     "url": "https://wisconsinexaminer.com/2025/09/18/racine-transit-director-trevor-jung-is-running-for-state-senate-seat-targeted-by-democrats/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WI-SS31",
+   "name": "Jeff Smith"
+  },
+  {
+   "race_id": "2026-WI-SS9",
+   "name": "Christian Ellis"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "2026-WI-GOV": {
+  "polymarket": "wisconsin-governor-winner-2026",
+  "kalshi": "GOVPARTYWI-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Wisconsin Governor Election Winner\" and resolves on the winner of the 2026 Wisconsin gubernatorial election; its two open outcomes are David Crowley (D) and Tom Tiffany (R). It also carries eleven placeholder outcomes (Option A to Option J, and Other) that are not active and have no price. Kalshi's event is titled \"Wisconsin Governor winner?\" (In 2026); its two markets are by party, labelled David Crowley and Tom Tiffany, and its rule turns on which party's representative is inaugurated. Both name the candidates for governor without their running mates. The lieutenant governor is elected on the same vote, so 2026-WI-LTG has no market of its own. Left out on purpose: Polymarket's margin-of-victory and turnout events and its \"Closest Governor's Race?\" event, and Kalshi's primary, nomination and recount series (KXWIDGOV2ND, KXGOVWINOMR, KXAPCALLWIGOVD, KXWIDGOVRECOUNT), which were about August."
+ },
+ "2026-WI-AG": {
+  "polymarket": "wisconsin-attorney-general-election-winner-2026",
+  "kalshi": "KXATTYGENWI-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Polymarket's event is titled \"Wisconsin Attorney General Election Winner\" and resolves on the party of the candidate who wins the election of November 3, 2026; Kalshi's is \"Wisconsin Attorney General winner?\" (In 2026), also by party (who is sworn in for the term beginning in 2027). Both label the outcomes Josh Kaul and Eric Toney, the two on our list. Polymarket's is very lightly traded (about $1,300 when checked) and carries three placeholder outcomes (Person A, Person B, Other) that are not active yet report a price of 0.5, as Minnesota's does. Kalshi's had about 24,000 contracts traded."
+ },
+ "2026-WI-SOS": {
+  "polymarket": "wisconsin-secretary-of-state-election-winner-2026",
+  "kalshi": "KXSECSTATEWI-26",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Polymarket's event is titled \"Wisconsin Secretary of State Election Winner\" and resolves on the party of the winner of the election of November 3, 2026; Kalshi's is \"Wisconsin Secretary of State winner?\" (In 2026), also by party. Both label the outcomes JoCasta Zamarripa and Jay Schroeder; neither offers Pete Karas of the Wisconsin Green Party, the third name on our list (Polymarket has an inactive \"Other\"). Both are barely traded: about $1,000 on Polymarket, whose two prices added to 96 cents, and about 2,800 contracts on Kalshi when checked. Polymarket's three placeholder outcomes (Person A, Person B, Other) are not active yet report 0.5. Ask John before showing markets this thin. Kalshi's KXWISOSNOMR series was about the Republican primary and is left out."
+ },
+ "2026-WI-TREAS": {
+  "polymarket": null,
+  "kalshi": "KXWITREASURER-26NOV03",
+  "checked": "2026-10-02",
+  "note": "State Treasurer. Kalshi's event is titled \"Wisconsin State Treasurer winner?\" (in 2026), one market per candidate: John S. Leiber and Yee Leng Xiong, the two on our list. It opened September 10, 2026 and is lightly traded (about 4,700 contracts when checked). Polymarket lists no market for this race (its search and two likely slugs, 2026-10-02)."
+ },
+ "_none": {
+  "checked": "2026-10-02",
+  "note": "Not a race; odds.py passes over it. No market was found for any Wisconsin county office on the November ballot (sheriff, clerk of circuit court, coroner), the two municipal judge contests, or a single legislative seat: Kalshi's list of election series names none and Polymarket's search returns none. Polymarket's \"Which party will win the Wisconsin State Senate in 2026?\" is about control of the chamber, not a race on anyone's ballot, and is left out."
+ }
+}
