@@ -536,7 +536,7 @@ window.GEOKIT = (function () {
     const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.mn || dataName("mcd", z.m), "mcd", z.m),
       z.mo ? row("", (z.mon || dataName("mcd", z.mo)) + ` (${z.mn || dataName("mcd", z.m)} lies inside it: you are a voter of both)`, "mcd", z.mo) : "",
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
-      z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
+      z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", (d => /^\d/.test(d) ? "District " + d : d)(z.com.split("|")[1] || z.com), "com", z.com) : "",      // "District 3" where the files number it; their own words where they name it ("District 3" already, "Precinct 2")
       ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (${shares[n] ? "about " + shares[n] : "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
       row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
       row(esc(KW.judicial[1]), z.jd ? (z.jdn || dataName("judicial", z.jd)) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
