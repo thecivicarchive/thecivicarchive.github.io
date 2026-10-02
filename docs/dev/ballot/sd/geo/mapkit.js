@@ -303,7 +303,10 @@ function BallotMap(el, opt) {
         if (layer === "school") { const all = (p.school || []).concat(p.school_edge || []);
           if (all.length === 1 && !p.school_out) id = all[0];
           else for (const i of all) { const sf = files[schoolPath(i)]; if (sf && MNGeo.inside(sf, sf.objects.school.geometries[0], lon, lat)) { id = i; break; } } }
-        else { const v = p[layer]; id = Array.isArray(v) ? (v[0] == null ? null : v[0]) : (v == null ? null : v); } }
+        else { const v = p[layer]; id = Array.isArray(v) ? (v[0] == null ? null : v[0]) : (v == null ? null : v);
+          // a precinct that reaches more than one place (a village inside its township): the layer's own shapes answer for the spot, where they are at hand
+          const all = layer === "mcd" && !p.city ? p.mcd_all : null, lf = all && all.length > 1 ? files[(LAYER.mcd || {}).file] : null;
+          if (lf) { const hh = MNGeo.shapeAt(lf, "mcd", lon, lat); if (hh && all.indexOf(hh.geometry.id) >= 0) id = hh.geometry.id; } } }
     } else if (P.lf) { const h = MNGeo.shapeAt(P.lf, layer, lon, lat); if (h) id = h.geometry.id; }
     else return {kind: layer, id: null, loading: true, lon, lat};      // the lines for this view are still on their way
     return {kind: layer, id, name: id == null ? "" : nameOf(layer, id), lon, lat, precinct: precinct ? {id: precinct.id, name: precinct.properties.name} : null};
@@ -531,6 +534,7 @@ window.GEOKIT = (function () {
       p.map((v, i) => [v - out[i], i]).sort((a, b) => b[0] - a[0] || a[1] - b[1]).forEach(([, i]) => { if (spare > 0) { out[i]++; spare--; } });
       return out; })();
     const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.mn || dataName("mcd", z.m), "mcd", z.m),
+      z.mo ? row("", (z.mon || dataName("mcd", z.mo)) + ` (${z.mn || dataName("mcd", z.m)} lies inside it: you are a voter of both)`, "mcd", z.mo) : "",
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
       ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (${shares[n] ? "about " + shares[n] : "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
@@ -593,8 +597,14 @@ window.GEOKIT = (function () {
   function findEntries(kind) {      // [[what a reader types, the shape's id]]
     const out = [];
     if (kind === "county") Object.keys(D.counties).forEach(f => out.push([cName(f), gk(f)]));
-    else if (kind === "mcd") Object.entries(D.places.M || {}).forEach(([k, P]) => out.push([`${P.n}${(P.c || []).length ? ` (${P.c.map(cShort).join(", ")})` : ""}`, k]));
-    else if (kind === "school") Object.entries(D.places.S || {}).forEach(([k, P]) => out.push([P.n, P.g || k]));
+    else if (kind === "mcd" || kind === "school") {
+      // the places the lists name, each under the map's own id for it (the page may file it under a shorter key); then every other
+      // place the map draws, so that one with no contest on the lists loaded so far can still be found
+      const got = map && map.entries(kind), ids = new Set((got || []).map(x => x[0])), seen = new Set(), L = kind === "mcd" ? "M" : "S";
+      Object.entries(D.places[L] || {}).forEach(([k, P]) => { const long = `${ST.code}-${L}-${k}`, id = P.g || GID[L + k] || (ids.has(long) && !ids.has(k) ? long : k);
+        seen.add(id); out.push([kind === "mcd" ? `${P.n}${(P.c || []).length ? ` (${P.c.map(cShort).join(", ")})` : ""}` : P.n, id]); });
+      (got || []).forEach(([id, name]) => { if (!seen.has(id) && name) out.push([name, id]); });
+    }
     else if (kind === "house") D.hds.forEach(d => out.push([`${ST.loD} ${d}`, d]));
     else if (kind === "senate") D.sds.forEach(d => out.push([`${ST.upD} ${d}`, d]));
     else { const got = map && map.entries(kind);
@@ -605,8 +615,9 @@ window.GEOKIT = (function () {
   let found = [];
   function fillFind(force) {
     const inp = $("#gfind"), dl = $("#gfindlist"); if (!inp || !dl || !map) return;
-    const k = map.layer(); if (listed === k && !force) return;
-    listed = k; found = findEntries(k);
+    const k = map.layer(), key = k + (map.entries(k) ? "+" : "");      // listed again once the layer's own file has come
+    if (listed === key && !force) return;
+    listed = key; found = findEntries(k);
     dl.innerHTML = found.map(([label]) => `<option value="${esc(label)}"></option>`).join("");
   }
   function setLayer(kind, quiet) {
@@ -653,7 +664,11 @@ window.GEOKIT = (function () {
       if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
     const gone = Object.keys(p).find(k => /^listed_\d{4}$/.test(k) && p[k] === false);      // the files say the state's list of that year no longer carries this piece
     const jdn = nm("judicial", p.judicial);      // the files' own name for the court's district, where they give one
-    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {})};
+    // a place that lies inside another, where the files say a voter of the one is a voter of the other too (a village in its township,
+    // BOOT.geo.within): the spot's own place is the inner one, and the precinct's the one around it
+    const W = (BOOT.geo || {}).within, kindOf = t => (/\b(\w+)$/.exec(String(t || "")) || ["", ""])[1].toLowerCase();
+    const mo = W && r.mcd && r.mcd !== p.mcd && (p.mcd_all || []).includes(p.mcd) && kindOf(r.mcdName || nm("mcd", r.mcd)) === W[0] && kindOf(nm("mcd", p.mcd)) === W[1] ? p.mcd : "";
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {})};
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
