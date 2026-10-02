@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>On The Ballot: California · The Civic Archive</title>
 <meta name="description" content="Every state race on California's November 3, 2026 ballot, from the California Secretary of State's official candidate lists: statewide offices, the Legislature and judges.">
-<meta name="version" content="4.0.088">
+<meta name="version" content="4.0.090">
 <meta name="theme-color" content="#0C0E12">
 <link rel="icon" href="../../us/icon-192.png" type="image/png">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";var mo=localStorage.getItem("motion");if(mo==="off"||(!mo&&matchMedia("(prefers-reduced-motion: reduce)").matches))document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
@@ -1551,15 +1551,48 @@ html,body{overflow-x:hidden}
 .filterbar{margin-top:14px}
 .filterbar input{box-sizing:border-box;height:44px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);padding:0 16px;font:500 14.5px var(--sans);width:min(440px,100%)}
 .filterbar input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* a race's cards (John, 2026-10-02): the Congress pages' card, with its controls. A card here can hold more words than one for
+   Congress (a long office, a link to a record), so that card's size is its least height and it grows with what it holds; every card
+   is then made as tall as the tallest (--ch, set by evenCards). The controls and the flag share a row of their own above the
+   portrait and never cover it; where they do not fit side by side the flag goes under the controls. */
 .st .acards{align-items:stretch}
 .st .vs{align-self:center}
-.st .bcard{aspect-ratio:auto;min-height:clamp(250px,30vw,300px)}
+.st .bcard{aspect-ratio:auto;min-height:max(var(--ch,0px),calc(clamp(148px,22vw,220px)*1.44));--hatch:repeating-linear-gradient(135deg,color-mix(in srgb,var(--pc) 9%,transparent) 0 7px,transparent 7px 14px)}
+.st .bcard.solo{min-height:max(var(--ch,0px),calc(clamp(170px,26vw,240px)*1.44))}
 .st .bcard .band span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st .bcard .hatch{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--hatch)}
+.st .bcard .hatch .mono{background:none;padding:2px 0 8px}
+.st .bcard .crow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:5px 6px 4px}
+.st .bcard .crow .ctl{position:static;transform:none}
+.st .bcard .crow .flag{position:static;margin-left:auto;letter-spacing:.04em;padding:4px 6px}      /* "In this seat today" beside the three controls on a card of full width */
 .st .bcard .who{display:block}      /* the record side's stylesheet lays its own .who out as a grid of 240px columns, wider than a card */
 .st .bcard .who b{overflow-wrap:anywhere}
 .st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 .st .bcard.np .mono span{border-style:dashed}
-@media (max-width:640px){.st .bcard{min-height:0}}
+.st.unopp .vs,.st .acards:not([data-n="2"]) .vs{display:none}      /* elected without a vote: nobody stands against anybody. And "vs" stands between two, as on these pages before: a contest here can fill several seats (a school board, justices of the peace), where a chain of "vs" would say what is not so */
+.st.unopp .acards .bcard,:root.calm .st .acards .bcard{transform:none}      /* ... and with Motion off the cards stand straight */
+.st .aopen{max-width:100%;height:auto;min-height:44px;padding:6px 20px}.st .aopen svg{flex:none}      /* on a narrow screen its words go onto two lines; they are never cut off */
+.st .aopen[hidden]{display:none}      /* nothing to compare beyond the cards */
+/* the comparison (the Congress pages' frame): a sentence at the head of a section, row names that may wrap, and columns that keep a
+   width a person can read however many candidates there are. The table then slides sideways inside its box, and what says where a
+   reader is stays in view while it does: the bar, each section's name and sentence, and the names of the rows. */
+.st .cmp{container-type:inline-size}
+.st .cmp .cmpbar,.st .cmp .gbtn,.st .cmp .gnote p{position:sticky;left:0;max-width:100cqw}
+.st .cmp .gnote p{margin:0;left:12px;max-width:min(92ch,calc(100cqw - 24px));color:var(--muted);font-size:13px;line-height:1.5}
+.st .cmp tbody th[scope="row"]{white-space:normal;width:150px;min-width:108px}
+.st .cmp tbody th[scope="row"],.st .cmp thead th:first-child{position:sticky;left:0;z-index:1;background:var(--surface)}
+.st .cmp tbody th[scope="row"]{box-shadow:inset 0 -1px 0 var(--line)}      /* its own rule under it: a cell that stays put loses the table's */
+.st .cmp thead th:not(:first-child){min-width:150px}
+.st .cmp td{overflow-wrap:anywhere}
+@media (max-width:640px){      /* a phone: the card lies on its side as the Congress pages' does; its controls keep a row of their own under the band, large enough for a thumb */
+  .st .acards{align-items:center}
+  .st .bcard,.st .bcard.solo{min-height:0}
+  .st .bcard .hatch{display:contents}
+  .st .bcard .hatch .mono{background:var(--hatch);padding:0}
+  .st .bcard .mono .ph{width:58px}      /* a portrait as large as the initials it replaces */
+  .st .bcard .crow{width:100%;box-sizing:border-box;padding:6px 9px;border-bottom:1px solid var(--line)}
+  .st .crow .ctl button,.st .cmp .colctl button{width:30px;height:30px;font-size:16px}
+  .st .cmp tbody th[scope="row"]{width:96px;min-width:84px}.st .cmp thead th:not(:first-child){min-width:136px}}
 .loading{padding:60px 0;text-align:center}
 .lanes .lane .nm a{color:inherit}
 .dist-counties{font-size:12.5px;color:var(--muted);margin:2px 0 0}
@@ -1638,7 +1671,7 @@ details.lmore summary:focus-visible{outline:2px solid var(--accent);outline-offs
 </header>
 <main id="app" class="bwrap" tabindex="-1"><p class="loading muted">Loading the candidate lists&hellip;</p></main>
 <footer class="bwrap bfoot">
-  <p>On The Ballot, from The Civic Archive v4.0.088. California's state candidates come only from the California Secretary of State's official lists. Only the name, office and party each candidate filed under are shown; addresses and contact details in those files are never read. No photos, no money, no scores or ratings of any person. Built October 02, 2026.</p>
+  <p>On The Ballot, from The Civic Archive v4.0.090. California's state candidates come only from the California Secretary of State's official lists. Only the name, office and party each candidate filed under are shown; addresses and contact details in those files are never read. No photos, no money, no scores or ratings of any person. Built October 02, 2026.</p>
   <p><a href="../">On The Ballot: every level</a> &middot; <a href="../us/">Congress</a> &middot; <a href="../states/">Every state loaded</a> &middot; <a href="../../">The Civic Archive front door</a> &middot; <a href="../../ca/">California&rsquo;s Legislature on the record side</a></p>
 </footer>
 <div class="cl" id="cl" hidden>
@@ -1646,7 +1679,7 @@ details.lmore summary:focus-visible{outline:2px solid var(--accent);outline-offs
   <div class="cl-panel" id="clpanel" hidden><div class="cl-head"><b>What&rsquo;s changed</b><button class="cl-x" id="clx" aria-label="Close">&times;</button></div><div class="cl-body" id="clbody"></div></div>
 </div>
 <script>
-const BOOT = {"data":"data/ca.json?v=30259f1afc","lines":"data/districts.json?v=a8d4363be8","changelog":[{"version":"4.0.088","date":"2026-10-02","title":"Michigan gets the same treatment","items":["Michigan's ballot page now has the real map, drawn on the Bureau of Elections' own 2026 precinct lines, with the districts each precinct sits in (county, city or township and village, ward, county commission district, House, Senate, Congress, district and circuit court, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot; a reader in a village gets the township's contests too.","Michigan's candidates for Governor, the other statewide offices and boards, the Supreme Court, the Legislature, the courts, and the cities and school boards of the nine counties loaded so far show what the record holds: 303 have an official government page, 184 a campaign website of their own, offices held (421, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": endorsements only from party pages that themselves say \"endorsed\"; earlier runs under a party label; the candidate's own words. Michigan's Supreme Court justices are nominated at party conventions and printed without a party, so a convention nomination is shown too, in its own words and apart from endorsements.","How each place voted, from the Bureau of Elections' precinct results: 2024 for 81 of 83 counties, 1,466 cities and townships and 37 House districts; 2020 for 73 counties; 2022 for 15. A county is shown for an election only where its precincts add up exactly to the Bureau's own county total; where they do not, the county is left out for that election and listed with both figures. Nothing is adjusted to fit.","The Governor's race has its polls (Marist, Emerson, SSRS, Michigan State University) and prediction-market prices as tabs; Attorney General and Secretary of State have market prices. A market row for someone who is not on the November ballot is not drawn, and the tab says so.","Only nine counties' local lists are loaded (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw, Muskegon); elsewhere the page says the list is not loaded. Michigan publishes no statewide polling-place file, so the map points to the state's own finder.","A name on Ingham County's list that our reader had cut short at a letter outside the English alphabet is now read whole."]},{"version":"4.0.087","date":"2026-10-02","title":"Ohio gets the same treatment","items":["Ohio's ballot page now has the real map: 9,104 precinct pieces with the districts they sit in (county, city or township, House, Senate, Congress on the 2026 lines, court of appeals district, school district, and council districts and wards where a county or city has them), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.","Ohio's candidates for Governor, the other statewide offices, the Supreme Court, the Legislature, the courts and the county offices loaded so far show what the record holds: 97 have an official government page, 74 a campaign website of their own, offices held (240, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": endorsements only from party pages that themselves say \"endorsed\" (a party's slate card or sample ballot is not counted as one), earlier runs under a party label, the candidate's own words, and how each county and 185 cities voted in 2020, 2022 and 2024, from the Secretary of State's official canvass. Ohio's judges are nominated in party primaries and printed without a party in November; the page labels no one.","The Governor's race has its polls (Marist, Emerson twice) and prediction-market prices as tabs; Secretary of State and one Supreme Court seat have market prices too.","Only 23 of Ohio's 88 counties have their county and court races loaded, and 38 legislative seats have no November list yet; the page says \"list not loaded\" there, never \"no candidate\". Ohio rotates the order of names from precinct to precinct, so no ballot order is shown. Polling places stay off the map until the Secretary of State's list is matched to every precinct.","Statewide court seats in every finished state now get the same polls and markets tabs as the other statewide races, and South Dakota's map now says its precinct lines are from 2020.","\"Earlier, under a party label\" now needs the label on the record itself: a party's primary or nomination, a ballot that printed the party, a seat in a body whose members sit by party, or an appointment by a party's committee. A news article describing someone as a Democrat or a Republican does not count; two such entries (one in Ohio, one in Minnesota) were taken out."]},{"version":"4.0.086","date":"2026-10-02","title":"South Dakota gets the same treatment","items":["South Dakota's ballot page now has the real map: its 835 precincts with the districts they sit in (county, city or township, House, Senate, Congress, judicial circuit, conservation and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot.","South Dakota's candidates for Governor, the other statewide offices, the Legislature and the county offices show what the record holds: 182 have an official government page, 100 a campaign website of their own, offices held (116, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": earlier runs under a party label, the candidate's own words, and how each county voted in 2020, 2022 and 2024 from the State Board of Canvassers' certified canvass. A legislative district's past votes are shown only where its precincts add up exactly to that canvass; where they cannot be added up they are left out, never estimated.","No pollster that publishes its methods has polled a South Dakota state race this year, and the page says so. The Governor's race has prediction-market prices as a tab. Polling places stay off the map until the Secretary of State's list is matched to every precinct.","A candidate's page on a political party's own website is no longer shown as their campaign website, and no photo is taken from one. Eight North Dakota candidates whose only page is on their party's site now show no website; the party's endorsement of them is still shown where the party published one."]},{"version":"4.0.085","date":"2026-10-02","title":"North Dakota gets the same treatment","items":["North Dakota's ballot page now has the real map: its 358 precincts with the districts they sit in (county, city or township, ward, commissioner district, legislative district, judicial district, soil conservation, park and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot.","North Dakota's candidates for the statewide offices, the Legislature, the courts and every county office show what the record holds: 226 have an official government page, with offices held (168) taken mostly from those pages, campaign websites where there is one, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": the Democratic-NPL's and one Republican district's published endorsements, earlier runs under a party label, and how each county and legislative district voted in 2020, 2022 and 2024, from the Secretary of State's precinct results. County offices are nonpartisan here, and the page labels no one.","No pollster has published a poll on any North Dakota state race this year, and the page says so. Polling places stay off the map until the Secretary of State's list is matched to every precinct."]},{"version":"4.0.084","date":"2026-10-02","title":"Take a break, and \"Insights on my location\"","items":["Every page now has a small \"Take a break\" in its header. It leads to the cabin: a quiet log room with a fire and the Rocky Mountains outside the window. When you are ready, a glowing \"Back to where you were\" sign, or the cabin's own door, takes you straight back to the exact page you left.","Every ballot page has \"Insights on my location\" fixed at the top. One click asks your device for your location, works out your state on the device, and lands you on that state's ballot page with a pin on the map, every district you are in, and the contests on your own ballot. Your location is never sent anywhere. If you would rather not share it, the page says so plainly and offers the list of states."]},{"version":"4.0.083","date":"2026-10-02","title":"Iowa gets the same treatment","items":["Iowa's ballot page now has the real map: all 1,660 precincts with the districts they sit in (county, township or city, supervisor district, House, Senate, Congress, judicial, soil and water, hospital and school districts), drag and pinch, zoom to a street, and streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot, township races included.","Iowa's candidates for Governor, the other statewide offices, the Legislature and the county offices loaded so far show their campaign websites (120), issue headings from their own sites, offices held, and photos where one was plainly the candidate's own portrait, each with where it comes from.","\"The record, not a label\" for Iowa: earlier runs under a party label, the candidate's own words, and how each county, township and district voted in 2020, 2022 and 2024, from the Secretary of State's precinct results. Iowa's parties publish nominee lists rather than endorsements, so that part of the record is mostly empty here, and the page says nothing in its place.","The Governor's race has its polls (Marist, Emerson) and prediction-market prices as tabs; the Secretary of State and Agriculture races have a poll each.","Only eleven counties' local lists are loaded so far; cities and school boards voted in 2025. The state's polling-place layer is from 2024, so polling places stay off the map until a current list is confirmed."]}],"links":{"state":true,"county_page":false,"us":true},"st":{"code":"CA","lc":"ca","name":"California","agency":"California Secretary of State","lister":"Secretary of State","who":"Secretary of State&rsquo;s","fromWho":"the California Secretary of State&rsquo;s","partial":false,"noGeneral":false,"notice":"","one":false,"up":"Senate","lo":"Assembly","upT":"State Senate","loT":"State Assembly","upD":"Senate District","loD":"Assembly District","upAbbr":"SD","loAbbr":"AD","prim":"","local":false,"nest":false,"multi":{"upper":false,"lower":false},"zoom":"Los Angeles, San Francisco Bay, San Diego and Sacramento","dOne":"a Democrat","dMany":"Democrats","off":{"upper":20,"lower":0},"congress":"California&rsquo;s 52 U.S. House races are at the top of the same ballot. <a href=\"../us/#state=CA\">See them on the Congress pages<\/a>.","congressShort":"the U.S. House races","courts":["the Supreme Court","the Court of Appeals"],"unit":"race","legNote":"Senators serve four-year terms, and the even-numbered districts are up this year.","linesNote":"","fips":"06","orderNote":"The lists read here give no ballot order.","localElse":"Loaded for 34 states so far.","localN":34,"primLine":"","primLeg":"","noVotes":"Vote counts for this primary are not loaded here. Who went on to November is read from the Secretary of State&rsquo;s list for the general election; everyone who ran comes from the primary&rsquo;s own list.","methods":[["lists","<b>Who is running<\/b> comes only from the California Secretary of State&rsquo;s own lists of candidates for the November 3 general election, and the official primary results; each file is named below, with where it was read. The U.S. Senate and House races are on the Congress pages. County and local races are not loaded for California yet; they are loaded for 34 states so far, shown on <a href=\"../states/#local\">the states page<\/a>."],["lists","<b>What is read.<\/b> From those lists this site reads only the office, the district, the candidate&rsquo;s name, the party, the ballot order where the list gives one, and the primary vote counts. Addresses, phone numbers, e-mail and websites, where a list carries them, are never read, kept or shown. No photos, ages, biographies or campaign money are shown for state candidates."],["lists","<b>Parties.<\/b> Offices elected on party lines show the party each candidate filed under, written out. Judges and the Superintendent of Public Instruction are on the nonpartisan ballot; the page says so instead of a party."],["lists","<b>Order.<\/b> The lists read here give no ballot order. Candidates appear by surname. Never by money, polls or party."],["holders","<b>Who holds a seat today<\/b> (the Legislature and the statewide offices the roster carries) comes from the Open States roster the record side of this site uses. A candidate matched to a sitting legislator by district and name, one fit only, links to their record page and nothing more."],["maps","<b>Maps and &ldquo;use my location&rdquo;.<\/b> District lines are the Census Bureau&rsquo;s cartographic boundary files (2024 Census Bureau cartographic boundary files), the lines the state pages draw; your county&rsquo;s sample ballot is the authority on your district. Your location is worked out on your own device and never sent anywhere; a rounded copy (about half a mile) is kept on the device, with your choices, until you tap &ldquo;Forget&rdquo;."],["page","<b>Nobody is scored or graded.<\/b> The cards show the record; the judging is yours."]],"upSeg":"Senate districts","loSeg":"Assembly districts"}};
+const BOOT = {"data":"data/ca.json?v=30259f1afc","lines":"data/districts.json?v=a8d4363be8","changelog":[{"version":"4.0.090","date":"2026-10-02","title":"Missouri gets the same treatment","items":["Missouri's ballot page now has the real map: 5,462 precinct pieces with the districts they sit in (county, city or township, ward, House, Senate, Congress, judicial circuit, court of appeals district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.","Missouri's candidates for State Auditor, the Legislature, the courts and the county offices loaded so far show what the record holds: 111 have a campaign website of their own, 69 an official government page, offices held (154), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","A judge standing for retention is now shown as what it is, in every state: one name and a yes-or-no question, with no \"vs\" and no controls.","How each place voted, by county: President, Senator and Governor in 2024, Senator in 2022, President and Governor in 2020, from the Secretary of State's county results, for all 115 counties and St. Louis city. Missouri sells its precinct results and publishes none, so there are no figures for cities or townships, and the page says so.","\"In office now\" on a card is filled in more often, in every finished state: 127 sitting officeholders whose own government page gives the office with a start and no end (Missouri's State Auditor, county commissioners, judges, school board members) now show it. Where a page leaves any doubt about which office is still held, the card stays blank.","Missouri elects no governor this year; State Auditor is the only statewide office, and no pollster that publishes its methods has polled it. Only 13 of Missouri's 116 election authorities have local lists loaded; elsewhere the page says \"not loaded yet\". Polling places stay off the map; the page points to the state's own finder."]},{"version":"4.0.089","date":"2026-10-02","title":"State and local races get the Congress cards","items":["Every state and local race page (Governor and the other statewide offices, the Legislature, judges, county, city, township and school races, in every state) now has the same cards as the Congress race pages: the same card with its slight tilt and \"vs\" when two people face each other, and the same controls on each card: move it earlier or later, hide it, or drag it, with \"Put back the official order\" beneath. The arrangement is yours alone and stays on your device; the list's own order never changes, and the page ranks no one.","\"Step into the arena: compare them side by side\" opens the same kind of table the Congress pages have: one column a candidate (the columns move and hide with the cards), and sections that open on a click and start closed: On the ballot; Who they are; The record, not a label; In office. It replaces the \"Who they are\" boxes and carries everything they held, with the same source lines and links. State and local pages show no campaign money, so there is no money section.","Where voters choose several people (a school board, two Supreme Court seats) there is no \"vs\" between the names. A race with one name has no move or hide controls. A township or small district race gets the comparison only when a candidate filed a campaign website.","\"Forget my location and choices\" now also clears any card arrangement you made.","The comparison's \"On the ballot\" section shows the note the list keeps about a candidate, such as \"standing for retention as the sitting judge\" or \"unopposed: declared elected without a vote\", as the Congress pages do."]},{"version":"4.0.088","date":"2026-10-02","title":"Michigan gets the same treatment","items":["Michigan's ballot page now has the real map, drawn on the Bureau of Elections' own 2026 precinct lines, with the districts each precinct sits in (county, city or township and village, ward, county commission district, House, Senate, Congress, district and circuit court, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot; a reader in a village gets the township's contests too.","Michigan's candidates for Governor, the other statewide offices and boards, the Supreme Court, the Legislature, the courts, and the cities and school boards of the nine counties loaded so far show what the record holds: 303 have an official government page, 184 a campaign website of their own, offices held (421, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": endorsements only from party pages that themselves say \"endorsed\"; earlier runs under a party label; the candidate's own words. Michigan's Supreme Court justices are nominated at party conventions and printed without a party, so a convention nomination is shown too, in its own words and apart from endorsements.","How each place voted, from the Bureau of Elections' precinct results: 2024 for 81 of 83 counties, 1,466 cities and townships and 37 House districts; 2020 for 73 counties; 2022 for 15. A county is shown for an election only where its precincts add up exactly to the Bureau's own county total; where they do not, the county is left out for that election and listed with both figures. Nothing is adjusted to fit.","The Governor's race has its polls (Marist, Emerson, SSRS, Michigan State University) and prediction-market prices as tabs; Attorney General and Secretary of State have market prices. A market row for someone who is not on the November ballot is not drawn, and the tab says so.","Only nine counties' local lists are loaded (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw, Muskegon); elsewhere the page says the list is not loaded. Michigan publishes no statewide polling-place file, so the map points to the state's own finder.","A name on Ingham County's list that our reader had cut short at a letter outside the English alphabet is now read whole."]},{"version":"4.0.087","date":"2026-10-02","title":"Ohio gets the same treatment","items":["Ohio's ballot page now has the real map: 9,104 precinct pieces with the districts they sit in (county, city or township, House, Senate, Congress on the 2026 lines, court of appeals district, school district, and council districts and wards where a county or city has them), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.","Ohio's candidates for Governor, the other statewide offices, the Supreme Court, the Legislature, the courts and the county offices loaded so far show what the record holds: 97 have an official government page, 74 a campaign website of their own, offices held (240, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": endorsements only from party pages that themselves say \"endorsed\" (a party's slate card or sample ballot is not counted as one), earlier runs under a party label, the candidate's own words, and how each county and 185 cities voted in 2020, 2022 and 2024, from the Secretary of State's official canvass. Ohio's judges are nominated in party primaries and printed without a party in November; the page labels no one.","The Governor's race has its polls (Marist, Emerson twice) and prediction-market prices as tabs; Secretary of State and one Supreme Court seat have market prices too.","Only 23 of Ohio's 88 counties have their county and court races loaded, and 38 legislative seats have no November list yet; the page says \"list not loaded\" there, never \"no candidate\". Ohio rotates the order of names from precinct to precinct, so no ballot order is shown. Polling places stay off the map until the Secretary of State's list is matched to every precinct.","Statewide court seats in every finished state now get the same polls and markets tabs as the other statewide races, and South Dakota's map now says its precinct lines are from 2020.","\"Earlier, under a party label\" now needs the label on the record itself: a party's primary or nomination, a ballot that printed the party, a seat in a body whose members sit by party, or an appointment by a party's committee. A news article describing someone as a Democrat or a Republican does not count; two such entries (one in Ohio, one in Minnesota) were taken out."]},{"version":"4.0.086","date":"2026-10-02","title":"South Dakota gets the same treatment","items":["South Dakota's ballot page now has the real map: its 835 precincts with the districts they sit in (county, city or township, House, Senate, Congress, judicial circuit, conservation and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot.","South Dakota's candidates for Governor, the other statewide offices, the Legislature and the county offices show what the record holds: 182 have an official government page, 100 a campaign website of their own, offices held (116, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": earlier runs under a party label, the candidate's own words, and how each county voted in 2020, 2022 and 2024 from the State Board of Canvassers' certified canvass. A legislative district's past votes are shown only where its precincts add up exactly to that canvass; where they cannot be added up they are left out, never estimated.","No pollster that publishes its methods has polled a South Dakota state race this year, and the page says so. The Governor's race has prediction-market prices as a tab. Polling places stay off the map until the Secretary of State's list is matched to every precinct.","A candidate's page on a political party's own website is no longer shown as their campaign website, and no photo is taken from one. Eight North Dakota candidates whose only page is on their party's site now show no website; the party's endorsement of them is still shown where the party published one."]},{"version":"4.0.085","date":"2026-10-02","title":"North Dakota gets the same treatment","items":["North Dakota's ballot page now has the real map: its 358 precincts with the districts they sit in (county, city or township, ward, commissioner district, legislative district, judicial district, soil conservation, park and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot.","North Dakota's candidates for the statewide offices, the Legislature, the courts and every county office show what the record holds: 226 have an official government page, with offices held (168) taken mostly from those pages, campaign websites where there is one, and a photo where one was plainly the candidate's own portrait on their own campaign site.","\"The record, not a label\": the Democratic-NPL's and one Republican district's published endorsements, earlier runs under a party label, and how each county and legislative district voted in 2020, 2022 and 2024, from the Secretary of State's precinct results. County offices are nonpartisan here, and the page labels no one.","No pollster has published a poll on any North Dakota state race this year, and the page says so. Polling places stay off the map until the Secretary of State's list is matched to every precinct."]}],"links":{"state":true,"county_page":false,"us":true},"st":{"code":"CA","lc":"ca","name":"California","agency":"California Secretary of State","lister":"Secretary of State","who":"Secretary of State&rsquo;s","fromWho":"the California Secretary of State&rsquo;s","partial":false,"noGeneral":false,"notice":"","one":false,"up":"Senate","lo":"Assembly","upT":"State Senate","loT":"State Assembly","upD":"Senate District","loD":"Assembly District","upAbbr":"SD","loAbbr":"AD","prim":"","local":false,"nest":false,"multi":{"upper":false,"lower":false},"zoom":"Los Angeles, San Francisco Bay, San Diego and Sacramento","dOne":"a Democrat","dMany":"Democrats","off":{"upper":20,"lower":0},"congress":"California&rsquo;s 52 U.S. House races are at the top of the same ballot. <a href=\"../us/#state=CA\">See them on the Congress pages<\/a>.","congressShort":"the U.S. House races","courts":["the Supreme Court","the Court of Appeals"],"unit":"race","legNote":"Senators serve four-year terms, and the even-numbered districts are up this year.","linesNote":"","fips":"06","orderNote":"The lists read here give no ballot order.","localElse":"Loaded for 34 states so far.","localN":34,"primLine":"","primLeg":"","noVotes":"Vote counts for this primary are not loaded here. Who went on to November is read from the Secretary of State&rsquo;s list for the general election; everyone who ran comes from the primary&rsquo;s own list.","methods":[["lists","<b>Who is running<\/b> comes only from the California Secretary of State&rsquo;s own lists of candidates for the November 3 general election, and the official primary results; each file is named below, with where it was read. The U.S. Senate and House races are on the Congress pages. County and local races are not loaded for California yet; they are loaded for 34 states so far, shown on <a href=\"../states/#local\">the states page<\/a>."],["lists","<b>What is read.<\/b> From those lists this site reads only the office, the district, the candidate&rsquo;s name, the party, the ballot order where the list gives one, and the primary vote counts. Addresses, phone numbers, e-mail and websites, where a list carries them, are never read, kept or shown. No photos, ages, biographies or campaign money are shown for state candidates."],["lists","<b>Parties.<\/b> Offices elected on party lines show the party each candidate filed under, written out. Judges and the Superintendent of Public Instruction are on the nonpartisan ballot; the page says so instead of a party."],["lists","<b>Order.<\/b> The lists read here give no ballot order. Candidates appear by surname. Never by money, polls or party."],["holders","<b>Who holds a seat today<\/b> (the Legislature and the statewide offices the roster carries) comes from the Open States roster the record side of this site uses. A candidate matched to a sitting legislator by district and name, one fit only, links to their record page and nothing more."],["maps","<b>Maps and &ldquo;use my location&rdquo;.<\/b> District lines are the Census Bureau&rsquo;s cartographic boundary files (2024 Census Bureau cartographic boundary files), the lines the state pages draw; your county&rsquo;s sample ballot is the authority on your district. Your location is worked out on your own device and never sent anywhere; a rounded copy (about half a mile) is kept on the device, with your choices, until you tap &ldquo;Forget&rdquo;."],["page","<b>Nobody is scored or graded.<\/b> The cards show the record; the judging is yours."]],"upSeg":"Senate districts","loSeg":"Assembly districts"}};
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} },
@@ -1795,7 +1828,9 @@ const LV = {statewide: "Statewide offices", legislature: "The Legislature", coun
   township: "Township offices", school: ST.schoolT || "School districts", hospital: "Hospital districts", other: "Other districts", court: "Judges"};
 const ORDER = ["statewide", "legislature", "county", "soil_water", "city", "township", "school", "hospital", "other", "court"];
 const LOCAL = ["county", "soil_water", "city", "township", "school", "hospital", "other"];
-const LWHO = ST.localWho || WHO, whoOf = r => r && LOCAL.includes(r.lv) ? LWHO : WHO;      // whose list a local contest was read from
+// whose list a contest was read from: a local contest's, the local offices'; so is a court seat whose own source is one of theirs (a county's sample ballot)
+const fromLocal = r => !!(ST.localWho && r && r.src && D && D.sources[r.src] && String(D.sources[r.src].agency || "").split(",")[0].trim() !== ST.agency);
+const LWHO = ST.localWho || WHO, whoOf = r => r && (LOCAL.includes(r.lv) || fromLocal(r)) ? LWHO : WHO;
 /* a place is called what its own name says it is (Adairville city, Abingdon town); which section it sits in is its races' level */
 const MUNI = ["city", "town", "village", "borough", "township"], MUNIS = {city: "cities", town: "towns", village: "villages", borough: "boroughs", township: "townships"};
 const capital = s => String(s).charAt(0).toUpperCase() + String(s).slice(1);
@@ -1839,6 +1874,7 @@ const placeName = pk => { const P = (D.places[pk[0]] || {})[pk.slice(1)]; return
 let NCOUNTY = 0;
 const localCourt = r => r.lv === "court" && (r.c || []).length > 0 && r.c.length < NCOUNTY;
 const baseKind = r => r.k.replace(/_retention$/, "");
+const isRet = r => /_retention$/.test(r.k);      // a yes-or-no vote on whether a sitting judge stays in office: one name, no opponent, nothing to arrange or compare side by side
 const PROSECUTOR = /attorney|prosecutor|solicitor/, isJudge = r => !PROSECUTOR.test(r.k) && !/clerk|marshal|constable/.test(r.k);
 function courtNoun(list){      // what a set of court contests is, from the rows: district court judges; judges; judges and prosecutors
   const ks = [...new Set(list.map(baseKind))], OWN = {orphans_court: "orphans&rsquo; court judges", county_court_at_law: "county court at law judges"};
@@ -1940,7 +1976,9 @@ const rosterRows = () => { const rows = Object.values(D.sources).filter(s => sou
 
 function index(){
   D.races.forEach(r => { r.date = r.date || D.election;      // what the file leaves out because the page can put it back
-    for (const [k, list] of Object.entries(r.el || {})) list.forEach(c => { c.date = c.date || (k === "general" ? r.date : D.primary); c.src = c.src || r.src; if (!r.pt) { c.p = "Nonpartisan office"; c.pc = "N"; } }); });
+    for (const [k, list] of Object.entries(r.el || {})) list.forEach(c => { c.date = c.date || (k === "general" ? r.date : D.primary); c.src = c.src || r.src; if (!r.pt) { c.p = "Nonpartisan office"; c.pc = "N"; } });
+    const seen = {};      // a candidate's key in a reader's own arrangement of the race: the name as filed (a second of the same name is told apart)
+    ((r.el || {}).general || []).forEach(c => { const i = seen[c.n] = (seen[c.n] || 0) + 1; c.k = i > 1 ? `${c.n} (${i})` : c.n; }); });
   R = Object.fromEntries(D.races.map(r => [r.id, r]));
   LEG = {upper: {}, lower: {}};
   D.races.forEach(r => { const key = r.k === "state_senate" ? "upper" : r.k === "state_house" ? "lower" : null;
@@ -1975,40 +2013,194 @@ function nowOffice(p){      // the office a candidate holds today: the roster's,
   const held = (p.fo || []).filter(x => x[2] === "now"), f = held.find(x => x[5] === "official") || held[0];      // a named source's word counts too; "Who they are" says which
   return f ? `${esc(f[0])}${f[1] ? `, since ${f[1]}` : ""}` : "";
 }
+const officeNow = (c, r) => nowOffice(facts(c, r)) || (c.inc || serves(c, r) ? "This office: marked incumbent on the list" : "No office on record");      // a card's "In office now", and the comparison's
 
-/* ---------- a candidate's card, and the arena ---------- */
-function card(c, r, k){
+/* ---------- a candidate's card, and the arena: the Congress pages' own (John, 2026-10-02). A reader's arrangement of a race, the cards
+   drawn in it, the frame of the comparison and the arena's controls are that page's script, taken from it when this page is built, so
+   a state or local race is arranged and compared exactly as a race for Congress is. What a card says, the line above the cards and the
+   comparison's sections are this page's own: what the race page showed before, and the notes the lists carry about a candidate. ---------- */
+/* ===== a part shared with the Congress ballot page (taken from it when this page is built): a reader's own arrangement of a race ===== */
+/* ---------- a reader's own arrangement of a race (John, 2026-10-01): cards hidden and an order of their own, kept on their
+   device only. The page's own order stays the official list's; one control puts it back. The cards and the comparison's
+   columns share the one arrangement, so a card moved is a column moved. ---------- */
+const ARR = {};
+const arrKey = r => "ballot:arr:" + r.id;
+function arrOf(r){      // {o: every candidate's key in the reader's order, h: the keys hidden}; the official order when nothing is kept
+  if (ARR[r.id]) return ARR[r.id];
+  const keys = general(r).map(c => c.k); let saved = null;
+  try { saved = JSON.parse(store.get(arrKey(r)) || "null"); } catch (e) { saved = null; }
+  const o = saved && Array.isArray(saved.o) ? saved.o.filter(k => keys.includes(k)) : [];
+  keys.forEach(k => { if (!o.includes(k)) o.push(k); });      // a name added to the list since goes last
+  return ARR[r.id] = {o, h: new Set(saved && Array.isArray(saved.h) ? saved.h.filter(k => keys.includes(k)) : [])};
+}
+const arrOrderChanged = r => { const a = arrOf(r), def = general(r).map(c => c.k); return a.o.some((k, i) => k !== def[i]); };
+const arrChanged = r => arrOf(r).h.size > 0 || arrOrderChanged(r);
+const arrSave = r => { const a = arrOf(r); if (arrChanged(r)) store.set(arrKey(r), JSON.stringify({o: a.o, h: [...a.h]})); else store.del(arrKey(r)); };
+const arrList = r => { const by = Object.fromEntries(general(r).map(c => [c.k, c])); return arrOf(r).o.map(k => by[k]).filter(Boolean); };      // everyone, in the reader's order
+const arrShown = r => arrList(r).filter(c => !arrOf(r).h.has(c.k));
+const arrHidden = r => arrList(r).filter(c => arrOf(r).h.has(c.k));
+function arrMove(r, k, toKey){      // the moved one takes the other's place: after it when moving later, before it when moving earlier
+  const a = arrOf(r), i = a.o.indexOf(k), j = a.o.indexOf(toKey); if (i < 0 || j < 0 || i === j) return;
+  a.o.splice(i, 1); a.o.splice(j, 0, k); arrSave(r);
+}
+function arrHide(r, k, hide){ const a = arrOf(r); if (hide) a.h.add(k); else a.h.delete(k); arrSave(r); }
+function arrReset(r){ delete ARR[r.id]; store.del(arrKey(r)); }
+const ctlBtns = (c, pos, n, attr) => `<button type="button" data-${attr}="-1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} earlier" title="Move earlier"${pos === 0 ? " disabled" : ""}>&lsaquo;</button><button type="button" data-${attr}="1" data-k="${esc(c.k)}" aria-label="Move ${esc(c.n)} later" title="Move later"${pos >= n - 1 ? " disabled" : ""}>&rsaquo;</button><button type="button" data-${attr === "mv" ? "hide" : "chide"}="${esc(c.k)}" aria-label="Hide ${esc(c.n)}${attr === "mv" ? "'s card" : "'s column"}" title="Hide">&times;</button>`;
+/* ===== end of that part ===== */
+function card(c, r, k, n){      // k: its place among the cards shown; n: how many are shown
   const sv = serves(c, r), href = c.m ? recordHref(c.m) : "", L = c.m && D.links[c.m], p = facts(c, r), age = ageOf(p.dob);
   const flag = c.wi ? "Write-in" : sv ? "In this seat today" : c.inc ? "Incumbent" : "";
-  const band2 = r.lv === "legislature" ? (r.k === "state_senate" ? `${ST.upAbbr} ${r.d}` : `${ST.loAbbr} ${r.d}`) : r.s ? seatWords2(r.s) : r.d ? (r.lv === "court" ? (/^court_of_appeals/.test(r.k) ? raceWhere(r) : judicialName(r.d)) : distWords(r.d)) : (r.lv === "statewide" ? "Statewide" : "");
-  const rec = href ? `<a class="rec" href="${href}">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
-  const order = ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"];
-  const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", nowOffice(p) || (c.inc || sv ? "This office: marked incumbent on the list" : "No office on record")], order]
+  const band2 = r.lv === "legislature" ? (r.k === "state_senate" ? `${ST.upAbbr} ${r.d}` : `${ST.loAbbr} ${r.d}`) : r.s ? seatWords2(r.s) : r.d ? (r.lv === "court" ? (/^court_of_appeals/.test(r.k) ? (raceWhere(r) !== ST.name ? raceWhere(r) : distWords(r.d)) : judicialName(r.d)) : distWords(r.d)) : (r.lv === "statewide" ? "Statewide" : "");
+  const rec = href ? `<a class="rec" href="${href}" draggable="false">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
+  const many = general(r).length > 1;      // one name for the office: nothing to move or hide, so its card has no controls (the comparison's column has none either)
+  const order = isRet(r) ? ["On the ballot", "A yes or no question"] : ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"];
+  const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", officeNow(c, r)], order]
     : [["Party", r.pt ? esc(partyShort(c, r)) : "Nonpartisan"], order];
-  return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}">
+  return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}${n === 1 ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}" data-k="${esc(c.k)}" draggable="true">
     <div class="band"><span>${esc(partyShort(c, r))}</span><span>${esc(band2)}</span></div>
-    ${flag ? `<span class="flag">${esc(flag)}</span>` : ""}
-    <div class="mono">${p.ph ? `<span class="ph"><img src="${esc(p.ph)}" alt="" loading="lazy" decoding="async"></span>` : `<span aria-hidden="true">${esc(initials(c.n))}</span>`}</div>
+    <div class="hatch">${many || flag ? `<div class="crow">${many ? `<div class="ctl" role="group" aria-label="Arrange ${esc(c.n)}'s card">${ctlBtns(c, k, n, "mv")}</div>` : ""}${flag ? `<span class="flag">${esc(flag)}</span>` : ""}</div>` : ""}
+      <div class="mono">${p.ph ? `<span class="ph"><img src="${esc(p.ph)}" alt="" loading="lazy" decoding="async" draggable="false"></span>` : `<span aria-hidden="true">${esc(initials(c.n))}</span>`}</div></div>
     <div class="who"><b>${esc(c.n)}</b><small>${esc(partyWords(c, r))}</small>${rec}</div>
     <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
 }
-const tabsFor = () => "", whoHTML = () => "", leanHTML = () => "", moreSources = () => {}, mountVotes = () => {}, quietMarkets = () => {};      // a state with its lists alone: none of what follows is in its page
+const tabsFor = () => "", leanHTML = () => "", moreSources = () => {}, mountVotes = () => {}, quietMarkets = () => {};      // a state with its lists alone: none of what follows is in its page
+function headWords(r){      // the line at the arena's top right, in plain words: the controls write it back as text when the reader moves or hides a card
+  const g = general(r), unopp = g.every(c => c.out === "unopposed"), gone = g.length - arrShown(r).length, mine = arrOrderChanged(r);
+  const hid = gone ? `, ${gone} hidden by you` : "";
+  if (unopp) return `Not printed on the ballot: nobody else qualified${g.length > 1 && (gone || mine) ? `. ${g.length} names${hid}${mine ? ", in an order you chose on this device" : ""}` : ""}`;
+  if (isRet(r)) return g.length === 1 ? "One judge, and a yes or no question" : `${g.length} judges, each a yes or no question`;
+  if (g.length === 1) return "One name for this office";
+  return plain(`${g.length} candidates${hid}, ${mine ? "in an order you chose on this device"
+    : g.some(c => c.o != null) ? `in the ballot order the ${whoOf(r)} list gives` : "by surname: the list gives no ballot order"}`);
+}
+/* ===== a part shared with the Congress ballot page: the cards in the reader's arrangement, "vs" between them, and the bars beneath ===== */
+/* ---------- the arena's cards as the reader arranged them (taken as it stands by the state ballot pages) ---------- */
+function arenaCards(r){      // the cards in the reader's arrangement, and the bars beneath: the hidden names, and the way back to the official order
+  const shown = arrShown(r), hidden = arrHidden(r), parts = [];
+  shown.forEach((c, i) => { if (i) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i, shown.length)); });
+  const hid = hidden.length ? `<div class="hidbar"><span>Hidden by you:</span>${hidden.map(c => `<button type="button" data-show="${esc(c.k)}" style="--pc:${pcVar(c)}" aria-label="Show ${esc(c.n)}'s card again"><i aria-hidden="true"></i>${esc(c.n)}</button>`).join("")}</div>` : "";
+  const reset = arrChanged(r) ? `<div class="hidbar"><button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button></div>` : "";
+  return {cards: parts.join("") || `<p class="anote">Every card is hidden. Show them again below.</p>`, bars: hid + reset, n: shown.length};
+}
+/* ===== end of that part ===== */
+/* is there anything to compare beyond the cards? An office that may show more than was filed always has (r.f); any other only where a
+   candidate listed a campaign website. A note kept with the list is not a reason by itself: most only repeat the card or the line above
+   the cards (a write-in, a name not printed because nobody else qualified, how the list prints capitals). Without it the page offers no comparison. */
+const cmpMore = r => !!r.f || general(r).some(c => facts(c, r).web);
 function arena(r){
   const g = general(r); if (!g.length) return "";
-  const parts = []; g.forEach((c, i) => { if (i && g.length === 2) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i)); });
-  const ordered = g.some(c => c.o != null);
+  const ordered = g.some(c => c.o != null), A = arenaCards(r);
   // What November 3 is for this contest, from the record: a loader marks a candidate elected with no vote as
   // "unopposed" (Louisiana, Florida: the name is not printed), and begins the race's note "Open primary" where the
   // day is an open primary with a later general election (Louisiana's local offices).
   const unopp = g.every(c => c.out === "unopposed"), openP = /^Open primary\b/.test(r.note || "");
-  const title = unopp ? "Elected without a vote" : openP ? "Open primary" : r.sp ? "Special election" : "General election";
-  return `<section class="arena deal st" id="arena" aria-label="${unopp ? "Elected without a vote" : openP ? "The open primary" : "The general election"}, ${esc(fmtDate(r.date))}">
-    <div class="ahead"><b>${title} &middot; ${esc(fmtDate(r.date))}</b><span>${unopp ? "Not printed on the ballot: nobody else qualified" : g.length === 1 ? "One name for this office" : `${g.length} candidates, ${ordered ? `in the ballot order the ${whoOf(r)} list gives` : "by surname: the list gives no ballot order"}`}</span></div>
-    <div class="acards" data-n="${g.length}">${parts.join("")}</div>
-    <p class="anote">${r.f ? `Every card is the same size. A card shows the name as filed${r.pt ? " and the party it was filed under" : ""}, an age and the office a candidate holds today where a record or a named source gives them, and the ballot order. Where each comes from is set out under &ldquo;Who they are&rdquo; below; an age that reads &ldquo;about&rdquo; is worked out from a birth year alone. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`
-      : `Every card is the same size. A card holds what the ${whoOf(r)} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan) and the ballot order. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`}${ordered && !r.pt ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}${!ordered && ST.orderNote && g.length > 1 ? " " + esc(ST.orderNote) : ""}</p>
+  const ret = isRet(r), one = g.length === 1;
+  const title = unopp ? "Elected without a vote" : ret ? "Retention vote" : openP ? "Open primary" : r.sp ? "Special election" : "General election";
+  return `<section class="arena deal st${unopp ? " unopp" : ""}" id="arena" aria-label="${unopp ? "Elected without a vote" : ret ? "The retention vote" : openP ? "The open primary" : "The general election"}, ${esc(fmtDate(r.date))}">
+    <div class="ahead"><b>${title} &middot; ${esc(fmtDate(r.date))}</b><span id="ahead">${esc(headWords(r))}</span></div>
+    <div class="acards" data-n="${A.n}">${A.cards}</div>
+    <div id="abars">${A.bars}</div>
+    <button class="aopen" id="aopen" type="button" aria-expanded="false" aria-controls="cmp"${cmpMore(r) ? "" : " hidden"}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4l8 8-8 8"/></svg><span>${one ? `Step into the arena: see what is on record about this ${ret ? "judge" : "candidate"}` : "Step into the arena: compare them side by side"}</span></button>
+    <div class="cmp" id="cmp" hidden></div>
+    <p class="anote">${ret ? `This is a retention vote, not a contest between candidates: the ballot asks whether ${one ? "this judge" : "each judge"} should stay in office, and voters answer yes or no. There is no opponent. ` : ""}${r.f ? `Every card is the same size. A card shows the name as filed${r.pt ? " and the party it was filed under" : ""}, an age and the office a candidate holds today where a record or a named source gives them${ret ? "" : ", and the ballot order"}. Where each comes from is set out in the comparison, under &ldquo;Who they are&rdquo;; an age that reads &ldquo;about&rdquo; is worked out from a birth year alone. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`
+      : `Every card is the same size. A card holds what the ${whoOf(r)} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan)${ret ? "" : " and the ballot order"}. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`}${ordered && !r.pt && !one ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}${!ordered && ST.orderNote && g.length > 1 ? " " + esc(ST.orderNote) : ""}${g.length > 1 ? " You can hide a card (&times;) or move the cards about (drag one, or use its arrows). That arrangement is yours alone, kept on this device; the list&rsquo;s own order is unchanged, and this site ranks no one." : ""}</p>
   </section>`;
 }
+/* ===== a part shared with the Congress ballot page: the comparison's frame. It opens the table, a column a candidate in the reader's
+   arrangement; this page's own sections follow, each only when it has something to show; then the frame closes the table ===== */
+/* ---------- the comparison. The state ballot pages take its frame in three parts (the opening, the making of sections and rows,
+   the close) and put their own sections in it; the lines between the parts are this page's own ---------- */
+let CMP_OPEN = new Set();      // the comparison's sections a reader has opened on this page; every section starts closed
+function compare(r){
+  const g = arrShown(r), n = g.length, all = general(r);
+  if (!n) return `<p class="empty">Every candidate is hidden. Show them again above to compare them.</p>`;
+  const cell = (fn) => g.map(c => `<td>${fn(c)}</td>`).join("");
+  /* -- the frame: making sections and rows -- */
+  const soon = t => `<span class="soon">${t}</span>`;
+  let curG = "";
+  const row = (label, fn) => `<tr data-g="${curG}"${CMP_OPEN.has(curG) ? "" : " hidden"}><th scope="row">${label}</th>${cell(fn)}</tr>`;
+  const groups = [];
+  const grp = (id, label, rows) => { curG = id; const body = rows.map(([l, fn]) => row(l, fn)).join("");
+    groups.push(`<tr class="grp"><th colspan="${n + 1}"><button class="gbtn" type="button" data-g="${id}" aria-expanded="${CMP_OPEN.has(id) ? "true" : "false"}">${label}<small>${rows.map(x => x[0]).join(" &middot; ")}</small></button></th></tr>${body}`); };
+  /* this page's own sections. Everything the race page set out under "Who they are" and, for a nonpartisan office, under "The record,
+     not a label" is here, with the same source lines and links; there is no money section on a state or local race's page. */
+  const F = c => facts(c, r), any = fn => all.some(fn), dash = "&ndash;", ordered = any(c => c.o != null);
+  const head = (id, words) => { const i = groups.length - 1;      // a sentence at the head of the section just made: what it holds and what it does not
+    groups[i] = groups[i].replace("</tr>", () => `</tr><tr data-g="${id}"${CMP_OPEN.has(id) ? "" : " hidden"}><td class="gnote" colspan="${n + 1}"><p>${words}</p></td></tr>`); };
+  // a write-in is said once: where the party cell already reads "Write-in" the line under it adds only what that means, and the note's own sentence saying the same is left out of the notes row
+  const filed = [[r.pt ? "Party, as filed" : "Party", c => esc(partyWords(c, r)) + (c.wi ? `<small>${/write-in/i.test(partyWords(c, r)) ? "The" : "Write-in: the"} name is not printed on the ballot</small>` : "")],
+    isRet(r) ? ["The question on the ballot", () => "Whether this judge stays in office<small>Voters answer yes or no; there is no opponent</small>"]
+    : ["Ballot order", c => c.o != null ? esc(String(c.o)) : c.out === "unopposed" ? "None: the name is not printed" : `Not given${ordered || ST.orderNote ? "" : "<small>The list gives none</small>"}`]];      // why a state's lists give no order is said in the note under the cards
+  const marked = c => c.inc && !serves(c, r);      // the list's own mark, as the card's flag shows it; that the roster has a candidate in the seat is said under "In office"
+  if (any(marked)) filed.push(["Marked on the list", c => marked(c) ? "Incumbent" : dash]);
+  const noteOf = c => c.wi ? String(c.note || "").split(/(?<=[.!?])\s+/).filter(s => !/^(a )?(declared )?write-in candidate\b/i.test(s)).join(" ") : c.note || "";
+  if (any(noteOf)) filed.push(["Notes kept with the list", c => noteOf(c) ? esc(noteOf(c)) : dash]);      // what was noted about a candidate when the list was read: a running mate, a retention vote, a second party line
+  grp("ballot", "On the ballot", filed);
+  // a special election is said here as the page's heading says it
+  if (r.sp) head("ballot", `A special election${r.note ? "" : ", for the rest of a term"}.`);
+  const rec = c => c.m ? recordHref(c.m) : "";
+  if (any(c => rec(c) || serves(c, r) || (r.f && nowOffice(F(c))))) {      // in office: whoever a card says holds an office today (a roster's word, or a named source's), as the card says it, with the way to a record page where there is one
+    const roster = c => { const L = c.m && D.links[c.m]; return serves(c, r) ? "Serves in this seat today" : L ? (L[0] === "official" ? `${esc(L[1])} today` : `Serves in the ${NM} ${esc(L[1])} today`) : ""; };
+    const rows = [["In office today", c => r.f ? `${officeNow(c, r)}${roster(c) ? `<small>${roster(c)}</small>` : ""}` : roster(c) || dash]];
+    if (any(rec)) rows.push(["Their record", c => rec(c) ? `<a href="${rec(c)}">Open their page on the record side</a>` : dash]);
+    grp("office", "In office", rows);
+  }
+  /* -- the frame: the close -- */
+  const hidden = arrHidden(r);
+  const bar = `<div class="cmpbar"><button type="button" data-gall="1">Open every section</button><button type="button" data-gall="0">Close every section</button>
+    ${all.length > 1 ? `<span>Each section opens on a click. The arrows under a name move its column; &times; hides it.</span>` : ""}
+    ${hidden.length ? `<span>Hidden by you:</span>${hidden.map(c => `<button type="button" data-show="${esc(c.k)}" aria-label="Show ${esc(c.n)}'s column again">${esc(c.n)}</button>`).join("")}` : ""}
+    ${arrChanged(r) ? `<button type="button" data-reset>Put back the official order${hidden.length ? " and show everyone" : ""}</button>` : ""}</div>`;
+  return `${bar}<table><thead><tr><th></th>${g.map((c, i) => `<th scope="col" style="--pc:${pcVar(c)}" data-k="${esc(c.k)}">${esc(c.n)}${all.length > 1 ? `<div class="colctl" role="group" aria-label="Arrange ${esc(c.n)}'s column">${ctlBtns(c, i, n, "cmv")}</div>` : ""}</th>`).join("")}</tr></thead><tbody>${groups.join("")}</tbody></table>`;
+}
+/* ===== end of that part ===== */
+/* ===== a part shared with the Congress ballot page: the arena's controls ===== */
+/* ---------- the arena's controls (taken as it stands by the state ballot pages) ---------- */
+function wireArena(r){      // the comparison's open button; the cards' and columns' arrows, hides and shows; the sections' folds; dragging a card
+  const A = $("#arena"); if (!A) return;
+  const b = $("#aopen"), cmp = $("#cmp"), box = $(".acards", A);
+  b.addEventListener("click", () => { if (cmp.hidden) { cmp.innerHTML = compare(r); cmp.hidden = false; b.setAttribute("aria-expanded", "true"); b.querySelector("span").textContent = "Close the comparison"; cmp.scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"}); }
+    else { cmp.hidden = true; b.setAttribute("aria-expanded", "false"); b.querySelector("span").textContent = "Step into the arena: compare them side by side"; } });
+  const sel = k => `[data-k="${CSS.escape(k)}"]`;
+  function redraw(){
+    A.classList.remove("deal");      // the cards were dealt once; a rearrangement does not deal them again
+    const parts = arenaCards(r); box.innerHTML = parts.cards; box.dataset.n = parts.n; $("#abars", A).innerHTML = parts.bars; $("#ahead", A).textContent = headWords(r);
+    if (!cmp.hidden) cmp.innerHTML = compare(r);
+  }
+  const focusOn = (...cands) => { const f = cands.map(s => $(s, A)).find(x => x && !x.disabled); if (f) f.focus(); };
+  A.addEventListener("click", e => {
+    const t = e.target.closest("button"); if (!t) return;
+    const mv = t.dataset.mv || t.dataset.cmv;
+    if (mv) {      // along the shown cards only: a hidden one is skipped over, not jumped behind
+      const k = t.dataset.k, shown = arrShown(r), i = shown.findIndex(c => c.k === k), j = i + (+mv); if (i < 0 || j < 0 || j >= shown.length) return;
+      arrMove(r, k, shown[j].k); redraw();
+      if (t.dataset.mv) focusOn(`.bcard${sel(k)} [data-mv="${mv}"]`, `.bcard${sel(k)} [data-hide]`); else focusOn(`#cmp th${sel(k)} [data-cmv="${mv}"]`, `#cmp th${sel(k)} [data-chide]`);
+    }
+    else if (t.dataset.hide != null || t.dataset.chide != null) { const k = t.dataset.hide != null ? t.dataset.hide : t.dataset.chide; arrHide(r, k, true); redraw(); focusOn(`${t.dataset.hide != null ? "#abars" : "#cmp"} [data-show="${CSS.escape(k)}"]`, `[data-show="${CSS.escape(k)}"]`, "#aopen"); }
+    else if (t.dataset.show != null) { const k = t.dataset.show; arrHide(r, k, false); redraw(); focusOn(`${t.closest("#cmp") ? "#cmp th" : ".bcard"}${sel(k)} [data-chide], .bcard${sel(k)} [data-hide]`); }
+    else if (t.hasAttribute("data-reset")) { arrReset(r); redraw(); b.focus(); }
+    else if (t.classList.contains("gbtn")) { const g = t.dataset.g, open = t.getAttribute("aria-expanded") !== "true"; t.setAttribute("aria-expanded", String(open)); $$(`tr[data-g="${g}"]`, cmp).forEach(tr => { tr.hidden = !open; }); if (open) CMP_OPEN.add(g); else CMP_OPEN.delete(g); }
+    else if (t.dataset.gall != null) { const open = t.dataset.gall === "1"; $$(".gbtn", cmp).forEach(x => { x.setAttribute("aria-expanded", String(open)); if (open) CMP_OPEN.add(x.dataset.g); else CMP_OPEN.delete(x.dataset.g); }); $$("tr[data-g]", cmp).forEach(tr => { tr.hidden = !open; }); }
+  });
+  /* dragging a card onto another: it takes that card's place. The browser's own drag and drop, so nothing captures the pointer;
+     on a touch screen the arrows do the same */
+  let dragK = null;
+  const cardAt = e => { const t = e.target && (e.target.closest ? e.target : e.target.parentElement); return t ? t.closest(".bcard[data-k]") : null; };      // a drag of selected words starts on the text itself, which has no closest()
+  box.addEventListener("dragstart", e => { const c = cardAt(e); if (!c) return; dragK = c.dataset.k; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", c.dataset.k); } catch (x) {} });
+  box.addEventListener("dragend", () => { dragK = null; $$(".bcard.dragging, .bcard.over", box).forEach(x => x.classList.remove("dragging", "over")); });
+  box.addEventListener("dragover", e => { if (!dragK) return; const c = cardAt(e); if (!c) return; e.preventDefault(); e.dataTransfer.dropEffect = "move"; if (c.dataset.k !== dragK && !c.classList.contains("over")) { $$(".bcard.over", box).forEach(x => x.classList.remove("over")); c.classList.add("over"); } });
+  box.addEventListener("dragleave", e => { const c = cardAt(e); if (c && !c.contains(e.relatedTarget)) c.classList.remove("over"); });
+  box.addEventListener("drop", e => { const c = cardAt(e); if (!dragK || !c) return; e.preventDefault(); if (c.dataset.k !== dragK) { arrMove(r, dragK, c.dataset.k); redraw(); } dragK = null; });
+}
+/* ===== end of that part ===== */
+/* every card as tall as the tallest, whichever row it wraps to: the cards of a row already stretch to that row's tallest, and this gives
+   every row the height of the tallest row. Done when the cards are drawn, when a reader moves or hides one, and when the window changes. */
+function evenCards(){
+  const box = $("#arena .acards"); if (!box) return;
+  box.style.removeProperty("--ch");
+  const h = Math.max(0, ...$$(".bcard", box).map(c => c.offsetHeight)); if (h) box.style.setProperty("--ch", h + "px");
+}
+addEventListener("resize", evenCards);
 /* ---------- a partisan primary, and its field ---------- */
 function field(r, key){
   const list = r.el[key] || []; if (!list.length) return "";
@@ -2255,7 +2447,8 @@ function ballotHTML(m){
   if (z) {      // exactly the contests of that precinct: each race names the shape that draws its place, and the precinct says which shapes it lies in
     const G = r => r.g || "", at = (kind, id) => id ? kind + ":" + id : "\u0000", LOOSE = "The map has no lines for the part of the place that elects this, so it is listed for everyone here; your county&rsquo;s sample ballot shows whether it is on yours.";
     const county = byLv("county").filter(r => inC(r) && (!G(r) || G(r) === at("county", z.gc || z.c) || G(r) === at("com", z.com) || G(r) === at("park", z.pk)));
-    out.push(county.length ? level(esc(cName(m.c)), county, county.some(r => !G(r) && r.d) ? LOOSE : "") : countyGap(m.c));
+    const looseC = county.filter(r => !G(r) && r.d);      // said of the seats it is about, by name: the rest of the county's list is the reader's
+    out.push(county.length ? level(esc(cName(m.c)), county, looseC.length ? `${andList(looseC.map(r => esc(raceTitle(r))))}: ${LOOSE.replace(/^The map/, "the map").replace(/elects this, so it is/, looseC.length === 1 ? "elects this, so it is" : "elects these, so they are")}` : "") : countyGap(m.c));
     const soilAll = byLv("soil_water").filter(inC), soil = soilAll.filter(r => G(r) === at("swcd", z.sw) || (z.sw2 || []).some(i => G(r) === at("swcd", i))), soilLoose = soilAll.filter(r => !G(r));
     const soilSplit = soil.some(r => G(r) !== at("swcd", z.sw)) ? `Your ${UNIT} lies in more than one of these districts; only the one you live in is on your ballot.` : "";
     out.push(level(esc(LV.soil_water), soil.concat(soilLoose), [soilSplit, soilLoose.length ? LOOSE : ""].filter(Boolean).join(" ")));
@@ -2317,12 +2510,14 @@ function ballotHTML(m){
     // a court drawn as one city is that city's; a court drawn as its county, a court of common pleas, is the county's like any contest filed under it)
     const drawn = r => !!z && /^judicial:/.test(r.g || "");
     const tied = courts.filter(r => localCourt(r) || drawn(r)), mine = tied.filter(r => z && /^judicial:/.test(r.g || "") ? r.g === "judicial:" + z.jd : z && /^mcd:/.test(r.g || "") ? r.g === "mcd:" + z.m : inC(r)), rest = courts.filter(r => !tied.includes(r)), APPEAL = /^(supreme_court|court_of_|appellate_court)/;
-    const whole = rest.filter(r => !r.d), byApp = rest.filter(r => r.d && APPEAL.test(r.k)), byOther = rest.filter(r => r.d && !APPEAL.test(r.k));
+    // a court's district that no layer draws and a located reader's own precinct names (r.q): true, the reader's; false, another; null, not known
+    const saidMine = r => { if (!z || !r.q || !z.x) return null; const i = r.q.indexOf(":"), k = r.q.slice(0, i); return z.x[k] ? z.x[k] === r.q.slice(i + 1) : null; };
+    const whole = rest.filter(r => !r.d), byApp = rest.filter(r => r.d && APPEAL.test(r.k) && saidMine(r) !== false), byOther = rest.filter(r => r.d && !APPEAL.test(r.k));
     const noun = tied.length ? courtNoun(tied) : "", list = whole.concat(byApp, mine);
     const words = [!tied.length ? "" : !m.c ? `Pick your ${esc(ST.countyWord)} to add its ${noun}.`
         : mine.length ? "" : tied.every(drawn) ? `No race for ${noun} in the district your ${UNIT} is in ${onList(WHO)}; <a href="#courts">see every court race</a>.`
         : `No race for ${noun} on the list is filed under ${esc(cName(m.c))}; <a href="#courts">see every ${noun === "district court judges" ? "district court" : "court"} race</a>.`,
-      byApp.length ? "Where a court is elected by district, only your own district&rsquo;s seats are on your ballot." : "",
+      byApp.some(r => saidMine(r) !== true) ? "Where a court is elected by district, only your own district&rsquo;s seats are on your ballot." : "",
       byOther.length ? `${plural(byOther.length, "more court race")} ${byOther.length === 1 ? "is" : "are"} elected by district, and the list does not say which counties each district covers: <a href="#courts">see every court race</a>.` : ""].filter(Boolean).join(" ");
     out.push(list.length ? level(list.every(isJudge) ? "Judges" : capital(courtNoun(list)), list, words) : words ? note("Judges", words) : "");
   }
@@ -2352,7 +2547,8 @@ function mountYours(){
     if (hd) hd.innerHTML = `<option value="">Your ${esc(dWord("lower"))}</option>` + D.hds.map(d => `<option value="${esc(d)}"${d === MINE.hd ? " selected" : ""}>${esc(ST.loD)} ${esc(d)}${senateOf(d) ? ` (${UP} ${esc(senateOf(d))})` : ""}</option>`).join("");
     if (sdp) sdp.innerHTML = `<option value="">Your ${esc(dWord("upper"))}</option>` + D.sds.map(d => `<option value="${esc(d)}"${d === MINE.sd ? " selected" : ""}>${esc(ST.upD)} ${esc(d)}</option>`).join("");
   }
-  function paint(){ out.innerHTML = ballotHTML(MINE); forgetB.hidden = !(MINE.c || MINE.hd || MINE.sd || MINE.m || MINE.s); const svg = $("#cmap"); if (svg) $$("path.cty", svg).forEach(p => p.classList.toggle("me", p.dataset.c === MINE.c)); }
+  const arranged = () => { try { return Object.keys(localStorage).some(k => k.startsWith("ballot:arr:")); } catch (e) { return false; } };      // a race's cards moved or hidden by the reader: also theirs to forget
+  function paint(){ out.innerHTML = ballotHTML(MINE); forgetB.hidden = !(MINE.c || MINE.hd || MINE.sd || MINE.m || MINE.s || arranged()); const svg = $("#cmap"); if (svg) $$("path.cty", svg).forEach(p => p.classList.toggle("me", p.dataset.c === MINE.c)); }
   // a choice made by hand: the precinct found by location no longer stands, and where there is a map it shows what was picked
   const byHand = (kind, id) => { const had = !!MINE.z; delete MINE.z; note.textContent = had ? `You changed a choice by hand, so the ballot below is put together from your choices. Use your location again for your exact ${UNIT}.` : "";
     if (GEO_ON && window.GEOKIT) { GEOKIT.unpin(); GEOKIT.refresh(); if (kind && id) GEOKIT.show(kind, id); } };
@@ -2363,7 +2559,9 @@ function mountYours(){
   }
   if (hd) hd.addEventListener("change", () => { MINE.hd = hd.value; byHand("house", hd.value); save(); paint(); });
   if (sdp) sdp.addEventListener("change", () => { MINE.sd = sdp.value; byHand("senate", sdp.value); save(); paint(); });
-  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k)); fill(); paint(); if (GEO_ON && window.GEOKIT) GEOKIT.forget(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
+  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k));
+    try { Object.keys(localStorage).filter(k => k.startsWith("ballot:arr:")).forEach(k => store.del(k)); } catch (e) {}      // and every race's cards as the reader arranged or hid them: a choice kept on the device like the others
+    Object.keys(ARR).forEach(k => delete ARR[k]); fill(); paint(); if (GEO_ON && window.GEOKIT) GEOKIT.forget(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
   // where the state has its map files: the precinct at the reader's spot, found on this device, and every district it is in
   const exact = (lon, lat, acc) => needKit().then(() => GEOKIT.locate(lon, lat, acc)).then(z => {
     if (!z) { note.textContent = `That spot isn't inside ${ST.name} on the map. Pick from the lists instead.`; return false; }
@@ -2427,7 +2625,7 @@ function home(anchor){
   // whether the ballot runs "party lines first, then nonpartisan" is read from the rows; where it does not, the page does not say so
   const partyFirst = D.races.every(r => (r.lv === "statewide" || r.lv === "legislature") === !!r.pt);
   const cards = counties.map(f => { const gaps = (GAPS.county[f] || []).length;
-    return `<a class="scard2" href="#county=${esc(f)}"><b>${esc(cName(f))}</b><span>${COUNTS[f] ? plural(COUNTS[f], "contest") : "No contest on the list"}${gaps ? ` &middot; ${num(gaps)} not here yet` : ""}</span></a>`; }).join("");
+    return `<a class="scard2" href="#county=${esc(f)}"><b>${esc(cName(f))}</b><span>${COUNTS[f] ? plural(COUNTS[f], "contest") + (gaps ? ` &middot; ${num(gaps)} not here yet` : "") : gaps ? "Not loaded yet: its page says what and why" : "No contest on the list"}</span></a>`; }).join("");
   const gapCounties = Object.keys(GAPS.county).sort(byCounty), gapRaces = Object.keys(GAPS.race).length;
   const elsewhere = [gapCounties.length === 1 ? `Something of <a href="#county=${esc(gapCounties[0])}">${esc(cName(gapCounties[0]))}</a>&rsquo;s own is not here yet; its page says what and why.`
       : gapCounties.length ? `In ${num(gapCounties.length)} ${esc(ST.countyMany || "counties")} something of their own is not here yet, and each one&rsquo;s page says what and why: ${gapCounties.map(f => `<a href="#county=${esc(f)}">${esc(cShort(f))}</a>`).join(", ")}.` : "",
@@ -2464,7 +2662,7 @@ function statewidePage(){
   $("#app").innerHTML = `${crumbs(["<span>Statewide offices</span>"])}
   <section class="bhero"><span class="eyebrow">On The Ballot &middot; ${NM} &middot; ${esc(fmtDate(D.election))}</span><h1>Statewide offices</h1>
     <p class="lede">${lede}${rs.some(r => r.d) ? " Some boards are elected by district: only your own district&rsquo;s seat is on your ballot." : ""}</p>${PRIVACY}${NOTICE}</section>
-  <section class="bsec"><div class="rlist">${rs.map(r => raceRow(r, "", holderSmall(r) + (!general(r).length && r.note ? " " + esc(r.note) : ""))).join("") || `<p class="muted">No statewide race is on the list.</p>`}</div></section>`;
+  <section class="bsec">${ST.swNote ? `<p class="ynote">${esc(ST.swNote)}</p>` : ""}<div class="rlist">${rs.map(r => raceRow(r, "", holderSmall(r) + (!general(r).length && r.note ? " " + esc(r.note) : ""))).join("") || `<p class="muted">No statewide race is on the list.</p>`}</div></section>`;
 }
 function legislaturePage(){
   document.title = `The Legislature · On The Ballot: ${ST.name}`;
@@ -2485,18 +2683,20 @@ function courtsPage(){
   const rs = D.races.filter(r => r.lv === "court"), K = k => rs.filter(r => r.k === k || r.k === k + "_retention");
   const dist = {}; K("district_court").forEach(r => (dist[r.d || r.j || "?"] = dist[r.d || r.j || "?"] || []).push(r));
   const other = rs.filter(r => !["supreme_court", "court_of_appeals", "district_court"].includes(r.k.replace("_retention", "")));
-  const pt = rs.filter(r => r.pt).length, ret = rs.filter(r => /_retention$/.test(r.k)).length;
-  const on = pt === rs.length ? "on party lines" : pt ? "partly on party lines" : "on the nonpartisan part of the ballot";
+  // how the judges who face an opponent are elected is said of them alone; a yes or no vote on a sitting judge is counted apart, after it
+  const ret = rs.filter(isRet).length, elected = rs.filter(r => !isRet(r)), pt = elected.filter(r => r.pt).length, KE = k => elected.filter(r => r.k === k);
+  const on = pt === elected.length ? "on party lines" : pt ? "partly on party lines" : "on the nonpartisan part of the ballot";
   const sec = (title, list, sub) => list.length ? `<section class="bsec"><h2>${title}</h2>${sub ? `<p class="sub">${sub}</p>` : ""}<div class="rlist">${list.map(r => raceRow(r)).join("")}</div></section>` : "";
   const cn = list => { const s = [...new Set(list.flatMap(r => r.c || []))].sort((a, b) => cName(a).localeCompare(cName(b))); return s.length ? `<p class="dist-counties">${s.map(f => `<a href="#county=${esc(f)}">${esc(cShort(f))}</a>`).join(", ")}</p>` : ""; };
-  const whole = [["supreme_court", "the Supreme Court"], ["court_of_appeals", "the Court of Appeals"]].filter(([k]) => K(k).length && K(k).every(r => !r.d)).map(([, w]) => w);
+  const all = ret === rs.length, H = all ? K : KE;      // where every contest is a retention vote the sentence is about those; otherwise about the contested seats
+  const whole = [["supreme_court", "the Supreme Court"], ["court_of_appeals", "the Court of Appeals"]].filter(([k]) => H(k).length && H(k).every(r => !r.d)).map(([, w]) => w);
   const coaByDistrict = K("court_of_appeals").some(r => r.d);
-  const how = [whole.length ? `${andList(whole)} statewide` : "", coaByDistrict ? "the Court of Appeals by appellate district" : "", K("district_court").length ? "each district court judge by judicial district" : ""].filter(Boolean);
+  const how = [whole.length ? `${andList(whole)} statewide` : "", H("court_of_appeals").some(r => r.d) ? "the Court of Appeals by appellate district" : "", H("district_court").length ? "each district court judge by judicial district" : ""].filter(Boolean);
   const dcCounties = K("district_court").some(r => (r.c || []).length);
   $("#app").innerHTML = `${crumbs(["<span>Judges</span>"])}
   <section class="bhero"><span class="eyebrow">On The Ballot &middot; ${NM} &middot; ${esc(fmtDate(D.election))}</span><h1>Judges</h1>
     <p class="lede">${ret === rs.length ? `${NM}&rsquo;s voters decide whether each judge on the list stays in office, a yes or no vote on the nonpartisan part of the ballot${how.length ? ": " + how.join(", ") : ""}` : `${NM} elects its judges ${on}${how.length ? ": " + how.join(", ") : ""}${ret ? `; ${plural(ret, "judge")} face${ret === 1 ? "s" : ""} a yes or no retention vote` : ""}`}. ${plural(rs.length, ST.unit)} on the list.</p>${PRIVACY}${NOTICE}</section>
-  ${sec("Supreme Court", K("supreme_court"))}${sec("Court of Appeals", K("court_of_appeals"), coaByDistrict ? "Voters elect the judges of their own appellate district. Where one contest fills more than one seat, its note says how many." : "")}
+  ${sec("Supreme Court", K("supreme_court"))}${sec("Court of Appeals", K("court_of_appeals"), !coaByDistrict ? "" : K("court_of_appeals").every(isRet) ? "Voters decide, yes or no, whether the judges of their own appellate district stay in office." : "Voters elect the judges of their own appellate district. Where one contest fills more than one seat, its note says how many.")}
   ${Object.keys(dist).length ? `<section class="bsec"><h2>District courts</h2><p class="sub">Voters elect the judges of their own judicial district.${dcCounties ? " The counties each district covers, as the list files its seats, are named under it." : ""}</p>
     ${Object.keys(dist).sort(byDistrict).map(d => `<div class="jgroup"><h3>${esc(dist[d][0].j || judicialName(d))}<span>${plural(dist[d].length, "seat")}</span></h3>${cn(dist[d])}<div class="rlist">${dist[d].map(r => raceRow(r)).join("")}</div></div>`).join("")}</section>` : ""}
   ${[...new Set(other.map(baseKind))].map(k => { const list = other.filter(r => baseKind(r) === k), titles = [...new Set(list.map(r => r.o))];      // a court this page has no heading for: its own office title is the heading
@@ -2594,6 +2794,7 @@ function racePage(id){
   const back = r.lv === "statewide" ? `<a href="#statewide">Statewide offices</a>` : r.lv === "legislature" ? `<a href="#legislature">The Legislature</a>` : r.lv === "court" ? `<a href="#courts">Judges</a>`
     : (r.c || []).length ? `<a href="#county=${esc(r.c[0])}">${esc(cName(r.c[0]))}</a>` : `<a href="#counties">${esc(capital(COS))}</a>`;
   const prim = primaries(r);
+  CMP_OPEN = new Set();      // every section of the comparison starts closed
   const everyone = Object.values(r.el || {}).flat(), listIds = [...new Set(everyone.map(c => c.src).filter(Boolean))], placeSrc = (placeOf(r) || {}).src;
   const where = raceWhere(r), cs = (r.c || []).map(f => `<a href="#county=${esc(f)}">${esc(cName(f))}</a>`).join(", ");
   const loc = r.lv === "legislature" || (ST.cLines && (r.c || []).length && r.lv !== "statewide");
@@ -2615,12 +2816,17 @@ function racePage(id){
     ${r.sp ? `<p class="holder">A special election${r.note ? "" : ", for the rest of a term"}.</p>` : ""}${r.note && !gaps.some(g => g.r === r.note) ? `<p class="holder">${esc(r.note)}</p>` : ""}${onMap}${privacyFor(r)}</div>${loc ? locatorHTML() : ""}</section>
   ${tabsFor(r)}
   ${general(r).length ? arena(r) : named ? "" : `<div class="notebox">${EMPTY ? EMPTY + "." : `No candidate for this office is on the ${whoOf(r)} list for November 3.`}</div>`}${gapBox(gaps)}
-  ${whoHTML(r)}${leanHTML(r)}
+  ${leanHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${howTheyGotHere(r, prim)}</p>${prim.map(k => field(r, k)).join("")}</section>`
     : r.pt || !ST.npLine ? "" : `<p class="fnote">${ST.npLine}</p>`}
   ${sourceFold("Where this comes from", src)}`;
   if (r.lv === "legislature") mountLegLocator(r); else if (loc) mountCountyMap("locsvg", r.c || [], "loccap");
   if ($("#rtabs")) { wireTabs(); quietMarkets(r); }
+  wireArena(r);
+  const A = $("#arena"), box = A && $(".acards", A);
+  if (box) { evenCards(); new MutationObserver(evenCards).observe(box, {childList: true}); if (document.fonts) document.fonts.ready.then(evenCards);
+    if ($("#aopen").hidden) A.addEventListener("click", e => {      // no comparison for the keyboard to go back to: "Put back the official order" hands it to the first card
+      if (e.target.closest("[data-reset]")) { const f = $(".bcard .ctl button:not(:disabled)", A); if (f) f.focus(); } }); }
   mountVotes(r);
 }
 function sourcesHTML(){      // every source the state's lists were read from, kind by kind, each kind under the rules of the page that are about it

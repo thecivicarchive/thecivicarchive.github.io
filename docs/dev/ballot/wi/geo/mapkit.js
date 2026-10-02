@@ -659,7 +659,7 @@ window.GEOKIT = (function () {
     const over = pcts.length === sch.length && nb > 0 && nb < sch.length ? {ov: sch.length - nb} : {};
     // what the precinct says of districts no layer draws (BOOT.geo.says), and a second district of a kind that holds part of it (split)
     const says = (BOOT.geo || {}).says || [], x = {}, sp = p.split || {}, sw2 = Object.keys(sp.swcd || {}).filter(i => i !== p.swcd);
-    says.forEach(([k]) => { x[k] = p[k] || ""; if (!p[k]) return; x[k + "_n"] = nm(k, p[k]);
+    says.forEach(([k, , , names]) => { x[k] = p[k] || ""; if (!p[k]) return; x[k + "_n"] = nm(k, p[k]) || (names || {})[p[k]] || "";
       if (p[k + "_area"]) x[k + "_area"] = sp[k + "_area"] ? Object.keys(sp[k + "_area"]) : [p[k + "_area"]];
       if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
     const gone = Object.keys(p).find(k => /^listed_\d{4}$/.test(k) && p[k] === false);      // the files say the state's list of that year no longer carries this piece
