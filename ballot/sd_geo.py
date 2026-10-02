@@ -137,6 +137,7 @@ POLL_URL = ("https://sdsos.gov/elections-voting/upcoming-elections/general-infor
             "2026%20Election%20Assets/General/2026PrecinctPollingPlaces_General_v2.pdf")
 POLL_HEADS = ["County", "Precinct Name", "Polling Place", "Address", "City", "Instructions"]      # the last is where the others end; never read
 POLL_TITLE = "Precinct Polling Places for General Election - November 3rd, 2026"
+NO_PRECINCT = "(no precinct named on the list)"
 POLL_CHECKED = False              # True only when a person has compared a county's precincts here with its auditor's 2026 precinct map
 
 ARC_KINDS = ["county", "house", "senate", "cd", "judicial"]      # the kinds a precinct lies wholly inside, so its lines can draw them
@@ -486,8 +487,8 @@ def read_poll_list(path):
             for r in rs:
                 cells[max([i for i, x in enumerate(cols) if x <= r[0] + 1.5] or [0])].append(r)
             county, pct, name, address, city = (pdftext.join(c) for c in cells[:5])
-            if county and pct and name:
-                rows.append({"county": county, "precinct": pct, "name": name, "address": address, "city": city})
+            if county and name:                              # three rows of the list name a place and no precinct
+                rows.append({"county": county, "precinct": pct or NO_PRECINCT, "name": name, "address": address, "city": city})
     if not title or len(rows) < 500:
         raise GeoError(f"    polling places: the file is not the general election list this reader was checked against ({len(rows)} rows)")
     return rows
@@ -529,7 +530,7 @@ def match_listed(rows, pre, cname):
         for code, n in free.items():
             folded[name_fold(n)].append(code)
         for n in names:
-            same = folded.get(name_fold(n), [])
+            same = folded.get(name_fold(n), []) if n != NO_PRECINCT else []
             if len(same) == 1 and c not in NAMED_BY_CODE:
                 out[(c, n)] = [same[0]]
                 free.pop(same[0], None)

@@ -28,7 +28,10 @@ Each finding carries the exact page that states it and a kind: `official` (a gov
 candidate's own campaign site), `party` (a party's own page), `secondary` (Wikipedia with a citation, or a named news
 organization).
 
-- `website`: the campaign's OWN site for this 2026 race (the site names the candidate and the office or place).
+- `website`: the campaign's OWN site for this 2026 race (the site names the candidate and the office or place). A
+  candidate's page on a party's site, a directory, a news site or a social profile is NOT their campaign website: leave
+  `website` out and, if the party's page endorses them, record that under `endorsed_by` instead. A verifier deletes a
+  `website` that sits on a party's domain.
 - `official_page`: for someone holding office today, the government's own page about them.
 - `born`: the year only (a full date only from an official or campaign page).
 - `offices`: public offices held (elected or appointed government posts), with years and body. Not jobs, not party posts.

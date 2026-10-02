@@ -1,0 +1,293 @@
+{
+ "part": 8,
+ "of": 20,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's shared web-search allowance ran out after this part's first six searches (Pederson, Reed Johnson, DesLauriers, Larson, Bailey, Hegvik). Everything else was read directly with the kit's own User-Agent: each county's own site, the North Dakota Court System, the Democratic-NPL's own candidate pages, and campaign addresses. No search engine was read in place of the search tool.",
+  "County sites not reached or not naming the person: Bowman (sheriff page names nobody), Ransom (refused the connection), Logan (certificate error; not worked around), Sioux (no site found), Mercer, Pierce and McIntosh (pages name no office holder). Billings, Grand Forks, Traill and Mountrail pages list other people in those seats, so Kessel, Duray, Wright and Fiesel appear not to hold them today.",
+  "Emmons County's sheriff page lists a Chris Vargas as Chief Deputy Sheriff; that is a job, not an office, so it is not recorded.",
+  "The state Republican Party's site (ndgop.org) carries no list of endorsed legislative candidates that could be found, so no Republican endorsement is recorded. News reports say District 3 Republicans endorsed other candidates and DesLauriers won the June primary; that is not a party page, so it is left out.",
+  "district13.us, which the party lists as Landis Larson's website, is the District 13 Democratic-NPL's site, not his own campaign's, so no website is recorded for him."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38003-county-commissioner-D2",
+   "name": "Shawn Olauson",
+   "official_page": {
+    "url": "https://www.barnescounty.us/index.php/commissioners",
+    "source": "Barnes County's Commissioners page lists him for District 2",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38007-county-commissioner-D4-S",
+   "name": "Kevin Kessel"
+  },
+  {
+   "race_id": "2026-ND-38011-sheriff",
+   "name": "Colin Dunn"
+  },
+  {
+   "race_id": "2026-ND-38017-county-attorney",
+   "name": "Kim Hegvik",
+   "official_page": {
+    "url": "https://www.casscountynd.gov/our-county/states-attorney",
+    "source": "Cass County's State's Attorney page names her as State's Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cass County State's Attorney",
+     "from": "2023",
+     "to": "present",
+     "source": "North Dakota Court System news, 28 December 2022: sworn in as Cass County State's Attorney on Dec. 27, term beginning Jan. 1",
+     "url": "https://www.ndcourts.gov/news/north-dakota/legal-news/general-news/hegvik-sworn-in-as-cass-county-state-s-attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38021-county-commissioner-D5",
+   "name": "John M Hokana",
+   "official_page": {
+    "url": "https://www.dickeynd.com/commissioners",
+    "source": "Dickey County's Commissioners page lists John Hokana for District 5",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38025-county-commissioner",
+   "name": "Tracey Dolezal",
+   "official_page": {
+    "url": "https://www.dunncountynd.org/commission",
+    "source": "Dunn County's Board of Commissioners page names her Commission Chair, term ending 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38029-sheriff",
+   "name": "Christopher Vargas"
+  },
+  {
+   "race_id": "2026-ND-38035-county-commissioner",
+   "name": "Rachel Duray"
+  },
+  {
+   "race_id": "2026-ND-38041-county-commissioner-D2",
+   "name": "Devan Laufer",
+   "official_page": {
+    "url": "https://hettingercountynd.com/nav/index.php",
+    "source": "Hettinger County's site lists him on the County Commission",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38047-county-commissioner",
+   "name": "Cole Johnson"
+  },
+  {
+   "race_id": "2026-ND-38051-county-commissioner",
+   "name": "Travis Schnabel"
+  },
+  {
+   "race_id": "2026-ND-38057-county-attorney",
+   "name": "Todd A. Schwarz"
+  },
+  {
+   "race_id": "2026-ND-38061-county-attorney",
+   "name": "Amber J Fiesel"
+  },
+  {
+   "race_id": "2026-ND-38065-county-commissioner",
+   "name": "Bradley Dahl",
+   "official_page": {
+    "url": "https://olivercountynd.org/electedofficials",
+    "source": "Oliver County's Elected Officials page lists him among the County Commissioners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38069-county-commissioner-D5",
+   "name": "Dave Migler"
+  },
+  {
+   "race_id": "2026-ND-38073-sheriff",
+   "name": "Darren Benneweis"
+  },
+  {
+   "race_id": "2026-ND-38081-county-auditor",
+   "name": "Tia Bopp",
+   "official_page": {
+    "url": "https://www.sargentnd.com/dept_auditor.php",
+    "source": "Sargent County's Auditor page names her Auditor",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38085-county-commissioner-D3",
+   "name": "Justin (Jake) Eagle"
+  },
+  {
+   "race_id": "2026-ND-38091-county-commissioner-D3",
+   "name": "Perry Brown",
+   "official_page": {
+    "url": "https://steelecountynd.gov/commission",
+    "source": "Steele County's Commission page lists him for District 3",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38097-county-commissioner-D1",
+   "name": "John Wright"
+  },
+  {
+   "race_id": "2026-ND-38101-sheriff",
+   "name": "Bob Roed",
+   "official_page": {
+    "url": "https://www.co.ward.nd.us/208/Sheriffs-Office",
+    "source": "Ward County's Sheriff's Office page names Sheriff Robert Roed",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-DC-EC-1",
+   "name": "Susan L Bailey",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/districts/east-central-judicial-district",
+    "source": "North Dakota Court System, East Central Judicial District: District Court Judge, Fargo, ECJD #1, elected in 2014",
+    "verified": true
+   },
+   "born": {
+    "year": 1963,
+    "source": "North Dakota Court System, biographies of district court judges",
+    "url": "https://www.ndcourts.gov/district-court/all-district-court-judges",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, East Central Judicial District, judgeship No. 1",
+     "from": "2014 (elected)",
+     "to": "present",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/all-district-court-judges",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Administrative Law Judge",
+     "from": "2006",
+     "to": "2014",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/all-district-court-judges",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Municipal Court Judge, West Fargo and Horace",
+     "from": "2004",
+     "to": "2014",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/all-district-court-judges",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Municipal Court Judge, Tower City, Kindred and Davenport",
+     "from": "2009",
+     "to": "2014",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/all-district-court-judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-PSC",
+   "name": "John M Pederson",
+   "website": {
+    "url": "https://demnpl.com/pederson4psc/",
+    "how": "The Democratic-NPL's list of 2026 endorsed statewide candidates links it as his website; the page is titled Pederson4PSC, speaks of the Public Service Commission and says 'Paid for by Friends of John Pederson'. It is hosted on the party's own site, not a separate campaign address.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party, 2026 state convention",
+     "url": "https://demnpl.com/2026statewidecandidates/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for State Senate, District 20",
+     "year": "2024",
+     "party": "Democratic-NPL",
+     "source": "Hillsboro Banner, 'Pederson to run for state PSC', 3 April 2026: 'He previously ran for State Senate in District 20 for the Democratic-NPL party'; the year 2024 is from the article's photo caption",
+     "url": "https://www.hillsborobanner.com/news/article_4110482c-48c3-473b-a797-ff3d5086e54a.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH17",
+   "name": "Reed Johnson",
+   "website": {
+    "url": "https://reedfornd.com/",
+    "how": "Read directly: 'Reed Johnson for North Dakota House', running for the House in District 17; its news list carries his announcement of 6 February 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SH3",
+   "name": "Blaine DesLauriers",
+   "website": {
+    "url": "https://www.blainefornd.com",
+    "how": "Read: 'Blaine DesLauriers for North Dakota House', District 3. The page shows no year in its text; its own page data says it was first published in December 2025 and changed in May 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SH39",
+   "name": "Keith Kempenich"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Michael Motschenbacher"
+  },
+  {
+   "race_id": "2026-ND-SS13",
+   "name": "Landis Larson",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party: listed as 'Landis Larson for District 13 Senate' on its '2026 Dem-NPL Legislative Candidates' page, which the party's statewide page (https://demnpl.com/2026statewidecandidates/) calls its '2026 Democratic-NPL Endorsed Legislative Candidates'",
+     "url": "https://demnpl.com/2026legislativecandidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SS35",
+   "name": "Sean Cleary",
+   "website": {
+    "url": "https://clearyfornd.com/",
+    "how": "'Sean Cleary for North Dakota State Senate', District 35, paid for by Cleary for ND. The page shows no year, so it may date from his 2022 race; he holds this seat and is running for it again. The site answered the kit's own requests with 'too many requests' twice and was read with the web reader.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-ND-DC-EC-1",
+   "name": "Susan L Bailey",
+   "field": "offices",
+   "what": "Assistant State's Attorney, Cass County, 2001 to 2006",
+   "why": "The court system's page does say it, but an assistant state's attorney is a staff job, not a public office held; the rules record offices only."
+  }
+ ]
+}

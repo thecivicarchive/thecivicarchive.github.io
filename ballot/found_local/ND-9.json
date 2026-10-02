@@ -1,0 +1,398 @@
+{
+ "part": 9,
+ "of": 20,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance ran out after 14 of the 29 names, so the rest were looked for only on their county's or the state's own pages; a blank here means not found that way, not that nothing exists. The two endorsements are carried from ballot/lean/nd_endorsements.json (read there on 2026-10-02), not re-opened by this researcher.",
+ "candidates": [
+  {
+   "race_id": "2026-ND-38003-county-commissioner-D3",
+   "name": "Bill Carlblom",
+   "offices": [
+    {
+     "office": "Barnes County Commissioner (chairman)",
+     "from": "",
+     "to": "",
+     "source": "Barnes County Commission minutes, December 16, 2025 (names him as commissioner and chairman; no start date given)",
+     "url": "https://www.barnescounty.us/wp-content/uploads/2026/01/December-16-2025-Comm-Minutes.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38007-county-commissioner-D4-S",
+   "name": "Kyle Shockley"
+  },
+  {
+   "race_id": "2026-ND-38011-sheriff",
+   "name": "Jason Bullis"
+  },
+  {
+   "race_id": "2026-ND-38017-county-commissioner-D2",
+   "name": "Tony Grindberg",
+   "official_page": {
+    "url": "https://casscountynd.gov/departments/county-commission/tony-grindberg-district-2",
+    "source": "Cass County, County Commission: Tony Grindberg - District 2",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cass County Commissioner, District 2",
+     "from": "2022",
+     "to": "",
+     "source": "Cass County's page: elected to the Board of Commissioners in 2022",
+     "url": "https://casscountynd.gov/departments/county-commission/tony-grindberg-district-2",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Fargo City Commissioner",
+     "from": "2016",
+     "to": "2020",
+     "source": "Cass County's page: elected one term as a Fargo City Commissioner from 2016 to 2020",
+     "url": "https://casscountynd.gov/departments/county-commission/tony-grindberg-district-2",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "North Dakota State Senator",
+     "from": "",
+     "to": "",
+     "source": "Cass County's page: served 22 years in the North Dakota State Senate (years not given)",
+     "url": "https://casscountynd.gov/departments/county-commission/tony-grindberg-district-2",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the North Dakota State Senate, where the county's page says he was Republican Caucus leader",
+     "year": "",
+     "party": "Republican",
+     "source": "Cass County, County Commission: Tony Grindberg - District 2",
+     "url": "https://casscountynd.gov/departments/county-commission/tony-grindberg-district-2",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38021-county-recorder",
+   "name": "Kelly K Schmidt",
+   "official_page": {
+    "url": "https://dickeynd.com/recorder",
+    "source": "Dickey County, Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dickey County Recorder",
+     "from": "",
+     "to": "",
+     "source": "Dickey County's Recorder page (names her as Recorder; no start date given)",
+     "url": "https://dickeynd.com/recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38025-county-recorder-clerk-of-court",
+   "name": "Lisa Guenther",
+   "official_page": {
+    "url": "https://dunncountynd.gov/dunn-county-recorder",
+    "source": "Dunn County, Recorder/Clerk of Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dunn County Recorder/Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "Dunn County's page (names Lisa A. Guenther as Recorder/Clerk of Court; says she has worked for the county since September 2007, without a start date for the office)",
+     "url": "https://dunncountynd.gov/dunn-county-recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38029-sheriff",
+   "name": "John Bartlette"
+  },
+  {
+   "race_id": "2026-ND-38035-county-commissioner-AL-S",
+   "name": "Mitch McCoy",
+   "offices": [
+    {
+     "office": "Larimore School Board (president)",
+     "from": "",
+     "to": "",
+     "source": "Grand Forks Herald, March 9, 2026, on the applicants for a vacant Grand Forks County Commission seat (no years given)",
+     "url": "https://www.grandforksherald.com/news/local/grand-forks-county-commission-will-interview-16-applicants-for-vacant-seat",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Logan Township clerk",
+     "from": "",
+     "to": "",
+     "source": "Grand Forks Herald, March 9, 2026 (no years given)",
+     "url": "https://www.grandforksherald.com/news/local/grand-forks-county-commission-will-interview-16-applicants-for-vacant-seat",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38041-county-recorder-clerk-of-court",
+   "name": "Robin Ulrich",
+   "official_page": {
+    "url": "https://www.hettingercountynd.com/nav/new_page/clerk_of_court_recorder.php",
+    "source": "Hettinger County, Clerk of Court/Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hettinger County Clerk of Court/Recorder",
+     "from": "",
+     "to": "",
+     "source": "Hettinger County's page (names her in the office; no start date given)",
+     "url": "https://www.hettingercountynd.com/nav/new_page/clerk_of_court_recorder.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38047-county-recorder",
+   "name": "Laura Henry",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/logan-county",
+    "source": "North Dakota Court System, Logan County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Logan County Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "North Dakota Court System's Logan County page (names her Clerk of District Court; no start date given)",
+     "url": "https://www.ndcourts.gov/court-locations/logan-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38051-county-recorder-clerk-of-court",
+   "name": "Eva Becker",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/mcintosh-county",
+    "source": "North Dakota Court System, McIntosh County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McIntosh County Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "North Dakota Court System's McIntosh County page (names her Clerk of District Court; no start date given)",
+     "url": "https://www.ndcourts.gov/court-locations/mcintosh-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38057-county-auditor",
+   "name": "Carmen Reed",
+   "official_page": {
+    "url": "https://www.sos.nd.gov/elections/voter/current-officials/county-election-officials",
+    "source": "North Dakota Secretary of State, County Election Officials (lists her as Mercer County Auditor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mercer County Auditor",
+     "from": "2023",
+     "to": "",
+     "source": "Mercer County Commission minutes, April 12, 2023: the oath of office was administered to the elected County Auditor Carmen Reed",
+     "url": "https://www.mercercountynd.com/image/cache/04122023_Minutes.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38061-county-auditor",
+   "name": "Stephanie A Pappa",
+   "official_page": {
+    "url": "https://www.sos.nd.gov/elections/voter/current-officials/county-election-officials",
+    "source": "North Dakota Secretary of State, County Election Officials (lists her as Mountrail County Auditor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mountrail County Auditor",
+     "from": "",
+     "to": "",
+     "source": "North Dakota Secretary of State, County Election Officials (no start date given)",
+     "url": "https://www.sos.nd.gov/elections/voter/current-officials/county-election-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38065-county-commissioner-S",
+   "name": "Christopher K Albers"
+  },
+  {
+   "race_id": "2026-ND-38069-county-recorder",
+   "name": "Lori Miron"
+  },
+  {
+   "race_id": "2026-ND-38075-county-attorney",
+   "name": "Seymour Jordan",
+   "official_page": {
+    "url": "https://www.renvillecountynd.org/department/states-attorney/",
+    "source": "Renville County, States Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Renville County State's Attorney",
+     "from": "",
+     "to": "",
+     "source": "Renville County's page (names Seymour R. Jordan; no start date given)",
+     "url": "https://www.renvillecountynd.org/department/states-attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38081-county-commissioner",
+   "name": "Auston Creech"
+  },
+  {
+   "race_id": "2026-ND-38085-county-commissioner-D3",
+   "name": "Ken (Bruiser) Snider"
+  },
+  {
+   "race_id": "2026-ND-38091-county-commissioner-D5",
+   "name": "Chris Grandalen",
+   "official_page": {
+    "url": "https://steelecountynd.gov/commission",
+    "source": "Steele County, Commission",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Steele County Commissioner, District 5",
+     "from": "",
+     "to": "",
+     "source": "Steele County's Commission page (lists Christopher Grandalen for District 5; no start date given)",
+     "url": "https://steelecountynd.gov/commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38097-county-commissioner-D3",
+   "name": "Curtis Hong"
+  },
+  {
+   "race_id": "2026-ND-38103-county-attorney",
+   "name": "Oliver Bromke"
+  },
+  {
+   "race_id": "2026-ND-DC-EC-10-UNEXP",
+   "name": "Stephanie R Hayden",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/stephanie-hayden",
+    "source": "North Dakota Court System, District Court Judges",
+    "verified": true
+   },
+   "born": {
+    "year": "1978",
+    "date": "",
+    "source": "North Dakota Court System: 'Judge Hayden was born in 1978'",
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/stephanie-hayden",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, East Central Judicial District, Judgeship No. 10",
+     "from": "2023",
+     "to": "",
+     "source": "North Dakota Court System: appointed by Governor Doug Burgum in 2023",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/stephanie-hayden",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-PSC",
+   "name": "Sheri Haugen-Hoffart",
+   "offices": [
+    {
+     "office": "North Dakota Public Service Commissioner",
+     "from": "2022",
+     "to": "",
+     "source": "Wikipedia, 'Sheri Haugen-Hoffart' (with citations): appointed by Governor Doug Burgum in 2022",
+     "url": "https://en.wikipedia.org/wiki/Sheri_Haugen-Hoffart",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH19",
+   "name": "David Monson",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "District 19 Republican Party",
+     "url": "https://ndgop19.com/d19-republicans-endorse-anderson-monson-and-myrdal-for-re-election/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH3",
+   "name": "Natalie Mclaughlin"
+  },
+  {
+   "race_id": "2026-ND-SH39",
+   "name": "Mike Schatz"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Rosann Jacobs-Fode",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "Bismarck/Mandan Dem-NPL (its page reports the North Dakota Democratic-NPL endorsement for House District 47)",
+     "url": "https://bismanleaders.com/news/jacobs-fode-endorsed-for-district-47/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SS15",
+   "name": "Kristin Kenner"
+  },
+  {
+   "race_id": "2026-ND-SS37",
+   "name": "Dean Rummel"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every url re-opened 2026-10-02; 32 findings confirmed. Two wordings corrected: a secondary full date cut to the year (Haugen-Hoffart), and the endorsing unit named as its own page names it (Jacobs-Fode)."
+}

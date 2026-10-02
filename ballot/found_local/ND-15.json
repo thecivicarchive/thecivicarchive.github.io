@@ -1,0 +1,328 @@
+{
+ "part": 15,
+ "of": 20,
+ "researched": "2026-10-02",
+ "note": "Web search budget ran out after the first eight candidates; the rest were checked on county, state and party sites fetched directly. Not holders per their county's own page: Marchell Ganskop (Burke lists another Treasurer), Ann Millerbernd (Renville lists another Sheriff). Benson County's site answered 429; Cavalier, Divide, Mercer, Ramsey and Slope pages did not name the candidate; no site found for Eddy or Kidder.",
+ "candidates": [
+  {
+   "race_id": "2026-ND-38005-clerk-of-court",
+   "name": "Emily Yri"
+  },
+  {
+   "race_id": "2026-ND-38009-county-commissioner-D1",
+   "name": "Rod Hiatt",
+   "official_page": {
+    "url": "https://www.bottineauco.com/commission",
+    "source": "Bottineau County, Commission page (lists Rodney Hiatt, District 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bottineau County Commissioner, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Bottineau County",
+     "url": "https://www.bottineauco.com/commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38013-county-treasurer",
+   "name": "Marchell Ganskop"
+  },
+  {
+   "race_id": "2026-ND-38019-county-commissioner",
+   "name": "Brett Zeis"
+  },
+  {
+   "race_id": "2026-ND-38023-county-auditor-treasurer",
+   "name": "Suzie Jacobson"
+  },
+  {
+   "race_id": "2026-ND-38027-county-commissioner-AL",
+   "name": "Todd Haley"
+  },
+  {
+   "race_id": "2026-ND-38033-county-auditor",
+   "name": "Tamra Sperry",
+   "official_page": {
+    "url": "https://vip.sos.nd.gov/CountyAuditors.aspx?ptlhPKID=34&ptlPKID=5",
+    "source": "North Dakota Secretary of State, County Auditors list (Golden Valley: Tamra Sperry)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Golden Valley County Auditor",
+     "from": null,
+     "to": "present",
+     "source": "North Dakota Secretary of State, County Auditors list",
+     "url": "https://vip.sos.nd.gov/CountyAuditors.aspx?ptlhPKID=34&ptlPKID=5",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38037-county-recorder-clerk-of-court",
+   "name": "Julie Fischer",
+   "official_page": {
+    "url": "https://www.grantcountynd.com/government/recorder_clerk_of_court.php",
+    "source": "Grant County, Recorder/Clerk of Court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grant County Recorder and Clerk of Court",
+     "from": null,
+     "to": "present",
+     "source": "Grant County",
+     "url": "https://www.grantcountynd.com/government/recorder_clerk_of_court.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38043-county-commissioner",
+   "name": "Eric Fischer"
+  },
+  {
+   "race_id": "2026-ND-38049-county-auditor-treasurer",
+   "name": "Darlene Carpenter",
+   "official_page": {
+    "url": "https://vip.sos.nd.gov/CountyAuditors.aspx?ptlhPKID=34&ptlPKID=5",
+    "source": "North Dakota Secretary of State, County Auditors list (McHenry: Darlene Carpenter)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McHenry County Auditor",
+     "from": null,
+     "to": "present",
+     "source": "North Dakota Secretary of State, County Auditors list",
+     "url": "https://vip.sos.nd.gov/CountyAuditors.aspx?ptlhPKID=34&ptlPKID=5",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38053-county-auditor-treasurer",
+   "name": "Erica Johnsrud",
+   "official_page": {
+    "url": "https://county.mckenziecounty.net/departments/auditor/",
+    "source": "McKenzie County, Auditor page (Erica Johnsrud, Auditor/Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McKenzie County Auditor/Treasurer",
+     "from": null,
+     "to": "present",
+     "source": "McKenzie County",
+     "url": "https://county.mckenziecounty.net/departments/auditor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38057-county-commissioner",
+   "name": "Wesley Klein"
+  },
+  {
+   "race_id": "2026-ND-38061-county-recorder",
+   "name": "Melissa Vachal",
+   "official_page": {
+    "url": "https://www.co.mountrail.nd.us/pages/recorders-office",
+    "source": "Mountrail County, Recorder's Office page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mountrail County Recorder",
+     "from": null,
+     "to": "present",
+     "source": "Mountrail County",
+     "url": "https://www.co.mountrail.nd.us/pages/recorders-office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38067-county-attorney",
+   "name": "Garret M Fontaine",
+   "official_page": {
+    "url": "https://www.pembinacountynd.gov/county/departments/department-contacts/",
+    "source": "Pembina County, Department Contacts page (State's Attorney: Garret Fontaine)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pembina County State's Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Pembina County",
+     "url": "https://www.pembinacountynd.gov/county/departments/department-contacts/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38071-county-commissioner",
+   "name": "Heather C MacDonald"
+  },
+  {
+   "race_id": "2026-ND-38075-sheriff",
+   "name": "Ann Millerbernd"
+  },
+  {
+   "race_id": "2026-ND-38081-county-treasurer-recorder-clerk-of-court",
+   "name": "Cindy Yagow",
+   "official_page": {
+    "url": "https://www.sargentnd.com/dept_treasurer.php",
+    "source": "Sargent County, Treasurer page (also named on dept_county_recorder.php and dept_clerk_courts.php)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sargent County Treasurer, Recorder and Clerk of District Court",
+     "from": null,
+     "to": "present",
+     "source": "Sargent County",
+     "url": "https://www.sargentnd.com/dept_treasurer.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38087-county-commissioner-D3",
+   "name": "David Septon"
+  },
+  {
+   "race_id": "2026-ND-38093-county-commissioner",
+   "name": "Chad Wolsky",
+   "official_page": {
+    "url": "https://www.stutsmancounty.gov/departments/county-commission/",
+    "source": "Stutsman County, County Commission page (Chad Wolsky, Vice Chairman)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stutsman County Commissioner",
+     "from": null,
+     "to": "present",
+     "source": "Stutsman County",
+     "url": "https://www.stutsmancounty.gov/departments/county-commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38097-county-treasurer",
+   "name": "Carla Swanson",
+   "official_page": {
+    "url": "https://www.co.traill.nd.us/directory.aspx",
+    "source": "Traill County, staff directory (Carla Swanson, Treasurer, Treasurer's Office)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Traill County Treasurer",
+     "from": null,
+     "to": "present",
+     "source": "Traill County",
+     "url": "https://www.co.traill.nd.us/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38105-county-attorney",
+   "name": "Jaakan Williams",
+   "official_page": {
+    "url": "https://www.williamsnd.com/departments/states-attorney/",
+    "source": "Williams County, State's Attorney page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Williams County State's Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Williams County",
+     "url": "https://www.williamsnd.com/departments/states-attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-DC-NEC-2-UNEXP",
+   "name": "Sarah M Kyte"
+  },
+  {
+   "race_id": "2026-ND-SH1",
+   "name": "Steve Thoring"
+  },
+  {
+   "race_id": "2026-ND-SH21",
+   "name": "LaurieBeth Hager"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Tim Spilman",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "2026 Bismarck District Convention (as published by the Bismarck/Mandan Dem-NPL)",
+     "url": "https://bismanleaders.com/tim-spilman-state-house-district-31/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH42",
+   "name": "Connie Osowski"
+  },
+  {
+   "race_id": "2026-ND-SH7",
+   "name": "Jason Thoms",
+   "website": {
+    "url": "https://www.jasonthomsforndhouse.com/",
+    "how": "Linked from the Dem-NPL's 2026 Legislative Candidates page (demnpl.com/2026legislativecandidates/); the site reads 'Dr. Jason Thoms for North Dakota House '26 from District 7'",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "Region 6 District Convention, February 7, 2026 (as published by the Bismarck/Mandan Dem-NPL)",
+     "url": "https://bismanleaders.com/jason-thoms-state-house-district-7/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "running for North Dakota House from District 7 in the DEM-NPL Party",
+    "url": "https://www.jasonthomsforndhouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SS23",
+   "name": "Todd Beard"
+  },
+  {
+   "race_id": "2026-ND-SS45",
+   "name": "Dan Mitchell"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

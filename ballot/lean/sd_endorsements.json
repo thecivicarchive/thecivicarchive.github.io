@@ -1,0 +1,184 @@
+{
+ "state": "SD",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is, and it is empty for a reason: no South Dakota party page that a program may read publishes an endorsement for a November 3, 2026 state or local race. South Dakota's parties choose their candidates by primary (Governor, the Legislature, county offices) and by state convention (Lieutenant Governor, Attorney General, Secretary of State, Auditor, Treasurer, Commissioner of School and Public Lands, Public Utilities Commissioner); those are nominations, already shown as the party label on the ballot, and the parties' pages list their nominees without the word endorsed (or supported, or recommended). Such bare lists are recorded neither as endorsements nor as other support: they add nothing to the label. No party page read names a candidate for a nonpartisan contest (city council, conservation, water or power district) or an independent. Three parties have candidates on the November list (Republican, Democratic, Libertarian); 'Independent' is not a party. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first (none forbade it): the three state parties' sites and every county or district unit's own website linked from the Republican and Democratic directories (home page plus candidate, election and news pages, ten pages a site at most; each searched for the word, and the listing pages opened a second time and searched again). Web search was not available for this run, so a unit whose website is not in its state party's directory was not found; guessed addresses for the larger Republican county units did not exist. Facebook and other social media pages were not read. Federal offices are outside this file.",
+ "lists": [],
+ "endorsements": [],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [],
+ "other_support_unmatched": 0,
+ "other_support_unmatched_listed": [],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "South Dakota Republican Party",
+   "url": "https://www.sdgop.com/2026-republican-candidates/",
+   "why": "not collected: '2026 Republican Candidates', a bare list of the party's own nominees for statewide office and the Legislature; the page does not use the word endorsed (or supported, or recommended), so it adds nothing to the party label on the ballot. The page also prints candidates' telephone numbers and e-mail, which were not kept"
+  },
+  {
+   "party": "Republican",
+   "unit": "South Dakota Republican Party",
+   "url": "https://www.sdgop.com/news/",
+   "why": "read (news, press releases, the 2026 monthly archives, the three autumn 2026 posts, the convention resolutions, the elections and elected-officials pages); the word endorse does not appear on any of them. The statewide nominees below Governor were chosen at the party's convention: a nomination, already shown as the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "South Dakota Republican Party",
+   "url": "https://www.sdgop.com/county-contact-list/",
+   "why": "not read: the county contact list sits behind a login"
+  },
+  {
+   "party": "Republican",
+   "unit": "Butte County Republican Central Committee",
+   "url": "https://www.buttesdgop.org",
+   "why": "read (home, about, news); no word of endorsement"
+  },
+  {
+   "party": "Republican",
+   "unit": "Codington County Republicans",
+   "url": "https://www.codingtoncountyrepublicans.org/candidates/",
+   "why": "read (home, candidates, elected officials); the candidates page names no candidate and no page uses the word endorsed"
+  },
+  {
+   "party": "Republican",
+   "unit": "Custer County Republicans",
+   "url": "https://www.custercountyrepublicans.org/custer-sd-republicans",
+   "why": "read (home and seven linked pages, mostly from 2024); no word of endorsement for 2026"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hand County Republican Party",
+   "url": "https://handcountygop.us/candidates",
+   "why": "not collected: a bare list of the Republican statewide nominees and District 23 legislative candidates without the word endorsed"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lawrence County Republican Party",
+   "url": "https://www.lcsdgop.org/",
+   "why": "read (home, news, elected officials); no word of endorsement"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lincoln County Republicans",
+   "url": "https://lincolnrepsd.com/",
+   "why": "read (home and the Lincoln Day dinner page); names no endorsed candidate"
+  },
+  {
+   "party": "Republican",
+   "unit": "Minnehaha County Republicans",
+   "url": "https://gopminnehaha.com/",
+   "why": "read (home); its 'Candidate List' is a link to the Secretary of State's list; no word of endorsement"
+  },
+  {
+   "party": "Republican",
+   "unit": "Pennington County Republican Party",
+   "url": "https://penncogop.org/",
+   "why": "read (home, news, elected officials); no word of endorsement"
+  },
+  {
+   "party": "Republican",
+   "unit": "a county Republican unit whose address in the state party's directory is bhcrc.com",
+   "url": "https://bhcrc.com",
+   "why": "the address did not resolve on two tries; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "about 27 other county Republican organizations",
+   "url": "https://www.sdgop.com/get-involved/",
+   "why": "the unit's only address in the state party's directory is a Facebook page or group; social media is not read. Only the link addresses in the directory were used"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota Democratic Party",
+   "url": "https://www.sddp.org/2026-midterm-elections",
+   "why": "not collected: 'Statewide candidates' and legislative candidates by district, a bare list of the party's own nominees without the word endorsed. (The same page gives the party's stances on the four ballot questions, which are not candidate endorsements.)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota Democratic Party",
+   "url": "https://www.sddp.org/post/sddp-elects-constitutional-officer-nominees",
+   "why": "not collected: the party's convention chose its nominees for the constitutional offices; a nomination, already shown as the party label on the ballot, and the post does not say endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota Democratic Party",
+   "url": "https://www.sddp.org/post/dan-ahlers-the-better-choice-for-south-dakota",
+   "why": "not collected: a party release praising its own nominee for Governor; it does not use the word endorse"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota Democratic Party",
+   "url": "https://www.sddp.org/post/republican-secretary-of-state-monae-johnson-endorses-terrence-davis",
+   "why": "not collected: the party's release reports a personal endorsement by the sitting Republican Secretary of State of the Democratic nominee for that office. It is a person's endorsement, not a party's, so it is outside this file"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Minnehaha County Democratic Party",
+   "url": "https://www.minnehahademocrats.com/about/candidates",
+   "why": "not collected: 'Local Candidates', a bare list without the word endorsed; it still shows people who sought the nominations before the June primary"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Yankton County Democrats",
+   "url": "https://www.yanktoncountydemocrats.org/candidates",
+   "why": "not collected: 'District 18 Candidates', the party's own three legislative nominees; no word of endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota NE County Democrats (District 1)",
+   "url": "https://district1dems.com/2026-midterm-elections",
+   "why": "not collected: the party's nominees for Governor, Congress and the District 1 House seat with their own statements; no word of endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Brown County Democratic Party",
+   "url": "https://www.browncountydemocraticparty.org/",
+   "why": "read (home); names no candidate"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lawrence County Democrats",
+   "url": "https://www.lawrencecountydems.org/",
+   "why": "read (home, voter information, news); nothing for 2026; its voter page points to an outside 2024 voter guide"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Pennington County Democrats",
+   "url": "https://www.penningtoncountydemocrats.org/",
+   "why": "read (home, news); names no candidate"
+  },
+  {
+   "party": "Democratic",
+   "unit": "South Dakota Young Democrats",
+   "url": "https://www.youngdemssd.org/",
+   "why": "read (home, blog); no word of endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "about 20 other county and district Democratic organizations",
+   "url": "https://www.sddp.org/county-parties",
+   "why": "the unit's only address in the state party's directory is a Facebook, Instagram or TikTok page; social media is not read"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of South Dakota",
+   "url": "https://www.lpsouthdakota.org/",
+   "why": "read (home, the 2026 convention notice and the other 2026 posts, 'Run for Office'); the site names no 2026 candidate and does not use the word endorse. The party's two candidates on the November list carry its label on the ballot"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of South Dakota",
+   "url": "https://lpsd.org/",
+   "why": "an empty holding page; the party's site is lpsouthdakota.org. A third address tried, sdlp.org, refused this program (HTTP 403) and was left alone"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party (national)",
+   "url": "https://www.lp.org/state/south-dakota/",
+   "why": "read; names no South Dakota candidate"
+  }
+ ]
+}

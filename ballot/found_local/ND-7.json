@@ -1,0 +1,307 @@
+{
+ "part": 7,
+ "of": 20,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-ND-38035-county-commissioner",
+   "name": "Mark Rustad",
+   "field": "official_page",
+   "url": "https://www.gfcounty.nd.gov/Home/Components/StaffDirectory/StaffDirectory/120/142",
+   "why": "the page could not be opened in three tries (the host name did not resolve from this machine), so it was not seen"
+  },
+  {
+   "race_id": "2026-ND-38059-sheriff",
+   "name": "Kyle L Kirchmeier",
+   "field": "offices",
+   "url": "https://www.thedickinsonpress.com/news/2-sheriffs-in-western-nd-keep-their-seats-some-unseated-morton-billings-elect-new-leaders",
+   "why": "the article could not be opened in three tries (the host name did not resolve from this machine), so the 2014 election was not seen; the county's own page confirms only that he is sheriff today"
+  },
+  {
+   "race_id": "2026-ND-SS35",
+   "name": "Dale Pittman",
+   "field": "endorsed_by",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "why": "the party's page lists him for District 35 Senate but does not say he is endorsed; it only says it highlights Democrats running, and marks two other candidates as 'Dem-NPL Endorsed'"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38003-county-auditor",
+   "name": "Carol Grenz"
+  },
+  {
+   "race_id": "2026-ND-38007-county-commissioner-D2",
+   "name": "Steven Klym",
+   "official_page": {
+    "url": "https://www.billingscountynd.gov/directory.aspx",
+    "source": "Billings County staff directory: Steven Klym, District 2 Commissioner, County Commission",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38011-county-treasurer",
+   "name": "Sydnee Kidd"
+  },
+  {
+   "race_id": "2026-ND-38015-sheriff",
+   "name": "Elliot Carvell",
+   "website": {
+    "url": "https://carvellforsheriff.com/",
+    "how": "the site names Elliot Carvell as a candidate for Burleigh County Sheriff in 2026; paid for by Carvell for Sheriff",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38021-county-commissioner-D5",
+   "name": "Adam Roney"
+  },
+  {
+   "race_id": "2026-ND-38025-county-commissioner",
+   "name": "Lori Tabor"
+  },
+  {
+   "race_id": "2026-ND-38029-county-recorder-clerk-of-court",
+   "name": "Robin Mosset",
+   "official_page": {
+    "url": "https://emmonsnd.com/clerk-of-court-county-recorder/",
+    "source": "Emmons County, Clerk of Court/County Recorder page: Robin Mosset, Clerk/Recorder",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38035-county-commissioner",
+   "name": "Mark Rustad",
+   "offices": [
+    {
+     "office": "County Commissioner, Grand Forks County",
+     "from": "first term, ending 2026",
+     "to": "present",
+     "source": "Grand Forks Herald, 2026-02-04, 'Mark Rustad announces re-election campaign for Grand Forks County Commission': 'Rustad is finishing his first term on the commission'",
+     "url": "https://www.grandforksherald.com/news/local/mark-rustad-announces-re-election-campaign-for-grand-forks-county-commission",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38041-county-auditor-treasurer",
+   "name": "Cameo Frieze",
+   "official_page": {
+    "url": "https://www.hettingercountynd.com/nav/new_page/county_auditor/index.php",
+    "source": "Hettinger County, Auditor/Treasurer page: 'Cameo Frieze is the Hettinger County Auditor/Treasurer'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38047-county-commissioner",
+   "name": "Blanche Schumacher"
+  },
+  {
+   "race_id": "2026-ND-38051-county-commissioner",
+   "name": "Neil Meidinger",
+   "official_page": {
+    "url": "https://www.mcintoshnd.com/county-boards/board-commissioners/",
+    "source": "McIntosh County, Board of Commissioners page: Neil Meidinger, Chairman",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38055-sheriff",
+   "name": "Jerry M (JR) Kerzmann",
+   "official_page": {
+    "url": "https://mcleancountynd.gov/departments/sheriffs-office/",
+    "source": "McLean County, Sheriff's Office page: the current McLean County Sheriff is Jerry \"J.R.\" Kerzmann of Garrison (the page spells the first name 'Jerrry')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, McLean County",
+     "from": "elected 2018",
+     "to": "present",
+     "source": "McLean County, Sheriff's Office page: 'He was elected to office in 2018'",
+     "url": "https://mcleancountynd.gov/departments/sheriffs-office/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38059-sheriff",
+   "name": "Kyle L Kirchmeier",
+   "official_page": {
+    "url": "https://www.mortonnd.gov/sheriffsoffice",
+    "source": "Morton County Sheriff's Office page, Contact Us: Sheriff Kyle Kirchmeier",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38065-county-commissioner",
+   "name": "Arlo Bakker"
+  },
+  {
+   "race_id": "2026-ND-38069-county-commissioner-D5",
+   "name": "Daniel M Brossart"
+  },
+  {
+   "race_id": "2026-ND-38073-county-treasurer",
+   "name": "Kathie Erickson",
+   "official_page": {
+    "url": "https://ransomcountynd.net/treasurer/",
+    "source": "Ransom County, Treasurer's Office page: Kathie Erickson, Treasurer",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38081-county-attorney",
+   "name": "Jayne Lewandowski Pfau",
+   "official_page": {
+    "url": "https://www.sargentnd.com/dept_states_attorney.php",
+    "source": "Sargent County, State's Attorney page: Jayne Pfau, State's Attorney",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38085-county-commissioner-D1",
+   "name": "Terry Comeau"
+  },
+  {
+   "race_id": "2026-ND-38091-county-commissioner-D1",
+   "name": "Brandon Oxton",
+   "official_page": {
+    "url": "https://steelecountynd.gov/commission",
+    "source": "Steele County, Commission page: District 1 - Brandon Oxton, Chairman",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38097-county-commissioner-D1",
+   "name": "Jeramie Quam"
+  },
+  {
+   "race_id": "2026-ND-38101-county-commissioner",
+   "name": "John Fjeldahl",
+   "official_page": {
+    "url": "https://www.co.ward.nd.us/directory.aspx",
+    "source": "Ward County staff directory: John Fjeldahl, County Commissioner, Board of Ward County Commissioners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-AGR",
+   "name": "Vern Thompson",
+   "offices": [
+    {
+     "office": "State Representative, North Dakota House of Representatives",
+     "from": "1989",
+     "to": "1990",
+     "source": "KFYR-TV, 2026-03-20, 'Vern Thompson announces run for ND Ag Commissioner'",
+     "url": "https://www.kfyrtv.com/2026/03/20/vern-thompson-announces-run-nd-ag-commissioner",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "State Senator, North Dakota Senate",
+     "from": "1997",
+     "to": "2000",
+     "source": "KFYR-TV, 2026-03-20, 'Vern Thompson announces run for ND Ag Commissioner'",
+     "url": "https://www.kfyrtv.com/2026/03/20/vern-thompson-announces-run-nd-ag-commissioner",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "North Dakota Democratic-NPL",
+     "unit": "state convention; the party's '2026 Democratic-NPL Endorsed Federal and Statewide Candidates' page lists Vern Thompson, ND Agriculture Commissioner, as 'officially endorsed at the 2026 North Dakota Democratic-NPL State Convention'",
+     "url": "https://demnpl.com/2026statewidecandidates/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Senator, North Dakota Senate (1997-2000)",
+     "year": 1997,
+     "party": "Democratic",
+     "source": "KFYR-TV, 2026-03-20: 'former democratic state lawmaker'",
+     "url": "https://www.kfyrtv.com/2026/03/20/vern-thompson-announces-run-nd-ag-commissioner",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-DC-SE-1-UNEXP",
+   "name": "James T Shockman",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/james-t-shockman",
+    "source": "North Dakota Courts, District Court Judges: James T. Shockman, District Court Judge, Chambers: Jamestown, SEJD #1",
+    "verified": true
+   },
+   "born": {
+    "year": 1986,
+    "source": "North Dakota Courts biography: born in 1986",
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/james-t-shockman",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, Southeast Judicial District, Judgeship No. 1",
+     "from": "2024",
+     "to": "present",
+     "source": "North Dakota Courts biography: appointed by Governor Doug Burgum in 2024",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/james-t-shockman",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State's Attorney, LaMoure County",
+     "from": "2019",
+     "to": "2023",
+     "source": "North Dakota Courts biography: LaMoure State's Attorney 'from January 2019 to 2023'",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/james-t-shockman",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH17",
+   "name": "Mark Sanford"
+  },
+  {
+   "race_id": "2026-ND-SH29",
+   "name": "Kevin Wolsky"
+  },
+  {
+   "race_id": "2026-ND-SH37",
+   "name": "Vicky Steiner"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Jon Lee"
+  },
+  {
+   "race_id": "2026-ND-SS13",
+   "name": "Judy Lee"
+  },
+  {
+   "race_id": "2026-ND-SS35",
+   "name": "Dale Pittman"
+  },
+  {
+   "race_id": "2026-ND-TAX",
+   "name": "Mark Nelson",
+   "endorsed_by": [
+    {
+     "party": "North Dakota Democratic-NPL",
+     "unit": "state convention; the party's '2026 Democratic-NPL Endorsed Federal and Statewide Candidates' page lists Mark Nelson, ND Tax Commissioner, as 'officially endorsed at the 2026 North Dakota Democratic-NPL State Convention'",
+     "url": "https://demnpl.com/2026statewidecandidates/",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

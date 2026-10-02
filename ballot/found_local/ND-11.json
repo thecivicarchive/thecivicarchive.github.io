@@ -1,0 +1,360 @@
+{
+ "part": 11,
+ "of": 20,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {"race_id": "2026-ND-38017-sheriff", "name": "Jesse Jahner", "what": "website https://www.jahner4sheriff.com/", "why": "the address did not resolve on two tries, so the site could not be read"},
+  {"race_id": "2026-ND-38017-sheriff", "name": "Jesse Jahner", "what": "offices: Cass County Sheriff 2019 to present (sourced to the same campaign site)", "why": "the source page could not be opened on two tries"},
+  {"race_id": "2026-ND-38017-sheriff", "name": "Jesse Jahner", "what": "official_page https://www.casscountynd.gov/our-county/sheriff", "why": "the county's site refused the request (not found, then 403); behind a wall"},
+  {"race_id": "2026-ND-PSC-UNEXP", "name": "Scot Kelsh", "what": "born 1962 (Wikipedia)", "why": "the article gives the birth date without a citation"},
+  {"race_id": "2026-ND-SH5", "name": "Roger Brabandt", "what": "born 1946 (Wikipedia)", "why": "the article gives the birth date without a citation"}
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38003-county-commissioner-D4",
+   "name": "Vicky Lovell",
+   "official_page": {
+    "url": "https://www.barnescounty.us/index.php/district-4/",
+    "source": "Barnes County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Barnes County Commissioner, District 4",
+     "from": "2018",
+     "to": "present",
+     "source": "Barnes County",
+     "url": "https://www.barnescounty.us/index.php/district-4/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38007-sheriff",
+   "name": "John Tczap"
+  },
+  {
+   "race_id": "2026-ND-38013-county-auditor",
+   "name": "Amie Vandegraft",
+   "official_page": {
+    "url": "https://www.sos.nd.gov/elections/voter/current-officials/county-election-officials",
+    "source": "North Dakota Secretary of State, county election officials (Burke County Auditor)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38017-sheriff",
+   "name": "Jesse Jahner"
+  },
+  {
+   "race_id": "2026-ND-38021-county-treasurer",
+   "name": "Wonada Lematta",
+   "official_page": {
+    "url": "https://dickeynd.com/treasurer",
+    "source": "Dickey County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38025-sheriff",
+   "name": "Gary Kuhn",
+   "official_page": {
+    "url": "https://dunncountynd.gov/deputy-sheriffs-and-administrative-staff",
+    "source": "Dunn County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38031-county-commissioner-D2",
+   "name": "Chet Pollert",
+   "born": {
+    "year": 1955,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Chet_Pollert",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Dakota House of Representatives, District 29 (Carrington)",
+     "from": "1999",
+     "to": "2022",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/chet-pollert",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Majority Leader, North Dakota House of Representatives (66th and 67th Legislative Assemblies)",
+     "from": "2019",
+     "to": "2021",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/chet-pollert",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, District 29",
+     "year": "1999-2022",
+     "party": "Republican",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/chet-pollert",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38035-sheriff",
+   "name": "Andy Schneider",
+   "official_page": {
+    "url": "https://post.nd.gov/LawEnforcementAgencies/SheriffsDepartments.html",
+    "source": "North Dakota Peace Officer Standards and Training Board, list of sheriff's offices (Grand Forks County: Andrew T. Schneider)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38041-sheriff",
+   "name": "Sarah D. Warner",
+   "official_page": {
+    "url": "https://post.nd.gov/LawEnforcementAgencies/SheriffsDepartments.html",
+    "source": "North Dakota Peace Officer Standards and Training Board, list of sheriff's offices (Hettinger County: Sarah Warner)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38047-sheriff",
+   "name": "Andrew Bartholomaus",
+   "official_page": {
+    "url": "https://post.nd.gov/LawEnforcementAgencies/SheriffsDepartments.html",
+    "source": "North Dakota Peace Officer Standards and Training Board, list of sheriff's offices (Logan County: Andrew W. Bartholomaus)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38051-county-treasurer",
+   "name": "Lanette Blumhardt",
+   "official_page": {
+    "url": "https://www.mcintoshnd.com/county-offices/treasurer/",
+    "source": "McIntosh County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38057-county-commissioner",
+   "name": "Jamee Folk"
+  },
+  {
+   "race_id": "2026-ND-38061-county-commissioner-D2",
+   "name": "Gary Schell"
+  },
+  {
+   "race_id": "2026-ND-38065-county-recorder",
+   "name": "Mickie McNulty-Eide",
+   "official_page": {
+    "url": "https://olivercountynd.org/index.asp?SEC=6B29DDCC-3E2F-4CE4-8D1C-2AE8EA1851FD",
+    "source": "Oliver County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38071-county-attorney",
+   "name": "Daniel Howell",
+   "official_page": {
+    "url": "https://www.ramseycountynd.gov/m/directory/employee?eid=49",
+    "source": "Ramsey County staff directory (State's Attorney)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38075-county-commissioner-D1",
+   "name": "Andy Gates",
+   "official_page": {
+    "url": "https://www.renvillecountynd.org/department/commissioners/",
+    "source": "Renville County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38081-county-commissioner",
+   "name": "Michael Mahrer"
+  },
+  {
+   "race_id": "2026-ND-38085-sheriff",
+   "name": "Frank Landeis"
+  },
+  {
+   "race_id": "2026-ND-38091-sheriff",
+   "name": "Wayne Beckman",
+   "official_page": {
+    "url": "https://steelecountynd.gov/sheriff",
+    "source": "Steele County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Steele County Sheriff",
+     "from": "1994",
+     "to": "present",
+     "source": "Steele County",
+     "url": "https://steelecountynd.gov/sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38097-county-commissioner-D5",
+   "name": "Edson Grindeland"
+  },
+  {
+   "race_id": "2026-ND-38103-county-commissioner-D2",
+   "name": "Scott Fetch"
+  },
+  {
+   "race_id": "2026-ND-DC-EC-5",
+   "name": "Reid Brady",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/reid-a-brady",
+    "source": "North Dakota Court System",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "source": "North Dakota Court System",
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/reid-a-brady",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, East Central Judicial District, Judgeship No. 5 (elected 2020)",
+     "from": "2020",
+     "to": "present",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/reid-a-brady",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-PSC-UNEXP",
+   "name": "Scot Kelsh",
+   "website": {
+    "url": "https://www.kelshforpsc.com",
+    "how": "Linked from the Dem-NPL's 2026 statewide candidates page; the site is titled Scot Kelsh for Public Service Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Dakota House of Representatives, District 11 (Fargo)",
+     "from": "1997",
+     "to": "2014",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/scot-kelsh",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party, 2026 state convention",
+     "url": "https://demnpl.com/2026statewidecandidates/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, District 11",
+     "year": "1997-2014",
+     "party": "Democratic-NPL",
+     "note": "the page's own word is Democrat",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/scot-kelsh",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH19",
+   "name": "Karen A Anderson"
+  },
+  {
+   "race_id": "2026-ND-SH3",
+   "name": "Timothy Mihalick"
+  },
+  {
+   "race_id": "2026-ND-SH41",
+   "name": "Chris Tiongson",
+   "website": {
+    "url": "https://demnpl.com/drtfornd41/",
+    "how": "Linked as his website from the Dem-NPL's 2026 legislative candidates page; a campaign page hosted on the party's site, naming him and the House in District 41, paid for by his own committee",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party",
+     "url": "https://demnpl.com/2026legislativecandidates/",
+     "note": "Listed on the party's page of its 2026 legislative candidates; the party's statewide candidates page calls that list its endorsed legislative candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH5",
+   "name": "Roger Brabandt",
+   "offices": [
+    {
+     "office": "North Dakota House of Representatives, District 5 (Minot)",
+     "from": "2011",
+     "to": "2018",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/roger-brabandt",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, District 5",
+     "year": "2011-2018",
+     "party": "Republican",
+     "source": "North Dakota Legislative Branch",
+     "url": "https://ndlegis.gov/biography/roger-brabandt",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SS17",
+   "name": "Katie Benton",
+   "website": {
+    "url": "https://demnpl.com/katiebentond17",
+    "how": "Linked as her website from the Dem-NPL's 2026 legislative candidates page; a campaign page hosted on the party's site, naming her and the Senate in District 17, paid for by her own committee",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party",
+     "url": "https://demnpl.com/2026legislativecandidates/",
+     "note": "Listed on the party's page of its 2026 legislative candidates; the party's statewide candidates page calls that list its endorsed legislative candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SS41",
+   "name": "Kyle Davison"
+  }
+ ]
+}

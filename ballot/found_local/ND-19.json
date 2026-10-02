@@ -1,0 +1,340 @@
+{
+ "part": 19,
+ "of": 20,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance was already used up, so no search was run for anyone: each name was looked for only on its county's, the courts' or the Legislature's own pages (fetched with the kit's honest User-Agent) and in ballot/lean/nd_endorsements.json. A blank means not found that way, not that nothing exists; no campaign websites could be looked for. County sites not reached (address unknown, or 429): Benson, Kidder, Sheridan, Towner. Duane Poitra (District 9 House) and John Kelly (District 29 Senate) are on the Dem-NPL's legislative candidate list (https://demnpl.com/2026legislativecandidates/), whose lines do not say 'endorsed', so no endorsement is recorded for them. Cassandra Sampson (Bottineau) and Thomas Larson (Burleigh) appear on their counties' pages as a deputy treasurer and an elections coordinator: staff posts, not offices, so not recorded.",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38005-county-commissioner-D3",
+   "name": "Shawn Trottier"
+  },
+  {
+   "race_id": "2026-ND-38009-county-treasurer",
+   "name": "Cassandra Sampson"
+  },
+  {
+   "race_id": "2026-ND-38015-county-auditor",
+   "name": "Thomas Larson"
+  },
+  {
+   "race_id": "2026-ND-38019-county-treasurer",
+   "name": "Cynthia Stremick"
+  },
+  {
+   "race_id": "2026-ND-38023-county-recorder",
+   "name": "Chrissy Running",
+   "official_page": {
+    "url": "https://www.dividecountynd.org/county_government/county_offices/recorder",
+    "source": "Divide County, Recorder (the page names her Christina Running)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Divide County Recorder",
+     "from": "",
+     "to": "",
+     "source": "Divide County's Recorder page: 'Christina Running, Recorder' (no start date given)",
+     "url": "https://www.dividecountynd.org/county_government/county_offices/recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38027-sheriff",
+   "name": "Dalton James Walls"
+  },
+  {
+   "race_id": "2026-ND-38033-county-commissioner-D3",
+   "name": "Rory Farstveet"
+  },
+  {
+   "race_id": "2026-ND-38039-county-auditor-treasurer",
+   "name": "Madison Eli",
+   "official_page": {
+    "url": "https://www.griggscountynd.gov/departments/auditor",
+    "source": "Griggs County, Auditor department",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Griggs County Treasurer and Interim Auditor",
+     "from": "",
+     "to": "",
+     "source": "Griggs County's Auditor page lists her as 'Treasure - Interim Auditor' (as spelled there; no dates given)",
+     "url": "https://www.griggscountynd.gov/departments/auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38043-sheriff",
+   "name": "Barry Vannatta"
+  },
+  {
+   "race_id": "2026-ND-38049-county-commissioner-D3",
+   "name": "Pat Bachmeier"
+  },
+  {
+   "race_id": "2026-ND-38053-county-recorder",
+   "name": "Katie Paulson",
+   "official_page": {
+    "url": "https://mckenziecountynd.gov/departments/recorder/",
+    "source": "McKenzie County, Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McKenzie County Recorder",
+     "from": "",
+     "to": "",
+     "source": "McKenzie County's Recorder page: 'Katie Paulson, McKenzie County Recorder' (no start date given)",
+     "url": "https://mckenziecountynd.gov/departments/recorder/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38057-county-treasurer",
+   "name": "Dawn Grannis"
+  },
+  {
+   "race_id": "2026-ND-38063-county-attorney",
+   "name": "Joshua Frey",
+   "official_page": {
+    "url": "https://www.nelsonco.org/departments/states_attorney.php",
+    "source": "Nelson County, States Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nelson County State's Attorney",
+     "from": "",
+     "to": "",
+     "source": "Nelson County's States Attorney page: 'Joshua Frey, States Attorney' (no start date given)",
+     "url": "https://www.nelsonco.org/departments/states_attorney.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38067-county-commissioner-D5",
+   "name": "Blaine W Papenfuss",
+   "official_page": {
+    "url": "https://www.pembinacountynd.gov/?id=48&form_data_id=569",
+    "source": "Pembina County, Commission (the board's list; no page of his own)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pembina County Commissioner, District 5",
+     "from": "",
+     "to": "",
+     "source": "Pembina County's Commission page: 'District 5 - Blaine Papenfuss' (no start date given)",
+     "url": "https://www.pembinacountynd.gov/?id=48&form_data_id=569",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38071-county-treasurer",
+   "name": "Lisa Diseth",
+   "official_page": {
+    "url": "https://www.co.ramsey.nd.us/directory.aspx",
+    "source": "Ramsey County, Staff Directory (no page of her own)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Treasurer",
+     "from": "",
+     "to": "",
+     "source": "Ramsey County's staff directory lists Lisa Diseth as Treasurer (no start date given)",
+     "url": "https://www.co.ramsey.nd.us/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38077-county-commissioner",
+   "name": "Nathan Berseth",
+   "official_page": {
+    "url": "https://www.co.richland.nd.us/commission/",
+    "source": "Richland County, Board of Commissioners (a list of members; no page of his own)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richland County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Richland County's Board of Commissioners page lists him as a board member (no start date given)",
+     "url": "https://www.co.richland.nd.us/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38083-county-commissioner-D3",
+   "name": "Sandra Felchle"
+  },
+  {
+   "race_id": "2026-ND-38087-sheriff",
+   "name": "Kory Ruggles"
+  },
+  {
+   "race_id": "2026-ND-38095-county-commissioner-D2",
+   "name": "Doug Berg"
+  },
+  {
+   "race_id": "2026-ND-38099-county-commissioner",
+   "name": "Amy Suda"
+  },
+  {
+   "race_id": "2026-ND-38105-county-commissioner-D5",
+   "name": "Barry Ramberg",
+   "official_page": {
+    "url": "https://www.williamsnd.com/departments/williams-county-bocc/",
+    "source": "Williams County, Board of County Commissioners",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Williams County Commissioner, District 5",
+     "from": "",
+     "to": "",
+     "source": "Williams County's board page: 'District #5 County Commissioner, Term: December 5, 2022 - December 6, 2026 (fourth term)'; the start of his first term is not given",
+     "url": "https://www.williamsnd.com/departments/williams-county-bocc/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-DC-NW-2",
+   "name": "Benjamen J Johnson",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+    "source": "North Dakota Court System, District Court Judges: Benjamen J. Johnson",
+    "verified": true
+   },
+   "born": {
+    "year": 1982,
+    "date": "",
+    "source": "North Dakota Court System, District Court Judges: Benjamen J. Johnson ('Born in 1982')",
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, Northwest Judicial District, Judgeship No. 2 (Williston)",
+     "from": "2017",
+     "to": "",
+     "source": "The court's page: appointed by Governor Doug Burgum in 2017",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Public Defender for the Northwest Judicial District",
+     "from": "2012",
+     "to": "2017",
+     "source": "The court's page: served as the Public Defender for the Northwest Judicial District from 2012 to 2017",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State's Attorney for Burke County",
+     "from": "",
+     "to": "",
+     "source": "The court's page: 'he was the State's Attorney for Burke County' (years not given)",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "City Attorney for Tioga, Ross, Wildrose, Flaxton, Portal and Bowbells",
+     "from": "",
+     "to": "",
+     "source": "The court's page (years not given)",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/benjamen-j-johnson",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH13",
+   "name": "Austen Schauer"
+  },
+  {
+   "race_id": "2026-ND-SH25",
+   "name": "Kathy Skroch"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Stacie Kruckenberg",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "the party's Region 6 District Convention (published by the Bismarck/Mandan Dem-NPL organization)",
+     "url": "https://bismanleaders.com/news/kruckenberg-endorsed-for-district-33/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH43",
+   "name": "Mike Holmes"
+  },
+  {
+   "race_id": "2026-ND-SH9",
+   "name": "Duane Poitra"
+  },
+  {
+   "race_id": "2026-ND-SS29",
+   "name": "John Kelly"
+  },
+  {
+   "race_id": "2026-ND-SS5",
+   "name": "Jay Fisher",
+   "official_page": {
+    "url": "https://ndlegis.gov/biography/jay-fisher",
+    "source": "North Dakota Legislative Branch, biography of Representative Jay Fisher",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "North Dakota State Representative, District 5 (Minot)",
+     "from": "2019",
+     "to": "",
+     "source": "Legislative Branch biography: 'House since 2019'; 69th Assembly (2025): House of Representatives, Republican, District 5, Minot",
+     "url": "https://ndlegis.gov/biography/jay-fisher",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Serves in the North Dakota House of Representatives for District 5 as a Republican",
+     "year": "2025",
+     "party": "Republican",
+     "source": "Legislative Branch biography: 69th Legislative Assembly (2025), House of Representatives, Republican, District 5",
+     "url": "https://ndlegis.gov/biography/jay-fisher",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

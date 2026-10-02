@@ -1,0 +1,74 @@
+{
+ "state": "SD",
+ "made": "2026-10-02",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "SD-M-07580",
+   "name": "Brookings city",
+   "census_name": "Brookings city",
+   "population": 23948,
+   "margin": 22,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "SD-M-73060",
+   "name": "Yankton city",
+   "census_name": "Yankton city",
+   "population": 15540,
+   "margin": 39,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "SD-M-06840",
+   "name": "Brandon city",
+   "census_name": "Brandon city",
+   "population": 10996,
+   "margin": 30,
+   "races": 2,
+   "candidates": 5
+  }
+ ],
+ "school_districts": [],
+ "just_under": [],
+ "no_population_figure": [],
+ "cities_found_by_name_not_code": [],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Aberdeen city",
+  "Box Elder city",
+  "Huron city",
+  "Mitchell city",
+  "Pierre city",
+  "Rapid City city",
+  "Sioux Falls city",
+  "Spearfish city",
+  "Vermillion city",
+  "Watertown city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {},
+ "school_names_tied_after_setting_words_aside": [],
+ "note": "South Dakota's cities and school boards choose between a June and a November election (SDCL 9-13-1 and 13-7-10): most cities and every school board found voted on June 2, 2026, so the Secretary of State's November 3, 2026 list carries the councils of ten cities and no school board. Townships elect at their annual meeting in March (SDCL 8-3-1). A local candidate with no opponent is elected without being printed on the ballot (SDCL 12-16-1.1) and is on the list all the same."
+}

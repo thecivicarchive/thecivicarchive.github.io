@@ -1,0 +1,35 @@
+{
+ "state": "SD",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 630,
+ "by_level": {
+  "statewide": 14,
+  "legislature": 160,
+  "court": 0,
+  "county": 442,
+  "city": 14,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 7,
+  "legislature": 72,
+  "court": 0,
+  "county": 357,
+  "city": 4,
+  "school": 0
+ },
+ "races": 440,
+ "on_the_november_list_in_all": 736,
+ "per_part": 30,
+ "parts": 21,
+ "cities_in": 3,
+ "city_candidates": 14,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "South Dakota's cities and school boards choose between a June and a November election (SDCL 9-13-1 and 13-7-10): most cities and every school board found voted on June 2, 2026, so the Secretary of State's November 3, 2026 list carries the councils of ten cities and no school board. Townships elect at their annual meeting in March (SDCL 8-3-1). A local candidate with no opponent is elected without being printed on the ballot (SDCL 12-16-1.1) and is on the list all the same."
+}

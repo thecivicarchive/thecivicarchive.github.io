@@ -394,7 +394,7 @@ def county_kind(full):
 
 def muni_word(name):
     """What a place's own name says it is: Adairville city, Abingdon town, Bald Head Island village, Aitkin township."""
-    m = re.search(r"\b(city|town|village|borough|township)$", name or "", re.I)
+    m = re.match(r"(city|town|village|borough|township) of\b", name or "", re.I) or re.search(r"\b(city|town|village|borough|township)$", name or "", re.I)
     return m.group(1).lower() if m else ""
 
 
@@ -560,7 +560,7 @@ def geo_for(code):
 
 # What a state's map files call their own parts, where the page's usual words (Minnesota's, the first state to have
 # such files) would be the wrong ones: index.json's own account of a precinct's properties says it.
-GEO_SAID = {"com": "county commissioner district", "ward": "council district", "judicial": "judicial district"}
+GEO_SAID = {"com": "county commissioner district", "ward": "council district", "judicial": "judicial district", "swcd": "soil and water district"}
 
 
 def geo_words(idx, shapes):
@@ -639,6 +639,11 @@ def race_shape(geo, code, level, kind, jid, jur, district, counties=None):
         hit = ("mcd", jid) if jid in S.get("mcd", {}) else ("county", jid) if jid in S.get("county", {}) else None
     elif level == "other" and jid in S.get("county", {}):      # a district that is the county itself (its id is the county's code)
         hit = ("county", jid)
+    elif level == "other" and d and len(counties or []) == 1:
+        # a district's seat that one county's voters fill, the seat named for that county and filed under it alone: the county
+        named = [str(c.get("id")) for c in geo["index"].get("counties") or []
+                 if str(c.get("name") or "").casefold() == d.casefold() and re.sub(r"\D", "", str(c.get("id")))[-3:] == str(counties[0]).zfill(3)[-3:]]
+        hit = ("county", named[0]) if len(named) == 1 else None
     return f"{hit[0]}:{hit[1]}" if hit and hit[1] in S.get(hit[0], {}) else None
 
 
@@ -1006,6 +1011,10 @@ def polls_and_odds(code, races):
             snap = json.load(open(ODDS_STATE, encoding="utf-8")) if os.path.exists(ODDS_STATE) else {}
             odds = {k: v for k, v in snap.items() if k in statewide and k in names and k not in held
                     and any((v.get(m) or {}).get("rows") for m in ("polymarket", "kalshi"))}
+            # a market the file names and the snapshot has no prices for yet (ballot/odds.py has not been run since the
+            # file was written): the page shows nothing of it, and must not say that no market lists the race
+            held = sorted(set(held) | {k for k, m in found.items() if k in statewide and k not in odds and isinstance(m, dict)
+                                       and (m.get("polymarket") or m.get("kalshi"))})
         except ValueError:
             odds, held = {}, []
     return polls, odds, any_file, held
@@ -1065,8 +1074,10 @@ def geo_files(code, out_dir, geo):
     sw = geo["shapes"].get("swcd", {})      # the conservation districts that are a whole county (the only one there, not a supervisor's own district)
     per_county = Counter(p.get("j") for p in sw.values())
     whole = sorted(i for i, p in sw.items() if p.get("d") is None and not p.get("jn") and per_county[p.get("j")] == 1)
+    # a judicial district the files know by a name and not by a number (the East Central Judicial District): its name, by its id
+    named = {i: p["name"] for i, p in geo["shapes"].get("judicial", {}).items() if p.get("name") and not re.search(r"\d", str(i))}
     own = compact({"unit": geo.get("unit") if geo.get("unit") != "precinct" else None, "words": geo.get("words"), "muni": geo.get("muni"),
-                   "ck": geo.get("county_keys")})      # the files' own words and county ids, where they are not the page's usual ones
+                   "ck": geo.get("county_keys"), "names": {"judicial": named} if named else None})      # the files' own words and county ids, where they are not the page's usual ones
     return {"base": "geo/", "v": h.hexdigest()[:10], "kinds": [L["kind"] for L in idx.get("layers") or [] if L["kind"] != "state"], "polls": polls,
             "swWhole": whole, **own, "_copied": copied, "_files": len(names), "_bytes": total, "_index": len(text.encode("utf-8")), "_kit": len(MAPKIT.encode("utf-8"))}
 
@@ -2129,11 +2140,17 @@ function BallotMap(el, opt) {
       hits.sort((a, b) => (b.inside - a.inside) || (a.edge - b.edge));
       const best = hits[0], near = hits.slice(1).filter(x => x.edge <= MNGeo.NEAR && x.geometry !== best.geometry);
       const out = {lon, lat, county: best.file.county, file: best.file, precinct: best.geometry, inside: best.inside, edge: best.edge, near: near.map(x => x.geometry), school: null, schoolKnown: true};
-      return new Promise(res => {
+      // a precinct that reaches more than one city or township does not say which one a spot is in: the layer of those places answers that
+      // for a point (a precinct its own table puts in a city keeps that city); where the layer cannot be had, the page says the place is the largest one
+      const bp = best.geometry.properties, many = (bp.mcd_all || []).length > 1 && !bp.city;
+      const place = many && LAYER.mcd ? load(LAYER.mcd.file).then(lf => { const h = MNGeo.shapeAt(lf, "mcd", lon, lat);
+        if (h && bp.mcd_all.indexOf(h.geometry.id) >= 0) { out.mcd = h.geometry.id; out.mcdName = (h.geometry.properties || {}).name || ""; } }).catch(() => {}) : Promise.resolve();
+      if (many) out.mcdMany = true;
+      return place.then(() => new Promise(res => {
         let over = false; const end = id => { if (over) return; over = true; out.school = id; res(out); };
         try { MNGeo.schoolAt(best.geometry, lon, lat, (id, cb) => { load(schoolPath(id)).then(cb).catch(() => { out.schoolKnown = false; end(null); }); }, end); }
         catch (e) { out.schoolKnown = false; end(null); }
-      });
+      }));
     });
   }
 
@@ -2257,12 +2274,13 @@ window.GEOKIT = (function () {
   const GW = G.words || {}, GM = G.muni && G.muni.length ? G.muni : (ST.muni && ST.muni.length ? ST.muni : ["city"]), CK = G.ck || {}, KC = {};
   Object.keys(CK).forEach(k => { KC[CK[k]] = k; });
   const pk = id => CK[id] || id, gk = id => KC[id] || id;
+  const GN = G.names || {}, atLarge = d => /^0+$/.test(String(d));      // names the files give where an id is not a number; a state with one seat in Congress
   const bare = w => String(w).replace(/^county\s+/i, ""), title = w => String(w).replace(/\b[a-z]/g, c => c.toUpperCase());
   const said = (kind, usual) => GW[kind] ? [capital(bare(GW[kind])) + "s", capital(GW[kind])] : usual;
   const KW = {county: [capital(COS), capital(CO1)], mcd: [capital(andList(GM.map(w => MUNIS[w] || w))), capital(orList(GM))],
     school: [capital(ST.schoolOne || "school district") + "s", capital(ST.schoolOne || "school district")], com: said("com", ["Commissioner districts", "County commissioner district"]),
     ward: said("ward", ["Wards", "City ward"]), house: [ST.loT, ST.loD], senate: [ST.upT, ST.upD], cd: ["Congress", "Congressional district"], judicial: said("judicial", ["Judicial districts", "Judicial district"]),
-    swcd: ["Soil and water", "Soil and water district"], hospital: ["Hospital districts", "Hospital district"], park: ["Park districts", "Park district"]};
+    swcd: said("swcd", ["Soil and water", "Soil and water district"]), hospital: ["Hospital districts", "Hospital district"], park: ["Park districts", "Park district"]};
   const ORDER = ["county", "mcd", "school", "com", "ward", "house", "senate", "cd", "judicial", "swcd", "hospital", "park"];
   const kinds = () => ORDER.filter(k => G.kinds.includes(k)).concat(G.kinds.filter(k => !ORDER.includes(k)));
   const words = k => KW[k] || [capital(k), capital(k)];
@@ -2279,7 +2297,8 @@ window.GEOKIT = (function () {
     if (kind === "school") return SCHG[s] ? placeName(SCHG[s]) : s;
     if (kind === "house") return `${ST.loD} ${s}`;
     if (kind === "senate") return `${ST.upD} ${s}`;
-    if (kind === "cd") return `Congressional District ${s}`;
+    if (kind === "cd") return atLarge(s) ? "Congressional district, at large" : `Congressional District ${s}`;
+    if (kind === "judicial" && GN.judicial && GN.judicial[s]) return GN.judicial[s];
     if (kind === "judicial") return GW.judicial ? `${capital(GW.judicial)} ${s.replace(/^\D+/, "")}` : judicialName(s.replace(/^\D+/, ""));
     if (kind === "com") return `${cName(pk(a))}, ${GW.com ? title(bare(GW.com)) : "Commissioner District"} ${b}`;
     if (kind === "ward") return `${(D.places.M[a] || {}).n || a}, ${b}`;
@@ -2290,9 +2309,10 @@ window.GEOKIT = (function () {
   function short(kind, id, name) {      // what is written on the map itself
     const s = String(id), n = String(name || "");
     if (kind === "county") return n.replace(/ County$/, "");
-    if (kind === "mcd") return n.replace(/ city$/i, "");
+    if (kind === "mcd") return n.replace(/ city$/i, "").replace(/^city of /i, "");
+    if (kind === "cd" && atLarge(s)) return "At large";
     if (kind === "house" || kind === "senate" || kind === "cd") return s;
-    if (kind === "judicial") return s.replace(/^\D+/, "");
+    if (kind === "judicial") return s.replace(/^\D+/, "") || n.replace(/\s+Judicial District$/i, "");
     if (kind === "com" || kind === "park") return s.split("|")[1] || s;
     if (kind === "ward") return s.split("|")[1] || s;
     if (kind === "school") return n.replace(/\s*\([^)]*\)\s*$/, "").replace(/\s+(?:Public\s+)?School\s+Districts?$/i, "");
@@ -2335,18 +2355,19 @@ window.GEOKIT = (function () {
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
       ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (about ${shares[n] || "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
-      row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? "District " + z.cd : "", "cd", z.cd),
-      row(esc(KW.judicial[1]), z.jd ? dataName("judicial", z.jd) : "", "judicial", z.jd), row("Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
+      row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
+      row(esc(KW.judicial[1]), z.jd ? dataName("judicial", z.jd) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
       row("Hospital district", z.ho ? (z.hon || dataName("hospital", z.ho)) : "", "hospital", z.ho), row("Park district", z.pk ? (z.pkn || dataName("park", z.pk)) : "", "park", z.pk)].join("");
     const edge = !z.in ? `Your spot is on a ${UNIT} line, as near as this map can tell. ${esc(z.pn)} is the nearest ${UNIT}${z.nb ? `; ${esc(z.nb)} is on the other side` : ""}.`
       : z.edge <= 30 ? `Your spot is about ${feet(z.edge)} feet from this ${UNIT}&rsquo;s line${z.nb ? ` with ${esc(z.nb)}` : ""}; a spot that close can fall on either side of it.` : "";
     const acc = z.acc && z.acc > Math.max(40, z.edge) ? `Your device placed you to within about ${num(feet(z.acc))} feet, and the nearest ${UNIT} line is about ${num(feet(z.edge))} feet away, so the ${UNIT} could be a neighbouring one.` : "";
     const school = split ? `Your ${UNIT} is split between ${num(nb)} ${esc(ST.schoolOne || "school district")}s. ${z.s1 ? `By the ${esc(schoolWho())}&rsquo;s map your spot is in ${esc((z.schn || {})[z.s1] || z.s1)}` : "Which one your spot is in could not be settled here"}; ${nb === 2 ? "both are" : "all are"} on the list below, because those lines are generalised.`
       : z.out ? `Part of this ${UNIT} lies in no ${esc(ST.schoolOne || "school district")}.` : "";
+    const placed = z.mq ? `This ${UNIT} reaches more than one ${esc(KW.mcd[1].toLowerCase())}, and which one your spot is in could not be settled here; the one named holds most of the ${UNIT}.` : "";
     return `<span class="kick">Where you are</span><h3>${esc(z.pn)}</h3>
       <p class="held">Your ${UNIT} and every district it is in, worked out on this device. Tap a name to see it on the map.</p>
       <dl class="zlist">${rows}</dl>
-      ${[edge, acc, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
+      ${[edge, acc, placed, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
       ${pollHTML(z)}
       <p class="sidehint">${spot ? `The pin is your spot. The exact spot is used here and now and is not kept: after a reload your ${UNIT} stays marked in gold instead. A copy rounded to about half a mile stays on this device, for the site&rsquo;s other pages, until you tap &ldquo;Forget&rdquo;.` : `Your ${UNIT} is marked in gold. The exact spot was not kept; a copy rounded to about half a mile stays on this device until you tap &ldquo;Forget&rdquo;.`} &ldquo;Show streets&rdquo; draws the streets around it; OpenStreetMap&rsquo;s servers then see which map squares are asked for. <button type="button" class="linkbtn" data-zone="me">Go to my ${UNIT}</button></p>`;
   }
@@ -2442,7 +2463,7 @@ window.GEOKIT = (function () {
     const pcts = (p.school || []).length === sch.length ? (p.school_pct || []).map(Number) : []; let nb = 0, sum = 0;
     while (nb < pcts.length && sum + pcts[nb] <= 101.5) sum += pcts[nb++];
     const over = pcts.length === sch.length && nb > 0 && nb < sch.length ? {ov: sch.length - nb} : {};
-    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: p.mcd, mn: nm("mcd", p.mcd), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
+    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
       edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0)};
@@ -3425,11 +3446,14 @@ function ballotHTML(m){
   if (ST.local) {
     // the courts the whole state elects, the ones elected by a district the list does not tie to counties (yours is among
     // them), and the court contests the list files under the reader's county
-    const tied = courts.filter(localCourt), mine = tied.filter(r => z && r.g ? r.g === "judicial:" + z.jd : inC(r)), rest = courts.filter(r => !localCourt(r)), APPEAL = /^(supreme_court|court_of_|appellate_court)/;
+    // (a located reader's precinct names its judicial district, so a court the map draws by district is placed by that, whatever the list ties it to)
+    const drawn = r => !!z && /^judicial:/.test(r.g || "");
+    const tied = courts.filter(r => localCourt(r) || drawn(r)), mine = tied.filter(r => z && r.g ? r.g === "judicial:" + z.jd : inC(r)), rest = courts.filter(r => !tied.includes(r)), APPEAL = /^(supreme_court|court_of_|appellate_court)/;
     const whole = rest.filter(r => !r.d), byApp = rest.filter(r => r.d && APPEAL.test(r.k)), byOther = rest.filter(r => r.d && !APPEAL.test(r.k));
     const noun = tied.length ? courtNoun(tied) : "", list = whole.concat(byApp, mine);
     const words = [!tied.length ? "" : !m.c ? `Pick your ${esc(ST.countyWord)} to add its ${noun}.`
-        : mine.length ? "" : `No race for ${noun} on the list is filed under ${esc(cName(m.c))}; <a href="#courts">see every ${noun === "district court judges" ? "district court" : "court"} race</a>.`,
+        : mine.length ? "" : tied.every(drawn) ? `No race for ${noun} in the district your ${UNIT} is in is on the ${WHO} list; <a href="#courts">see every court race</a>.`
+        : `No race for ${noun} on the list is filed under ${esc(cName(m.c))}; <a href="#courts">see every ${noun === "district court judges" ? "district court" : "court"} race</a>.`,
       byApp.length ? "Where a court is elected by district, only your own district&rsquo;s seats are on your ballot." : "",
       byOther.length ? `${plural(byOther.length, "more court race")} ${byOther.length === 1 ? "is" : "are"} elected by district, and the list does not say which counties each district covers: <a href="#courts">see every court race</a>.` : ""].filter(Boolean).join(" ");
     out.push(list.length ? level(list.every(isJudge) ? "Judges" : capital(courtNoun(list)), list, words) : words ? note("Judges", words) : "");

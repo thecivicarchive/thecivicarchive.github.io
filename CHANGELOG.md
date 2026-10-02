@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.085 — 2026-10-02 — North Dakota gets the same treatment
+
+- North Dakota's ballot page now has the real map: its 358 precincts with the districts they sit in (county, city or township, ward, commissioner district, legislative district, judicial district, soil conservation, park and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.
+- North Dakota's candidates for the statewide offices, the Legislature, the courts and every county office show what the record holds: 226 have an official government page, with offices held (168) taken mostly from those pages, campaign websites where there is one, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": the Democratic-NPL's and one Republican district's published endorsements, earlier runs under a party label, and how each county and legislative district voted in 2020, 2022 and 2024, from the Secretary of State's precinct results. County offices are nonpartisan here, and the page labels no one.
+- No pollster has published a poll on any North Dakota state race this year, and the page says so. Polling places stay off the map until the Secretary of State's list is matched to every precinct.
+
 ## v4.0.084 — 2026-10-02 — Take a break, and "Insights on my location"
 
 - Every page now has a small "Take a break" in its header. It leads to the cabin: a quiet log room with a fire and the Rocky Mountains outside the window. When you are ready, a glowing "Back to where you were" sign, or the cabin's own door, takes you straight back to the exact page you left.

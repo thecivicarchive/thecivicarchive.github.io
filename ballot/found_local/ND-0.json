@@ -1,0 +1,337 @@
+{
+ "part": 0,
+ "of": 20,
+ "researched": "2026-10-02",
+ "state": "ND",
+ "in_part": 30,
+ "notes": [
+  "Web search ran out after 22 searches (the session's limit of 200 was already nearly used). These eight were never searched for, only looked up on pages already known, so a blank means 'not looked for': Carla Couture, Chas Neff Jr, Brenda Jo Gillund, Terry Goerger, Bob Martinson, Tyler York, Terry M Wanzek, Kevin Horneman. No party endorsement page could be searched for either.",
+  "Nothing found, after a search: Ann M. Wadsworth, James (Jim) Small, James Stacey Jr (the courts' page names another person as Divide County Sheriff today), Irene Helm, Roberto Cantu (the courts' page names another person as Kidder County Sheriff today), John Hance (news coverage describes police and military work, which are jobs, not offices), Todd Lasher, Craig Jarolimek.",
+  "Brenda Jo Gillund: https://district13.us/ promotes her for House District 13 but is the District 13 Dem-NPL's site, not her own, so it is not recorded as her website. Kevin Horneman: https://www.bismanleaders.com/kevin-horneman-state-senate-district-7/ is 'paid for and authorized by the Bismarck/Mandan Dem-NPL organization', likewise not his own. The state party's page https://demnpl.com/2026legislativecandidates/ lists Gillund, York and Horneman as '2026 Dem-NPL Legislative Candidates' but does not use the word endorsed, so no endorsement is recorded.",
+  "Terry Goerger: Richland County's commission page names a Terry Goerger as chairman of the Board of Commissioners (https://www.co.richland.nd.us/commission/), but nothing opened ties that commissioner to the District 25 House candidate, so nothing is recorded. A verifier with search could settle it.",
+  "Michael Howe: Wikipedia's page on this race says the North Dakota Republican Party declined to endorse him (footnote to a March 2026 news story that could not be opened); not recorded. ndgop.org shows no list of 2026 endorsements.",
+  "Where an office has no 'from' year, the page names the person as holding the office today and gives no start date. Missy Morden is listed by the courts as Melissa Morden; Terry Ternes as Terrance Ternes; Matt Wright as Matthew Wright.",
+  "Several county sites failed to resolve on some tries (the router's lost lookups); bensoncountynd.com answered 429 and was left alone.",
+  "Verifier, 2026-10-02: every url re-opened and every finding confirmed. Ramsey County's sheriff page has moved (301) from www.co.ramsey.nd.us to www.ramseycountynd.gov; the address was updated. Tyler York's page carries his own committee's 'Paid for by' line, now recorded in 'how'. Nelson County's page says its commission is elected at large and gives no district numbers."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38001-county-attorney",
+   "name": "Aaron William Roseland",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/Contents/Item/Display/59128",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Adams County State's Attorney",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/Contents/Item/Display/59128",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38009-sheriff",
+   "name": "Jeremy Tofteland",
+   "official_page": {
+    "url": "https://www.bottineauco.com/sheriff",
+    "source": "Bottineau County Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bottineau County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "Bottineau County Sheriff's Office",
+     "url": "https://www.bottineauco.com/sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38019-sheriff",
+   "name": "Matt Wright",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/cavalier-county",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cavalier County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/court-locations/cavalier-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38027-sheriff",
+   "name": "Paul Lies",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/eddy-county",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eddy County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/court-locations/eddy-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38033-county-recorder-clerk-of-court",
+   "name": "Rachel Keohane",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/golden-valley-county",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Golden Valley County Clerk of District Court",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/court-locations/golden-valley-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38049-county-commissioner-D5",
+   "name": "David Schmitt",
+   "official_page": {
+    "url": "https://mchenrycountynd.gov/departments/commission/",
+    "source": "McHenry County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "McHenry County Commissioner, District 5",
+     "from": null,
+     "to": null,
+     "source": "McHenry County",
+     "url": "https://mchenrycountynd.gov/departments/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38057-sheriff",
+   "name": "Terry Ternes",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/mercer-county",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mercer County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/court-locations/mercer-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38063-county-commissioner-D1",
+   "name": "Michael Haugland",
+   "official_page": {
+    "url": "https://www.nelsonco.org/government/county_commission/index.php",
+    "source": "Nelson County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nelson County Commissioner",
+     "from": null,
+     "to": null,
+     "source": "Nelson County",
+     "url": "https://www.nelsonco.org/government/county_commission/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38067-county-recorder-clerk-of-court",
+   "name": "Missy Morden",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/pembina-county",
+    "source": "North Dakota Court System, county court page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pembina County Clerk of District Court",
+     "from": null,
+     "to": null,
+     "source": "North Dakota Court System, county court page",
+     "url": "https://www.ndcourts.gov/court-locations/pembina-county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38071-sheriff",
+   "name": "Bryan Lang",
+   "official_page": {
+    "url": "https://www.ramseycountynd.gov/161/Sheriff",
+    "source": "Ramsey County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ramsey County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "Ramsey County",
+     "url": "https://www.ramseycountynd.gov/161/Sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38077-county-commissioner",
+   "name": "Rowland (Rollie) Ehlert",
+   "official_page": {
+    "url": "https://www.co.richland.nd.us/commission/",
+    "source": "Richland County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richland County Commissioner",
+     "from": null,
+     "to": null,
+     "source": "Richland County",
+     "url": "https://www.co.richland.nd.us/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38089-county-attorney",
+   "name": "Amanda R Engelstad",
+   "official_page": {
+    "url": "https://www.starkcountynd.gov/states-attorney",
+    "source": "Stark County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stark County State's Attorney",
+     "from": null,
+     "to": null,
+     "source": "Stark County",
+     "url": "https://www.starkcountynd.gov/states-attorney",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Stark County State's Attorney: sworn in when her predecessor's resignation took effect, February 1, 2021 (reported ahead of the date)",
+     "from": "2021",
+     "to": null,
+     "source": "The Dickinson Press, December 29, 2020",
+     "url": "https://www.thedickinsonpress.com/news/stark-county-states-attorney-resignation-effective-february",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38095-county-commissioner-D4",
+   "name": "David Lagein",
+   "official_page": {
+    "url": "https://www.tccounty.com/county-commissioners",
+    "source": "Towner County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Towner County Commissioner (Vice Chairman)",
+     "from": null,
+     "to": null,
+     "source": "Towner County",
+     "url": "https://www.tccounty.com/county-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-DC-NW-3",
+   "name": "Chas Neff, Jr",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/chas-neff-jr",
+    "source": "North Dakota Court System",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the District Court, Northwest Judicial District No. 3 (appointed by the Governor)",
+     "from": "2022",
+     "to": null,
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/chas-neff-jr",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "McKenzie County State's Attorney",
+     "from": "2017",
+     "to": "2018",
+     "source": "North Dakota Court System",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/chas-neff-jr",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH43",
+   "name": "Tyler York",
+   "website": {
+    "url": "https://demnpl.com/york4nd/",
+    "how": "his campaign page for House District 43, hosted on the state Democratic-NPL party's site; the page says 'Paid for by Friends of Tyler York'; no separate site was found",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SOS",
+   "name": "Michael Howe",
+   "website": {
+    "url": "https://howefornd.com/",
+    "how": "the site says he is North Dakota's Secretary of State and is running for re-election; 'Paid for by Howe for North Dakota'",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

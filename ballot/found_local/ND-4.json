@@ -1,0 +1,365 @@
+{
+ "part": 4,
+ "of": 20,
+ "state": "ND",
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's web-search allowance ran out after six searches, so the rest was done by opening pages directly with the kit's own User-Agent: county sites, the North Dakota Court System's county and judge pages, the state's sheriff list (post.nd.gov), the Legislative Branch's biography pages, the Democratic-NPL's own candidate pages, two campaign sites, and a voter guide (theballotbrief.com) used only to find campaign site addresses.",
+  "Nothing found, left blank: Lyle Kenner, Andrew Krauseneck, Liz Braun, Gordon A Dexheimer, Steve Cottingham, Meredith Childress, Kevin Bishop, Angela (Angie) Eagle. The county pages for Emmons, Grand Forks, LaMoure, McIntosh, McLean and Pierce name other people in those offices today, so these six appear not to hold them now; no site was found for Sioux County, and ransomcountynd.com did not answer.",
+  "No page of the North Dakota Republican Party listing or endorsing its 2026 legislative or statewide candidates was found (ndgop.org has no candidates page), so no endorsed_by is recorded for Shawn Kessel, Kylan Klauzer, Scott Wagner, Brad Bekkedahl or Drew Wrigley. No campaign site was confirmed for Wrigley, Wagner, Bekkedahl, Drury or Spilman.",
+  "The Dem-NPL's legislative page links Kelly Spilman's 'Website' to bismanleaders.com, which is the Bismarck/Mandan Dem-NPL's site, not her own, so it is recorded as a party page and not as a campaign website.",
+  "Shawn Kessel's own_words is an endorsement by a person (the Governor), not a party; the second reader should judge whether it belongs. His city administrator posts have no years on the page.",
+  "Verifier (2026-10-02): every url re-opened with the kit's own User-Agent; all 34 findings confirmed on the page. Corrected: the post.nd.gov remarks in the Fisher and Jurgens sources were dropped (that list was not a recorded url and was not re-opened); Schwab's office now says the 2022 date is the current term's start. The three Dem-NPL endorsed_by entries rest on the party's own candidate lists, which present these people as the party's 2026 candidates without the word endorse; kept with that said in the unit. Kessel's own_words is a heading on his own site, five words, naming a person's endorsement, not a party's."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-ND-38001-sheriff",
+   "name": "Jordan Edward Fisher",
+   "official_page": {
+    "url": "https://adamscountynd.com/departments/sheriff/index.php",
+    "source": "Adams County's Sheriff page: 'Jordan Fisher, Sheriff'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38007-county-auditor-treasurer",
+   "name": "Marcia (Lamb) Kessel",
+   "official_page": {
+    "url": "https://billingscountynd.gov/Directory.aspx",
+    "source": "Billings County staff directory: 'Marcia Kessel, Auditor/Treasurer'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38011-county-commissioner",
+   "name": "Josh Buchmann",
+   "official_page": {
+    "url": "https://bowmannd.com/county/departments/commission/",
+    "source": "Bowman County Commission page; its posted minutes list Josh Buchmann among the commissioners present",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38015-county-commissioner",
+   "name": "Steve Schwab",
+   "official_page": {
+    "url": "https://www.burleigh.gov/government/county-commission/members/",
+    "source": "Burleigh County Commission members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Burleigh County Commissioner (current term; the page gives this term only, not when he was first elected)",
+     "from": "2022",
+     "to": null,
+     "source": "Burleigh County: 'Commissioner Steve Schwab ... December 5, 2022 - December 7, 2026'",
+     "url": "https://www.burleigh.gov/government/county-commission/members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38021-county-auditor",
+   "name": "Wanda Sheppard",
+   "official_page": {
+    "url": "https://dickeynd.com/auditor",
+    "source": "Dickey County Auditor page: 'Auditor: Wanda Sheppard'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38025-county-commissioner",
+   "name": "Craig Pelton",
+   "official_page": {
+    "url": "https://dunncountynd.gov/commission",
+    "source": "Dunn County Commission page: 'Craig Pelton, Commission Vice Chair'; term ends 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38029-county-commissioner-D2",
+   "name": "Lyle Kenner"
+  },
+  {
+   "race_id": "2026-ND-38035-county-commissioner",
+   "name": "Andrew Krauseneck"
+  },
+  {
+   "race_id": "2026-ND-38039-county-recorder-clerk-of-court",
+   "name": "Kelly Palm",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/griggs-county",
+    "source": "North Dakota Court System, Griggs County: 'Kelly Palm - Recorder/Clerk of District Court'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38045-county-treasurer",
+   "name": "Liz Braun"
+  },
+  {
+   "race_id": "2026-ND-38051-county-attorney",
+   "name": "Gordon A Dexheimer"
+  },
+  {
+   "race_id": "2026-ND-38055-county-commissioner-D1",
+   "name": "Steve Cottingham"
+  },
+  {
+   "race_id": "2026-ND-38059-county-commissioner",
+   "name": "Jackie Buckley",
+   "official_page": {
+    "url": "https://www.mortonnd.gov/commissioners",
+    "source": "Morton County Commissioners page: 'Commissioner Jackie Buckley'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Morton County Commissioner",
+     "from": "2018",
+     "to": null,
+     "source": "Morton County: 'Jackie was first elected to the commission in 2018 and is up for re-election in 2026'",
+     "url": "https://www.mortonnd.org/?SEC=FEDF6F77-F1CA-43CF-81EE-F2EAAEA3A206&DE=D7634E2E-6539-4462-B89E-DF2CDDD93C78&Type=B_BASIC",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38065-county-attorney",
+   "name": "Patrick Waters",
+   "official_page": {
+    "url": "https://olivercountynd.org/statesattorney",
+    "source": "Oliver County State's Attorney page: 'State's Attorney Patrick Waters'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38069-county-attorney",
+   "name": "Meredith Childress"
+  },
+  {
+   "race_id": "2026-ND-38073-county-commissioner",
+   "name": "Kevin Bishop"
+  },
+  {
+   "race_id": "2026-ND-38079-county-commissioner",
+   "name": "Kent Abrahamson",
+   "official_page": {
+    "url": "https://rolettecountynd.gov/government/commission/",
+    "source": "Rolette County Commission page: 'Kent Abrahamson - Commissioner'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38085-county-auditor",
+   "name": "Angela (Angie) Eagle"
+  },
+  {
+   "race_id": "2026-ND-38089-county-commissioner-D4",
+   "name": "Paul Clarys",
+   "official_page": {
+    "url": "https://www.starkcountynd.gov/stark-county-commissioners",
+    "source": "Stark County Commission page: 'Paul Clarys, District 4 ... Vice-Chairman'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Stark County Commissioner, District 4",
+     "from": "2022",
+     "to": null,
+     "source": "Stark County: 'District 4 - First Elected in 2022, Last Elected in 2022'",
+     "url": "https://www.starkcountynd.gov/stark-county-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-38097-clerk-of-court",
+   "name": "Jody Schill",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/court-locations/traill-county",
+    "source": "North Dakota Court System, Traill County: 'Jody Schill - Clerk of District Court'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-38099-sheriff",
+   "name": "Ronald Jurgens",
+   "official_page": {
+    "url": "https://walshcountynd.com/county_government/sheriffs_office_corrections/index.php",
+    "source": "Walsh County Sheriff's Office page: 'Ron Jurgens, Walsh County Sheriff'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-AG",
+   "name": "Drew Wrigley",
+   "official_page": {
+    "url": "https://attorneygeneral.nd.gov/attorney-generals-office/attorney-general-drew-h-wrigley/",
+    "source": "Office of Attorney General: 'Attorney General Drew H. Wrigley'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-DC-SC-6",
+   "name": "Bobbi Weiler",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/bobbi-weiler",
+    "source": "North Dakota Court System: 'Bobbi Weiler, District Court Judge, Chambers: Bismarck - SCJD #6'",
+    "verified": true
+   },
+   "born": {
+    "year": 1983,
+    "date": null,
+    "source": "North Dakota Court System biography: 'Born in 1983'",
+    "url": "https://www.ndcourts.gov/district-court/district-court-judges/bobbi-weiler",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, South Central Judicial District, judgeship No. 6",
+     "from": "2020",
+     "to": null,
+     "source": "North Dakota Court System: 'appointed as District Court Judge by Governor Doug Burgum in 2020 for the South Central Judicial District judgeship #6'",
+     "url": "https://www.ndcourts.gov/district-court/district-court-judges/bobbi-weiler",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH15",
+   "name": "Frances Drury",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party (its '2026 Dem-NPL Legislative Candidates' page lists 'Frances Drury for District 15 House, Dem-NPL Party'; the page is a candidate list and does not use the word 'endorse' for legislative candidates)",
+     "url": "https://demnpl.com/2026legislativecandidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SH27",
+   "name": "Shawn Kessel",
+   "website": {
+    "url": "https://friendsofkessel.org",
+    "how": "the site is titled 'Kessel for District 27 House - Shawn Kessel for ND House' and is paid for by Friends of Kessel; address found through a voter guide (theballotbrief.com)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Administrator, Wahpeton and later Dickinson (appointed city posts; the page gives no years)",
+     "from": null,
+     "to": null,
+     "source": "his campaign site: 'Shawn served as City Administrator in Wahpeton and later in Dickinson'",
+     "url": "https://friendsofkessel.org/meet-shawn/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Endorsed by Governor Kelly Armstrong",
+    "url": "https://friendsofkessel.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SH37",
+   "name": "Kylan Klauzer",
+   "website": {
+    "url": "https://klauzerfornd.com",
+    "how": "the site is titled 'Klauzer for ND House - Kylan Klauzer for House' and names District 37; address found through a voter guide (theballotbrief.com)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SH45",
+   "name": "Scott Wagner",
+   "official_page": {
+    "url": "https://ndlegis.gov/biography/scott-wagner",
+    "source": "North Dakota Legislative Branch biography page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SS1",
+   "name": "Brad Bekkedahl",
+   "official_page": {
+    "url": "https://ndlegis.gov/biography/brad-bekkedahl",
+    "source": "North Dakota Legislative Branch biography page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-ND-SS31",
+   "name": "Kelly Spilman",
+   "endorsed_by": [
+    {
+     "party": "Democratic-NPL",
+     "unit": "North Dakota Democratic-NPL Party (its '2026 Dem-NPL Legislative Candidates' page lists 'Kelly Spilman for District 31 Senate, Dem-NPL Party'; a candidate list, the word 'endorse' is not used for legislative candidates)",
+     "url": "https://demnpl.com/2026legislativecandidates/",
+     "verified": true
+    },
+    {
+     "party": "Democratic-NPL",
+     "unit": "Bismarck/Mandan Dem-NPL (its candidates page lists 'Kelly Spilman, District 31 - State Senate'; the page is paid for by the Bismarck/Mandan Dem-NPL organization)",
+     "url": "https://www.bismanleaders.com/candidates",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-ND-SUPREME",
+   "name": "Jerod Tufte",
+   "official_page": {
+    "url": "https://www.ndcourts.gov/supreme-court/justices/jerodetufte",
+    "source": "North Dakota Court System: 'Jerod E. Tufte, Justice of the North Dakota Supreme Court'",
+    "verified": true
+   },
+   "born": {
+    "year": 1975,
+    "date": null,
+    "source": "North Dakota Court System biography: 'Born in Minot, North Dakota, in 1975'",
+    "url": "https://www.ndcourts.gov/supreme-court/justices/jerodetufte",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kidder County State's Attorney (appointed 2005, elected 2006 and 2010; the page gives no end year)",
+     "from": "2005",
+     "to": null,
+     "source": "North Dakota Court System biography",
+     "url": "https://www.ndcourts.gov/supreme-court/justices/jerodetufte",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "District Court Judge, Southeast Judicial District",
+     "from": "2014",
+     "to": "2016",
+     "source": "North Dakota Court System biography",
+     "url": "https://www.ndcourts.gov/supreme-court/justices/jerodetufte",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Justice of the North Dakota Supreme Court (elected 2016)",
+     "from": "2016",
+     "to": null,
+     "source": "North Dakota Court System biography",
+     "url": "https://www.ndcourts.gov/supreme-court/justices/jerodetufte",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}
