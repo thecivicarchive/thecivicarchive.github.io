@@ -1,0 +1,308 @@
+[
+ {
+  "kind": "texture",
+  "id": "coated_pine_02",
+  "name": "Coated Pine 02",
+  "files": [
+   "tex/logs_diff.jpg",
+   "tex/logs_nor.jpg",
+   "tex/logs_arm.jpg"
+  ],
+  "bytes": 264018,
+  "source": "https://polyhaven.com/a/coated_pine_02",
+  "authors": [
+   "Charlotte Baglioni",
+   "Jenelle van Heerden"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   1049.7100353240967,
+   1049.7100353240967
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "wood_floor_worn",
+  "name": "Wood Floor Worn",
+  "files": [
+   "tex/floor_diff.jpg",
+   "tex/floor_nor.jpg",
+   "tex/floor_arm.jpg"
+  ],
+  "bytes": 245766,
+  "source": "https://polyhaven.com/a/wood_floor_worn",
+  "authors": [
+   "Dimitrios Savva"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   1999.9996423721313,
+   1999.9996423721313
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "roof_planks",
+  "name": "Roof Planks",
+  "files": [
+   "tex/boards_diff.jpg",
+   "tex/boards_nor.jpg",
+   "tex/boards_arm.jpg"
+  ],
+  "bytes": 60659,
+  "source": "https://polyhaven.com/a/roof_planks",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   1500.0001192092896,
+   1500.0001192092896
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "stacked_stone_wall",
+  "name": "Stacked Stone Wall",
+  "files": [
+   "tex/stone_diff.jpg",
+   "tex/stone_nor.jpg",
+   "tex/stone_arm.jpg"
+  ],
+  "bytes": 533518,
+  "source": "https://polyhaven.com/a/stacked_stone_wall",
+  "authors": [
+   "Dimitrios Savva"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   2000,
+   2000
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "pine_bark",
+  "name": "Pine Bark",
+  "files": [
+   "tex/bark_diff.jpg",
+   "tex/bark_nor.jpg",
+   "tex/bark_arm.jpg"
+  ],
+  "bytes": 142224,
+  "source": "https://polyhaven.com/a/pine_bark",
+  "authors": [
+   "Dimitrios Savva"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   1999.9996423721313,
+   1999.9996423721313
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "wood_planks_grey",
+  "name": "Wood Planks Grey",
+  "files": [
+   "tex/deck_diff.jpg",
+   "tex/deck_nor.jpg",
+   "tex/deck_arm.jpg"
+  ],
+  "bytes": 75916,
+  "source": "https://polyhaven.com/a/wood_planks_grey",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   1500,
+   1500.0001192092896
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "fabric_pattern_07",
+  "name": "Fabric Pattern 07",
+  "files": [
+   "tex/plaid_arm.jpg",
+   "tex/plaid_diff.jpg",
+   "tex/plaid_nor.jpg"
+  ],
+  "bytes": 181170,
+  "source": "https://polyhaven.com/a/fabric_pattern_07",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   400.0000059604645,
+   400.00003576278687
+  ]
+ },
+ {
+  "kind": "texture",
+  "id": "brown_leather",
+  "name": "Brown Leather",
+  "files": [
+   "tex/leather_diff.jpg",
+   "tex/leather_nor.jpg",
+   "tex/leather_arm.jpg"
+  ],
+  "bytes": 99479,
+  "source": "https://polyhaven.com/a/brown_leather",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true,
+  "dimensions_mm": [
+   400.0000059604645,
+   400.00003576278687
+  ]
+ },
+ {
+  "kind": "model",
+  "id": "sofa_02",
+  "name": "Sofa 02",
+  "files": [
+   "models/sofa_02/"
+  ],
+  "bytes": 397135,
+  "source": "https://polyhaven.com/a/sofa_02",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "ArmChair_01",
+  "name": "Arm Chair 01",
+  "files": [
+   "models/ArmChair_01/"
+  ],
+  "bytes": 714442,
+  "source": "https://polyhaven.com/a/ArmChair_01",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "Rockingchair_01",
+  "name": "Rockingchair 01",
+  "files": [
+   "models/Rockingchair_01/"
+  ],
+  "bytes": 501683,
+  "source": "https://polyhaven.com/a/Rockingchair_01",
+  "authors": [
+   "Jorge Camacho"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "small_wooden_table_01",
+  "name": "Small Wooden Table 01",
+  "files": [
+   "models/small_wooden_table_01/"
+  ],
+  "bytes": 166437,
+  "source": "https://polyhaven.com/a/small_wooden_table_01",
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "side_table_tall_01",
+  "name": "Side Table Tall 01",
+  "files": [
+   "models/side_table_tall_01/"
+  ],
+  "bytes": 299156,
+  "source": "https://polyhaven.com/a/side_table_tall_01",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "lantern_chandelier_01",
+  "name": "Lantern Chandelier 01",
+  "files": [
+   "models/lantern_chandelier_01/"
+  ],
+  "bytes": 572628,
+  "source": "https://polyhaven.com/a/lantern_chandelier_01",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "throw_pillows_01",
+  "name": "Throw Pillows 01",
+  "files": [
+   "models/throw_pillows_01/"
+  ],
+  "bytes": 351299,
+  "source": "https://polyhaven.com/a/throw_pillows_01",
+  "authors": [
+   "Serhii Khromov"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "model",
+  "id": "antique_ceramic_vase_01",
+  "name": "Antique Ceramic Vase 01",
+  "files": [
+   "models/antique_ceramic_vase_01/"
+  ],
+  "bytes": 303292,
+  "source": "https://polyhaven.com/a/antique_ceramic_vase_01",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ },
+ {
+  "kind": "texture",
+  "id": "Carpet015",
+  "name": "Carpet015",
+  "files": [
+   "tex/rug_diff.jpg",
+   "tex/rug_nor.jpg",
+   "tex/rug_rough.jpg"
+  ],
+  "bytes": 210769,
+  "source": "https://ambientcg.com/view?id=Carpet015",
+  "authors": [
+   "ambientCG (Lennart Demes)"
+  ],
+  "licence": "CC0 1.0",
+  "licence_seen_on_page": true
+ }
+]

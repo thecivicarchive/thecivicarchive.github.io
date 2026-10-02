@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Civic Archive</title>
 <meta name="description" content="The public record and who is on your ballot. Step into the cabin and pick a door: On The Ballot, or Legislation and Legislatures.">
-<meta name="version" content="4.0.078">
+<meta name="version" content="4.0.081">
 <meta name="theme-color" content="#1a120b">
 <style>
 :root{--ink:#f6ecd6;--dim:#d9c9a8;--chip:rgba(22,15,9,.72);--line:rgba(246,236,214,.28);--gold:#f0c060;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -19,6 +19,8 @@ html,body{margin:0;height:100%;background:#1a120b;color:var(--ink);font-family:v
 .wip a{color:var(--ink)}
 .hint{position:fixed;left:50%;top:22%;transform:translateX(-50%);z-index:3;margin:0;background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:10px 16px;font-size:14.5px;text-align:center;max-width:min(560px,calc(100% - 32px));backdrop-filter:blur(6px);transition:opacity .9s ease;pointer-events:none}
 .hint.gone{opacity:0}
+.load{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:3;margin:0;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:12.5px;color:var(--dim);backdrop-filter:blur(6px);transition:opacity .8s ease;pointer-events:none;white-space:nowrap}
+.load.gone{opacity:0}
 .ways{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:3;display:flex;gap:10px;justify-content:center;align-items:stretch;flex-wrap:wrap;width:max-content;max-width:calc(100% - 24px)}
 .ways a{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:9px 16px;backdrop-filter:blur(6px);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}
 .ways a b{font-size:15px;font-weight:650}.ways a span{font-size:12.5px;color:var(--dim)}
@@ -35,65 +37,119 @@ html,body{margin:0;height:100%;background:#1a120b;color:var(--ink);font-family:v
   box-shadow:0 0 0 2px rgba(var(--glow),.9),0 0 44px rgba(var(--glow),.75),inset 0 0 26px rgba(var(--glow),.25);animation:none}
 @keyframes sign{0%,100%{box-shadow:0 0 0 1px rgba(var(--glow),.25),0 0 22px rgba(var(--glow),.34),inset 0 0 18px rgba(var(--glow),.12)}50%{box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 40px rgba(var(--glow),.62),inset 0 0 24px rgba(var(--glow),.2)}}
 .ways a.plain{padding:9px 14px;font-size:13.5px;color:var(--dim);align-self:center}
-.foot{position:fixed;right:12px;bottom:calc(6px + env(safe-area-inset-bottom));z-index:2;margin:0;font-size:11px;color:rgba(246,236,214,.55);text-shadow:0 1px 6px rgba(0,0,0,.8);pointer-events:none}
+.foot{position:fixed;right:12px;bottom:calc(6px + env(safe-area-inset-bottom));z-index:2;margin:0;font-size:11px;color:rgba(246,236,214,.6);text-shadow:0 1px 6px rgba(0,0,0,.8);max-width:min(60vw,560px);text-align:right}
+.foot button{font:inherit;color:inherit;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
 #fade{position:fixed;inset:0;z-index:5;background:#120c07;opacity:0;pointer-events:none;transition:opacity .45s ease}
 #fade.on{opacity:1}
+dialog.credits{max-width:min(620px,calc(100% - 32px));border:1px solid var(--line);border-radius:14px;background:#221710;color:var(--ink);padding:18px 20px;font-size:14px}
+dialog.credits::backdrop{background:rgba(0,0,0,.55)}
+dialog.credits h2{font-family:var(--serif);font-weight:400;font-size:22px;margin:0 0 6px}
+dialog.credits p{margin:6px 0;color:var(--dim)}
+dialog.credits ul{margin:8px 0 0;padding-left:18px}dialog.credits li{margin:3px 0}
+dialog.credits a{color:var(--ink)}
+dialog.credits form{margin:14px 0 0;text-align:right}dialog.credits button{font:inherit;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
 /* the still page: no 3D on this device, or Motion is off */
 body.flat{overflow:auto;background:radial-gradient(1200px 700px at 50% 0%,#3a2916 0%,#1a120b 70%)}
-body.flat #room,body.flat .hint{display:none}
+body.flat #room,body.flat .hint,body.flat .load{display:none}
 body.flat .brand{position:static;padding:10vh 20px 0;text-align:center;max-width:none}
 body.flat .brand b{font-size:clamp(34px,7vw,64px)}
 body.flat .ways{position:static;transform:none;margin:6vh auto 0;flex-direction:column;width:min(520px,calc(100% - 32px))}
 body.flat .ways a{padding:18px 20px}body.flat .ways a b{font-size:19px}
-body.flat .foot{position:static;text-align:center;margin:5vh 0 24px}
+body.flat .foot{position:static;text-align:center;margin:5vh auto 24px;max-width:none}
 body.flat .flatnote{display:block}
 .flatnote{display:none;text-align:center;color:var(--dim);font-size:14px;margin:18px auto 0;max-width:520px;padding:0 20px}
 @media (prefers-reduced-motion: reduce){.ways a[data-i]{animation:none}}
-@media (max-width:640px){.ways a span{display:none}.ways a,.ways a[data-i]{padding:11px 14px}.ways a[data-i] b{font-size:16.5px}.foot{display:none}.wip{font-size:11px;padding:5px 9px;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));right:50%;transform:translateX(50%);white-space:nowrap}.hint{top:16%}}
-@media (prefers-reduced-motion: reduce){.hint,#fade,.ways a{transition:none}}
+@media (max-width:640px){.ways a span{display:none}.ways a,.ways a[data-i]{padding:11px 14px}.ways a[data-i] b{font-size:16.5px}.foot{display:none}.wip{font-size:11px;padding:5px 9px;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));right:50%;transform:translateX(50%);white-space:nowrap}.hint{top:16%}.load{bottom:calc(96px + env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion: reduce){.hint,#fade,.ways a,.load{transition:none}}
 </style>
 </head>
 <body>
-<canvas id="room" tabindex="0" role="img" aria-label="A log cabin room: a fire, two armchairs, a bookshelf, and a wide window on the Rocky Mountains. Two glowing posters on the far wall are the doors to the site: On The Ballot, and Legislation and Legislatures. The same two doors are links at the foot of this page."></canvas>
+<canvas id="room" tabindex="0" role="img" aria-label="A log great room in the Rockies: round-log walls and rafters under a vaulted roof, a stacked-stone fireplace with a fire burning, leather and upholstered seating on a red rug, and a gable wall of windows on the mountains. Two glowing posters on the far wall are the doors to the site: On The Ballot, and Legislation and Legislatures. The same two doors are links at the foot of this page."></canvas>
 <header class="brand"><b>The Civic Archive</b><span>The public record, and who is on your ballot</span></header>
 <div class="wip">A draft for feedback. <a href="https://thecivicarchive.github.io/">The live site</a></div>
 <p class="hint" id="hint"></p>
+<p class="load" id="load" role="status" aria-live="polite"></p>
 <p class="flatnote">This device is showing the plain page. The two doors are below.</p>
 <nav class="ways" aria-label="The two doors">
   <a data-i="0" data-look="ballot" href="ballot/"><b>On The Ballot</b><span>Meet everyone asking for your vote</span></a>
   <a data-i="1" data-look="record" href="./"><b>Legislation &amp; Legislatures</b><span>See what they did with the last one</span></a>
   <a class="plain" href="./" title="The same doors as a ring of cards, with no room to walk around">Plain view</a>
 </nav>
-<p class="foot" id="foot">v4.0.078</p>
+<p class="foot" id="foot">v4.0.081</p>
+<dialog class="credits" id="credits">
+<h2>What the room is made of</h2>
+<p>The materials, furniture and photographs in this room are free works, kept with the site and credited here.</p>
+<ul><li><a href="https://polyhaven.com/a/coated_pine_02" rel="noopener" target="_blank">Coated Pine 02</a> (material) by Charlotte Baglioni, Jenelle van Heerden, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/wood_floor_worn" rel="noopener" target="_blank">Wood Floor Worn</a> (material) by Dimitrios Savva, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/roof_planks" rel="noopener" target="_blank">Roof Planks</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/stacked_stone_wall" rel="noopener" target="_blank">Stacked Stone Wall</a> (material) by Dimitrios Savva, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/pine_bark" rel="noopener" target="_blank">Pine Bark</a> (material) by Dimitrios Savva, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/wood_planks_grey" rel="noopener" target="_blank">Wood Planks Grey</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/fabric_pattern_07" rel="noopener" target="_blank">Fabric Pattern 07</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/brown_leather" rel="noopener" target="_blank">Brown Leather</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/sofa_02" rel="noopener" target="_blank">Sofa 02</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/ArmChair_01" rel="noopener" target="_blank">Arm Chair 01</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/Rockingchair_01" rel="noopener" target="_blank">Rockingchair 01</a> (model) by Jorge Camacho, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/small_wooden_table_01" rel="noopener" target="_blank">Small Wooden Table 01</a> (model) by Ulan Cabanilla, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/side_table_tall_01" rel="noopener" target="_blank">Side Table Tall 01</a> (model) by James Ray Cock, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/lantern_chandelier_01" rel="noopener" target="_blank">Lantern Chandelier 01</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/throw_pillows_01" rel="noopener" target="_blank">Throw Pillows 01</a> (model) by Serhii Khromov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/antique_ceramic_vase_01" rel="noopener" target="_blank">Antique Ceramic Vase 01</a> (model) by James Ray Cock, CC0 1.0</li>
+<li><a href="https://ambientcg.com/view?id=Carpet015" rel="noopener" target="_blank">Carpet015</a> (material) by ambientCG (Lennart Demes), CC0 1.0</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/1c48e5d1-155d-451f-6726-9c766e642070" rel="noopener" target="_blank">Moraine Park at sunrise, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/26de00a8-155d-451f-6746-1edd475b1428" rel="noopener" target="_blank">Beaver Ponds and the Never Summer Mountains, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21b60af6-155d-451f-670d-5d92dba479e8" rel="noopener" target="_blank">Longs Peak and Mount Meeker, the Twin Guides, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21c056db-155d-451f-671f-d6c2167e882c" rel="noopener" target="_blank">Moraine Park in March, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/1c209368-155d-451f-672f-3136f9a6a857" rel="noopener" target="_blank">Copeland Mountain above Copeland Lake in winter, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/035b3918-1dd8-b71b-0b25-1c76a4dc59e2" rel="noopener" target="_blank">Hallett Peak reflected in Dream Lake, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/2176e261-155d-451f-67e5-ce94fff90c63" rel="noopener" target="_blank">Longs Peak above the forest, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21b9b700-155d-451f-6723-9fae603f7baa" rel="noopener" target="_blank">Fresh snow on Longs Peak, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd" rel="noopener" target="_blank">Sunset on the snowy Continental Divide, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/219ef2d7-155d-451f-675d-0a9b3498d759" rel="noopener" target="_blank">Sunrise from the top of Longs Peak, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714" rel="noopener" target="_blank">Poudre Lake at dusk in September, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://threejs.org/" rel="noopener" target="_blank">three.js</a> r169 draws the room (MIT licence)</li></ul>
+<form method="dialog"><button>Close</button></form>
+</dialog>
 <div id="fade" aria-hidden="true"></div>
 <script type="module">
-const POSTERS = [{"url": "ballot/", "look": "ballot", "kicker": "On The Ballot", "head": "Meet everyone asking for your vote.", "sub": "Every race, from Congress to your county, straight from the official lists.", "cta": "Step in", "foot": "November 3, 2026"}, {"url": "./", "look": "record", "kicker": "Legislation & Legislatures", "head": "See what they did with the last one.", "sub": "Every bill, every vote, every member. Congress and all fifty statehouses, on the record.", "cta": "Open the record", "foot": "Congress and the fifty states"}];
+const POSTERS = [{"url": "ballot/", "look": "ballot", "kicker": "On The Ballot", "head": "Meet everyone asking for your vote.", "sub": "Every race, from Congress to your county, straight from the official lists.", "cta": "Step in", "foot": "November 3, 2026"}, {"url": "./", "look": "record", "kicker": "Legislation & Legislatures", "head": "See what they did with the last one.", "sub": "Every bill, every vote, every member. Congress and all fifty statehouses, on the record.", "cta": "Open the record", "foot": "Congress and the fifty states"}], VIEWS = {"morning": [{"file": "moraine_park_sunrise.jpg", "season": "winter", "horizon": 0.6, "caption": "Moraine Park at sunrise, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Moraine Park Sunrise", "source": "https://www.nps.gov/npgallery/AssetDetail/1c48e5d1-155d-451f-6726-9c766e642070", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "1/25/2008 8:49:25 AM"}, {"file": "beaver_pond.jpg", "season": "summer", "horizon": 0.52, "caption": "Beaver Ponds and the Never Summer Mountains, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Beaver Pond", "source": "https://www.nps.gov/npgallery/AssetDetail/26de00a8-155d-451f-6746-1edd475b1428", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "8/4/2012 8:58:30 AM"}, {"file": "twin_guides.jpg", "season": "autumn", "horizon": 0.62, "caption": "Longs Peak and Mount Meeker, the Twin Guides, Rocky Mountain National Park", "credit": "NPS photo", "title": "Twin Guides", "source": "https://www.nps.gov/npgallery/AssetDetail/21b60af6-155d-451f-670d-5d92dba479e8", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "4/16/2007 8:16:19 AM"}, {"file": "moraine_park_march.jpg", "season": "spring", "horizon": 0.6, "caption": "Moraine Park in March, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Moraine Park", "source": "https://www.nps.gov/npgallery/AssetDetail/21c056db-155d-451f-671f-d6c2167e882c", "w": 2048, "h": 1151, "constraint": "Public domain", "date": "3/10/2013 12:08:25 PM"}], "afternoon": [{"file": "wild_basin_winter.jpg", "season": "winter", "horizon": 0.62, "caption": "Copeland Mountain above Copeland Lake in winter, Rocky Mountain National Park", "credit": "NPS photo", "title": "Wild Basin in Winter", "source": "https://www.nps.gov/npgallery/AssetDetail/1c209368-155d-451f-672f-3136f9a6a857", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "11/18/2010 9:26:36 AM"}, {"file": "hallett_dream_lake.jpg", "season": "summer", "horizon": 0.56, "caption": "Hallett Peak reflected in Dream Lake, Rocky Mountain National Park", "credit": "NPS photo", "title": "Hallett Peak reflected in Dream Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/035b3918-1dd8-b71b-0b25-1c76a4dc59e2", "w": 2048, "h": 1360, "constraint": "Public domain", "date": null}, {"file": "longs_peak.jpg", "season": "autumn", "horizon": 0.7, "caption": "Longs Peak above the forest, Rocky Mountain National Park", "credit": "NPS photo", "title": "Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/2176e261-155d-451f-67e5-ce94fff90c63", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "4/16/2007 8:24:10 AM"}, {"file": "white_capped_longs.jpg", "season": "spring", "horizon": 0.64, "caption": "Fresh snow on Longs Peak, Rocky Mountain National Park", "credit": "NPS photo", "title": "White-capped Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/21b9b700-155d-451f-6723-9fae603f7baa", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "3/13/2007 8:54:01 AM"}], "dusk": [{"file": "snow_on_the_divide.jpg", "season": "winter", "horizon": 0.6, "caption": "Sunset on the snowy Continental Divide, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Snow on the Divide", "source": "https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "5/13/2012 7:48:36 PM"}, {"file": "longs_summit_sunrise.jpg", "season": "summer", "horizon": 0.52, "caption": "Sunrise from the top of Longs Peak, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Sunrise from the top of Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/219ef2d7-155d-451f-675d-0a9b3498d759", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "8/14/2011 6:19:31 AM"}, {"file": "poudre_lake_dusk.jpg", "season": "autumn", "horizon": 0.55, "caption": "Poudre Lake at dusk in September, Rocky Mountain National Park", "credit": "NPS photo", "title": "Poudre Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "9/9/2012 7:22:59 AM"}, {"file": "snow_on_the_divide.jpg", "season": "spring", "horizon": 0.6, "caption": "Sunset on the snowy Continental Divide, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Snow on the Divide", "source": "https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "5/13/2012 7:48:36 PM"}], "night": [{"file": "poudre_lake_dusk.jpg", "season": "any", "horizon": 0.55, "caption": "Poudre Lake at dusk in September, Rocky Mountain National Park (a twilight photograph, darkened for night)", "credit": "NPS photo", "title": "Poudre Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "9/9/2012 7:22:59 AM"}]};
 const $ = s => document.querySelector(s), q = new URLSearchParams(location.search);
 const stored = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const calm = stored("motion") ? stored("motion") === "off" : matchMedia("(prefers-reduced-motion: reduce)").matches;
 const touch = matchMedia("(pointer: coarse)").matches;
-const ways = [...document.querySelectorAll(".ways a[data-i]")], hint = $("#hint"), fade = $("#fade");
-let room = null, leaving = false;
+const ways = [...document.querySelectorAll(".ways a[data-i]")], hint = $("#hint"), fade = $("#fade"), load = $("#load"), foot = $("#foot");
+let room = null, leaving = false, view = null, when = "";
 function leave(url){ if (leaving) return; leaving = true; if (calm) { location.href = url; return; } fade.classList.add("on"); setTimeout(() => { location.href = url; }, 430); }
 addEventListener("pageshow", () => { leaving = false; fade.classList.remove("on"); });      /* coming back with the Back button */
+function footer(){
+  const words = {morning: "morning", afternoon: "afternoon", dusk: "dusk", night: "night"}[when] || when;
+  let s = `v4.0.081 · Outside it is ${words}, by your device’s clock. Nothing is sent anywhere.`;
+  if (view) s += ` The view is a National Park Service photograph` + (view.caption ? `: ${view.caption}` : "") + (view.shown ? "" : ` (shown for ${view.season}; there is no ${view.wanted} picture yet)`) + ".";
+  foot.innerHTML = ""; foot.append(s + " "); const b = document.createElement("button"); b.type = "button"; b.textContent = "Credits"; b.addEventListener("click", () => $("#credits").showModal()); foot.append(b);
+}
 try {
-  const m = await import("./cabin3d.js");
-  room = m.start($("#room"), {posters: POSTERS, when: q.get("time") || undefined, season: q.get("season") || undefined, calm,
+  const m = await import("./cabin3d.js?v=d0930c7d97");
+  load.textContent = "Setting the room up…";
+  room = m.start($("#room"), {posters: POSTERS, views: VIEWS, assets: "cabin_assets/", when: q.get("time") || undefined, season: q.get("season") || undefined, calm,
+    lite: q.has("lite") ? q.get("lite") !== "0" : undefined,
     onHover: i => ways.forEach((a, k) => a.classList.toggle("hot", k === i)),
     onLeave: url => leave(url),
-    onMove: () => setTimeout(() => hint.classList.add("gone"), 2600)});
+    onMove: () => setTimeout(() => hint.classList.add("gone"), 2600),
+    onProgress: (done, total) => { load.textContent = `Setting the room up… ${Math.min(100, Math.round(done / Math.max(total, 1) * 100))}%`; },
+    onReady: () => { load.textContent = "The room is ready."; setTimeout(() => load.classList.add("gone"), 1200); },
+    onView: v => { view = v; footer(); }});
   if (room) {
     window.__cabin = room;
-    const when = q.get("time") || m.whenNow(), words = {morning: "morning", afternoon: "afternoon", dusk: "dusk", night: "night"}[when] || when;
+    when = q.get("time") || m.whenNow(); footer();
     hint.textContent = touch ? "Drag to look around. Tap the floor to walk there. The glowing posters are doors: tap one to go in."
                              : "Walk with the arrow keys or W, A, S, D. Drag to look around. The glowing posters are doors: click one to go in.";
-    $("#foot").textContent = `v4.0.078 · Outside it is ${words}, by your device’s clock. Nothing is sent anywhere.`;
     ways.forEach((a, i) => { a.addEventListener("focus", () => room.look(i)); a.addEventListener("click", e => { if (calm || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); room.go(i); }); });
     setTimeout(() => hint.classList.add("gone"), 14000);
+    setTimeout(() => { if (!load.classList.contains("gone")) load.classList.add("gone"); }, 40000);
   }
 } catch (e) { room = null; }
-if (!room) document.body.classList.add("flat");
+if (!room) { document.body.classList.add("flat"); foot.textContent = "v4.0.081"; }
 </script>
-<noscript><style>#room,.hint{display:none}html,body{overflow:auto}</style></noscript>
+<noscript><style>#room,.hint,.load{display:none}html,body{overflow:auto}</style></noscript>
 </body>
 </html>

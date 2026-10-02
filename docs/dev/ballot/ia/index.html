@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>On The Ballot: Iowa · The Civic Archive</title>
 <meta name="description" content="Every state race on Iowa's November 3, 2026 ballot, from the Iowa Secretary of State's official candidate lists: statewide offices and the Legislature; and the county and local contests those lists reach (county offices, soil and water conservation districts, townships, hospital districts and other districts).">
-<meta name="version" content="4.0.078">
+<meta name="version" content="4.0.081">
 <meta name="theme-color" content="#0C0E12">
 <link rel="icon" href="../../us/icon-192.png" type="image/png">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";var mo=localStorage.getItem("motion");if(mo==="off"||(!mo&&matchMedia("(prefers-reduced-motion: reduce)").matches))document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
@@ -1181,9 +1181,9 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
   .rv{opacity:1;transform:none}
 }
 </style>
-<style>:root{--pR:var(--rep);--pD:var(--dem);--pL:#B07C00;--pG:#2F8F4E;--pI:#6E62A8;--pO:#646B76;--pW:#7C828C;--gold:#B8860B;
+<style>:root{--pR:var(--rep);--pD:var(--dem);--pL:#B07C00;--pG:#2F8F4E;--pI:#6E62A8;--pO:#646B76;--pW:#7C828C;--gold:#B8860B;--gold-ink:#7A5806;
   --night:#0B1030;--night2:#070A1C;--cream:#F4F1E8}
-:root[data-theme="dark"]{--pL:#E3B53A;--pG:#5CC98A;--pI:#A99CE0;--pO:#9AA3AF;--pW:#9AA0A8;--gold:#E0B040}
+:root[data-theme="dark"]{--pL:#E3B53A;--pG:#5CC98A;--pI:#A99CE0;--pO:#9AA3AF;--pW:#9AA0A8;--gold:#E0B040;--gold-ink:#E0B040}
 .bwrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .crumbs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px;color:var(--muted);margin:22px 0 6px}
 .crumbs a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-strong)}
@@ -1203,6 +1203,45 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 .mybar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 0}
 .mybar select{height:44px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);padding:0 14px;font:600 14.5px var(--sans)}
 .mine{display:grid;gap:12px;margin-top:14px}
+/* your ballot (John, 2026-10-01): a location button, and the contests for Congress laid out as a ballot would print them */
+.locbtn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;background:var(--ink);color:var(--bg);font:700 14.5px var(--sans)}
+.locbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.locbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mybar .forget{all:unset;cursor:pointer;font:600 13px var(--sans);color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:4px 2px}
+.mybar .forget:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.locnote{font-size:13px;color:var(--muted);margin:8px 0 0;max-width:70ch;min-height:1em}
+.paper{max-width:720px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);box-shadow:0 14px 30px -24px rgba(0,0,0,.5);overflow:hidden}
+.paper .phead{background:var(--ink);color:var(--bg);padding:14px 18px;text-align:center}
+.paper .phead b{display:block;font-size:14px;letter-spacing:.2em;text-transform:uppercase}.paper .phead span{display:block;font-size:12px;opacity:.82;margin-top:4px;letter-spacing:.05em}
+.paper .pnote{font-size:12.5px;color:var(--muted);padding:10px 18px;margin:0;border-bottom:1px solid var(--line);line-height:1.45}
+.contest{padding:14px 18px;border-bottom:1px solid var(--line)}
+.contest .ct{display:flex;justify-content:space-between;gap:6px 12px;align-items:baseline;flex-wrap:wrap}
+.contest .ct b{font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}.contest .ct span{font-size:12px;color:var(--muted)}
+.contest .ct a{font-size:13px;font-weight:600;color:var(--accent-ink);margin-left:auto}
+.contest .vf{font-size:12.5px;font-weight:700;margin:4px 0 8px}
+.contest ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.contest li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:7px 10px;border:1px solid var(--line);border-radius:6px;border-left:4px solid var(--pc,var(--line-strong))}
+.contest .oval{width:22px;height:13px;border:2px solid var(--ink);border-radius:50%;display:block;box-sizing:border-box}
+.contest li b{font-size:14.5px}.contest li small{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.contest .wline{border-style:dashed}.contest .wline b{font-weight:600;color:var(--muted)}
+.contest .pnone{font-size:13px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+.paper .pfoot{padding:14px 18px;font-size:13.5px;color:var(--muted)}
+/* folded listings (John, 2026-10-01): the Senate races and every state's races start closed, each summary saying what is inside */
+.fold{border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:0 18px;margin-top:22px}
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;padding:16px 0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--muted);font-size:20px;line-height:1;align-self:center;flex:none}.fold[open]>summary::before{content:"\25BE"}
+.fold>summary h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,36px);margin:0;line-height:1.05}
+.fold>summary .fsum{font-size:13.5px;color:var(--muted);margin-left:auto}
+.fold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:12px}
+.fold>.fbody{padding:0 0 18px}.fold>.fbody>.sub{margin:0 0 6px}
+.sfold{border-top:1px solid var(--line)}
+.sfold>summary{cursor:pointer;list-style:none;display:flex;gap:6px 10px;align-items:baseline;flex-wrap:wrap;padding:12px 0}
+.sfold>summary::-webkit-details-marker{display:none}
+.sfold>summary::before{content:"\25B8";color:var(--muted);align-self:center}.sfold[open]>summary::before{content:"\25BE"}
+.sfold>summary b{font-size:15.5px}.sfold>summary span{font-size:13px;color:var(--muted)}.sfold>summary .pill2{margin-left:auto}
+.sfold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.sfold .fbody{padding:0 0 14px}.sfold .rlist,.sfold .rgrid{margin-top:6px}.sfold .notebox{margin-top:0;margin-bottom:10px}
 .chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:12.5px;font-weight:600;white-space:nowrap}
 .chip i{width:9px;height:9px;border-radius:50%;background:var(--pc)}
 .chip.inc::after{content:"\2605";color:var(--gold);font-size:11px}
@@ -1275,11 +1314,19 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 .loc figcaption{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.4}
 .rshare{all:unset;cursor:pointer;margin-top:12px;display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);font-weight:700;font-size:14px}
 .rshare:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-/* betting markets: apart, quiet, behind a notice */
-.oddswrap{border:1px dashed var(--line-strong);border-radius:18px;padding:12px 16px;background:var(--surface)}
-.oddswrap summary{cursor:pointer;list-style:none}.oddswrap summary::-webkit-details-marker{display:none}
-.oddswrap summary h2{display:inline;font-size:clamp(22px,2.6vw,30px)}.oddswrap summary span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
-.oddswrap summary h2::after{content:" \25BE";font-size:.6em;color:var(--muted)}.oddswrap[open] summary h2::after{content:" \25B4"}
+/* polls and betting markets as tabs above the arena (John, 2026-10-01): both closed to start; a click pulls one down */
+.rtabs{margin:18px 0 0}
+.rtabs .tabrow{display:flex;gap:8px;flex-wrap:wrap}
+.rtab{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);font:700 14px var(--sans);color:var(--ink)}
+.rtab small{font:500 12.5px var(--sans);color:var(--muted)}
+.rtab::after{content:"\25BE";color:var(--muted);font-size:12px}.rtab[aria-expanded="true"]::after{content:"\25B4"}
+.rtab[aria-expanded="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}.rtab[aria-expanded="true"] small,.rtab[aria-expanded="true"]::after{color:var(--bg);opacity:.8}
+.rtab:hover{border-color:var(--ink)}.rtab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rtabpanel{margin-top:10px;border:1px solid var(--line);border-radius:18px;padding:4px 18px 16px;background:var(--surface)}
+.rtabpanel[hidden]{display:none}
+.rtabpanel .bsec{padding:10px 0 0}.rtabpanel .bsec h2{font-size:clamp(22px,2.6vw,30px)}
+:root:not(.calm) .rtabpanel{animation:pull .25s var(--ease) both}
+@keyframes pull{from{opacity:0;transform:translateY(-6px)}}
 .mgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:12px}
 .mkt{border:1px solid var(--line);border-radius:14px;padding:10px 12px}.mh{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:6px}.mh span{color:var(--muted)}
 .mrowo{display:grid;grid-template-columns:1fr 90px 44px;gap:8px;align-items:center;font-size:13.5px;margin:5px 0}
@@ -1309,10 +1356,22 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 .k-doors{background:#B85C38}.k-buys{background:#8A8F98}.k-production{background:#C9B79C}
 .adsp{margin-top:8px;font-size:13px}.adsp summary{cursor:pointer;color:var(--accent);font-weight:600}.adsp ul{margin:6px 0 0;padding-left:18px}
 .adlinks{font-size:12.5px;color:var(--muted);margin:10px 0 0}
-/* the ads themselves: links to Google's ad library, labelled from the record only */
-.adlib{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+/* the ads themselves: links to Google's ad library, labelled from the record only. One closed fold under each candidate, its
+   summary saying how many ads and of what kinds; inside it the ads five at a time, each five a closed fold of its own (John, 2026-10-01) */
+.adlib{margin-top:12px;border-top:1px solid var(--line);padding-top:4px}
+.adlib.none{padding-top:10px}
 .adlib h4{margin:0 0 4px;font-size:14.5px}
+.adlib>summary,.adgrp>summary{cursor:pointer;list-style:none;position:relative;padding:8px 0 8px 20px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.adlib>summary::-webkit-details-marker,.adgrp>summary::-webkit-details-marker{display:none}
+.adlib>summary::before,.adgrp>summary::before{content:"\25B8";position:absolute;left:0;top:8px;font-size:18px;line-height:1.05;color:var(--ink)}
+.adlib[open]>summary::before,.adgrp[open]>summary::before{content:"\25BE"}
+.adlib>summary h4{display:inline;margin:0 6px 0 0;color:var(--ink)}
+.adlib>summary:focus-visible,.adgrp>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
 .adlib .adn{font-size:13px;color:var(--muted);margin:0}
+.adgroups{margin-top:8px}
+.adgrp{border-top:1px solid var(--line)}.adgrp:last-of-type{border-bottom:1px solid var(--line)}
+.adgrp>summary b{font-size:13px;color:var(--ink);margin-right:6px}
+.adgrp>.adlist{margin:0 0 10px}
 .adlist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:7px}
 .adlist li{font-size:13px;line-height:1.45;padding:8px 10px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}
 .adlist li small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
@@ -1328,54 +1387,78 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 .notebox .src{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
 .holder{margin:10px 0 0;color:var(--muted);font-size:15px}
 .holder b{color:var(--ink)}
-/* the arena: the general election, candidates face to face */
-.arena{position:relative;border-radius:30px;padding:30px clamp(12px,3vw,34px) 24px;margin:20px 0 6px;overflow:hidden;isolation:isolate;color:var(--cream);
-  background:radial-gradient(120% 95% at 50% 0%,#1D2856 0%,var(--night) 52%,var(--night2) 100%);box-shadow:inset 0 0 0 1px rgba(255,214,110,.25),0 30px 60px -40px rgba(0,0,0,.7)}
-.arena::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(34% 70% at 22% -6%,rgba(255,236,170,.22),transparent 70%),radial-gradient(34% 70% at 78% -6%,rgba(255,236,170,.22),transparent 70%)}
-.arena::after{content:"";position:absolute;left:6%;right:6%;bottom:40px;height:46%;border-radius:50%;z-index:-1;border:1px solid rgba(255,214,110,.26);background:radial-gradient(closest-side,rgba(255,214,110,.10),transparent)}
+/* the arena: the general election, candidates face to face. A few shades off the page's own background, so it follows
+   light and dark with the rest of the page (John, 2026-10-01); the gold is kept for the lines and the "vs" */
+.arena{position:relative;border-radius:30px;padding:30px clamp(12px,3vw,34px) 24px;margin:20px 0 6px;overflow:hidden;isolation:isolate;color:var(--ink);
+  background:color-mix(in srgb,var(--ink) 7%,var(--bg));box-shadow:inset 0 0 0 1px var(--line),0 24px 50px -40px rgba(0,0,0,.35)}
+.arena::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(34% 70% at 22% -6%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 70%),radial-gradient(34% 70% at 78% -6%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 70%)}
+.arena::after{content:"";position:absolute;left:6%;right:6%;bottom:40px;height:46%;border-radius:50%;z-index:-1;border:1px solid color-mix(in srgb,var(--gold) 38%,transparent);background:radial-gradient(closest-side,color-mix(in srgb,var(--gold) 8%,transparent),transparent)}
 .arena .ahead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.arena .ahead b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#FFD86B}.arena .ahead span{font-size:13px;color:rgba(244,241,232,.72)}
+.arena .ahead b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}.arena .ahead span{font-size:13px;color:var(--muted)}
 .acards{display:flex;justify-content:center;align-items:center;gap:clamp(8px,2.4vw,28px);perspective:1100px;flex-wrap:wrap}
-.vs{font-family:var(--serif);font-style:italic;font-size:clamp(30px,4.6vw,54px);color:#FFD86B;text-shadow:0 0 24px rgba(255,200,80,.6);line-height:1;flex:none}
+.vs{font-family:var(--serif);font-style:italic;font-size:clamp(30px,4.6vw,54px);color:var(--gold-ink);line-height:1;flex:none}
 .bcard{--pc:var(--pO);position:relative;width:clamp(148px,22vw,220px);aspect-ratio:5/7.2;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;
-  background:linear-gradient(165deg,#FFFFFF,#F3EFE4);color:#15171B;box-shadow:0 24px 44px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.3);transition:transform .35s var(--ease)}
+  background:var(--surface);color:var(--ink);box-shadow:0 18px 36px -22px rgba(0,0,0,.5),0 0 0 1px var(--line);transition:transform .35s var(--ease)}
 .acards[data-n="2"] .bcard:first-child{transform:rotateY(12deg)}.acards[data-n="2"] .bcard:last-child{transform:rotateY(-12deg)}
 .bcard .band{background:var(--pc);color:#fff;font:700 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:9px 11px;display:flex;justify-content:space-between;gap:6px}
+:root[data-theme="dark"] .bcard .band{color:#0F1114}      /* the dark theme's party colours are paler, so the band's type goes dark */
 .bcard .band span:last-child{opacity:.85}
 .bcard .mono{flex:1;display:grid;place-items:center;min-height:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--pc) 9%,transparent) 0 7px,transparent 7px 14px)}
-.bcard .mono span{width:min(40%,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);color:var(--pc);border:2px solid var(--pc);background:#fff}
+.bcard .mono span{width:min(40%,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);color:var(--pc);border:2px solid var(--pc);background:var(--surface)}
 .bcard .mono .ph{width:min(46%,88px);overflow:hidden;box-shadow:0 6px 16px -8px rgba(0,0,0,.45)}
 .bcard .mono .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
 .bcard .who{padding:9px 11px 6px}.bcard .who b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.06}
-.bcard .who small{display:block;color:#5C6169;font-size:11.5px;margin-top:2px}
-.bcard dl{margin:0;padding:7px 11px 10px;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;border-top:1px solid #E4E5E1}
-.bcard dt{color:#5C6169}.bcard dd{margin:0;text-align:right;font-weight:600}
-.bcard .flag{position:absolute;top:34px;right:9px;font:700 9.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:#15171B;color:#FFD86B}
-.bcard.wi{border:2px dashed #9AA0A8}
+.bcard .who small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.bcard dl{margin:0;padding:7px 11px 10px;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;border-top:1px solid var(--line)}
+.bcard dt{color:var(--muted)}.bcard dd{margin:0;text-align:right;font-weight:600}
+.bcard .flag{position:absolute;top:34px;right:7px;font:700 9.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.bcard.wi{border:2px dashed var(--line-strong)}
 .bcard.solo{width:clamp(170px,26vw,240px)}
-.aopen{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;margin:20px auto 0;height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,214,110,.6);color:#FFE9A8;font-weight:700;font-size:14.5px;width:max-content}
-.aopen:hover,.aopen:focus-visible{background:rgba(255,214,110,.12)}
+/* a reader's own arrangement (John, 2026-10-01): hide a card, move it with the arrows, or drag it; kept on their device only */
+.bcard[draggable="true"]{cursor:grab}.bcard.dragging{opacity:.45}.bcard.over{outline:3px dashed var(--gold);outline-offset:3px}
+.ctl{position:absolute;top:33px;left:7px;display:flex;gap:3px}
+.ctl button,.colctl button{all:unset;box-sizing:border-box;cursor:pointer;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line-strong);font:700 14px/1 var(--sans);color:var(--ink);background:var(--surface)}
+.ctl button:hover,.colctl button:hover{border-color:var(--ink)}
+.ctl button:disabled,.colctl button:disabled{opacity:.35;cursor:default;border-color:var(--line-strong)}
+.ctl button:focus-visible,.colctl button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hidbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:14px auto 0;font-size:13px;color:var(--muted)}
+.hidbar button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;gap:7px;align-items:center;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;background:var(--surface)}
+.hidbar button:hover{border-color:var(--ink)}.hidbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hidbar button i{width:9px;height:9px;border-radius:50%;background:var(--pc,var(--line-strong))}
+.aopen{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;margin:20px auto 0;height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--gold);color:var(--ink);font-weight:700;font-size:14.5px;width:max-content}
+.aopen:hover,.aopen:focus-visible{background:color-mix(in srgb,var(--gold) 14%,transparent)}
 .aopen svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
-.anote{font-size:12.5px;color:rgba(244,241,232,.7);text-align:center;margin:12px auto 0;max-width:70ch}
+.anote{font-size:12.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:70ch}
 @media (max-width:640px){      /* on a phone the cards stand in a column, each laid on its side, with "vs" between */
   .acards{flex-direction:column;gap:6px}.acards .bcard,.acards[data-n="2"] .bcard:first-child,.acards[data-n="2"] .bcard:last-child{transform:none}
   .bcard,.bcard.solo{width:min(100%,360px);aspect-ratio:auto;flex-direction:row;flex-wrap:wrap}
   .bcard .band{width:100%}.bcard .mono{flex:0 0 88px;min-height:88px}.bcard .mono span{width:58px;font-size:24px}
   .bcard .who{flex:1;min-width:0;align-self:center}.bcard dl{width:100%}.bcard .flag{top:40px}
+  .ctl{top:3px;left:50%;transform:translateX(-50%)}      /* on a phone the card lies on its side, so the controls sit in the band's empty middle, clear of the portrait */
   .vs{font-size:30px}}
 :root:not(.calm) .arena.deal .bcard{animation:deal .85s var(--ease) both;animation-delay:calc(var(--k) * .14s)}
 :root:not(.calm) .arena.deal .vs{animation:vspop .6s .5s cubic-bezier(.3,1.7,.5,1) both}
 @keyframes deal{from{opacity:0;transform:translateY(46px) rotateX(38deg) scale(.82)}}
 @keyframes vspop{from{opacity:0;transform:scale(.2) rotate(-24deg)}to{opacity:1;transform:none}}
-.cmp{margin-top:18px;overflow-x:auto;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,214,110,.18)}
+.cmp{margin-top:18px;overflow-x:auto;border-radius:18px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
 .cmp table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
-.cmp th,.cmp td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;text-align:left}
-.cmp thead th{font-family:var(--serif);font-weight:400;font-size:19px;color:#fff;border-bottom:2px solid var(--pc)}
-.cmp tbody th{color:rgba(244,241,232,.7);font-weight:600;font-size:12.5px;white-space:nowrap;width:1%}
-.cmp td small{display:block;color:rgba(244,241,232,.62);font-size:12px;margin-top:3px}
-.cmp a{color:#FFE9A8}
-.cmp .soon{color:rgba(244,241,232,.55);font-style:italic}
-.cmp .grp th{padding-top:16px;color:#FFD86B;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom-color:rgba(255,214,110,.3)}
+.cmp th,.cmp td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.cmp thead th{font-family:var(--serif);font-weight:400;font-size:19px;color:var(--ink);border-bottom:2px solid var(--pc)}
+.cmp tbody th{color:var(--muted);font-weight:600;font-size:12.5px;white-space:nowrap;width:1%}
+.cmp td small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.cmp a{color:var(--accent-ink)}
+.cmp .soon{color:var(--muted);font-style:italic}
+.cmp tr[hidden]{display:none}
+.cmp .grp th{padding:0;border-bottom-color:color-mix(in srgb,var(--gold) 38%,transparent)}
+.cmp .gbtn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;width:100%;padding:14px 12px 10px;color:var(--gold-ink);font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.cmp .gbtn::before{content:"\25B8";font-size:13px;letter-spacing:0}.cmp .gbtn[aria-expanded="true"]::before{content:"\25BE"}
+.cmp .gbtn small{font:500 12px var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
+.cmp .gbtn:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}.cmp .gbtn:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.cmp .colctl{display:flex;gap:4px;margin-top:8px}
+.cmpbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 12px 0;font-size:13px;color:var(--muted)}
+.cmpbar button{all:unset;box-sizing:border-box;cursor:pointer;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;background:var(--surface)}
+.cmpbar button:hover{border-color:var(--ink)}.cmpbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cmp .empty{padding:18px 14px;font-size:14px;color:var(--muted)}
 /* the field: a primary, every candidate in a lane */
 .field{border:1px solid var(--line);border-radius:22px;padding:16px 18px 14px;background:var(--surface);margin:14px 0}
 .field .fh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
@@ -1394,10 +1477,21 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 .fnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 .srclist{display:grid;gap:10px;margin-top:12px}
 .srcitem{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface);font-size:14px}
-.srcitem small{display:block;color:var(--muted);margin-top:4px;word-break:break-all}
+.srcitem small{display:block;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}      /* a long address breaks where it must; ordinary words are left whole */
 .method li{margin:6px 0}
+/* sources, folded (John, 2026-10-01): one closed fold for a page's sources, a closed fold inside it for each kind of source,
+   and a long list broken up again; the page's own rules sit in the fold of the kind they are about */
+.srcfold{margin-top:30px}
+.fold{scroll-margin-top:78px}      /* a fold the menu goes to ("Sources", "Senate races") lands below the page's fixed header, not under it */
+.srcfold .sfold .srclist{margin-top:0}
+.srcfold .sfold .sfold{margin-left:16px}.srcfold .sfold .sfold>summary b{font-size:14.5px}
+.srcfold .srcitem{background:var(--bg)}
+.srcfold .method{margin:0 0 12px;padding-left:20px;color:var(--muted);font-size:14.5px;line-height:1.5;max-width:86ch}
+.srcfold .method b{color:var(--ink)}
+.tag.note{background:none;color:var(--muted);border:1px dashed var(--line-strong)}
 .bfoot{border-top:1px solid var(--hair,var(--line));margin-top:40px;padding:20px 0 90px;color:var(--muted);font-size:13px}
 .bfoot a{color:inherit}
+@media (max-width:1220px){.bfoot{padding-left:20px;padding-right:20px}}      /* on a narrow screen the footer's words keep off the edge, as the page's do */
 .backlink{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
 </style>
 <style>
@@ -1407,6 +1501,11 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
 html,body{overflow-x:hidden}
 #app:focus{outline:none}
 @media (max-width:900px){.nav a.x{display:none}}
+/* a phone: the shared stylesheet hides the section links below 760px; here they stay, as a second row of the header that slides sideways */
+@media (max-width:760px){.top .wrap{flex-wrap:wrap;height:auto;min-height:62px;row-gap:0}
+  .top .nav{display:flex;order:9;flex:0 0 100%;min-width:0;margin:0 -4px;padding:0 0 7px;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .top .nav::-webkit-scrollbar{display:none}
+  .top .nav a,.top .nav a.x{display:block;flex:0 0 auto;padding:7px 10px;font-size:14px}}
 .bhero h1{overflow-wrap:break-word}
 :root.calm .lvcard{transition:none}:root.calm .lvcard:hover{transform:none}
 .privacy{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:var(--muted);border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--surface);margin:16px 0 0;max-width:82ch}
@@ -1456,8 +1555,9 @@ html,body{overflow-x:hidden}
 .st .vs{align-self:center}
 .st .bcard{aspect-ratio:auto;min-height:clamp(250px,30vw,300px)}
 .st .bcard .band span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st .bcard .who{display:block}      /* the record side's stylesheet lays its own .who out as a grid of 240px columns, wider than a card */
 .st .bcard .who b{overflow-wrap:anywhere}
-.st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:#0A5A4E;text-decoration:underline;text-underline-offset:2px}
+.st .bcard .rec{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 .st .bcard.np .mono span{border-style:dashed}
 @media (max-width:640px){.st .bcard{min-height:0}}
 .loading{padding:60px 0;text-align:center}
@@ -1500,7 +1600,7 @@ details.lmore summary:focus-visible{outline:2px solid var(--accent);outline-offs
 </header>
 <main id="app" class="bwrap" tabindex="-1"><p class="loading muted">Loading the candidate lists&hellip;</p></main>
 <footer class="bwrap bfoot">
-  <p>On The Ballot, from The Civic Archive v4.0.078. Iowa's state and local candidates come only from the Iowa Secretary of State's official lists. Only the name, office and party each candidate filed under are shown; addresses and contact details in those files are never read. No photos, no money, no scores or ratings of any person. Built October 01, 2026.</p>
+  <p>On The Ballot, from The Civic Archive v4.0.081. Iowa's state and local candidates come only from the Iowa Secretary of State's official lists. Only the name, office and party each candidate filed under are shown; addresses and contact details in those files are never read. No photos, no money, no scores or ratings of any person. Built October 02, 2026.</p>
   <p><a href="../">On The Ballot: every level</a> &middot; <a href="../us/">Congress</a> &middot; <a href="../states/">Every state loaded</a> &middot; <a href="../../">The Civic Archive front door</a> &middot; <a href="../../ia/">Iowa&rsquo;s Legislature on the record side</a></p>
 </footer>
 <div class="cl" id="cl" hidden>
@@ -1508,7 +1608,7 @@ details.lmore summary:focus-visible{outline:2px solid var(--accent);outline-offs
   <div class="cl-panel" id="clpanel" hidden><div class="cl-head"><b>What&rsquo;s changed</b><button class="cl-x" id="clx" aria-label="Close">&times;</button></div><div class="cl-body" id="clbody"></div></div>
 </div>
 <script>
-const BOOT = {"data":"data/ia.json?v=f75ed242be","lines":"data/districts.json?v=bddd93eb01","changelog":[{"version":"4.0.078","date":"2026-10-01","title":"A cabin for a front door","items":["The first thing a visitor sees is now a room: a small log cabin you can walk around in, with a fire, two armchairs, a bookshelf and a wide window on the Rocky Mountains. The view follows your own clock and calendar (morning, afternoon, dusk or night; gold aspens in autumn, snow in winter), worked out on your device. Nothing is sent anywhere.","Two posters glow on the far wall, and they are the doors. \"Meet everyone asking for your vote\" opens On The Ballot; \"See what they did with the last one\" opens Legislation & Legislatures. Walk with the arrow keys or W, A, S, D and drag to look around; on a phone, drag to look and tap the floor to walk.","The ring of cards is still here as \"Plain view\". It is also what a device that cannot draw the room gets, and the two doors are ordinary links at the foot of the page.","The pages no longer offer the whole site as one file to download, and no longer name the files and programs the site is put together with. The sources, the methods, the formulas and the download of every figure on the district pages stay."]},{"version":"4.0.077","date":"2026-10-01","title":"Local judges and the first counties of seven more states","items":["Colorado, Utah, Illinois, Oregon, Arkansas, Connecticut and Nevada join the local level, each with the part of its local ballot that an official list carries today. County and local races now stand at 22,148 contests and 36,970 candidates in 34 states.","Illinois: the regional superintendents of schools in every region, the circuit judges, and suburban Cook County's and Chicago's own contests. Nevada: Clark and Washoe counties, where about nine in ten Nevadans live. Arkansas: Pulaski and Washington counties.","Colorado's RTD directors and 117 judges' retention votes, Utah's justice court retention votes, Oregon's district attorneys and circuit judges, and Connecticut's judges of probate and registrars of voters in the 19 towns whose ballots are posted so far (the rest are due by October 9).","Every county still to be read says so on its page and names the county office that publishes its list."]},{"version":"4.0.076","date":"2026-10-01","title":"Nine more states, county by county","items":["County and local races open for Florida, Nebraska, Wyoming, Michigan, Iowa, Missouri, Montana, Ohio and Wisconsin: 4,732 more contests and 6,328 more candidates. On The Ballot's local level now holds 21,870 contests and 36,490 candidates in 29 states.","Florida comes from the Division of Elections' own file of local candidates (county commissions, school boards, and nearly two thousand special district seats), placed county by county with each supervisor of elections' notice. A candidate nobody opposed is elected without a vote and is shown that way.","These states have no single list for most local offices, so they are read one county at a time, largest first, from each county election office's own list or sample ballot: nine Michigan counties, sixteen in Wyoming, eleven in Iowa, twelve in Missouri, ten in Nebraska (plus every district board statewide), twenty-three county boards in Ohio, ten in Wisconsin, nine in Montana. Every county not read yet says so on its page, with the reason.","Michigan's circuit, district and probate judges, Missouri's and Nebraska's judges' retention votes, Ohio's appeals and common pleas judges and Florida's county judges are in, each under the counties they serve.","Wisconsin elects only sheriffs, clerks of circuit court and a few coroners in November (cities, towns and school boards vote in April); Iowa's cities and schools voted in 2025. Each state's page says which local offices are elected when."]},{"version":"4.0.075","date":"2026-10-01","title":"County and local races in twenty states","items":["On The Ballot's county and local level, Minnesota only until now, opens for nineteen more states: Kentucky, North Carolina, Virginia, South Dakota, North Dakota, Washington, Idaho, West Virginia, Oklahoma, Texas, Louisiana, South Carolina, Alabama, Vermont, Maryland, New Mexico, Maine, Delaware and Hawaii. Together with Minnesota that is 17,138 county and local contests and 30,162 candidates in 1,235 counties, every one from the state's own election office.","Each of these states' ballot pages now has its counties, a page per county (county offices, cities and towns, school boards, special districts and the local courts that reach it) and \"your ballot\": pick your county, then your city or town and your school district.","Every state's page says, in the state's own terms, which local offices are on the November 3 ballot and which are elected at another time, and lists plainly what is not here yet and why. Oklahoma prints only contested races; Louisiana's November 3 is an open primary, and two thirds of its local offices were filled when only one candidate qualified; Texas's cities and school districts publish their own lists and are still to come.","As everywhere on these pages, a local candidate is shown by name, office, place and party (or \"Nonpartisan office\") only. Addresses and contact details in the official files are never read.","The ballot door's \"County and city\" card now counts every state loaded and opens the list of them."]},{"version":"4.0.074","date":"2026-09-30","title":"State races in 49 states","items":["Every state with state races on this November's ballot now has its page: New England, South Carolina, Delaware, Alaska and Hawaii, and California, Texas, Florida, New York, Pennsylvania and Illinois join the list, with their primaries and official votes where published. New Jersey has no state race this year (its Legislature is elected in odd years).","Massachusetts's, Rhode Island's and New Hampshire's November lists, and most of Connecticut's (whose Secretary of the State has posted only some towns' sample ballots), wait on files we cannot fetch yet; their pages say so."]},{"version":"4.0.073","date":"2026-09-30","title":"Twelve more states' state races","items":["North Carolina, Maryland, Washington, Alabama, Oregon, Mississippi and New Mexico have their statewide, legislative and court races on the ballot pages, with official primary votes; Georgia's primaries and runoffs are in while its November list waits on a file its Secretary of State puts behind a check.","Virginia and Louisiana elect their legislatures in odd years, so their pages show only the few state contests on this November's ballot (Virginia's House District 20 special election). Arizona's and Nevada's wait on files their offices do not let us fetch. 33 states in all."]}],"links":{"state":true,"county_page":false,"us":true},"st":{"code":"IA","lc":"ia","name":"Iowa","agency":"Iowa Secretary of State","lister":"Secretary of State","who":"Secretary of State&rsquo;s","fromWho":"the Iowa Secretary of State&rsquo;s","partial":false,"noGeneral":false,"notice":"","one":false,"up":"Senate","lo":"House","upT":"State Senate","loT":"State House","upD":"Senate District","loD":"House District","upAbbr":"SD","loAbbr":"HD","prim":"June 2","local":true,"nest":true,"multi":{"upper":false,"lower":false},"zoom":"Des Moines","dOne":"a Democrat","dMany":"Democrats","off":{"upper":25,"lower":0},"congress":"The U.S. Senate race and Iowa&rsquo;s four U.S. House races are at the top of the same ballot. <a href=\"../us/#state=IA\">See them on the Congress pages<\/a>.","congressShort":"the U.S. Senate and House races","courts":[],"unit":"race","legNote":"Each Senate district holds two House districts. Senators serve four-year terms, and the odd-numbered districts are up this year.","linesNote":"","fips":"19","muni":["township"],"pickM":true,"pickS":false,"schoolOne":"school district","schoolT":"School districts","soilT":"Soil and water conservation","countyWord":"county","countyMany":"counties","countyOne":"county","countyOnes":"counties","hasHosp":true,"hasOther":true,"cLines":true,"localParty":"Among the county and local contests here, county offices are elected on party lines; soil and water conservation districts, townships, hospital districts and other districts are nonpartisan. Each contest&rsquo;s own page says which, from the list it was read from.","localWhat":"the county and local contests those lists reach","localCard":"for county offices, soil and water conservation districts, townships, hospital districts and other districts, county by county","countySub":"The county and local contests on the Iowa Secretary of State&rsquo;s lists, filed under the counties they reach. Pick one on the map or from the list.","everyBallot":"For the rest of the ballot here, see","partNote":"A district can cover only part of the county; it is on your ballot only if you live inside it.","primLine":"Where a primary on June 2 had more candidates than places to fill, the race&rsquo;s page shows who went on to November.","primLeg":"Where a primary on June 2 had more candidates than places to fill, the race&rsquo;s page shows who went on to November.","noVotes":"Vote counts for this primary are not loaded here. Who went on to November is read from the Secretary of State&rsquo;s list for the general election; everyone who ran comes from the primary&rsquo;s own list.","methods":["<b>Who is running<\/b> comes only from the Iowa Secretary of State&rsquo;s own lists of candidates for the November 3 general election and the June 2 primary, and the official primary results; each file is named below, with where it was read. The U.S. Senate and House races are on the Congress pages. County and local contests are read from the lists named below too: which local offices are on this ballot, what was read and what is not here yet are set out under <a href=\"#counties\">County by county<\/a>, in the words of the notes kept with the lists.","<b>What is read.<\/b> From those lists this site reads only the office, the district, the county and the city, town or district a contest belongs to, the candidate&rsquo;s name, the party, the ballot order where the list gives one, and the primary vote counts. Addresses, phone numbers, e-mail and websites, where a list carries them, are never read, kept or shown. No photos, ages, biographies or campaign money are shown for state and local candidates.","<b>Parties.<\/b> Offices elected on party lines show the party each candidate filed under, written out.  Among the county and local contests here, county offices are elected on party lines; soil and water conservation districts, townships, hospital districts and other districts are nonpartisan. Each contest&rsquo;s own page says which, from the list it was read from.","<b>Primaries.<\/b> Where more people ran in a primary (June 2) than it could send on, everyone on that primary ballot is shown, with who went on to November, read from the general election list. Vote counts are the official results where they are loaded; where they are not, the race says so.","<b>Order.<\/b> Candidates appear in the ballot order the list gives, or by surname where it gives none. Never by money, polls or party.","<b>Places.<\/b> A county or local contest is filed under every county it reaches. The names of cities, towns and districts come from the Warren County Auditor, the U.S. Census Bureau, the Dallas County Auditor, the Polk County Auditor, the Story County Auditor and the Scott County Auditor, each named below; where something on a county&rsquo;s ballot could not be shown, that county&rsquo;s page says what and why.","<b>Who holds a seat today<\/b> (the Legislature and the statewide offices the roster carries) comes from the Open States roster the record side of this site uses. A candidate matched to a sitting legislator by district and name, one fit only, links to their record page and nothing more.","<b>Maps and &ldquo;use my location&rdquo;.<\/b> District lines are the Census Bureau&rsquo;s cartographic boundary files (2024 Census Bureau cartographic boundary files), the lines the state pages draw, and the county lines are the Bureau&rsquo;s too (2024 Census Bureau cartographic boundary file (counties, 1:500,000)); your county&rsquo;s sample ballot is the authority on your district. Your location is worked out on your own device and never sent anywhere; a rounded copy (about half a mile) is kept on the device, with your choices, until you tap &ldquo;Forget&rdquo;.","<b>Nobody is scored or graded.<\/b> The cards show the record; the judging is yours."],"upSeg":"Senate districts","loSeg":"House districts"}};
+const BOOT = {"data":"data/ia.json?v=1957ccb597","lines":"data/districts.json?v=bddd93eb01","changelog":[{"version":"4.0.081","date":"2026-10-02","title":"Minnesota, finished: your precinct, your ballot, and who is on it","items":["A real map for Minnesota's ballot. One map draws every kind of district (counties, cities and townships, wards, county commissioner districts, school districts, state House and Senate, Congress, judicial, soil and water, hospital and park districts), and you can drag it, pinch it on a phone, and zoom from the whole state down to a street. Tap any district to see its name and its races.","\"Use my location\" drops a pin, finds your precinct on your own device, names every district you are in, and shows exactly the contests on your ballot. Streets appear only if you switch them on; they come from OpenStreetMap, whose servers then see which map squares are asked for. Nothing else leaves your device.","State and local candidates now show more than a name. For statewide offices, the Legislature, judges, county offices, mayors, councils and school boards: the campaign's website, a photo from the candidate's own site (119 so far, each looked at first), offices held, a birth year where a citable source gives one, and the issue headings from their own site, each with where it comes from. Township and small district candidates show what they filed. Never an address, a phone number, a family member or a word about anyone's views.","\"The record, not a label.\" Most local offices are nonpartisan, and this site does not guess anyone's politics. A race page shows what is on the record: a party's own published endorsement (256 so far), an earlier run or office under a party label, the candidate's own words, and how the place itself voted in past elections, from official results.","The statewide races have their polls and prediction-market prices as tabs, under the same rules as Congress. Where no market lists a statewide or county race, the page says why that is usual.","Ads now fold under one heading in groups of five, and every \"Where this comes from\" folds by kind of source.","Polling places are not on the map yet: Minnesota sells that list rather than posting it, and the page says so and links the Secretary of State's own finder."]},{"version":"4.0.080","date":"2026-10-01","title":"More faces, and more candidates in their own words","items":["143 more candidates for Congress now have a photograph on their card, each taken from the candidate's own campaign website, credited and linked. Every option was looked at first: a photo is used only when it is plainly the site's own portrait of its candidate, one adult alone. Where the options showed several people, an event, a logo, or anything unclear, the card keeps the candidate's initials. Nobody is ever identified by their face.","\"In their own words\" now lists the issue headings from 394 campaigns' own websites, as headings only: nothing is summarized or judged."]},{"version":"4.0.079","date":"2026-10-01","title":"Ballot pages you can fold, sort and make your own; a cabin that looks like one","items":["The Congress ballot pages open calmer. The map of every state sits right under the numbers; the Senate races and every other race are folded away state by state until you open them; on a race page the polls and the betting prices are two tabs above the candidates that pull down when you want them.","\"Your ballot\" can use your location (worked out on your device, never sent anywhere) and then shows a plain preview of the federal part of your ballot: each office, \"Vote for one\", and every name as printed. Your county's sample ballot remains the authority.","The candidates' cards can be moved into any order and hidden one by one, and so can their columns in the side-by-side comparison, whose sections now start closed. The order a reader chooses is theirs alone and stays on their device; one button puts back the official list's order.","The arena where the cards stand no longer has a colour of its own: it is a few shades off the page and follows light and dark.","More candidates' blanks are filled. Where no official record gives a birth year or earlier offices, the pages now show what a government page, the campaign's own site, Wikipedia or a named news organization states: 824 campaign websites, 191 public offices and 56 birth years, each labelled with where it comes from and linked, each checked twice. Never an address, a family member or a word about anyone's views.","The cabin has been rebuilt to look like a real one: round log walls and rafters, a wall of glass on a photograph of Rocky Mountain National Park for the hour and the season, a stacked-stone fireplace with a fire, real furniture, sunlight across the floor. It is still at its own address, cabin.html, and its Credits button names every photograph, texture and model it uses."]},{"version":"4.0.078","date":"2026-10-01","title":"A first cabin, and quieter pages","items":["A first draft of a new front door: a small log cabin you can walk around in, with a fire, two armchairs, a bookshelf and a wide window on the Rocky Mountains. The view follows your own clock and calendar (morning, afternoon, dusk or night; gold aspens in autumn, snow in winter), worked out on your device. Nothing is sent anywhere. It lives at its own address, cabin.html, while it is made to look real; the ring of cards is still the landing page.","Two posters glow on the cabin's far wall, and they are the doors. \"Meet everyone asking for your vote\" opens On The Ballot; \"See what they did with the last one\" opens Legislation & Legislatures. The same two doors are glowing signs at the foot of the page. Walk with the arrow keys or W, A, S, D and drag to look around; on a phone, drag to look and tap the floor to walk.","The pages no longer offer the whole site as one file to download, and no longer name the files and programs the site is put together with. The sources, the methods, the formulas and the download of every figure on the district pages stay."]},{"version":"4.0.077","date":"2026-10-01","title":"Local judges and the first counties of seven more states","items":["Colorado, Utah, Illinois, Oregon, Arkansas, Connecticut and Nevada join the local level, each with the part of its local ballot that an official list carries today. County and local races now stand at 22,148 contests and 36,970 candidates in 34 states.","Illinois: the regional superintendents of schools in every region, the circuit judges, and suburban Cook County's and Chicago's own contests. Nevada: Clark and Washoe counties, where about nine in ten Nevadans live. Arkansas: Pulaski and Washington counties.","Colorado's RTD directors and 117 judges' retention votes, Utah's justice court retention votes, Oregon's district attorneys and circuit judges, and Connecticut's judges of probate and registrars of voters in the 19 towns whose ballots are posted so far (the rest are due by October 9).","Every county still to be read says so on its page and names the county office that publishes its list."]},{"version":"4.0.076","date":"2026-10-01","title":"Nine more states, county by county","items":["County and local races open for Florida, Nebraska, Wyoming, Michigan, Iowa, Missouri, Montana, Ohio and Wisconsin: 4,732 more contests and 6,328 more candidates. On The Ballot's local level now holds 21,870 contests and 36,490 candidates in 29 states.","Florida comes from the Division of Elections' own file of local candidates (county commissions, school boards, and nearly two thousand special district seats), placed county by county with each supervisor of elections' notice. A candidate nobody opposed is elected without a vote and is shown that way.","These states have no single list for most local offices, so they are read one county at a time, largest first, from each county election office's own list or sample ballot: nine Michigan counties, sixteen in Wyoming, eleven in Iowa, twelve in Missouri, ten in Nebraska (plus every district board statewide), twenty-three county boards in Ohio, ten in Wisconsin, nine in Montana. Every county not read yet says so on its page, with the reason.","Michigan's circuit, district and probate judges, Missouri's and Nebraska's judges' retention votes, Ohio's appeals and common pleas judges and Florida's county judges are in, each under the counties they serve.","Wisconsin elects only sheriffs, clerks of circuit court and a few coroners in November (cities, towns and school boards vote in April); Iowa's cities and schools voted in 2025. Each state's page says which local offices are elected when."]}],"links":{"state":true,"county_page":false,"us":true},"st":{"code":"IA","lc":"ia","name":"Iowa","agency":"Iowa Secretary of State","lister":"Secretary of State","who":"Secretary of State&rsquo;s","fromWho":"the Iowa Secretary of State&rsquo;s","partial":false,"noGeneral":false,"notice":"","one":false,"up":"Senate","lo":"House","upT":"State Senate","loT":"State House","upD":"Senate District","loD":"House District","upAbbr":"SD","loAbbr":"HD","prim":"June 2","local":true,"nest":true,"multi":{"upper":false,"lower":false},"zoom":"Des Moines","dOne":"a Democrat","dMany":"Democrats","off":{"upper":25,"lower":0},"congress":"The U.S. Senate race and Iowa&rsquo;s four U.S. House races are at the top of the same ballot. <a href=\"../us/#state=IA\">See them on the Congress pages<\/a>.","congressShort":"the U.S. Senate and House races","courts":[],"unit":"race","legNote":"Each Senate district holds two House districts. Senators serve four-year terms, and the odd-numbered districts are up this year.","linesNote":"","fips":"19","muni":["township"],"pickM":true,"pickS":false,"schoolOne":"school district","schoolT":"School districts","soilT":"Soil and water conservation","countyWord":"county","countyMany":"counties","countyOne":"county","countyOnes":"counties","hasHosp":true,"hasOther":true,"cLines":true,"localParty":"Among the county and local contests here, county offices are elected on party lines; soil and water conservation districts, townships, hospital districts and other districts are nonpartisan. Each contest&rsquo;s own page says which, from the list it was read from.","localWhat":"the county and local contests those lists reach","localCard":"for county offices, soil and water conservation districts, townships, hospital districts and other districts, county by county","countySub":"The county and local contests on the Iowa Secretary of State&rsquo;s lists, filed under the counties they reach. Pick one on the map or from the list.","everyBallot":"For the rest of the ballot here, see","partNote":"A district can cover only part of the county; it is on your ballot only if you live inside it.","primLine":"Where a primary on June 2 had more candidates than places to fill, the race&rsquo;s page shows who went on to November.","primLeg":"Where a primary on June 2 had more candidates than places to fill, the race&rsquo;s page shows who went on to November.","noVotes":"Vote counts for this primary are not loaded here. Who went on to November is read from the Secretary of State&rsquo;s list for the general election; everyone who ran comes from the primary&rsquo;s own list.","methods":[["lists","<b>Who is running<\/b> comes only from the Iowa Secretary of State&rsquo;s own lists of candidates for the November 3 general election and the June 2 primary, and the official primary results; each file is named below, with where it was read. The U.S. Senate and House races are on the Congress pages. County and local contests are read from the lists named below too: which local offices are on this ballot, what was read and what is not here yet are set out under <a href=\"#counties\">County by county<\/a>, in the words of the notes kept with the lists."],["lists","<b>What is read.<\/b> From those lists this site reads only the office, the district, the county and the city, town or district a contest belongs to, the candidate&rsquo;s name, the party, the ballot order where the list gives one, and the primary vote counts. Addresses, phone numbers, e-mail and websites, where a list carries them, are never read, kept or shown. No photos, ages, biographies or campaign money are shown for state and local candidates."],["lists","<b>Parties.<\/b> Offices elected on party lines show the party each candidate filed under, written out.  Among the county and local contests here, county offices are elected on party lines; soil and water conservation districts, townships, hospital districts and other districts are nonpartisan. Each contest&rsquo;s own page says which, from the list it was read from."],["lists","<b>Primaries.<\/b> Where more people ran in a primary (June 2) than it could send on, everyone on that primary ballot is shown, with who went on to November, read from the general election list. Vote counts are the official results where they are loaded; where they are not, the race says so."],["lists","<b>Order.<\/b> Candidates appear in the ballot order the list gives, or by surname where it gives none. Never by money, polls or party."],["places","<b>Places.<\/b> A county or local contest is filed under every county it reaches. The names of cities, towns and districts come from the Warren County Auditor, the U.S. Census Bureau, the Dallas County Auditor, the Polk County Auditor, the Story County Auditor and the Scott County Auditor, each named among these sources; where something on a county&rsquo;s ballot could not be shown, that county&rsquo;s page says what and why."],["holders","<b>Who holds a seat today<\/b> (the Legislature and the statewide offices the roster carries) comes from the Open States roster the record side of this site uses. A candidate matched to a sitting legislator by district and name, one fit only, links to their record page and nothing more."],["maps","<b>Maps and &ldquo;use my location&rdquo;.<\/b> District lines are the Census Bureau&rsquo;s cartographic boundary files (2024 Census Bureau cartographic boundary files), the lines the state pages draw, and the county lines are the Bureau&rsquo;s too (2024 Census Bureau cartographic boundary file (counties, 1:500,000)); your county&rsquo;s sample ballot is the authority on your district. Your location is worked out on your own device and never sent anywhere; a rounded copy (about half a mile) is kept on the device, with your choices, until you tap &ldquo;Forget&rdquo;."],["page","<b>Nobody is scored or graded.<\/b> The cards show the record; the judging is yours."]],"upSeg":"Senate districts","loSeg":"House districts"}};
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} },
@@ -1554,6 +1654,59 @@ const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { r
   const decodeRing = (ring, q) => { let x = 0, y = 0; const pts = []; for (let i = 0; i < ring.length; i += 2) { x += ring[i]; y += ring[i + 1]; pts.push([x / q, y / q]); } return pts; };
 
 /* ===== end of the shared parts ===== */
+/* ===== a part shared with the Congress ballot page (taken from it when this page is built): how a page's sources are folded ===== */
+/* ---------- source folds (John, 2026-10-01): every "Where this comes from" and "Sources and methods" is one closed fold, and
+   inside it a closed fold for each kind of source the page has, its summary saying how many it holds. A long list is broken
+   up again: under the state or the office its sources carry, otherwise ten at a time. The state ballot pages take this block
+   as it stands, so every ballot page folds its sources the same way; all it asks of a page is esc(). ---------- */
+const SOURCE_KINDS = [      // [key, what the fold is called, the words a source's own "kind" uses for it]; the folds appear in this order
+  ["lists", "The candidate lists", /candidate (list|filing)|\bballots?\b|certification|contest list|pamphlet|party (key|list)/],
+  ["results", "Official results", /result|canvass/],
+  ["rules", "Laws, notices and calendars", /statute|\blaw\b|\brule\b|constitution|notice|calendar|schedule|guide|manual|history|proclamation|release|procedure|setup|\bpage\b/],
+  ["money", "Campaign money", /money|finance/],
+  ["ads", "Ads", /^ads?$|ad library/],
+  ["polls", "Polls and markets", /\bpolls?\b|market/],
+  ["people", "Who the candidates are", /biograph|portrait|photo/],
+  ["own", "The campaigns' own websites", /campaign|website/],
+  ["web", "Found on the open web", /open web/],
+  ["holders", "Who holds each seat today", /roster/],
+  ["places", "Places and their names", /\bcodes?\b|place names|geography|precinct table|district list|directory|election authorities/],
+  ["maps", "Maps and lines", /boundar|\blines\b|\bmaps?\b/],
+  ["other", "Other sources", null],
+  ["page", "How this page works", null]];
+function sourceKind(s){      // which fold a source belongs in: the fold it names itself, or else what its own "kind" says (and, for a certification, what its title says it certifies)
+  if (s && s.fold && SOURCE_KINDS.some(x => x[0] === s.fold)) return s.fold;
+  const k = String((s && s.kind) || "").toLowerCase(), t = String((s && s.title) || "");
+  if (/certification|procedure/.test(k)) return /canvass|returns|results/i.test(t) ? "results" : /certification/.test(k) || /ballot|candidate|nominee/i.test(t) ? "lists" : "rules";
+  const hit = SOURCE_KINDS.find(x => x[2] && x[2].test(k));
+  return hit ? hit[0] : "other";
+}
+const sourceCount = items => items.reduce((t, x) => t + (x.n || 1), 0);      // a line that stands for many sources carries their number
+const sourceWords = (n, one) => `${Number(n).toLocaleString("en-US")} ${one}${n === 1 ? "" : "s"}`;
+function sourceRuns(items){      // a kind's sources: as they are when few; when many, under the state or office they carry, otherwise ten at a time
+  const list = part => `<div class="srclist">${part.map(x => x.h).join("")}</div>`;
+  if (items.length <= 12) return list(items);
+  const fold = (label, sub, body) => `<details class="sfold"><summary><b>${label}</b>${sub ? `<span>${sub}</span>` : ""}</summary><div class="fbody">${body}</div></details>`;
+  const by = new Map(); items.forEach(x => { const g = x.g || ""; if (!by.has(g)) by.set(g, []); by.get(g).push(x); });
+  if (by.size > 1 && !by.has("")) return [...by].sort((x, y) => x[0].localeCompare(y[0])).map(([g, part]) => fold(esc(g), sourceWords(sourceCount(part), "source"), sourceRuns(part.map(x => ({...x, g: "", a: x.a === g ? "" : x.a}))))).join("");
+  let out = "";
+  for (let i = 0; i < items.length; i += 10) { const part = items.slice(i, i + 10), a = part[0].a || "", b = part[part.length - 1].a || "";
+    out += fold(part.length === 1 ? `Source ${i + 1}` : `Sources ${i + 1} to ${i + part.length}`, a && b && a !== b ? `${esc(a)} to ${esc(b)}` : esc(a || b), list(part)); }
+  return out;
+}
+function sourceFold(title, parts, id){      // parts: {kind: {items: [{h: the source as HTML, n, g, a}], notes: [HTML], label}}; nothing at all when a page has no source
+  const kinds = SOURCE_KINDS.map(x => [x[0], x[1], parts[x[0]]]).filter(x => x[2] && ((x[2].items || []).length || (x[2].notes || []).length));
+  if (!kinds.length) return "";
+  const total = kinds.reduce((t, x) => t + sourceCount(x[2].items || []), 0), withSources = kinds.filter(x => (x[2].items || []).length).length;
+  return `<details class="fold srcfold"${id ? ` id="${id}"` : ""}><summary><h2>${title}</h2><span class="fsum">${sourceWords(total, "source")} &middot; ${sourceWords(withSources, "kind")}</span></summary><div class="fbody">${kinds.map(([k, label, p]) => {
+    const items = p.items || [], notes = p.notes || [], n = sourceCount(items);
+    return `<details class="sfold" data-kind="${k}"><summary><b>${p.label || label}</b><span>${n ? sourceWords(n, "source") : sourceWords(notes.length, "note")}</span></summary><div class="fbody">${notes.length ? `<ul class="method">${notes.map(m => `<li>${m}</li>`).join("")}</ul>` : ""}${items.length ? sourceRuns(items) : ""}</div></details>`; }).join("")}</div></details>`;
+}
+
+/* ===== end of that part ===== */
+/* ===== another, only where a state has polls or markets of its statewide races: the two tabs above the cards, the notice before a market, the helplines ===== */
+
+/* ===== end of that part ===== */
 
 /* ---------- the two switches, with the same saved choices as the rest of the site ---------- */
 const calm = () => document.documentElement.classList.contains("calm");
@@ -1573,6 +1726,17 @@ const CO1 = ST.countyOne || "county", COS = ST.countyOnes || "counties";      //
 let D = null, R = {}, LEG = {upper: {}, lower: {}}, LINES = null, linesP = null, MINE = {}, COUNTS = {}, SPLITS = new Set();
 const needLines = () => LINES ? Promise.resolve(LINES) : (linesP || (linesP = fetch(BOOT.lines).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
   .then(d => (LINES = d), e => { linesP = null; throw e; })));
+/* what a state can have beyond its lists (John, 2026-10-01), each fetched only when a page needs it: who the candidates are, each fact
+   with its source (data/who.json); how a place has voted (data/votes/); and the map's own script and files (geo/) */
+let FACTS = null, factsP = null, PARTY_PAGES = [], BYG = {}, SCHG = {}, VMETA = null, kitP = null;
+const VFILES = {}, GEO_ON = !!(BOOT.geo && BOOT.st.local);
+const getJSON = url => fetch(url).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))));
+const needFacts = () => FACTS ? Promise.resolve(FACTS) : !BOOT.who ? Promise.resolve(FACTS = {}) : (factsP || (factsP = getJSON(BOOT.who).then(d => { PARTY_PAGES = d.parties || []; return (FACTS = d.r || {}); }, () => (FACTS = {}))));
+const facts = (c, r) => ((FACTS || {})[r.id] || {})[c.n] || {};
+const addScript = src => new Promise((ok, no) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => no(new Error(src)); document.head.appendChild(s); });
+const needKit = () => kitP || (kitP = addScript(BOOT.geo.base + "reader.js?v=" + BOOT.geo.v).then(() => addScript(BOOT.geo.base + "mapkit.js?v=" + BOOT.geo.v)).catch(e => { kitP = null; throw e; }));
+const needMeta = () => VMETA ? Promise.resolve(VMETA) : getJSON(BOOT.votes.base + "meta.json?v=" + BOOT.votes.v).then(m => (VMETA = m));
+const needVotes = name => Promise.all([needMeta(), VFILES[name] ? VFILES[name] : getJSON(BOOT.votes.base + name + ".json?v=" + BOOT.votes.v).then(f => (VFILES[name] = f))]).then(x => x[1]);
 
 /* ---------- words ---------- */
 const LV = {statewide: "Statewide offices", legislature: "The Legislature", county: "County offices", soil_water: ST.soilT || "Soil and water conservation", city: "City offices",
@@ -1699,7 +1863,9 @@ function seatWords(r, link){
 }
 const days = () => { const [y, m, d] = D.election.split("-").map(Number), n = new Date(); return Math.round((new Date(y, m - 1, d) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5); };
 const dayWords = () => { const n = days(); return n > 1 ? `Election Day in ${n} days` : n === 1 ? "Election Day is tomorrow" : n === 0 ? "Election Day is today" : `Election Day was ${fmtDate(D.election)}`; };
-const PRIVACY = `<p class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Only the name, office and party each candidate filed under are shown. Addresses and contact details in the ${WHO} files are never read.</span></p>`;
+const PBOX = words => `<p class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span>${words}</span></p>`;
+const PRIVACY = PBOX(ST.privacy || `Only the name, office and party each candidate filed under are shown. Addresses and contact details in the ${WHO} files are never read.`);
+const privacyFor = r => ST.privacyRace ? PBOX(r.f ? ST.privacyRace : ST.privacySmall) : PRIVACY;      // a race's page says what is on that page
 
 /* ---------- small pieces ---------- */
 const chip = (c, r) => `<span class="chip${serves(c, r) ? " inc" : ""}${c.wi ? " wi" : ""}" style="--pc:${pcVar(c)}" title="${esc(partyWords(c, r))}${serves(c, r) ? ", serves in this seat today" : ""}${c.wi ? ", write-in" : ""}"><i></i>${esc(c.n)}</span>`;
@@ -1712,6 +1878,12 @@ const crumbs = parts => `<nav class="crumbs"><a href="#">${NM}</a>${parts.map(p 
 const srcItem = s => `<div class="srcitem"><b>${esc(s.agency || "Source")}</b>: ${esc(s.title || "")}<small><span class="tag fact">Fact</span>${s.url ? ` <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>` : ""}${s.published ? ` &middot; published ${esc(s.published)}` : ""}${s.fetched ? ` &middot; read ${esc(s.fetched)}` : ""}${s.rows ? ` &middot; ${num(s.rows)} rows` : ""}${s.sha ? ` &middot; SHA-256 ${esc(String(s.sha).slice(0, 16))}&hellip;` : ""}${s.note ? " &middot; " + esc(s.note) : ""}</small></div>`;
 const ROSTER_SRC = `<div class="srcitem"><b>Open States</b>: the roster of ${NM}&rsquo;s legislators and statewide officials (who holds each seat today), as the record side of this site loads it<small><span class="tag fact">Fact</span> <a href="https://github.com/openstates/people" target="_blank" rel="noopener">github.com/openstates/people</a> &middot; public domain (CC0)</small></div>`;
 const LINES_SRC = () => `<div class="srcitem"><b>U.S. Census Bureau</b>: cartographic boundary files for ${NM}&rsquo;s legislative districts${ST.local && ST.cLines ? ` and ${esc(COS)}` : ""}, the lines the maps draw and &ldquo;use my location&rdquo; reads<small><span class="tag fact">Fact</span> <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html" target="_blank" rel="noopener">census.gov cartographic boundary files</a></small></div>`;
+/* a page's sources, kind by kind, for the folds (sourceFold, shared with the Congress ballot page): a source with the office it comes from,
+   and the roster behind "who holds each seat today" (the state's own row for it where its lists name one) */
+const srcRow = s => ({h: srcItem(s), a: s.agency || ""});
+const srcAdd = (parts, kind, x) => { (parts[kind] = parts[kind] || {items: []}).items.push(x); };
+const srcKindOf = s => { const k = sourceKind(s); return s.names && /^(maps|rules|other)$/.test(k) ? "places" : k; };      // a boundary file the page reads only for the names of places is filed with the places
+const rosterRows = () => { const rows = Object.values(D.sources).filter(s => sourceKind(s) === "holders").map(srcRow); return rows.length ? rows : [{h: ROSTER_SRC}]; };
 
 function index(){
   D.races.forEach(r => { r.date = r.date || D.election;      // what the file leaves out because the page can put it back
@@ -1725,22 +1897,47 @@ function index(){
   D.races.forEach(r => { if (LOCAL.includes(r.lv) || localCourt(r)) (r.c || []).forEach(f => { COUNTS[f] = (COUNTS[f] || 0) + 1; }); });
   GAPS = {state: [], county: {}, place: {}, race: {}};
   (D.gaps || []).forEach(g => { if (!g.id || !GAPS[g.sc] || g.sc === "state") GAPS.state.push(g); else (GAPS[g.sc][g.id] = GAPS[g.sc][g.id] || []).push(g); });
+  BYG = {}; SCHG = {};      // the races of each shape on the map ("ward:00694|Ward 2"), and a school district's place by the map's id for it
+  D.races.forEach(r => { r.st = ST.code; if (r.g) (BYG[r.g] = BYG[r.g] || []).push(r); });
+  Object.entries((D.places || {}).S || {}).forEach(([k, P]) => { SCHG[P.g || k] = "S" + k; });
+}
+
+/* ---------- who a candidate is, beyond the list (John, 2026-10-01): the state roster's own record of a sitting member first, then what
+   was found on the open web and confirmed against the page that states it, each labelled by its kind of source as the Congress pages
+   label theirs (according to a government's page or their campaign; as reported by Wikipedia or a named news organization). Only a race
+   whose office may show these is marked (r.f); every other candidate shows what they filed, and a website if they listed one. ---------- */
+const ageOf = dob => { if (!dob) return null; const [y, m, d] = String(dob).split("-").map(Number), n = new Date(); let a = n.getFullYear() - y; if (n.getMonth() + 1 < m || (n.getMonth() + 1 === m && n.getDate() < d)) a--; return a; };
+const fAge = fb => fb ? (fb[1] ? String(ageOf(fb[1])) : "about " + (new Date().getFullYear() - fb[0])) : null;
+const fSrc = (who, url, kind) => { const a = t => `<a href="${esc(url)}" target="_blank" rel="noopener nofollow">${t}</a>`;
+  return kind === "campaign" ? `according to ${a("their campaign")}` : kind === "official" ? `according to ${a(esc(who))}` : `as reported by ${a(esc(who))}`; };
+const fYears = o => o[2] === "now" ? (o[1] ? `, since ${o[1]}` : ", held today") : o[1] && o[2] ? (o[1] === o[2] ? `, ${o[1]}` : `, ${o[1]} to ${o[2]}`) : o[1] ? `, from ${o[1]}` : o[2] ? `, until ${o[2]}` : "";
+const yearsIn = (start, end, unsure) => { if (!start) return "years not on record"; const y = ((end ? new Date(end) : new Date()) - new Date(start)) / (365.2425 * 864e5);
+  return y < 1 ? (unsure ? "at least a few months" : "under a year") : `${unsure ? "at least " : ""}${Math.floor(y)} yr${Math.floor(y) === 1 ? "" : "s"}`; };
+const ROSTER_NAME = "the Open States roster of state officials";
+function nowOffice(p){      // the office a candidate holds today: the roster's, or one a government's own page states
+  const o = (p.off || []).filter(x => !x[2]).sort((a, b) => String(b[1]).localeCompare(String(a[1])))[0];
+  if (o) return `${esc(o[0])}, ${yearsIn(o[1], "", o[3])}`;
+  const held = (p.fo || []).filter(x => x[2] === "now"), f = held.find(x => x[5] === "official") || held[0];      // a named source's word counts too; "Who they are" says which
+  return f ? `${esc(f[0])}${f[1] ? `, since ${f[1]}` : ""}` : "";
 }
 
 /* ---------- a candidate's card, and the arena ---------- */
 function card(c, r, k){
-  const sv = serves(c, r), href = c.m ? recordHref(c.m) : "", L = c.m && D.links[c.m];
+  const sv = serves(c, r), href = c.m ? recordHref(c.m) : "", L = c.m && D.links[c.m], p = facts(c, r), age = ageOf(p.dob);
   const flag = c.wi ? "Write-in" : sv ? "In this seat today" : c.inc ? "Incumbent" : "";
   const band2 = r.lv === "legislature" ? (r.k === "state_senate" ? `${ST.upAbbr} ${r.d}` : `${ST.loAbbr} ${r.d}`) : r.s ? seatWords2(r.s) : r.d ? (r.lv === "court" ? (/^court_of_appeals/.test(r.k) ? raceWhere(r) : judicialName(r.d)) : distWords(r.d)) : (r.lv === "statewide" ? "Statewide" : "");
   const rec = href ? `<a class="rec" href="${href}">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
-  const rows = [["Party", r.pt ? esc(partyShort(c, r)) : "Nonpartisan"], ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"]];
+  const order = ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"];
+  const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", nowOffice(p) || "No office on record"], order]
+    : [["Party", r.pt ? esc(partyShort(c, r)) : "Nonpartisan"], order];
   return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}">
     <div class="band"><span>${esc(partyShort(c, r))}</span><span>${esc(band2)}</span></div>
     ${flag ? `<span class="flag">${esc(flag)}</span>` : ""}
-    <div class="mono"><span aria-hidden="true">${esc(initials(c.n))}</span></div>
+    <div class="mono">${p.ph ? `<span class="ph"><img src="${esc(p.ph)}" alt="" loading="lazy" decoding="async"></span>` : `<span aria-hidden="true">${esc(initials(c.n))}</span>`}</div>
     <div class="who"><b>${esc(c.n)}</b><small>${esc(partyWords(c, r))}</small>${rec}</div>
     <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
 }
+const tabsFor = () => "", whoHTML = () => "", leanHTML = () => "", moreSources = () => {}, mountVotes = () => {}, quietMarkets = () => {};      // a state with its lists alone: none of what follows is in its page
 function arena(r){
   const g = general(r); if (!g.length) return "";
   const parts = []; g.forEach((c, i) => { if (i && g.length === 2) parts.push(`<span class="vs" aria-hidden="true">vs</span>`); parts.push(card(c, r, i)); });
@@ -1753,7 +1950,8 @@ function arena(r){
   return `<section class="arena deal st" id="arena" aria-label="${unopp ? "Elected without a vote" : openP ? "The open primary" : "The general election"}, ${esc(fmtDate(r.date))}">
     <div class="ahead"><b>${title} &middot; ${esc(fmtDate(r.date))}</b><span>${unopp ? "Not printed on the ballot: nobody else qualified" : g.length === 1 ? "One name for this office" : `${g.length} candidates, ${ordered ? `in the ballot order the ${WHO} list gives` : "by surname: the list gives no ballot order"}`}</span></div>
     <div class="acards" data-n="${g.length}">${parts.join("")}</div>
-    <p class="anote">Every card is the same size. A card holds what the ${WHO} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan) and the ballot order. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.${ordered && !r.pt ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}</p>
+    <p class="anote">${r.f ? `Every card is the same size. A card shows the name as filed${r.pt ? " and the party it was filed under" : ""}, an age and the office a candidate holds today where a record or a named source gives them, and the ballot order. Where each comes from is set out under &ldquo;Who they are&rdquo; below; an age that reads &ldquo;about&rdquo; is worked out from a birth year alone. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`
+      : `Every card is the same size. A card holds what the ${WHO} list holds: the name as filed, the party it was filed under (or that the office is nonpartisan) and the ballot order. A candidate who serves in the Legislature or a statewide office today links to their record. No score or grade of any person.`}${ordered && !r.pt ? " The order printed on your own ballot can differ from precinct to precinct; your county&rsquo;s sample ballot shows it." : ""}</p>
   </section>`;
 }
 /* ---------- a partisan primary, and its field ---------- */
@@ -1872,7 +2070,7 @@ async function mountLegMap(){
     body += `<path class="sout" d="${LINES.outline.d}"/>`;
     svg.innerHTML = body; setVB(vb); marks();
     jump.innerHTML = `<option value="">Jump to a${/^[AEIOU]/.test(view === "upper" ? ST.up : ST.lo) ? "n" : ""} ${view === "upper" ? UP : LO} district&hellip;</option>` + keys.map(d => `<option value="${esc(d)}"${d === sel ? " selected" : ""}>District ${esc(d)}</option>`).join("");
-    note.innerHTML = `District lines: ${esc(LINES.vintage || "the Census Bureau's current file")}${ST.linesNote}.${myDistrict(view) ? " Your district, as picked on this page, is outlined in gold." : ""}`;
+    note.innerHTML = `District lines: ${esc(LINES.vintage || "the Census Bureau's current file")}${ST.linesNote}.${myDistrict(view) ? " Your district, as picked on this page, is outlined in gold." : ""}${GEO_ON ? ` For these districts down to their streets, see <a href="#map=${view === "upper" ? "senate" : "house"}">the map under &ldquo;your ballot&rdquo;</a>.` : ""}`;
   }
   function show(d, keep){ const r = legRace(view, d); if (keep) { sel = d; marks(); relabel(); jump.value = d; } side.innerHTML = r ? legPreview(r) : `<p class="held">No race for District ${esc(d)} is on the ${WHO} list for November 3.</p>`; }
   const rest = () => { side.innerHTML = sel != null && legRace(view, sel) ? legPreview(legRace(view, sel)) : legSummary(view); };
@@ -1951,6 +2149,7 @@ function readMine(){
   if (m.c && !D.counties[m.c]) m = {};
   if (m.hd && !D.hds.includes(m.hd)) delete m.hd;
   if (m.sd && (ST.nest || !D.sds.includes(m.sd))) delete m.sd;
+  if (m.z && (!GEO_ON || !m.z.p || !Array.isArray(m.z.sch) || m.z.c !== m.c)) delete m.z;      // the precinct found by location, kept only with the county it belongs to
   return m;
 }
 function placesIn(kind, f){
@@ -1962,7 +2161,7 @@ const LOC_BTN = `<button type="button" class="locbtn" id="yloc"><svg viewBox="0 
    rows have (a state with no city contests on this ballot has no city to pick), then the legislative districts */
 const twoPicks = !ST.one && !ST.nest;      // the two chambers' districts are drawn separately: one choice for each
 const OLDER = !!ST.older;      // Minnesota's rows, loaded before the local conventions: its page reads them, and says what it said, as before
-const yoursHTML = () => ST.local ? `<section class="bsec" id="yours"><h2>Your ballot</h2><p class="sub">Pick ${andList([`your ${esc(ST.countyWord)}`, ST.pickM ? `your ${esc(MUNI1)}` : "", ST.pickS ? `your ${esc(ST.schoolOne)}` : "", `your ${NM} ${esc(dWord(ST.one ? "upper" : "lower"))}`, twoPicks ? `your ${esc(dWord("upper"))}` : ""].filter(Boolean))}, or let this device work out ${ST.cLines ? `the ${esc(ST.countyWord)} and the district${twoPicks ? "s" : ""}` : `the district${twoPicks ? "s" : ""}`}. Your choices and your location stay on this device; nothing is sent anywhere.</p>
+const yoursHTML = () => GEO_ON ? geoYoursHTML() : ST.local ? `<section class="bsec" id="yours"><h2>Your ballot</h2><p class="sub">Pick ${andList([`your ${esc(ST.countyWord)}`, ST.pickM ? `your ${esc(MUNI1)}` : "", ST.pickS ? `your ${esc(ST.schoolOne)}` : "", `your ${NM} ${esc(dWord(ST.one ? "upper" : "lower"))}`, twoPicks ? `your ${esc(dWord("upper"))}` : ""].filter(Boolean))}, or let this device work out ${ST.cLines ? `the ${esc(ST.countyWord)} and the district${twoPicks ? "s" : ""}` : `the district${twoPicks ? "s" : ""}`}. Your choices and your location stay on this device; nothing is sent anywhere.</p>
   <div class="mybar"><select class="pick" id="ycty" aria-label="Your ${esc(ST.countyWord)}"></select>${ST.pickM ? `<select class="pick" id="ymcd" aria-label="Your ${esc(MUNI1)}"></select>` : ""}${ST.pickS ? `<select class="pick" id="ysch" aria-label="Your ${esc(ST.schoolOne)}"></select>` : ""}${ST.one ? "" : `<select class="pick" id="yhd" aria-label="Your ${NM} ${esc(dWord("lower"))}"></select>`}${ST.nest ? "" : `<select class="pick" id="ysd" aria-label="Your ${NM} ${esc(dWord("upper"))}"></select>`}</div>
   <div class="mybar">${LOC_BTN}</div>
   <p class="ynote" id="ynote" aria-live="polite"></p>
@@ -1994,7 +2193,30 @@ function ballotHTML(m){
   else if (m.hd || sd) out.push(note("The Legislature", `No ${esc(ST.upT)}${ST.one ? "" : ` or ${esc(ST.loT)}`} race for ${m.hd && !ST.one ? `District ${esc(m.hd)}` : `${esc(ST.upD)} ${esc(sd)}`} is on the ${WHO} list.${upOff}`));
   else out.push(note("The Legislature", ask));
   if (!ST.nest && !ST.one && legs.length && (!m.hd || !sd)) out.push(`<p class="ynote">${m.hd ? `Pick your ${esc(dWord("upper"))} too` : `Pick your ${esc(dWord("lower"))} too`}: the two chambers&rsquo; districts are drawn separately here.</p>`);
-  if (m.c) {
+  const z = m.z && m.z.c === m.c ? m.z : null;      // a reader found by location: their precinct and every district it is in
+  if (z) {      // exactly the contests of that precinct: each race names the shape that draws its place, and the precinct says which shapes it lies in
+    const G = r => r.g || "", at = (kind, id) => id ? kind + ":" + id : "\u0000", LOOSE = "The map has no lines for the part of the place that elects this, so it is listed for everyone here; your county&rsquo;s sample ballot shows whether it is on yours.";
+    const county = byLv("county").filter(r => inC(r) && (!G(r) || G(r) === at("county", z.c) || G(r) === at("com", z.com) || G(r) === at("park", z.pk)));
+    out.push(level(esc(cName(m.c)), county, county.some(r => !G(r) && r.d) ? LOOSE : ""));
+    const soilAll = byLv("soil_water").filter(inC), soil = soilAll.filter(r => G(r) === at("swcd", z.sw)), soilLoose = soilAll.filter(r => !G(r));
+    out.push(level(esc(LV.soil_water), soil.concat(soilLoose), soilLoose.length ? LOOSE : ""));
+    const mname = z.mn || placeName("M" + z.m);
+    const muni = D.races.filter(r => r.pk === "M" + z.m && LOCAL.includes(r.lv) && (!G(r) || G(r) === at("mcd", z.m) || (G(r).startsWith("ward:") && (z.w || []).includes(G(r).slice(5)))));
+    out.push(muni.length ? level(esc(mname), muni, muni.some(r => !G(r) && r.d) ? LOOSE : "") : note(esc(mname), `No ${esc(MUNI1 || "city")} contest for ${esc(mname)} is on the ${WHO} list for November 3.`));
+    const split = (z.sch || []).length > 1;
+    (z.sch || []).forEach(sid => { const rs = BYG["school:" + sid] || [], nm = (z.schn || {})[sid] || (SCHG[sid] ? placeName(SCHG[sid]) : sid);
+      const sub = [split ? (sid === z.s1 ? `Your precinct is split between ${esc(ST.schoolOne || "school district")}s; by the map your spot is in this one.` : `Your precinct is split between ${esc(ST.schoolOne || "school district")}s; this one reaches part of it. Only one of them is on your ballot.`) : "",
+        rs.some(r => r.d) ? "Where board members are elected by district inside it, only your own district&rsquo;s seat is on your ballot; the map has no lines for those." : ""].filter(Boolean).join(" ");
+      out.push(rs.length ? level(esc(nm), rs, sub) : note(esc(nm), `No school board contest for it is on the ${WHO} list for November 3.${sub ? " " + sub : ""}`)); });
+    const noLines = byLv("school").filter(r => !G(r) && inC(r));      // a district the map files have no lines for yet: it cannot be placed, so it is said, not hidden
+    if (noLines.length) out.push(`<div class="bl-level"><h4>${esc(capital(ST.schoolOne || "school district"))}s the map has no lines for</h4><p class="ynote">The map files have no lines for ${noLines.length === 1 ? "this district" : "these districts"} yet, so this page cannot tell whether you live in ${noLines.length === 1 ? "it" : "one"}. Your ${CO1}&rsquo;s sample ballot shows it.</p><div class="rlist">${noLines.map(r => raceRow(r, "", esc(raceWhere(r)))).join("")}</div></div>`);
+    const ownSeat = r => { const t = /-(\d{5})(?:-S)?$/.exec(r.id); return !t || t[1] === z.m; };      // a board seat for one city or township carries its code
+    const hosp = D.races.filter(r => r.lv === "hospital" && z.ho && G(r) === at("hospital", z.ho) && ownSeat(r));
+    out.push(level(esc(hosp.length ? raceWhere(hosp[0]) : "Hospital district"), hosp, hosp.some(r => r.s && !/^at large$/i.test(r.s) && !/-\d{5}(?:-S)?$/.test(r.id)) ? "A seat named for one part of the district is voted on only there." : ""));
+    const loose = D.races.filter(r => inC(r) && ((r.lv === "hospital" && !G(r)) || (r.lv === "other" && !(r.pk && r.pk[0] === "M"))));
+    out.push(level("Other districts", loose, ST.partNote));
+  }
+  else if (m.c) {
     const county = byLv("county").filter(inC), soil = byLv("soil_water").filter(inC);
     out.push(level(`${esc(cName(m.c))}`, county, districted(county) ? DIST_NOTE : ""));
     const soilDistricts = new Set(soil.filter(r => r.pk).map(r => r.pk)).size + (soil.some(r => r.pk) && soil.some(r => !r.pk) ? 1 : 0);
@@ -2017,7 +2239,7 @@ function ballotHTML(m){
   if (ST.local) {
     // the courts the whole state elects, the ones elected by a district the list does not tie to counties (yours is among
     // them), and the court contests the list files under the reader's county
-    const tied = courts.filter(localCourt), mine = tied.filter(inC), rest = courts.filter(r => !localCourt(r)), APPEAL = /^(supreme_court|court_of_|appellate_court)/;
+    const tied = courts.filter(localCourt), mine = tied.filter(r => z && r.g ? r.g === "judicial:" + z.jd : inC(r)), rest = courts.filter(r => !localCourt(r)), APPEAL = /^(supreme_court|court_of_|appellate_court)/;
     const whole = rest.filter(r => !r.d), byApp = rest.filter(r => r.d && APPEAL.test(r.k)), byOther = rest.filter(r => r.d && !APPEAL.test(r.k));
     const noun = tied.length ? courtNoun(tied) : "", list = whole.concat(byApp, mine);
     const words = [!tied.length ? "" : !m.c ? `Pick your ${esc(ST.countyWord)} to add its ${noun}.`
@@ -2029,8 +2251,9 @@ function ballotHTML(m){
   else out.push(level("Judges", courts.filter(r => r.k !== "district_court"),
     [appeals.length ? "The Court of Appeals is elected by appellate district; only your own district&rsquo;s seats are on your ballot." : "",
      dc.length ? `District court judges are elected by judicial district: <a href="#courts">see every district court race</a>.` : ""].filter(Boolean).join(" ")));
-  const where = [m.c ? cName(m.c) : "", m.m ? placeName(m.m) : "", m.s ? placeName(m.s) : "", m.hd && !ST.one ? `${ST.loD} ${m.hd}` : "", !ST.nest && sd ? `${ST.upD} ${sd}` : ""].filter(Boolean).map(esc).join(" &middot; ");
-  return `<div class="bl-head"><h3>What&rsquo;s on your ballot</h3><p class="ynote">${where}. In the order a${/^[AEIOU]/.test(ST.name) ? "n" : ""} ${NM} ballot runs, level by level${BOOT.links.us && ST.congressShort ? `, below <a href="../us/#state=${esc(ST.code)}">${ST.congressShort}</a> at the top` : ""}. Your ${CO1}&rsquo;s sample ballot is the authority on your exact ballot.</p></div>${out.join("")}`;
+  const where = (z ? [`Precinct ${z.pn}`, cName(z.c), z.mn || "", ...(z.w || []).map(w => w.split("|")[1] || w), ...(z.sch || []).map(i => (z.schn || {})[i] || i), m.hd && !ST.one ? `${ST.loD} ${m.hd}` : "", !ST.nest && sd ? `${ST.upD} ${sd}` : ""]
+    : [m.c ? cName(m.c) : "", m.m ? placeName(m.m) : "", m.s ? placeName(m.s) : "", m.hd && !ST.one ? `${ST.loD} ${m.hd}` : "", !ST.nest && sd ? `${ST.upD} ${sd}` : ""]).filter(Boolean).map(esc).join(" &middot; ");
+  return `<div class="bl-head"><h3>What&rsquo;s on your ballot</h3><p class="ynote">${where}. ${z ? "Exactly the contests of your precinct, in" : "In"} the order a${/^[AEIOU]/.test(ST.name) ? "n" : ""} ${NM} ballot runs, level by level${BOOT.links.us && ST.congressShort ? `, below <a href="../us/#state=${esc(ST.code)}">${ST.congressShort}</a> at the top` : ""}. Your ${CO1}&rsquo;s sample ballot is the authority on your exact ballot.</p></div>${out.join("")}`;
 }
 function mountYours(){
   const cty = $("#ycty"), mcd = $("#ymcd"), sch = $("#ysch"), hd = $("#yhd"), sdp = $("#ysd"), note = $("#ynote"), out = $("#yballot"), forgetB = $("#yforget"); if (!hd && !sdp && !cty) return;
@@ -2051,14 +2274,32 @@ function mountYours(){
     if (sdp) sdp.innerHTML = `<option value="">Your ${esc(dWord("upper"))}</option>` + D.sds.map(d => `<option value="${esc(d)}"${d === MINE.sd ? " selected" : ""}>${esc(ST.upD)} ${esc(d)}</option>`).join("");
   }
   function paint(){ out.innerHTML = ballotHTML(MINE); forgetB.hidden = !(MINE.c || MINE.hd || MINE.sd || MINE.m || MINE.s); const svg = $("#cmap"); if (svg) $$("path.cty", svg).forEach(p => p.classList.toggle("me", p.dataset.c === MINE.c)); }
+  // a choice made by hand: the precinct found by location no longer stands, and where there is a map it shows what was picked
+  const byHand = (kind, id) => { const had = !!MINE.z; delete MINE.z; note.textContent = had ? "You changed a choice by hand, so the ballot below is put together from your choices. Use your location again for your exact precinct." : "";
+    if (GEO_ON && window.GEOKIT) { GEOKIT.unpin(); GEOKIT.refresh(); if (kind && id) GEOKIT.show(kind, id); } };
   if (cty) {
-    cty.addEventListener("change", () => { MINE = {c: cty.value, hd: MINE.hd, ...(ST.nest ? {} : {sd: MINE.sd || ""}), m: "", s: "", loc: !!MINE.loc}; save(); fill(); paint(); note.textContent = ""; });
-    if (mcd) mcd.addEventListener("change", () => { MINE.m = mcd.value; save(); paint(); });
-    if (sch) sch.addEventListener("change", () => { MINE.s = sch.value; save(); paint(); });
+    cty.addEventListener("change", () => { const had = MINE.z; MINE = {c: cty.value, hd: MINE.hd, ...(ST.nest ? {} : {sd: MINE.sd || ""}), m: "", s: "", loc: !!MINE.loc}; if (had) MINE.z = had; byHand("county", cty.value); save(); fill(); paint(); });
+    if (mcd) mcd.addEventListener("change", () => { MINE.m = mcd.value; byHand("mcd", mcd.value.slice(1)); save(); paint(); });
+    if (sch) sch.addEventListener("change", () => { MINE.s = sch.value; byHand("school", (placeByKey(sch.value) || {}).g || sch.value.slice(1)); save(); paint(); });
   }
-  if (hd) hd.addEventListener("change", () => { MINE.hd = hd.value; save(); paint(); note.textContent = ""; });
-  if (sdp) sdp.addEventListener("change", () => { MINE.sd = sdp.value; save(); paint(); note.textContent = ""; });
-  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k)); fill(); paint(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
+  if (hd) hd.addEventListener("change", () => { MINE.hd = hd.value; byHand("house", hd.value); save(); paint(); });
+  if (sdp) sdp.addEventListener("change", () => { MINE.sd = sdp.value; byHand("senate", sdp.value); save(); paint(); });
+  forgetB.addEventListener("click", () => { MINE = {}; ["pin", "district", SLD, YKEY].forEach(k => store.del(k)); fill(); paint(); if (GEO_ON && window.GEOKIT) GEOKIT.forget(); note.textContent = "Forgotten. Your location and your choices are no longer kept on this device."; });
+  // where the state has its map files: the precinct at the reader's spot, found on this device, and every district it is in
+  const exact = (lon, lat, acc) => needKit().then(() => GEOKIT.locate(lon, lat, acc)).then(z => {
+    if (!z) { note.textContent = `That spot isn't inside ${ST.name} on the map. Pick from the lists instead.`; return false; }
+    MINE = {c: z.c, m: (D.places.M || {})[z.m] ? "M" + z.m : "", s: SCHG[z.s1 || z.sch[0]] || "", hd: ST.one ? "" : z.hd, ...(ST.nest ? {} : {sd: z.sd}), z, loc: true};
+    save(); fill(); paint(); GEOKIT.refresh();
+    note.textContent = `Worked out on this device; your location never leaves it. You are in precinct ${z.pn}, ${cName(z.c)}. Every district you are in is listed beside the map, and your ballot is below it.`;
+    return true;
+  });
+  const rough = (lon, lat) => needKit().then(() => GEOKIT.rough(lon, lat)).then(h => {      // a rounded spot kept by the other pages: good for the county and the legislative districts only
+    if (!h || !D.counties[h.c]) return false;
+    MINE = {c: h.c, hd: ST.one ? "" : h.hd, ...(ST.nest ? {} : {sd: h.sd}), m: "", s: "", loc: true};
+    save(); fill(); paint();
+    note.textContent = `Placed from the rounded location this device already keeps (about half a mile): ${andList([cName(h.c), h.hd && !ST.one ? `${ST.loD} ${h.hd}` : ""].filter(Boolean))}. Near a line the guess can be off. Use your location for your exact precinct and ballot.`;
+    return true;
+  });
   const placeFrom = (lon, lat, how) => needLines().then(() => {
     const hit = placeAt(lon, lat);
     if (!hit.c && !hit.hd && !hit.sd) { note.textContent = `That spot isn't inside ${ST.name} on our map. Pick from the lists instead.`; return false; }
@@ -2073,17 +2314,19 @@ function mountYours(){
   });
   $("#yloc").addEventListener("click", () => {
     if (!navigator.geolocation) { note.textContent = "Location isn't available in this browser. Pick from the lists instead."; return; }
-    note.textContent = ST.local ? `Finding your ${ST.cLines ? ST.countyWord + " and " : ""}district${twoPicks ? "s" : ""}…` : "Finding your districts…";
+    note.textContent = GEO_ON ? "Finding your precinct…" : ST.local ? `Finding your ${ST.cLines ? ST.countyWord + " and " : ""}district${twoPicks ? "s" : ""}…` : "Finding your districts…";
     navigator.geolocation.getCurrentPosition(pos => {
       const lat = pos.coords.latitude, lon = pos.coords.longitude;
-      placeFrom(lon, lat, "Worked out on this device; your location never leaves it.").then(ok => {
+      (GEO_ON ? exact(lon, lat, pos.coords.accuracy) : placeFrom(lon, lat, "Worked out on this device; your location never leaves it.")).then(ok => {
         if (ok) { store.set("pin", JSON.stringify({st: ST.code, lat: Math.round(lat * 100) / 100, lon: Math.round(lon * 100) / 100, acc: Math.round(pos.coords.accuracy || 0)})); store.set("state", ST.code); }      // rounded: about half a mile, the same kept pin the other pages use
-      }, () => { note.textContent = "Couldn't load the district lines. Check your connection, or pick from the lists."; });
-    }, () => { note.textContent = "Location wasn't shared. Pick from the lists instead."; }, {timeout: 10000, maximumAge: 600000});
+      }, () => { note.textContent = GEO_ON ? "Couldn't load the map's lines. Check your connection, or pick from the lists." : "Couldn't load the district lines. Check your connection, or pick from the lists."; });
+    }, () => { note.textContent = "Location wasn't shared. Pick from the lists instead."; }, GEO_ON ? {enableHighAccuracy: true, timeout: 15000, maximumAge: 60000} : {timeout: 10000, maximumAge: 600000});
   });
   fill(); paint();
+  if (GEO_ON) needKit().then(() => { if ($("#gmapsec")) return GEOKIT.mount(); }).catch(() => { const s = $("#gside");
+    if (s) s.innerHTML = `<p class="held">The map could not be loaded. Check your connection and open the page again; the lists above work without it.</p>`; });
   if (!MINE.c && !MINE.hd && !MINE.sd) {      // a rounded pin kept by the other pages of this site: place it here too
-    try { const pj = JSON.parse(store.get("pin") || "null"); if (pj && pj.st === ST.code && isFinite(pj.lat) && isFinite(pj.lon)) placeFrom(pj.lon, pj.lat, "Placed from the rounded location this device already keeps (about half a mile).").catch(() => {}); } catch (e) {}
+    try { const pj = JSON.parse(store.get("pin") || "null"); if (pj && pj.st === ST.code && isFinite(pj.lat) && isFinite(pj.lon)) (GEO_ON ? rough(pj.lon, pj.lat) : placeFrom(pj.lon, pj.lat, "Placed from the rounded location this device already keeps (about half a mile).")).catch(() => {}); } catch (e) {}
   }
 }
 
@@ -2124,14 +2367,14 @@ function home(anchor){
         : D.notes || GAPS.state.length ? `<a class="lvcard" href="#localnotes"><b>County and local races</b><span>No county or local contest is shown for ${NM}. The notes kept with the state&rsquo;s lists say why.</span><span class="go">Read why &rsaquo;</span></a>`
         : `<a class="lvcard" href="${ST.localN ? "../states/#local" : "../states/"}"><b>County and local races</b><span>${ST.localElse} County, city, school board and other local races for ${NM} are not loaded yet; the state&rsquo;s own list here holds the state offices.</span><span class="go">${ST.localN ? "See the states that have them" : "Every state loaded"} &rsaquo;</span></a>`}
     </div></section>
-  ${ST.local ? `<section class="bsec" id="counties"><h2>${esc(capital(CO1))} by ${esc(CO1)}</h2><p class="sub">${ST.countySub}</p>
-    ${noteBox("local_calendar")}${ST.cLines ? `<div class="cgrid"><figure class="cmapwrap" style="margin:0"><svg class="cmap" id="cmap" role="group" aria-label="Map of ${NM}&rsquo;s ${esc(COS)}"></svg></figure>
+  ${ST.local ? `<section class="bsec" id="counties"><h2>${esc(capital(CO1))} by ${esc(CO1)}</h2><p class="sub">${GEO_ON ? ST.countySub.replace(/Pick .*$/, `Pick one from the list, or on <a href="#yours">the map above</a>.`) : ST.countySub}</p>
+    ${noteBox("local_calendar")}${ST.cLines && !GEO_ON ? `<div class="cgrid"><figure class="cmapwrap" style="margin:0"><svg class="cmap" id="cmap" role="group" aria-label="Map of ${NM}&rsquo;s ${esc(COS)}"></svg></figure>
       <div class="sgrid">${cards}</div></div>` : `<div class="sgrid wide">${cards}</div>`}${noteKeys().filter(k => k !== "local_calendar").map(noteBox).join("")}${gapBox(GAPS.state, true)}${elsewhere ? `<p class="ynote">${elsewhere}</p>` : ""}</section>`
     : D.notes || GAPS.state.length ? `<section class="bsec" id="localnotes"><h2>County and local races</h2><p class="sub">No county or local contest is shown for ${NM}. The notes kept with the state&rsquo;s lists say why.</p>${noteKeys().map(noteBox).join("")}${gapBox(GAPS.state, true)}</section>` : ""}
   ${BOOT.links.us && ST.congress ? `<section class="bsec" id="congress"><h2>Congress</h2><p class="sub">${ST.congress}</p></section>` : ""}
   ${sourcesHTML()}`;
-  mountYours(); if (ST.local && ST.cLines) mountCountyMap("cmap", MINE.c ? [MINE.c] : []);
-  if (anchor && $("#" + anchor)) $("#" + anchor).scrollIntoView();
+  mountYours(); if (ST.local && ST.cLines && !GEO_ON) mountCountyMap("cmap", MINE.c ? [MINE.c] : []);
+  if (anchor && $("#" + anchor)) { const t = $("#" + anchor); if (t.tagName === "DETAILS") t.open = true; t.scrollIntoView(); }      // "Sources" in the menu opens the fold it goes to
 }
 function statewidePage(){
   document.title = `Statewide offices · On The Ballot: ${ST.name}`;
@@ -2232,6 +2475,7 @@ function countyPage(f){
   <section class="bhero${ST.cLines ? " withloc" : ""}"><div><span class="eyebrow">On The Ballot &middot; ${NM} &middot; ${esc(fmtDate(D.election))}</span><h1>${esc(cName(f))}</h1>
     <p class="lede">${localN ? `${plural(localN, `${CO1} or local contest`)} on the November 3 ballot ${localN === 1 ? "reaches" : "reach"} ${esc(cName(f))}${reachWords}. ${lines}` : `No ${CO1} or local contest reaching ${esc(cName(f))} is on the ${WHO} lists${judges.length ? `; ${plural(judges.length, "court contest")} ${judges.length === 1 ? "is" : "are"}` : ""}.`}</p>
     ${BOOT.links.county_page ? `<p class="holder">Who holds the county offices today: <a href="../../${ST.lc}/counties/#c=${esc(f)}">${esc(cName(f))} on the record side</a>.</p>` : ""}
+    ${GEO_ON ? `<p class="holder"><a href="#map=${encodeURIComponent("county:" + f)}">See ${esc(cName(f))} on the map</a>, with its cities, townships and districts, down to their streets.</p>` : ""}
     ${PRIVACY}</div>${ST.cLines ? locatorHTML() : ""}</section>
   ${plainSec("county", `${capital(ownKind(f))} offices`, county, districted(county) ? DIST_NOTE : "")}
   ${plainSec("soil", esc(LV.soil_water), soil, districted(soil) ? DIST_NOTE : "")}
@@ -2259,31 +2503,62 @@ function howTheyGotHere(r, prim){      // Minnesota's words as they were; elsewh
 }
 function racePage(id){
   const r = R[id]; if (!r) { document.title = `Not found · On The Ballot: ${ST.name}`; $("#app").innerHTML = `${crumbs(["<span>Not found</span>"])}<div class="notebox">That race is not on the lists this page holds. <a href="#">Back to ${NM}</a></div>`; return; }
+  if (BOOT.who && !FACTS) {      // who the candidates are comes in a file of its own, fetched the first time a race is opened
+    $("#app").innerHTML = `<p class="loading muted">Loading the candidates&hellip;</p>`;
+    needFacts().then(() => { if (location.hash.slice(1, 6) === "race=") route(); });
+    return;
+  }
   document.title = `${raceTitle(r)}${r.lv === "legislature" || r.lv === "statewide" ? "" : ", " + raceWhere(r)} · On The Ballot: ${ST.name}`;
   const back = r.lv === "statewide" ? `<a href="#statewide">Statewide offices</a>` : r.lv === "legislature" ? `<a href="#legislature">The Legislature</a>` : r.lv === "court" ? `<a href="#courts">Judges</a>`
     : (r.c || []).length ? `<a href="#county=${esc(r.c[0])}">${esc(cName(r.c[0]))}</a>` : `<a href="#counties">${esc(capital(COS))}</a>`;
   const prim = primaries(r);
-  const srcIds = [...new Set(Object.values(r.el || {}).flat().map(c => c.src).concat([(placeOf(r) || {}).src]).filter(Boolean))];
+  const everyone = Object.values(r.el || {}).flat(), listIds = [...new Set(everyone.map(c => c.src).filter(Boolean))], placeSrc = (placeOf(r) || {}).src;
   const where = raceWhere(r), cs = (r.c || []).map(f => `<a href="#county=${esc(f)}">${esc(cName(f))}</a>`).join(", ");
   const loc = r.lv === "legislature" || (ST.cLines && (r.c || []).length && r.lv !== "statewide");
   const gaps = GAPS.race[r.id] || [], named = candGap(r);      // what the loader said is missing from this contest, and why
+  // where this contest comes from, kind by kind: the lists its candidates were read from, the source of the place's name,
+  // the roster where a seat's holder or a sitting member is named, and the lines where a map is drawn
+  const src = {};
+  listIds.map(s => D.sources[s]).filter(Boolean).forEach(s => srcAdd(src, srcKindOf(s), srcRow(s)));
+  if (placeSrc && D.sources[placeSrc] && !listIds.includes(placeSrc)) srcAdd(src, "places", srcRow(D.sources[placeSrc]));
+  if (r.h || everyone.some(c => c.m)) rosterRows().forEach(x => srcAdd(src, "holders", x));
+  if (loc) srcAdd(src, "maps", {h: LINES_SRC()});
+  moreSources(r, src);
+  const gk = (r.g || "").split(":")[0], onMap = GEO_ON && r.g && gk !== "state" ? `<p class="holder"><a href="#map=${encodeURIComponent(r.g)}">See ${SHAPE_WORD[gk] || "this place"} on the map</a>, down to its streets.</p>` : "";
   $("#app").innerHTML = `${crumbs([back, `<span>${esc(raceTitle(r))}</span>`])}
   <section class="bhero${loc ? " withloc" : ""}"><div><span class="eyebrow">${esc(levelWords(r))} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceTitle(r))}${r.sp ? '<span class="tagsp">Special</span>' : ""}</h1>
     <p class="holder">${esc(where)}${where !== ST.name && cs && !(r.lv === "county" && (r.c || []).length === 1) ? ` &middot; ${cs}` : ""}. ${r.pt ? "Elected on party lines: the party each candidate filed under is printed on the ballot." : "A nonpartisan office: no party is printed beside the names."}</p>
     ${r.lv === "legislature" || r.lv === "statewide" ? `<p class="holder">${seatWords(r, true)}</p>` : ""}
-    ${r.sp ? `<p class="holder">A special election${r.note ? "" : ", for the rest of a term"}.</p>` : ""}${r.note && !gaps.some(g => g.r === r.note) ? `<p class="holder">${esc(r.note)}</p>` : ""}${PRIVACY}</div>${loc ? locatorHTML() : ""}</section>
+    ${r.sp ? `<p class="holder">A special election${r.note ? "" : ", for the rest of a term"}.</p>` : ""}${r.note && !gaps.some(g => g.r === r.note) ? `<p class="holder">${esc(r.note)}</p>` : ""}${onMap}${privacyFor(r)}</div>${loc ? locatorHTML() : ""}</section>
+  ${tabsFor(r)}
   ${general(r).length ? arena(r) : named ? "" : `<div class="notebox">${EMPTY ? EMPTY + "." : `No candidate for this office is on the ${WHO} list for November 3.`}</div>`}${gapBox(gaps)}
+  ${whoHTML(r)}${leanHTML(r)}
   ${prim.length ? `<section class="bsec"><h2>How they got here</h2><p class="sub">${howTheyGotHere(r, prim)}</p>${prim.map(k => field(r, k)).join("")}</section>`
     : r.pt || !ST.npLine ? "" : `<p class="fnote">${ST.npLine}</p>`}
-  <section class="bsec"><h2>Where this comes from</h2><div class="srclist">${srcIds.map(s => D.sources[s]).filter(Boolean).map(srcItem).join("")}${r.h ? ROSTER_SRC : ""}${loc ? LINES_SRC() : ""}</div></section>`;
+  ${sourceFold("Where this comes from", src)}`;
   if (r.lv === "legislature") mountLegLocator(r); else if (loc) mountCountyMap("locsvg", r.c || [], "loccap");
+  if ($("#rtabs")) { wireTabs(); quietMarkets(r); }
+  mountVotes(r);
 }
-function sourcesHTML(){
-  return `<section class="bsec" id="sources"><h2>Sources and methods</h2>
-    <ul class="method sub">
-${ST.methods.map(m => `      <li>${m}</li>`).join("\n")}
-    </ul>
-    <div class="srclist">${Object.values(D.sources).map(srcItem).join("")}${ROSTER_SRC}${LINES_SRC()}</div></section>`;
+function sourcesHTML(){      // every source the state's lists were read from, kind by kind, each kind under the rules of the page that are about it
+  const parts = {};
+  Object.values(D.sources).forEach(s => srcAdd(parts, srcKindOf(s), srcRow(s)));
+  Object.values(parts).forEach(p => { const offices = new Set(p.items.map(x => x.a));      // many sources from a few offices (a county's sample ballots, precinct by precinct): filed under the office
+    if (p.items.length > 12 && offices.size > 1 && offices.size <= p.items.length / 3) p.items.forEach(x => { x.g = x.a; }); });
+  if (!parts.holders) srcAdd(parts, "holders", {h: ROSTER_SRC});
+  srcAdd(parts, "maps", {h: LINES_SRC()});
+  // what the state has beyond its lists: the map's files, the past results, who the candidates are, the parties' own pages, polls and markets
+  if (GEO_ON) GEO_SRC().forEach(x => srcAdd(parts, "maps", x));
+  if (BOOT.votes) VOTE_SRC().forEach(x => srcAdd(parts, "results", x));
+  if (BOOT.who) { const N = ST.whoN || {}, n = k => N[k] || 0, sites = n("websites filed") + n("websites found");
+    if (n("roster portraits")) srcAdd(parts, "people", ROSTER_FACTS());
+    if (sites) srcAdd(parts, "own", {h: SBOX("The campaigns&rsquo; own websites", `${num(sites)} of them: ${num(n("websites filed"))} as filed with the ${WHO} list, ${num(n("websites found"))} found on the open web and checked against the race each names${n("issue pages") ? `; the issue headings of ${num(n("issue pages"))}` : ""}${n("campaign photos") ? `; the photographs of ${num(n("campaign photos"))} candidates` : ""}. Each is linked on its candidate&rsquo;s race page`, tagNote("The campaigns&rsquo; own")), n: sites});
+    if (n("birth years found") + n("offices found")) srcAdd(parts, "web", {h: SBOX("Pages found on the open web", `governments&rsquo; own pages, campaign sites, Wikipedia and named news organizations that state a birth year (${num(n("birth years found"))}) or a public office held (${num(n("offices found"))})${n("earlier runs or offices under a party label") ? `, or an earlier run or office under a party label (${num(n("earlier runs or offices under a party label"))})` : ""}. Each is named and linked on its race&rsquo;s page`, tagNote("Each labelled by its kind of source"))});
+    if (ST.partyN) { srcAdd(parts, "other", {h: SBOX("The parties&rsquo; own pages", `${num(ST.partyN)} pages on which a party or one of its units publishes its endorsements; each is linked on the race page of the candidate it names`, tagNote("The parties&rsquo; own")), n: ST.partyN});
+      if (parts.other.items.length === 1) parts.other.label = "The parties&rsquo; own pages"; } }
+  if (BOOT.mk) pollSources(D.races.filter(r => r.lv === "statewide").map(r => [r, (BOOT.polls || {})[r.id], (BOOT.odds || {})[r.id]]).filter(x => x[1] || x[2])).forEach(x => srcAdd(parts, "polls", x));
+  (ST.methods || []).forEach(([kind, words]) => { const p = parts[kind] = parts[kind] || {items: []}; (p.notes = p.notes || []).push(words); });
+  return sourceFold("Sources and methods", parts, "sources");
 }
 
 /* ---------- the address decides the page ---------- */
@@ -2291,6 +2566,12 @@ function route(){
   if (!D) return;
   let h = ""; try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { h = location.hash.slice(1); }
   if (mapOff) { mapOff.abort(); mapOff = null; }
+  if (window.GEOKIT) GEOKIT.unmount();      // the map of "your ballot" goes with the page it was on
+  if (h.startsWith("map=") && GEO_ON) {      // #map=ward:00694|Ward 2: the home page, with that shape on the map; #map=house: with that kind of line drawn
+    const i = h.indexOf(":"); home("gmapsec");
+    needKit().then(() => GEOKIT.show(i > 4 ? h.slice(4, i) : h.slice(4), i > 4 ? h.slice(i + 1) : "")).catch(() => {});
+    return;
+  }
   if (h.startsWith("race=")) racePage(h.slice(5));
   else if (h.startsWith("county=") && ST.local) countyPage(countyKey(h.slice(7)));
   else if (h === "statewide") statewidePage();
@@ -2299,7 +2580,7 @@ function route(){
   else { home(h); if (!h) scrollTo(0, 0); return; }
   scrollTo(0, 0);
 }
-addEventListener("hashchange", () => { route(); const a = $("#app"); if (a && !/^(yours|counties|sources|levels|congress|localnotes)$/.test(location.hash.slice(1))) a.focus({preventScroll: true}); });
+addEventListener("hashchange", () => { route(); const a = $("#app"); if (a && !/^(yours|counties|sources|levels|congress|localnotes)$|^map=/.test(location.hash.slice(1))) a.focus({preventScroll: true}); });
 fetch(BOOT.data).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status)))).then(d => { D = d; index(); route(); },
   () => { $("#app").innerHTML = `<div class="notebox" style="margin-top:30px">The candidate lists could not be loaded. Check your connection and open the page again.</div>`; });
 </script>
