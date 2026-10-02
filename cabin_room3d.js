@@ -18,7 +18,7 @@
  GLTFLoader, EffectComposer, UnrealBloomPass, OutputPass, RoomEnvironment). build_cabin.py copies this file beside the
  page as cabin3d.js and the vendor files and assets next to it.
 
-   start(canvas, opts) -> {go(i), look(i), still(w, h, view), bench(n), setWhen(when, season), dispose()}
+   start(canvas, opts) -> {go(i), look(i), goBack(), still(w, h, view), bench(n), setWhen(when, season), dispose()}
      opts.posters    [{url, kicker, head, sub, cta, foot, look}]   two of them
      opts.assets     where cabin_assets/ is, seen from the page (default "cabin_assets/")
      opts.views      {hour: [{file, season, horizon, caption, credit}]}  the photographs outside, by hour
@@ -28,6 +28,8 @@
      opts.lite       true = the lighter path (phones): no bloom, smaller shadows, no shadows from the fire
      opts.onHover(i)       a poster is under the pointer (-1: none)
      opts.onLeave(url)     a poster was chosen and the visitor has walked up to it
+     opts.back       true = the plank door behind the visitor glows and is a way back to the page they came from
+     opts.onBack()         that door was chosen (clicked, or walked up to) and the visitor has reached it; onHover gives it as 2
      opts.onMove()         the visitor moved or looked for the first time
      opts.onProgress(done, total)   files arriving;  opts.onReady()  everything is in
      opts.onView(info)     which photograph is outside: {caption, credit, season, shown, hour}
@@ -48,6 +50,7 @@ const HE = 3.6, HR = 6.6;                             // the eave (top of the si
 const LOG_R = 0.17, COURSE = 0.325, TEXW = 1.05;      // a wall log, one course, and the pine texture's real width in metres
 const WIN = {x0: -3.05, x1: 3.05, y0: 0.68, head: 0.42};      // the gable window: posts, sill, and the header space under the roof
 const EYE = 1.62, RADIUS = 0.33;
+const TINT_BACK = new THREE.Color("#ffe3a6");      // the light round the door that leads back
 const LOFT_Z = HZ - 2.2, LOFT_Y = 3.0;                // the loft over the back of the room
 const FIRE = {z: 1.2, w: 2.7, depth: 0.75, open: [0.55, 1.75], top: 1.3, hearth: 0.42};      // the fireplace on the right-hand wall
 const slopeY = x => HE + (HR - HE) * (1 - Math.abs(x) / HX);          // the roof's underside above x
@@ -337,10 +340,20 @@ function buildRoom(scene, M, opts, ctx){
   for (let x = -4.3; x <= 4.31; x += 0.16) logAt(0.5, 0.022, M.logs, x, 0.75, -HZ - 2.75 - LOG_R, "y", g, 7);
   for (const s of [-1, 1]) { logAt(2.7, 0.06, M.logs, s * 4.5, 1.0, -HZ - 1.4 - LOG_R, "z", g, 10); for (let z = 0.2; z < 2.7; z += 0.16) logAt(0.5, 0.022, M.logs, s * 4.5, 0.75, -HZ - z - LOG_R, "y", g, 7); }
   /* the door in the back wall, under the loft */
-  const door = sizedBox(1.28, 2.14, 0.07, M.boards, -1.7, 1.07, HZ - LOG_R + 0.02, g, 1.5); door.rotation.y = Math.PI / 2;
+  const door = sizedBox(1.28, 2.14, 0.07, M.boards, -1.7, 1.07, HZ - LOG_R + 0.02, g, 1.5);      /* flat in its frame (it once stood edge-on, turned a quarter) */
   box(1.32, 0.12, 0.16, M.dark, -1.7, 2.18, HZ - LOG_R, g); box(0.11, 2.24, 0.16, M.dark, -2.36, 1.12, HZ - LOG_R, g); box(0.11, 2.24, 0.16, M.dark, -1.04, 1.12, HZ - LOG_R, g);
   mesh(new THREE.SphereGeometry(0.035, 12, 8), M.brass, -1.32, 1.0, HZ - LOG_R - 0.06, g);
   for (const yy of [0.6, 1.5]) box(1.0, 0.08, 0.03, M.dark, -1.7, yy, HZ - LOG_R - 0.04, g);
+  /* the way back (John, 2026-10-02): when the visitor came here from a page of the site, light shows round this door, and it leads back there */
+  const DOOR_X = -1.7, dz = HZ - LOG_R - 0.03, dg = new THREE.Group(); dg.visible = !!opts.back; g.add(dg);
+  const seamM = new THREE.MeshBasicMaterial({color: "#ffe3a6"});
+  for (const sx of [-0.59, 0.59]) { const m = new THREE.Mesh(new THREE.BoxGeometry(0.045, 2.1, 0.02), seamM); m.position.set(DOOR_X + sx, 1.06, dz); dg.add(m); }
+  { const m = new THREE.Mesh(new THREE.BoxGeometry(1.21, 0.045, 0.02), seamM); m.position.set(DOOR_X, 2.1, dz); dg.add(m); const m2 = new THREE.Mesh(new THREE.BoxGeometry(1.21, 0.022, 0.02), seamM); m2.position.set(DOOR_X, 0.012, dz); dg.add(m2); }
+  const doorHalo = new THREE.Mesh(new THREE.PlaneGeometry(3.3, 3.9), new THREE.MeshBasicMaterial({map: haloTexture(), color: "#ffd9a0", transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide}));
+  doorHalo.position.set(DOOR_X, 1.15, dz - 0.09); doorHalo.rotation.y = Math.PI; dg.add(doorHalo);
+  const doorLight = new THREE.PointLight("#ffd9a0", 0, 5, 1.8); doorLight.position.set(DOOR_X, 1.4, dz - 0.7); dg.add(doorLight);
+  const doorHit = new THREE.Mesh(new THREE.PlaneGeometry(1.45, 2.3), new THREE.MeshBasicMaterial({transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide})); doorHit.position.set(DOOR_X, 1.15, dz - 0.1); dg.add(doorHit);
+  const backDoor = {on: !!opts.back, group: dg, hit: doorHit, halo: doorHalo, light: doorLight, seam: seamM, x: DOOR_X, wallZ: HZ, stand: V3(DOOR_X, EYE, HZ - 1.55), heat: 0};
   /* the loft over the back of the room: joists, boards, a header log on two posts, a log railing and a steep log stair */
   const loftD = HZ - LOFT_Z;
   const loft = sizedBox(W, 0.08, loftD, M.boards, 0, LOFT_Y - 0.04, (LOFT_Z + HZ) / 2, g, 1.5);
@@ -405,7 +418,7 @@ function buildRoom(scene, M, opts, ctx){
     const spot = new THREE.SpotLight(tint, 0, 5, 0.62, 0.7, 1.6); spot.position.set(0, ph / 2 + 0.22, 0.24); spot.target.position.set(0, -0.2, 0.05); pg.add(spot); pg.add(spot.target);
     const light = new THREE.PointLight(tint, 0, 4, 1.8); light.position.set(0, 0.1, 0.5); pg.add(light);
     pg.position.set(x, 1.72, -HZ + LOG_R + 0.012); g.add(pg); lights.posterLights.push(spot, light);
-    return {group: pg, paper, glow, light, spot, tube, url: p.url, x, stand: V3(x * 0.84, EYE, -HZ + 2.0), heat: 0}; });
+    return {group: pg, paper, glow, light, spot, tube, url: p.url, x, wallZ: -HZ, stand: V3(x * 0.84, EYE, -HZ + 2.0), heat: 0}; });
   /* lamps: a tall side table's worth of warm light at each end of the sofa (the tables are models; the lamps are built here) */
   const lamp = (x, y, z) => { const lg = new THREE.Group(); lg.position.set(x, y, z); g.add(lg);
     mesh(new THREE.CylinderGeometry(0.075, 0.1, 0.05, 20), M.iron, 0, 0.025, 0, lg); mesh(new THREE.CylinderGeometry(0.035, 0.05, 0.3, 14), std({color: "#2a1a10", roughness: 0.5}), 0, 0.2, 0, lg); mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.22, 8), M.brass, 0, 0.46, 0, lg);
@@ -416,7 +429,7 @@ function buildRoom(scene, M, opts, ctx){
   const mr = rng(9), mp = new Float32Array(160 * 3); for (let i = 0; i < 160; i++) { mp[i * 3] = (mr() - 0.5) * 5.6; mp[i * 3 + 1] = 0.3 + mr() * 3.6; mp[i * 3 + 2] = -HZ + 0.6 + mr() * 2.8; }
   const motesG = new THREE.BufferGeometry(); motesG.setAttribute("position", new THREE.BufferAttribute(mp, 3));
   const motes = new THREE.Points(motesG, new THREE.PointsMaterial({color: "#fff6e0", size: 0.007, transparent: true, opacity: 0.22, depthWrite: false})); g.add(motes);
-  return {group: g, floor, glassM, fire, fireLight, posters, lamp, lights, candleFlame: flameM, motes, RUG, fz, ox, loft};
+  return {group: g, floor, glassM, fire, fireLight, posters, door: backDoor, lamp, lights, candleFlame: flameM, motes, RUG, fz, ox, loft};
 }
 
 /* ---------- outside: the photograph, the sky behind it, and nothing else that would spoil it ---------- */
@@ -540,6 +553,7 @@ export function start(canvas, opts = {}){
   function pick(ev){
     const b = canvas.getBoundingClientRect(); ndc.set(((ev.clientX - b.left) / b.width) * 2 - 1, -((ev.clientY - b.top) / b.height) * 2 + 1); ray.setFromCamera(ndc, camera);
     const hit = ray.intersectObjects(R.posters.map(p => p.paper), false)[0]; if (hit) return {poster: R.posters.findIndex(p => p.paper === hit.object)};
+    if (R.door.on && ray.intersectObject(R.door.hit, false)[0]) return {poster: 2};      /* the way back: the page's third sign */
     const f = ray.intersectObject(R.floor, false)[0]; return f ? {floor: f.point} : {};
   }
   let down = null;      // no pointer capture: the listeners for the drag sit on the window (a captured pointer once made the door's cards unclickable)
@@ -553,7 +567,7 @@ export function start(canvas, opts = {}){
     const p = pick(ev), h = p.poster != null ? p.poster : -1; if (h !== hover) { hover = h; canvas.style.cursor = h >= 0 ? "pointer" : "grab"; opts.onHover && opts.onHover(h); kick(); }
   };
   const onUp = ev => { if (!down || ev.pointerId !== down.id) return; const d = down; down = null; if (d.drag || going || ev.target !== canvas) return;
-    const p = pick(ev); if (p.poster != null) go(p.poster); else if (p.floor) { walkTo = nearestFree(p.floor.x, p.floor.z); told(); kick(); } };
+    const p = pick(ev); if (p.poster === 2) goBack(); else if (p.poster != null) go(p.poster); else if (p.floor) { walkTo = nearestFree(p.floor.x, p.floor.z); told(); kick(); } };
   canvas.addEventListener("pointerdown", onDown); addEventListener("pointermove", onMoveP); addEventListener("pointerup", onUp); addEventListener("pointercancel", onUp);
   canvas.style.touchAction = "none"; canvas.style.cursor = "grab";
   let lastTouch = null;      // a finger gives no movementX in some browsers: work the turn out from positions
@@ -570,14 +584,19 @@ export function start(canvas, opts = {}){
     if (calm) { opts.onLeave && opts.onLeave(p.url, i); return; }
     going = {i, t: 0, from: {x: me.x, z: me.z, yaw: me.yaw, pitch: me.pitch}, left: false}; walkTo = null; kick();
   }
-  function look(i){ const p = R.posters[i]; if (!p || going) return; me.yaw = yawTo(p.x, -HZ); me.pitch = 0; kick(); }
+  function goBack(){      // walk up to the door behind the visitor, then leave through it to the page they came from
+    if (!R.door.on || going) return; told();
+    if (calm) { opts.onBack && opts.onBack(); return; }
+    going = {i: 2, t: 0, from: {x: me.x, z: me.z, yaw: me.yaw, pitch: me.pitch}, left: false}; walkTo = null; kick();
+  }
+  function look(i){ const p = i === 2 ? (R.door.on ? R.door : null) : R.posters[i]; if (!p || going) return; me.yaw = yawTo(p.x, p.wallZ); me.pitch = 0; kick(); }
 
   function step(dt){
     clock += dt;
-    if (going) { const p = R.posters[going.i], g = going; g.t += dt / 1.6; const e = g.t >= 1 ? 1 : 1 - Math.pow(1 - g.t, 3);
-      me.x = g.from.x + (p.stand.x - g.from.x) * e; me.z = g.from.z + (p.stand.z - g.from.z) * e; const want = Math.atan2(-(p.x - me.x), -(-HZ - me.z)); let d = want - g.from.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); me.yaw = g.from.yaw + d * e; me.pitch = g.from.pitch * (1 - e);
+    if (going) { const p = going.i === 2 ? R.door : R.posters[going.i], g = going; g.t += dt / 1.6; const e = g.t >= 1 ? 1 : 1 - Math.pow(1 - g.t, 3);
+      me.x = g.from.x + (p.stand.x - g.from.x) * e; me.z = g.from.z + (p.stand.z - g.from.z) * e; const want = Math.atan2(-(p.x - me.x), -(p.wallZ - me.z)); let d = want - g.from.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); me.yaw = g.from.yaw + d * e; me.pitch = g.from.pitch * (1 - e);
       p.heat = Math.min(1, p.heat + dt * 2);
-      if (g.t >= 1 && !g.left) { g.left = true; opts.onLeave && opts.onLeave(p.url, g.i); }
+      if (g.t >= 1 && !g.left) { g.left = true; if (g.i === 2) opts.onBack && opts.onBack(); else opts.onLeave && opts.onLeave(p.url, g.i); }
       return true; }
     let fwd = 0, side = 0, rot = 0;
     if (keys.has("w") || keys.has("arrowup")) fwd += 1; if (keys.has("s") || keys.has("arrowdown")) fwd -= 1;
@@ -588,7 +607,9 @@ export function start(canvas, opts = {}){
     else if (walkTo) { const dx = walkTo.x - me.x, dz = walkTo.z - me.z, dist = Math.hypot(dx, dz); if (dist < 0.06) walkTo = null; else { vx = dx / dist; vz = dz / dist; turn(Math.atan2(-vx, -vz), Math.min(1, dt * 3)); busy = true; } }
     if (vx || vz) { const sp = 2.2 * dt, nx = me.x + vx * sp, nz = me.z + vz * sp; let went = false;
       if (free(nx, me.z)) { me.x = nx; went = true; } if (free(me.x, nz)) { me.z = nz; went = true; }
-      if (went) me.bob += dt * 9; else walkTo = null; }
+      if (went) me.bob += dt * 9; else walkTo = null;
+      if (went && R.door.on && me.z > HZ - 1.25 && Math.abs(me.x - R.door.x) < 0.55 && Math.cos(me.yaw) < -0.5) { goBack(); return true; } }      /* walked up to the glowing door, facing it */
+    { const want = hover === 2 ? 1 : 0, dr = R.door; if (dr.on && dr.heat !== want) { dr.heat += Math.sign(want - dr.heat) * Math.min(Math.abs(want - dr.heat), dt * 4); busy = true; } }
     R.posters.forEach((p, i) => { const want = i === hover ? 1 : 0; if (p.heat !== want) { p.heat += Math.sign(want - p.heat) * Math.min(Math.abs(want - p.heat), dt * 4); busy = true; } });
     return busy;
   }
@@ -599,6 +620,7 @@ export function start(canvas, opts = {}){
     R.fireLight.intensity = S.fire * fl; R.fireLight.position.x = R.ox - 0.3 + f * 0.03 * Math.sin(t * 7.1); R.fire.tick(f ? t : 2.7, fl); VIEW.mat.uniforms.uT.value = t;
     R.posters.forEach((p, i) => { const pulse = 0.5 + 0.5 * Math.sin(t * 1.7 + i * Math.PI) * f, k = 0.55 + 0.45 * pulse + p.heat * 0.9;
       p.glow.material.opacity = Math.min(1, 0.22 + 0.3 * k) * (0.6 + 0.4 * S.poster); p.glow.scale.setScalar(1 + 0.05 * pulse + 0.1 * p.heat); p.spot.intensity = 6 * S.poster * (0.8 + 0.3 * k); p.light.intensity = 0.8 * S.poster * k; p.tube.material.emissiveIntensity = 2 + 1.5 * k; p.group.scale.setScalar(1 + 0.02 * p.heat); });
+    if (R.door.on) { const dr = R.door, pulse = 0.5 + 0.5 * Math.sin(t * 1.4 + 1) * f, k = 0.6 + 0.4 * pulse + dr.heat * 0.9; dr.halo.material.opacity = Math.min(0.6, 0.14 + 0.18 * k); dr.light.intensity = 3.2 * k; dr.seam.color.setScalar(1).multiply(TINT_BACK).multiplyScalar(0.75 + 0.35 * k); }
     if (!calm && S.motes > 0) { const p = R.motes.geometry.attributes.position; for (let i = 0; i < p.count; i += 3) p.setY(i, 0.3 + ((p.getY(i) - 0.3 + 0.012) % 3.6)); p.needsUpdate = true; }
     if (composer) composer.render(); else renderer.render(scene, camera);
   }
@@ -613,7 +635,7 @@ export function start(canvas, opts = {}){
   setWhen(opts.when || whenNow(), opts.season || seasonNow());
 
   return {
-    go, look, setWhen,
+    go, look, goBack, setWhen,
     /* one frame as a picture: view = {x, z, yaw, pitch, t} places the visitor and the moment */
     still(w = 960, h = 600, view = {}){ const keep = Object.assign({}, me), kc = clock; Object.assign(me, view); if (view.t != null) clock = view.t;
       renderer.setPixelRatio(1); renderer.setSize(w, h, false); if (composer) { composer.setPixelRatio(1); composer.setSize(w, h); } camera.aspect = w / h; camera.updateProjectionMatrix(); draw(); const url = canvas.toDataURL("image/jpeg", 0.86);

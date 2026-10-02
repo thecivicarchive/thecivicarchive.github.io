@@ -1,0 +1,927 @@
+{
+ "what": "How each North Dakota place voted in six contests of the 2020, 2022 and 2024 general elections: the votes for the Democratic-NPL ticket, the Republican ticket, everyone else together (write-ins included) and the total, added up from the North Dakota Secretary of State's official precinct results.",
+ "note": "What this is: how the people of a place voted in that election, in the precinct results the county auditors and the Secretary of State publish, added up here by county, by judicial district and, for 2022 and 2024, by legislative district, on the precinct and district lines in force at that election. What this is not: it is not a prediction of any election; it says nothing about any candidate on a later ballot or about any voter; a nonpartisan office stays nonpartisan (every county office in North Dakota is one); and a place is not its lines for ever: where a district was drawn again, the figures are for the lines of that year. The tickets are named, as the Secretary's own results name them, only to say which election this was. In a place with very few voters the split would come close to saying how particular people voted; those contests are listed in the place's too_few, and a page should leave the split out.",
+ "state": "ND",
+ "generated": "2026-10-02",
+ "method_version": "1.0",
+ "how_to_read": "Each place's votes are four counts for each contest: dem (the Democratic-NPL ticket), rep (the Republican ticket), other (every other candidate and all write-ins) and total. Minnesota's file calls the first count dfl. A contest a place does not have was not counted on its lines: legislative districts are given for 2022 and 2024 only.",
+ "vote_keys": [
+  "dem",
+  "rep",
+  "other",
+  "total"
+ ],
+ "too_few": {
+  "fewer_than": 20,
+  "why": "A place's too_few lists the contests in which it had fewer than 20 votes, or in which every vote went the same way. There the split comes close to saying how particular people voted, so a page should leave it out. The counts are the official record all the same, and are kept here so that the sums can be checked."
+ },
+ "contests": [
+  {
+   "id": "2024-president",
+   "date": "2024-11-05",
+   "office": "President and Vice President of the United States",
+   "table": "nd-sos-precinct-results-2024",
+   "kinds": [
+    "county",
+    "senate",
+    "house",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Harris and Walz",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Vance",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "Libertarian",
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 112327,
+    "rep": 246505,
+    "other": 9323,
+    "total": 368155
+   },
+   "official_source": "clerk-statistics-2024"
+  },
+  {
+   "id": "2024-us-senate",
+   "date": "2024-11-05",
+   "office": "United States Senator",
+   "table": "nd-sos-precinct-results-2024",
+   "kinds": [
+    "county",
+    "senate",
+    "house",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Katrina Christiansen",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Kevin Cramer",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 121602,
+    "rep": 241569,
+    "other": 1156,
+    "total": 364327
+   },
+   "official_source": "clerk-statistics-2024"
+  },
+  {
+   "id": "2024-governor",
+   "date": "2024-11-05",
+   "office": "Governor and Lieutenant Governor",
+   "table": "nd-sos-precinct-results-2024",
+   "kinds": [
+    "county",
+    "senate",
+    "house",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Merrill Piepkorn and Patrick Hart",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Kelly Armstrong and Michelle Strinden",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "independent nomination",
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 94043,
+    "rep": 247056,
+    "other": 20852,
+    "total": 361951
+   },
+   "official_source": "nd-sos-county-results"
+  },
+  {
+   "id": "2022-us-senate",
+   "date": "2022-11-08",
+   "office": "United States Senator",
+   "table": "nd-sos-precinct-results-2022",
+   "kinds": [
+    "county",
+    "senate",
+    "house",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Katrina Christiansen",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "John Hoeven",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "independent nomination",
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 59995,
+    "rep": 135474,
+    "other": 44671,
+    "total": 240140
+   },
+   "official_source": "clerk-statistics-2022"
+  },
+  {
+   "id": "2020-president",
+   "date": "2020-11-03",
+   "office": "President and Vice President of the United States",
+   "table": "nd-sos-precinct-results-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Biden and Harris",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Pence",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "Libertarian",
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 114902,
+    "rep": 235595,
+    "other": 11322,
+    "total": 361819
+   },
+   "official_source": "clerk-statistics-2020"
+  },
+  {
+   "id": "2020-governor",
+   "date": "2020-11-03",
+   "office": "Governor and Lieutenant Governor",
+   "table": "nd-sos-precinct-results-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic-NPL",
+    "ticket": "Shelley Lenz and Ben Vig",
+    "column": "the column the County workbook puts under Democratic-NPL"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Doug Burgum and Brent Sanford",
+    "column": "the column the County workbook puts under Republican"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together",
+    "columns": [
+     "Libertarian",
+     "write-in"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates and write-ins; the workbooks give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 90789,
+    "rep": 235479,
+    "other": 31391,
+    "total": 357659
+   },
+   "official_source": "nd-sos-county-results"
+  }
+ ],
+ "kinds": {
+  "county": {
+   "what": "Counties",
+   "key": "five-digit county FIPS code, as sl_places kind county and the jurisdiction_id of our county races",
+   "places": 53,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate",
+    "2020-president",
+    "2020-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0
+  },
+  "senate": {
+   "what": "Legislative districts (each elects one senator)",
+   "key": "district number, as the jurisdiction_id of our Senate races",
+   "places": 47,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts drawn after the 2010 census, and its precincts are not numbered by district; the districts drawn after the 2020 census were first used in 2022, so 2020 is not given.",
+   "note": "A precinct's district is the third and fourth digits of its number. Each year is on the lines in force at that election. Districts 9, 15 reach different counties in the 2022 and the 2024 results, so the lines there were drawn again between the two elections; a change inside a county would not show in this comparison. These files do not say which lines a later election uses."
+  },
+  "house": {
+   "what": "Legislative districts (each elects two representatives)",
+   "key": "district number, as the jurisdiction_id of our House races",
+   "places": 47,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts drawn after the 2010 census, and its precincts are not numbered by district; the districts drawn after the 2020 census were first used in 2022, so 2020 is not given.",
+   "note": "A precinct's district is the third and fourth digits of its number. Each year is on the lines in force at that election. Districts 9, 15 reach different counties in the 2022 and the 2024 results, so the lines there were drawn again between the two elections; a change inside a county would not show in this comparison. These files do not say which lines a later election uses. The figures are the whole district's, the same as under senate; House subdistricts (4A, 4B) are not given apart."
+  },
+  "judicial": {
+   "what": "Judicial districts, as whole counties",
+   "key": "ND- and the district's letters (ND-EC), as sl_places kind judicial_district",
+   "places": 8,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate",
+    "2020-president",
+    "2020-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "note": "The counties of each district are those that voted in its judicial contests at the 2022 general election; every year's figures are those counties' votes."
+  }
+ },
+ "control": {
+  "result": "equal",
+  "statement": "For every contest the precinct rows add up to the official statewide totals named here and, county by county, to the Secretary's own county report for each of the 53 counties; in every county sheet the precincts add up to the sheet's TOTALS row; and counties, legislative districts and judicial districts each add up to the statewide sum.",
+  "precincts": {
+   "2020": 422,
+   "2022": 398,
+   "2024": 385
+  },
+  "contests": {
+   "2024-president": {
+    "sum_of_precincts": {
+     "dem": 112327,
+     "rep": 246505,
+     "other": 9323,
+     "total": 368155
+    },
+    "official": {
+     "dem": 112327,
+     "rep": 246505,
+     "other": 9323,
+     "total": 368155
+    },
+    "equal": true,
+    "source": "clerk-statistics-2024",
+    "where": "North Dakota, page 54",
+    "read": "from the document on 2026-10-02",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    }
+   },
+   "2024-us-senate": {
+    "sum_of_precincts": {
+     "dem": 121602,
+     "rep": 241569,
+     "other": 1156,
+     "total": 364327
+    },
+    "official": {
+     "dem": 121602,
+     "rep": 241569,
+     "other": 1156,
+     "total": 364327
+    },
+    "equal": true,
+    "source": "clerk-statistics-2024",
+    "where": "North Dakota, page 54",
+    "read": "from the document on 2026-10-02",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    }
+   },
+   "2024-governor": {
+    "sum_of_precincts": {
+     "dem": 94043,
+     "rep": 247056,
+     "other": 20852,
+     "total": 361951
+    },
+    "official": {
+     "dem": 94043,
+     "rep": 247056,
+     "other": 20852,
+     "total": 361951
+    },
+    "equal": true,
+    "source": "nd-sos-county-results",
+    "where": "the TOTALS row of the contest's County workbook",
+    "read": "from the workbook kept in nd_local",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    },
+    "independent": false
+   },
+   "2022-us-senate": {
+    "sum_of_precincts": {
+     "dem": 59995,
+     "rep": 135474,
+     "other": 44671,
+     "total": 240140
+    },
+    "official": {
+     "dem": 59995,
+     "rep": 135474,
+     "other": 44671,
+     "total": 240140
+    },
+    "equal": true,
+    "source": "clerk-statistics-2022",
+    "where": "North Dakota, page 38",
+    "read": "from the document on 2026-10-02",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    }
+   },
+   "2020-president": {
+    "sum_of_precincts": {
+     "dem": 114902,
+     "rep": 235595,
+     "other": 11322,
+     "total": 361819
+    },
+    "official": {
+     "dem": 114902,
+     "rep": 235595,
+     "other": 11322,
+     "total": 361819
+    },
+    "equal": true,
+    "source": "clerk-statistics-2020",
+    "where": "North Dakota, page 55",
+    "read": "from the document on 2026-10-02",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    }
+   },
+   "2020-governor": {
+    "sum_of_precincts": {
+     "dem": 90789,
+     "rep": 235479,
+     "other": 31391,
+     "total": 357659
+    },
+    "official": {
+     "dem": 90789,
+     "rep": 235479,
+     "other": 31391,
+     "total": 357659
+    },
+    "equal": true,
+    "source": "nd-sos-county-results",
+    "where": "the TOTALS row of the contest's County workbook",
+    "read": "from the workbook kept in nd_local",
+    "counties": {
+     "compared": 53,
+     "equal": 53,
+     "differ": [],
+     "with": "the contest's County workbook: each county's votes and its number of precincts"
+    },
+    "independent": false
+   }
+  },
+  "kinds": {
+   "county": "equal",
+   "senate": "equal",
+   "house": "equal",
+   "judicial": "equal"
+  },
+  "district_numbers": {
+   "2022": {
+    "checked": 32,
+    "of": 47,
+    "equal": 32,
+    "differ": [],
+    "by_county": false,
+    "what": "districts that elected a senator that year: the precincts the Secretary's All Legislative export counts in the district against the precinct numbers carrying the district"
+   },
+   "2024": {
+    "checked": 25,
+    "of": 47,
+    "equal": 25,
+    "differ": [],
+    "by_county": true,
+    "what": "districts that elected a senator that year: the precincts the Secretary's All Legislative export counts in the district against the precinct numbers carrying the district"
+   }
+  },
+  "judicial_districts": {
+   "read_from": "the 2022 general election's judicial contests",
+   "districts": 8,
+   "counties": 53,
+   "compared_with_2024": {
+    "districts_with_a_contest": 6,
+    "equal": 6,
+    "differ": []
+   }
+  },
+  "notes": [
+   "For Governor the statewide control is the TOTALS row of the Secretary's own county report, a second report of the same results system and not an independent document; President and U.S. Senator are checked against the Clerk of the U.S. House's statistics.",
+   "The precinct and county workbooks of 2022 and 2020 call themselves 'Unofficial' in their first line; the pages they are exported from are headed Official. Both are recorded under sources."
+  ]
+ },
+ "coverage": {
+  "districts_whose_counties_changed": [
+   "9",
+   "15"
+  ],
+  "not_given": "Cities and townships: a North Dakota precinct is numbered, often takes in several townships and cities, and the results do not say which. Soil conservation districts: some share a county, and the results do not say which precincts are in which. School districts and county commissioner districts: the precinct results do not name them. House subdistricts (4A, 4B): the precinct number carries the district only. Legislative districts for 2020: other lines, and precincts not numbered by district.",
+  "our_places": {
+   "county": {
+    "places": 53,
+    "with_votes": 53,
+    "without": []
+   },
+   "senate": {
+    "places": 24,
+    "with_votes": 24,
+    "without": []
+   },
+   "house": {
+    "places": 27,
+    "with_votes": 27,
+    "without": []
+   },
+   "judicial": {
+    "places": 6,
+    "with_votes": 6,
+    "without": []
+   },
+   "read": "sl_places and sl_races in ballot_local_2026.sqlite, opened read-only on 2026-10-02"
+  }
+ },
+ "sources": [
+  {
+   "id": "nd-sos-precinct-results-2024",
+   "kind": "official results by precinct",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "Official 2024 General Election Results: the Precinct and County exports of President & Vice-President of the United States, United States Senator, Governor and Lt. Governor",
+   "url": "https://results.sos.nd.gov/ResultsSW.aspx?text=All&type=SW&map=CTY",
+   "linked_from": "https://www.sos.nd.gov/elections/election-results",
+   "linked_as": "General Election - November 5, 2024",
+   "the_page_says": {
+    "heading": "Official 2024 General Election Results",
+    "last_updated": "4/21/2026 1:33:23 PM",
+    "total_precincts": "385"
+   },
+   "the_workbooks_say": [
+    "2024 Official General Election Results"
+   ],
+   "fetched": "2026-10-02",
+   "precincts": 385,
+   "tables": {
+    "2024-president": {
+     "rows_sha256": "a62f6e82f858e11f8c42ee7dcb968b7a56e5dbb4ac079f760768b52e9d53d5aa",
+     "files": {
+      "precinct": {
+       "file": "2024-president_precinct.xlsx",
+       "sha256": "54775c92a453068dc910cf1849392bbe7acdb0a9705ce9c84e317a665e9a4a51",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2024-president_county.xlsx",
+       "sha256": "fefaa7f33cf0405181032377ba22a27f348162ba8da8802318e195cc650ee6d4",
+       "fetched": "2026-10-02"
+      }
+     }
+    },
+    "2024-us-senate": {
+     "rows_sha256": "ff219ba16d57d8e79eae7060ad3f6aa41f3f410a7b875a2043d6add0f9196944",
+     "files": {
+      "precinct": {
+       "file": "2024-us-senate_precinct.xlsx",
+       "sha256": "0710e07c16d35e982be7d16e51f44839ebedf4b3f8bf714626415b61c71d9904",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2024-us-senate_county.xlsx",
+       "sha256": "4b31cee5fcc42797ab3a14581ca863a2f6af057e085c3cc46ceb755fbb6453e7",
+       "fetched": "2026-10-02"
+      }
+     }
+    },
+    "2024-governor": {
+     "rows_sha256": "081b60e44b57a351a9a0dc57ed4693d6c5645527d4079ee04772485325876d9d",
+     "files": {
+      "precinct": {
+       "file": "2024-governor_precinct.xlsx",
+       "sha256": "4b0657c9889c0c401c45a42bc5aaface6f1e06995369cccb413a875478e097ad",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2024-governor_county.xlsx",
+       "sha256": "57842d40747cd7cc88bc8355585429539525257cbb825014d185f8a52a67f943",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "read": "Of each precinct: its county (the sheet), its number or name, and each candidate's votes. Of the County workbook: each candidate's party, each county's votes and number of precincts. Only the two tickets are named."
+  },
+  {
+   "id": "nd-sos-precinct-results-2022",
+   "kind": "official results by precinct",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "Official 2022 General Election Results: the Precinct and County exports of United States Senator",
+   "url": "https://results.sos.nd.gov/ResultsSW.aspx?text=All&type=SW&map=CTY&eid=vxUYQ0lrpP4.",
+   "linked_from": "https://www.sos.nd.gov/elections/election-results",
+   "linked_as": "General Election - November 8, 2022",
+   "the_page_says": {
+    "heading": "Official 2022 General Election Results",
+    "last_updated": "11/29/2022 2:43:07 PM",
+    "total_precincts": "398"
+   },
+   "the_workbooks_say": [
+    "2022 Unofficial General Election Results"
+   ],
+   "fetched": "2026-10-02",
+   "precincts": 398,
+   "tables": {
+    "2022-us-senate": {
+     "rows_sha256": "0eec50936b050338d38471c52854455aaa4c7caac2669d2cdd16f1e45138d3d0",
+     "files": {
+      "precinct": {
+       "file": "2022-us-senate_precinct.xlsx",
+       "sha256": "0118b3fc8f55158f2af7de3201bb163dfdb9348266bf3ecd86cc2a41f821c277",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2022-us-senate_county.xlsx",
+       "sha256": "a1123dd8a3ae0266fc2c6ec23d134b9ddb0c896618ce1cfea33ce42a1996656f",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "read": "Of each precinct: its county (the sheet), its number or name, and each candidate's votes. Of the County workbook: each candidate's party, each county's votes and number of precincts. Only the two tickets are named."
+  },
+  {
+   "id": "nd-sos-precinct-results-2020",
+   "kind": "official results by precinct",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "Official 2020 General Election Results: the Precinct and County exports of President & Vice-President of the United States, Governor and Lt. Governor",
+   "url": "https://results.sos.nd.gov/ResultsSW.aspx?text=All&type=SW&map=CTY&eid=StuhWbgeuSk.",
+   "linked_from": "https://www.sos.nd.gov/elections/election-results",
+   "linked_as": "General Election - November 3, 2020",
+   "the_page_says": {
+    "heading": "Official 2020 General Election Results",
+    "last_updated": "11/12/2020 3:08:14 PM",
+    "total_precincts": "422"
+   },
+   "the_workbooks_say": [
+    "2020 Unofficial General Election Results"
+   ],
+   "fetched": "2026-10-02",
+   "precincts": 422,
+   "tables": {
+    "2020-president": {
+     "rows_sha256": "81d659f552a33e69605d4557a688cb8fbf32cc6adc5be4649419925cd30e600c",
+     "files": {
+      "precinct": {
+       "file": "2020-president_precinct.xlsx",
+       "sha256": "3743c1e8a538b14e8645c293c1dd90fc877a7380c1aee653e758d40d7df80e90",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2020-president_county.xlsx",
+       "sha256": "29e25de592a0c6353ed77e6751f847ab4454a1113194215305cb1dbe07f5f993",
+       "fetched": "2026-10-02"
+      }
+     }
+    },
+    "2020-governor": {
+     "rows_sha256": "3831d59a4ee3b8a3fccca52856b78f0c5cead11409c78393b4bb26eac9a4cecb",
+     "files": {
+      "precinct": {
+       "file": "2020-governor_precinct.xlsx",
+       "sha256": "588b03b9b4fdc9d74d6c891c12994bd72ed1580fb89aebcfc6710c24f56cbc72",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2020-governor_county.xlsx",
+       "sha256": "9315ee1ef0db8f6a89031f27a48de74cca91c91e00caebdd70d041a98ec85902",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "read": "Of each precinct: its county (the sheet), its number or name, and each candidate's votes. Of the County workbook: each candidate's party, each county's votes and number of precincts. Only the two tickets are named."
+  },
+  {
+   "id": "nd-sos-judicial-district-counties",
+   "kind": "official results (the counties of each judicial contest)",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "General Election - November 8, 2022: the County export of one judicial contest in each district",
+   "url": "https://results.sos.nd.gov/ResultsSW.aspx?text=Race&type=JD&map=CTY&area=District&eid=vxUYQ0lrpP4.",
+   "fetched": "2026-10-02",
+   "read": "for one contest of each district, the names of the counties in its County export; no candidate's name"
+  },
+  {
+   "id": "nd-sos-legislative-export-2022",
+   "kind": "official results (used only to check the district numbers)",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "General Election - November 8, 2022: Exports, All Legislative (CSV)",
+   "url": "https://results.sos.nd.gov/ResultsExport.aspx?eid=vxUYQ0lrpP4.",
+   "fetched": "2026-10-02",
+   "sha256": "ffe1b151a120528b3ada5ce0e3ad1af6a0e4faf1947658310e5089d4e9686e40",
+   "read": "the contest's kind, the district, the precinct count and the county; no candidate's name"
+  },
+  {
+   "id": "nd-sos-legislative-export-2024",
+   "kind": "official results (used only to check the district numbers)",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "General Election - November 5, 2024: Exports, All Legislative (CSV)",
+   "url": "https://results.sos.nd.gov/ResultsExport.aspx",
+   "fetched": "2026-10-02",
+   "sha256": "6635f0f7b68b2c00d55b1d76621b305a01ee1fda53ee8484902c4c72a17fde9d",
+   "read": "the contest's kind, the district, the precinct count and the county; no candidate's name"
+  },
+  {
+   "id": "clerk-statistics-2024",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 5, 2024",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "d4ba800fc17135b616ae556c92861080ab962d95916ace34b546c5aac824aec4",
+   "where": "North Dakota, page 54"
+  },
+  {
+   "id": "clerk-statistics-2022",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Congressional Election from Official Sources for the Election of November 8, 2022",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2022/statistics2022.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "ef9b8cefcc44bebbdc4928bf346b50e00a72dd3bb54a71ed93ec60d4ebf47690",
+   "where": "North Dakota, page 38"
+  },
+  {
+   "id": "clerk-statistics-2020",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 3, 2020",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2020/statistics2020.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "666b2a1f673f263087c141c4d44b0dce47cbddc8f4df27fbc8b415cf05842b76",
+   "where": "North Dakota, page 55"
+  },
+  {
+   "id": "nd-sos-county-results",
+   "kind": "the Secretary of State's own county report (a second report of the same results system)",
+   "agency": "North Dakota Secretary of State (results reported by the county auditors and the Secretary of State)",
+   "title": "Statewide County Results: the \"County\" export of each contest on results.sos.nd.gov",
+   "url": "https://results.sos.nd.gov/",
+   "why": "For Governor no canvass document a script may read was found, so the statewide control is the TOTALS row of the Secretary's county report. It is not an independent document. For every contest the same report is compared county by county, all 53."
+  }
+ ],
+ "places": {
+  "county": {
+   "38001": {"name":"Adams County","votes":{"2024-president":{"dem":215,"rep":962,"other":24,"total":1201},"2024-us-senate":{"dem":259,"rep":933,"other":5,"total":1197},"2024-governor":{"dem":162,"rep":978,"other":54,"total":1194},"2022-us-senate":{"dem":126,"rep":651,"other":152,"total":929},"2020-president":{"dem":258,"rep":981,"other":30,"total":1269},"2020-governor":{"dem":163,"rep":1000,"other":97,"total":1260}}},
+   "38003": {"name":"Barnes County","votes":{"2024-president":{"dem":1661,"rep":3531,"other":147,"total":5339},"2024-us-senate":{"dem":1901,"rep":3403,"other":16,"total":5320},"2024-governor":{"dem":1417,"rep":3655,"other":212,"total":5284},"2022-us-senate":{"dem":978,"rep":2314,"other":596,"total":3888},"2020-president":{"dem":1820,"rep":3568,"other":177,"total":5565},"2020-governor":{"dem":1366,"rep":3775,"other":375,"total":5516}}},
+   "38005": {"name":"Benson County","votes":{"2024-president":{"dem":795,"rep":1163,"other":44,"total":2002},"2024-us-senate":{"dem":873,"rep":1071,"other":3,"total":1947},"2024-governor":{"dem":697,"rep":1135,"other":106,"total":1938},"2022-us-senate":{"dem":470,"rep":749,"other":261,"total":1480},"2020-president":{"dem":822,"rep":1094,"other":45,"total":1961},"2020-governor":{"dem":708,"rep":1098,"other":146,"total":1952}}},
+   "38007": {"name":"Billings County","votes":{"2024-president":{"dem":93,"rep":543,"other":11,"total":647},"2024-us-senate":{"dem":117,"rep":529,"other":4,"total":650},"2024-governor":{"dem":85,"rep":526,"other":39,"total":650},"2022-us-senate":{"dem":48,"rep":381,"other":108,"total":537},"2020-president":{"dem":72,"rep":541,"other":22,"total":635},"2020-governor":{"dem":57,"rep":442,"other":130,"total":629}}},
+   "38009": {"name":"Bottineau County","votes":{"2024-president":{"dem":735,"rep":2628,"other":84,"total":3447},"2024-us-senate":{"dem":895,"rep":2511,"other":13,"total":3419},"2024-governor":{"dem":622,"rep":2585,"other":219,"total":3426},"2022-us-senate":{"dem":463,"rep":1803,"other":587,"total":2853},"2020-president":{"dem":821,"rep":2575,"other":75,"total":3471},"2020-governor":{"dem":588,"rep":2653,"other":204,"total":3445}}},
+   "38011": {"name":"Bowman County","votes":{"2024-president":{"dem":207,"rep":1384,"other":27,"total":1618},"2024-us-senate":{"dem":263,"rep":1349,"other":3,"total":1615},"2024-governor":{"dem":171,"rep":1387,"other":60,"total":1618},"2022-us-senate":{"dem":126,"rep":1003,"other":227,"total":1356},"2020-president":{"dem":228,"rep":1395,"other":34,"total":1657},"2020-governor":{"dem":171,"rep":1254,"other":211,"total":1636}}},
+   "38013": {"name":"Burke County","votes":{"2024-president":{"dem":130,"rep":909,"other":17,"total":1056},"2024-us-senate":{"dem":175,"rep":868,"other":8,"total":1051},"2024-governor":{"dem":115,"rep":874,"other":56,"total":1045},"2022-us-senate":{"dem":62,"rep":494,"other":221,"total":777},"2020-president":{"dem":137,"rep":994,"other":24,"total":1155},"2020-governor":{"dem":129,"rep":860,"other":153,"total":1142}}},
+   "38015": {"name":"Burleigh County","votes":{"2024-president":{"dem":14215,"rep":36595,"other":1453,"total":52263},"2024-us-senate":{"dem":15714,"rep":35755,"other":240,"total":51709},"2024-governor":{"dem":11343,"rep":36496,"other":3592,"total":51431},"2022-us-senate":{"dem":7654,"rep":18759,"other":9000,"total":35413},"2020-president":{"dem":14348,"rep":34744,"other":1661,"total":50753},"2020-governor":{"dem":12064,"rep":31067,"other":6872,"total":50003}}},
+   "38017": {"name":"Cass County","votes":{"2024-president":{"dem":40304,"rep":47873,"other":2674,"total":90851},"2024-us-senate":{"dem":41321,"rep":48637,"other":199,"total":90157},"2024-governor":{"dem":34903,"rep":50505,"other":4093,"total":89501},"2022-us-senate":{"dem":21360,"rep":26520,"other":5992,"total":53872},"2020-president":{"dem":40311,"rep":42619,"other":3123,"total":86053},"2020-governor":{"dem":31055,"rep":50649,"other":3688,"total":85392}}},
+   "38019": {"name":"Cavalier County","votes":{"2024-president":{"dem":491,"rep":1461,"other":35,"total":1987},"2024-us-senate":{"dem":562,"rep":1421,"other":6,"total":1989},"2024-governor":{"dem":401,"rep":1491,"other":80,"total":1972},"2022-us-senate":{"dem":267,"rep":1123,"other":180,"total":1570},"2020-president":{"dem":474,"rep":1499,"other":47,"total":2020},"2020-governor":{"dem":343,"rep":1551,"other":117,"total":2011}}},
+   "38021": {"name":"Dickey County","votes":{"2024-president":{"dem":557,"rep":1829,"other":67,"total":2453},"2024-us-senate":{"dem":706,"rep":1722,"other":2,"total":2430},"2024-governor":{"dem":491,"rep":1802,"other":124,"total":2417},"2022-us-senate":{"dem":335,"rep":1211,"other":236,"total":1782},"2020-president":{"dem":608,"rep":1742,"other":74,"total":2424},"2020-governor":{"dem":479,"rep":1791,"other":152,"total":2422}}},
+   "38023": {"name":"Divide County","votes":{"2024-president":{"dem":253,"rep":914,"other":34,"total":1201},"2024-us-senate":{"dem":309,"rep":887,"other":4,"total":1200},"2024-governor":{"dem":226,"rep":894,"other":67,"total":1187},"2022-us-senate":{"dem":161,"rep":657,"other":206,"total":1024},"2020-president":{"dem":265,"rep":904,"other":33,"total":1202},"2020-governor":{"dem":200,"rep":918,"other":78,"total":1196}}},
+   "38025": {"name":"Dunn County","votes":{"2024-president":{"dem":332,"rep":1877,"other":33,"total":2242},"2024-us-senate":{"dem":395,"rep":1805,"other":8,"total":2208},"2024-governor":{"dem":276,"rep":1806,"other":135,"total":2217},"2022-us-senate":{"dem":189,"rep":1107,"other":357,"total":1653},"2020-president":{"dem":342,"rep":1951,"other":45,"total":2338},"2020-governor":{"dem":280,"rep":1711,"other":319,"total":2310}}},
+   "38027": {"name":"Eddy County","votes":{"2024-president":{"dem":316,"rep":862,"other":27,"total":1205},"2024-us-senate":{"dem":380,"rep":832,"other":4,"total":1216},"2024-governor":{"dem":280,"rep":856,"other":69,"total":1205},"2022-us-senate":{"dem":204,"rep":543,"other":189,"total":936},"2020-president":{"dem":383,"rep":854,"other":24,"total":1261},"2020-governor":{"dem":307,"rep":847,"other":99,"total":1253}}},
+   "38029": {"name":"Emmons County","votes":{"2024-president":{"dem":205,"rep":1697,"other":28,"total":1930},"2024-us-senate":{"dem":355,"rep":1534,"other":12,"total":1901},"2024-governor":{"dem":183,"rep":1582,"other":133,"total":1898},"2022-us-senate":{"dem":106,"rep":915,"other":521,"total":1542},"2020-president":{"dem":237,"rep":1738,"other":34,"total":2009},"2020-governor":{"dem":225,"rep":1375,"other":356,"total":1956}}},
+   "38031": {"name":"Foster County","votes":{"2024-president":{"dem":335,"rep":1326,"other":42,"total":1703},"2024-us-senate":{"dem":408,"rep":1279,"other":3,"total":1690},"2024-governor":{"dem":291,"rep":1330,"other":71,"total":1692},"2022-us-senate":{"dem":198,"rep":798,"other":263,"total":1259},"2020-president":{"dem":373,"rep":1362,"other":43,"total":1778},"2020-governor":{"dem":290,"rep":1317,"other":150,"total":1757}}},
+   "38033": {"name":"Golden Valley County","votes":{"2024-president":{"dem":122,"rep":847,"other":22,"total":991},"2024-us-senate":{"dem":156,"rep":822,"other":2,"total":980},"2024-governor":{"dem":101,"rep":825,"other":50,"total":976},"2022-us-senate":{"dem":78,"rep":551,"other":149,"total":778},"2020-president":{"dem":137,"rep":871,"other":18,"total":1026},"2020-governor":{"dem":105,"rep":792,"other":117,"total":1014}}},
+   "38035": {"name":"Grand Forks County","votes":{"2024-president":{"dem":12469,"rep":18123,"other":819,"total":31411},"2024-us-senate":{"dem":12418,"rep":18509,"other":71,"total":30998},"2024-governor":{"dem":10153,"rep":19016,"other":1487,"total":30656},"2022-us-senate":{"dem":6474,"rep":9954,"other":2459,"total":18887},"2020-president":{"dem":12880,"rep":16987,"other":1103,"total":30970},"2020-governor":{"dem":10006,"rep":19150,"other":1350,"total":30506}}},
+   "38037": {"name":"Grant County","votes":{"2024-president":{"dem":205,"rep":1076,"other":25,"total":1306},"2024-us-senate":{"dem":267,"rep":1035,"other":3,"total":1305},"2024-governor":{"dem":165,"rep":1045,"other":94,"total":1304},"2022-us-senate":{"dem":103,"rep":755,"other":256,"total":1114},"2020-president":{"dem":207,"rep":1145,"other":29,"total":1381},"2020-governor":{"dem":171,"rep":964,"other":237,"total":1372}}},
+   "38039": {"name":"Griggs County","votes":{"2024-president":{"dem":301,"rep":963,"other":25,"total":1289},"2024-us-senate":{"dem":347,"rep":936,"other":4,"total":1287},"2024-governor":{"dem":259,"rep":977,"other":41,"total":1277},"2022-us-senate":{"dem":178,"rep":656,"other":160,"total":994},"2020-president":{"dem":308,"rep":907,"other":35,"total":1250},"2020-governor":{"dem":247,"rep":924,"other":70,"total":1241}}},
+   "38041": {"name":"Hettinger County","votes":{"2024-president":{"dem":192,"rep":1089,"other":25,"total":1306},"2024-us-senate":{"dem":225,"rep":1057,"other":2,"total":1284},"2024-governor":{"dem":138,"rep":1057,"other":84,"total":1279},"2022-us-senate":{"dem":113,"rep":718,"other":206,"total":1037},"2020-president":{"dem":196,"rep":1091,"other":25,"total":1312},"2020-governor":{"dem":153,"rep":923,"other":212,"total":1288}}},
+   "38043": {"name":"Kidder County","votes":{"2024-president":{"dem":238,"rep":1137,"other":23,"total":1398},"2024-us-senate":{"dem":316,"rep":1056,"other":2,"total":1374},"2024-governor":{"dem":188,"rep":1085,"other":105,"total":1378},"2022-us-senate":{"dem":119,"rep":657,"other":285,"total":1061},"2020-president":{"dem":221,"rep":1215,"other":24,"total":1460},"2020-governor":{"dem":215,"rep":928,"other":299,"total":1442}}},
+   "38045": {"name":"LaMoure County","votes":{"2024-president":{"dem":453,"rep":1614,"other":56,"total":2123},"2024-us-senate":{"dem":581,"rep":1536,"other":6,"total":2123},"2024-governor":{"dem":393,"rep":1619,"other":104,"total":2116},"2022-us-senate":{"dem":313,"rep":1124,"other":209,"total":1646},"2020-president":{"dem":527,"rep":1645,"other":47,"total":2219},"2020-governor":{"dem":391,"rep":1666,"other":150,"total":2207}}},
+   "38047": {"name":"Logan County","votes":{"2024-president":{"dem":117,"rep":898,"other":18,"total":1033},"2024-us-senate":{"dem":185,"rep":833,"other":6,"total":1024},"2024-governor":{"dem":107,"rep":855,"other":67,"total":1029},"2022-us-senate":{"dem":68,"rep":541,"other":212,"total":821},"2020-president":{"dem":128,"rep":930,"other":18,"total":1076},"2020-governor":{"dem":109,"rep":739,"other":211,"total":1059}}},
+   "38049": {"name":"McHenry County","votes":{"2024-president":{"dem":479,"rep":2223,"other":50,"total":2752},"2024-us-senate":{"dem":649,"rep":2068,"other":10,"total":2727},"2024-governor":{"dem":435,"rep":2102,"other":190,"total":2727},"2022-us-senate":{"dem":297,"rep":1265,"other":596,"total":2158},"2020-president":{"dem":564,"rep":2364,"other":75,"total":3003},"2020-governor":{"dem":447,"rep":2211,"other":317,"total":2975}}},
+   "38051": {"name":"McIntosh County","votes":{"2024-president":{"dem":229,"rep":1132,"other":29,"total":1390},"2024-us-senate":{"dem":324,"rep":1060,"other":6,"total":1390},"2024-governor":{"dem":229,"rep":1087,"other":64,"total":1380},"2022-us-senate":{"dem":123,"rep":780,"other":202,"total":1105},"2020-president":{"dem":261,"rep":1153,"other":41,"total":1455},"2020-governor":{"dem":201,"rep":1109,"other":128,"total":1438}}},
+   "38053": {"name":"McKenzie County","votes":{"2024-president":{"dem":809,"rep":4627,"other":85,"total":5521},"2024-us-senate":{"dem":900,"rep":4523,"other":22,"total":5445},"2024-governor":{"dem":634,"rep":4473,"other":303,"total":5410},"2022-us-senate":{"dem":407,"rep":2229,"other":571,"total":3207},"2020-president":{"dem":814,"rep":4482,"other":123,"total":5419},"2020-governor":{"dem":659,"rep":4305,"other":377,"total":5341}}},
+   "38055": {"name":"McLean County","votes":{"2024-president":{"dem":1093,"rep":4231,"other":97,"total":5421},"2024-us-senate":{"dem":1370,"rep":3981,"other":21,"total":5372},"2024-governor":{"dem":943,"rep":4094,"other":338,"total":5375},"2022-us-senate":{"dem":720,"rep":2385,"other":1136,"total":4241},"2020-president":{"dem":1230,"rep":4198,"other":108,"total":5536},"2020-governor":{"dem":1094,"rep":3466,"other":884,"total":5444}}},
+   "38057": {"name":"Mercer County","votes":{"2024-president":{"dem":672,"rep":3798,"other":85,"total":4555},"2024-us-senate":{"dem":1010,"rep":3414,"other":31,"total":4455},"2024-governor":{"dem":609,"rep":3625,"other":278,"total":4512},"2022-us-senate":{"dem":429,"rep":2213,"other":941,"total":3583},"2020-president":{"dem":704,"rep":3856,"other":115,"total":4675},"2020-governor":{"dem":591,"rep":3352,"other":671,"total":4614}}},
+   "38059": {"name":"Morton County","votes":{"2024-president":{"dem":3748,"rep":12839,"other":449,"total":17036},"2024-us-senate":{"dem":4431,"rep":12263,"other":75,"total":16769},"2024-governor":{"dem":3141,"rep":12297,"other":1179,"total":16617},"2022-us-senate":{"dem":2101,"rep":6130,"other":3127,"total":11358},"2020-president":{"dem":3872,"rep":12243,"other":504,"total":16619},"2020-governor":{"dem":3341,"rep":10254,"other":2751,"total":16346}}},
+   "38061": {"name":"Mountrail County","votes":{"2024-president":{"dem":1125,"rep":2877,"other":71,"total":4073},"2024-us-senate":{"dem":1208,"rep":2824,"other":10,"total":4042},"2024-governor":{"dem":1014,"rep":2759,"other":250,"total":4023},"2022-us-senate":{"dem":632,"rep":1393,"other":596,"total":2621},"2020-president":{"dem":1256,"rep":2824,"other":85,"total":4165},"2020-governor":{"dem":1072,"rep":2691,"other":360,"total":4123}}},
+   "38063": {"name":"Nelson County","votes":{"2024-president":{"dem":580,"rep":1141,"other":40,"total":1761},"2024-us-senate":{"dem":657,"rep":1091,"other":3,"total":1751},"2024-governor":{"dem":513,"rep":1159,"other":69,"total":1741},"2022-us-senate":{"dem":362,"rep":963,"other":193,"total":1518},"2020-president":{"dem":586,"rep":1141,"other":50,"total":1777},"2020-governor":{"dem":504,"rep":1192,"other":81,"total":1777}}},
+   "38065": {"name":"Oliver County","votes":{"2024-president":{"dem":156,"rep":909,"other":22,"total":1087},"2024-us-senate":{"dem":217,"rep":846,"other":6,"total":1069},"2024-governor":{"dem":132,"rep":866,"other":70,"total":1068},"2022-us-senate":{"dem":82,"rep":509,"other":242,"total":833},"2020-president":{"dem":129,"rep":918,"other":19,"total":1066},"2020-governor":{"dem":123,"rep":741,"other":182,"total":1046}}},
+   "38067": {"name":"Pembina County","votes":{"2024-president":{"dem":704,"rep":2350,"other":58,"total":3112},"2024-us-senate":{"dem":840,"rep":2264,"other":3,"total":3107},"2024-governor":{"dem":609,"rep":2387,"other":93,"total":3089},"2022-us-senate":{"dem":406,"rep":1737,"other":318,"total":2461},"2020-president":{"dem":786,"rep":2460,"other":85,"total":3331},"2020-governor":{"dem":625,"rep":2451,"other":224,"total":3300}}},
+   "38069": {"name":"Pierce County","votes":{"2024-president":{"dem":439,"rep":1493,"other":38,"total":1970},"2024-us-senate":{"dem":515,"rep":1445,"other":8,"total":1968},"2024-governor":{"dem":362,"rep":1477,"other":120,"total":1959},"2022-us-senate":{"dem":227,"rep":876,"other":392,"total":1495},"2020-president":{"dem":497,"rep":1585,"other":46,"total":2128},"2020-governor":{"dem":373,"rep":1522,"other":213,"total":2108}}},
+   "38071": {"name":"Ramsey County","votes":{"2024-president":{"dem":1513,"rep":3609,"other":117,"total":5239},"2024-us-senate":{"dem":1640,"rep":3568,"other":7,"total":5215},"2024-governor":{"dem":1198,"rep":3671,"other":310,"total":5179},"2022-us-senate":{"dem":890,"rep":2424,"other":703,"total":4017},"2020-president":{"dem":1639,"rep":3577,"other":156,"total":5372},"2020-governor":{"dem":1239,"rep":3761,"other":364,"total":5364}}},
+   "38073": {"name":"Ransom County","votes":{"2024-president":{"dem":920,"rep":1661,"other":68,"total":2649},"2024-us-senate":{"dem":1033,"rep":1596,"other":4,"total":2633},"2024-governor":{"dem":798,"rep":1699,"other":124,"total":2621},"2022-us-senate":{"dem":527,"rep":1045,"other":249,"total":1821},"2020-president":{"dem":945,"rep":1418,"other":91,"total":2454},"2020-governor":{"dem":693,"rep":1603,"other":149,"total":2445}}},
+   "38075": {"name":"Renville County","votes":{"2024-president":{"dem":179,"rep":993,"other":36,"total":1208},"2024-us-senate":{"dem":234,"rep":970,"other":1,"total":1205},"2024-governor":{"dem":153,"rep":969,"other":80,"total":1202},"2022-us-senate":{"dem":87,"rep":547,"other":262,"total":896},"2020-president":{"dem":220,"rep":1065,"other":34,"total":1319},"2020-governor":{"dem":168,"rep":1064,"other":82,"total":1314}}},
+   "38077": {"name":"Richland County","votes":{"2024-president":{"dem":2473,"rep":5576,"other":212,"total":8261},"2024-us-senate":{"dem":2877,"rep":5321,"other":10,"total":8208},"2024-governor":{"dem":2093,"rep":5710,"other":360,"total":8163},"2022-us-senate":{"dem":1411,"rep":3756,"other":799,"total":5966},"2020-president":{"dem":2510,"rep":5072,"other":230,"total":7812},"2020-governor":{"dem":1963,"rep":5458,"other":338,"total":7759}}},
+   "38079": {"name":"Rolette County","votes":{"2024-president":{"dem":2567,"rep":1427,"other":81,"total":4075},"2024-us-senate":{"dem":2534,"rep":1486,"other":4,"total":4024},"2024-governor":{"dem":2244,"rep":1548,"other":191,"total":3983},"2022-us-senate":{"dem":1268,"rep":1118,"other":346,"total":2732},"2020-president":{"dem":2482,"rep":1257,"other":65,"total":3804},"2020-governor":{"dem":2151,"rep":1496,"other":119,"total":3766}}},
+   "38081": {"name":"Sargent County","votes":{"2024-president":{"dem":663,"rep":1325,"other":55,"total":2043},"2024-us-senate":{"dem":797,"rep":1235,"other":1,"total":2033},"2024-governor":{"dem":604,"rep":1310,"other":104,"total":2018},"2022-us-senate":{"dem":403,"rep":988,"other":190,"total":1581},"2020-president":{"dem":738,"rep":1266,"other":66,"total":2070},"2020-governor":{"dem":571,"rep":1414,"other":75,"total":2060}}},
+   "38083": {"name":"Sheridan County","votes":{"2024-president":{"dem":101,"rep":644,"other":12,"total":757},"2024-us-senate":{"dem":162,"rep":581,"other":6,"total":749},"2024-governor":{"dem":94,"rep":576,"other":76,"total":746},"2022-us-senate":{"dem":64,"rep":361,"other":199,"total":624},"2020-president":{"dem":104,"rep":688,"other":20,"total":812},"2020-governor":{"dem":101,"rep":516,"other":178,"total":795}}},
+   "38085": {"name":"Sioux County","votes":{"2024-president":{"dem":654,"rep":285,"other":14,"total":953},"2024-us-senate":{"dem":665,"rep":281,"other":2,"total":948},"2024-governor":{"dem":545,"rep":312,"other":85,"total":942},"2022-us-senate":{"dem":301,"rep":176,"other":107,"total":584},"2020-president":{"dem":804,"rep":258,"other":124,"total":1186},"2020-governor":{"dem":667,"rep":340,"other":170,"total":1177}}},
+   "38087": {"name":"Slope County","votes":{"2024-president":{"dem":33,"rep":351,"other":5,"total":389},"2024-us-senate":{"dem":52,"rep":335,"other":2,"total":389},"2024-governor":{"dem":28,"rep":340,"other":23,"total":391},"2022-us-senate":{"dem":23,"rep":226,"other":53,"total":302},"2020-president":{"dem":44,"rep":380,"other":3,"total":427},"2020-governor":{"dem":40,"rep":329,"other":56,"total":425}}},
+   "38089": {"name":"Stark County","votes":{"2024-president":{"dem":2473,"rep":12323,"other":304,"total":15100},"2024-us-senate":{"dem":2716,"rep":12074,"other":53,"total":14843},"2024-governor":{"dem":1792,"rep":12056,"other":981,"total":14829},"2022-us-senate":{"dem":1138,"rep":5927,"other":2081,"total":9146},"2020-president":{"dem":2499,"rep":12110,"other":441,"total":15050},"2020-governor":{"dem":1977,"rep":10499,"other":2344,"total":14820}}},
+   "38091": {"name":"Steele County","votes":{"2024-president":{"dem":367,"rep":622,"other":26,"total":1015},"2024-us-senate":{"dem":422,"rep":585,"other":4,"total":1011},"2024-governor":{"dem":321,"rep":627,"other":53,"total":1001},"2022-us-senate":{"dem":222,"rep":469,"other":99,"total":790},"2020-president":{"dem":392,"rep":652,"other":44,"total":1088},"2020-governor":{"dem":333,"rep":714,"other":41,"total":1088}}},
+   "38093": {"name":"Stutsman County","votes":{"2024-president":{"dem":2692,"rep":7185,"other":257,"total":10134},"2024-us-senate":{"dem":3171,"rep":6771,"other":16,"total":9958},"2024-governor":{"dem":2158,"rep":7009,"other":584,"total":9751},"2022-us-senate":{"dem":1533,"rep":3862,"other":1329,"total":6724},"2020-president":{"dem":2676,"rep":6994,"other":289,"total":9959},"2020-governor":{"dem":1992,"rep":7071,"other":722,"total":9785}}},
+   "38095": {"name":"Towner County","votes":{"2024-president":{"dem":289,"rep":796,"other":29,"total":1114},"2024-us-senate":{"dem":355,"rep":757,"other":2,"total":1114},"2024-governor":{"dem":244,"rep":804,"other":59,"total":1107},"2022-us-senate":{"dem":178,"rep":550,"other":127,"total":855},"2020-president":{"dem":317,"rep":830,"other":27,"total":1174},"2020-governor":{"dem":234,"rep":861,"other":72,"total":1167}}},
+   "38097": {"name":"Traill County","votes":{"2024-president":{"dem":1359,"rep":2650,"other":106,"total":4115},"2024-us-senate":{"dem":1489,"rep":2612,"other":13,"total":4114},"2024-governor":{"dem":1160,"rep":2721,"other":184,"total":4065},"2022-us-senate":{"dem":822,"rep":1795,"other":355,"total":2972},"2020-president":{"dem":1493,"rep":2522,"other":121,"total":4136},"2020-governor":{"dem":1201,"rep":2755,"other":166,"total":4122}}},
+   "38099": {"name":"Walsh County","votes":{"2024-president":{"dem":1173,"rep":3186,"other":137,"total":4496},"2024-us-senate":{"dem":1355,"rep":3124,"other":14,"total":4493},"2024-governor":{"dem":975,"rep":3305,"other":202,"total":4482},"2022-us-senate":{"dem":640,"rep":2416,"other":425,"total":3481},"2020-president":{"dem":1333,"rep":3324,"other":126,"total":4783},"2020-governor":{"dem":975,"rep":3461,"other":308,"total":4744}}},
+   "38101": {"name":"Ward County","votes":{"2024-president":{"dem":7215,"rep":20635,"other":702,"total":28552},"2024-us-senate":{"dem":7772,"rep":20328,"other":113,"total":28213},"2024-governor":{"dem":5716,"rep":20361,"other":1933,"total":28010},"2022-us-senate":{"dem":3314,"rep":9849,"other":3593,"total":16756},"2020-president":{"dem":7293,"rep":19974,"other":979,"total":28246},"2020-governor":{"dem":5587,"rep":20295,"other":2109,"total":27991}}},
+   "38103": {"name":"Wells County","votes":{"2024-president":{"dem":405,"rep":1815,"other":33,"total":2253},"2024-us-senate":{"dem":537,"rep":1690,"other":13,"total":2240},"2024-governor":{"dem":330,"rep":1662,"other":231,"total":2223},"2022-us-senate":{"dem":225,"rep":923,"other":547,"total":1695},"2020-president":{"dem":442,"rep":1893,"other":39,"total":2374},"2020-governor":{"dem":356,"rep":1606,"other":380,"total":2342}}},
+   "38105": {"name":"Williams County","votes":{"2024-president":{"dem":2276,"rep":12501,"other":345,"total":15122},"2024-us-senate":{"dem":2542,"rep":12156,"other":70,"total":14768},"2024-governor":{"dem":1802,"rep":11669,"other":1176,"total":14647},"2022-us-senate":{"dem":970,"rep":4578,"other":1861,"total":7409},"2020-president":{"dem":2169,"rep":11739,"other":426,"total":14334},"2020-governor":{"dem":1689,"rep":10548,"other":1737,"total":13974}}}
+  },
+  "senate": {
+   "1": {"name":"Legislative District 1","votes":{"2024-president":{"dem":1086,"rep":4862,"other":174,"total":6122},"2024-us-senate":{"dem":1176,"rep":4775,"other":27,"total":5978},"2024-governor":{"dem":844,"rep":4668,"other":434,"total":5946},"2022-us-senate":{"dem":483,"rep":2166,"other":704,"total":3353}},"counties":{"2022":["38105"],"2024":["38105"]}},
+   "2": {"name":"Legislative District 2","votes":{"2024-president":{"dem":1043,"rep":6769,"other":146,"total":7958},"2024-us-senate":{"dem":1299,"rep":6531,"other":41,"total":7871},"2024-governor":{"dem":928,"rep":6308,"other":584,"total":7820},"2022-us-senate":{"dem":832,"rep":3233,"other":1479,"total":5544}},"counties":{"2022":["38013","38023","38061","38105"],"2024":["38013","38023","38061","38105"]}},
+   "3": {"name":"Legislative District 3","votes":{"2024-president":{"dem":1573,"rep":4670,"other":172,"total":6415},"2024-us-senate":{"dem":1726,"rep":4559,"other":37,"total":6322},"2024-governor":{"dem":1315,"rep":4534,"other":433,"total":6282},"2022-us-senate":{"dem":729,"rep":2026,"other":861,"total":3616}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "4": {"name":"Legislative District 4","votes":{"2024-president":{"dem":2255,"rep":4697,"other":134,"total":7086},"2024-us-senate":{"dem":2445,"rep":4557,"other":22,"total":7024},"2024-governor":{"dem":1908,"rep":4619,"other":460,"total":6987},"2022-us-senate":{"dem":1081,"rep":2364,"other":995,"total":4440}},"counties":{"2022":["38025","38053","38055","38057","38061","38101"],"2024":["38025","38053","38055","38057","38061","38101"]}},
+   "5": {"name":"Legislative District 5","votes":{"2024-president":{"dem":2101,"rep":4963,"other":186,"total":7250},"2024-us-senate":{"dem":2202,"rep":4975,"other":18,"total":7195},"2024-governor":{"dem":1604,"rep":5031,"other":511,"total":7146},"2022-us-senate":{"dem":974,"rep":2708,"other":855,"total":4537}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "6": {"name":"Legislative District 6","votes":{"2024-president":{"dem":1665,"rep":7437,"other":213,"total":9315},"2024-us-senate":{"dem":2160,"rep":7047,"other":32,"total":9239},"2024-governor":{"dem":1443,"rep":7195,"other":605,"total":9243},"2022-us-senate":{"dem":1008,"rep":4448,"other":1879,"total":7335}},"counties":{"2022":["38009","38049","38055","38075","38101"],"2024":["38009","38049","38055","38075","38101"]}},
+   "7": {"name":"Legislative District 7","votes":{"2024-president":{"dem":2335,"rep":7132,"other":236,"total":9703},"2024-us-senate":{"dem":2609,"rep":6991,"other":34,"total":9634},"2024-governor":{"dem":1788,"rep":7161,"other":638,"total":9587},"2022-us-senate":{"dem":1173,"rep":3681,"other":1644,"total":6498}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "8": {"name":"Legislative District 8","votes":{"2024-president":{"dem":1713,"rep":8572,"other":255,"total":10540},"2024-us-senate":{"dem":2241,"rep":8069,"other":70,"total":10380},"2024-governor":{"dem":1393,"rep":8066,"other":896,"total":10355},"2022-us-senate":{"dem":882,"rep":3825,"other":2333,"total":7040}},"counties":{"2022":["38015","38029","38055"],"2024":["38015","38029","38055"]}},
+   "9": {"name":"Legislative District 9","votes":{"2024-president":{"dem":3248,"rep":2280,"other":111,"total":5639},"2024-us-senate":{"dem":3250,"rep":2289,"other":6,"total":5545},"2024-governor":{"dem":2815,"rep":2403,"other":265,"total":5483},"2022-us-senate":{"dem":1569,"rep":2292,"other":538,"total":4399}},"counties":{"2022":["38019","38079","38095"],"2024":["38005","38027","38063","38069","38071","38079"]},"note":"This district reaches different counties in the 2022 and 2024 results: its lines were drawn again between those elections, and each year's figures are for the lines of that year."},
+   "10": {"name":"Legislative District 10","votes":{"2024-president":{"dem":3086,"rep":3026,"other":169,"total":6281},"2024-us-senate":{"dem":3062,"rep":3118,"other":11,"total":6191},"2024-governor":{"dem":2587,"rep":3225,"other":310,"total":6122},"2022-us-senate":{"dem":1425,"rep":1444,"other":310,"total":3179}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "11": {"name":"Legislative District 11","votes":{"2024-president":{"dem":4194,"rep":3299,"other":239,"total":7732},"2024-us-senate":{"dem":4283,"rep":3378,"other":19,"total":7680},"2024-governor":{"dem":3704,"rep":3498,"other":410,"total":7612},"2022-us-senate":{"dem":2428,"rep":2031,"other":589,"total":5048}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "12": {"name":"Legislative District 12","votes":{"2024-president":{"dem":2079,"rep":4650,"other":201,"total":6930},"2024-us-senate":{"dem":2372,"rep":4416,"other":11,"total":6799},"2024-governor":{"dem":1638,"rep":4572,"other":422,"total":6632},"2022-us-senate":{"dem":1177,"rep":2527,"other":849,"total":4553}},"counties":{"2022":["38093"],"2024":["38093"]}},
+   "13": {"name":"Legislative District 13","votes":{"2024-president":{"dem":3798,"rep":4806,"other":238,"total":8842},"2024-us-senate":{"dem":3909,"rep":4839,"other":23,"total":8771},"2024-governor":{"dem":3235,"rep":5041,"other":441,"total":8717},"2022-us-senate":{"dem":1966,"rep":2900,"other":645,"total":5511}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "14": {"name":"Legislative District 14","votes":{"2024-president":{"dem":1729,"rep":6950,"other":161,"total":8840},"2024-us-senate":{"dem":2252,"rep":6480,"other":43,"total":8775},"2024-governor":{"dem":1499,"rep":6534,"other":722,"total":8755},"2022-us-senate":{"dem":1049,"rep":4088,"other":2007,"total":7144}},"counties":{"2022":["38005","38015","38027","38043","38069","38083","38103"],"2024":["38005","38015","38027","38043","38069","38083","38103"]}},
+   "15": {"name":"Legislative District 15","votes":{"2024-president":{"dem":2220,"rep":5663,"other":177,"total":8060},"2024-us-senate":{"dem":2477,"rep":5548,"other":14,"total":8039},"2024-governor":{"dem":1779,"rep":5764,"other":437,"total":7980},"2022-us-senate":{"dem":1316,"rep":3084,"other":903,"total":5303}},"counties":{"2022":["38005","38027","38071","38095"],"2024":["38019","38071","38095"]},"note":"This district reaches different counties in the 2022 and 2024 results: its lines were drawn again between those elections, and each year's figures are for the lines of that year."},
+   "16": {"name":"Legislative District 16","votes":{"2024-president":{"dem":3270,"rep":4736,"other":210,"total":8216},"2024-us-senate":{"dem":3303,"rep":4810,"other":16,"total":8129},"2024-governor":{"dem":2746,"rep":4915,"other":389,"total":8050},"2022-us-senate":{"dem":1455,"rep":2214,"other":438,"total":4107}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "17": {"name":"Legislative District 17","votes":{"2024-president":{"dem":3495,"rep":5142,"other":215,"total":8852},"2024-us-senate":{"dem":3417,"rep":5327,"other":19,"total":8763},"2024-governor":{"dem":2789,"rep":5648,"other":282,"total":8719},"2022-us-senate":{"dem":1795,"rep":3135,"other":634,"total":5564}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "18": {"name":"Legislative District 18","votes":{"2024-president":{"dem":2980,"rep":3542,"other":207,"total":6729},"2024-us-senate":{"dem":3050,"rep":3572,"other":13,"total":6635},"2024-governor":{"dem":2563,"rep":3657,"other":324,"total":6544},"2022-us-senate":{"dem":1684,"rep":1883,"other":576,"total":4143}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "19": {"name":"Legislative District 19","votes":{"2024-president":{"dem":1852,"rep":5463,"other":188,"total":7503},"2024-us-senate":{"dem":2167,"rep":5310,"other":16,"total":7493},"2024-governor":{"dem":1567,"rep":5611,"other":289,"total":7467},"2022-us-senate":{"dem":1051,"rep":4119,"other":726,"total":5896}},"counties":{"2022":["38019","38067","38099"],"2024":["38019","38067","38099"]}},
+   "20": {"name":"Legislative District 20","votes":{"2024-president":{"dem":2528,"rep":6086,"other":232,"total":8846},"2024-us-senate":{"dem":2790,"rep":5999,"other":33,"total":8822},"2024-governor":{"dem":2110,"rep":6147,"other":495,"total":8752},"2022-us-senate":{"dem":1406,"rep":3792,"other":894,"total":6092}},"counties":{"2022":["38035","38097","38099"],"2024":["38035","38097","38099"]}},
+   "21": {"name":"Legislative District 21","votes":{"2024-president":{"dem":3305,"rep":2583,"other":187,"total":6075},"2024-us-senate":{"dem":3416,"rep":2582,"other":13,"total":6011},"2024-governor":{"dem":3003,"rep":2605,"other":355,"total":5963},"2022-us-senate":{"dem":1981,"rep":1336,"other":372,"total":3689}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "22": {"name":"Legislative District 22","votes":{"2024-president":{"dem":3114,"rep":6295,"other":330,"total":9739},"2024-us-senate":{"dem":3422,"rep":6280,"other":25,"total":9727},"2024-governor":{"dem":2573,"rep":6625,"other":447,"total":9645},"2022-us-senate":{"dem":1510,"rep":3327,"other":809,"total":5646}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "23": {"name":"Legislative District 23","votes":{"2024-president":{"dem":708,"rep":4086,"other":98,"total":4892},"2024-us-senate":{"dem":784,"rep":3944,"other":17,"total":4745},"2024-governor":{"dem":562,"rep":3757,"other":370,"total":4689},"2022-us-senate":{"dem":236,"rep":1111,"other":430,"total":1777}},"counties":{"2022":["38105"],"2024":["38105"]}},
+   "24": {"name":"Legislative District 24","votes":{"2024-president":{"dem":2581,"rep":5192,"other":215,"total":7988},"2024-us-senate":{"dem":2934,"rep":4999,"other":20,"total":7953},"2024-governor":{"dem":2215,"rep":5354,"other":336,"total":7905},"2022-us-senate":{"dem":1505,"rep":3359,"other":845,"total":5709}},"counties":{"2022":["38003","38073"],"2024":["38003","38073"]}},
+   "25": {"name":"Legislative District 25","votes":{"2024-president":{"dem":2482,"rep":5609,"other":215,"total":8306},"2024-us-senate":{"dem":2892,"rep":5352,"other":10,"total":8254},"2024-governor":{"dem":2102,"rep":5744,"other":362,"total":8208},"2022-us-senate":{"dem":1419,"rep":3785,"other":801,"total":6005}},"counties":{"2022":["38077","38081"],"2024":["38077","38081"]}},
+   "26": {"name":"Legislative District 26","votes":{"2024-president":{"dem":676,"rep":6002,"other":103,"total":6781},"2024-us-senate":{"dem":825,"rep":5834,"other":26,"total":6685},"2024-governor":{"dem":541,"rep":5769,"other":361,"total":6671},"2022-us-senate":{"dem":339,"rep":3095,"other":815,"total":4249}},"counties":{"2022":["38025","38053"],"2024":["38025","38053"]}},
+   "27": {"name":"Legislative District 27","votes":{"2024-president":{"dem":3861,"rep":6003,"other":273,"total":10137},"2024-us-senate":{"dem":3944,"rep":6065,"other":21,"total":10030},"2024-governor":{"dem":3286,"rep":6258,"other":436,"total":9980},"2022-us-senate":{"dem":1834,"rep":2778,"other":584,"total":5196}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "28": {"name":"Legislative District 28","votes":{"2024-president":{"dem":2010,"rep":6765,"other":222,"total":8997},"2024-us-senate":{"dem":2578,"rep":6355,"other":21,"total":8954},"2024-governor":{"dem":1815,"rep":6639,"other":461,"total":8915},"2022-us-senate":{"dem":1234,"rep":4615,"other":1047,"total":6896}},"counties":{"2022":["38021","38045","38047","38051","38081"],"2024":["38021","38045","38047","38051","38081"]}},
+   "29": {"name":"Legislative District 29","votes":{"2024-president":{"dem":2196,"rep":6585,"other":189,"total":8970},"2024-us-senate":{"dem":2633,"rep":6244,"other":19,"total":8896},"2024-governor":{"dem":1904,"rep":6528,"other":396,"total":8828},"2022-us-senate":{"dem":1316,"rep":4221,"other":1195,"total":6732}},"counties":{"2022":["38031","38039","38063","38091","38093"],"2024":["38031","38039","38063","38091","38093"]}},
+   "30": {"name":"Legislative District 30","votes":{"2024-president":{"dem":1914,"rep":5605,"other":188,"total":7707},"2024-us-senate":{"dem":2191,"rep":5401,"other":27,"total":7619},"2024-governor":{"dem":1501,"rep":5557,"other":512,"total":7570},"2022-us-senate":{"dem":1030,"rep":2819,"other":1436,"total":5285}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "31": {"name":"Legislative District 31","votes":{"2024-president":{"dem":1837,"rep":5433,"other":168,"total":7438},"2024-us-senate":{"dem":2135,"rep":5202,"other":24,"total":7361},"2024-governor":{"dem":1530,"rep":5276,"other":522,"total":7328},"2022-us-senate":{"dem":940,"rep":2919,"other":1289,"total":5148}},"counties":{"2022":["38037","38041","38059","38085"],"2024":["38037","38041","38059","38085"]}},
+   "32": {"name":"Legislative District 32","votes":{"2024-president":{"dem":2386,"rep":4986,"other":238,"total":7610},"2024-us-senate":{"dem":2619,"rep":4839,"other":34,"total":7492},"2024-governor":{"dem":1948,"rep":4890,"other":563,"total":7401},"2022-us-senate":{"dem":1324,"rep":2442,"other":1090,"total":4856}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "33": {"name":"Legislative District 33","votes":{"2024-president":{"dem":1536,"rep":7970,"other":186,"total":9692},"2024-us-senate":{"dem":2096,"rep":7366,"other":58,"total":9520},"2024-governor":{"dem":1336,"rep":7631,"other":616,"total":9583},"2022-us-senate":{"dem":925,"rep":4383,"other":2115,"total":7423}},"counties":{"2022":["38055","38057","38059","38065"],"2024":["38055","38057","38059","38065"]}},
+   "34": {"name":"Legislative District 34","votes":{"2024-president":{"dem":2244,"rep":5885,"other":249,"total":8378},"2024-us-senate":{"dem":2535,"rep":5674,"other":32,"total":8241},"2024-governor":{"dem":1869,"rep":5666,"other":581,"total":8116},"2022-us-senate":{"dem":1259,"rep":2899,"other":1415,"total":5573}},"counties":{"2022":["38059"],"2024":["38059"]}},
+   "35": {"name":"Legislative District 35","votes":{"2024-president":{"dem":3146,"rep":5230,"other":298,"total":8674},"2024-us-senate":{"dem":3320,"rep":5217,"other":45,"total":8582},"2024-governor":{"dem":2584,"rep":5299,"other":647,"total":8530},"2022-us-senate":{"dem":1856,"rep":2915,"other":1368,"total":6139}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "36": {"name":"Legislative District 36","votes":{"2024-president":{"dem":1003,"rep":6187,"other":155,"total":7345},"2024-us-senate":{"dem":1236,"rep":5954,"other":28,"total":7218},"2024-governor":{"dem":752,"rep":5903,"other":537,"total":7192},"2022-us-senate":{"dem":477,"rep":2889,"other":1159,"total":4525}},"counties":{"2022":["38025","38059","38089"],"2024":["38025","38059","38089"]}},
+   "37": {"name":"Legislative District 37","votes":{"2024-president":{"dem":1381,"rep":5337,"other":144,"total":6862},"2024-us-senate":{"dem":1442,"rep":5299,"other":22,"total":6763},"2024-governor":{"dem":1002,"rep":5362,"other":396,"total":6760},"2022-us-senate":{"dem":630,"rep":2637,"other":809,"total":4076}},"counties":{"2022":["38089"],"2024":["38089"]}},
+   "38": {"name":"Legislative District 38","votes":{"2024-president":{"dem":1635,"rep":5544,"other":140,"total":7319},"2024-us-senate":{"dem":1772,"rep":5449,"other":16,"total":7237},"2024-governor":{"dem":1276,"rep":5433,"other":452,"total":7161},"2022-us-senate":{"dem":736,"rep":2618,"other":914,"total":4268}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "39": {"name":"Legislative District 39","votes":{"2024-president":{"dem":1116,"rep":7349,"other":148,"total":8613},"2024-us-senate":{"dem":1383,"rep":7104,"other":37,"total":8524},"2024-governor":{"dem":875,"rep":7174,"other":482,"total":8531},"2022-us-senate":{"dem":639,"rep":4459,"other":1345,"total":6443}},"counties":{"2022":["38001","38007","38011","38025","38033","38041","38087","38089"],"2024":["38001","38007","38011","38025","38033","38041","38087","38089"]}},
+   "40": {"name":"Legislative District 40","votes":{"2024-president":{"dem":1486,"rep":3395,"other":145,"total":5026},"2024-us-senate":{"dem":1545,"rep":3365,"other":31,"total":4941},"2024-governor":{"dem":1178,"rep":3360,"other":369,"total":4907},"2022-us-senate":{"dem":653,"rep":1464,"other":511,"total":2628}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "41": {"name":"Legislative District 41","votes":{"2024-president":{"dem":4074,"rep":4837,"other":262,"total":9173},"2024-us-senate":{"dem":4118,"rep":4977,"other":26,"total":9121},"2024-governor":{"dem":3404,"rep":5303,"other":352,"total":9059},"2022-us-senate":{"dem":2146,"rep":3056,"other":568,"total":5770}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "42": {"name":"Legislative District 42","votes":{"2024-president":{"dem":2008,"rep":2965,"other":134,"total":5107},"2024-us-senate":{"dem":1968,"rep":3011,"other":8,"total":4987},"2024-governor":{"dem":1603,"rep":2968,"other":313,"total":4884},"2022-us-senate":{"dem":969,"rep":1247,"other":355,"total":2571}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "43": {"name":"Legislative District 43","votes":{"2024-president":{"dem":2915,"rep":3313,"other":148,"total":6376},"2024-us-senate":{"dem":2790,"rep":3487,"other":13,"total":6290},"2024-governor":{"dem":2329,"rep":3599,"other":275,"total":6203},"2022-us-senate":{"dem":1484,"rep":1869,"other":394,"total":3747}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "44": {"name":"Legislative District 44","votes":{"2024-president":{"dem":3814,"rep":2976,"other":242,"total":7032},"2024-us-senate":{"dem":3898,"rep":3064,"other":15,"total":6977},"2024-governor":{"dem":3534,"rep":3037,"other":335,"total":6906},"2022-us-senate":{"dem":2377,"rep":1650,"other":430,"total":4457}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "45": {"name":"Legislative District 45","votes":{"2024-president":{"dem":3303,"rep":4502,"other":239,"total":8044},"2024-us-senate":{"dem":3393,"rep":4597,"other":15,"total":8005},"2024-governor":{"dem":2969,"rep":4762,"other":248,"total":7979},"2022-us-senate":{"dem":1885,"rep":2728,"other":569,"total":5182}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "46": {"name":"Legislative District 46","votes":{"2024-president":{"dem":4485,"rep":4810,"other":285,"total":9580},"2024-us-senate":{"dem":4573,"rep":4927,"other":15,"total":9515},"2024-governor":{"dem":3862,"rep":5236,"other":370,"total":9468},"2022-us-senate":{"dem":2353,"rep":3056,"other":678,"total":6087}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "47": {"name":"Legislative District 47","votes":{"2024-president":{"dem":2861,"rep":6316,"other":258,"total":9435},"2024-us-senate":{"dem":2970,"rep":6391,"other":33,"total":9394},"2024-governor":{"dem":2235,"rep":6724,"other":411,"total":9370},"2022-us-senate":{"dem":1455,"rep":3837,"other":1469,"total":6761}},"counties":{"2022":["38015"],"2024":["38015"]}}
+  },
+  "house": {
+   "1": {"name":"Legislative District 1","votes":{"2024-president":{"dem":1086,"rep":4862,"other":174,"total":6122},"2024-us-senate":{"dem":1176,"rep":4775,"other":27,"total":5978},"2024-governor":{"dem":844,"rep":4668,"other":434,"total":5946},"2022-us-senate":{"dem":483,"rep":2166,"other":704,"total":3353}},"counties":{"2022":["38105"],"2024":["38105"]}},
+   "2": {"name":"Legislative District 2","votes":{"2024-president":{"dem":1043,"rep":6769,"other":146,"total":7958},"2024-us-senate":{"dem":1299,"rep":6531,"other":41,"total":7871},"2024-governor":{"dem":928,"rep":6308,"other":584,"total":7820},"2022-us-senate":{"dem":832,"rep":3233,"other":1479,"total":5544}},"counties":{"2022":["38013","38023","38061","38105"],"2024":["38013","38023","38061","38105"]}},
+   "3": {"name":"Legislative District 3","votes":{"2024-president":{"dem":1573,"rep":4670,"other":172,"total":6415},"2024-us-senate":{"dem":1726,"rep":4559,"other":37,"total":6322},"2024-governor":{"dem":1315,"rep":4534,"other":433,"total":6282},"2022-us-senate":{"dem":729,"rep":2026,"other":861,"total":3616}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "4": {"name":"Legislative District 4","votes":{"2024-president":{"dem":2255,"rep":4697,"other":134,"total":7086},"2024-us-senate":{"dem":2445,"rep":4557,"other":22,"total":7024},"2024-governor":{"dem":1908,"rep":4619,"other":460,"total":6987},"2022-us-senate":{"dem":1081,"rep":2364,"other":995,"total":4440}},"counties":{"2022":["38025","38053","38055","38057","38061","38101"],"2024":["38025","38053","38055","38057","38061","38101"]}},
+   "5": {"name":"Legislative District 5","votes":{"2024-president":{"dem":2101,"rep":4963,"other":186,"total":7250},"2024-us-senate":{"dem":2202,"rep":4975,"other":18,"total":7195},"2024-governor":{"dem":1604,"rep":5031,"other":511,"total":7146},"2022-us-senate":{"dem":974,"rep":2708,"other":855,"total":4537}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "6": {"name":"Legislative District 6","votes":{"2024-president":{"dem":1665,"rep":7437,"other":213,"total":9315},"2024-us-senate":{"dem":2160,"rep":7047,"other":32,"total":9239},"2024-governor":{"dem":1443,"rep":7195,"other":605,"total":9243},"2022-us-senate":{"dem":1008,"rep":4448,"other":1879,"total":7335}},"counties":{"2022":["38009","38049","38055","38075","38101"],"2024":["38009","38049","38055","38075","38101"]}},
+   "7": {"name":"Legislative District 7","votes":{"2024-president":{"dem":2335,"rep":7132,"other":236,"total":9703},"2024-us-senate":{"dem":2609,"rep":6991,"other":34,"total":9634},"2024-governor":{"dem":1788,"rep":7161,"other":638,"total":9587},"2022-us-senate":{"dem":1173,"rep":3681,"other":1644,"total":6498}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "8": {"name":"Legislative District 8","votes":{"2024-president":{"dem":1713,"rep":8572,"other":255,"total":10540},"2024-us-senate":{"dem":2241,"rep":8069,"other":70,"total":10380},"2024-governor":{"dem":1393,"rep":8066,"other":896,"total":10355},"2022-us-senate":{"dem":882,"rep":3825,"other":2333,"total":7040}},"counties":{"2022":["38015","38029","38055"],"2024":["38015","38029","38055"]}},
+   "9": {"name":"Legislative District 9","votes":{"2024-president":{"dem":3248,"rep":2280,"other":111,"total":5639},"2024-us-senate":{"dem":3250,"rep":2289,"other":6,"total":5545},"2024-governor":{"dem":2815,"rep":2403,"other":265,"total":5483},"2022-us-senate":{"dem":1569,"rep":2292,"other":538,"total":4399}},"counties":{"2022":["38019","38079","38095"],"2024":["38005","38027","38063","38069","38071","38079"]},"note":"This district reaches different counties in the 2022 and 2024 results: its lines were drawn again between those elections, and each year's figures are for the lines of that year."},
+   "10": {"name":"Legislative District 10","votes":{"2024-president":{"dem":3086,"rep":3026,"other":169,"total":6281},"2024-us-senate":{"dem":3062,"rep":3118,"other":11,"total":6191},"2024-governor":{"dem":2587,"rep":3225,"other":310,"total":6122},"2022-us-senate":{"dem":1425,"rep":1444,"other":310,"total":3179}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "11": {"name":"Legislative District 11","votes":{"2024-president":{"dem":4194,"rep":3299,"other":239,"total":7732},"2024-us-senate":{"dem":4283,"rep":3378,"other":19,"total":7680},"2024-governor":{"dem":3704,"rep":3498,"other":410,"total":7612},"2022-us-senate":{"dem":2428,"rep":2031,"other":589,"total":5048}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "12": {"name":"Legislative District 12","votes":{"2024-president":{"dem":2079,"rep":4650,"other":201,"total":6930},"2024-us-senate":{"dem":2372,"rep":4416,"other":11,"total":6799},"2024-governor":{"dem":1638,"rep":4572,"other":422,"total":6632},"2022-us-senate":{"dem":1177,"rep":2527,"other":849,"total":4553}},"counties":{"2022":["38093"],"2024":["38093"]}},
+   "13": {"name":"Legislative District 13","votes":{"2024-president":{"dem":3798,"rep":4806,"other":238,"total":8842},"2024-us-senate":{"dem":3909,"rep":4839,"other":23,"total":8771},"2024-governor":{"dem":3235,"rep":5041,"other":441,"total":8717},"2022-us-senate":{"dem":1966,"rep":2900,"other":645,"total":5511}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "14": {"name":"Legislative District 14","votes":{"2024-president":{"dem":1729,"rep":6950,"other":161,"total":8840},"2024-us-senate":{"dem":2252,"rep":6480,"other":43,"total":8775},"2024-governor":{"dem":1499,"rep":6534,"other":722,"total":8755},"2022-us-senate":{"dem":1049,"rep":4088,"other":2007,"total":7144}},"counties":{"2022":["38005","38015","38027","38043","38069","38083","38103"],"2024":["38005","38015","38027","38043","38069","38083","38103"]}},
+   "15": {"name":"Legislative District 15","votes":{"2024-president":{"dem":2220,"rep":5663,"other":177,"total":8060},"2024-us-senate":{"dem":2477,"rep":5548,"other":14,"total":8039},"2024-governor":{"dem":1779,"rep":5764,"other":437,"total":7980},"2022-us-senate":{"dem":1316,"rep":3084,"other":903,"total":5303}},"counties":{"2022":["38005","38027","38071","38095"],"2024":["38019","38071","38095"]},"note":"This district reaches different counties in the 2022 and 2024 results: its lines were drawn again between those elections, and each year's figures are for the lines of that year."},
+   "16": {"name":"Legislative District 16","votes":{"2024-president":{"dem":3270,"rep":4736,"other":210,"total":8216},"2024-us-senate":{"dem":3303,"rep":4810,"other":16,"total":8129},"2024-governor":{"dem":2746,"rep":4915,"other":389,"total":8050},"2022-us-senate":{"dem":1455,"rep":2214,"other":438,"total":4107}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "17": {"name":"Legislative District 17","votes":{"2024-president":{"dem":3495,"rep":5142,"other":215,"total":8852},"2024-us-senate":{"dem":3417,"rep":5327,"other":19,"total":8763},"2024-governor":{"dem":2789,"rep":5648,"other":282,"total":8719},"2022-us-senate":{"dem":1795,"rep":3135,"other":634,"total":5564}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "18": {"name":"Legislative District 18","votes":{"2024-president":{"dem":2980,"rep":3542,"other":207,"total":6729},"2024-us-senate":{"dem":3050,"rep":3572,"other":13,"total":6635},"2024-governor":{"dem":2563,"rep":3657,"other":324,"total":6544},"2022-us-senate":{"dem":1684,"rep":1883,"other":576,"total":4143}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "19": {"name":"Legislative District 19","votes":{"2024-president":{"dem":1852,"rep":5463,"other":188,"total":7503},"2024-us-senate":{"dem":2167,"rep":5310,"other":16,"total":7493},"2024-governor":{"dem":1567,"rep":5611,"other":289,"total":7467},"2022-us-senate":{"dem":1051,"rep":4119,"other":726,"total":5896}},"counties":{"2022":["38019","38067","38099"],"2024":["38019","38067","38099"]}},
+   "20": {"name":"Legislative District 20","votes":{"2024-president":{"dem":2528,"rep":6086,"other":232,"total":8846},"2024-us-senate":{"dem":2790,"rep":5999,"other":33,"total":8822},"2024-governor":{"dem":2110,"rep":6147,"other":495,"total":8752},"2022-us-senate":{"dem":1406,"rep":3792,"other":894,"total":6092}},"counties":{"2022":["38035","38097","38099"],"2024":["38035","38097","38099"]}},
+   "21": {"name":"Legislative District 21","votes":{"2024-president":{"dem":3305,"rep":2583,"other":187,"total":6075},"2024-us-senate":{"dem":3416,"rep":2582,"other":13,"total":6011},"2024-governor":{"dem":3003,"rep":2605,"other":355,"total":5963},"2022-us-senate":{"dem":1981,"rep":1336,"other":372,"total":3689}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "22": {"name":"Legislative District 22","votes":{"2024-president":{"dem":3114,"rep":6295,"other":330,"total":9739},"2024-us-senate":{"dem":3422,"rep":6280,"other":25,"total":9727},"2024-governor":{"dem":2573,"rep":6625,"other":447,"total":9645},"2022-us-senate":{"dem":1510,"rep":3327,"other":809,"total":5646}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "23": {"name":"Legislative District 23","votes":{"2024-president":{"dem":708,"rep":4086,"other":98,"total":4892},"2024-us-senate":{"dem":784,"rep":3944,"other":17,"total":4745},"2024-governor":{"dem":562,"rep":3757,"other":370,"total":4689},"2022-us-senate":{"dem":236,"rep":1111,"other":430,"total":1777}},"counties":{"2022":["38105"],"2024":["38105"]}},
+   "24": {"name":"Legislative District 24","votes":{"2024-president":{"dem":2581,"rep":5192,"other":215,"total":7988},"2024-us-senate":{"dem":2934,"rep":4999,"other":20,"total":7953},"2024-governor":{"dem":2215,"rep":5354,"other":336,"total":7905},"2022-us-senate":{"dem":1505,"rep":3359,"other":845,"total":5709}},"counties":{"2022":["38003","38073"],"2024":["38003","38073"]}},
+   "25": {"name":"Legislative District 25","votes":{"2024-president":{"dem":2482,"rep":5609,"other":215,"total":8306},"2024-us-senate":{"dem":2892,"rep":5352,"other":10,"total":8254},"2024-governor":{"dem":2102,"rep":5744,"other":362,"total":8208},"2022-us-senate":{"dem":1419,"rep":3785,"other":801,"total":6005}},"counties":{"2022":["38077","38081"],"2024":["38077","38081"]}},
+   "26": {"name":"Legislative District 26","votes":{"2024-president":{"dem":676,"rep":6002,"other":103,"total":6781},"2024-us-senate":{"dem":825,"rep":5834,"other":26,"total":6685},"2024-governor":{"dem":541,"rep":5769,"other":361,"total":6671},"2022-us-senate":{"dem":339,"rep":3095,"other":815,"total":4249}},"counties":{"2022":["38025","38053"],"2024":["38025","38053"]}},
+   "27": {"name":"Legislative District 27","votes":{"2024-president":{"dem":3861,"rep":6003,"other":273,"total":10137},"2024-us-senate":{"dem":3944,"rep":6065,"other":21,"total":10030},"2024-governor":{"dem":3286,"rep":6258,"other":436,"total":9980},"2022-us-senate":{"dem":1834,"rep":2778,"other":584,"total":5196}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "28": {"name":"Legislative District 28","votes":{"2024-president":{"dem":2010,"rep":6765,"other":222,"total":8997},"2024-us-senate":{"dem":2578,"rep":6355,"other":21,"total":8954},"2024-governor":{"dem":1815,"rep":6639,"other":461,"total":8915},"2022-us-senate":{"dem":1234,"rep":4615,"other":1047,"total":6896}},"counties":{"2022":["38021","38045","38047","38051","38081"],"2024":["38021","38045","38047","38051","38081"]}},
+   "29": {"name":"Legislative District 29","votes":{"2024-president":{"dem":2196,"rep":6585,"other":189,"total":8970},"2024-us-senate":{"dem":2633,"rep":6244,"other":19,"total":8896},"2024-governor":{"dem":1904,"rep":6528,"other":396,"total":8828},"2022-us-senate":{"dem":1316,"rep":4221,"other":1195,"total":6732}},"counties":{"2022":["38031","38039","38063","38091","38093"],"2024":["38031","38039","38063","38091","38093"]}},
+   "30": {"name":"Legislative District 30","votes":{"2024-president":{"dem":1914,"rep":5605,"other":188,"total":7707},"2024-us-senate":{"dem":2191,"rep":5401,"other":27,"total":7619},"2024-governor":{"dem":1501,"rep":5557,"other":512,"total":7570},"2022-us-senate":{"dem":1030,"rep":2819,"other":1436,"total":5285}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "31": {"name":"Legislative District 31","votes":{"2024-president":{"dem":1837,"rep":5433,"other":168,"total":7438},"2024-us-senate":{"dem":2135,"rep":5202,"other":24,"total":7361},"2024-governor":{"dem":1530,"rep":5276,"other":522,"total":7328},"2022-us-senate":{"dem":940,"rep":2919,"other":1289,"total":5148}},"counties":{"2022":["38037","38041","38059","38085"],"2024":["38037","38041","38059","38085"]}},
+   "32": {"name":"Legislative District 32","votes":{"2024-president":{"dem":2386,"rep":4986,"other":238,"total":7610},"2024-us-senate":{"dem":2619,"rep":4839,"other":34,"total":7492},"2024-governor":{"dem":1948,"rep":4890,"other":563,"total":7401},"2022-us-senate":{"dem":1324,"rep":2442,"other":1090,"total":4856}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "33": {"name":"Legislative District 33","votes":{"2024-president":{"dem":1536,"rep":7970,"other":186,"total":9692},"2024-us-senate":{"dem":2096,"rep":7366,"other":58,"total":9520},"2024-governor":{"dem":1336,"rep":7631,"other":616,"total":9583},"2022-us-senate":{"dem":925,"rep":4383,"other":2115,"total":7423}},"counties":{"2022":["38055","38057","38059","38065"],"2024":["38055","38057","38059","38065"]}},
+   "34": {"name":"Legislative District 34","votes":{"2024-president":{"dem":2244,"rep":5885,"other":249,"total":8378},"2024-us-senate":{"dem":2535,"rep":5674,"other":32,"total":8241},"2024-governor":{"dem":1869,"rep":5666,"other":581,"total":8116},"2022-us-senate":{"dem":1259,"rep":2899,"other":1415,"total":5573}},"counties":{"2022":["38059"],"2024":["38059"]}},
+   "35": {"name":"Legislative District 35","votes":{"2024-president":{"dem":3146,"rep":5230,"other":298,"total":8674},"2024-us-senate":{"dem":3320,"rep":5217,"other":45,"total":8582},"2024-governor":{"dem":2584,"rep":5299,"other":647,"total":8530},"2022-us-senate":{"dem":1856,"rep":2915,"other":1368,"total":6139}},"counties":{"2022":["38015"],"2024":["38015"]}},
+   "36": {"name":"Legislative District 36","votes":{"2024-president":{"dem":1003,"rep":6187,"other":155,"total":7345},"2024-us-senate":{"dem":1236,"rep":5954,"other":28,"total":7218},"2024-governor":{"dem":752,"rep":5903,"other":537,"total":7192},"2022-us-senate":{"dem":477,"rep":2889,"other":1159,"total":4525}},"counties":{"2022":["38025","38059","38089"],"2024":["38025","38059","38089"]}},
+   "37": {"name":"Legislative District 37","votes":{"2024-president":{"dem":1381,"rep":5337,"other":144,"total":6862},"2024-us-senate":{"dem":1442,"rep":5299,"other":22,"total":6763},"2024-governor":{"dem":1002,"rep":5362,"other":396,"total":6760},"2022-us-senate":{"dem":630,"rep":2637,"other":809,"total":4076}},"counties":{"2022":["38089"],"2024":["38089"]}},
+   "38": {"name":"Legislative District 38","votes":{"2024-president":{"dem":1635,"rep":5544,"other":140,"total":7319},"2024-us-senate":{"dem":1772,"rep":5449,"other":16,"total":7237},"2024-governor":{"dem":1276,"rep":5433,"other":452,"total":7161},"2022-us-senate":{"dem":736,"rep":2618,"other":914,"total":4268}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "39": {"name":"Legislative District 39","votes":{"2024-president":{"dem":1116,"rep":7349,"other":148,"total":8613},"2024-us-senate":{"dem":1383,"rep":7104,"other":37,"total":8524},"2024-governor":{"dem":875,"rep":7174,"other":482,"total":8531},"2022-us-senate":{"dem":639,"rep":4459,"other":1345,"total":6443}},"counties":{"2022":["38001","38007","38011","38025","38033","38041","38087","38089"],"2024":["38001","38007","38011","38025","38033","38041","38087","38089"]}},
+   "40": {"name":"Legislative District 40","votes":{"2024-president":{"dem":1486,"rep":3395,"other":145,"total":5026},"2024-us-senate":{"dem":1545,"rep":3365,"other":31,"total":4941},"2024-governor":{"dem":1178,"rep":3360,"other":369,"total":4907},"2022-us-senate":{"dem":653,"rep":1464,"other":511,"total":2628}},"counties":{"2022":["38101"],"2024":["38101"]}},
+   "41": {"name":"Legislative District 41","votes":{"2024-president":{"dem":4074,"rep":4837,"other":262,"total":9173},"2024-us-senate":{"dem":4118,"rep":4977,"other":26,"total":9121},"2024-governor":{"dem":3404,"rep":5303,"other":352,"total":9059},"2022-us-senate":{"dem":2146,"rep":3056,"other":568,"total":5770}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "42": {"name":"Legislative District 42","votes":{"2024-president":{"dem":2008,"rep":2965,"other":134,"total":5107},"2024-us-senate":{"dem":1968,"rep":3011,"other":8,"total":4987},"2024-governor":{"dem":1603,"rep":2968,"other":313,"total":4884},"2022-us-senate":{"dem":969,"rep":1247,"other":355,"total":2571}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "43": {"name":"Legislative District 43","votes":{"2024-president":{"dem":2915,"rep":3313,"other":148,"total":6376},"2024-us-senate":{"dem":2790,"rep":3487,"other":13,"total":6290},"2024-governor":{"dem":2329,"rep":3599,"other":275,"total":6203},"2022-us-senate":{"dem":1484,"rep":1869,"other":394,"total":3747}},"counties":{"2022":["38035"],"2024":["38035"]}},
+   "44": {"name":"Legislative District 44","votes":{"2024-president":{"dem":3814,"rep":2976,"other":242,"total":7032},"2024-us-senate":{"dem":3898,"rep":3064,"other":15,"total":6977},"2024-governor":{"dem":3534,"rep":3037,"other":335,"total":6906},"2022-us-senate":{"dem":2377,"rep":1650,"other":430,"total":4457}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "45": {"name":"Legislative District 45","votes":{"2024-president":{"dem":3303,"rep":4502,"other":239,"total":8044},"2024-us-senate":{"dem":3393,"rep":4597,"other":15,"total":8005},"2024-governor":{"dem":2969,"rep":4762,"other":248,"total":7979},"2022-us-senate":{"dem":1885,"rep":2728,"other":569,"total":5182}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "46": {"name":"Legislative District 46","votes":{"2024-president":{"dem":4485,"rep":4810,"other":285,"total":9580},"2024-us-senate":{"dem":4573,"rep":4927,"other":15,"total":9515},"2024-governor":{"dem":3862,"rep":5236,"other":370,"total":9468},"2022-us-senate":{"dem":2353,"rep":3056,"other":678,"total":6087}},"counties":{"2022":["38017"],"2024":["38017"]}},
+   "47": {"name":"Legislative District 47","votes":{"2024-president":{"dem":2861,"rep":6316,"other":258,"total":9435},"2024-us-senate":{"dem":2970,"rep":6391,"other":33,"total":9394},"2024-governor":{"dem":2235,"rep":6724,"other":411,"total":9370},"2022-us-senate":{"dem":1455,"rep":3837,"other":1469,"total":6761}},"counties":{"2022":["38015"],"2024":["38015"]}}
+  },
+  "judicial": {
+   "ND-EC": {"name":"East Central Judicial District","votes":{"2024-president":{"dem":42030,"rep":51145,"other":2806,"total":95981},"2024-us-senate":{"dem":43232,"rep":51834,"other":216,"total":95282},"2024-governor":{"dem":36384,"rep":53853,"other":4330,"total":94567},"2022-us-senate":{"dem":22404,"rep":28784,"other":6446,"total":57634},"2020-president":{"dem":42196,"rep":45793,"other":3288,"total":91277},"2020-governor":{"dem":32589,"rep":54118,"other":3895,"total":90602}},"counties":["38017","38091","38097"]},
+   "ND-NC": {"name":"North Central Judicial District","votes":{"2024-president":{"dem":8470,"rep":24421,"other":790,"total":33681},"2024-us-senate":{"dem":9155,"rep":24020,"other":131,"total":33306},"2024-governor":{"dem":6845,"rep":23994,"other":2239,"total":33078},"2022-us-senate":{"dem":4008,"rep":11736,"other":4410,"total":20154},"2020-president":{"dem":8686,"rep":23792,"other":1088,"total":33566},"2020-governor":{"dem":6788,"rep":23846,"other":2622,"total":33256}},"counties":["38013","38061","38101"]},
+   "ND-NE": {"name":"Northeast Judicial District","votes":{"2024-president":{"dem":9364,"rep":21329,"other":709,"total":31402},"2024-us-senate":{"dem":10452,"rep":20685,"other":71,"total":31208},"2024-governor":{"dem":7940,"rep":21474,"other":1650,"total":31064},"2022-us-senate":{"dem":5193,"rep":14608,"other":4197,"total":23998},"2020-president":{"dem":9955,"rep":21630,"other":781,"total":32366},"2020-governor":{"dem":7851,"rep":22129,"other":2166,"total":32146}},"counties":["38005","38009","38019","38049","38067","38069","38071","38075","38079","38095","38099"]},
+   "ND-NEC": {"name":"Northeast Central Judicial District","votes":{"2024-president":{"dem":13049,"rep":19264,"other":859,"total":33172},"2024-us-senate":{"dem":13075,"rep":19600,"other":74,"total":32749},"2024-governor":{"dem":10666,"rep":20175,"other":1556,"total":32397},"2022-us-senate":{"dem":6836,"rep":10917,"other":2652,"total":20405},"2020-president":{"dem":13466,"rep":18128,"other":1153,"total":32747},"2020-governor":{"dem":10510,"rep":20342,"other":1431,"total":32283}},"counties":["38035","38063"]},
+   "ND-NW": {"name":"Northwest Judicial District","votes":{"2024-president":{"dem":3338,"rep":18042,"other":464,"total":21844},"2024-us-senate":{"dem":3751,"rep":17566,"other":96,"total":21413},"2024-governor":{"dem":2662,"rep":17036,"other":1546,"total":21244},"2022-us-senate":{"dem":1538,"rep":7464,"other":2638,"total":11640},"2020-president":{"dem":3248,"rep":17125,"other":582,"total":20955},"2020-governor":{"dem":2548,"rep":15771,"other":2192,"total":20511}},"counties":["38023","38053","38105"]},
+   "ND-SC": {"name":"South Central Judicial District","votes":{"2024-president":{"dem":21049,"rep":62074,"other":2185,"total":85308},"2024-us-senate":{"dem":24191,"rep":59690,"other":396,"total":84277},"2024-governor":{"dem":17155,"rep":60893,"other":5845,"total":83893},"2022-us-senate":{"dem":11560,"rep":32203,"other":15529,"total":59292},"2020-president":{"dem":21635,"rep":59788,"other":2614,"total":84037},"2020-governor":{"dem":18377,"rep":52075,"other":12301,"total":82753}},"counties":["38015","38029","38037","38055","38057","38059","38065","38083","38085"]},
+   "ND-SE": {"name":"Southeast Judicial District","votes":{"2024-president":{"dem":11360,"rep":30854,"other":1059,"total":43273},"2024-us-senate":{"dem":13563,"rep":29270,"other":93,"total":42926},"2024-governor":{"dem":9638,"rep":30656,"other":2260,"total":42554},"2022-us-senate":{"dem":6615,"rep":19198,"other":5466,"total":31279},"2020-president":{"dem":11940,"rep":30019,"other":1198,"total":43157},"2020-governor":{"dem":9180,"rep":30248,"other":3298,"total":42726}},"counties":["38003","38021","38027","38031","38039","38043","38045","38047","38051","38073","38077","38081","38093","38103"]},
+   "ND-SW": {"name":"Southwest Judicial District","votes":{"2024-president":{"dem":3667,"rep":19376,"other":451,"total":23494},"2024-us-senate":{"dem":4183,"rep":18904,"other":79,"total":23166},"2024-governor":{"dem":2753,"rep":18975,"other":1426,"total":23154},"2022-us-senate":{"dem":1841,"rep":10564,"other":3333,"total":15738},"2020-president":{"dem":3776,"rep":19320,"other":618,"total":23714},"2020-governor":{"dem":2946,"rep":16950,"other":3486,"total":23382}},"counties":["38001","38007","38011","38025","38033","38041","38087","38089"]}
+  }
+ }
+}

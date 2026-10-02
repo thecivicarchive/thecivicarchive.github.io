@@ -1,0 +1,44 @@
+{
+ "2026-SD-GOV": {
+  "polymarket": "south-dakota-governor-winner-2026",
+  "kalshi": "GOVPARTYSD-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"South Dakota Governor Election Winner\" and resolves on the winner of the 2026 South Dakota gubernatorial election; it offers Dan Ahlers (D) and Larry Rhoden (R), plus eleven placeholder outcomes (Option A to J, Other) that are not open for trading, which ballot/odds.py's open_only reading leaves out. About $26,700 traded when checked. Kalshi's event is titled \"South Dakota Governor winner?\" (In 2026); its two markets are by party, labelled Dan Ahlers and Larry Rhoden, about 9,200 contracts when checked. Both name the candidates for governor without running mates. Left out on purpose: Polymarket's margin-of-victory market, and Kalshi's finished markets on the Republican nomination, the primary and the runoff's margin."
+ },
+ "2026-SD-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENSD-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Kalshi's event is titled \"South Dakota Attorney General winner?\" (In 2026); its two markets are by party, one labelled Lance Russell and one \"Democratic party\". Our list has Lance Russell alone: no Democrat is on the November list, yet the Democratic market shows a last price of 10 cents (standing offers about 5 cents) on 121 contracts, and Russell's 97 cents on 17 contracts. Ask John before showing this market: it is barely traded and prices a party with no candidate on the ballot. Polymarket lists no market for this race (its search for South Dakota and the likely slug, 2026-10-02)."
+ },
+ "2026-SD-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATESD-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"South Dakota Secretary of State winner?\" (in 2026), one market per candidate: Heather Baxter, Tamara J. Lesnar and Terrence Davis, the three on our list. It opened September 13, 2026 and has all but never traded: under two contracts when checked, all on Davis at 54 cents, while the standing offers were 85 to 95 cents for Baxter and 2 to 10 cents for each of the others. Baxter's and Lesnar's markets had never traded, so ballot/odds.py's traded_only reading would show Davis alone at 54%. Ask John before showing this market: two contracts are not a price, and the one shown would mislead. Polymarket lists no market for this race (its search for South Dakota and the likely slug, 2026-10-02)."
+ },
+ "2026-SD-AUD": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Auditor. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this South Dakota office, and the likely event tickers answered not found. Polymarket: its search for South Dakota lists, among 2026 elections, only the Governor, U.S. Senate and U.S. House races and a ballot measure."
+ },
+ "2026-SD-TREAS": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Treasurer. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this South Dakota office, and the likely event tickers answered not found. Polymarket: its search for South Dakota lists, among 2026 elections, only the Governor, U.S. Senate and U.S. House races and a ballot measure."
+ },
+ "2026-SD-SPL": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Commissioner of School and Public Lands. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this South Dakota office, and the likely event tickers answered not found. Polymarket: its search for South Dakota lists, among 2026 elections, only the Governor, U.S. Senate and U.S. House races and a ballot measure."
+ },
+ "2026-SD-PUC": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Public Utilities Commissioner. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this South Dakota office, and the likely event tickers answered not found. Polymarket: its search for South Dakota lists, among 2026 elections, only the Governor, U.S. Senate and U.S. House races and a ballot measure."
+ }
+}

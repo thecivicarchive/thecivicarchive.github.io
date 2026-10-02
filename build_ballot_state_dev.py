@@ -3510,6 +3510,8 @@ function mountYours(){
     }, () => { note.textContent = "Location wasn't shared. Pick from the lists instead."; }, GEO_ON ? {enableHighAccuracy: true, timeout: 15000, maximumAge: 60000} : {timeout: 10000, maximumAge: 600000});
   });
   fill(); paint();
+  /* arriving from "Insights on my location" (the bar at the top of every ballot page): the mark it left is followed once */
+  try { const m = +sessionStorage.getItem("insights"); if (m) { sessionStorage.removeItem("insights"); if (Date.now() - m < 120000) setTimeout(() => { const y = $("#yloc"), s = $("#yours"); if (y) { if (s) s.scrollIntoView({block: "start"}); y.click(); } }, 0); } } catch (e) {}
   if (GEO_ON) needKit().then(() => { if ($("#gmapsec")) return GEOKIT.mount(); }).catch(() => { const s = $("#gside");
     if (s) s.innerHTML = `<p class="held">The map could not be loaded. Check your connection and open the page again; the lists above work without it.</p>`; });
   if (!MINE.c && !MINE.hd && !MINE.sd) {      // a rounded pin kept by the other pages of this site: place it here too
@@ -4037,7 +4039,10 @@ def write_chooser(root, summaries, css, bcss, version):
     page = page.replace("__CHIPS__", chips).replace("__COUNT__", f"{number_word(n).capitalize()} state{'s' if n != 1 else ''}")
     page = page.replace("__NAMES__", html_esc(and_list([s["name"] for s in sorted(summaries, key=lambda s: s["name"])])))
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
+    import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
+    page = page_extras.add(page, root="../../", ballot="../", here="states")
     write_if_changed(os.path.join(out_dir, "index.html"), page)
+    page_extras.write_where(root)      # the states with a page of their own, for the bar
     copy_fonts(out_dir)
     return os.path.join(out_dir, "index.html")
 
@@ -4088,6 +4093,8 @@ def build_state(code, db, out, site_root, parts, changelog, version):
     page = page.replace("__RECORD__", f' &middot; <a href="../../{lc}/">{html_esc(st["name"])}&rsquo;s Legislature on the record side</a>' if record else "")
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
+    import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
+    page = page_extras.add(page, root="../../", ballot="../", here=lc)
     write_if_changed(os.path.abspath(out), page)
 
     by_level = defaultdict(int)

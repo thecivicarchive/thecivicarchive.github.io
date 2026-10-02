@@ -5844,6 +5844,8 @@ def main():
         shaped["_version"], shaped["_profiles"], shaped["_donors"] = version, profiles, donors
         shaped["_master"], shaped["_money_summary"] = master, money_summary
         shell = render_page(boot, shaped, version, foot)
+        import page_extras      # "Take a break" in the header (the fast site only: the one-file archive has no cabin beside it)
+        shell = page_extras.add(shell, root="../", words=0)
         sizes, n_detail, detail_bytes, photo_total = write_split(args.split, shell, shaped, photo_bytes)
         kb = lambda n: f"{n / 1e3:,.0f} KB" if n < 1e6 else f"{n / 1e6:.1f} MB"
         import shutil

@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.084 — 2026-10-02 — Take a break, and "Insights on my location"
+
+- Every page now has a small "Take a break" in its header. It leads to the cabin: a quiet log room with a fire and the Rocky Mountains outside the window. When you are ready, a glowing "Back to where you were" sign, or the cabin's own door, takes you straight back to the exact page you left.
+- Every ballot page has "Insights on my location" fixed at the top. One click asks your device for your location, works out your state on the device, and lands you on that state's ballot page with a pin on the map, every district you are in, and the contests on your own ballot. Your location is never sent anywhere. If you would rather not share it, the page says so plainly and offers the list of states.
+
 ## v4.0.083 — 2026-10-02 — Iowa gets the same treatment
 
 - Iowa's ballot page now has the real map: all 1,660 precincts with the districts they sit in (county, township or city, supervisor district, House, Senate, Congress, judicial, soil and water, hospital and school districts), drag and pinch, zoom to a street, and streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, township races included.

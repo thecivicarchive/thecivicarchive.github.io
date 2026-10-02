@@ -1476,6 +1476,8 @@ function home(anchor){
       $("#minelist").scrollIntoView({block: "nearest", behavior: calm() ? "auto" : "smooth"});
     }), () => { note.textContent = "Location wasn't shared. Pick your state instead."; }, {timeout: 10000, maximumAge: 600000});
   });
+  /* arriving from "Insights on my location" (the bar at the top of every ballot page): the mark it left is followed once */
+  try { const m = +sessionStorage.getItem("insights"); if (m) { sessionStorage.removeItem("insights"); if (Date.now() - m < 120000) setTimeout(() => { const y = $("#yloc"), s = $("#yours"); if (y) { if (s) s.scrollIntoView({block: "start"}); y.click(); } }, 0); } } catch (e) {}
   $("#races").addEventListener("toggle", e => {      // a state's races are drawn the first time its fold opens
     const d = e.target.closest(".sfold[data-st]"); if (!d || !d.open || d.dataset.filled) return;
     const s = d.dataset.st, rs = byState[s] || []; d.dataset.filled = "1";
@@ -1789,6 +1791,9 @@ def main():
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
+    page = page_extras.add(page, root="../../", ballot="../", here="us")
+    page_extras.write_where(os.path.join(site_root, "ballot"))
     with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(page)
     from ballot.share_race import write as write_share      # a share page and preview image for every race with a list

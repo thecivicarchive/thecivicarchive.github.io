@@ -1009,6 +1009,12 @@ def main():
     # Legislatures poster's way in).
     front = (not args.ballot) and os.path.basename(args.out).lower() == "index.html"
     ring_out = os.path.join(site_root, "doors.html") if (front and CABIN_FIRST) else args.out
+    import page_extras      # "Take a break" on both doors; the ballot door also carries the "Insights on my location" bar
+    if args.ballot:
+        html = page_extras.add(html, root="../", ballot="./", here="", words=640)
+        page_extras.write_where(site_root)
+    else:
+        html = page_extras.add(html, root="./", words=640)
     with open(ring_out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)
     copy_transit(os.path.dirname(site_root) if args.ballot else site_root)

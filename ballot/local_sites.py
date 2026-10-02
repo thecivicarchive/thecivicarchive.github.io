@@ -25,7 +25,9 @@ loads the findings of every state in STATES that has a scope file beside the fin
 Minnesota's, each state touching only its own rows. Fetch, headings, choices and sheets never were Minnesota's alone.
 A new state is added to STATES with its name and the words its roster's legislative service is found by
 (Iowa and North Dakota, 2026-10-02, also give "why_no_local": why the November list has no city or school race, said in
-the scope files).
+the scope files). South Dakota (2026-10-02) has a few city races in November and no school race: its "local_note" says
+why in the scope files, its city races carry the Census place code as SD-M-<code> (`_place_code`), and its ticket for
+Governor is written with "&" (`_first_named`).
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -176,7 +178,16 @@ STATES = {"MN": {"name": "Minnesota"},
           # never reads and this module does not read either, so its websites come from verified findings only
           "ND": {"name": "North Dakota", "legislature": r"\bnorth dakota (?:state )?(?:house|senate|legislat\w+)|\blegislative assembly\b",
                  "why_no_local": "North Dakota elects its city officers and park boards in June of even years (N.D.C.C. 40-21-02; "
-                                 "June 9, 2026) and its school boards between April and June (N.D.C.C. 15.1-09-22); townships vote in March."}}
+                                 "June 9, 2026) and its school boards between April and June (N.D.C.C. 15.1-09-22); townships vote in March."},
+          # South Dakota (2026-10-02): the Secretary of State's list (vip.sdsos.gov) has mailing address columns the list
+          # loader never reads and no website cell, so its websites come from verified findings only. "local_note" is the
+          # sentence its scope files carry about the city and school races that are not on the November list
+          "SD": {"name": "South Dakota", "legislature": r"\bsouth dakota (?:state )?(?:house|senate|legislat\w+)",
+                 "local_note": "South Dakota's cities and school boards choose between a June and a November election (SDCL 9-13-1 and "
+                               "13-7-10): most cities and every school board found voted on June 2, 2026, so the Secretary of State's "
+                               "November 3, 2026 list carries the councils of ten cities and no school board. Townships elect at their "
+                               "annual meeting in March (SDCL 8-3-1). A local candidate with no opponent is elected without being printed "
+                               "on the ballot (SDCL 12-16-1.1) and is on the list all the same."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -225,7 +236,7 @@ def _november(con, state=None):
 
 def _first_named(name, office_kind):
     """The person a site or a finding is about: on a ticket for Governor and Lieutenant Governor, the one named first."""
-    return re.split(r"\s+and\s+|\s+/\s+", name)[0] if office_kind == "governor" else name
+    return re.split(r"\s+and\s+|\s+/\s+|\s+&\s+", name)[0] if office_kind == "governor" else name
 
 
 def _family(name):
@@ -1184,6 +1195,13 @@ def census_population(say=print, stusab="MN"):
     return out, sources
 
 
+def _place_code(jurisdiction_id):
+    """The Census place code a city race carries: the jurisdiction id itself (Minnesota, whose list gives the code), or
+    its last five digits where a state's loader writes the id as <ST>-M-<code> (South Dakota)."""
+    m = re.fullmatch(r"[A-Z]{2}-M-(\d{5})", jurisdiction_id or "")
+    return m.group(1) if m else jurisdiction_id
+
+
 def _bare_place(name):
     t = re.sub(r"\s*\(.*?\)", "", name or "").split(",")[0]
     t = re.sub(r"^(?:Village|City|Town) of ", "", t.strip(), flags=re.I)
@@ -1253,7 +1271,7 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
 
     city_rows, school_rows, no_figure = [], [], []
     for code, c in sorted(cities.items()):
-        row, how = pop["place"].get(code), None
+        row, how = pop["place"].get(_place_code(code)), None
         if row and _bare_place(row["name"]) != _bare_place(c["name"]):
             row = None
         if not row:      # a code the Census file has under another number or kind: the same name among the county's subdivisions
@@ -1299,9 +1317,9 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             f"cities and school districts with at least {threshold:,} people in the Census Bureau's ACS 2020-2024 estimate (table B01003).")
     just_under = ([{"kind": "city", **c} for c in city_rows if NEAR <= c["population"] < threshold]
                   + [{"kind": "school district", **s} for s in school_rows if NEAR <= s["population"] < threshold])
-    big_quiet = sorted(v["name"] for code, v in pop["place"].items() if v["population"] >= threshold and code not in cities)
+    big_quiet = sorted(v["name"] for code, v in pop["place"].items() if v["population"] >= threshold and code not in {_place_code(c) for c in cities})
     other_city = collections.Counter(r["office"] for r in races.values() if r["level"] == "city" and r["office_kind"] not in FULL_CITY
-                                     and pop["place"].get(r["jurisdiction_id"], {"population": 0})["population"] >= threshold)
+                                     and pop["place"].get(_place_code(r["jurisdiction_id"]), {"population": 0})["population"] >= threshold)
     none_local = (None if state == "MN" or by_level["city"] or by_level["school"] or cities or schools else
                   f"No city or school board race is on {words}'s November 3, 2026 list in the database, so no place was "
                   f"picked by its population; the Census file is named so that the cities of {threshold:,} or more can be read from it."
@@ -1329,6 +1347,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
               "just_under": {"places": len(just_under), "candidates": sum(c["candidates"] for c in just_under)}}
     if none_local:
         places["note"] = counts["note"] = none_local
+    elif STATES.get(state, {}).get("local_note"):
+        places["note"] = counts["note"] = STATES[state]["local_note"]
     os.makedirs(out_dir, exist_ok=True)
     for fname, obj in ((f"{st_code}_scope.json", rows), (f"{st_code}_scope_counts.json", counts), (f"{st_code}_scope_places.json", places)):
         with open(os.path.join(out_dir, fname), "w", encoding="utf-8", newline="\n") as fh:

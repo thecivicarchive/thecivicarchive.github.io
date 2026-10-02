@@ -79,6 +79,16 @@ html,body{margin:0;height:100%;background:#1a120b;color:var(--ink);font-family:v
 .ways a[data-i]:hover,.ways a[data-i]:focus-visible,.ways a[data-i].hot{transform:translateY(-3px) scale(1.035);border-color:rgb(var(--glow));background:linear-gradient(180deg,rgba(74,50,22,.94),rgba(30,20,11,.94));
   box-shadow:0 0 0 2px rgba(var(--glow),.9),0 0 44px rgba(var(--glow),.75),inset 0 0 26px rgba(var(--glow),.25);animation:none}
 @keyframes sign{0%,100%{box-shadow:0 0 0 1px rgba(var(--glow),.25),0 0 22px rgba(var(--glow),.34),inset 0 0 18px rgba(var(--glow),.12)}50%{box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 40px rgba(var(--glow),.62),inset 0 0 24px rgba(var(--glow),.2)}}
+.ways a[hidden]{display:none}
+/* the way back (John, 2026-10-02): a third sign, shown only when the visitor came here from a page of this site */
+.ways a.back{--glow:255,226,170;position:relative;padding:13px 22px 13px 20px;border:1.5px solid rgba(var(--glow),.85);border-radius:16px;max-width:min(340px,100%);
+  background:linear-gradient(180deg,rgba(58,39,18,.9),rgba(22,15,9,.92));box-shadow:0 0 0 1px rgba(var(--glow),.25),0 0 26px rgba(var(--glow),.42),inset 0 0 20px rgba(var(--glow),.14);
+  animation:sign 2.6s ease-in-out infinite;animation-delay:-.6s;transition:transform .18s ease,border-color .2s ease,box-shadow .2s ease}
+.ways a.back b{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.01em;color:#fff6de;text-shadow:0 0 14px rgba(var(--glow),.75)}
+.ways a.back b::before{content:"\2039\00a0";color:rgb(var(--glow))}
+.ways a.back span{font-size:13px;color:#eadcbd;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ways a.back:hover,.ways a.back:focus-visible,.ways a.back.hot{transform:translateY(-3px) scale(1.035);border-color:rgb(var(--glow));background:linear-gradient(180deg,rgba(74,50,22,.94),rgba(30,20,11,.94));
+  box-shadow:0 0 0 2px rgba(var(--glow),.9),0 0 44px rgba(var(--glow),.75),inset 0 0 26px rgba(var(--glow),.25);animation:none}
 .ways a.plain{padding:9px 14px;font-size:13.5px;color:var(--dim);align-self:center}
 .foot{position:fixed;right:12px;bottom:calc(6px + env(safe-area-inset-bottom));z-index:2;margin:0;font-size:11px;color:rgba(246,236,214,.6);text-shadow:0 1px 6px rgba(0,0,0,.8);max-width:min(60vw,560px);text-align:right}
 .foot button{font:inherit;color:inherit;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
@@ -101,20 +111,21 @@ body.flat .ways a{padding:18px 20px}body.flat .ways a b{font-size:19px}
 body.flat .foot{position:static;text-align:center;margin:5vh auto 24px;max-width:none}
 body.flat .flatnote{display:block}
 .flatnote{display:none;text-align:center;color:var(--dim);font-size:14px;margin:18px auto 0;max-width:520px;padding:0 20px}
-@media (prefers-reduced-motion: reduce){.ways a[data-i]{animation:none}}
-@media (max-width:640px){.ways a span{display:none}.ways a,.ways a[data-i]{padding:11px 14px}.ways a[data-i] b{font-size:16.5px}.foot{display:none}.wip{font-size:11px;padding:5px 9px;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));right:50%;transform:translateX(50%);white-space:nowrap}.hint{top:16%}.load{bottom:calc(96px + env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion: reduce){.ways a[data-i],.ways a.back{animation:none}}
+@media (max-width:640px){.ways a span{display:none}.ways a,.ways a[data-i],.ways a.back{padding:11px 14px}.ways a[data-i] b,.ways a.back b{font-size:16.5px}body.flat .ways a.back span{display:block}.foot{display:none}.wip{font-size:11px;padding:5px 9px;top:68px;left:16px;right:auto;white-space:nowrap}.hint{top:16%}.load{bottom:calc(96px + env(safe-area-inset-bottom))}}
 @media (prefers-reduced-motion: reduce){.hint,#fade,.ways a,.load{transition:none}}
 </style>
 </head>
 <body>
-<canvas id="room" tabindex="0" role="img" aria-label="A log great room in the Rockies: round-log walls and rafters under a vaulted roof, a stacked-stone fireplace with a fire burning, leather and upholstered seating on a red rug, and a gable wall of windows on the mountains. Two glowing posters on the far wall are the doors to the site: On The Ballot, and Legislation and Legislatures. The same two doors are links at the foot of this page."></canvas>
+<canvas id="room" tabindex="0" role="img" aria-label="A log great room in the Rockies: round-log walls and rafters under a vaulted roof, a stacked-stone fireplace with a fire burning, leather and upholstered seating on a red rug, and a gable wall of windows on the mountains. Two glowing posters on the far wall are the doors to the site: On The Ballot, and Legislation and Legislatures. The same two doors are links at the foot of this page. When you came here from a page of this site, the plank door behind you glows and leads back to it, and a third link at the foot of the page does the same."></canvas>
 <header class="brand"><b>The Civic Archive</b><span>The public record, and who is on your ballot</span></header>
 __WIP__
 <p class="hint" id="hint"></p>
 <p class="load" id="load" role="status" aria-live="polite"></p>
 <p class="flatnote">This device is showing the plain page. The two doors are below.</p>
-<nav class="ways" aria-label="The two doors">
+<nav class="ways" aria-label="The doors">
 __WAYS__
+  <a class="back" id="back" href="__RING__" hidden><b>Back to where you were</b><span id="backt"></span></a>
   <a class="plain" href="__RING__" title="The same doors as a ring of cards, with no room to walk around">Plain view</a>
 </nav>
 <p class="foot" id="foot">v__VERSION__</p>
@@ -133,6 +144,20 @@ const calm = stored("motion") ? stored("motion") === "off" : matchMedia("(prefer
 const touch = matchMedia("(pointer: coarse)").matches;
 const ways = [...document.querySelectorAll(".ways a[data-i]")], hint = $("#hint"), fade = $("#fade"), load = $("#load"), foot = $("#foot");
 let room = null, leaving = false, view = null, when = "";
+/* the way back: a page of this site kept its own address before its "Take a break" link was followed. Only an address
+   on this same site, under this page's own folder, is ever followed; anything else is ignored. */
+function wayBack(){
+  try { const o = JSON.parse(sessionStorage.getItem("break") || "null"); if (!o || typeof o.u !== "string") return null;
+    const u = new URL(o.u, location.href), root = new URL("./", location.href), self = p => p.replace(/index\.html$/, "");
+    if (!/^https?:$/.test(u.protocol) || u.origin !== location.origin || u.username || u.password || !u.pathname.startsWith(root.pathname) || self(u.pathname) === self(location.pathname)) return null;
+    return {url: u.href, title: typeof o.t === "string" ? o.t.replace(/\s+/g, " ").trim().slice(0, 90) : ""};
+  } catch (e) { return null; }
+}
+const prior = wayBack(), backA = $("#back");
+if (prior) { backA.href = prior.url; $("#backt").textContent = prior.title || "The page you came from"; backA.hidden = false; }
+const forget = () => { try { sessionStorage.removeItem("break"); } catch (e) {} };
+function goPrior(){ if (!prior || leaving) return; forget(); leave(prior.url); }
+backA.addEventListener("click", e => { if (!prior) { e.preventDefault(); return; } forget(); });
 function leave(url){ if (leaving) return; leaving = true; if (calm) { location.href = url; return; } fade.classList.add("on"); setTimeout(() => { location.href = url; }, 430); }
 addEventListener("pageshow", () => { leaving = false; fade.classList.remove("on"); });      /* coming back with the Back button */
 function footer(){
@@ -144,10 +169,10 @@ function footer(){
 try {
   const m = await import("./cabin3d.js?v=__ROOMHASH__");
   load.textContent = "Setting the room up…";
-  room = m.start($("#room"), {posters: POSTERS, views: VIEWS, assets: "cabin_assets/", when: q.get("time") || undefined, season: q.get("season") || undefined, calm,
+  room = m.start($("#room"), {back: !!prior, onBack: () => goPrior(), posters: POSTERS, views: VIEWS, assets: "cabin_assets/", when: q.get("time") || undefined, season: q.get("season") || undefined, calm,
     lite: q.has("lite") ? q.get("lite") !== "0" : undefined,
-    onHover: i => ways.forEach((a, k) => a.classList.toggle("hot", k === i)),
-    onLeave: url => leave(url),
+    onHover: i => { ways.forEach((a, k) => a.classList.toggle("hot", k === i)); backA.classList.toggle("hot", i === 2); },
+    onLeave: url => { forget(); leave(url); },
     onMove: () => setTimeout(() => hint.classList.add("gone"), 2600),
     onProgress: (done, total) => { load.textContent = `Setting the room up… ${Math.min(100, Math.round(done / Math.max(total, 1) * 100))}%`; },
     onReady: () => { load.textContent = "The room is ready."; setTimeout(() => load.classList.add("gone"), 1200); },
@@ -157,6 +182,8 @@ try {
     when = q.get("time") || m.whenNow(); footer();
     hint.textContent = touch ? "Drag to look around. Tap the floor to walk there. The glowing posters are doors: tap one to go in."
                              : "Walk with the arrow keys or W, A, S, D. Drag to look around. The glowing posters are doors: click one to go in.";
+    if (prior) { hint.textContent += " The door behind you glows too: it leads back to where you were.";
+      backA.addEventListener("focus", () => room.look(2)); backA.addEventListener("click", e => { if (calm || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); room.goBack(); setTimeout(goPrior, 2600); }); }      /* the timer: a page that is not being drawn still gets there */
     ways.forEach((a, i) => { a.addEventListener("focus", () => room.look(i)); a.addEventListener("click", e => { if (calm || e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); room.go(i); }); });
     setTimeout(() => hint.classList.add("gone"), 14000);
     setTimeout(() => { if (!load.classList.contains("gone")) load.classList.add("gone"); }, 40000);

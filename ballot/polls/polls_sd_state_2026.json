@@ -1,0 +1,104 @@
+{
+ "rule": "South Dakota's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-SD-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 5,
+    "pollsters": [
+     "Mason-Dixon Polling & Strategy (two, the Republican primary, October 2025 and April 2026)",
+     "Public Opinion Strategies (the Republican primary, and Larry Rhoden against Dusty Johnson alone, March 2-5, 2026)",
+     "Meeting Street Insights (the Republican primary)",
+     "The Public Sentiment Institute (the Republican primary)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "Governor and Lieutenant Governor. Nobody has published a poll of November's contest between Larry Rhoden and Dan Ahlers: every poll found asked about the Republican nomination. Emerson College Polling, the one member of the Transparency Initiative to poll this race, published three surveys for KELOLAND, each read on Emerson's own site (2026-10-02): the Republican primary on March 7-9 and May 18-19, 2026, and the runoff on July 12-13, 2026 (Rhoden 62%, Toby Doeden 32%, 500 likely runoff voters). None asked a November matchup, so none is counted here. The five left out are by pollsters outside the Initiative and were also of the Republican primary. Two news searches found no poll since the July 28 runoff."
+   },
+   "primary_polls_by_members": [
+    {
+     "pollster": "Emerson College Polling",
+     "contest": "Republican primary",
+     "start": "2026-03-07",
+     "end": "2026-03-09",
+     "url": "https://emersoncollegepolling.com/south-dakota-2026-poll-dusty-johnson-leads-incumbent-larry-rhoden-in-governor-election/"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "contest": "Republican primary",
+     "start": "2026-05-18",
+     "end": "2026-05-19",
+     "url": "https://emersoncollegepolling.com/south-dakota-2026-poll-toby-doeden-dusty-johnson-lead-primary-for-governor/"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "contest": "Republican primary runoff",
+     "start": "2026-07-12",
+     "end": "2026-07-13",
+     "url": "https://emersoncollegepolling.com/south-dakota-2026-poll-larry-rhoden-leads-toby-doeden-for-runoff-election/"
+    }
+   ]
+  },
+  "2026-SD-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "Attorney General. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-SD-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "Secretary of State. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-SD-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_State_Auditor_election",
+    "checked": "2026-10-02",
+    "note": "State Auditor. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-SD-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "State Treasurer. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-SD-SPL": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_Commissioner_of_School_and_Public_Lands_election",
+    "checked": "2026-10-02",
+    "note": "Commissioner of School and Public Lands. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-SD-PUC": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_South_Dakota_Public_Utilities_Commission_election",
+    "checked": "2026-10-02",
+    "note": "Public Utilities Commissioner. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for South Dakota's 2026 statewide races found none. Emerson's three South Dakota surveys of 2026 did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  }
+ }
+}

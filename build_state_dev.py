@@ -1987,6 +1987,8 @@ def build(code, args):
     left = sorted(set(re.findall(r"__[A-Z0-9_]{3,}__", html)))
     if left:
         raise SystemExit(f"build_state_dev: placeholders were left unfilled in the page: {', '.join(left)}")
+    import page_extras      # "Take a break" in the header
+    html = page_extras.add(html, root="../", words=0)
     sizes, n_members, donor_bytes, photo_bytes = write_site(folder, html, data)
     from states import share_state                       # a pasted link shows a card: one small page and one image per member
     sh = share_state.write_share_pages(os.path.abspath(folder), P, data, base, os.path.join(HERE, "states_cache"))

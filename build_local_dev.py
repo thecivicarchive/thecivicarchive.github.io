@@ -246,6 +246,8 @@ def main():
             .replace("__VERSIONTEXT__", f"v{version}" if version else "").replace("__VERSION__", version).replace("__NAME__", html_attr(P["name"])))
     out = args.out or os.path.join(HERE, "site", "dev", code, "counties", "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    import page_extras      # "Take a break" in the header
+    html = page_extras.add(html, root="../../")
     with open(out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)
     print(f"    Wrote {out}: {P['name']}, {len(data['counties'])} counties, {n_off} county offices on file, {len(html.encode('utf-8')) / 1e3:,.0f} KB (version {version})")

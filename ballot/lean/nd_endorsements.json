@@ -1,0 +1,965 @@
+{
+ "state": "ND",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the Secretary of State's November list already loaded in ballot_local_2026.sqlite (office, district and name all fit, one fit only). North Dakota's parties endorse at district and state conventions before the June primary, so most candidates here are also their party's nominees. Three are not: Cara Cody-Braun (District 11 House) and Jolene Bruce (District 27 House) are on the ballot by independent nomination and the Dem-NPL's list marks each 'Independent, Dem-NPL Endorsed'; and Tracy Foss is a candidate for Superintendent of Public Instruction, a nonpartisan office, whom the Dem-NPL's page lists among the candidates 'officially endorsed at the 2026 North Dakota Democratic-NPL State Convention' (news reports describe the convention's act for that office as a letter of support; the party's page says endorsed, and the page is what is recorded). The same endorsement can stand on several pages (the Region 6 convention post and a candidate's own post): count a candidate once per party. The Dem-NPL's legislative list does not say 'endorsed' on a party candidate's own line, so those lines are under other_support with the reason in 'kind', never under endorsements. The Republican state party's own site has no page on its 2026 endorsements; one district unit's page (District 19) does. No party page read names a candidate for a county, court, soil conservation or Garrison Diversion contest. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first: the two state parties' sites and every district or regional unit's own website linked from their directories (home page plus candidate, election and news pages, ten pages a site at most; searched for the word, and the pages that had it read). Facebook pages are social media and were not read. Every page in 'lists' was opened again after it was read, and a record is kept only if the page still showed it. Federal offices are outside this file.",
+ "lists": [
+  {
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "title": "2026 Democratic-NPL Endorsed Federal and Statewide Candidates",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "title": "2026 Dem-NPL Legislative Candidates",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Candidates endorsed at Region 6 district conventions",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Williams endorsed for District 31",
+   "url": "https://bismanleaders.com/news/williams-endorsed-for-district-47/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Montoya endorsed for District 47",
+   "url": "https://bismanleaders.com/news/montoya-endorsed-for-district-47/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Jacobs-Fode endorsed for District 47",
+   "url": "https://bismanleaders.com/news/jacobs-fode-endorsed-for-district-47/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Kruckenberg endorsed for District 33",
+   "url": "https://bismanleaders.com/news/kruckenberg-endorsed-for-district-33/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Spilman endorsed",
+   "url": "https://bismanleaders.com/news/spilman-endorsed/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "title": "Patrie endorsed for District 47",
+   "url": "https://bismanleaders.com/news/patrie-endorsed-for-district-47/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 19 Republican Party",
+   "title": "D19 Republicans endorse Anderson, Monson and Myrdal for Re-election",
+   "url": "https://ndgop19.com/d19-republicans-endorse-anderson-monson-and-myrdal-for-re-election/",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-ND-SOS",
+   "name": "Ryan Braunberger",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Ryan Braunberger for ND Secretary of State"
+  },
+  {
+   "race_id": "2026-ND-AG",
+   "name": "Tim Lamb",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Tim Lamb for ND Attorney General"
+  },
+  {
+   "race_id": "2026-ND-AGR",
+   "name": "Vern Thompson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Vern Thompson for ND Agriculture Commissioner"
+  },
+  {
+   "race_id": "2026-ND-PSC",
+   "name": "John M Pederson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: John Pederson for ND Public Service Commissioner"
+  },
+  {
+   "race_id": "2026-ND-PSC-UNEXP",
+   "name": "Scot Kelsh",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Scot Kelsh for ND Public Service Commissioner (2-Year Term)"
+  },
+  {
+   "race_id": "2026-ND-TAX",
+   "name": "Mark Nelson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Mark Nelson for ND Tax Commissioner"
+  },
+  {
+   "race_id": "2026-ND-SPI-UNEXP",
+   "name": "Tracy Layne Foss",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "as_listed": "Statewide Dem-NPL Endorsed Candidates: Tracy Foss for ND Superintendent of Public Instruction"
+  },
+  {
+   "race_id": "2026-ND-SH11",
+   "name": "Cara Cody-Braun",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Cara Cody-Braun for District 11 House (Independent, Dem-NPL Endorsed)"
+  },
+  {
+   "race_id": "2026-ND-SH27",
+   "name": "Jolene Bruce",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Jolene Bruce for District 27 House (Independent, Dem-NPL Endorsed)"
+  },
+  {
+   "race_id": "2026-ND-SS7",
+   "name": "Kevin Horneman",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 7: Kevin Horneman"
+  },
+  {
+   "race_id": "2026-ND-SH7",
+   "name": "Jason Thoms",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 7: Dr. Jason Thoms"
+  },
+  {
+   "race_id": "2026-ND-SH7",
+   "name": "Tiffany Williams-Rice",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 7: Tiffany Williams-Rice"
+  },
+  {
+   "race_id": "2026-ND-SS31",
+   "name": "Kelly Spilman",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 31: Kelly Spilman"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Tim Spilman",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 31: Tim Spilman"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Rissa M Williams",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 31: Rissa Williams"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Kimball Banks",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 33: Kimball Banks"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Stacie Kruckenberg",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 33: Stacie Kruckenberg"
+  },
+  {
+   "race_id": "2026-ND-SS33",
+   "name": "Signe Snortland",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 33: Signe Snortland"
+  },
+  {
+   "race_id": "2026-ND-SH35",
+   "name": "Taylor Johnson",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 35: Taylor Johnson"
+  },
+  {
+   "race_id": "2026-ND-SH35",
+   "name": "Lynne M Lafer-Halvorson",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 35: Lynne Lafer-Halvorson"
+  },
+  {
+   "race_id": "2026-ND-SS35",
+   "name": "Dale Pittman",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/region-6-endorses-candidates-at-conventions/",
+   "as_listed": "the candidates endorsed in the districts: District 35: Dale Pittman"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Rissa M Williams",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/williams-endorsed-for-district-47/",
+   "as_listed": "Rissa Williams has been endorsed by the North Dakota Dem-NPL Party for the North Dakota House of Representatives in District 31"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Cole Montoya",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/montoya-endorsed-for-district-47/",
+   "as_listed": "Cole Montoya ... has been endorsed by the North Dakota Dem-NPL Region 6 for the North Dakota House of Representatives in District 47"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Rosann Jacobs-Fode",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/jacobs-fode-endorsed-for-district-47/",
+   "as_listed": "Rosann Jacobs-Fode ... has received the North Dakota Democratic-NPL endorsement for North Dakota House Representative in District 47"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Stacie Kruckenberg",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/kruckenberg-endorsed-for-district-33/",
+   "as_listed": "Stacie Kruckenberg has been endorsed by the Democratic-NPL Party for representative in District 33"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Tim Spilman",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/spilman-endorsed/",
+   "as_listed": "Timothy Spilman ... received the North Dakota Democratic-NPL endorsement for North Dakota House Representative in District 31"
+  },
+  {
+   "race_id": "2026-ND-SS47",
+   "name": "Bill Patrie",
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL (the party's Region 6 organization)",
+   "url": "https://bismanleaders.com/news/patrie-endorsed-for-district-47/",
+   "as_listed": "Patrie endorsed for District 47 (the post's headline); Bill Patrie ... candidacy for the North Dakota Senate representing District 47"
+  },
+  {
+   "race_id": "2026-ND-SS19",
+   "name": "Janne Myrdal",
+   "party": "Republican",
+   "unit": "District 19 Republican Party",
+   "url": "https://ndgop19.com/d19-republicans-endorse-anderson-monson-and-myrdal-for-re-election/",
+   "as_listed": "The District 19 Republican Party ... unanimously endorsed Senator Janne Myrdal for State Senate and Representatives David Monson and Karen Anderson for State House"
+  },
+  {
+   "race_id": "2026-ND-SH19",
+   "name": "David Monson",
+   "party": "Republican",
+   "unit": "District 19 Republican Party",
+   "url": "https://ndgop19.com/d19-republicans-endorse-anderson-monson-and-myrdal-for-re-election/",
+   "as_listed": "The District 19 Republican Party ... unanimously endorsed Senator Janne Myrdal for State Senate and Representatives David Monson and Karen Anderson for State House"
+  },
+  {
+   "race_id": "2026-ND-SH19",
+   "name": "Karen A Anderson",
+   "party": "Republican",
+   "unit": "District 19 Republican Party",
+   "url": "https://ndgop19.com/d19-republicans-endorse-anderson-monson-and-myrdal-for-re-election/",
+   "as_listed": "The District 19 Republican Party ... unanimously endorsed Senator Janne Myrdal for State Senate and Representatives David Monson and Karen Anderson for State House"
+  }
+ ],
+ "unmatched": "0",
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-ND-SH1",
+   "name": "Steve Thoring",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Steve Thoring for District 1 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH1",
+   "name": "Alex Johnson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Alex Johnson for District 1 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS3",
+   "name": "Michael Thiesen",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Michael Thiesen for District 3 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH3",
+   "name": "Tara Hiatt",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Tara Hiatt for District 3 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH3",
+   "name": "Natalie Mclaughlin",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Natalie Mclaughlin for District 3 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH5",
+   "name": "Zach Raknerud",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Zach Raknerud for District 5 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH5",
+   "name": "Kyle Erickson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Kyle Erickson for District 5 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS7",
+   "name": "Kevin Horneman",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Kevin Horneman for District 7 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH7",
+   "name": "Jason Thoms",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Jason Thoms for District 7 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH7",
+   "name": "Tiffany Williams-Rice",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Tiffany Williams-Rice for District 7 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS9",
+   "name": "Jayme Davis",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rep. Jayme Davis for District 9 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH9",
+   "name": "Collette Brown",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rep. Collette Brown for District 9 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH9",
+   "name": "Duane Poitra",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Duane Poitra for District 9 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS11",
+   "name": "Tim Mathern",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Sen. Tim Mathern for District 11 Senate (Incumbent)",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH11",
+   "name": "Anastassiya (Stass) Andrianova",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Anastassiya Andrianova for District 11 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS13",
+   "name": "Landis Larson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Landis Larson for District 13 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH13",
+   "name": "Brenda Jo Gillund",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Brenda Gillund for District 13 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH13",
+   "name": "Maggi Gadaire",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Maggi Gadaire for District 13 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH15",
+   "name": "Frances Drury",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Frances Drury for District 15 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS17",
+   "name": "Katie Benton",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Katie Benton for District 17 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH17",
+   "name": "Don Aandal",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Don Aandal for District 17 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS19",
+   "name": "Jefferey E Hermanson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Jeff Hermanson for District 19 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH19",
+   "name": "Jolene L Hermanson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Jolene Hermanson for District 19 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH20",
+   "name": "Nikolaus Groenewold",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Nikolaus Groenewold for District 20 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS21",
+   "name": "Mary Schneider",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rep. Mary Schneider for District 21 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH21",
+   "name": "LaurieBeth Hager",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rep. LaurieBeth Hager for District 21 House (Incumbent)",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH21",
+   "name": "Laura Dronen",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Laura Dronen for District 21 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS25",
+   "name": "Bob Heitkamp",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Bob Heitkamp for District 25 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH25",
+   "name": "Alisa Mitskog",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rep. Alisa Mitskog for District 25 House (Incumbent)",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS29",
+   "name": "John Kelly",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "John Kelly for District 29 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH29",
+   "name": "Dianne Norris",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Dianne Norris for District 29 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS31",
+   "name": "Kelly Spilman",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Kelly Spilman for District 31 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Rissa M Williams",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rissa Williams for District 31 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH31",
+   "name": "Tim Spilman",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Tim Spilman for District 31 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS33",
+   "name": "Signe Snortland",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Signe Snortland for District 33 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Kimball Banks",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Kimball Banks for District 33 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH33",
+   "name": "Stacie Kruckenberg",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Stacie Kruckenberg for District 33 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS35",
+   "name": "Dale Pittman",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Dale Pittman for District 35 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH35",
+   "name": "Taylor Johnson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Taylor Johnson for District 35 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH35",
+   "name": "Lynne M Lafer-Halvorson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Lynne Lafer-Halvorson for District 35 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH37",
+   "name": "Shelley Lenz",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Dr. Shelley Lenz for District 37 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH37",
+   "name": "Susan Josephson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Susan Josephson for District 37 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH39",
+   "name": "Sandy Baertsch",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Sandra Baertsch for District 39 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS41",
+   "name": "Nyamal Dei",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Nyamal Dei for District 41 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH41",
+   "name": "Chris Tiongson",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Dr. Chris Tiongson for District 41 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH41",
+   "name": "Stacy Heidenreich",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Stacy Heidenreich for District 41 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS43",
+   "name": "Mary K Adams",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Mary Adams for District 43 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH43",
+   "name": "Tyler York",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Tyler York for District 43 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH43",
+   "name": "Lukas Arthur Maughan",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Lukas Maughan for District 43 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS45",
+   "name": "Dan Mitchell",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Dan Mitchell for District 45 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH45",
+   "name": "Don Lippert",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Don Lippert for District 45 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH45",
+   "name": "Ross Lockhart",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Ross Lockhart for District 45 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SS47",
+   "name": "Bill Patrie",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Bill Patrie for District 47 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Rosann Jacobs-Fode",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Rosann Jacobs-Fode for District 47 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  },
+  {
+   "race_id": "2026-ND-SH47",
+   "name": "Cole Montoya",
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Cole Montoya for District 47 House",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed"
+  }
+ ],
+ "other_support_unmatched": "1",
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026legislativecandidates/",
+   "as_listed": "Nicole Derenne for District 42 Senate",
+   "kind": "listed among the party's legislative candidates; the party's statewide page links to this list as its 'Endorsed Legislative Candidates', but the line itself does not say endorsed",
+   "reason": "the page lists her for District 42 Senate; the Secretary of State's November list has no District 42 Senate contest and carries Nicole Derenne under State Representative, District 42 (unexpired 2-year term). The office does not fit, so not matched"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "North Dakota Republican Party",
+   "url": "https://ndgop.org/news/",
+   "why": "read; nothing taken: the party's own site carries no page on its 2026 convention's endorsements (its newest posts are from 2025; the word 'endorsed' appears only in 2024 and older items). News organizations report what the March 2026 convention did, but a news report is not the party's own page"
+  },
+  {
+   "party": "Republican",
+   "unit": "North Dakota Republican Party",
+   "url": "https://ndgop.org/elected-officials",
+   "why": "not collected: a list of officeholders; the page does not use the word endorsed (or supported, or recommended)"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 3 Republicans",
+   "url": "https://www.district3nd.com/",
+   "why": "not collected: 'Meet the Republican Candidates for District 3', a list of the party's own nominees on the November ballot that does not use the word endorsed; it adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 11 Republicans",
+   "url": "https://ndgop11.org",
+   "why": "read; names no candidate"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 16 Republicans",
+   "url": "https://ndgopd16.org/blog/",
+   "why": "read; its endorsement posts are from 2024; nothing for 2026, and District 16 has no contest on this November's lists"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 19 Republican Party",
+   "url": "https://ndgop19.com/candidates/",
+   "why": "not collected: 'Meet your Republican State Legislators', a bare listing; the unit's endorsement is taken from its own post instead"
+  },
+  {
+   "party": "Republican",
+   "unit": "District 30 Republicans",
+   "url": "https://d30gop.com/wp/",
+   "why": "the site refused this program's request for its robots.txt (HTTP 403); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Mandan Republicans (District 34)",
+   "url": "http://www.mandanrepublicans.us/candidates.html",
+   "why": "not collected: a bare listing of the district's three legislators, no word of endorsement; District 34 has no contest on this November's lists"
+  },
+  {
+   "party": "Republican",
+   "unit": "41 other district Republican organizations",
+   "url": "https://ndgop.org/state-committee",
+   "why": "the unit's only address in the state party's directory is a Facebook page; social media is not read. Only the link addresses on the state party's directory were used; the directory also prints officers' telephone numbers and e-mail, which were not kept"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Bismarck-Mandan Dem-NPL",
+   "url": "https://www.bismanleaders.com/candidates",
+   "why": "not collected: a bare list of the region's fifteen legislative candidates without the word endorsed; the unit's endorsements are taken from its own news posts. A second post about Bill Patrie ('Legend in ND economic development joins the Dem-NPL race') does not use the word"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Northern Valley Democratic-NPL",
+   "url": "https://northernvalleydemnpl.org/",
+   "why": "read (home page and 'Our Legislator'); no word of endorsement and no 2026 candidates"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 11 Democratic-NPL",
+   "url": "https://nd11dems.com/",
+   "why": "read; lists the district's sitting legislators only"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 13 Democratic-NPL",
+   "url": "https://district13.us/",
+   "why": "not collected: names 'our West Fargo District 13 Democratic-NPL candidates' (Gillund, Larson, Gadaire) without the word endorsed"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 24 Democratic-NPL",
+   "url": "https://d24democrats.com/",
+   "why": "read; no word of endorsement and no 2026 candidates"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 45 Dem-NPL",
+   "url": "https://nd45dems.com/",
+   "why": "read; no word of endorsement"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 46 Democratic-NPL",
+   "url": "https://nd46dems.com/",
+   "why": "read; no word of endorsement; District 46 has no contest on this November's lists"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 41 Democratic-NPL",
+   "url": "https://democrats41.com/",
+   "why": "the address answers a program with an empty page (114 bytes); left alone"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 35 Democratic-NPL (Heart of Bismarck)",
+   "url": "https://heartofbismarck.com/",
+   "why": "the address did not answer"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "District 44 Democratic-NPL",
+   "url": "https://nd44dems.com/",
+   "why": "the address did not answer"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "Cass County, Souris Valley and the other district Dem-NPL organizations",
+   "url": "https://demnpl.com/our-party/district-officers/",
+   "why": "the unit's only address in the state party's directory is a Facebook page; social media is not read"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of North Dakota",
+   "url": "https://lpnd.org/",
+   "why": "the address did not resolve; no Libertarian candidate is on the state or local November lists loaded (the labels there are Republican, Democratic-NPL, independent nomination and nonpartisan office)"
+  },
+  {
+   "party": "Democratic-NPL",
+   "unit": "North Dakota Democratic-NPL Party",
+   "url": "https://demnpl.com/2026statewidecandidates/",
+   "why": "left out on purpose: Trygve Hammer for US House on this page (federal offices are outside this file)"
+  }
+ ]
+}
