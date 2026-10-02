@@ -1,0 +1,37 @@
+{
+ "rule": "Montana's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Montana elects no governor in 2026: the office was filled in 2024 and is next on the ballot in 2028, as are the other statewide executive offices. The state races on this ballot that reach beyond one legislative district are one seat on the Supreme Court, voted on statewide, and two Public Service Commission districts, listed below.",
+ "races": {
+  "2026-MT-SC4": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Montana_Supreme_Court_election",
+    "checked": "2026-10-02",
+    "note": "Supreme Court Justice, seat 4 (a nonpartisan office, voted on statewide). No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and a news search found none. The one Transparency Initiative member polling Montana this year, the Eagleton Center for Public Interest Polling at Rutgers University (for Montana Free Press), has published nine releases from its May and September surveys, listed on the sponsor's Montana Insights page (read 2026-10-02); none asks this race, and the sponsor's own profile of the two candidates (September 23, 2026) cites only the June primary's result. So no pollster in the Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-MT-PSC1": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Montana_Public_Service_Commission_election",
+    "checked": "2026-10-02",
+    "note": "Public Service Commissioner, District 1. No poll of this race by anyone was found: Wikipedia's page for the Commission's elections has no polling section (read 2026-10-02), and a news search found none. The Rutgers-Eagleton surveys for Montana Free Press (nine releases, May and September 2026) did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-MT-PSC5": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Montana_Public_Service_Commission_election",
+    "checked": "2026-10-02",
+    "note": "Public Service Commissioner, District 5. No poll of this race by anyone was found: Wikipedia's page for the Commission's elections has no polling section (read 2026-10-02), and a news search found none. The Rutgers-Eagleton surveys for Montana Free Press (nine releases, May and September 2026) did not ask it. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  }
+ }
+}

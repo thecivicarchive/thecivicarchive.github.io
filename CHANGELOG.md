@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.092 — 2026-10-02 — Montana gets the same treatment
+
+- Montana's ballot page now has the real map, drawn on the Montana State Library's 2026 precinct splits (current lines; in Carbon and Powell counties, where the splits are incomplete, whole precincts fill the gaps and the page says so), with the districts each precinct sits in (county, city or town, ward, House, Senate, Congress, judicial district, Public Service Commission district, school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.
+- Montana elects no governor this year: its statewide races are one Supreme Court seat and two Public Service Commission districts. The page says so, and a reader outside those two districts is told the commission is not on their ballot this year. No one has polled or listed a market on any of them.
+- Montana's candidates for the Supreme Court, the Public Service Commission, the Legislature and the county offices loaded so far show what the record holds: 113 have a campaign website of their own, 48 an official government page, offices held (87), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": party endorsements on offices printed without a party (an endorsement made before the June 2 primary says so), earlier runs under a party label, and the candidate's own words. How each place voted in 2020 and 2024, from the Secretary of State's precinct results: every county and judicial district, and for 2024 every House, Senate and Public Service Commission district. Every figure equals the official canvass.
+- Only 9 of Montana's 56 counties have their local lists loaded; elsewhere the page says "not loaded yet". Polling places stay off the map; the page points to the state's own finder.
+
 ## v4.0.091 — 2026-10-02 — Nebraska gets the same treatment
 
 - Nebraska's ballot page now has the real map: 1,805 precinct pieces with the districts they sit in (county, city or township, ward, legislative district, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, down to your own seat on the boards Nebraska elects by district (the Public Service Commission, the Board of Regents, the State Board of Education, natural resources districts, educational service units, community colleges). The precinct lines are the Census Bureau's from 2020, and the map says so.

@@ -1,0 +1,353 @@
+{
+ "part": 5,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's shared web search budget ran out after ten searches for this part, so most of it was done by fetching official county pages and the Montana Free Press 2026 legislative guide (projects.montanafreepress.org/election-guide-2026/legislative-candidates-by-district/, a named news organization), which lists campaign websites; every website below was then opened and checked to name the candidate and the office or district. Some addresses were found by trying likely names (jeffersonforhd26.com, willisformontana.com). Left out on purpose: calebhinkle.com is Caleb Hinkle's 2024 House District 68 site, not his 2026 Senate District 34 race; michaelsaul.com is a production company and not tied to the House District 72 candidate; Carl Marquardt appears in the Sanders County staff directory as a Justice Court clerk, which is employment, not an office; Michelle Bianco's site says she served on a library board without naming the body or years; the Gallatin County history of elected officials page does not list Roger Blank, so he is not shown as holding the office (Eric Semerad holds it). flathead.mt.gov did not resolve, so Brad Abell's office comes from the Flathead Beacon. Party pages already in ballot/lean/mt_endorsements.json under other_support (slate cards, honor roll, the Cascade and Lewis and Clark Democrats' lists) are not endorsements and are not repeated here. Sitting legislators (state_member_id) were given websites, endorsements and own words only.",
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-county-treasurer",
+   "name": "Cathy Hucke",
+   "official_page": {
+    "url": "https://beaverheadcountymt.gov/treasurer/",
+    "source": "Beaverhead County: the Treasurer/Motor Vehicle Licensing page's contact directory names Cathy Hucke, County Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Treasurer, Beaverhead County",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated on the page",
+     "source": "Beaverhead County",
+     "url": "https://beaverheadcountymt.gov/treasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30009-sheriff",
+   "name": "Josh McQuillan",
+   "official_page": {
+    "url": "https://carbonmt.gov/sheriff/",
+    "source": "Carbon County: the Sheriff's page names Josh McQuillan, Carbon County Sheriff, term expires 12/31/2026; the office also serves as county coroner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Sheriff/Coroner, Carbon County",
+     "from": null,
+     "to": "present",
+     "note": "The page gives the term's end (12/31/2026) but no start year",
+     "source": "Carbon County",
+     "url": "https://carbonmt.gov/sheriff/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30027-county-attorney",
+   "name": "Shelby Soares"
+  },
+  {
+   "race_id": "2026-MT-30029-county-commissioner-d1",
+   "name": "Brad Abell",
+   "offices": [
+    {
+     "office": "County Commissioner, Flathead County (northern portion, including Columbia Falls and Whitefish)",
+     "from": 2021,
+     "to": null,
+     "note": "Elected in 2020; chosen chairperson of the commission in January 2023. Whether he holds the seat today was not confirmed on an official page (flathead.mt.gov did not resolve)",
+     "source": "Flathead Beacon, 'Abell Voted Chairperson of County Commission', January 4, 2023",
+     "url": "https://flatheadbeacon.com/2023/01/04/abell-voted-chairperson-of-county-commission/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Flathead County Republican Central Committee ('2026 Primary Candidates Officially Endorsed!': 'Flathead County Commissioner, District 1: Brad Abell – Advancing to General Election!')",
+     "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30031-county-clerk",
+   "name": "Roger Blank"
+  },
+  {
+   "race_id": "2026-MT-30057-county-clerk",
+   "name": "Paula McKenzie",
+   "official_page": {
+    "url": "https://madisoncountymt.gov/directory.aspx",
+    "source": "Madison County staff directory: Paula McKenzie, Clerk and Recorder and Election Administrator",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clerk and Recorder, Madison County",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated on the page",
+     "source": "Madison County",
+     "url": "https://madisoncountymt.gov/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30083-county-school-superintendent",
+   "name": "Timothy W. Tharp",
+   "official_page": {
+    "url": "https://www.richland.org/superintendent-of-schools.html",
+    "source": "Richland County: the Superintendent of Schools page names Timothy W. Tharp as Richland County Superintendent of Schools, a part-time elected position",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Superintendent of Schools, Richland County",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated on the page",
+     "source": "Richland County",
+     "url": "https://www.richland.org/superintendent-of-schools.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30089-justice-of-the-peace",
+   "name": "Carl E Marquardt"
+  },
+  {
+   "race_id": "2026-MT-DC21-2",
+   "name": "Jennifer Lint",
+   "official_page": {
+    "url": "https://ravallicounty.gov/271/District-Court",
+    "source": "Ravalli County: the District Court page says the Twenty-First Judicial District has two judges elected for six-year terms and 'Hon. Jennifer B. Lint presides over Department #2'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 21st Judicial District, Department 2",
+     "from": null,
+     "to": "present",
+     "note": "No start year is stated on the page",
+     "source": "Ravalli County",
+     "url": "https://ravallicounty.gov/271/District-Court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH1",
+   "name": "Michelle Bianco",
+   "website": {
+    "url": "https://bianco4mt2026.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site is 'Bianco For Montana', names Michelle Bianco and says 'Putting Lincoln County First' (House District 1 lies in Lincoln County)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "A Conservative Republican Putting Lincoln County First.",
+    "url": "https://bianco4mt2026.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH14",
+   "name": "Colleen Hinds",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, House District 14 (lost to Paul Fielder, 1,710 to 5,133)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2024 Legislative General Election Canvass (the canvass prints surnames only: 'HINDS', Democratic, HD 14, Sanders County); the full name is confirmed by the Montana Free Press 2024 election guide (House District 14: Paul C Fielder, Republican; Colleen Hinds, Democratic), and its 2026 guide lists the same two for HD 14",
+     "url": "https://sosmt.gov/docs/31/post-election/66773/2024-general-election-report-state-canvass-legislative",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH20",
+   "name": "Melissa Nikolakakos",
+   "website": {
+    "url": "https://www.melissaforus.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site, 'Melissa Nikolakakos for Legislature', says she is running for re-election to House District 20 in Great Falls",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "a Republican running for Re-election to House District 20",
+    "url": "https://www.melissaforus.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH26",
+   "name": "Paul Jefferson",
+   "website": {
+    "url": "https://jeffersonforhd26.com/",
+    "how": "Found by trying a likely address; the site is 'Paul Jefferson for Montana House District 26' and calls him the Democratic candidate for House District 26",
+    "verified": true
+   },
+   "born": {
+    "year": 1955,
+    "date": null,
+    "source": "his campaign site ('I was born ... in 1955')",
+    "url": "https://jeffersonforhd26.com/",
+    "kind": "campaign",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am Paul Jefferson, Democrat candidate for HD 26.",
+    "url": "https://jeffersonforhd26.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH32",
+   "name": "Mike Fox"
+  },
+  {
+   "race_id": "2026-MT-SH39",
+   "name": "Kerri Seekins-Crowe",
+   "website": {
+    "url": "https://kerriseekinscrowe.com/",
+    "how": "Listed by the Montana Free Press 2026 guide for House District 39; the site ('Kerri4MT') names Kerri, her 'three terms in the House' and 'I will continue to FIGHT for YOU!', but does not print the district number",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH44",
+   "name": "Mike Eaton"
+  },
+  {
+   "race_id": "2026-MT-SH5",
+   "name": "Luca Welle",
+   "website": {
+    "url": "https://lucaformontana.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site, 'Luca for Montana', says 'House District 5' and 'Candidate for Montana State Legislature'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Luca Welle, Democrat",
+    "url": "https://lucaformontana.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH55",
+   "name": "Richard Gessling",
+   "website": {
+    "url": "https://richard-gessling-4-montana.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the page's title is 'Richard Gessling for Montana HD55'. The page draws its text by script, so only the title could be read",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH61",
+   "name": "Eric Jacobs"
+  },
+  {
+   "race_id": "2026-MT-SH67",
+   "name": "Jedediah Hinkle",
+   "website": {
+    "url": "https://jedediahhinkle.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site's heading is 'Candidate for House District 67' and it names Jedediah",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Gallatin County Republican Central Committee (official endorsements for the June 2, 2026 primary: 'House District 67 - Jed Hinkle')",
+     "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH72",
+   "name": "Michael Saul"
+  },
+  {
+   "race_id": "2026-MT-SH78",
+   "name": "Randyn Gregg",
+   "website": {
+    "url": "https://randynformontana.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site, 'Randyn for Montana', names Randyn Gregg and HD 78 but is still marked 2024 (a 2024 logo and copyright), so it may not have been updated for this race",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH83",
+   "name": "Joe Cohenour"
+  },
+  {
+   "race_id": "2026-MT-SH89",
+   "name": "Mark A Thane",
+   "website": {
+    "url": "https://thaneformontana.com/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site's title is 'Mark Thane for HD 89' (some older text on it still says House District 99)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH96",
+   "name": "Bob Carter",
+   "website": {
+    "url": "https://cartermt.us/",
+    "how": "Listed by the Montana Free Press 2026 guide; the site is 'Re-Elect Bob Carter for Montana HD96' and names the November 3rd, 2026 general election",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Montana Democrats – Working together to make our state stronger",
+    "note": "Listed among the organizations named on his About page",
+    "url": "https://cartermt.us/?page_id=26",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS11",
+   "name": "Valynda Holland"
+  },
+  {
+   "race_id": "2026-MT-SS23",
+   "name": "Emma Kerr-Carpenter",
+   "website": {
+    "url": "https://emmaformontana.org/",
+    "how": "Listed by the Montana Free Press 2026 guide for Senate District 23; the site, 'Emma for Montana', names Emma Kerr-Carpenter as a Billings legislator and its notice names SD23, but the page text does not state the office",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS34",
+   "name": "Caleb Hinkle",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Gallatin County Republican Central Committee (official endorsements for the June 2, 2026 primary: 'Senate District 34 - Caleb Hinkle')",
+     "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SS49",
+   "name": "Willis Curdy",
+   "website": {
+    "url": "https://www.willisformontana.com/",
+    "how": "Found by trying a likely address; the site is 'Willis Curdy for Montana SD49', addresses the voters of Senate District 49 and carries a 2026 copyright, but its text still asks for votes on 'November 8th' (the 2022 election day)",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every url re-opened on 2026-10-02 (sites the web fetcher could not look up were read with the kit's own fetcher). Corrections: Ravalli County's page moved to ravallicounty.gov; the Flathead endorsement line now reads 'Advancing to General Election'; Bob Carter's quoted line is among organizations on his About page, not under a 'Supporters and Endorsements' heading; Bianco's home page names Lincoln County rather than the district number; Willis Curdy's site carries a 2026 copyright. Nothing removed."
+}

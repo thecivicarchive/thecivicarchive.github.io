@@ -1,0 +1,1980 @@
+{
+ "state": "MT",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Montana has three parties on the 2026 ballot (Republican, Democratic, Libertarian); 'Independent' and 'Non Partisan' are not parties. Under 'endorsements' is only what a page itself calls an endorsement: the Montana Libertarian Party's two state candidates; the Flathead County Republican Central Committee's 'official endorsements' for the June 2 primary (the page was updated on June 9 to mark who advanced); the Missoula County Republican Central Committee's endorsements (two primary pages and its page of November nominees, which says the committee 'endorsed this slate'), which include Dan Wilson for the Supreme Court, an office the ballot prints without a party; and the Gallatin County Republican Central Committee's four primary endorsements. 'stage': 'primary' marks a line from a page about the June 2 primary; 'election' appears only when the candidate is on a primary list and not on the November list. The same endorsement often stands on several pages of one unit: count a candidate once per party. Under 'other_support', with the page's own word in 'kind' and never to be shown as an endorsement: the Montana Republican Party's 'Honor Roll' of 42 legislative candidates in contested primaries (a resolution 'supporting their candidacy in the 2026 Primary Election'; SHA-256 of the PDF 09588090fce018c989764e7740485c1a178123782e91eaa303ab448bc554e7ab); Flathead's 'officially recommended' and 'recommended by the body of the ... Central Committee' for Dan Wilson, and the rest of its November voter guide (a card shown as a picture, read by eye, SHA-256 c3c7204b59a22a8d1d737a4984a3480f79a6b078d49e0b15635664810c091604, the same bytes on both openings); Gallatin's November slate card, which besides the party's own nominees names Dan Wilson and says 'Vote to Retain' of one district judge and two justices of the peace; Lake County's printed voting guide (SHA-256 b962e1b7e90b2f868bab2d0449646275f7884154980fe382693e00745fc14bec), which also names Dan Wilson; the Cascade County Democratic Central Committee's 'official' candidate list, which says 'Any name not on this list is not endorsed by the CCDCC' without saying that those on it are; and the Lewis & Clark County Democratic Central Committee's 'Our Candidates', whose last two lines are candidates for nonpartisan county offices 'supported by us as well'. A line on a partisan office in such a list adds nothing to the party label on the ballot and is kept only so that each list is whole. Lines matched although the page spells the name differently from the ballot keep the page's spelling in 'as_listed' (Zach for Zack Wirth, Anthony for Tony Rosales, Nick for Nicholas Lancette, Charles for Charlie Loveridge, Jed for Jedediah Hinkle, Headly for Headley, Dan for Daniel Hill, May Ann for Mary Ann Dunwell, Mcelyea for McElyea, Bogden Richards for Bogden-Richards). 'JC Windmueller, Montana House' gives no district; he is the only candidate of that name for the House. Missoula's 'Public Service Commission, David Sanders' gives no district; he was on one primary list (District 5) and is not on the November list. Unmatched lines are for counties whose county contests, or whose June primary for county offices, are not loaded, for a legislative seat that is not loaded, or for a seat where the loaded list has no such name; each says which. Federal offices on these pages are outside this file, as are positions on ballot measures and Missoula's 'Do Not Retain' recommendation, which names no judge. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first (none of the party sites forbade it, so nothing is held); every page in 'lists' was opened a second time and a record is kept only if the page still showed it (none was lost). Facebook pages, which are all most county units have, are social media and were not read. One thing for a person to look at: the Montana Republican Party's resolution of August 14, 2026 says the party's nominees in Senate District 9 and House District 24 are barred by term limits and are to be replaced, and a later release speaks of a court's preliminary injunction; the lists loaded here still show the primary winners in those two districts.",
+ "lists": [
+  {
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "title": "2026 MTLP Endorsed Candidates",
+   "url": "https://www.mtlp.org/2026-candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "title": "Montana Libertarian Party Endorses Tom Jandron for U.S. Senate; Convention Highlights Structural Concerns with Open Primary System (Additional 2026 Endorsements)",
+   "url": "https://www.mtlp.org/blog/2026/4/21/montana-libertarian-party-endorses-tom-jandron-for-us-senate-convention-highlights-structural-concerns-with-open-primary-system",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "title": "2026 Primary Candidates Officially Endorsed! (March 14, 2026; updated June 9, 2026)",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "title": "Vote REPUBLICAN! Nov. 3rd, 2026 (the 2026 Voter Guide, a card shown as a picture)",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "title": "2026 Legislative Candidates",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "title": "Missoula Republicans 2026 Primary Election Endorsements",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "title": "Missoula County Republicans Issue First Round of 2026 Candidate Endorsements (March 30, 2026)",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "title": "Gallatin County Republicans Endorse Constitutional Conservatives for the June 2 Primary (April 10, 2026)",
+   "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "title": "2026 Slate Card: November 2026 Elections",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "title": "Your Vote Counts!! General Election Voting Guide, Tuesday, November 3, 2026",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "title": "Resolution of the Montana Republican Party (MTGOP) Honoring Candidates Supporting Republicans (the Honor Roll; press release of April 15, 2026)",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "title": "Official Cascade County and Great Falls Democratic Candidates for 2026",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "title": "2026 Candidates: Our Candidates",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-MT-SS41",
+   "name": "Dru Koester",
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "url": "https://www.mtlp.org/2026-candidates",
+   "as_listed": "DRU KOESTER - Senate District 41: The Montana Libertarian Party is delighted to endorse @DruKoester for Senate District 41!"
+  },
+  {
+   "race_id": "2026-MT-SS41",
+   "name": "Dru Koester",
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "url": "https://www.mtlp.org/blog/2026/4/21/montana-libertarian-party-endorses-tom-jandron-for-us-senate-convention-highlights-structural-concerns-with-open-primary-system",
+   "as_listed": "Additional 2026 Endorsements: Dru Koester, Montana Senate"
+  },
+  {
+   "race_id": "2026-MT-SH100",
+   "name": "Jc Windmueller",
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "url": "https://www.mtlp.org/blog/2026/4/21/montana-libertarian-party-endorses-tom-jandron-for-us-senate-convention-highlights-structural-concerns-with-open-primary-system",
+   "as_listed": "Additional 2026 Endorsements: JC Windmueller, Montana House"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "Annie Bukacek",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "Public Service Commission, District 5: Dr. Annie Bukacek – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-30029-county-commissioner-d1",
+   "name": "Brad Abell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "Flathead County Commissioner, District 1: Brad Abell – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS1",
+   "name": "Steve Gunderson",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT Senate District 1: Steve Gunderson – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS4",
+   "name": "Amy Regier",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT Senate District 4: Amy Regier – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS6",
+   "name": "Mark Noland",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT Senate District 6: Mark Noland – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH2",
+   "name": "Tom Millett",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 2: Tom Millett – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH3",
+   "name": "Cathy Mitchell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 3: Cathy Mitchell",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH4",
+   "name": "Shaun Pandina",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 4: Shaun Pandina – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH5",
+   "name": "Braxton Mitchell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 5: Braxton Mitchell – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH6",
+   "name": "Jim Riley",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 6: Jim Riley – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH7",
+   "name": "Luke Maxwell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 7: Luke Maxwell",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH8",
+   "name": "Lukas Schubert",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 8: Lukas Schubert – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH9",
+   "name": "Steven C Kelly",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 9: Steve Kelly – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH10",
+   "name": "Terry Falk",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 10: Terry Falk – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH11",
+   "name": "Ed Byrne",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 11: Ed Byrne – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH12",
+   "name": "Tracy A Sharp",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "MT House District 12: Tracy Sharp – Advancing to General Election!",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS49",
+   "name": "Brad Tschida",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: Senate District 49, Brad Tschida"
+  },
+  {
+   "race_id": "2026-MT-SS49",
+   "name": "Brad Tschida",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "Senate District 49: Brad Tschida",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS49",
+   "name": "Brad Tschida",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Brad Tschida, Senate District 49",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH76",
+   "name": "Trish Schreiber",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 76, Trish Schreiber"
+  },
+  {
+   "race_id": "2026-MT-SH76",
+   "name": "Trish Schreiber",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 76: Trish Schreiber",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH76",
+   "name": "Trish Schreiber",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Trish Schreiber, House District 76",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH89",
+   "name": "Lyn Hellegaard",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 89, Lyn Hellegaard"
+  },
+  {
+   "race_id": "2026-MT-SH89",
+   "name": "Lyn Hellegaard",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 89: Lyn Hellegaard",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH89",
+   "name": "Lyn Hellegaard",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Lyn Hellegaard, House District 89",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH90",
+   "name": "Jeff Stanek",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 90, Jeff Stanek"
+  },
+  {
+   "race_id": "2026-MT-SH90",
+   "name": "Jeff Stanek",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 90: Jeff Stanek",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH90",
+   "name": "Jeff Stanek",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Jeff Stanek, House District 90",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH91",
+   "name": "Charles Headley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 91, Charles Headley"
+  },
+  {
+   "race_id": "2026-MT-SH91",
+   "name": "Charles Headley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 91: Charles Headly",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH91",
+   "name": "Charles Headley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Charles Headly, House District 91",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH93",
+   "name": "Roy Handley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 93, Roy Handley"
+  },
+  {
+   "race_id": "2026-MT-SH93",
+   "name": "Roy Handley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 93: Roy Handley",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH93",
+   "name": "Roy Handley",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Roy Handley, House District 93",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH94",
+   "name": "Greg Woodward",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 94, Greg Woodward"
+  },
+  {
+   "race_id": "2026-MT-SH94",
+   "name": "Greg Woodward",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 94: Greg Woodward",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH94",
+   "name": "Greg Woodward",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Greg Woodward, House District 94",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH97",
+   "name": "Michael P Hagestad",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 97, Michael HagEstad"
+  },
+  {
+   "race_id": "2026-MT-SH97",
+   "name": "Michael P Hagestad",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 97: Michael HagEstad",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH97",
+   "name": "Michael P Hagestad",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Michael HagEstad, House District 97",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH98",
+   "name": "Bryan Muzzana",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 98, Bryan Muzzana"
+  },
+  {
+   "race_id": "2026-MT-SH98",
+   "name": "Bryan Muzzana",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 98: Bryan Muzzana",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH98",
+   "name": "Bryan Muzzana",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Bryan Muzzana, House District 98",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH99",
+   "name": "Ryan Darling",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/2026-legislative-candidates/",
+   "as_listed": "The Missoula County Republican Central Committee endorsed this slate: House District 99, Ryan Darling"
+  },
+  {
+   "race_id": "2026-MT-SH99",
+   "name": "Ryan Darling",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "House District 99: Ryan Darling",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH99",
+   "name": "Ryan Darling",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Legislative Candidates, Endorsed Unopposed in Primary: Ryan Darling, House District 99",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "David Sanders",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "Statewide Offices: Public Service Commission, David Sanders",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "David Sanders",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Statewide Races: David Sanders, Public Service Commission",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+   "as_listed": "Statewide Offices: Montana Supreme Court, Dan Wilson",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+   "as_listed": "Statewide Races: Dan Wilson, Montana Supreme Court",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS34",
+   "name": "Caleb Hinkle",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+   "as_listed": "Senate District 34 – Caleb Hinkle",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH67",
+   "name": "Jedediah Hinkle",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+   "as_listed": "House District 67 – Jed Hinkle",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH68",
+   "name": "Randy Chamberlin",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+   "as_listed": "House District 68 – Randy Chamberlin",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH69",
+   "name": "Trevor Walter",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/gallatin-county-republicans-2026-primary-endorsements",
+   "as_listed": "House District 69 – Trevor Walter",
+   "stage": "primary"
+  }
+ ],
+ "unmatched": 2,
+ "unmatched_listed": [
+  {
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "Flathead County Sheriff: Evie Cahalen",
+   "stage": "primary",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  },
+  {
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "Flathead County Clerk & Recorder: Cheryl Hohman",
+   "stage": "primary",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  }
+ ],
+ "other_support": [
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+   "as_listed": "Non-partisan Candidates Officially Recommended: Dan Wilson for MT Supreme Court Justice – Advancing to General Election!",
+   "kind": "officially recommended",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS1",
+   "name": "Steve Gunderson",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Sen. District #1: Steve Gunderson",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SS4",
+   "name": "Amy Regier",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Sen. District #4: Amy Regier",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SS6",
+   "name": "Mark Noland",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Sen. District #6: Mark Noland",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH2",
+   "name": "Tom Millett",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #2: Tom Millett",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH3",
+   "name": "Derek Peachey",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #3: Derek Peachey",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH4",
+   "name": "Shaun Pandina",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #4: Shaun Pandina",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH5",
+   "name": "Braxton Mitchell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #5: Braxton Mitchell",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH6",
+   "name": "Jim Riley",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #6: Jim Riley",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH7",
+   "name": "Courtenay Sprunger",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #7: Courtenay Sprunger",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH8",
+   "name": "Lukas Schubert",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #8: Lukas Schubert",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH9",
+   "name": "Steven C Kelly",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #9: Steve Kelly",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH10",
+   "name": "Terry Falk",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #10: Terry Falk",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH11",
+   "name": "Ed Byrne",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #11: Ed Byrne",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SH12",
+   "name": "Tracy A Sharp",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. House District #12: Tracy Sharp",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-30029-county-commissioner-d1",
+   "name": "Brad Abell",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Flathead County Commissioner, District 1: Brad Abell",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-30029-sheriff",
+   "name": "Brian Heino",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Flathead County Sheriff: Brian Heino",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-30029-county-clerk",
+   "name": "Sheena Sterling",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Flathead County Clerk & Recorder: Sheena Sterling",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "Annie Bukacek",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Vote REPUBLICAN! Nov. 3rd, 2026. Public Service Commission, District 5: Dr. Annie Bukacek",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Flathead County Republican Central Committee",
+   "url": "https://flatheadrepublicans.com/wp-content/uploads/2026/08/FCRCC-Voter-Guide-2026_General-3.pdf",
+   "as_listed": "Recommended by the body of the Flathead County Republican Central Committee: MT Supreme Court Justice (Nonpartisan): Dan Wilson",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "Judges: Supreme Court, Dan Wilson",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-DC18-2",
+   "name": "Rienne H McElyea",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "Judges: District Court Judge, Rienne H Mcelyea, District 18, Dept 2, Vote to Retain",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-justice-of-the-peace-dept1",
+   "name": "Rick West",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "Judges: Justice of the Peace, Rick West, Dept 1, Vote to Retain",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-justice-of-the-peace-dept2",
+   "name": "Bryan Adams",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "Judges: Justice of the Peace, Bryan Adams, Dept 2, Vote to Retain",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SS29",
+   "name": "Jason Gunderson",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State Senate: District 29, Jason Gunderson",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SS31",
+   "name": "Richard Aungier",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State Senate: District 31, Richard Aungier",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SS32",
+   "name": "Neal Ganser",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State Senate: District 32, Neal Ganser",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SS34",
+   "name": "Caleb Hinkle",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State Senate: District 34, Caleb Hinkle",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH57",
+   "name": "Bob Crank",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 57, Robert [Bob] Crank",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH59",
+   "name": "Marc Greendorfer",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 59, Marc Greendorfer",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH60",
+   "name": "Greg Leman",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 60, Greg Leman",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH61",
+   "name": "Eric Jacobs",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 61, Eric Jacobs",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH62",
+   "name": "Esther Fishbaugh",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 62, Esther Fishbaugh",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH63",
+   "name": "Lawrence R Moore",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 63, Lawrence Ross Moore",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH64",
+   "name": "Daniel Ricardo Martinez",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 64, Daniel Martinez",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH65",
+   "name": "Joe Flynn",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 65, Joe Flynn",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH66",
+   "name": "Owen Lang",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 66, Owen Lang",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH67",
+   "name": "Jedediah Hinkle",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 67, Jedediah Hinkle",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH68",
+   "name": "Randy Chamberlin",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 68, Randy Chamberlin",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH69",
+   "name": "Trevor Walter",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 69, Trevor Walter",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-SH77",
+   "name": "Jane Gillette",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "State House of Representatives: District 77, Jane Gillette",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-county-commissioner-d1",
+   "name": "Daniel Hill",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Commissioner District 1, Dan Hill",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-county-commissioner-d3-S",
+   "name": "Colter Metcalf",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Commissioner District 3, Colter Metcalf",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-county-clerk",
+   "name": "Roger Blank",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Clerk and Recorder, Roger Blank",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-county-treasurer",
+   "name": "Maureen Horton",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Treasurer, Maureen Horton",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-sheriff",
+   "name": "Dan Springer",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Sheriff, Dan Springer",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-30031-county-attorney",
+   "name": "Jordan P. Salo",
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/slate-card",
+   "as_listed": "County Candidates: County Attorney, Jordan Salo",
+   "kind": "slate card"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "Annie Bukacek",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Public Service Comm. 5 ANNIE BUKACEK",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Supreme Court Justice 4 DAN WILSON",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SS6",
+   "name": "Mark Noland",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: MT Senator District 6 MARK NOLAND",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SH12",
+   "name": "Tracy A Sharp",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: MT House Rep. District 12 TRACY SHARP",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SH13",
+   "name": "Finley Warden",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: MT House Rep. District 13 FINLEY WARDEN",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SH15",
+   "name": "Ralph Foster",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: MT House Rep. District 15 RALPH FOSTER",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SH91",
+   "name": "Charles Headley",
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: MT House Rep. District 91 CHARLES HEADLEY",
+   "kind": "voting guide"
+  },
+  {
+   "race_id": "2026-MT-SS1",
+   "name": "Steve Gunderson",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD01 Steve Gunderson",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS9",
+   "name": "Zack Wirth",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD09 Zach Wirth",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SS11",
+   "name": "Steven Galloway",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD11 Steven Galloway",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS14",
+   "name": "Mark L Wicks",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD14 Mark Wicks",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SS18",
+   "name": "Greg Kmetz",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD18 Greg Kmetz",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS19",
+   "name": "Barry Usher",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD19 Barry Usher",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SS34",
+   "name": "Caleb Hinkle",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD34 Caleb Hinkle",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS42",
+   "name": "Stephen Lapraim",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD42 Stephen LaPraim",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS42",
+   "name": "Nicholas Lancette",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD42 Nick Lancette",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SS43",
+   "name": "Kathy Love",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: SD43 Kathy Love",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH3",
+   "name": "Cathy Mitchell",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD03 Cathy Mitchell",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH4",
+   "name": "Shaun Pandina",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD04 Shaun Pandina",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH6",
+   "name": "Jim Riley",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD06 Jim Riley",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH7",
+   "name": "Luke Maxwell",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD07 Luke Maxwell",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH13",
+   "name": "Finley Warden",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD13 Finley Warden",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH17",
+   "name": "Justin W Cleveland",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD17 Justin Cleveland",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH19",
+   "name": "Hannah Trebas",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD19 Hannah Trebas",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH20",
+   "name": "Tony Rosales",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD20 Anthony Rosales",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH21",
+   "name": "Trevor P Funseth",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD21 Trevor Funseth",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH22",
+   "name": "Kevin Leatherbarrow",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD22 Kevin Leatherbarrow",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH23",
+   "name": "Brett Mills",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD23 Brett Mills",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH28",
+   "name": "John South",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD28 John South",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH29",
+   "name": "Linda Harmon",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD29 Linda Harmon",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH33",
+   "name": "Ric Holden",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD33 Ric Holden",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH34",
+   "name": "Jerry Schillinger",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD34 Jerry Schillinger",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH36",
+   "name": "Loren Hinebauch",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD36 Loren Hinebauch",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH40",
+   "name": "Mike Vinton",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD40 Mike Vinton",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH47",
+   "name": "John Maxwell",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD47 John Maxwell",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH49",
+   "name": "Charlie Loveridge",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD49 Charles Loveridge",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH51",
+   "name": "Lana Marie Tibbetts",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD51 Lana Tibbetts",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH52",
+   "name": "Ed Walker",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD52 Ed Walker",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH53",
+   "name": "Nelly Nicol",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD53 Nelly Nicol",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH55",
+   "name": "Mary Horman",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD55 Mary Horman",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH67",
+   "name": "Jedediah Hinkle",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD67 Jedediah Hinkle",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH68",
+   "name": "Randy Chamberlin",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD68 Randy Chamberlin",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH69",
+   "name": "Trevor Walter",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD69 Trevor Walter",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH76",
+   "name": "Trish Schreiber",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD76 Trish Schreiber",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH77",
+   "name": "Jane Gillette",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD77 Jane Gillette",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH84",
+   "name": "James Marshal",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD84 James Marshal",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH85",
+   "name": "Kim Dailey",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD85 Kim Dailey",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SH86",
+   "name": "Kenneth E Allen",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD86 Kenneth Allen",
+   "kind": "honor roll",
+   "stage": "primary",
+   "election": "primary-REP"
+  },
+  {
+   "race_id": "2026-MT-SH90",
+   "name": "Jeff Stanek",
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/wp-content/uploads/sites/41/2026/07/Honor-Roll-Resolution-FINAL.pdf",
+   "as_listed": "Honor Roll Candidates: HD90 Jeff Stanek",
+   "kind": "honor roll",
+   "stage": "primary"
+  },
+  {
+   "race_id": "2026-MT-SS10",
+   "name": "Margaret Mitchell",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): SD 10 Margaret Mitchell",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SS11",
+   "name": "Valynda Holland",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): SD 11 Valynda Holland",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SS12",
+   "name": "Mindy Leach",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): SD 12 Mindy Leach",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH19",
+   "name": "Jane Weber",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 19 Jane Weber",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH20",
+   "name": "Steve Keller",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 20 Steve Keller",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH21",
+   "name": "Lela Graham",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 21 Lela Graham",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH22",
+   "name": "Neal Miller",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 22 Neal Miller",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH23",
+   "name": "Rebecca Bogden-Richards",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 23 Rebecca Bogden Richards",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH24",
+   "name": "Pam Carroll",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 24 Pam Carroll",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH25",
+   "name": "Jerry Ferderer",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 25 Jerry Ferderer",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH26",
+   "name": "Paul Jefferson",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 26 Paul Jefferson",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH78",
+   "name": "Mark White",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): HD 78 Mark White",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-30013-county-commissioner-d2",
+   "name": "Barbara Bessette",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): Democratic candidates for Cascade county offices: County Commissioner Barbara Bessette",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-30013-public-administrator",
+   "name": "Gerald W. Boland",
+   "party": "Democratic",
+   "unit": "Cascade County Democratic Central Committee",
+   "url": "https://cascadecountydemocrats.org/elections-2026/",
+   "as_listed": "Official Cascade County and Great Falls Democratic Candidates for 2026 (Any name not on this list is not endorsed by the CCDCC): Democratic candidates for Cascade county offices: Public Administrator Gerald Boland",
+   "kind": "official candidate list"
+  },
+  {
+   "race_id": "2026-MT-SH17",
+   "name": "Chris Bechtold",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Chris Bechtold, House District 17",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH79",
+   "name": "Luke Muszkiewicz",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Luke Muszkiewicz, House District 79",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH80",
+   "name": "Megan Lane",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Megan Lane, House District 80",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH81",
+   "name": "Janet Ellis",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Janet Ellis, House District 81",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH82",
+   "name": "Pete Elverum",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Pete Elverum, House District 82",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH83",
+   "name": "Joe Cohenour",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Joe Cohenour, House District 83",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SH84",
+   "name": "Tia Nelson",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Tia Nelson, House District 84",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SS9",
+   "name": "Noy Holland",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Noy Holland, Senate District 9",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SS41",
+   "name": "Erin Farris-Olsen",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Erin Farris-Olsen, Senate District 41",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-SS42",
+   "name": "Mary Ann Dunwell",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: May Ann Dunwell, Senate District 42",
+   "kind": "our candidates"
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "Kevin Hamm",
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "Our Candidates: Kevin Hamm, Public Service Commission, District 5",
+   "kind": "our candidates"
+  }
+ ],
+ "other_support_unmatched": 8,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Commissioner 1 BILL BARRON",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Clerk & Rec. KENDRA STEELE",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Sheriff/Coroner DON BELL",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Attorney JAMES LAPOTKA",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Supt. Of Schools CAROLYN HALL",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/wp-content/uploads/2026/09/Your-Vote-Counts-Full-Page-Election-Guide-2026.pdf",
+   "as_listed": "General Election Voting Guide: Lake Co. Treasurer REBECCA MASO",
+   "kind": "voting guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "The following candidates for non-partisan races are supported by us as well: Jakob Miles, Lewis & Clark County Commission",
+   "kind": "supported",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/2026-candidates",
+   "as_listed": "The following candidates for non-partisan races are supported by us as well: Tim Mielke, Justice of the Peace",
+   "kind": "supported",
+   "reason": "no race in the database fits this office and place"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/press-releases/",
+   "why": "read (home, press releases back to 2024, the party rules and resolutions page, the Honor Roll release and resolution, the August 14 resolution on replacement candidates, the convention's concurring resolution, the voting page); apart from the Honor Roll no page endorses a candidate for a 2026 state or local race. News reports say the party gave money to Dan Wilson's Supreme Court campaign; the party's own pages read here do not say it endorses him, so nothing is recorded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://vote.mtgop.org/",
+   "why": "read; a voter-registration page with no candidate names; its personalized voting options sit behind a form asking for a name and address, and no form is ever filled in"
+  },
+  {
+   "party": "Republican",
+   "unit": "Montana Republican Party",
+   "url": "https://mtgop.org/local-gop/",
+   "why": "read for the county units' websites only (eight: Cascade, Flathead, Gallatin, Jefferson, Lake, Missoula, Ravalli, Yellowstone); every other county is listed with a person's e-mail address alone, which was not kept"
+  },
+  {
+   "party": "Republican",
+   "unit": "Cascade County Republican Central Committee",
+   "url": "https://www.cascadecountygop.com/",
+   "why": "read (home, elected officials); no word of endorsement and no 2026 candidate list"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republican Central Committee",
+   "url": "https://jeffersonrepublicans.org/",
+   "why": "read (home and four linked pages, from 2024); nothing about 2026"
+  },
+  {
+   "party": "Republican",
+   "unit": "Ravalli County Republican Central Committee",
+   "url": "http://ravallicountyrepublicans.com/",
+   "why": "not read: the address did not resolve on two tries"
+  },
+  {
+   "party": "Republican",
+   "unit": "Yellowstone County Republican Central Committee",
+   "url": "https://yellowstonegop.org/",
+   "why": "read (home, bylaws); no candidate list and no word of endorsement"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lake County Republican Central Committee",
+   "url": "https://lakecountymtrepublicans.com/elections/how-then-shall-we-vote/",
+   "why": "read; nothing taken: a signed column of September 14, 2026 comparing the two Supreme Court candidates. It is one author's article, not a vote of the committee, and does not say the committee endorses"
+  },
+  {
+   "party": "Republican",
+   "unit": "Gallatin County Republican Central Committee",
+   "url": "https://gallatinrepublicans.com/blog",
+   "why": "read (post titles and summaries); besides the April 10 primary endorsements there are signed articles on the county attorney and Supreme Court races, which report other bodies' endorsements and are not the committee's own"
+  },
+  {
+   "party": "Republican",
+   "unit": "Missoula County Republican Central Committee",
+   "url": "https://missoulagop.org/news/",
+   "why": "read (two pages of news); the endorsement pages are in 'lists'. The page of November nominees also says one candidate 'is endorsed by the Montana Republican Party'; that is a county page speaking for the state party and is not recorded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Montana Democratic Party",
+   "url": "https://www.montanademocrats.org/candidates",
+   "why": "not collected: 'Meet the Candidates', a bare list of the party's own nominees for the Public Service Commission and the Legislature; the page does not use the word endorsed (or supported, or recommended), so it adds nothing to the party label on the ballot. It names no candidate for a nonpartisan office"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Montana Democratic Party",
+   "url": "https://www.montanademocrats.org/news",
+   "why": "read (the newest page of releases, the Blue Bench Project page, the county parties page); the word endorse does not appear, and no page names a candidate for the Supreme Court or any other nonpartisan office"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Gallatin County Democrats",
+   "url": "https://gallatindemocrats.com/2026-candidates/",
+   "why": "not collected: '2026 Candidates & Elected Officials', a bare list of Democratic candidates and sitting officials for partisan offices, without the word endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Missoula County Democrats",
+   "url": "https://www.missoulademocrats.org/candidates",
+   "why": "not collected: 'Meet the Democrats Running for You', a bare list of the party's legislative and county candidates, without the word endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Butte-Silver Bow Democrats",
+   "url": "https://buttesilverbowdemocrats.com/candidates",
+   "why": "not collected: 'Democratic Candidates for 2026 Elections', a bare list of the party's federal and legislative candidates, without the word endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Ravalli County Democrats",
+   "url": "https://ravdems.com/mt-state-candidates-2026/",
+   "why": "read; a page of the party's legislative candidates that promises 'equal treatment and visibility to all declared Democratic candidates' and endorses none"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Granite County Democrats",
+   "url": "https://granitecountydemocrats.org/endorsements",
+   "why": "read; its endorsements are for federal offices and ballot measures only (outside this file)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lewis & Clark County Democratic Central Committee",
+   "url": "https://www.lccdemocrats.com/",
+   "why": "read; the home page's endorsement is for a federal office (outside this file); the candidates page is in 'lists'"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Flathead Democrats",
+   "url": "https://www.flatheaddemocrats.com/candidates",
+   "why": "read; the candidates page shows headings only and names no one in the text a program can read"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lake County Democrats",
+   "url": "https://lakecountydemsmt.org/lake-county-candidates",
+   "why": "read (home, both candidate pages, news); two legislative candidates named, no word of endorsement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Carbon, Dawson, Lincoln, Park, Sanders, Stillwater and Yellowstone County Democrats",
+   "url": "https://www.montanademocrats.org/county-parties",
+   "why": "each unit's own website, linked from this page, was read (home plus candidate, election and news pages, ten at most); none uses the word endorsed or names a 2026 candidate for a nonpartisan office. The other county parties are listed without a website"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Montana Libertarian Party",
+   "url": "https://www.mtlp.org/regions-counties",
+   "why": "read; two county units have websites (Flathead County Libertarian Party, Libertarian Party of Gallatin Valley), and neither names a 2026 candidate. The state party's other endorsements are for federal offices (outside this file); two Libertarians on the November list for the House (Districts 27 and 75) are not on its endorsement pages"
+  }
+ ]
+}

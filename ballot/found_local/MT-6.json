@@ -1,0 +1,385 @@
+{
+ "part": 6,
+ "of": 12,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verification_note": "Every url re-opened. The Secretary of State's 2022 general, 2024 general and 2024 primary precinct workbooks were downloaded and summed by race: Racki (Cascade County Attorney, DEM, 18,551, sole candidate) and Metz (Richland Treasurer/Assessor, REP, 3,386, sole candidate) confirmed; Nikolakakos won HD 26 in 2022 (REP, 1,206 to 890) and HD 22 in 2024 (REP, 2,017 to 1,225); Smith lost HD 39 in 2024 (DEM, 1,624 to 3,151); Anderson lost HD 67 in 2024 (DEM, 2,170 to 3,757); Roland lost the 2024 HD 62 Democratic primary (448, third of the field on that ballot); Dugan placed first of six for Whitefish Local Government Study Commissioner in 2024; Chiko Olson's Lewis and Clark Precinct 3 lies in House District 79 (the same workbook's HD 79 rows), giving the second anchor. Corrections: Nikolakakos's HD 26 office now rests on the official 2022 results instead of an uncited and self-contradicting Wikipedia infobox, with years matching the Legislature's record (HD 22 term from November 5, 2024); Vannatta's appointment wording follows the county page; McLaughlin's website note follows what the site shows (its /about page answers 404).",
+ "note": "The session's shared web search allowance ran out after five searches in this part, so most findings come from pages opened directly: the Montana Free Press 2026 legislative guide (to find campaign sites, each then opened and checked), the Secretary of State's official precinct-by-precinct results workbooks for the 2022 and 2024 primary and general elections (searched for every name in this part; party labels as printed), the Legislature's own legislator record (bearbeta.legmt.gov, the service behind legislators.legmt.gov), and county websites. Not found or not recorded: campaign sites for candidates the guide lists without one (none were guessed); Jeffrey Lundberg is listed on Sanders County's Justice Court page as a clerk and restitution officer, a staff job, not an office, so nothing is recorded; Rio Roland's 2024 run for the Bozeman study commission is nonpartisan and the city's page does not list him as a member, so it is left out; George Nikolakakos's Wikipedia birth date carries no citation, so it is left out. Precinct committee seats were treated as party posts, not offices; the one kept (Chiko Olson) is recorded only as a run on a party's primary ballot. Endorsements and slate cards for this part are already in ballot/lean/mt_endorsements.json. Blank means not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-justice-of-the-peace",
+   "name": "Randi Braddock",
+   "official_page": {
+    "url": "https://www.beaverheadcounty.org/justice-of-the-peace/",
+    "source": "Beaverhead County, Justice of the Peace page, naming Randi Braddock as Justice of the Peace",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Beaverhead County",
+     "from": "",
+     "to": "",
+     "source": "Beaverhead County, Justice of the Peace page",
+     "url": "https://www.beaverheadcounty.org/justice-of-the-peace/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30013-county-attorney",
+   "name": "Joshua Racki",
+   "official_page": {
+    "url": "https://www.cascadecountymt.gov/169/County-Attorneys-Office",
+    "source": "Cascade County, County Attorney's Office page, naming Josh Racki as County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cascade County Attorney",
+     "from": "",
+     "to": "",
+     "source": "Cascade County, County Attorney's Office page",
+     "url": "https://www.cascadecountymt.gov/169/County-Attorneys-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Cascade County Attorney, 2022 general election (the only candidate printed, 18,551 votes)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2022 general election precinct-by-precinct results (party printed DEM, as JOSHUA RACKI)",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30027-county-clerk",
+   "name": "Janel Tucek",
+   "official_page": {
+    "url": "https://fergusmt.gov/departments/clerk-recorder",
+    "source": "Fergus County, Clerk & Recorder page, naming Janel Tucek as Clerk and Recorder and Election Administrator",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fergus County Clerk and Recorder",
+     "from": "",
+     "to": "",
+     "source": "Fergus County, Clerk & Recorder page",
+     "url": "https://fergusmt.gov/departments/clerk-recorder",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30029-county-commissioner-d1",
+   "name": "Nathan Dugan",
+   "offices": [
+    {
+     "office": "Member, Whitefish Local Government Study Commission",
+     "from": "2024",
+     "to": "",
+     "source": "City of Whitefish, Local Government Study page, listing Nathan Dugan among the members; elected November 2024 (Secretary of State's 2024 general precinct results, Flathead County, Whitefish Local Government Study Commissioner, first of six with 2,071 votes)",
+     "url": "https://www.cityofwhitefish.gov/694/Local-Government-Study",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30031-county-commissioner-d1",
+   "name": "Daniel Hill"
+  },
+  {
+   "race_id": "2026-MT-30057-county-commissioner-d2",
+   "name": "Daniel H High"
+  },
+  {
+   "race_id": "2026-MT-30083-county-treasurer",
+   "name": "Amy Metz",
+   "official_page": {
+    "url": "https://www.richland.org/treasurer.html",
+    "source": "Richland County, Treasurer page, naming Amy Metz as Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richland County Treasurer",
+     "from": "",
+     "to": "",
+     "source": "Richland County, Treasurer page",
+     "url": "https://www.richland.org/treasurer.html",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Richland County Treasurer/Assessor, 2022 general election (the only candidate printed, 3,386 votes)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Montana Secretary of State, 2022 general election precinct-by-precinct results (party printed REP)",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30089-justice-of-the-peace",
+   "name": "Jeffrey Lundberg"
+  },
+  {
+   "race_id": "2026-MT-DC4-5",
+   "name": "Shane A Vannatta",
+   "official_page": {
+    "url": "https://www.missoulacounty.gov/departments/district-court/meet-your-judges/",
+    "source": "Missoula County, Meet Your District Court Judges, entry for Shane Vannatta, District Court Judge, Department 5",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, Fourth Judicial District, Department 5 (appointed by Governor Steve Bullock in February 2019, unanimously confirmed by the Montana Senate on March 8, 2019)",
+     "from": "2019",
+     "to": "",
+     "source": "Missoula County, Meet Your District Court Judges",
+     "url": "https://www.missoulacounty.gov/departments/district-court/meet-your-judges/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH10",
+   "name": "Catherine C Allen",
+   "website": {
+    "url": "https://www.catherineallenformontana.com",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site's title reads 'Catherine Allen, Montana House District 10'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH14",
+   "name": "Paul Fielder"
+  },
+  {
+   "race_id": "2026-MT-SH20",
+   "name": "Steve Keller"
+  },
+  {
+   "race_id": "2026-MT-SH26",
+   "name": "Russel Miner"
+  },
+  {
+   "race_id": "2026-MT-SH33",
+   "name": "Brandon Ler"
+  },
+  {
+   "race_id": "2026-MT-SH39",
+   "name": "Melissa Smith",
+   "website": {
+    "url": "https://smithformontana.com",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site reads 'Vote Melissa Smith for Montana Legislature' and 'I'm running for House District 39'",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "State Representative, House District 39, 2024 general election (lost)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2024 general election precinct-by-precinct results, Yellowstone County (party printed DEM)",
+     "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH45",
+   "name": "Bryce Walston"
+  },
+  {
+   "race_id": "2026-MT-SH50",
+   "name": "Mark Peters"
+  },
+  {
+   "race_id": "2026-MT-SH56",
+   "name": "Fiona B Nave"
+  },
+  {
+   "race_id": "2026-MT-SH61",
+   "name": "Rio Roland",
+   "website": {
+    "url": "https://www.rioformt.com",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site reads 'Rio Roland for Montana HD 61'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chair, Bozeman Transportation Board",
+     "from": "",
+     "to": "",
+     "source": "Rio Roland's campaign site, about section ('I am the chair of the Bozeman Transportation Board')",
+     "url": "https://www.rioformt.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, House District 62, 2024 Democratic primary (lost)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2024 primary election precinct-by-precinct results, Gallatin County (party printed DEM)",
+     "url": "https://sosmt.gov/docs/32/results/64925/2024-primary-precinct-by-precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm running as a Democrat for the Montana Legislature",
+    "url": "https://www.rioformt.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH67",
+   "name": "Logan Henke"
+  },
+  {
+   "race_id": "2026-MT-SH73",
+   "name": "Gerry Kennedy"
+  },
+  {
+   "race_id": "2026-MT-SH79",
+   "name": "Chiko Olson",
+   "past_party": [
+    {
+     "what": "Precinct committeewoman, on the Republican primary ballot in Lewis and Clark County, 2024",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Montana Secretary of State, 2024 primary election precinct-by-precinct results (PRECINCT COMMITTEEWOMAN, party printed REP)",
+     "url": "https://sosmt.gov/docs/32/results/64925/2024-primary-precinct-by-precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH84",
+   "name": "Roy Caldwell",
+   "website": {
+    "url": "https://www.caldwellforhd84.com",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site reads 'Caldwell for Montana House District 84'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I'm Roy Caldwell, Republican candidate for House District 84.",
+    "url": "https://www.caldwellforhd84.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH9",
+   "name": "Kate McLaughlin",
+   "website": {
+    "url": "https://www.mclaughlinformontana.com",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site names Kate McLaughlin and links its House District 9 pages (issues-hd9)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "McLaughlin For Montana (D)",
+    "url": "https://www.mclaughlinformontana.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH97",
+   "name": "Melody J Cunningham",
+   "website": {
+    "url": "https://melodyformontana.org/",
+    "how": "Listed in the Montana Free Press 2026 legislative guide; the site names Melody Cunningham and the Montana House of Representatives and links Missoula County's find-your-district page (it does not print the district number)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS12",
+   "name": "George Nikolakakos",
+   "official_page": {
+    "url": "https://legislators.legmt.gov/#/legislator/77",
+    "source": "Montana Legislature, legislator record for George Nikolakakos (the same record as JSON: https://bearbeta.legmt.gov/legislators/v1/legislators/77)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Montana House District 22 (term November 5, 2024 to November 3, 2026)",
+     "from": "2024",
+     "to": "",
+     "source": "Montana Legislature, legislator record (Republican, House District 22)",
+     "url": "https://bearbeta.legmt.gov/legislators/v1/legislators/77",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Montana House District 26 (elected November 2022)",
+     "from": "2023",
+     "to": "2024",
+     "source": "Montana Secretary of State, 2022 general election precinct-by-precinct results (won House District 26, 1,206 to 890); his House District 22 term began November 5, 2024 (Legislature's record)",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Representative, House District 22, 2024 general election (won)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Montana Secretary of State, 2024 general election precinct-by-precinct results, Cascade County (party printed REP)",
+     "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "State Representative, House District 26, 2022 general election (won)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Montana Secretary of State, 2022 general election precinct-by-precinct results, Cascade County (party printed REP)",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SS23",
+   "name": "Joanna Oblander"
+  },
+  {
+   "race_id": "2026-MT-SS34",
+   "name": "Carl Anderson",
+   "past_party": [
+    {
+     "what": "State Representative, House District 67 (part of Senate District 34), 2024 general election (lost)",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2024 general election precinct-by-precinct results, Gallatin County (party printed DEM)",
+     "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SS50",
+   "name": "Shane A Morigeau"
+  }
+ ]
+}

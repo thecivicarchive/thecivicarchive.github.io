@@ -35,7 +35,9 @@ and school rows are those of the nine county clerks' lists read so far, and its 
 jurisdiction, are named by district in the scope file as its legislative races are. Missouri (2026-10-02) has no
 website cell either; its "local_note" says its cities and schools vote in April and that the county rows are those of
 the 13 election authorities read so far; its legislative races, whose jurisdiction is the state's own name, are named
-by district in the scope file, and the City of St. Louis Board of Education is tied to the Census Bureau's row by name.
+by district in the scope file, and the City of St. Louis Board of Education is tied to the Census Bureau's row by name. Montana (2026-10-02) has no
+website cell either; its "local_note" says the county rows are those of the nine county election offices read so far
+and that its cities vote in odd years and its school trustees in May.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -266,7 +268,24 @@ STATES = {"MN": {"name": "Minnesota"},
                                "on a yes-or-no retention vote. The Board of Regents, the State Board of Education and the Public Service "
                                "Commission are elected by district and are in the scope with the statewide offices. Township boards and "
                                "the boards of natural resources, public power, reclamation, community college, educational service "
-                               "unit and other districts are outside the scope's rule and are not in it."}}
+                               "unit and other districts are outside the scope's rule and are not in it."},
+          # Montana (2026-10-02): the Secretary of State's candidate grid has contact columns the list loader never reads
+          # and this module does not read either, and the county election offices' sample ballots and candidate lists
+          # have no website cell this module reads, so its websites come from verified findings only. Its legislative,
+          # court and Public Service Commission races carry their own district as the jurisdiction, so the scope needs no
+          # district words; city races carry the Census place code as MT-M-<code>. No school race is on the list
+          "MT": {"name": "Montana", "legislature": r"\bmontana (?:state )?(?:house|senate|legislat\w+)|\bhouse of representatives\b",
+                 "school_names": {},
+                 "local_note": "Montana has no statewide list of county candidates before Election Day: the county offices and justices "
+                               "of the peace here are those on the sample ballots and candidate lists of the 9 county election offices "
+                               "read so far (Beaverhead, Carbon, Cascade, Fergus, Flathead, Gallatin, Madison, Richland and Sanders), and "
+                               "the other 47 counties' are not loaded yet. Cities and towns elect their officers in November of "
+                               "odd-numbered years (MCA 13-1-104) and school trustees on the school election day in May (MCA 20-20-105), "
+                               "so the November 3, 2026 lists carry a city seat only where a special election was called (three council "
+                               "seats in Red Lodge, a city under the scope's 10,000) and no school board. The two Public Service "
+                               "Commission seats are elected by district and are in the scope with the statewide offices; a judge "
+                               "nobody filed against is the one name in the race, on a yes-or-no retention vote (MCA 13-14-212). Conservation district supervisors are "
+                               "outside the scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));

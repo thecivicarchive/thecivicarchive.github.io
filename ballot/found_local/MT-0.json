@@ -1,0 +1,347 @@
+{
+ "part": 0,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out partway through (after about the first fifteen candidates were searched), so the legislative candidates were looked up through the Montana Democratic Party's candidates page, county party pages, Wikipedia's election pages and the campaign sites they link. The Democratic party's candidates page lists its nominees with links and does not say 'endorsed', so it gives websites only, no endorsed_by. The Montana Republican Party's honor roll and the county parties' slate cards and voter guides are support, not endorsements (see ballot/lean/mt_endorsements.json), and are not recorded here. Sitting legislators (Gillespie, Powers, Schomer, Ellis, Rosenzweig) were checked for a website only. Deputy county attorney and similar staff posts were treated as jobs, not offices. Blank means not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-county-attorney",
+   "name": "Sky Steven Jones",
+   "official_page": {
+    "url": "https://beaverheadcountymt.gov/county-attorney/",
+    "source": "Beaverhead County, County Attorney's page, naming Sky Jones as County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Beaverhead County Attorney",
+     "from": "",
+     "to": "",
+     "source": "Beaverhead County, County Attorney's page, naming Sky Jones as County Attorney",
+     "url": "https://beaverheadcountymt.gov/county-attorney/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30009-county-commissioner-d1",
+   "name": "Christine Miller"
+  },
+  {
+   "race_id": "2026-MT-30013-justice-of-the-peace-dept1",
+   "name": "Robert Polich"
+  },
+  {
+   "race_id": "2026-MT-30027-public-administrator",
+   "name": "Gary Kruger"
+  },
+  {
+   "race_id": "2026-MT-30029-sheriff",
+   "name": "Brian Heino",
+   "offices": [
+    {
+     "office": "Flathead County Sheriff",
+     "from": "2019",
+     "to": "",
+     "source": "KTVH (MTN News), 'Kalispell native Brian Heino takes over as Flathead County Sheriff': took office January 1, 2019",
+     "url": "https://ktvh.com/news/2019/01/16/kalispell-native-brian-heino-takes-over-as-flathead-county-sheriff",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30031-justice-of-the-peace-dept1",
+   "name": "Rick West",
+   "official_page": {
+    "url": "https://gallatinmt.gov/460/Justice-Court",
+    "source": "Gallatin County, Justice Court page, naming the Honorable Rick West, Justice of the Peace, Department 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Gallatin County Justice of the Peace, Department 1",
+     "from": "2011",
+     "to": "",
+     "source": "Gallatin County, History of Elected Officials: Rick West, 2011 to current, term expires 12/31/2026",
+     "url": "https://gallatinmt.gov/216/History-of-Elected-Officials-in-Gallatin",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30057-sheriff",
+   "name": "Duncan Hedges",
+   "official_page": {
+    "url": "https://www.madisoncountymt.gov/154/Sheriffs-Office",
+    "source": "Madison County, Sheriff's Office page, naming Duncan Hedges, Sheriff/Coroner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Madison County Sheriff/Coroner",
+     "from": "",
+     "to": "",
+     "source": "Madison County, Sheriff's Office page, naming Duncan Hedges, Sheriff/Coroner",
+     "url": "https://www.madisoncountymt.gov/154/Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30089-county-attorney",
+   "name": "Jania Hatfield",
+   "offices": [
+    {
+     "office": "Sanders County Attorney (appointed by the county commissioners)",
+     "from": "2024",
+     "to": "",
+     "source": "Sanders County Ledger, 'County attorney sworn in', 7 November 2024",
+     "url": "https://scledger.net/story/2024/11/07/news/county-attorney-sworn-in/11478.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-DC13-5",
+   "name": "Rod Souza",
+   "official_page": {
+    "url": "https://courts.mt.gov/CourtLocator/13thJudicialDistrict",
+    "source": "Montana Judicial Branch, Court Locator, 13th Judicial District: Department 5, Hon. Rod Souza",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, Yellowstone County (elected 2014, replacing Judge G. Todd Baugh)",
+     "from": "2015",
+     "to": "",
+     "source": "KULR-8, 'District Court Judge Elect Rod Souza On New Role', 6 November 2014: elected with 55 percent, to take office January 2",
+     "url": "https://www.kulr8.com/news/district-court-judge-elect-rod-souza-on-new-role/article_1a9ff49d-d94e-5892-aa11-fd99224a0eeb.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-PSC5",
+   "name": "Annie Bukacek",
+   "official_page": {
+    "url": "https://psc.mt.gov/About-Us/Commissioners/District-5-Commissioner",
+    "source": "Montana Public Service Commission, District 5 Commissioner page: 'Annie Bukacek, Commissioner', elected to the Commission November 8, 2022",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Montana Public Service Commissioner, District 5",
+     "from": "2023",
+     "to": "",
+     "source": "Montana Public Service Commission news release of January 3, 2023, welcoming Dr. Ann Bukacek (R-Kalispell), elected in November to Commission District 5",
+     "url": "https://psc.mt.gov/News/Old-News/Archive/PSC-Elects-Leadership-and-WelcomesBukacek",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Flathead County Republican Central Committee",
+     "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Public Service Commissioner, District 5",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Montana Public Service Commission news release of January 3, 2023: 'Dr. Ann Bukacek (R-Kalispell)', elected in November to Commission District 5",
+     "url": "https://psc.mt.gov/News/Old-News/Archive/PSC-Elects-Leadership-and-WelcomesBukacek",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH11",
+   "name": "Maeve Kintzler"
+  },
+  {
+   "race_id": "2026-MT-SH18",
+   "name": "Bruce \"Butch\" Gillespie"
+  },
+  {
+   "race_id": "2026-MT-SH23",
+   "name": "Rebecca Bogden-Richards",
+   "website": {
+    "url": "https://bogdenrichardshd23.com/",
+    "how": "linked as her website from the Montana Democratic Party's candidates page and the Cascade County Democrats' 2026 page; the site's title is 'Rebecca Bogden-Richards for Montana House District 23'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Paid for by Bogden-Richards for HD 23, Democrat",
+    "url": "https://bogdenrichardshd23.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH3",
+   "name": "Debo Powers",
+   "website": {
+    "url": "https://powersforthepeople.us/",
+    "how": "linked as her website from the Montana Democratic Party's candidates page; the site reads 'Debo Powers, Representative for Montana House District 3'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH36",
+   "name": "Benjamin Keyes"
+  },
+  {
+   "race_id": "2026-MT-SH42",
+   "name": "Jeremiah Jabs"
+  },
+  {
+   "race_id": "2026-MT-SH48",
+   "name": "Curtis Schomer"
+  },
+  {
+   "race_id": "2026-MT-SH53",
+   "name": "Matthew J Hankins"
+  },
+  {
+   "race_id": "2026-MT-SH59",
+   "name": "Marc Greendorfer",
+   "website": {
+    "url": "https://marc4hd59.com/",
+    "how": "linked from the Gallatin County Republican Central Committee's slate card; the site's title is 'Marc Greendorfer for HD59' and it speaks of Bozeman",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for Montana House District 59 (general election, lost)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Montana House of Representatives election, District 59 results",
+     "url": "https://en.wikipedia.org/wiki/2024_Montana_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Candidate for Montana House District 62 (general election, lost)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, 2022 Montana House of Representatives election, District 62 results",
+     "url": "https://en.wikipedia.org/wiki/2022_Montana_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH64",
+   "name": "Daniel Ricardo Martinez",
+   "website": {
+    "url": "https://martinezforthepeople.com/",
+    "how": "linked from the Gallatin County Republican Central Committee's slate card; the site names Daniel Martinez and says he is running for House District 64",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican HD 64",
+    "url": "https://martinezforthepeople.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH70",
+   "name": "Kobi Craddock",
+   "website": {
+    "url": "https://craddockforhd70.com/",
+    "how": "linked as his website from the Montana Democratic Party's candidates page; the site names Kobi Craddock and his campaign for House District 70",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH75",
+   "name": "Patrick Sullivan"
+  },
+  {
+   "race_id": "2026-MT-SH81",
+   "name": "Janet Ellis",
+   "website": {
+    "url": "https://janetellis4mt.com/",
+    "how": "linked as her website from the Montana Democratic Party's candidates page and the Lewis & Clark County Democrats' 2026 page; the site reads 'Janet Ellis for HD 81'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH87",
+   "name": "Bill Jones",
+   "website": {
+    "url": "https://billjonesforhd87.com/",
+    "how": "linked as his website from the Montana Democratic Party's candidates page (House District 87); the site's own name is 'Bill jones for hd87 montana' and it names the Ravalli County Democrats",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH93",
+   "name": "Ben Davis",
+   "website": {
+    "url": "https://www.davisformontana.com/",
+    "how": "linked as his website from the Montana Democratic Party's candidates page; the site's paid-for line names Ben Davis for House District 93, Missoula",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS1",
+   "name": "Jonathan Russell Jameson",
+   "website": {
+    "url": "https://www.jonathan-russell-jameson-for-mt-sd1.com/",
+    "how": "linked from the Montana Democratic Party's candidates page and Wikipedia's 2026 Montana Senate election page; the site reads 'Jonathan Russell Jameson for MT Senate District 1'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS19",
+   "name": "Chris Rindal",
+   "website": {
+    "url": "https://www.rindal4senate.com/",
+    "how": "linked from Wikipedia's 2026 Montana Senate election page; the site reads 'Rindal 4 Senate District 19' and speaks of central Montana",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS29",
+   "name": "Scott Rosenzweig",
+   "website": {
+    "url": "https://www.rosenzweigformontana.com/",
+    "how": "linked from the Montana Democratic Party's candidates page and Wikipedia's 2026 Montana Senate election page; the site's menu names MT Senate District 29",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS42",
+   "name": "Stephen Lapraim",
+   "website": {
+    "url": "https://www.lapraim4mt.com/",
+    "how": "linked from Wikipedia's 2026 Montana Senate election page; the site says Steve LaPraim is running for Senate District 42",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "conservative Republican",
+    "url": "https://www.lapraim4mt.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS9",
+   "name": "Nate White"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every url re-opened (several needed a second try through the kit's patient lookups; psc.mt.gov through the kit's issuer repair). Corrected: Bukacek's official page (the Commissioners list does not name her; her District 5 page does); Souza's office wording and start year (the KULR article names Yellowstone County, not the district number, and says he takes office in January 2015); Bill Jones's site name as the site gives it. Nothing removed."
+}

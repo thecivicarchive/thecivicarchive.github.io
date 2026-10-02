@@ -1,0 +1,269 @@
+{
+ "part": 4,
+ "of": 12,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {"race_id": "2026-MT-SH66", "name": "Owen Lang", "what": "past_party: 2024 Republican candidate for House District 62", "why": "the 2024 results show an Owen Lang in HD 62, but no source found ties that candidate to the 2026 HD 66 race beyond sharing Gallatin County (one anchor only)"},
+  {"race_id": "2026-MT-SS32", "name": "Neal Ganser", "what": "past_party: 2024 Republican candidate for Senate District 33", "why": "the 2024 results show a Neal Ganser in SD 33, but no source found ties that candidate to the 2026 SD 32 race beyond sharing Gallatin County (one anchor only)"}
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-county-school-superintendent",
+   "name": "Dana Basile"
+  },
+  {
+   "race_id": "2026-MT-30009-sheriff",
+   "name": "Benjamin Mahoney"
+  },
+  {
+   "race_id": "2026-MT-30027-county-attorney",
+   "name": "Kent Sipe",
+   "official_page": {
+    "url": "https://fergusmt.gov/departments/county-attorney",
+    "source": "Fergus County, County Attorney page (lists Kent Sipe, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {"office": "Fergus County Attorney", "to": "present", "source": "Fergus County, County Attorney page (lists Kent Sipe, County Attorney)", "url": "https://fergusmt.gov/departments/county-attorney", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-30029-county-clerk",
+   "name": "Sheena Sterling"
+  },
+  {
+   "race_id": "2026-MT-30031-county-clerk",
+   "name": "Eric Semerad",
+   "official_page": {
+    "url": "https://www.gallatinmt.gov/247/Clerk-and-Recorder",
+    "source": "Gallatin County, Clerk and Recorder page (Eric Semerad, County Clerk and Recorder/Surveyor)",
+    "verified": true
+   },
+   "offices": [
+    {"office": "Gallatin County Clerk & Recorder/Surveyor", "from": "2019", "to": "present", "source": "Gallatin County, History of Elected Officials (Clerk & Recorder/Surveyor: Eric Semerad, 2019 to current, term expires 12/31/2026)", "url": "https://www.gallatinmt.gov/216/History-of-Elected-Officials-in-Gallatin", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-30057-county-attorney",
+   "name": "David A Buchler",
+   "official_page": {
+    "url": "https://www.madisoncountymt.gov/directory.aspx?did=15",
+    "source": "Madison County, staff directory, County Attorney department (David Buchler, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {"office": "Madison County Attorney", "to": "present", "source": "Madison County, staff directory, County Attorney department (David Buchler, County Attorney)", "url": "https://www.madisoncountymt.gov/directory.aspx?did=15", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-30083-county-commissioner-d1",
+   "name": "Heidy Macgrady"
+  },
+  {
+   "race_id": "2026-MT-30089-county-treasurer",
+   "name": "Alisa Garcia",
+   "offices": [
+    {"office": "Sanders County Clerk & Recorder/County Treasurer/Superintendent of Schools", "from": "2025", "source": "Montana Secretary of State, 2024 General Election precinct-by-precinct results: Alisa Garcia the only candidate for this Sanders County office (nonpartisan), elected November 5, 2024", "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-DC20-2-UNEXP",
+   "name": "John A Mercer",
+   "official_page": {
+    "url": "https://courts.mt.gov/CourtLocator/20thJudicialDistrict",
+    "source": "Montana Judicial Branch, Court Locator, 20th Judicial District (Lake and Sanders Counties): Hon. John Mercer - Dept 2",
+    "verified": true
+   },
+   "offices": [
+    {"office": "District Judge, 20th Judicial District", "from": "2024", "to": "present", "source": "Montana Judicial Branch, judges' biographies, p. 70: appointed by Governor Gianforte in 2024 after the resignation of Judge Kim Christopher; after serving the remainder of that term (January 5, 2025), reappointed by Governor Gianforte after the resignation of judge-elect Britt Cotter", "url": "https://courts.mt.gov/external/library/docs/judgesbio2.pdf", "kind": "official", "verified": true},
+    {"office": "Montana House of Representatives (including four terms as House Speaker)", "from": "1984", "to": "2000", "source": "Montana Judicial Branch, judges' biographies, p. 70: 'served in the Montana House of Representatives from 1984-2000, including four terms as House Speaker'", "url": "https://courts.mt.gov/external/library/docs/judgesbio2.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH1",
+   "name": "Dakota V Adams",
+   "website": {
+    "url": "https://adamsforlegislature.com",
+    "how": "the site is titled 'Adams for Legislature | Lincoln County, Montana | HD 1' and names Dakota Adams; it asks to work for the people of Lincoln County's House District 1",
+    "verified": true
+   },
+   "past_party": [
+    {"what": "Candidate for State Representative, District 1, 2024 general election (Lincoln County)", "year": "2024", "party": "Democratic", "source": "Montana Secretary of State, 2024 General Election precinct-by-precinct results (DAKOTA V ADAMS, DEM)", "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH13",
+   "name": "Finley Warden",
+   "website": {
+    "url": "https://finleyformontana.com",
+    "how": "Finley for Montana; the site names Finley Warden and reads 'I am running to represent House District 13 in the Montana State Legislature'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH2",
+   "name": "Tom Millett",
+   "endorsed_by": [
+    {"party": "Republican", "unit": "Flathead County Republican Central Committee", "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH25",
+   "name": "Steve Gist",
+   "website": {
+    "url": "https://stevegistformontana.com",
+    "how": "the site reads 'Steve Gist For The Montana Legislature HD 25'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH31",
+   "name": "Natalie Oneal",
+   "website": {
+    "url": "https://www.natalie4montana.com",
+    "how": "Natalie for Montana: 'Democrat for Montana State House - District 31'; the page names the candidate as Dr. Natalie Weeks O'Neal",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Democrat for Montana State House - District 31",
+    "url": "https://www.natalie4montana.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH38",
+   "name": "Greg Oblander",
+   "website": {
+    "url": "https://gregoblander4montana.com",
+    "how": "the site names Greg Oblander, 'Republican Representing Montana House District 38', and says he has filed to run for his second term",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Representing Montana House District 38",
+    "url": "https://gregoblander4montana.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH44",
+   "name": "Katie Zolnikov"
+  },
+  {
+   "race_id": "2026-MT-SH5",
+   "name": "Braxton Mitchell",
+   "endorsed_by": [
+    {"party": "Republican", "unit": "Flathead County Republican Central Committee", "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH55",
+   "name": "Brad Barker",
+   "website": {
+    "url": "https://bradbarker.com",
+    "how": "the site is titled 'Representative Brad Barker' (copyright 2026, with a donate form and an invitation to join his campaign, about serving Montanans and 'this District'); it does not print the district number; he holds House District 55 in our record",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH60",
+   "name": "Greg Leman",
+   "website": {
+    "url": "https://leman4mt.org",
+    "how": "the site is titled 'Greg Leman - Republican for Montana HD-60' and reads 'Republican for Montana House District 60'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican for Montana House District 60",
+    "url": "https://leman4mt.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH66",
+   "name": "Owen Lang"
+  },
+  {
+   "race_id": "2026-MT-SH72",
+   "name": "Donavon Hawk"
+  },
+  {
+   "race_id": "2026-MT-SH78",
+   "name": "Mark White"
+  },
+  {
+   "race_id": "2026-MT-SH83",
+   "name": "Aaron J Leas"
+  },
+  {
+   "race_id": "2026-MT-SH89",
+   "name": "Lyn Hellegaard",
+   "website": {
+    "url": "https://www.lynformontana.com",
+    "how": "the site is titled 'Lyn Hellegaard for HD 89' and reads 'Montana House District 89'",
+    "verified": true
+   },
+   "born": {"year": "1958", "source": "Montana Legislature, Copper Book: Lawmakers of Montana, 2023 session, p. 44 (Lyn Hellegaard - Missoula, House District 97, Republican. Born 1958)", "url": "https://archive.legmt.gov/content/sessions/68th/2023-Copper-Book.pdf", "kind": "official", "verified": true},
+   "offices": [
+    {"office": "Montana House of Representatives, District 97", "from": "2023", "to": "2025", "source": "Montana Legislature archive, roster page 'Rep. LYN HELLEGAARD (R) - HD97'; 2023 Copper Book: served in House since 2023; she ran in House District 89 in 2024 and lost", "url": "https://archive.legmt.gov/legislator-information/roster/individual/7629.html", "kind": "official", "verified": true},
+    {"office": "Missoula City Council", "from": "2007", "source": "campaign site About page: 'electing her to the Missoula City Council in 2007'", "url": "https://www.lynformontana.com/about", "kind": "campaign", "verified": true}
+   ],
+   "endorsed_by": [
+    {"party": "Republican", "unit": "Missoula County Republican Central Committee", "url": "https://missoulagop.org/2026-legislative-candidates/", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Member of the Montana House of Representatives, District 97", "year": "2023", "party": "Republican", "source": "Montana Legislature archive, roster page 'Rep. LYN HELLEGAARD (R) - HD97'", "url": "https://archive.legmt.gov/legislator-information/roster/individual/7629.html", "kind": "official", "verified": true},
+    {"what": "Candidate for State Representative, District 89, 2024 general election", "year": "2024", "party": "Republican", "source": "Montana Secretary of State, 2024 General Election precinct-by-precinct results (LYN HELLEGAARD, REP)", "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH95",
+   "name": "Zooey Zephyr"
+  },
+  {
+   "race_id": "2026-MT-SS11",
+   "name": "Steven Galloway",
+   "website": {
+    "url": "https://stevenformontana.com",
+    "how": "the site reads 'Senate District 11 Candidate' and 'Former Representative HD24', and names Steven Edwin Galloway of Great Falls, Montana",
+    "verified": true
+   },
+   "born": {"year": "1959", "source": "Montana Legislature, Copper Book: Lawmakers of Montana, 2023 session, p. 41 (Steven Galloway - Great Falls, House District 24, Republican. Born 1959 in Great Falls)", "url": "https://archive.legmt.gov/content/sessions/68th/2023-Copper-Book.pdf", "kind": "official", "verified": true},
+   "offices": [
+    {"office": "Montana House of Representatives, District 24", "from": "2021", "to": "2025", "source": "Montana Legislature archive, roster pages 'Rep. STEVEN GALLOWAY (R) - HD24'; 2023 Copper Book: served in House since 2021; his campaign site calls him 'Former Representative HD24'", "url": "https://archive.legmt.gov/legislator-information/roster/individual/7514.html", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Member of the Montana House of Representatives, District 24", "year": "2021", "party": "Republican", "source": "Montana Legislature archive, roster page 'Rep. STEVEN GALLOWAY (R) - HD24'", "url": "https://archive.legmt.gov/legislator-information/roster/individual/6902.html", "kind": "official", "verified": true},
+    {"what": "Candidate for State Representative, District 24, 2020 general election (Cascade County)", "year": "2020", "party": "Republican", "source": "Montana Secretary of State, 2020 General Election precinct-by-precinct results (STEVEN GALLOWAY, REP)", "url": "https://sosmt.gov/wp-content/uploads/2020_General_Precinct-by-Precinct.xlsx", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-MT-SS22",
+   "name": "Elijah Tidswell"
+  },
+  {
+   "race_id": "2026-MT-SS32",
+   "name": "Neal Ganser"
+  },
+  {
+   "race_id": "2026-MT-SS49",
+   "name": "Brad Tschida",
+   "website": {
+    "url": "https://tschidaformontana.com",
+    "how": "the site is titled 'Brad Tschida for Montana Senate | SD 49' and reads '2026 · Senate District 49', Missoula",
+    "verified": true
+   },
+   "born": {"year": "1954", "source": "Montana Legislature, Copper Book: Lawmakers of Montana, 2021 session, p. 61 (Brad Tschida - Missoula, House District 97, Republican. Born 1954)", "url": "https://archive.legmt.gov/content/sessions/67th/2021-Copper-Book.pdf", "kind": "official", "verified": true},
+   "offices": [
+    {"office": "Montana House of Representatives, District 97", "from": "2015", "to": "2023", "source": "Montana Legislature, 2021 Copper Book p. 61: served in House since 2015, House Majority Leader; archive roster page 'Rep. Brad Tschida (R) - HD97'; his campaign site calls him a former Montana House member", "url": "https://archive.legmt.gov/content/sessions/67th/2021-Copper-Book.pdf", "kind": "official", "verified": true}
+   ],
+   "endorsed_by": [
+    {"party": "Republican", "unit": "Missoula County Republican Central Committee", "url": "https://missoulagop.org/2026-legislative-candidates/", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Member of the Montana House of Representatives, District 97", "year": "2021", "party": "Republican", "source": "Montana Legislature archive, roster page 'Rep. Brad Tschida (R) - HD97'", "url": "https://archive.legmt.gov/legislator-information/roster/individual/6930.html", "kind": "official", "verified": true},
+    {"what": "Candidate for State Representative, District 97, 2020 general election (Missoula County)", "year": "2020", "party": "Republican", "source": "Montana Secretary of State, 2020 General Election precinct-by-precinct results (BRAD TSCHIDA, REP; precincts in Senate District 49)", "url": "https://sosmt.gov/wp-content/uploads/2020_General_Precinct-by-Precinct.xlsx", "kind": "official", "verified": true}
+   ]
+  }
+ ]
+}

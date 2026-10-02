@@ -1,0 +1,35 @@
+{
+ "state": "MT",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 350,
+ "by_level": {
+  "statewide": 4,
+  "legislature": 238,
+  "court": 15,
+  "county": 93,
+  "city": 0,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 2,
+  "legislature": 125,
+  "court": 13,
+  "county": 73,
+  "city": 0,
+  "school": 0
+ },
+ "races": 213,
+ "on_the_november_list_in_all": 359,
+ "per_part": 30,
+ "parts": 12,
+ "cities_in": 0,
+ "city_candidates": 0,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "Montana has no statewide list of county candidates before Election Day: the county offices and justices of the peace here are those on the sample ballots and candidate lists of the 9 county election offices read so far (Beaverhead, Carbon, Cascade, Fergus, Flathead, Gallatin, Madison, Richland and Sanders), and the other 47 counties' are not loaded yet. Cities and towns elect their officers in November of odd-numbered years (MCA 13-1-104) and school trustees on the school election day in May (MCA 20-20-105), so the November 3, 2026 lists carry a city seat only where a special election was called (three council seats in Red Lodge, a city under the scope's 10,000) and no school board. The two Public Service Commission seats are elected by district and are in the scope with the statewide offices; a judge nobody filed against is the one name in the race, on a yes-or-no retention vote (MCA 13-14-212). Conservation district supervisors are outside the scope's rule and are not in it."
+}

@@ -1,0 +1,314 @@
+{
+ "part": 2,
+ "of": 12,
+ "researched": "2026-10-02",
+ "notes": "The session's shared web search allowance ran out partway (after the county searches), so the rest were looked up only on pages whose addresses were already known: the Montana Free Press 2026 guide's district page (which links candidates' websites), the Secretary of State's legislative canvass reports, and county and court pages. Jessica Dyrdahl's site (jessicaformontana.com, listed by the Montana Free Press) answered with a bot check and was left out. Charity McLarty, A. Ben \"Tony\" Cox and Gerald W. Boland: their county sites name no officeholders a script can read, and nothing else was found. Endorsements below are only those already on the parties' own pages in ballot/lean/mt_endorsements.json.",
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-county-commissioner-d1",
+   "name": "Mark Boka"
+  },
+  {
+   "race_id": "2026-MT-30009-county-treasurer",
+   "name": "Leah Newman Niemi",
+   "official_page": {
+    "url": "https://carbonmt.gov/treasurer/",
+    "source": "Carbon County, Treasurer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carbon County Treasurer",
+     "from": "2025",
+     "to": "",
+     "source": "Carbon County News (candidate's answers: appointed December 2024, in office since January 2025)",
+     "url": "https://www.carboncountynews.com/news/leah-niemi-cc-treasurer-candidate/article_c1b6f8d1-0aa0-4d70-b3d2-cc53b68d021a.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Carbon County Superintendent of Schools",
+     "from": "",
+     "to": "",
+     "source": "Carbon County, Superintendent of Schools",
+     "url": "https://carbonmt.gov/superintendent-of-schools/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30013-public-administrator",
+   "name": "Gerald W. Boland"
+  },
+  {
+   "race_id": "2026-MT-30027-sheriff",
+   "name": "Ryan Peterson",
+   "official_page": {
+    "url": "https://fergusmt.gov/departments/sheriff-coroners-office",
+    "source": "Fergus County, Sheriff/Coroner's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fergus County Sheriff/Coroner",
+     "from": "2023",
+     "to": "",
+     "source": "Lewistown News-Argus (elected November 2022, took office January 1, 2023)",
+     "url": "https://www.lewistownnews.com/news/fergus-county-sheriff-undersheriff-settling-in-to-leadership-role/article_991a51e8-b17b-11ed-a4d2-db2395c21adc.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30031-county-attorney",
+   "name": "Jordan P. Salo"
+  },
+  {
+   "race_id": "2026-MT-30031-sheriff",
+   "name": "Dan Springer",
+   "official_page": {
+    "url": "https://www.gallatinmt.gov/216/History-of-Elected-Officials-in-Gallatin",
+    "source": "Gallatin County, History of Elected Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Gallatin County Sheriff/Coroner",
+     "from": "2021",
+     "to": "",
+     "source": "Gallatin County, History of Elected Officials (\"Dan Springer 2021 (appointed) to present 12/31/2026\")",
+     "url": "https://www.gallatinmt.gov/216/History-of-Elected-Officials-in-Gallatin",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30083-county-attorney",
+   "name": "Charity McLarty"
+  },
+  {
+   "race_id": "2026-MT-30089-county-commissioner-d3",
+   "name": "A. Ben \"Tony\" Cox"
+  },
+  {
+   "race_id": "2026-MT-DC18-2",
+   "name": "Rienne H McElyea",
+   "official_page": {
+    "url": "https://courts.mt.gov/CourtLocator/18thJudicialDistrict",
+    "source": "Montana Judicial Branch, 18th Judicial District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 18th Judicial District (appointed by Governor Bullock)",
+     "from": "2016",
+     "to": "",
+     "source": "NBC Montana (December 12, 2016: Governor Bullock announced the appointment, succeeding Judge Mike Salvagni)",
+     "url": "https://nbcmontana.com/news/local/governor-appoints-judge-to-18th-judicial-district",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Amy Eddy",
+   "website": {
+    "url": "https://amyeddyforjustice.com/",
+    "how": "Listed by the Montana Free Press 2026 election guide; the site is 'Amy Eddy for Justice' and asks voters to elect her to the Montana Supreme Court",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://courts.mt.gov/CourtLocator/11thJudicialDistrict",
+    "source": "Montana Judicial Branch, 11th Judicial District (Flathead County District Court): Hon. Amy Eddy",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 11th Judicial District (Flathead County)",
+     "from": "2015",
+     "to": "",
+     "source": "Campaign site: 'Appointed in 2015, she has since been elected three times by the voters of Flathead County'",
+     "url": "https://amyeddyforjustice.com/about-judge-amy-eddy",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH12",
+   "name": "Tracy A Sharp",
+   "website": {
+    "url": "https://tracysharpmt12.com/",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 12); the site is 'Tracy Sharp MT 12' and names House District 12",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Flathead County Republican Central Committee",
+     "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH19",
+   "name": "Jane Weber",
+   "website": {
+    "url": "https://weberforhd19.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 19); the site is 'Weber for House District 19'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH24",
+   "name": "Steve Fitzpatrick",
+   "website": {
+    "url": "https://fitzpatrickformt.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 24); the site is 'Fitzpatrick for Montana' and says he is running for the Montana House of Representatives, House District 24",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH30",
+   "name": "Jason Boeshore"
+  },
+  {
+   "race_id": "2026-MT-SH37",
+   "name": "Shane Klakken",
+   "website": {
+    "url": "https://shaneklakken.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 37); the site names him as Montana State Representative for House District 37",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH43",
+   "name": "Larry Brewster"
+  },
+  {
+   "race_id": "2026-MT-SH49",
+   "name": "Charlie Loveridge",
+   "website": {
+    "url": "https://www.loveridgeformontana.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 49); the site is 'Charlie Loveridge for Montana' and its footer reads 'Paid for by Charlie Loveridge for House District 49'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH54",
+   "name": "Janine Coole"
+  },
+  {
+   "race_id": "2026-MT-SH6",
+   "name": "Jim Riley",
+   "website": {
+    "url": "https://www.jimrileyforhd6.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 6); the site is 'Jim Riley for HD 6' and says he is running for House District 6",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Flathead County Republican Central Committee",
+     "url": "https://flatheadrepublicans.com/news/local-news/2026-candidates-officially-endorsed/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "standing firmly with the Republican platform",
+    "url": "https://www.jimrileyforhd6.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH65",
+   "name": "Joe Flynn"
+  },
+  {
+   "race_id": "2026-MT-SH71",
+   "name": "Scott DeMarois"
+  },
+  {
+   "race_id": "2026-MT-SH76",
+   "name": "Trish Schreiber",
+   "website": {
+    "url": "https://trishformontana.com/",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (HD 76); the site is 'VOTE Trish Schreiber for Montana HD 76'",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Missoula County Republican Central Committee",
+     "url": "https://missoulagop.org/2026-legislative-candidates/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "The Right Republican for HD 76.",
+    "url": "https://trishformontana.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH82",
+   "name": "Clinton McKay"
+  },
+  {
+   "race_id": "2026-MT-SH88",
+   "name": "Evan Schroedel",
+   "past_party": [
+    {
+     "what": "Ran for State Representative, House District 88 (general election)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Montana Secretary of State, 2024 Legislative General Election Canvass (HD 88: Democratic, SCHROEDEL)",
+     "url": "https://sosmt.gov/docs/31/post-election/66773/2024-general-election-report-state-canvass-legislative",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH94",
+   "name": "Greg Woodward",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Missoula County Republican Central Committee",
+     "url": "https://missoulagop.org/2026-legislative-candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SS10",
+   "name": "Jessica Dyrdahl"
+  },
+  {
+   "race_id": "2026-MT-SS22",
+   "name": "Cari Lynn Olson"
+  },
+  {
+   "race_id": "2026-MT-SS31",
+   "name": "Richard Aungier",
+   "website": {
+    "url": "https://richardformontana.com",
+    "how": "Listed by the Montana Free Press 2026 legislative guide (SD 31); the site is 'Richard Aungier for Montana Senate District 31'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS43",
+   "name": "Stephen Leuchtman"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": "Every url re-opened. Carbon County's treasurer and superintendent of schools pages both name Leah Niemi (no years given). The Flathead County Republican Central Committee's page answered on a later try and lists Jim Riley (HD 6) and Tracy Sharp (HD 12) among its official 2026 primary endorsements. The 2024 legislative canvass PDF prints HD 88 Democratic SCHROEDEL. One wording correction (Fitzpatrick's site title). Nothing removed."
+}

@@ -1,0 +1,422 @@
+{
+ "part": 3,
+ "of": 12,
+ "researched": "2026-10-02",
+ "note": "Linked from Montana Free Press's 2026 guide but not readable for a script with the kit's honest User-Agent, so left out: drjanegillette.com (Jane Gillette, HD 77: an empty reply) and www.gregoverstreet.com (Greg Overstreet, HD 88: HTTP 403). Past runs were read from the Montana Secretary of State's precinct-by-precinct workbooks for the 2018 general, 2020 primary and general, 2022 primary and general and 2024 primary and general elections; no other candidate in this part appears in them.",
+ "candidates": [
+  {
+   "race_id": "2026-MT-30001-county-commissioner-d3",
+   "name": "Kelly Rowe"
+  },
+  {
+   "race_id": "2026-MT-30009-justice-of-the-peace",
+   "name": "Jeff Schmalz",
+   "official_page": {
+    "url": "https://carbonmt.gov/justice-court/",
+    "source": "Carbon County's Justice Court page: \"Jeff Schmalz, Justice of the Peace\", \"Term Expires: 12/31/2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Carbon County",
+     "from": null,
+     "to": "present (term expires 12/31/2026)",
+     "source": "Carbon County's Justice Court page; it gives no start date",
+     "url": "https://carbonmt.gov/justice-court/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30013-sheriff",
+   "name": "Jesse Slaughter",
+   "official_page": {
+    "url": "https://www.cascadecountymt.gov/Directory.aspx",
+    "source": "Cascade County's staff directory lists Jesse Slaughter, Sheriff, under the Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cascade County Sheriff/Coroner",
+     "from": "2019",
+     "to": "present",
+     "source": "Cascade County's staff directory names him Sheriff today; the Secretary of State's 2018 general election workbook shows him winning the Cascade County Sheriff/Coroner contest (17,425 to 15,581), a term beginning in January 2019, and the 2022 workbook shows him re-elected unopposed",
+     "url": "https://www.cascadecountymt.gov/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Cascade County Sheriff/Coroner (general election, won)",
+     "year": "2018",
+     "party": "Democratic",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2018 general election: race SHERIFF/CORONER, Cascade County, JESSE SLAUGHTER, party DEM",
+     "url": "https://sosmt.gov/wp-content/uploads/2018-GeneralPrecinct-by-Precinct_Votes.xlsx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Cascade County Sheriff/Coroner (Republican primary and general election, won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbooks for the 2022 primary and general elections: race SHERIFF/CORONER, Cascade County, JESSE SLAUGHTER, party REP",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30029-county-attorney",
+   "name": "Travis R. Ahner",
+   "official_page": {
+    "url": "https://flatheadcounty.gov/department-directory/attorney",
+    "source": "Flathead County's County Attorney Office page names Travis Ahner as County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Flathead County Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Flathead County's County Attorney Office page (updated Aug 18, 2026) names Travis Ahner as County Attorney; the Secretary of State's results workbooks show him elected in 2018 and 2022 (years before 2018 not checked, so no start year is given)",
+     "url": "https://flatheadcounty.gov/department-directory/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Flathead County Attorney (general election, unopposed)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2018 general election: race COUNTY ATTORNEY, Flathead County, TRAVIS AHNER, party REP",
+     "url": "https://sosmt.gov/wp-content/uploads/2018-GeneralPrecinct-by-Precinct_Votes.xlsx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Flathead County Attorney (Republican primary and general election, unopposed)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2022 primary: race COUNTY ATTORNEY, Flathead County, TRAVIS R. AHNER, party REP (the 2022 general workbook shows the same)",
+     "url": "https://sosmt.gov/docs/32/results/63309/2022-primary-precinct-by-precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30031-county-auditor",
+   "name": "Jill Therrien",
+   "official_page": {
+    "url": "https://www.gallatinmt.gov/Directory.aspx",
+    "source": "Gallatin County's staff directory lists Jill Therrien, County Auditor, under the Auditor department",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Gallatin County Auditor",
+     "from": null,
+     "to": "present",
+     "source": "Gallatin County's staff directory lists Jill Therrien as County Auditor; it gives no start date",
+     "url": "https://www.gallatinmt.gov/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30057-clerk-of-court",
+   "name": "Brooke Schandelmeier"
+  },
+  {
+   "race_id": "2026-MT-30083-county-clerk",
+   "name": "Stephanie Verhasselt",
+   "official_page": {
+    "url": "https://www.richland.org/clerk--recorder.html",
+    "source": "Richland County's Clerk & Recorder page lists Stephanie Verhasselt, Clerk and Recorder / Elections Administrator",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richland County Clerk and Recorder",
+     "from": null,
+     "to": "present",
+     "source": "Richland County's Clerk & Recorder page names her Clerk and Recorder / Elections Administrator; the Secretary of State's results workbooks show her elected in 2018 and 2022 (years before 2018 not checked, so no start year is given)",
+     "url": "https://www.richland.org/clerk--recorder.html",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Richland County Clerk and Recorder (general election, unopposed)",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2018 general election: race COUNTY CLERK AND RECORDER, Richland County, STEPHANIE VERHASSELT, party REP",
+     "url": "https://sosmt.gov/wp-content/uploads/2018-GeneralPrecinct-by-Precinct_Votes.xlsx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Richland County Clerk and Recorder (Republican primary and general election)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2022 primary: race COUNTY CLERK AND RECORDER, Richland County, STEPHANIE VERHASSELT, party REP (the 2022 general workbook shows the same)",
+     "url": "https://sosmt.gov/docs/32/results/63309/2022-primary-precinct-by-precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-30089-county-commissioner-d3",
+   "name": "Bob Abel"
+  },
+  {
+   "race_id": "2026-MT-DC20-1",
+   "name": "Molly Owen",
+   "offices": [
+    {
+     "office": "District Judge, 20th Judicial District (Department 1)",
+     "from": "2022",
+     "to": "present",
+     "source": "Montana Judicial Branch, 'Biographies and Histories of Montana's Justices, Judges, and Courts 1865-2025' (Nov 13, 2025), page 78: \"Molly Owen - District Judge, 20th District, 2022-present\", appointed by Governor Greg Gianforte to the seat of retired Judge James Manley, sworn in June 20, 2022 (page with the district's list of judges), elected in 2024. The Secretary of State's 2024 workbooks name the 2024 contest DISTRICT COURT JUDGE DISTRICT 20, DEPT 1 UNEXPIRED, the department of this 2026 race",
+     "url": "https://courts.mt.gov/external/library/docs/judgesbio2.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SC4",
+   "name": "Dan Wilson",
+   "website": {
+    "url": "https://www.wilsonforjustice.com/",
+    "how": "The site's title reads \"Dan Wilson for Montana Supreme Court\"; it is paid for by Wilson for Justice and describes Judge Dan Wilson of the Flathead County District Court. Montana Free Press's 2026 guide page for the Supreme Court (Seat 4) race links it as his campaign site.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Flathead County (Kalispell)",
+     "from": "2011",
+     "to": null,
+     "source": "Montana Judicial Branch biographies (Nov 13, 2025), page 102: \"In 2011, Judge Wilson was elected as Justice of the Peace in Kalispell\" and then replaced Judge David Ortley as district judge (11th District, 2017-present); his campaign site says that after serving as Justice of the Peace in Flathead County he was elected to the District Court in 2016. No source gives the year his Justice of the Peace service ended, so no end year is given",
+     "url": "https://courts.mt.gov/external/library/docs/judgesbio2.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "District Judge, 11th Judicial District (Flathead County), Department 4",
+     "from": "2017",
+     "to": "present",
+     "source": "Montana Judicial Branch biographies (Nov 13, 2025), page 102: \"Dan Wilson - District Judge, 11th Judicial District, 2017-present\"; the Secretary of State's 2022 workbooks show DISTRICT COURT JUDGE DISTRICT 11, DEPT 4 (primary) and the retention question for Judge Dan Wilson of District 11, Dept 4 (general)",
+     "url": "https://courts.mt.gov/external/library/docs/judgesbio2.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Missoula County Republican Central Committee (its first round of 2026 endorsements, for the June 2 primary, lists Dan Wilson under statewide races, Montana Supreme Court)",
+     "url": "https://missoulagop.org/missoula-republicans-2026-endorsements/",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Missoula County Republican Central Committee (its 2026 primary endorsements page: Statewide Offices, Montana Supreme Court, Dan Wilson)",
+     "url": "https://missoulagop.org/missoula-republicans-2026-primary-endorsements/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH13",
+   "name": "Dalton Bradford"
+  },
+  {
+   "race_id": "2026-MT-SH2",
+   "name": "Jane Maahs"
+  },
+  {
+   "race_id": "2026-MT-SH25",
+   "name": "Jerry Ferderer"
+  },
+  {
+   "race_id": "2026-MT-SH30",
+   "name": "Morgan Thiel"
+  },
+  {
+   "race_id": "2026-MT-SH37",
+   "name": "Tracey Miller Karcher"
+  },
+  {
+   "race_id": "2026-MT-SH43",
+   "name": "Rudolf Haden",
+   "past_party": [
+    {
+     "what": "Ran for State Representative, House District 49 (Democratic primary and general election), a different district in the same county as this 2026 race (House District 43, Yellowstone County)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbooks for the 2024 primary and general elections: race STATE REPRESENTATIVE DISTRICT 49, Yellowstone County, RUDOLF HADEN, party DEM",
+     "url": "https://sosmt.gov/docs/32/results/66992/2024_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MT-SH49",
+   "name": "Rebecca Noell"
+  },
+  {
+   "race_id": "2026-MT-SH54",
+   "name": "Lee Deming",
+   "website": {
+    "url": "https://leeformontana.org",
+    "how": "The page reads \"For House District 54\" and is paid for by Lee Deming for HD 54. Montana Free Press's 2026 legislative guide (House District 54) links it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH60",
+   "name": "Alanah Griffith",
+   "website": {
+    "url": "https://griffithformt.com",
+    "how": "The site's title reads \"Alanah Griffith\" and the page says \"I am running for re-election to continue to represent HD60\". Montana Free Press's 2026 legislative guide (House District 60) links it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH66",
+   "name": "Eric Matthews",
+   "website": {
+    "url": "https://matthewsformt.com",
+    "how": "The site's title reads \"Matthews For Montana\" and the page reads \"Eric matthews for House District 66\". Montana Free Press's 2026 legislative guide (House District 66) links it.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "PAID FOR BY MATTHEWS FOR MONTANA | DEMOCRAT",
+    "url": "https://matthewsformt.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH71",
+   "name": "Suzzann Nordwick",
+   "website": {
+    "url": "https://nordwick.com",
+    "how": "The site's title reads \"NORDWICK for Montana\" and the page reads \"Montana HOUSE HD71\". Montana Free Press's 2026 legislative guide (House District 71) links it as her campaign site.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for State Senator, Senate District 39 (general election)",
+     "year": "2020",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2020 general election: race STATE SENATOR DISTRICT 39 (Deer Lodge, Granite, Powell and Silver Bow counties), SUZZANN NORDWICK, party REP",
+     "url": "https://sosmt.gov/wp-content/uploads/2020_General_Precinct-by-Precinct.xlsx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for State Representative, House District 76 (Republican primary and general election)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbooks for the 2022 primary and general elections: race STATE REPRESENTATIVE DISTRICT 76 (Silver Bow County), SUZZANN NORDWICK, party REP",
+     "url": "https://sosmt.gov/docs/32/results/66993/2022_general_precinct_by_precinct",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Public Service Commissioner, District 3 (Republican primary; not on the November ballot)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Montana Secretary of State, official precinct-by-precinct results workbook for the 2024 primary: race PUBLIC SERVICE COMMISSIONER, DISTRICT 3, SUZZANN NORDWICK, party REP; her campaign site also mentions the 2024 Republican primary",
+     "url": "https://sosmt.gov/docs/32/results/64925/2024-primary-precinct-by-precinct",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "AMERICA FIRST REPUBLICAN",
+    "url": "https://nordwick.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH77",
+   "name": "Jane Gillette"
+  },
+  {
+   "race_id": "2026-MT-SH82",
+   "name": "Pete Elverum",
+   "website": {
+    "url": "https://peteformontana.com",
+    "how": "The site's title reads \"Pete Elverum for Montana HD 82\". Montana Free Press's 2026 legislative guide (House District 82) links it.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Paid for by Pete Elverum for HD 82 – Democrat",
+    "url": "https://peteformontana.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SH88",
+   "name": "Greg Overstreet"
+  },
+  {
+   "race_id": "2026-MT-SH94",
+   "name": "Robin Kendall",
+   "website": {
+    "url": "https://www.robinkendall4montana.org/",
+    "how": "The site's title reads \"Home | Robin Kendall for Montana\" and the page says \"I am running to represent House District 94 in Missoula\". Montana Free Press's 2026 legislative guide (House District 94) links it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS10",
+   "name": "Margaret Mitchell",
+   "website": {
+    "url": "https://mitchell406.com",
+    "how": "The page reads \"Margaret Mitchell for Montana Senate District 10\" and is paid for by Mitchell for Senate District 10. Montana Free Press's 2026 legislative guide (Senate District 10) links it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS22",
+   "name": "Daniel Zolnikov",
+   "website": {
+    "url": "https://danielzolnikov.com",
+    "how": "The site (title \"Serving You\") is paid for by Montanans for Daniel Zolnikov and describes his service from Billings in the Montana House and the State Senate; it names no district number. Montana Free Press's 2026 legislative guide (Senate District 22) links it as his campaign site.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "first elected as a Billings Republican Representative to the Montana Legislature",
+    "url": "https://danielzolnikov.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS32",
+   "name": "Kelly Kortum",
+   "website": {
+    "url": "https://kellyformt.com",
+    "how": "The site's title reads \"Kelly Kortum for Montana Senate District 32\". Montana Free Press's 2026 legislative guide (Senate District 32) links it.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MT-SS48",
+   "name": "Andrea Olsen"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verification_note": "Every url re-opened 2026-10-02 with the kit User-Agent; results workbooks (2018, 2020 and 2022 general, 2022 and 2024 primary, 2024 general) and the judges biography PDF read directly. Corrected: Haden 2024 run was House District 49, not the 2026 district (43); Nordwick 2020 Senate District 39 also covered Silver Bow and only the general workbook was cited; Wilson Justice of the Peace end year not stated by any source."
+}
