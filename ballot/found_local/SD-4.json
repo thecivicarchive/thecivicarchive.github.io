@@ -1,0 +1,287 @@
+{
+ "part": 4,
+ "of": 21,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the statewide and legislative candidates; county candidates were checked only against their county government's own site where its address could be found, so blanks there mean not looked up, not nothing exists.",
+ "removed": [
+  {
+   "race_id": "2026-SD-SH16",
+   "name": "John Shubeck",
+   "field": "website",
+   "url": "https://www.johnshubeckforsd.com/",
+   "why": "the address did not resolve in three tries (with and without www), so the site could not be seen"
+  },
+  {
+   "race_id": "2026-SD-SH28B",
+   "name": "Travis Ismay",
+   "field": "website",
+   "url": "https://www.travisforsouthdakota.com/",
+   "why": "the address did not resolve in three tries (with and without www), so the site could not be seen"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46003-register-of-deeds-440",
+   "name": "Arlene Koch"
+  },
+  {
+   "race_id": "2026-SD-46009-commissioner-460-d1",
+   "name": "Victor H Settje"
+  },
+  {
+   "race_id": "2026-SD-46013-sheriff-430",
+   "name": "Anthony \"Tony\" Sorensen"
+  },
+  {
+   "race_id": "2026-SD-46021-commissioner-460-d3",
+   "name": "Bryan Fjeldheim"
+  },
+  {
+   "race_id": "2026-SD-46027-sheriff-430",
+   "name": "Andrew Howe"
+  },
+  {
+   "race_id": "2026-SD-46035-auditor-410",
+   "name": "Kathy Wingert",
+   "official_page": {
+    "url": "https://www.davisoncounty.org/departments/auditor/",
+    "source": "Davison County, Auditor page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46039-sheriff-430",
+   "name": "Cory James Borg",
+   "official_page": {
+    "url": "https://www.deuelcountysd.com/sheriff-s-office",
+    "source": "Deuel County, Sheriff's Office page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46047-commissioner-472-atlarge",
+   "name": "Vince J Logue"
+  },
+  {
+   "race_id": "2026-SD-46053-sheriff-430",
+   "name": "Ryan L. Cook"
+  },
+  {
+   "race_id": "2026-SD-46059-sheriff-430",
+   "name": "Shane R Croeni",
+   "official_page": {
+    "url": "https://handcountysd.gov/departments/sheriffs-office/",
+    "source": "Hand County, Sheriff's Office page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46067-commissioner-460-d5",
+   "name": "Larry Mehlhaff",
+   "official_page": {
+    "url": "http://www.hutchinsoncountysd.gov/how_do_i/elected_official_office_terms.php",
+    "source": "Hutchinson County, Elected Official Terms page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hutchinson County Commissioner, District 5",
+     "to": "2026 (term ends 12/31/2026)",
+     "source": "Hutchinson County, Elected Official Terms",
+     "url": "http://www.hutchinsoncountysd.gov/how_do_i/elected_official_office_terms.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46073-commissioner-460-d5",
+   "name": "DeVonne Marie Losing"
+  },
+  {
+   "race_id": "2026-SD-46079-register-of-deeds-440",
+   "name": "Shirley E Ebsen"
+  },
+  {
+   "race_id": "2026-SD-46085-register-of-deeds-440",
+   "name": "Tracy Brakke"
+  },
+  {
+   "race_id": "2026-SD-46091-sheriff-430",
+   "name": "Samuel R Swanson",
+   "official_page": {
+    "url": "https://marshall.sdcounties.org/sheriff/",
+    "source": "Marshall County, Sheriff page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46097-commissioner-470-atlarge",
+   "name": "Kent E Terwilliger"
+  },
+  {
+   "race_id": "2026-SD-46101-sheriff-430",
+   "name": "Troy Wellman",
+   "official_page": {
+    "url": "https://www.moodycounty.net/sheriffs-department/",
+    "source": "Moody County, Sheriff's Office page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46107-coroner-450",
+   "name": "Mandy Spilde"
+  },
+  {
+   "race_id": "2026-SD-46115-commissioner-460-d5",
+   "name": "Dave Albrecht",
+   "official_page": {
+    "url": "https://www.spinkcounty-sd.org/commissioners.html",
+    "source": "Spink County, Commissioners page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Spink County Commissioner, District 5",
+     "to": "2026 (present term ends December 2026)",
+     "source": "Spink County, Commissioners page",
+     "url": "https://www.spinkcounty-sd.org/commissioners.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46121-commissioner-460-d5",
+   "name": "Craig Lafferty"
+  },
+  {
+   "race_id": "2026-SD-46129-auditor-410",
+   "name": "Kimberly Kay Dills",
+   "official_page": {
+    "url": "https://walworthco.org/auditor/",
+    "source": "Walworth County, Auditor page",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-GOV",
+   "name": "Dan Ahlers & Steven McCleerey",
+   "website": {
+    "url": "https://www.danahlers.com/",
+    "how": "site headed 'Ahlers for Governor', for the 2026 South Dakota governor's race",
+    "verified": true
+   },
+   "born": {
+    "year": 1973,
+    "source": "Wikipedia, Dan Ahlers",
+    "url": "https://en.wikipedia.org/wiki/Dan_Ahlers",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "South Dakota House of Representatives, District 25",
+     "from": "2007",
+     "to": "2009",
+     "source": "Wikipedia, Dan Ahlers",
+     "url": "https://en.wikipedia.org/wiki/Dan_Ahlers",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "South Dakota Senate, District 25",
+     "from": "2009",
+     "to": "2011",
+     "source": "Wikipedia, Dan Ahlers",
+     "url": "https://en.wikipedia.org/wiki/Dan_Ahlers",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "South Dakota House of Representatives, District 25",
+     "from": "2017",
+     "to": "2019",
+     "source": "Wikipedia, Dan Ahlers",
+     "url": "https://en.wikipedia.org/wiki/Dan_Ahlers",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Democratic nominee for U.S. Senate from South Dakota",
+     "year": "2020",
+     "party": "Democratic",
+     "source": "Wikipedia, Dan Ahlers",
+     "url": "https://en.wikipedia.org/wiki/Dan_Ahlers",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SH10",
+   "name": "Adam Bair",
+   "website": {
+    "url": "https://adambairsouthdakota.com/",
+    "how": "site headed 'Adam Bair For South Dakota District 10', dated 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH16",
+   "name": "John Shubeck"
+  },
+  {
+   "race_id": "2026-SD-SH22",
+   "name": "Cully Williams",
+   "website": {
+    "url": "https://www.cullyforhouse.com/",
+    "how": "site titled 'Cully for House | Neighbor, Paramedic, District 22'; says he is running for State House in District 22; the site gives the given name only, never the surname",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH28B",
+   "name": "Travis Ismay"
+  },
+  {
+   "race_id": "2026-SD-SH34",
+   "name": "Victor Diego Dominquez"
+  },
+  {
+   "race_id": "2026-SD-SH9",
+   "name": "Megan Tschetter",
+   "website": {
+    "url": "https://megantschetter.com/",
+    "how": "site titled 'Megan Tschetter District 9 South Dakota House'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS18",
+   "name": "Lauren Nelson",
+   "website": {
+    "url": "https://laurennelsonforsenate.com/",
+    "how": "site titled 'Lauren Nelson for Senate', headed 'State Senator Lauren Nelson, District 18'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS31",
+   "name": "Randy Deibert",
+   "website": {
+    "url": "https://deibert4senate31.com/",
+    "how": "site titled 'Randy Deibert for SD State Senate District 31'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "your Republican candidate running for re-election for State Senate District 31",
+    "url": "https://deibert4senate31.com/about-randy",
+    "verified": true
+   }
+  }
+ ]
+}

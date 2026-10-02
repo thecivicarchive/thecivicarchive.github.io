@@ -532,6 +532,34 @@ def review_name(state):
     return "REVIEW.md" if state == "MN" else f"REVIEW-{state}.md"
 
 
+def party_hosts(state):
+    """The hosts of the parties' own pages in this state: every address in ballot/lean/<code>_endorsements.json, which
+    the endorsement step read from the parties themselves. A candidate's page on one of them is the party's page about
+    them, not their campaign's own website (RULES.md), whoever paid for it. Hosts many people share are left out."""
+    out = set()
+    path = os.path.join(HERE, "ballot", "lean", f"{state.lower()}_endorsements.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            d = json.load(fh)
+    except (ValueError, OSError):
+        return out
+
+    def walk(x):
+        if isinstance(x, dict):
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+        elif isinstance(x, str) and re.match(r"(?i)^https?://", x):
+            h = _host(x)
+            if h and h not in SHARED_HOSTS and not h.startswith("assets."):
+                out.add(h)
+
+    walk(d)
+    return out
+
+
 def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
     """Verified findings in <folder>/<ST>-*.json -> sl_websites and sl_found_facts. Each finding is tied to a candidate by
     race and the exact name on the November list; only findings a second reader marked "verified": true are read.
@@ -548,9 +576,10 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
     races, november = _races(con, state), _november(con, state)
     filed = {(r, n): u for r, n, u in con.execute("SELECT race_id, name, url FROM sl_websites WHERE race_id LIKE ?", (like,))}
     roster = _roster(state)
+    parties = party_hosts(state)
     n = collections.Counter()
     by = {f: collections.Counter() for f in ("born", "office", "official_page", "endorsed_by", "past_party", "own_words")}
-    review, differs, on_record, held, facts, sites = [], [], [], [], [], {}
+    review, differs, on_record, held, facts, sites, on_party = [], [], [], [], [], {}, []
 
     def cited(f):
         """The page a verified finding rests on, or None (and the reason counted)."""
@@ -606,6 +635,8 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
                 kind, clean = site_cell(url) if url else ("", None)
                 if url and kind != "web":
                     n["a found website that is not a campaign website"] += 1
+                elif url and _host(clean) in parties:      # the party's page about them, not their own site
+                    on_party.append(f"- {race} | {_line(name)} | {clean}")
                 elif url:
                     had = filed.get(key)
                     if had and same_site(had, clean):
@@ -715,6 +746,7 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
                  "Written when the verified findings are loaded. Nothing on this sheet is loaded into the database or shown on a page.", "",
                  f"## Where a source disagrees with our record ({len(review)})", "", "race | name | what our record shows | what the source says | address", ""] + review
         lines += ["", f"## A website that differs from the one the candidate filed ({len(differs)}; the filed one is kept)", ""] + differs
+        lines += ["", f"## A candidate's page on a party's own site ({len(on_party)}; not shown as a campaign website, and no photo is taken from it)", ""] + on_party
         lines += ["", f"## Held back by the loader's own guards ({len(held)}; the wording is not repeated here)", ""] + held
         lines += ["", f"## Found, but an official record already covers it ({len(on_record)}; not loaded, since a found fact fills a blank only)", ""] + on_record
         with open(os.path.join(folder, sheet), "w", encoding="utf-8", newline="\n") as fh:
@@ -725,6 +757,8 @@ def load_found(con, say=print, folder=FOUND_DIR, state="MN"):
         f"birth years: {kinds('born')}; offices: {kinds('office')}; official pages: {sum(by['official_page'].values())}; "
         f"party endorsements: {sum(by['endorsed_by'].values())}; earlier runs under a party label: {kinds('past_party')}; "
         f"own words: {sum(by['own_words'].values())}")
+    if on_party:
+        n["a page on a party's own site, not a campaign website"] = len(on_party)
     left = {k: v for k, v in n.items() if k not in ("files", "confirmed the filed website") and v}
     if left or held or on_record or review:
         say("    not loaded: " + (", ".join(f"{v} {k}" for k, v in sorted(left.items())) or "none")

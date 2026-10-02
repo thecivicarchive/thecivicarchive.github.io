@@ -1,0 +1,224 @@
+{
+ "part": 19,
+ "of": 21,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already used up, so nothing was searched: findings come from pages opened directly (county governments' own sites where the address could be found, the South Dakota Democratic Party's 2026 pages, SDPB's 2026 candidate profiles and the campaign sites they link). Blanks mean not looked up, not that nothing exists. Checked and not found on the county's or city's own page: Manuel Langstraat (Brookings County officials page names another sheriff), Haley Gallant (Mellette County's Register of Deeds page names another person), William Shorma (Union County commissioners page), Sam Hummel (Yankton City Commission page), Jason Kari (Butte County commission page). SDPB's profile of Blake Stevens was read as saying District 6; his own site and our record say District 7. Blake Rife and Evangeline Poor Bear have only a Facebook page per SDPB, which is not recorded.",
+ "candidates": [
+  {
+   "race_id": "2026-SD-46007-commissioner-470-atlarge",
+   "name": "Robert A Fogg Jr"
+  },
+  {
+   "race_id": "2026-SD-46011-sheriff-430",
+   "name": "Manuel \"Manny\" Langstraat"
+  },
+  {
+   "race_id": "2026-SD-46019-commissioner-460-d5",
+   "name": "Jason Kari"
+  },
+  {
+   "race_id": "2026-SD-46025-register-of-deeds-440",
+   "name": "Andrea Helkenn",
+   "official_page": {
+    "url": "https://clark.sdcounties.org/register-of-deeds/",
+    "source": "Clark County, Register of Deeds page (names her Register of Deeds)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46033-commissioner-470-atlarge",
+   "name": "Craig Hindle",
+   "official_page": {
+    "url": "https://www.custercountysd.com/commissioners/",
+    "source": "Custer County, Commissioners page (lists him as a commissioner)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46037-sheriff-430",
+   "name": "Jerred Schreur",
+   "official_page": {
+    "url": "https://day.sdcounties.org/sheriff/",
+    "source": "Day County, Sheriff's Office page (names him Sheriff)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46045-commissioner-460-d5",
+   "name": "Timothy Thomas",
+   "official_page": {
+    "url": "https://edmunds.sdcounties.org/county-commissioners/",
+    "source": "Edmunds County, County Commissioners page (lists him as one of five commissioners)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46051-sheriff-430",
+   "name": "Jeremy Steffensen",
+   "official_page": {
+    "url": "https://grantcounty.sd.gov/sheriff/",
+    "source": "Grant County, Sheriff page (names him Sheriff)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46059-commissioner-460-d1",
+   "name": "Daniel W Jensen",
+   "official_page": {
+    "url": "https://handcountysd.gov/commission/",
+    "source": "Hand County, Commission page (District 1: Daniel Jensen)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 1, Hand County",
+     "from": "2022 (elected)",
+     "to": "present",
+     "source": "Hand County, Commission page",
+     "url": "https://handcountysd.gov/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46065-commissioner-470-atlarge",
+   "name": "Connie Hohn"
+  },
+  {
+   "race_id": "2026-SD-46071-commissioner-463-d5",
+   "name": "Travis Lynn Dejong"
+  },
+  {
+   "race_id": "2026-SD-46077-register-of-deeds-440",
+   "name": "Caryn J Hojer",
+   "official_page": {
+    "url": "https://kingsbury.sdcounty.gov/departments/register-of-deeds/",
+    "source": "Kingsbury County, Register of Deeds page (names Caryn Hojer Register of Deeds)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46085-auditor-410",
+   "name": "Jessica Manger"
+  },
+  {
+   "race_id": "2026-SD-46091-auditor-410",
+   "name": "Megan Biel",
+   "official_page": {
+    "url": "https://marshall.sdcounties.org/auditor/",
+    "source": "Marshall County, Auditor's Office page (Auditor: Megan Biel)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46095-register-of-deeds-440",
+   "name": "Haley Gallant"
+  },
+  {
+   "race_id": "2026-SD-46101-auditor-410",
+   "name": "Tawny Heinemann",
+   "official_page": {
+    "url": "https://www.moodycounty.net/auditor/",
+    "source": "Moody County, Auditor page (Auditor: Tawny Heinemann)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46105-sheriff-430",
+   "name": "Matthew R Kindsvogel"
+  },
+  {
+   "race_id": "2026-SD-46111-commissioner-460-d5",
+   "name": "Gary Blindauer"
+  },
+  {
+   "race_id": "2026-SD-46121-commissioner-460-d1",
+   "name": "Daniel Gudgel"
+  },
+  {
+   "race_id": "2026-SD-46127-commissioner-460-d1",
+   "name": "William Shorma"
+  },
+  {
+   "race_id": "2026-SD-46137-commissioner-470-atlarge",
+   "name": "Tucker Reed Stocklin"
+  },
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Sam Hummel"
+  },
+  {
+   "race_id": "2026-SD-SH14",
+   "name": "Taylor Rae Rehfeldt",
+   "website": {
+    "url": "https://www.taylorrehfeldt.com/",
+    "how": "The site is headed 'Taylor Rehfeldt for District 14 House'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH2",
+   "name": "Blake Rife"
+  },
+  {
+   "race_id": "2026-SD-SH27",
+   "name": "Evangeline Poor Bear"
+  },
+  {
+   "race_id": "2026-SD-SH32",
+   "name": "Zachary Martin",
+   "website": {
+    "url": "https://zac4sd.com/",
+    "how": "The site is titled 'Zac Martin for South Dakota House District 32' and gives election day as November 3, 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH7",
+   "name": "Blake Stevens",
+   "website": {
+    "url": "https://www.stevens4sd.com/",
+    "how": "The site says 'Paid for by Blake Stevens for District 7 House' (Brookings); linked beside his name on the South Dakota Democratic Party's 2026 candidates page (sddp.org/2026-midterm-elections)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS14",
+   "name": "Larry P. Zikmund",
+   "website": {
+    "url": "https://www.larryzikmund.com/",
+    "how": "The site says 'Since 2021, it has been my privilege to represent District 14 in the South Dakota Senate'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS27",
+   "name": "Celestine Stadnick",
+   "website": {
+    "url": "https://celestine.vote/",
+    "how": "The site says 'Vote for Celestine Stadnick for District 27 Senate this upcoming November' and 'Paid for by Celestine for Senate'; linked beside her name (District 27, Senate) on the South Dakota Democratic Party's 2026 candidates page (sddp.org/2026-midterm-elections)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-TREAS",
+   "name": "Margaret Kuipers",
+   "website": {
+    "url": "https://www.margaretkuipersforsd.com/",
+    "how": "The site is headed 'Margaret Kuipers for State Treasurer' ('Margaret Kuipers for SD State Treasurer', copyright 2026); linked beside her name (Treasurer) on the South Dakota Democratic Party's 2026 candidates page (sddp.org/2026-midterm-elections)",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "South Dakota Democratic Party (nominee elected at the State Convention, June 6, 2026)",
+     "url": "https://www.sddp.org/post/sddp-elects-constitutional-officer-nominees",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

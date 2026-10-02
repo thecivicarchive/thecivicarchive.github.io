@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.086 — 2026-10-02 — South Dakota gets the same treatment
+
+- South Dakota's ballot page now has the real map: its 835 precincts with the districts they sit in (county, city or township, House, Senate, Congress, judicial circuit, conservation and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.
+- South Dakota's candidates for Governor, the other statewide offices, the Legislature and the county offices show what the record holds: 182 have an official government page, 100 a campaign website of their own, offices held (116, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": earlier runs under a party label, the candidate's own words, and how each county voted in 2020, 2022 and 2024 from the State Board of Canvassers' certified canvass. A legislative district's past votes are shown only where its precincts add up exactly to that canvass; where they cannot be added up they are left out, never estimated.
+- No pollster that publishes its methods has polled a South Dakota state race this year, and the page says so. The Governor's race has prediction-market prices as a tab. Polling places stay off the map until the Secretary of State's list is matched to every precinct.
+- A candidate's page on a political party's own website is no longer shown as their campaign website, and no photo is taken from one. Eight North Dakota candidates whose only page is on their party's site now show no website; the party's endorsement of them is still shown where the party published one.
+
 ## v4.0.085 — 2026-10-02 — North Dakota gets the same treatment
 
 - North Dakota's ballot page now has the real map: its 358 precincts with the districts they sit in (county, city or township, ward, commissioner district, legislative district, judicial district, soil conservation, park and school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.

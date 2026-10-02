@@ -1,0 +1,242 @@
+{
+ "part": 0,
+ "of": 21,
+ "researched": "2026-10-02",
+ "notes": [
+  "Web search ran out after 15 searches (the session's shared limit of 200). These candidates were never searched for and were looked up only on guessed county addresses, so a blank for them means 'not looked for' rather than 'not found': Jonathan J Waldner, Jessy C. Biggins, Greg Palmer, Thomas J. Oliva, Tucker Amiotte, Paula Barrick, Brian Kraus, Jason Bender, Lonnie Schultz, Garnet G Paulsen, Tye Kenneth Vander Vorst, Josh Starzman, Kyra Willcuts, Peggy F Ustad, Gary Allen Cudmore.",
+  "Sam Marty: SDPB's candidate page links www.samforsd.com as his campaign website, but the site answered HTTP 526 on every try, so it is not recorded.",
+  "Jeff Bathke and Roger DeGroot: SDPB's candidate pages give only a Facebook page as the campaign website; a social profile is not a campaign website, so none is recorded.",
+  "Frank Kloucek: no campaign website was found. Wikipedia's birth date for him carries no citation, so no birth year is recorded. Wikipedia's infobox and its text give different years for his House and Senate service; the text's version is recorded (it adds to the 16 Senate and 6 House years news reports give) and a verifier should check it. No endorsement page on the South Dakota Democratic Party's own site was found (sddp.org's home page does not name him), so his convention nomination is not recorded under endorsed_by.",
+  "Drew Dennert: Wikipedia's birth date carries no citation, so no birth year is recorded; drewdennert.com (named on Wikipedia) did not resolve.",
+  "Hughes County's Finance Officer page and Moody County's and Custer County's commissioner pages do not name Thomas J. Oliva, Garnet G Paulsen or Marty W Mechaley in the text a script receives; Gregory County's pages do not name Jessy C. Biggins.",
+  "Susan Urban (Aurora County) and Lindell Don Adair (Bennett County): no county page could be reached; search summaries alone are not recorded.",
+  "The Legislature's own record answers at https://sdlegislature.gov/api/Historical/Member/<id> (birth date and years of service); the ids for Kloucek and Dennert were not found."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46013-commissioner-470-atlarge",
+   "name": "Drew Dennert",
+   "official_page": {
+    "url": "https://www.brown.sd.us/department/commission",
+    "source": "Brown County, Commission page (lists Drew Dennert among the commissioners)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Brown County Commissioner",
+     "from": "elected November 2022",
+     "to": "",
+     "source": "Aberdeen News, 9 November 2022, carried by Yahoo News: 'Republicans Drew Dennert, Mike Gage, Mike Wiese elected to Brown County Commission'",
+     "url": "https://www.yahoo.com/news/republicans-drew-dennert-mike-gage-072844362.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "South Dakota House of Representatives, District 3",
+     "from": "2017",
+     "to": "",
+     "source": "Aberdeen News, 9 November 2022, carried by Yahoo News: 'a former legislator' who 'has served the last six years as District 3 state representative'; Wikipedia, Drew Dennert (citing the South Dakota Legislature's member page) gives the start as January 2017 and no end year",
+     "url": "https://www.yahoo.com/news/republicans-drew-dennert-mike-gage-072844362.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Brown County Commission",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Aberdeen News, carried by Yahoo News",
+     "url": "https://www.yahoo.com/news/republicans-drew-dennert-mike-gage-072844362.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46019-sheriff-430",
+   "name": "Fred A Lamphere",
+   "official_page": {
+    "url": "https://www.buttesd.gov/sheriff",
+    "source": "Butte County, Sheriff's Office page (names Sheriff Fred Lamphere)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Butte County Sheriff",
+     "from": "",
+     "to": "",
+     "source": "Butte County, Sheriff's Office page (holds the office today; no years given)",
+     "url": "https://www.buttesd.gov/sheriff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46027-auditor-410",
+   "name": "Carri R. Crum",
+   "official_page": {
+    "url": "https://www.claycountysd.org/auditorelections.cfm",
+    "source": "Clay County, Auditor & Elections page ('Carri R. Crum, County Auditor')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Clay County Auditor",
+     "from": "",
+     "to": "",
+     "source": "Clay County, Auditor & Elections page (holds the office today; no years given)",
+     "url": "https://www.claycountysd.org/auditorelections.cfm",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46033-commissioner-470-atlarge",
+   "name": "Marty W Mechaley",
+   "offices": [
+    {
+     "office": "Custer County Sheriff",
+     "from": "",
+     "to": "2026",
+     "source": "Custer County Chronicle, 24 June 2026, 'Derrick Reifenrath appointed sheriff': appointed June 18 'due to the retirement of Sheriff Marty Mechaley'",
+     "url": "https://custercountychronicle.com/node/93441",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46039-commissioner-460-d1",
+   "name": "Jay E Grabow",
+   "official_page": {
+    "url": "https://www.deuelcountysd.com/deuel-county-commissioners",
+    "source": "Deuel County, Commissioners page (lists Jay Grabow)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Deuel County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Deuel County, Commissioners page (holds the office today; no years given)",
+     "url": "https://www.deuelcountysd.com/deuel-county-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46045-sheriff-430",
+   "name": "Jonathan J Waldner",
+   "official_page": {
+    "url": "https://edmunds.sdcounties.org/sheriff/",
+    "source": "Edmunds County, Sheriff page ('Sheriff Waldner'; contact block names Jonathan Waldner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Edmunds County Sheriff",
+     "from": "",
+     "to": "",
+     "source": "Edmunds County, Sheriff page (holds the office today; no years given)",
+     "url": "https://edmunds.sdcounties.org/sheriff/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46091-commissioner-460-d3",
+   "name": "Jason Bender",
+   "official_page": {
+    "url": "https://marshall.sdcounties.org/county-commissioners/",
+    "source": "Marshall County, County Commissioners page ('Jason Bender (District 3)')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Commissioner, District 3",
+     "from": "",
+     "to": "",
+     "source": "Marshall County, County Commissioners page (holds the office today; no years given)",
+     "url": "https://marshall.sdcounties.org/county-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46127-commissioner-460-d5",
+   "name": "Peggy F Ustad",
+   "official_page": {
+    "url": "https://unioncountysd.gov/commission/county-commissioners/",
+    "source": "Union County, County Commissioners page ('District 5 Peggy Ustad')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Union County Commissioner, District 5",
+     "from": "",
+     "to": "",
+     "source": "Union County, County Commissioners page (holds the office today; no years given)",
+     "url": "https://unioncountysd.gov/commission/county-commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SH15",
+   "name": "Andre Zachariahs",
+   "website": {
+    "url": "https://www.andreforhouse.com/",
+    "how": "Linked as his campaign website from SDPB's 'Meet the Candidates: Andre Zachariahs' (https://www.sdpb.org/2026-08-31/meet-the-candidates-andre-zachariahs); the site is titled 'Andre for House | South Dakota District 15' and names Andre Zachariahs running for the South Dakota House",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH27",
+   "name": "Joe Flood",
+   "website": {
+    "url": "https://www.joefloodforsd.com/",
+    "how": "Linked as his campaign website from SDPB's 'Meet the Candidates: Joe Flood' (https://www.sdpb.org/2026-08-31/meet-the-candidates-joe-flood); the site is titled 'Joe Flood, Candidate for South Dakota State Rep, District 27'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "An Independent Voice for South Dakota",
+    "url": "https://www.joefloodforsd.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH33",
+   "name": "Kari Hall",
+   "website": {
+    "url": "https://www.kariforsd.org/",
+    "how": "Linked as her campaign website from SDPB's 'Meet the Candidates: Kari Hall' (https://www.sdpb.org/2026-08-31/meet-the-candidates-kari-hall); the site is titled 'Hall For House' and reads 'Kari Hall for South Dakota House District 33'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS15",
+   "name": "Erik Muckey",
+   "website": {
+    "url": "https://www.erikmuckey.com/",
+    "how": "Linked as his campaign website from SDPB's 'Meet the Candidates: Erik Muckey' (https://www.sdpb.org/2026-08-31/meet-the-candidates-erik-muckey); the site is titled 'Erik Muckey for District 15' and asks for a vote 'to become your next State Senator in District 15'",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-SD-PUC",
+   "name": "Frank Kloucek",
+   "what": "offices (five entries) and past_party",
+   "why": "The only source, Wikipedia's article, does not tie this person to the 2026 Public Utilities Commission race (one anchor, the state, not two); its infobox and its text give different years for the same service; and the party is stated without a citation."
+  }
+ ]
+}

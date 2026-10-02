@@ -1,0 +1,249 @@
+{
+ "part": 13,
+ "of": 21,
+ "state": "SD",
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's shared web-search allowance ran out after eleven searches (the eight legislative candidates, then Curt Soehl, Tim Williams and Michael Lambertus). Everything after that was read by opening pages directly with the kit's honest User-Agent (states/net.py): county and city government sites reached from the South Dakota Association of County Officials' county list (https://www.sdcounties.org/counties/). No search engine was read in place of the search tool.",
+  "Campaign websites for the eight legislative candidates were learned from South Dakota Public Broadcasting's 'Meet the Candidates' pages; each site was then opened and kept only because its own pages name the candidate and the office.",
+  "Karen Springer's own_words is her site's disclaimer line, which names the county party as paying for the site; it is not recorded as an endorsement because it is not on the party's own page. Delete it if a disclaimer is not to count as a party statement.",
+  "Brittany Folk (Grant County Auditor): the county's Auditor page names a different person with the same family name as the office holder; nothing is recorded for the candidate.",
+  "Curt Soehl: a search result said he sat on the Sioux Falls City Council (Central District, term ending 2026), but the city's page for him now answers 404 and the Council Members page no longer lists him, so no office is recorded. The news pages found were about the 2024 race.",
+  "Not found on their county's pages, or the county's site could not be reached (no address found, an expired certificate, or a page built by script): Mary Goss (Bennett), Michael Lambertus (Brookings), Shawn Hinsz (Corson), Joseph Bury (Day), Jason Latham (Harding), Kevin Baloun (Hyde), Rich Sylva (Jones), Tim Williams (Pennington), Susan B Lamb (Sully). Minnehaha County's site answered the script with a short stub and was left alone. keloland.com answered 403 and was left alone.",
+  "No birth year, no party's own published endorsement and no earlier run under a party label was found for anyone in this part. Sitting legislators (Fitzgerald, Roby, Mehlhaff, Vilhauer) already have record pages, so only their websites are recorded."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46007-auditor-410",
+   "name": "Mary Goss"
+  },
+  {
+   "race_id": "2026-SD-46011-commissioner-470-atlarge",
+   "name": "Michael Lambertus"
+  },
+  {
+   "race_id": "2026-SD-46017-commissioner-460-d3",
+   "name": "Donita Loudner",
+   "official_page": {
+    "url": "https://buffalo.sdcounties.org/commission/",
+    "source": "Buffalo County's Commission page lists Donita Loudner among the Buffalo County Commissioners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46025-commissioner-460-d1",
+   "name": "David Spieker",
+   "official_page": {
+    "url": "https://clark.sdcounties.org/commissioners/",
+    "source": "Clark County's County Commissioners page lists David Spieker",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46031-commissioner-460-d1",
+   "name": "Shawn Hinsz"
+  },
+  {
+   "race_id": "2026-SD-46037-commissioner-460-d1",
+   "name": "Joseph Bury"
+  },
+  {
+   "race_id": "2026-SD-46043-commissioner-460-d5",
+   "name": "Daniel Koedam",
+   "official_page": {
+    "url": "https://douglas.sdcounties.org/county-commission/",
+    "source": "Douglas County's County Commission page lists 'Dan Koedam (Dist. 5)', vice-chairperson",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46051-auditor-410",
+   "name": "Brittany Folk"
+  },
+  {
+   "race_id": "2026-SD-46057-commissioner-460-d1",
+   "name": "Randall G Rudebusch",
+   "official_page": {
+    "url": "https://hamlin.sdcounties.org/commissioners",
+    "source": "Hamlin County's Commissioners page lists Randall Rudebusch as District One Commissioner (Castlewood area)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46063-commissioner-460-d1",
+   "name": "Jason Latham"
+  },
+  {
+   "race_id": "2026-SD-46069-commissioner-460-d5",
+   "name": "Kevin Baloun"
+  },
+  {
+   "race_id": "2026-SD-46075-sheriff-430",
+   "name": "Rich Sylva"
+  },
+  {
+   "race_id": "2026-SD-46083-auditor-410",
+   "name": "Sheri Lund",
+   "official_page": {
+    "url": "https://lincolncountysd.org/158/Auditor",
+    "source": "Lincoln County's Auditor page names 'Sheri Lund, Lincoln County Auditor'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46089-commissioner-460-d1",
+   "name": "Sidney Feickert",
+   "official_page": {
+    "url": "https://mcpherson.sdcounty.gov/commission/",
+    "source": "McPherson County's Commission page lists 'Sid Feickert - District 1'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46095-auditor-410",
+   "name": "Jenny Galbraith",
+   "official_page": {
+    "url": "https://mellette.sdcounty.gov/departments/auditor/",
+    "source": "Mellette County's Auditor page names 'County Auditor Jenny Galbraith'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46099-commissioner-470-atlarge",
+   "name": "Curt Soehl"
+  },
+  {
+   "race_id": "2026-SD-46103-commissioner-460-d5",
+   "name": "Tim Williams"
+  },
+  {
+   "race_id": "2026-SD-46109-register-of-deeds-440",
+   "name": "Jay Tasa",
+   "official_page": {
+    "url": "https://robertscosd.gov/register-of-deeds/",
+    "source": "Roberts County's Register of Deeds page reads 'Register of Deeds- Jay Tasa'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46119-auditor-410",
+   "name": "Susan B Lamb"
+  },
+  {
+   "race_id": "2026-SD-46125-commissioner-462-d1",
+   "name": "Jared Hybertson",
+   "official_page": {
+    "url": "https://turner.sdcounties.org/commission.html",
+    "source": "Turner County's Commission page lists Jared Hybertson among the commissioners",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46135-sheriff-430",
+   "name": "Preston Crissey",
+   "official_page": {
+    "url": "http://www.co.yankton.sd.us/sheriff",
+    "source": "Yankton County's Sheriff page is signed 'Preston Crissey, Yankton County Sheriff'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-M-07580-council-825",
+   "name": "Lisa Hager",
+   "official_page": {
+    "url": "https://www.cityofbrookings-sd.gov/75/City-Council",
+    "source": "the City of Brookings's City Council page lists Lisa Hager among the Brookings City Council Members",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH12",
+   "name": "Kerry Loudenslager",
+   "website": {
+    "url": "https://www.kerryforsd.com/",
+    "how": "title reads 'Kerry Loudenslager for House District 12 - Colonel (ret.) Kerry Loudenslager for SD State House District 12'; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-kerry-loudenslager)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH18",
+   "name": "Karen Springer",
+   "website": {
+    "url": "https://www.springerforsouthdakota.org/",
+    "how": "site reads 'Karen Springer, Candidate for District 18, SD State House of Representatives'; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-09-01/meet-the-candidates-karen-springer)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Paid for by the Yankton County Democrats",
+    "url": "https://www.springerforsouthdakota.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH25",
+   "name": "Nick Buchholz",
+   "website": {
+    "url": "https://buchholzforsd.com/",
+    "how": "title reads 'Nick Buchholz for South Dakota House' and the page names District 25; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-nick-buchholz)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH31",
+   "name": "Mary J. Fitzgerald",
+   "website": {
+    "url": "https://www.fitz4house.com/",
+    "how": "site reads 'Representative Mary Fitzgerald' and names District 31 and the SD State House; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-mary-fitzgerald)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH5",
+   "name": "Matt Roby",
+   "website": {
+    "url": "https://www.mattrobyforsd.com/",
+    "how": "title reads 'Matt Roby for South Dakota State House - District 5'; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-matt-roby)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS10",
+   "name": "Michael Dupic",
+   "website": {
+    "url": "https://michaeldupicforsouthdakotasenate.com/",
+    "how": "site reads 'Michael Dupic for SD Senate ... South Dakota State Senate, District 10'; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-michael-dupic)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am the Republican nominee for the South Dakota Senate",
+    "url": "https://michaeldupicforsouthdakotasenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS24",
+   "name": "Jim Mehlhaff",
+   "website": {
+    "url": "https://jimmehlhaff.com/",
+    "how": "title reads 'Jim Mehlhaff for District 24 Senate'; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-jim-mehlhaff)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS5",
+   "name": "Glen A. Vilhauer",
+   "website": {
+    "url": "https://www.glenforsdsenate.com/",
+    "how": "title reads 'Glen Vilhauer for SD Senate'; the page asks Watertown to re-elect him in District 5 in 2026; linked from SDPB's Meet the Candidates page (https://www.sdpb.org/2026-08-31/meet-the-candidates-glen-vilhauer)",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+  "All 19 pages in the findings and the eight SDPB pages named under how were re-opened with the kit User-Agent on 2026-10-02; each states the fact as recorded and ties the person to the county, city or district and the office.",
+  "Karen Springer own_words kept: the seven words are verbatim on her own site; it is a paid-for line, not an endorsement, and is not recorded as one.",
+  "Two wordings corrected to match the pages (Loudenslager site title, Roberts County heading)."
+ ]
+}

@@ -1,0 +1,260 @@
+{
+ "part": 20,
+ "of": 21,
+ "researched": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-SD-46007-commissioner-470-atlarge",
+   "name": "Susan Williams"
+  },
+  {
+   "race_id": "2026-SD-46013-auditor-410",
+   "name": "Lynn (Meyer) Heupel",
+   "official_page": {
+    "url": "https://www.brown.sd.us/department/auditors",
+    "source": "Brown County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46019-register-of-deeds-440",
+   "name": "Stephanie A Lippincott"
+  },
+  {
+   "race_id": "2026-SD-46025-sheriff-430",
+   "name": "Nathan Nickeson"
+  },
+  {
+   "race_id": "2026-SD-46033-commissioner-470-atlarge",
+   "name": "Jesse Sorenson"
+  },
+  {
+   "race_id": "2026-SD-46039-auditor-410",
+   "name": "Courtney Dianne Parker",
+   "official_page": {
+    "url": "https://www.deuelcountysd.com/auditor",
+    "source": "Deuel County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46045-register-of-deeds-440",
+   "name": "Gwen Geditz",
+   "official_page": {
+    "url": "https://edmunds.sdcounties.org/register-of-deeds/",
+    "source": "Edmunds County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46053-auditor-410",
+   "name": "Julie Bartling",
+   "official_page": {
+    "url": "https://gregory.sdcounty.gov/auditor/",
+    "source": "Gregory County",
+    "verified": true
+   },
+   "born": {
+    "year": 1958,
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Julie_Bartling",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Gregory County Auditor",
+     "from": "1983",
+     "to": "2001",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Julie_Bartling",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "South Dakota House of Representatives",
+     "from": "2000",
+     "to": "2004",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Julie_Bartling",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the South Dakota Senate, District 26",
+     "year": "2004",
+     "party": "Democratic",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Julie_Bartling",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46059-commissioner-460-d2",
+   "name": "Dean J Simons"
+  },
+  {
+   "race_id": "2026-SD-46065-commissioner-470-atlarge",
+   "name": "Rob Fines",
+   "official_page": {
+    "url": "https://www.hughescounty.org/commissioners",
+    "source": "Hughes County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hughes County Commissioner",
+     "from": "2023",
+     "to": "",
+     "source": "Hughes County (the commissioners page's people list)",
+     "url": "https://app.membershipware.com/api/public/mwjsPeople?et=RaeVSUVwEIJ2XPgEJi2Ejg%3d%3d&eb=lbBRn6ObOkzAKguZfHq8GA%3d%3d",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46071-register-of-deeds-440",
+   "name": "Mitzi Mitchell"
+  },
+  {
+   "race_id": "2026-SD-46077-sheriff-430",
+   "name": "Steven Allen Strande"
+  },
+  {
+   "race_id": "2026-SD-46085-auditor-410",
+   "name": "Misti Ramser"
+  },
+  {
+   "race_id": "2026-SD-46091-commissioner-460-d1",
+   "name": "Douglas E Medhaug",
+   "official_page": {
+    "url": "https://marshall.sdcounties.org/county-commissioners/",
+    "source": "Marshall County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46095-sheriff-430",
+   "name": "Brandon Watson"
+  },
+  {
+   "race_id": "2026-SD-46101-commissioner-460-d1",
+   "name": "Tom Stenger"
+  },
+  {
+   "race_id": "2026-SD-46105-sheriff-430",
+   "name": "William Merchen"
+  },
+  {
+   "race_id": "2026-SD-46111-register-of-deeds-440",
+   "name": "Lynn Brueske"
+  },
+  {
+   "race_id": "2026-SD-46121-commissioner-460-d1",
+   "name": "Dean Stiefel"
+  },
+  {
+   "race_id": "2026-SD-46127-commissioner-460-d3",
+   "name": "Richard Roy William Headid"
+  },
+  {
+   "race_id": "2026-SD-46137-coroner-450",
+   "name": "Michael R Deneui",
+   "official_page": {
+    "url": "https://ziebachcounty.org/",
+    "source": "Ziebach County",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-PUC",
+   "name": "Don Haggar"
+  },
+  {
+   "race_id": "2026-SD-SH14",
+   "name": "Tyler Tordsen",
+   "past_party": [
+    {
+     "what": "Member of the South Dakota House of Representatives, District 14",
+     "year": "2023",
+     "party": "Republican",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tyler_Tordsen",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SH2",
+   "name": "Manuel Luschas"
+  },
+  {
+   "race_id": "2026-SD-SH27",
+   "name": "Jay Yohner"
+  },
+  {
+   "race_id": "2026-SD-SH33",
+   "name": "Curt Massie"
+  },
+  {
+   "race_id": "2026-SD-SH7",
+   "name": "Mellissa Heermann"
+  },
+  {
+   "race_id": "2026-SD-SS15",
+   "name": "Brenda Lawrence"
+  },
+  {
+   "race_id": "2026-SD-SS27",
+   "name": "Peri Pourier"
+  },
+  {
+   "race_id": "2026-SD-TREAS",
+   "name": "Melissa Hull"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-SD-46053-auditor-410",
+   "name": "Julie Bartling",
+   "what": "offices: South Dakota Senate, District 26, 2004 to (open)",
+   "why": "The article says '2004-present', which is out of date: our record shows her as a candidate for county auditor, not a sitting senator. No end year can be confirmed from the page.",
+   "url": "https://en.wikipedia.org/wiki/Julie_Bartling"
+  },
+  {
+   "race_id": "2026-SD-PUC",
+   "name": "Don Haggar",
+   "what": "born",
+   "why": "The article ties its subject to South Dakota only; it says nothing of the Public Utilities Commission or a 2026 candidacy, so one anchor, not two (two tries).",
+   "url": "https://en.wikipedia.org/wiki/Don_Haggar"
+  },
+  {
+   "race_id": "2026-SD-PUC",
+   "name": "Don Haggar",
+   "what": "offices",
+   "why": "The article ties its subject to South Dakota only; it says nothing of the Public Utilities Commission or a 2026 candidacy, so one anchor, not two (two tries).",
+   "url": "https://en.wikipedia.org/wiki/Don_Haggar"
+  },
+  {
+   "race_id": "2026-SD-PUC",
+   "name": "Don Haggar",
+   "what": "past_party",
+   "why": "The article ties its subject to South Dakota only; it says nothing of the Public Utilities Commission or a 2026 candidacy, so one anchor, not two (two tries).",
+   "url": "https://en.wikipedia.org/wiki/Don_Haggar"
+  },
+  {
+   "race_id": "2026-SD-SH14",
+   "name": "Tyler Tordsen",
+   "what": "offices: South Dakota House of Representatives, District 14, 2023 to (open)",
+   "why": "The article calls him the incumbent 'since 2023'; our record shows other members holding District 14's seats and him as a non-incumbent. No end year can be confirmed from the page.",
+   "url": "https://en.wikipedia.org/wiki/Tyler_Tordsen"
+  }
+ ]
+}

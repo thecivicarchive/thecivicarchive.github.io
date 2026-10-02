@@ -1,0 +1,319 @@
+{
+ "part": 1,
+ "of": 21,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web-search allowance ran out after the statewide and legislative candidates, so county candidates were checked only by opening their county government's own pages with the kit's honest User-Agent. Sheriff candidates Jeff Metzinger (Hughes) and Thomas Keller (Mellette) and the other county candidates not listed with findings got no search at all.",
+  "Left out as unsure: Lyman County's commissioners page lists 'Lawrence Avery Thompson'; our candidate is 'Lawrence Thompson Jr', and the page does not settle whether they are the same person. Fall River County's page lists Bobbie Janis as staff in the Auditor's office (a job, not an office), and names another person as Auditor. Marshall County's page does not list Jerry J. Burger and Clay County's does not list David Thiesse among sitting commissioners.",
+  "Not reachable or no names in the page text: Aurora, Bennett, Campbell, Potter and Todd counties have no site of their own in the county association's list; hand.sdcounties.org has a certificate for another host and mellettecounty.org an expired one (not worked around); Gregory, Hughes, Lake and Union pages carry their people lists by script.",
+  "Courtney Gale Enfield, Phil Jensen: SDPB's 'campaign website' link is a Facebook page, so no website is recorded. Kevin D. Jensen: no campaign site listed. Lance Russell was nominated by the Republican state convention (his own site says so, quoted); no party page was opened, so no endorsed_by is recorded. Wikipedia's 'Lance Russell' article is about a different person and was not used.",
+  "Search results showed campaign-finance contact lines for two candidates; none of that was recorded."
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46003-commissioner-460-d1",
+   "name": "Daniel W Bosworth"
+  },
+  {
+   "race_id": "2026-SD-46007-register-of-deeds-440",
+   "name": "Jaci Clifford"
+  },
+  {
+   "race_id": "2026-SD-46013-commissioner-470-atlarge",
+   "name": "Mike Gage",
+   "official_page": {
+    "url": "https://www.brown.sd.us/department/commission",
+    "source": "Brown County, Commission page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Brown County (Vice-Chair)",
+     "to": "present",
+     "source": "Brown County, Commission page",
+     "url": "https://www.brown.sd.us/department/commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46021-auditor-410",
+   "name": "Lisa Perman"
+  },
+  {
+   "race_id": "2026-SD-46027-commissioner-472-atlarge",
+   "name": "David Thiesse"
+  },
+  {
+   "race_id": "2026-SD-46033-finance-officer-415",
+   "name": "Dawn McLaughlin",
+   "official_page": {
+    "url": "https://www.custercountysd.com/auditors-office/",
+    "source": "Custer County, Auditor's Office page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Finance Officer, Custer County",
+     "to": "present",
+     "source": "Custer County, Auditor's Office page",
+     "url": "https://www.custercountysd.com/auditors-office/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46039-commissioner-460-d3",
+   "name": "Scott William Fieber",
+   "official_page": {
+    "url": "https://www.deuelcountysd.com/deuel-county-commissioners",
+    "source": "Deuel County, Commissioners page (as Scott Fieber)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, Deuel County",
+     "to": "present",
+     "source": "Deuel County, Commissioners page (as Scott Fieber)",
+     "url": "https://www.deuelcountysd.com/deuel-county-commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46047-auditor-410",
+   "name": "Bobbie J Janis"
+  },
+  {
+   "race_id": "2026-SD-46053-commissioner-460-d3",
+   "name": "Aaron Hogrefe"
+  },
+  {
+   "race_id": "2026-SD-46059-commissioner-460-d5",
+   "name": "Shelby Wieseler"
+  },
+  {
+   "race_id": "2026-SD-46065-sheriff-430",
+   "name": "Jeff Metzinger"
+  },
+  {
+   "race_id": "2026-SD-46073-auditor-410",
+   "name": "Shannon Mae Fagerhaug",
+   "official_page": {
+    "url": "https://jerauldcountysd.com/auditor",
+    "source": "Jerauld County, Auditor page (as Shannon Fagerhaug)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Auditor, Jerauld County",
+     "to": "present",
+     "source": "Jerauld County, Auditor page (as Shannon Fagerhaug)",
+     "url": "https://jerauldcountysd.com/auditor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46079-commissioner-472-atlarge",
+   "name": "Charles J Johnson"
+  },
+  {
+   "race_id": "2026-SD-46085-commissioner-462-d1-2",
+   "name": "Lawrence Thompson Jr"
+  },
+  {
+   "race_id": "2026-SD-46091-commissioner-460-d5",
+   "name": "Jerry J. Burger"
+  },
+  {
+   "race_id": "2026-SD-46095-sheriff-430",
+   "name": "Thomas Keller"
+  },
+  {
+   "race_id": "2026-SD-46101-commissioner-460-d5",
+   "name": "Doug Entringer",
+   "official_page": {
+    "url": "https://www.moodycounty.net/commissioners/",
+    "source": "Moody County, Commissioners page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 5, Moody County",
+     "to": "present",
+     "source": "Moody County, Commissioners page",
+     "url": "https://www.moodycounty.net/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46107-commissioner-460-d1",
+   "name": "William J Frost"
+  },
+  {
+   "race_id": "2026-SD-46115-auditor-410",
+   "name": "Theresa Hodges",
+   "official_page": {
+    "url": "https://spinkcounty-sd.org/auditor.html",
+    "source": "Spink County, Auditor page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Auditor, Spink County",
+     "to": "present",
+     "source": "Spink County, Auditor page",
+     "url": "https://spinkcounty-sd.org/auditor.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46121-commissioner-460-d1",
+   "name": "Marshal R Tinant"
+  },
+  {
+   "race_id": "2026-SD-46127-coroner-450",
+   "name": "Jim Christenson"
+  },
+  {
+   "race_id": "2026-SD-AG",
+   "name": "Lance Russell",
+   "website": {
+    "url": "https://lancerussellsd.com/",
+    "how": "Linked as his official campaign website from Wikipedia's article on the 2026 Attorney General election; the site's title names Lance Russell and South Dakota Attorney General.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://fallriver.sdcounties.org/states-attorney/",
+    "source": "Fall River County, State's Attorney page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State's Attorney, Fall River County",
+     "to": "present",
+     "source": "Fall River County",
+     "url": "https://fallriver.sdcounties.org/states-attorney/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Senator, District 30",
+     "from": "2017",
+     "to": "2021",
+     "source": "Wikipedia, 2026 South Dakota Attorney General election (citation 3)",
+     "url": "https://en.wikipedia.org/wiki/2026_South_Dakota_Attorney_General_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "State Representative, District 30",
+     "from": "2009",
+     "to": "2017",
+     "source": "Wikipedia, 2026 South Dakota Attorney General election (citation 3)",
+     "url": "https://en.wikipedia.org/wiki/2026_South_Dakota_Attorney_General_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "After winning the Republican nomination at the South Dakota GOP Convention",
+    "url": "https://lancerussellsd.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH1",
+   "name": "Courtney Gale Enfield"
+  },
+  {
+   "race_id": "2026-SD-SH15",
+   "name": "Joni Tschetter",
+   "website": {
+    "url": "https://www.joniforhouse.com/",
+    "how": "Linked as 'Campaign website' from SDPB's Meet the Candidates page; the site's title reads 'Joni Tschetter for SD House District 15'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH20",
+   "name": "Terry Sabers",
+   "website": {
+    "url": "https://sabers4sd.com/",
+    "how": "Linked as the campaign website from SDPB's Meet the Candidates page; the site reads 'Terry Sabers for SD House | Representing District 20'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, State Board of Education, South Dakota (nearly 15 years; years not given)",
+     "source": "SDPB, Meet the Candidates: Terry Sabers",
+     "url": "https://www.sdpb.org/2026-09-01/meet-the-candidates-terry-sabers",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Founding member, State Board of Technical Education, South Dakota (years not given)",
+     "source": "SDPB, Meet the Candidates: Terry Sabers",
+     "url": "https://www.sdpb.org/2026-09-01/meet-the-candidates-terry-sabers",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SH27",
+   "name": "Liz May",
+   "website": {
+    "url": "https://www.lizmayforhouse.com/",
+    "how": "Linked as 'Campaign website' from SDPB's Meet the Candidates page; the site's title reads 'Liz May for House District 27'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH33",
+   "name": "Phil Jensen"
+  },
+  {
+   "race_id": "2026-SD-SH8",
+   "name": "Jon Nelson",
+   "website": {
+    "url": "https://jonnelsonforsouthdakota.com/",
+    "how": "Linked as 'Campaign website' from SDPB's Meet the Candidates page; the site is headed 'Jon Nelson For House District 8'.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Lake Preston School Board (12 years, some as chair; years not given)",
+     "source": "his campaign site",
+     "url": "https://jonnelsonforsouthdakota.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SS16",
+   "name": "Kevin D. Jensen"
+  },
+  {
+   "race_id": "2026-SD-SS29",
+   "name": "William J. Meirose",
+   "website": {
+    "url": "https://www.meiroseforsenate.com/",
+    "how": "Linked as 'Campaign website' from SDPB's Meet the Candidates page; the site's title reads 'Meirose for Meade County ... For District 29 Senate'. Its pages load by script, so only the title was read.",
+    "verified": true
+   }
+  }
+ ]
+}

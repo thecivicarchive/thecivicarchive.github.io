@@ -1,0 +1,261 @@
+{
+ "part": 16,
+ "of": 21,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-SD-46057-register-of-deeds-440",
+   "name": "Amber Marie Raasch",
+   "field": "official_page",
+   "why": "https://hamlin.sdcounties.org/register-of-deeds now redirects to hamlinco.us, which could not be reached in two tries"
+  },
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Ben Brunick",
+   "field": "official_page",
+   "why": "www.cityofyankton.org could not be reached in three tries"
+  },
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Ben Brunick",
+   "field": "offices",
+   "why": "www.cityofyankton.org could not be reached in three tries"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46007-commissioner-470-atlarge",
+   "name": "Keeley Clausen"
+  },
+  {
+   "race_id": "2026-SD-46011-finance-officer-417",
+   "name": "Lacey Klingbile"
+  },
+  {
+   "race_id": "2026-SD-46019-auditor-410",
+   "name": "Annie Capp"
+  },
+  {
+   "race_id": "2026-SD-46025-commissioner-460-d5",
+   "name": "John A Grosz"
+  },
+  {
+   "race_id": "2026-SD-46031-commissioner-460-d5",
+   "name": "Ben Bieber",
+   "official_page": {
+    "url": "https://corsoncountysd.gov/county-commissioners-2/",
+    "source": "Corson County, County Commissioners (lists Ben Bieber, district 5)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46037-commissioner-460-d5",
+   "name": "Derek L Sinner",
+   "official_page": {
+    "url": "https://day.sdcounties.org/commission/",
+    "source": "Day County, Commission (District 5: Derek Sinner, Chairman)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46045-auditor-410",
+   "name": "Dionne M Olson",
+   "official_page": {
+    "url": "https://edmunds.sdcounties.org/auditor/",
+    "source": "Edmunds County, Auditor (Dionne Olson)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46051-commissioner-460-d3",
+   "name": "William J Tostenson",
+   "official_page": {
+    "url": "https://grantcounty.sd.gov/commission/commissioners.php",
+    "source": "Grant County, Commission (William Tostenson, term ends 2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grant County Commissioner",
+     "from": "",
+     "to": "2026 (current term ends)",
+     "source": "Grant County, Commission",
+     "url": "https://grantcounty.sd.gov/commission/commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46057-register-of-deeds-440",
+   "name": "Amber Marie Raasch"
+  },
+  {
+   "race_id": "2026-SD-46063-register-of-deeds-440",
+   "name": "Kacie Turbiville"
+  },
+  {
+   "race_id": "2026-SD-46069-states-attorney-422",
+   "name": "Shantay Werdel"
+  },
+  {
+   "race_id": "2026-SD-46077-commissioner-460-d1",
+   "name": "Corey Jay Lundquist",
+   "official_page": {
+    "url": "https://kingsbury.sdcounty.gov/commission/",
+    "source": "Kingsbury County Commission (Corey Lundquist, Vice Chairman, District 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kingsbury County Commissioner, District 1 (appointed May 2021)",
+     "from": "2021",
+     "to": "",
+     "source": "Kingsbury County Commission",
+     "url": "https://kingsbury.sdcounty.gov/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46083-commissioner-460-d5",
+   "name": "Joni Ekstrum"
+  },
+  {
+   "race_id": "2026-SD-46089-commissioner-462-d4",
+   "name": "Neal Woehlhaff",
+   "official_page": {
+    "url": "https://mcpherson.sdcounty.gov/commission/",
+    "source": "McPherson County, Commission (Neal Woehlhaff, District 4)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46095-commissioner-460-d2",
+   "name": "Katherine E. O'Brien"
+  },
+  {
+   "race_id": "2026-SD-46099-commissioner-470-atlarge",
+   "name": "Rick Bonander"
+  },
+  {
+   "race_id": "2026-SD-46105-commissioner-462-d1",
+   "name": "Mike Schweitzer",
+   "official_page": {
+    "url": "https://www.perkinscounty.org/commissioners",
+    "source": "Perkins County, Commissioners (Mike Schweitzer, District #1)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46111-commissioner-460-d1",
+   "name": "Jeff Ebersdorfer"
+  },
+  {
+   "race_id": "2026-SD-46119-commissioner-462-d1",
+   "name": "William Floyd Jr",
+   "official_page": {
+    "url": "https://sully.sdcounty.gov/commission/commissioners/",
+    "source": "Sully County, Commissioners (William Floyd, Chairman, District 1, term expires 12/31/2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sully County Commissioner, District 1",
+     "from": "",
+     "to": "2026 (current term ends)",
+     "source": "Sully County, Commissioners",
+     "url": "https://sully.sdcounty.gov/commission/commissioners/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46125-register-of-deeds-440",
+   "name": "Amanda Rand",
+   "official_page": {
+    "url": "https://turner.sdcounties.org/register-of-deeds.html",
+    "source": "Turner County, Register of Deeds (Amanda Rand)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46137-commissioner-470-atlarge",
+   "name": "Rick K Farlee",
+   "official_page": {
+    "url": "https://ziebachcounty.org/commissioners",
+    "source": "Ziebach County, Commissioners (lists Rick Farlee)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Ben Brunick"
+  },
+  {
+   "race_id": "2026-SD-SH13",
+   "name": "Jack R Kolbeck",
+   "website": {
+    "url": "https://www.jackkolbeck.com/",
+    "how": "found through SDPB's Meet the Candidates page, which links it as the campaign website; the site is titled 'Jack Kolbeck for House' and speaks of District 13 and South Dakota (https://www.sdpb.org/2026-08-31/meet-the-candidates-jack-kolbeck)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH19",
+   "name": "Heidi Hora"
+  },
+  {
+   "race_id": "2026-SD-SH26B",
+   "name": "Angi Hanzlik"
+  },
+  {
+   "race_id": "2026-SD-SH32",
+   "name": "Nicole Uhre-Balk",
+   "website": {
+    "url": "https://www.nicoleforhouse.com/",
+    "how": "found through SDPB's Meet the Candidates page, which links it as the campaign website; the site names Nicole Uhre-Balk and District 32 in Rapid City, South Dakota (https://www.sdpb.org/2026-08-31/meet-the-candidates-nicole-uhre-balk)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SH6",
+   "name": "Elliott Neff",
+   "website": {
+    "url": "https://neff4sd.com/",
+    "how": "found through SDPB's Meet the Candidates page, which links it as the campaign website; the site is titled 'Elliott Neff - Candidate for South Dakota House District 6' (https://www.sdpb.org/2026-08-31/meet-the-candidates-elliott-neff)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS12",
+   "name": "Joe Zweifel",
+   "website": {
+    "url": "https://zweifelforsd.com/",
+    "how": "found through SDPB's Meet the Candidates page, which links the site's 'meet-candidate' page (https://zweifelforsd.com/meet-candidate/) as the campaign website; the site is titled 'Zweifel for SD' and names the South Dakota Senate, District 12 (https://www.sdpb.org/2026-08-31/meet-the-candidates-joe-zweifel)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I'm not your typical Democrat.",
+    "url": "https://zweifelforsd.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS26",
+   "name": "Rebecca Reimer",
+   "website": {
+    "url": "https://www.rebeccareimer.com/",
+    "how": "found through SDPB's Meet the Candidates page, which links it as the campaign website; the site is titled 'Rebecca Reimer for District 26 Senate' (https://www.sdpb.org/2026-08-31/meet-the-candidates-rebecca-reimer)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-SS8",
+   "name": "Casey Crabtree"
+  }
+ ]
+}

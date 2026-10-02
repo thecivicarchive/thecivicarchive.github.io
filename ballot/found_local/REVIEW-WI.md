@@ -11,6 +11,9 @@ race | name | what our record shows | what the source says | address
 ## A website that differs from the one the candidate filed (0; the filed one is kept)
 
 
+## A candidate's page on a party's own site (0; not shown as a campaign website, and no photo is taken from it)
+
+
 ## Held back by the loader's own guards (0; the wording is not repeated here)
 
 

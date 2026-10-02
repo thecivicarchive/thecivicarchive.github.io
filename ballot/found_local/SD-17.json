@@ -1,0 +1,214 @@
+{
+ "part": 17,
+ "of": 21,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Brian J Hunhoff",
+   "field": "official_page",
+   "url": "https://www.cityofyankton.org/departments/city-commission",
+   "why": "could not be opened: two lookups failed, then the site answered 403 (refuses scripts)"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-SD-46007-commissioner-470-atlarge",
+   "name": "Paul Slattery"
+  },
+  {
+   "race_id": "2026-SD-46011-register-of-deeds-440",
+   "name": "Kristi Kruse"
+  },
+  {
+   "race_id": "2026-SD-46019-commissioner-460-d1",
+   "name": "Doug Larson D.C."
+  },
+  {
+   "race_id": "2026-SD-46025-commissioner-460-d5",
+   "name": "Judith J Butcher-Fuller"
+  },
+  {
+   "race_id": "2026-SD-46031-register-of-deeds-440",
+   "name": "Marcia Schell",
+   "official_page": {
+    "url": "https://corsoncountysd.gov/register-of-deeds/",
+    "source": "Corson County, Register of Deeds (Marcia Schell)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46037-commissioner-460-d5",
+   "name": "Paul W Dulitz"
+  },
+  {
+   "race_id": "2026-SD-46045-commissioner-460-d1",
+   "name": "Julie Burgod"
+  },
+  {
+   "race_id": "2026-SD-46051-commissioner-460-d5",
+   "name": "Roger Hoff",
+   "official_page": {
+    "url": "https://grantcounty.sd.gov/commission/commissioners.php",
+    "source": "Grant County, County Commissioners (Roger Hoff, term ends 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46057-sheriff-430",
+   "name": "Chad J Schlotterbeck",
+   "official_page": {
+    "url": "https://hamlinco.us/sheriff",
+    "source": "Hamlin County, Sheriff's Office (Chad Schlotterbeck, Hamlin County Sheriff)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46063-sheriff-430",
+   "name": "Wyatt Sabo"
+  },
+  {
+   "race_id": "2026-SD-46071-auditor-410",
+   "name": "Kylie A Jones"
+  },
+  {
+   "race_id": "2026-SD-46077-commissioner-460-d3",
+   "name": "Kyle E Lee",
+   "official_page": {
+    "url": "https://kingsbury.sdcounty.gov/commission/",
+    "source": "Kingsbury County, Commission (Kyle Lee, Chairman, District 3)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 3, Kingsbury County",
+     "from": "2021",
+     "to": null,
+     "source": "Kingsbury County, Commission (appointed to the Commission July 2021)",
+     "url": "https://kingsbury.sdcounty.gov/commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-46083-register-of-deeds-440",
+   "name": "Becky Vander Broek",
+   "official_page": {
+    "url": "https://www.lincolncountysd.gov/directory.aspx",
+    "source": "Lincoln County staff directory (Becky Vander Broek, Register of Deeds)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46089-register-of-deeds-440",
+   "name": "Vickie Geffre",
+   "official_page": {
+    "url": "https://mcpherson.sdcounty.gov/register-of-deeds/",
+    "source": "McPherson County, Register of Deeds (the page spells the name Vicki Geffre)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-46095-commissioner-460-d2",
+   "name": "Kirby Krogman"
+  },
+  {
+   "race_id": "2026-SD-46099-register-of-deeds-440",
+   "name": "Riley Karsky"
+  },
+  {
+   "race_id": "2026-SD-46105-finance-officer-415",
+   "name": "Sara Stadler"
+  },
+  {
+   "race_id": "2026-SD-46111-commissioner-460-d1",
+   "name": "Phillip Hinker"
+  },
+  {
+   "race_id": "2026-SD-46119-register-of-deeds-440",
+   "name": "Lynette Murphy"
+  },
+  {
+   "race_id": "2026-SD-46125-sheriff-430",
+   "name": "Daniel Glover"
+  },
+  {
+   "race_id": "2026-SD-46137-commissioner-470-atlarge",
+   "name": "Shane Clinton Farlee",
+   "official_page": {
+    "url": "https://ziebachcounty.org/commissioners",
+    "source": "Ziebach County, Commissioners (lists Shane Farlee)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-SD-M-73060-city-commissioner-874",
+   "name": "Brian J Hunhoff"
+  },
+  {
+   "race_id": "2026-SD-SH13",
+   "name": "John Hughes"
+  },
+  {
+   "race_id": "2026-SD-SH19",
+   "name": "Jessica Bahmuller"
+  },
+  {
+   "race_id": "2026-SD-SH26B",
+   "name": "Lewis J. GrassRope"
+  },
+  {
+   "race_id": "2026-SD-SH32",
+   "name": "Samuel Hare Sr"
+  },
+  {
+   "race_id": "2026-SD-SH6",
+   "name": "Garret M Campbell"
+  },
+  {
+   "race_id": "2026-SD-SS12",
+   "name": "Kari Shanard-Koenders"
+  },
+  {
+   "race_id": "2026-SD-SS26",
+   "name": "Shawn Bordeaux",
+   "offices": [
+    {
+     "office": "State Representative, District 26A, South Dakota House of Representatives",
+     "from": "2015",
+     "to": "2023",
+     "source": "Wikipedia, Shawn Bordeaux",
+     "url": "https://en.wikipedia.org/wiki/Shawn_Bordeaux",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "State Senator, District 26, South Dakota Senate",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, Shawn Bordeaux",
+     "url": "https://en.wikipedia.org/wiki/Shawn_Bordeaux",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "State Senator, District 26",
+     "year": "2023",
+     "party": "Democratic",
+     "source": "Wikipedia, Shawn Bordeaux",
+     "url": "https://en.wikipedia.org/wiki/Shawn_Bordeaux",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-SD-SS8",
+   "name": "Clint Hoyer"
+  }
+ ]
+}

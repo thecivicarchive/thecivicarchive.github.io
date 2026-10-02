@@ -1090,6 +1090,14 @@ The pieces, in the order they are run for a state (Minnesota's file names; anoth
    the smoke test, save, and (when John has said so) `publish_dev.ps1`, which retries the two things that fail here:
    git blocked from writing a file, and the router losing the lookup during a push.
 
+States finished this way: MN (v4.0.081), WI (.082), IA (.083), ND (.085), SD (.086). A candidate's page on a party's
+own website is not their campaign website, whoever paid for it (RULES.md): `party_hosts(state)` in
+`ballot/local_sites.py` reads the parties' hosts from `ballot/lean/<code>_endorsements.json`, and the findings loader
+sets such a page aside, counts it and lists it on the state's review sheet (eight in North Dakota, all on
+demnpl.com); no photo is taken from one. Do not start a state's data stage while a full rebuild or a publish is
+running, or a half-written `ballot_geo/<code>/` gets built into the pages. The page shell for a state with a map is
+about 366 KB against a 345 KB budget the builder warns about; it still loads, and trimming it is on the list.
+
 Usage, learned the hard way (2026-10-02): a CronCreate job does not run while a workflow runs, so it cannot guard
 anything; a 110-agent max-effort wave ran through the session limit and spent $92.09 of John's paid extra usage. Run
 agents in batches of about 10M tokens or less, read `get_usage` between batches, never start a batch above 40 percent

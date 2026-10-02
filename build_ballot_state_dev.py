@@ -551,11 +551,56 @@ def geo_for(code):
                 doc = json.load(open(os.path.join(root, L["file"]), encoding="utf-8"))
                 shapes[L["kind"]] = {g["id"]: g.get("properties") or {} for g in doc["objects"][L["kind"]]["geometries"]}
             if shapes and idx.get("counties") and idx.get("transform"):
-                out = {"root": root, "index": idx, "shapes": shapes, **geo_words(idx, shapes)}
+                out = {"root": root, "index": idx, "shapes": shapes, **geo_words(idx, shapes), "said": precincts_say(root, idx, shapes)}
         except (OSError, ValueError, KeyError, TypeError) as e:
             print(f"  {code}: the map files in ballot_geo/{lc}/ could not be read ({type(e).__name__}: {e}); the page is built without them")
     _geo[lc] = out
     return out
+
+
+def precincts_say(root, idx, shapes):
+    """The districts a state's precincts name that no layer draws (a water development district in South Dakota): for
+    each such property the files set out in index.json, the ids its precincts carry, what the files call it, and whether
+    the precincts also name the part of it they lie in (<property>_area). A contest whose jurisdiction is one of those
+    ids can then be put on a located reader's ballot by the precinct's own word, with no shape on the map. Only
+    properties that hold a single id are read; names, counts and shares are not ids and match no jurisdiction."""
+    told = ((idx.get("format") or {}).get("precinct_properties") or {})
+    keys = [k for k in told if k not in shapes and k not in ("name", "county", "precinct", "split", "c")
+            and not k.endswith(("_pct", "_area", "_all", "_edge", "_out", "_said"))]
+    out = {k: {"ids": set(), "area": False} for k in keys}
+    if not keys:
+        return {}
+    for c in idx.get("counties") or []:
+        try:
+            doc = json.load(open(os.path.join(root, c["file"]), encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        for obj in doc.get("objects", {}).values():
+            for g in obj.get("geometries") or []:
+                p = g.get("properties") or {}
+                for k in keys:
+                    if isinstance(p.get(k), str) and p[k]:
+                        out[k]["ids"].add(p[k])
+                        out[k]["area"] = out[k]["area"] or bool(p.get(f"{k}_area"))
+    for k in keys:
+        out[k]["word"] = re.sub(r"^the\s+", "", re.split(r"\s*\(|\s+(?:holding|that holds|with)\s+(?:most|the most|the largest)\b", str(told.get(k) or ""))[0]).strip()
+    return {k: v for k, v in out.items() if v["ids"] and v["word"]}
+
+
+def race_said(geo, jid):
+    """"<property>:<id>" where the map's precincts name a contest's jurisdiction and no layer draws it; else None."""
+    jid = str(jid or "").strip()
+    for k, v in sorted((geo.get("said") or {}).items()):
+        if jid and jid in v["ids"]:
+            return f"{k}:{jid}"
+    return None
+
+
+def place_shape(geo, level, jid, district):
+    """"mcd:<id>" for a city's or township's contest elected by a ward or district the map has no lines for, where the
+    map does have the place itself: the page can then tell who lives in the place, if not in which part of it."""
+    jid = str(jid or "").strip()
+    return f"mcd:{jid}" if level in ("city", "township") and district not in (None, "") and jid in geo["shapes"].get("mcd", {}) else None
 
 
 # What a state's map files call their own parts, where the page's usual words (Minnesota's, the first state to have
@@ -575,7 +620,8 @@ def geo_words(idx, shapes):
     words = {}
     for kind, usual in GEO_SAID.items():
         t = re.sub(r"^list:\s*", "", str(said.get(kind) or "")).strip()
-        t = re.sub(r"^the\s+", "", re.split(rf"\s+the {re.escape(unit)} lies in|\s*\(", t)[0]).strip()
+        # the name of the thing alone: not the clause that says how a precinct comes by it ("... holding most of the precinct")
+        t = re.sub(r"^the\s+", "", re.split(rf"\s+the {re.escape(unit)} lies in|\s+(?:holding|that holds|with)\s+(?:most|the most|the largest)\b|\s*\(", t)[0]).strip()
         t = re.sub(r"districts$", "district", t)
         if t and t.lower() != usual:
             words[kind] = t
@@ -1228,6 +1274,8 @@ def build(db, code, lines, out_dir=None):
                         "g": race_shape(geo, code, r["level"], kind, r["jurisdiction_id"], r["jurisdiction"], r["district"],
                                         re.findall(r"\d+", str(r["county_ids"] or ""))) if geo else None},
                        keep=("pt", "el"))
+        if geo and not race.get("g"):      # no shape of its own: the place it is a part of, or the precincts' own word for its district
+            race.update(compact({"gp": place_shape(geo, r["level"], r["jurisdiction_id"], r["district"]), "q": race_said(geo, r["jurisdiction_id"])}))
         raw_kind[rid] = (r["level"], kind)
         race["_sort"] = (LEVELS.index(lv), kind_rank(lv, kind), "" if kind in KIND_RANK else kind,
                          (race.get("j") or "").lower() if lv in LOCAL or lv in ("county", "soil_water") else "",
@@ -2354,9 +2402,11 @@ window.GEOKIT = (function () {
     const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.mn || dataName("mcd", z.m), "mcd", z.m),
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
-      ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (about ${shares[n] || "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
+      ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (${shares[n] ? "about " + shares[n] : "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
       row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
       row(esc(KW.judicial[1]), z.jd ? dataName("judicial", z.jd) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
+      ...(z.sw2 || []).map((i, n) => row("", ((z.sw2n || [])[n] || dataName("swcd", i)) + ` (it holds a smaller part of the ${UNIT})`, "swcd", i)),
+      ...((BOOT.geo || {}).says || []).map(([k, w]) => z.x && z.x[k] ? row(esc(capital(w)), (z.x[k + "_n"] || z.x[k]) + (z.x[k + "_area"] ? ", " + z.x[k + "_area"].join(" and ") : "") + (z.x[k + "_pct"] ? ` (about ${Math.round(z.x[k + "_pct"])}% of the ${UNIT} is inside it)` : "")) : ""),
       row("Hospital district", z.ho ? (z.hon || dataName("hospital", z.ho)) : "", "hospital", z.ho), row("Park district", z.pk ? (z.pkn || dataName("park", z.pk)) : "", "park", z.pk)].join("");
     const edge = !z.in ? `Your spot is on a ${UNIT} line, as near as this map can tell. ${esc(z.pn)} is the nearest ${UNIT}${z.nb ? `; ${esc(z.nb)} is on the other side` : ""}.`
       : z.edge <= 30 ? `Your spot is about ${feet(z.edge)} feet from this ${UNIT}&rsquo;s line${z.nb ? ` with ${esc(z.nb)}` : ""}; a spot that close can fall on either side of it.` : "";
@@ -2463,10 +2513,16 @@ window.GEOKIT = (function () {
     const pcts = (p.school || []).length === sch.length ? (p.school_pct || []).map(Number) : []; let nb = 0, sum = 0;
     while (nb < pcts.length && sum + pcts[nb] <= 101.5) sum += pcts[nb++];
     const over = pcts.length === sch.length && nb > 0 && nb < sch.length ? {ov: sch.length - nb} : {};
+    // what the precinct says of districts no layer draws (BOOT.geo.says), and a second district of a kind that holds part of it (split)
+    const says = (BOOT.geo || {}).says || [], x = {}, sp = p.split || {}, sw2 = Object.keys(sp.swcd || {}).filter(i => i !== p.swcd);
+    says.forEach(([k]) => { x[k] = p[k] || ""; if (!p[k]) return; x[k + "_n"] = nm(k, p[k]);
+      if (p[k + "_area"]) x[k + "_area"] = sp[k + "_area"] ? Object.keys(sp[k + "_area"]) : [p[k + "_area"]];
+      if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {})};
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
-      edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0)};
+      edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0), ...more};
   }
   function locate(lon, lat, acc) {      // a reader's spot, used here and now: the pin, the precinct, every district. The spot itself is never kept.
     return (ready || mount()).then(() => map.locate(lon, lat)).then(r => {
@@ -3051,11 +3107,11 @@ function leanHTML(r){
     ${BOOT.votes ? `<div id="pvotes" class="pvotes"><p class="muted">Loading how this place has voted&hellip;</p></div>` : ""}</section>`;
 }
 function votePlace(r){      // whose past votes a contest's page shows: [file, key, wider than the contest's own place?]; [null, kind] where the results are not added up for that kind of place
-  const g = r.g || "", i = g.indexOf(":"), kind = g.slice(0, i), id = g.slice(i + 1), V = BOOT.votes, c0 = (r.c || [])[0];
+  const g = r.g || r.gp || "", i = g.indexOf(":"), kind = g.slice(0, i), id = g.slice(i + 1), V = BOOT.votes, c0 = (r.c || [])[0];      // gp: the place a ward with no lines is a part of
   if (!V || !g) return null;
   if (kind === "state") return ["state", "", 0];
   if (kind === "county" && c0 && V.files.includes("county")) return ["county", c0, 0];      // the county file is keyed as the page files a county
-  if (kind === "mcd") return c0 && V.mcd.includes(c0) ? ["mcd-" + c0, id, 0] : [null, kind];
+  if (kind === "mcd") return c0 && V.mcd.includes(c0) ? ["mcd-" + c0, id, r.g ? 0 : 1] : [null, kind];
   if (V.files.includes(kind)) return [kind, id, 0];
   if ((kind === "swcd" || kind === "park") && c0 && V.files.includes("county")) return ["county", c0, kind === "swcd" && ((BOOT.geo || {}).swWhole || []).includes(id) ? 0 : 1];      // a conservation district that is the whole county: the county's own figures
   return [null, kind];
@@ -3131,11 +3187,12 @@ function field(r, key){
   const votes = list.some(c => c.v != null), max = Math.max(1, ...list.map(c => c.pct || 0));
   const rows = [...list].sort((a, b) => votes ? (b.v || 0) - (a.v || 0) : surname(a.n).localeCompare(surname(b.n)));
   const src = D.sources[list[0].src];
+  const runoff = /primary/.test(key) ? r.el[key.replace("primary", "runoff")] || [] : [], toRunoff = c => runoff.some(x => x.n === c.n);      // a primary that sent two on to a runoff sent neither to November yet
   return `<section class="field run"><div class="fh"><b>${esc(D.elections[key] || key)} &middot; ${esc(fmtDate(list[0].date))}</b><span>${plural(list.length, "candidate")} filed</span></div>
     <ol class="lanes">${rows.map((c, i) => { const href = c.m ? recordHref(c.m) : "";
       return `<li class="lane${c.out === "advanced" ? " won" : ""}${votes ? "" : " nobar"}" style="--pc:${pcVar(c)};--k:${i}"><span class="nm">${href ? `<a href="${href}">${esc(c.n)}</a>` : esc(c.n)}<small>${esc(c.p || "")}${serves(c, r) ? " &middot; serves in this seat today" : ""}</small></span>
       <span class="bar"><i style="--w:${votes ? (100 * (c.pct || 0) / max).toFixed(1) : 0}%"></i></span>
-      <span class="vv">${votes ? `${num(c.v)} &middot; ${(c.pct || 0).toFixed(1)}%` : (c.out === "advanced" ? "On the November ballot" : c.out === "lost" ? "Not on the November ballot" : "")}</span></li>`; }).join("")}</ol>
+      <span class="vv">${votes ? `${num(c.v)} &middot; ${(c.pct || 0).toFixed(1)}%` : (c.out === "advanced" ? (toRunoff(c) ? "Went on to the runoff" : "On the November ballot") : c.out === "lost" ? "Not on the November ballot" : "")}</span></li>`; }).join("")}</ol>
     <p class="fnote">${votes ? `Votes as certified in the official results (${esc(src ? src.agency : ST.agency)}).` : ST.noVotes}</p></section>`;
 }
 
@@ -3403,12 +3460,13 @@ function ballotHTML(m){
     const G = r => r.g || "", at = (kind, id) => id ? kind + ":" + id : "\u0000", LOOSE = "The map has no lines for the part of the place that elects this, so it is listed for everyone here; your county&rsquo;s sample ballot shows whether it is on yours.";
     const county = byLv("county").filter(r => inC(r) && (!G(r) || G(r) === at("county", z.gc || z.c) || G(r) === at("com", z.com) || G(r) === at("park", z.pk)));
     out.push(level(esc(cName(m.c)), county, county.some(r => !G(r) && r.d) ? LOOSE : ""));
-    const soilAll = byLv("soil_water").filter(inC), soil = soilAll.filter(r => G(r) === at("swcd", z.sw)), soilLoose = soilAll.filter(r => !G(r));
-    out.push(level(esc(LV.soil_water), soil.concat(soilLoose), soilLoose.length ? LOOSE : ""));
+    const soilAll = byLv("soil_water").filter(inC), soil = soilAll.filter(r => G(r) === at("swcd", z.sw) || (z.sw2 || []).some(i => G(r) === at("swcd", i))), soilLoose = soilAll.filter(r => !G(r));
+    const soilSplit = soil.some(r => G(r) !== at("swcd", z.sw)) ? `Your ${UNIT} lies in more than one of these districts; only the one you live in is on your ballot.` : "";
+    out.push(level(esc(LV.soil_water), soil.concat(soilLoose), [soilSplit, soilLoose.length ? LOOSE : ""].filter(Boolean).join(" ")));
     const mname = z.mn || placeName(mPk(z.m));
     const muni = D.races.filter(r => r.pk === mPk(z.m) && LOCAL.includes(r.lv) && (!G(r) || G(r) === at("mcd", z.m) || (G(r).startsWith("ward:") && (z.w || []).includes(G(r).slice(5)))));
-    out.push(muni.length ? level(esc(mname), muni, muni.some(r => !G(r) && r.d) ? LOOSE : "") : note(esc(mname), `No ${esc((ST.muni || []).includes(muniOf(mname)) ? MUNI1 : muniOf(mname) || MUNI1 || "city")} contest for ${esc(mname)} is on the ${LWHO} list for November 3.`));
-    const lostM = D.races.filter(r => (r.lv === "city" || r.lv === "township") && !G(r) && inC(r) && !muni.includes(r));
+    out.push(muni.length ? level(esc(mname), muni, muni.some(r => !G(r) && r.d) ? LOOSE : "") : note(esc(mname), `No ${esc((ST.muni || []).includes(muniOf(mname)) ? MUNI1 : muniOf(mname) || "local")} contest for ${esc(mname)} is on the ${LWHO} list for November 3.`));
+    const lostM = D.races.filter(r => (r.lv === "city" || r.lv === "township") && !G(r) && !r.gp && inC(r) && !muni.includes(r));      // a place the map has, whose wards it has not, is known: its contests are listed only for those who live in it
     if (lostM.length) out.push(`<div class="bl-level"><h4>Places the map has no lines for</h4><p class="ynote">The map files have no lines for ${new Set(lostM.map(r => r.pk)).size === 1 ? "this place" : "these places"}, so this page cannot tell whether you live there. Your ${CO1}&rsquo;s sample ballot shows it.</p><div class="rlist">${lostM.map(r => raceRow(r, "", esc(raceWhere(r)))).join("")}</div></div>`);
     const nb = (z.sch || []).length - (z.ov || 0), split = nb > 1;      // the districts that share the precinct out; any after them lie over those, and a voter is in both
     (z.sch || []).forEach((sid, n) => { const rs = BYG["school:" + sid] || [], nm = (z.schn || {})[sid] || (SCHG[sid] ? placeName(SCHG[sid]) : sid);
@@ -3420,8 +3478,15 @@ function ballotHTML(m){
     const ownSeat = r => { const t = /-(\d{5})(?:-S)?$/.exec(r.id); return !t || t[1] === z.m; };      // a board seat for one city or township carries its code
     const hosp = D.races.filter(r => r.lv === "hospital" && z.ho && G(r) === at("hospital", z.ho) && ownSeat(r));
     out.push(level(esc(hosp.length ? raceWhere(hosp[0]) : "Hospital district"), hosp, hosp.some(r => r.s && !/^at large$/i.test(r.s) && !/-\d{5}(?:-S)?$/.test(r.id)) ? "A seat named for one part of the district is voted on only there." : ""));
-    const loose = D.races.filter(r => inC(r) && ((r.lv === "hospital" && !G(r)) || (r.lv === "other" && !(r.pk && r.pk[0] === "M"))));
-    out.push(level("Other districts", loose, loose.every(r => G(r) === at("county", z.gc || z.c)) ? "" : ST.partNote));      // a whole-county district is on every ballot in it
+    // a district no layer draws and the precinct names (r.q): 0, not this precinct's; 1, its district, the part that elects the seat not named;
+    // 2, exactly its own; 3, the precinct is split between parts. null where the precinct says nothing of it: listed as before
+    const saidOf = r => { if (!r.q || !z.x) return null; const i = r.q.indexOf(":"), k = r.q.slice(0, i), a = z.x[k + "_area"];
+      if (!(k in z.x)) return null; if (z.x[k] !== r.q.slice(i + 1)) return 0;
+      return !r.d ? 2 : !a ? 1 : !a.includes(r.d) ? 0 : a.length > 1 ? 3 : 2; };
+    const loose = D.races.filter(r => inC(r) && ((r.lv === "hospital" && !G(r)) || (r.lv === "other" && !(r.pk && r.pk[0] === "M"))) && saidOf(r) !== 0);
+    out.push(level("Other districts", loose, [loose.some(r => saidOf(r) === 1) ? `The map files say which district your ${UNIT} is in, not which part of it elects each seat: every seat of the district on the list is shown, and only your own part&rsquo;s is on your ballot.` : "",
+      loose.some(r => saidOf(r) === 3) ? `Your ${UNIT} is split between parts of a district here; only your own part&rsquo;s seat is on your ballot.` : "",
+      loose.some(r => saidOf(r) == null && G(r) !== at("county", z.gc || z.c)) ? ST.partNote : ""].filter(Boolean).join(" ")));      // a whole-county district is on every ballot in it
   }
   else if (m.c) {
     const county = byLv("county").filter(inC), soil = byLv("soil_water").filter(inC);
@@ -3778,7 +3843,8 @@ function racePage(id){
   if (r.h || everyone.some(c => c.m)) rosterRows().forEach(x => srcAdd(src, "holders", x));
   if (loc) srcAdd(src, "maps", {h: LINES_SRC()});
   moreSources(r, src);
-  const gk = (r.g || "").split(":")[0], onMap = GEO_ON && r.g && gk !== "state" ? `<p class="holder"><a href="#map=${encodeURIComponent(r.g)}">See ${SHAPE_WORD[gk] || "this place"} on the map</a>, down to its streets.</p>` : "";
+  const gk = (r.g || "").split(":")[0], onMap = GEO_ON && r.g && gk !== "state" ? `<p class="holder"><a href="#map=${encodeURIComponent(r.g)}">See ${SHAPE_WORD[gk] || "this place"} on the map</a>, down to its streets.</p>`
+    : GEO_ON && r.gp ? `<p class="holder"><a href="#map=${encodeURIComponent(r.gp)}">See ${esc(r.j || "this place")} on the map</a>; the map has no lines for the part of it that elects this.</p>` : "";
   $("#app").innerHTML = `${crumbs([back, `<span>${esc(raceTitle(r))}</span>`])}
   <section class="bhero${loc ? " withloc" : ""}"><div><span class="eyebrow">${esc(levelWords(r))} &middot; ${esc(fmtDate(r.date))}</span><h1>${esc(raceTitle(r))}${r.sp ? '<span class="tagsp">Special</span>' : ""}</h1>
     <p class="holder">${esc(where)}${where !== ST.name && cs && !((r.c || []).length === 1 && (r.lv === "county" || where === cName(r.c[0]))) ? ` &middot; ${cs}` : ""}. ${r.pt ? "Elected on party lines: the party each candidate filed under is printed on the ballot." : "A nonpartisan office: no party is printed beside the names."}</p>
@@ -4102,6 +4168,10 @@ def build_state(code, db, out, site_root, parts, changelog, version):
     if X["geo"]:      # the map: its files are fetched as the view needs them
         geo = geo_files(code, out_dir, X["geo"])
         boot["geo"] = {k: v for k, v in geo.items() if not k.startswith("_")}
+        # the districts the precincts name and no layer draws, where a contest on the list is in one: [property, the files' word for it, 1 where they name its parts too]
+        used = sorted({r["q"].split(":", 1)[0] for r in data["races"] if r.get("q")})
+        if used:
+            boot["geo"]["says"] = [[k, X["geo"]["said"][k]["word"], 1 if X["geo"]["said"][k]["area"] else 0] for k in used]
     for key in ("polls", "odds"):
         if X[key]:
             boot[key] = X[key]

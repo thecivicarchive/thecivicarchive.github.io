@@ -1,0 +1,1953 @@
+{
+ "what": "How each South Dakota place voted in five contests of the 2020, 2022 and 2024 general elections: the votes for the Democratic ticket, the Republican ticket, everyone else together and the total. Counties are the rows of the State Canvass, the Board of Canvassers' certified record; legislative districts are added up from the Secretary of State's precinct results where those equal the canvass.",
+ "note": "What this is: how the people of a place voted in that election. A county's figures are its row in the State Canvass, the record the State Board of Canvassers certified. A legislative district's figures (2022 and 2024, on the lines in force at that election) are its precincts added up from the Secretary of State's results site, and are given only where every precinct of the district voted in that district alone and where, in every county the district reaches, the precincts add up to exactly the certified canvass; in counties that use vote centers, and where a precinct is split between districts, a district cannot be added up and is left out, never estimated. What this is not: it is not a prediction of any election; it says nothing about any candidate on a later ballot or about any voter; a nonpartisan office stays nonpartisan; and a place is not its lines for ever: where a district was drawn again, the figures are for the lines of that year. The tickets are named, as the canvass names them, only to say which election this was. In a place with very few voters the split would come close to saying how particular people voted; those contests are listed in the place's too_few, and a page should leave the split out.",
+ "state": "SD",
+ "generated": "2026-10-02",
+ "method_version": "1.0",
+ "how_to_read": "Each place's votes are four counts for each contest: dem (the Democratic ticket), rep (the Republican ticket), other (every other candidate on the ballot; South Dakota's results carry no write-in votes) and total. Minnesota's file calls the first count dfl. A contest a place does not have could not be added up on its lines: see the kind's note and coverage.",
+ "vote_keys": [
+  "dem",
+  "rep",
+  "other",
+  "total"
+ ],
+ "too_few": {
+  "fewer_than": 20,
+  "why": "A place's too_few lists the contests in which it had fewer than 20 votes, or in which every vote went the same way. There the split comes close to saying how particular people voted, so a page should leave it out. The counts are the official record all the same, and are kept here so that the sums can be checked."
+ },
+ "contests": [
+  {
+   "id": "2024-president",
+   "date": "2024-11-05",
+   "office": "President and Vice President of the United States",
+   "table": "sd-state-canvass-2024",
+   "kinds": [
+    "county",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Harris and Walz",
+    "column": "column 1 of the canvass table, headed DEM"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Vance",
+    "column": "column 3 of the canvass table, headed REP"
+   },
+   "other": {
+    "what": "every other candidate on the ballot, together; the results carry no write-in votes",
+    "columns": [
+     "Libertarian",
+     "independent"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates; the canvass tables give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 146859,
+    "rep": 272081,
+    "other": 9982,
+    "total": 428922
+   },
+   "official_source": "sd-state-canvass-2024"
+  },
+  {
+   "id": "2022-us-senate",
+   "date": "2022-11-08",
+   "office": "United States Senator",
+   "table": "sd-state-canvass-2022",
+   "kinds": [
+    "county",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Bengs",
+    "column": "column 1 of the canvass table, headed DEM"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Thune",
+    "column": "column 3 of the canvass table, headed REP"
+   },
+   "other": {
+    "what": "every other candidate on the ballot, together; the results carry no write-in votes",
+    "columns": [
+     "Libertarian"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates; the canvass tables give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 91007,
+    "rep": 242316,
+    "other": 14697,
+    "total": 348020
+   },
+   "official_source": "sd-state-canvass-2022"
+  },
+  {
+   "id": "2022-governor",
+   "date": "2022-11-08",
+   "office": "Governor and Lieutenant Governor",
+   "table": "sd-state-canvass-2022",
+   "kinds": [
+    "county",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Smith and Keintz",
+    "column": "column 1 of the canvass table, headed DEM"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Noem and Rhoden",
+    "column": "column 3 of the canvass table, headed REP"
+   },
+   "other": {
+    "what": "every other candidate on the ballot, together; the results carry no write-in votes",
+    "columns": [
+     "Libertarian"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates; the canvass tables give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 123148,
+    "rep": 217035,
+    "other": 9983,
+    "total": 350166
+   },
+   "official_source": "sd-state-canvass-2022"
+  },
+  {
+   "id": "2020-president",
+   "date": "2020-11-03",
+   "office": "President and Vice President of the United States",
+   "table": "sd-state-canvass-2020",
+   "kinds": [
+    "county"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Biden and Harris",
+    "column": "column 3 of the canvass table, headed DEM"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Pence",
+    "column": "column 1 of the canvass table, headed REP"
+   },
+   "other": {
+    "what": "every other candidate on the ballot, together; the results carry no write-in votes",
+    "columns": [
+     "Libertarian"
+    ]
+   },
+   "total": {
+    "what": "the votes cast for candidates; the canvass tables give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 150471,
+    "rep": 261043,
+    "other": 11095,
+    "total": 422609
+   },
+   "official_source": "sd-state-canvass-2020"
+  },
+  {
+   "id": "2020-us-senate",
+   "date": "2020-11-03",
+   "office": "United States Senator",
+   "table": "sd-state-canvass-2020",
+   "kinds": [
+    "county"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Ahlers",
+    "column": "column 2 of the canvass table, headed DEM"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Rounds",
+    "column": "column 1 of the canvass table, headed REP"
+   },
+   "other": {
+    "what": "every other candidate on the ballot, together; the results carry no write-in votes",
+    "columns": []
+   },
+   "total": {
+    "what": "the votes cast for candidates; the canvass tables give no under votes or over votes"
+   },
+   "statewide": {
+    "dem": 143987,
+    "rep": 276232,
+    "other": 0,
+    "total": 420219
+   },
+   "official_source": "sd-state-canvass-2020"
+  }
+ ],
+ "kinds": {
+  "county": {
+   "what": "Counties",
+   "key": "five-digit county FIPS code, as sl_places kind county and the jurisdiction_id of our county races",
+   "places": 66,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor",
+    "2020-president",
+    "2020-us-senate"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0
+  },
+  "senate": {
+   "what": "Legislative districts (each elects one senator), where they can be added up from whole precincts",
+   "key": "district number, as the district of our Senate races",
+   "places": 14,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor"
+   ],
+   "covers_the_state": false,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts drawn in 2011; the districts drawn in 2021 were first used in 2022, so 2020 is not given.",
+   "note": "A district's precincts are those listed in the Precinct Level workbook of its own legislative contest on the Secretary's results site. A district is given only where none of its precincts also voted in another district, and only for a contest in which, in every county the district reaches, the site's precincts add up to exactly the certified State Canvass. The districts left out, and why, are under coverage. These files do not say which lines a later election uses."
+  },
+  "house": {
+   "what": "House districts (two representatives each; 26A, 26B, 28A and 28B one each), where they can be added up from whole precincts",
+   "key": "district number, with its letter where the district is divided, as the district of our House races",
+   "places": 16,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor"
+   ],
+   "covers_the_state": false,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts drawn in 2011; the districts drawn in 2021 were first used in 2022, so 2020 is not given.",
+   "note": "A district's precincts are those listed in the Precinct Level workbook of its own legislative contest on the Secretary's results site. A district is given only where none of its precincts also voted in another district, and only for a contest in which, in every county the district reaches, the site's precincts add up to exactly the certified State Canvass. The districts left out, and why, are under coverage. These files do not say which lines a later election uses. A House district is the same ground as the Senate district of its number, except Districts 26 and 28, each divided into two single-member House districts (26A, 26B, 28A, 28B)."
+  }
+ },
+ "control": {
+  "result": "equal",
+  "statement": "For every contest the State Canvass has all 66 counties and each column adds up to its own Total row; for President and U.S. Senator the Total equals the Clerk of the U.S. House's statistics; for 2022 every county's row equals the official county canvass, for each county that document carries; the counties add up to the statewide total; and every legislative district given is added up from precincts that voted in that district alone, in counties where the precincts add up to exactly the certified canvass.",
+  "precincts": {
+   "2020": 693,
+   "2022": 687,
+   "2024": 691
+  },
+  "contests": {
+   "2024-president": {
+    "state_canvass": {
+     "dem": 146859,
+     "rep": 272081,
+     "other": 9982,
+     "total": 428922
+    },
+    "source": "sd-state-canvass-2024",
+    "where": "'Presidential Electors', pages 2 to 3 of the PDF: 66 county rows and the Total row",
+    "counties_add_up_to_the_total_row": true,
+    "results_site": {
+     "compared": 66,
+     "equal": 42,
+     "differ": {
+      "Brookings": {
+       "results_site": [
+        5978,
+        112,
+        8574,
+        274
+       ],
+       "canvass": [
+        5978,
+        112,
+        8575,
+        274
+       ]
+      },
+      "Brown": {
+       "results_site": [
+        6075,
+        72,
+        10642,
+        251
+       ],
+       "canvass": [
+        6075,
+        72,
+        10645,
+        251
+       ]
+      },
+      "Butte": {
+       "results_site": [
+        941,
+        37,
+        4024,
+        79
+       ],
+       "canvass": [
+        942,
+        37,
+        4024,
+        79
+       ]
+      },
+      "Charles Mix": {
+       "results_site": [
+        998,
+        13,
+        2547,
+        51
+       ],
+       "canvass": [
+        1000,
+        13,
+        2551,
+        51
+       ]
+      },
+      "Clay": {
+       "results_site": [
+        2943,
+        42,
+        2574,
+        97
+       ],
+       "canvass": [
+        2944,
+        42,
+        2574,
+        97
+       ]
+      },
+      "Corson": {
+       "results_site": [
+        495,
+        9,
+        630,
+        8
+       ],
+       "canvass": [
+        495,
+        9,
+        631,
+        8
+       ]
+      },
+      "Custer": {
+       "results_site": [
+        1566,
+        36,
+        4309,
+        85
+       ],
+       "canvass": [
+        1567,
+        36,
+        4313,
+        85
+       ]
+      },
+      "Fall River": {
+       "results_site": [
+        1030,
+        32,
+        3132,
+        77
+       ],
+       "canvass": [
+        1030,
+        32,
+        3135,
+        77
+       ]
+      },
+      "Haakon": {
+       "results_site": [
+        105,
+        4,
+        1002,
+        12
+       ],
+       "canvass": [
+        105,
+        4,
+        1004,
+        12
+       ]
+      },
+      "Hand": {
+       "results_site": [
+        365,
+        7,
+        1375,
+        16
+       ],
+       "canvass": [
+        365,
+        7,
+        1376,
+        16
+       ]
+      },
+      "Hughes": {
+       "results_site": [
+        2838,
+        59,
+        5378,
+        159
+       ],
+       "canvass": [
+        2838,
+        59,
+        5379,
+        159
+       ]
+      },
+      "Hutchinson": {
+       "results_site": [
+        755,
+        17,
+        2911,
+        46
+       ],
+       "canvass": [
+        755,
+        17,
+        2918,
+        46
+       ]
+      },
+      "Jerauld": {
+       "results_site": [
+        275,
+        1,
+        708,
+        14
+       ],
+       "canvass": [
+        276,
+        1,
+        708,
+        14
+       ]
+      },
+      "Lawrence": {
+       "results_site": [
+        5074,
+        121,
+        9903,
+        310
+       ],
+       "canvass": [
+        5074,
+        121,
+        9904,
+        310
+       ]
+      },
+      "Lyman": {
+       "results_site": [
+        421,
+        7,
+        993,
+        25
+       ],
+       "canvass": [
+        422,
+        7,
+        993,
+        25
+       ]
+      },
+      "Marshall": {
+       "results_site": [
+        782,
+        11,
+        1287,
+        28
+       ],
+       "canvass": [
+        782,
+        11,
+        1288,
+        28
+       ]
+      },
+      "Meade": {
+       "results_site": [
+        3420,
+        106,
+        10880,
+        258
+       ],
+       "canvass": [
+        3421,
+        106,
+        10887,
+        258
+       ]
+      },
+      "Minnehaha": {
+       "results_site": [
+        39910,
+        672,
+        51821,
+        1548
+       ],
+       "canvass": [
+        39923,
+        673,
+        51842,
+        1548
+       ]
+      },
+      "Oglala Lakota": {
+       "results_site": [
+        2563,
+        17,
+        406,
+        72
+       ],
+       "canvass": [
+        2567,
+        17,
+        406,
+        72
+       ]
+      },
+      "Pennington": {
+       "results_site": [
+        20050,
+        483,
+        35005,
+        1037
+       ],
+       "canvass": [
+        20051,
+        483,
+        35009,
+        1037
+       ]
+      },
+      "Roberts": {
+       "results_site": [
+        1560,
+        12,
+        2513,
+        63
+       ],
+       "canvass": [
+        1560,
+        12,
+        2514,
+        63
+       ]
+      },
+      "Union": {
+       "results_site": [
+        2526,
+        56,
+        6082,
+        110
+       ],
+       "canvass": [
+        2548,
+        56,
+        6160,
+        112
+       ]
+      },
+      "Walworth": {
+       "results_site": [
+        481,
+        16,
+        1938,
+        29
+       ],
+       "canvass": [
+        481,
+        16,
+        1940,
+        29
+       ]
+      },
+      "Yankton": {
+       "results_site": [
+        3883,
+        79,
+        6649,
+        220
+       ],
+       "canvass": [
+        3883,
+        79,
+        6650,
+        220
+       ]
+      }
+     },
+     "columns": [
+      "Democratic",
+      "Libertarian",
+      "Republican",
+      "independent"
+     ],
+     "statewide": {
+      "results_site": [
+       146811,
+       2777,
+       271938,
+       7202
+      ],
+      "canvass": [
+       146859,
+       2778,
+       272081,
+       7204
+      ]
+     }
+    },
+    "official": {
+     "dem": 146859,
+     "rep": 272081,
+     "other": 9982,
+     "total": 428922
+    },
+    "equal": true,
+    "second_source": "clerk-statistics-2024",
+    "second_where": "South Dakota, page 64",
+    "read": "from the document on 2026-10-02"
+   },
+   "2022-us-senate": {
+    "state_canvass": {
+     "dem": 91007,
+     "rep": 242316,
+     "other": 14697,
+     "total": 348020
+    },
+    "source": "sd-state-canvass-2022",
+    "where": "'United States Senator', pages 2 to 3 of the PDF: 66 county rows and the Total row",
+    "counties_add_up_to_the_total_row": true,
+    "results_site": {
+     "compared": 66,
+     "equal": 66,
+     "differ": {},
+     "columns": [
+      "Democratic",
+      "Libertarian",
+      "Republican"
+     ],
+     "statewide": {
+      "results_site": [
+       91007,
+       14697,
+       242316
+      ],
+      "canvass": [
+       91007,
+       14697,
+       242316
+      ]
+     }
+    },
+    "official": {
+     "dem": 91007,
+     "rep": 242316,
+     "other": 14697,
+     "total": 348020
+    },
+    "equal": true,
+    "second_source": "clerk-statistics-2022",
+    "second_where": "South Dakota, page 43",
+    "read": "from the document on 2026-10-02",
+    "county_canvass": {
+     "with": "the official county canvass with precinct level results (a PDF of text): each county's Total row and the sum of its precinct rows against the State Canvass row; and its precinct rows against the results site's precinct rows, as a set of rows",
+     "counties": 66,
+     "counties_in_the_document": 65,
+     "not_in_the_document": [
+      "Yankton"
+     ],
+     "totals_equal_to_the_state_canvass": 65,
+     "totals_differ": [],
+     "precinct_rows_equal_to_the_results_site": 65,
+     "precinct_rows_differ": []
+    }
+   },
+   "2022-governor": {
+    "state_canvass": {
+     "dem": 123148,
+     "rep": 217035,
+     "other": 9983,
+     "total": 350166
+    },
+    "source": "sd-state-canvass-2022",
+    "where": "'Governor and Lieutenant Governor', pages 6 to 6 of the PDF: 66 county rows and the Total row",
+    "counties_add_up_to_the_total_row": true,
+    "results_site": {
+     "compared": 66,
+     "equal": 66,
+     "differ": {},
+     "columns": [
+      "Democratic",
+      "Libertarian",
+      "Republican"
+     ],
+     "statewide": {
+      "results_site": [
+       123148,
+       9983,
+       217035
+      ],
+      "canvass": [
+       123148,
+       9983,
+       217035
+      ]
+     }
+    },
+    "official": {
+     "dem": 123148,
+     "rep": 217035,
+     "other": 9983,
+     "total": 350166
+    },
+    "equal": true,
+    "second_source": "the official county canvass (see county_canvass)",
+    "county_canvass": {
+     "with": "the official county canvass with precinct level results (a PDF of text): each county's Total row and the sum of its precinct rows against the State Canvass row; and its precinct rows against the results site's precinct rows, as a set of rows",
+     "counties": 66,
+     "counties_in_the_document": 65,
+     "not_in_the_document": [
+      "Yankton"
+     ],
+     "totals_equal_to_the_state_canvass": 65,
+     "totals_differ": [],
+     "precinct_rows_equal_to_the_results_site": 65,
+     "precinct_rows_differ": []
+    }
+   },
+   "2020-president": {
+    "state_canvass": {
+     "dem": 150471,
+     "rep": 261043,
+     "other": 11095,
+     "total": 422609
+    },
+    "source": "sd-state-canvass-2020",
+    "where": "'Presidential Electors', pages 2 to 2 of the PDF: 66 county rows and the Total row",
+    "counties_add_up_to_the_total_row": true,
+    "results_site": {
+     "compared": 66,
+     "equal": 46,
+     "differ": {
+      "Brookings": {
+       "results_site": [
+        8000,
+        457,
+        6109
+       ],
+       "canvass": [
+        8000,
+        457,
+        6110
+       ]
+      },
+      "Brown": {
+       "results_site": [
+        10580,
+        428,
+        6538
+       ],
+       "canvass": [
+        10580,
+        429,
+        6538
+       ]
+      },
+      "Buffalo": {
+       "results_site": [
+        182,
+        14,
+        351
+       ],
+       "canvass": [
+        183,
+        14,
+        352
+       ]
+      },
+      "Charles Mix": {
+       "results_site": [
+        2551,
+        54,
+        1172
+       ],
+       "canvass": [
+        2552,
+        54,
+        1177
+       ]
+      },
+      "Clay": {
+       "results_site": [
+        2455,
+        159,
+        3082
+       ],
+       "canvass": [
+        2456,
+        159,
+        3083
+       ]
+      },
+      "Custer": {
+       "results_site": [
+        3851,
+        120,
+        1522
+       ],
+       "canvass": [
+        3852,
+        120,
+        1522
+       ]
+      },
+      "Fall River": {
+       "results_site": [
+        2877,
+        111,
+        1053
+       ],
+       "canvass": [
+        2878,
+        111,
+        1053
+       ]
+      },
+      "Grant": {
+       "results_site": [
+        2617,
+        71,
+        1056
+       ],
+       "canvass": [
+        2618,
+        71,
+        1056
+       ]
+      },
+      "Haakon": {
+       "results_site": [
+        1025,
+        6,
+        105
+       ],
+       "canvass": [
+        1026,
+        6,
+        105
+       ]
+      },
+      "Hughes": {
+       "results_site": [
+        5519,
+        248,
+        2953
+       ],
+       "canvass": [
+        5522,
+        248,
+        2953
+       ]
+      },
+      "Jerauld": {
+       "results_site": [
+        720,
+        15,
+        270
+       ],
+       "canvass": [
+        721,
+        15,
+        270
+       ]
+      },
+      "Kingsbury": {
+       "results_site": [
+        1903,
+        56,
+        819
+       ],
+       "canvass": [
+        1904,
+        56,
+        819
+       ]
+      },
+      "Lawrence": {
+       "results_site": [
+        8753,
+        538,
+        4536
+       ],
+       "canvass": [
+        8753,
+        538,
+        4537
+       ]
+      },
+      "Lincoln": {
+       "results_site": [
+        19616,
+        798,
+        11981
+       ],
+       "canvass": [
+        19617,
+        798,
+        11981
+       ]
+      },
+      "Lyman": {
+       "results_site": [
+        1042,
+        30,
+        524
+       ],
+       "canvass": [
+        1042,
+        30,
+        525
+       ]
+      },
+      "Meade": {
+       "results_site": [
+        9873,
+        510,
+        3285
+       ],
+       "canvass": [
+        9875,
+        510,
+        3285
+       ]
+      },
+      "Minnehaha": {
+       "results_site": [
+        49248,
+        2595,
+        40478
+       ],
+       "canvass": [
+        49249,
+        2595,
+        40482
+       ]
+      },
+      "Oglala Lakota": {
+       "results_site": [
+        297,
+        74,
+        2824
+       ],
+       "canvass": [
+        297,
+        74,
+        2829
+       ]
+      },
+      "Pennington": {
+       "results_site": [
+        35061,
+        1849,
+        20603
+       ],
+       "canvass": [
+        35063,
+        1849,
+        20606
+       ]
+      },
+      "Tripp": {
+       "results_site": [
+        2161,
+        40,
+        494
+       ],
+       "canvass": [
+        2161,
+        40,
+        495
+       ]
+      }
+     },
+     "columns": [
+      "Republican",
+      "Libertarian",
+      "Democratic"
+     ],
+     "statewide": {
+      "results_site": [
+       261025,
+       11094,
+       150448
+      ],
+      "canvass": [
+       261043,
+       11095,
+       150471
+      ]
+     }
+    },
+    "official": {
+     "dem": 150471,
+     "rep": 261043,
+     "other": 11095,
+     "total": 422609
+    },
+    "equal": true,
+    "second_source": "clerk-statistics-2020",
+    "second_where": "South Dakota, page 61",
+    "read": "from the document on 2026-10-02"
+   },
+   "2020-us-senate": {
+    "state_canvass": {
+     "dem": 143987,
+     "rep": 276232,
+     "other": 0,
+     "total": 420219
+    },
+    "source": "sd-state-canvass-2020",
+    "where": "'United States Senator', pages 3 to 3 of the PDF: 66 county rows and the Total row",
+    "counties_add_up_to_the_total_row": true,
+    "results_site": {
+     "compared": 66,
+     "equal": 45,
+     "differ": {
+      "Brookings": {
+       "results_site": [
+        8792,
+        5745
+       ],
+       "canvass": [
+        8792,
+        5746
+       ]
+      },
+      "Brown": {
+       "results_site": [
+        11167,
+        6283
+       ],
+       "canvass": [
+        11168,
+        6283
+       ]
+      },
+      "Buffalo": {
+       "results_site": [
+        222,
+        321
+       ],
+       "canvass": [
+        223,
+        322
+       ]
+      },
+      "Charles Mix": {
+       "results_site": [
+        2541,
+        1255
+       ],
+       "canvass": [
+        2542,
+        1259
+       ]
+      },
+      "Clay": {
+       "results_site": [
+        2856,
+        2806
+       ],
+       "canvass": [
+        2857,
+        2807
+       ]
+      },
+      "Custer": {
+       "results_site": [
+        3972,
+        1483
+       ],
+       "canvass": [
+        3973,
+        1483
+       ]
+      },
+      "Davison": {
+       "results_site": [
+        5893,
+        2539
+       ],
+       "canvass": [
+        5893,
+        2540
+       ]
+      },
+      "Fall River": {
+       "results_site": [
+        3008,
+        993
+       ],
+       "canvass": [
+        3009,
+        993
+       ]
+      },
+      "Grant": {
+       "results_site": [
+        2722,
+        1026
+       ],
+       "canvass": [
+        2723,
+        1026
+       ]
+      },
+      "Haakon": {
+       "results_site": [
+        1031,
+        106
+       ],
+       "canvass": [
+        1032,
+        106
+       ]
+      },
+      "Hughes": {
+       "results_site": [
+        6214,
+        2546
+       ],
+       "canvass": [
+        6217,
+        2546
+       ]
+      },
+      "Jerauld": {
+       "results_site": [
+        719,
+        277
+       ],
+       "canvass": [
+        720,
+        277
+       ]
+      },
+      "Kingsbury": {
+       "results_site": [
+        1969,
+        809
+       ],
+       "canvass": [
+        1970,
+        809
+       ]
+      },
+      "Lawrence": {
+       "results_site": [
+        9385,
+        4357
+       ],
+       "canvass": [
+        9385,
+        4358
+       ]
+      },
+      "Lincoln": {
+       "results_site": [
+        21220,
+        11013
+       ],
+       "canvass": [
+        21221,
+        11013
+       ]
+      },
+      "Lyman": {
+       "results_site": [
+        1065,
+        533
+       ],
+       "canvass": [
+        1066,
+        533
+       ]
+      },
+      "Meade": {
+       "results_site": [
+        10355,
+        3175
+       ],
+       "canvass": [
+        10355,
+        3176
+       ]
+      },
+      "Minnehaha": {
+       "results_site": [
+        52769,
+        38798
+       ],
+       "canvass": [
+        52773,
+        38799
+       ]
+      },
+      "Oglala Lakota": {
+       "results_site": [
+        507,
+        2689
+       ],
+       "canvass": [
+        510,
+        2691
+       ]
+      },
+      "Pennington": {
+       "results_site": [
+        37692,
+        19181
+       ],
+       "canvass": [
+        37694,
+        19184
+       ]
+      },
+      "Tripp": {
+       "results_site": [
+        2188,
+        501
+       ],
+       "canvass": [
+        2188,
+        502
+       ]
+      }
+     },
+     "columns": [
+      "Republican",
+      "Democratic"
+     ],
+     "statewide": {
+      "results_site": [
+       276208,
+       143970
+      ],
+      "canvass": [
+       276232,
+       143987
+      ]
+     }
+    },
+    "official": {
+     "dem": 143987,
+     "rep": 276232,
+     "other": 0,
+     "total": 420219
+    },
+    "equal": true,
+    "second_source": "clerk-statistics-2020",
+    "second_where": "South Dakota, page 61",
+    "read": "from the document on 2026-10-02"
+   }
+  },
+  "kinds": {
+   "county": "equal",
+   "senate": "does not cover the state: only the districts that can be added up from whole precincts",
+   "house": "does not cover the state: only the districts that can be added up from whole precincts"
+  },
+  "notes": [
+   "The results site stays headed 'Unofficial Results' and its workbooks 'Unofficial General Election Results'. Where it is a few votes off the certified canvass the difference is recorded under each contest's results_site; the canvass is the record, and no district reaching such a county is given for that contest.",
+   "For Governor, 2022, the Clerk of the House reports nothing; the second document is the official county canvass, whose Total rows are compared with the State Canvass county by county. The Secretary's file of county canvasses has no pages for Yankton County (it runs from Walworth to Ziebach), so Yankton's 2022 rows are checked by the Total row's arithmetic and, for U.S. Senator, by the Clerk's statewide total, not by a second document of their own.",
+   "The county canvasses of 2024 and 2020 are scans whose text layer misreads digits; they are not read."
+  ],
+  "districts": {
+   "2022": {
+    "precincts": 687,
+    "vote_center_counties": [
+     "Brookings",
+     "Brown",
+     "Haakon",
+     "Hughes",
+     "Hyde",
+     "Oglala Lakota",
+     "Potter",
+     "Sully",
+     "Yankton"
+    ],
+    "senate_districts": 35,
+    "senate_precincts_in_more_than_one_district": 59,
+    "house_districts": 37,
+    "house_precincts_in_more_than_one_district": 59
+   },
+   "2024": {
+    "precincts": 691,
+    "vote_center_counties": [
+     "Brookings",
+     "Brown",
+     "Douglas",
+     "Haakon",
+     "Hughes",
+     "Hyde",
+     "Oglala Lakota",
+     "Potter",
+     "Sully",
+     "Yankton"
+    ],
+    "senate_districts": 35,
+    "senate_precincts_in_more_than_one_district": 45,
+    "house_districts": 37,
+    "house_precincts_in_more_than_one_district": 45
+   }
+  }
+ },
+ "coverage": {
+  "not_given": "Cities and towns: a South Dakota precinct is a number, a polling place or a vote center, and the results do not say which city or town it is in. Legislative districts that take in a vote-center county (any voter of the county may vote at any center) or a precinct split between districts: the votes cannot be told apart by district. Legislative districts for 2020: other lines. County commissioner districts, conservation, water development and power districts, school districts: the results do not name them.",
+  "districts_not_given": {
+   "senate": {
+    "1": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together; in Roberts County a precinct votes in more than one district",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together; in Roberts County a precinct votes in more than one district"
+    },
+    "2": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "3": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together"
+    },
+    "4": {
+     "2022": "in Clark and Roberts Counties a precinct votes in more than one district",
+     "2024": "in Clark and Roberts Counties a precinct votes in more than one district"
+    },
+    "6": {
+     "2022": "in Lincoln County a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "7": {
+     "2022": "Brookings County uses vote centers, where voters of several districts vote together",
+     "2024": "Brookings County uses vote centers, where voters of several districts vote together"
+    },
+    "8": {
+     "2022": "Brookings County uses vote centers, where voters of several districts vote together",
+     "2024": "Brookings County uses vote centers, where voters of several districts vote together"
+    },
+    "9": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "10": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "11": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "12": {
+     "2022": "in Lincoln and Minnehaha Counties a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "13": {
+     "2022": "in Lincoln County a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "14": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024-president": "in Minnehaha County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"
+    },
+    "15": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024-president": "in Minnehaha County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"
+    },
+    "16": {
+     "2022": "in Lincoln and Union Counties a precinct votes in more than one district",
+     "2024": "in Lincoln and Union Counties a precinct votes in more than one district"
+    },
+    "17": {
+     "2022": "in Union County a precinct votes in more than one district",
+     "2024": "in Union County a precinct votes in more than one district"
+    },
+    "22": {
+     "2022": "in Clark County a precinct votes in more than one district",
+     "2024": "in Clark County a precinct votes in more than one district"
+    },
+    "23": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together"
+    },
+    "24": {
+     "2022": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together",
+     "2024": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together"
+    },
+    "25": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "26": {
+     "2022": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together",
+     "2024": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together"
+    }
+   },
+   "house": {
+    "1": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together; in Roberts County a precinct votes in more than one district",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together; in Roberts County a precinct votes in more than one district"
+    },
+    "2": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "3": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together"
+    },
+    "4": {
+     "2022": "in Clark and Roberts Counties a precinct votes in more than one district",
+     "2024": "in Clark and Roberts Counties a precinct votes in more than one district"
+    },
+    "6": {
+     "2022": "in Lincoln County a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "7": {
+     "2022": "Brookings County uses vote centers, where voters of several districts vote together",
+     "2024": "Brookings County uses vote centers, where voters of several districts vote together"
+    },
+    "8": {
+     "2022": "Brookings County uses vote centers, where voters of several districts vote together",
+     "2024": "Brookings County uses vote centers, where voters of several districts vote together"
+    },
+    "9": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "10": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "11": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "12": {
+     "2022": "in Lincoln and Minnehaha Counties a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "13": {
+     "2022": "in Lincoln County a precinct votes in more than one district",
+     "2024": "in Lincoln County a precinct votes in more than one district"
+    },
+    "14": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024-president": "in Minnehaha County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"
+    },
+    "15": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024-president": "in Minnehaha County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"
+    },
+    "16": {
+     "2022": "in Lincoln and Union Counties a precinct votes in more than one district",
+     "2024": "in Lincoln and Union Counties a precinct votes in more than one district"
+    },
+    "17": {
+     "2022": "in Union County a precinct votes in more than one district",
+     "2024": "in Union County a precinct votes in more than one district"
+    },
+    "22": {
+     "2022": "in Clark County a precinct votes in more than one district",
+     "2024": "in Clark County a precinct votes in more than one district"
+    },
+    "23": {
+     "2022": "Brown County uses vote centers, where voters of several districts vote together",
+     "2024": "Brown County uses vote centers, where voters of several districts vote together"
+    },
+    "24": {
+     "2022": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together",
+     "2024": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together"
+    },
+    "25": {
+     "2022": "in Minnehaha County a precinct votes in more than one district",
+     "2024": "in Minnehaha County a precinct votes in more than one district"
+    },
+    "26B": {
+     "2022": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together",
+     "2024": "Hughes and Hyde Counties use vote centers, where voters of several districts vote together"
+    }
+   }
+  },
+  "our_places": {
+   "county": {
+    "places": 66,
+    "with_votes": 66,
+    "without": []
+   },
+   "senate": {
+    "places": 35,
+    "with_votes": 14,
+    "without": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15",
+     "16",
+     "17",
+     "22",
+     "23",
+     "24",
+     "25",
+     "26"
+    ]
+   },
+   "house": {
+    "places": 37,
+    "with_votes": 16,
+    "without": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15",
+     "16",
+     "17",
+     "22",
+     "23",
+     "24",
+     "25",
+     "26B"
+    ]
+   },
+   "mcd": {
+    "places": 10,
+    "with_votes": 0,
+    "without": [
+     "SD-M-03380",
+     "SD-M-06840",
+     "SD-M-07580",
+     "SD-M-09500",
+     "SD-M-30900",
+     "SD-M-44860",
+     "SD-M-45180",
+     "SD-M-50260",
+     "SD-M-52860",
+     "SD-M-73060"
+    ]
+   },
+   "read": "sl_places and sl_races in ballot_local_2026.sqlite, opened read-only on 2026-10-02"
+  }
+ },
+ "sources": [
+  {
+   "id": "sd-state-canvass-2024",
+   "kind": "certified statewide canvass, one row a county (a scan with a text layer)",
+   "agency": "South Dakota State Board of Canvassers; published by the South Dakota Secretary of State",
+   "title": "2024 General Election Canvass and Certificate",
+   "url": "https://sdsos.gov/elections-voting/assets/Archive/2024%20Assets/Recount-Canvass-and-Canvass-Docs-General/2024GeneralElectionCanvassWithCert.pdf",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2024_Election_History.aspx",
+   "fetched": "2026-10-02",
+   "sha256": "a9be018609c45e97c5b9b9c41d7f53dffc9c3390746486c115739e6d6d072c9c",
+   "read": "For each contest named here: the party line of the table's heading, the 66 county rows and the Total row. Used only because every column of the county rows adds up to the Total row printed in the document."
+  },
+  {
+   "id": "sd-state-canvass-2022",
+   "kind": "certified statewide canvass, one row a county (a scan with a text layer)",
+   "agency": "South Dakota State Board of Canvassers; published by the South Dakota Secretary of State",
+   "title": "2022 General Election Official State Canvass Results",
+   "url": "https://sdsos.gov/elections-voting/assets/Archive/2022%20Assets/2022Generalcanvassreport.pdf",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2022_Election_History.aspx",
+   "fetched": "2026-10-02",
+   "sha256": "a339eb96b9d86b30d3a349182c0480fb41643a09cc78cb8ff62878d2f41a1b56",
+   "read": "For each contest named here: the party line of the table's heading, the 66 county rows and the Total row. Used only because every column of the county rows adds up to the Total row printed in the document."
+  },
+  {
+   "id": "sd-state-canvass-2020",
+   "kind": "certified statewide canvass, one row a county (a scan with a text layer)",
+   "agency": "South Dakota State Board of Canvassers; published by the South Dakota Secretary of State",
+   "title": "2020 General Election Official State Canvass Results",
+   "url": "https://sdsos.gov/elections-voting/assets/Archive/2020%20Assests/2020GeneralStateCanvassFinal%26Certificate.pdf",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2020_Election_History.aspx",
+   "fetched": "2026-10-02",
+   "sha256": "34ad25189dd9fb4d6a83d30486a97502ef0a26cfcd09ec1f01f9e5895f2d5d22",
+   "read": "For each contest named here: the party line of the table's heading, the 66 county rows and the Total row. Used only because every column of the county rows adds up to the Total row printed in the document."
+  },
+  {
+   "id": "sd-sos-results-site-2024",
+   "kind": "results by precinct, headed Unofficial by the site (used for legislative districts only, and only where it equals the certified canvass)",
+   "agency": "South Dakota Secretary of State",
+   "title": "General Election November 5, 2024: the Precinct Level and County Level exports of Presidential Electors; the Precinct Level exports of the legislative contests (precinct names only)",
+   "url": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=684",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2024_Election_History.aspx",
+   "linked_as": "2024 General - Election Night Reporting",
+   "the_page_says": {
+    "headed": "Unofficial Results",
+    "election": "General Election November 5, 2024",
+    "precincts": "691"
+   },
+   "the_workbooks_say": [
+    "2024 Unofficial General Election Results",
+    "Precincts 691 of 691 Reporting (Precincts Partially Reported: 0/691)",
+    "State of South Dakota"
+   ],
+   "vote_center_counties": [
+    "Brookings",
+    "Brown",
+    "Douglas",
+    "Haakon",
+    "Hughes",
+    "Hyde",
+    "Oglala Lakota",
+    "Potter",
+    "Sully",
+    "Yankton"
+   ],
+   "column_headings_wrong": {
+    "2024-president": "columns 2 and 3 of the County Level workbook are not headed as in the Precinct Level workbook (a ticket's names stand over another column's votes); the votes agree, and columns are taken in the canvass's order, never by a heading alone"
+   },
+   "fetched": "2026-10-02",
+   "tables": {
+    "2024-president": {
+     "files": {
+      "precinct": {
+       "file": "2024-president_precinct.xlsx",
+       "sha256": "33068f6d4f70731c52f1299a9911a7d6448817a1c003c6927c5319df0547cee3",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2024-president_county.xlsx",
+       "sha256": "180b67abab9ea1e7a7a7f74be4c712a19e38a027e0dbbe1109791a625f7228ba",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "legislative_extract": {
+    "url": "https://electionresults.sd.gov/resultsSW.aspx?type=LEG&map=DIST&eid=684",
+    "fetched": "2026-10-02",
+    "kept": "for each State Senator and State Representative contest: the district, and the counties and precinct names in its Precinct Level workbook; no candidate's name and no legislative votes"
+   },
+   "read": "Of each precinct: its county (the sheet), its name, and each column's votes. Of the legislative contests: which precincts are listed. Only the two tickets are named."
+  },
+  {
+   "id": "sd-sos-results-site-2022",
+   "kind": "results by precinct, headed Unofficial by the site (used for legislative districts only, and only where it equals the certified canvass)",
+   "agency": "South Dakota Secretary of State",
+   "title": "General Election November 8, 2022: the Precinct Level and County Level exports of United States Senator, Governor and Lieutenant Governor; the Precinct Level exports of the legislative contests (precinct names only)",
+   "url": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=471",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2022_Election_History.aspx",
+   "linked_as": "2022 General - Election Night Reporting",
+   "the_page_says": {
+    "headed": "Unofficial Results",
+    "election": "General Election November 8, 2022",
+    "precincts": "687"
+   },
+   "the_workbooks_say": [
+    "2022 Unofficial General Election Results",
+    "Precincts 687 of 687 Reporting (Precincts Partially Reported: 0/687)",
+    "State of South Dakota"
+   ],
+   "vote_center_counties": [
+    "Brookings",
+    "Brown",
+    "Haakon",
+    "Hughes",
+    "Hyde",
+    "Oglala Lakota",
+    "Potter",
+    "Sully",
+    "Yankton"
+   ],
+   "column_headings_wrong": null,
+   "fetched": "2026-10-02",
+   "tables": {
+    "2022-us-senate": {
+     "files": {
+      "precinct": {
+       "file": "2022-us-senate_precinct.xlsx",
+       "sha256": "4e84c7cd9602faa19981c7358ad6b8952d9261d6f449c9025cdee1cb5ec72b67",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2022-us-senate_county.xlsx",
+       "sha256": "296d16bd383e14fb68e03b6259ce32c2b8ab72109bbc3ddf1623d1329145b8e9",
+       "fetched": "2026-10-02"
+      }
+     }
+    },
+    "2022-governor": {
+     "files": {
+      "precinct": {
+       "file": "2022-governor_precinct.xlsx",
+       "sha256": "65265a1c516f7743da5833486d6e6fb5f73a9e12e041777719927c9cfd572fd6",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2022-governor_county.xlsx",
+       "sha256": "cabada5d88ed3332ed86c554362a3ac5ae03253b5bcd8153a1a08337afaf00a6",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "legislative_extract": {
+    "url": "https://electionresults.sd.gov/resultsSW.aspx?type=LEG&map=DIST&eid=471",
+    "fetched": "2026-10-02",
+    "kept": "for each State Senator and State Representative contest: the district, and the counties and precinct names in its Precinct Level workbook; no candidate's name and no legislative votes"
+   },
+   "read": "Of each precinct: its county (the sheet), its name, and each column's votes. Of the legislative contests: which precincts are listed. Only the two tickets are named."
+  },
+  {
+   "id": "sd-sos-results-site-2020",
+   "kind": "results by precinct, headed Unofficial by the site (used for legislative districts only, and only where it equals the certified canvass)",
+   "agency": "South Dakota Secretary of State",
+   "title": "General Election November 3, 2020: the Precinct Level and County Level exports of Presidential Electors, United States Senator",
+   "url": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=422",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2020_Election_History.aspx",
+   "linked_as": "2020 General Election Unofficial Results",
+   "the_page_says": {
+    "headed": "Unofficial Results",
+    "election": "General Election November 3, 2020",
+    "precincts": "693"
+   },
+   "the_workbooks_say": [
+    "2020 Unofficial General Election Results",
+    "Precincts 693 of 693 Reporting (Precincts Partially Reported: 0/693)",
+    "State of South Dakota"
+   ],
+   "vote_center_counties": [
+    "Brookings",
+    "Brown",
+    "Haakon",
+    "Hughes",
+    "Hyde",
+    "Potter",
+    "Sully",
+    "Yankton"
+   ],
+   "column_headings_wrong": null,
+   "fetched": "2026-10-02",
+   "tables": {
+    "2020-president": {
+     "files": {
+      "precinct": {
+       "file": "2020-president_precinct.xlsx",
+       "sha256": "77660a81c8029af6f4f620fa4495d96d015424872948357de8dcf15e68de39d7",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2020-president_county.xlsx",
+       "sha256": "edaa0cf33d3e5b8f0b1684048f55e089107621707038f9b320d2a21aca76c00d",
+       "fetched": "2026-10-02"
+      }
+     }
+    },
+    "2020-us-senate": {
+     "files": {
+      "precinct": {
+       "file": "2020-us-senate_precinct.xlsx",
+       "sha256": "68c5d5b84b06b690e4e8e6b9882a99da3e0c4dfddb7d988d44d2953faa25426d",
+       "fetched": "2026-10-02"
+      },
+      "county": {
+       "file": "2020-us-senate_county.xlsx",
+       "sha256": "b7e1c5214133579c9d2904ebe499d0a99cb01a4d490be8aed53eb1fb0bbc02f2",
+       "fetched": "2026-10-02"
+      }
+     }
+    }
+   },
+   "legislative_extract": null,
+   "read": "Of each precinct: its county (the sheet), its name, and each column's votes. Of the legislative contests: which precincts are listed. Only the two tickets are named."
+  },
+  {
+   "id": "sd-county-canvass-2022",
+   "kind": "official county canvasses with precinct level results (a PDF of text); a check only",
+   "agency": "the county boards of canvassers; published by the South Dakota Secretary of State",
+   "title": "2022 General Election Official County Canvass Results (with precinct level results), PDF without certificates",
+   "url": "https://sdsos.gov/elections-voting/assets/Archive/2022%20Assets/2022PrecintCanvass.pdf",
+   "linked_from": "https://sdsos.gov/elections-voting/election-resources/election-history/2022_Election_History.aspx",
+   "fetched": "2026-10-02",
+   "sha256": "5944dbcc70aad87ef7afbc0f60887df4aeaf0addb6ad76fb81f4ab7b3aec7a5d",
+   "read": "For the contests named here: each county's precinct rows (numbers only) and its Total row."
+  },
+  {
+   "id": "clerk-statistics-2024",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 5, 2024",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "d4ba800fc17135b616ae556c92861080ab962d95916ace34b546c5aac824aec4",
+   "where": "South Dakota, page 64"
+  },
+  {
+   "id": "clerk-statistics-2022",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Congressional Election from Official Sources for the Election of November 8, 2022",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2022/statistics2022.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "ef9b8cefcc44bebbdc4928bf346b50e00a72dd3bb54a71ed93ec60d4ebf47690",
+   "where": "South Dakota, page 43"
+  },
+  {
+   "id": "clerk-statistics-2020",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 3, 2020",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2020/statistics2020.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "666b2a1f673f263087c141c4d44b0dce47cbddc8f4df27fbc8b415cf05842b76",
+   "where": "South Dakota, page 61"
+  }
+ ],
+ "places": {
+  "county": {
+   "46003": {"name":"Aurora County","votes":{"2024-president":{"dem":302,"rep":1056,"other":35,"total":1393},"2022-us-senate":{"dem":170,"rep":978,"other":66,"total":1214},"2022-governor":{"dem":284,"rep":894,"other":36,"total":1214},"2020-president":{"dem":317,"rep":1052,"other":36,"total":1405},"2020-us-senate":{"dem":403,"rep":1002,"other":0,"total":1405}}},
+   "46005": {"name":"Beadle County","votes":{"2024-president":{"dem":2017,"rep":4826,"other":167,"total":7010},"2022-us-senate":{"dem":1214,"rep":4441,"other":182,"total":5837},"2022-governor":{"dem":1716,"rep":3901,"other":219,"total":5836},"2020-president":{"dem":2107,"rep":4808,"other":166,"total":7081},"2020-us-senate":{"dem":1986,"rep":5104,"other":0,"total":7090}}},
+   "46007": {"name":"Bennett County","votes":{"2024-president":{"dem":389,"rep":676,"other":23,"total":1088},"2022-us-senate":{"dem":295,"rep":684,"other":41,"total":1020},"2022-governor":{"dem":368,"rep":619,"other":38,"total":1025},"2020-president":{"dem":466,"rep":694,"other":23,"total":1183},"2020-us-senate":{"dem":437,"rep":729,"other":0,"total":1166}}},
+   "46009": {"name":"Bon Homme County","votes":{"2024-president":{"dem":697,"rep":2236,"other":59,"total":2992},"2022-us-senate":{"dem":453,"rep":2010,"other":91,"total":2554},"2022-governor":{"dem":650,"rep":1858,"other":54,"total":2562},"2020-president":{"dem":721,"rep":2235,"other":45,"total":3001},"2020-us-senate":{"dem":834,"rep":2156,"other":0,"total":2990}}},
+   "46011": {"name":"Brookings County","votes":{"2024-president":{"dem":5978,"rep":8575,"other":386,"total":14939},"2022-us-senate":{"dem":3816,"rep":7990,"other":545,"total":12351},"2022-governor":{"dem":5096,"rep":6974,"other":357,"total":12427},"2020-president":{"dem":6110,"rep":8000,"other":457,"total":14567},"2020-us-senate":{"dem":5746,"rep":8792,"other":0,"total":14538}}},
+   "46013": {"name":"Brown County","votes":{"2024-president":{"dem":6075,"rep":10645,"other":323,"total":17043},"2022-us-senate":{"dem":3893,"rep":9577,"other":451,"total":13921},"2022-governor":{"dem":5167,"rep":8456,"other":341,"total":13964},"2020-president":{"dem":6538,"rep":10580,"other":429,"total":17547},"2020-us-senate":{"dem":6283,"rep":11168,"other":0,"total":17451}}},
+   "46015": {"name":"Brule County","votes":{"2024-president":{"dem":666,"rep":1694,"other":63,"total":2423},"2022-us-senate":{"dem":428,"rep":1573,"other":97,"total":2098},"2022-governor":{"dem":589,"rep":1463,"other":57,"total":2109},"2020-president":{"dem":673,"rep":1750,"other":67,"total":2490},"2020-us-senate":{"dem":756,"rep":1735,"other":0,"total":2491}}},
+   "46017": {"name":"Buffalo County","votes":{"2024-president":{"dem":291,"rep":164,"other":11,"total":466},"2022-us-senate":{"dem":202,"rep":173,"other":15,"total":390},"2022-governor":{"dem":234,"rep":144,"other":19,"total":397},"2020-president":{"dem":352,"rep":183,"other":14,"total":549},"2020-us-senate":{"dem":322,"rep":223,"other":0,"total":545}}},
+   "46019": {"name":"Butte County","votes":{"2024-president":{"dem":942,"rep":4024,"other":116,"total":5082},"2022-us-senate":{"dem":597,"rep":3269,"other":292,"total":4158},"2022-governor":{"dem":823,"rep":3211,"other":152,"total":4186},"2020-president":{"dem":939,"rep":3731,"other":132,"total":4802},"2020-us-senate":{"dem":961,"rep":3809,"other":0,"total":4770}}},
+   "46021": {"name":"Campbell County","votes":{"2024-president":{"dem":120,"rep":706,"other":10,"total":836},"2022-us-senate":{"dem":66,"rep":571,"other":26,"total":663},"2022-governor":{"dem":93,"rep":561,"other":13,"total":667},"2020-president":{"dem":117,"rep":747,"other":9,"total":873},"2020-us-senate":{"dem":122,"rep":745,"other":0,"total":867}}},
+   "46023": {"name":"Charles Mix County","votes":{"2024-president":{"dem":1000,"rep":2551,"other":64,"total":3615},"2022-us-senate":{"dem":666,"rep":2323,"other":100,"total":3089},"2022-governor":{"dem":849,"rep":2187,"other":55,"total":3091},"2020-president":{"dem":1177,"rep":2552,"other":54,"total":3783},"2020-us-senate":{"dem":1259,"rep":2542,"other":0,"total":3801}}},
+   "46025": {"name":"Clark County","votes":{"2024-president":{"dem":415,"rep":1382,"other":45,"total":1842},"2022-us-senate":{"dem":230,"rep":1307,"other":56,"total":1593},"2022-governor":{"dem":341,"rep":1223,"other":36,"total":1600},"2020-president":{"dem":437,"rep":1373,"other":40,"total":1850},"2020-us-senate":{"dem":450,"rep":1397,"other":0,"total":1847}}},
+   "46027": {"name":"Clay County","votes":{"2024-president":{"dem":2944,"rep":2574,"other":139,"total":5657},"2022-us-senate":{"dem":2042,"rep":2522,"other":149,"total":4713},"2022-governor":{"dem":2581,"rep":2054,"other":110,"total":4745},"2020-president":{"dem":3083,"rep":2456,"other":159,"total":5698},"2020-us-senate":{"dem":2807,"rep":2857,"other":0,"total":5664}}},
+   "46029": {"name":"Codington County","votes":{"2024-president":{"dem":3840,"rep":9349,"other":321,"total":13510},"2022-us-senate":{"dem":2265,"rep":8279,"other":460,"total":11004},"2022-governor":{"dem":3253,"rep":7520,"other":307,"total":11080},"2020-president":{"dem":3837,"rep":8958,"other":366,"total":13161},"2020-us-senate":{"dem":3626,"rep":9479,"other":0,"total":13105}}},
+   "46031": {"name":"Corson County","votes":{"2024-president":{"dem":495,"rep":631,"other":17,"total":1143},"2022-us-senate":{"dem":334,"rep":534,"other":57,"total":925},"2022-governor":{"dem":379,"rep":522,"other":27,"total":928},"2020-president":{"dem":622,"rep":647,"other":14,"total":1283},"2020-us-senate":{"dem":583,"rep":681,"other":0,"total":1264}}},
+   "46033": {"name":"Custer County","votes":{"2024-president":{"dem":1567,"rep":4313,"other":121,"total":6001},"2022-us-senate":{"dem":1017,"rep":3756,"other":267,"total":5040},"2022-governor":{"dem":1293,"rep":3633,"other":151,"total":5077},"2020-president":{"dem":1522,"rep":3852,"other":120,"total":5494},"2020-us-senate":{"dem":1483,"rep":3973,"other":0,"total":5456}}},
+   "46035": {"name":"Davison County","votes":{"2024-president":{"dem":2743,"rep":6208,"other":226,"total":9177},"2022-us-senate":{"dem":1524,"rep":5420,"other":266,"total":7210},"2022-governor":{"dem":2179,"rep":4887,"other":173,"total":7239},"2020-president":{"dem":2648,"rep":5613,"other":193,"total":8454},"2020-us-senate":{"dem":2540,"rep":5893,"other":0,"total":8433}}},
+   "46037": {"name":"Day County","votes":{"2024-president":{"dem":1000,"rep":1876,"other":56,"total":2932},"2022-us-senate":{"dem":602,"rep":1796,"other":116,"total":2514},"2022-governor":{"dem":876,"rep":1599,"other":46,"total":2521},"2020-president":{"dem":1052,"rep":1869,"other":43,"total":2964},"2020-us-senate":{"dem":1069,"rep":1895,"other":0,"total":2964}}},
+   "46039": {"name":"Deuel County","votes":{"2024-president":{"dem":528,"rep":1717,"other":53,"total":2298},"2022-us-senate":{"dem":346,"rep":1548,"other":92,"total":1986},"2022-governor":{"dem":458,"rep":1479,"other":54,"total":1991},"2020-president":{"dem":609,"rep":1699,"other":42,"total":2350},"2020-us-senate":{"dem":628,"rep":1714,"other":0,"total":2342}}},
+   "46041": {"name":"Dewey County","votes":{"2024-president":{"dem":1032,"rep":793,"other":46,"total":1871},"2022-us-senate":{"dem":720,"rep":770,"other":70,"total":1560},"2022-governor":{"dem":862,"rep":662,"other":50,"total":1574},"2020-president":{"dem":1131,"rep":790,"other":45,"total":1966},"2020-us-senate":{"dem":1062,"rep":884,"other":0,"total":1946}}},
+   "46043": {"name":"Douglas County","votes":{"2024-president":{"dem":219,"rep":1419,"other":20,"total":1658},"2022-us-senate":{"dem":117,"rep":1308,"other":42,"total":1467},"2022-governor":{"dem":188,"rep":1272,"other":24,"total":1484},"2020-president":{"dem":216,"rep":1468,"other":23,"total":1707},"2020-us-senate":{"dem":235,"rep":1469,"other":0,"total":1704}}},
+   "46045": {"name":"Edmunds County","votes":{"2024-president":{"dem":384,"rep":1618,"other":29,"total":2031},"2022-us-senate":{"dem":253,"rep":1385,"other":49,"total":1687},"2022-governor":{"dem":346,"rep":1321,"other":34,"total":1701},"2020-president":{"dem":417,"rep":1538,"other":30,"total":1985},"2020-us-senate":{"dem":448,"rep":1539,"other":0,"total":1987}}},
+   "46047": {"name":"Fall River County","votes":{"2024-president":{"dem":1030,"rep":3135,"other":109,"total":4274},"2022-us-senate":{"dem":665,"rep":2754,"other":222,"total":3641},"2022-governor":{"dem":859,"rep":2679,"other":130,"total":3668},"2020-president":{"dem":1053,"rep":2878,"other":111,"total":4042},"2020-us-senate":{"dem":993,"rep":3009,"other":0,"total":4002}}},
+   "46049": {"name":"Faulk County","votes":{"2024-president":{"dem":183,"rep":920,"other":27,"total":1130},"2022-us-senate":{"dem":120,"rep":780,"other":47,"total":947},"2022-governor":{"dem":167,"rep":771,"other":17,"total":955},"2020-president":{"dem":198,"rep":964,"other":20,"total":1182},"2020-us-senate":{"dem":213,"rep":975,"other":0,"total":1188}}},
+   "46051": {"name":"Grant County","votes":{"2024-president":{"dem":946,"rep":2594,"other":90,"total":3630},"2022-us-senate":{"dem":601,"rep":2492,"other":105,"total":3198},"2022-governor":{"dem":830,"rep":2328,"other":57,"total":3215},"2020-president":{"dem":1056,"rep":2618,"other":71,"total":3745},"2020-us-senate":{"dem":1026,"rep":2723,"other":0,"total":3749}}},
+   "46053": {"name":"Gregory County","votes":{"2024-president":{"dem":426,"rep":1790,"other":51,"total":2267},"2022-us-senate":{"dem":279,"rep":1663,"other":82,"total":2024},"2022-governor":{"dem":393,"rep":1618,"other":43,"total":2054},"2020-president":{"dem":455,"rep":1771,"other":32,"total":2258},"2020-us-senate":{"dem":488,"rep":1766,"other":0,"total":2254}}},
+   "46055": {"name":"Haakon County","votes":{"2024-president":{"dem":105,"rep":1004,"other":16,"total":1125},"2022-us-senate":{"dem":56,"rep":864,"other":50,"total":970},"2022-governor":{"dem":82,"rep":892,"other":13,"total":987},"2020-president":{"dem":105,"rep":1026,"other":6,"total":1137},"2020-us-senate":{"dem":106,"rep":1032,"other":0,"total":1138}}},
+   "46057": {"name":"Hamlin County","votes":{"2024-president":{"dem":610,"rep":2560,"other":56,"total":3226},"2022-us-senate":{"dem":366,"rep":2214,"other":123,"total":2703},"2022-governor":{"dem":548,"rep":2118,"other":64,"total":2730},"2020-president":{"dem":647,"rep":2372,"other":64,"total":3083},"2020-us-senate":{"dem":657,"rep":2413,"other":0,"total":3070}}},
+   "46059": {"name":"Hand County","votes":{"2024-president":{"dem":365,"rep":1376,"other":23,"total":1764},"2022-us-senate":{"dem":198,"rep":1242,"other":70,"total":1510},"2022-governor":{"dem":290,"rep":1177,"other":35,"total":1502},"2020-president":{"dem":373,"rep":1433,"other":30,"total":1836},"2020-us-senate":{"dem":378,"rep":1480,"other":0,"total":1858}}},
+   "46061": {"name":"Hanson County","votes":{"2024-president":{"dem":399,"rep":1611,"other":36,"total":2046},"2022-us-senate":{"dem":254,"rep":1323,"other":52,"total":1629},"2022-governor":{"dem":336,"rep":1267,"other":29,"total":1632},"2020-president":{"dem":557,"rep":1793,"other":38,"total":2388},"2020-us-senate":{"dem":564,"rep":1796,"other":0,"total":2360}}},
+   "46063": {"name":"Harding County","votes":{"2024-president":{"dem":48,"rep":754,"other":18,"total":820},"2022-us-senate":{"dem":22,"rep":605,"other":41,"total":668},"2022-governor":{"dem":33,"rep":632,"other":12,"total":677},"2020-president":{"dem":49,"rep":748,"other":16,"total":813},"2020-us-senate":{"dem":73,"rep":727,"other":0,"total":800}}},
+   "46065": {"name":"Hughes County","votes":{"2024-president":{"dem":2838,"rep":5379,"other":218,"total":8435},"2022-us-senate":{"dem":1683,"rep":5467,"other":301,"total":7451},"2022-governor":{"dem":2652,"rep":4571,"other":224,"total":7447},"2020-president":{"dem":2953,"rep":5522,"other":248,"total":8723},"2020-us-senate":{"dem":2546,"rep":6217,"other":0,"total":8763}}},
+   "46067": {"name":"Hutchinson County","votes":{"2024-president":{"dem":755,"rep":2918,"other":63,"total":3736},"2022-us-senate":{"dem":417,"rep":2619,"other":106,"total":3142},"2022-governor":{"dem":604,"rep":2507,"other":63,"total":3174},"2020-president":{"dem":762,"rep":2944,"other":61,"total":3767},"2020-us-senate":{"dem":772,"rep":2982,"other":0,"total":3754}}},
+   "46069": {"name":"Hyde County","votes":{"2024-president":{"dem":148,"rep":530,"other":17,"total":695},"2022-us-senate":{"dem":78,"rep":484,"other":18,"total":580},"2022-governor":{"dem":106,"rep":460,"other":9,"total":575},"2020-president":{"dem":136,"rep":564,"other":10,"total":710},"2020-us-senate":{"dem":143,"rep":568,"other":0,"total":711}}},
+   "46071": {"name":"Jackson County","votes":{"2024-president":{"dem":357,"rep":753,"other":19,"total":1129},"2022-us-senate":{"dem":215,"rep":617,"other":67,"total":899},"2022-governor":{"dem":280,"rep":623,"other":16,"total":919},"2020-president":{"dem":359,"rep":738,"other":18,"total":1115},"2020-us-senate":{"dem":357,"rep":756,"other":0,"total":1113}}},
+   "46073": {"name":"Jerauld County","votes":{"2024-president":{"dem":276,"rep":708,"other":15,"total":999},"2022-us-senate":{"dem":154,"rep":676,"other":34,"total":864},"2022-governor":{"dem":238,"rep":604,"other":24,"total":866},"2020-president":{"dem":270,"rep":721,"other":15,"total":1006},"2020-us-senate":{"dem":277,"rep":720,"other":0,"total":997}}},
+   "46075": {"name":"Jones County","votes":{"2024-president":{"dem":60,"rep":477,"other":13,"total":550},"2022-us-senate":{"dem":46,"rep":383,"other":36,"total":465},"2022-governor":{"dem":64,"rep":395,"other":13,"total":472},"2020-president":{"dem":90,"rep":498,"other":11,"total":599},"2020-us-senate":{"dem":99,"rep":497,"other":0,"total":596}}},
+   "46077": {"name":"Kingsbury County","votes":{"2024-president":{"dem":760,"rep":1989,"other":52,"total":2801},"2022-us-senate":{"dem":441,"rep":2000,"other":89,"total":2530},"2022-governor":{"dem":692,"rep":1792,"other":67,"total":2551},"2020-president":{"dem":819,"rep":1904,"other":56,"total":2779},"2020-us-senate":{"dem":809,"rep":1970,"other":0,"total":2779}}},
+   "46079": {"name":"Lake County","votes":{"2024-president":{"dem":1978,"rep":3819,"other":109,"total":5906},"2022-us-senate":{"dem":1139,"rep":3615,"other":164,"total":4918},"2022-governor":{"dem":1720,"rep":3131,"other":115,"total":4966},"2020-president":{"dem":2068,"rep":3681,"other":124,"total":5873},"2020-us-senate":{"dem":2069,"rep":3816,"other":0,"total":5885}}},
+   "46081": {"name":"Lawrence County","votes":{"2024-president":{"dem":5074,"rep":9904,"other":431,"total":15409},"2022-us-senate":{"dem":3061,"rep":8439,"other":646,"total":12146},"2022-governor":{"dem":4041,"rep":7749,"other":456,"total":12246},"2020-president":{"dem":4537,"rep":8753,"other":538,"total":13828},"2020-us-senate":{"dem":4358,"rep":9385,"other":0,"total":13743}}},
+   "46083": {"name":"Lincoln County","votes":{"2024-president":{"dem":12981,"rep":22621,"other":791,"total":36393},"2022-us-senate":{"dem":7365,"rep":19703,"other":912,"total":27980},"2022-governor":{"dem":10727,"rep":16828,"other":606,"total":28161},"2020-president":{"dem":11981,"rep":19617,"other":798,"total":32396},"2020-us-senate":{"dem":11013,"rep":21221,"other":0,"total":32234}}},
+   "46085": {"name":"Lyman County","votes":{"2024-president":{"dem":422,"rep":993,"other":32,"total":1447},"2022-us-senate":{"dem":290,"rep":944,"other":65,"total":1299},"2022-governor":{"dem":405,"rep":879,"other":34,"total":1318},"2020-president":{"dem":525,"rep":1042,"other":30,"total":1597},"2020-us-senate":{"dem":533,"rep":1066,"other":0,"total":1599}}},
+   "46087": {"name":"McCook County","votes":{"2024-president":{"dem":733,"rep":2227,"other":71,"total":3031},"2022-us-senate":{"dem":408,"rep":2033,"other":92,"total":2533},"2022-governor":{"dem":625,"rep":1851,"other":71,"total":2547},"2020-president":{"dem":769,"rep":2068,"other":63,"total":2900},"2020-us-senate":{"dem":835,"rep":2072,"other":0,"total":2907}}},
+   "46089": {"name":"McPherson County","votes":{"2024-president":{"dem":188,"rep":1087,"other":24,"total":1299},"2022-us-senate":{"dem":108,"rep":954,"other":40,"total":1102},"2022-governor":{"dem":167,"rep":911,"other":22,"total":1100},"2020-president":{"dem":222,"rep":1075,"other":27,"total":1324},"2020-us-senate":{"dem":235,"rep":1086,"other":0,"total":1321}}},
+   "46091": {"name":"Marshall County","votes":{"2024-president":{"dem":782,"rep":1288,"other":39,"total":2109},"2022-us-senate":{"dem":545,"rep":1272,"other":62,"total":1879},"2022-governor":{"dem":737,"rep":1123,"other":30,"total":1890},"2020-president":{"dem":858,"rep":1287,"other":33,"total":2178},"2020-us-senate":{"dem":853,"rep":1334,"other":0,"total":2187}}},
+   "46093": {"name":"Meade County","votes":{"2024-president":{"dem":3421,"rep":10887,"other":364,"total":14672},"2022-us-senate":{"dem":2134,"rep":8934,"other":702,"total":11770},"2022-governor":{"dem":2887,"rep":8482,"other":501,"total":11870},"2020-president":{"dem":3285,"rep":9875,"other":510,"total":13670},"2020-us-senate":{"dem":3176,"rep":10355,"other":0,"total":13531}}},
+   "46095": {"name":"Mellette County","votes":{"2024-president":{"dem":285,"rep":434,"other":21,"total":740},"2022-us-senate":{"dem":165,"rep":415,"other":44,"total":624},"2022-governor":{"dem":214,"rep":386,"other":30,"total":630},"2020-president":{"dem":298,"rep":449,"other":22,"total":769},"2020-us-senate":{"dem":303,"rep":468,"other":0,"total":771}}},
+   "46097": {"name":"Miner County","votes":{"2024-president":{"dem":293,"rep":841,"other":33,"total":1167},"2022-us-senate":{"dem":161,"rep":813,"other":30,"total":1004},"2022-governor":{"dem":248,"rep":732,"other":27,"total":1007},"2020-president":{"dem":320,"rep":787,"other":31,"total":1138},"2020-us-senate":{"dem":339,"rep":807,"other":0,"total":1146}}},
+   "46099": {"name":"Minnehaha County","votes":{"2024-president":{"dem":39923,"rep":51842,"other":2221,"total":93986},"2022-us-senate":{"dem":24772,"rep":46551,"other":2821,"total":74144},"2022-governor":{"dem":33376,"rep":39234,"other":2072,"total":74682},"2020-president":{"dem":40482,"rep":49249,"other":2595,"total":92326},"2020-us-senate":{"dem":38799,"rep":52773,"other":0,"total":91572}}},
+   "46101": {"name":"Moody County","votes":{"2024-president":{"dem":1052,"rep":2068,"other":69,"total":3189},"2022-us-senate":{"dem":694,"rep":1839,"other":109,"total":2642},"2022-governor":{"dem":910,"rep":1668,"other":71,"total":2649},"2020-president":{"dem":1179,"rep":1951,"other":76,"total":3206},"2020-us-senate":{"dem":1343,"rep":1877,"other":0,"total":3220}}},
+   "46102": {"name":"Oglala Lakota County","votes":{"2024-president":{"dem":2567,"rep":406,"other":89,"total":3062},"2022-us-senate":{"dem":1889,"rep":422,"other":129,"total":2440},"2022-governor":{"dem":2172,"rep":221,"other":87,"total":2480},"2020-president":{"dem":2829,"rep":297,"other":74,"total":3200},"2020-us-senate":{"dem":2691,"rep":510,"other":0,"total":3201}}},
+   "46103": {"name":"Pennington County","votes":{"2024-president":{"dem":20051,"rep":35009,"other":1520,"total":56580},"2022-us-senate":{"dem":12441,"rep":30398,"other":2314,"total":45153},"2022-governor":{"dem":16215,"rep":27586,"other":1587,"total":45388},"2020-president":{"dem":20606,"rep":35063,"other":1849,"total":57518},"2020-us-senate":{"dem":19184,"rep":37694,"other":0,"total":56878}}},
+   "46105": {"name":"Perkins County","votes":{"2024-president":{"dem":228,"rep":1342,"other":21,"total":1591},"2022-us-senate":{"dem":133,"rep":1141,"other":95,"total":1369},"2022-governor":{"dem":177,"rep":1142,"other":53,"total":1372},"2020-president":{"dem":239,"rep":1401,"other":29,"total":1669},"2020-us-senate":{"dem":249,"rep":1395,"other":0,"total":1644}}},
+   "46107": {"name":"Potter County","votes":{"2024-president":{"dem":214,"rep":1059,"other":25,"total":1298},"2022-us-senate":{"dem":123,"rep":937,"other":33,"total":1093},"2022-governor":{"dem":187,"rep":892,"other":20,"total":1099},"2020-president":{"dem":227,"rep":1139,"other":14,"total":1380},"2020-us-senate":{"dem":224,"rep":1160,"other":0,"total":1384}}},
+   "46109": {"name":"Roberts County","votes":{"2024-president":{"dem":1560,"rep":2514,"other":75,"total":4149},"2022-us-senate":{"dem":1000,"rep":2384,"other":147,"total":3531},"2022-governor":{"dem":1315,"rep":2164,"other":86,"total":3565},"2020-president":{"dem":1828,"rep":2404,"other":75,"total":4307},"2020-us-senate":{"dem":1767,"rep":2529,"other":0,"total":4296}}},
+   "46111": {"name":"Sanborn County","votes":{"2024-president":{"dem":259,"rep":929,"other":24,"total":1212},"2022-us-senate":{"dem":154,"rep":821,"other":27,"total":1002},"2022-governor":{"dem":226,"rep":757,"other":21,"total":1004},"2020-president":{"dem":257,"rep":905,"other":23,"total":1185},"2020-us-senate":{"dem":281,"rep":898,"other":0,"total":1179}}},
+   "46115": {"name":"Spink County","votes":{"2024-president":{"dem":921,"rep":2145,"other":73,"total":3139},"2022-us-senate":{"dem":546,"rep":2027,"other":91,"total":2664},"2022-governor":{"dem":765,"rep":1832,"other":73,"total":2670},"2020-president":{"dem":998,"rep":2104,"other":61,"total":3163},"2020-us-senate":{"dem":986,"rep":2178,"other":0,"total":3164}}},
+   "46117": {"name":"Stanley County","votes":{"2024-president":{"dem":447,"rep":1260,"other":28,"total":1735},"2022-us-senate":{"dem":245,"rep":1138,"other":64,"total":1447},"2022-governor":{"dem":407,"rep":999,"other":41,"total":1447},"2020-president":{"dem":421,"rep":1203,"other":28,"total":1652},"2020-us-senate":{"dem":378,"rep":1274,"other":0,"total":1652}}},
+   "46119": {"name":"Sully County","votes":{"2024-president":{"dem":168,"rep":716,"other":17,"total":901},"2022-us-senate":{"dem":114,"rep":622,"other":47,"total":783},"2022-governor":{"dem":169,"rep":597,"other":22,"total":788},"2020-president":{"dem":185,"rep":726,"other":19,"total":930},"2020-us-senate":{"dem":168,"rep":759,"other":0,"total":927}}},
+   "46121": {"name":"Todd County","votes":{"2024-president":{"dem":1570,"rep":497,"other":59,"total":2126},"2022-us-senate":{"dem":1308,"rep":502,"other":101,"total":1911},"2022-governor":{"dem":1444,"rep":402,"other":80,"total":1926},"2020-president":{"dem":1963,"rep":532,"other":44,"total":2539},"2020-us-senate":{"dem":1796,"rep":706,"other":0,"total":2502}}},
+   "46123": {"name":"Tripp County","votes":{"2024-president":{"dem":470,"rep":2150,"other":34,"total":2654},"2022-us-senate":{"dem":263,"rep":1861,"other":113,"total":2237},"2022-governor":{"dem":364,"rep":1873,"other":31,"total":2268},"2020-president":{"dem":495,"rep":2161,"other":40,"total":2696},"2020-us-senate":{"dem":502,"rep":2188,"other":0,"total":2690}}},
+   "46125": {"name":"Turner County","votes":{"2024-president":{"dem":1044,"rep":3374,"other":120,"total":4538},"2022-us-senate":{"dem":602,"rep":3078,"other":168,"total":3848},"2022-governor":{"dem":919,"rep":2834,"other":112,"total":3865},"2020-president":{"dem":1139,"rep":3290,"other":119,"total":4548},"2020-us-senate":{"dem":1126,"rep":3416,"other":0,"total":4542}}},
+   "46127": {"name":"Union County","votes":{"2024-president":{"dem":2548,"rep":6160,"other":168,"total":8876},"2022-us-senate":{"dem":1497,"rep":4991,"other":229,"total":6717},"2022-governor":{"dem":1848,"rep":4723,"other":169,"total":6740},"2020-president":{"dem":2725,"rep":5944,"other":186,"total":8855},"2020-us-senate":{"dem":2407,"rep":6364,"other":0,"total":8771}}},
+   "46129": {"name":"Walworth County","votes":{"2024-president":{"dem":481,"rep":1940,"other":45,"total":2466},"2022-us-senate":{"dem":301,"rep":1645,"other":92,"total":2038},"2022-governor":{"dem":430,"rep":1573,"other":50,"total":2053},"2020-president":{"dem":565,"rep":1966,"other":49,"total":2580},"2020-us-senate":{"dem":525,"rep":2040,"other":0,"total":2565}}},
+   "46135": {"name":"Yankton County","votes":{"2024-president":{"dem":3883,"rep":6650,"other":299,"total":10832},"2022-us-senate":{"dem":2462,"rep":6051,"other":340,"total":8853},"2022-governor":{"dem":3350,"rep":5247,"other":313,"total":8910},"2020-president":{"dem":4016,"rep":6581,"other":303,"total":10900},"2020-us-senate":{"dem":3848,"rep":6994,"other":0,"total":10842}}},
+   "46137": {"name":"Ziebach County","votes":{"2024-president":{"dem":366,"rep":388,"other":27,"total":781},"2022-us-senate":{"dem":242,"rep":389,"other":47,"total":678},"2022-governor":{"dem":304,"rep":345,"other":34,"total":683},"2020-president":{"dem":481,"rep":404,"other":21,"total":906},"2020-us-senate":{"dem":458,"rep":450,"other":0,"total":908}}}
+  },
+  "senate": {
+   "5": {"name":"Legislative District 5","votes":{"2024-president":{"dem":3486,"rep":7922,"other":268,"total":11676},"2022-us-senate":{"dem":2031,"rep":7036,"other":392,"total":9459},"2022-governor":{"dem":2925,"rep":6326,"other":263,"total":9514}},"counties":{"2022":["46029"],"2024":["46029"]}},
+   "18": {"name":"Legislative District 18","votes":{"2022-us-senate":{"dem":2541,"rep":6270,"other":355,"total":9166},"2022-governor":{"dem":3464,"rep":5436,"other":327,"total":9227}},"counties":{"2022":["46027","46135"],"2024":["46027","46135"]},"not_given":{"2024-president":"in Clay and Yankton Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Clay and Yankton Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "19": {"name":"Legislative District 19","votes":{"2022-us-senate":{"dem":1579,"rep":8227,"other":351,"total":10157},"2022-governor":{"dem":2280,"rep":7711,"other":226,"total":10217}},"counties":{"2022":["46009","46061","46067","46087","46125"],"2024":["46009","46061","46067","46087","46125"]},"not_given":{"2024-president":"in Hutchinson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Hutchinson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "20": {"name":"Legislative District 20","votes":{"2022-us-senate":{"dem":1841,"rep":6971,"other":330,"total":9142},"2022-governor":{"dem":2658,"rep":6298,"other":221,"total":9177}},"counties":{"2022":["46035","46073","46097","46111"],"2024":["46035","46073","46097","46111"]},"not_given":{"2024-president":"in Jerauld County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Jerauld County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "21": {"name":"Legislative District 21","votes":{"2022-us-senate":{"dem":1495,"rep":8133,"other":403,"total":10031},"2022-governor":{"dem":2078,"rep":7844,"other":189,"total":10111}},"counties":{"2022":["46003","46023","46043","46053","46123"],"2024":["46003","46023","46043","46053","46123"]},"not_given":{"2024-president":"in Charles Mix County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Charles Mix County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "27": {"name":"Legislative District 27","votes":{"2022-us-senate":{"dem":2591,"rep":3267,"other":354,"total":6212},"2022-governor":{"dem":3085,"rep":3017,"other":186,"total":6288}},"counties":{"2022":["46007","46071","46102","46103"],"2024":["46007","46071","46102","46103"]},"not_given":{"2024-president":"in Oglala Lakota and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Oglala Lakota and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "28": {"name":"Legislative District 28","votes":{"2022-us-senate":{"dem":2048,"rep":6708,"other":602,"total":9358},"2022-governor":{"dem":2578,"rep":6514,"other":328,"total":9420}},"counties":{"2022":["46019","46031","46041","46063","46105","46137"],"2024":["46019","46031","46041","46063","46105","46137"]},"not_given":{"2024-president":"in Butte and Corson Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Butte and Corson Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "29": {"name":"Legislative District 29","votes":{"2022-us-senate":{"dem":1725,"rep":7383,"other":600,"total":9708},"2022-governor":{"dem":2318,"rep":7076,"other":412,"total":9806}},"counties":{"2022":["46093"],"2024":["46093"]},"not_given":{"2024-president":"in Meade County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Meade County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "30": {"name":"Legislative District 30","votes":{"2022-us-senate":{"dem":2645,"rep":10083,"other":756,"total":13484},"2022-governor":{"dem":3427,"rep":9692,"other":454,"total":13573}},"counties":{"2022":["46033","46047","46103"],"2024":["46033","46047","46103"]},"not_given":{"2024":"in Pennington County a precinct votes in more than one district"},"note":"Not given for 2024: in Pennington County a precinct votes in more than one district."},
+   "31": {"name":"Legislative District 31","votes":{"2022-us-senate":{"dem":3061,"rep":8439,"other":646,"total":12146},"2022-governor":{"dem":4041,"rep":7749,"other":456,"total":12246}},"counties":{"2022":["46081"],"2024":["46081"]},"not_given":{"2024-president":"in Lawrence County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Lawrence County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "32": {"name":"Legislative District 32","votes":{"2022-us-senate":{"dem":2992,"rep":4290,"other":505,"total":7787},"2022-governor":{"dem":3759,"rep":3702,"other":381,"total":7842}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024-president":"in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "33": {"name":"Legislative District 33","votes":{"2022-us-senate":{"dem":2743,"rep":8332,"other":515,"total":11590},"2022-governor":{"dem":3775,"rep":7524,"other":362,"total":11661}},"counties":{"2022":["46093","46103"],"2024":["46093","46103"]},"not_given":{"2024-president":"in Meade and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Meade and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "34": {"name":"Legislative District 34","votes":{"2022-us-senate":{"dem":3500,"rep":7339,"other":526,"total":11365},"2022-governor":{"dem":4659,"rep":6418,"other":328,"total":11405}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024-president":"in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "35": {"name":"Legislative District 35","votes":{"2022-us-senate":{"dem":2460,"rep":6871,"other":486,"total":9817},"2022-governor":{"dem":3051,"rep":6414,"other":387,"total":9852}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024":"in Pennington County a precinct votes in more than one district"},"note":"Not given for 2024: in Pennington County a precinct votes in more than one district."}
+  },
+  "house": {
+   "5": {"name":"House District 5","votes":{"2024-president":{"dem":3486,"rep":7922,"other":268,"total":11676},"2022-us-senate":{"dem":2031,"rep":7036,"other":392,"total":9459},"2022-governor":{"dem":2925,"rep":6326,"other":263,"total":9514}},"counties":{"2022":["46029"],"2024":["46029"]}},
+   "18": {"name":"House District 18","votes":{"2022-us-senate":{"dem":2541,"rep":6270,"other":355,"total":9166},"2022-governor":{"dem":3464,"rep":5436,"other":327,"total":9227}},"counties":{"2022":["46027","46135"],"2024":["46027","46135"]},"not_given":{"2024-president":"in Clay and Yankton Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Clay and Yankton Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "19": {"name":"House District 19","votes":{"2022-us-senate":{"dem":1579,"rep":8227,"other":351,"total":10157},"2022-governor":{"dem":2280,"rep":7711,"other":226,"total":10217}},"counties":{"2022":["46009","46061","46067","46087","46125"],"2024":["46009","46061","46067","46087","46125"]},"not_given":{"2024-president":"in Hutchinson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Hutchinson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "20": {"name":"House District 20","votes":{"2022-us-senate":{"dem":1841,"rep":6971,"other":330,"total":9142},"2022-governor":{"dem":2658,"rep":6298,"other":221,"total":9177}},"counties":{"2022":["46035","46073","46097","46111"],"2024":["46035","46073","46097","46111"]},"not_given":{"2024-president":"in Jerauld County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Jerauld County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "21": {"name":"House District 21","votes":{"2022-us-senate":{"dem":1495,"rep":8133,"other":403,"total":10031},"2022-governor":{"dem":2078,"rep":7844,"other":189,"total":10111}},"counties":{"2022":["46003","46023","46043","46053","46123"],"2024":["46003","46023","46043","46053","46123"]},"not_given":{"2024-president":"in Charles Mix County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Charles Mix County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "26A": {"name":"House District 26A","votes":{"2024-president":{"dem":1869,"rep":1071,"other":81,"total":3021},"2022-us-senate":{"dem":1489,"rep":1026,"other":150,"total":2665},"2022-governor":{"dem":1675,"rep":900,"other":113,"total":2688}},"counties":{"2022":["46075","46095","46121"],"2024":["46075","46095","46121"]}},
+   "27": {"name":"House District 27","votes":{"2022-us-senate":{"dem":2591,"rep":3267,"other":354,"total":6212},"2022-governor":{"dem":3085,"rep":3017,"other":186,"total":6288}},"counties":{"2022":["46007","46071","46102","46103"],"2024":["46007","46071","46102","46103"]},"not_given":{"2024-president":"in Oglala Lakota and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Oglala Lakota and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "28A": {"name":"House District 28A","votes":{"2022-us-senate":{"dem":1349,"rep":2214,"other":214,"total":3777},"2022-governor":{"dem":1617,"rep":2060,"other":127,"total":3804}},"counties":{"2022":["46031","46041","46105","46137"],"2024":["46031","46041","46105","46137"]},"not_given":{"2024-president":"in Corson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Corson County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "28B": {"name":"House District 28B","votes":{"2022-us-senate":{"dem":699,"rep":4494,"other":388,"total":5581},"2022-governor":{"dem":961,"rep":4454,"other":201,"total":5616}},"counties":{"2022":["46019","46063","46105"],"2024":["46019","46063","46105"]},"not_given":{"2024-president":"in Butte County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Butte County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "29": {"name":"House District 29","votes":{"2022-us-senate":{"dem":1725,"rep":7383,"other":600,"total":9708},"2022-governor":{"dem":2318,"rep":7076,"other":412,"total":9806}},"counties":{"2022":["46093"],"2024":["46093"]},"not_given":{"2024-president":"in Meade County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Meade County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "30": {"name":"House District 30","votes":{"2022-us-senate":{"dem":2645,"rep":10083,"other":756,"total":13484},"2022-governor":{"dem":3427,"rep":9692,"other":454,"total":13573}},"counties":{"2022":["46033","46047","46103"],"2024":["46033","46047","46103"]},"not_given":{"2024":"in Pennington County a precinct votes in more than one district"},"note":"Not given for 2024: in Pennington County a precinct votes in more than one district."},
+   "31": {"name":"House District 31","votes":{"2022-us-senate":{"dem":3061,"rep":8439,"other":646,"total":12146},"2022-governor":{"dem":4041,"rep":7749,"other":456,"total":12246}},"counties":{"2022":["46081"],"2024":["46081"]},"not_given":{"2024-president":"in Lawrence County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Lawrence County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "32": {"name":"House District 32","votes":{"2022-us-senate":{"dem":2992,"rep":4290,"other":505,"total":7787},"2022-governor":{"dem":3759,"rep":3702,"other":381,"total":7842}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024-president":"in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "33": {"name":"House District 33","votes":{"2022-us-senate":{"dem":2743,"rep":8332,"other":515,"total":11590},"2022-governor":{"dem":3775,"rep":7524,"other":362,"total":11661}},"counties":{"2022":["46093","46103"],"2024":["46093","46103"]},"not_given":{"2024-president":"in Meade and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Meade and Pennington Counties the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "34": {"name":"House District 34","votes":{"2022-us-senate":{"dem":3500,"rep":7339,"other":526,"total":11365},"2022-governor":{"dem":4659,"rep":6418,"other":328,"total":11405}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024-president":"in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones"},"note":"Not given for 2024-president: in Pennington County the results site's precincts do not add up to the certified canvass, so its precinct figures there are not the certified ones."},
+   "35": {"name":"House District 35","votes":{"2022-us-senate":{"dem":2460,"rep":6871,"other":486,"total":9817},"2022-governor":{"dem":3051,"rep":6414,"other":387,"total":9852}},"counties":{"2022":["46103"],"2024":["46103"]},"not_given":{"2024":"in Pennington County a precinct votes in more than one district"},"note":"Not given for 2024: in Pennington County a precinct votes in more than one district."}
+  }
+ }
+}
