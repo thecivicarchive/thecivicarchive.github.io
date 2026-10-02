@@ -465,7 +465,7 @@ window.GEOKIT = (function () {
   function dataName(kind, id) {
     const s = String(id), a = s.split("|")[0], b = s.split("|")[1];
     if (kind === "county") return cName(pk(s));
-    if (kind === "mcd") return (D.places.M[s] || {}).n || s;
+    if (kind === "mcd") return (D.places.M[mKey(s)] || {}).n || s;
     if (kind === "school") return SCHG[s] ? placeName(SCHG[s]) : s;
     if (kind === "house") return `${ST.loD} ${s}`;
     if (kind === "senate") return `${ST.upD} ${s}`;
@@ -488,7 +488,7 @@ window.GEOKIT = (function () {
     if (kind === "school") return n.replace(/\s*\([^)]*\)\s*$/, "").replace(/\s+(?:Public\s+)?School\s+Districts?$/i, "");
     return n;
   }
-  function racesOf(kind, id) { return kind === "mcd" ? D.races.filter(r => r.pk === "M" + id && LOCAL.includes(r.lv)) : (BYG[kind + ":" + id] || []); }
+  function racesOf(kind, id) { return kind === "mcd" ? D.races.filter(r => r.pk === mPk(id) && LOCAL.includes(r.lv)) : (BYG[kind + ":" + id] || []); }
   function countiesOf(kind, id) {      // the counties whose precinct files hold a shape, so its lines can be found without the layer's whole file
     const s = String(id), a = s.split("|")[0];
     if (kind === "mcd") return (D.places.M[s] || {}).c || [];
@@ -561,8 +561,8 @@ window.GEOKIT = (function () {
       body = BOOT.links.us ? `<p class="held">The race for the U.S. House here is on the Congress pages.</p><a class="rpgo" href="../us/#race=${encodeURIComponent(rid)}">Open the race &rsaquo;</a>` : `<p class="held">The race for the U.S. House here is not on this page.</p>`; }
     else if (kind === "county") body = `<p class="held">${plural(COUNTS[pk(id)] || 0, "contest")} on the November 3 ballot reach${(COUNTS[pk(id)] || 0) === 1 ? "es" : ""} ${esc(name)}.${rs.length ? " The offices the whole county elects:" : ""}</p>${rs.length ? raceList(rs) : ""}<a class="rpgo" href="#county=${esc(pk(id))}">Open ${esc(name)} &rsaquo;</a>`;
     else if (kind === "judicial") body = rs.length ? raceList(rs, `<a href="#courts">see every district court race</a>`) : `<p class="held">No seat of this district&rsquo;s court is on the ${WHO} list for November 3.</p>`;
-    else { const cs = kind === "mcd" ? ((D.places.M[id] || {}).c || []) : [];
-      body = (rs.length ? raceList(rs) : `<p class="held">No contest for ${esc(name)} is on the ${WHO} list for November 3.</p>`)
+    else { const cs = kind === "mcd" ? ((D.places.M[mKey(id)] || {}).c || []) : [];
+      body = (rs.length ? raceList(rs) : `<p class="held">No contest for ${esc(name)} is on the ${LWHO} list for November 3.</p>`)
         + (cs.length ? `<p class="sidehint">Everything else on a ballot here: ${cs.map(f => `<a href="#county=${esc(f)}">${esc(cName(f))}</a>`).join(", ")}.</p>` : ""); }
     return `<span class="kick">${esc(kw)}</span><h3>${esc(name)}</h3>${body}${at}${BACK()}`;
   }
