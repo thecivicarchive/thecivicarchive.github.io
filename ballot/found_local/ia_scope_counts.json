@@ -1,0 +1,35 @@
+{
+ "state": "IA",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 328,
+ "by_level": {
+  "statewide": 12,
+  "legislature": 217,
+  "court": 0,
+  "county": 99,
+  "city": 0,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 6,
+  "legislature": 125,
+  "court": 0,
+  "county": 62,
+  "city": 0,
+  "school": 0
+ },
+ "races": 193,
+ "on_the_november_list_in_all": 714,
+ "per_part": 30,
+ "parts": 11,
+ "cities_in": 0,
+ "city_candidates": 0,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "No city or school board race is on Iowa's November 3, 2026 list in the database, so no place was picked by its population; the Census file is named so that the cities of 10,000 or more can be read from it. Iowa elects its mayors, city councils and school boards in November of odd years (Iowa Code 376.1 and 277.1; last on November 4, 2025, next in 2027)."
+}

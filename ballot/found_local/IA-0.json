@@ -1,0 +1,288 @@
+{
+ "part": 0,
+ "of": 11,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "notes": [
+  "Web search ran out part-way (the session's limit of 200 searches). These candidates were looked up only on pages already known, never searched for, so a blank for them means 'not looked for' rather than 'not found': Austin Stubbs, Ross Wilburn, Kyle Kruse, Lucas Hewitt, Craig Johnson, Jennifer Smith, Ann Meyer, Amy Nielsen, Brittany Erickson, Charlie Helmick, Brenda Case, Herman C Quirmbach, Mike Zimmer, Cindy Winckler.",
+  "cindywinckler.com and austinstubbsforiowa.com (named as campaign sites by a voter guide) show this machine a CAPTCHA page, so they were not opened and are not recorded. brennabird.com returned an empty stub and is not recorded.",
+  "Timothy Meals: search summaries say he was appointed Story County Attorney in February 2020 and elected that November, but no page stating it could be opened, so nothing is recorded.",
+  "Endorsements: no party's own endorsement page was looked at for anyone in this part."
+ ],
+ "removed": [
+  {
+   "race_id": "2026-IA-SH20",
+   "name": "Keith Jones",
+   "what": "official_page and offices (Pottawattamie County Supervisor)",
+   "url": "https://www.pottcounty-ia.gov/supervisors/",
+   "why": "the page answered 403 Forbidden on both tries, and nothing seen ties the House candidate to the supervisor of the same name"
+  },
+  {
+   "race_id": "2026-IA-SH61",
+   "name": "Lucas Hewitt",
+   "what": "website and own_words",
+   "url": "https://lucashewitt.com/",
+   "why": "the address did not resolve on two tries (with and without www), so neither the site nor the quote could be seen"
+  },
+  {
+   "race_id": "2026-IA-SH72",
+   "name": "Jennifer Smith",
+   "what": "website",
+   "url": "https://www.smithforiowa.com/",
+   "why": "the site names State House District 72 but the only year on it is 2024; it could not be confirmed as the site for the 2026 race"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-attorney",
+   "name": "Brian John Williams",
+   "official_page": {
+    "url": "https://blackhawkcountyelections.iowa.gov/elected_officials/county/",
+    "source": "Black Hawk County Elections, county elected officials list (Attorney: Brian Williams, D, term ends 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19013-county-treasurer",
+   "name": "Lynda Hintzman",
+   "official_page": {
+    "url": "https://blackhawkcounty.iowa.gov/333/Treasurer",
+    "source": "Black Hawk County, Treasurer page (names Lynda Hintzman, County Treasurer)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19049-county-recorder",
+   "name": "Lexi Farber",
+   "website": {
+    "url": "https://www.lexifarber.com",
+    "how": "the site is titled \"Lexi Farber for Dallas County Recorder\"; \"Paid for by Lexi Farber for Recorder.\" (the home page gives no year)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d2",
+   "name": "Jon Green",
+   "official_page": {
+    "url": "https://www.johnsoncountyiowa.gov/board-of-supervisors",
+    "source": "Johnson County, Board of Supervisors page (lists Jon Green among the five supervisors)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Johnson County Supervisor",
+     "from": "2021",
+     "to": "present",
+     "source": "KWWL, \"Three Democrats vie for Johnson County supervisor seat\" (May 11, 2026, on the District 2 seat): \"Green has been a Johnson County supervisor since 2021\"",
+     "url": "https://www.kwwl.com/news/three-democrats-vie-for-johnson-county-supervisor-seat/article_db9a38ac-a092-41c1-b7d7-13c956b0f516.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19113-county-commissioner-d1",
+   "name": "Kirsten Running-Marquardt",
+   "official_page": {
+    "url": "https://www.linncountyiowa.gov/directory.aspx?EID=270",
+    "source": "Linn County staff directory (Kirsten Running-Marquardt, Linn County Supervisor District 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Linn County Supervisor, District 1",
+     "from": "2023",
+     "to": "present",
+     "source": "Linn County directory: \"elected in November 2022 to the Linn County Board of Supervisors, representing District 1\" (the term began in January 2023)",
+     "url": "https://www.linncountyiowa.gov/directory.aspx?EID=270",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Iowa House of Representatives (33rd District, then 69th District)",
+     "from": "2009",
+     "to": "2023",
+     "source": "Wikipedia, Kirsten Running-Marquardt (33rd District 2009-2013, 69th District 2013-2023); the Linn County directory says she served in the Iowa House of Representatives for 14 years",
+     "url": "https://en.wikipedia.org/wiki/Kirsten_Running-Marquardt",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Iowa House of Representatives, 33rd and 69th Districts",
+     "year": "2009-2023",
+     "party": "Democratic",
+     "source": "Wikipedia, Kirsten Running-Marquardt",
+     "url": "https://en.wikipedia.org/wiki/Kirsten_Running-Marquardt",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19127-county-commissioner-S",
+   "name": "Kyle Hall",
+   "offices": [
+    {
+     "office": "GMG school board member (former; the article gives no years)",
+     "from": null,
+     "to": null,
+     "source": "Times-Republican (Marshalltown), \"Kyle Hall launches independent run for Marshall County Board of Supervisors\", April 7, 2026: \"former GMG school board member\"",
+     "url": "https://www.timesrepublican.com/news/todays-news/2026/04/kyle-hall-launches-independent-run-for-marshall-county-board-of-supervisors/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19163-county-commissioner",
+   "name": "Jean Dickson",
+   "official_page": {
+    "url": "https://www.scottcountyiowa.gov/board/jean-dickson",
+    "source": "Scott County, \"Supervisor Jean Dickson\" page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Scott County Supervisor (Vice Chair from January 2025)",
+     "from": "2023",
+     "to": "present",
+     "source": "Scott County: \"Jean Dickson was elected to the Board of Supervisors in November 2022 and was sworn in January 3, 2023. She was elected Vice Chair on January 2, 2025.\"",
+     "url": "https://www.scottcountyiowa.gov/board/jean-dickson",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19169-county-attorney",
+   "name": "Timothy Meals"
+  },
+  {
+   "race_id": "2026-IA-19181-county-commissioner-d5",
+   "name": "Alfonso Valenzuela-Gumucio",
+   "offices": [
+    {
+     "office": "Warren County Historic Preservation Commission, member (the article gives no years)",
+     "from": null,
+     "to": null,
+     "source": "Indianola Independent Advocate, March 14, 2022, on the District 2 Board of Supervisors candidate Valenzuela-Gumucio: \"Weeks after he joined the Warren County Historic Preservation Commission, he learned the Warren County Board of Supervisors was planning to eliminate it.\"",
+     "url": "https://www.indianola-ia.com/news/elections/historic-preservation-important-to-district-2-board-of-supervisors-candidate-valenzuela-gumucio/article_1239ca74-a177-11ec-9622-bb36372b78e2.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "sought the Democratic nomination for Warren County Supervisor, District 2",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Indianola Independent Advocate, March 14, 2022: \"Valenzuela-Gumucio is currently unopposed for the Democratic nomination.\"",
+     "url": "https://www.indianola-ia.com/news/elections/historic-preservation-important-to-district-2-board-of-supervisors-candidate-valenzuela-gumucio/article_1239ca74-a177-11ec-9622-bb36372b78e2.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-AG",
+   "name": "Brenna Bird"
+  },
+  {
+   "race_id": "2026-IA-SH100",
+   "name": "Blaine Watkins"
+  },
+  {
+   "race_id": "2026-IA-SH15",
+   "name": "Marilyn J Mentzer"
+  },
+  {
+   "race_id": "2026-IA-SH20",
+   "name": "Keith Jones"
+  },
+  {
+   "race_id": "2026-IA-SH26",
+   "name": "Austin Harris"
+  },
+  {
+   "race_id": "2026-IA-SH33",
+   "name": "Ivette Muhammad",
+   "website": {
+    "url": "https://ivetteforthepeople.com/",
+    "how": "the site says \"Ivette Muhammad is ... a 2026 candidate for Iowa House District 33\" and \"VOTE FOR IVETTE FOR THE PEOPLE, NOVEMBER 3, 2026\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH4",
+   "name": "Garth Van Donselaar"
+  },
+  {
+   "race_id": "2026-IA-SH45",
+   "name": "Austin Stubbs"
+  },
+  {
+   "race_id": "2026-IA-SH50",
+   "name": "Ross Wilburn"
+  },
+  {
+   "race_id": "2026-IA-SH56",
+   "name": "Kyle Kruse"
+  },
+  {
+   "race_id": "2026-IA-SH61",
+   "name": "Lucas Hewitt"
+  },
+  {
+   "race_id": "2026-IA-SH67",
+   "name": "Craig Johnson"
+  },
+  {
+   "race_id": "2026-IA-SH72",
+   "name": "Jennifer Smith"
+  },
+  {
+   "race_id": "2026-IA-SH8",
+   "name": "Ann Meyer"
+  },
+  {
+   "race_id": "2026-IA-SH85",
+   "name": "Amy Nielsen"
+  },
+  {
+   "race_id": "2026-IA-SH92",
+   "name": "Brittany Erickson"
+  },
+  {
+   "race_id": "2026-IA-SH97",
+   "name": "Charlie Helmick"
+  },
+  {
+   "race_id": "2026-IA-SS13",
+   "name": "Brenda Case",
+   "website": {
+    "url": "https://caseforiowasenate.com/",
+    "how": "the site is titled \"Case For Iowa Senate District 13 - Iowa District 13 Democratic Candidate\"; \"Donate to Brenda's District 13 State Senate Campaign!\" (the home page gives no year)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Iowa District 13 Democratic Candidate",
+    "url": "https://caseforiowasenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS25",
+   "name": "Herman C Quirmbach"
+  },
+  {
+   "race_id": "2026-IA-SS35",
+   "name": "Mike Zimmer"
+  },
+  {
+   "race_id": "2026-IA-SS49",
+   "name": "Cindy Winckler"
+  }
+ ]
+}

@@ -1,0 +1,281 @@
+{
+ "part": 2,
+ "of": 11,
+ "researched": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d1",
+   "name": "Will Overstreet"
+  },
+  {
+   "race_id": "2026-IA-19049-county-commissioner-d1",
+   "name": "Jason Benell",
+   "website": {
+    "url": "https://www.jasonbenell.com",
+    "how": "The site's own title and footer name the candidate and the office: \"Jason Benell for Dallas County Supervisor\"; paid for by Benell for Supervisor",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19049-county-treasurer",
+   "name": "Summer Portzen"
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d3",
+   "name": "Jennie Wunderlich",
+   "website": {
+    "url": "https://www.jenniewunderlich.com",
+    "how": "The site's own front page names the candidate and the office: \"running for Johnson County Supervisor for District 3\"; paid for by Team Wunderlich",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19113-county-commissioner-d2",
+   "name": "Sami Scheetz",
+   "website": {
+    "url": "https://www.samischeetz.com",
+    "how": "The site's own title and footer name the candidate and the office: \"Sami Scheetz for Linn County Supervisor\"; paid for by Scheetz for Supervisor",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.linncountyiowa.gov/Directory.aspx?EID=310",
+    "source": "Linn County, staff directory: Supervisor, District 2",
+    "verified": true
+   },
+   "born": {
+    "year": 1996,
+    "source": "Wikipedia, Sami Scheetz",
+    "url": "https://en.wikipedia.org/wiki/Sami_Scheetz",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Linn County Supervisor, District 2 (appointed)",
+     "from": "2025",
+     "to": "present",
+     "source": "Linn County news release on the appointment, April 1, 2025",
+     "url": "https://www.linncountyiowa.gov/CivicAlerts.aspx?AID=3927",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "State Representative, Iowa House District 78",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, Sami Scheetz",
+     "url": "https://en.wikipedia.org/wiki/Sami_Scheetz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Iowa House of Representatives, District 78, as a Democrat",
+     "year": "2023",
+     "party": "Democratic",
+     "source": "Wikipedia, Sami Scheetz",
+     "url": "https://en.wikipedia.org/wiki/Sami_Scheetz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "has been organizing and working to get Democrats elected across Iowa",
+    "url": "https://samischeetz.com/meet-sami-scheetz/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19153-county-attorney",
+   "name": "Jonah Dyer",
+   "website": {
+    "url": "https://jonahforpolkcountyattorney.com",
+    "how": "The site's own title and footer name the candidate and the office: \"Jonah Dyer for Polk County Attorney\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19163-county-commissioner",
+   "name": "Kevin Randle"
+  },
+  {
+   "race_id": "2026-IA-19169-county-commissioner-d1",
+   "name": "Linda Murken",
+   "website": {
+    "url": "https://www.linda-murken-for-supervisor.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"running for re-election in 2026 in the newly created Supervisor District 1\" (Story County)",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://storycountyiowa.gov/directory.aspx?EID=249",
+    "source": "Story County, staff directory: Board of Supervisors, Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Story County Supervisor",
+     "from": "2019",
+     "to": "present",
+     "source": "Her campaign site (\"your Story County Supervisor since 2019\")",
+     "url": "https://www.linda-murken-for-supervisor.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19181-county-recorder",
+   "name": "Jordyn M. Hill",
+   "official_page": {
+    "url": "https://warrencountyia.gov/recorder",
+    "source": "Warren County, Recorder page (names Jordyn Hill as Recorder)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-AGR",
+   "name": "Chris Jones",
+   "website": {
+    "url": "https://chrisjonesforiowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Chris Jones for Iowa Secretary of Agriculture\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH11",
+   "name": "Bill Owen",
+   "website": {
+    "url": "https://www.billowenforiowahouse.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Bill Owen for Iowa House\", \"Candidate for District 11 Iowa House of Representatives\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I joined the Democratic Party to fully engage in the process",
+    "url": "https://www.billowenforiowahouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH16",
+   "name": "Jack Goodman",
+   "website": {
+    "url": "https://jackforiowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Jack Goodman for Iowa State Representative\"; \"running for Iowa House in District 16\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH21",
+   "name": "Spencer A Waugh",
+   "website": {
+    "url": "https://www.spencerwaughforiowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Spencer Waugh For Iowa\"; \"running for the Iowa House right here in District 21\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH27",
+   "name": "Kenan Judge",
+   "website": {
+    "url": "https://www.kenanjudgeforiowans.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Kenan Judge for Iowans\"; \"Vote to re-elect Kenan Judge on November 3, 2026\" (Iowa House)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH34",
+   "name": "Rob Johnson"
+  },
+  {
+   "race_id": "2026-IA-SH40",
+   "name": "Bill Gustoff",
+   "website": {
+    "url": "https://www.gustoff4iowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Gustoff for Iowa\"; Iowa House District 40",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH46",
+   "name": "Dan Gehlbach",
+   "website": {
+    "url": "https://dan4iowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Dan Gehlbach For Iowa House\"; House District 46",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH51",
+   "name": "Teresa Perin",
+   "website": {
+    "url": "https://tperin.weebly.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Perin for 51\"; House District 51; paid for by Perin for 51",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH57",
+   "name": "Pat Grassley"
+  },
+  {
+   "race_id": "2026-IA-SH62",
+   "name": "Jerome Amos Jr"
+  },
+  {
+   "race_id": "2026-IA-SH68",
+   "name": "Chad Ingels"
+  },
+  {
+   "race_id": "2026-IA-SH73",
+   "name": "Elizabeth Wilson",
+   "website": {
+    "url": "https://www.elizabethwilsonforiowa.com/",
+    "how": "The site's own title and footer name the candidate and the office: \"Elizabeth Wilson | Iowa House District 73\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH80",
+   "name": "Aime J Wichtendahl"
+  },
+  {
+   "race_id": "2026-IA-SH87",
+   "name": "Jeff Shipley"
+  },
+  {
+   "race_id": "2026-IA-SH93",
+   "name": "Gary M. Mohr"
+  },
+  {
+   "race_id": "2026-IA-SH98",
+   "name": "Nathan Ramker"
+  },
+  {
+   "race_id": "2026-IA-SS15",
+   "name": "Tony Bisignano"
+  },
+  {
+   "race_id": "2026-IA-SS27",
+   "name": "Annette Sweeney"
+  },
+  {
+   "race_id": "2026-IA-SS37",
+   "name": "Randy Marzen"
+  },
+  {
+   "race_id": "2026-IA-SS5",
+   "name": "Dave Rowley"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-SH98",
+   "name": "Nathan Ramker",
+   "field": "website",
+   "url": "https://www.ramkerforiowans.com/",
+   "why": "The site names Nathan Ramker and Iowa House District 98, but its only date is a 2024 copyright line and it says nothing of 2026; it cannot be confirmed as the site for this 2026 race."
+  }
+ ]
+}

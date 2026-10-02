@@ -23,7 +23,9 @@ Other states (Wisconsin first, 2026-10-02). Only Minnesota's candidate files car
 reads Minnesota alone. Any other state gets its websites from verified findings: `python run_ballot.py localfacts`
 loads the findings of every state in STATES that has a scope file beside the findings (`found_states()`), after
 Minnesota's, each state touching only its own rows. Fetch, headings, choices and sheets never were Minnesota's alone.
-A new state is added to STATES with its name and the words its roster's legislative service is found by.
+A new state is added to STATES with its name and the words its roster's legislative service is found by
+(Iowa and North Dakota, 2026-10-02, also give "why_no_local": why the November list has no city or school race, said in
+the scope files).
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -164,7 +166,17 @@ QUOTE_MAX = 300
 # the states this module serves: the name a reader would say, and (beyond the general words) how a finding names a
 # seat in that state's legislature, so a sitting member's service is left to the state roster
 STATES = {"MN": {"name": "Minnesota"},
-          "WI": {"name": "Wisconsin", "legislature": r"\bwisconsin (?:state )?(?:senate|assembly|legislat\w+)|\b(?:state )?assembly\b"}}
+          "WI": {"name": "Wisconsin", "legislature": r"\bwisconsin (?:state )?(?:senate|assembly|legislat\w+)|\b(?:state )?assembly\b"},
+          # Iowa (2026-10-02): the Secretary of State's list stops at the Legislature and the county lists are the 99
+          # auditors' own, none with a website cell this module reads; "why_no_local" is the sentence its scope files carry
+          "IA": {"name": "Iowa", "legislature": r"\biowa (?:state )?(?:house|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "why_no_local": "Iowa elects its mayors, city councils and school boards in November of odd years (Iowa Code 376.1 and 277.1; "
+                                 "last on November 4, 2025, next in 2027)."},
+          # North Dakota (2026-10-02): the Secretary of State's list (vip.sos.nd.gov) has contact columns the list loader
+          # never reads and this module does not read either, so its websites come from verified findings only
+          "ND": {"name": "North Dakota", "legislature": r"\bnorth dakota (?:state )?(?:house|senate|legislat\w+)|\blegislative assembly\b",
+                 "why_no_local": "North Dakota elects its city officers and park boards in June of even years (N.D.C.C. 40-21-02; "
+                                 "June 9, 2026) and its school boards between April and June (N.D.C.C. 15.1-09-22); townships vote in March."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1292,7 +1304,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
                                      and pop["place"].get(r["jurisdiction_id"], {"population": 0})["population"] >= threshold)
     none_local = (None if state == "MN" or by_level["city"] or by_level["school"] or cities or schools else
                   f"No city or school board race is on {words}'s November 3, 2026 list in the database, so no place was "
-                  f"picked by its population; the Census file is named so that the cities of {threshold:,} or more can be read from it.")
+                  f"picked by its population; the Census file is named so that the cities of {threshold:,} or more can be read from it."
+                  + (" " + STATES[state]["why_no_local"] if STATES.get(state, {}).get("why_no_local") else ""))
     where = ("A city is found by its place code, which the candidate list's MCD code equals for Minnesota's cities, and "
              "the two names must agree; a school district by its name." if state == "MN" else
              "A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name.")

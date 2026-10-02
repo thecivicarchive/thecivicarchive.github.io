@@ -1,0 +1,428 @@
+{
+ "part": 3,
+ "of": 11,
+ "researched": "2026-10-02",
+ "notes": [
+  "How this part was researched: the session's shared web-search allowance ran out after six searches (the six county candidates at the top of the list). Everything else was read by opening pages directly with the kit's honest User-Agent (states/net.py), each host's robots.txt read first and obeyed, or with the page-reading tool where a campaign site answered the script with 429. No search engine was read in place of the search tool.",
+  "Campaign websites for House Democrats were learned from the Iowa House Democrats' own candidate pages (https://iowahouse.org/candidates-page-1 and -page-2), which give each candidate's district, town, committee and site; each site was then opened and kept only where its own pages name the candidate and the office. That caucus list is not recorded as an endorsement: it is a list of the party's candidates, not a published endorsement.",
+  "Mike Naig's endorsed_by entry is the Republican Party of Iowa's own '2026 Candidates' page, which lists him for Secretary of Agriculture. It is a list of the party's nominees and does not use the word 'endorse'. Left for the second reader to judge; delete it if a nominee list is not to count.",
+  "Bill Dotzler: the Iowa Legislature's page is for Senator William A. Dotzler Jr., Democrat, District 31. No page that this script may read says in so many words that he is this year's Black Hawk County supervisor candidate: KWWL and KCRG reported it, but both sites' robots.txt ask Claude's readers to stay out, so nothing is cited from them. The tie is the name, the state and the party. Left for the second reader to judge.",
+  "Luana Stoltenberg: Wikipedia's article is for the Republican who represented Iowa House District 81 from 2023 to 2025 and lives in Davenport (Scott County). No page read says in so many words that she is this year's Scott County supervisor candidate; the tie is the name, the state, the party and the place. Left for the second reader to judge.",
+  "sokoforiowa.com (the address the Iowa House Democrats give for Keith Soko, House District 93) answered with a CAPTCHA page; it was left alone and no website is recorded for him.",
+  "Robots: thegazette.com, kwwl.com, kcrg.com and iowacapitaldispatch.com ask Claude's readers to stay out, so nothing is cited from them (this includes The Gazette's candidate page for Sue Dvorsky and the Capital Dispatch story on Kimberly Graham's 2021 announcement). A KWWL page was opened once through a shared helper script before its robots.txt had been checked; nothing from it is recorded.",
+  "robertgreenway.com resolves but answered the script with 429 and the page-reading tool could not reach it, so it was not seen and nothing is recorded for Robert Greenway. williamsforiowa.com answered with a self-signed certificate and was not read.",
+  "Heather Sievers's home page is titled 'Home | Sievers 2026' and does not name the office; her About page speaks of 'her first run for Iowa House of Representatives' although Wikipedia's 2024 table shows a Heather Sievers as the Democratic candidate in the same district (House District 40) in 2024. Both are recorded; the second reader may wish to look at that wording.",
+  "Jennifer Kirkman's site says she has volunteered with the Burlington Library Board among other organizations, without a post or years; no office is recorded from it. Thomas O'Donnell's site names no public office. Sue Dvorsky's past chairmanship of the Iowa Democratic Party is a party post, not a public office, and is not recorded.",
+  "Sitting legislators (Craig Williams, Devon Wood, David Young, Sean Bagniewski, David Blom, Eric Gjerde, Daniel Gosa): no campaign website of their own and no party endorsement page was found. The Iowa House Democrats' pages link only to the caucus's own spotlight pages for Bagniewski, Gjerde and Gosa; the Iowa House Republicans' and Senate Republicans' sites carry no candidate list.",
+  "Nothing citable was found for: Robert Greenway, Travis A Inghram (Des Moines County's attorney page does not name him), Sue Dvorsky (Johnson County's supervisor districts page lists her as a District 3 candidate, which our record already shows), Martin Chitty, Mandy Newton Rosenow (the caucus page gives no site), Keith Soko, Ronald Langston, Jim Vowels, Rachel Gravert, and the seven sitting legislators.",
+  "No full birth date is recorded: both dates seen (Dotzler, Naig) are from Wikipedia, so only the year is kept.",
+  "Second reader, 2026-10-02: every address was opened again (the kit's honest fetch; the page-reading tool for the two sites that answer scripts with 429; Linn County's PDF read as text). Kept: 32 findings. Removed: all five of Bill Dotzler's (no readable page ties the senator to the supervisor race) and Mike Naig's party listing (a candidate list, not an endorsement). Luana Stoltenberg's are kept on the state, the party and Davenport in Scott County, all in the one article. One wording corrected (Jeff Thurlow's website note)."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d2",
+   "name": "Bill Dotzler"
+  },
+  {
+   "race_id": "2026-IA-19049-county-commissioner-d1",
+   "name": "Robert Greenway"
+  },
+  {
+   "race_id": "2026-IA-19057-county-attorney",
+   "name": "Travis A Inghram"
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d3",
+   "name": "Sue Dvorsky"
+  },
+  {
+   "race_id": "2026-IA-19113-county-recorder",
+   "name": "Carolyn Siebrecht",
+   "official_page": {
+    "url": "https://www.linncountyiowa.gov/866/Linn-County-Elected-Officials-PDF",
+    "source": "Linn County, 'Linn County Elected Officials' (PDF): Linn County Recorder, Carolyn Siebrecht",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Linn County Recorder",
+     "from": "elected November 8, 2022",
+     "to": "present (term expires December 31, 2026)",
+     "source": "Linn County, 'Linn County Elected Officials' (PDF)",
+     "url": "https://www.linncountyiowa.gov/866/Linn-County-Elected-Officials-PDF",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Linn County Recorder; the county's list of elected officials gives her party as Democratic Party",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Linn County, 'Linn County Elected Officials' (PDF)",
+     "url": "https://www.linncountyiowa.gov/866/Linn-County-Elected-Officials-PDF",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19153-county-attorney",
+   "name": "Kimberly Graham",
+   "official_page": {
+    "url": "https://www.polkcountyiowa.gov/county-attorney/kimberly-graham/",
+    "source": "Polk County, Iowa: County Attorney, Kimberly Graham",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Polk County Attorney",
+     "from": "2023",
+     "to": "present",
+     "source": "Polk County's page: \"I assumed the responsibilities of the Polk County Attorney on January 3, 2023\"",
+     "url": "https://www.polkcountyiowa.gov/county-attorney/kimberly-graham/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19163-county-commissioner",
+   "name": "Luana Stoltenberg",
+   "born": {
+    "year": 1960,
+    "source": "Wikipedia, 'Luana Stoltenberg' (cites the Iowa Legislature's page)",
+    "url": "https://en.wikipedia.org/wiki/Luana_Stoltenberg",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iowa State Representative, District 81",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, 'Luana Stoltenberg' (cites the Iowa Legislature and Ballotpedia); the article gives her home as Davenport, Iowa (Scott County), the tie to this race",
+     "url": "https://en.wikipedia.org/wiki/Luana_Stoltenberg",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Iowa House, District 81, as a Republican",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, 'Luana Stoltenberg'",
+     "url": "https://en.wikipedia.org/wiki/Luana_Stoltenberg",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19169-county-commissioner-d2",
+   "name": "Martin Chitty"
+  },
+  {
+   "race_id": "2026-IA-19181-county-treasurer",
+   "name": "Andrea Semple",
+   "official_page": {
+    "url": "https://www.warrencountyia.gov/government/county-government/treasurer/",
+    "source": "Warren County, Iowa: Treasurer, Andrea Semple",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Warren County Treasurer",
+     "to": "present",
+     "source": "Warren County's Treasurer page names her as Treasurer; it gives no start year",
+     "url": "https://www.warrencountyia.gov/government/county-government/treasurer/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-AGR",
+   "name": "Mike Naig",
+   "website": {
+    "url": "https://mikenaig.com/",
+    "how": "The site is titled \"Mike Naig for Iowa Agriculture\"; its Meet Mike page says \"Mike Naig proudly serves as Iowa's Secretary of Agriculture\". The site shows no election year.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://iowaagriculture.gov/mike-naig",
+    "source": "Iowa Department of Agriculture and Land Stewardship: Secretary Mike Naig",
+    "verified": true
+   },
+   "born": {
+    "year": 1978,
+    "source": "Wikipedia, 'Mike Naig'",
+    "url": "https://en.wikipedia.org/wiki/Mike_Naig",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iowa Secretary of Agriculture",
+     "from": "2018",
+     "to": "present",
+     "source": "The Department's page: \"elected as the 15th Iowa Secretary of Agriculture in November 2018 and was reelected in November 2022\" (Wikipedia adds that he was appointed to the office in March 2018)",
+     "url": "https://iowaagriculture.gov/mike-naig",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Iowa Deputy Secretary of Agriculture",
+     "from": "2013",
+     "to": "2018",
+     "source": "Wikipedia, 'Mike Naig' (cites the Quad-City Times, August 22, 2013); the Department's page says he \"previously served as the Deputy Secretary\" without years",
+     "url": "https://en.wikipedia.org/wiki/Mike_Naig",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Re-elected Iowa Secretary of Agriculture as the Republican candidate",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, 'Mike Naig'",
+     "url": "https://en.wikipedia.org/wiki/Mike_Naig",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH11",
+   "name": "Craig Williams"
+  },
+  {
+   "race_id": "2026-IA-SH17",
+   "name": "Devon Wood"
+  },
+  {
+   "race_id": "2026-IA-SH22",
+   "name": "Rory Taylor",
+   "website": {
+    "url": "https://taylorforhouse.com/",
+    "how": "The home page is titled \"Rory Taylor for Iowa House District 22 | Democrat\" and carries campaign updates dated 2026. The Iowa House Democrats' candidate page gives this address for House District 22.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Rory Taylor for Iowa House District 22 | Democrat",
+    "url": "https://taylorforhouse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH28",
+   "name": "David Young"
+  },
+  {
+   "race_id": "2026-IA-SH35",
+   "name": "Sean Bagniewski"
+  },
+  {
+   "race_id": "2026-IA-SH40",
+   "name": "Heather Sievers",
+   "website": {
+    "url": "https://www.heathersievers4iowa.com",
+    "how": "The home page is titled \"Home | Sievers 2026\" and is signed \"Paid for by Heather Sievers for Iowa\"; its About Heather page speaks of her run \"for Iowa House of Representatives\". The Iowa House Democrats' candidate page gives this address for House District 40. Read with the page-reading tool (the site answered the script with 429).",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Heartland Area Education Agency Board of Directors (elected)",
+     "source": "Her campaign site's About Heather page: \"She was elected to serve on the Heartland Area Education Agency [AEA] Board of Directors\"; no years given",
+     "url": "https://www.heathersievers4iowa.com/about-heather",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Democratic candidate for Iowa House, District 40 (general election)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Wikipedia, '2024 Iowa House of Representatives election' (results table, 40th District)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH46",
+   "name": "Mandy Newton Rosenow"
+  },
+  {
+   "race_id": "2026-IA-SH52",
+   "name": "David Blom"
+  },
+  {
+   "race_id": "2026-IA-SH57",
+   "name": "Shawn Ellerbroek",
+   "website": {
+    "url": "https://shawnforiowa.com/",
+    "how": "The home page is titled \"Shawn for Iowa House 57\" and speaks of \"his campaign for Iowa House of Representatives District 57\". The Iowa House Democrats' candidate page gives this address for House District 57.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Waverly-Shell Rock School Board",
+     "source": "His campaign site: \"His service as President of the Waverly-Shell Rock School Board\"; no years given",
+     "url": "https://shawnforiowa.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Democratic candidate for Iowa House, District 57 (general election)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Wikipedia, '2024 Iowa House of Representatives election' (results table, 57th District)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH63",
+   "name": "Jeff Thurlow",
+   "website": {
+    "url": "https://www.thurlowforiowa.com/",
+    "how": "The page is titled \"Home | Thurlow for Iowa\" and its header reads \"Jeff Thurlow for Iowa House\"; it says \"Iowa House District 63 is made up of all of Howard and Winneshiek Counties plus the Northern portion of Fayette County.\" The site shows no election year. Read with the page-reading tool (the site answered the script with 429).",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH68",
+   "name": "Scott Bodley",
+   "website": {
+    "url": "https://bodleyforiowa.com/",
+    "how": "The home page is headed \"Scott Bodley for Iowa House District 68\". The Iowa House Democrats' candidate page gives this address for House District 68.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH74",
+   "name": "Eric Gjerde"
+  },
+  {
+   "race_id": "2026-IA-SH81",
+   "name": "Daniel Gosa"
+  },
+  {
+   "race_id": "2026-IA-SH87",
+   "name": "Thomas R. O'Donnell",
+   "website": {
+    "url": "https://odonnellforhouse87.com/",
+    "how": "The home page is titled \"Thomas O'Donnell for Iowa House District 87\" and carries 2026 campaign news (\"O'Donnell files nomination papers for House election\", March 10, 2026). The Iowa House Democrats' candidate page gives this address for House District 87.",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Democratic candidate for Iowa House, District 87 (general election)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Wikipedia, '2024 Iowa House of Representatives election' (results table, 87th District); his own site speaks of \"O'Donnell's 2024 House campaign\"",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm a rural Democrat who ran for the state Legislature.",
+    "url": "https://odonnellforhouse87.com/2026/01/26/im-a-rural-democrat-who-ran-for-the-state-legislature-heres-what-i-learned-opinion/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH93",
+   "name": "Keith Soko"
+  },
+  {
+   "race_id": "2026-IA-SH99",
+   "name": "Jennifer Kirkman",
+   "website": {
+    "url": "http://www.kirkmanforiowa.com",
+    "how": "The home page is titled \"Kirkman For Iowa\" and headed \"Jennifer Kirkman for house district 99. A voice for the people of Southeast Iowa\". The Iowa House Democrats' candidate page gives this address for House District 99.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am running as a democrat",
+    "url": "http://www.kirkmanforiowa.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS17",
+   "name": "Ronald Langston"
+  },
+  {
+   "race_id": "2026-IA-SS29",
+   "name": "Jim Vowels"
+  },
+  {
+   "race_id": "2026-IA-SS39",
+   "name": "Edward Bernie Hayes",
+   "past_party": [
+    {
+     "what": "Republican candidate for Iowa Senate, District 39 (general election)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wikipedia, '2022 Iowa Senate election' (results table, District 39)",
+     "url": "https://en.wikipedia.org/wiki/2022_Iowa_Senate_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SS5",
+   "name": "Rachel Gravert"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d2",
+   "name": "Bill Dotzler",
+   "field": "official_page",
+   "count": 1,
+   "why": "The pages open and say what was recorded about State Senator William A. Dotzler Jr., but no page that may be read ties him to this 2026 supervisor race: the Iowa Legislature's page gives only the state and the party, and a 'Jr.' leaves room for another person of the same name. Unsure means left out."
+  },
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d2",
+   "name": "Bill Dotzler",
+   "field": "born",
+   "count": 1,
+   "why": "The pages open and say what was recorded about State Senator William A. Dotzler Jr., but no page that may be read ties him to this 2026 supervisor race: the Iowa Legislature's page gives only the state and the party, and a 'Jr.' leaves room for another person of the same name. Unsure means left out."
+  },
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d2",
+   "name": "Bill Dotzler",
+   "field": "offices",
+   "count": 2,
+   "why": "The pages open and say what was recorded about State Senator William A. Dotzler Jr., but no page that may be read ties him to this 2026 supervisor race: the Iowa Legislature's page gives only the state and the party, and a 'Jr.' leaves room for another person of the same name. Unsure means left out."
+  },
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d2",
+   "name": "Bill Dotzler",
+   "field": "past_party",
+   "count": 1,
+   "why": "The pages open and say what was recorded about State Senator William A. Dotzler Jr., but no page that may be read ties him to this 2026 supervisor race: the Iowa Legislature's page gives only the state and the party, and a 'Jr.' leaves room for another person of the same name. Unsure means left out."
+  },
+  {
+   "race_id": "2026-IA-AGR",
+   "name": "Mike Naig",
+   "field": "endorsed_by",
+   "count": 1,
+   "why": "https://iowagop.org/candidates/ opens and lists him for Secretary of Agriculture, but it is a list of the party's 2026 candidates and never uses the word endorse; a nominee list is not a published endorsement."
+  }
+ ]
+}

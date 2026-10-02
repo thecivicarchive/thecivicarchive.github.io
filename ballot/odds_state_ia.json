@@ -1,0 +1,38 @@
+{
+ "2026-IA-GOV": {
+  "polymarket": "iowa-governor-winner-2026",
+  "kalshi": "GOVPARTYIA-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Iowa Governor Election Winner\" and resolves on the winner of the 2026 Iowa gubernatorial election; it offers Rob Sand (D) and Zach Lahn (R), plus eleven placeholder outcomes (Option A to Option J, Other) that are not open for trading and carry no price. Kalshi's event is titled \"Iowa Governor winner?\" (In 2026); its two markets are by party, labelled Rob Sand and Zach Lahn. Both name the candidates for governor without running mates. Left out on purpose: Polymarket's margin-of-victory and Senate-and-Governor combination markets, and Kalshi's turnout market (KXMIDTERMVOTETURN-IAGOV)."
+ },
+ "2026-IA-AG": {
+  "polymarket": "iowa-attorney-general-election-winner-2026",
+  "kalshi": "KXATTYGENIA-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Polymarket's event is titled \"Iowa Attorney General Election Winner\" and resolves on the party of the candidate who wins the election of November 3, 2026; Kalshi's is \"Iowa Attorney General winner?\" (In 2026), also by party. Both label the outcomes Nate Willems and Brenna Bird, the two on our list. Polymarket's event also carries three placeholder outcomes (Person A, Person B, Other) that are not open for trading yet report a price of 0.5; ballot/odds.py's open_only reading leaves them out. Lightly traded: about $5,100 on Polymarket and 32,000 contracts on Kalshi when checked."
+ },
+ "2026-IA-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATEIA-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"Iowa Secretary of State winner?\" (in 2026), one market per candidate: Paul D. Pate and Ryan Peterman, the two on our list. It opened September 10, 2026 and is lightly traded: about 4,000 contracts when checked, all on Peterman (last price 16 cents). Pate's market had never traded, so its last price reads 0 although the standing offers were 80 to 90 cents; ballot/odds.py's traded_only reading names him as listed without a price. Polymarket lists no market for this race (its search for Iowa and the likely slug, 2026-10-02)."
+ },
+ "2026-IA-AGR": {
+  "polymarket": null,
+  "kalshi": "KXIAAGSEC-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of Agriculture. Kalshi's event is titled \"Iowa Secretary of Agriculture winner?\" (in 2026), one market per candidate: Chris Jones and Mike Naig, the two on our list. It opened September 10, 2026 and is barely traded (about 2,250 contracts when checked), so the two last prices, 82 and 50 cents, added to 132 cents while the standing offers were 49 to 58 cents for Jones and 42 to 52 for Naig. Ask John before showing this market: the last prices do not describe it. Polymarket lists no market for this race (its search for Iowa and two likely slugs, 2026-10-02)."
+ },
+ "2026-IA-AUD": {
+  "polymarket": null,
+  "kalshi": "KXIAAUDITOR-26",
+  "checked": "2026-10-02",
+  "note": "Auditor of State. Kalshi's event is titled \"Iowa State Auditor winner?\" (In 2026), one market per candidate: Chris Cournoyer and Taylor Wettach, the two on our list. It opened September 5, 2026 and is barely traded: 211 contracts when checked, all on Wettach, whose last price reads 79 cents although the standing offers for him were 14 to 23 cents; Cournoyer's market had never traded (last price 0, offers 77 to 87 cents). ballot/odds.py's kalshi() would show Wettach at 79% and Cournoyer without a price, the opposite of what the offers say. Ask John before showing this market. Polymarket lists no market for this race (its search for Iowa and two likely slugs, 2026-10-02)."
+ },
+ "2026-IA-TREAS": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Treasurer of State. No market found. Polymarket: its search for Iowa and two likely slugs list none. Kalshi: eight likely series tickers (KXIATREASURER and the like) answered not found, and no Iowa treasurer event was among the first 1,400 open events listed before Kalshi's server asked us to slow down (429); the listing was not finished, so this is 'not found', not 'checked that none exists'."
+ }
+}

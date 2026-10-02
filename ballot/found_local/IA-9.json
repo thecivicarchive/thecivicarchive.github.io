@@ -1,0 +1,415 @@
+{
+ "part": 9,
+ "of": 11,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-19163-county-treasurer",
+   "name": "Gregory T Guy",
+   "field": "past_party",
+   "why": "qctimes.com sends readers that are not browsers to a toll gate (tollbit.qctimes.com); the page could not be read, so the 2018 Republican primary run is unconfirmed"
+  },
+  {
+   "race_id": "2026-IA-SS47",
+   "name": "Nikhil Wagle",
+   "field": "offices",
+   "why": "www.kwqc.com could not be reached in four tries (address lookup failed); the school board seat as recorded there is unconfirmed"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d5",
+   "name": "Justin Brandt",
+   "official_page": {
+    "url": "https://blackhawkcountyelections.iowa.gov/elected_officials/county/",
+    "source": "Black Hawk County Elections, elected officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Black Hawk County Supervisor",
+     "from": "2024",
+     "to": "",
+     "source": "Iowa's News Now (CBS2): sworn in on December 20; the county's own page gives a four-year term ending 2028",
+     "url": "https://cbs2iowa.com/news/local/black-hawk-county-elected-officials-sworn-in",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Listed as a Republican (R) member of the Black Hawk County Board of Supervisors, four-year term ending 2028",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Black Hawk County Elections, elected officials",
+     "url": "https://blackhawkcountyelections.iowa.gov/elected_officials/county/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19049-county-commissioner-d5",
+   "name": "Dave Roszak"
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d1",
+   "name": "Greg Erceg"
+  },
+  {
+   "race_id": "2026-IA-19103-county-treasurer",
+   "name": "Scott Finlayson",
+   "official_page": {
+    "url": "https://www.johnsoncountyiowa.gov/department-of-treasurer",
+    "source": "Johnson County Treasurer's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Johnson County Treasurer",
+     "from": "",
+     "to": "",
+     "source": "Johnson County Treasurer's Office (names him as Treasurer; no start date given)",
+     "url": "https://www.johnsoncountyiowa.gov/department-of-treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19127-county-commissioner",
+   "name": "Jarret P. Heil",
+   "official_page": {
+    "url": "https://marshallcountyia.gov/supervisors/",
+    "source": "Marshall County Board of Supervisors",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Supervisor (first elected 2022; the article gives no date he took office)",
+     "from": "",
+     "to": "",
+     "source": "Times-Republican (first elected 2022; chairman in 2026)",
+     "url": "https://www.timesrepublican.com/news/todays-news/2026/02/marshall-county-supervisor-heil-announces-run-for-re-election/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Marshall County Treasurer (twelve years; dates not given)",
+     "from": "",
+     "to": "",
+     "source": "Times-Republican",
+     "url": "https://www.timesrepublican.com/news/todays-news/2026/02/marshall-county-supervisor-heil-announces-run-for-re-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Marshall County Supervisor",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Times-Republican",
+     "url": "https://www.timesrepublican.com/news/todays-news/2026/02/marshall-county-supervisor-heil-announces-run-for-re-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19153-county-treasurer",
+   "name": "Mary L. Wells",
+   "offices": [
+    {
+     "office": "Polk County Treasurer",
+     "from": "2021",
+     "to": "",
+     "source": "Des Moines Register, as republished by Hola America News (appointed 2021, elected 2022)",
+     "url": "https://holaamericanews.com/polk-county-treasurer-mary-wells-seeks-another-term/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Won the Democratic primary for Polk County Treasurer",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Des Moines Register, via Yahoo News",
+     "url": "https://www.yahoo.com/news/incumbent-mary-wells-wins-polk-023922138.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19163-county-treasurer",
+   "name": "Gregory T Guy"
+  },
+  {
+   "race_id": "2026-IA-19181-county-attorney",
+   "name": "Douglas A. Eichholz",
+   "website": {
+    "url": "https://www.dougeichholz.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Doug Eichholz for Warren County Attorney); the page gives no year and does not name the state",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.warrencountyia.gov/attorney",
+    "source": "Warren County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Warren County Attorney",
+     "from": "",
+     "to": "",
+     "source": "Warren County Attorney's page (no start date given)",
+     "url": "https://www.warrencountyia.gov/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19193-county-commissioner-d4",
+   "name": "Kolby DeWitt"
+  },
+  {
+   "race_id": "2026-IA-SH1",
+   "name": "Shawn Olorundami",
+   "website": {
+    "url": "https://www.shawnforprogress.com/",
+    "how": "linked from the Democratic Legislative Campaign Committee's page for him; the site names House District 1 and is paid for by Olorundami For Progress",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Legislative Campaign Committee (its 2026 candidate page for Iowa HD-01 says \"With the DLCC's support\"; it does not use the word 'endorse')",
+     "url": "https://www.dlcc.org/candidates/shawn-olorundami/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH15",
+   "name": "Blake Johnson"
+  },
+  {
+   "race_id": "2026-IA-SH2",
+   "name": "Robert Henderson"
+  },
+  {
+   "race_id": "2026-IA-SH25",
+   "name": "Hans C. Wilz",
+   "website": {
+    "url": "https://www.wilzforiowa.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Hans Wilz for Iowa House District 25); its text speaks of a bid for a second term and its news is dated 2024, so it has not been updated for 2026",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Hans Wilz, a dedicated Republican from Ottumwa, IA",
+    "url": "https://www.wilzforiowa.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH31",
+   "name": "Mary Madison",
+   "website": {
+    "url": "https://www.marymadisonforiowa.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Representative Mary Madison for Iowa House District 31; paid for by Mary Madison for Iowa)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH39",
+   "name": "Nate Boulton",
+   "website": {
+    "url": "https://nateboulton.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Nate Boulton for Iowa House; District 39)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iowa State Senator, District 16",
+     "from": "2017",
+     "to": "2023",
+     "source": "Wikipedia, Nate Boulton",
+     "url": "https://en.wikipedia.org/wiki/Nate_Boulton",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Iowa State Senator, District 20",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, Nate Boulton",
+     "url": "https://en.wikipedia.org/wiki/Nate_Boulton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served two terms in the Iowa Senate",
+     "year": "2017-2025",
+     "party": "Democratic",
+     "source": "Wikipedia, Nate Boulton",
+     "url": "https://en.wikipedia.org/wiki/Nate_Boulton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "an Assistant Democratic Leader and then Democratic Whip in 2024",
+    "url": "https://nateboulton.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH43",
+   "name": "Nicole Hasso",
+   "website": {
+    "url": "https://nicolehasso.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Nicole Hasso for Iowa; Iowa House District 43; paid for by Nicole Hasso for Iowa)",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Candidate for the U.S. House, Iowa's 3rd District, announced in 2021 (given the National Republican Congressional Committee's Young Guns designation)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "her campaign site's biography",
+     "url": "https://nicolehasso.com/about/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH5",
+   "name": "Keith Glienke",
+   "offices": [
+    {
+     "office": "Alta-Aurelia School District Board of Education (12 years; dates not given)",
+     "from": "",
+     "to": "",
+     "source": "N'West Iowa Review",
+     "url": "https://www.nwestiowa.com/nwest_iowa_review/glienke-schnoes-face-off-for-district-5-iowa-house-seat/article_7f891a78-600a-45d0-b854-76cf3ddc7d6a.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH55",
+   "name": "Beau Klaver"
+  },
+  {
+   "race_id": "2026-IA-SH60",
+   "name": "Alexander Schmidt",
+   "website": {
+    "url": "https://www.schmidtforiahouse.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Schmidt for Iowa House | Iowa House District 60; Alexander D. Schmidt; copyright 2026, paid for by Schmidt for IA House); some of its posts date from an earlier campaign",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH66",
+   "name": "Matt English",
+   "website": {
+    "url": "https://www.englishforiowa.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (English for Iowa; Matt English, Iowa House of Representatives District 66); the page gives no year",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH70",
+   "name": "Norlin Mommsen"
+  },
+  {
+   "race_id": "2026-IA-SH79",
+   "name": "Barclay Woerner",
+   "website": {
+    "url": "https://barclayforhouse.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (paid for by Barclay Woerner for Iowa House; copyright 2026; Cedar Rapids)",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Republican nominee for Iowa House District 79",
+     "year": "2024",
+     "party": "Republican",
+     "source": "The Gazette (Cedar Rapids)",
+     "url": "https://www.thegazette.com/campaigns-elections/tracy-ehlert-faces-challenger-barclay-woerner-in-iowa-house-district-79-race/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH84",
+   "name": "Polly Denison"
+  },
+  {
+   "race_id": "2026-IA-SH91",
+   "name": "Judd Lawler",
+   "website": {
+    "url": "https://juddlawler.com/",
+    "how": "named as his campaign site in news coverage; the site reads 'Judd Lawler for Iowa House', paid for by the Lawler for Iowa Committee; its front page does not name the district",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH96",
+   "name": "Nick Salazar"
+  },
+  {
+   "race_id": "2026-IA-SS11",
+   "name": "Hollie Arlene Zajicek",
+   "website": {
+    "url": "https://zajicekforiowasenate.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Zajicek for Iowa Senate; District 11)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican for Iowa Senate District 11",
+    "url": "https://zajicekforiowasenate.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS23",
+   "name": "Tony Thompson",
+   "website": {
+    "url": "https://tonythompsonforiowa.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Tony Thompson for Iowa; Iowa Senate District 23; 2026; paid for by Tony Thompson for Iowa)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS33",
+   "name": "Mary Ungs-Sogaard",
+   "website": {
+    "url": "https://www.maryungs-sogaardforiowa.com/",
+    "how": "linked from the candidate's BallotReady page; the site names the candidate and the office (Mary Ungs-Sogaard for Iowa Senate; District 33; 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS47",
+   "name": "Nikhil Wagle",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Democratic Legislative Campaign Committee (its 2026 candidate page for Iowa Senate District 47 says \"with support from the DLCC\"; it does not use the word 'endorse')",
+     "url": "https://www.dlcc.org/candidates/nikhil-wagle/",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

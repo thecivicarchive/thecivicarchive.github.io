@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.083 — 2026-10-02 — Iowa gets the same treatment
+
+- Iowa's ballot page now has the real map: all 1,660 precincts with the districts they sit in (county, township or city, supervisor district, House, Senate, Congress, judicial, soil and water, hospital and school districts), drag and pinch, zoom to a street, and streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, township races included.
+- Iowa's candidates for Governor, the other statewide offices, the Legislature and the county offices loaded so far show their campaign websites (120), issue headings from their own sites, offices held, and photos where one was plainly the candidate's own portrait, each with where it comes from.
+- "The record, not a label" for Iowa: earlier runs under a party label, the candidate's own words, and how each county, township and district voted in 2020, 2022 and 2024, from the Secretary of State's precinct results. Iowa's parties publish nominee lists rather than endorsements, so that part of the record is mostly empty here, and the page says nothing in its place.
+- The Governor's race has its polls (Marist, Emerson) and prediction-market prices as tabs; the Secretary of State and Agriculture races have a poll each.
+- Only eleven counties' local lists are loaded so far; cities and school boards voted in 2025. The state's polling-place layer is from 2024, so polling places stay off the map until a current list is confirmed.
+
 ## v4.0.082 — 2026-10-02 — Wisconsin gets the same treatment
 
 - Wisconsin's ballot page now has the real map: every one of its 7,161 wards with the districts it sits in (county, municipality, aldermanic and county board districts, Assembly, Senate, Congress, the Court of Appeals districts, school districts), drag and pinch, zoom to a street, and streets from OpenStreetMap only if you switch them on. "Use my location" finds your ward on your own device and shows your exact ballot.

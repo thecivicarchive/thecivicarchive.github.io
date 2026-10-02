@@ -1,0 +1,358 @@
+{
+ "state": "IA",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is, and it holds no records, because no Iowa party page read endorses anyone for November. Iowa's Democratic and Republican parties choose their candidates in the June 2 primary (or by convention where the primary settled nothing), and afterwards their pages list their nominees; no page read uses the word 'endorse', 'supported' or 'recommended' for a candidate in a 2026 state or local race, so there is nothing under endorsements or other_support. A bare list of a party's nominees is not collected: it adds nothing to the party label already on the ballot. No party page named a candidate for a nonpartisan office (township, soil and water, hospital, extension council) or a candidate outside its own party. Only Democratic and Republican candidates (and candidates with no party) are on the state and local lists loaded. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first: the state parties' sites, and every county unit's own website linked from the two state parties' directories (home page plus its candidate, election and news pages, ten pages a site at most; every page was searched for the word, not read line by line). 'lists' is empty because no page carried an endorsement; 'not_read' names the pages looked at and why nothing was taken, and the units that could not or should not be read. Federal offices are outside this file.",
+ "lists": [],
+ "endorsements": [],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [],
+ "other_support_unmatched": 0,
+ "other_support_unmatched_listed": [],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Iowa Democratic Party",
+   "url": "https://iowademocrats.org/statewide-candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Iowa",
+   "url": "https://iowagop.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Iowa",
+   "url": "https://lpia.org/candidates/",
+   "why": "the page answers a program with nothing (0 bytes); left alone. The party's news pages were read: they are about its nominees for federal office and for governor (a ticket our record does not show on the November list) and endorse no one for a state or local office"
+  },
+  {
+   "party": "Green",
+   "unit": "Iowa Green Party",
+   "url": "https://www.iowagreenparty.org/",
+   "why": "the address did not resolve; no other site of the party was found, and no Green candidate is on the lists loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Polk County Democrats",
+   "url": "https://www.polkdems.com/get-involved/candidates-2026",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Linn County Democrats",
+   "url": "https://www.lcdems.org/2026-linn-county-candidates",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Dallas County Democrats",
+   "url": "https://www.dallascodems.org/democrats-on-your-general-election-ballot-november-3-2026",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Black Hawk County Democrats",
+   "url": "https://www.blackhawkdemocrats.com/candidates",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Story County Democrats",
+   "url": "https://www.storydems.org/candidates",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Warren County Democrats",
+   "url": "https://warrencodemocrats.com/candidates-2026/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Dubuque County Democrats",
+   "url": "https://dbqdems.org/candidates",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Des Moines County Democrats",
+   "url": "https://dmcdems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jasper County Democrats",
+   "url": "https://jaspercountydemocrats.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democrats",
+   "url": "https://jacksoncountyiowadems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Iowa County Democrats",
+   "url": "https://iowacountyiadems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Lee County Democrats",
+   "url": "https://leecountyiowadems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Louisa County Democrats",
+   "url": "https://louisacountyiadems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Muscatine County Democrats",
+   "url": "https://muscatinecountydems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "O'Brien County Democrats",
+   "url": "https://obriencountydemocrats.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Page County Democrats",
+   "url": "https://pagecountyiowadems.org/candidates/",
+   "why": "not collected: a list of the party's own nominees on the November ballot; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Polk County Republicans",
+   "url": "https://www.polkgop.com/2026_general_election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Warren County",
+   "url": "http://www.gopofwarrencounty.com/meet-the-candidates",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Cerro Gordo County Republicans",
+   "url": "https://cerrogordogop.com/candidates/",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Shelby County Republicans",
+   "url": "https://shelbycountyiowagop.com/candidates/",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Wapello County Republicans",
+   "url": "https://wapellocountygop.nationbuilder.com/our_candidates",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Palo Alto County Republicans",
+   "url": "https://www.paloaltocountygop.com/candidates",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republicans",
+   "url": "https://www.jeffersoniowagop.com/2026-election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jasper County Republicans",
+   "url": "https://www.jasperrepublicans.com/2026-election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Floyd County Republicans",
+   "url": "https://www.floydcountyiowagop.com/nov-3rd-election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Winnebago County Republicans",
+   "url": "https://www.winnebago-county-iowa-gop.com/2026-general-election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Wright County Republicans",
+   "url": "https://www.wrightcountyiowarepublicans.com/2026-election",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Story County Republicans",
+   "url": "http://www.storycountygop.com/voter_guide",
+   "why": "not collected: the unit's page about the November election and its party's candidates; the page does not use the word endorsed (or supported, or recommended), and it adds nothing to the party label already on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Story County Democrats",
+   "url": "https://www.storydems.org/elections",
+   "why": "the page says the unit does not endorse candidates in primaries; it names no endorsement for November"
+  },
+  {
+   "party": "Republican",
+   "unit": "Buchanan County Republicans",
+   "url": "https://buchanancountyiowarepublicans.org/",
+   "why": "the only use of the word is a resolution withdrawing the unit's support from a sitting county supervisor: that is not an endorsement of anyone, and it is not collected (Buchanan County's races are not loaded either)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Marshall County Republicans",
+   "url": "https://www.marshallcountygop.com/",
+   "why": "held: the site's robots.txt forbids programs; not opened. John can open it in his own browser"
+  },
+  {
+   "party": "Republican",
+   "unit": "Humboldt County Republicans",
+   "url": "http://www.humboldtcountyiowagop.com/",
+   "why": "the site's host answered this program 'too many requests' (HTTP 429), twice; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Emmet County Republicans",
+   "url": "https://www.emmetcountygop.com",
+   "why": "the site's host answered this program 'too many requests' (HTTP 429), twice; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Kossuth County Republicans",
+   "url": "https://www.kossuthrepublicans.com/",
+   "why": "the site's host answered this program 'too many requests' (HTTP 429), twice; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Mitchell County Republicans",
+   "url": "https://www.mitchellcorepublicans.com/",
+   "why": "the site's host answered this program 'too many requests' (HTTP 429), twice; left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hancock County Republicans",
+   "url": "https://www.hancock-county-iowa-gop.com/2026-election",
+   "why": "the site's host answered this program 'too many requests' (HTTP 429), twice; left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Johnson County Democrats",
+   "url": "https://jcdems.org/",
+   "why": "the page is drawn by script and gives a program no text; not read (no Browser pane in this job)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Scott County Democrats",
+   "url": "https://www.scottcountydems.org",
+   "why": "the page is drawn by script and gives a program no text; not read (no Browser pane in this job)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Crawford County Republicans",
+   "url": "https://www.crawordcountyiarepublicans.com/",
+   "why": "the address the state party lists did not resolve"
+  },
+  {
+   "party": "Republican",
+   "unit": "Linn County Republicans",
+   "url": "https://linncountygop.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Black Hawk County Republicans",
+   "url": "https://www.blackhawkgop.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Dallas County Republicans",
+   "url": "https://www.dallascountygop.org",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Lee County Republicans",
+   "url": "https://leecountygop.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Madison County Republicans",
+   "url": "https://madisoncoiagop.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republicans of Clinton County",
+   "url": "https://republicansofclintoncounty.com/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Republican",
+   "unit": "Mahaska County Republicans",
+   "url": "http://mahaskagop.net/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Grundy County Democrats",
+   "url": "https://grundycountydems.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Hamilton County Democrats",
+   "url": "https://www.hamcodems.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Sac County Democrats",
+   "url": "https://www.saciadems.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Marion County Democrats",
+   "url": "https://www.marioncountyiadems.com/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Sioux County Democrats",
+   "url": "https://www.siouxcountydemocrats.org/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Pocahontas County Democrats",
+   "url": "https://pocahontasdemocrats.blogspot.com/",
+   "why": "read; no list of 2026 candidates and no endorsement on the pages opened"
+  },
+  {
+   "party": "Democratic and Republican",
+   "unit": "county units without a website of their own",
+   "url": "https://iowademocrats.org/county-parties/",
+   "why": "the two state parties' directories (this page and https://iowagop.org/find-your-local-gop/) give most county units only a social media page or a contact name; social media is never read. Among the eleven counties whose county races are loaded, no site was found for the Scott, Johnson, Woodbury and Des Moines County Republicans or the Woodbury and Marshall County Democrats"
+  }
+ ]
+}

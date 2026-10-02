@@ -1,0 +1,410 @@
+{
+ "part": 1,
+ "of": 11,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web-search allowance ran out partway through, so several candidates got one search and then only direct page reads with the kit's honest User-Agent. Aggregator pages (BallotReady, Run for Something) were used only as leads; every website listed was opened and names the candidate and the office or place.",
+  "Left out and not worked around: natewillems.com answers scripts with a CAPTCHA redirect, so Nate Willems has no website finding although Wikipedia and BallotReady give that address as his campaign site. carlisleiowa.org's page for Drew Merrifield (a search result described him as Mayor of Carlisle with a term ending December 31, 2025) returned 404, so no office is recorded for him. BallotReady ties a 'Jeff Frost' to the Gilbertville City Council, but nothing opened ties that person to the Black Hawk County supervisor candidate, so it is left out. Matt Schultz's and Wikipedia's birth dates carry no citation and are left out; Wikipedia's article on Schultz says 'Democratic Party' in its opening and 'Republican' in its box, so no party finding was taken from it.",
+  "The Democratic Legislative Campaign Committee's pages for Matt Robinson (HD-72) and Andrew Fitzgerald (HD-98) list them as target races but do not use the word endorse, so no endorsement is recorded. No party's own endorsement page was found for anyone in this part.",
+  "Nothing found beyond the filing for Jeff Frost, Jeff Staton, Drew Merrifield, Michael Coonrad (social media pages only), and sitting legislators David A. Sieck, Brooke Boden, Skyler Wheeler, Mark I. Thompson, Dave Jacoby and Heather Hora (no campaign site of their own was found).",
+  "Verifier, 2026-10-02: every url was re-opened with the kit's reader. Wikipedia's opening line calls Matt Schultz a member of the Democratic Party while its box says Republican; no party finding rests on it. Jeff Kulmatycki's county findings were removed for want of a second anchor, not because the page was wrong."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d1",
+   "name": "Jeff Frost"
+  },
+  {
+   "race_id": "2026-IA-19049-county-attorney",
+   "name": "Matt Schultz",
+   "website": {
+    "url": "https://votemattschultz.com/",
+    "how": "The site's title is 'Matt Schultz for Dallas County Attorney'; found through an aggregator's link and opened.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.dallascountyiowa.gov/directory.aspx?EID=154",
+    "source": "Dallas County staff directory: Matt Schultz, County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iowa Secretary of State",
+     "from": "2011",
+     "to": "2015",
+     "source": "Wikipedia, Matt Schultz: Secretary of State of Iowa, January 14, 2011 to January 14, 2015",
+     "url": "https://en.wikipedia.org/wiki/Matt_Schultz",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Madison County Attorney",
+     "from": "2015",
+     "to": "2023",
+     "source": "Wikipedia, Matt Schultz: Madison County Attorney, January 2015 to 2023",
+     "url": "https://en.wikipedia.org/wiki/Matt_Schultz",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Dallas County Attorney",
+     "from": "2025",
+     "to": "",
+     "source": "Wikipedia, Matt Schultz: Dallas County Attorney since 2025; the county's directory lists him as County Attorney today",
+     "url": "https://en.wikipedia.org/wiki/Matt_Schultz",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Council Bluffs City Council",
+     "from": "2005",
+     "to": "",
+     "source": "Wikipedia, Matt Schultz (cited): elected in 2005 as a city councilman in Council Bluffs, served five years; no end year given",
+     "url": "https://en.wikipedia.org/wiki/Matt_Schultz",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19049-county-recorder",
+   "name": "ReNae Arnold",
+   "official_page": {
+    "url": "https://www.dallascountyiowa.gov/directory.aspx?EID=23",
+    "source": "Dallas County staff directory: ReNae Arnold, Recorder",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dallas County Recorder",
+     "from": "",
+     "to": "",
+     "source": "Dallas County staff directory (no years given)",
+     "url": "https://www.dallascountyiowa.gov/directory.aspx?EID=23",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d2",
+   "name": "Phil Hemingway",
+   "offices": [
+    {
+     "office": "Iowa City Community School District Board",
+     "from": "2015",
+     "to": "",
+     "source": "Little Village, 19 Nov 2018 (elected to the board in 2015; no end year given)",
+     "url": "https://littlevillagemag.com/phil-hemingway-republican-johnson-county-board-of-supervisors-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican nominee for Johnson County Board of Supervisors, November general election",
+     "year": "2018",
+     "party": "Republican",
+     "source": "Little Village, 19 Nov 2018",
+     "url": "https://littlevillagemag.com/phil-hemingway-republican-johnson-county-board-of-supervisors-election/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19113-county-commissioner-d2",
+   "name": "Rex W. Meyer",
+   "website": {
+    "url": "https://rexmeyerforcountysupervisor.com/",
+    "how": "The site reads 'Rex Meyer For Linn County Supervisor District 2'; found through an aggregator's link and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19127-county-treasurer",
+   "name": "Deann S. Tomlinson",
+   "official_page": {
+    "url": "https://elections.marshallcountyia.gov/elected_officials/county/",
+    "source": "Marshall County Auditor's list of county elected officials: Treasurer Deann S. Tomlinson, R, term ends 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Treasurer",
+     "from": "",
+     "to": "",
+     "source": "Times-Republican (Marshalltown), 3 March 2026: 'first elected in 2022'; the paper gives no year she took office",
+     "url": "https://www.timesrepublican.com/news/todays-news/2026/03/marshall-county-treasurer-deann-tomlinson-announces-reelection-bid/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Marshall County Treasurer",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Marshall County Auditor's list of county elected officials (Treasurer, R, four-year term ending 2026, so elected 2022); the Times-Republican, 3 March 2026, says the same",
+     "url": "https://elections.marshallcountyia.gov/elected_officials/county/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19163-county-commissioner",
+   "name": "John Maxwell",
+   "official_page": {
+    "url": "https://www.scottcountyiowa.gov/board/john-maxwell",
+    "source": "Scott County Board of Supervisors: Supervisor John D. Maxwell, Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Scott County Board of Supervisors",
+     "from": "2019",
+     "to": "",
+     "source": "Scott County: sworn in January 2, 2019; re-elected and sworn in January 3, 2023",
+     "url": "https://www.scottcountyiowa.gov/board/john-maxwell",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "North Scott School Board",
+     "from": "",
+     "to": "",
+     "source": "Scott County (a member for several years, president for four; no years given)",
+     "url": "https://www.scottcountyiowa.gov/board/john-maxwell",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Scott County Supervisor, listed with party R",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Scott County Auditor's list of county elected officials (R, four-year term ending 2026, so elected 2022); the county's own page gives him re-elected and sworn in January 3, 2023",
+     "url": "https://elections.scottcountyiowa.gov/elected_officials/county",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19169-county-commissioner-d1",
+   "name": "Jeff Staton"
+  },
+  {
+   "race_id": "2026-IA-19181-county-commissioner-d5",
+   "name": "Drew Merrifield"
+  },
+  {
+   "race_id": "2026-IA-AG",
+   "name": "Nate Willems",
+   "born": {
+    "year": 1979,
+    "source": "Iowa Legislature, compiled biography of Representative Nathan Willems ('Born in 1979'); Wikipedia's article on Nate Willems ties the former 29th District representative to the 2025 announcement for attorney general",
+    "url": "https://www.legis.iowa.gov/legislators/legislator?ga=83&personID=6576",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Iowa House of Representatives, District 29",
+     "from": "2009",
+     "to": "2013",
+     "source": "Iowa Legislature: 83rd and 84th General Assemblies",
+     "url": "https://www.legis.iowa.gov/legislators/legislator?ga=83&personID=6576",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Iowa House of Representatives, District 29",
+     "year": "2009",
+     "party": "Democratic",
+     "source": "Iowa Legislature: Party Affiliation: Democrat",
+     "url": "https://www.legis.iowa.gov/legislators/legislator?ga=83&personID=6576",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH100",
+   "name": "Matthew Mohrfeld",
+   "website": {
+    "url": "https://www.mohrfeldforiowasfuture.com/",
+    "how": "The site's title is 'Matt Mohrfeld for Iowa House | Fort Madison, Iowa' and it reads 'Iowa House - District 100'. It answered the kit's reader with HTTP 429 on the first try and opened on the second.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Fort Madison",
+     "from": "",
+     "to": "",
+     "source": "WGEM, 2 June 2026 ('former Fort Madison Mayor Matt Mohrfeld'; no years given)",
+     "url": "https://wgem.com/2026/06/03/incumbent-blaine-watkins-challenger-matt-mohrfeld-look-forward-november-general-election-iowas-100th-house-district/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH16",
+   "name": "David A. Sieck"
+  },
+  {
+   "race_id": "2026-IA-SH21",
+   "name": "Brooke Boden"
+  },
+  {
+   "race_id": "2026-IA-SH26",
+   "name": "Brett Mohler",
+   "website": {
+    "url": "https://mohlerforiowa.com/",
+    "how": "The site's title is 'Brett Mohler for Iowa State House | District 26'; found through an aggregator's link and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH33",
+   "name": "Lynn Hammel",
+   "website": {
+    "url": "https://hammelforiowa.com/",
+    "how": "The site reads 'VOTE FOR LYNN HAMMEL' and 'Iowa House District 33'; found by web search and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH4",
+   "name": "Skyler Wheeler"
+  },
+  {
+   "race_id": "2026-IA-SH45",
+   "name": "Kendra Haug",
+   "website": {
+    "url": "https://www.kendraforiowa.com/",
+    "how": "The site's title is 'Kendra for Iowa House 45 | Bondurant, Iowa' and it reads 'I'm Kendra Haug'; found through an aggregator's link and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH51",
+   "name": "Brett Barker",
+   "website": {
+    "url": "https://www.barkerforiowa.com/",
+    "how": "The site, 'Barker for Iowa', names Brett Barker and House District 51; its endorsements section is headed 2024, so it is his standing campaign site rather than one made for 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH56",
+   "name": "Mark I. Thompson"
+  },
+  {
+   "race_id": "2026-IA-SH61",
+   "name": "Vincent Collis",
+   "website": {
+    "url": "https://vincentcollis.com/",
+    "how": "The site's title is 'Vincent Collis for Iowa House District 61'; found through his ActBlue page's name and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH67",
+   "name": "Michael Coonrad"
+  },
+  {
+   "race_id": "2026-IA-SH72",
+   "name": "Matt Robinson",
+   "website": {
+    "url": "https://www.buildabetteriowa.com/",
+    "how": "The site, 'Matt Robinson for Iowa', names him, Dubuque and his run to represent its neighborhoods; it does not print the district number. Found through an aggregator's link and opened.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "the past two years as the Chairman of the Dubuque County Democrats",
+    "url": "https://www.buildabetteriowa.com/my-story.html",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH8",
+   "name": "Kristofer Williams",
+   "website": {
+    "url": "https://www.kriswilliamsforiowa.com/",
+    "how": "The site, 'Kris Williams For Iowa', speaks of 'the district 8 community', and its About page reads 'I'm running for Iowa House District 08'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH86",
+   "name": "Dave Jacoby"
+  },
+  {
+   "race_id": "2026-IA-SH92",
+   "name": "Heather Hora"
+  },
+  {
+   "race_id": "2026-IA-SH98",
+   "name": "Andrew Fitzgerald",
+   "website": {
+    "url": "https://www.andrewforiowa.com/",
+    "how": "The site's title is 'Andrew Fitzgerald for Iowa House' and it reads 'District 98 - Scott County'; found through an aggregator's link and opened.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS13",
+   "name": "Jeff Kulmatycki"
+  },
+  {
+   "race_id": "2026-IA-SS25",
+   "name": "Paul Wacker",
+   "website": {
+    "url": "https://www.wackerforsenate.com/",
+    "how": "The site's title is 'Wacker For Senate-Iowa SD 25' and it names Paul Wacker and Iowa Senate District 25; found through an aggregator's link. It answered the kit's reader with HTTP 429 and was read with WebFetch.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS37",
+   "name": "Molly Donahue",
+   "website": {
+    "url": "https://donahueforia.com/",
+    "how": "The site, 'Molly Donahue', presents her as 'Iowa State Senator' (our record shows her as the sitting senator). It does not name the 2026 race or District 37; one line speaks of 'District 3', so it reads as her standing site.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS49",
+   "name": "Cynthia Mensendick",
+   "website": {
+    "url": "https://www.mensendickforiowa.com/home-2",
+    "how": "The site, 'Mensendick for Iowa', reads 'Cynthia J. Mensendick, Iowa State Senate - District 49'; found through an aggregator's link and opened.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-SS13",
+   "name": "Jeff Kulmatycki",
+   "what": "official_page",
+   "url": "https://appanoosecounty.iowa.gov/departments/board-of-supervisors/",
+   "why": "The county page does list Jeff Kulmatycki as Chairman of the Board of Supervisors, but nothing on it ties that person to the Senate District 13 race; only the state is an anchor. Left out under the same-person rule."
+  },
+  {
+   "race_id": "2026-IA-SS13",
+   "name": "Jeff Kulmatycki",
+   "what": "offices",
+   "url": "https://appanoosecounty.iowa.gov/departments/board-of-supervisors/",
+   "why": "The county page does list Jeff Kulmatycki as Chairman of the Board of Supervisors, but nothing on it ties that person to the Senate District 13 race; only the state is an anchor. Left out under the same-person rule."
+  }
+ ]
+}

@@ -1,0 +1,378 @@
+{
+ "part": 8,
+ "of": 11,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-SH24",
+   "name": "Sonya Hicks",
+   "field": "official_page",
+   "url": "https://www.osceolaia.net/mayor-city-council/",
+   "why": "the city page names a Sonya Hicks on the Osceola council but nothing on it ties her to the House District 24 race; one anchor only, so left out"
+  },
+  {
+   "race_id": "2026-IA-SH24",
+   "name": "Sonya Hicks",
+   "field": "offices (City Council member, Third Ward, Osceola)",
+   "url": "https://www.osceolaia.net/mayor-city-council/",
+   "why": "same page, same reason: the same person could not be confirmed by two anchors"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d5",
+   "name": "Casey Schotter",
+   "website": {
+    "url": "https://www.schotterforiowa.com",
+    "how": "the site is titled 'Schotter for Iowa | Black Hawk County Supervisor'; 'As County Supervisor - District 5, I will prioritize...'; footer '2026 - Paid for by Casey Schotter for Iowa'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19049-county-commissioner-d4",
+   "name": "Lance Farrell",
+   "website": {
+    "url": "https://www.lancefarrell.com/",
+    "how": "the site is titled 'Lance Farrell for Dallas County Supervisor'; 'Lance Farrell is running for Dallas County Supervisor ... one of Iowa's fastest growing counties'; copyright 2026; it does not state the district",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19103-county-attorney",
+   "name": "Rachel Zimmermann Smith",
+   "website": {
+    "url": "https://rachelforjohnsoncountyattorney.com/",
+    "how": "'Rachel Zimmermann Smith, Johnson County Attorney'; 'I am running for re-election in November'; copyright 2026",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.johnsoncountyiowa.gov/attorney",
+    "source": "Johnson County, County Attorney page (names Rachel Zimmermann Smith as County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Johnson County",
+     "from": "elected 2022",
+     "to": "present",
+     "source": "Johnson County Auditor, Elected Officials: 'Party: Dem / Elected: 11/08/2022 / Term expires: 12/31/2026 / First term'",
+     "url": "https://johnsoncountyiowa.gov/auditor/elected-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Johnson County Attorney",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Johnson County Auditor, Elected Officials (Party: Dem; Elected 11/08/2022)",
+     "url": "https://johnsoncountyiowa.gov/auditor/elected-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "While I am a lifelong Democrat",
+    "url": "https://rachelforjohnsoncountyattorney.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19103-county-recorder",
+   "name": "Kim Painter",
+   "official_page": {
+    "url": "https://johnsoncountyiowa.gov/department-of-recorder",
+    "source": "Johnson County, Recorder's department page (names Kim Painter as Recorder)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Recorder, Johnson County",
+     "from": "first elected 1998",
+     "to": "present",
+     "source": "Johnson County Auditor, Elected Officials: 'Party: Dem / Elected: 11/08/2022 / Term expires: 12/31/2026 / First elected: 1998'",
+     "url": "https://johnsoncountyiowa.gov/auditor/elected-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Johnson County Recorder",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Johnson County Auditor, Elected Officials (Party: Dem; Elected 11/08/2022)",
+     "url": "https://johnsoncountyiowa.gov/auditor/elected-officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19127-county-commissioner",
+   "name": "DeMorris Dean"
+  },
+  {
+   "race_id": "2026-IA-19153-county-recorder",
+   "name": "Lisa J. Chiodo",
+   "website": {
+    "url": "https://votechiodo.com/",
+    "how": "'Lisa J. Chiodo For Recorder'; 'Polk County Iowa 2026' (the page still speaks of the June primary election); paid for by Vote Chiodo",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-19163-county-recorder",
+   "name": "Toby Paone"
+  },
+  {
+   "race_id": "2026-IA-19169-county-treasurer",
+   "name": "Ted Rasmusson",
+   "official_page": {
+    "url": "https://www.storycountyiowa.gov/27/Treasurer",
+    "source": "Story County, Government page listing elected officials ('County Treasurer - Ted Rasmusson')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Treasurer, Story County",
+     "from": "",
+     "to": "present",
+     "source": "Story County, Government page: 'County Treasurer - Ted Rasmusson' (the page gives no starting year)",
+     "url": "https://www.storycountyiowa.gov/27/Treasurer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19193-county-commissioner-d4",
+   "name": "Brittney Wilson"
+  },
+  {
+   "race_id": "2026-IA-SH1",
+   "name": "Josh Steinhoff",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 1",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Iowa House of Representatives election (District 1 results)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH15",
+   "name": "Benjamin Schauer",
+   "website": {
+    "url": "https://www.schauerforiowa.com/",
+    "how": "the site is titled 'Benjamin Schauer for Iowa House | Iowa House District 15'; the voting dates it gives are this year's (in person on November 3rd); the footer still reads 2024",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council member, Dunlap",
+     "from": "",
+     "to": "present",
+     "source": "his campaign site, Meet Benjamin: 'he sits on the Dunlap City Council' (no years given)",
+     "url": "https://www.schauerforiowa.com/meet-benjamin",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 15",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Iowa House of Representatives election (District 15 results)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH2",
+   "name": "Jessica Lopez-Walker",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 2",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Iowa House of Representatives election (District 2 results)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH24",
+   "name": "Sonya Hicks",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, District 24",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Iowa House of Representatives election (District 24 results)",
+     "url": "https://en.wikipedia.org/wiki/2024_Iowa_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SH31",
+   "name": "Kevin W. DuBay"
+  },
+  {
+   "race_id": "2026-IA-SH38",
+   "name": "Matthew Oleson"
+  },
+  {
+   "race_id": "2026-IA-SH43",
+   "name": "Jill Alesch"
+  },
+  {
+   "race_id": "2026-IA-SH49",
+   "name": "Beth Wessel-Kroeschell"
+  },
+  {
+   "race_id": "2026-IA-SH54",
+   "name": "Leila Ann Staton"
+  },
+  {
+   "race_id": "2026-IA-SH6",
+   "name": "Megan Jones"
+  },
+  {
+   "race_id": "2026-IA-SH65",
+   "name": "Shannon Lundgren"
+  },
+  {
+   "race_id": "2026-IA-SH70",
+   "name": "George Pickup",
+   "website": {
+    "url": "https://www.pickupforiowa.com/",
+    "how": "the site is titled 'George Pickup for Iowa House'; 'running for Iowa House District 70 and asking for your vote on November 3, 2026'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH78",
+   "name": "Angel Ramirez"
+  },
+  {
+   "race_id": "2026-IA-SH83",
+   "name": "Mike Bergman"
+  },
+  {
+   "race_id": "2026-IA-SH90",
+   "name": "Adam Zabner",
+   "website": {
+    "url": "https://www.zabnerforiowa.com/",
+    "how": "the site is titled 'Adam Zabner for Iowa House', with a District 90 page; paid for by Zabner For Iowa; it does not state the year",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Adam won the Democratic primary to represent us in 2022",
+    "url": "https://www.zabnerforiowa.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH96",
+   "name": "Mark Cisneros"
+  },
+  {
+   "race_id": "2026-IA-SS1",
+   "name": "Christopher Prosch",
+   "past_party": [
+    {
+     "what": "Nominee for State Senator, District 1 (special election, August 26, 2025)",
+     "year": 2025,
+     "party": "Republican",
+     "source": "Wikipedia, Catelin Drey ('She faced Republican nominee Christopher Prosch'; results table)",
+     "url": "https://en.wikipedia.org/wiki/Catelin_Drey",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SS21",
+   "name": "John Hollinrake"
+  },
+  {
+   "race_id": "2026-IA-SS33",
+   "name": "Carrie Koelker"
+  },
+  {
+   "race_id": "2026-IA-SS45",
+   "name": "Janice Weiner",
+   "website": {
+    "url": "https://www.janicew4iowa.com/",
+    "how": "the site is titled 'Janice Weiner for State Senate'; 'Re-Elect Janice Weiner for Iowa State Senate - District 45'; 'The election is on Tuesday, Nov. 3'; footer 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-TREAS",
+   "name": "Roby Smith",
+   "website": {
+    "url": "https://www.robysmith.com/",
+    "how": "the site is titled 'Roby Smith For Treasurer'; its news carries 'Roby Smith is running for reelection in 2026' (December 2, 2025); paid for by Smith for Treasurer. The home page's own wording still reads 'Iowa's next Treasurer'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.iowatreasurer.gov/",
+    "source": "State Treasurer of Iowa ('I'm Roby Smith, Iowa's State Treasurer')",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "source": "Wikipedia, Roby Smith ('born 1977')",
+    "url": "https://en.wikipedia.org/wiki/Roby_Smith",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Senator, District 47, Iowa Senate",
+     "from": "2011",
+     "to": "2023",
+     "source": "Wikipedia, Roby Smith",
+     "url": "https://en.wikipedia.org/wiki/Roby_Smith",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Treasurer of State, Iowa",
+     "from": "2023",
+     "to": "present",
+     "source": "Wikipedia, Roby Smith",
+     "url": "https://en.wikipedia.org/wiki/Roby_Smith",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Treasurer of State",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Wikipedia, Roby Smith",
+     "url": "https://en.wikipedia.org/wiki/Roby_Smith",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

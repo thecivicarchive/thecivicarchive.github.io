@@ -1,0 +1,56 @@
+{
+ "2026-ND-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENND-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Kalshi's event is titled \"North Dakota Attorney General winner?\" (In 2026); its two markets are by party, labelled Drew Wrigley and Tim Lamb, the two on our list. The rules speak of the party whose representative \"is sworn in ... for the term beginning in 2026\" (Kalshi's wording; the term begins in January 2027). Open since July 2025 and barely traded: about 511 contracts on Wrigley (last price 98 cents) and 13 on Lamb (2 cents) when checked. Polymarket lists no market for this race (its search for North Dakota and the likely slug, 2026-10-02)."
+ },
+ "2026-ND-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATEND-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"North Dakota Secretary of State winner?\" (in 2026), one market per candidate: Michael Howe and Ryan Braunberger, the two on our list. It opened September 13, 2026 and has all but never traded: about one contract when checked, on Howe (last price 97 cents, standing offers 93 to 95); Braunberger's market had never traded (last price 0, offers 5 to 10 cents), so ballot/odds.py's traded_only reading names him as listed without a price. Ask John before showing this market: one contract is not a price. Polymarket lists no market for this race (its search for North Dakota and the likely slug, 2026-10-02)."
+ },
+ "2026-ND-AGR": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Agriculture Commissioner. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "2026-ND-TAX": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Tax Commissioner. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "2026-ND-PSC": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Public Service Commissioner (the six-year term). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "2026-ND-PSC-UNEXP": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Public Service Commissioner (the unexpired two-year term). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "2026-ND-SPI-UNEXP": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Superintendent of Public Instruction (the unexpired two-year term, a nonpartisan office). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "2026-ND-SUPREME": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Justice of the Supreme Court (the contested seat, a nonpartisan office). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no series for this North Dakota office, and the likely event tickers answered not found. Polymarket: its search for North Dakota lists only the U.S. House race among 2026 elections, and the likely slug is empty."
+ },
+ "_no_governor": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "North Dakota elects no governor in 2026. Kalshi has an empty event, GOVPARTYND-26, titled \"Who will win the governorship in North Dakota?\" (In 2026), with no markets in it; Polymarket's north-dakota-governor-election-winner is not a 2026 race. Neither is used."
+ }
+}

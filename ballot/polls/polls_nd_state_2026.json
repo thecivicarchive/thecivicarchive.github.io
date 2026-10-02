@@ -1,0 +1,87 @@
+{
+ "rule": "North Dakota's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "North Dakota elects no governor in 2026: the office was filled in 2024 and is next on the ballot in 2028. The statewide offices on this ballot are listed below.",
+ "races": {
+  "2026-ND-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "Attorney General. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "Secretary of State. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-AGR": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Agriculture_Commissioner_election",
+    "checked": "2026-10-02",
+    "note": "Agriculture Commissioner. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-TAX": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Tax_Commissioner_election",
+    "checked": "2026-10-02",
+    "note": "Tax Commissioner. No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-PSC": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Public_Service_Commission_election",
+    "checked": "2026-10-02",
+    "note": "Public Service Commissioner (the six-year term). No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-PSC-UNEXP": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Public_Service_Commission_election",
+    "checked": "2026-10-02",
+    "note": "Public Service Commissioner (the unexpired two-year term). No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-SPI-UNEXP": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Superintendent_of_Public_Instruction_special_election",
+    "checked": "2026-10-02",
+    "note": "Superintendent of Public Instruction (the unexpired two-year term, a nonpartisan office). No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-ND-SUPREME": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_North_Dakota_Supreme_Court_election",
+    "checked": "2026-10-02",
+    "note": "Justice of the Supreme Court (the contested seat, a nonpartisan office). No poll of this race by anyone was found: Wikipedia's page for it has no polling section (read 2026-10-02), and two news searches for North Dakota's 2026 statewide races found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  }
+ }
+}

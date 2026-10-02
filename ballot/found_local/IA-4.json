@@ -1,0 +1,447 @@
+{
+  "part": 4,
+  "of": 11,
+  "researched": "2026-10-02",
+  "notes": [
+    "How this part was researched: the session's shared web-search allowance ran out after the first round of searches (one per candidate for the first nineteen names, none for the eleven sitting legislators). The rest was done by opening pages directly with the kit's own User-Agent: each campaign's own site, the Iowa Legislature's legislator pages, county and city sites, the Republican Party of Iowa's and the Polk County Democrats' own candidate pages, the Democratic Legislative Campaign Committee's candidate pages, and two news articles. A voter guide (theballotbrief.com) was used only to find campaign site addresses; nothing is cited to it except the tie noted for Steve Simon.",
+    "Behind a wall, so not read and not recorded: charleythomsonforhouse.com (Charley Thomson) and roebuckforiowa.com (Karen Roebuck) both answered with a CAPTCHA redirect. Ballotpedia returned an empty page. Tom Walton's Bio page (waltonforiowa.com/bio) is drawn by script and showed no text, so no office is recorded for him.",
+    "The party pages recorded under endorsed_by are candidate lists, not statements using the word 'endorse': the Republican Party of Iowa's '2026 Candidates' page, the Polk County Democrats' 'Candidates 2026' page, and the DLCC's candidate pages ('with the support of the DLCC'). Each entry quotes what the page says so the second reader can judge whether it counts.",
+    "Steve Simon: the City of Waterloo's council page lists 'Steve Simon, At-Large Through 12/31/2027'. The tie between that council member and the supervisor candidate rests on the voter guide's summary of a Waterloo-Cedar Falls Courier report (he 'plans to keep that seat while running for county supervisor'); the Courier article itself was not opened. The second reader should confirm or remove.",
+    "Austin Baeth's site names him and House District 36 but still reads 'VOTE NOVEMBER 5', the 2024 election date. Liz Bennett's and Sandy Salmon's sites name the candidate and the Senate district but show no 2026 date.",
+    "Wikipedia's full birth dates for John Forbes and Chris Cournoyer were cut to the year. Dillon Fillion's full date is from his own campaign site.",
+    "Not recorded although seen: police and other employment (Mike Tupper, Randy Meier, Benjamin Mulford, Drew Stensland), party posts (Tom Walton, Samy El-Baroudi, Samantha Fett), nonprofit boards, student offices, and Chris Cournoyer's 'local school board' (her site gives no district or years). Endorsements by individual officeholders are not party endorsements and were left out.",
+    "Nothing citable was found for Bob Bartles, Stephen Doerscher, Ross Eveland, Thomas Jay Moore, Charley Thomson, Michael R. Bergan, Helena Hayes, Karen Roebuck, Matthew Rinker and Kevin Alons (the six sitting legislators among them already have record pages; no campaign website was found for them)."
+  ],
+  "candidates": [
+    {
+      "race_id": "2026-IA-19049-county-commissioner-d2",
+      "name": "Julia Helm",
+      "website": {
+        "url": "https://juliahelmforsupervisor.com/",
+        "how": "The site is titled 'Julia Helm' and headed 'Julia Helm Dallas County Iowa Supervisor District 2'.",
+        "verified": true
+      },
+      "official_page": {
+        "url": "https://www.dallascountyiowa.gov/189/Board-of-Supervisors",
+        "source": "Dallas County, Board of Supervisors page: 'Julia Helm Board Member, District II'.",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Dallas County Auditor and Commissioner of Elections",
+          "from": "2017",
+          "to": "",
+          "source": "Her campaign site: 'My political journey began in 2017 when I first took office as Dallas County Auditor, and I'm honored to have been re-elected in 2020'; also 'With eight years as County Auditor'. No end year is stated.",
+          "url": "https://juliahelmforsupervisor.com/",
+          "kind": "campaign",
+          "verified": true
+        },
+        {
+          "office": "Dallas County Supervisor, District II",
+          "from": "",
+          "to": "present",
+          "source": "Dallas County, Board of Supervisors page: 'Julia Helm Board Member, District II'. The page gives no starting year.",
+          "url": "https://www.dallascountyiowa.gov/189/Board-of-Supervisors",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "I proudly represent the Republican Party and call Adel my home.",
+        "url": "https://juliahelmforsupervisor.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-19103-county-commissioner-d4",
+      "name": "V Fixmer-Oraiz",
+      "official_page": {
+        "url": "https://johnsoncountyiowa.gov/board-of-supervisors/about",
+        "source": "Johnson County, Board of Supervisors 'About' page: 'V Fixmer-Oraiz was elected in 2022'; 'Term expires: 12/31/2026'.",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Johnson County Supervisor",
+          "from": "elected 2022",
+          "to": "present (term expires 12/31/2026)",
+          "source": "Johnson County, Board of Supervisors 'About' page: 'V Fixmer-Oraiz was elected in 2022'; 'Term expires: 12/31/2026'.",
+          "url": "https://johnsoncountyiowa.gov/board-of-supervisors/about",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-19113-county-treasurer",
+      "name": "Brent C. Oleson",
+      "official_page": {
+        "url": "https://www.linncountyiowa.gov/208/Treasurer",
+        "source": "Linn County, Treasurer page: names 'Brent C. Oleson' as 'County Treasurer'.",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Linn County Treasurer",
+          "from": "elected 11/8/2022",
+          "to": "present (term expires 12/31/2026)",
+          "source": "Linn County's own PDF 'County Elected Officials for Linn County, Iowa': Linn County Treasurer, Brent C. Oleson, Democratic Party, 4 Year Term, Elected: 11/8/2022, Term Expires: 12/31/2026.",
+          "url": "https://www.linncountyiowa.gov/866/Linn-County-Elected-Officials-PDF",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Elected Linn County Treasurer",
+          "year": "2022",
+          "party": "Democratic",
+          "source": "Linn County's own PDF 'County Elected Officials for Linn County, Iowa' lists the Treasurer, Brent C. Oleson, under 'Democratic Party', 'Elected: 11/8/2022'.",
+          "url": "https://www.linncountyiowa.gov/866/Linn-County-Elected-Officials-PDF",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-19153-county-commissioner-d1",
+      "name": "John Forbes",
+      "website": {
+        "url": "https://johnforbesforpolkcounty.com/",
+        "how": "The site is titled 'John Forbes for Polk County Supervisor | Vote June 2, 2026', says he is 'running in Polk County Supervisor District 1' and reads 'PAID FOR BY FORBES FOR POLK COUNTY SUPERVISOR COMMITTEE'.",
+        "verified": true
+      },
+      "born": {
+        "year": "1956",
+        "source": "Wikipedia, 'John Forbes (Iowa politician)': 'American politician (born 1956)' (year only). Same person: Wikipedia says he retired from the Iowa House to run for the Polk County Board of Supervisors, and his campaign site's About page (johnforbesforpolkcounty.com/pages/about) says 'John Forbes is a six-term state representative running in Supervisor District 1'.",
+        "url": "https://en.wikipedia.org/wiki/John_Forbes_(Iowa_politician)",
+        "kind": "secondary",
+        "corrected": "source wording: the 'six-term' sentence is on the campaign site's About page, not its home page",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "State Representative, Iowa House of Representatives",
+          "from": "2013",
+          "to": "2025",
+          "source": "Iowa Legislature, Representative John Forbes: 'Assemblies Served: House: 85 (2013) - 90 (2023)'; General Assembly 90 ran 01/09/2023 - 01/12/2025; 'Home County: Polk'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=10739",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Served in the Iowa House of Representatives",
+          "year": "2013-2025",
+          "party": "Democratic",
+          "source": "Iowa Legislature, Representative John Forbes: 'Party Affiliation: Democrat'; 'Assemblies Served: House: 85 (2013) - 90 (2023)'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=10739",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "John Forbes is a Democrat running in Polk County Supervisor District 1",
+        "url": "https://johnforbesforpolkcounty.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-19193-county-attorney",
+      "name": "Benjamin J. Mulford",
+      "website": {
+        "url": "https://www.benforwoodbury.com/",
+        "how": "The site is titled 'Ben for County Attorney - Woodbury County' and reads 'My name is Ben Mulford' and 'I would be honored to earn your vote as County Attorney this November.'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-AUD",
+      "name": "Chris Cournoyer",
+      "website": {
+        "url": "https://cournoyerforiowa.com/",
+        "how": "The site is titled 'Home - Chris Cournoyer for Auditor', says 'I'm running for State Auditor' and reads '© 2026 Chris Cournoyer for Auditor • Paid for by Cournoyer for Iowa'.",
+        "verified": true
+      },
+      "official_page": {
+        "url": "https://ltgovernor.iowa.gov/meet-governor-kim-reynolds/meet-lieutenant-governor-chris-cournoyer",
+        "source": "Office of the Governor of Iowa: 'Meet Lieutenant Governor Chris Cournoyer. Lt. Governor Cournoyer is the 48th Lieutenant Governor of Iowa.'",
+        "verified": true
+      },
+      "born": {
+        "year": "1970",
+        "source": "Wikipedia, 'Chris Cournoyer', which gives a birth date in 1970 (cut to the year here) for the Lieutenant Governor of Iowa who filed to run for State Auditor in 2026.",
+        "url": "https://en.wikipedia.org/wiki/Chris_Cournoyer",
+        "kind": "secondary",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "State Senator, Iowa Senate",
+          "from": "2019",
+          "to": "2024",
+          "source": "Iowa Legislature, Senator Chris Cournoyer: 'Assemblies Served: Senate: 88 (2019) - 90 (2023)'; the Senate list for the 90th General Assembly shows her service as '01/09/2023 - 12/16/2024'; 'Home County: Scott'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=27004",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Lieutenant Governor of Iowa",
+          "from": "2024",
+          "to": "present",
+          "source": "Wikipedia, 'Chris Cournoyer': Lieutenant Governor of Iowa from December 16, 2024. The Governor's office page calls her 'the 48th Lieutenant Governor of Iowa' without a date.",
+          "url": "https://en.wikipedia.org/wiki/Chris_Cournoyer",
+          "kind": "secondary",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Served in the Iowa Senate",
+          "year": "2019-2024",
+          "party": "Republican",
+          "source": "Iowa Legislature, Senator Chris Cournoyer: 'Party Affiliation: Republican'; 'Assemblies Served: Senate: 88 (2019) - 90 (2023)'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=27004",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-SH12",
+      "name": "Dustin Durbin",
+      "website": {
+        "url": "https://www.dustindurbinforiowahouse.com/",
+        "how": "The site is titled 'Dustin Durbin for Iowa House', says 'I am campaigning to represent District 12 in the Iowa House of Representatives' and reads 'Paid for by the Dustin Durbin for Iowa House Committee'.",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SH22",
+      "name": "Samantha Fett",
+      "website": {
+        "url": "https://www.fettforhouse.com/",
+        "how": "The site is titled 'Samantha Fett -State Representative', is headed 'Fett for House District 22', says 'I am running for re-election to the Iowa House in November 2026' and reads 'Paid for by Fett for Iowa State House'.",
+        "corrected": "added the page's actual title",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SH28",
+      "name": "Tom Walton",
+      "website": {
+        "url": "https://waltonforiowa.com/",
+        "how": "The site is titled 'Tom Walton | Iowa House District 28' and reads 'Paid for by Walton for Iowa' and 'Copyright © 2026 Walton for Iowa'.",
+        "verified": true
+      },
+      "endorsed_by": [
+        {
+          "party": "Democratic",
+          "unit": "Democratic Legislative Campaign Committee (DLCC): its own candidate page, 'Iowa HD-28 Tom Walton', says 'Tom is hard at work, with the support of the DLCC, mounting a strong campaign to flip this seat blue'",
+          "url": "https://www.dlcc.org/candidates/tom-walton/",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-SH36",
+      "name": "Austin Baeth",
+      "website": {
+        "url": "https://austinbaeth.com/",
+        "how": "The site is titled 'Dr. Austin Baeth for Iowa', is headed 'AUSTIN BAETH DEMOCRAT FOR IOWA HOUSE DISTRICT 36' and reads 'PAID FOR BY AUSTIN BAETH FOR IOWA'. It still shows 'VOTE NOVEMBER 5', the 2024 election date.",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SH41",
+      "name": "Molly Buck",
+      "website": {
+        "url": "https://www.mollybuckforankeny.com/",
+        "how": "The site is titled 'Molly Buck for Ankeny | Iowa House District 41', says 'she is running again in 2026 to represent the people of North Ankeny (District 41)' and reads '© 2026 PAID FOR BY MOLLY BUCK FOR ANKENY'.",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "State Representative, Iowa House of Representatives",
+          "from": "2023",
+          "to": "2025",
+          "source": "Iowa Legislature, Representative Molly Buck: 'Assemblies Served: House: 90 (2023)'; General Assembly 90 ran 01/09/2023 - 01/12/2025; 'Home County: Polk'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=33979",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "endorsed_by": [
+        {
+          "party": "Democratic",
+          "unit": "Democratic Legislative Campaign Committee (DLCC): its own candidate page, 'Iowa HD-41 Molly Buck', says 'with the support of the DLCC's Target Races program, she's ready to retake this seat'",
+          "url": "https://www.dlcc.org/candidates/molly-buck/",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Served in the Iowa House of Representatives",
+          "year": "2023-2025",
+          "party": "Democratic",
+          "source": "Iowa Legislature, Representative Molly Buck: 'Party Affiliation: Democrat'; 'Assemblies Served: House: 90 (2023)'.",
+          "url": "https://www.legis.iowa.gov/legislators/legislator?ga=90&personID=33979",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-SH47",
+      "name": "Carter F. Nordman",
+      "website": {
+        "url": "https://www.carterforiowa.com/",
+        "how": "The site is titled 'Elect Carter Nordman for Iowa House District 47 (HD 47).' and reads 'Paid for by Carter Nordman for Iowa'. It shows no election year.",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SH52",
+      "name": "Mike Tupper",
+      "website": {
+        "url": "https://www.miketupperforiowahouse.com/",
+        "how": "The site is titled 'Home | Mike Tupper for Iowa House | Marshall County, Iowa', speaks of 'folks across House District 52' and reads '© 2026 - Paid for by Mike Tupper for Iowa House'.",
+        "verified": true
+      },
+      "endorsed_by": [
+        {
+          "party": "Democratic",
+          "unit": "Democratic Legislative Campaign Committee (DLCC): its own candidate page, 'Iowa HD-52 Mike Tupper', says 'Mike, with the support of the DLCC, is ready to capitalize on this opportunity to flip a red seat blue'",
+          "url": "https://www.dlcc.org/candidates/mike-tupper/",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-SH69",
+      "name": "Randy Meier",
+      "website": {
+        "url": "https://www.randymeieriowa.com/",
+        "how": "The site is titled 'Randy Meier for Iowa | Iowa House District 69 | Clinton County, IA, USA', is headed 'Randy Meier for Iowa House District 69' and reads '© 2026 - Paid for by Randy Meier for Iowa.'",
+        "verified": true
+      },
+      "past_party": [
+        {
+          "what": "Ran for Iowa House District 69 in the general election (lost to Tom Determann)",
+          "year": "2024",
+          "party": "Democratic",
+          "source": "The DeWitt Observer, 'Meier runs for House D-69 seat': 'Randy Meier, D-Clinton', announcing 'his second bid for the Iowa House District 69 seat'; 'Meier and Determann squared off against each other in the 2024 general election.' The article gives the party as 'D-Clinton' and says there is 'no other announced Democratic candidate'.",
+          "url": "https://www.dewittobserver.com/news/local/meier-runs-for-house-d-69-seat/article_fd2cc9d9-a24b-4a7b-b2d3-b38ed00e2a1c.html",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-IA-SH75",
+      "name": "Drew Stensland",
+      "website": {
+        "url": "https://www.drewforiowa.com/",
+        "how": "The site is titled 'Home | Drew for Iowa', says 'Now Drew is ready to step up and heed the call as our next representative for Iowa House District 75' and reads '© 2026 Paid for by Drew Stensland for Iowa'.",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "serve Cedar Falls and Black Hawk County as a local Democratic leader",
+        "url": "https://www.drewforiowa.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SH81",
+      "name": "Dillon Fillion",
+      "website": {
+        "url": "https://dillonfillion.com/",
+        "how": "The site is titled 'Dillon Fillion for Iowa House - Keep Iowa Great!', names 'Iowa House District 81' and reads 'Paid for by Fillion for Iowa House'.",
+        "verified": true
+      },
+      "born": {
+        "year": "2004",
+        "date": "2004-05-09",
+        "source": "His campaign site, About Dillon: 'Dillon Fillion was born on May 9, 2004, in Davenport, Iowa.'",
+        "url": "https://dillonfillion.com/pages/about.html",
+        "kind": "campaign",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SS17",
+      "name": "Samy El-Baroudi",
+      "website": {
+        "url": "https://www.samyforiowa.com/",
+        "how": "The site is titled 'Home | Samy for Iowa | Democrat candidate | Des Moines, IA, USA', says 'Vote for Samy El-Baroudi on November 3, 2026 for Iowa Senate - District 17' and reads 'Paid for by Samy for Iowa'.",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "proud Democrat that is committed to making Iowa a better place",
+        "url": "https://www.samyforiowa.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-IA-SS29",
+      "name": "Sandy Salmon",
+      "website": {
+        "url": "https://www.sandysalmon.org/",
+        "how": "The site is titled 'Sandy Salmon, Iowa Senate District #29' and reads \"Paid for by 'Friends of Sandy Salmon'\". It shows no 2026 date.",
+        "verified": true
+      }
+    }
+  ],
+  "verified_on": "2026-10-02",
+  "removed": [
+    {
+      "race_id": "2026-IA-19013-county-commissioner-d2",
+      "name": "Steve Simon",
+      "what": "official_page and offices (Waterloo City Council, At-Large)",
+      "why": "The City of Waterloo page does list 'Steve Simon, At-Large Through 12/31/2027', but nothing opened ties that council member to this supervisor race: the page does not mention the county race, the news report the researcher relied on was never opened, and a search for it could not be run. One anchor only, so left out."
+    },
+    {
+      "race_id": "2026-IA-19153-county-commissioner-d1",
+      "name": "John Forbes",
+      "what": "endorsed_by https://www.polkdems.com/get-involved/candidates-2026",
+      "why": "The name is on the page, but the party's page is a list of candidates and does not state an endorsement."
+    },
+    {
+      "race_id": "2026-IA-AUD",
+      "name": "Chris Cournoyer",
+      "what": "endorsed_by https://www.iowagop.org/candidates",
+      "why": "The name is on the page, but the party's page is a list of candidates and does not state an endorsement."
+    },
+    {
+      "race_id": "2026-IA-SH36",
+      "name": "Austin Baeth",
+      "what": "endorsed_by https://www.polkdems.com/get-involved/candidates-2026",
+      "why": "The name is on the page, but the party's page is a list of candidates and does not state an endorsement."
+    },
+    {
+      "race_id": "2026-IA-SH41",
+      "name": "Molly Buck",
+      "what": "endorsed_by https://www.polkdems.com/get-involved/candidates-2026",
+      "why": "The name is on the page, but the party's page is a list of candidates and does not state an endorsement."
+    },
+    {
+      "race_id": "2026-IA-SS17",
+      "name": "Samy El-Baroudi",
+      "what": "endorsed_by https://www.polkdems.com/get-involved/candidates-2026",
+      "why": "The name is on the page, but the party's page is a list of candidates and does not state an endorsement."
+    },
+    {
+      "race_id": "2026-IA-SS39",
+      "name": "Liz Bennett",
+      "what": "website https://www.lizbennett.com/",
+      "why": "Could not be re-opened: the site answered 'Too Many Requests' (429) four times and the reading tool could not resolve it."
+    }
+  ],
+  "verifier_notes": [
+    "Every url was re-opened with the kit's own User-Agent (drewforiowa.com, which answered 429 to it, was read with the reading tool instead). Linn County's elected-officials PDF was read as text: Treasurer, Brent C. Oleson, Democratic Party, 4 Year Term, Elected 11/8/2022, Term Expires 12/31/2026.",
+    "Party candidate lists (Polk County Democrats 'Candidates 2026', Republican Party of Iowa '2026 Candidates') were not counted as endorsements and were removed. The DLCC pages were kept because each says the candidate has 'the support of the DLCC', the Democratic Party's legislative campaign committee, on its own page for the November 3, 2026 race.",
+    "Sites that name the candidate and the office but show no 2026 date were kept as recorded, with that said in 'how': Julia Helm, Dustin Durbin, Carter F. Nordman, Dillon Fillion, Sandy Salmon, and Austin Baeth (still 'Vote November 5').",
+    "Researcher's notes about Steve Simon and Liz Bennett above describe findings that are no longer in this file."
+  ]
+}

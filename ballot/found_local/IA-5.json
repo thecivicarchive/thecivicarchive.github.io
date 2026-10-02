@@ -1,0 +1,280 @@
+{
+ "part": 5,
+ "of": 11,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance ran out after ten candidates; the rest were researched from pages reachable directly (The Ballot Brief's race pages as a pointer, then each campaign or government page itself). Leads not confirmed and left out: Tripp Narup (reported as a Villisca council member; the city's page lists a Robert Narup), Karen Varley (an earlier run against Rep. Sorensen), James Uhlenkamp (a 2018 run for House District 24), Kamyar Enshayan (a 2024 run for supervisor, party not stated in the source read).",
+ "candidates": [
+  {
+   "race_id": "2026-IA-19013-county-commissioner-d3",
+   "name": "Kamyar Enshayan",
+   "offices": [
+    {
+     "office": "Member, Cedar Falls City Council",
+     "from": "2003",
+     "to": "2011",
+     "source": "1650 The Fan (Coloff Media), report of 15 February 2024 on his run for the Black Hawk County Board of Supervisors",
+     "url": "https://1650thefan.com/2024/02/15/former-cf-councilman-enshayan-plans-run-for-county-supervisor/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Black Hawk County Planning and Zoning Commission",
+     "from": "2014",
+     "to": "2019",
+     "source": "1650 The Fan (Coloff Media), the same report",
+     "url": "https://1650thefan.com/2024/02/15/former-cf-councilman-enshayan-plans-run-for-county-supervisor/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19049-county-commissioner-d3",
+   "name": "Kim Chapman",
+   "website": {
+    "url": "https://www.votekimchapman.com/",
+    "how": "The site is titled 'Chapman for Supervisor' and reads 'Re-Elect Kim Chapman for Dallas County Supervisor', naming District 3; found through The Ballot Brief's race page.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.dallascountyiowa.gov/189/Board-of-Supervisors",
+    "source": "Dallas County, Board of Supervisors page (lists Kim Chapman as Board Member, District III)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Dallas County Supervisor, District 3",
+     "from": "",
+     "to": "now",
+     "source": "Dallas County, Board of Supervisors page, which lists him as Board Member, District III; it gives no start year",
+     "url": "https://www.dallascountyiowa.gov/189/Board-of-Supervisors",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19057-county-commissioner",
+   "name": "Brian Thie"
+  },
+  {
+   "race_id": "2026-IA-19103-county-commissioner-d4",
+   "name": "Wanda Foster"
+  },
+  {
+   "race_id": "2026-IA-19113-county-treasurer",
+   "name": "Paul Talley",
+   "past_party": [
+    {
+     "what": "Ran for Linn County Treasurer",
+     "year": 2022,
+     "party": "Republican",
+     "source": "The Gazette (Cedar Rapids), 'Paul Talley running for Linn County treasurer', 16 March 2022: 'is running as a Republican'",
+     "url": "https://www.thegazette.com/local-government/paul-talley-running-for-linn-county-treasurer/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19153-county-commissioner-d4",
+   "name": "Alyson DeMoss",
+   "website": {
+    "url": "https://www.alysondemoss.com",
+    "how": "The site is titled 'Alyson DeMoss for Polk County Supervisor' and is paid for by DeMoss for Polk County; The Ballot Brief's page for Polk County Supervisor District 4 links to it beside her name.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.pleasanthilliowa.org/448/Meet-the-Mayor-City-Council",
+    "source": "City of Pleasant Hill, Meet the Mayor & City Council (lists Alyson DeMoss, term expires 2029)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Pleasant Hill City Council",
+     "from": "",
+     "to": "now",
+     "source": "City of Pleasant Hill, Meet the Mayor & City Council, which lists her as a council member with a term expiring 2029; it gives no start year",
+     "url": "https://www.pleasanthilliowa.org/448/Meet-the-Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-19163-county-commissioner",
+   "name": "Tim Carr"
+  },
+  {
+   "race_id": "2026-IA-19169-county-commissioner-d3",
+   "name": "Kirk W. Nesset"
+  },
+  {
+   "race_id": "2026-IA-19193-county-attorney",
+   "name": "James D. Loomis",
+   "official_page": {
+    "url": "https://www.woodburycountyiowa.gov/attorney/",
+    "source": "Woodbury County, Attorney's Office page (lists James Loomis, County Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Woodbury County Attorney",
+     "from": "",
+     "to": "now",
+     "source": "KTIV News, 12 January 2026: 'He was elected in 2022, beating incumbent Patrick \"PJ\" Jennings'; the county's own page lists him as County Attorney today",
+     "url": "https://www.ktiv.com/2026/01/12/woodbury-county-attorney-james-d-loomis-seeking-re-election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-AUD",
+   "name": "Taylor Wettach",
+   "website": {
+    "url": "https://www.wettachforiowa.com/",
+    "how": "The site is titled 'Taylor Wettach for State Auditor' and says 'I'm running for Iowa State Auditor'; found through The Ballot Brief's Iowa page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH12",
+   "name": "Steven Holt"
+  },
+  {
+   "race_id": "2026-IA-SH18",
+   "name": "Tripp Narup"
+  },
+  {
+   "race_id": "2026-IA-SH23",
+   "name": "Karen Varley"
+  },
+  {
+   "race_id": "2026-IA-SH29",
+   "name": "Brian Meyer"
+  },
+  {
+   "race_id": "2026-IA-SH36",
+   "name": "Bruce A Michalowski"
+  },
+  {
+   "race_id": "2026-IA-SH41",
+   "name": "Ryan Weldon",
+   "website": {
+    "url": "https://www.voteryanweldon.com/",
+    "how": "The site is titled 'Vote Ryan Weldon | Iowa House of Representatives', names District 41 and Ankeny and asks for help to 're-elect Ryan in 2026'; found through The Ballot Brief's race page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH47",
+   "name": "Chris New"
+  },
+  {
+   "race_id": "2026-IA-SH53",
+   "name": "Berleen Wobeter"
+  },
+  {
+   "race_id": "2026-IA-SH58",
+   "name": "India May",
+   "website": {
+    "url": "https://mayforiowa.com/",
+    "how": "The site is titled 'India May's Campaign for Iowa House District 58'; found through The Ballot Brief's race page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH64",
+   "name": "Brian Bruening"
+  },
+  {
+   "race_id": "2026-IA-SH69",
+   "name": "Tom Determann"
+  },
+  {
+   "race_id": "2026-IA-SH76",
+   "name": "Calvin Horn",
+   "website": {
+    "url": "https://www.calvinhornforhd76.com/",
+    "how": "The site is titled 'Calvin Horn For Iowa House | Calvin Horn for HD 76' and names District 76 and his November opponent; found through The Ballot Brief's race page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SH82",
+   "name": "Bobby Kaufmann"
+  },
+  {
+   "race_id": "2026-IA-SH89",
+   "name": "Daniel Arch"
+  },
+  {
+   "race_id": "2026-IA-SH94",
+   "name": "Mike Vondran",
+   "website": {
+    "url": "https://iowansformikevondran.com/",
+    "how": "The site is titled 'Iowans For Mike Vondran' and says he has served in the House of Representatives since 2023, representing District 94; it does not name the year 2026; found through The Ballot Brief's race page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SOS",
+   "name": "Paul D. Pate"
+  },
+  {
+   "race_id": "2026-IA-SS19",
+   "name": "Barb Kniff McCulla",
+   "official_page": {
+    "url": "https://www.legis.iowa.gov/legislators/legislator?ga=91&personID=33977",
+    "source": "Iowa Legislature, legislator page: Representative Barb Kniff McCulla (she sits in the House today and is running for the Senate)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Iowa House of Representatives",
+     "from": "2023",
+     "to": "now",
+     "source": "Iowa Legislature, legislator page: Representative Barb Kniff McCulla, listed in General Assemblies 90 (from 9 January 2023) and 91",
+     "url": "https://www.legis.iowa.gov/legislators/legislator?ga=91&personID=33977",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-IA-SS3",
+   "name": "Lynn Evans",
+   "website": {
+    "url": "https://lynnevansforiowa.com",
+    "how": "The site is titled 'Lynn Evans | Iowa Senate District 3 | Vote November 3'; found through The Ballot Brief's race page.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-IA-SS41",
+   "name": "Kerry Gruenhagen"
+  },
+  {
+   "race_id": "2026-IA-SS9",
+   "name": "James Uhlenkamp"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-IA-SOS",
+   "name": "Paul D. Pate",
+   "field": "website",
+   "url": "https://pateforiowa.com/",
+   "why": "The site is an earlier campaign's: copyright 2018, newest item April 2022, 'serving his third term'; it does not name the 2026 race."
+  },
+  {
+   "race_id": "2026-IA-SS19",
+   "name": "Barb Kniff McCulla",
+   "field": "born",
+   "url": "https://en.wikipedia.org/wiki/Barb_Kniff_McCulla",
+   "why": "Wikipedia gives 1956 with no citation on the year, and the Legislature's page does not state it."
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "rule": "Iowa's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-IA-GOV": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-17",
+     "end": "2026-09-20",
+     "n": 1050,
+     "pop": "registered voters",
+     "moe": 4.4,
+     "shares": {
+      "Rob Sand": 54,
+      "Zach Lahn": 42
+     },
+     "rest": 4,
+     "note": "The question named the two candidates for governor, not their running mates. Marist's release page gives the two figures; the rest is what is left of 100.",
+     "url": "https://maristpoll.marist.edu/polls/2026-midterm-elections-in-iowa-september-2026/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-08-31",
+     "end": "2026-09-01",
+     "n": 750,
+     "pop": "likely voters",
+     "moe": 3.6,
+     "shares": {
+      "Rob Sand": 49,
+      "Zach Lahn": 46
+     },
+     "rest": 6,
+     "note": "For Nexstar Media. Emerson's release gives 6% undecided; the three rounded figures add to 101.",
+     "url": "https://emersoncollegepolling.com/iowa-2026-poll-hinson-leads-turek/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-08-02",
+     "end": "2026-08-04",
+     "n": 712,
+     "pop": "likely voters",
+     "moe": 3.7,
+     "shares": {
+      "Rob Sand": 48,
+      "Zach Lahn": 43
+     },
+     "rest": 9,
+     "note": "For Nexstar Media. Emerson's release gives 7% undecided; the rest is what is left of 100.",
+     "url": "https://emersoncollegepolling.com/iowa-2026-poll/",
+     "checked": "2026-10-02"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-06-27",
+     "why": "the release is behind a paywall"
+    }
+   ],
+   "left_out": {
+    "n": 13,
+    "pollsters": [
+     "Beacon Research/Shaw & Co. Research (two, for Fox News)",
+     "Cygnal (two, for the Iowans for Tax Relief Foundation)",
+     "co/efficient",
+     "YouGov",
+     "Wedgewood Polls",
+     "Suffolk University",
+     "Echelon Insights (Randy Feenstra against Rob Sand, April 3-9, 2026, for NetChoice)",
+     "GBAO (Randy Feenstra against Rob Sand, for Josh Turek's campaign for U.S. Senate)",
+     "Z to A Research (Randy Feenstra against Rob Sand, October 9-13, 2025)",
+     "JMC Analytics (the Republican primary)",
+     "Victory Enterprises (the Republican primary, for Randy Feenstra's campaign)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "Eight of the thirteen asked November's matchup, Rob Sand against Zach Lahn; three asked about Randy Feenstra, who lost the June 2 primary; two asked the Republican primary only. The New York Times/Siena poll (June 15-27, 2026) is by a member but its release is behind a paywall, so it is named as pending and not counted."
+   }
+  },
+  "2026-IA-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 5,
+    "pollsters": [
+     "Cygnal (two, for the Iowans for Tax Relief Foundation)",
+     "Global Strategy Group (for the Democratic Attorneys General Association)",
+     "Fund for Economic Independence (two; the group's own polls)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Marist's September survey and Emerson's August and September surveys of Iowa did not ask it."
+   }
+  },
+  "2026-IA-SOS": {
+   "polls": [
+    {
+     "pollster": "Change Research (for Ryan Peterman's campaign)",
+     "member": "Change Research",
+     "start": "2026-09-11",
+     "end": "2026-09-14",
+     "n": 704,
+     "pop": "likely voters",
+     "moe": 3.9,
+     "shares": {
+      "Paul D. Pate": 42,
+      "Ryan Peterman": 40
+     },
+     "rest": 18,
+     "note": "A poll paid for by one of the two campaigns, published as the pollster's memo. These are the figures from the first time the question was asked; the memo says 18% had not made up their mind. The poll asked again after reading voters a message in favour of Peterman (Peterman 46, Pate 40); that second figure is not used.",
+     "url": "https://docs.google.com/document/d/1gyNf30lOHo_W8x70AS3wFLXe5zGJc0VOY08hv_InWXk/edit?tab=t.0",
+     "checked": "2026-10-02"
+    }
+   ],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "Change Research's poll for the Peterman campaign is the only published poll of this race. Marist's September survey and Emerson's August and September surveys of Iowa did not ask it."
+   }
+  },
+  "2026-IA-AGR": {
+   "polls": [
+    {
+     "pollster": "Change Research (for Chris Jones's campaign)",
+     "member": "Change Research",
+     "start": "2026-07-28",
+     "end": "2026-08-01",
+     "n": 1071,
+     "pop": "likely voters",
+     "moe": 3.1,
+     "shares": {
+      "Mike Naig": 42,
+      "Chris Jones": 40
+     },
+     "rest": 18,
+     "note": "A poll paid for by one of the two campaigns. These are the figures from the first time the question was asked, before voters were told anything about the candidates; the memo says 16% were not sure. The poll asked again after voters read a summary of each candidate (Jones 46, Naig 40); that second figure is not used. The pollster's memo is dated August 5, 2026 and was read in the copy the news site Bleeding Heartland keeps; Change Research's own site was not found to carry it.",
+     "url": "https://www.bleedingheartland.com/static/media/2026/08/Memo-_-Chris-Jones-for-Iowa-Secretary-of-Agriculture-_-August-2026.pdf",
+     "checked": "2026-10-02"
+    }
+   ],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Cygnal (for the Iowans for Tax Relief Foundation)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_Secretary_of_Agriculture_election",
+    "checked": "2026-10-02",
+    "note": "Change Research's poll for the Jones campaign is the only poll of this race by a pollster in the Transparency Initiative."
+   }
+  },
+  "2026-IA-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_State_Auditor_election",
+    "checked": "2026-10-02",
+    "note": "Wikipedia's page for this race has no polling section, and none of the Iowa surveys read for the other races (Marist, Emerson, Change Research) asked it."
+   }
+  },
+  "2026-IA-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Iowa_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "Wikipedia's page for this race has no polling section, and none of the Iowa surveys read for the other races (Marist, Emerson, Change Research) asked it."
+   }
+  }
+ }
+}
