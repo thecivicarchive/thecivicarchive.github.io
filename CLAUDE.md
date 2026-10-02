@@ -1102,6 +1102,35 @@ party committee's appointment): a news article calling someone a Democrat or a R
 `state-page-only` now takes an optional `notes` argument (what the data stage reported) and keeps five states' built
 data byte-identical.
 
+Missouri (v4.0.090) taught these. Missouri sells its precinct results and publishes none, so past votes are by
+county only (from the Secretary of State's county results), and the page says why a city has none. Fifty of its court
+contests are retention votes: a retention race is one name and a yes-or-no question, on the card, the arena and the
+comparison, in every state. A Democratic club is not a party committee: its picks are `other_support`, unshown. A
+campaign page on a website builder that many candidates share (upballot.com) is a campaign website, but a photo
+whose only claim is that builder's shared "candidates" folder is a pick resting on placement, so none. "In office
+now": `_year(end=True)` in `ballot/local_sites.py` now reads "present (term expires 2026)", "current term ...",
+"term expires January 2027" as held today, and the builder marks an office as held today when it is the ONE
+open-ended office stated on the candidate's own official page and no other office on record began after it (a page
+about a county legislator that also mentions an earlier school board seat settles nothing); 127 cards gained an
+office this way, each read through. A scratch file named like a standard module (calendar.py in the scratchpad)
+shadows Python's own when a script is run from that folder: name scratch files so they cannot collide.
+
+State and local race pages use the Congress cards (v4.0.089; John, 2026-10-02: "cleanup the governor and statewide
+type of elections + local levels so those cards look similar to the higher level ones"). `build_ballot_state_dev.py`
+borrows from `build_ballot_dev.PAGE` by landmark (`borrow_ballot`; the build stops and names a missing landmark): the
+reader's arrangement (one per race, `ballot:arr:<race id>` in localStorage, shared by cards and columns), `arenaCards`,
+the comparison's frame and `wireArena`. Its own: what a card holds (age, office held today, ballot order; never
+money), the comparison's sections (On the ballot; Who they are; The record, not a label; In office; each only when it
+has rows; all closed to start) and their source lines. Differences from the Congress page, on purpose: "vs" only
+between exactly two cards (a school board's names are not versus one another); a one-name race has no move or hide
+controls; the controls sit in a row above the portrait; a card's height grows with its words and is evened within a
+race by script. A small office (township, small district) gets the comparison only when a candidate filed a website.
+"Forget my location and choices" also clears every `ballot:arr:` key. The comparison's "On the ballot" section shows
+each candidate's list note (retention, unopposed, capitals, a replaced nominee); a scan found nothing sensitive in
+them, and John can have the row dropped. Shell budgets are now 340 KB (lists alone) and 405 KB (with extras; Michigan
+is at 400 KB, so the next growth needs a trim or a raise). Built by a builder, three reviewers (look, rules, code),
+a fixer and a last check; before-copies were in the session scratchpad.
+
 Michigan (v4.0.088) taught these. The Michigan Voter Information Center (mvic.sos.state.mi.us/votehistory) answers
 scripts 403 and serves the Browser pane normally; its own download links give each election's precinct file
 (`/VoteHistory/GetPrecinctResultsFile?electionId=` 699 for 2024, 691 for 2022, 683 for 2020: `<year>GEN.zip`) and

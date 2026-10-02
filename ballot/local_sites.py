@@ -545,8 +545,12 @@ def _year(text, end=False):
     """A year from the sweep's 'from' or 'to': '2019', '2019 (elected 2018)' -> 2019; 'now' (an end only) -> 'now';
     'elected 2018', 'not stated' and blanks -> None, since an election year is not the year a term began."""
     t = str(text if text is not None else "").strip().lower()
-    if end and t in ("now", "present", "today"):
+    if end and re.match(r"^(now|present|today|current|currently|incumbent)\b", t):      # "present (term expires 2026)" too
         return "now"
+    if end:      # "term expires January 1, 2027": a term that has not run out is held today
+        m = re.match(r"^(?:present )?term (?:expires|ends|runs (?:through|to|until))\b.*?\b(20\d\d)\b", t)
+        if m and int(m.group(1)) >= 2026:
+            return "now"
     m = re.match(r"^(\d{4})\b", t)
     return int(m.group(1)) if m and 1900 <= int(m.group(1)) <= 2026 else None
 

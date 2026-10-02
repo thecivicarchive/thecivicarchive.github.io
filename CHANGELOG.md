@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.090 — 2026-10-02 — Missouri gets the same treatment
+
+- Missouri's ballot page now has the real map: 5,462 precinct pieces with the districts they sit in (county, city or township, ward, House, Senate, Congress, judicial circuit, court of appeals district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.
+- Missouri's candidates for State Auditor, the Legislature, the courts and the county offices loaded so far show what the record holds: 111 have a campaign website of their own, 69 an official government page, offices held (154), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- A judge standing for retention is now shown as what it is, in every state: one name and a yes-or-no question, with no "vs" and no controls.
+- How each place voted, by county: President, Senator and Governor in 2024, Senator in 2022, President and Governor in 2020, from the Secretary of State's county results, for all 115 counties and St. Louis city. Missouri sells its precinct results and publishes none, so there are no figures for cities or townships, and the page says so.
+- "In office now" on a card is filled in more often, in every finished state: 127 sitting officeholders whose own government page gives the office with a start and no end (Missouri's State Auditor, county commissioners, judges, school board members) now show it. Where a page leaves any doubt about which office is still held, the card stays blank.
+- Missouri elects no governor this year; State Auditor is the only statewide office, and no pollster that publishes its methods has polled it. Only 13 of Missouri's 116 election authorities have local lists loaded; elsewhere the page says "not loaded yet". Polling places stay off the map; the page points to the state's own finder.
+
 ## v4.0.089 — 2026-10-02 — State and local races get the Congress cards
 
 - Every state and local race page (Governor and the other statewide offices, the Legislature, judges, county, city, township and school races, in every state) now has the same cards as the Congress race pages: the same card with its slight tilt and "vs" when two people face each other, and the same controls on each card: move it earlier or later, hide it, or drag it, with "Put back the official order" beneath. The arrangement is yours alone and stays on your device; the list's own order never changes, and the page ranks no one.
