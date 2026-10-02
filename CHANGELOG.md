@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.080 — 2026-10-01 — More faces, and more candidates in their own words
+
+- 143 more candidates for Congress now have a photograph on their card, each taken from the candidate's own campaign website, credited and linked. Every option was looked at first: a photo is used only when it is plainly the site's own portrait of its candidate, one adult alone. Where the options showed several people, an event, a logo, or anything unclear, the card keeps the candidate's initials. Nobody is ever identified by their face.
+- "In their own words" now lists the issue headings from 394 campaigns' own websites, as headings only: nothing is summarized or judged.
+
 ## v4.0.079 — 2026-10-01 — Ballot pages you can fold, sort and make your own; a cabin that looks like one
 
 - The Congress ballot pages open calmer. The map of every state sits right under the numbers; the Senate races and every other race are folded away state by state until you open them; on a race page the polls and the betting prices are two tabs above the candidates that pull down when you want them.
