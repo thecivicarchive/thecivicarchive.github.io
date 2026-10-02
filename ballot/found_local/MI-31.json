@@ -1,0 +1,183 @@
+{
+ "part": 31,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after fourteen searches (the judges, the statewide candidate and the legislative candidates), so the city council candidate and the fifteen school board candidates were not searched for at all, and neither were campaign websites for Roger Victory, Larry Johnson, Kristina S. Lyke, Michael Huber, Alabas Farhat or John Damoose. This machine's address lookups failed repeatedly for danpelchat.com, gp.org (the Green Party's 2026 candidate list, for Jahdante John Elijah Smith) and whtc.com; the state's press-release pages refused scripts (403). Mark J. Plawecki's birth date is on Wikipedia without a citation, so it is left out. Patrick Duvendeck's 2024 run was seen only on voter-guide sites, not on a record, so it is left out. Dan Pelchat's website could not be opened from here: two other pages name it, and a verifier must open it or delete it. A blank means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC44-NI",
+   "name": "Kristina S. Lyke",
+   "offices": [
+    {
+     "office": "Member, Pinckney village Board of Trustees",
+     "from": "",
+     "to": "",
+     "source": "The Livingston Post, March 2, 2026, on her run for the 44th Circuit Court seat: \"at 20, she became the first woman and youngest person ever to serve on the Pinckney Board of Trustees\" (no years given)",
+     "url": "https://thelivingstonpost.com/lyke-collecting-signatures-for-judicial-primary-run/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC20",
+   "name": "Mark J. Plawecki",
+   "offices": [
+    {
+     "office": "Judge, 20th District Court (Dearborn Heights)",
+     "from": "1994",
+     "to": "",
+     "source": "Wikipedia, \"Mark Plawecki\", with a citation: \"Elected to the bench in 1994\"; re-elected 1996, 2002, 2008, 2014 and 2020 (first elected 1994; the year he took the bench is not stated)",
+     "url": "https://en.wikipedia.org/wiki/Mark_Plawecki",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC50",
+   "name": "Jeremy Darnell Bowie",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/50th-district-court/court-info-judges/hon-jeremy-darnell-bowie",
+    "source": "Oakland County, 50th District Court, its page \"Hon. Jeremy Darnell Bowie\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 50th District Court (Pontiac), appointed by the Governor",
+     "from": "2022",
+     "to": "",
+     "source": "Oakland County, 50th District Court: \"On December 14, 2022, Judge Bowie was appointed to the 50th Judicial District Court in Pontiac, Michigan by Governor Gretchen Whitmer.\"",
+     "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/50th-district-court/court-info-judges/hon-jeremy-darnell-bowie",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC75",
+   "name": "Michael D. Carpenter",
+   "official_page": {
+    "url": "https://midlandcountymi.gov/judge-profile",
+    "source": "Midland County, its page \"75th District Court Judge Michael D. Carpenter\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 75th District Court (Midland County), appointed",
+     "from": "2014",
+     "to": "",
+     "source": "Midland County: \"In January of 2014, Carpenter was appointed to serve as the 75th District Court Judge of Midland County. He has been re-elected since that time unopposed.\"",
+     "url": "https://midlandcountymi.gov/judge-profile",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Midland County Prosecuting Attorney (ran in 2004; re-elected 2008 and 2012)",
+     "from": "",
+     "to": "",
+     "source": "Midland County: \"In 2004 Carpenter ran for the Midland County Prosecuting Attorney positon and was re-elected unopposed in 2008 and 2012.\" (the page does not give the year he took office) The page gives no end year either; he was appointed judge in January 2014.",
+     "url": "https://midlandcountymi.gov/judge-profile",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Roger Victory",
+   "official_page": {
+    "url": "https://www.senatorrogervictory.com/",
+    "source": "Michigan Senate Republicans, the page of \"State Senator - 31st District\" Roger Victory",
+    "verified": true
+   },
+   "born": {
+    "year": 1964,
+    "source": "Wikipedia, \"Roger Victory\", citing the Library of Michigan's \"Legislator Details - Roger Victory\"",
+    "url": "https://en.wikipedia.org/wiki/Roger_Victory",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan Senate (30th district 2019 to 2022, 31st district since 2023)",
+     "from": "2019",
+     "to": "",
+     "source": "Wikipedia, \"Roger Victory\", citing the Library of Michigan: \"representing the 31st district since 2023. He previously represented the 30th district from 2019 to 2022\"",
+     "url": "https://en.wikipedia.org/wiki/Roger_Victory",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Michigan House of Representatives, 88th district",
+     "from": "2013",
+     "to": "2019",
+     "source": "Wikipedia, \"Roger Victory\" (its summary box: January 1, 2013 to January 1, 2019)",
+     "url": "https://en.wikipedia.org/wiki/Roger_Victory",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan Senate as a Republican (31st district); his Senate page is the Senate Republicans' own",
+     "year": "2023",
+     "party": "Republican",
+     "source": "Michigan Senate Republicans",
+     "url": "https://www.senatorrogervictory.com/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH108",
+   "name": "Larry Johnson",
+   "offices": [
+    {
+     "office": "Menominee County Commissioner, District 9",
+     "from": "2019",
+     "to": "",
+     "source": "WLUC TV6 (Upper Michigan's Source), August 6, 2026, on the 108th House District primary: \"Johnson has represented District 9 on the Menominee County Board since 2019\"",
+     "url": "https://www.uppermichiganssource.com/2026/08/06/johnson-wins-gop-nomination-faces-rachel-keys/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH49",
+   "name": "Dan Pelchat",
+   "offices": [
+    {
+     "office": "Mayor of South Lyon",
+     "from": "2017",
+     "to": "2023",
+     "source": "The Livingston Post, on his run for the 49th House District: \"Pelchat was elected mayor of South Lyon in 2017\", re-elected twice, did not run again in 2023",
+     "url": "https://thelivingstonpost.com/former-south-lyon-mayor-looking-to-challenge-bollin-in-49th-district",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS18",
+   "name": "Anthony Pennock",
+   "website": {
+    "url": "https://www.pennock4misenate.com",
+    "how": "The site's own heading: \"Dr. Anthony Pennock for MI Senate District 18\"; also linked from Branch's page for the Senate District 18 Democratic primary",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-SH49",
+   "name": "Dan Pelchat",
+   "field": "website",
+   "url": "https://danpelchat.com/",
+   "why": "The address did not resolve on two tries (with and without www), so the site could not be opened and confirmed."
+  }
+ ]
+}

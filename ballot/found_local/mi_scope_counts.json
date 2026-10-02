@@ -1,0 +1,35 @@
+{
+ "state": "MI",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 1412,
+ "by_level": {
+  "statewide": 52,
+  "legislature": 329,
+  "court": 258,
+  "county": 9,
+  "city": 62,
+  "school": 702
+ },
+ "races_by_level": {
+  "statewide": 7,
+  "legislature": 148,
+  "court": 169,
+  "county": 5,
+  "city": 21,
+  "school": 191
+ },
+ "races": 541,
+ "on_the_november_list_in_all": 2071,
+ "per_part": 30,
+ "parts": 48,
+ "cities_in": 10,
+ "city_candidates": 62,
+ "school_districts_in": 151,
+ "school_candidates": 702,
+ "just_under": {
+  "places": 8,
+  "candidates": 32
+ },
+ "note": "Michigan has no statewide list of local candidates: the city, village and school board races here are those on the November 3, 2026 lists of the nine county clerks read so far (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw and Muskegon), and the other counties' are not loaded yet. Every school district elects board members in November of even years (MCL 168.642c); most cities elect in November of odd years, so only villages and the cities whose charters say so are on this list. County officers, county commissioners and township boards were elected for four years in 2024 (MCL 168.200, 46.410, 168.358), so the county rows are the two county executives and seats filled for the rest of a term. Township offices, community college trustees, library boards, village presidents and a city's clerk, treasurer or assessor are outside the scope's rule and are not in it."
+}

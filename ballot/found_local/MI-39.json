@@ -1,0 +1,275 @@
+{
+ "part": 39,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the six judges, so everyone else was looked up only on pages whose address was already known or could be reached from a district's or city's own home page (board and council pages, the parties' own endorsement pages already named in the lean record, one campaign site linked from a party page). Not reached: the Governor's press releases on the two appointed judges (the state's site refuses scripts), Forest Hills Public Schools' board page (refuses scripts), Grand Rapids Public Schools (certificate error). Not found on their district's board page, so nothing recorded: Patricia Jones (Grand Blanc), D.L. Dye (Roseville), Katie Chittick (Berkley), Ginny Jeup (Grosse Pointe; the page lists no members to a script), DaNetta L. Simpson (Detroit). No campaign site was found for Kimberly L. Edwards, Brendan P. Leddy, Thomas Ryan, Jerry Neyer or Walter Willis. A blank here means not looked up or not found, not that nothing exists.",
+ "removed": [
+  {
+   "race_id": "2026-MI-S-63180-school-board-6y",
+   "name": "Tim A. Whalen, Jr.",
+   "what": "official_page and offices (Member, Brandon School District Board of Education)",
+   "why": "The district's page lists \"Timothy Whalen\" with no \"Jr.\", no middle initial and no years; it cannot be told from the page whether the sitting member is the candidate or a relative of the same name. Unsure means left out."
+  },
+  {
+   "race_id": "2026-MI-SH32",
+   "name": "Mike Eller",
+   "what": "endorsed_by (Washtenaw County Republican Party)",
+   "why": "The party's 2026 Voter Guide lists him in a column headed \"Recommended\"; the word Endorsed appears nowhere on the page, so it is not a published endorsement as recorded."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC26",
+   "name": "K. Edward Black",
+   "official_page": {
+    "url": "https://alpenacounty.org/346/Judges",
+    "source": "Alpena County, its page \"Judges\": \"K. Edward Black\" under \"26th Circuit Court - Alpena County\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC2B",
+   "name": "Megan R.M. Stiverson",
+   "official_page": {
+    "url": "https://hillsdalecounty.gov/index.php/tm-courts/m-court-district",
+    "source": "Hillsdale County, its page \"2B District Court\": \"Honorable Megan R. Stiverson, District Court Judge\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC54A",
+   "name": "Stacia Buchanan",
+   "official_page": {
+    "url": "https://www.lansingmi.gov/249/Meet-the-Judge",
+    "source": "City of Lansing, 54-A District Court, its page \"Meet the Judges\": \"Judge Stacia Buchanan\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan Indigent Defense Commission (appointed by the Governor, submitted by the Michigan District Judges Association)",
+     "from": "2026",
+     "to": "",
+     "source": "Michigan Indigent Defense Commission, news of July 23, 2026: \"Hon. Stacia Buchanan, of Lansing, serves as chief judge of the 54-A District Court. ... Hon. Stacia Buchanan is appointed as a member submitted by the Michigan District Judges Association for a term commencing July 23, 2026, and expiring April 1, 2030.\"",
+     "url": "https://michiganidc.gov/gov-whitmer-appoints-judges-buchanan-maceroni-to-midc/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC80",
+   "name": "Joshua M. Farrell",
+   "official_page": {
+    "url": "https://clareco.net/?p=141",
+    "source": "Clare County, its page \"Courts\": \"Hon. Joshua M. Farrell\", 80th District Court",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-70520-council-4y",
+   "name": "Carly Rose Hammond",
+   "official_page": {
+    "url": "https://www.saginaw-mi.com/230/City-Council",
+    "source": "City of Saginaw, its page \"City Council\": \"Council Members ... Carly R. Hammond, Term Expires: 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Saginaw City Council",
+     "from": "",
+     "to": "",
+     "source": "City of Saginaw, \"City Council\": listed among Council Members, \"Carly R. Hammond, Term Expires: 2026\" (the page gives no starting year)",
+     "url": "https://www.saginaw-mi.com/230/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-33215-school-board-4y",
+   "name": "Debbie Lopez",
+   "official_page": {
+    "url": "https://www.waverlycommunityschools.net/board-of-education/board-members/",
+    "source": "Waverly Community Schools, its page \"Board Members\": \"Deborah Lopez, Board President\" (the ballot name is Debbie Lopez)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Waverly Community Schools Board of Education (Board President)",
+     "from": "",
+     "to": "",
+     "source": "Waverly Community Schools, \"Board Members\": \"Deborah Lopez, Board President\" (the page gives no years; the ballot name is Debbie Lopez)",
+     "url": "https://www.waverlycommunityschools.net/board-of-education/board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Carlos Kulas-Dominguez",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Kent County Democratic Party",
+     "url": "https://kentdems.com/candidates/",
+     "as_listed": "under \"Kent County Democratic Party Endorsed Candidates\", on the page carrying the party's 2026 voter guide: Carlos Kulas-Dominguez, GRPS",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50140-school-board-p20301231-S",
+   "name": "Jeffrey Cyprus",
+   "official_page": {
+    "url": "https://www.lc-ps.org/board-of-education/board-of-education/",
+    "source": "L'Anse Creuse Public Schools, its page \"Board of Education\": \"Jeff Cyprus, Board Secretary\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, L'Anse Creuse Public Schools Board of Education (Board Secretary)",
+     "from": "",
+     "to": "",
+     "source": "L'Anse Creuse Public Schools, \"Board of Education\": \"Jeff Cyprus, Board Secretary\" (the page gives no years)",
+     "url": "https://www.lc-ps.org/board-of-education/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-61065-school-board-6y",
+   "name": "Douglas DeWitte",
+   "official_page": {
+    "url": "https://www.oakridgeschools.org/our-district/board-of-education/board-members/",
+    "source": "Oakridge Public Schools, its page \"Board Members\": \"Doug DeWitte, President\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Oakridge Public Schools Board of Education (President)",
+     "from": "2020",
+     "to": "",
+     "source": "Oakridge Public Schools, \"Board Members\": \"Doug DeWitte, President. Elected: November 2020. Term expiration: December 2026\"",
+     "url": "https://www.oakridgeschools.org/our-district/board-of-education/board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63290-school-board-6y",
+   "name": "Ryan Hoppe",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Oakland County Republican Party",
+     "url": "https://oaklandgopslate.org",
+     "as_listed": "\"Ryan Hoppe, Walled Lake School Board\", marked \"GOP-Endorsed\" (the slate, titled \"Oakland County GOP Candidate Slate\", is drawn by script; the entry is in the page's script file)",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-70300-school-board-6y",
+   "name": "Christopher Beck",
+   "official_page": {
+    "url": "https://www.springlakeschools.org/our-district/school-board",
+    "source": "Spring Lake Public Schools, its page \"School Board\": \"Christopher Beck, Board of Education - Treasurer\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Spring Lake Public Schools Board of Education (Treasurer)",
+     "from": "2021",
+     "to": "",
+     "source": "Spring Lake Public Schools, \"School Board\": \"Christopher Beck. Board of Education - Treasurer. Member since 2021 (term expires 2026)\"",
+     "url": "https://www.springlakeschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82160-school-board-6y",
+   "name": "Melandie Yvonne Hines",
+   "official_page": {
+    "url": "https://www.wwcsd.net/our-district/board-of-education/",
+    "source": "Wayne-Westland Community Schools, its page \"Board of Education\": Melandie Hines, President, also listed on the Board's Finance / Facilities and Policy committees",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Wayne-Westland Community Schools Board of Education (President)",
+     "from": "",
+     "to": "",
+     "source": "Wayne-Westland Community Schools, \"Board of Education\": Melandie Hines listed as President and on the Finance / Facilities and Policy / Procedures / Strategic Planning committees (the page gives no years)",
+     "url": "https://www.wwcsd.net/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH32",
+   "name": "Mike Eller",
+   "website": {
+    "url": "https://www.ellerformichigan.com/",
+    "how": "The site's own front page: Mike Eller, \"Republican Candidate for State Representative Michigan's 32nd District\", naming the 2026 primary and general elections",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican Candidate for State Representative Michigan's 32nd District",
+    "url": "https://www.ellerformichigan.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH52",
+   "name": "Brendan P. Leddy",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "as_listed": "under \"2026 Endorsed Candidates\": \"D52- Brendan Leddy\"",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS20",
+   "name": "Dale Murney",
+   "website": {
+    "url": "https://www.murney4senate.com/",
+    "how": "The site is titled \"Murney 4 MI Senate\", its About page is headed \"Dale Murney, Democrat, Michigan 20th District Senate\", and it is paid for by the Committee to Elect Dale Murney",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Allegan County Democratic Party",
+     "url": "https://allegandems.com/candidates-2026/",
+     "as_listed": "Michigan State Senate, 20th District: \"Dale Murney - Endorsed\"",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Dale Murney Democrat Michigan 20th District Senate",
+    "url": "https://www.murney4senate.com/about",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Charles Essner",
+   "website": {
+    "url": "https://www.charles4mi.com/",
+    "how": "The site's own front page: \"Charles Essner, MICHIGAN STATE BOARD OF EDUCATION\" (the front page names no year or party)",
+    "verified": true
+   }
+  }
+ ]
+}

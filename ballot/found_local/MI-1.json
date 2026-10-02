@@ -1,0 +1,252 @@
+{
+ "part": 1,
+ "of": 48,
+ "researched": "2026-10-02",
+ "notes": [
+  "The session's web-search allowance ran out after eleven searches, so most candidates got no search at all, only direct page reads with the kit's honest User-Agent (official court and school district pages, the Michigan Manual, Wikipedia, named news organizations). No campaign website was found for anyone; none was guessed.",
+  "Left out and not worked around: michigan.gov answers scripts with 403, so the Governors' appointment releases for David J. Allen (2003), Shannon A. Holmes (2011) and Jennifer Smith Deegan (March 19, 2024) could not be opened. Deegan's appointment to the St. Clair County Probate Court (a partial term from April 8, 2024) was read only on a lobbying firm's news page, which is not a kind of source the rules allow, so no office is recorded for her; a later pass with search could use the county's or a newspaper's page.",
+  "LaMar D. Lemmons (Detroit school board): Wikipedia and the 2005-2006 Michigan Manual describe LaMar Lemmons III (State Representative 1999-2003 and 2005-2007, later on the Detroit Board of Education), but his father of the same name also served in the Legislature and nothing opened ties the candidate's middle initial to either man, so nothing is recorded.",
+  "Andrew Beeler's birth year on Wikipedia is marked 'citation needed' and is left out. Chris Christenson: an East Village Magazine report of August 2018 shows him in that year's primary for the Genesee circuit bench, but no page opened states the year he took the bench, so the year is blank. Bruce de Wit: the City of Walker's news page names Mike Burde as the commissioner appointed to the Ward 1 vacancy in January 2026; nothing about de Wit was found.",
+  "Sitting legislators Stephanie A. Young, Thomas E. Kuhn and Michael Webber: no campaign site could be opened (the address Wikipedia gives for Young did not resolve) and no party endorsement page was found. Nothing found beyond the filing for Michael E. LaBuhn (aggregator pages only), Paul Ledford, Jennifer Deegan, Dianne E. Cotter, Jennifer Barnstable, Tommy Doles, Angela Schultz, Tom Braun, Brian Hayes, Austin L. Aamodt, Brynn Stevenson, Lula R. Woodard, Kathi Kobeissi Martin, Jody White, Angela M. Jones, Jennifer Long and Briar Bearss; their districts' board pages, where they opened, did not name them."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-26099-county-commissioner-1-p20281231-S",
+   "name": "Michael E. LaBuhn"
+  },
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "David J. Allen",
+   "offices": [
+    {
+     "office": "Judge, 3rd Circuit Court (Wayne County)",
+     "from": "2003",
+     "to": "present",
+     "source": "Detroit Legal News: \"appointed to the Wayne Circuit Court in late 2003 by then Governor Jennifer Granholm ... won election to the bench in 2004. He subsequently was re-elected in 2008, 2014, and 2020\"",
+     "url": "https://www.legalnews.com/ingham/1526990",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC7",
+   "name": "Chris Christenson",
+   "offices": [
+    {
+     "office": "Judge, 7th Circuit Court (Genesee County)",
+     "from": "",
+     "to": "present",
+     "source": "Michigan Supreme Court order of March 15, 2023 (ADM File No. 2023-01) assigning \"the Honorable B. Chris Christenson\" as a business court judge in the 7th Circuit Court; the order gives no starting year for his judgeship",
+     "url": "https://www.courts.michigan.gov/4945f8/siteassets/rules-instructions-administrative-orders/proposed-and-recently-adopted-orders-on-admin-matters/recent-court-appointments/2023-01_2023-03-15_formor_geneseebusct.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC36",
+   "name": "Shannon A. Holmes",
+   "official_page": {
+    "url": "https://www.36thdistrictcourtmi.gov/about-us/judges/judge-shannon-a-holmes",
+    "source": "36th District Court, Detroit",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 36th District Court (Detroit)",
+     "from": "2011",
+     "to": "present",
+     "source": "36th District Court: \"Judge Shannon A. Holmes has served the 36th District Court since 2011\"",
+     "url": "https://www.36thdistrictcourtmi.gov/about-us/judges/judge-shannon-a-holmes",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC58",
+   "name": "Paul Ledford"
+  },
+  {
+   "race_id": "2026-MI-DC95B",
+   "name": "Julie Ann LaCost",
+   "offices": [
+    {
+     "office": "Judge, 95B District Court (Dickinson and Iron counties)",
+     "from": "2018",
+     "to": "present",
+     "source": "The Daily News (Iron Mountain), July 4, 2018: \"appointed by Gov. Rick Snyder earlier this year to the Dickinson-Iron County District Court bench\"; \"installed in February\"",
+     "url": "https://www.ironmountaindailynews.com/news/local-news/2018/07/lacost-running-to-retain-district-court-judgeship/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-82960-council-ward-1-p20281201-S",
+   "name": "Bruce de Wit"
+  },
+  {
+   "race_id": "2026-MI-PC147",
+   "name": "Jennifer Deegan"
+  },
+  {
+   "race_id": "2026-MI-S-25150-school-board-4y",
+   "name": "Dianne E. Cotter"
+  },
+  {
+   "race_id": "2026-MI-S-33230-school-board-6y",
+   "name": "Jennifer Barnstable"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Tommy Doles"
+  },
+  {
+   "race_id": "2026-MI-S-41145-school-board-4y",
+   "name": "Angela Schultz"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-6y",
+   "name": "Tom Braun"
+  },
+  {
+   "race_id": "2026-MI-S-50190-school-board-6y",
+   "name": "Brian Hayes"
+  },
+  {
+   "race_id": "2026-MI-S-61220-school-board-6y",
+   "name": "Austin L. Aamodt"
+  },
+  {
+   "race_id": "2026-MI-S-63080-school-board-4y",
+   "name": "Brynn Stevenson"
+  },
+  {
+   "race_id": "2026-MI-S-63210-school-board-4y",
+   "name": "Lisa Oaks",
+   "official_page": {
+    "url": "https://www.hask12.org/district/board-of-education/board-members/",
+    "source": "Holly Area Schools, Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Holly Area School Board (Secretary)",
+     "from": "",
+     "to": "present",
+     "source": "Holly Area Schools: \"Mrs. Lisa Oaks is serving her first term with the Holly Area School Board ... Term Expires December 31, 2026\"; no starting year given",
+     "url": "https://www.hask12.org/district/board-of-education/board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-70010-school-board-6y",
+   "name": "Marc Eickholt",
+   "official_page": {
+    "url": "https://www.ghaps.org/district/board-of-ed/board-members-more/",
+    "source": "Grand Haven Area Public Schools, Board of Education Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Grand Haven Area Public Schools Board of Education (Vice President)",
+     "from": "2021",
+     "to": "present",
+     "source": "Grand Haven Area Public Schools: \"Appointed: September 2021. Elected: November 2022. Term Expires: December 31, 2026\"",
+     "url": "https://www.ghaps.org/district/board-of-ed/board-members-more/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-73010-school-board-6y",
+   "name": "Lula R. Woodard"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "LaMar D. Lemmons"
+  },
+  {
+   "race_id": "2026-MI-S-82090-school-board-6y",
+   "name": "Phyllis DeFiore"
+  },
+  {
+   "race_id": "2026-MI-S-82230-school-board-6y",
+   "name": "Kathi Kobeissi Martin"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Jody White"
+  },
+  {
+   "race_id": "2026-MI-SH16",
+   "name": "Stephanie A. Young"
+  },
+  {
+   "race_id": "2026-MI-SH37",
+   "name": "Angela M. Jones"
+  },
+  {
+   "race_id": "2026-MI-SH57",
+   "name": "Thomas E. Kuhn"
+  },
+  {
+   "race_id": "2026-MI-SH77",
+   "name": "Jennifer Long"
+  },
+  {
+   "race_id": "2026-MI-SH97",
+   "name": "Briar Bearss"
+  },
+  {
+   "race_id": "2026-MI-SS25",
+   "name": "Andrew Beeler",
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives (83rd district 2021-2022, 64th district 2023-2024)",
+     "from": "2021",
+     "to": "2024",
+     "source": "Wikipedia, \"Andrew Beeler\" (cites the state's 2022 results): assumed office January 1, 2021, left December 31, 2024, did not seek re-election in 2024. Anchors: Michigan; Wikipedia's cited \"2026 Michigan Senate election\" article names him, \"former state representative from the 64th district\", as the Republican nominee in the 25th Senate district",
+     "url": "https://en.wikipedia.org/wiki/Andrew_Beeler",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Michigan House of Representatives, where members sit by party",
+     "year": "2021-2024",
+     "party": "Republican",
+     "source": "Wikipedia, \"Andrew Beeler\" (box: Party Republican; category Republican Party members of the Michigan House of Representatives)",
+     "url": "https://en.wikipedia.org/wiki/Andrew_Beeler",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS9",
+   "name": "Michael Webber"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-S-82090-school-board-6y",
+   "name": "Phyllis DeFiore",
+   "field": "official_page",
+   "why": "the district's address did not resolve in three tries (lookup failed), so the page could not be re-opened"
+  },
+  {
+   "race_id": "2026-MI-S-82090-school-board-6y",
+   "name": "Phyllis DeFiore",
+   "field": "offices",
+   "why": "the district's address did not resolve in three tries (lookup failed), so the page could not be re-opened"
+  }
+ ]
+}

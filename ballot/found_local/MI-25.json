@@ -1,0 +1,260 @@
+{
+ "part": 25,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Felicia Brabec",
+   "what": "website (feliciabrabec.com)",
+   "why": "The address did not resolve in three tries, so the site could not be re-opened"
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Felicia Brabec",
+   "what": "own_words",
+   "why": "The quote sits on the same site, which could not be re-opened"
+  }
+ ],
+ "note": "The session's web search allowance ran out after one search each for the judges, the Grand Rapids commissioner, the university trustee and the legislative candidates; the 17 school board candidates were not searched at all, and no party endorsement pages could be looked for. Blanks mean not looked up, not that nothing exists. Left out on purpose: repborton.com (it forwards to the House Republicans' page, not a campaign site); Felicia Brabec's birth year (Wikipedia gives only an approximate year); Wikipedia's uncited line that Daniel R. Patterson is a former Arizona legislator (not tied to this person by a source); John G. McBain Jr.'s earlier offices and Erane C. Washington's election year (seen only in search summaries, pages not opened). Verifier: Tanya A. Grillo's office reworded, since the county's page gives the appointment date but does not say who appointed her.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC16",
+   "name": "Tanya A. Grillo",
+   "official_page": {
+    "url": "https://www.macombgov.org/departments/16th-judicial-circuit-court/honorable-tanya-grillo",
+    "source": "Macomb County, 16th Judicial Circuit Court: Honorable Tanya Grillo",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the 16th Judicial Circuit Court (Macomb County), appointed January 6, 2026",
+     "from": "2026",
+     "to": "",
+     "source": "Macomb County, 16th Judicial Circuit Court",
+     "url": "https://www.macombgov.org/departments/16th-judicial-circuit-court/honorable-tanya-grillo",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC4",
+   "name": "John G. McBain Jr.",
+   "official_page": {
+    "url": "https://www.courts.michigan.gov/api/directory/county/38",
+    "source": "Michigan Courts trial court directory, Jackson County (lists Honorable John G. McBain, Jr., Circuit Judge)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC14B",
+   "name": "Erane C. Washington",
+   "official_page": {
+    "url": "https://files.ypsitownship.org/government/14b_district_court/index.php",
+    "source": "Ypsilanti Township, 14B District Court (names Honorable Judge Erane C. Washington)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC47-NI",
+   "name": "Moneka Sanford"
+  },
+  {
+   "race_id": "2026-MI-DC71A-NI",
+   "name": "Maureen Flanigan Salayko"
+  },
+  {
+   "race_id": "2026-MI-M-34000-council-ward-2-4y",
+   "name": "Lisa Knight",
+   "official_page": {
+    "url": "https://www.grandrapidsmi.gov/government/city-commission/commissioners/lisa-knight",
+    "source": "City of Grand Rapids, Ward 2 Commissioners: Lisa Knight",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grand Rapids City Commissioner, Ward 2 (term ends December 31, 2026)",
+     "from": "",
+     "to": "",
+     "source": "City of Grand Rapids",
+     "url": "https://www.grandrapidsmi.gov/government/city-commission/commissioners/lisa-knight",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Daniel R. Patterson"
+  },
+  {
+   "race_id": "2026-MI-S-03100-school-board-6y",
+   "name": "Morgan Maul"
+  },
+  {
+   "race_id": "2026-MI-S-33070-school-board-6y",
+   "name": "Jennifer Robel"
+  },
+  {
+   "race_id": "2026-MI-S-39140-school-board-4y",
+   "name": "Koen Suender"
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-4y",
+   "name": "Heidi Armock"
+  },
+  {
+   "race_id": "2026-MI-S-41240-school-board-6y",
+   "name": "Mary Sanford"
+  },
+  {
+   "race_id": "2026-MI-S-50100-school-board-6y",
+   "name": "Molly Magnotte"
+  },
+  {
+   "race_id": "2026-MI-S-58020-school-board-6y",
+   "name": "Theresa Morris"
+  },
+  {
+   "race_id": "2026-MI-S-63030-school-board-6y",
+   "name": "Gill Garrett"
+  },
+  {
+   "race_id": "2026-MI-S-63130-school-board-4y",
+   "name": "Jason Hodgson"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-p20281231-S",
+   "name": "Deanna Harless"
+  },
+  {
+   "race_id": "2026-MI-S-70120-school-board-6y",
+   "name": "Jill Buth"
+  },
+  {
+   "race_id": "2026-MI-S-73200-school-board-6y",
+   "name": "Cathy Steib"
+  },
+  {
+   "race_id": "2026-MI-S-82030-school-board-6y",
+   "name": "Mallak Anani"
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Courtney Prout"
+  },
+  {
+   "race_id": "2026-MI-S-82365-school-board-4y",
+   "name": "Valerie Lowry"
+  },
+  {
+   "race_id": "2026-MI-SH105",
+   "name": "Ken Borton"
+  },
+  {
+   "race_id": "2026-MI-SH27",
+   "name": "Jaime Churches",
+   "website": {
+    "url": "https://jaimechurches.com/",
+    "how": "Linked as her election site from her Wikipedia article; the home page says she is running for State Representative for Michigan's 27th House District in the November 3, 2026 general election",
+    "verified": true
+   },
+   "born": {
+    "year": 1988,
+    "source": "Wikipedia, Jaime Churches",
+    "url": "https://en.wikipedia.org/wiki/Jaime_Churches",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Michigan House of Representatives, 27th district",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wikipedia, Jaime Churches",
+     "url": "https://en.wikipedia.org/wiki/Jaime_Churches",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Michigan House of Representatives, 27th district",
+     "year": "2023",
+     "party": "Democratic",
+     "source": "Wikipedia, Jaime Churches",
+     "url": "https://en.wikipedia.org/wiki/Jaime_Churches",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH46",
+   "name": "Kathy Schmaltz",
+   "website": {
+    "url": "https://kathyschmaltz.com/",
+    "how": "The site is titled 'Kathy Schmaltz for State Representative', says she represents Michigan's 46th House District, and carries a campaign committee notice and a 2026 date",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH68",
+   "name": "David W. Martin"
+  },
+  {
+   "race_id": "2026-MI-SH87",
+   "name": "Cody A. Chipman"
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Felicia Brabec",
+   "offices": [
+    {
+     "office": "Washtenaw County Board of Commissioners, 4th district",
+     "from": "2011",
+     "to": "2020",
+     "source": "Wikipedia, Felicia Brabec",
+     "url": "https://en.wikipedia.org/wiki/Felicia_Brabec",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Michigan House of Representatives, 55th district",
+     "from": "2021",
+     "to": "2022",
+     "source": "Wikipedia, Felicia Brabec",
+     "url": "https://en.wikipedia.org/wiki/Felicia_Brabec",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Michigan House of Representatives, 33rd district",
+     "from": "2023",
+     "to": "2024",
+     "source": "Wikipedia, Felicia Brabec",
+     "url": "https://en.wikipedia.org/wiki/Felicia_Brabec",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Michigan House of Representatives, 55th and 33rd districts",
+     "year": "2021",
+     "party": "Democratic",
+     "source": "Wikipedia, Felicia Brabec",
+     "url": "https://en.wikipedia.org/wiki/Felicia_Brabec",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS34",
+   "name": "Tyler Landgraf"
+  }
+ ]
+}

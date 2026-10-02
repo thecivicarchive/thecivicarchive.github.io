@@ -1,0 +1,214 @@
+{
+ "part": 19,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already used up (200 of 200) before this part began, so nothing could be searched; only pages reachable by direct address were read (Wikipedia, county, city and party sites). 25 of 30 candidates are blank for that reason, not because nothing exists, and should be researched again: all school board candidates, Lubinski, Beardslee, Femminineo, Guinn, Dean, Fuller, Robbins, Goldwater, Wetzel, and Greene (the campaign address Wikipedia gives for her, voteforgreene.com, returned an empty page).",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC13",
+   "name": "Kevin A. Elsenheimer",
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives, 105th district",
+     "from": "2005",
+     "to": "2010",
+     "source": "Wikipedia, Kevin Elsenheimer (infobox)",
+     "url": "https://en.wikipedia.org/wiki/Kevin_Elsenheimer",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, 13th Circuit Court (Michigan)",
+     "from": "2017",
+     "to": "present",
+     "source": "Wikipedia, Kevin Elsenheimer (appointed by the Governor January 18, 2017; elected 2018 and 2020; counties Grand Traverse, Antrim and Leelanau)",
+     "url": "https://en.wikipedia.org/wiki/Kevin_Elsenheimer",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Michigan House of Representatives, 105th district, as a Republican (Republican Minority Leader 2009-10)",
+     "year": "2005-2010",
+     "party": "Republican",
+     "source": "Wikipedia, Kevin Elsenheimer",
+     "url": "https://en.wikipedia.org/wiki/Kevin_Elsenheimer",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC35",
+   "name": "Matthew J. Stewart",
+   "official_page": {
+    "url": "https://shiawassee.net/circuit-court/",
+    "source": "Shiawassee County: Circuit Court (names him Chief Judge of the 35th Judicial Circuit Court)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Chief Judge, 35th Circuit Court (Shiawassee County, Michigan)",
+     "from": "",
+     "to": "present",
+     "source": "Shiawassee County, Circuit Court page (no start year given)",
+     "url": "https://shiawassee.net/circuit-court/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC10",
+   "name": "Paul K. Beardslee"
+  },
+  {
+   "race_id": "2026-MI-DC41B",
+   "name": "Jacob Michael Femminineo Jr."
+  },
+  {
+   "race_id": "2026-MI-DC67-5",
+   "name": "David Guinn"
+  },
+  {
+   "race_id": "2026-MI-M-31420-council-4y",
+   "name": "Lee Lubinski"
+  },
+  {
+   "race_id": "2026-MI-M-88940-council-at-large-4y",
+   "name": "Renee Hill",
+   "official_page": {
+    "url": "https://www.wyomingmi.gov/About-Wyoming/City-Government/Mayor-City-Council",
+    "source": "City of Wyoming, Michigan: Mayor & City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member-At-Large, City of Wyoming, Michigan",
+     "from": "",
+     "to": "present",
+     "source": "City of Wyoming, Mayor & City Council page (no start year given)",
+     "url": "https://www.wyomingmi.gov/About-Wyoming/City-Government/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-03040-school-board-4y",
+   "name": "Jeff Koon"
+  },
+  {
+   "race_id": "2026-MI-S-33020-school-board-p20301231-S",
+   "name": "Guillermo Z. Lopez"
+  },
+  {
+   "race_id": "2026-MI-S-39065-school-board-6y",
+   "name": "Melissa Gensic"
+  },
+  {
+   "race_id": "2026-MI-S-41040-school-board-6y",
+   "name": "Shannon Smith"
+  },
+  {
+   "race_id": "2026-MI-S-41210-school-board-4y",
+   "name": "Lissa Geglio-Weidenfeller"
+  },
+  {
+   "race_id": "2026-MI-S-50080-school-board-p20281231-S",
+   "name": "William Mierzwinski"
+  },
+  {
+   "race_id": "2026-MI-S-50230-school-board-p20301231-S",
+   "name": "Carl Weckerle"
+  },
+  {
+   "race_id": "2026-MI-S-63020-school-board-4y",
+   "name": "Amy Ceglarek"
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Randall P. Kreger"
+  },
+  {
+   "race_id": "2026-MI-S-63250-school-board-p20301231-S",
+   "name": "Rachel Webster"
+  },
+  {
+   "race_id": "2026-MI-S-70070-school-board-4y",
+   "name": "Jens Milobinski"
+  },
+  {
+   "race_id": "2026-MI-S-73180-school-board-4y",
+   "name": "Amy Morales"
+  },
+  {
+   "race_id": "2026-MI-S-82020-school-board-4y",
+   "name": "Jason M. Babbage"
+  },
+  {
+   "race_id": "2026-MI-S-82140-school-board-6y",
+   "name": "Steven Schreiber"
+  },
+  {
+   "race_id": "2026-MI-S-82365-school-board-4y",
+   "name": "Kerri Sanders"
+  },
+  {
+   "race_id": "2026-MI-SH103",
+   "name": "Edwin B. Dean"
+  },
+  {
+   "race_id": "2026-MI-SH24",
+   "name": "Allison Kay Fuller"
+  },
+  {
+   "race_id": "2026-MI-SH43",
+   "name": "Rachelle Smit"
+  },
+  {
+   "race_id": "2026-MI-SH65",
+   "name": "Jaime Greene"
+  },
+  {
+   "race_id": "2026-MI-SH84",
+   "name": "Drew Jake Robbins"
+  },
+  {
+   "race_id": "2026-MI-SS12",
+   "name": "John Goldwater"
+  },
+  {
+   "race_id": "2026-MI-SS31",
+   "name": "John Wetzel"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Suzanne Roehrig",
+   "endorsed_by": [
+    {
+     "party": "Working Class Party",
+     "unit": "Working Class Party of Michigan (its own announcement of 20 nominees for 2026 names her for Wayne State Board of Governors)",
+     "url": "https://workingclassfight.com/blog/working-class-party-will-put-up-20-candidates-in-the-2026-november/",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "name": "Kevin A. Elsenheimer",
+   "race_id": "2026-MI-CC13",
+   "what": "born",
+   "why": "Wikipedia gives the birth date with no citation; the rules allow Wikipedia only with a citation."
+  },
+  {
+   "name": "Rachelle Smit",
+   "race_id": "2026-MI-SH43",
+   "what": "website",
+   "why": "The address did not resolve on two tries, so the site could not be seen; it was also reported as dated 2022 with no mention of 2026."
+  }
+ ]
+}

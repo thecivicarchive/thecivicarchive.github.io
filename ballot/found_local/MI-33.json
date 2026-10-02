@@ -1,0 +1,385 @@
+{
+ "part": 33,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first eight candidates, so the rest were looked up only on pages whose address was already known or could be reached from one (school districts' own board pages, the House's own member list, the parties' own endorsement pages, the candidates' own sites). Not reached: David Prestin's campaign site (it answered 429, so it is left out), the Oakland County Republican slate page naming Johnnette Eggert (the page is drawn by script and its text could not be read), the Governor's press releases (the state's site refuses scripts), Lincoln Park's council page. A search summary said a Brittany Johnson was appointed to the 23rd District Court in 2021; her own campaign site says March 2026, and the 2021 page could not be opened, so only the campaign's statement is recorded. A blank here means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC2",
+   "name": "Jennifer L. Smith-DenDooven",
+   "official_page": {
+    "url": "https://www.berriencountymi.gov/1559/Hon-Jennifer-L-Smith",
+    "source": "Berrien County, Trial Court Judges, its page \"Hon. Jennifer L. Smith\" (the county's page gives her name as Jennifer L. Smith)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 2nd Circuit Court (Berrien County)",
+     "from": "2018",
+     "to": "",
+     "source": "Berrien County: \"Jennifer L. Smith was appointed to the 2nd Circuit Court by Governor Rick Snyder in September 2018\"",
+     "url": "https://www.berriencountymi.gov/1559/Hon-Jennifer-L-Smith",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC48",
+   "name": "Matt Antkoviak",
+   "official_page": {
+    "url": "https://www.allegancounty.org/courts-law-enforcement/48th-circuit-court/judges",
+    "source": "Allegan County, 48th Circuit Court, Judges: \"Honorable Matthew Antkoviak, Chief Circuit Court Judge\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 48th Circuit Court (Allegan County)",
+     "from": "2023",
+     "to": "",
+     "source": "Allegan County: \"Matthew (Matt) Antkoviak was appointed as Circuit Court judge and began serving on August 28, 2023\"",
+     "url": "https://www.allegancounty.org/courts-law-enforcement/48th-circuit-court/judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC23",
+   "name": "Brittany A. Johnson",
+   "website": {
+    "url": "https://www.judgebrittanyjohnson.com/",
+    "how": "The site is titled \"Brittany Johnson for Taylor\" and headed \"Brittany Johnson, 23rd District Judge, Taylor, Michigan\"; it speaks of her candidacy. Found by its address.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 23rd District Court (Taylor)",
+     "from": "2026",
+     "to": "",
+     "source": "Her campaign site: \"Brittany Alisha Johnson is on the bench at the 23rd District Court. Appointed by Governor Whitmer to fill a vacancy in March of 2026\"",
+     "url": "https://www.judgebrittanyjohnson.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC51-NI",
+   "name": "Pamela J. Monville"
+  },
+  {
+   "race_id": "2026-MI-DC77",
+   "name": "Peter Michael Jaklevic",
+   "offices": [
+    {
+     "office": "Judge, 77th District Court (Mecosta and Osceola Counties)",
+     "from": "",
+     "to": "",
+     "source": "Michigan Manual 2021-2022, \"Judges of the District Court\": district 77, Mecosta & Osceola Counties, Peter Jaklevic (the manual shows him in office then; it does not give the year he began)",
+     "url": "https://www.legislature.mi.gov/documents/2021-2022/michiganmanual/2021-MM-P0549-P0553.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-47800-council-2y",
+   "name": "Lylian Ross"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Yaz Ozbek"
+  },
+  {
+   "race_id": "2026-MI-S-25030-school-board-6y",
+   "name": "Ambreen Sattar"
+  },
+  {
+   "race_id": "2026-MI-S-33170-school-board-4y",
+   "name": "Corinne Dyksen"
+  },
+  {
+   "race_id": "2026-MI-S-39170-school-board-6y",
+   "name": "Stephanie Willoughby",
+   "official_page": {
+    "url": "https://www.vicksburgschools.org/our-district/board-of-education/meet-the-board/",
+    "source": "Vicksburg Community Schools, \"Meet the Board\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Vicksburg Community Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Vicksburg Community Schools, \"Meet the Board\": \"Stephanie Willoughby, Term expires: 2026\" (the page does not give the year she began)",
+     "url": "https://www.vicksburgschools.org/our-district/board-of-education/meet-the-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41080-school-board-4y",
+   "name": "Roman Rodriquez",
+   "official_page": {
+    "url": "https://www.cppschools.com/district/board-of-education/",
+    "source": "Comstock Park Public Schools, \"Board of Education\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Comstock Park Public Schools Board of Education (Vice President)",
+     "from": "2018",
+     "to": "",
+     "source": "Comstock Park Public Schools, \"Board Members\": \"Vice President Roman Rodriquez [Board term 2018/2026]\"",
+     "url": "https://www.cppschools.com/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50010-school-board-4y",
+   "name": "Gary T. Gasowski",
+   "official_page": {
+    "url": "https://www.clps.org/apps/pages/index.jsp?uREC_ID=578455&type=d&pREC_ID=1071145",
+    "source": "Center Line Public Schools, \"Meet the Board\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Center Line Public Schools Board of Education",
+     "from": "1985",
+     "to": "",
+     "source": "Center Line Public Schools, \"Meet the Board\": \"Trustee Gary Gasowski, First Elected May 1985, Term Ends December 31, 2026\"",
+     "url": "https://www.clps.org/apps/pages/index.jsp?uREC_ID=578455&type=d&pREC_ID=1071145",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50130-school-board-6y",
+   "name": "Robbyn Martin Morphew"
+  },
+  {
+   "race_id": "2026-MI-S-61010-school-board-6y",
+   "name": "Justin Charles Brownlee"
+  },
+  {
+   "race_id": "2026-MI-S-63040-school-board-4y",
+   "name": "Deborah Anderson",
+   "official_page": {
+    "url": "https://www.royaloakschools.org/district/board_of_education/meet_board_of_ed/deborah_anderson/",
+    "source": "Royal Oak Schools, \"Meet The Board of Education\", her own page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Royal Oak Schools Board of Education",
+     "from": "2006",
+     "to": "",
+     "source": "Royal Oak Schools: \"Deb Anderson, who has lived in Royal Oak since 1980, has been on the school board since 2006\"",
+     "url": "https://www.royaloakschools.org/district/board_of_education/meet_board_of_ed/deborah_anderson/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63160-school-board-6y",
+   "name": "Johnnette Eggert"
+  },
+  {
+   "race_id": "2026-MI-S-63270-school-board-p20281231-S",
+   "name": "William Zaglaniczny"
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Laurie Burks"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Bessie L. Harris",
+   "official_page": {
+    "url": "https://www.detroitk12.org/board-of-education",
+    "source": "Detroit Public Schools Community District, \"Board of Education\" (listed as Bessie Harris, Board Member)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Detroit Public Schools Community District Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Detroit Public Schools Community District, \"Board Member Appointments & Term Dates\": Bessie Harris, term end date 12/31/2026 (the page does not give the year she began)",
+     "url": "https://www.detroitk12.org/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82045-school-board-4y",
+   "name": "Molly Striz"
+  },
+  {
+   "race_id": "2026-MI-S-82155-school-board-6y",
+   "name": "Heather Lynn Lear",
+   "official_page": {
+    "url": "https://www.trentonschools.com/our-district/school-board",
+    "source": "Trenton Public Schools, \"Board of Education\" (listed as Heather Lear, Trustee)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Trenton Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Trenton Public Schools, \"Board of Education\": \"Heather Lear, Trustee, Term Expiration Date: December 31, 2026\" (the page does not give the year she began)",
+     "url": "https://www.trentonschools.com/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82405-school-board-6y",
+   "name": "Jason Craig"
+  },
+  {
+   "race_id": "2026-MI-SH109",
+   "name": "Anna Aho Rink",
+   "website": {
+    "url": "https://annaahorink4mi.com/",
+    "how": "The site is titled \"Anna Aho Rink for State Representative\", speaks of Marquette and the Upper Peninsula, and says \"Paid for by Anna Aho Rink for State Representative\".",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH30",
+   "name": "Omar G. Ferdin",
+   "website": {
+    "url": "https://www.omarferdin.com/",
+    "how": "The site says \"Meet our candidate, Omar Ferdin\", \"dedicated to serving District 30\" and \"bringing real community voices to Lansing\", and \"Paid for by Friends to Elect Omar Ferdin\". Found by its address.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH5",
+   "name": "Candace Calloway",
+   "website": {
+    "url": "https://www.votecandacecalloway.com/",
+    "how": "The site is titled \"Candace Calloway, District 5, for State Representative\", names Northwest Detroit, Oak Park and Royal Oak Township, and says \"Paid for by Committee to Elect Candace Calloway\".",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.ocdp.org/endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH7",
+   "name": "Tonya Myers Phillips",
+   "website": {
+    "url": "https://www.tonyamyersphillips.com/",
+    "how": "The site says \"State Representative Tonya Myers Phillips represents Michigan's 7th House District - Detroit, Hamtramck, and Highland Park\" and \"Paid for by Friends of Tonya Myers Phillips\". Found by its address.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH9",
+   "name": "Michele Lundgren"
+  },
+  {
+   "race_id": "2026-MI-SS19",
+   "name": "Julie M. Rogers",
+   "website": {
+    "url": "https://www.juliemrogers.com/",
+    "how": "The site is titled \"Julie Rogers for State Senate\" and says \"I am running to be your next State Senator in the open seat in District 19 in 2026\"; \"Paid for by Julie Rogers for State Senate\". Found by its address.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://housedems.com/julie-rogers/about/",
+    "source": "Michigan House Democrats (the House caucus's own site), \"Meet Rep. Rogers\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives, 41st District (third term)",
+     "from": "",
+     "to": "",
+     "source": "Michigan House Democrats: \"State Representative Julie M. Rogers was re-elected to her third term representing the 41st House District\" (the page does not give the year she began)",
+     "url": "https://housedems.com/julie-rogers/about/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Kalamazoo County Board of Commissioners (eight years, part of that time as chair)",
+     "from": "",
+     "to": "",
+     "source": "Michigan House Democrats: \"She also served on the Kalamazoo County Board of Commissioners for eight years, with part of that time as board chair\" (years not given)",
+     "url": "https://housedems.com/julie-rogers/about/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Kalamazoo County Democratic Party",
+     "url": "https://www.kzoodems.com/endorsements",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives, whose own member list reads \"Rogers, Rep. Julie M. (Democrat) District-41\"",
+     "year": "2026",
+     "party": "Democratic",
+     "source": "Michigan House of Representatives, list of representatives",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS38",
+   "name": "David Prestin",
+   "official_page": {
+    "url": "https://www.house.mi.gov/AllRepresentatives",
+    "source": "Michigan House of Representatives, list of representatives: \"Prestin, Rep. David (Republican) District-108\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives, 108th District",
+     "from": "",
+     "to": "",
+     "source": "Michigan House of Representatives, list of representatives: \"Prestin, Rep. David (Republican) District-108\" (the list does not give the year he began)",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives, whose own member list reads \"Prestin, Rep. David (Republican) District-108\"",
+     "year": "2026",
+     "party": "Republican",
+     "source": "Michigan House of Representatives, list of representatives",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

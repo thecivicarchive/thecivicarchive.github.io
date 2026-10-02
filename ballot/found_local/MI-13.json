@@ -1,0 +1,258 @@
+{
+ "part": 13,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "corrected": [
+  "Rosemarie Elizabeth Aquilina, 55th District Court: 'to' 2008 is not stated on the page; set to null",
+  "Mark T. Boonstra, Court of Appeals: 'to' present is not stated by the 2012 article; set to null",
+  "Jen Strebs, Chair: 'from' 2025 is not stated; the release says second consecutive year as Chair, wording put in the source line"
+ ],
+ "note": "The session's web search allowance ran out after the first 16 of 30 candidates; the 14 not searched (the school board candidates from Otsego onward in the list, and nothing further for Roehrig, Boedeker, Bever, Onwenu, Crain, Barranco, DeBoer, Van Alstine, Polonowski) are blank and could be researched again.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Jeff Polonowski"
+  },
+  {
+   "race_id": "2026-MI-CC30",
+   "name": "Rosemarie Elizabeth Aquilina",
+   "born": {
+    "year": 1958,
+    "source": "Wikipedia, Rosemarie Aquilina (judge of the 30th Circuit Court, Ingham County, Michigan), citing Ingham County's page on her",
+    "url": "https://en.wikipedia.org/wiki/Rosemarie_Aquilina",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 55th District Court (Michigan)",
+     "from": "elected 2004",
+     "to": null,
+     "source": "Wikipedia, Rosemarie Aquilina, citing Ingham County's page on her",
+     "url": "https://en.wikipedia.org/wiki/Rosemarie_Aquilina",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, 30th Circuit Court (Ingham County, Michigan)",
+     "from": "elected November 2008",
+     "to": "present",
+     "source": "Wikipedia, Rosemarie Aquilina, citing Ingham County's page on her",
+     "url": "https://en.wikipedia.org/wiki/Rosemarie_Aquilina",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-COA3",
+   "name": "Mark T. Boonstra",
+   "offices": [
+    {
+     "office": "Judge, Michigan Court of Appeals, 3rd District",
+     "from": "2012 (appointed by the Governor, announced March 16, 2012)",
+     "to": null,
+     "source": "AnnArbor.com, Ryan J. Stanton, March 16, 2012",
+     "url": "https://www.annarbor.com/news/washtenaw-county-gop-chairman-appointed-to-michigan-court-of-appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC39-NI",
+   "name": "Derek G. Boedeker"
+  },
+  {
+   "race_id": "2026-MI-DC65B-NI",
+   "name": "Laura M. Bever"
+  },
+  {
+   "race_id": "2026-MI-M-08160-council-4y",
+   "name": "John George",
+   "official_page": {
+    "url": "https://www.villagebeverlyhills.com/government/council/index.php",
+    "source": "Village of Beverly Hills, Michigan: Village Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Village Council member, Village of Beverly Hills (listed as President)",
+     "from": "2018",
+     "to": "present (term ends 2026)",
+     "source": "Village of Beverly Hills, Village Council page",
+     "url": "https://www.villagebeverlyhills.com/government/council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-88380-council-4y",
+   "name": "Darrel Penix",
+   "official_page": {
+    "url": "https://woodhavenmi.org/community/city_council/",
+    "source": "City of Woodhaven, Michigan: City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, City of Woodhaven",
+     "from": null,
+     "to": "present",
+     "source": "City of Woodhaven, City Council page (says he has served on the council for 18 years; no start year given)",
+     "url": "https://woodhavenmi.org/community/city_council/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Zoning Board of Appeals, City of Woodhaven",
+     "from": null,
+     "to": null,
+     "source": "City of Woodhaven, City Council page (four years; no years given)",
+     "url": "https://woodhavenmi.org/community/city_council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-03020-school-board-6y",
+   "name": "Jessica Hazelhoff"
+  },
+  {
+   "race_id": "2026-MI-S-33020-school-board-6y",
+   "name": "Aurora Lemieux-McKissic"
+  },
+  {
+   "race_id": "2026-MI-S-39030-school-board-4y",
+   "name": "Charmica Knight"
+  },
+  {
+   "race_id": "2026-MI-S-41026-school-board-6y",
+   "name": "Lisa Manley"
+  },
+  {
+   "race_id": "2026-MI-S-41170-school-board-4y",
+   "name": "Patrick D. Nugent"
+  },
+  {
+   "race_id": "2026-MI-S-50080-school-board-6y",
+   "name": "Terry Prince"
+  },
+  {
+   "race_id": "2026-MI-S-50220-school-board-6y",
+   "name": "Ivan Monroe Thomas"
+  },
+  {
+   "race_id": "2026-MI-S-62050-school-board-6y",
+   "name": "Jason McKinley"
+  },
+  {
+   "race_id": "2026-MI-S-63100-school-board-6y",
+   "name": "Paul D. Cook"
+  },
+  {
+   "race_id": "2026-MI-S-63250-school-board-6y",
+   "name": "Denise Simmons"
+  },
+  {
+   "race_id": "2026-MI-S-70040-school-board-6y",
+   "name": "Matthew Engel"
+  },
+  {
+   "race_id": "2026-MI-S-73040-school-board-p20281231-S",
+   "name": "Chris Psetas"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Theresa Williams"
+  },
+  {
+   "race_id": "2026-MI-S-82130-school-board-4y",
+   "name": "Nychole Smith"
+  },
+  {
+   "race_id": "2026-MI-S-82300-school-board-6y",
+   "name": "Nadia Tonova"
+  },
+  {
+   "race_id": "2026-MI-SH101",
+   "name": "Christopher R. Crain"
+  },
+  {
+   "race_id": "2026-MI-SH21",
+   "name": "Ross Barranco"
+  },
+  {
+   "race_id": "2026-MI-SH41",
+   "name": "Jen Strebs",
+   "website": {
+    "url": "https://www.jenstrebs.com/",
+    "how": "The site is titled Jen Strebs, asks to be the Democratic nominee for State House District 41, and is paid for by the Committee to Elect Jen Strebs",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Kalamazoo Township",
+     "from": null,
+     "to": null,
+     "source": "Her campaign site, About Jen (appointed, then elected; served three and a half years; no years given)",
+     "url": "https://www.jenstrebs.com/about-jen",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Kalamazoo County Commissioner, District 2",
+     "from": "2021",
+     "to": "present",
+     "source": "Her campaign site, About Jen (won election in 2021; now in her third term)",
+     "url": "https://www.jenstrebs.com/about-jen",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chair, Kalamazoo County Board of Commissioners",
+     "from": null,
+     "to": "present (re-elected chair January 6, 2026)",
+     "source": "Kalamazoo County news release, January 8, 2026 (re-elected for a second consecutive year as Chair)",
+     "url": "https://www.kalcounty.gov/CivicAlerts.aspx?AID=156",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "humbly asking to be your Democratic nominee for State House District 41",
+    "url": "https://www.jenstrebs.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH62",
+   "name": "Alicia St. Germaine",
+   "website": {
+    "url": "https://www.aliciastgermaine.com/",
+    "how": "The site is headed Alicia St.Germaine, Republican for State Representative District 62, paid for by CTE Alicia St. Germaine; its footer is dated 2022, so it may not have been updated for 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH81",
+   "name": "Holly DeBoer"
+  },
+  {
+   "race_id": "2026-MI-SS1",
+   "name": "Justin Onwenu"
+  },
+  {
+   "race_id": "2026-MI-SS3",
+   "name": "David Roehrig"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Jami Van Alstine"
+  }
+ ]
+}

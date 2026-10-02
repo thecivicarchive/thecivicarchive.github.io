@@ -1102,7 +1102,26 @@ party committee's appointment): a news article calling someone a Democrat or a R
 `state-page-only` now takes an optional `notes` argument (what the data stage reported) and keeps five states' built
 data byte-identical.
 
-States finished this way: MN (v4.0.081), WI (.082), IA (.083), ND (.085), SD (.086), OH (.087). A candidate's page on a party's
+Michigan (v4.0.088) taught these. The Michigan Voter Information Center (mvic.sos.state.mi.us/votehistory) answers
+scripts 403 and serves the Browser pane normally; its own download links give each election's precinct file
+(`/VoteHistory/GetPrecinctResultsFile?electionId=` 699 for 2024, 691 for 2022, 683 for 2020: `<year>GEN.zip`) and
+county file (`/VoteHistory/GetElectionResultFile?electionId=`), carried out of the pane into `states_cache/mi_local/`
+(in-page fetch, returned as `ZIPB64:<name>:<len>:<base64>`, decoded from the saved tool result). The Bureau's old
+host miboecfr.nictusa.com is now a people-search site: never request it. The 2024 tables begin with a UTF-8
+byte-order mark. The precinct files do not always add up to the Bureau's county totals (2022: 68 counties differ,
+most only in minor-party and write-in votes; 2020: ten, Clinton and Eaton by over a thousand), so
+`ballot/mi_place_votes.py` gives a contest for a county, and the places in it, only where the county's precincts
+equal the county file exactly, and lists every county left out with both figures. Supreme Court justices are
+nominated at party conventions and printed without a party: an `other_support` record of kind "convention nominee" is
+shown in its own words, apart from endorsements (every other `other_support` kind stays unshown). A market outcome
+that names nobody on the November list is not drawn, and the tab says so. A PDF draws a letter its font lacks in
+another font, which splits a name into pieces that touch ("Matea Č" + "aluk"): Ingham's reader now joins a piece
+that begins exactly where the name cell ends. A county list's reading is cached for some days
+(`ballot_cache/mi/local/<county>_2026_general_list.json`): after changing a reader, move that file aside or the old
+reading is used again. The photo-look script's repair agent now runs only when asked (`"repair": true`). Research for
+a big state goes out in halves (`parts` in the script's args), with a usage reading between them.
+
+States finished this way: MN (v4.0.081), WI (.082), IA (.083), ND (.085), SD (.086), OH (.087), MI (.088). A candidate's page on a party's
 own website is not their campaign website, whoever paid for it (RULES.md): `party_hosts(state)` in
 `ballot/local_sites.py` reads the parties' hosts from `ballot/lean/<code>_endorsements.json`, and the findings loader
 sets such a page aside, counts it and lists it on the state's review sheet (eight in North Dakota, all on

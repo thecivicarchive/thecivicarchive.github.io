@@ -1,0 +1,295 @@
+{
+ "part": 47,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-SH96",
+   "name": "Christopher R. Girard",
+   "what": "official_page (City of Bay City staff directory)",
+   "why": "the city's site could not be reached in three tries (name lookup failed)"
+  },
+  {
+   "race_id": "2026-MI-SS24",
+   "name": "Douglas Chester Wozniak",
+   "what": "website, and three offices sourced to his campaign site (State Representative 59th District, State Senator 8th District, Shelby Township Trustee)",
+   "why": "the campaign site could not be reached in three tries (name lookup failed)"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Christopher M. Blount"
+  },
+  {
+   "race_id": "2026-MI-CC6-NI",
+   "name": "Victoria King"
+  },
+  {
+   "race_id": "2026-MI-DC36",
+   "name": "Kenneth J. King",
+   "official_page": {
+    "url": "https://www.36thdistrictcourtmi.gov/about-us/judges/kenneth-j-king",
+    "source": "36th District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 36th District Court",
+     "from": "2006",
+     "to": "present",
+     "source": "36th District Court",
+     "url": "https://www.36thdistrictcourtmi.gov/about-us/judges/kenneth-j-king",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC58",
+   "name": "Anna White"
+  },
+  {
+   "race_id": "2026-MI-DC95A-NI",
+   "name": "Alexander Sieminski"
+  },
+  {
+   "race_id": "2026-MI-M-70520-council-p20281201-S",
+   "name": "Charles Allen"
+  },
+  {
+   "race_id": "2026-MI-PC125-PT2029",
+   "name": "Nicole S. Huddleston",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/probate-court/judges/hon-nicole-s-huddleston",
+    "source": "Oakland County Probate Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Oakland County Probate Court (appointed by the Governor, April 1, 2026)",
+     "from": "2026",
+     "to": "present",
+     "source": "Oakland County Probate Court",
+     "url": "https://www.oaklandcountymi.gov/government/courts/probate-court/judges/hon-nicole-s-huddleston",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-25100-school-board-p20281231-S",
+   "name": "Emily Rossmaessler"
+  },
+  {
+   "race_id": "2026-MI-S-33230-school-board-6y",
+   "name": "Christopher B. Stokdyk"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Robert Hovenkamp"
+  },
+  {
+   "race_id": "2026-MI-S-41140-school-board-6y",
+   "name": "Marie Groters"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-6y",
+   "name": "Dennis Richards"
+  },
+  {
+   "race_id": "2026-MI-S-50180-school-board-6y",
+   "name": "David Mangune"
+  },
+  {
+   "race_id": "2026-MI-S-61190-school-board-6y",
+   "name": "Tony Alan Schaub"
+  },
+  {
+   "race_id": "2026-MI-S-63070-school-board-4y",
+   "name": "Richard Peake"
+  },
+  {
+   "race_id": "2026-MI-S-63200-school-board-6y",
+   "name": "Verna Felder"
+  },
+  {
+   "race_id": "2026-MI-S-70010-school-board-6y",
+   "name": "Elaine D. Ebel"
+  },
+  {
+   "race_id": "2026-MI-S-70350-school-board-6y",
+   "name": "Heidi Geerlings"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Jameel Montgomery Smith"
+  },
+  {
+   "race_id": "2026-MI-S-82090-school-board-6y",
+   "name": "Gordon Gilbert"
+  },
+  {
+   "race_id": "2026-MI-S-82230-school-board-6y",
+   "name": "Ali Fawaz"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Wissam Charafeddine"
+  },
+  {
+   "race_id": "2026-MI-SH15",
+   "name": "Jalal Abdallah",
+   "website": {
+    "url": "https://www.votejalal.com/",
+    "how": "The site is titled 'Jalal Abdallah for State Representative | MI' and says he is running to represent Michigan's 15th House District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Dearborn Historical Commission",
+     "from": "",
+     "to": "present",
+     "source": "his campaign site",
+     "url": "https://www.votejalal.com/meet-jalal",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH36",
+   "name": "Cole Slaski"
+  },
+  {
+   "race_id": "2026-MI-SH56",
+   "name": "Ashok Baddi",
+   "website": {
+    "url": "https://www.ashokbaddi.com/",
+    "how": "The site is titled 'Ashok Baddi for State Representative' and says he is running for State Representative in Michigan's 56th District",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "former Democrat who left the party",
+    "url": "https://www.ashokbaddi.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH76",
+   "name": "Bill Kaiser",
+   "website": {
+    "url": "https://www.kaiser4michigan.com",
+    "how": "The site is titled 'Bill Kaiser for Michigan | MI Dist 76' and says he is running for Michigan State Representative in the 76th District",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Bill Kaiser is a conservative Republican running for Michigan State Representative",
+    "url": "https://www.kaiser4michigan.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH96",
+   "name": "Christopher R. Girard",
+   "website": {
+    "url": "https://www.girardformichigan.com/",
+    "how": "The site is titled 'Chris Girard for State Rep', says he served as a Bay City Commissioner and now serves as mayor and is running for State Representative",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Bay City",
+     "from": "",
+     "to": "present",
+     "source": "his campaign site",
+     "url": "https://www.girardformichigan.com/aboutchris",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Bay City Commissioner",
+     "from": "",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://www.girardformichigan.com/aboutchris",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS24",
+   "name": "Douglas Chester Wozniak",
+   "official_page": {
+    "url": "https://gophouse.org/member/repdougwozniak",
+    "source": "Michigan House Republicans (the caucus's member page for State Rep. Doug Wozniak, District 59)",
+    "verified": true
+   },
+   "born": {
+    "year": 1947,
+    "source": "Wikipedia, citing his committee's Statement of Organization filed with the Michigan Secretary of State",
+    "url": "https://en.wikipedia.org/wiki/Doug_Wozniak",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, 36th District",
+     "from": "2019",
+     "to": "2021",
+     "source": "Wikipedia, citing the 2018 Michigan House of Representatives election",
+     "url": "https://en.wikipedia.org/wiki/Doug_Wozniak",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Michigan Senate, 8th District, in a special election as a Republican",
+     "year": "2021",
+     "party": "Republican",
+     "source": "Wikipedia, citing The Macomb Daily ('Republican Wozniak wins state Senate seat')",
+     "url": "https://en.wikipedia.org/wiki/Doug_Wozniak",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS8",
+   "name": "Kenneth D. Massey",
+   "website": {
+    "url": "https://kenmassey.org",
+    "how": "The site is titled 'Ken Massey for Michigan State Senate, District 8'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Farmington Hills (elected 2015, re-elected 2017)",
+     "from": "2015",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://kenmassey.org/about.html",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Member, Farmington Hills City Council (first elected 2003)",
+     "from": "2003",
+     "to": "",
+     "source": "his campaign site",
+     "url": "https://kenmassey.org/about.html",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican candidate for Michigan State Senate District 8.",
+    "url": "https://kenmassey.org/about.html",
+    "verified": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,269 @@
+{
+ "part": 34,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after eight candidates (the judges and three legislators); the rest were researched only from pages reachable directly: Wikipedia's 2026 Michigan House and Senate election articles, the Michigan Courts directory, county and school district sites, and the campaign sites those name. The Governor's 2024 news release on Ellsworth Stay's appointment answered 403 and was left out. School board and city council candidates not found on their board's own page were not searched further. Blanks mean not looked up by search, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC20",
+   "name": "Jon Hulsing",
+   "official_page": {
+    "url": "https://www.courts.michigan.gov/api/directory/county/70",
+    "source": "Michigan Courts trial court directory, Ottawa County: 20th Circuit Court lists Honorable Jon H. Hulsing, Circuit Judge",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-CC49-NI",
+   "name": "Dennis L. Duvall Jr."
+  },
+  {
+   "race_id": "2026-MI-DC24",
+   "name": "John T. Courtright",
+   "official_page": {
+    "url": "https://www.courts.michigan.gov/api/directory/county/82",
+    "source": "Michigan Courts trial court directory, Wayne County: 24th District Court (Allen Park) lists Honorable John T. Courtright, District Judge",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC52-1",
+   "name": "Travis M. Reeds",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/52nd-district-court-division-1/about/honorable-judge-travis-reeds",
+    "source": "Oakland County, 52nd District Court Division 1: Honorable Judge Travis Reeds",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the 52nd District Court, 1st Division (elected District Judge in 2014)",
+     "from": "2014",
+     "to": "",
+     "source": "Oakland County, 52nd District Court Division 1",
+     "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/52nd-district-court-division-1/about/honorable-judge-travis-reeds",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC78",
+   "name": "Ellsworth J. Stay Jr.",
+   "official_page": {
+    "url": "https://www.newaygocountymi.gov/departments/judges/judges/",
+    "source": "Newaygo County, Judges: Honorable Ellsworth J. Stay Jr., District Court",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-47800-council-2y",
+   "name": "Nicholas J. Craven, Jr."
+  },
+  {
+   "race_id": "2026-MI-PC021",
+   "name": "Mabel Johnson Mayfield",
+   "official_page": {
+    "url": "https://www.berriencountymi.gov/697/Hon-Mabel-J-Mayfield-Chief-Judge",
+    "source": "Berrien County: Hon. Mabel J. Mayfield, Chief Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of Probate, Berrien County (appointed by Governor John Engler in January 2000, then elected)",
+     "from": "2000",
+     "to": "",
+     "source": "Berrien County",
+     "url": "https://www.berriencountymi.gov/697/Hon-Mabel-J-Mayfield-Chief-Judge",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chief Judge of the Berrien County Trial Court (appointed by the Michigan Supreme Court, effective January 1, 2020)",
+     "from": "2020",
+     "to": "",
+     "source": "Berrien County",
+     "url": "https://www.berriencountymi.gov/697/Hon-Mabel-J-Mayfield-Chief-Judge",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-25030-school-board-6y",
+   "name": "Frank Burger"
+  },
+  {
+   "race_id": "2026-MI-S-33170-school-board-4y",
+   "name": "Jon Sheets"
+  },
+  {
+   "race_id": "2026-MI-S-39170-school-board-p20301231-S",
+   "name": "Heather Zemitans"
+  },
+  {
+   "race_id": "2026-MI-S-41090-school-board-4y",
+   "name": "David Hall",
+   "official_page": {
+    "url": "https://www.egrps.org/district-information/board-of-education",
+    "source": "East Grand Rapids Public Schools, Board of Education: Trustee Mr. David Hall (term ends 12/31/2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-50020-school-board-4y",
+   "name": "Addie M. Richardson",
+   "official_page": {
+    "url": "https://www.eastpointeschools.org/board-of-education/",
+    "source": "Eastpointe Community Schools, Board of Education: Addie M. Richardson, Board Trustee, term ending December 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-50140-school-board-6y",
+   "name": "Adam Lipski",
+   "official_page": {
+    "url": "https://www.lc-ps.org/board-of-education/",
+    "source": "L'Anse Creuse Public Schools, Board of Education: Adam Lipski, Board President",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-61010-school-board-6y",
+   "name": "Kwame Kamau James"
+  },
+  {
+   "race_id": "2026-MI-S-63040-school-board-4y",
+   "name": "Liz Dupee"
+  },
+  {
+   "race_id": "2026-MI-S-63160-school-board-6y",
+   "name": "Kenneth Ferguson"
+  },
+  {
+   "race_id": "2026-MI-S-63280-school-board-6y",
+   "name": "Al Gui"
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Lisa Wilson"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Bobby Christian"
+  },
+  {
+   "race_id": "2026-MI-S-82050-school-board-4y",
+   "name": "Chase Malloy",
+   "official_page": {
+    "url": "https://www.gardencityschools.com/board/meet-the-board",
+    "source": "Garden City Public Schools, Meet the Board: Chase Malloy, Trustee, term ends 12/31/2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-82155-school-board-p20301231-S",
+   "name": "Kristina Mayoros",
+   "official_page": {
+    "url": "https://www.trentonschools.com/our-district/school-board",
+    "source": "Trenton Public Schools, School Board: Kristina Mayoros, Trustee, June 8 to December 31, 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-82405-school-board-6y",
+   "name": "Laekyn Jaciuk"
+  },
+  {
+   "race_id": "2026-MI-SH109",
+   "name": "Karl Bohnak",
+   "website": {
+    "url": "https://votebohnak.com/",
+    "how": "Listed as his campaign website on Wikipedia's 2026 Michigan House of Representatives election article; the site's home page reads Karl Bohnak For State Representative of the 109th District in Michigan's Upper Peninsula",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH30",
+   "name": "William Bruck",
+   "website": {
+    "url": "https://www.bruck4mi.com/",
+    "how": "Listed as his campaign website on Wikipedia's 2026 Michigan House of Representatives election article; the site names William Bruck and the Michigan House of Representatives, District 30 (it does not name the year)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH5",
+   "name": "Chris Venable"
+  },
+  {
+   "race_id": "2026-MI-SH70",
+   "name": "Cynthia R. Neeley",
+   "website": {
+    "url": "https://cynthianeeley.com",
+    "how": "Listed as her campaign website on Wikipedia's 2026 Michigan House of Representatives election article; the site is titled Re-Elect Cynthia Neeley for the 70th District, State Representative",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH9",
+   "name": "Willie Burton",
+   "website": {
+    "url": "https://willieburton.com/",
+    "how": "Listed as his campaign website on Wikipedia's 2026 Michigan House of Representatives election article; the site is titled Willie E. Burton for State Representative Dist. 9 and says he is running for State Representative in District 9 (Detroit)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Detroit Board of Police Commissioners, District 5 (the site says 12 years and calls him Commissioner Emeritus; no years given)",
+     "from": "",
+     "to": "",
+     "source": "His campaign site",
+     "url": "https://willieburton.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "13th District Democrats Endorse Willie Burton for State Representative",
+    "url": "https://willieburton.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS19",
+   "name": "Shaun Young",
+   "website": {
+    "url": "https://www.shaun-for-state-senate.com",
+    "how": "Listed as Shaun Young's campaign website on Wikipedia's 2026 Michigan Senate election article; the site is titled Shaun for State Senate District 19, Kalamazoo Michigan. Its visible text gives only the first name; the surname appears only in the site's own account handles, which read ShaunYoung",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS38",
+   "name": "Kelli J. Van Ginhoven",
+   "website": {
+    "url": "https://www.kvgforsenate2026.com/",
+    "how": "Listed as her campaign website on Wikipedia's 2026 Michigan Senate election article; the site is titled Kelli van Ginhoven for Michigan State Senate, District 38",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Delta County Commissioner, District 4 (serving today; no start year on the page)",
+     "from": "",
+     "to": "",
+     "source": "Delta County, Board of Commissioners",
+     "url": "https://deltacountymi.gov/board-of-commissioners/district-4-kelli-vanginhoven/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I am an anti-establishment, progressive Democrat and proud of it.",
+    "url": "https://www.kvgforsenate2026.com/meet-kelli",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

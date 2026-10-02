@@ -1,0 +1,194 @@
+{
+ "part": 42,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "note": "The session's web search budget was used up before this part began, so only pages reachable by a known address (courts, school districts, city, Wikipedia, campaign sites named there) were read. Candidates with no key beyond race_id and name were not found that way and deserve a second pass with search.",
+ "candidates": [
+  {"race_id": "2026-MI-CC3", "name": "Bradley L. Cobb"},
+  {
+   "race_id": "2026-MI-CC6",
+   "name": "Lisa Gorcyca",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/family-division/hon-lisa-gorcyca",
+    "source": "Oakland County, Sixth Judicial Circuit Court, its page for Hon. Lisa Gorcyca (Family Division)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 6th Circuit Court (Oakland County), Family Division (elected November 2008)",
+     "from": "",
+     "to": "now",
+     "source": "Oakland County Circuit Court, her page: \"Elected to the Sixth Judicial Circuit Court, November 2008\"; the page gives only the election date, not the day the term began",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/family-division/hon-lisa-gorcyca",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {"race_id": "2026-MI-DC34", "name": "Lisa Martin"},
+  {
+   "race_id": "2026-MI-DC56A-PT2029",
+   "name": "Reid S. Felsing",
+   "official_page": {
+    "url": "https://www.eatoncounty.org/386/56A-District-Court",
+    "source": "Eaton County, 56A District Court page, whose directory lists Hon. Reid Felsing, District Court Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 56A District Court (Eaton County)",
+     "from": "",
+     "to": "now",
+     "source": "Eaton County, 56A District Court directory; it gives no start date",
+     "url": "https://www.eatoncounty.org/386/56A-District-Court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC89",
+   "name": "Michael J. Ekdahl",
+   "official_page": {
+    "url": "https://www.cheboygancounty.net/courts-law-enforcement/89th-district-court/",
+    "source": "Cheboygan County, 89th District Court page: District Judge Michael J. Ekdahl",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 89th District Court (Cheboygan and Presque Isle Counties)",
+     "from": "2024",
+     "to": "now",
+     "source": "Cheboygan County, 89th District Court page: appointed in February of 2024, term commenced March 18, 2024",
+     "url": "https://www.cheboygancounty.net/courts-law-enforcement/89th-district-court/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {"race_id": "2026-MI-M-70520-council-4y", "name": "Melvin Price Jr."},
+  {
+   "race_id": "2026-MI-PC081",
+   "name": "David M. Murkowski",
+   "official_page": {
+    "url": "https://www.kentcountymi.gov/1432/Judges",
+    "source": "Kent County Probate Court, Judges page: David M. Murkowski, Probate Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Kent County Probate Court",
+     "from": "2006",
+     "to": "now",
+     "source": "Kent County Probate Court, Judges page: appointed to the Kent County Probate bench in 2006",
+     "url": "https://www.kentcountymi.gov/1432/Judges",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chief Judge, Kent County Probate Court",
+     "from": "2008",
+     "to": "2024",
+     "source": "Kent County Probate Court, Judges page: Chief Judge from January 1, 2008, to December 31, 2024; Chief Judge Pro Tempore from January 1, 2025",
+     "url": "https://www.kentcountymi.gov/1432/Judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-25050-school-board-6y",
+   "name": "Jeff Brown",
+   "official_page": {
+    "url": "https://www.goodrichschools.org/board-of-education-members",
+    "source": "Goodrich Area Schools, Board of Education Members page: Jeff Brown, Vice President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Goodrich Area Schools Board of Education",
+     "from": "",
+     "to": "now",
+     "source": "Goodrich Area Schools, Board of Education Members page; it gives no start date",
+     "url": "https://www.goodrichschools.org/board-of-education-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {"race_id": "2026-MI-S-33215-school-board-4y", "name": "Natasha Ortega"},
+  {"race_id": "2026-MI-S-41010-school-board-4y", "name": "Ismalis Nuñez"},
+  {"race_id": "2026-MI-S-41130-school-board-6y", "name": "Gregory D. Warsen"},
+  {"race_id": "2026-MI-S-50030-school-board-6y", "name": "Samantha Syer"},
+  {"race_id": "2026-MI-S-50170-school-board-6y", "name": "Regina Patton"},
+  {
+   "race_id": "2026-MI-S-61080-school-board-4y",
+   "name": "Dave Hazekamp",
+   "official_page": {
+    "url": "https://www.fruitportschools.net/board-of-education/meet-the-board/",
+    "source": "Fruitport Community Schools, Meet the Board page: David Hazekamp, President, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Fruitport Community Schools Board of Education",
+     "from": "2001",
+     "to": "now",
+     "source": "Fruitport Community Schools, Meet the Board page, where he writes that he has served on the Fruitport Board of Education since 2001 (the page spells his name David)",
+     "url": "https://www.fruitportschools.net/board-of-education/meet-the-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {"race_id": "2026-MI-S-63060-school-board-6y", "name": "Ayo Johnson"},
+  {"race_id": "2026-MI-S-63190-school-board-6y", "name": "Kristine Ferrell"},
+  {"race_id": "2026-MI-S-63300-school-board-6y", "name": "Kelly Hamilton"},
+  {"race_id": "2026-MI-S-70350-school-board-6y", "name": "Abby Lucas"},
+  {"race_id": "2026-MI-S-82015-school-board-4y", "name": "David Harris"},
+  {"race_id": "2026-MI-S-82055-school-board-4y", "name": "Michelle White"},
+  {
+   "race_id": "2026-MI-S-82170-school-board-4y",
+   "name": "Kelly Webber",
+   "official_page": {
+    "url": "https://www.wyandotte.org/district/board-of-education/",
+    "source": "Wyandotte Public Schools, Board of Education page: Kelly Webber, Trustee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, School District of the City of Wyandotte Board of Education",
+     "from": "",
+     "to": "now",
+     "source": "Wyandotte Public Schools, Board of Education page; it gives no start date",
+     "url": "https://www.wyandotte.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {"race_id": "2026-MI-SBOE", "name": "Kelli Monroe"},
+  {"race_id": "2026-MI-SH13", "name": "Mark Thomas Foster"},
+  {
+   "race_id": "2026-MI-SH33",
+   "name": "Morgan Foreman",
+   "website": {
+    "url": "https://www.forwardwithforeman.com",
+    "how": "Her own campaign site: it names Morgan Foreman, candidate for State Representative, House District 33, and is paid for by Friends of Morgan Foreman. The site gives no election year and its text reads as written for her first run.",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Morgan Foreman, Democratic candidate for State Representative",
+    "url": "https://www.forwardwithforeman.com",
+    "verified": true
+   }
+  },
+  {"race_id": "2026-MI-SH53", "name": "Melissa Schultz"},
+  {"race_id": "2026-MI-SH74", "name": "Clinton Tarver"},
+  {"race_id": "2026-MI-SH93", "name": "Tim Kelly"},
+  {"race_id": "2026-MI-SS21", "name": "Sarah Anthony"},
+  {"race_id": "2026-MI-SS6", "name": "Joi Pokerwinski"}
+ ]
+}

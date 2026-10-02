@@ -1,0 +1,363 @@
+{
+ "part": 45,
+ "of": 48,
+ "state": "MI",
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "note": "The session's web search allowance was already used up, so nobody could be searched for. Candidates were looked for only on pages that could be reached directly: Wikipedia, the courts', the House's and the caucuses' own pages, party endorsement pages already on file, and guessed campaign addresses. A blank here means not found that way, not that nothing exists. The Department of Education's board pages refused this script (403) and were not used. The Oakland County Republican slate page, which the endorsements file says names Tyler Soncrainte, could not be read as text here, so that endorsement is not recorded in this file. Not reached: the 3rd Circuit Court's judges page (drawn by script), Allegan County's district court page, and the school districts' and Saginaw's board pages.",
+ "verifier_note": "Every address in this file was re-opened on 2026-10-02 and every finding was confirmed on its page (31 findings). Wording corrected on four campaign-website entries: the address Mike McFall's site settles on, and three descriptions that claimed more than was re-checked or than the page says.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Charlene M. Elder"
+  },
+  {
+   "race_id": "2026-MI-CC6",
+   "name": "Nanci Grant",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-nanci-j-grant",
+    "source": "Oakland County's own page for Hon. Nanci J. Grant, Sixth Judicial Circuit Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 6th Circuit Court (Oakland County)",
+     "from": "1997",
+     "to": "present",
+     "source": "Oakland County Circuit Court's page: \"Elected to the Sixth Judicial Circuit Court in 1996\" (the term began in January 1997)",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-nanci-j-grant",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chief Judge, 6th Circuit Court (Oakland County)",
+     "from": "2009",
+     "to": "2017",
+     "source": "Oakland County Circuit Court's page: \"Past Chief Circuit Judge, November 2009 - 2017\"",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-nanci-j-grant",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC36",
+   "name": "Demetria Brue",
+   "official_page": {
+    "url": "https://www.36thdistrictcourtmi.gov/about-us/judges",
+    "source": "36th District Court's own Judges page lists \"Honorable Demetria Brue\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 36th District Court (Detroit)",
+     "from": "",
+     "to": "present",
+     "source": "36th District Court: Judges (lists her among the sitting judges; no start date given)",
+     "url": "https://www.36thdistrictcourtmi.gov/about-us/judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC57-PT2031",
+   "name": "Christopher E. Burnett",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Allegan County Democratic Party",
+     "url": "https://allegandems.com/candidates-2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC94-NI",
+   "name": "Andrew Hayse"
+  },
+  {
+   "race_id": "2026-MI-M-70520-council-4y",
+   "name": "Rachel Weidinger"
+  },
+  {
+   "race_id": "2026-MI-PC125-NI",
+   "name": "Elisabeth Dery",
+   "website": {
+    "url": "https://www.deryforprobatejudge.com",
+    "how": "Linked from the Oakland County Democratic Party's endorsements page; the site is titled \"Elisabeth Dery for Probate Judge\" and says she is running for Oakland County Probate Judge, November 3, 2026",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-25100-school-board-6y",
+   "name": "Carrie Lord"
+  },
+  {
+   "race_id": "2026-MI-S-33215-school-board-4y",
+   "name": "Ty Liggons"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Kimberley Williams"
+  },
+  {
+   "race_id": "2026-MI-S-41140-school-board-6y",
+   "name": "Brittney R. Rocha"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-6y",
+   "name": "Cyndy Williams-Sandoval"
+  },
+  {
+   "race_id": "2026-MI-S-50180-school-board-6y",
+   "name": "Beth Stemmerich"
+  },
+  {
+   "race_id": "2026-MI-S-61190-school-board-6y",
+   "name": "Jack Wydeck"
+  },
+  {
+   "race_id": "2026-MI-S-63070-school-board-4y",
+   "name": "Amanda MacCormick"
+  },
+  {
+   "race_id": "2026-MI-S-63200-school-board-6y",
+   "name": "Ron Recinto"
+  },
+  {
+   "race_id": "2026-MI-S-63300-school-board-6y",
+   "name": "Tyler Soncrainte"
+  },
+  {
+   "race_id": "2026-MI-S-70350-school-board-6y",
+   "name": "Dianne Fikse"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Georgia Mae Lemmons"
+  },
+  {
+   "race_id": "2026-MI-S-82060-school-board-6y",
+   "name": "Showkat Chowdhury"
+  },
+  {
+   "race_id": "2026-MI-S-82180-school-board-6y",
+   "name": "Tara AuBuchon"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "offices": [
+    {
+     "office": "Member, Michigan State Board of Education",
+     "from": "2019",
+     "to": "present",
+     "source": "Wikipedia, \"Michigan State Board of Education\" (members table, in a section citing the Michigan Department of Education's site): Tiffany Tilley, term began January 1, 2019",
+     "url": "https://en.wikipedia.org/wiki/Michigan_State_Board_of_Education",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Michigan Democratic Party",
+     "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+     "verified": true
+    },
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the State Board of Education, listed as Democratic",
+     "year": "2019",
+     "party": "Democratic",
+     "source": "Wikipedia, \"Michigan State Board of Education\" members table (members are nominated by party conventions and elected statewide)",
+     "url": "https://en.wikipedia.org/wiki/Michigan_State_Board_of_Education",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH14",
+   "name": "Mike McFall",
+   "website": {
+    "url": "https://votemcfall.com/",
+    "how": "The site is titled \"Re-Elect Mike McFall for State Representative in District 14\" and names Michigan State House District 14",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH35",
+   "name": "Jeff Cooley"
+  },
+  {
+   "race_id": "2026-MI-SH55",
+   "name": "Alex Hawkins",
+   "website": {
+    "url": "https://www.alexhawkins.org",
+    "how": "Linked from the Oakland County Democratic Party's endorsements page; the site is titled \"Alex Hawkins for State House District 55\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Democrat for Michigan State House District 55.",
+    "url": "https://www.alexhawkins.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH75",
+   "name": "Penelope Tsernoglou",
+   "website": {
+    "url": "https://votepenelope.com",
+    "how": "Address tried directly; the site is titled \"Penelope Tsernoglou for State Representative\" and announces a \"75th District 2026 Campaign Kickoff\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "fighting for our Democratic values",
+    "url": "https://votepenelope.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH95",
+   "name": "AnnMarie Horseman",
+   "website": {
+    "url": "https://annmariehorseman.com",
+    "how": "Address tried directly; the site is titled \"AnnMarie Horseman for Michigan's 95th\" and its committee is in Midland, in House District 95 (the site does not print the year)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS23",
+   "name": "Donni Steele",
+   "website": {
+    "url": "https://donnisteele.com",
+    "how": "The site is titled \"Donni Steele for State Senate\" and asks to elect Rep. Donni Steele to Michigan's 23rd Senate District",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://gophouse.org/member/RepDonniSteele/about",
+    "source": "Michigan House Republicans' member page for Rep. Donni Steele, 54th House District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Michigan House District 54",
+     "from": "2023",
+     "to": "present",
+     "source": "Michigan House Republicans' member page: \"elected state representative in November 2022\", 54th House District (the term began in January 2023)",
+     "url": "https://gophouse.org/member/RepDonniSteele/about",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Treasurer, Orion Township",
+     "from": "",
+     "to": "",
+     "source": "Michigan House Republicans' member page: \"served as Orion Township trustee, four years, and Orion Township treasurer for six years\" (no dates given)",
+     "url": "https://gophouse.org/member/RepDonniSteele/about",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Trustee, Orion Township",
+     "from": "",
+     "to": "",
+     "source": "Michigan House Republicans' member page: \"Orion Township trustee, four years\" (no dates given)",
+     "url": "https://gophouse.org/member/RepDonniSteele/about",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives as a Republican, District 54",
+     "year": "2023",
+     "party": "Republican",
+     "source": "Michigan House of Representatives: All Representatives (\"Steele, Rep. Donni (Republican) District-54\")",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS7",
+   "name": "Jason Hoskins",
+   "website": {
+    "url": "https://www.vote-jason-hoskins.com",
+    "how": "Linked from the Oakland County Democratic Party's endorsements page; the site is titled \"Jason Hoskins for State Senate\" and names State Senate District 7",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://housedems.com/Jason-Hoskins/",
+    "source": "Michigan House Democrats' member page for State Representative Jason Hoskins, 18th House District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, Michigan House District 18",
+     "from": "2023",
+     "to": "present",
+     "source": "Wikipedia, \"Jason Hoskins (politician)\": assumed office January 1, 2023; the Michigan House's list of representatives shows him in District 18 today",
+     "url": "https://en.wikipedia.org/wiki/Jason_Hoskins_(politician)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Southfield City Council",
+     "from": "",
+     "to": "2022",
+     "source": "Wikipedia, \"Jason Hoskins (politician)\": Southfield City Council, November 2019 to December 2022. His campaign site's Meet Jason page instead says he was elected to the council in 2015, so the start year is left blank",
+     "url": "https://en.wikipedia.org/wiki/Jason_Hoskins_(politician)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives as a Democrat, District 18",
+     "year": "2023",
+     "party": "Democratic",
+     "source": "Michigan House of Representatives: All Representatives (\"Hoskins, Rep. Jason M (Democrat) District-18\")",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

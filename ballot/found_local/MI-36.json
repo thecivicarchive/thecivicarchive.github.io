@@ -1,0 +1,216 @@
+{
+ "part": 36,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first eleven candidates, and the home router lost many lookups, so the rest were tried only on pages whose address was known or could be reached (court, city and school district pages, the House Republicans' member pages, the U.S. Taxpayers Party's home page). Not reached: the Governor's press releases (the state's site refuses scripts), the board pages of Grand Rapids, Royal Oak, West Bloomfield and Lamphere schools. Looked at and nothing recorded: East Grand Rapids' board page does not list Paul Bratt and Detroit's board page does not list Calesther Smith-Arnold (neither sits on the board today); the House Republicans' pages for Jason Woolford and Brian BeGole link no campaign website; the U.S. Taxpayers Party's home page showed no candidate list. No campaign website, birth year or party endorsement was confirmed for anyone in this part. A blank means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC22",
+   "name": "Tracy E. Van den Bergh",
+   "offices": [
+    {
+     "office": "Judge, Circuit Court, Washtenaw County",
+     "from": "2021",
+     "to": "",
+     "source": "Flint-Genesee County Legal News, May 28, 2021: \"elected by the voters of Washtenaw County in 2020 and took the bench on January 1, 2021\"; \"Prior to being seated on the circuit court\" (the article does not give the circuit's number)",
+     "url": "https://legalnews.com/flintgenesee/1499656",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC51",
+   "name": "Susan Kasley Sniegowski",
+   "offices": [
+    {
+     "office": "Judge, 51st Circuit Court (Mason and Lake counties)",
+     "from": "2015",
+     "to": "",
+     "source": "Mason County Press, August 28, 2016: \"in 2015, she took office as the first female judge in the 51st Circuit, which covers Mason and Lake counties\"",
+     "url": "https://www.masoncountypress.com/2016/08/28/life-in-circles-the-judge/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Prosecuting Attorney, Mason County",
+     "from": "2004",
+     "to": "",
+     "source": "Mason County Press, August 28, 2016: \"In 2004, Susan became the first female prosecuting attorney for Mason County\" (the article gives no end year)",
+     "url": "https://www.masoncountypress.com/2016/08/28/life-in-circles-the-judge/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC25-NI",
+   "name": "Krystle-Marie Medina"
+  },
+  {
+   "race_id": "2026-MI-DC52-3",
+   "name": "Laura E. Polizzi",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/52nd-district-court-division-3/about/honorable-laura-e-polizzi",
+    "source": "Oakland County, 52nd District Court, Division 3: \"Honorable Laura E. Polizzi\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 52nd District Court, 3rd Division (appointed May 2024, elected November 2024)",
+     "from": "2024",
+     "to": "",
+     "source": "Oakland County, 52nd District Court, Division 3: \"appointed to the bench of the 52-3 District Court in May 2024 and elected in November 2024\"",
+     "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/52nd-district-court-division-3/about/honorable-laura-e-polizzi",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC8",
+   "name": "Kathleen P. Hemingway",
+   "official_page": {
+    "url": "https://www.kalcounty.gov/553/Judges-Magistrates-Administrators",
+    "source": "Kalamazoo County, 8th District Court: Judges, Magistrates, Administrators",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 8th District Court (Kalamazoo County); Chief Judge",
+     "from": "2017",
+     "to": "",
+     "source": "Kalamazoo County: \"District Court Judge since 2017\", listed as Chief Judge",
+     "url": "https://www.kalcounty.gov/553/Judges-Magistrates-Administrators",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-47800-mayor-2y",
+   "name": "Maureen Tobin",
+   "official_page": {
+    "url": "https://www.citylp.com/162/Elected-Officials",
+    "source": "City of Lincoln Park, Michigan: Elected Officials, which lists Maureen Tobin as Mayor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Lincoln Park",
+     "from": "",
+     "to": "",
+     "source": "City of Lincoln Park, Michigan: Elected Officials (lists her as Mayor; no years given)",
+     "url": "https://www.citylp.com/162/Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-PC049-NI",
+   "name": "Andrea L. LeGendre"
+  },
+  {
+   "race_id": "2026-MI-S-25030-school-board-6y",
+   "name": "Michelle Mason"
+  },
+  {
+   "race_id": "2026-MI-S-33200-school-board-6y",
+   "name": "Jimmy Chapman",
+   "offices": [
+    {
+     "office": "Trustee, Stockbridge Community Schools Board of Education",
+     "from": "2026",
+     "to": "",
+     "source": "Stockbridge Community Schools Board of Education, minutes of the regular meeting of January 12, 2026: \"Oath of Office: Jimmy Chapman and Justin Richards\"; roll call \"Jimmy Chapman; Trustee\"",
+     "url": "https://www.panthernet.net/downloads/board_minutes/2025-26/minutes_board_agenda_january_12_2026.docx_-_google_docs.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Aarie Wade"
+  },
+  {
+   "race_id": "2026-MI-S-41090-school-board-4y",
+   "name": "Paul Bratt"
+  },
+  {
+   "race_id": "2026-MI-S-50020-school-board-4y",
+   "name": "Jon Gruenberg"
+  },
+  {
+   "race_id": "2026-MI-S-50140-school-board-6y",
+   "name": "Dale VanDeWater"
+  },
+  {
+   "race_id": "2026-MI-S-61060-school-board-6y",
+   "name": "Christine Burnaw"
+  },
+  {
+   "race_id": "2026-MI-S-63040-school-board-4y",
+   "name": "Michelle Cook"
+  },
+  {
+   "race_id": "2026-MI-S-63160-school-board-6y",
+   "name": "Stacy Gold Brickman"
+  },
+  {
+   "race_id": "2026-MI-S-63280-school-board-6y",
+   "name": "Robert T. Borngesser"
+  },
+  {
+   "race_id": "2026-MI-S-70190-school-board-6y",
+   "name": "Dawn L. Sneden"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Calesther Smith-Arnold"
+  },
+  {
+   "race_id": "2026-MI-S-82050-school-board-4y",
+   "name": "Jill Buterbaugh"
+  },
+  {
+   "race_id": "2026-MI-S-82160-school-board-6y",
+   "name": "Brittany Hill"
+  },
+  {
+   "race_id": "2026-MI-S-82430-school-board-4y",
+   "name": "Calvin H. Hawkins, Jr."
+  },
+  {
+   "race_id": "2026-MI-SH11",
+   "name": "Matthew Stafford"
+  },
+  {
+   "race_id": "2026-MI-SH31",
+   "name": "Shannon Dare Wayne"
+  },
+  {
+   "race_id": "2026-MI-SH50",
+   "name": "Jason Woolford"
+  },
+  {
+   "race_id": "2026-MI-SH71",
+   "name": "Brian BeGole"
+  },
+  {
+   "race_id": "2026-MI-SH90",
+   "name": "Rachel Crowther"
+  },
+  {
+   "race_id": "2026-MI-SS2",
+   "name": "Harry Sawicki"
+  },
+  {
+   "race_id": "2026-MI-SS4",
+   "name": "Beth Ann Socia"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}

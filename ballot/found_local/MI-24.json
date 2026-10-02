@@ -1,0 +1,371 @@
+{
+ "part": 24,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first fifteen candidates, so the rest were looked up only on pages whose address could be worked out (school districts' own board pages, campaign addresses tried by name). Not reached: the Governor's press releases (the state's site refuses scripts, so the two appointments rest on news reports), Ballotpedia (empty answer), the Portage, Ferndale, Hamilton and Rochester board pages (their member lists are drawn by script), Bridgeport-Spaulding and Woodhaven-Brownstown (sites not found), the Washtenaw County Republican Party's own site (no answer; Tawn Beliger's site shows its endorsement letter, which does not count until seen on the party's page), and any party page for the Michigan State University trustee nomination. Holt's and Taylor's board pages do not list Elizabeth Fleckenstein or Christopher Rosen as members. No birth year was found on a page that could be used. A blank here means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC16",
+   "name": "Matthew S. Switalski",
+   "official_page": {
+    "url": "https://www.macombgov.org/departments/16th-judicial-circuit-court/honorable-matthew-s-switalski",
+    "source": "Macomb County, 16th Judicial Circuit Court, its page \"Honorable Matthew S. Switalski\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 16th Judicial Circuit Court (Macomb County)",
+     "from": "2002",
+     "to": "",
+     "source": "Macomb County's page: \"Judge Switalski was elected to the Macomb County Circuit Court in 2002.\" (the year is the election's)",
+     "url": "https://www.macombgov.org/departments/16th-judicial-circuit-court/honorable-matthew-s-switalski",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC39",
+   "name": "Michael R. Olsaver",
+   "official_page": {
+    "url": "https://www.lenawee.mi.us/439/Circuit-Court",
+    "source": "Lenawee County, its Circuit Court page, which lists \"Judge Michael R. Olsaver, Circuit Court I\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC14A",
+   "name": "Anna Maria Frushour",
+   "official_page": {
+    "url": "https://www.washtenaw.org/1006/Judges-Admin",
+    "source": "Washtenaw County, 14A District Court, its \"Judges & Admin\" page, which names \"Judge Frushour\" at the 14A-3 District Court (family name only)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 14A District Court (Washtenaw County), appointed by the Governor",
+     "from": "2019",
+     "to": "",
+     "source": "Macomb County Legal News, April 24, 2020: \"Frushour was appointed by Gov. Gretchen Whitmer to the 14A District Court seat last December\"",
+     "url": "https://legalnews.com/macomb/1487567",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC47-NI",
+   "name": "Michael Sawicky",
+   "website": {
+    "url": "https://sawickyforjudge.com/",
+    "how": "The site's title is \"Michael Sawicky for District Court Judge | MI\" and it reads \"Magistrate Michael Sawicky for 47th District Court Judge\", with a countdown to the 2026 election. Found by trying the address, not from a search.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Attorney Magistrate, 47th District Court (Farmington and Farmington Hills), appointed",
+     "from": "",
+     "to": "",
+     "source": "47th District Court, 2025 Annual Report, page 2: \"Appointed 47th District Court Attorney Magistrates: Michael Sawicky ...\" (no year of appointment is given)",
+     "url": "https://www.fhgov.com/media/warfgri5/2025-annual-report-ada.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC71A-NI",
+   "name": "David N. Richardson",
+   "website": {
+    "url": "https://richardsonforjudge.com/",
+    "how": "The site's title is \"Dave Richardson for 71A District Court Judge\" and it names Lapeer County; its footer reads 2026. The site calls him Dave; our list has David N. Richardson for the same court.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-34000-council-ward-2-4y",
+   "name": "Bryan Cody",
+   "website": {
+    "url": "https://bryancody.com/",
+    "how": "The site's title is \"Committee to Elect Bryan Cody\" (Grand Rapids); its Top Priorities page speaks of Ward 2 and Grand Rapids (\"If elected, I will provide regular Ward 2 updates\"). The home page itself does not name the office.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "official_page": {
+    "url": "https://trustees.msu.edu/about/meet-the-trustees/s/brianna-t-scott",
+    "source": "Michigan State University Board of Trustees, its page \"Brianna T. Scott\" (Chair)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Michigan State University Board of Trustees (Chair today; term ends Jan. 1, 2027)",
+     "from": "2019",
+     "to": "",
+     "source": "Michigan State University, MSUToday, January 2019, \"Board elects new chairperson, welcomes new members\": an eight-year term beginning January 1, 2019. The Board's \"Meet the Trustees\" page lists \"Brianna T. Scott, Chair | Term ends Jan. 1, 2027\".",
+     "url": "https://msutoday.msu.edu/news/2019/01/board-elects-new-chairperson-welcomes-new-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-03100-school-board-6y",
+   "name": "Deb Brower"
+  },
+  {
+   "race_id": "2026-MI-S-33070-school-board-6y",
+   "name": "Elizabeth Fleckenstein"
+  },
+  {
+   "race_id": "2026-MI-S-39140-school-board-4y",
+   "name": "Kimberly Larson"
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-4y",
+   "name": "April Patin",
+   "official_page": {
+    "url": "https://www.csredhawks.org/our-district/board-of-education",
+    "source": "Cedar Springs Public Schools, its Board of Education page: \"April Patin, Board Secretary ... Term Expires: 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Secretary), Cedar Springs Public Schools Board of Education",
+     "from": "",
+     "to": "2026",
+     "source": "Cedar Springs Public Schools, Board of Education page: \"April Patin, Board Secretary ... Term Expires: 2026\" (no starting year is given)",
+     "url": "https://www.csredhawks.org/our-district/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41240-school-board-6y",
+   "name": "Kim Eluskie",
+   "official_page": {
+    "url": "https://www.spartaschools.org/about/departments/boardofeducation/",
+    "source": "Sparta Area Schools, its Board of Education page: \"Kim Eluskie, Treasurer - Term expires: 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Sparta Area Schools Board of Education",
+     "from": "",
+     "to": "2026",
+     "source": "Sparta Area Schools, Board of Education page: \"Kim Eluskie, Treasurer - Term expires: 2026\" (no starting year is given)",
+     "url": "https://www.spartaschools.org/about/departments/boardofeducation/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50100-school-board-6y",
+   "name": "Jamie Pietron",
+   "official_page": {
+    "url": "https://www.fraser.k12.mi.us/board-of-education",
+    "source": "Fraser Public Schools, its Board of Education page, which names \"Jamie Pietron, Trustee\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Fraser Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Fraser Public Schools, Board of Education page: \"Jamie Pietron, Trustee\" (no years are given)",
+     "url": "https://www.fraser.k12.mi.us/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-58020-school-board-6y",
+   "name": "Mike Stolkey",
+   "official_page": {
+    "url": "https://www.airportschools.com/board-of-education",
+    "source": "Airport Community Schools, its Board of Education page, which lists \"Michael Stolkey, Board Trustee\" (our list has Mike Stolkey)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Airport Community Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Airport Community Schools, Board of Education page: \"Michael Stolkey Board Trustee\" (no years are given; the page writes Michael, our list Mike)",
+     "url": "https://www.airportschools.com/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63020-school-board-p20281231-S",
+   "name": "Sandra NaTashia Dukhie"
+  },
+  {
+   "race_id": "2026-MI-S-63130-school-board-4y",
+   "name": "Deborah Laframboise",
+   "official_page": {
+    "url": "https://www.hazelparkschools.org/board-of-education/",
+    "source": "Hazel Park Schools, its Board of Education page: \"Deborah Laframboise, Board Vice President\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Hazel Park Schools Board of Education",
+     "from": "2023",
+     "to": "2026",
+     "source": "Hazel Park Schools, Board of Education page: \"Elected to serve on the Board from January 1, 2023, through December 31, 2026.\"",
+     "url": "https://www.hazelparkschools.org/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-6y",
+   "name": "Sherry Wynn Perdue"
+  },
+  {
+   "race_id": "2026-MI-S-70120-school-board-6y",
+   "name": "Geoff Twietmeyer",
+   "official_page": {
+    "url": "https://www.coopersvillebroncos.org/our-district/board-of-education/",
+    "source": "Coopersville Area Public Schools, its Board of Education page, which lists \"Geoff Twietmeyer, Trustee\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Coopersville Area Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Coopersville Area Public Schools, Board of Education page: \"Geoff Twietmeyer Trustee\" (no years are given)",
+     "url": "https://www.coopersvillebroncos.org/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-73180-school-board-4y",
+   "name": "Tammy Dowell-Bieszke"
+  },
+  {
+   "race_id": "2026-MI-S-82030-school-board-6y",
+   "name": "Adel A. Mozip",
+   "website": {
+    "url": "https://adelmozip.com/",
+    "how": "The site's title is \"Adel Mozip for Dearborn School Board\"; it reads \"Dearborn Public Schools - Trustee since 2019\", carries news dated 2026 and an Election Day countdown. Found by trying the address.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://dearbornschools.org/district/board-of-education/",
+    "source": "Dearborn Public Schools, its Board of Education page: \"Trustee Adel Mozip\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Dearborn Public Schools Board of Education (appointed April 2019, elected November 2020)",
+     "from": "2019",
+     "to": "",
+     "source": "Dearborn Public Schools, Board of Education page: \"Adel Mozip was appointed to the board in April 2019 and elected to a full term in November 2020.\"",
+     "url": "https://dearbornschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Christopher Rosen"
+  },
+  {
+   "race_id": "2026-MI-S-82365-school-board-4y",
+   "name": "Tierra Pugh"
+  },
+  {
+   "race_id": "2026-MI-SH105",
+   "name": "Frank Tillman"
+  },
+  {
+   "race_id": "2026-MI-SH26",
+   "name": "Dylan Wegela",
+   "website": {
+    "url": "https://dylanwegela.com/",
+    "how": "The site's title is \"Dylan Wegela for State Representative\"; it reads \"I have been proud to represent our district for the last three years\" and is paid for by People for Dylan Wegela, Garden City. It does not print the district number. Found by trying the address.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH46",
+   "name": "Jan Maino"
+  },
+  {
+   "race_id": "2026-MI-SH67",
+   "name": "Phil Green",
+   "website": {
+    "url": "https://electphilgreen.com/",
+    "how": "The site's title is \"Elect Phil Green State Representative\"; it reads \"Re-Elect Phil Green State Representative\" and describes \"Michigan's 67th House District\"; paid for by Friends of Phil Green. It carries no 2026 date; its newest dated item is from December 2023.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH86",
+   "name": "Nancy DeBoer",
+   "website": {
+    "url": "https://nancydeboer.com/",
+    "how": "The site's title is \"Nancy DeBoer | For State Representative\"; it names \"Michigan's 86th District (the greater Holland area)\" and reads \"I would be honored to receive your vote on August 4 and November 3, 2026.\" Found by trying the address.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS14",
+   "name": "Tawn Shawnelle Beliger",
+   "website": {
+    "url": "https://votetawn.com/",
+    "how": "The site's title is \"Vote Tawn - Tawn Beliger for State Senate District 14\"; it reads \"Tawn Shawnelle Beliger, Republican for Michigan State Senate District 14\" and speaks of the 2026 general election. Her older township site points to it as her campaign website.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Northfield Township (Washtenaw County)",
+     "from": "2016",
+     "to": "2020",
+     "source": "Her campaign site: \"She previously served as Northfield Township Trustee from 2016 to 2020.\"",
+     "url": "https://votetawn.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican for Michigan State Senate District 14",
+    "url": "https://votetawn.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS34",
+   "name": "Roger Hauck"
+  }
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MI-CC39",
+   "name": "Michael R. Olsaver",
+   "what": "offices: Judge, 39th Circuit Court, appointed 2019 (Michigan Advance)",
+   "why": "The news page answered 403 on two tries, so the appointment could not be seen."
+  },
+  {
+   "race_id": "2026-MI-SS34",
+   "name": "Roger Hauck",
+   "what": "website: rogerhauck.com",
+   "why": "The site is his 2022 campaign's (\"As your next state senator\", pictures filed 2022) and carries nothing for the 2026 race."
+  }
+ ]
+}

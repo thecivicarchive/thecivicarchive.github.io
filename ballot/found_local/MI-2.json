@@ -1,0 +1,253 @@
+{
+ "part": 2,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after six searches, so most candidates in this part were not searched for at all; a blank here means not looked up, not nothing to find. Left out because the page could not be opened by a script (a verifier could not re-open it either): the Governor's releases on michigan.gov naming Mark W. Latchana (7th Circuit, 2020) and Maria Ladas Hoopes (60th District Court, 2006), and Megan Cavanagh's campaign site named in her Wikipedia article (the address did not answer).",
+ "candidates": [
+  {
+   "race_id": "2026-MI-26099-county-executive-4y",
+   "name": "Mark A. Hackel",
+   "website": {
+    "url": "https://www.markhackel.com/",
+    "how": "Linked from his Wikipedia article; the site is headed 'Mark A. Hackel, Macomb County Executive' and says 'Paid for by Mark Hackel for County Executive'. It answered one request with 429 and the next normally.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.macombgov.org/departments/office-county-executive/about-county-executive",
+    "source": "Macomb County, Office of the County Executive",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Macomb County Executive",
+     "from": "2011",
+     "to": "",
+     "source": "Macomb County, Meet Mark A. Hackel",
+     "url": "https://www.macombgov.org/departments/office-county-executive/about-county-executive",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Macomb County Sheriff",
+     "from": "2001",
+     "to": "2010",
+     "source": "Wikipedia, Mark Hackel (the county's own page says he was elected sheriff in November 2000)",
+     "url": "https://en.wikipedia.org/wiki/Mark_Hackel",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected Macomb County Executive as the Democratic candidate",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Wikipedia, Mark Hackel, Electoral history",
+     "url": "https://en.wikipedia.org/wiki/Mark_Hackel",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "Won the Democratic primary for Macomb County Executive",
+     "year": 2018,
+     "party": "Democratic",
+     "source": "Wikipedia, Mark Hackel, Electoral history",
+     "url": "https://en.wikipedia.org/wiki/Mark_Hackel",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Don Knapp"
+  },
+  {
+   "race_id": "2026-MI-CC7",
+   "name": "Mark W. Latchana"
+  },
+  {
+   "race_id": "2026-MI-DC36-NI",
+   "name": "Delphia J. Burton",
+   "official_page": {
+    "url": "https://36thdistrictcourtmi.gov/about-us/magistrates/delphia-burton",
+    "source": "36th District Court, Magistrates",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, 36th District Court",
+     "from": "2025",
+     "to": "",
+     "source": "36th District Court",
+     "url": "https://36thdistrictcourtmi.gov/about-us/magistrates/delphia-burton",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC60",
+   "name": "Maria Ladas Hoopes"
+  },
+  {
+   "race_id": "2026-MI-DC96-NI",
+   "name": "Derek G. Swajanen"
+  },
+  {
+   "race_id": "2026-MI-M-82960-council-ward-1-p20281201-S",
+   "name": "Thomas Knapp"
+  },
+  {
+   "race_id": "2026-MI-PC151-NI",
+   "name": "Sara L. Grout"
+  },
+  {
+   "race_id": "2026-MI-S-25150-school-board-4y",
+   "name": "Karol Barber"
+  },
+  {
+   "race_id": "2026-MI-S-33230-school-board-6y",
+   "name": "Steven J. Panganis"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "William Hugh Dykstra"
+  },
+  {
+   "race_id": "2026-MI-S-41145-school-board-4y",
+   "name": "Danielle Roberts"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-p20281231-S",
+   "name": "Anthony Birkmeier"
+  },
+  {
+   "race_id": "2026-MI-S-50190-school-board-6y",
+   "name": "Josie Docherty"
+  },
+  {
+   "race_id": "2026-MI-S-61220-school-board-6y",
+   "name": "Brooke Sano-Lubbers"
+  },
+  {
+   "race_id": "2026-MI-S-63080-school-board-4y",
+   "name": "Paul Kolin"
+  },
+  {
+   "race_id": "2026-MI-S-63210-school-board-4y",
+   "name": "Liz Cunningham"
+  },
+  {
+   "race_id": "2026-MI-S-70010-school-board-6y",
+   "name": "Michael D. Secrest"
+  },
+  {
+   "race_id": "2026-MI-S-73010-school-board-p20281231-S",
+   "name": "Rebecca A. Yager"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Liana Mulholland"
+  },
+  {
+   "race_id": "2026-MI-S-82095-school-board-4y",
+   "name": "Colleen Burton"
+  },
+  {
+   "race_id": "2026-MI-S-82230-school-board-6y",
+   "name": "Zouher Abdel-Hak"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "born": {
+    "year": 1971,
+    "source": "Wikipedia, Megan Cavanagh (judge)",
+    "url": "https://en.wikipedia.org/wiki/Megan_Cavanagh_(judge)",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Michigan Supreme Court",
+     "from": "2019",
+     "to": "",
+     "source": "Wikipedia, Megan Cavanagh (judge)",
+     "url": "https://en.wikipedia.org/wiki/Megan_Cavanagh_(judge)",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Chief Justice of the Michigan Supreme Court",
+     "from": "2025",
+     "to": "",
+     "source": "Wikipedia, Megan Cavanagh (judge)",
+     "url": "https://en.wikipedia.org/wiki/Megan_Cavanagh_(judge)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected to the Michigan Supreme Court; the article says the Democratic Party endorsed her candidacy",
+     "year": 2018,
+     "party": "Democratic",
+     "source": "Wikipedia, Megan Cavanagh (judge)",
+     "url": "https://en.wikipedia.org/wiki/Megan_Cavanagh_(judge)",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH17",
+   "name": "Ken Crider"
+  },
+  {
+   "race_id": "2026-MI-SH37",
+   "name": "Brad Paquette"
+  },
+  {
+   "race_id": "2026-MI-SH57",
+   "name": "Tom Turner"
+  },
+  {
+   "race_id": "2026-MI-SH77",
+   "name": "Sally Jo Nelton"
+  },
+  {
+   "race_id": "2026-MI-SH97",
+   "name": "Jack Bader"
+  },
+  {
+   "race_id": "2026-MI-SS25",
+   "name": "April L. Osentoski"
+  },
+  {
+   "race_id": "2026-MI-SS9",
+   "name": "Philippe M. Cicchini"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-26099-county-executive-4y",
+   "name": "Mark A. Hackel",
+   "what": "born",
+   "why": "Wikipedia gives the birth date with no citation; the rules allow Wikipedia only with one."
+  },
+  {
+   "race_id": "2026-MI-SH37",
+   "name": "Brad Paquette",
+   "what": "website",
+   "why": "The address did not resolve on two tries."
+  },
+  {
+   "race_id": "2026-MI-SH37",
+   "name": "Brad Paquette",
+   "what": "own_words",
+   "why": "The site could not be opened, so the quote could not be seen."
+  }
+ ]
+}

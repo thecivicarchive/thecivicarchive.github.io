@@ -1,0 +1,285 @@
+{
+ "part": 46,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already used up when this part began, so nobody here was searched for. Candidates were looked up only on pages whose address was known or could be tried directly: campaign addresses tried by name, Wikipedia, the Oakland County Democratic Party's endorsements page, and a few governments' and school districts' own pages. Checked and found nothing: Oakland County Probate Court's judges page (Hallmark is not a sitting judge), and the board pages of Kelloggsville, Zeeland, Avondale and Detroit schools (Tanis, Miller, Enderle and Ivey are not listed as members). Not reached: the Third Circuit Court's and 36th District Court's judge pages (one loads by script, one answered 404), Ballotpedia (empty for scripts), the Oakland County Republican slate page (loads by script, so its endorsements of Neilson and Hallmark could not be seen and are not recorded here), the U.S. Taxpayers Party's candidate page (title only), and the other school districts' sites. Angela Witwer's campaign address was not found. Mark Tisdel's birth date on Wikipedia has no citation and is left out. Polehanki has no member id in our record, so her official page, birth year and offices are given. A blank here means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Chris Dingell",
+   "born": {
+    "year": 1957,
+    "source": "Wikipedia, \"Christopher D. Dingell\": the opening sentence gives the birth date and is footnoted to the Martindale-Hubbell Law Directory; cut to the year",
+    "url": "https://en.wikipedia.org/wiki/Christopher_D._Dingell",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan State Senate",
+     "from": "1987",
+     "to": "2003",
+     "source": "Wikipedia, \"Christopher D. Dingell\" (with citations): \"He served in the Michigan State Senate from 1987 to 2003\"",
+     "url": "https://en.wikipedia.org/wiki/Christopher_D._Dingell",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, Third Circuit Court (Wayne County)",
+     "from": "",
+     "to": "",
+     "source": "Wikipedia, \"Christopher D. Dingell\" (with citations): a Michigan Circuit Court judge, \"now as member of 3rd Circuit for Wayne County\"; the article gives no starting year",
+     "url": "https://en.wikipedia.org/wiki/Christopher_D._Dingell",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sat in the Michigan State Senate, whose members sit by party, as a Democrat",
+     "year": "1987",
+     "party": "Democratic",
+     "source": "Wikipedia, \"Christopher D. Dingell\" (with citations)",
+     "url": "https://en.wikipedia.org/wiki/Christopher_D._Dingell",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC6-NI",
+   "name": "Lisa Marie Neilson"
+  },
+  {
+   "race_id": "2026-MI-DC36",
+   "name": "E. Lynise Bryant"
+  },
+  {
+   "race_id": "2026-MI-DC57-PT2031",
+   "name": "Tom Siver",
+   "website": {
+    "url": "https://www.votesiver.com/",
+    "how": "The site's title is \"Tom Siver for District Court Judge\" and it names \"Allegan County's 57th District Court\" and 2026; the address first recorded, siverforjudge.com, now forwards here",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC94-NI",
+   "name": "Trent Stupak",
+   "website": {
+    "url": "https://stupakforjudge.com/",
+    "how": "The site's title is \"Trent Stupak for District Judge\"; it says he is seeking to be elected the next Delta County District Court Judge, is dated 2026 and links the county's 94th District Court page; found by trying the address, not by search",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-70520-council-4y",
+   "name": "Tobias Young",
+   "official_page": {
+    "url": "https://www.saginaw-mi.com/230/City-Council",
+    "source": "City of Saginaw, its City Council page, which lists \"Tobias Young, Term Expires: 2026\" among the council members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Saginaw City Council",
+     "from": "",
+     "to": "",
+     "source": "City of Saginaw, City Council page: \"Tobias Young, Term Expires: 2026\"; the page gives no starting year",
+     "url": "https://www.saginaw-mi.com/230/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-PC125-NI",
+   "name": "Jessica Ann Hallmark",
+   "website": {
+    "url": "https://hallmarkforjudge.com/",
+    "how": "The site is headed \"Jessica Ann Hallmark for Oakland County Probate Judge\", dated 2026; found by trying the address, not by search",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-25100-school-board-6y",
+   "name": "Ryan J. Reece"
+  },
+  {
+   "race_id": "2026-MI-S-33215-school-board-4y",
+   "name": "Vince Perkins"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Lisa Lint"
+  },
+  {
+   "race_id": "2026-MI-S-41140-school-board-6y",
+   "name": "Laura Tanis"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-6y",
+   "name": "Daryl Scott Ayers"
+  },
+  {
+   "race_id": "2026-MI-S-50180-school-board-6y",
+   "name": "Dana Maclean"
+  },
+  {
+   "race_id": "2026-MI-S-61190-school-board-6y",
+   "name": "Robert Skeels"
+  },
+  {
+   "race_id": "2026-MI-S-63070-school-board-4y",
+   "name": "Jessica Enderle"
+  },
+  {
+   "race_id": "2026-MI-S-63200-school-board-6y",
+   "name": "Santoria Shepherd"
+  },
+  {
+   "race_id": "2026-MI-S-70010-school-board-6y",
+   "name": "Abby Reenders Emmerich"
+  },
+  {
+   "race_id": "2026-MI-S-70350-school-board-6y",
+   "name": "Eric Miller"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Henrietta Ivey"
+  },
+  {
+   "race_id": "2026-MI-S-82060-school-board-6y",
+   "name": "Tazia Miah"
+  },
+  {
+   "race_id": "2026-MI-S-82180-school-board-p20281231-S",
+   "name": "Stephanie Ingram"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "William Mohr II"
+  },
+  {
+   "race_id": "2026-MI-SH15",
+   "name": "Hassan H Nehme",
+   "website": {
+    "url": "https://hassannehme.com/",
+    "how": "The site's title is \"Hassan Nehme - Candidate for Michigan House District 15\"; found by trying the address, not by search",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH35",
+   "name": "Jennifer Wortz",
+   "website": {
+    "url": "https://www.jenniferwortz.com/",
+    "how": "The site's title begins \"Jennifer Wortz for Michigan\" and ends \"State Rep\"; it names Hillsdale County and Branch County and is paid for by her committee for State Rep; it does not print the district number, and its footer is dated 2024, so it may not have been renewed for 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH55",
+   "name": "Mark Tisdel",
+   "website": {
+    "url": "https://www.marktisdel.com/",
+    "how": "The site's title is \"Mark Tisdel for State Representative\" and it names him State Representative, District 55 (Rochester, Rochester Hills, Oakland Township); its letter still speaks of the 2022 election, so it may not have been renewed for 2026; found by trying the address, not by search",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH76",
+   "name": "Angela Witwer"
+  },
+  {
+   "race_id": "2026-MI-SH95",
+   "name": "Bill G. Schuette",
+   "website": {
+    "url": "https://www.billgschuette.com/",
+    "how": "The site's title is \"Bill G. Schuette - Moving Mid-Michigan Forward\"; it is paid for by Bill G. Schuette for State Representative, Midland; it does not print the district number, and its date reads 2024, so it may not have been renewed for 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS23",
+   "name": "Greg Hill",
+   "website": {
+    "url": "https://www.greghillformichigan.com/",
+    "how": "Linked from the Oakland County Democratic Party's \"2026 Endorsed Candidates\" page; the site says \"Greg Hill, Candidate for Michigan Senate District 23\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS8",
+   "name": "Dayna Polehanki",
+   "website": {
+    "url": "https://www.daynaforsenate.com/",
+    "how": "Linked from the Oakland County Democratic Party's \"2026 Endorsed Candidates\" page; the site's title is \"Re-elect Dayna Polehanki for Michigan State Senate\" and it says \"Re-elect Dayna in November 2026\"",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://senatedems.com/polehanki/",
+    "source": "Michigan Senate Democrats, the caucus's page \"Senator Dayna Polehanki\" (District 5)",
+    "verified": true
+   },
+   "born": {
+    "year": 1969,
+    "source": "Wikipedia, \"Dayna Polehanki\", citing the 2023-2024 Michigan Manual, page 172",
+    "url": "https://en.wikipedia.org/wiki/Dayna_Polehanki",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan Senate, 7th district",
+     "from": "2019",
+     "to": "2022",
+     "source": "Wikipedia, \"Dayna Polehanki\" (with citations)",
+     "url": "https://en.wikipedia.org/wiki/Dayna_Polehanki",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Michigan Senate, 5th district",
+     "from": "2023",
+     "to": "",
+     "source": "Wikipedia, \"Dayna Polehanki\" (with citations): \"has represented the 5th district since 2023\"",
+     "url": "https://en.wikipedia.org/wiki/Dayna_Polehanki",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Oakland County Democratic Party",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan Senate, whose members sit by party, in the Democratic caucus (her campaign's page: \"served in the Michigan Senate since 2019 and was appointed the Democratic Majority Caucus Chairwoman\")",
+     "year": "2019",
+     "party": "Democratic",
+     "source": "Her campaign's About page",
+     "url": "https://www.daynaforsenate.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every address re-opened on 2026-10-02. All 22 findings confirmed. Corrected: Siver's campaign address (the old one forwards to a new one), the wording of Dingell's birth-year source, and the notes on Wortz's and Schuette's sites (both dated 2024)."
+}

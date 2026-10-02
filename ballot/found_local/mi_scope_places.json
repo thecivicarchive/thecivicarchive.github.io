@@ -1,0 +1,2023 @@
+{
+ "state": "MI",
+ "made": "2026-10-02",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "MI-M-34000",
+   "name": "Grand Rapids city",
+   "census_name": "Grand Rapids city",
+   "population": 198535,
+   "margin": 81,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "MI-M-88940",
+   "name": "Wyoming city",
+   "census_name": "Wyoming city",
+   "population": 77353,
+   "margin": 49,
+   "races": 3,
+   "candidates": 7
+  },
+  {
+   "id": "MI-M-21020",
+   "name": "Dearborn Heights city",
+   "census_name": "Dearborn Heights city",
+   "population": 61771,
+   "margin": 55,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-M-70520",
+   "name": "Saginaw city",
+   "census_name": "Saginaw city",
+   "population": 43536,
+   "margin": 39,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "id": "MI-M-47800",
+   "name": "Lincoln Park city",
+   "census_name": "Lincoln Park city",
+   "population": 39257,
+   "margin": 43,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "MI-M-31420",
+   "name": "Garden City city",
+   "census_name": "Garden City city",
+   "population": 26739,
+   "margin": 46,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-M-82960",
+   "name": "Walker city",
+   "census_name": "Walker city",
+   "population": 25386,
+   "margin": 51,
+   "races": 4,
+   "candidates": 5
+  },
+  {
+   "id": "MI-M-84940",
+   "name": "Wayne city",
+   "census_name": "Wayne city",
+   "population": 17310,
+   "margin": 24,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-M-88380",
+   "name": "Woodhaven city",
+   "census_name": "Woodhaven city",
+   "population": 12690,
+   "margin": 24,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "MI-M-08160",
+   "name": "Beverly Hills village",
+   "census_name": "Beverly Hills village",
+   "population": 10524,
+   "margin": 33,
+   "races": 1,
+   "candidates": 7
+  }
+ ],
+ "school_districts": [
+  {
+   "id": "MI-S-82015",
+   "name": "Detroit Public Schools Community District",
+   "census_name": "Detroit Public Schools Community District",
+   "census_geo_id": "9700000US2601103",
+   "population": 638530,
+   "margin": 62,
+   "races": 2,
+   "candidates": 34
+  },
+  {
+   "id": "MI-S-50210",
+   "name": "Utica Community Schools",
+   "census_name": "Utica Community Schools",
+   "census_geo_id": "9700000US2634470",
+   "population": 192514,
+   "margin": 2462,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-41010",
+   "name": "Grand Rapids Public Schools",
+   "census_name": "Grand Rapids Public Schools",
+   "census_geo_id": "9700000US2616440",
+   "population": 192192,
+   "margin": 1106,
+   "races": 2,
+   "candidates": 16
+  },
+  {
+   "id": "MI-S-82100",
+   "name": "Plymouth-Canton Community Schools",
+   "census_name": "Plymouth-Canton Community Schools",
+   "census_geo_id": "9700000US2628560",
+   "population": 130938,
+   "margin": 1313,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-50230",
+   "name": "Warren Consolidated Schools",
+   "census_name": "Warren Consolidated Schools",
+   "census_geo_id": "9700000US2635190",
+   "population": 118757,
+   "margin": 2612,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-33020",
+   "name": "Lansing Public School District",
+   "census_name": "Lansing Public School District",
+   "census_geo_id": "9700000US2621150",
+   "population": 118248,
+   "margin": 702,
+   "races": 3,
+   "candidates": 9
+  },
+  {
+   "id": "MI-S-82030",
+   "name": "Dearborn City School District",
+   "census_name": "Dearborn City School District",
+   "census_geo_id": "9700000US2611600",
+   "population": 115673,
+   "margin": 1085,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-82095",
+   "name": "Livonia Public Schools School District",
+   "census_name": "Livonia Public Schools",
+   "census_geo_id": "9700000US2621840",
+   "population": 112295,
+   "margin": 1652,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63290",
+   "name": "Walled Lake Consolidated Schools",
+   "census_name": "Walled Lake Consolidated Schools",
+   "census_geo_id": "9700000US2635160",
+   "population": 110371,
+   "margin": 2414,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-39010",
+   "name": "Kalamazoo Public Schools",
+   "census_name": "Kalamazoo Public School District",
+   "census_geo_id": "9700000US2619950",
+   "population": 107620,
+   "margin": 1678,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-50080",
+   "name": "Chippewa Valley Schools",
+   "census_name": "Chippewa Valley Schools",
+   "census_geo_id": "9700000US2609570",
+   "population": 107362,
+   "margin": 2197,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-63260",
+   "name": "Rochester Community School District",
+   "census_name": "Rochester Community School District",
+   "census_geo_id": "9700000US2629940",
+   "population": 98805,
+   "margin": 1071,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-63200",
+   "name": "Farmington Public School District",
+   "census_name": "Farmington Public School District",
+   "census_geo_id": "9700000US2614070",
+   "population": 89704,
+   "margin": 981,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82160",
+   "name": "Wayne-Westland Community School District",
+   "census_name": "Wayne-Westland Community School District",
+   "census_geo_id": "9700000US2600015",
+   "population": 88034,
+   "margin": 2355,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-63030",
+   "name": "Pontiac City School District",
+   "census_name": "Pontiac City School District",
+   "census_geo_id": "9700000US2628740",
+   "population": 81471,
+   "margin": 1013,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-63300",
+   "name": "Waterford School District",
+   "census_name": "Waterford School District",
+   "census_geo_id": "9700000US2635310",
+   "population": 76392,
+   "margin": 822,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-63060",
+   "name": "Southfield Public School District",
+   "census_name": "Southfield Public School District",
+   "census_geo_id": "9700000US2632310",
+   "population": 73365,
+   "margin": 950,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-63150",
+   "name": "Troy School District",
+   "census_name": "Troy School District",
+   "census_geo_id": "9700000US2634260",
+   "population": 70343,
+   "margin": 1589,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-50140",
+   "name": "L'Anse Creuse Public Schools",
+   "census_name": "L'Anse Creuse Public Schools",
+   "census_geo_id": "9700000US2621870",
+   "population": 70301,
+   "margin": 2048,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-09010",
+   "name": "Bay City School District",
+   "census_name": "Bay City School District",
+   "census_geo_id": "9700000US2604260",
+   "population": 69538,
+   "margin": 622,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82150",
+   "name": "Taylor School District",
+   "census_name": "Taylor School District",
+   "census_geo_id": "9700000US2633540",
+   "population": 68270,
+   "margin": 1189,
+   "races": 1,
+   "candidates": 11
+  },
+  {
+   "id": "MI-S-41160",
+   "name": "Kentwood Public Schools",
+   "census_name": "Kentwood Public Schools",
+   "census_geo_id": "9700000US2620340",
+   "population": 67550,
+   "margin": 2095,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63220",
+   "name": "Huron Valley Schools",
+   "census_name": "Huron Valley Schools",
+   "census_geo_id": "9700000US2618990",
+   "population": 60237,
+   "margin": 1279,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63010",
+   "name": "Birmingham Public Schools",
+   "census_name": "Birmingham City School District",
+   "census_geo_id": "9700000US2605850",
+   "population": 59760,
+   "margin": 1289,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63040",
+   "name": "Royal Oak Schools",
+   "census_name": "Royal Oak City School District",
+   "census_geo_id": "9700000US2630300",
+   "population": 58329,
+   "margin": 311,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-39140",
+   "name": "Portage Public Schools",
+   "census_name": "Portage Public Schools",
+   "census_geo_id": "9700000US2628950",
+   "population": 56896,
+   "margin": 960,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-63240",
+   "name": "South Lyon Community Schools",
+   "census_name": "South Lyon Community Schools",
+   "census_geo_id": "9700000US2632250",
+   "population": 55723,
+   "margin": 1460,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-70070",
+   "name": "West Ottawa Public School District",
+   "census_name": "West Ottawa Public School District",
+   "census_geo_id": "9700000US2635910",
+   "population": 54489,
+   "margin": 1118,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-25030",
+   "name": "Grand Blanc Community Schools",
+   "census_name": "Grand Blanc Community Schools",
+   "census_geo_id": "9700000US2616350",
+   "population": 52948,
+   "margin": 790,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-73010",
+   "name": "School District of the City of Saginaw",
+   "census_name": "Saginaw City School District",
+   "census_geo_id": "9700000US2630390",
+   "population": 52568,
+   "margin": 800,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-33010",
+   "name": "East Lansing School District",
+   "census_name": "East Lansing School District",
+   "census_geo_id": "9700000US2612600",
+   "population": 52371,
+   "margin": 949,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-41110",
+   "name": "Forest Hills Public Schools",
+   "census_name": "Forest Hills Public Schools",
+   "census_geo_id": "9700000US2614610",
+   "population": 52346,
+   "margin": 1386,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82055",
+   "name": "Grosse Pointe Public Schools",
+   "census_name": "Grosse Pointe Public Schools",
+   "census_geo_id": "9700000US2625740",
+   "population": 52237,
+   "margin": 930,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-82430",
+   "name": "Van Buren Public Schools",
+   "census_name": "Van Buren Public Schools",
+   "census_geo_id": "9700000US2634560",
+   "population": 49655,
+   "margin": 1372,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-70190",
+   "name": "Hudsonville Public School District",
+   "census_name": "Hudsonville Public School District",
+   "census_geo_id": "9700000US2618840",
+   "population": 48030,
+   "margin": 1498,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-41210",
+   "name": "Rockford Public Schools",
+   "census_name": "Rockford Public Schools",
+   "census_geo_id": "9700000US2630030",
+   "population": 45833,
+   "margin": 1014,
+   "races": 2,
+   "candidates": 9
+  },
+  {
+   "id": "MI-S-70010",
+   "name": "Grand Haven Area Public Schools",
+   "census_name": "Grand Haven Area Public Schools",
+   "census_geo_id": "9700000US2616380",
+   "population": 45136,
+   "margin": 909,
+   "races": 2,
+   "candidates": 9
+  },
+  {
+   "id": "MI-S-63190",
+   "name": "Clarkston Community School District",
+   "census_name": "Clarkston Community School District",
+   "census_geo_id": "9700000US2609900",
+   "population": 44827,
+   "margin": 870,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-63230",
+   "name": "Lake Orion Community Schools",
+   "census_name": "Lake Orion Community Schools",
+   "census_geo_id": "9700000US2620730",
+   "population": 43870,
+   "margin": 815,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-50030",
+   "name": "Roseville Community Schools",
+   "census_name": "Roseville Community Schools",
+   "census_geo_id": "9700000US2630210",
+   "population": 43436,
+   "margin": 443,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-73040",
+   "name": "Saginaw Township Community Schools",
+   "census_name": "Saginaw Township Community Schools",
+   "census_geo_id": "9700000US2630450",
+   "population": 41281,
+   "margin": 27,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "id": "MI-S-63080",
+   "name": "Bloomfield Hills Schools",
+   "census_name": "Bloomfield Hills School District",
+   "census_geo_id": "9700000US2606090",
+   "population": 41040,
+   "margin": 1484,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82390",
+   "name": "Northville Public Schools",
+   "census_name": "Northville Public Schools",
+   "census_geo_id": "9700000US2625980",
+   "population": 41033,
+   "margin": 1083,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-41130",
+   "name": "Grandville Public Schools",
+   "census_name": "Grandville Public Schools",
+   "census_geo_id": "9700000US2616470",
+   "population": 40977,
+   "margin": 1359,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-50020",
+   "name": "Eastpointe Community Schools",
+   "census_name": "Eastpointe Community Schools",
+   "census_geo_id": "9700000US2612450",
+   "population": 39552,
+   "margin": 939,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82090",
+   "name": "School District of the City of Lincoln Park",
+   "census_name": "Lincoln Park Public Schools",
+   "census_geo_id": "9700000US2621600",
+   "population": 39257,
+   "margin": 43,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63100",
+   "name": "Novi Community School District",
+   "census_name": "Novi Community School District",
+   "census_geo_id": "9700000US2626130",
+   "population": 38705,
+   "margin": 1546,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-50190",
+   "name": "Romeo Community Schools",
+   "census_name": "Romeo Community Schools",
+   "census_geo_id": "9700000US2630090",
+   "population": 37611,
+   "margin": 913,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-70020",
+   "name": "Holland City School District",
+   "census_name": "Holland City School District",
+   "census_geo_id": "9700000US2618420",
+   "population": 37053,
+   "margin": 747,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-50040",
+   "name": "Anchor Bay School District",
+   "census_name": "Anchor Bay School District",
+   "census_geo_id": "9700000US2602790",
+   "population": 37021,
+   "margin": 1238,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "MI-S-61010",
+   "name": "Public Schools of the City of Muskegon",
+   "census_name": "Muskegon City School District",
+   "census_geo_id": "9700000US2624840",
+   "population": 36468,
+   "margin": 407,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-41026",
+   "name": "Wyoming Public Schools",
+   "census_name": "Wyoming Public Schools",
+   "census_geo_id": "9700000US2636570",
+   "population": 36142,
+   "margin": 1715,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82365",
+   "name": "Woodhaven-Brownstown School District",
+   "census_name": "Woodhaven-Brownstown School District",
+   "census_geo_id": "9700000US2636485",
+   "population": 35187,
+   "margin": 1301,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-70350",
+   "name": "Zeeland Public Schools",
+   "census_name": "Zeeland Public Schools",
+   "census_geo_id": "9700000US2636660",
+   "population": 33754,
+   "margin": 1097,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-63160",
+   "name": "West Bloomfield School District",
+   "census_name": "West Bloomfield School District",
+   "census_geo_id": "9700000US2635820",
+   "population": 32696,
+   "margin": 1318,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-81070",
+   "name": "Lincoln Consolidated School District",
+   "census_name": "Lincoln Consolidated School District",
+   "census_geo_id": "9700000US2621570",
+   "population": 32438,
+   "margin": 1310,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-82230",
+   "name": "Crestwood School District",
+   "census_name": "Crestwood School District",
+   "census_geo_id": "9700000US2600016",
+   "population": 31373,
+   "margin": 1494,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-41050",
+   "name": "Caledonia Community Schools",
+   "census_name": "Caledonia Community Schools",
+   "census_geo_id": "9700000US2607620",
+   "population": 30869,
+   "margin": 1562,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-S-82405",
+   "name": "Southgate Community School District",
+   "census_name": "Southgate Community School District",
+   "census_geo_id": "9700000US2632340",
+   "population": 30694,
+   "margin": 340,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-33070",
+   "name": "Holt Public Schools",
+   "census_name": "Holt Public Schools",
+   "census_geo_id": "9700000US2618480",
+   "population": 30605,
+   "margin": 925,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-41040",
+   "name": "Byron Center Public Schools",
+   "census_name": "Byron Center Public Schools",
+   "census_geo_id": "9700000US2607560",
+   "population": 30544,
+   "margin": 953,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-63210",
+   "name": "Holly Area School District",
+   "census_name": "Holly Area School District",
+   "census_geo_id": "9700000US2618450",
+   "population": 29557,
+   "margin": 1069,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-50100",
+   "name": "Fraser Public Schools",
+   "census_name": "Fraser Public Schools",
+   "census_geo_id": "9700000US2614820",
+   "population": 29353,
+   "margin": 1140,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-70175",
+   "name": "Jenison Public Schools",
+   "census_name": "Jenison Public Schools",
+   "census_geo_id": "9700000US2619830",
+   "population": 28909,
+   "margin": 1191,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-63070",
+   "name": "Avondale School District",
+   "census_name": "Avondale School District",
+   "census_geo_id": "9700000US2603690",
+   "population": 28898,
+   "margin": 1478,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-33170",
+   "name": "Okemos Public Schools",
+   "census_name": "Okemos Public Schools",
+   "census_geo_id": "9700000US2626280",
+   "population": 28881,
+   "margin": 1006,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63050",
+   "name": "Berkley School District",
+   "census_name": "Berkley School District",
+   "census_geo_id": "9700000US2605010",
+   "population": 27936,
+   "margin": 845,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82060",
+   "name": "School District of the City of Hamtramck",
+   "census_name": "Hamtramck Public Schools",
+   "census_geo_id": "9700000US2617520",
+   "population": 27743,
+   "margin": 29,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82050",
+   "name": "Garden City Public Schools",
+   "census_name": "Garden City School District",
+   "census_geo_id": "9700000US2615540",
+   "population": 27682,
+   "margin": 442,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-41145",
+   "name": "Kenowa Hills Public Schools",
+   "census_name": "Kenowa Hills Public Schools",
+   "census_geo_id": "9700000US2620280",
+   "population": 26915,
+   "margin": 934,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-70040",
+   "name": "Allendale Public Schools",
+   "census_name": "Allendale Public School District",
+   "census_geo_id": "9700000US2602550",
+   "population": 26416,
+   "margin": 263,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-63110",
+   "name": "Oxford Community Schools",
+   "census_name": "Oxford Area Community Schools",
+   "census_geo_id": "9700000US2627240",
+   "population": 25986,
+   "margin": 872,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-82130",
+   "name": "Romulus Community Schools",
+   "census_name": "Romulus Community Schools",
+   "census_geo_id": "9700000US2630120",
+   "population": 25317,
+   "margin": 1218,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-63020",
+   "name": "Ferndale Public Schools",
+   "census_name": "Ferndale Public Schools",
+   "census_geo_id": "9700000US2614280",
+   "population": 25214,
+   "margin": 1001,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-61060",
+   "name": "Mona Shores Public School District",
+   "census_name": "Mona Shores Public School District",
+   "census_geo_id": "9700000US2624120",
+   "population": 24768,
+   "margin": 771,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-82170",
+   "name": "School District of the City of Wyandotte",
+   "census_name": "Wyandotte City School District",
+   "census_geo_id": "9700000US2636540",
+   "population": 24489,
+   "margin": 35,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-59070",
+   "name": "Greenville Public Schools",
+   "census_name": "Greenville Public Schools",
+   "census_geo_id": "9700000US2617160",
+   "population": 23995,
+   "margin": 759,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82140",
+   "name": "South Redford School District",
+   "census_name": "South Redford School District",
+   "census_geo_id": "9700000US2632280",
+   "population": 23983,
+   "margin": 1281,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-82110",
+   "name": "Redford Union Schools, District No. 1",
+   "census_name": "Redford Union School District",
+   "census_geo_id": "9700000US2629460",
+   "population": 23559,
+   "margin": 1288,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-S-80150",
+   "name": "Mattawan Consolidated School",
+   "census_name": "Mattawan Consolidated School",
+   "census_geo_id": "9700000US2623250",
+   "population": 22692,
+   "margin": 1540,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-39065",
+   "name": "Gull Lake Community Schools",
+   "census_name": "Gull Lake Community Schools",
+   "census_geo_id": "9700000US2617250",
+   "population": 22167,
+   "margin": 1004,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-50240",
+   "name": "Warren Woods Public Schools",
+   "census_name": "Warren Woods Public Schools",
+   "census_geo_id": "9700000US2635220",
+   "population": 22121,
+   "margin": 1191,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-50120",
+   "name": "Lake Shore Public Schools (Macomb)",
+   "census_name": "Lake Shore Public Schools",
+   "census_geo_id": "9700000US2632670",
+   "population": 22049,
+   "margin": 958,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-41070",
+   "name": "Cedar Springs Public Schools",
+   "census_name": "Cedar Springs Public Schools",
+   "census_geo_id": "9700000US2608520",
+   "population": 21915,
+   "margin": 1102,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-50160",
+   "name": "Mount Clemens Community School District",
+   "census_name": "Mount Clemens Community School District",
+   "census_geo_id": "9700000US2624690",
+   "population": 21806,
+   "margin": 1088,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-58020",
+   "name": "Airport Community Schools",
+   "census_name": "Airport Community School District",
+   "census_geo_id": "9700000US2601980",
+   "population": 21764,
+   "margin": 1077,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-25100",
+   "name": "Fenton Area Public Schools",
+   "census_name": "Fenton Area Public Schools",
+   "census_geo_id": "9700000US2614250",
+   "population": 21336,
+   "margin": 829,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-41170",
+   "name": "Lowell Area Schools",
+   "census_name": "Lowell Area Schools",
+   "census_geo_id": "9700000US2622050",
+   "population": 21260,
+   "margin": 829,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-61220",
+   "name": "Reeths-Puffer Schools",
+   "census_name": "Reeths-Puffer Schools",
+   "census_geo_id": "9700000US2629540",
+   "population": 21220,
+   "margin": 792,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-82290",
+   "name": "Gibraltar School District",
+   "census_name": "Gibraltar School District",
+   "census_geo_id": "9700000US2615870",
+   "population": 21199,
+   "margin": 1077,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-63250",
+   "name": "School District of the City of Oak Park",
+   "census_name": "Oak Park City School District",
+   "census_geo_id": "9700000US2626190",
+   "population": 21185,
+   "margin": 1288,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-50220",
+   "name": "Van Dyke Public Schools",
+   "census_name": "Van Dyke Public Schools",
+   "census_geo_id": "9700000US2634680",
+   "population": 20741,
+   "margin": 1626,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-33130",
+   "name": "Mason Public Schools (Ingham)",
+   "census_name": "Mason Public Schools",
+   "census_geo_id": "9700000US2623070",
+   "population": 20580,
+   "margin": 912,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-50170",
+   "name": "New Haven Community Schools",
+   "census_name": "New Haven Community Schools",
+   "census_geo_id": "9700000US2625230",
+   "population": 20561,
+   "margin": 1152,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82020",
+   "name": "Allen Park Public Schools",
+   "census_name": "Allen Park Public Schools",
+   "census_geo_id": "9700000US2602520",
+   "population": 20248,
+   "margin": 732,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-33215",
+   "name": "Waverly Community Schools",
+   "census_name": "Waverly Community Schools",
+   "census_geo_id": "9700000US2635520",
+   "population": 19892,
+   "margin": 932,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-61080",
+   "name": "Fruitport Community Schools",
+   "census_name": "Fruitport Community Schools",
+   "census_geo_id": "9700000US2615390",
+   "population": 19836,
+   "margin": 672,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-50010",
+   "name": "Center Line Public Schools",
+   "census_name": "Center Line Public Schools",
+   "census_geo_id": "9700000US2608580",
+   "population": 19661,
+   "margin": 1125,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-25150",
+   "name": "Clio Area School District",
+   "census_name": "Clio Area School District",
+   "census_geo_id": "9700000US2610110",
+   "population": 19558,
+   "margin": 560,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-50200",
+   "name": "South Lake Schools",
+   "census_name": "South Lake Schools",
+   "census_geo_id": "9700000US2632220",
+   "population": 19526,
+   "margin": 1028,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-03040",
+   "name": "Wayland Union Schools",
+   "census_name": "Wayland Union Schools",
+   "census_geo_id": "9700000US2635550",
+   "population": 19497,
+   "margin": 1102,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-50130",
+   "name": "Lakeview Public Schools (Macomb)",
+   "census_name": "Lakeview Public Schools",
+   "census_geo_id": "9700000US2620880",
+   "population": 19440,
+   "margin": 799,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-82240",
+   "name": "Westwood Community School District",
+   "census_name": "Westwood Community Schools",
+   "census_geo_id": "9700000US2611640",
+   "population": 19433,
+   "margin": 1333,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82045",
+   "name": "Melvindale-Northern Allen Park Schools",
+   "census_name": "Melvindale-North Allen Park School District",
+   "census_geo_id": "9700000US2623460",
+   "population": 18903,
+   "margin": 614,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-S-63130",
+   "name": "School District of the City of Hazel Park",
+   "census_name": "Hazel Park City School District",
+   "census_geo_id": "9700000US2618030",
+   "population": 18709,
+   "margin": 523,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-08050",
+   "name": "Thornapple Kellogg School District",
+   "census_name": "Thornapple Kellogg School District",
+   "census_geo_id": "9700000US2633810",
+   "population": 17649,
+   "margin": 759,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-41025",
+   "name": "Northview Public Schools",
+   "census_name": "Northview Public School District",
+   "census_geo_id": "9700000US2625950",
+   "population": 17601,
+   "margin": 1465,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-63180",
+   "name": "Brandon School District in the Counties of Oakland and Lapeer",
+   "census_name": "Brandon School District",
+   "census_geo_id": "9700000US2606570",
+   "population": 17553,
+   "margin": 655,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82155",
+   "name": "Trenton Public Schools",
+   "census_name": "Trenton Public Schools",
+   "census_geo_id": "9700000US2633900",
+   "population": 17392,
+   "margin": 326,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-23050",
+   "name": "Eaton Rapids Public Schools",
+   "census_name": "Eaton Rapids Public Schools",
+   "census_geo_id": "9700000US2612690",
+   "population": 17103,
+   "margin": 718,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-S-50090",
+   "name": "Fitzgerald Public Schools",
+   "census_name": "Fitzgerald Public Schools",
+   "census_geo_id": "9700000US2614460",
+   "population": 17051,
+   "margin": 1705,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-03100",
+   "name": "Hamilton Community Schools",
+   "census_name": "Hamilton Community Schools",
+   "census_geo_id": "9700000US2617400",
+   "population": 16638,
+   "margin": 902,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-47030",
+   "name": "Fowlerville Community Schools",
+   "census_name": "Fowlerville Community Schools",
+   "census_geo_id": "9700000US2614730",
+   "population": 16468,
+   "margin": 412,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-39170",
+   "name": "Vicksburg Community Schools",
+   "census_name": "Vicksburg Community Schools",
+   "census_geo_id": "9700000US2634950",
+   "population": 16444,
+   "margin": 790,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "MI-S-63280",
+   "name": "Lamphere Public Schools",
+   "census_name": "Lamphere Public Schools",
+   "census_geo_id": "9700000US2621120",
+   "population": 16242,
+   "margin": 1072,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-03010",
+   "name": "Plainwell Community Schools",
+   "census_name": "Plainwell Community Schools",
+   "census_geo_id": "9700000US2628530",
+   "population": 16157,
+   "margin": 746,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-33060",
+   "name": "Haslett Public Schools",
+   "census_name": "Haslett Public Schools",
+   "census_geo_id": "9700000US2617940",
+   "population": 15579,
+   "margin": 957,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-61190",
+   "name": "Orchard View Schools",
+   "census_name": "Orchard View Schools",
+   "census_geo_id": "9700000US2626760",
+   "population": 15543,
+   "margin": 546,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-39030",
+   "name": "Comstock Public Schools",
+   "census_name": "Comstock Public Schools",
+   "census_geo_id": "9700000US2610590",
+   "population": 15165,
+   "margin": 1090,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-82340",
+   "name": "Huron School District",
+   "census_name": "Huron School District",
+   "census_geo_id": "9700000US2618930",
+   "population": 14862,
+   "margin": 969,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-73180",
+   "name": "Bridgeport-Spaulding Community School District",
+   "census_name": "Bridgeport-Spaulding Community School District",
+   "census_geo_id": "9700000US2606780",
+   "population": 14676,
+   "margin": 588,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "MI-S-03020",
+   "name": "Otsego Public Schools",
+   "census_name": "Otsego Public Schools",
+   "census_geo_id": "9700000US2627060",
+   "population": 14673,
+   "margin": 548,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-41080",
+   "name": "Comstock Park Public Schools",
+   "census_name": "Comstock Park Public Schools",
+   "census_geo_id": "9700000US2610620",
+   "population": 14640,
+   "margin": 898,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-70120",
+   "name": "Coopersville Area Public School District",
+   "census_name": "Coopersville Public School District",
+   "census_geo_id": "9700000US2610830",
+   "population": 14554,
+   "margin": 752,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-62040",
+   "name": "Fremont Public School District",
+   "census_name": "Fremont Public School District",
+   "census_geo_id": "9700000US2615150",
+   "population": 14522,
+   "margin": 694,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-50070",
+   "name": "Clintondale Community Schools",
+   "census_name": "Clintondale Community Schools",
+   "census_geo_id": "9700000US2610080",
+   "population": 14292,
+   "margin": 1259,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-59080",
+   "name": "Tri County Area Schools",
+   "census_name": "Tri County Area Schools",
+   "census_geo_id": "9700000US2633930",
+   "population": 13796,
+   "margin": 568,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "MI-S-41240",
+   "name": "Sparta Area Schools",
+   "census_name": "Sparta Area Schools",
+   "census_geo_id": "9700000US2632370",
+   "population": 13769,
+   "margin": 737,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-34090",
+   "name": "Lakewood Public Schools",
+   "census_name": "Lakewood Public Schools",
+   "census_geo_id": "9700000US2620980",
+   "population": 13554,
+   "margin": 651,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-41020",
+   "name": "Godwin Heights Public Schools",
+   "census_name": "Godwin Heights Public Schools",
+   "census_geo_id": "9700000US2616110",
+   "population": 13548,
+   "margin": 1535,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-73200",
+   "name": "Freeland Community School District",
+   "census_name": "Freeland Community School District",
+   "census_geo_id": "9700000US2615060",
+   "population": 13205,
+   "margin": 429,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-41140",
+   "name": "Kelloggsville Public Schools",
+   "census_name": "Kelloggsville Public Schools",
+   "census_geo_id": "9700000US2620160",
+   "population": 13174,
+   "margin": 1465,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82040",
+   "name": "Dearborn Heights School District #7",
+   "census_name": "Dearborn Heights School District 7",
+   "census_geo_id": "9700000US2611610",
+   "population": 13141,
+   "margin": 1126,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-61240",
+   "name": "Whitehall District Schools",
+   "census_name": "Whitehall School District",
+   "census_geo_id": "9700000US2636300",
+   "population": 13117,
+   "margin": 659,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-34080",
+   "name": "Belding Area School District",
+   "census_name": "Belding Area School District",
+   "census_geo_id": "9700000US2604530",
+   "population": 13099,
+   "margin": 557,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-50180",
+   "name": "Richmond Community Schools",
+   "census_name": "Richmond Community Schools",
+   "census_geo_id": "9700000US2629670",
+   "population": 13051,
+   "margin": 644,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-70300",
+   "name": "Spring Lake Public Schools",
+   "census_name": "Spring Lake Public Schools",
+   "census_geo_id": "9700000US2632550",
+   "population": 12982,
+   "margin": 671,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82400",
+   "name": "Riverview Community School District",
+   "census_name": "Riverview Community School District",
+   "census_geo_id": "9700000US2629910",
+   "population": 12919,
+   "margin": 324,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-41090",
+   "name": "East Grand Rapids Public Schools",
+   "census_name": "East Grand Rapids Public School District",
+   "census_geo_id": "9700000US2612480",
+   "population": 12173,
+   "margin": 407,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-73110",
+   "name": "Chesaning Union Schools",
+   "census_name": "Chesaning Union Schools",
+   "census_geo_id": "9700000US2609150",
+   "population": 11770,
+   "margin": 557,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-63270",
+   "name": "Clawson Public Schools",
+   "census_name": "Clawson City School District",
+   "census_geo_id": "9700000US2609930",
+   "population": 11545,
+   "margin": 120,
+   "races": 2,
+   "candidates": 7
+  },
+  {
+   "id": "MI-S-63090",
+   "name": "Clarenceville School District",
+   "census_name": "Clarenceville School District",
+   "census_geo_id": "9700000US2609840",
+   "population": 11347,
+   "margin": 901,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "MI-S-61065",
+   "name": "Oakridge Public Schools",
+   "census_name": "Oakridge Public Schools",
+   "census_geo_id": "9700000US2626220",
+   "population": 11288,
+   "margin": 27,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-82180",
+   "name": "Flat Rock Community Schools",
+   "census_name": "Flat Rock Community Schools",
+   "census_geo_id": "9700000US2607080",
+   "population": 11179,
+   "margin": 1007,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-59090",
+   "name": "Lakeview Community Schools (Montcalm)",
+   "census_name": "Lakeview Community Schools",
+   "census_geo_id": "9700000US2620910",
+   "population": 10949,
+   "margin": 620,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-25050",
+   "name": "Goodrich Area Schools",
+   "census_name": "Goodrich Area Schools",
+   "census_geo_id": "9700000US2616320",
+   "population": 10821,
+   "margin": 599,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-33230",
+   "name": "Williamston Community Schools",
+   "census_name": "Williamston Community Schools",
+   "census_geo_id": "9700000US2636420",
+   "population": 10792,
+   "margin": 633,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "MI-S-62050",
+   "name": "Grant Public School District",
+   "census_name": "Grant Public School District",
+   "census_geo_id": "9700000US2616500",
+   "population": 10578,
+   "margin": 484,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "MI-S-82300",
+   "name": "Grosse Ile Township Schools",
+   "census_name": "Grosse Ile Township Schools",
+   "census_geo_id": "9700000US2617220",
+   "population": 10344,
+   "margin": 361,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-39130",
+   "name": "Parchment School District",
+   "census_name": "Parchment School District",
+   "census_geo_id": "9700000US2627420",
+   "population": 10151,
+   "margin": 964,
+   "races": 3,
+   "candidates": 2
+  },
+  {
+   "id": "MI-S-33200",
+   "name": "Stockbridge Community Schools",
+   "census_name": "Stockbridge Community Schools",
+   "census_geo_id": "9700000US2633030",
+   "population": 10051,
+   "margin": 577,
+   "races": 1,
+   "candidates": 3
+  }
+ ],
+ "just_under": [
+  {
+   "kind": "school district",
+   "id": "MI-S-61020",
+   "name": "Muskegon Heights School District",
+   "census_name": "Muskegon Heights School District",
+   "census_geo_id": "9700000US2624870",
+   "population": 9841,
+   "margin": 41,
+   "races": 2,
+   "candidates": 0
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-73190",
+   "name": "Frankenmuth School District",
+   "census_name": "Frankenmuth School District",
+   "census_geo_id": "9700000US2614760",
+   "population": 9760,
+   "margin": 532,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-19120",
+   "name": "Ovid-Elsie Area Schools",
+   "census_name": "Ovid-Elsie Area Schools",
+   "census_geo_id": "9700000US2627150",
+   "population": 9545,
+   "margin": 762,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-44020",
+   "name": "Almont Community Schools",
+   "census_name": "Almont Community Schools",
+   "census_geo_id": "9700000US2602670",
+   "population": 9258,
+   "margin": 517,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-73255",
+   "name": "Swan Valley School District",
+   "census_name": "Swan Valley School District",
+   "census_geo_id": "9700000US2633410",
+   "population": 9181,
+   "margin": 537,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-73170",
+   "name": "Birch Run Area Schools",
+   "census_name": "Birch Run Area School District",
+   "census_geo_id": "9700000US2605820",
+   "population": 9125,
+   "margin": 435,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "MI-S-61180",
+   "name": "Montague Area Public Schools",
+   "census_name": "Montague Area Public Schools",
+   "census_geo_id": "9700000US2624180",
+   "population": 9106,
+   "margin": 477,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "kind": "city",
+   "id": "MI-M-24740",
+   "name": "Ecorse city",
+   "census_name": "Ecorse city",
+   "population": 9064,
+   "margin": 32,
+   "races": 2,
+   "candidates": 10
+  }
+ ],
+ "no_population_figure": [
+  {
+   "kind": "school district",
+   "id": "MI-S-63140",
+   "name": "Madison District Public Schools",
+   "races": 2,
+   "candidates": 3,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  }
+ ],
+ "cities_found_by_name_not_code": [],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Adrian city",
+  "Allen Park city",
+  "Allendale CDP",
+  "Alpena city",
+  "Ann Arbor city",
+  "Auburn Hills city",
+  "Battle Creek city",
+  "Bay City city",
+  "Berkley city",
+  "Birmingham city",
+  "Burton city",
+  "Cadillac city",
+  "Clawson city",
+  "Coldwater city",
+  "Comstock Park CDP",
+  "Cutlerville CDP",
+  "Dearborn city",
+  "Detroit city",
+  "East Grand Rapids city",
+  "East Lansing city",
+  "Eastpointe city",
+  "Escanaba city",
+  "Farmington Hills city",
+  "Farmington city",
+  "Fenton city",
+  "Ferndale city",
+  "Flat Rock city",
+  "Flint city",
+  "Forest Hills CDP",
+  "Fraser city",
+  "Grand Haven city",
+  "Grandville city",
+  "Grosse Pointe Park city",
+  "Grosse Pointe Woods city",
+  "Hamtramck city",
+  "Harper Woods city",
+  "Haslett CDP",
+  "Hazel Park city",
+  "Holland city",
+  "Holt CDP",
+  "Howell city",
+  "Inkster city",
+  "Ionia city",
+  "Jackson city",
+  "Jenison CDP",
+  "Kalamazoo city",
+  "Kentwood city",
+  "Lansing city",
+  "Livonia city",
+  "Madison Heights city",
+  "Marquette city",
+  "Melvindale city",
+  "Midland city",
+  "Monroe city",
+  "Mount Clemens city",
+  "Mount Pleasant city",
+  "Muskegon city",
+  "New Baltimore city",
+  "Niles city",
+  "Northview CDP",
+  "Norton Shores city",
+  "Novi city",
+  "Oak Park city",
+  "Okemos CDP",
+  "Owosso city",
+  "Pontiac city",
+  "Port Huron city",
+  "Portage city",
+  "Riverview city",
+  "Rochester Hills city",
+  "Rochester city",
+  "Romulus city",
+  "Roseville city",
+  "Royal Oak city",
+  "Sault Ste. Marie city",
+  "South Lyon city",
+  "Southfield city",
+  "Southgate city",
+  "St. Clair Shores city",
+  "Sterling Heights city",
+  "Sturgis city",
+  "Taylor city",
+  "Traverse City city",
+  "Trenton city",
+  "Troy city",
+  "Warren city",
+  "Waverly CDP",
+  "Westland city",
+  "Wixom city",
+  "Wyandotte city",
+  "Ypsilanti city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {
+  "Charter Commission Member": 1,
+  "Library Board Member": 3,
+  "City Comptroller": 1,
+  "City Clerk": 1,
+  "City Treasurer": 1
+ },
+ "school_names_tied_after_setting_words_aside": [
+  {
+   "id": "MI-S-39010",
+   "state_list": "Kalamazoo Public Schools",
+   "census": "Kalamazoo Public School District"
+  },
+  {
+   "id": "MI-S-39020",
+   "state_list": "Climax-Scotts Community Schools",
+   "census": "Climax-Scotts Community School District"
+  },
+  {
+   "id": "MI-S-39050",
+   "state_list": "Galesburg-Augusta Community Schools",
+   "census": "Galesburg-Augusta Community School District"
+  },
+  {
+   "id": "MI-S-41025",
+   "state_list": "Northview Public Schools",
+   "census": "Northview Public School District"
+  },
+  {
+   "id": "MI-S-41090",
+   "state_list": "East Grand Rapids Public Schools",
+   "census": "East Grand Rapids Public School District"
+  },
+  {
+   "id": "MI-S-58020",
+   "state_list": "Airport Community Schools",
+   "census": "Airport Community School District"
+  },
+  {
+   "id": "MI-S-61240",
+   "state_list": "Whitehall District Schools",
+   "census": "Whitehall School District"
+  },
+  {
+   "id": "MI-S-63080",
+   "state_list": "Bloomfield Hills Schools",
+   "census": "Bloomfield Hills School District"
+  },
+  {
+   "id": "MI-S-63110",
+   "state_list": "Oxford Community Schools",
+   "census": "Oxford Area Community Schools"
+  },
+  {
+   "id": "MI-S-70040",
+   "state_list": "Allendale Public Schools",
+   "census": "Allendale Public School District"
+  },
+  {
+   "id": "MI-S-70120",
+   "state_list": "Coopersville Area Public School District",
+   "census": "Coopersville Public School District"
+  },
+  {
+   "id": "MI-S-73030",
+   "state_list": "Carrollton Public Schools",
+   "census": "Carrollton School District"
+  },
+  {
+   "id": "MI-S-73170",
+   "state_list": "Birch Run Area Schools",
+   "census": "Birch Run Area School District"
+  },
+  {
+   "id": "MI-S-78070",
+   "state_list": "New Lothrop Area Public Schools",
+   "census": "New Lothrop Area Public School"
+  },
+  {
+   "id": "MI-S-82040",
+   "state_list": "Dearborn Heights School District #7",
+   "census": "Dearborn Heights School District 7"
+  },
+  {
+   "id": "MI-S-82050",
+   "state_list": "Garden City Public Schools",
+   "census": "Garden City School District"
+  },
+  {
+   "id": "MI-S-82095",
+   "state_list": "Livonia Public Schools School District",
+   "census": "Livonia Public Schools"
+  },
+  {
+   "id": "MI-S-82240",
+   "state_list": "Westwood Community School District",
+   "census": "Westwood Community Schools"
+  },
+  {
+   "id": "MI-S-82250",
+   "state_list": "Ecorse Public Schools",
+   "census": "Ecorse Public School District"
+  },
+  {
+   "id": "MI-S-33130",
+   "state_list": "Mason Public Schools (Ingham)",
+   "census": "Mason Public Schools"
+  },
+  {
+   "id": "MI-S-50120",
+   "state_list": "Lake Shore Public Schools (Macomb)",
+   "census": "Lake Shore Public Schools"
+  },
+  {
+   "id": "MI-S-50130",
+   "state_list": "Lakeview Public Schools (Macomb)",
+   "census": "Lakeview Public Schools"
+  },
+  {
+   "id": "MI-S-59090",
+   "state_list": "Lakeview Community Schools (Montcalm)",
+   "census": "Lakeview Community Schools"
+  },
+  {
+   "id": "MI-S-61010",
+   "state_list": "Public Schools of the City of Muskegon",
+   "census": "Muskegon City School District"
+  },
+  {
+   "id": "MI-S-63010",
+   "state_list": "Birmingham Public Schools",
+   "census": "Birmingham City School District"
+  },
+  {
+   "id": "MI-S-63040",
+   "state_list": "Royal Oak Schools",
+   "census": "Royal Oak City School District"
+  },
+  {
+   "id": "MI-S-63130",
+   "state_list": "School District of the City of Hazel Park",
+   "census": "Hazel Park City School District"
+  },
+  {
+   "id": "MI-S-63180",
+   "state_list": "Brandon School District in the Counties of Oakland and Lapeer",
+   "census": "Brandon School District"
+  },
+  {
+   "id": "MI-S-63250",
+   "state_list": "School District of the City of Oak Park",
+   "census": "Oak Park City School District"
+  },
+  {
+   "id": "MI-S-63270",
+   "state_list": "Clawson Public Schools",
+   "census": "Clawson City School District"
+  },
+  {
+   "id": "MI-S-73010",
+   "state_list": "School District of the City of Saginaw",
+   "census": "Saginaw City School District"
+  },
+  {
+   "id": "MI-S-82045",
+   "state_list": "Melvindale-Northern Allen Park Schools",
+   "census": "Melvindale-North Allen Park School District"
+  },
+  {
+   "id": "MI-S-82060",
+   "state_list": "School District of the City of Hamtramck",
+   "census": "Hamtramck Public Schools"
+  },
+  {
+   "id": "MI-S-82090",
+   "state_list": "School District of the City of Lincoln Park",
+   "census": "Lincoln Park Public Schools"
+  },
+  {
+   "id": "MI-S-82110",
+   "state_list": "Redford Union Schools, District No. 1",
+   "census": "Redford Union School District"
+  },
+  {
+   "id": "MI-S-82120",
+   "state_list": "School District of the City of River Rouge",
+   "census": "River Rouge School District"
+  },
+  {
+   "id": "MI-S-82170",
+   "state_list": "School District of the City of Wyandotte",
+   "census": "Wyandotte City School District"
+  },
+  {
+   "id": "MI-S-82320",
+   "state_list": "The School District of the City of Harper Woods",
+   "census": "Harper Woods City Schools"
+  }
+ ],
+ "note": "Michigan has no statewide list of local candidates: the city, village and school board races here are those on the November 3, 2026 lists of the nine county clerks read so far (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw and Muskegon), and the other counties' are not loaded yet. Every school district elects board members in November of even years (MCL 168.642c); most cities elect in November of odd years, so only villages and the cities whose charters say so are on this list. County officers, county commissioners and township boards were elected for four years in 2024 (MCL 168.200, 46.410, 168.358), so the county rows are the two county executives and seats filled for the rest of a term. Township offices, community college trustees, library boards, village presidents and a city's clerk, treasurer or assessor are outside the scope's rule and are not in it."
+}

@@ -1,0 +1,304 @@
+{
+ "part": 21,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web-search allowance was used up before this part began, so only pages reachable by a known address were read (Wikipedia's 2026 Michigan election articles, campaign sites listed there, and school district, city and court sites). Candidates left blank were not searched for by name.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC15",
+   "name": "Zachary William Stempien"
+  },
+  {
+   "race_id": "2026-MI-CC37",
+   "name": "Sarah S. Lincoln",
+   "offices": [
+    {
+     "office": "Judge (Chief Judge), 37th Circuit Court, Calhoun County",
+     "from": "",
+     "to": "present",
+     "source": "Calhoun County, Michigan (news release naming 'Chief Circuit Judge Sarah S. Lincoln')",
+     "url": "https://www.calhouncountymi.gov/news_detail_T11_R542.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC12",
+   "name": "Nicole Hughes"
+  },
+  {
+   "race_id": "2026-MI-DC43",
+   "name": "Brian Christian Hartwell",
+   "official_page": {
+    "url": "https://www.hazelpark.org/visitors/43rd_district_court.php",
+    "source": "City of Hazel Park, 43rd District Court page ('Honorable Judge Brian C. Hartwell')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 43rd District Court (Hazel Park)",
+     "from": "",
+     "to": "present",
+     "source": "City of Hazel Park, 43rd District Court page",
+     "url": "https://www.hazelpark.org/visitors/43rd_district_court.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC7-NI",
+   "name": "Rachel Keeley"
+  },
+  {
+   "race_id": "2026-MI-M-31420-mayor-4y",
+   "name": "Mark Jacobs",
+   "official_page": {
+    "url": "https://gardencitymi.org/256/Mayor-City-Council",
+    "source": "City of Garden City, Mayor & City Council page ('Mark Jacobs, Mayor')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor, City of Garden City",
+     "from": "",
+     "to": "present",
+     "source": "City of Garden City, Mayor & City Council page",
+     "url": "https://gardencitymi.org/256/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-88940-council-ward-1-4y",
+   "name": "Amy Jo Duzan"
+  },
+  {
+   "race_id": "2026-MI-S-03040-school-board-4y",
+   "name": "Pete Zondervan",
+   "official_page": {
+    "url": "https://www.waylandunion.org/district/board-of-education/board-members-/",
+    "source": "Wayland Union Schools, Board Members page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Wayland Union Schools Board of Education",
+     "from": "2014",
+     "to": "present",
+     "source": "Wayland Union Schools, Board Members page (elected November 2014, re-elected 2018 and 2022; term expires December 31, 2026)",
+     "url": "https://www.waylandunion.org/district/board-of-education/board-members-/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-33020-school-board-p20301231-S",
+   "name": "Kyle Richard"
+  },
+  {
+   "race_id": "2026-MI-S-39130-school-board-6y",
+   "name": "Donna Ellis"
+  },
+  {
+   "race_id": "2026-MI-S-41050-school-board-6y",
+   "name": "Josh Carrasquillo"
+  },
+  {
+   "race_id": "2026-MI-S-41210-school-board-p20281231-S",
+   "name": "Christie Ramsey",
+   "official_page": {
+    "url": "https://www.rockfordschools.org/our-district/board-of-education/meet-the-board/",
+    "source": "Rockford Public Schools, Meet the Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Rockford Public Schools Board of Education",
+     "from": "2023",
+     "to": "present",
+     "source": "Rockford Public Schools, Meet the Board page ('Year Elected: 2023; Current Term Expires: 2026')",
+     "url": "https://www.rockfordschools.org/our-district/board-of-education/meet-the-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50090-school-board-6y",
+   "name": "Kimberly M. Lee",
+   "official_page": {
+    "url": "https://www.fitz.k12.mi.us/page/board-members",
+    "source": "Fitzgerald Public Schools, Board Members page ('Kimberly Lee, Trustee')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Fitzgerald Public Schools Board of Education",
+     "from": "2019",
+     "to": "present",
+     "source": "Fitzgerald Public Schools, Board Members page ('appointed in January 2019')",
+     "url": "https://www.fitz.k12.mi.us/page/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50240-school-board-6y",
+   "name": "Michael Garcia",
+   "official_page": {
+    "url": "https://www.warrenwoods.misd.net/our-district/board-of-education/",
+    "source": "Warren Woods Public Schools, Board of Education page ('Michael Garcia - Trustee')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Warren Woods Public Schools Board of Education",
+     "from": "",
+     "to": "present",
+     "source": "Warren Woods Public Schools, Board of Education page",
+     "url": "https://www.warrenwoods.misd.net/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63020-school-board-4y",
+   "name": "Jonathan Turner",
+   "official_page": {
+    "url": "https://www.ferndaleschools.org/page/board-of-education",
+    "source": "Ferndale Public Schools, Board of Education page (member card 'Jonathan Turner')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Ferndale Public Schools Board of Education",
+     "from": "",
+     "to": "present",
+     "source": "Ferndale Public Schools, Board of Education page (member card 'Jonathan Turner'; the card reads Vice President and its picture caption reads Secretary, so no officer title is recorded)",
+     "url": "https://www.ferndaleschools.org/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Tonya Potts"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-6y",
+   "name": "Lawrence D. Halushka"
+  },
+  {
+   "race_id": "2026-MI-S-70070-school-board-4y",
+   "name": "Kory Plockmeyer"
+  },
+  {
+   "race_id": "2026-MI-S-73180-school-board-4y",
+   "name": "Obed Thompson Jr."
+  },
+  {
+   "race_id": "2026-MI-S-82020-school-board-4y",
+   "name": "Kristina G. Klos"
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Allan A. Farhoud"
+  },
+  {
+   "race_id": "2026-MI-S-82365-school-board-4y",
+   "name": "Michael Golden"
+  },
+  {
+   "race_id": "2026-MI-SH104",
+   "name": "Alexander Jarvis"
+  },
+  {
+   "race_id": "2026-MI-SH25",
+   "name": "Dawn Udell"
+  },
+  {
+   "race_id": "2026-MI-SH44",
+   "name": "Steve Frisbie",
+   "website": {
+    "url": "https://votefrisbie.com/",
+    "how": "Listed under 'Official campaign websites' in Wikipedia's article on the 2026 Michigan House of Representatives election; the site is titled 'Steve Frisbie | State Representative, 44th District'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH66",
+   "name": "Josh Schriver",
+   "website": {
+    "url": "https://joshuaschriver.com",
+    "how": "Listed under 'Official campaign websites' in Wikipedia's article on the 2026 Michigan House of Representatives election; the site is titled 'Josh Schriver | Michigan State Representative' and reads 'State Representative (MI-66)'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH85",
+   "name": "Bradley Slagh",
+   "website": {
+    "url": "https://slaghformichigan.com",
+    "how": "Listed under 'Official campaign websites' in Wikipedia's article on the 2026 Michigan House of Representatives election; the site is titled 'Bradley Slagh — Michigan State Representative, District 85'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS13",
+   "name": "Ryan Berman",
+   "website": {
+    "url": "https://electryanberman.com/",
+    "how": "Listed under 'Official campaign websites' in Wikipedia's article on the 2026 Michigan Senate election; the site is titled 'Elect Ryan Berman', its About page 'Elect Ryan Berman State Senator', and it says he served as a state representative and seeks to serve as a state senator (it does not print the district number).",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives, 39th District",
+     "from": "2019",
+     "to": "2022",
+     "source": "Wikipedia, 'Ryan Berman' (infobox: in office January 1, 2019 to December 31, 2022)",
+     "url": "https://en.wikipedia.org/wiki/Ryan_Berman",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member of the Michigan House of Representatives, 39th District, seated as a Republican",
+     "year": "2019-2022",
+     "party": "Republican",
+     "source": "Wikipedia, 'Ryan Berman'",
+     "url": "https://en.wikipedia.org/wiki/Ryan_Berman",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS32",
+   "name": "Rebecca Amidon",
+   "website": {
+    "url": "https://www.rebeccaamidon.com/",
+    "how": "Listed under 'Official campaign websites' in Wikipedia's article on the 2026 Michigan Senate election; the site is titled 'Rebecca Amidon for State Senate' and has a '32nd District' page.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-CC37",
+   "name": "Sarah S. Lincoln",
+   "what": "official_page",
+   "url": "https://www.calhouncountymi.gov/news_detail_T11_R542.php",
+   "why": "The page is a county news release about another judge's appointment that quotes her; it is not the government's own page about her. The office it states is kept."
+  }
+ ]
+}

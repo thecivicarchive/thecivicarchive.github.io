@@ -1,0 +1,198 @@
+{
+ "rule": "Michigan's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-MI-GOV": {
+   "polls": [
+    {
+     "pollster": "Marist Poll",
+     "member": "Marist Poll",
+     "start": "2026-09-24",
+     "end": "2026-09-27",
+     "n": 1235,
+     "pop": "registered voters",
+     "moe": 3.8,
+     "shares": {
+      "Jocelyn Benson": 53,
+      "John James": 41
+     },
+     "rest": 6,
+     "note": "The question named the two candidates for governor, not their running mates, and offered \"another party's candidate\" without naming the Libertarian, Green or U.S. Taxpayers tickets. The table packet gives another party's candidate 2%, undecided 4% and no response under 1%.",
+     "url": "https://maristpoll.marist.edu/polls/midterm-elections-in-michigan-september-2026/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Emerson College Polling",
+     "member": "Emerson College Polling Society",
+     "start": "2026-09-12",
+     "end": "2026-09-14",
+     "n": 1000,
+     "pop": "likely voters",
+     "moe": 3.0,
+     "shares": {
+      "Jocelyn Benson": 49,
+      "John James": 42
+     },
+     "rest": 9,
+     "note": "The release names the two candidates for governor, not their running mates, and gives 6% undecided; it does not say what the remaining 3% answered.",
+     "url": "https://emersoncollegepolling.com/michigan-2026-poll-el-sayed-and-rogers-locked-in-close-election/",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "SSRS (for CNN)",
+     "member": "SSRS",
+     "start": "2026-08-31",
+     "end": "2026-09-06",
+     "n": 843,
+     "pop": "likely voters",
+     "moe": 4.1,
+     "shares": {
+      "Jocelyn Benson": 50,
+      "John James": 41
+     },
+     "rest": 9,
+     "note": "The question named Jocelyn Benson, the Democrat, and John James, the Republican, without running mates or the other three tickets; the figures include people who said which way they lean. Neither 5%, other 4%, no opinion under half a percent. SSRS interviewed 843 registered voters and reports likely voters by weighting each by a predicted probability of voting; the margin given is for those results.",
+     "url": "https://s3.documentcloud.org/documents/28608784/cnn-poll-conducted-by-ssrs-michigan.pdf",
+     "checked": "2026-10-02"
+    },
+    {
+     "pollster": "Michigan State University (IPPSR, fielded by YouGov)",
+     "member": "Institute for Public Policy and Social Research, and the Office for Survey Research, at Michigan State University",
+     "start": "2026-08-10",
+     "end": "2026-08-20",
+     "n": 779,
+     "pop": "likely voters",
+     "moe": null,
+     "sample": "779 likely voters; the release states no margin of error",
+     "shares": {
+      "Jocelyn Benson": 52,
+      "John James": 43
+     },
+     "rest": 5,
+     "note": "The State of the State Survey: 1,000 Michigan adults from a YouGov online panel, of whom 913 were registered voters and 779 likely voters. Among registered voters the release gives Benson 49% and James 39%. It states no margin of error (Wikipedia's list gives 3.4 points; the release does not), and does not say what the rest answered.",
+     "url": "https://ippsr.msu.edu/news/msu-poll-shows-democrats-lead-republicans-coalesce-behind-rogers",
+     "checked": "2026-10-02"
+    }
+   ],
+   "pending": [
+    {
+     "pollster": "The New York Times/Siena",
+     "end": "2026-09-22",
+     "why": "Siena's own post of September 25 gives only the two figures (Benson 48%, James 43%, likely voters); the dates, sample and margin are in toplines behind the New York Times's paywall"
+    },
+    {
+     "pollster": "The Washington Post",
+     "end": "2026-09-14",
+     "why": "its release (a document on the Post's own site) did not answer our check: the request timed out"
+    }
+   ],
+   "left_out": {
+    "n": 62,
+    "pollsters": [
+     "Glengariff Group (twelve, for The Detroit News and WDIV-TV: four of November's matchup, four with Mike Duggan as a third candidate, three of the Democratic primary and one of the Republican)",
+     "Mitchell Research (twelve: two of November's matchup, three with Mike Duggan, three of the Democratic primary and four of the Republican)",
+     "OnMessage Inc. (four, the Republican primary)",
+     "EPIC-MRA (three)",
+     "TIPP Insights (three)",
+     "co/efficient (three)",
+     "Impact Research (three)",
+     "Rosetta Stone Communications (three, from one survey of October 2025)",
+     "Target Insyght (three, from two surveys of early 2025)",
+     "1892 Polling (three, the Republican primary)",
+     "Beacon Research/Shaw & Co. Research (two, for Fox News)",
+     "Beacon Research/Cygnal",
+     "Suffolk University",
+     "Torchlight Strategies",
+     "Fabrizio Ward/Impact Research (for AARP)",
+     "Schoen Cooperman Research",
+     "Strategic National",
+     "Susquehanna Polling & Research",
+     "Tarrance Group",
+     "JMC Analytics",
+     "Plymouth Union Public",
+     "National Research"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "The count is of separate rows as Wikipedia lists them, by pollsters outside the Transparency Initiative: 17 of Benson against James, 13 of Benson, James and Mike Duggan (the former mayor of Detroit ran as an independent and withdrew; he is not on the ballot), 9 of the Democratic primary and 23 of the Republican primary. Questions with other possible nominees came from the same surveys and are not counted again. Wikipedia lists 23 polls of Benson against James in all: the four shown here, the two pending and the 17 left out. AARP belongs to the Transparency Initiative but its Michigan poll was taken by Fabrizio Ward and Impact Research, which do not. Three more surveys by members are not shown because they did not ask November's two-way matchup: Michigan State University's of March 2-24, 2026 (1,000 adults) asked Benson, James and Duggan together, and Emerson's of April 11-13 and July 26-27, 2026 asked only the primaries; Emerson's January 2026 Michigan survey did not ask about the governor's race. Emerson's site lists no Michigan release after September 17 (read 2026-10-02). The same four surveys are in the Congress file for Michigan's Senate race."
+   }
+  },
+  "2026-MI-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "Cygnal/Beacon Research (September 18-21, 2026)",
+     "Glengariff Group (August 31 to September 3, 2026)",
+     "Public Policy Polling (November 28-30, 2025, before the party conventions: six possible matchups, two of them with Eli Savit, none with Doug Lloyd)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Marist's September 2026 Michigan survey, Emerson's September survey, SSRS's for CNN and Michigan State University's August survey did not ask it."
+   }
+  },
+  "2026-MI-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Cygnal/Beacon Research (September 18-21, 2026)",
+     "Glengariff Group (August 31 to September 3, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Marist's September 2026 Michigan survey, Emerson's September survey, SSRS's for CNN and Michigan State University's August survey did not ask it."
+   }
+  },
+  "2026-MI-SC": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_Supreme_Court_election",
+    "checked": "2026-10-02",
+    "note": "Justice of the Supreme Court (two seats; the ballot prints no party). No poll of this race by anyone was found: Wikipedia's page has no polling section. Marist's September 2026 Michigan survey, Emerson's September survey, SSRS's for CNN and Michigan State University's August survey did not ask it."
+   }
+  },
+  "2026-MI-SBOE": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_elections",
+    "checked": "2026-10-02",
+    "note": "Member of the State Board of Education (two seats). No poll of this race by anyone was found: Wikipedia's page on Michigan's 2026 elections has no polling table for it, and the four surveys by Transparency Initiative members read for the governor's race did not ask it."
+   }
+  },
+  "2026-MI-UMREG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_elections",
+    "checked": "2026-10-02",
+    "note": "Regent of the University of Michigan (two seats). No poll of this race by anyone was found: Wikipedia's page on Michigan's 2026 elections has no polling table for it, and the four surveys by Transparency Initiative members read for the governor's race did not ask it."
+   }
+  },
+  "2026-MI-MSUTR": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_elections",
+    "checked": "2026-10-02",
+    "note": "Trustee of Michigan State University (two seats). No poll of this race by anyone was found: Wikipedia's page on Michigan's 2026 elections has no polling table for it, and the four surveys by Transparency Initiative members read for the governor's race did not ask it."
+   }
+  },
+  "2026-MI-WSUGOV": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Michigan_elections",
+    "checked": "2026-10-02",
+    "note": "Governor of Wayne State University (two seats). No poll of this race by anyone was found: Wikipedia's page on Michigan's 2026 elections has no polling table for it, and the four surveys by Transparency Initiative members read for the governor's race did not ask it."
+   }
+  }
+ }
+}

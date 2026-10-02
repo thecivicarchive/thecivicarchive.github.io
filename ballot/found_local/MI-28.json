@@ -1,0 +1,363 @@
+{
+ "part": 28,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first six candidates, so the rest were looked up only on pages whose address could be reached without a search: each school district's and city's own board page, the county courts' pages. Not reached: the Governor's press releases (the state's site refuses scripts), Ballotpedia (empty answer to scripts), the U.S. Taxpayers Party's site (drawn by script, no text), St. Clair County's district court page (password notice), the Port Huron radio station's articles on Judge Mona S. Armstrong's 2020 appointment (the pages would not open, so nothing is recorded for her). No campaign website, birth year, party endorsement or past party label was looked up for anyone after the searches ran out: the five House candidates, the two U.S. Taxpayers candidates, Jennifer E. Fields and Senator Bellino's campaign site are all untouched. Not listed on their district's board page today (so likely not sitting members, or the page is drawn by script): Richard Bell (Cedar Springs), Kurt Troutman (Lake Shore), William Zerbst (Greenville, page not found), Beau Taylor (Troy), Chris Reed (Jenison), Roxine Kemp (Mattawan), Michael Cook (Northville). A blank here means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC17",
+   "name": "Clay M. West",
+   "official_page": {
+    "url": "https://www.kentcountymi.gov/Directory.aspx?EID=34",
+    "source": "Kent County, staff directory of the 17th Circuit Court judges: \"Clay M West, Judge\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 17th Circuit Court (Kent County)",
+     "from": "2023",
+     "to": "",
+     "source": "Kent County: \"Judge West took the 17th Circuit Court bench on April 17, 2023\"",
+     "url": "https://www.kentcountymi.gov/Directory.aspx?EID=34",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC41",
+   "name": "Christopher S. Ninomiya",
+   "official_page": {
+    "url": "https://www.dickinsoncountymi.gov/government/county_departments/courts.php",
+    "source": "Dickinson County, its Courts page: \"41st Circuit Court ... Honorable Christopher S. Ninomiya, Circuit Judge\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 41st Circuit Court (Dickinson, Iron and Menominee counties), appointed by the Governor in December 2017",
+     "from": "2017",
+     "to": "",
+     "source": "WLUC TV6, published December 15, 2017: \"Christopher Ninomiya to the 41st Circuit Court, counties of Dickinson, Iron, and Menominee\", to succeed a judge \"retiring by the end of December\" (the article gives no starting day); the county's Courts page lists him as Circuit Judge today",
+     "url": "https://www.uppermichiganssource.com/content/news/Gov-Snyder-names-Christopher-Ninomiya-to-41st-Circuit-Court-464447993.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, 95-B District Court (Dickinson County)",
+     "from": "2008",
+     "to": "2017",
+     "source": "WLUC TV6, published December 15, 2017: \"Ninomiya has served in the 95-B District Court in Dickinson County since being elected in 2008\" (elected 2008; still serving there when the article was published)",
+     "url": "https://www.uppermichiganssource.com/content/news/Gov-Snyder-names-Christopher-Ninomiya-to-41st-Circuit-Court-464447993.html",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Dickinson County Prosecuting Attorney",
+     "from": "2000",
+     "to": "2008",
+     "source": "WLUC TV6, published December 15, 2017: \"He was elected prosecutor in 2000\" (elected 2000; the article does not say when he left, only that he was elected to the district court in 2008)",
+     "url": "https://www.uppermichiganssource.com/content/news/Gov-Snyder-names-Christopher-Ninomiya-to-41st-Circuit-Court-464447993.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC17",
+   "name": "Krista Haroutunian",
+   "official_page": {
+    "url": "https://www.redfordtwp.gov/274/Judges",
+    "source": "Redford Township, 17th District Court, \"Judges & Administration\": \"Honorable Krista Haroutunian\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 17th District Court (Redford Township)",
+     "from": "2018",
+     "to": "",
+     "source": "Redford Township: \"Krista Haroutunian has served as a 17th District Court Judge since October 2018\"",
+     "url": "https://www.redfordtwp.gov/274/Judges",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Michigan Women's Commission",
+     "from": "2011",
+     "to": "2018",
+     "source": "Redford Township: \"has been a member of the Michigan Women's Commission, from 2011-2018\"",
+     "url": "https://www.redfordtwp.gov/274/Judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC5-NI",
+   "name": "Jennifer E. Fields"
+  },
+  {
+   "race_id": "2026-MI-DC72",
+   "name": "Mona S. Armstrong"
+  },
+  {
+   "race_id": "2026-MI-M-47800-council-2y",
+   "name": "Carlos Salcido",
+   "official_page": {
+    "url": "https://www.citylp.com/directory.aspx",
+    "source": "City of Lincoln Park, staff directory, Elected Officials: \"Carlos Salcido, Council President\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council President, Lincoln Park City Council",
+     "from": "",
+     "to": "",
+     "source": "City of Lincoln Park staff directory lists \"Carlos Salcido, Council President\" among Elected Officials (no start year given)",
+     "url": "https://www.citylp.com/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "John Sanger"
+  },
+  {
+   "race_id": "2026-MI-S-08050-school-board-6y",
+   "name": "Mark Price",
+   "official_page": {
+    "url": "https://www.tkschools.org/apps/pages/index.jsp?uREC_ID=307840&type=d&pREC_ID=staff",
+    "source": "Thornapple Kellogg Schools, Board of Education page: \"Mark Price, Board Treasurer\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Thornapple Kellogg Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Thornapple Kellogg Schools lists \"Mark Price, Board Treasurer\" (no start year given)",
+     "url": "https://www.tkschools.org/apps/pages/index.jsp?uREC_ID=307840&type=d&pREC_ID=staff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-33070-school-board-p20301231-S",
+   "name": "Matea Čaluk",
+   "official_page": {
+    "url": "https://www.hpsk12.net/board-of-education/meet-our-board-members/",
+    "source": "Holt Public Schools, \"Meet Our Board\": \"Matea Čaluk, Trustee\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Holt Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Holt Public Schools lists \"Matea Čaluk, Trustee\" (no start year given)",
+     "url": "https://www.hpsk12.net/board-of-education/meet-our-board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Our list gives the candidate's name as \"Matea Č\"",
+     "problem": "The name is cut short. Holt Public Schools' own board page names its trustee \"Matea Čaluk\"; the only board member with that given name.",
+     "url": "https://www.hpsk12.net/board-of-education/meet-our-board-members/",
+     "verified": false,
+     "set_aside": "2026-10-02: fixed at the cause. The county's list prints the whole name; our reader had dropped the letters after a character drawn in another font. The reader now joins them and the record shows the full name."
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-39170-school-board-6y",
+   "name": "David Schriemer",
+   "official_page": {
+    "url": "https://www.vicksburgschools.org/our-district/board-of-education/meet-the-board/",
+    "source": "Vicksburg Community Schools, \"Meet the Board\": \"David Schriemer - President, Term expires: 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Vicksburg Community Schools Board of Education",
+     "from": "2005",
+     "to": "",
+     "source": "Vicksburg Community Schools: \"Dr. Dave Schriemer has been a board member since 2005\"",
+     "url": "https://www.vicksburgschools.org/our-district/board-of-education/meet-the-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-4y",
+   "name": "Richard Bell"
+  },
+  {
+   "race_id": "2026-MI-S-47030-school-board-4y",
+   "name": "Diana Dombrowski",
+   "official_page": {
+    "url": "https://www.fowlervilleschools.org/district/board-of-education/",
+    "source": "Fowlerville Community Schools, Board of Education page: \"Diana Dombrowski, Trustee, Term Ends: December 31, 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Fowlerville Community Schools Board of Education",
+     "from": "2023",
+     "to": "",
+     "source": "Fowlerville Community Schools: \"Serving on the Fowlerville Board of Education since January 2023\"",
+     "url": "https://www.fowlervilleschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50120-school-board-6y",
+   "name": "Kurt Troutman"
+  },
+  {
+   "race_id": "2026-MI-S-59070-school-board-6y",
+   "name": "William Zerbst"
+  },
+  {
+   "race_id": "2026-MI-S-63030-school-board-6y",
+   "name": "Marcus Terry",
+   "official_page": {
+    "url": "https://www.pontiac.k12.mi.us/about-us/board-of-education",
+    "source": "School District of the City of Pontiac, Board of Education page: \"Marcus Terry | Vice President, Term ends December 31, 2026\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Pontiac Board of Education",
+     "from": "",
+     "to": "",
+     "source": "School District of the City of Pontiac lists \"Marcus Terry | Vice President, Term ends December 31, 2026\" (no start year given)",
+     "url": "https://www.pontiac.k12.mi.us/about-us/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63150-school-board-6y",
+   "name": "Beau Taylor"
+  },
+  {
+   "race_id": "2026-MI-S-63270-school-board-4y",
+   "name": "Jacqueline Stanley",
+   "official_page": {
+    "url": "https://www.clawsonschools.org/board-of-education/meet-the-board/",
+    "source": "Clawson Public Schools, \"Meet the Board\": \"Jacqueline Stanley, Treasurer\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Clawson Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Clawson Public Schools lists \"Jacqueline Stanley, Treasurer\" (no start year given)",
+     "url": "https://www.clawsonschools.org/board-of-education/meet-the-board/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "review": [
+    {
+     "shows": "Our list has Jacqueline Stanley on the November 2026 ballot for a four-year seat on the Clawson board",
+     "problem": "Clawson Public Schools' own board page gives her term as \"Term Expires: December 31, 2028\", which would not be up in 2026. Either the district's page or our reading of the county list is off; worth a look.",
+     "url": "https://www.clawsonschools.org/board-of-education/meet-the-board/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Chris Reed"
+  },
+  {
+   "race_id": "2026-MI-S-80150-school-board-6y",
+   "name": "Roxine Kemp"
+  },
+  {
+   "race_id": "2026-MI-S-82030-school-board-6y",
+   "name": "Nasri Sobh",
+   "official_page": {
+    "url": "https://dearbornschools.org/district/board-of-education/",
+    "source": "Dearborn Public Schools, Board of Education page: \"Vice President Nasri Sobh\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Dearborn Board of Education (appointed)",
+     "from": "2025",
+     "to": "",
+     "source": "Dearborn Public Schools: \"Nasri Sobh was appointed to the board in September 2025\"",
+     "url": "https://dearbornschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Korey Ryan Morris",
+   "official_page": {
+    "url": "https://www.taylorschools.net/board-of-education",
+    "source": "Taylor School District, Board of Education page: \"Vice President - Korey Morris\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Taylor School District Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Taylor School District lists \"Vice President - Korey Morris\" among its board members (no start year given)",
+     "url": "https://www.taylorschools.net/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82390-school-board-4y",
+   "name": "Michael Cook"
+  },
+  {
+   "race_id": "2026-MI-SH106",
+   "name": "Mary Lucille Hamilton"
+  },
+  {
+   "race_id": "2026-MI-SH28",
+   "name": "Sherry A. Berecz"
+  },
+  {
+   "race_id": "2026-MI-SH48",
+   "name": "Brian Ignatowski"
+  },
+  {
+   "race_id": "2026-MI-SH68",
+   "name": "Matt Schlinker"
+  },
+  {
+   "race_id": "2026-MI-SH88",
+   "name": "Kiel Reid"
+  },
+  {
+   "race_id": "2026-MI-SS16",
+   "name": "Joseph Bellino Jr."
+  },
+  {
+   "race_id": "2026-MI-SS35",
+   "name": "Laurie Atwood"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every address in the file was re-opened (11 pages, two on a second try after a failed lookup). Nothing removed. Corrected: Judge Ninomiya's three offices now carry the years the article states (appointed 2017, elected 2008, elected 2000) rather than assumed starting years; the Vicksburg board page's address, which now forwards to the district's new domain."
+}

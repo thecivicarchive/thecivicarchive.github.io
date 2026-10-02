@@ -1,0 +1,2632 @@
+{
+ "state": "MI",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the official lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Michigan differs from Minnesota: parties nominate for the Legislature and for governor in the August 4 primary, and nominate the secretary of state, the attorney general, the education boards and the Supreme Court justices at conventions; the justices are then printed with no party. Both major parties held early 'endorsement conventions' (Republicans March 28, Democrats April 19, 2026). Only a page that itself says 'endorse' or 'endorsed' is under endorsements. A voter guide, a slate, a list of the party's candidates or a 'recommended' column is under other_support with the page's own word in 'kind', kept apart and not for showing as an endorsement; from a bare list of a party's candidates only the offices printed without a party (judges, school boards) are taken, since the rest adds nothing to the party on the ballot. Governor and lieutenant governor are one November ticket, so a page's two lines are one record. 'election' appears only when the candidate is on a primary list and not on the November list. Federal offices, ballot proposals and party offices on these pages are outside this file. The same candidate stands on several lists: count once per party. Names are spelled as our record spells them; 'as_listed' keeps the page's spelling. Pages were fetched with the kit's honest User-Agent after checking each site's robots.txt; a site that forbids programs, shows a challenge or refuses the program was not opened (see not_read). The Oakland County Republican slate is drawn by a script: its names and its heading 'GOP-endorsed candidates' (county courts and school boards only) were read from that script, and nothing else in it was read. Every page in 'lists' was opened again when this file was built and a record is kept only if the page still showed the name. County and local races are loaded for nine counties only (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw, Muskegon), so lines for other places (Washtenaw's cities and school boards, Jackson's) cannot match yet; they are listed under the two 'unmatched_listed' keys with the reason.",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "title": "MDP Endorses Candidates for Key Statewide Offices",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "title": "2026 Endorsed Candidates",
+   "url": "https://www.ocdp.org/endorsements",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "title": "2026 KCDP Candidate Endorsements",
+   "url": "https://www.kzoodems.com/endorsements",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "title": "August 2026 County Convention / Endorsement Results",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "title": "2026 Candidates",
+   "url": "https://allegandems.com/candidates-2026/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "title": "Our Endorsed Statewide Candidates",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "title": "Our Endorsed Candidates",
+   "url": "https://www.grandtraversedems.com/2026-regional-candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "title": "2026 Voter Guide: Candidate Endorsements",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "title": "Kent County Democratic Party Endorsed Candidates",
+   "url": "https://kentdems.com/candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "title": "Candidates We are Endorsing",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "title": "Meet the 2026 Endorsed Candidates!",
+   "url": "https://ottawadems.com/candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "title": "Benzie Democrats Voter Guide for Nov. 3, 2026",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clinton County Democratic Party",
+   "title": "Democratic Candidates",
+   "url": "https://clintoncodems.org/candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Van Buren County Democratic Party",
+   "title": "Election: November 3, 2026",
+   "url": "https://vanburendems.org/candidates-2026/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Michigan Republican Party",
+   "title": "2026 Republican Convention Nominees",
+   "url": "https://mi.gop/endorsement-convention/candidate-bios",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "title": "2026 Candidate Slate: GOP-endorsed candidates (County Courts, School Boards)",
+   "url": "https://oaklandgopslate.org",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "title": "GOP Endorsed Candidates",
+   "url": "https://casscountygop.org/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "St. Joseph County Republican Party",
+   "title": "Candidate Profiles / GOP Candidate Slate",
+   "url": "https://stjosephgop.com/election-day-operations/candidate-profiles-gop-candidate-slate/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "title": "2026 Voter Guide",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Garlin Gilchrist, Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Eli Savit, Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Megan Cavanagh, Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Noah Hood, Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Judith Pritchett, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Tiffany Tilley, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Kelly Tebay Zemke, Michigan State University Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Brianna Scott, Michigan State University Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Shereef Akeel",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Shereef Akeel, Wayne State University Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Richard Mack, Wayne State University Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Paul Brown, University of Michigan Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party",
+   "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+   "as_listed": "Amir Makled, University of Michigan Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Jocelyn Benson, for Governor; Winnie Brinks, for Lt. Governor"
+  },
+  {
+   "race_id": "2026-MI-PC125-NI",
+   "name": "Elisabeth Dery",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Elisabeth Dery, Probate Judge"
+  },
+  {
+   "race_id": "2026-MI-CC6-NI",
+   "name": "Victoria King",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Victoria King, 6th Circuit Court"
+  },
+  {
+   "race_id": "2026-MI-SH5",
+   "name": "Candace Calloway",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Candace Calloway, Michigan State House D5"
+  },
+  {
+   "race_id": "2026-MI-SH6",
+   "name": "Melanie Macey",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Melanie Macey, Michigan State House D6"
+  },
+  {
+   "race_id": "2026-MI-SH19",
+   "name": "Samantha Steckloff",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Samantha Steckloff, Michigan State House D19"
+  },
+  {
+   "race_id": "2026-MI-SH49",
+   "name": "Dan Pelchat",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Dan Pelchat, Michigan State House D49"
+  },
+  {
+   "race_id": "2026-MI-SH51",
+   "name": "Stacey McDuffie",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Stacey McDuffie, Michigan State House D51"
+  },
+  {
+   "race_id": "2026-MI-SH52",
+   "name": "Brendan P. Leddy",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Brendan Leddy, Michigan State House D52"
+  },
+  {
+   "race_id": "2026-MI-SH53",
+   "name": "Brenda Carter",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Brenda Carter, Michigan State House D53"
+  },
+  {
+   "race_id": "2026-MI-SH54",
+   "name": "Sarah Pounds",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Sarah Pounds, Michigan State House D54"
+  },
+  {
+   "race_id": "2026-MI-SH55",
+   "name": "Alex Hawkins",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Alex Hawkins, Michigan State House D55"
+  },
+  {
+   "race_id": "2026-MI-SS7",
+   "name": "Jason Hoskins",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Jason Hoskins, Michigan State Senate D7"
+  },
+  {
+   "race_id": "2026-MI-SS8",
+   "name": "Dayna Polehanki",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Dayna Polehanki, Michigan State Senate D8"
+  },
+  {
+   "race_id": "2026-MI-SS9",
+   "name": "Theresa Brooks",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Theresa Brooks, Michigan State Senate D9"
+  },
+  {
+   "race_id": "2026-MI-SS10",
+   "name": "Natalie Price",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Natalie Price, Michigan State Senate D10"
+  },
+  {
+   "race_id": "2026-MI-SS13",
+   "name": "Sean Carlson",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Sean Carlson, Michigan State Senate D13"
+  },
+  {
+   "race_id": "2026-MI-SS23",
+   "name": "Greg Hill",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Greg Hill, Michigan State Senate D23"
+  },
+  {
+   "race_id": "2026-MI-X-oakland-college-college-board-6y",
+   "name": "MiVida M. Burrus",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "MiVida Burrus, Oakland County Community College Trustees"
+  },
+  {
+   "race_id": "2026-MI-X-oakland-college-college-board-6y",
+   "name": "Robin L. McGregor",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Robin McGregor, Oakland County Community College Trustees"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Garlin Gilchrist, for Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Eli Savit, for Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Megan Cavanagh, for Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Noah Hood, for Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Judith Pritchett, for State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Tiffany Tilley, for State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Kelly Tebay Zemke, for Michigan State University Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Brianna Scott, for Michigan State University Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Shereef Akeel",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Shereef Akeel, for Wayne State University Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Richard Mack, for Wayne State University Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Paul Brown, for University of Michigan Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Oakland County Democratic Party",
+   "url": "https://www.ocdp.org/endorsements",
+   "as_listed": "Amir Makled, for University of Michigan Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Jocelyn Benson, Governor of Michigan"
+  },
+  {
+   "race_id": "2026-MI-SS18",
+   "name": "Anthony Pennock",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Anthony Pennock, State Senate - District 18"
+  },
+  {
+   "race_id": "2026-MI-SS19",
+   "name": "Julie M. Rogers",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Julie Rogers, State Senate - District 19"
+  },
+  {
+   "race_id": "2026-MI-SH40",
+   "name": "Matt Longjohn",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Matt Longjohn, State House - District 40"
+  },
+  {
+   "race_id": "2026-MI-SH45",
+   "name": "Randy Davis",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Randy Davis, State House- District 45"
+  },
+  {
+   "race_id": "2026-MI-SH41",
+   "name": "Jen Strebs",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Jen Strebs, State House- District 41"
+  },
+  {
+   "race_id": "2026-MI-SH42",
+   "name": "Nick Rowe",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Nick Rowe, State House- District 42"
+  },
+  {
+   "race_id": "2026-MI-DC8-NI",
+   "name": "Rachel Vinales",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Rachel Viñales, 8th District Court"
+  },
+  {
+   "race_id": "2026-MI-M-42180-town-trustee-p20281201-S",
+   "name": "Jalen Gibson",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Jalen Gibson, Kalamazoo Township Trustee"
+  },
+  {
+   "race_id": "2026-MI-M-42180-town-treasurer-p20281201-S",
+   "name": "Clara D Robinson",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Clara Robinson, Kalamazoo Township Treasurer"
+  },
+  {
+   "race_id": "2026-MI-S-39010-school-board-6y",
+   "name": "Patti Sholler-Barber",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Patti Sholler-Barber, Kalamazoo School Board"
+  },
+  {
+   "race_id": "2026-MI-S-39010-school-board-6y",
+   "name": "Mariah Bryant",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Mariah Bryant, Kalamazoo School Board"
+  },
+  {
+   "race_id": "2026-MI-S-39030-school-board-4y",
+   "name": "Charmica Knight",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Charmica Knight, Comstock School Board"
+  },
+  {
+   "race_id": "2026-MI-S-39030-school-board-4y",
+   "name": "Jason Knight",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Jason Knight, Comstock School Board"
+  },
+  {
+   "race_id": "2026-MI-X-kalamazoo-valley-college-college-board-6y",
+   "name": "Lucinda M Stinson",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Lucinda Stinson, KVCC Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Garlin Gilchrist, Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Eli Savit, Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Meghan Cavanaugh, State Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Noah Hood, State Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Judith Pritchett, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Tiffany Tilley, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Kelly Tebay-Zemke, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Brianna Scott, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Shereef Akeel",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Shereef Akeel, WSU Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Richard Mack, WSU Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Paul Brown, U of M Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Kalamazoo County Democratic Party",
+   "url": "https://www.kzoodems.com/endorsements",
+   "as_listed": "Amir Makled, U of M Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-SS14",
+   "name": "Sue Shink",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Sue Shink, State Senator, District 14"
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Felicia Brabec",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Felicia Brabec, State Senator, District 15"
+  },
+  {
+   "race_id": "2026-MI-SH23",
+   "name": "Jason Morgan",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jason Morgan, State Representative, District 23"
+  },
+  {
+   "race_id": "2026-MI-SH31",
+   "name": "Shannon Dare Wayne",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Shannon Dare Wayne, State Representative, District 31"
+  },
+  {
+   "race_id": "2026-MI-SH32",
+   "name": "Jimmie Wilson Jr.",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jimmie Wilson Jr, State Representative, District 32"
+  },
+  {
+   "race_id": "2026-MI-SH33",
+   "name": "Morgan Foreman",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Morgan Foreman, State Representative, District 33"
+  },
+  {
+   "race_id": "2026-MI-SH46",
+   "name": "Jan Maino",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jan Maino, State Representative, District 46"
+  },
+  {
+   "race_id": "2026-MI-SH47",
+   "name": "Carrie A. Rheingans",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Carrie A. Rheingans, State Representative, District 47"
+  },
+  {
+   "race_id": "2026-MI-SH48",
+   "name": "Jennifer A. Conlin",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jennifer A. Conlin, State Representative, District 48"
+  },
+  {
+   "race_id": "2026-MI-COA3",
+   "name": "Daniel S. Korobkin",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Daniel S. Korobkin, 3rd District Judge of Court of Appeals"
+  },
+  {
+   "race_id": "2026-MI-CC22",
+   "name": "Patrick J. Conlin Jr.",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Patrick J. Conlin Jr, 22nd Circuit Court Judge"
+  },
+  {
+   "race_id": "2026-MI-CC22",
+   "name": "Tracy E. Van den Bergh",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Tracy E. Van den Bergh, 22nd Circuit Court Judge"
+  },
+  {
+   "race_id": "2026-MI-DC14A",
+   "name": "Anna Maria Frushour",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Anna Maria Frushour, 14A District Court Judge"
+  },
+  {
+   "race_id": "2026-MI-DC14B",
+   "name": "Erane C. Washington",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Erane C. Washington, 14B District Court Judge"
+  },
+  {
+   "race_id": "2026-MI-DC15",
+   "name": "Tamara Garwood",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Tamara Garwood, 15th District Court Judge"
+  },
+  {
+   "race_id": "2026-MI-PC161-NI",
+   "name": "Jennifer Lawrence",
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jennifer Lawrence, Judge of Probate Court"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Jocelyn Benson, Governor - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Eli Savit, Attorney General - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Garlin Gilchrist, Secretary of State - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SS18",
+   "name": "Anthony Pennock",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Anthony Pennock, Michigan State Senate 18th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SS20",
+   "name": "Dale Murney",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Dale Murney, Michigan State Senate 20th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SS31",
+   "name": "Chris Kleinjans",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Chris Kleinjans, Michigan State Senate 31st District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH38",
+   "name": "Joey Andrews",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Joey Andrews, Michigan State Representative 38th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH39",
+   "name": "Kerry Tapper",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Kerry Tapper, Michigan State Representative 39th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH42",
+   "name": "Nick Rowe",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Nick Rowe, Michigan State Representative 42nd District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH43",
+   "name": "Alan Swank",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Alan Swank, Michigan State Representative 43rd District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH79",
+   "name": "Zach Abbott",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Zach Abbott, Michigan State Representative 79th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-SH86",
+   "name": "Joseph McClusky",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Joseph McClusky, Michigan State Representative 86th District - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-DC57-PT2031",
+   "name": "Christopher E. Burnett",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Judge Christopher Burnett, 57th District Court Judge - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-DC57-NI",
+   "name": "Heidi L. Wolf",
+   "party": "Democratic",
+   "unit": "Allegan County Democratic Party",
+   "url": "https://allegandems.com/candidates-2026/",
+   "as_listed": "Heidi Wolf, 57th District Court Judge - Endorsed"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Jocelyn Benson, for Governor; Winnie Brinks, for Lieutenant Governor"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Garlin Gilchrist, Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Eli Savit, Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Megan Cavangh, MI Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Noah Hood, MI Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Judith Pritchett, State Bd of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Tiffany Tilley, State Bd of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Kelly Tebay Zemke, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Briana Scott, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Paul Brown, U-M Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-state-candidates",
+   "as_listed": "Amir Makled, U-M Board of Regents"
+  },
+  {
+   "race_id": "2026-MI-SS37",
+   "name": "Kate Gallup",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-regional-candidates",
+   "as_listed": "Kate Gallup, State Senate 37"
+  },
+  {
+   "race_id": "2026-MI-SH103",
+   "name": "Betsy Coffia",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-regional-candidates",
+   "as_listed": "Betsy Coffia, MI House 103"
+  },
+  {
+   "race_id": "2026-MI-SH104",
+   "name": "Mitchell Ryan Distin",
+   "party": "Democratic",
+   "unit": "Grand Traverse County Democratic Party",
+   "url": "https://www.grandtraversedems.com/2026-regional-candidates",
+   "as_listed": "Mitchell Ryan Distin, MI House 104"
+  },
+  {
+   "race_id": "2026-MI-SH45",
+   "name": "Randy Davis",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Randy Davis, House District 45"
+  },
+  {
+   "race_id": "2026-MI-SH46",
+   "name": "Jan Maino",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Jan Maino, House District 46"
+  },
+  {
+   "race_id": "2026-MI-SH47",
+   "name": "Carrie A. Rheingans",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Carrie Rheingans, House District 47"
+  },
+  {
+   "race_id": "2026-MI-SH48",
+   "name": "Jennifer A. Conlin",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Jennifer Conlin, House District 48"
+  },
+  {
+   "race_id": "2026-MI-SS14",
+   "name": "Sue Shink",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Sue Shink, Senate District 14"
+  },
+  {
+   "race_id": "2026-MI-SS17",
+   "name": "Ashleigh Baker",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Ashleigh Baker, Senate District 17"
+  },
+  {
+   "race_id": "2026-MI-DC12",
+   "name": "George D. Lyons",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "George Lyons, Jackson County 12th District Court"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Jocelyn Benson, Governor"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Garlin Gilchrist, Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Eli Savit, Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Megan Cavanagh, State Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Noah Hood, State Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Judith Pritchett, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Tiffany Tilley, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Kelly Tebay Zemke, MSU Trustee"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Brianna Scott, MSU Trustee"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Shereef Akeel",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Shereef Akeel, WSU Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Richard Mack, WSU Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Paul Brown, U of M Regent"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Amir Makled, U of M Regent"
+  },
+  {
+   "race_id": "2026-MI-M-34000-council-ward-1-4y",
+   "name": "Lindsey Perez-Plescher",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Lindsey Perez-Plescher - GR City - Wd 1"
+  },
+  {
+   "race_id": "2026-MI-M-88940-council-at-large-4y",
+   "name": "Daniel Rivera",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Daniel Rivera - Wyoming - At-Large"
+  },
+  {
+   "race_id": "2026-MI-M-88940-council-at-large-4y",
+   "name": "Cassandra Kawka-Vlahos",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Cassandra Kawka-Vlahos - Wyoming - At-Large"
+  },
+  {
+   "race_id": "2026-MI-X-grand-rapids-college-college-board-6y",
+   "name": "Tim Russ",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Tim Russ - GRCC Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-p20281231-S",
+   "name": "Erika VanDyke",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Erika VanDyke - GRPS - Paritial Term"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Amaad Hardy",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Amaad Hardy - GRPS"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Robert Hovenkamp",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Robert Hovenkamp - GRPS"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Carlos Kulas-Dominguez",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Carlos Kulas-Dominguez - GRPS"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Ismalis Nuñez",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Ismalis Nunez - GRPS"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Jose Rodriguez",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Jose Rodriguez - GRPS"
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Aarie Wade",
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Aarie Wade - GRPS"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Jocelyn Benson, Michigan Governor"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Garlin Gilchrist, Michigan Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Eli Savit, Michigan Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SS32",
+   "name": "Rebecca Amidon",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Rebecca Amidon, Michigan Senate District 32"
+  },
+  {
+   "race_id": "2026-MI-SH102",
+   "name": "Angel Coon",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Angel Coon, Michigan House District 102"
+  },
+  {
+   "race_id": "2026-MI-SH86",
+   "name": "Joseph McClusky",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Joseph McClusky, Michigan House of Representatives, District 86"
+  },
+  {
+   "race_id": "2026-MI-SH85",
+   "name": "Richard Abraham",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Richard Abraham, Michigan House of Representatives, District 85"
+  },
+  {
+   "race_id": "2026-MI-SH89",
+   "name": "Meegan Zickus",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Meegan Zickus, Michigan House of Representatives, District 89"
+  },
+  {
+   "race_id": "2026-MI-SH43",
+   "name": "Alan Swank",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Alan Swank, Michigan House of Representatives, District 43"
+  },
+  {
+   "race_id": "2026-MI-SH88",
+   "name": "Kiel Reid",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Kiel Reid, Michigan House of Representatives, District 88"
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Diana Weyhmiller",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Diana Weyhmiller, Jenison Public School Board"
+  },
+  {
+   "race_id": "2026-MI-SS31",
+   "name": "Chris Kleinjans",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Chris Kleinjans, Michigan State Senate District 31"
+  },
+  {
+   "race_id": "2026-MI-SS30",
+   "name": "Carol Glanville",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Carol Glanville, Michigan State Senate District 30"
+  },
+  {
+   "race_id": "2026-MI-SS33",
+   "name": "Stan Opal",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Stan Opal, Michigan State Senate District 33"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Jocelyn Benson, Michigan Governor; Winnie Brinks, Lt. Governor"
+  },
+  {
+   "race_id": "2026-MI-COA3",
+   "name": "Daniel S. Korobkin",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Daniel Korobkin, Judge of the Court of Appeals"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Garlin Gilchrist, Michigan Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Eli Savit, Michigan Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Megan Cavanaugh, Michigan Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Noah Hood, Michigan Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Judith Pritchett, Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Tiffany Tilley",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Tiffany Tilley, Board of Education"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Kelly Tebay Zemke",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Kelly Tebay Zemke, Michigan State University Trustee"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Brianna Scott",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Brianna Scott, Michigan State University Trustee"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Shereef Akeel",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Shereef Akeel, Wayne State Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Richard Mack, Wayne State Board of Governors"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Paul Brown",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Paul Brown, University of Michigan Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "party": "Democratic",
+   "unit": "Ottawa County Democratic Party",
+   "url": "https://ottawadems.com/candidates",
+   "as_listed": "Amir Makled, University of Michigan Regents"
+  },
+  {
+   "race_id": "2026-MI-CC6-NI",
+   "name": "Lisa Marie Neilson",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Lisa Neilson, Oakland County Circuit Court"
+  },
+  {
+   "race_id": "2026-MI-PC125-NI",
+   "name": "Jessica Ann Hallmark",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Jessica Hallmark, Oakland County Probate Court"
+  },
+  {
+   "race_id": "2026-MI-DC51-NI",
+   "name": "Carmen J. DeFranco",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Carmen DeFranco, 51st District Court (Waterford)"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-6y",
+   "name": "Lisa Halushka",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Lisa Halushka, Rochester School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-6y",
+   "name": "Lawrence D. Halushka",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Lawrence Halushka, Rochester School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-p20281231-S",
+   "name": "Deanna Harless",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Deanna Harless, Rochester School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Ron Renaud",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Ron Renaud, Oxford School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Chris Newby",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Christopher Newby, Oxford School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Nathan Vandecar",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Nathan Vandecar, Oxford School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Michael Whitney",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Michael Whitney, Oxford School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63300-school-board-6y",
+   "name": "Tyler Soncrainte",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Tyler Soncrainte, Waterford School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63060-school-board-6y",
+   "name": "Wendy Webster Jackson",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Wendy Webster Jackson, Southfield School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63160-school-board-6y",
+   "name": "Johnnette Eggert",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Johnnette Eggert, West Bloomfield School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63290-school-board-6y",
+   "name": "Ryan Hoppe",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Ryan Hoppe, Walled Lake School Board"
+  },
+  {
+   "race_id": "2026-MI-S-63150-school-board-6y",
+   "name": "Mary Gunn",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Mary Gunn, Troy School Board"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Doug Lloyd",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Doug Lloyd, Attorney General"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Anthony G. Forlini",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Anthony Forlini, Secretary of State"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Casandra Morse-Bills",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Casandra Morse-Bills, Michigan Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Michael Warren",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Michael Warren, Michigan Supreme Court"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Lena Epstein",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Lena Epstein, University of Michigan Regents"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Michael Schostak",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Michael Schostak, University of Michigan Regents"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Roger Victory",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Roger Victory, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Julie Maday",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Julie Maday, MSU Board of Trustees"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Bree Moeggenberg",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Bree Moeggenberg, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Terence Collins",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Terence Collins, State Board of Education"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Christa Murphy",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Christa Murphy, Wayne State Governor"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Andy Anuzis",
+   "party": "Republican",
+   "unit": "Cass County Republican Party",
+   "url": "https://casscountygop.org/",
+   "as_listed": "Andy Anuzis, Wayne State Governor"
+  }
+ ],
+ "unmatched": 44,
+ "unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Yousef Rabhi, City of Ann Arbor, Mayor",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Cynthia Harrison, City of Ann Arbor, Ward 1 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Sandy Aldrich, City of Ann Arbor, Ward 2 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Ryan Bartholomew, City of Ann Arbor, Ward 3 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Aidan Sova, City of Ann Arbor, Ward 4 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Jenn Cornell, City of Ann Arbor, Ward 5 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Nicole A. Brown, City of Ypsilanti, Mayor",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Me'Chelle King, City of Ypsilanti, Ward 1 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Patrick A. McLean, City of Ypsilanti, Ward 2 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Desirae Simmons, City of Ypsilanti, Ward 3 City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Joe Semifero, City of Dexter, City Council Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Brian D. Marl, City of Saline Mayor",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Kristine Bolhuis, Ann Arbor Township Clerk",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Mary Gillis, Scio Township Trustee",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "David A. DeVarti, WCC Board of Trustees Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Christina Fleming, WCC Board of Trustees Member",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Becca Hogan, Ann Arbor Public Schools Board (Full Term)",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Rima Mohammad, Ann Arbor Public Schools Board (Full Term)",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Aaron J. Puno, Ann Arbor Public Schools Board (Full Term)",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Brandon Smith, Ann Arbor Public Schools Board (Full Term)",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "John Benson, Ann Arbor Public Schools Board (Partial Term)",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Heather Scott, Chelsea School District Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Sara Tracy, Chelsea School District Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Nicolia Heineman, Chelsea School District Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Elise Bruderly, Dexter Community Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Christopher M. Caron, Manchester Community Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Gabe Burdette, Milan Area Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Angela Chidester, Milan Area Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Thomas Faro, Milan Area Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Christy Lillie, Saline Area Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Carl Spina, Saline Area Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Yvonne M Fields, Ypsilanti Community Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "KJ Pedri, Ypsilanti Community Schools Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Rachel Goldberg, Ann Arbor District Library Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Cassie Haynes, Ann Arbor District Library Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Gaurav Kulkarni, Ann Arbor District Library Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washtenaw County Democratic Party",
+   "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+   "as_listed": "Paul Leighton, Ypsilanti District Library Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Derek Dobies, Jackson City Mayor",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "David Hammontree, Jackson City Treasurer",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Tabitha Williams, JPS School Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jackson County Democratic Committee",
+   "url": "https://jacksoncountydems.org/local-candidate-information/",
+   "as_listed": "Tyshon Gray, JPS School Board",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "as_listed": "Gloria Lara - Walker - Wd 1",
+   "reason": "office and place fit 3 race(s), but no candidate there has this name"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "George Heath, Oceana County Road Commission",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "George Elder, Milan Area Schools (Washtenaw GOP endorses George Elder for Milan Area Schools)",
+   "reason": "no race in the database fits this office and place"
+  }
+ ],
+ "other_support": [
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Megan Cavanagh, Michigan Supreme Court Justice",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Oceana County Democratic Party",
+   "url": "https://oceanacountydemocrats.org/endorsing",
+   "as_listed": "Noah Hood, Michigan Supreme Court Justice",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Megan Cavanagh, Michigan Supreme Court (2)",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Noah Hood, Michigan Supreme Court (2)",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MI-COA4",
+   "name": "Allie Greenleaf Maldonado",
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Allie Greenleaf Maldonado, Michigan 4th District Appeals Court",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MI-COA4",
+   "name": "Michelle M. Rick",
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Michelle Rick, Michigan 4th District Appeals Court",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MI-COA4",
+   "name": "Michael J. Kelly",
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Michael J. Kelly, Michigan 4th District Appeals Court",
+   "kind": "voter guide"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Clinton County Democratic Party",
+   "url": "https://clintoncodems.org/candidates",
+   "as_listed": "Megan Cavanagh, Supreme Court",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Clinton County Democratic Party",
+   "url": "https://clintoncodems.org/candidates",
+   "as_listed": "Noah Hood, Supreme Court",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Megan Kathleen Cavanagh",
+   "party": "Democratic",
+   "unit": "Van Buren County Democratic Party",
+   "url": "https://vanburendems.org/candidates-2026/",
+   "as_listed": "Megan Cavanagh, Michigan Supreme Court: (2 seats)",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "party": "Democratic",
+   "unit": "Van Buren County Democratic Party",
+   "url": "https://vanburendems.org/candidates-2026/",
+   "as_listed": "Noah Hood, Michigan Supreme Court: (2 seats)",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Michael Warren",
+   "party": "Republican",
+   "unit": "Michigan Republican Party",
+   "url": "https://mi.gop/endorsement-convention/candidate-bios",
+   "as_listed": "Judge Michael Warren, Justice of the Michigan Supreme Court",
+   "kind": "convention nominee"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Casandra Morse-Bills",
+   "party": "Republican",
+   "unit": "Michigan Republican Party",
+   "url": "https://mi.gop/endorsement-convention/candidate-bios",
+   "as_listed": "Judge Casandra-Morse Bills, Justice of the Michigan Supreme Court",
+   "kind": "convention nominee"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Michael Warren",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Michael Warren, Michigan Supreme Court",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Casandra Morse-Bills",
+   "party": "Republican",
+   "unit": "Oakland County Republican Party",
+   "url": "https://oaklandgopslate.org",
+   "as_listed": "Casandra Morse-Bills, Michigan Supreme Court",
+   "kind": "listed among the party's candidates"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Michael Warren",
+   "party": "Republican",
+   "unit": "St. Joseph County Republican Party",
+   "url": "https://stjosephgop.com/election-day-operations/candidate-profiles-gop-candidate-slate/",
+   "as_listed": "Judge Michael Warren, State Supreme Court",
+   "kind": "candidate slate"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Casandra Morse-Bills",
+   "party": "Republican",
+   "unit": "St. Joseph County Republican Party",
+   "url": "https://stjosephgop.com/election-day-operations/candidate-profiles-gop-candidate-slate/",
+   "as_listed": "Judge Cassandra Morse Bills, State Supreme Court",
+   "kind": "candidate slate"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "John James / Jay DeBoyer",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "John James / Jay DeBoyer, Governor / Lt. Governor, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Anthony G. Forlini",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Anthony Forlini, Secretary of State, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Doug Lloyd",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Doug Lloyd, Attorney General, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Terence Collins",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Terence Collins, State Board of Education, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Bree Moeggenberg",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Bree Moeggenberg, State Board of Education, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Lena Epstein",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Lena Epstein, U-M Regents, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Michael Schostak",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Michael Schostak, U-M Regents, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Julie Maday",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Julie Maday, MSU Trustees, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Roger Victory",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Roger Victory, MSU Trustees, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Andy Anuzis",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Andy Anuzis, Wayne State Governors, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Christa Murphy",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Christa Murphy, Wayne State Governors, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH23",
+   "name": "Miriam Corvino",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Miriam Corvino, State House 23, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH31",
+   "name": "Laura M. Perry",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Laura M. Perry, State House 31, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH32",
+   "name": "Mike Eller",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Mike Eller, State House 32, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH33",
+   "name": "Catherine Rogers",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Catherine Rogers, State House 33, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH46",
+   "name": "Kathy Schmaltz",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Kathy Schmaltz, State House 46, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH47",
+   "name": "Justin Griffis",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Justin Griffis, State House 47, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SH48",
+   "name": "Brian Ignatowski",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Brian Ignatowski, State House 48, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SS14",
+   "name": "Tawn Shawnelle Beliger",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Tawn Shawnelle Beliger, State Senate 14, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Jason Rogers",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Jason Rogers, State Senate 15, Recommended",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Michael Warren",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Michael D. Warren Jr., Michigan Supreme Court, Vote for",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Casandra Morse-Bills",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Casandra Morse-Bills, Michigan Supreme Court, Vote for",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-COA3",
+   "name": "Mark T. Boonstra",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Mark T. Boonstra, Court of Appeals 3rd District, Vote for",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-CC22",
+   "name": "Patrick J. Conlin Jr.",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Patrick J. Conlin Jr., 22nd Circuit, Vote for",
+   "kind": "recommended"
+  },
+  {
+   "race_id": "2026-MI-PC161-NI",
+   "name": "Alethia Jean Battles",
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Alethia Jean Battles, Washtenaw Probate, Vote for",
+   "kind": "recommended"
+  }
+ ],
+ "other_support_unmatched": 5,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Benzie County Democratic Party",
+   "url": "https://www.benziedemocrats.com/wp-content/uploads/2026/08/Benzie-County-Dems_Full-Slate-Ad_BETSIE-CURRENT_September-2026.pdf",
+   "as_listed": "Chandler Williams, Benzie Central School Board",
+   "kind": "voter guide",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Eric Wilkinson, Chelsea School District, Recommended",
+   "kind": "recommended",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Shawn W. Keough, City of Dexter Mayor, Recommended",
+   "kind": "recommended",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Pavlo Popov, City of Dexter Council, partial term, Recommended",
+   "kind": "recommended",
+   "reason": "no race in the database fits this office and place"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washtenaw County Republican Party",
+   "url": "https://washtenawrepublicans.org/2026-voter-guide",
+   "as_listed": "Jacob D. Schaible, Lodi Twp Supervisor (partial term), Recommended",
+   "kind": "recommended",
+   "reason": "no race in the database fits this office and place"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "Michigan Republican Party",
+   "url": "https://mi.gop/vote-november-3-2026/",
+   "why": "read; partly taken: the page is the party's directory of its November candidates and its 'Convention Nominees' list. It does not call them endorsed, so nothing is under endorsements. Only the two Supreme Court nominees are recorded (other_support, 'convention nominee'), because justices are printed without a party; the nominees for partisan offices add nothing to the party already printed on the ballot. News organizations report the party's March 28, 2026 endorsement convention, but the party's own site carries no page that says 'endorsed' for these candidates"
+  },
+  {
+   "party": "Republican",
+   "unit": "Michigan Republican Party",
+   "url": "https://migop.org/",
+   "why": "the party's older address now shows a parked page; its site is at mi.gop"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Michigan Democratic Party (voter guide run by volunteers, paid for by the Washtenaw County Democratic Party)",
+   "url": "https://mivoter.org/",
+   "why": "not read: the guide shows 'Democratically endorsed candidates on your ballot' only after a street address is typed into its form; no form was filled in. Many county parties point to it instead of publishing a list"
+  },
+  {
+   "party": "Republican",
+   "unit": "Ottawa County Republican Party",
+   "url": "https://assets.nationbuilder.com/ottawagop/pages/4232/attachments/original/1790810879/OCRP_Nov_2026_Endorsements_large_print.pdf",
+   "why": "not read: the party's home page (ottawacountygop.org) links its November 2026 endorsements as a PDF on a file host that refuses programs (HTTP 403 on its robots.txt); left alone. John can open it in his own browser"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Berrien County Democratic Party",
+   "url": "https://www.berriendems.org/endorsements",
+   "why": "not taken: 'BCDP 2026 Endorsements' are published as seven pictures; a picture was not read by eye here"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Wexford County Democratic Party",
+   "url": "https://www.wexforddems.org/your-wcdp-voting-guide-for-november-is-here/",
+   "why": "not taken: the page says the guide shows 'the candidates the WCDP endorsed at our September meeting', but the guide itself is published as pictures"
+  },
+  {
+   "party": "Democratic",
+   "unit": "St. Clair County Democratic Party",
+   "url": "https://www.stclaircountydemocrats.com/wp-content/uploads/2026/09/2026-Slate.pdf",
+   "why": "not taken: the 2026 slate is a PDF whose text is drawn as artwork and cannot be read as words"
+  },
+  {
+   "party": "Republican",
+   "unit": "Midland County Republican Party",
+   "url": "https://midlandgop.org/voters-guide/",
+   "why": "not taken: the 2026 Voters' Guide is a picture and a PDF with no text layer"
+  },
+  {
+   "party": "Republican",
+   "unit": "St. Joseph County Republican Party",
+   "url": "https://stjosephgop.com/gop-voter-guide-2026/",
+   "why": "not taken: the voter guide is published as pictures; the party's candidate slate page was read instead"
+  },
+  {
+   "party": "Republican",
+   "unit": "Ionia County Republican Party",
+   "url": "https://ioniacountygop.org/2026-voter-guide",
+   "why": "not taken: the guide is an attachment the page loads by script; no text on the page"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Alpena County Democratic Party",
+   "url": "https://www.alpenademocrats.org/wp-content/uploads/2026/09/November-Ballot-Breakdown.pdf",
+   "why": "read; nothing taken: the guide lists who is on the ballot, marks several sections 'No Endorsements' and never says the others are endorsed"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Calhoun County Democratic Party",
+   "url": "https://calhoundems.com/endorsements-1",
+   "why": "the party's menu links an Endorsements page, which answered 'not found' (HTTP 404) twice"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Manistee County Democratic Party",
+   "url": "https://manisteedems.org/2026-slate.html",
+   "why": "the party's menu links a 2026 Slate page, which answered 'not found' (HTTP 404)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kent County Democratic Party",
+   "url": "https://kentdems.com/candidates/",
+   "why": "partly taken: only the section headed 'Kent County Democratic Party Endorsed Candidates' (names carried as the captions of pictures). The section 'Democratic Candidates' is a list of the party's nominees and was left out"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Mecosta, St. Joseph, Chippewa, Eaton, Macomb, Lapeer and other county Democratic parties",
+   "url": "https://michigandems.com/county-chairs",
+   "why": "read; nothing taken: their pages list the party's own nominees, office holders or an earlier year's candidates and do not say 'endorsed' for 2026; the Michigan Democratic Party's county page links no county sites, so county sites were found by trying likely addresses for all 83 counties"
+  },
+  {
+   "party": "Republican",
+   "unit": "Kent, Macomb, Muskegon, Leelanau, Lapeer, Calhoun, Saginaw, Crawford and other county Republican parties",
+   "url": "https://mi.gop/vote-november-3-2026/",
+   "why": "read; nothing taken: no 2026 endorsement list on their sites (Macomb's local page says 'Local Office Coming Soon!'; Crawford's shows its 2024 endorsements; Leelanau's and Muskegon's lists are pictures or load by script)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hillsdale, Isabella, Calhoun (calhounrepublicans.org), Monroe County Republican parties",
+   "url": "https://hillsdalegop.org/",
+   "why": "the sites refused this program (HTTP 403 or 429); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oakland County (oaklanddems.org)",
+   "url": "https://oaklanddems.org/",
+   "why": "the site's robots.txt asks programs not to read it; not opened. The Oakland County Democratic Party's own list at ocdp.org was read"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Wayne, Ingham, Genesee, Muskegon, Saginaw, Livingston, Monroe, Bay, Marquette County Democratic parties and the congressional district committees",
+   "url": "https://michigandems.com/get-local/",
+   "why": "no site of their own was found at the likely addresses, or the site answered with an empty or parked page; search results pointed only to third-party guides, which are not a party's own page"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Michigan",
+   "url": "https://michiganlp.org/2026-candidates/",
+   "why": "read; not collected: a list of the party's own nominees, which adds nothing to the party printed on the ballot. Judge Michael Warren's Libertarian nomination for the Supreme Court is reported by others but is not on this page"
+  },
+  {
+   "party": "Green",
+   "unit": "Green Party of Michigan",
+   "url": "https://migreenparty.org/candidates-for-michigan-state-office-2026/",
+   "why": "read; not collected: lists of the party's own nominees"
+  },
+  {
+   "party": "Working Class",
+   "unit": "Working Class Party",
+   "url": "https://workingclassfight.com/elections/wcp-2026/",
+   "why": "read; not collected: the party's own nominees"
+  },
+  {
+   "party": "U.S. Taxpayers",
+   "unit": "U.S. Taxpayers Party of Michigan",
+   "url": "https://www.ustpm.org/",
+   "why": "the site loads everything by script; no text to read"
+  },
+  {
+   "party": "Natural Law",
+   "unit": "Natural Law Party of Michigan",
+   "url": "",
+   "why": "no party site found"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "2026-MI-GOV": {
+  "polymarket": "michigan-governor-winner-2026",
+  "kalshi": "GOVPARTYMI-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Michigan Governor Election Winner\" and resolves on the winner of the 2026 Michigan gubernatorial election; its open outcomes are Jocelyn Benson (D), John James (R) and \"Independent\" (priced at a twentieth of a cent). It also carries ten placeholder outcomes (Option B to Option J, and Other) that are not active and have no price. Kalshi's event is titled \"Michigan Governor winner?\" (In 2026); its markets are by party, labelled Jocelyn Benson and John James, and its rule turns on which party's representative is inaugurated. Kalshi also keeps a third market open labelled Mike Duggan, who ran as an independent, withdrew and is not on our list; it last traded at a fifth of a cent, and ballot/odds.py's kalshi() gives it a row, as polymarket() gives \"Independent\" one: the page should not show a row for someone who is not on the ballot. Both markets name the candidates for governor without running mates, and neither offers the Libertarian, Green or U.S. Taxpayers tickets. Left out on purpose: Polymarket's margin-of-victory and Senate-and-Governor combination events, and Kalshi's nomination, primary, combination and margin series (KXGOVMINOMD, KXGOVMINOMR, KXMIPRIMARY, KXMISENGOVCOMBO, KXMIBENSONELSAYED)."
+ },
+ "2026-MI-AG": {
+  "polymarket": "michigan-attorney-general-election-winner-2026",
+  "kalshi": "KXATTYGENMI-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Polymarket's event is titled \"Michigan Attorney General Election Winner\" and resolves on the party of the candidate who wins the election of November 3, 2026; Kalshi's is \"Michigan Attorney General winner?\" (In 2026), also by party (who is sworn in for the term beginning in 2027). Both label the outcomes Eli Savit and Doug Lloyd; neither offers the four other candidates on our list. Lightly traded: about $1,800 on Polymarket and about 7,900 contracts on Kalshi when checked. Polymarket's three placeholder outcomes (Person A, Person B, Other) are not active yet report a price of 0.5, as Minnesota's do. Left out on purpose: Kalshi's two nomination series (KXAGNOMMID, KXAGNOMMIR)."
+ },
+ "2026-MI-SOS": {
+  "polymarket": "michigan-secretary-of-state-election-winner-2026",
+  "kalshi": "KXSECSTATEMI-26",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Polymarket's event is titled \"Michigan Secretary of State Election Winner\" and resolves on the party of the winner of the election of November 3, 2026; Kalshi's is \"Michigan Secretary of State winner?\" (In 2026), also by party, opened July 20, 2026. Both label the outcomes Garlin Gilchrist and Anthony Forlini (our list prints Garlin Gilchrist II and Anthony G. Forlini); neither offers the three other candidates on our list. Lightly traded: about $3,900 on Polymarket and about 16,000 contracts on Kalshi when checked, with Kalshi's standing offers seven or eight cents apart. Polymarket's three placeholder outcomes (Person A, Person B, Other) are not active yet report 0.5."
+ },
+ "2026-MI-SC": {
+  "polymarket": null,
+  "kalshi": "KXMISC-26",
+  "checked": "2026-10-02",
+  "note": "Justice of the Supreme Court (two seats). Kalshi's event is titled \"Michigan Supreme Court election winners?\" (In 2026). It is not a market on any candidate: its three outcomes are \"Democrat sweep\", \"1 Democrat and 1 Republican\" and \"Republican sweep\", counting the winners by the party that nominated them, although the ballot prints no party and our list shows none. It has hardly traded: about nine contracts in all when checked, none on \"Democrat sweep\" (standing offers 81 to 90 cents). Ask John before showing this market; if it is shown, its rows are party outcomes and cannot be matched to the six names on our list. Polymarket lists no market for this race (its search and one likely slug, 2026-10-02)."
+ },
+ "_none": {
+  "checked": "2026-10-02",
+  "note": "Not a race; odds.py passes over it. No market was found for the State Board of Education, the three university boards, the Court of Appeals, any county or city office, or a single legislative seat on the November ballot: Kalshi's list of election series names none (its Detroit mayor series were for November 2025) and Polymarket's search returns none. Kalshi's \"Michigan constitutional convention question\" series and Polymarket's \"Will Michigan vote to rewrite the state Constitution?\" are about a ballot question, not a race between people, and are left out."
+ }
+}

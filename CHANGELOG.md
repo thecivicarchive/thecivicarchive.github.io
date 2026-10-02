@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.088 — 2026-10-02 — Michigan gets the same treatment
+
+- Michigan's ballot page now has the real map, drawn on the Bureau of Elections' own 2026 precinct lines, with the districts each precinct sits in (county, city or township and village, ward, county commission district, House, Senate, Congress, district and circuit court, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot; a reader in a village gets the township's contests too.
+- Michigan's candidates for Governor, the other statewide offices and boards, the Supreme Court, the Legislature, the courts, and the cities and school boards of the nine counties loaded so far show what the record holds: 303 have an official government page, 184 a campaign website of their own, offices held (421, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": endorsements only from party pages that themselves say "endorsed"; earlier runs under a party label; the candidate's own words. Michigan's Supreme Court justices are nominated at party conventions and printed without a party, so a convention nomination is shown too, in its own words and apart from endorsements.
+- How each place voted, from the Bureau of Elections' precinct results: 2024 for 81 of 83 counties, 1,466 cities and townships and 37 House districts; 2020 for 73 counties; 2022 for 15. A county is shown for an election only where its precincts add up exactly to the Bureau's own county total; where they do not, the county is left out for that election and listed with both figures. Nothing is adjusted to fit.
+- The Governor's race has its polls (Marist, Emerson, SSRS, Michigan State University) and prediction-market prices as tabs; Attorney General and Secretary of State have market prices. A market row for someone who is not on the November ballot is not drawn, and the tab says so.
+- Only nine counties' local lists are loaded (Wayne, Oakland, Macomb, Kent, Ottawa, Ingham, Kalamazoo, Saginaw, Muskegon); elsewhere the page says the list is not loaded. Michigan publishes no statewide polling-place file, so the map points to the state's own finder.
+- A name on Ingham County's list that our reader had cut short at a letter outside the English alphabet is now read whole.
+
 ## v4.0.087 — 2026-10-02 — Ohio gets the same treatment
 
 - Ohio's ballot page now has the real map: 9,104 precinct pieces with the districts they sit in (county, city or township, House, Senate, Congress on the 2026 lines, court of appeals district, school district, and council districts and wards where a county or city has them), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020, the only statewide set, and the map says so.

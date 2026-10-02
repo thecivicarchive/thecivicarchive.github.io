@@ -1,0 +1,104 @@
+{
+ "part": 40,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already used up, so nobody in this part could be searched for. Candidates were looked up only on pages whose address was known or could be reached from a government's or a party's own home page (court pages, school districts' board pages, the Green Party of Michigan's candidate lists). Not reached: Ingham County Probate Court, Ogemaw County and Wexford County court pages (the lookup failed or the page was not found), Ballotpedia (returned nothing to a script), the Hamtramck court page, several school districts' board pages (not found, or refused). The Grand Rapids, Grosse Pointe and Walled Lake boards' own pages do not list Diana L. Wallace, Jake Howlett or Erin Johnson as members today. No campaign website was found for anyone, because none could be searched for. A blank here means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC6",
+   "name": "David M. Cohen",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-david-m-cohen",
+    "source": "Oakland County Circuit Court, its page \"Hon. David M. Cohen\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Oakland County Circuit Court (6th Circuit); appointed, then elected in November 2022",
+     "from": "2022",
+     "to": "",
+     "source": "Oakland County Circuit Court: \"was appointed to the Oakland County Circuit Court bench in February of 2022, re-elected in November of 2022\"",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-david-m-cohen",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Managing administrative law judge, Michigan Office of Administrative Hearings and Rules (Detroit office)",
+     "from": "",
+     "to": "",
+     "source": "Oakland County Circuit Court: \"served as a managing administrative law judge with the Detroit office of the Michigan Office of Administrative Hearings and Rules\" (no years given)",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-david-m-cohen",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC55",
+   "name": "Richard L. Hillman",
+   "official_page": {
+    "url": "https://dc.ingham.org/courts_and_sheriff/55th_judicial_district_court/honorable_richard_hillman.php",
+    "source": "Ingham County, 55th Judicial District Court, its page on the Honorable Richard L. Hillman",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 55th District Court (Ingham County); appointed by the Governor, then elected in November 2020",
+     "from": "2020",
+     "to": "",
+     "source": "55th Judicial District Court: \"was appointed to the bench by Governor Gretchen Whitmer in April 2020 and was elected to serve a six-year term in November 2020\"",
+     "url": "https://dc.ingham.org/courts_and_sheriff/55th_judicial_district_court/honorable_richard_hillman.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82170-school-board-4y",
+   "name": "Ayana King",
+   "official_page": {
+    "url": "https://www.wyandotte.org/district/board-of-education",
+    "source": "Wyandotte Public Schools, its Board of Education page, which lists \"Ayana King, Trustee\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Board of Education, School District of the City of Wyandotte",
+     "from": "",
+     "to": "",
+     "source": "Wyandotte Public Schools, Board of Education page: \"Ayana King, Trustee\" (no years given)",
+     "url": "https://www.wyandotte.org/district/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH32",
+   "name": "Ryan Sample",
+   "endorsed_by": [
+    {
+     "party": "Green Party",
+     "unit": "Green Party of Michigan, its list \"Candidates For Michigan State Legislature - 2026\": \"Ryan Sample - 32nd District State House of Representatives\" (the party's own nominee)",
+     "url": "https://migreenparty.org/candidates-for-michigan-state-office-2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS20",
+   "name": "Shamara Clay",
+   "endorsed_by": [
+    {
+     "party": "Green Party",
+     "unit": "Green Party of Michigan, its list \"Candidates For Michigan State Legislature - 2026\": \"Shamara Clay - 20th District State Senate\" (the party's own nominee)",
+     "url": "https://migreenparty.org/candidates-for-michigan-state-office-2026/",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "All 8 findings re-opened and confirmed. Corrected: the Oakland County court page's address (the county's old domain now redirects to its new one) on David M. Cohen's three findings."
+}

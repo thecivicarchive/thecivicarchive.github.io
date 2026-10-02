@@ -1,0 +1,315 @@
+{
+ "part": 26,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after about twenty searches; the rest was read only from pages reachable directly (Wikipedia's 2026 Michigan House and Senate election articles, official court, city and school district sites, campaign sites). michigan.gov answered 403 (the Governor's appointment releases for Bates and Garwood could not be read), the Tuscola Today article on Craig Datz answered 429, and several school district board pages are drawn by script or answered 403 (Thornapple Kellogg, Lakeview, Portage, Greenville); none was worked around. No party's own endorsement page was reached. Blanks mean not found by these means, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC16-NI",
+   "name": "Genevieve L. Taylor"
+  },
+  {
+   "race_id": "2026-MI-CC4-PT2031",
+   "name": "Allison L. Bates",
+   "offices": [
+    {
+     "office": "Judge, 4th Circuit Court (Jackson County)",
+     "from": "2026",
+     "to": "",
+     "source": "WILX News 10, \"Governor Whitmer makes appointments to Jackson Co. Bench\" (April 1, 2026): appointed to the 4th Circuit Court for a partial term",
+     "url": "https://www.wilx.com/2026/04/01/governor-whitmer-makes-appointments-jackson-co-bench",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, 12th District Court (Jackson County)",
+     "from": "2021",
+     "to": "2026",
+     "source": "WILX News 10, same article: \"served as the 12th District Court judge since 2021\"",
+     "url": "https://www.wilx.com/2026/04/01/governor-whitmer-makes-appointments-jackson-co-bench",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC15",
+   "name": "Tamara Garwood",
+   "official_page": {
+    "url": "https://www.a2gov.org/15th-judicial-district-court/about/judges/",
+    "source": "City of Ann Arbor, 15th Judicial District Court, Judges (Tamara A. Garwood, Judge)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 15th District Court (Ann Arbor)",
+     "from": "2026",
+     "to": "",
+     "source": "City of Ann Arbor, 15th Judicial District Court, Judges: appointed by the Governor on January 6, 2026",
+     "url": "https://www.a2gov.org/15th-judicial-district-court/about/judges/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Magistrate, 15th District Court (Ann Arbor)",
+     "from": "2016",
+     "to": "2026",
+     "source": "City of Ann Arbor, 15th Judicial District Court, Judges: \"From 2016 until 2026 ... served as the Magistrate of the 15th District Court\"",
+     "url": "https://www.a2gov.org/15th-judicial-district-court/about/judges/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC48",
+   "name": "Kimberly Small",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/district-courts/48th-district-court/about/hon-kimberly-small",
+    "source": "Oakland County, 48th District Court, Hon. Kimberly Small",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC71B",
+   "name": "Craig S. Datz"
+  },
+  {
+   "race_id": "2026-MI-M-34000-council-ward-3-4y",
+   "name": "Kelsey Perdue",
+   "official_page": {
+    "url": "https://www.grandrapidsmi.gov/government/city-commission/commissioners/kelsey-perdue/",
+    "source": "City of Grand Rapids, City Commission, Kelsey Perdue, City Commissioner - Ward 3",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Commissioner, Ward 3, Grand Rapids",
+     "from": "",
+     "to": "",
+     "source": "City of Grand Rapids, City Commission page: City Commissioner - Ward 3, term ends on December 31, 2026 (the page gives no start year)",
+     "url": "https://www.grandrapidsmi.gov/government/city-commission/commissioners/kelsey-perdue/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Janet Sanger"
+  },
+  {
+   "race_id": "2026-MI-S-08050-school-board-6y",
+   "name": "Jim Flikkema"
+  },
+  {
+   "race_id": "2026-MI-S-33070-school-board-6y",
+   "name": "Kenneth W. Horne, Jr."
+  },
+  {
+   "race_id": "2026-MI-S-39140-school-board-4y",
+   "name": "Roie Lord-Taylor"
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-4y",
+   "name": "Jenna Hess"
+  },
+  {
+   "race_id": "2026-MI-S-41240-school-board-6y",
+   "name": "Timothy A. Driscoll",
+   "official_page": {
+    "url": "https://www.spartaschools.org/about/departments/boardofeducation/",
+    "source": "Sparta Area Schools, Board of Education (Tim Driscoll, Trustee)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Sparta Area Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Sparta Area Schools, Board of Education: Tim Driscoll, Trustee, term expires 2026 (no start year given)",
+     "url": "https://www.spartaschools.org/about/departments/boardofeducation/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50100-school-board-p20281231-S",
+   "name": "Todd Burrows",
+   "official_page": {
+    "url": "https://www.fraser.k12.mi.us/board-of-education/about-our-board",
+    "source": "Fraser Public Schools, About Our Board (Mr. Todd Burrows, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Fraser Public Schools Board of Education",
+     "from": "2025",
+     "to": "",
+     "source": "Fraser Public Schools, About Our Board: appointed to the board in February 2025; term expires December 31, 2026",
+     "url": "https://www.fraser.k12.mi.us/board-of-education/about-our-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-59070-school-board-6y",
+   "name": "Elizabeth Gates"
+  },
+  {
+   "race_id": "2026-MI-S-63030-school-board-6y",
+   "name": "Lara Marie Townsley"
+  },
+  {
+   "race_id": "2026-MI-S-63130-school-board-4y",
+   "name": "Joe Hall"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-p20281231-S",
+   "name": "Laurin Gracey-Parker"
+  },
+  {
+   "race_id": "2026-MI-S-70120-school-board-6y",
+   "name": "Lloyd Hemstreet"
+  },
+  {
+   "race_id": "2026-MI-S-73200-school-board-6y",
+   "name": "Nicole Northrup",
+   "official_page": {
+    "url": "https://www.freelandschools.net/page/fcsd-board-of-education",
+    "source": "Freeland Community School District, Board of Education (Nicole Northrup, Treasurer)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Treasurer), Freeland Community School District Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Freeland Community School District, Board of Education: Nicole Northrup - Treasurer, term expires 2026 (no start year given)",
+     "url": "https://www.freelandschools.net/page/fcsd-board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82030-school-board-6y",
+   "name": "Mary K. Petlichkoff",
+   "official_page": {
+    "url": "https://dearbornschools.org/district/board-of-education/",
+    "source": "Dearborn Public Schools, Board of Education (Trustee Mary Petlichkoff)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Dearborn Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Dearborn Public Schools, Board of Education: \"won election to her third term on the board in November 2020\" (first year not given)",
+     "url": "https://dearbornschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Donald C. Pierson"
+  },
+  {
+   "race_id": "2026-MI-S-82390-school-board-4y",
+   "name": "Kimberly Campbell-Voytal",
+   "official_page": {
+    "url": "https://www.northvilleschools.org/about/board-of-education",
+    "source": "Northville Public Schools, Board of Education (Dr. Kimberly Campbell-Voytal, Secretary)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Secretary), Northville Public Schools Board of Education",
+     "from": "2022",
+     "to": "",
+     "source": "Northville Public Schools, Board of Education: appointed in 2022; current term 2023 - 2026",
+     "url": "https://www.northvilleschools.org/about/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH105",
+   "name": "Rachel Longendyke Teeter"
+  },
+  {
+   "race_id": "2026-MI-SH27",
+   "name": "Rylee Linting",
+   "website": {
+    "url": "https://votelinting.com/",
+    "how": "The site is titled \"Rylee Linting for State Representative\", reads \"Rylee Linting for Michigan State Representative - 27th District\", and its footer reads \"2026 Paid for by Friends of Rylee Linting\"; the page's text was first posted in 2024",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH47",
+   "name": "Carrie A. Rheingans",
+   "website": {
+    "url": "https://www.carrierheingans.com/",
+    "how": "The site is titled \"Michigan House District 47 | Carrie Rheingans For State Representative\", calls itself her campaign website and is paid for by Carrie Rheingans for State Representative; it does not print the year 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH68",
+   "name": "Deanna L Martin"
+  },
+  {
+   "race_id": "2026-MI-SH87",
+   "name": "Will Snyder"
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Jason Rogers",
+   "website": {
+    "url": "https://www.electjasonrogers.org",
+    "how": "Listed as his campaign website on Wikipedia's 2026 Michigan Senate election article; the site is titled \"Jason Rogers for Michigan Senate District 15\" and is paid for by CTE Jason Rogers",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am also the Chairman of the Washtenaw County's GOP.",
+    "url": "https://www.electjasonrogers.org",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS35",
+   "name": "Chedrick Greene",
+   "website": {
+    "url": "https://chedrickgreene.com/",
+    "how": "Listed as his campaign website on Wikipedia's 2026 Michigan Senate election article; the site reads \"Chedrick Greene for Michigan State Senate District 35\" and speaks of the November 3, 2026 election for the full term; paid for by Committee to Elect Chedrick Greene",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Democrat for MI-SD-35.",
+    "url": "https://chedrickgreene.com/",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-SH87",
+   "name": "Will Snyder",
+   "what": "website",
+   "why": "The address answers only with a redirect to a contribution form on a fundraising platform's domain; the announcement text sits there, not on a site of the campaign's own."
+  },
+  {
+   "race_id": "2026-MI-SS15",
+   "name": "Jason Rogers",
+   "what": "past_party (2024, State Representative, 33rd District)",
+   "why": "The results table gives only a name and a party; neither it nor the campaign site ties that candidate to this 2026 Senate race, so the same person is not shown by two anchors."
+  }
+ ]
+}

@@ -1,0 +1,244 @@
+{
+ "part": 32,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the judges and the legislative candidates; the school board and city council candidates were looked up only on their districts' and city's own pages reached directly. Blanks mean not found that way, not that nothing exists. The Libertarian and Working Class parties' own pages did not name their 2026 candidates in readable text, so no endorsement is recorded. Thomas A. Albert is a sitting senator; the site found for him is his Senate office site, not a campaign site, and is left out.",
+ "removed": [
+  {
+   "race_id": "2026-MI-DC76",
+   "name": "Eric R. Janes",
+   "what": "offices: Judge of the 76th District Court from 2013",
+   "why": "The Governor's press release answered 403 (a wall); the researcher had read only a search summary. The court directory confirms he is the judge today but gives no year."
+  },
+  {
+   "race_id": "2026-MI-S-23050-school-board-6y",
+   "name": "Daniel E. Guy",
+   "what": "official_page and offices (Eaton Rapids Public Schools Board of Education)",
+   "why": "The district's page could not be opened in four tries (the address did not resolve), so nothing could be confirmed."
+  },
+  {
+   "race_id": "2026-MI-SH9",
+   "name": "Logan Ausherman",
+   "what": "past_party: Working Class Party candidate, House District 8, 2024",
+   "why": "The Wikipedia section does show the name, party and 1,402 votes, but carries no citation, and nothing on the page ties that person to the 2026 District 9 race beyond the name and the state."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC19",
+   "name": "David A. Thompson",
+   "official_page": {
+    "url": "https://www.courts.michigan.gov/api/directory/county/51",
+    "source": "Michigan Courts trial court directory, Manistee County: 19th Circuit Court lists Honorable David A. Thompson, Chief Judge",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-CC46",
+   "name": "George J. Mertz",
+   "official_page": {
+    "url": "https://www.circuit46.org/?p=48",
+    "source": "46th Circuit Court, Judge Bios: Hon. George J. Mertz, Circuit Judge",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge of the 46th Circuit Court (appointed by the Governor in January 2013)",
+     "from": "2013",
+     "to": "present",
+     "source": "46th Circuit Court, Judge Bios",
+     "url": "https://www.circuit46.org/?p=48",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC21-NI",
+   "name": "Nicholas Opalewski"
+  },
+  {
+   "race_id": "2026-MI-DC51-NI",
+   "name": "Carmen J. DeFranco",
+   "website": {
+    "url": "https://www.carmen4judge.com/",
+    "how": "The site is titled Carmen DeFranco for District Court Judge, is paid for by the Committee to Elect Carmen DeFranco Judge in Waterford, and is about the 2026 election",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC76",
+   "name": "Eric R. Janes",
+   "official_page": {
+    "url": "https://www.courts.michigan.gov/api/directory/county/37",
+    "source": "Michigan Courts trial court directory, Isabella County: 76th District Court lists Honorable Eric R. Janes, Chief Judge",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-47800-council-2y",
+   "name": "Jason Nichols"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Will Tyler White"
+  },
+  {
+   "race_id": "2026-MI-S-23050-school-board-6y",
+   "name": "Daniel E. Guy"
+  },
+  {
+   "race_id": "2026-MI-S-33130-school-board-6y",
+   "name": "Steve Duane",
+   "official_page": {
+    "url": "https://www.masonk12.net/district/board-of-education/",
+    "source": "Mason Public Schools, Meet the Board: Steve Duane, Vice President, elected 2020, term expires 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Mason Public Schools Board of Education (elected 2020; now Vice President)",
+     "from": "2020",
+     "to": "present",
+     "source": "Mason Public Schools, Meet the Board",
+     "url": "https://www.masonk12.net/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-39170-school-board-6y",
+   "name": "Michael Fry"
+  },
+  {
+   "race_id": "2026-MI-S-41080-school-board-4y",
+   "name": "Kevin McLellan",
+   "official_page": {
+    "url": "https://www.cppschools.com/district/board-of-education/",
+    "source": "Comstock Park Public Schools, Board Members: Treasurer Kevin McLellan, board term 2018/2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Comstock Park Public Schools Board of Education (board term 2018/2026; now Treasurer)",
+     "from": "2018",
+     "to": "present",
+     "source": "Comstock Park Public Schools, Board of Education",
+     "url": "https://www.cppschools.com/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50010-school-board-4y",
+   "name": "Daniel Taylor"
+  },
+  {
+   "race_id": "2026-MI-S-50130-school-board-6y",
+   "name": "Daniel Dombrowski"
+  },
+  {
+   "race_id": "2026-MI-S-61010-school-board-6y",
+   "name": "Ebony Williams"
+  },
+  {
+   "race_id": "2026-MI-S-63040-school-board-4y",
+   "name": "Belem Morales"
+  },
+  {
+   "race_id": "2026-MI-S-63150-school-board-6y",
+   "name": "Walt Cook"
+  },
+  {
+   "race_id": "2026-MI-S-63270-school-board-p20281231-S",
+   "name": "Coby Moscowitz",
+   "official_page": {
+    "url": "https://www.clawsonschools.org/board-of-education/meet-the-board/",
+    "source": "Clawson Public Schools, Meet the Board: Coby Moscowitz, Trustee, term expires December 31, 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Kristen Evans"
+  },
+  {
+   "race_id": "2026-MI-S-81070-school-board-6y",
+   "name": "Jennifer LaBombarbe"
+  },
+  {
+   "race_id": "2026-MI-S-82040-school-board-4y",
+   "name": "Wendy Anderson"
+  },
+  {
+   "race_id": "2026-MI-S-82155-school-board-6y",
+   "name": "Angela Perrini"
+  },
+  {
+   "race_id": "2026-MI-S-82405-school-board-6y",
+   "name": "Darlene Pomponio",
+   "official_page": {
+    "url": "https://www.southgateschools.com/departments/board-of-education/board-members",
+    "source": "Southgate Community School District, Board Members: Secretary Dr. Darlene L. Pomponio, term expires December 31, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Southgate Community School District Board of Education (elected November 3, 2009; re-elected 2014 and 2020; now Secretary)",
+     "from": "2009",
+     "to": "present",
+     "source": "Southgate Community School District, Board Members",
+     "url": "https://www.southgateschools.com/departments/board-of-education/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH108",
+   "name": "Rachel M. Keys",
+   "website": {
+    "url": "https://votemikeys.com/",
+    "how": "The site is titled Rachel Keys for Michigan's 108th House District",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH3",
+   "name": "Gus Tarraf",
+   "website": {
+    "url": "https://gustarraf.com/",
+    "how": "The site is titled Gus Tarraf for Michigan State Representative, District 3",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH49",
+   "name": "Trevor Step"
+  },
+  {
+   "race_id": "2026-MI-SH7",
+   "name": "Reginald Moorer"
+  },
+  {
+   "race_id": "2026-MI-SH9",
+   "name": "Logan Ausherman"
+  },
+  {
+   "race_id": "2026-MI-SS18",
+   "name": "Thomas A. Albert"
+  },
+  {
+   "race_id": "2026-MI-SS37",
+   "name": "Kate Gallup",
+   "website": {
+    "url": "https://www.gallupformichigan.com/",
+    "how": "The site is titled Kate Gallup: Candidate for State Senate D37",
+    "verified": true
+   }
+  }
+ ]
+}

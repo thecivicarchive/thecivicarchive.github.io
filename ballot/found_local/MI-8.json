@@ -1,0 +1,448 @@
+{
+ "part": 8,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-MI-26163-county-executive-4y",
+   "name": "Warren C. Evans",
+   "website": {
+    "url": "https://warrencevans.com/",
+    "how": "The site is titled \"Re-elect Warren C. Evans, Wayne County Executive\"; linked as his official campaign website from Wikipedia's page on the 2026 Wayne County Executive election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.waynecountymi.gov/Government/Elected-Officials/County-Executive",
+    "source": "Wayne County, County Executive page",
+    "verified": true
+   },
+   "born": {
+    "year": 1948,
+    "source": "Wikipedia, \"Warren Evans\"",
+    "url": "https://en.wikipedia.org/wiki/Warren_Evans",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wayne County Executive",
+     "from": "2015",
+     "to": "present",
+     "source": "His campaign site (\"Elected Wayne County Executive in 2014 and took office in 2015\")",
+     "url": "https://warrencevans.com/about/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chief of Police, City of Detroit",
+     "from": "2009",
+     "to": "2010",
+     "source": "Wikipedia, \"Warren Evans\"",
+     "url": "https://en.wikipedia.org/wiki/Warren_Evans",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Wayne County Sheriff",
+     "from": "2003",
+     "to": "2009",
+     "source": "Wikipedia, \"Warren Evans\" (his campaign site says he won election in 2004 and 2008)",
+     "url": "https://en.wikipedia.org/wiki/Warren_Evans",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Nicole N. Goodson"
+  },
+  {
+   "race_id": "2026-MI-COA1",
+   "name": "Mariam Saad Bazzi",
+   "offices": [
+    {
+     "office": "Judge, Michigan Court of Appeals, District 1",
+     "from": "2025",
+     "to": "present",
+     "source": "Wikipedia, \"Michigan Court of Appeals\" (table of judges: Mariam Bazzi, 1st District, since May 13, 2025)",
+     "url": "https://en.wikipedia.org/wiki/Michigan_Court_of_Appeals",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC36-PT2031",
+   "name": "Ponce D. Clay",
+   "official_page": {
+    "url": "https://www.36thdistrictcourtmi.gov/about-us/judges",
+    "source": "36th District Court, Judges page (lists the Honorable Ponce D. Clay)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 36th District Court",
+     "to": "present",
+     "source": "36th District Court, Judges page",
+     "url": "https://www.36thdistrictcourtmi.gov/about-us/judges",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC63",
+   "name": "Jeffrey J. O'Hara"
+  },
+  {
+   "race_id": "2026-MI-GOV",
+   "name": "Jocelyn Benson / Winnie Brinks",
+   "website": {
+    "url": "https://jocelynbenson.com/",
+    "how": "The site is titled \"Jocelyn Benson for Governor\"; linked as her campaign website from Wikipedia's pages on her and on the 2026 Michigan gubernatorial election.",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "source": "Wikipedia, \"Jocelyn Benson\"",
+    "url": "https://en.wikipedia.org/wiki/Jocelyn_Benson",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Michigan Secretary of State",
+     "from": "2019",
+     "to": "present",
+     "source": "Her campaign site (\"became Michigan's Secretary of State in 2019\")",
+     "url": "https://jocelynbenson.com/MeetJocelyn",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-84940-council-4y",
+   "name": "Donald L. Quarles"
+  },
+  {
+   "race_id": "2026-MI-S-03010-school-board-4y",
+   "name": "Andrea Barrows"
+  },
+  {
+   "race_id": "2026-MI-S-33010-school-board-4y",
+   "name": "Abigail Wright-Geddes"
+  },
+  {
+   "race_id": "2026-MI-S-34090-school-board-6y",
+   "name": "Matthew Bulling"
+  },
+  {
+   "race_id": "2026-MI-S-41025-school-board-6y",
+   "name": "Matthew J. Nibbelink",
+   "official_page": {
+    "url": "https://www.nvps.net/district/board-of-education",
+    "source": "Northview Public Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (Vice President), Northview Public Schools Board of Education",
+     "source": "Northview Public Schools, Board of Education page",
+     "url": "https://www.nvps.net/district/board-of-education",
+     "kind": "official",
+     "from": "2021",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41160-school-board-4y",
+   "name": "Pete Battey",
+   "official_page": {
+    "url": "https://www.kentwoodps.org/ourdistrict/boardofeducation/boemembers/",
+    "source": "Kentwood Public Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Kentwood Public Schools Board of Education",
+     "source": "Kentwood Public Schools, Board of Education page",
+     "url": "https://www.kentwoodps.org/ourdistrict/boardofeducation/boemembers/",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50070-school-board-6y",
+   "name": "Jared Maynard",
+   "official_page": {
+    "url": "https://www.clintondaleschools.net/our-district/board-of-education",
+    "source": "Clintondale Community Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Clintondale Community Schools Board of Education",
+     "source": "Clintondale Community Schools, Board of Education page",
+     "url": "https://www.clintondaleschools.net/our-district/board-of-education",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50200-school-board-6y",
+   "name": "Kristine Crook"
+  },
+  {
+   "race_id": "2026-MI-S-61240-school-board-6y",
+   "name": "Sheila D. Mund"
+  },
+  {
+   "race_id": "2026-MI-S-63090-school-board-4y",
+   "name": "Michael Liss"
+  },
+  {
+   "race_id": "2026-MI-S-63230-school-board-4y",
+   "name": "Jeff Faber",
+   "official_page": {
+    "url": "https://www.lakeorionschools.org/board-of-education/meet-the-board-members",
+    "source": "Lake Orion Community Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Lake Orion Community Schools Board of Education",
+     "source": "Lake Orion Community Schools, Board of Education page",
+     "url": "https://www.lakeorionschools.org/board-of-education/meet-the-board-members",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-70020-school-board-6y",
+   "name": "Rebekah Schipper",
+   "official_page": {
+    "url": "https://www.hollandpublicschools.org/the-district/school-board/",
+    "source": "Holland Public Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee (appointed to fill a vacancy), Holland Public Schools Board of Education",
+     "source": "Holland Public Schools, news post of November 25, 2025 (\"Trustees have appointed Rebekah Schipper to fill a vacancy on the Board of Education\")",
+     "url": "https://www.hollandpublicschools.org/pub/news/posts/3384",
+     "kind": "official",
+     "from": "2025",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-73040-school-board-6y",
+   "name": "Denecia Grant"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Steve Bland, Jr.",
+   "official_page": {
+    "url": "https://www.detroitk12.org/board-of-education",
+    "source": "Detroit Public Schools Community District, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Detroit Public Schools Community District Board of Education",
+     "source": "Detroit Public Schools Community District, Board of Education page",
+     "url": "https://www.detroitk12.org/board-of-education",
+     "kind": "official",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82100-school-board-6y",
+   "name": "Joe Tollefson",
+   "official_page": {
+    "url": "https://www.pccsk12.com/about/board",
+    "source": "Plymouth-Canton Community Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Plymouth-Canton Community Schools Board of Education",
+     "source": "Plymouth-Canton Community Schools, Board of Education page",
+     "url": "https://www.pccsk12.com/about/board",
+     "kind": "official",
+     "from": "2026",
+     "to": "present",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82290-school-board-4y",
+   "name": "Michael Morris"
+  },
+  {
+   "race_id": "2026-MI-SH10",
+   "name": "Peter Ochs"
+  },
+  {
+   "race_id": "2026-MI-SH2",
+   "name": "Joanna Whaley",
+   "website": {
+    "url": "https://www.joannawhaley.com/",
+    "how": "The site is titled \"Joanna Whaley for State Representative\" and says she is running for \"Michigan's 2nd District\", naming House District 2 as Allen Park, Lincoln Park, Melvindale and parts of Southgate.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH39",
+   "name": "Pauline Wendzel"
+  },
+  {
+   "race_id": "2026-MI-SH6",
+   "name": "Mike Steger"
+  },
+  {
+   "race_id": "2026-MI-SH8",
+   "name": "Bruce P. Langran"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Anthony G. Forlini",
+   "website": {
+    "url": "https://www.forliniforus.com/",
+    "how": "The site is titled \"Anthony G. Forlini for Michigan Secretary of State\"; linked as his official campaign website from Wikipedia's page on the 2026 Michigan Secretary of State election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.macombgov.org/departments/clerk-register-deeds",
+    "source": "Macomb County, Clerk / Register of Deeds page",
+    "verified": true
+   },
+   "born": {
+    "year": 1962,
+    "source": "Wikipedia, \"Anthony Forlini\"",
+    "url": "https://en.wikipedia.org/wiki/Anthony_Forlini",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Macomb County Clerk / Register of Deeds",
+     "from": "2021",
+     "to": "present",
+     "source": "Wikipedia, \"Anthony Forlini\" (the county's own page names him as Clerk today)",
+     "url": "https://en.wikipedia.org/wiki/Anthony_Forlini",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Michigan House of Representatives, 24th District",
+     "from": "2011",
+     "to": "2016",
+     "source": "Wikipedia, \"Anthony Forlini\" (his campaign site states the office without years)",
+     "url": "https://en.wikipedia.org/wiki/Anthony_Forlini",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Supervisor, Harrison Township",
+     "from": "2004",
+     "to": "2011",
+     "source": "Wikipedia, \"Anthony Forlini\" (his campaign site states the office without years)",
+     "url": "https://en.wikipedia.org/wiki/Anthony_Forlini",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Served in the Michigan House of Representatives, 24th District, as a Republican",
+     "year": "2011-2016",
+     "party": "Republican",
+     "source": "Wikipedia, \"Anthony Forlini\"",
+     "url": "https://en.wikipedia.org/wiki/Anthony_Forlini",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS28",
+   "name": "Julie L. DeRose",
+   "website": {
+    "url": "https://derose4mi.com/",
+    "how": "The site reads \"Julie L. DeRose | Candidate for Michigan State Senate, District 28\"; linked as her official campaign website from Wikipedia's page on the 2026 Michigan Senate election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Michael Schostak",
+   "website": {
+    "url": "https://www.michaelschostak.com/",
+    "how": "The site is titled \"Schostak for Regent\" and reads \"Michael Schostak for University of Michigan Regent\"; linked as his official campaign website from Wikipedia's page on the 2026 University of Michigan Board of Regents election.",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.bloomfieldtwp.org/government/board-of-trustees",
+    "source": "Bloomfield Township, Board of Trustees page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Treasurer, Bloomfield Township",
+     "from": "2023",
+     "to": "present",
+     "source": "Bloomfield Township, Board of Trustees page (appointed Treasurer in August 2023, re-elected November 2024)",
+     "url": "https://www.bloomfieldtwp.org/government/board-of-trustees",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Trustee, Bloomfield Township",
+     "from": "2016",
+     "to": "2023",
+     "source": "Bloomfield Township, Board of Trustees page (seven years as a Township Trustee before August 2023); his campaign site says he was first elected in November 2016",
+     "url": "https://www.bloomfieldtwp.org/government/board-of-trustees",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican endorsed candidates for U-M Regent demand better from University administration.",
+    "url": "https://www.michaelschostak.com/",
+    "verified": true
+   }
+  }
+ ],
+ "notes": [
+  "The session's shared web-search allowance ran out after six searches, so the rest was read by opening pages directly with the kit's honest User-Agent, robots.txt obeyed: Wikipedia's 2026 election pages (for the campaign sites they link), the candidates' own sites, and each county's, township's, court's and school district's own pages.",
+  "Not reachable, so left blank: Ballotpedia (an empty page to scripts), the Michigan courts' judge pages (robots.txt disallows), the Governor's appointment releases and WLNS (403), the 3rd Circuit Court's judge list (drawn by script), the City of Wayne's site (no address lookup), and the Plainwell, Lakewood, East Lansing, South Lake, Whitehall, Clarenceville and Saginaw Township board pages (no text, or no match for the candidate, who may simply not be a sitting member).",
+  "No party's own endorsement page was found for anyone in this part: the Michigan Republican Party's and the Michigan Democratic Party's home pages gave scripts no text. Forlini and Schostak were chosen at the Republican convention according to news reports, which is not recorded here as endorsed_by.",
+  "Peter Ochs, Mike Steger and Bruce P. Langran (House 10, 6, 8), and Pauline Wendzel's campaign site: nothing confirmed without search. A site at peterochs.com belongs to a different person and was not used.",
+  "Michael Morris: the Gibraltar board lists \"Mr. Mike Morris, Trustee\"; taken as the same person (the seven-member board he is running for). A verifier may prefer to drop it."
+ ],
+ "removed": [
+  {
+   "race_id": "2026-MI-S-82290-school-board-4y",
+   "name": "Michael Morris",
+   "what": "official_page and the office of Trustee, Gibraltar School District Board of Education",
+   "why": "The district's page lists \"Mr. Mike Morris, Trustee\" with no term or other detail; a different given name and a common family name, so the page does not tie that trustee to this candidate firmly enough. Left blank."
+  }
+ ]
+}

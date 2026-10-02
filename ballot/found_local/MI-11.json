@@ -1,0 +1,387 @@
+{
+ "part": 11,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "Web search stopped after 13 searches (the session's allowance ran out), so most findings come from pages opened directly: governments' own board, court and directory pages, Wikipedia, the Michigan Democratic Party's site, and campaign addresses that were guessed and then checked. No party's own endorsement page could be found without search, so endorsed_by is empty throughout. The Governor's appointment releases on the state's site answer scripts 403 and were not used (Sabree, Patel). Candidates with nothing beyond the name were either not on their government's page or could not be looked up.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-AG",
+   "name": "Eli Savit",
+   "website": {
+    "url": "https://eliformichigan.com/",
+    "how": "Address named in news coverage, then opened: the site's title is \"Eli Savit for Attorney General\" and its front page reads \"Democrat For Michigan Attorney General\"",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prosecuting Attorney, Washtenaw County",
+     "from": "2020",
+     "to": "",
+     "source": "His campaign's About page: \"In 2020, Eli was elected Prosecuting Attorney for Washtenaw County\" (2020 is the year elected)",
+     "url": "https://eliformichigan.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Democrat For Michigan Attorney General",
+    "url": "https://eliformichigan.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-CC3-PT2031",
+   "name": "Aliyah S. Sabree",
+   "offices": [
+    {
+     "office": "Judge, 36th District Court (Detroit)",
+     "from": "2017",
+     "to": "2025",
+     "source": "Third Judicial Circuit of Michigan newsletter, July 2025: \"Judge Aliyah Sabree previously served the 36th District Court since 2017\"",
+     "url": "https://www.3rdcc.org/files/newsletters/202507-3rdcc-eNewsletter.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Third Circuit Court (Wayne County), appointed by the Governor",
+     "from": "2025",
+     "to": "",
+     "source": "Third Judicial Circuit of Michigan newsletter, July 2025: welcomed to the bench, appointed by the Governor, began her assignment on June 9",
+     "url": "https://www.3rdcc.org/files/newsletters/202507-3rdcc-eNewsletter.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-COA2",
+   "name": "Sima G. Patel"
+  },
+  {
+   "race_id": "2026-MI-DC38",
+   "name": "Richard W. Goodman"
+  },
+  {
+   "race_id": "2026-MI-DC64B",
+   "name": "Adam James Eggleston",
+   "official_page": {
+    "url": "https://www.montcalmcountymi.gov/directory.aspx?EID=211",
+    "source": "Montcalm County staff directory: Adam Eggleston, District Court Judge, 64 B District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 64B District Court (Montcalm County)",
+     "from": "2021",
+     "to": "",
+     "source": "Montcalm County staff directory: \"Judge Eggleston took the bench in January 2021\"",
+     "url": "https://www.montcalmcountymi.gov/directory.aspx?EID=211",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Attorney-Magistrate, 64B District Court",
+     "from": "",
+     "to": "2021",
+     "source": "Montcalm County staff directory: \"Prior to taking the bench he served as the District Court Attorney-Magistrate for several years\" (years not given)",
+     "url": "https://www.montcalmcountymi.gov/directory.aspx?EID=211",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-08160-council-4y",
+   "name": "David Tobaben"
+  },
+  {
+   "race_id": "2026-MI-M-84940-council-4y",
+   "name": "Shannon Rochon"
+  },
+  {
+   "race_id": "2026-MI-S-03010-school-board-4y",
+   "name": "Rex Hall Jr"
+  },
+  {
+   "race_id": "2026-MI-S-33010-school-board-4y",
+   "name": "Tali Faris-Hylen",
+   "official_page": {
+    "url": "https://www.elps.us/our-district/board-of-education/",
+    "source": "East Lansing Public Schools, Board of Education: Tali Faris-Hylen, Vice President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, East Lansing Board of Education (Vice President in 2026)",
+     "from": "",
+     "to": "",
+     "source": "East Lansing Public Schools, Board Members list (no start year given)",
+     "url": "https://www.elps.us/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-39010-school-board-6y",
+   "name": "Patti Sholler-Barber",
+   "official_page": {
+    "url": "https://www.kalamazoopublicschools.com/board/trustees",
+    "source": "Kalamazoo Public Schools, Board of Education trustees: Patti Sholler-Barber, Trustee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Kalamazoo Public Schools Board of Education",
+     "from": "2006",
+     "to": "",
+     "source": "Kalamazoo Public Schools trustees page: \"Board Member since: 2006. Term expires: December 31, 2026\"",
+     "url": "https://www.kalamazoopublicschools.com/board/trustees",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41026-school-board-6y",
+   "name": "Craig P. Popma",
+   "official_page": {
+    "url": "https://www.wyomingps.org/district/board-of-education/",
+    "source": "Wyoming Public Schools, Meet the Board: Craig Popma, President, term expires 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Wyoming Public Schools Board of Education (President)",
+     "from": "",
+     "to": "",
+     "source": "Wyoming Public Schools, Meet the Board: \"Craig Popma, President, Term Expires 2026\" (no start year given)",
+     "url": "https://www.wyomingps.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41170-school-board-4y",
+   "name": "Jared Blough",
+   "official_page": {
+    "url": "https://www.lowellschools.com/our-district/board-of-education/",
+    "source": "Lowell Area Schools, Board of Education members: Jared Blough, Trustee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Lowell Area Schools Board of Education",
+     "from": "2022",
+     "to": "",
+     "source": "Lowell Area Schools board page: \"Jared Blough, Trustee, Elected 2022, Term Expires 2026\" (2022 is the year elected; the page does not say when he was seated)",
+     "url": "https://www.lowellschools.com/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50070-school-board-6y",
+   "name": "Will Rucker"
+  },
+  {
+   "race_id": "2026-MI-S-50210-school-board-6y",
+   "name": "Mary K. Smolenski",
+   "official_page": {
+    "url": "https://www.uticak12.org/about-ucs/board-of-education",
+    "source": "Utica Community Schools, Meet the UCS Board of Education: Mary K. Smolenski, President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Utica Community Schools Board of Education (President)",
+     "from": "2014",
+     "to": "",
+     "source": "Utica Community Schools board page: \"Mary K. Smolenski, Ph.D., President, Elected in 2014\" (2014 is the year elected)",
+     "url": "https://www.uticak12.org/about-ucs/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-62040-school-board-p20281231-S",
+   "name": "Matthew Goebel",
+   "official_page": {
+    "url": "https://www.fremont.net/district/boe/",
+    "source": "Fremont Public Schools, Board of Education: Matt Goebel, Trustee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Fremont Public Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Fremont Public Schools board page: \"Matt Goebel, Trustee, Term expires 12/31/2028\" (no start year given)",
+     "url": "https://www.fremont.net/district/boe/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63100-school-board-6y",
+   "name": "Danielle R. Ruskin",
+   "official_page": {
+    "url": "https://www.novi.k12.mi.us/district1/board-of-education",
+    "source": "Novi Community School District, Board of Education: Dr. Danielle Ruskin, Board President",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Novi Community School District Board of Education (President)",
+     "from": "",
+     "to": "",
+     "source": "Novi Community School District board page: \"Board President, Dr. Danielle Ruskin, Term Expires 12-31-26\" (no start year given)",
+     "url": "https://www.novi.k12.mi.us/district1/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63240-school-board-6y",
+   "name": "Tod Cunningham"
+  },
+  {
+   "race_id": "2026-MI-S-70040-school-board-6y",
+   "name": "Dirk D. Kraai"
+  },
+  {
+   "race_id": "2026-MI-S-73040-school-board-6y",
+   "name": "Jenean Jarabek Coughlin",
+   "official_page": {
+    "url": "https://www.stcs.org/page/board-of-education",
+    "source": "Saginaw Township Community Schools, Board of Education: Jenean Coughlin, Board Trustee",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Saginaw Township Community Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Saginaw Township Community Schools board page lists \"Jenean Coughlin, Board Trustee\" (no start year given)",
+     "url": "https://www.stcs.org/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Terry E. Whitfield"
+  },
+  {
+   "race_id": "2026-MI-S-82130-school-board-4y",
+   "name": "Antoine D. Jackson"
+  },
+  {
+   "race_id": "2026-MI-S-82290-school-board-4y",
+   "name": "Tina Revoir"
+  },
+  {
+   "race_id": "2026-MI-SH100",
+   "name": "Tom Kunse"
+  },
+  {
+   "race_id": "2026-MI-SH20",
+   "name": "S. David Sullivan"
+  },
+  {
+   "race_id": "2026-MI-SH40",
+   "name": "Matt Longjohn"
+  },
+  {
+   "race_id": "2026-MI-SH61",
+   "name": "Denise Mentzer",
+   "website": {
+    "url": "https://denisementzer.com/",
+    "how": "Guessed address, then opened: the page is titled \"Denise Mentzer - Candidate State Representative District 61\" and its footer reads \"Paid for by Denise Mentzer for State Representative\", in Mount Clemens",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH80",
+   "name": "Doug Lee"
+  },
+  {
+   "race_id": "2026-MI-SOS",
+   "name": "Garlin Gilchrist II",
+   "website": {
+    "url": "https://garlingilchrist.com/",
+    "how": "Guessed address, then opened: the page is titled \"Garlin Gilchrist for Michigan\" and says he is \"running for Secretary of State\"",
+    "verified": true
+   },
+   "born": {
+    "year": 1982,
+    "source": "Wikipedia, \"Garlin Gilchrist\" (lieutenant governor of Michigan and the party's nominee for Secretary of State in 2026)",
+    "url": "https://en.wikipedia.org/wiki/Garlin_Gilchrist",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lieutenant Governor of Michigan",
+     "from": "2019",
+     "to": "",
+     "source": "Wikipedia, \"Garlin Gilchrist\": 64th Lieutenant Governor of Michigan, assumed office January 1, 2019",
+     "url": "https://en.wikipedia.org/wiki/Garlin_Gilchrist",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Lieutenant Governor of Michigan, listed by the Michigan Democratic Party among its elected officials",
+     "year": "2019 to today",
+     "party": "Democratic Party",
+     "source": "Michigan Democratic Party, \"Michigan Dems Elected Officials\"",
+     "url": "https://michigandems.com/elected-officials/",
+     "kind": "party",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SS29",
+   "name": "Abbie Groff-Blaszak",
+   "website": {
+    "url": "https://www.abbiegroffblaszak.com/",
+    "how": "Guessed address, then opened: the site's title is \"Home | Abbie Groff-Blaszak for State Senate\", paid for by a committee of that name in Grand Rapids",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Commissioner, Third Ward, East Grand Rapids",
+     "from": "",
+     "to": "",
+     "source": "City of East Grand Rapids staff directory: \"Abbie Groff-Blaszak, Third Ward Commissioner, City Commission\" (no start year given); her campaign's Meet Abbie page says \"As a City Commissioner in East Grand Rapids\"",
+     "url": "https://www.eastgrmi.gov/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Andy Anuzis"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-SH40",
+   "name": "Matt Longjohn",
+   "field": "website",
+   "url": "https://mattlongjohn.com/",
+   "why": "The page shows only the title \"Matt Longjohn MD - Re-election 2026\" to a plain fetch; it names no office, district or place, so the second anchor is missing"
+  }
+ ]
+}

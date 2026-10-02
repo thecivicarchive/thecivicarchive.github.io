@@ -1,0 +1,285 @@
+{
+ "part": 29,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance ran out after the first twenty or so searches; after that only pages reachable directly were read (official court, city and school district sites, campaign sites found by address, Wikipedia's Michigan election articles). Blanks mean not found that way, not that nothing exists. No party's own endorsement page was found for anyone in this part. Myrene Kay Koch's campaign site says she was an elected Prosecutor before moving to Berrien County without naming the county, so no office is recorded for her. The 2007 Governor's release on Michael J. Beale's appointment refused the request (403) and was not used.",
+ "removed": [
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Julie Maday",
+   "what": "review",
+   "why": "Not something our record shows that an official source contradicts (our pages show nothing for her), so it is not a review item. For the record only: a 2024 Michigan Farm Bureau article links a 2024 campaign address for her; the researcher reported that address now serves an unrelated page, the verifier did not open it, and no website is recorded for her."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC17",
+   "name": "Maureen A. Gottlieb",
+   "official_page": {
+    "url": "https://www.kentcountymi.gov/Directory.aspx?EID=39",
+    "source": "Kent County staff directory, 17th Circuit Court Judges (Maureen A Gottlieb, Judge)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-CC42",
+   "name": "Michael J. Beale",
+   "official_page": {
+    "url": "https://midlandcountymi.gov/forty-second-circuit-court",
+    "source": "Midland County, 42nd Circuit Court page (lists Honorable Michael J. Beale)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC18",
+   "name": "Mark A. McConnell",
+   "official_page": {
+    "url": "https://cityofwestland.com/directory.aspx?eid=81",
+    "source": "City of Westland staff directory, 18th District Court (Honorable Mark McConnell, Judge)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 18th District Court (Westland), first elected in 2008",
+     "from": "2008",
+     "to": null,
+     "source": "City of Westland directory: elected in 2008 to serve his first six year term in the 18th District Court",
+     "url": "https://cityofwestland.com/directory.aspx?eid=81",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC5-NI",
+   "name": "Myrene Kay Koch",
+   "website": {
+    "url": "https://www.kochforjudge.com/",
+    "how": "The site is titled 'Myrene Koch for District Judge', names her as a candidate for District Court Judge in Berrien County, Michigan, in 2026, and says it is paid for by her committee for district judge",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC74-NI",
+   "name": "Brian H. Jean",
+   "website": {
+    "url": "https://www.jeanforjudge.com/",
+    "how": "The site names Brian H. Jean as a candidate for Judge of the 74th District Court, Bay County, Michigan, election of November 3, 2026, and says it is maintained by the campaign committee",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-47800-council-2y",
+   "name": "Dawn Trueblood"
+  },
+  {
+   "race_id": "2026-MI-MSUTR",
+   "name": "Julie Maday",
+   "offices": [
+    {
+     "office": "Member, Novi City Council",
+     "from": null,
+     "to": null,
+     "source": "Wikipedia, 2026 Michigan State University Board of Trustees election (former Novi city councilor; years not given; the line carries two news citations)",
+     "url": "https://en.wikipedia.org/wiki/2026_Michigan_State_University_Board_of_Trustees_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican nominee for Trustee of Michigan State University",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wikipedia, 2026 Michigan State University Board of Trustees election (listed among the Republican convention's nominees as former Novi city councilor and nominee in 2024)",
+     "url": "https://en.wikipedia.org/wiki/2026_Michigan_State_University_Board_of_Trustees_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-09010-school-board-4y",
+   "name": "Amy Przybylski"
+  },
+  {
+   "race_id": "2026-MI-S-33130-school-board-6y",
+   "name": "Delinda Benson"
+  },
+  {
+   "race_id": "2026-MI-S-39170-school-board-6y",
+   "name": "Kat Miller"
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-p20281231-S",
+   "name": "Brent Willett",
+   "official_page": {
+    "url": "https://www.csredhawks.org/our-district/board-of-education",
+    "source": "Cedar Springs Public Schools, Board of Education (Brent Willett, Board Trustee)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-47030-school-board-4y",
+   "name": "Jason Reed"
+  },
+  {
+   "race_id": "2026-MI-S-50120-school-board-6y",
+   "name": "Mistie Ryan"
+  },
+  {
+   "race_id": "2026-MI-S-59080-school-board-6y",
+   "name": "Heather J. Shadley"
+  },
+  {
+   "race_id": "2026-MI-S-63030-school-board-6y",
+   "name": "Troy Fitzgerald Craft"
+  },
+  {
+   "race_id": "2026-MI-S-63150-school-board-6y",
+   "name": "Mary Gunn"
+  },
+  {
+   "race_id": "2026-MI-S-63270-school-board-4y",
+   "name": "Samantha Hanser Maynard",
+   "official_page": {
+    "url": "https://www.clawsonschools.org/board-of-education/meet-the-board/",
+    "source": "Clawson Public Schools, Meet the Board (Samantha Hanser Maynard, President; term expires December 31, 2026)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-70175-school-board-6y",
+   "name": "Diana Weyhmiller"
+  },
+  {
+   "race_id": "2026-MI-S-80150-school-board-6y",
+   "name": "Ted Roethlisberger",
+   "official_page": {
+    "url": "https://www.mattawanschools.org/our-district/board-of-education/board-of-education-members",
+    "source": "Mattawan Consolidated School, Board of Education Members (Ted Roethlisberger, Vice President)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Mattawan Consolidated School Board of Education",
+     "from": "2013",
+     "to": null,
+     "source": "Mattawan Consolidated School board members page: since January 2013, term expires December 2026",
+     "url": "https://www.mattawanschools.org/our-district/board-of-education/board-of-education-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82030-school-board-p20281231-S",
+   "name": "Ali K. Bazzi",
+   "official_page": {
+    "url": "https://dearbornschools.org/district/board-of-education/",
+    "source": "Dearborn Public Schools, Board of Education (Treasurer Ali K. Bazzi)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Dearborn Board of Education (appointed)",
+     "from": "2025",
+     "to": null,
+     "source": "Dearborn Public Schools board page: appointed to the board in September 2025",
+     "url": "https://dearbornschools.org/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Mark Westphal",
+   "official_page": {
+    "url": "https://www.taylorschools.net/board-of-education",
+    "source": "Taylor School District, Board of Education (Trustee - Mark Westphal)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-S-82400-school-board-4y",
+   "name": "Brian Robillard"
+  },
+  {
+   "race_id": "2026-MI-SH107",
+   "name": "Melissa Perron",
+   "website": {
+    "url": "https://www.perronformichigan.com/",
+    "how": "The site is titled 'Melissa Perron for Michigan State Representative | 107th District' and names her as candidate for State Representative, 107th District",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH29",
+   "name": "Darian Counts",
+   "website": {
+    "url": "https://dariancounts.com/",
+    "how": "The site's title reads 'Darian Counts - State Rep, Michigan District 29' (the rest of the page is drawn by script and was not read)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH48",
+   "name": "Jennifer A. Conlin"
+  },
+  {
+   "race_id": "2026-MI-SH69",
+   "name": "Adam Blake Childress",
+   "past_party": [
+    {
+     "what": "Libertarian candidate for State Representative, House District 69, on the general election ballot (991 votes, 2.66 percent)",
+     "year": "2022",
+     "party": "Libertarian",
+     "source": "Wikipedia, 2022 Michigan House of Representatives election, District 69 results table",
+     "url": "https://en.wikipedia.org/wiki/2022_Michigan_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH89",
+   "name": "Joe Moss",
+   "website": {
+    "url": "https://www.joemoss.com/",
+    "how": "The site is titled 'Joe Moss for State Representative - Michigan House District 89' and says he won the Republican primary for House District 89 on August 4, 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ottawa County Commissioner (Board Chair in 2023 and 2024)",
+     "from": "2023",
+     "to": null,
+     "source": "His campaign site's About page: elected to the Ottawa County Board of Commissioners in 2022, Ottawa County Commissioner 2023 to present, Board Chair in 2023 and 2024; the home page says he is serving as commissioner",
+     "url": "https://joemoss.com/about",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Joe Moss Republican for State Representative",
+    "url": "https://www.joemoss.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS17",
+   "name": "Ashleigh Baker"
+  },
+  {
+   "race_id": "2026-MI-SS36",
+   "name": "Mark W. Yonkman",
+   "website": {
+    "url": "https://yonkmanforsenate.org/",
+    "how": "The site says 'I'm Mark Yonkman ... I decided to run for State Senate in District 36' and names Wexford County, Michigan",
+    "verified": true
+   }
+  }
+ ]
+}

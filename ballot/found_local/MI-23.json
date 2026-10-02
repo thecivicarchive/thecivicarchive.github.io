@@ -1,0 +1,260 @@
+{
+ "part": 23,
+ "of": 48,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "The session's web search allowance was already spent, so nothing here came from a search: known pages (Wikipedia's 2026 election articles, governments' own sites) were read and likely campaign addresses were tried directly. Blanks therefore mean 'not looked up by search', not 'nothing exists'.",
+ "removed": [
+  {
+   "race_id": "2026-MI-DC46",
+   "name": "Shelia Johnson",
+   "what": "official_page, offices (Judge, 46th District Court), past_party (2012 Democratic nominee for Supreme Court)",
+   "why": "The City of Southfield's site could not be reached in three tries (the name did not resolve), so none of the three could be confirmed."
+  },
+  {
+   "race_id": "2026-MI-SH45",
+   "name": "Sarah Lightner",
+   "what": "website",
+   "why": "The site is an earlier campaign's: it says 'Vote Sarah November 5th' with a countdown (the 2024 election) and never mentions 2026. Not a site for this race."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC16",
+   "name": "Julie Gatti",
+   "official_page": {
+    "url": "https://www.macombgov.org/16th-judicial-circuit-court/judges/honorable-julie-gatti",
+    "source": "Macomb County, 16th Judicial Circuit Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 16th Circuit Court (Macomb County)",
+     "from": "2019",
+     "to": "present",
+     "source": "Macomb County, 16th Judicial Circuit Court: 'was elected to office and began serving her first term January 1, 2019' (elected November 2018)",
+     "url": "https://www.macombgov.org/16th-judicial-circuit-court/judges/honorable-julie-gatti",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC38-NI",
+   "name": "Maria Zagorski"
+  },
+  {
+   "race_id": "2026-MI-DC12-NI",
+   "name": "Stormie Rae McGee"
+  },
+  {
+   "race_id": "2026-MI-DC46",
+   "name": "Shelia Johnson"
+  },
+  {
+   "race_id": "2026-MI-DC70-2",
+   "name": "Elian E.H. Fichtner",
+   "official_page": {
+    "url": "https://www.saginawcountymi.gov/courts-public-safety/courts/70th-district-court/",
+    "source": "Saginaw County, 70th District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 70th District Court (Saginaw County)",
+     "from": "2018",
+     "to": "present",
+     "source": "Saginaw County, 70th District Court: 'District Judge since April, 2018'",
+     "url": "https://www.saginawcountymi.gov/courts-public-safety/courts/70th-district-court/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-34000-council-ward-1-4y",
+   "name": "Steve Tibbe",
+   "website": {
+    "url": "https://www.stevetibbe.com/",
+    "how": "The site is titled 'Elect Steve Tibbe', calls him a candidate for City Commissioner in Grand Rapids and carries 'Paid for by CTE Steve Tibbe'; it does not name the ward or the year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-M-88940-mayor-4y",
+   "name": "Sheldon DeKryger",
+   "official_page": {
+    "url": "https://www.wyomingmi.gov/About-Wyoming/City-Government/Mayor-City-Council",
+    "source": "City of Wyoming, Mayor and City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Council Member-At-Large, Wyoming City Council",
+     "from": "",
+     "to": "present",
+     "source": "City of Wyoming, Mayor and City Council page (no start year given)",
+     "url": "https://www.wyomingmi.gov/About-Wyoming/City-Government/Mayor-City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-03100-school-board-6y",
+   "name": "Chris Poll"
+  },
+  {
+   "race_id": "2026-MI-S-33060-school-board-6y",
+   "name": "Tracy Collins",
+   "official_page": {
+    "url": "https://www.haslettschools.org/our-district/board-of-education/home",
+    "source": "Haslett Public Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Board of Education, Haslett Public Schools (term expires December 31, 2026)",
+     "from": "",
+     "to": "present",
+     "source": "Haslett Public Schools, Board of Education page (no start year given)",
+     "url": "https://www.haslettschools.org/our-district/board-of-education/home",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-39140-school-board-4y",
+   "name": "Ken Slocum"
+  },
+  {
+   "race_id": "2026-MI-S-41070-school-board-4y",
+   "name": "AnneMarie Slater"
+  },
+  {
+   "race_id": "2026-MI-S-41240-school-board-6y",
+   "name": "Julie Johnston"
+  },
+  {
+   "race_id": "2026-MI-S-50100-school-board-6y",
+   "name": "Abigail Wasil",
+   "official_page": {
+    "url": "https://www.fraser.k12.mi.us/board-of-education/about-our-board",
+    "source": "Fraser Public Schools, About Our Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Board of Education, Fraser Public Schools (appointed July 2022; term expires December 31, 2026)",
+     "from": "2022",
+     "to": "present",
+     "source": "Fraser Public Schools, 'About Our Board'",
+     "url": "https://www.fraser.k12.mi.us/board-of-education/about-our-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-58020-school-board-6y",
+   "name": "Leslie Anderson",
+   "official_page": {
+    "url": "https://www.airportschools.com/en-US/pages/47b5c727-ac05-4a5e-be83-27b12a0fbbee",
+    "source": "Airport Community Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Board of Education, Airport Community Schools",
+     "from": "",
+     "to": "present",
+     "source": "Airport Community Schools, Board of Education page (no start year given)",
+     "url": "https://www.airportschools.com/en-US/pages/47b5c727-ac05-4a5e-be83-27b12a0fbbee",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63020-school-board-4y",
+   "name": "Paul Mark de la Vergne"
+  },
+  {
+   "race_id": "2026-MI-S-63130-school-board-4y",
+   "name": "Bryan Lorion III"
+  },
+  {
+   "race_id": "2026-MI-S-63260-school-board-6y",
+   "name": "Michael Frink"
+  },
+  {
+   "race_id": "2026-MI-S-70070-school-board-4y",
+   "name": "Tiffany Berry"
+  },
+  {
+   "race_id": "2026-MI-S-73180-school-board-4y",
+   "name": "Roger Rosalez"
+  },
+  {
+   "race_id": "2026-MI-S-82020-school-board-4y",
+   "name": "Marlene Scott"
+  },
+  {
+   "race_id": "2026-MI-S-82150-school-board-4y",
+   "name": "Christine Gersky"
+  },
+  {
+   "race_id": "2026-MI-S-82365-school-board-4y",
+   "name": "Robert Barrett"
+  },
+  {
+   "race_id": "2026-MI-SH104",
+   "name": "Mitchell Ryan Distin",
+   "website": {
+    "url": "https://mitch4michigan.com/",
+    "how": "The site is titled 'Mitch for Michigan', names Dr. Mitchell Ryan Distin and the Michigan House of Representatives 104th, and has a page 'Distin v. Roth'; it gives no year. (The address first recorded, www.mitchformichigan.com, forwards here.)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH26",
+   "name": "Chris Dobis",
+   "website": {
+    "url": "https://www.chrisdobis.com/",
+    "how": "The site is titled 'Chris Dobis for Michigan State House - District 26' and gives election day as Nov 3, 2026.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH45",
+   "name": "Sarah Lightner"
+  },
+  {
+   "race_id": "2026-MI-SH67",
+   "name": "Leslie Getz"
+  },
+  {
+   "race_id": "2026-MI-SH86",
+   "name": "Joseph McClusky",
+   "website": {
+    "url": "https://www.mccluskyformi.com/",
+    "how": "The site is titled 'Joseph McClusky for State Representative' and describes Michigan's 86th House District; paid for by the Committee to Elect Joseph McClusky; it gives no year.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS14",
+   "name": "Sue Shink",
+   "website": {
+    "url": "https://www.votesueshink.com/",
+    "how": "The site is titled 'Sue Shink for State Senate' and names Michigan's 14th Senate District. It dates from her 2022 campaign and now says she is serving in the Senate; it does not mention 2026 or re-election.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS33",
+   "name": "Stan Opal"
+  }
+ ]
+}

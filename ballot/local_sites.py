@@ -30,7 +30,9 @@ why in the scope files, its city races carry the Census place code as SD-M-<code
 Governor is written with "&" (`_first_named`). Ohio (2026-10-02) has no statewide list of county candidates and no
 website cell; its "local_note" says why a city seat is on the list only for an unexpired term and that the county
 rows are those of the boards read so far, and its legislative races, which carry no jurisdiction, are named by
-district in the scope file.
+district in the scope file. Michigan (2026-10-02) has no website cell either; its "local_note" says the city, village
+and school rows are those of the nine county clerks' lists read so far, and its Court of Appeals races, which carry no
+jurisdiction, are named by district in the scope file as its legislative races are.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -199,7 +201,35 @@ STATES = {"MN": {"name": "Minnesota"},
                                "court judges in November of odd-numbered years (R.C. 3501.02; next in 2027), so the November 3, 2026 lists "
                                "carry a city or school seat only to finish an unexpired term. Ohio has no statewide list of county "
                                "candidates: the county offices and common pleas judges here are those of the county boards of elections "
-                               "read so far, and the other counties' are not loaded yet."}}
+                               "read so far, and the other counties' are not loaded yet."},
+          # Michigan (2026-10-02): the Bureau of Elections' listing has no contact columns and no website cell, and the county
+          # clerks' lists have address columns the list loader never reads and this module does not read either, so its
+          # websites come from verified findings only. Its legislative and Court of Appeals races carry no jurisdiction,
+          # so the scope names the district (`scope`); its ticket for Governor is written with "/"
+          # "school_names": districts the state's list (CEPI) and the Census Bureau name too differently for the spelling
+          # rule, read side by side on 2026-10-02 (CEPI adds the county in brackets where a name repeats, and writes
+          # "School District of the City of X" where the Bureau writes "X City School District"). Madison District Public
+          # Schools (MI-S-63140) is left out: the Bureau has two Madisons and neither name settles which is Oakland County's
+          "MI": {"name": "Michigan", "legislature": r"\bmichigan (?:state )?(?:house|senate|legislat\w+)|\bhouse of representatives\b",
+                 "school_names": {"MI-S-33130": "Mason Public Schools", "MI-S-50120": "Lake Shore Public Schools",
+                                  "MI-S-50130": "Lakeview Public Schools", "MI-S-59090": "Lakeview Community Schools",
+                                  "MI-S-61010": "Muskegon City School District", "MI-S-63010": "Birmingham City School District",
+                                  "MI-S-63040": "Royal Oak City School District", "MI-S-63130": "Hazel Park City School District",
+                                  "MI-S-63180": "Brandon School District", "MI-S-63250": "Oak Park City School District",
+                                  "MI-S-63270": "Clawson City School District", "MI-S-73010": "Saginaw City School District",
+                                  "MI-S-82045": "Melvindale-North Allen Park School District", "MI-S-82060": "Hamtramck Public Schools",
+                                  "MI-S-82090": "Lincoln Park Public Schools", "MI-S-82110": "Redford Union School District",
+                                  "MI-S-82120": "River Rouge School District", "MI-S-82170": "Wyandotte City School District",
+                                  "MI-S-82320": "Harper Woods City Schools"},
+                 "local_note": "Michigan has no statewide list of local candidates: the city, village and school board races here are those "
+                               "on the November 3, 2026 lists of the nine county clerks read so far (Wayne, Oakland, Macomb, Kent, Ottawa, "
+                               "Ingham, Kalamazoo, Saginaw and Muskegon), and the other counties' are not loaded yet. Every school district "
+                               "elects board members in November of even years (MCL 168.642c); most cities elect in November of odd years, "
+                               "so only villages and the cities whose charters say so are on this list. County officers, county "
+                               "commissioners and township boards were elected for four years in 2024 (MCL 168.200, 46.410, 168.358), so "
+                               "the county rows are the two county executives and seats filled for the rest of a term. Township offices, "
+                               "community college trustees, library boards, village presidents and a city's clerk, treasurer or assessor "
+                               "are outside the scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1311,6 +1341,16 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             schools.setdefault(r["jurisdiction_id"], {"name": r["jurisdiction"], "races": []})["races"].append(r["race_id"])
     school_places = dict(con.execute("SELECT id, name FROM sl_places WHERE kind = 'school' AND source_id LIKE ?", (st_code + "-%",)))
     walk, pairs = school_crosswalk(school_places, pop["school"], say=say)
+    # a state's own table of school districts the two lists name too differently for the spelling rule (Michigan): each
+    # is tied only when the Census file has exactly one row of the name given and no other district has taken it
+    by_name = collections.defaultdict(list)
+    for g, row in pop["school"].items():
+        by_name[row["name"]].append(g)
+    for sid, census_name in sorted(STATES.get(state, {}).get("school_names", {}).items()):
+        if sid in school_places and sid not in walk and len(by_name[census_name]) == 1 and by_name[census_name][0] not in walk.values():
+            walk[sid] = by_name[census_name][0]
+            pairs.append((sid, school_places[sid], census_name))
+            say(f"    tied by {words}'s own table of names: {school_places[sid]} = {census_name}")
 
     def count(entry):
         return {"races": len(entry["races"]), "candidates": sum(per_race[r] for r in entry["races"])}
@@ -1355,6 +1395,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             where = r["jurisdiction"]
             if not where and r["level"] == "legislature" and r["district"]:      # Ohio's legislative races name no jurisdiction
                 where = f"{'Senate' if r['office_kind'] == 'state_senate' else 'House'} District {r['district']}"
+            elif not where and r["office_kind"] == "court_of_appeals" and r["district"]:      # Michigan's, likewise
+                where = f"Court of Appeals District {r['district']}"
             rows.append({"race_id": rid, "name": name, "level": r["level"], "office": office, "jurisdiction": where})
     rows.sort(key=lambda x: (x["race_id"], x["name"]))
     levels = ["statewide", "legislature", "court", "county", "city", "school"]

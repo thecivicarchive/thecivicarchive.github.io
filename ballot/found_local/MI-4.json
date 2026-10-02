@@ -1,0 +1,347 @@
+{
+ "part": 4,
+ "of": 48,
+ "state": "MI",
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance ran out after six searches, so most candidates were looked for only on pages that could be reached directly: their district's, court's or county's own site, party endorsement pages already on file, Wikipedia, and guessed campaign addresses. A blank here means not found that way, not that nothing exists. The Governor's press release pages and one television station's site refused this script (403) and were not used as sources.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-26121-county-commissioner-7-p20281231-S",
+   "name": "Kim Sims",
+   "official_page": {
+    "url": "https://co.muskegon.mi.us/1965/Your-Muskegon-County-Commissioners",
+    "source": "Muskegon County's own page 'Your Muskegon County Commissioners' lists 'DISTRICT 7 Kimberly D. Sims (D)'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Commissioner, District 7, Muskegon County",
+     "from": "",
+     "to": "present",
+     "source": "Muskegon County: Your Muskegon County Commissioners (lists her as the District 7 commissioner; the page gives no start date)",
+     "url": "https://co.muskegon.mi.us/1965/Your-Muskegon-County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC3",
+   "name": "Helal A. Farhat",
+   "offices": [
+    {
+     "office": "Judge, 3rd Circuit Court (Wayne County)",
+     "from": "2019",
+     "to": "present",
+     "source": "Detroit Legal News (legalnews.com), posted April 24, 2019: sworn in on Monday, April 8 as Wayne County Circuit Court judge, the Governor's first appointment to that court",
+     "url": "https://www.legalnews.com/oakland/1473340",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-CC8-NI",
+   "name": "Lori J. Shearer",
+   "website": {
+    "url": "https://www.lorishearerforjudge.com/",
+    "how": "Guessed address, then read: the page is titled 'Lori Shearer for Circuit Judge', speaks of 'the citizens of Ionia and Montcalm Counties' and 'our next 8th Circuit Court Judge', and is 'Paid for by Committee to Elect Lori J. Shearer'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-DC36-NI",
+   "name": "Kahlilia Yvette Davis"
+  },
+  {
+   "race_id": "2026-MI-DC61",
+   "name": "Angela T. Ross",
+   "offices": [
+    {
+     "office": "Judge, 61st District Court (City of Grand Rapids)",
+     "from": "2022",
+     "to": "present",
+     "source": "Detroit Legal News (legalnews.com), 'Angela T. Ross appointed to 61st District Court in Grand Rapids', April 13, 2022: appointed by the Governor, partial term commencing April 18, 2022",
+     "url": "https://www.legalnews.com/grandrapids/1510226",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC97",
+   "name": "Nicholas J. Daavettila",
+   "official_page": {
+    "url": "https://www.houghtoncounty.net/directory-97th-district-court.php",
+    "source": "Houghton County's 97th District Court directory page lists 'Judge Nicholas J. Daavettila'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 97th District Court (Baraga, Houghton and Keweenaw counties)",
+     "from": "2020",
+     "to": "present",
+     "source": "The Mining Gazette, 'Daavettila sworn in as 97th District Court judge', April 14, 2020: appointed by the Governor and sworn in on the Monday",
+     "url": "https://www.mininggazette.com/news/2020/04/daavettila-sworn-in-as-97th-district-court-judge/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-82960-council-ward-3-4y",
+   "name": "Terry Schweitzer"
+  },
+  {
+   "race_id": "2026-MI-PC161-NI",
+   "name": "Jennifer Lawrence",
+   "website": {
+    "url": "https://www.jlawforjudge.com/",
+    "how": "The site says 'I am running for Washtenaw County Probate Court Judge' and is 'Paid for by Jennifer Lawrence for Judge'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Washtenaw County Democratic Party: its August 15, 2026 county convention results list, under Judge of the Probate Court, 'Jennifer Lawrence: 192 votes - Endorsed'",
+     "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-25150-school-board-4y",
+   "name": "Lisa Reese"
+  },
+  {
+   "race_id": "2026-MI-S-34080-school-board-6y",
+   "name": "Shannon Hummel"
+  },
+  {
+   "race_id": "2026-MI-S-41020-school-board-6y",
+   "name": "Allen E. Johnston"
+  },
+  {
+   "race_id": "2026-MI-S-41145-school-board-4y",
+   "name": "Eric John Roberts"
+  },
+  {
+   "race_id": "2026-MI-S-50040-school-board-p20281231-S",
+   "name": "Yveline Marcon"
+  },
+  {
+   "race_id": "2026-MI-S-50190-school-board-6y",
+   "name": "Troy Patrick Kosal"
+  },
+  {
+   "race_id": "2026-MI-S-61220-school-board-p20281231-S",
+   "name": "Pamela Turner"
+  },
+  {
+   "race_id": "2026-MI-S-63080-school-board-4y",
+   "name": "Tareq Falah",
+   "official_page": {
+    "url": "https://www.bloomfield.org/about-bhs/board-of-education",
+    "source": "Bloomfield Hills Schools' Board of Education page lists 'Tareq Falah, President, Term Expires: December 31, 2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (President), Board of Education, Bloomfield Hills Schools",
+     "from": "",
+     "to": "present",
+     "source": "Bloomfield Hills Schools: Board of Education (term expires December 31, 2026; the page gives no start date)",
+     "url": "https://www.bloomfield.org/about-bhs/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63220-school-board-6y",
+   "name": "Kyle B. Lloyd"
+  },
+  {
+   "race_id": "2026-MI-S-70010-school-board-6y",
+   "name": "Zach Winterhalter"
+  },
+  {
+   "race_id": "2026-MI-S-73040-school-board-6y",
+   "name": "Allison Stoney"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Natalie Bien-Aime"
+  },
+  {
+   "race_id": "2026-MI-S-82095-school-board-4y",
+   "name": "Mark R. Johnson",
+   "official_page": {
+    "url": "https://www.livoniapublicschools.org/school-board/school-board",
+    "source": "Livonia Public Schools' 'About the Board' page: 'Trustee Mark Johnson, Term Ends: 12/31/2026'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Board of Education, Livonia Public Schools",
+     "from": "2010",
+     "to": "present",
+     "source": "Livonia Public Schools: About the Board ('Mark Johnson was elected to the Board in June of 2010, and reelected in 2014, 2018, and 2022'). The page prints the name without the middle initial; the two anchors are the district and a board term ending 12/31/2026, the seat on this ballot.",
+     "url": "https://www.livoniapublicschools.org/school-board/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82230-school-board-p20281231-S",
+   "name": "Zainab Mroueh"
+  },
+  {
+   "race_id": "2026-MI-SC",
+   "name": "Noah P. Hood",
+   "website": {
+    "url": "https://www.noahhoodforjustice.com/",
+    "how": "The page is titled 'Keep Justice Noah P. Hood for Michigan Supreme Court' and is 'Paid for by Committee to Retain Justice Noah P. Hood'.",
+    "verified": true
+   },
+   "born": {
+    "year": 1986,
+    "source": "His campaign site: 'Born in 1986 and raised on Detroit's east side'",
+    "url": "https://www.noahhoodforjustice.com/",
+    "kind": "campaign",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice, Michigan Supreme Court",
+     "from": "2025",
+     "to": "present",
+     "source": "Wikipedia, 'Noah Hood' (assumed office May 27, 2025, with a citation)",
+     "url": "https://en.wikipedia.org/wiki/Noah_Hood",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Judge, Michigan Court of Appeals",
+     "from": "2022",
+     "to": "2025",
+     "source": "His campaign site ('In 2022, Hood was appointed to the Michigan Court of Appeals'); the end year is from Wikipedia's 'Noah Hood'",
+     "url": "https://www.noahhoodforjustice.com/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Judge, 3rd Circuit Court (Wayne County)",
+     "from": "2019",
+     "to": "2022",
+     "source": "His campaign site ('In 2019, Hood was appointed to the Third Judicial Circuit Court in Detroit'); the end year is from Wikipedia's 'Noah Hood'",
+     "url": "https://www.noahhoodforjustice.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Michigan Democratic Party: 'MDP Endorses Candidates for Key Statewide Offices' (April 20, 2026) lists 'Megan Cavanagh and Noah Hood for Supreme Court'",
+     "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH18",
+   "name": "Kelly Garrett"
+  },
+  {
+   "race_id": "2026-MI-SH38",
+   "name": "Joey Andrews",
+   "website": {
+    "url": "https://andrewsformichigan.com/",
+    "how": "Printed beside 'Joey Andrews - Endorsed' under Michigan State Representative, 38th District, on the Allegan County Democratic Party's candidates page; the site is titled 'Joey Andrews for State Representative HD-38', says he is 'running for re-election in Michigan's 38th House District' and is 'Paid for by Friends of Joey Andrews IV'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Allegan County Democratic Party: its Candidates 2026 page lists 'Michigan State Representative 38th District Joey Andrews - Endorsed'",
+     "url": "https://allegandems.com/candidates-2026/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH58",
+   "name": "Ron Robinson"
+  },
+  {
+   "race_id": "2026-MI-SH78",
+   "name": "Brandon L. Strong"
+  },
+  {
+   "race_id": "2026-MI-SH98",
+   "name": "Keith Brusseau"
+  },
+  {
+   "race_id": "2026-MI-SS26",
+   "name": "Matthew Bierlein",
+   "official_page": {
+    "url": "https://gophouse.org/member/RepMatthewBierlein/about",
+    "source": "His member page on the Michigan House Republicans' site, which the House's own list of representatives (house.mi.gov/AllRepresentatives, 'Bierlein, Rep. Matthew (Republican) District-97') links to. It is the caucus's site, not house.mi.gov itself.",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "State Representative, 97th District, Michigan House of Representatives",
+     "from": "2023",
+     "to": "present",
+     "source": "Michigan House Republicans, About Matthew Bierlein ('in his second term in the Michigan House and was elected to serve the 97th District in November 2022')",
+     "url": "https://gophouse.org/member/RepMatthewBierlein/about",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "County Commissioner, Tuscola County",
+     "from": "2013",
+     "to": "2019",
+     "source": "Michigan House Republicans, About Matthew Bierlein ('served as a Tuscola County commissioner from 2013 to 2019')",
+     "url": "https://gophouse.org/member/RepMatthewBierlein/about",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives, 97th District, as a Republican (elected November 2022)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Michigan House of Representatives, All Representatives: 'Bierlein, Rep. Matthew (Republican) District-97'",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-UMREG",
+   "name": "Amir Makled",
+   "website": {
+    "url": "https://www.amirmakled.com/",
+    "how": "Guessed address, then read: the page is titled 'Amir Makled for U of M Regent', speaks of the University of Michigan throughout and is 'Paid for by Amir Makled for Regent'.",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Michigan Democratic Party: 'MDP Endorses Candidates for Key Statewide Offices' (April 20, 2026) lists 'Paul Brown and Amir Makled for University of Michigan Board of Regents'",
+     "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every address in the file was re-opened and each finding confirmed. Five wordings were trimmed to what the page itself states (Farhat, Daavettila, Lawrence's and Hood's website notes, Hood's Supreme Court source). The Michigan House list and two pages that the first fetch could not look up were read with the kit's own fetcher."
+}

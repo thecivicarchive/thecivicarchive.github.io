@@ -1,0 +1,363 @@
+{
+ "part": 41,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already used up, so nobody in this part could be searched for by name; only pages whose address was known or could be reached from a known page were read (court, city and school district pages, the Michigan House's member list, the parties' own endorsement pages, campaign sites linked from Wikipedia's 2026 election articles). Not reached: the Department of Education's State Board pages and the Governor's releases (the state's site refuses scripts), Grand Rapids Public Schools (certificate error), Harper Woods' court page (no lookup), Matt Koleszar's campaign site (it answered with a server error twice, so it is not recorded). Looked at and nothing recorded: Saginaw's council page does not list Jeanette Barnett; the board pages of Goodrich, Oakridge, Southfield, Detroit and Grosse Pointe do not list Courtney Berry, Roger Lee Taylor, Amani Johnson, Darious Morris or Mariel Krupansky; Grandville's own 2026 candidates page lists Emily Berlin but states no office; Wyandotte's board page lists a trustee 'Carrie Martinez', which may or may not be Carolyn Martinez, so nothing is recorded; Kalamazoo County's and Clinton County's court pages did not name Tiffany A. Ankley or Shannon L.W. Schlegel on the pages reached; the Kalamazoo, Kent, Ottawa and Eaton county Democratic pages showed none of this part's names. Matt Koleszar's and Mai Xiong's birth dates on Wikipedia carry no citation and are left out. A blank means not looked up or not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC29",
+   "name": "Shannon L.W. Schlegel"
+  },
+  {
+   "race_id": "2026-MI-CC6",
+   "name": "Jeffery S. Matis",
+   "official_page": {
+    "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-jeffery-s-matis",
+    "source": "Oakland County, 6th Circuit Court: Hon. Jeffery S. Matis",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 6th Circuit Court (Oakland County)",
+     "from": "2015",
+     "to": "",
+     "source": "Oakland County's page for the judge: \"Appointed Circuit Judge, November 2015; assigned to Family Division, 2015 - 2018 and Civil/Criminal Division, 2019 - Present\"",
+     "url": "https://www.oaklandcountymi.gov/government/courts/circuit-court/judges/civil-criminal/hon-jeffery-s-matis",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC32A",
+   "name": "Rebekah Ruth Coleman"
+  },
+  {
+   "race_id": "2026-MI-DC56A",
+   "name": "Adrianne K. Van Langevelde",
+   "official_page": {
+    "url": "https://www.eatoncounty.org/386/56A-District-Court",
+    "source": "Eaton County, 56A District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 56A District Court (Eaton County)",
+     "from": "",
+     "to": "",
+     "source": "Eaton County's 56A District Court page lists \"Hon. Adrianne Van Langevelde, District Court Judge\"; it gives no starting year",
+     "url": "https://www.eatoncounty.org/386/56A-District-Court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-DC84",
+   "name": "Corey J. Wiggins",
+   "official_page": {
+    "url": "https://wexfordcounty.org/?page_id=833",
+    "source": "Wexford County, District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, 84th District Court (Wexford and Missaukee counties)",
+     "from": "",
+     "to": "",
+     "source": "Wexford County's District Court page lists \"Corey J. Wiggins, District Court Judge\"; it gives no starting year",
+     "url": "https://wexfordcounty.org/?page_id=833",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-70520-council-4y",
+   "name": "Jeanette Barnett"
+  },
+  {
+   "race_id": "2026-MI-PC077",
+   "name": "Tiffany A. Ankley"
+  },
+  {
+   "race_id": "2026-MI-S-25050-school-board-6y",
+   "name": "Courtney Berry"
+  },
+  {
+   "race_id": "2026-MI-S-33215-school-board-4y",
+   "name": "Michiko D. Alvarenga",
+   "official_page": {
+    "url": "https://www.waverlycommunityschools.net/board-of-education/board-members/",
+    "source": "Waverly Community Schools, Board of Education members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Waverly Community Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Waverly Community Schools' board members page lists \"Michiko Alvarenga, Board Trustee\"; it gives no years",
+     "url": "https://www.waverlycommunityschools.net/board-of-education/board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41010-school-board-4y",
+   "name": "Diana Riley"
+  },
+  {
+   "race_id": "2026-MI-S-41130-school-board-6y",
+   "name": "Emily Berlin"
+  },
+  {
+   "race_id": "2026-MI-S-50030-school-board-6y",
+   "name": "Gina Marie Aiuto",
+   "official_page": {
+    "url": "https://www.rosevillepride.org/our-district/board-of-education/",
+    "source": "Roseville Community Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Roseville Community Schools Board of Education",
+     "from": "",
+     "to": "",
+     "source": "Roseville Community Schools' board page lists \"Gina Aiuto, Trustee\"; it gives no years",
+     "url": "https://www.rosevillepride.org/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50160-school-board-4y",
+   "name": "Dontae Walker",
+   "official_page": {
+    "url": "https://www.mtcps.org/district/school-board/school-board-members/",
+    "source": "Mount Clemens Community School District, School Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Mount Clemens Community School District Board of Education",
+     "from": "",
+     "to": "",
+     "source": "The district's School Board Members page lists \"Dontae Walker, President, Term expires December 31, 2026\"; it gives no starting year",
+     "url": "https://www.mtcps.org/district/school-board/school-board-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-61065-school-board-6y",
+   "name": "Roger Lee Taylor"
+  },
+  {
+   "race_id": "2026-MI-S-63060-school-board-6y",
+   "name": "Amani Johnson"
+  },
+  {
+   "race_id": "2026-MI-S-63190-school-board-6y",
+   "name": "Jaclyn Sivers",
+   "offices": [
+    {
+     "office": "Member, Clarkston Community Schools Board of Education (appointed to a vacancy)",
+     "from": "2023",
+     "to": "",
+     "source": "Clarkston Community Schools' district news, \"Jaclyn Sivers Appointed to the Board of Education\", August 29, 2023: \"On the evening of August 28, the Clarkston Community Schools Board of Education voted to appoint Jaclyn Sivers to fill the vacancy\"",
+     "url": "https://www.clarkston.k12.mi.us/news/news-details/~board/district/post/jaclyn-sivers-appointed-to-the-board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63290-school-board-p20281231-S",
+   "name": "Ron Lippitt",
+   "official_page": {
+    "url": "https://www.wlcsd.org/about-us/board-of-education",
+    "source": "Walled Lake Consolidated Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Walled Lake Consolidated Schools Board of Education",
+     "from": "2024",
+     "to": "2024",
+     "source": "The district's Board of Education page: \"Ronald Lippitt - Secretary ... Term of Office: 5/24 to 11/24, 7/25 to 12/26\"",
+     "url": "https://www.wlcsd.org/about-us/board-of-education",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Walled Lake Consolidated Schools Board of Education (the board's Secretary today)",
+     "from": "2025",
+     "to": "",
+     "source": "The district's Board of Education page: \"Ronald Lippitt - Secretary ... Term of Office: 5/24 to 11/24, 7/25 to 12/26\"",
+     "url": "https://www.wlcsd.org/about-us/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-70300-school-board-6y",
+   "name": "Paul Aldridge",
+   "official_page": {
+    "url": "https://www.springlakeschools.org/our-district/school-board",
+    "source": "Spring Lake Public Schools, School Board",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Spring Lake Public Schools Board of Education",
+     "from": "2021",
+     "to": "",
+     "source": "Spring Lake Public Schools' School Board page lists \"Paul Aldridge ... Board of Education - Trustee ... Member since 2021 (term expires 2026)\"",
+     "url": "https://www.springlakeschools.org/our-district/school-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-4y",
+   "name": "Darious Morris"
+  },
+  {
+   "race_id": "2026-MI-S-82055-school-board-4y",
+   "name": "Mariel Krupansky"
+  },
+  {
+   "race_id": "2026-MI-S-82170-school-board-4y",
+   "name": "Carolyn Martinez"
+  },
+  {
+   "race_id": "2026-MI-SBOE",
+   "name": "Judith Pritchett",
+   "endorsed_by": [
+    {
+     "party": "Democratic Party",
+     "unit": "Michigan Democratic Party, its 2026 Endorsement Convention (the party's release lists \"Judith Pritchett and Tiffany Tilley for State Board of Education\")",
+     "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH13",
+   "name": "Mai Xiong",
+   "website": {
+    "url": "https://www.voteformai.com/",
+    "how": "Linked from Wikipedia's 2026 Michigan House election article; the site is titled \"Vote Mai Xiong for State Representative\" and says \"Mai is running for re-election to serve Michigan's 13th House District\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH33",
+   "name": "Catherine Rogers"
+  },
+  {
+   "race_id": "2026-MI-SH53",
+   "name": "Brenda Carter",
+   "website": {
+    "url": "https://www.brendajcarter.com",
+    "how": "Linked from Wikipedia's 2026 Michigan House election article; the site is titled \"Brenda J. Carter\" and reads \"State Representative, District 53\" and \"the 53rd House District\"",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic Party",
+     "unit": "Oakland County Democratic Party (its \"2026 Endorsed Candidates\" list: \"D53- Brenda Carter (Incumbent)\")",
+     "url": "https://www.oaklandcountydemocrats.org/endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH73",
+   "name": "Julie Brixie",
+   "website": {
+    "url": "https://juliebrixie.com",
+    "how": "Linked as her campaign website from Wikipedia's article on her and its 2026 Michigan House election article; every page of the site is titled \"State Rep. Julie Brixie\" (the rest is drawn by script and was not read; the district number was not seen)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SH93",
+   "name": "Serenity Hope Salak",
+   "website": {
+    "url": "https://www.serenityhope4mi.com",
+    "how": "Linked from Wikipedia's 2026 Michigan House election article; the site is titled \"SERENITY HOPE for STATE REP\", says \"I'm Serenity Hope Salak and I want to be your next State Representative\", and its own description reads \"Support Serenity Hope Salak for Michigan State House District 93\"",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS21",
+   "name": "Josh Burns",
+   "website": {
+    "url": "https://joshburns.me",
+    "how": "Linked from Wikipedia's 2026 Michigan Senate election article; the site is titled \"Josh Burns for State Senate\" and reads \"Candidate for Michigan State Senate - District 21\"",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican candidate for Michigan State Senate District 21",
+    "url": "https://joshburns.me",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-MI-SS5",
+   "name": "Matt Koleszar",
+   "official_page": {
+    "url": "https://housedems.com/matt-koleszar/",
+    "source": "The Michigan House of Representatives' member list (house.mi.gov/AllRepresentatives: \"Koleszar, Rep. Matt (Democrat) District-22\") links this page as his",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Michigan House of Representatives, 20th District",
+     "from": "2019",
+     "to": "2022",
+     "source": "Wikipedia, \"Matt Koleszar\", citing Wayne County's 2018 and 2020 final election results and Gongwer News Service",
+     "url": "https://en.wikipedia.org/wiki/Matt_Koleszar",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Michigan House of Representatives, 22nd District",
+     "from": "2023",
+     "to": "",
+     "source": "Wikipedia, \"Matt Koleszar\", citing the Michigan Secretary of State's 2022 and 2024 general election results; the House's own member list shows him in District 22 today",
+     "url": "https://en.wikipedia.org/wiki/Matt_Koleszar",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sits in the Michigan House of Representatives, District 22, as a Democrat",
+     "year": "2026",
+     "party": "Democratic Party",
+     "source": "Michigan House of Representatives member list: \"Koleszar, Rep. Matt (Democrat) District-22\"",
+     "url": "https://www.house.mi.gov/AllRepresentatives",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-MI-S-63190-school-board-6y",
+   "name": "Jaclyn Sivers",
+   "what": "official_page",
+   "why": "the district's Board of Education page, as a script reads it, shows her name only in the 2023 news item about her appointment, not in a list of today's members"
+  }
+ ]
+}

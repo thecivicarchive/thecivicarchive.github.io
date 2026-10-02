@@ -957,7 +957,15 @@ def read_ingham(raw, spec):
             if cur is None:
                 raise LayoutError(f"page {pn}: a candidate row before any contest heading")
             party = next((c["text"] for c in line if 440 <= c["x"] < 500), "")
-            add_candidate(doc, cur, name["text"], party, "")
+            # a letter the list's font lacks is drawn in another font, which breaks the name into pieces that touch
+            # ("Matea Č" + "aluk"): a piece that begins exactly where the name ends is the rest of the name. A piece
+            # further right is the next column and is never taken in.
+            whole, end = name["text"], name.get("x1")
+            for c in line[line.index(name) + 1:]:
+                if end is None or c["x"] >= 205 or abs(c["x"] - end) > 1.0:
+                    break
+                whole, end = whole + c["text"], c.get("x1")
+            add_candidate(doc, cur, whole, party, "")
     if not doc["contests"]:
         raise LayoutError("no contest heading was found")
     return doc

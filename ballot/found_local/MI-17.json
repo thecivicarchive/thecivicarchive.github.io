@@ -1,0 +1,280 @@
+{
+ "part": 17,
+ "of": 48,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was already spent, so this part was researched only by opening pages directly (party endorsement pages, district board pages, Wikipedia). Judges, most school board candidates and the non-incumbent legislative candidates were not searched for and are blank; a later pass with search could fill them.",
+ "candidates": [
+  {
+   "race_id": "2026-MI-CC11",
+   "name": "Robert T. Steinhoff"
+  },
+  {
+   "race_id": "2026-MI-CC32",
+   "name": "Michael K. Pope"
+  },
+  {
+   "race_id": "2026-MI-DC1",
+   "name": "Michael Brown"
+  },
+  {
+   "race_id": "2026-MI-DC40",
+   "name": "Joseph Craigen Oster"
+  },
+  {
+   "race_id": "2026-MI-DC67-4-NI",
+   "name": "Cheryl A. Lopez"
+  },
+  {
+   "race_id": "2026-MI-M-21020-council-p20271231-S",
+   "name": "Bob Constan",
+   "born": {
+    "year": 1959,
+    "date": "",
+    "source": "Wikipedia (the date is cited inline to Vote Smart's biography); cut to the year",
+    "url": "https://en.wikipedia.org/wiki/Bob_Constan",
+    "kind": "secondary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Michigan House of Representatives, 16th District",
+     "from": "2007",
+     "to": "2012",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Bob_Constan",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Member, Dearborn Heights City Council (the article calls him its chairman and says he was elected again after his House term; years not given)",
+     "from": "",
+     "to": "",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Bob_Constan",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Member, Michigan House of Representatives, 16th District",
+     "year": "2007-2012",
+     "party": "Democratic",
+     "source": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Bob_Constan",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-M-88940-council-at-large-4y",
+   "name": "Cassandra Kawka-Vlahos",
+   "website": {
+    "url": "https://www.cassie4wyoming.com/",
+    "how": "Linked as 'Website' among the Kent County Democratic Party's endorsed candidates; the site is titled 'Cassandra For Wyoming City Council' and names Cassandra Kawka-Vlahos",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Kent County Democratic Party",
+     "url": "https://kentdems.com/candidates/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-03040-school-board-4y",
+   "name": "Aubrey Chubb"
+  },
+  {
+   "race_id": "2026-MI-S-33020-school-board-6y",
+   "name": "Ryan Smith"
+  },
+  {
+   "race_id": "2026-MI-S-39030-school-board-4y",
+   "name": "Stephen M French"
+  },
+  {
+   "race_id": "2026-MI-S-41040-school-board-6y",
+   "name": "Brad Wiechertjes",
+   "official_page": {
+    "url": "https://www.bcpsk12.net/district/board-of-education/",
+    "source": "Byron Center Public Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Treasurer, Byron Center Public Schools Board of Education (as the district lists its board today)",
+     "from": "",
+     "to": "",
+     "source": "Byron Center Public Schools, Board of Education page",
+     "url": "https://www.bcpsk12.net/district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-41210-school-board-4y",
+   "name": "Jason P Peterson"
+  },
+  {
+   "race_id": "2026-MI-S-50080-school-board-p20281231-S",
+   "name": "Kenneth A. Pearl",
+   "official_page": {
+    "url": "https://www.chippewavalleyschools.org/our-district/board-of-education/",
+    "source": "Chippewa Valley Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "President, Chippewa Valley Schools Board of Education (2026-2027 board, as the district lists it)",
+     "from": "",
+     "to": "",
+     "source": "Chippewa Valley Schools, Board of Education page",
+     "url": "https://www.chippewavalleyschools.org/our-district/board-of-education/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-50230-school-board-p20281231-S",
+   "name": "Kyle Johnson"
+  },
+  {
+   "race_id": "2026-MI-S-63010-school-board-6y",
+   "name": "Omar Odeh",
+   "official_page": {
+    "url": "https://www.birmingham.k12.mi.us/about/board-of-education/meet-the-board",
+    "source": "Birmingham Public Schools, Meet the Board page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Birmingham Public Schools Board of Education (as the district lists its board today)",
+     "from": "",
+     "to": "",
+     "source": "Birmingham Public Schools, Meet the Board page",
+     "url": "https://www.birmingham.k12.mi.us/about/board-of-education/meet-the-board",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-S-63110-school-board-4y",
+   "name": "Michael Whitney"
+  },
+  {
+   "race_id": "2026-MI-S-63250-school-board-6y",
+   "name": "Melonie T. Barnes"
+  },
+  {
+   "race_id": "2026-MI-S-70070-school-board-4y",
+   "name": "Charles Elwood"
+  },
+  {
+   "race_id": "2026-MI-S-73110-school-board-6y",
+   "name": "Damion Frasier"
+  },
+  {
+   "race_id": "2026-MI-S-82015-school-board-p20281231-S",
+   "name": "Ijazz Jackson"
+  },
+  {
+   "race_id": "2026-MI-S-82140-school-board-6y",
+   "name": "Eugene Lewis"
+  },
+  {
+   "race_id": "2026-MI-S-82340-school-board-6y",
+   "name": "Julie Spicer",
+   "official_page": {
+    "url": "https://www.huronschools.org/board-of-education",
+    "source": "Huron School District (New Boston), Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Huron School District Board of Education (term expires 2026, as the district lists it)",
+     "from": "",
+     "to": "",
+     "source": "Huron School District (New Boston), Board of Education page",
+     "url": "https://www.huronschools.org/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH102",
+   "name": "Shawn Orton"
+  },
+  {
+   "race_id": "2026-MI-SH23",
+   "name": "Jason Morgan",
+   "website": {
+    "url": "https://www.votejasonmorgan.com",
+    "how": "The site is titled 'Jason Morgan for State Representative | Ann Arbor State Representative' (House District 23 covers part of Ann Arbor)",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Washtenaw County Democratic Party",
+     "url": "https://www.washtenawdems.org/august-2026-convention-endorsement-results/",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH42",
+   "name": "Nick Rowe",
+   "website": {
+    "url": "https://www.nickrowe.org/",
+    "how": "Linked beside 'Nick Rowe, State House- District 42' on the Kalamazoo County Democratic Party's endorsements page; the site is titled 'Nick Rowe for Michigan House District 42'",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Kalamazoo County Democratic Party",
+     "url": "https://www.kzoodems.com/endorsements",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-MI-SH64",
+   "name": "Joseph G. Pavlov"
+  },
+  {
+   "race_id": "2026-MI-SH83",
+   "name": "Cindy Ramirez"
+  },
+  {
+   "race_id": "2026-MI-SS11",
+   "name": "Johnnie S. Townsend"
+  },
+  {
+   "race_id": "2026-MI-SS30",
+   "name": "Mark E. Huizenga"
+  },
+  {
+   "race_id": "2026-MI-WSUGOV",
+   "name": "Richard Mack",
+   "endorsed_by": [
+    {
+     "party": "Democratic",
+     "unit": "Michigan Democratic Party",
+     "url": "https://michigandems.com/mdp-endorses-candidates-for-key-statewide-offices/",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": []
+}
