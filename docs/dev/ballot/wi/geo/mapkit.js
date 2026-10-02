@@ -466,7 +466,7 @@ window.GEOKIT = (function () {
   const side = html => { const s = $("#gside"); if (s) s.innerHTML = html; };
   const feet = m => { const f = m * 3.2808; return f < 20 ? Math.max(5, Math.round(f / 5) * 5) : Math.round(f / 10) * 10; };
   const schoolWho = () => { const s = ((IDX && IDX.sources) || []).find(x => /school/i.test((x.id || "") + " " + (x.title || ""))); return s ? String(s.agency || "").split(/[;,]/)[0].trim() : "the state's school district map"; };
-  const finder = () => { const P = G.polls || {}; return P.finder ? `<a href="${esc(P.finder)}" target="_blank" rel="noopener">Open the ${WHO} polling place finder</a>` : ""; };
+  const finder = () => { const P = G.polls || {}; return P.finder ? `<a href="${esc(P.finder)}" target="_blank" rel="noopener">Open the ${ST.partial ? "state&rsquo;s official" : WHO} polling place finder</a>` : ""; };      // where the lists are the counties' own, the finder is still the state's
 
   /* what a shape is called, from what the page already holds (the map's own files say it first, where they are here) */
   function dataName(kind, id) {
@@ -535,7 +535,7 @@ window.GEOKIT = (function () {
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", "District " + (z.com.split("|")[1] || z.com), "com", z.com) : "",
       ...z.sch.map((i, n) => row(n ? "" : esc(capital(ST.schoolOne || "school district")), ((z.schn || {})[i] || dataName("school", i)) + (n >= nb ? ` (it lies over the other${nb > 1 ? "s" : ""}: you are in it as well)` : split && (z.pct || [])[n] ? ` (${shares[n] ? "about " + shares[n] : "under 1"}% of the ${UNIT}’s area${i === z.s1 ? "; your spot" : ""})` : ""), "school", i)),
       row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
-      row(esc(KW.judicial[1]), z.jd ? dataName("judicial", z.jd) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
+      row(esc(KW.judicial[1]), z.jd ? (z.jdn || dataName("judicial", z.jd)) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
       ...(z.sw2 || []).map((i, n) => row("", ((z.sw2n || [])[n] || dataName("swcd", i)) + ` (it holds a smaller part of the ${UNIT})`, "swcd", i)),
       ...((BOOT.geo || {}).says || []).map(([k, w]) => z.x && z.x[k] ? row(esc(capital(w)), (z.x[k + "_n"] || z.x[k]) + (z.x[k + "_area"] ? ", " + z.x[k + "_area"].join(" and ") : "") + (z.x[k + "_pct"] ? ` (about ${Math.round(z.x[k + "_pct"])}% of the ${UNIT} is inside it)` : "")) : ""),
       row("Hospital district", z.ho ? (z.hon || dataName("hospital", z.ho)) : "", "hospital", z.ho), row("Park district", z.pk ? (z.pkn || dataName("park", z.pk)) : "", "park", z.pk)].join("");
@@ -545,10 +545,12 @@ window.GEOKIT = (function () {
     const school = split ? `Your ${UNIT} is split between ${num(nb)} ${esc(ST.schoolOne || "school district")}s. ${z.s1 ? `By the ${esc(schoolWho())}&rsquo;s map your spot is in ${esc((z.schn || {})[z.s1] || z.s1)}` : "Which one your spot is in could not be settled here"}; ${nb === 2 ? "both are" : "all are"} on the list below, because those lines are generalised.`
       : z.out ? `Part of this ${UNIT} lies in no ${esc(ST.schoolOne || "school district")}.` : "";
     const placed = z.mq ? `This ${UNIT} reaches more than one ${esc(KW.mcd[1].toLowerCase())}, and which one your spot is in could not be settled here; the one named holds most of the ${UNIT}.` : "";
+    // where the map's smallest pieces are an earlier year's (the files say which, and whose): said beside the reader's own
+    const old = G.old ? `This ${UNIT} is drawn and named as it stood in ${esc(G.old.y)}${z.unl ? `, and the state&rsquo;s ${esc(z.unl)} list no longer carries it under that name or code, so it has been redrawn or renamed since` : ""}. ${esc((G.old.t || []).slice(2).join(" "))}` : "";
     return `<span class="kick">Where you are</span><h3>${esc(z.pn)}</h3>
-      <p class="held">Your ${UNIT} and every district it is in, worked out on this device. Tap a name to see it on the map.</p>
+      <p class="held">Your ${UNIT}${G.old ? ` (${esc(G.old.y)} lines)` : ""} and every district it is in, worked out on this device. Tap a name to see it on the map.</p>
       <dl class="zlist">${rows}</dl>
-      ${[edge, acc, placed, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
+      ${[old, edge, acc, placed, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
       ${pollHTML(z)}
       <p class="sidehint">${spot ? `The pin is your spot. The exact spot is used here and now and is not kept: after a reload your ${UNIT} stays marked in gold instead. A copy rounded to about half a mile stays on this device, for the site&rsquo;s other pages, until you tap &ldquo;Forget&rdquo;.` : `Your ${UNIT} is marked in gold. The exact spot was not kept; a copy rounded to about half a mile stays on this device until you tap &ldquo;Forget&rdquo;.`} &ldquo;Show streets&rdquo; draws the streets around it; OpenStreetMap&rsquo;s servers then see which map squares are asked for. <button type="button" class="linkbtn" data-zone="me">Go to my ${UNIT}</button></p>`;
   }
@@ -567,14 +569,14 @@ window.GEOKIT = (function () {
   function sideShape(kind, id, name, precinct) {
     const rs = racesOf(kind, id), kw = words(kind)[1], at = precinct ? `<p class="sidehint">The ${UNIT} at that spot: ${esc(precinct.name)}.</p>` : "";
     if (kind === "house" || kind === "senate") { const r = legRace(kind === "senate" ? "upper" : "lower", String(id));
-      return (r ? legPreview(r) : `<span class="kick">${esc(kw)}</span><h3>${esc(name)}</h3><p class="held">No race for this district is on the ${WHO} list for November 3.</p>`) + at + BACK(); }
+      return (r ? legPreview(r) : `<span class="kick">${esc(kw)}</span><h3>${esc(name)}</h3><p class="held">${noLegRace(kind === "senate" ? "upper" : "lower", "this district")}</p>`) + at + BACK(); }
     let body;
     if (kind === "cd") { const p = (map && map.props("cd", id)) || {}, rid = p.race || `2026-${ST.code}-H${String(id).padStart(2, "0")}`;
       body = BOOT.links.us ? `<p class="held">The race for the U.S. House here is on the Congress pages.</p><a class="rpgo" href="../us/#race=${encodeURIComponent(rid)}">Open the race &rsaquo;</a>` : `<p class="held">The race for the U.S. House here is not on this page.</p>`; }
     else if (kind === "county") body = `<p class="held">${plural(COUNTS[pk(id)] || 0, "contest")} on the November 3 ballot reach${(COUNTS[pk(id)] || 0) === 1 ? "es" : ""} ${esc(name)}.${rs.length ? " The offices the whole county elects:" : ""}</p>${rs.length ? raceList(rs) : ""}<a class="rpgo" href="#county=${esc(pk(id))}">Open ${esc(name)} &rsaquo;</a>`;
-    else if (kind === "judicial") body = rs.length ? raceList(rs, `<a href="#courts">see every district court race</a>`) : `<p class="held">No seat of this district&rsquo;s court is on the ${WHO} list for November 3.</p>`;
+    else if (kind === "judicial") body = rs.length ? raceList(rs, `<a href="#courts">see every ${rs.every(r => r.k === "district_court") ? "district court" : "court"} race</a>`) : `<p class="held">No seat of this district&rsquo;s court ${onList(WHO, " for November 3")}.</p>`;
     else { const cs = kind === "mcd" ? ((D.places.M[mKey(id)] || {}).c || []) : [];
-      body = (rs.length ? raceList(rs) : `<p class="held">No contest for ${esc(name)} is on the ${LWHO} list for November 3.</p>`)
+      body = (rs.length ? raceList(rs) : `<p class="held">No contest for ${esc(name)} ${onList(LWHO, " for November 3", cs.length === 1 ? cs[0] : "")}.</p>`)
         + (cs.length ? `<p class="sidehint">Everything else on a ballot here: ${cs.map(f => `<a href="#county=${esc(f)}">${esc(cName(f))}</a>`).join(", ")}.</p>` : ""); }
     return `<span class="kick">${esc(kw)}</span><h3>${esc(name)}</h3>${body}${at}${BACK()}`;
   }
@@ -649,7 +651,9 @@ window.GEOKIT = (function () {
     says.forEach(([k]) => { x[k] = p[k] || ""; if (!p[k]) return; x[k + "_n"] = nm(k, p[k]);
       if (p[k + "_area"]) x[k + "_area"] = sp[k + "_area"] ? Object.keys(sp[k + "_area"]) : [p[k + "_area"]];
       if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
-    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {})};
+    const gone = Object.keys(p).find(k => /^listed_\d{4}$/.test(k) && p[k] === false);      // the files say the state's list of that year no longer carries this piece
+    const jdn = nm("judicial", p.judicial);      // the files' own name for the court's district, where they give one
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {})};
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
