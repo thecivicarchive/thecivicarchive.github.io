@@ -1,0 +1,305 @@
+{
+ "part": 55,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "30 candidates in this part. The session's shared web-search allowance was already spent when this part began, and WebFetch could not resolve most Kentucky hosts, so pages were read with plain requests carrying the kit's honest User-Agent at addresses taken from the governments' own sites. Bullitt County's site answered with a CAPTCHA page and was not requested again, so nothing is recorded for Tammy R. Baker. Current officeholders were confirmed on their governments' own pages; where the page names someone else in the seat the candidate is seeking (Marion County sheriff: Jimmy Clements; Anderson magistrate District 5: David Montgomery; Pendleton magistrate District 1: Alan Whaley; Woodford magistrate District 6: Mary Ann Gill; Richmond mayor: Robert R. Blythe; Hopkinsville Ward 9: Brittanie Bogard; Erlanger's council page does not list Chris Herrman), no office is recorded for the challenger. No campaign site could be found without search for Rivera, McDaniel, Love, Herrman, Wegman or the county candidates; guessed addresses did not resolve. Nothing was found for the constables, Kiser, Cotton, Peoples, Gampper, Caldwell, Wegman or Fairchild. Bivens is a sitting legislator with a record page: only his website and own words are recorded; his and Rivera's listings on party pages are already in ballot/lean/ky_endorsements.json. Bivens's site carries no year; it names him, the office and central Kentucky and is paid for by 'Ryan Bivens for State Representative'. Start years are left blank where the official page gives none; Tapke's page gives her first election, November 4, 2014 (Kentucky county officers take office the following January).",
+ "candidates": [
+  {
+   "race_id": "2026-KY-SH24",
+   "name": "Ryan Dale Bivens",
+   "website": {
+    "url": "https://www.ryanbivens.com/",
+    "how": "Guessed address; the site names Ryan Bivens, 'Conservative Republican for State Representative', Kentucky, and is paid for by Ryan Bivens for State Representative",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Conservative Republican for State Representative",
+    "url": "https://www.ryanbivens.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-21117-county-attorney",
+   "name": "Stacy Tapke",
+   "official_page": {
+    "url": "https://www.kentoncoatty.com/about-us/stacy-tapke",
+    "source": "Kenton County Attorney's Office (linked as 'Kenton County Attorney' from kentoncountyky.gov)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Kenton County Attorney",
+     "from": 2015,
+     "to": "present",
+     "source": "Kenton County Attorney's Office: 'first elected as the Kenton County Attorney on November 4, 2014'",
+     "url": "https://www.kentoncoatty.com/about-us/stacy-tapke",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21055-county-executive",
+   "name": "Perry A. Newcom",
+   "official_page": {
+    "url": "https://www.crittendencountyky.org/judge_executive/index.php",
+    "source": "Crittenden County, KY, Judge Executive page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crittenden County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Crittenden County, KY, Judge Executive page ('Perry A. Newcom, Judge Executive')",
+     "url": "https://www.crittendencountyky.org/judge_executive/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-county-executive",
+   "name": "Scott Bates",
+   "official_page": {
+    "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+    "source": "Henry County, Kentucky, Elected Officials page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Henry County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Henry County, Kentucky, Elected Officials page (Fiscal Court Members: 'Judge/Executive ... Scott Bates')",
+     "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21043-county-attorney",
+   "name": "Brian Bayes",
+   "official_page": {
+    "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx",
+    "source": "Carter County, Kentucky, County Officials page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carter County Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Carter County, Kentucky, County Officials page ('Brian Bayes-County Attorney')",
+     "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21129-county-attorney",
+   "name": "Thomas K Hollon",
+   "official_page": {
+    "url": "https://leecounty.ky.gov/elected/Pages/default.aspx",
+    "source": "Lee County, Kentucky, Elected Officials page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lee County Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Lee County, Kentucky, Elected Officials page ('Lee County Attorney Thomas Hollon')",
+     "url": "https://leecounty.ky.gov/elected/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21079-sheriff",
+   "name": "Willie Skeens",
+   "official_page": {
+    "url": "https://garrardcountyky.gov/elected-officials/",
+    "source": "Garrard County, Elected Officials page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Garrard County Sheriff",
+     "from": null,
+     "to": "present",
+     "source": "Garrard County, Elected Officials page ('Willie Skeens, Sheriff')",
+     "url": "https://garrardcountyky.gov/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21141-sheriff",
+   "name": "Stephen P Stratton",
+   "official_page": {
+    "url": "https://www.logancountyky.gov/200/Sheriffs-Office",
+    "source": "Logan County, KY, Sheriff's Office page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Logan County Sheriff",
+     "from": null,
+     "to": "present",
+     "source": "Logan County, KY, Sheriff's Office page ('Sheriff Stephen Stratton')",
+     "url": "https://www.logancountyky.gov/200/Sheriffs-Office",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21181-coroner",
+   "name": "Emily P Gaunce",
+   "official_page": {
+    "url": "https://nicholascounty.ky.gov/elected/Pages/County-Coroner.aspx",
+    "source": "Nicholas County, Kentucky, County Coroner page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicholas County Coroner",
+     "from": null,
+     "to": "present",
+     "source": "Nicholas County, Kentucky, County Coroner page ('Emily Gaunce, Coroner')",
+     "url": "https://nicholascounty.ky.gov/elected/Pages/County-Coroner.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-1",
+   "name": "Chris Yates",
+   "official_page": {
+    "url": "https://www.hardincountyky.gov/Directory.aspx",
+    "source": "Hardin County, KY, staff directory",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hardin County Magistrate, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Hardin County, KY, staff directory ('Chris Yates, District 1 Magistrate', under Elected Officials)",
+     "url": "https://www.hardincountyky.gov/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21167-magistrate-6",
+   "name": "Dennis Holiday",
+   "official_page": {
+    "url": "https://mercercounty.ky.gov/fiscal-court/magistrates/",
+    "source": "Mercer County, Kentucky, Magistrates page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mercer County Magistrate, District 6",
+     "from": null,
+     "to": "present",
+     "source": "Mercer County, Kentucky, Magistrates page (district 6 row: Dennis Holiday)",
+     "url": "https://mercercounty.ky.gov/fiscal-court/magistrates/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21201-magistrate-4",
+   "name": "Troy Martin",
+   "official_page": {
+    "url": "https://robertsoncounty.ky.gov/elected/Pages/Magistrates.aspx",
+    "source": "Robertson County, Kentucky, Magistrates page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robertson County Magistrate, District 4",
+     "from": null,
+     "to": "present",
+     "source": "Robertson County, Kentucky, Magistrates page ('Precinct #4: Troy Martin')",
+     "url": "https://robertsoncounty.ky.gov/elected/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ48-2",
+   "name": "Chris Olds",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Franklin.aspx",
+    "source": "Kentucky Court of Justice, Franklin County court information page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 48th Judicial District, Division 2",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Franklin County page ('Chris Olds, Judge, District Court, 48th Judicial District, Division 2')",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Franklin.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-00570-school-board",
+   "name": "Lisa Allen",
+   "official_page": {
+    "url": "https://www.bgreen.kyschools.us/page/board-of-education",
+    "source": "Bowling Green Independent Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (vice chair), Bowling Green Independent Board of Education",
+     "from": null,
+     "to": "present",
+     "source": "Bowling Green Independent Schools, Board of Education page ('Lisa Allen, Vice Chair')",
+     "url": "https://www.bgreen.kyschools.us/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-04380-school-board",
+   "name": "Shawn Smee",
+   "official_page": {
+    "url": "https://www.murray.kyschools.us/page/board-of-education",
+    "source": "Murray Independent Schools, Board of Education page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member (vice-chairman), Murray Independent Board of Education",
+     "from": null,
+     "to": "present",
+     "source": "Murray Independent Schools, Board of Education page ('Shawn Smee, Vice-Chairman')",
+     "url": "https://www.murray.kyschools.us/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "All 15 urls re-opened with the kit's User-Agent; every finding stated on its page. Murray's board list is in the page source, not the rendered text. Two source quotes reworded to match the pages (Holiday, Hollon)."
+}

@@ -1,0 +1,73 @@
+{
+ "part": 42,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit's fetcher on 2026-10-03; each race checked against sl_races (office and place). Corrected: James Kay's House office cites Wikipedia's June 24, 2013 special election date; Cat Timmerman's website note now says only what the site itself shows (her name and 'running for Louisville Metro Council'; the site does not print District 7 or a paid-for line, and the party page beside which it was found is not given here). Nelson County's page prints the name in capitals ('KEITH METCALFE, DISTRICT 1 MAGISTRATE').",
+ "note": "The session's shared web-search allowance was already spent when this part began (one search ran), so candidates were looked for only on official county, city, court and party pages reached directly with the kit's fetcher, and on a few campaign addresses tried by name; many county sites and guessed addresses did not resolve. Party pages that only list a candidate (RPK for Wes Pate and Chris Fugate, Louisville GOP for Cat Timmerman, Fayette Democrats for Perry Scott Gibson, Nelson County Democrats for Keith Metcalfe, Hardin County GOP for Bob Mahanna) are already in ballot/lean/ky_endorsements.json and are not repeated here; the only links those pages give besides Cat Timmerman's are Facebook pages, which are not used. The Secretary of State's county filings list Metro Council District 7 as NONPARTISAN, matching our record, so no review item. votejameskay.com (named on Wikipedia) did not resolve, so no website is recorded for James Kay. Lawrence County's officials page names Roger Lee Jordan as jailer but also carries older entries, so his office is recorded without an end and no official_page is claimed. Hopkinsville's council page shows Jason Bell in Ward 11 and Henderson's fiscal court shows Bill Starks in District 5, so Andrea Santos-Rickard and Noah Robert Mills hold no office found there.",
+ "candidates": [
+  {"race_id": "2026-KY-SH14", "name": "Wes Pate",
+   "website": {"url": "https://www.wespateforky.com/", "how": "the site is headed 'HOME | Wes Pate', says he is 'committed to keeping Ohio, Hancock, and Daviess Counties safe' (the counties of House District 14) and is 'PAID FOR BY WES PATE FOR STATE REPRESENTATIVE'", "verified": true},
+   "offices": [
+    {"office": "Lewisport City Council member (appointed by the mayor and council, then elected; Mayor Pro Tempore)", "from": null, "to": null, "source": "Pate's campaign site, Meet Wes", "url": "https://www.wespateforky.com/", "kind": "campaign", "verified": true}
+   ],
+   "own_words": {"quote": "Wes has been a registered Republican since the day he turned 18", "url": "https://www.wespateforky.com/", "verified": true}
+  },
+  {"race_id": "2026-KY-21239-county-executive", "name": "James Kay",
+   "official_page": {"url": "https://woodfordcounty.ky.gov/165/Judge-Executive", "source": "Woodford County government, Judge / Executive page (names James Kay, Judge / Executive)", "verified": true},
+   "born": {"year": 1982, "date": null, "source": "Wikipedia, James Kay (Kentucky politician)", "url": "https://en.wikipedia.org/wiki/James_Kay_(Kentucky_politician)", "kind": "secondary", "verified": true},
+   "offices": [
+    {"office": "Woodford County Judge/Executive", "from": 2019, "to": "present", "source": "Wikipedia, James Kay (Kentucky politician), citing the Lexington Herald-Leader; Woodford County's Judge / Executive page names him today", "url": "https://en.wikipedia.org/wiki/James_Kay_(Kentucky_politician)", "kind": "secondary", "verified": true},
+    {"office": "Member, Kentucky House of Representatives, District 56", "from": 2013, "to": 2019, "source": "Wikipedia, James Kay (Kentucky politician): from his June 24, 2013 special election to 2019", "url": "https://en.wikipedia.org/wiki/James_Kay_(Kentucky_politician)", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Member, Kentucky House of Representatives, District 56 (won the June 2013 special election)", "year": 2013, "party": "Democratic", "source": "Wikipedia: 'a Democratic member of the Kentucky House of Representatives representing District 56'", "url": "https://en.wikipedia.org/wiki/James_Kay_(Kentucky_politician)", "kind": "secondary", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21225-county-executive", "name": "Adam R O'Nan",
+   "official_page": {"url": "https://www.unioncountyky.org/local-government/judge-executive", "source": "Union County government, Judge Executive page (staff: 'O'Nan, Adam, Judge Executive')", "verified": true},
+   "offices": [
+    {"office": "Union County Judge/Executive", "from": null, "to": "present", "source": "Union County government, Judge Executive page", "url": "https://www.unioncountyky.org/local-government/judge-executive", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21015-jailer", "name": "Jason Maydak",
+   "official_page": {"url": "https://www.boonecountyky.org/government/elected_officials/jailer/index.php", "source": "Boone County government, Jailer page ('Jason Maydak, Jailer')", "verified": true},
+   "offices": [
+    {"office": "Boone County Jailer", "from": null, "to": "present", "source": "Boone County government, Jailer page", "url": "https://www.boonecountyky.org/government/elected_officials/jailer/index.php", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21141-county-clerk", "name": "Stacy Lynette Watkins",
+   "official_page": {"url": "https://logancountyclerk.ky.gov/our-office/", "source": "Logan County Clerk's Office, Our Office ('Message From the Clerk, Stacy Watkins')", "verified": true},
+   "offices": [
+    {"office": "Logan County Clerk", "from": null, "to": "present", "source": "Logan County Clerk's Office, Our Office", "url": "https://logancountyclerk.ky.gov/our-office/", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21179-magistrate-1", "name": "Ballard Keith Metcalfe",
+   "official_page": {"url": "https://nelsoncountyky.gov/fiscal-court-officials/", "source": "Nelson County government, Fiscal Court Officials ('KEITH METCALFE, DISTRICT 1 MAGISTRATE')", "verified": true},
+   "offices": [
+    {"office": "Nelson County Magistrate, District 1", "from": null, "to": "present", "source": "Nelson County government, Fiscal Court Officials", "url": "https://nelsoncountyky.gov/fiscal-court-officials/", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21127-jailer", "name": "Roger Lee Jordan",
+   "offices": [
+    {"office": "Lawrence County Jailer", "from": null, "to": null, "source": "Lawrence County government, Elected Officials ('Lawrence County Jailer Roger Lee Jordan'); the page also carries some older entries, so no end is given", "url": "https://lawrencecounty.ky.gov/Pages/Elected-Officials.aspx", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-DJ40-1", "name": "Scarlett B. Latham",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Clinton.aspx", "source": "Kentucky Court of Justice, Clinton County page ('Scarlett B. Latham, Judge, District Court, 40th Judicial District, Division 1')", "verified": true},
+   "offices": [
+    {"office": "District Judge, 40th Judicial District, Division 1", "from": null, "to": "present", "source": "Kentucky Court of Justice, Clinton County page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Clinton.aspx", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-M-19882-mayor", "name": "James \"JH\" Atkins",
+   "official_page": {"url": "https://www.danvilleky.gov/414/City-Commission", "source": "City of Danville, City Commission ('Mayor James J.H. Atkins')", "verified": true},
+   "offices": [
+    {"office": "Mayor of Danville", "from": null, "to": "present", "source": "City of Danville, City Commission", "url": "https://www.danvilleky.gov/414/City-Commission", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-M-48003-council-7", "name": "Catherine \"Cat\" Timmerman",
+   "website": {"url": "https://www.catforcouncil.com/", "how": "the site is headed 'Cat Timmerman' and says 'Cat is running for Louisville Metro Council'; found linked beside her name on the Jefferson County Republican Party's 2026 Metro Council candidates page", "verified": true}
+  }
+ ]
+}

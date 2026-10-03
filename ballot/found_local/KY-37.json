@@ -1,0 +1,274 @@
+{
+ "part": 37,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after six searches for this part, so most findings come from official pages read directly: the Kentucky State Board of Elections' 2022 and 2024 general election recaps (county by county) and the Kentucky Court of Justice's county pages. The 2022 recaps for Allen, Barren, Breckinridge, Carroll, Clinton, Fayette, Gallatin, Grant, Johnson, Lawrence, Magoffin, Mercer, Nelson, Owsley and Union are image scans with no text layer and were not read, so earlier runs there are not recorded. No campaign website was found for anyone in this part. Kimberly Abrams (Louisville Metro Council District 25) is not printed on the county clerk's November ballot in our record (the race lists Khalil \"Charlie\" Batshon only), and nothing was found for her. Ben Kemplin's 2022 coroner race in Logan County and Jennie Hollon's 2022 and 2024 Danville commission races are close or many-way contests whose county totals are not cleanly printed in the recaps, so no 2022 outcome is recorded for them. Laquita Y. Gaskins, Rachel Bray, Kyle Tipton and Gregory Vincent (as a printed candidate) appear in none of the 2022 or 2024 text recaps read for their counties.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21015-county-executive",
+   "name": "Chet Hand",
+   "official_page": {
+    "url": "https://www.boonecountyky.org/government/boone_county_fiscal_court/county_commissioners/index.php",
+    "source": "Boone County Fiscal Court, County Commissioners page ('Commissioner Chet Hand, District 2')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Boone County Commissioner, District 2 (won the November 8, 2022 general election unopposed; term from January 2023)",
+     "from": "2023",
+     "to": "present",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Boone County; Boone County Fiscal Court's commissioners page lists him today",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boone%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "County Commissioner, District 2, Boone County, 2022 general election (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Boone County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boone%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-constable-2",
+   "name": "Barry W. Craig",
+   "offices": [
+    {
+     "office": "Hardin County Constable, 2nd Magisterial District (won the November 8, 2022 general election unopposed as 'Barry CRAIG'; term from January 2023)",
+     "from": "2023",
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Constable, 2nd Magisterial District, Hardin County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21115-clerk-of-court-S",
+   "name": "Hillary Chafin",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Johnson.aspx",
+    "source": "Kentucky Court of Justice, Johnson County page, which lists 'Hillary Chafin Collins, Circuit Court Clerk'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Johnson County Circuit Court Clerk (listed as Hillary Chafin Collins; the seat is on the 2026 ballot as a special election for the rest of the term)",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Johnson County page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Johnson.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21141-coroner",
+   "name": "Benjamin Dale Kemplin",
+   "past_party": [
+    {
+     "what": "Coroner, Logan County, 2022 general election, as 'Ben KEMPLIN' (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21165-sheriff",
+   "name": "Roger Smallwood",
+   "offices": [
+    {
+     "office": "Menifee County Sheriff (won the November 8, 2022 general election: the precinct pages of the State Board's posted recap give Roger Smallwood 1,350 votes to Carl Brandon Walton's 956; term from January 2023)",
+     "from": "2023",
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election results, Menifee County (the county's summary report, headed 'unofficial results', as posted on the State Board's recap page)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Menifee%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sheriff, Menifee County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election results, Menifee County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Menifee%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21199-magistrate-1",
+   "name": "Jason Turpen",
+   "offices": [
+    {
+     "office": "Pulaski County Magistrate, 1st Magisterial District (won the November 8, 2022 general election unopposed; term from January 2023)",
+     "from": "2023",
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Pulaski County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Pulaski%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 1st Magisterial District, Pulaski County, 2022 general election (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Pulaski County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Pulaski%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21239-county-assessor",
+   "name": "John Paul Coyle",
+   "offices": [
+    {
+     "office": "Woodford County Property Valuation Administrator (won the November 8, 2022 general election unopposed; term from January 2023)",
+     "from": "2023",
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Property Valuation Administrator, Woodford County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ38-1",
+   "name": "Gregory R. Vincent",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Ohio.aspx",
+    "source": "Kentucky Court of Justice, Ohio County page, which lists 'Gregory Vincent, Judge, District Court, 38th Judicial District, Division 1'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 38th Judicial District, Division 1",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Ohio County page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Ohio.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-19882-council",
+   "name": "Jennie Hollon",
+   "official_page": {
+    "url": "https://danvilleky.gov/414/City-Commission",
+    "source": "City of Danville, City Commission page ('Commissioner Jennie Hollon')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Danville City Commissioner",
+     "from": null,
+     "to": "present",
+     "source": "City of Danville, City Commission page",
+     "url": "https://danvilleky.gov/414/City-Commission",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-35866-mayor",
+   "name": "Bradley S Staton",
+   "official_page": {
+    "url": "https://hendersonky.gov/117/Meet-the-Mayor",
+    "source": "City of Henderson, Meet the Mayor ('Mayor Brad Staton')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Henderson (won the November 8, 2022 general election unopposed as 'Bradley S. STATON'; term from January 2023)",
+     "from": "2023",
+     "to": "present",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Henderson County; the city's Meet the Mayor page names him mayor today",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henderson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Henderson City Commissioner and Mayor Pro Tem",
+     "from": "2017",
+     "to": "2022",
+     "source": "City of Henderson, Meet the Mayor",
+     "url": "https://hendersonky.gov/117/Meet-the-Mayor",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "School board member (the city's page does not name the board)",
+     "from": null,
+     "to": "2016",
+     "source": "City of Henderson, Meet the Mayor",
+     "url": "https://hendersonky.gov/117/Meet-the-Mayor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-04110-school-board-2",
+   "name": "Amy B. Hart",
+   "offices": [
+    {
+     "office": "Member, Mercer County Board of Education, 2nd Educational District (won the November 5, 2024 general election for the unexpired term, unopposed)",
+     "from": "2024",
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2024 general election results, Mercer County",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Mercer.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verify_note": "Every url re-opened 2026-10-03 with the kit's own fetcher. Each recap shows the name, office, district and printed party as recorded (unopposed winners at 100 percent in every precinct); Menifee's posted summary is headed unofficial, and its seven precinct-group sheriff totals add to 1,350 for Roger Smallwood and 956 for Carl Brandon Walton, as recorded. The court, Boone County, Danville and Henderson pages name each person in the office recorded. Nothing removed or corrected."
+}

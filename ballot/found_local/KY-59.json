@@ -1,0 +1,66 @@
+{
+ "part": 59,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit's fetcher on 2026-10-03; each page names the candidate in the office recorded, in the same county, city or district as the 2026 race. Corrections: Spencer County's source no longer cites the office's own site (not re-opened); Warren County's second source is described in words rather than by address. The Warren County Attorney's site still greets readers in the name of 'Amy Milliken' in its header while its About page and the Fiscal Court page name Amy Hale Chandler as County Attorney; the facts kept rest on those two.",
+ "note": "The session's web-search allowance was used up before this part began (and one search engine answered with a CAPTCHA, left alone), so this part went only by fetching official county, city, school and court pages directly with the kit's fetcher. Not reached: Bourbon County's magistrates page (HTTP 429 three times), Bullitt and Marshall County sites (connection timed out), Lyndon's city site (403 to the kit's fetcher), Independence's city site (timed out), flemingcountyky.org (the address now serves an unrelated spam site, not Fleming County). Pages read that do not name the candidate as holding the office sought: Kenton County Fiscal Court (Benjamin Bach), Erlanger City Council (Don Skidmore), Boyd County Schools board (Aaron Prince), Crittenden County magistrates (Pamela A Todd; District 3 is held by another person), Woodford County Fiscal Court (Linda Shryock Popp; District 8 is held by another person), Robertson County (Stanley Henderson; another person is sheriff), Lyon and Nicholas County Clerk sites (Clayton Timmons, Amanda Kenney), Henry County elected officials (Jeremy Todd Chilton not named). The Legislature's House list shows House District 27 held by Nancy Tate and District 96 by Patrick Flannery, so Joseph Redmon and Pamela Lewis hold no seat there. Our record's incumbent flag is 0 for every candidate in this part, while the eleven below hold today the office they seek; county filing lists do not mark local incumbents, so this is noted here rather than filed as review items. No campaign websites were found (no search was possible). Darrell Butler II and Jeremy Duane Garmon (constables) were not researched beyond the county pages reached.",
+ "candidates": [
+  {"race_id": "2026-KY-21043-jailer", "name": "R.W. Boggs",
+   "official_page": {"url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx", "source": "Carter County, County Officials page: 'Jailer / R. W. Boggs'", "verified": true},
+   "offices": [
+    {"office": "Carter County Jailer", "from": null, "to": "present", "source": "Carter County, County Officials page", "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21081-county-assessor", "name": "Elliott \"Eli\" Anderson",
+   "official_page": {"url": "https://grantcounty.ky.gov/elected-officials/", "source": "Grant County, Elected Officials page: 'Eli Anderson / Grant County PVA'", "verified": true},
+   "offices": [
+    {"office": "Grant County Property Valuation Administrator", "from": null, "to": "present", "source": "Grant County, Elected Officials page", "url": "https://grantcounty.ky.gov/elected-officials/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21093-magistrate-3", "name": "Patsy Whitehead",
+   "official_page": {"url": "https://hardincountyky.gov/directory.aspx", "source": "Hardin County staff directory: 'Patsy Whitehead / District 3 Magistrate'", "verified": true},
+   "offices": [
+    {"office": "Hardin County Magistrate, District 3", "from": null, "to": "present", "source": "Hardin County staff directory", "url": "https://hardincountyky.gov/directory.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21129-jailer", "name": "Justin Ray Shuler",
+   "official_page": {"url": "https://leecounty.ky.gov/elected/Pages/default.aspx", "source": "Lee County, Elected Officials page: 'Lee County Jailer / Justin Shuler'", "verified": true},
+   "offices": [
+    {"office": "Lee County Jailer", "from": null, "to": "present", "source": "Lee County, Elected Officials page", "url": "https://leecounty.ky.gov/elected/Pages/default.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21191-sheriff", "name": "Jared M Brewer",
+   "official_page": {"url": "https://sheriff-pendletoncounty.ky.gov/About/Pages/default.aspx", "source": "Pendleton County Sheriff's Office, About page: 'Sheriff - Jared M. Brewer'", "verified": true},
+   "offices": [
+    {"office": "Pendleton County Sheriff", "from": null, "to": "present", "source": "Pendleton County Sheriff's Office, About page", "url": "https://sheriff-pendletoncounty.ky.gov/About/Pages/default.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21215-county-attorney", "name": "Corey Matthew Thomas",
+   "official_page": {"url": "https://spencercountyky.gov/services/county_attorney.php", "source": "Spencer County, County Attorney page: 'County Attorney / Corey Thomas'", "verified": true},
+   "offices": [
+    {"office": "Spencer County Attorney", "from": null, "to": "present", "source": "Spencer County, County Attorney page", "url": "https://spencercountyky.gov/services/county_attorney.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21227-county-attorney", "name": "Amy Hale Chandler",
+   "official_page": {"url": "https://warrencountyattorney.com/", "source": "Warren County Attorney's office site: 'Amy Hale Chandler is the Warren County Attorney.'", "verified": true},
+   "offices": [
+    {"office": "Warren County Attorney", "from": "2004", "to": "present", "source": "Warren County Attorney's office site: 'She was sworn in as the first female County Attorney in Warren County, on April 1, 2004.' Warren County Fiscal Court's own page also lists 'Amy Hale Chandler, Warren County Attorney'.", "url": "https://warrencountyattorney.com/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ50", "name": "Patrick F. Barsotti",
+   "official_page": {"url": "https://kycourts.gov/Courts/County-Information/Pages/Mercer.aspx", "source": "Kentucky Court of Justice, Mercer County information: 'Patrick Barsotti / Judge District Court / 50th Judicial District'", "verified": true},
+   "offices": [
+    {"office": "District Judge, 50th Judicial District (Boyle and Mercer counties)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Mercer County information page", "url": "https://kycourts.gov/Courts/County-Information/Pages/Mercer.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-67944-council", "name": "Bernard Bowling Jr",
+   "official_page": {"url": "https://www.stmatthewsky.gov/city-council-members-under-construction/", "source": "City of St. Matthews, City Council Members page: 'Bernie Bowling' among the current council members", "verified": true},
+   "offices": [
+    {"office": "St. Matthews City Council member", "from": null, "to": "present", "source": "City of St. Matthews, City Council Members page (lists him as 'Bernie Bowling')", "url": "https://www.stmatthewsky.gov/city-council-members-under-construction/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-02400-school-board-4", "name": "Abe Haislop",
+   "official_page": {"url": "https://greenup.kyschools.us/page/board-of-education", "source": "Greenup County Schools, Board of Education page: 'Abe Haislop - District 4'", "verified": true},
+   "offices": [
+    {"office": "Greenup County Board of Education member, District 4", "from": null, "to": "present", "source": "Greenup County Schools, Board of Education page", "url": "https://greenup.kyschools.us/page/board-of-education", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-04440-school-board", "name": "Ramona Malone",
+   "official_page": {"url": "https://newportwildcats.org/page/newport-board-of-education-2026-27", "source": "Newport Independent Schools, 'Newport Board of Education 2026-27' page: 'Newport Board of Education: Ramona Malone, District Board Chair'", "verified": true},
+   "offices": [
+    {"office": "Newport Independent Board of Education member (board chair)", "from": null, "to": "present", "source": "Newport Independent Schools, 'Newport Board of Education 2026-27' page", "url": "https://newportwildcats.org/page/newport-board-of-education-2026-27", "kind": "official", "verified": true}
+   ]}
+ ]
+}

@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.098 — 2026-10-03 — Utah gets the same treatment
+
+- Utah's ballot page now has the real map: 3,331 precincts from the state's own map agency and the Lieutenant Governor's office, with the districts each sits in (county, city or town, House, Senate, Congress on the 2026 map, judicial district, State Board of Education district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, including only your own State Board of Education seat.
+- Utah elects no governor this year: its statewide races are the State Board of Education districts and judges standing for retention, and nobody has polled them or listed a market on them. Utah's cities vote in odd years, and its county and school races, though on the November ballot, are certified county by county and not loaded yet; the page says so.
+- Utah's candidates show what the record holds: 157 campaign websites of their own, 67 official government pages, offices held (126, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- How each place voted: 2024 by precinct for every county, judicial district and House district and 14 Senate districts; 2022 and 2020 by county. Every figure equals the official canvass.
+- Utah's and Montana's court districts now carry their own state's ids. All states share one list of places, and Utah's district-court races had pointed at Minnesota's judicial districts, while Montana's court and Public Service Commission races did not match their own place records. These ids decide where a court race sits on the map and on a located reader's ballot, so they are fixed at the source.
+- Iowa's map credit no longer names the same agency twice.
+
 ## v4.0.097 — 2026-10-03 — Oklahoma gets the same treatment, with its official primary results
 
 - Oklahoma's ballot page now has the real map: 1,984 precincts from the State Election Board's own mapping contractor at the University of Oklahoma, with the districts each sits in (county, county commissioner district, city or town, ward, House, Senate, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.

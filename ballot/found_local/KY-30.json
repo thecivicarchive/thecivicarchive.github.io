@@ -1,0 +1,62 @@
+{
+ "part": 30,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance ran out after a few searches, so most of this part went by fetching official pages directly. Many county sites did not resolve or refused the kit's fetcher (Allen and Pulaski PVA sites 403, Glasgow 403, louisvilleky.gov 403, Laurel, Estill, Clinton, Owsley, Breckinridge, Gallatin, Carlisle, Wolfe and Livingston county addresses tried did not resolve or carried no names, Mason County Schools' certificate did not match its name, the Garrard and Ashland school sites draw their board lists by script), so 21 of the 30 candidates are left blank. Several candidates found here hold the office they seek today (Turner, Goehring, Plummer, Vaughan, Wigginton, Waller, Allen, Winkler) while our record's incumbent flag is 0 for them; the county clerks' filing lists do not mark local incumbents, so this is noted here rather than filed as a review item. Louisville Metro Council: the Jefferson County Clerk's official 2026 primary recap (elect.ky.gov, Jefferson.pdf, page 320) prints 'LOUISVILLE METRO COUNCIL District 17' without a party prefix and with Merideth Booth, Markus Winkler and Nancy-Lynne Walters in one field, while the same page prints 'DEM COUNTY ATTORNEY' and the like, so our 'Nonpartisan office' for this race agrees with the official record. Covington's Mayor and Commission page does not list Dan Francis; Whitley County Schools' Board Members page does not list Gary Perkins; Muhlenberg County's Magistrates page does not list Jeff Vincent. Gary York, Wade Burns, Andrew Adkins and the other unlisted names were not researched beyond the county pages that could be reached. Verifier (2026-10-03): every url re-opened; each finding below was seen on its page as recorded.",
+ "candidates": [
+  {"race_id": "2026-KY-21015-county-attorney", "name": "Jordan Dallas Turner",
+   "offices": [
+    {"office": "Boone County Attorney (elected 2022)", "from": null, "to": "present", "source": "Northern Kentucky Tribune, 'Boone County Attorney Jordan Dallas Turner recognized as one of Kentucky's Outstanding Prosecutors' (August 21, 2026): 'Jordan Dallas Turner was elected the Boone County Attorney in 2022, becoming the first woman in Boone County's history to hold this office'", "url": "https://nkytribune.com/2026/08/ag-coleman-outstanding-prosecutors-2026/", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Boone County Attorney in the 2022 Republican primary", "year": "2022", "party": "Republican", "source": "Northern Kentucky Tribune, 'Florence lawyer Jordan Dallas Turner announces candidacy for Boone County Attorney' (February 24, 2021): 'Jordan Dallas Turner has announced her candidacy for Boone County Attorney in the 2022 Republican Primary'", "url": "https://nkytribune.com/2021/02/florence-lawyer-jordan-dallas-turner-announces-candidacy-for-boone-county-attorney/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ33", "name": "B. Cody Goehring",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Perry.aspx", "source": "Kentucky Court of Justice, Perry County court information: 'Cody Goehring, Judge, District Court, 33rd Judicial District'", "verified": true},
+   "offices": [
+    {"office": "District Judge, 33rd Judicial District", "from": null, "to": "present", "source": "Kentucky Court of Justice, Perry County court information", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Perry.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-17", "name": "Markus Winkler",
+   "offices": [
+    {"office": "Louisville Metro Council, District 17 (first elected 2018)", "from": null, "to": "present", "source": "Wikipedia, Louisville Metro Council, members table ('17 | Markus Winkler | Democratic | 2018')", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true},
+    {"office": "President, Louisville Metro Council", "from": "2023", "to": "2025", "source": "Wikipedia, Louisville Metro Council, list of council presidents ('2023–2025: Markus Winkler (D)')", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Elected to Louisville Metro Council, District 17", "year": "2018", "party": "Democratic", "source": "Wikipedia, Louisville Metro Council, members table (the council has a majority caucus leader (D) and a minority caucus leader (R); its presidents are listed with their party)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-59196-mayor", "name": "John A. Plummer",
+   "official_page": {"url": "https://www.paris.ky.gov/mayor/", "source": "City of Paris, Kentucky, Office of the Mayor: 'John A. Plummer, Mayor of Paris', 'Elected Mayor, January 1, 2019'", "verified": true},
+   "offices": [
+    {"office": "Mayor of Paris", "from": "2019", "to": "present", "source": "City of Paris, Office of the Mayor ('Elected Mayor, January 1, 2019')", "url": "https://www.paris.ky.gov/mayor/", "kind": "official", "verified": true},
+    {"office": "Paris City Commissioner", "from": "2011", "to": "2012", "source": "City of Paris, Office of the Mayor, Public Service ('2011–2012 City Commissioner')", "url": "https://www.paris.ky.gov/mayor/", "kind": "official", "verified": true},
+    {"office": "Paris City Manager", "from": "2012", "to": "2016", "source": "City of Paris, Office of the Mayor, Public Service ('2012–2016 City Manager')", "url": "https://www.paris.ky.gov/mayor/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21113-magistrate-2", "name": "Tim Vaughan",
+   "official_page": {"url": "https://jessamineky.gov/jc-officials/tim-vaughan/", "source": "Jessamine County, Kentucky, Fiscal Court: 'Tim Vaughan, District 2 Magistrate'", "verified": true},
+   "offices": [
+    {"office": "Magistrate, District 2, Jessamine County Fiscal Court", "from": null, "to": "present", "source": "Jessamine County, Kentucky, Magistrate Tim Vaughan page", "url": "https://jessamineky.gov/jc-officials/tim-vaughan/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21091-magistrate-1", "name": "Brent Wigginton",
+   "official_page": {"url": "https://www.hancockky.us/fiscal-court", "source": "Hancock County Government, Fiscal Court: 'Brent Wigginton, Magistrate District 1'", "verified": true},
+   "offices": [
+    {"office": "Magistrate, District 1, Hancock County Fiscal Court", "from": null, "to": "present", "source": "Hancock County Government, Fiscal Court page", "url": "https://www.hancockky.us/fiscal-court", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21211-magistrate-2", "name": "Karen P Waller",
+   "official_page": {"url": "https://shelbycounty.ky.gov/fiscal-court/Pages/fiscal-court-members.aspx", "source": "Shelby County, Kentucky, Fiscal Court Members: 'Magistrate, District 2 Karen Waller'", "verified": true},
+   "offices": [
+    {"office": "Magistrate, District 2, Shelby County Fiscal Court", "from": null, "to": "present", "source": "Shelby County, Kentucky, Fiscal Court Members page", "url": "https://shelbycounty.ky.gov/fiscal-court/Pages/fiscal-court-members.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21165-magistrate-3", "name": "Forrest \"Bimbo\" Mullins",
+   "official_page": {"url": "https://menifeecounty.ky.gov/Elected-Officials/Pages/Magistrates.aspx", "source": "Menifee County, Kentucky, Elected Officials, Magistrates: lists 'Forrest Mullins' among the five magistrates (no district is given; the page's footer reads 2022)", "verified": true},
+   "offices": [
+    {"office": "Magistrate, Menifee County Fiscal Court (district not stated on the page)", "from": null, "to": null, "source": "Menifee County, Kentucky, Magistrates page", "url": "https://menifeecounty.ky.gov/Elected-Officials/Pages/Magistrates.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21153-county-assessor", "name": "Rebecca \"Becky\" Allen",
+   "official_page": {"url": "https://magoffincounty.ky.gov/elected-officials/Pages/Elected-Officials.aspx", "source": "Magoffin County, Kentucky, Elected Officials: 'Magoffin County Property Valuation Administrator (PVA) Rebecca (Becky) Allen'", "verified": true},
+   "offices": [
+    {"office": "Magoffin County Property Valuation Administrator", "from": null, "to": "present", "source": "Magoffin County, Kentucky, Elected Officials page", "url": "https://magoffincounty.ky.gov/elected-officials/Pages/Elected-Officials.aspx", "kind": "official", "verified": true}
+   ]}
+ ]
+}

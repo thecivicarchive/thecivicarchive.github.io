@@ -1,0 +1,55 @@
+{
+ "part": 39,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit's fetcher on 2026-10-03; each page states the fact as recorded. The Breathitt, Powell and Wolfe court pages all list Gary Salyers as Judge, District Court, 39th Judicial District. The Department of Revenue's PVA directory lists 'Union County ... Clay Wells, PVA'. Nothing removed.",
+ "note": "The session's shared web-search allowance ran out after a few searches for this part, so most pages were reached directly with the kit's fetcher. Party pages that list a candidate without endorsing (Hardin County Republicans for Brandon K. Curry, Mercer County Democrats for William McFerron and Billy G. Montgomery, Nelson County Democrats for JT Roby, the Republican Party of Kentucky for D. J. Johnson) are already in ballot/lean/ky_endorsements.json and are not recorded here. louisvilleky.gov answered the kit's fetcher 403 and radcliff.org answered 409, so neither was used. Logan County's PVA in the Department of Revenue's directory is not Malcolm Patrick Holland, Hopkinsville's Ward 1 member is not Sharon E. Manning and Nelson County's judge-executive is not JT Roby, so no office is recorded for them. Timothy Dean Johnson's 2024 run for House District 78 was as an independent, which is not a party label, so it is not recorded. Kumar Rashad's own site names a union's endorsement, not a party's, so no own_words.",
+ "candidates": [
+  {"race_id": "2026-KY-21003-sheriff", "name": "Michael Brandon Ford",
+   "official_page": {"url": "https://www.allencountykentucky.com/offices/allen-county-sheriff", "source": "Allen County, Kentucky (county government site), Allen County Sheriff page: 'Brandon Ford, Allen County Sheriff'", "verified": true},
+   "offices": [{"office": "Allen County Sheriff", "from": null, "to": "present", "source": "Allen County, Kentucky, Allen County Sheriff page", "url": "https://www.allencountykentucky.com/offices/allen-county-sheriff", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-21015-county-executive", "name": "Timothy Dean Johnson",
+   "past_party": [{"what": "ran in the Republican primary for Boone County Judge/Executive", "year": 2022, "party": "Republican", "source": "LINK nky, 'Independent candidate files for Boone County judge/executive race' (June 3, 2026), which names Timothy Dean Johnson as the 2026 independent candidate and his challenge to Judge/Executive Gary Moore in a 2022 Republican primary", "url": "https://linknky.com/news/2026/06/03/timothy-johnson-independent-boone-county-judge-executive-race/", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-KY-21067-county-assessor", "name": "David Oneill",
+   "official_page": {"url": "https://fayettepva.com/about", "source": "Fayette County PVA office, About page: David O'Neill", "verified": true},
+   "offices": [
+    {"office": "Fayette County Property Valuation Administrator", "from": 2009, "to": "present", "source": "Fayette County PVA office, About page: appointed by Governor Steve Beshear on February 11, 2009, elected in 2010, re-elected 2014 and 2018", "url": "https://fayettepva.com/about", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-21079-clerk-of-court-S", "name": "Bethany Denny",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Garrard.aspx", "source": "Kentucky Court of Justice, Garrard County court information: Circuit Court Clerk Bethany Denny", "verified": true},
+   "offices": [{"office": "Garrard County Circuit Court Clerk", "from": null, "to": "present", "source": "Kentucky Court of Justice, Garrard County court information page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Garrard.aspx", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-21127-county-clerk", "name": "Chris Jobe",
+   "official_page": {"url": "https://lawrencecounty.ky.gov/Pages/Elected-Officials.aspx", "source": "Lawrence County (ky.gov), Elected Officials: Lawrence County Court Clerk Chris Jobe", "verified": true},
+   "offices": [{"office": "Lawrence County Clerk", "from": null, "to": "present", "source": "Lawrence County (ky.gov), Elected Officials page", "url": "https://lawrencecounty.ky.gov/Pages/Elected-Officials.aspx", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-21153-sheriff", "name": "William \"Bill\" Meade",
+   "official_page": {"url": "https://magoffincounty.ky.gov/elected-officials/sheriffs-office/Pages/Sheriff's-Office.aspx", "source": "Magoffin County (ky.gov), Sheriff's Office: William \"Bill\" Meade, Sheriff", "verified": true},
+   "offices": [{"office": "Magoffin County Sheriff", "from": null, "to": "present", "source": "Magoffin County (ky.gov), Sheriff's Office page", "url": "https://magoffincounty.ky.gov/elected-officials/sheriffs-office/Pages/Sheriff's-Office.aspx", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-21225-county-assessor", "name": "Clay Wells",
+   "official_page": {"url": "https://www.unioncountyky.org/Home/Components/StaffDirectory/StaffDirectory/42/21?backlist=%2flocal-government%2funion-county-pva", "source": "Union County, KY, County Staff Directory: Wells, Clay, Property Valuation Administrator", "verified": true},
+   "offices": [{"office": "Union County Property Valuation Administrator", "from": null, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026 (Union County: Clay Wells, PVA); also the Union County staff directory", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-DJ39", "name": "William Gary Salyers",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Breathitt.aspx", "source": "Kentucky Court of Justice, Breathitt County court information: Gary Salyers, Judge, District Court, 39th Judicial District", "verified": true},
+   "offices": [{"office": "District Judge, 39th Judicial District (Breathitt, Powell and Wolfe counties)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Breathitt County court information page (the Powell and Wolfe county pages list him the same way)", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Breathitt.aspx", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-M-19882-council", "name": "Kevin Caudill",
+   "official_page": {"url": "https://www.danvilleky.gov/414/City-Commission", "source": "City of Danville, City Commission page: Commissioner Kevin Caudill", "verified": true},
+   "offices": [{"office": "Danville City Commissioner", "from": null, "to": "present", "source": "City of Danville, City Commission page", "url": "https://www.danvilleky.gov/414/City-Commission", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-KY-M-48003-council-3", "name": "Kumar Rashad",
+   "website": {"url": "https://kumarrashad.com/", "how": "found by trying his name as an address; the site is titled 'Kumar Rashad for Metro Council', says he is running for Louisville Metro Council District 3 and gives the November 3, 2026 general election", "verified": true},
+   "offices": [{"office": "Louisville Metro Council, District 3 (appointed to fill a vacancy until the November 2023 special election)", "from": 2023, "to": 2023, "source": "Louisville Public Media, 'Metro Council appoints JCPS employees as new members for Districts 3 and 6' (February 2, 2023), and 'Metro Council member loses appeal for District 3 special election' (June 6, 2023)", "url": "https://www.lpm.org/news/2023-02-02/metro-council-appoints-jcps-employees-as-new-members-for-districts-3-and-6", "kind": "secondary", "verified": true}],
+   "past_party": [{"what": "sought the Democratic nomination for the Metro Council District 3 special election; chosen by a vote of local party officials in April, then the vote was overturned on appeal and the nomination went to another candidate", "year": 2023, "party": "Democratic", "source": "Louisville Public Media, 'Metro Council member loses appeal for District 3 special election' (June 6, 2023)", "url": "https://www.lpm.org/news/2023-06-06/metro-council-member-loses-appeal-for-district-3-special-election", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-KY-S-04110-school-board-3", "name": "Billy G. Montgomery",
+   "official_page": {"url": "https://www.mercer.kyschools.us/district/boardofeducation", "source": "Mercer County Schools, Board of Education page: Billy Montgomery, District 3 Member", "verified": true},
+   "offices": [{"office": "Mercer County Board of Education member, District 3", "from": null, "to": "present", "source": "Mercer County Schools, Board of Education page", "url": "https://www.mercer.kyschools.us/district/boardofeducation", "kind": "official", "verified": true}]}
+ ]
+}

@@ -1,0 +1,433 @@
+{
+ "part": 8,
+ "of": 9,
+ "researched": "2026-10-03",
+ "note": "Not found: Hoang Nguyen (SH23; hoangforhouse.com, linked from the Democratic page, answers with a CAPTCHA page, so it was not checked), Jake Hunsaker (SH48) and Charlie Tautuaa (SH52): no campaign site on any party page read; Mark Youngquist's party-page link goes to Ballotpedia, not a campaign site. No Utah party page calls anything an endorsement (see ballot/lean/ut_endorsements.json), so no endorsed_by.",
+ "candidates": [
+  {
+   "race_id": "2026-UT-DCRET2-VALENCIA",
+   "name": "Jennifer Lyn Valencia",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/second-district-court/jennifer-l-valencia.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Second District Court (appointed by Governor Gary R. Herbert, May 2017)",
+     "from": "2017",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/second-district-court/jennifer-l-valencia.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-DCRET5-BELL",
+   "name": "Matthew L. Bell",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fifth-district-court/matthew-l-bell.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Fifth District Court (appointed by Governor Gary R. Herbert, September 2017)",
+     "from": "2017",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fifth-district-court/matthew-l-bell.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-017-OWENS",
+   "name": "Gary Dene Owens",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/sixth-district-justice-court/gary-owens.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Garfield County Justice Court (appointed May 2016)",
+     "from": "2016",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/sixth-district-justice-court/gary-owens.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-24850-61150-82070-OLDS",
+   "name": "Paul H. Olds",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/paul-olds.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Riverdale City Justice Court (appointed October 2019)",
+     "from": "2019",
+     "to": null,
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/paul-olds.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, justice courts of Washington Terrace/Marriott-Slaterville, Farr West and Pleasant View (appointed 2021)",
+     "from": "2021",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/paul-olds.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-64340-BOWN",
+   "name": "Christopher Gregory Bown",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/christopher-g-bown.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Taylorsville Justice Court (appointed May 2021)",
+     "from": "2021",
+     "to": null,
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/christopher-g-bown.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Riverton Justice Court (appointed February 2023)",
+     "from": "2023",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/christopher-g-bown.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JVRET2-NOLAND",
+   "name": "Jeffrey J. Noland",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/jeffrey-j-noland.html",
+    "source": "Utah State Courts, judge biography",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Second District Juvenile Court (appointed by Governor Gary R. Herbert, July 2010)",
+     "from": "2010",
+     "to": "present",
+     "source": "Utah State Courts, judge biography",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/jeffrey-j-noland.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SBOE1",
+   "name": "Jennie Earl",
+   "website": {
+    "url": "https://earlutah.com/",
+    "how": "linked from the Utah Republican Party's '2026 Republican Candidates' candidate list for this race; the site names the candidate and the State Board of Education district",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://schools.utah.gov/board/members/utah/jennieearl",
+    "source": "Utah State Board of Education, board member page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Utah State Board of Education (page: 'Representing parts of Cache, Rich, Box Elder, Summit and Morgan Counties', '2nd term, reelected in 2022')",
+     "from": null,
+     "to": "present",
+     "source": "Utah State Board of Education, board member page",
+     "url": "https://schools.utah.gov/board/members/utah/jennieearl",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SBOE7",
+   "name": "James Martin",
+   "website": {
+    "url": "https://votejamesmartin.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) candidate list for this race; the site names the candidate and the Utah State Board of Education (the District 7 link is the party page's)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH11",
+   "name": "Dave Calder",
+   "website": {
+    "url": "https://www.votedavecalder.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) and the Davis County Democratic Party's candidate list for this race; the site names the candidate and Utah House District 11",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH15",
+   "name": "Anne Berbert",
+   "website": {
+    "url": "https://www.voteanneberbert.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) and the Davis County Democratic Party's candidate list for this race; the site names the candidate and Utah House District 15",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH2",
+   "name": "Barbara J. Haggerty",
+   "website": {
+    "url": "https://www.haggertyforutah.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) candidate list for this race; the site names the candidate and the Utah House ('the House Floor', Cache County)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH28",
+   "name": "Anita Dalrymple",
+   "website": {
+    "url": "https://anitadalrymple4utah.vote",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) and the Tooele County Democratic Party's candidate list for this race; the site names the candidate and the Utah House district",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH30",
+   "name": "Dave Parke",
+   "website": {
+    "url": "https://www.electdaveparke.org/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and the Utah House; electdaveparke.com now redirects here (checked 2026-10-03), and the page names Dave Parke and House District 30",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "candidate for the Republican nomination, Utah House District 30",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Wikipedia, 2024 Utah House of Representatives election (cites the state's candidate filings)",
+     "url": "https://en.wikipedia.org/wiki/2024_Utah_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "the Republican who can win this district in November",
+    "url": "https://www.electdaveparke.org/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH35",
+   "name": "Monique I. Ketcham",
+   "website": {
+    "url": "https://monique4office.com/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and Utah House District 35",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As a Republican, I believe in personal responsibility and limited government.",
+    "url": "https://monique4office.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH39",
+   "name": "Ken Ivory",
+   "website": {
+    "url": "https://www.voteivory.com/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and Utah House District 39",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH43",
+   "name": "Steve Eliason",
+   "website": {
+    "url": "https://steveeliasonforutah.com/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and the Utah House district",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH55",
+   "name": "Travis Hysell",
+   "website": {
+    "url": "https://votehysell.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) candidate list for this race; the site names the candidate and House District 55",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH6",
+   "name": "James Rich",
+   "website": {
+    "url": "https://move.forwardwith.us/",
+    "how": "linked from the Forward Party of Utah's '2026 Candidates' candidate list for this race; the site names the candidate and Utah House District 6 (the site's own name is MoveForwardWithUs, not a party domain)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH63",
+   "name": "Mark Youngquist",
+   "past_party": [
+    {
+     "what": "Democratic candidate in the general election, Utah House District 63",
+     "year": 2024,
+     "party": "Democratic",
+     "source": "Wikipedia, 2024 Utah House of Representatives election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2024_Utah_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SH67",
+   "name": "JR Bird",
+   "website": {
+    "url": "https://jrbird.org/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and Utah House District 67",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Roosevelt, former (years not given; the home page says \"a former Mayor\")",
+     "from": null,
+     "to": null,
+     "source": "the campaign's Meet JR page",
+     "url": "https://jrbird.org/meetjr",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SH70",
+   "name": "Zeno B. Parry",
+   "website": {
+    "url": "https://votezenoparry.com/",
+    "how": "linked from the Forward Party of Utah's '2026 Candidates' candidate list for this race; the site names the candidate and Utah House District 70",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "United Utah Party candidate in the general election, Utah House District 70",
+     "year": 2024,
+     "party": "United Utah",
+     "source": "Wikipedia, 2024 Utah House of Representatives election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2024_Utah_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "what": "United Utah Party candidate in the general election, Utah House District 70 (as Zeno B Parry)",
+     "year": 2022,
+     "party": "United Utah",
+     "source": "Wikipedia, 2022 Utah House of Representatives election (results table)",
+     "url": "https://en.wikipedia.org/wiki/2022_Utah_House_of_Representatives_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SH74",
+   "name": "R. Neil Walter",
+   "website": {
+    "url": "https://www.rneilwalter.com/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and Utah House District 74",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS1",
+   "name": "Julie Quinlan",
+   "website": {
+    "url": "https://julieq4utah.com/",
+    "how": "linked from the Forward Party of Utah's '2026 Candidates' candidate list for this race; the site names the candidate and Senate District 1 (SD 1)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS14",
+   "name": "Stephanie Pitcher",
+   "website": {
+    "url": "https://www.electstephanie.com",
+    "how": "linked from the Utah Democratic Party's (organizeutah.org) candidate list for this race; the site names the candidate and Utah Senate District 14",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS21",
+   "name": "Wayne Woodfield",
+   "website": {
+    "url": "https://www.wayneforsenate.com/",
+    "how": "linked from the Forward Party of Utah's '2026 Candidates' candidate list for this race; the site names the candidate and the Utah State Senate (the home page redirects to index.do)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Proudly running with the Forward Party",
+    "url": "https://www.wayneforsenate.com/index.do",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS6",
+   "name": "Tami Tran",
+   "website": {
+    "url": "https://vote4tami.com/",
+    "how": "linked from the Utah Republican Party's candidate list for this race; the site names the candidate and Utah State Senate District 6",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Kaysville, Utah (page: 'Elected in 2021')",
+     "from": "2021",
+     "to": "present",
+     "source": "the campaign's Meet Tami page",
+     "url": "https://vote4tami.com/meet-tami/",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Chair, Davis Technical College Board of Trustees (years not given)",
+     "from": null,
+     "to": "present",
+     "source": "the campaign's Meet Tami page",
+     "url": "https://vote4tami.com/meet-tami/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "A lifelong Republican",
+    "url": "https://vote4tami.com/meet-tami/",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened on 2026-10-03 and every finding confirmed. Corrected: Dave Parke website and own_words url (electdaveparke.com 301-redirects to electdaveparke.org); Jennie Earl office wording (the Board page names counties, not a district number; District 1 is our record); JR Bird office marked former, as his home page says. Wikipedia past_party rows checked in the article source (2024 HD30 Republican primary candidates citing the state filings; 2024 HD63 Democratic; 2024 and 2022 HD70 United Utah)."
+}

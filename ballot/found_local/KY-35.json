@@ -1,0 +1,36 @@
+{
+ "part": 35,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance ran out after a few searches for this part, and many county sites did not resolve (Shelby, Trimble, Gallatin, Breckinridge, Pulaski) or failed certificate checks (Nelson, Lawrence; never bypassed), so most county candidates (magistrates, constables, sheriffs, coroners, jailer, county clerk, county attorneys, surveyor) are left blank. cityofglasgow.gov answers scripts and WebFetch with 403, so nothing was recorded for Bob R Miller (Glasgow mayor). The Glasgow Independent and Meade County school sites draw their board pages by script; the Bardstown Independent board page does not list Virginia Roby 'Ginny' Holland. Scott Sharp and Walker Wood Thomas are sitting legislators; no campaign website of their own was found. Lianna Simpson Nguyen: Boone County Democrats list her for Commissioner District 3 while the November list says District 2 (already noted in ballot/lean/ky_endorsements.json); LINK nky, citing the Registry of Election Finance, says the 2nd district. On radcliff.org the council list carries home addresses beside each name: only the name and the office were read into this file. Verifier (2026-10-03): every url re-opened; all six findings confirmed and kept.",
+ "candidates": [
+  {"race_id": "2026-KY-21015-county-commissioner-2", "name": "Lianna Simpson Nguyen",
+   "offices": [
+    {"office": "Member, Kentucky State Board of Cosmetology (representing private beauty schools); vice chair from 2025", "from": "2024", "to": null, "source": "LINK nky, 'Lianna Nguyen announces Boone County Fiscal Court candidacy', Dec 1, 2025: 'Later in 2024, Nguyen was appointed to the Kentucky State Board of Cosmetology as a representative for private beauty schools and became vice chair in 2025'; the same article says she is running for Boone County's 2nd district commissioner seat", "url": "https://linknky.com/elections/2025/12/01/lianna-nguyen-boone-county-fiscal-court-candidacy/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21113-magistrate-6", "name": "Gary E. Morgan",
+   "official_page": {"url": "https://jessamineky.gov/jc-officials/gary-morgan/", "source": "Jessamine County Fiscal Court, Magistrate Gary Morgan (District 6)", "verified": true},
+   "offices": [
+    {"office": "Jessamine County Magistrate, District 6", "from": "2008", "to": "present", "source": "Jessamine County, Magistrate Gary Morgan page: 'has served as Magistrate since 2008'; the page describes District 6", "url": "https://jessamineky.gov/jc-officials/gary-morgan/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ36", "name": "Dennis B. Prater",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Magoffin.aspx", "source": "Kentucky Court of Justice, Magoffin County information: Dennis B. Prater, Vice-Chief Regional District Judge, District Court, 36th Judicial District", "verified": true},
+   "offices": [
+    {"office": "District Judge, 36th Judicial District (Knott and Magoffin counties); Vice-Chief Regional District Judge", "from": null, "to": "present", "source": "Kentucky Court of Justice, Magoffin County information page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Magoffin.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-19882-council", "name": "Donna Peek",
+   "official_page": {"url": "https://danvilleky.org/Directory.aspx?DID=23", "source": "City of Danville directory, City Commission: Donna Peek, Commissioner", "verified": true},
+   "offices": [
+    {"office": "Danville City Commissioner", "from": null, "to": "present", "source": "City of Danville directory, City Commission", "url": "https://danvilleky.org/Directory.aspx?DID=23", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-23", "name": "Ainsley Jones",
+   "endorsed_by": [{"party": "Democratic", "unit": "Louisville Democratic Party (Executive Committee)", "url": "https://www.louisvilledems.com/2026-voter-guide", "verified": true}]},
+  {"race_id": "2026-KY-M-63912-council", "name": "Jerry Brown",
+   "official_page": {"url": "https://radcliff.org/your-government/", "source": "City of Radcliff, Your Government: City Council members, Jerry Brown", "verified": true},
+   "offices": [
+    {"office": "Radcliff City Council member", "from": null, "to": "present", "source": "City of Radcliff, Your Government page", "url": "https://radcliff.org/your-government/", "kind": "official", "verified": true}
+   ]}
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "part": 49,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "30 candidates in this part. The session's shared web-search allowance was already used up (200 of 200) when this part began, so no search engine could be asked; pages were found by following links from county, city, court and school-district sites, read with WebFetch and the kit's own fetcher (states/net.py). No campaign website could be found without search. Many county sites did not resolve (Mercer, Union's fiscal court page answered 403, Johnson, Robertson, Pendleton, the City of Lyndon) or carry no member list (Fayette); Green County Schools' certificate is self-signed and was not read; Boone County Schools' board page loads its members by script. Incumbents checked and found to be someone else: Nelson District 5 (Jon Snow), Woodford District 3 (Darrell Varner), Marion District 2 (Larry Mattingly; the page is marked 2022), Lawrence District 4 (the county's page is stale), Richmond's commission (Krystin Arnold is not a sitting commissioner). Holloway and Dossett are sitting legislators with record pages; their party listings are already in ballot/lean/ky_endorsements.json, as are Brian D. Smith's and John Andrew Sosby's. Hopkinsville's council page lists 'Marie Hughes' for Ward 5, the seat Carolyn Marie Hughes seeks; the page's contact numbers were not recorded. Logan County's magistrate page carries family and schooling details, which were not recorded. Verifier (2026-10-03): every url re-opened; all eight findings confirmed as recorded (the PVA directory, too large for WebFetch, was read with the kit's fetcher and only its Pendleton name line looked at; the Montgomery board page with net.py after WebFetch's lookup failed).",
+ "candidates": [
+  {"race_id": "2026-KY-21191-county-assessor", "name": "John E Steele",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026: 'Pendleton County, John E. Steele, PVA'", "verified": true},
+   "offices": [
+     {"office": "Property Valuation Administrator, Pendleton County", "from": null, "to": null, "source": "Kentucky Department of Revenue, PVA Directory 2022-2026 (lists him as Pendleton County PVA; the directory gives no start year)", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21093-county-clerk", "name": "Brian D. Smith",
+   "official_page": {"url": "https://www.hardincountyky.gov/Directory.aspx", "source": "Hardin County, KY staff directory: 'Brian D. Smith, County Clerk'", "verified": true},
+   "offices": [
+     {"office": "Hardin County Clerk", "from": null, "to": null, "source": "Hardin County, KY staff directory (no start year given)", "url": "https://www.hardincountyky.gov/Directory.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21141-magistrate-4", "name": "Jason Wade Harper",
+   "official_page": {"url": "https://logancountyky.gov/254/District-4-Magistrate", "source": "Logan County, KY, District 4 Magistrate page (Jason Harper)", "verified": true},
+   "offices": [
+     {"office": "Magistrate, District 4, Logan County Fiscal Court", "from": 2019, "to": null, "source": "Logan County, KY, District 4 Magistrate page ('I began serving as 4th District Magistrate in 2019')", "url": "https://logancountyky.gov/254/District-4-Magistrate", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21213-magistrate-north", "name": "Scott Poston",
+   "official_page": {"url": "https://simpsoncountyky.gov/government/", "source": "Simpson County, KY, Fiscal Court members: 'Scott Poston, North District Magistrate'", "verified": true},
+   "offices": [
+     {"office": "Magistrate, North District, Simpson County Fiscal Court", "from": null, "to": null, "source": "Simpson County, KY, Fiscal Court members (no start year given)", "url": "https://simpsoncountyky.gov/government/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ44", "name": "Robert \"Robby\" Yoakum",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Bell.aspx", "source": "Kentucky Court of Justice, Bell County page: 'Robert T. Yoakum, Judge, District Court, 44th Judicial District'", "verified": true},
+   "offices": [
+     {"office": "District Judge, 44th Judicial District", "from": null, "to": null, "source": "Kentucky Court of Justice, Bell County page (no start year given)", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Bell.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-24274-council", "name": "Mika Tyler",
+   "official_page": {"url": "https://www.elizabethtownky.org/government/mayor_city_council/index.php", "source": "City of Elizabethtown, Mayor and City Council page", "verified": true},
+   "offices": [
+     {"office": "Member, Elizabethtown City Council", "from": 2025, "to": null, "source": "City of Elizabethtown, Mayor and City Council page ('Elected: January 2025', 'Term Expires: December 2026')", "url": "https://www.elizabethtownky.org/government/mayor_city_council/index.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-37918-council-5", "name": "Carolyn Marie Hughes",
+   "official_page": {"url": "https://www.hopkinsvilleky.us/departments/city_council/index.php", "source": "City of Hopkinsville, City Council page (2025-2026): Ward 5, 'Marie Hughes'", "verified": true},
+   "offices": [
+     {"office": "Member, Hopkinsville City Council, Ward 5", "from": null, "to": null, "source": "City of Hopkinsville, City Council page, members for 2025-2026 (no start year given; listed as 'Marie Hughes')", "url": "https://www.hopkinsvilleky.us/departments/city_council/index.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-04250-school-board-2", "name": "Emily Settle",
+   "official_page": {"url": "https://www.montgomery.kyschools.us/board-of-education-home", "source": "Montgomery County Schools, Board of Education page: 'Emily Settle, Board Chairperson'", "verified": true},
+   "offices": [
+     {"office": "Member (chairperson), Montgomery County Board of Education", "from": null, "to": null, "source": "Montgomery County Schools, Board of Education page (no start year or division given)", "url": "https://www.montgomery.kyschools.us/board-of-education-home", "kind": "official", "verified": true}
+   ]}
+ ]
+}

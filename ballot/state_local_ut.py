@@ -1400,7 +1400,7 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
                   "juvenile_court_retention": f"Judge of the Juvenile Court, {ORDINALS[(dist or 1) - 1]} Juvenile Court "
                                               "District (retention election)"}[court]
         races[rid] = dict(race_id=rid, state=STATE, level="court", office_kind=court, office=office,
-                          jurisdiction=dname or NAME, jurisdiction_id=f"JD{dist}" if dist else FIPS,
+                          jurisdiction=dname or NAME, jurisdiction_id=f"{STATE}-JD{dist}" if dist else FIPS,      # sl_places is shared: a district id carries its state (Minnesota's are JD1 to JD10)
                           county_ids=json.dumps(cids) if cids else None, district=str(dist) if dist else None,
                           seat=None, special=0, partisan=0, holder_id=None, holder_name=name, holder_party=None,
                           election_date=GENERAL, note=note)
@@ -1563,6 +1563,9 @@ def load(db_path, say=print, cache=CACHE, refresh=False):
     if dupes:
         fail(f"two rows for one candidate in one election: {dupes[:3]}")
     place_rows = [("county", g, full, json.dumps([g]), SRC["counties"]) for g, (_n, full) in sorted(cmap.items())] + local["places"]
+    judicial = {r["jurisdiction_id"]: (r["jurisdiction"], r["county_ids"]) for r in races.values()
+                if str(r["jurisdiction_id"] or "").startswith(f"{STATE}-JD")}      # each judicial district's own place row
+    place_rows += [("judicial", jid, nm, cids, SRC["general"]) for jid, (nm, cids) in sorted(judicial.items())]
     general = [c for c in cand if c[1] == "general"]
     per_kind = Counter(races[c[0]]["office_kind"] for c in general)
     listed = {b: sum(len(r["rows"]) for (bb, _d), r in races_read.items() if bb == b) for b in BODIES}

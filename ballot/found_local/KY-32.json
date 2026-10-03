@@ -1,0 +1,28 @@
+{
+ "part": 32,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after five searches for this part, and most county and city sites did not resolve or could not be found without search, so the constables, magistrates, coroner, jailer, sheriff, county clerks and most city and school board candidates are left blank. Party pages that only list a candidate (the Republican Party of Kentucky for Steven Jack Rudy and Jason Griffith, the Jefferson County Republican Party for Alex Feria) are already in ballot/lean/ky_endorsements.json and are not recorded here as endorsements. Jason Griffith of Lexington (Toyota, District 77) is not shown to be the Jason Griffith of Whitesburg who ran in the 2019 Democratic primary for Secretary of State: no source ties the two by two anchors, so that run is left out. rudyforky.com is a parked domain (it redirects to a lander), not a campaign site. Louisville Metro Council is printed without party on the 2026 ballots and its May 2026 primary was a single nonpartisan contest per district (Jefferson County Clerk's official statement of votes cast), so 'Nonpartisan office' in our record agrees with the source.",
+ "verifier_note": "Every url re-opened on 2026-10-03. Paul Hornback: the article ties him to Kentucky and to Shelbyville (seat of Shelby County, the 2026 place) and records the same party label as his 2026 filing; the birthplace wording was taken out of the office's source line, since only the office is recorded. Martin Hatfield and Alex Feria's sites failed one remote lookup and were read through the kit's own fetch. Jason Griffith's 2024 run was read on page 65 of the certification PDF.",
+ "removed": [],
+ "candidates": [
+  {"race_id": "2026-KY-21015-county-commissioner-1", "name": "Cathy Hudson Flaig",
+   "official_page": {"url": "https://www.boonecountyky.org/government/boone_county_fiscal_court/county_commissioners/index.php", "source": "Boone County Fiscal Court, County Commissioners", "verified": true},
+   "offices": [{"office": "Boone County Commissioner, District 1", "from": null, "to": "present", "source": "Boone County Fiscal Court, County Commissioners ('Commissioner Cathy Flaig, District 1'; no starting year given)", "url": "https://www.boonecountyky.org/government/boone_county_fiscal_court/county_commissioners/index.php", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21199-county-attorney", "name": "Martin Hatfield",
+   "official_page": {"url": "https://pulaskicountyattorney.com/", "source": "Pulaski County Attorney's Office", "verified": true},
+   "offices": [{"office": "Pulaski County Attorney", "from": 2011, "to": "present", "source": "Pulaski County Attorney's Office ('Martin L. Hatfield, County Attorney'; 'Since first taking office in 2011')", "url": "https://pulaskicountyattorney.com/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21211-magistrate-4", "name": "Paul Hornback",
+   "offices": [{"office": "Kentucky Senate, District 20", "from": 2011, "to": 2023, "source": "Wikipedia, 'Paul Hornback' (cites the Kentucky Senate's own page)", "url": "https://en.wikipedia.org/wiki/Paul_Hornback", "kind": "secondary", "verified": true}],
+   "past_party": [{"what": "Kentucky Senate, District 20 (unopposed in the Republican primary; won the general election as the Republican nominee)", "year": 2018, "party": "Republican", "source": "Wikipedia, 'Paul Hornback'", "url": "https://en.wikipedia.org/wiki/Paul_Hornback", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-KY-DJ34-2", "name": "Fred F. White",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Whitley.aspx", "source": "Kentucky Court of Justice, Whitley County information (also McCreary County)", "verified": true},
+   "offices": [{"office": "District Judge, 34th Judicial District, Division 2", "from": null, "to": "present", "source": "Kentucky Court of Justice, Whitley County information ('Fred F. White, Judge District Court, 34th Judicial District, Division 2'; no starting year given)", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Whitley.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-M-48003-council-19", "name": "Alex Feria",
+   "website": {"url": "https://www.alexferia.com/", "how": "linked from his entry on the Jefferson County Republican Party's 2026 candidates page; the site reads 'Alex Feria for Metro Council' and names Metro Council District 19", "verified": true}},
+  {"race_id": "2026-KY-SH77", "name": "Jason Griffith",
+   "website": {"url": "https://griffith4ky.com/", "how": "linked from his branch.vote race page; the site reads 'Vote Jason Griffith for District #77 State Representative', Lexington", "verified": true},
+   "past_party": [{"what": "State Representative, 77th Representative District (general election, lost to George A. Brown Jr.)", "year": 2024, "party": "Republican", "source": "Kentucky State Board of Elections, 2024 General Election Certification as amended on December 9, 2024 (page 65: 'Republican Party ... Jason GRIFFITH')", "url": "https://elect.ky.gov/results/2020-2029/Documents/2024%20General%20Election%20Certification%20as%20Amended%20on%20December%209th%202024.pdf", "kind": "official", "verified": true}]}
+ ]
+}

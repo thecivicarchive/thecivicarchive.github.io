@@ -35,7 +35,9 @@ organization).
 - `official_page`: for someone holding office today, the government's own page about them.
 - `born`: the year only (a full date only from an official or campaign page).
 - `offices`: public offices held (elected or appointed government posts), with years and body. Not jobs, not party posts.
-- `endorsed_by`: a party's OWN published endorsement for this 2026 race: `{"party", "unit", "url"}`.
+- `endorsed_by`: a party's OWN published endorsement for this 2026 race: `{"party", "unit", "url"}`. The page itself must
+  say the party endorses them. A party's list of "our candidates", its nominees, a slate card or a sample ballot is NOT an
+  endorsement: leave it out, and a verifier deletes it.
 - `past_party`: an earlier run or office under a party label: `{"what", "year", "party", "source", "url", "kind"}`.
   The source must show the label on the record: a party's primary or nomination, a ballot that printed the party, a
   seat in a body whose members sit by party, or an appointment made by a party's committee. A news article that merely

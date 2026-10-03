@@ -1,0 +1,460 @@
+{
+ "part": 0,
+ "of": 9,
+ "researched": "2026-10-03",
+ "note": "The session's web search allowance ran out after the first few searches, so campaign websites were found from the links the Utah Republican Party's '2026 Republican Candidates' page and the Utah Democratic Party's 'Common Sense Candidates' page put on each candidate's name or card (these pages are listed in ballot/lean/ut_endorsements.json as support, not endorsements), and each site was then opened to check it names the candidate and the office. Judges' facts come from the Utah State Courts' own biography pages. No Utah party page endorses a 2026 state race, so endorsed_by is empty throughout. Sitting legislators were checked for a website only. Not found or not confirmed: Candice B. Pierucci (candicepierucci.com, linked from the party page, answered 403 to the kit's fetcher and to WebFetch); Natassja Grossman (natassjagrossman.com, linked from the Democratic page, is drawn entirely by script and showed no name or office); Rebecca Winsor (no link on the state or Washington County Democratic pages); Scott H Chew and Rex P Shipp (no link of their own on the party page). Michele Christiansen Forster's birth year on Wikipedia carries no citation, so it is left out. Blank means not found, not that nothing exists.",
+ "candidates": [
+  {
+   "race_id": "2026-UT-COARET-FORSTER",
+   "name": "Michele M. Christiansen Forster",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Utah Court of Appeals (appointed by Gov. Gary Herbert, June 2010)",
+     "from": 2010,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Third District Court",
+     "from": 2007,
+     "to": 2010,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "General counsel to Governor Jon M. Huntsman, Jr.",
+     "from": 2006,
+     "to": 2007,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Executive director, Utah Commission on Criminal and Juvenile Justice",
+     "from": 2005,
+     "to": 2006,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Assistant United States Attorney, District of Utah",
+     "from": 1998,
+     "to": 2005,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/appellate-courts/court-of-appeals/christiansen-forster.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-DCRET3-BATES",
+   "name": "Matthew David Bates",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/third-district-court/matthew-bates.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Third District Court (Salt Lake, Summit and Tooele counties; appointed by Gov. Gary R. Herbert, July 2016)",
+     "from": 2016,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/third-district-court/matthew-bates.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Chief Prosecutor, Summit County Attorney's Office",
+     "from": null,
+     "to": 2016,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/third-district-court/matthew-bates.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-DCRET5-GENTRY",
+   "name": "Eric Russell Gentry",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fifth-district-court/eric-r-gentry.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Fifth District Court (Beaver, Iron and Washington counties; appointed by Gov. Spencer Cox, July 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fifth-district-court/eric-r-gentry.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Deputy County Attorney, Washington County Attorney's Office",
+     "from": null,
+     "to": 2023,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fifth-district-court/eric-r-gentry.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-029-BROWER",
+   "name": "Brian E. Brower",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/brian-brower.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Sunset City and Morgan County Justice Courts (appointed December 2016)",
+     "from": 2016,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/brian-brower.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Judge, Clearfield City Justice Court (appointed August 2015)",
+     "from": 2015,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/brian-brower.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Clearfield City Attorney",
+     "from": 2007,
+     "to": 2015,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/brian-brower.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Deputy County Attorney, Weber County",
+     "from": null,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/brian-brower.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-34970-GARNER",
+   "name": "Lisa A. Garner",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/lisa-a-garner.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Draper City and Herriman City Justice Courts (appointed 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/lisa-a-garner.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Midvale City Attorney and City Prosecutor (seven years)",
+     "from": null,
+     "to": 2023,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/third-district-justice-court/lisa-a-garner.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JCRET-65110-057-NELSON",
+   "name": "Trent Dee Nelson",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/trent-nelson.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Roy/Weber County Justice Court (appointed February 2017); presiding judge, Second District Justice Court",
+     "from": 2017,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/trent-nelson.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Prosecutor for Roy City",
+     "from": null,
+     "to": 2017,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/trent-nelson.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-JVRET2-WESTMORELAND",
+   "name": "Rick Westmoreland",
+   "official_page": {
+    "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/rick-t-westmoreland.html",
+    "source": "Utah State Courts, the judge's biography page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Second District Juvenile Court (Davis, Morgan and Weber counties; appointed by Gov. Spencer Cox, June 2022)",
+     "from": 2022,
+     "to": null,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/rick-t-westmoreland.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Youth Parole Authority (chair five years)",
+     "from": 2013,
+     "to": 2022,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/rick-t-westmoreland.html",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Prosecutor, Davis County Attorney's Office",
+     "from": 2004,
+     "to": 2022,
+     "source": "Utah State Courts, the judge's biography page",
+     "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/second-district-juvenile-court/rick-t-westmoreland.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-UT-SBOE11",
+   "name": "Lacey Peterson",
+   "website": {
+    "url": "https://www.laceypetersoncampaign.org",
+    "how": "title 'Lacey Peterson for Utah SSB-11'; 'I am running for State Board of Education'; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SBOE8",
+   "name": "Araueni Olivares",
+   "website": {
+    "url": "https://votearaueni.com",
+    "how": "title 'Araueni Olivares for Utah State Board of Education, District 8'; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH11",
+   "name": "Katy Hall",
+   "website": {
+    "url": "https://www.katyhallutah.com/",
+    "how": "title 'Katy Hall for HD 11 (UT)'; the page says she is State House Representative for District 11; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH15",
+   "name": "Ariel Defay",
+   "website": {
+    "url": "https://www.arieldefay.com/",
+    "how": "title 'Ariel For Utah'; 'I serve as your representative for Utah House District 15'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name (the site answered the kit's fetcher 429 once; read through WebFetch)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am and always have been a registered Republican",
+    "url": "https://www.arieldefay.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH2",
+   "name": "Mike Petersen",
+   "website": {
+    "url": "https://www.votemikepetersen.com/",
+    "how": "'Paid for by Committee to Re-elect Mike Petersen'; names his work 'in the legislature' and 'Cache Valley and all of Utah', no district number; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH24",
+   "name": "Braeden J. Oswald",
+   "website": {
+    "url": "https://votebraedenoswald.com/",
+    "how": "title 'Braeden Oswald: Utah State House of Representatives District 24'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH28",
+   "name": "Nicholeen Peck",
+   "website": {
+    "url": "https://peck4utah.com/",
+    "how": "'Nicholeen Peck Utah State House District 28'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH30",
+   "name": "Jake Fitisemanu",
+   "website": {
+    "url": "https://jakeforutah.com",
+    "how": "title 'Jake For Utah'; 'Meet Jake Fitisemanu', 'A strong, trusted voice for West Valley and for Utah', 'In the state legislature, I will work...', 'Paid for by Elect Jake Fitisemanu'; no district number; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH35",
+   "name": "Rosalba Dominguez",
+   "website": {
+    "url": "https://voterosalba.com",
+    "how": "the site's '2026 Logo' image reads 'Utah Rosalba Dominguez House District 35', footer 'Friends of Rosalba Dominguez' (the page text is drawn by script); the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH4",
+   "name": "Tiara Auxier",
+   "website": {
+    "url": "https://www.tiara4utah.com/",
+    "how": "'Tiara Auxier Utah House of Representatives District 4'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH44",
+   "name": "Jess Birtcher",
+   "website": {
+    "url": "https://yes2jesshd44.com",
+    "how": "'Welcome to Jess Birtcher for HD44 Campaign', 'Utah House District 44'; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH49",
+   "name": "Candice B. Pierucci"
+  },
+  {
+   "race_id": "2026-UT-SH52",
+   "name": "Cory Maloy",
+   "website": {
+    "url": "https://www.corymaloy.com/",
+    "how": "title 'Cory Maloy | Utah House District 52'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican · House District 52",
+    "url": "https://www.corymaloy.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH56",
+   "name": "Natassja Grossman"
+  },
+  {
+   "race_id": "2026-UT-SH6",
+   "name": "Rob Bishop",
+   "website": {
+    "url": "https://www.bishop.vote/",
+    "how": "title 'Rob Bishop for House District 6', 'Candidate for Utah House District 6'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH63",
+   "name": "Stephen L. Whyte",
+   "website": {
+    "url": "https://votestephenwhyte.com/",
+    "how": "title 'Stephen Whyte', 'Paid for by Friends of Stephen Whyte'; the About page (https://votestephenwhyte.com/about) says he represents House District 63 in the Utah House of Representatives; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SH68",
+   "name": "Scott H Chew"
+  },
+  {
+   "race_id": "2026-UT-SH71",
+   "name": "Rex P Shipp"
+  },
+  {
+   "race_id": "2026-UT-SH75",
+   "name": "Rebecca Winsor"
+  },
+  {
+   "race_id": "2026-UT-SS1",
+   "name": "Scott Sandall",
+   "website": {
+    "url": "https://www.votescottsandall.com/",
+    "how": "title 'Scott Sandall for Utah Senate'; the Utah Republican Party's '2026 Republican Candidates' page links this site from the candidate's name",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS18",
+   "name": "A Dane Anderson",
+   "website": {
+    "url": "https://www.dane4utah.win",
+    "how": "'A. Dane Anderson Senate District 18', 'I have entered the race for the Utah Senate'; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS23",
+   "name": "Keith Grover",
+   "website": {
+    "url": "https://www.keithgrover.com/",
+    "how": "title 'Senator Keith Grover', names his service in the Utah Senate and asks support for 'his campaign for re-election', footer 2026; no district number on the home page; not linked from the party page (found by trying his name as an address)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-UT-SS7",
+   "name": "Garret Rushforth",
+   "website": {
+    "url": "https://voterushforth.com/",
+    "how": "the About page (https://voterushforth.com/about) says 'I'm Garret Rushforth, And I'm the next Senator for Senate District 7'; the Utah Democratic Party's 'Common Sense Candidates' page (organizeutah.org) links this site from the candidate's card",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened on 2026-10-03: the seven Utah State Courts biography pages state each office as recorded; each campaign site names the candidate and the Utah office or place (arieldefay.com answered the kit's fetcher 429 twice and was read through WebFetch; voterosalba.com's district is in its logo image, which was viewed). Nothing from the never-collected list is in any field. Nothing removed."
+}

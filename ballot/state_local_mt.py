@@ -1958,7 +1958,9 @@ def load(db_path, say=print, cache=CACHE):
             note.append("Not on the June 2 primary ballot.")
         note.append(CAPS)
         cids = sorted(cmap[fold(c)][0] for c in race_counties.get(rid, set()))
-        race_rows.append((rid, STATE, i["level"], i["office_kind"], i["office"], i["jurisdiction"], i["jurisdiction_id"],
+        jid = (f"{STATE}-{i['jurisdiction_id']}" if i["office_kind"] in ("public_service_commissioner", "district_court")
+               else i["jurisdiction_id"])      # the id of the district's own place row below: sl_places is shared, and bare JD<n> ids are Minnesota's
+        race_rows.append((rid, STATE, i["level"], i["office_kind"], i["office"], i["jurisdiction"], jid,
                           json.dumps(cids) if cids else None, i["district"], i["seat"], i["special"], i["partisan"],
                           hid, hname, hparty, GENERAL, " ".join(note)))
 

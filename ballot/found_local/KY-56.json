@@ -1,0 +1,25 @@
+{
+ "part": 56,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was used up (200 of 200) when this part began, so no candidate could be searched for; only government pages at known or linked addresses were read. Many county and school sites did not resolve or reset the connection (Kenton County's old domain, Bullitt, Carter, Mercer, Henry, Crittenden, Anderson and Woodford counties, Mercer County Sheriff, Greenup County Schools). Boyd County Schools' board page does not list Aaron S. Profit (not an incumbent there); Nelson County Schools' board page names nobody; Hopkinsville's council page does not name Desaepa Vansauwa. The Hardin County Republican Party links Walt Meinhausen to a Facebook page only (a social profile, not a website; its listing is already in ballot/lean/ky_endorsements.json, as is the Republican Party of Kentucky's listing of Mitch Whitaker and the Madison County Democrats' listing of Robert Blythe, none saying endorsed). The other 27 candidates were left blank. Verifier (2026-10-03): all three candidates' pages re-opened; each names the person in the office our record shows for the 2026 race (Kentucky plus the same county or city office); every finding confirmed.",
+ "candidates": [
+  {"race_id": "2026-KY-21117-county-clerk", "name": "Gabrielle Summe",
+   "official_page": {"url": "https://kentonkyclerk.gov/", "source": "Kenton County Clerk's own site (names Gabrielle Summe as Kenton County Clerk)", "verified": true},
+   "offices": [
+    {"office": "Kenton County Clerk", "from": "elected 2010", "to": "present", "source": "Kenton County Clerk's site: says she 'was elected as the first female Kenton County Clerk' in 2010", "url": "https://kentonkyclerk.gov/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-25300-council", "name": "Christopher Farmer",
+   "official_page": {"url": "https://erlangerky.gov/about/city-council/", "source": "City of Erlanger, City Council page (lists 'Chris Farmer', Councilman, 'Serving His First Term')", "verified": true},
+   "offices": [
+    {"office": "Erlanger City Council Member", "from": null, "to": "present", "source": "City of Erlanger, City Council page (Chris Farmer, Councilman, serving his first term)", "url": "https://erlangerky.gov/about/city-council/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-65226-mayor", "name": "Robert R Blythe",
+   "official_page": {"url": "https://www.richmondky.gov/government/mayor.php", "source": "City of Richmond, Mayor page (names Robert Blythe, Mayor of Richmond)", "verified": true},
+   "offices": [
+    {"office": "Mayor of Richmond", "from": null, "to": "present", "source": "City of Richmond, Mayor page and Board of Commissioners page ('Robert R. Blythe', Mayor)", "url": "https://www.richmondky.gov/government/board_of_commissioners.php", "kind": "official", "verified": true}
+   ]}
+ ]
+}

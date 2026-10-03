@@ -1,0 +1,187 @@
+{
+ "part": 47,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "30 candidates in this part. The session's shared web-search allowance was used up before this part began, Ballotpedia answered the kit's fetcher with an empty page, and louisvilleky.gov answered 403, so pages were read with the kit's own fetcher (states/net.py): county and city government sites, the Kentucky Court of Justice county pages, Wikipedia and Louisville Public Media. Campaign websites were found only by trying the candidate's own name as an address, and kept only where the site names the candidate and the office or place. Heavrin's site is the standing site of her State Representative committee (its home page still says she is running for re-election in 2024); it names her and the 18th District. Grossl's site names her and 'Fayette and Scott Counties' (House District 88's counties) but not the office. Heavrin and Grossl are sitting legislators with record pages, so only their websites and own words are recorded; their parties' candidate listings are already in ballot/lean/ky_endorsements.json. Parrish-Wright's Metro Council start year is left blank: Wikipedia's Louisville Metro Council table gives 2023 and its 2026 mayoral election article gives 2024. Nothing could be read for the constables (except Henry County's), magistrates, the Carroll sheriff, the Marion jailer, the Hardin PVA, the district judge (the Calloway and Marshall court pages list no Chris Hendricks), the Elizabethtown, Hopkinsville and Richmond candidates (none is listed on the city's own council page) or the three school-board candidates, so they are left out.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21005-county-clerk",
+   "name": "Jason Todd Denny",
+   "official_page": {
+    "url": "https://andersoncounty.ky.gov/government/Pages/County-Clerk.aspx",
+    "source": "Anderson County government, County Clerk page ('Anderson County Clerk, Jason Denny')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anderson County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Anderson County government, County Clerk page",
+     "url": "https://andersoncounty.ky.gov/government/Pages/County-Clerk.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21079-county-clerk",
+   "name": "Kevin C. Montgomery",
+   "official_page": {
+    "url": "https://garrardcountyky.gov/elected-officials/",
+    "source": "Garrard County government, Elected Officials page ('Kevin Montgomery, County Clerk')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Garrard County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Garrard County government, Elected Officials page",
+     "url": "https://garrardcountyky.gov/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-constable-4",
+   "name": "Gary Ervin",
+   "official_page": {
+    "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+    "source": "Henry County government, Elected Officials page ('Constable District 4, Gary Ervin')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Henry County Constable, District 4",
+     "from": null,
+     "to": "present",
+     "source": "Henry County government, Elected Officials page",
+     "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21167-county-executive",
+   "name": "Sarah Gray Steele",
+   "official_page": {
+    "url": "https://mercercounty.ky.gov/",
+    "source": "Mercer County government home page, welcome letter signed 'Sarah Steele, Mercer County Judge Executive'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mercer County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Mercer County government home page",
+     "url": "https://mercercounty.ky.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21201-county-executive",
+   "name": "Valerie Grigson Miley",
+   "official_page": {
+    "url": "https://robertsoncounty.ky.gov/elected/Pages/default.aspx",
+    "source": "Robertson County government, Elected Officials page ('Judge Executive: Valerie Miley')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robertson County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Robertson County government, Elected Officials page",
+     "url": "https://robertsoncounty.ky.gov/elected/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21213-jailer",
+   "name": "Eric Vaughn",
+   "official_page": {
+    "url": "https://simpsoncountyky.gov/officials/",
+    "source": "Simpson County government, Officials page ('Eric Vaughn, County Jailer')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Simpson County Jailer",
+     "from": null,
+     "to": "present",
+     "source": "Simpson County government, Officials page",
+     "url": "https://simpsoncountyky.gov/officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-48003-mayor",
+   "name": "Shameka L. Parrish-Wright",
+   "offices": [
+    {
+     "office": "Louisville Metro Council member, District 3",
+     "from": null,
+     "to": "present",
+     "source": "Louisville Public Media, 'Louisville progressive Shameka Parrish-Wright discusses run for mayor' (January 6, 2026): 'Louisville Metro Council Member Shameka Parrish-Wright has decided not to run for reelection to the District 3 seat'",
+     "url": "https://www.lpm.org/news/2026-01-06/louisville-progressive-shameka-parrish-wright-discusses-run-for-mayor",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "candidate in the Democratic primary for Mayor of Louisville (second to Craig Greenberg)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Louisville Public Media, January 6, 2026: 'Parrish-Wright went up against Greenberg in the 2022 Democratic primary'; Wikipedia's 2022 Louisville mayoral election article lists her in the Democratic primary results, citing the Jefferson County Clerk",
+     "url": "https://www.lpm.org/news/2026-01-06/louisville-progressive-shameka-parrish-wright-discusses-run-for-mayor",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-SH18",
+   "name": "Samara Heavrin",
+   "website": {
+    "url": "https://samaraheavrin.com/",
+    "how": "found at the address of her own name; the site's footer reads 'Samara Heavrin for 18th District State Representative' and 'Paid for by Samara Heavrin for State Representative' (a standing committee site; its home page still mentions the 2024 re-election)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Samara Heavrin is a Kentucky Republican rising star.",
+    "url": "https://samaraheavrin.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-SH88",
+   "name": "Vanessa Grossl",
+   "website": {
+    "url": "https://vanessagrossl.com/",
+    "how": "found at the address of her own name; the site reads 'Vanessa Grossl: Strong Leadership for Fayette and Scott Counties' (House District 88's counties) and 'Paid For By Vanessa Grossl for Kentucky'; it does not name the office",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [
+  {
+   "race_id": "2026-KY-M-48003-mayor",
+   "name": "Shameka L. Parrish-Wright",
+   "field": "past_party",
+   "what": "Louisville Metro Council member, District 3 (2026, Democratic)",
+   "why": "the source is a news article describing her as a 'District 3 Democrat'; it does not show the party label on the record (rules: a news description is not one). The 2022 Democratic primary entry is kept."
+  }
+ ]
+}

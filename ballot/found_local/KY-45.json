@@ -1,0 +1,215 @@
+{
+ "part": 45,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verify_note": "Every url re-opened 2026-10-03 with the kit's User-Agent. HTML pages state the names and offices as recorded; the recap PDFs were read as text and the precinct Total columns summed: Henry constable 2nd 990, Logan jailer 6,276 to 2,140 over 20 precincts, Simpson clerk 3,658 to 2,064 over 13, Woodford jailer 7,504 over 19 all match. Corrected: Terry Owens's 2022 Radcliff council total is 2,645 over 14 precinct rows (not 5,290), first of ten, so elected. Each finding ties to the 2026 race by state, county or place and the same office or seat. Nothing was removed.",
+ "note": "The session's shared web-search allowance was spent before this part began (every search answered 'budget used'), so research went by direct pages: the Secretary of State's 2022 general-election recap sheets by county (elect.ky.gov, precinct results; totals below are the sums of the precinct Total columns), the Court of Justice's county pages, and county and city government sites. Recap sheets for Anderson, Bourbon, Breckinridge, Carroll, Clinton, Fayette, Garrard, Johnson, Lawrence, Mercer, Nelson, Pendleton, Robertson and Union are scanned images with no text and could not be read. Jason Petrie's Wikipedia infobox gives jasonpetrie.com as his campaign site, but that address now forwards to a Google sign-in page, so no website is recorded. The Republican Party of Kentucky's list naming Petrie and Bowling, and the county party lists naming Hanna, Horn, Elmore and Richards, do not say endorsed (already in ballot/lean/ky_endorsements.json) and are not recorded. Logan County's Detention Center page names Joshua Toomey but does not call him jailer, so it is not used as his official page. Mary Diane McCord Hanna is said by directories to be the sitting Fayette County Judge/Executive, but lexingtonky.gov had no page that could be found naming her and the Fayette recap is a scan, so nothing is recorded for her. Hardin's 2022 recap shows a write-in 'Charles Patrick ELMORE (W)'; a write-in carries no party label and no office followed, so nothing is recorded for Pat Elmore. Louisville Metro's district pages answer 403 to scripts and were not read. Elizabethtown's council page does not list Jim Shaw; Hopkinsville's council page does not list Adrian J. Bruce.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21005-county-assessor",
+   "name": "Brian Stivers",
+   "official_page": {
+    "url": "https://andersoncounty.ky.gov/government/Pages/PVA.aspx",
+    "source": "Anderson County government, PVA page ('Anderson County PVA Brian Stivers')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anderson County Property Valuation Administrator",
+     "from": null,
+     "to": "present",
+     "source": "Anderson County government, PVA page",
+     "url": "https://andersoncounty.ky.gov/government/Pages/PVA.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-constable-2",
+   "name": "David Michael Robinson",
+   "offices": [
+    {
+     "office": "Henry County Constable, 2nd Magisterial District (elected unopposed on November 8, 2022)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Henry County ('CONSTABLE 2nd Magisterial District', David Michael ROBINSON, REP, the only candidate, 990 votes)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Henry County Constable, 2nd Magisterial District, general election (won, unopposed)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Henry County (party column REP)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21141-jailer",
+   "name": "Joshua D Toomey",
+   "offices": [
+    {
+     "office": "Logan County Jailer (elected November 8, 2022)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Logan County ('JAILER', Joshua D. TOOMEY, REP, 6,276 votes to Johnny ANDERSON, DEM, 2,140, summed over the 20 precincts)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Logan County Jailer, general election (won)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Logan County (party column REP)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21191-clerk-of-court-S",
+   "name": "Melanie Hyden",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pendleton.aspx",
+    "source": "Kentucky Court of Justice, Pendleton County information page ('Office of Circuit Court Clerk ... Circuit Court Clerk: Melanie Hyden')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pendleton Circuit Court Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Pendleton County information page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pendleton.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21201-county-attorney",
+   "name": "Jesse P Melcher",
+   "official_page": {
+    "url": "https://robertsoncounty.ky.gov/elected/Pages/default.aspx",
+    "source": "Robertson County government, Elected Officials page ('County Attorney: Jesse P. Melcher')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robertson County Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Robertson County government, Elected Officials page",
+     "url": "https://robertsoncounty.ky.gov/elected/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21213-county-clerk",
+   "name": "Austin L Johnson",
+   "offices": [
+    {
+     "office": "Simpson County Clerk (elected November 8, 2022)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Simpson County ('COUNTY CLERK', Austin JOHNSON, REP, 3,658 votes to Dewana EATON, DEM, 2,064, summed over the 13 precincts)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Simpson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Simpson County Clerk, general election (won)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Simpson County (party column REP)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Simpson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21239-jailer",
+   "name": "Michele Shryock Rankin",
+   "offices": [
+    {
+     "office": "Woodford County Jailer (elected unopposed on November 8, 2022)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Woodford County ('JAILER', Michele Shryock RANKIN, DEM, the only candidate, 7,504 votes over the 19 precincts)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Woodford County Jailer, general election (won, unopposed)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Woodford County (party column DEM)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ41-1",
+   "name": "Allen B. Roberts",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Clay.aspx",
+    "source": "Kentucky Court of Justice, Clay County information page ('Allen B. Roberts, Judge, District Court, 41st Judicial District, Division 1', with official portrait)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 41st Judicial District, Division 1",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Clay County information page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Clay.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-63912-mayor",
+   "name": "Terry Owens",
+   "official_page": {
+    "url": "https://radcliff.org/your-government/",
+    "source": "City of Radcliff, Your Government page (lists Terry Owens among the six members after the Mayor, under 'Your Radcliff Mayor and City Council')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Radcliff City Council",
+     "from": 2023,
+     "to": "present",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Hardin County ('CITY COUNCIL City of Radcliff - (Vote for up to Six)': Terry OWENS first of ten, 2,645 votes summed over the 14 precinct rows, so among the six elected); still listed on the City of Radcliff's Your Government page",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

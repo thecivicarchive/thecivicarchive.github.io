@@ -1,0 +1,19 @@
+{
+ "part": 50,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was already used up (200 of 200) when this part began, so no candidate could be searched for; only official pages at addresses known or linked from a government home page were read. Many county, city and party sites did not resolve (Woodford County, Pendleton County, Lyndon, the Nelson County Democrats, the Kentucky Party) and Elizabethtown's site showed a certificate for another host, so they were not read. The Hardin County Republican Party lists Tim Isaacs for Elizabethtown council with a Facebook link only (a social profile, not a website; support listing already in ballot/lean/ky_endorsements.json). The 28 other candidates were left blank. Verifier: both official pages re-opened on 2026-10-03; each names the person in the same Kentucky city and seat sought in 2026 (Hopkinsville Ward 6; Richmond Board of Commissioners).",
+ "candidates": [
+  {"race_id": "2026-KY-M-37918-council-6", "name": "Travis W Martin",
+   "offices": [
+    {"office": "Hopkinsville City Council Member, Ward 6", "from": null, "to": "present", "source": "City of Hopkinsville, City Council page (lists 'Ward 6 | Travis Martin')", "url": "https://www.hopkinsvilleky.us/departments/city_council/index.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-65226-council", "name": "Mendi Goble",
+   "official_page": {"url": "https://richmondky.gov/government/board_of_commissioners.php", "source": "City of Richmond, Board of Commissioners page (lists Mendi Goble, Commissioner)", "verified": true},
+   "offices": [
+    {"office": "Richmond City Commissioner", "from": null, "to": "present", "source": "City of Richmond, Board of Commissioners page", "url": "https://richmondky.gov/government/board_of_commissioners.php", "kind": "official", "verified": true}
+   ]}
+ ]
+}

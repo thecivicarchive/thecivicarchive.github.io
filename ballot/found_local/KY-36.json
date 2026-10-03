@@ -1,0 +1,35 @@
+{
+ "part": 36,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after eight searches for this part, and many county sites did not resolve (Pulaski, Breckinridge, Shelby, Gallatin) or refused the connection (Woodford), so most of the 30 candidates (magistrates, constables, county clerks, jailers, coroners, the Nelson PVA, two sheriffs, three school boards, Danville's commissioner race) were not found on any page that could be read and are left blank. The Kentucky Secretary of State's candidate pages did not resolve. For the two sitting legislators no campaign website was found; the Republican Party of Kentucky lists both without saying it endorses them (already in ballot/lean/ky_endorsements.json), so nothing is recorded under endorsed_by. The Jefferson County Clerk's 2026 filing list (2026-candidate-filing-8-10-26.pdf) prints Louisville Metro Council races as 'Nonpartisan.', which agrees with our record. Glasgow's own mayor page and Louisville Metro's council pages answer 403 to scripts and WebFetch, so they are not used. Danville's City Commission page does not list James Chandler and the Glasgow Independent Schools board page names its members only through script, so nothing is recorded for them. While exploring, one e-mail cell of the Jefferson County filing PDF and street addresses on Radcliff's government page appeared in this agent's own output; none of it is stored here.",
+ "candidates": [
+  {"race_id": "2026-KY-21113-sheriff", "name": "Kevin S. Grimes",
+   "official_page": {"url": "https://jessaminesheriff.org/command-staff/", "source": "Jessamine County Sheriff's Office, Command Staff page: 'Kevin Grimes - Sheriff'", "verified": true},
+   "offices": [
+    {"office": "Jessamine County Sheriff", "from": null, "to": "present", "source": "Jessamine County Sheriff's Office, Command Staff page", "url": "https://jessaminesheriff.org/command-staff/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ37", "name": "Rupert Wilhoit",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Carter.aspx", "source": "Kentucky Court of Justice, Carter County information page, listing 'H. Rupert Wilhoit III, Chief Regional District Judge, District Court, 37th Judicial District'", "verified": true},
+   "offices": [
+    {"office": "District Judge, 37th Judicial District (listed as Chief Regional District Judge)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Carter County information page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Carter.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-23", "name": "Jeff Hudson",
+   "official_page": {"url": "https://content.govdelivery.com/accounts/KYLOUISVILLE/bulletins/425037f", "source": "Louisville Metro Government's 'District 23 Update' bulletin of August 14, 2026, sent from Councilman Jeff Hudson's office", "verified": true},
+   "offices": [
+    {"office": "Louisville Metro Council member, District 23", "from": 2023, "to": "present", "source": "Louisville Public Media, Jan. 23, 2023: elected in November 2022 to replace James Peden, sworn in Jan. 3, 2023", "url": "https://www.lpm.org/news/2023-01-23/new-district-23-metro-council-member-wants-to-foster-bipartisanship", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-63912-council", "name": "Kim Thompson",
+   "official_page": {"url": "https://radcliff.org/your-government/", "source": "City of Radcliff, 'Your Government' page, which lists Kim Thompson among the six members after Mayor JJ Duvall under 'Your Radcliff Mayor and City Council'", "verified": true},
+   "offices": [
+    {"office": "Radcliff City Council member", "from": null, "to": "present", "source": "City of Radcliff, 'Your Government' page", "url": "https://radcliff.org/your-government/", "kind": "official", "verified": true}
+   ]}
+ ],
+ "removed": [
+  {"race_id": "2026-KY-21015-county-commissioner-3", "name": "Jesse A Brewer", "what": "official_page (boonecountyky.org) and office (commissionercorner.com)", "why": "neither host resolved on two tries; not confirmed"},
+  {"race_id": "2026-KY-M-31114-mayor", "name": "Henry Royse", "what": "office Mayor of Glasgow (glasgownews1.com)", "why": "host did not resolve on two tries; not confirmed"},
+  {"race_id": "2026-KY-M-48003-council-23", "name": "Jeff Hudson", "what": "past_party Republican 2022", "why": "the source is Wikipedia's members table, whose party column carries no citation; a news article calling him a Republican is not a party label on the record"},
+  {"race_id": "2026-KY-DJ37", "name": "Rupert Wilhoit", "what": "the parenthetical claim that the same listing is on the Morgan County page", "why": "only the Carter County page was re-opened; claim trimmed from the source wording"}
+ ]
+}

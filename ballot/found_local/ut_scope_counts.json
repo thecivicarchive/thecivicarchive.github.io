@@ -1,0 +1,35 @@
+{
+ "state": "UT",
+ "made": "2026-10-03",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 267,
+ "by_level": {
+  "statewide": 13,
+  "legislature": 192,
+  "court": 62,
+  "county": 0,
+  "city": 0,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 8,
+  "legislature": 90,
+  "court": 62,
+  "county": 0,
+  "city": 0,
+  "school": 0
+ },
+ "races": 160,
+ "on_the_november_list_in_all": 267,
+ "per_part": 30,
+ "parts": 9,
+ "cities_in": 0,
+ "city_candidates": 0,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "No city or school board race is on Utah's November 3, 2026 list in the database, so no place was picked by its population; the Census file is named so that the cities of 10,000 or more can be read from it. Utah elects its city and town officers in November of odd-numbered years (Utah Code 20A-1-202; next in 2027) and has no township governments. Its county officers and about half of each local school board are elected on November 3, 2026 (Utah Code 17-66-202 and 20A-14-202), but each county clerk certifies and posts those candidates for the county alone (Utah Code 20A-5a-210), and no county's list is loaded yet, so the scope is the Lieutenant Governor's General Election Certification: the State Board of Education (elected by district, with the statewide offices), the Legislature, and the judges on a yes-or-no retention vote, each the one name in the race, the justice court judges of cities and counties among them."
+}

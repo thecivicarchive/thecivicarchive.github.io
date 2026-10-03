@@ -1,0 +1,39 @@
+{
+ "part": 31,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit's own fetcher (states/net.py). All five candidates confirmed in part 31 of ky_scope.json. Corrected: Crigler's office no longer says he was elected to the unexpired term in November 2019 (the 2019 article only announces that election; the Clerk's office page confirms he is the clerk today); Brown's website 'how' now states what the site itself shows rather than the Branch Politics link, which was not re-checked.",
+ "note": "30 candidates in this part. The session's shared web-search allowance ran out after eight searches for this part, and WebFetch could not resolve most hosts (kycourts.gov, wcpo.com, georgebrownky.com), so pages were read with the kit's own fetcher (states/net.py). Most county sites tried (Laurel, Shelby, Jessamine, Muhlenberg, Estill, Livingston, Allen, Trimble, Wolfe, Gallatin, Magoffin, Menifee) did not resolve or refused; the Pulaski PVA site answered 403. Nothing was found that could be read for the constables, magistrates, jailer, surveyor, the Allen and Magoffin county attorneys, the Pulaski PVA, the district judge, the Covington, Glasgow and Paris city candidates, or the three school-board candidates, so they are left out. Covington's own Mayor and Commission page does not list Jay Fossett, so no office is recorded for him. Lambert's birth year is given by Wikipedia only as '1961 or 1962', so none is recorded. Brown is a sitting legislator with a record page: only his website and own words are recorded. Brown's campaign site is the standing site of his House District 77 committee (its footer reads 'Copyright 2014'; its issues list mentions the 2020 Census); it names him and the office. Walters is on the Jefferson County Republican Party's 2026 candidate page, which does not say endorsed; that is already in ballot/lean/ky_endorsements.json and is not repeated here.",
+ "candidates": [
+  {"race_id": "2026-KY-SC3", "name": "Debra Hembree Lambert",
+   "official_page": {"url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "source": "Kentucky Court of Justice, 3rd Supreme Court District page", "verified": true},
+   "offices": [
+     {"office": "Circuit Judge, Family Court Division, 28th Judicial Circuit (Lincoln, Pulaski and Rockcastle counties), appointed by Governor Paul E. Patton", "from": 1999, "to": 2007, "source": "Kentucky Court of Justice, 3rd Supreme Court District page ('appointed to that seat in 1999'; 'In 2007 ... resumed her private practice')", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true},
+     {"office": "Judge, Kentucky Court of Appeals (elected 2014; four years)", "from": 2015, "to": 2019, "source": "Kentucky Court of Justice, 3rd Supreme Court District page ('her election to the Court of Appeals in 2014'; 'after four years on the Kentucky Court of Appeals')", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true},
+     {"office": "Justice, Supreme Court of Kentucky, 3rd Supreme Court District (elected November 2018)", "from": 2019, "to": "present", "source": "Kentucky Court of Justice, 3rd Supreme Court District page", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true},
+     {"office": "Deputy Chief Justice of Kentucky (appointed by Chief Justice VanMeter)", "from": null, "to": 2025, "source": "Kentucky Court of Justice, 3rd Supreme Court District page", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true},
+     {"office": "Chief Justice of the Commonwealth of Kentucky (four-year term)", "from": 2025, "to": "present", "source": "Kentucky Court of Justice, 3rd Supreme Court District page ('a four-year term that started on January 7, 2025')", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true},
+     {"office": "Assistant Commonwealth's Attorney; City Attorney for the city of Mount Vernon", "from": null, "to": null, "source": "Kentucky Court of Justice, 3rd Supreme Court District page", "url": "https://kycourts.gov/Courts/Supreme-Court/Pages/Justice-Lambert.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH77", "name": "George A. Brown Jr.",
+   "website": {"url": "https://www.georgebrownky.com/", "how": "the site's heading reads 'George Brown for State Representative Democrat for House District KY 77', it calls him 'a Democratic candidate for State Representative in Kentucky's 77th Legislative District', and its footer reads 'Paid for by George Brown for KY 77th House District'", "verified": true},
+   "own_words": {"quote": "George Brown for State Representative Democrat for House District KY 77", "url": "https://www.georgebrownky.com/", "verified": true}},
+  {"race_id": "2026-KY-M-48003-council-17", "name": "Nancy-Lynne Walters",
+   "website": {"url": "https://www.nancylynnewalters.net/", "how": "the site reads 'Nancy-Lynne Walters Candidate for Louisville Metro Council District 17'", "verified": true},
+   "own_words": {"quote": "Endorsed by Freedom Housing PAC", "url": "https://www.nancylynnewalters.net/", "verified": true}},
+  {"race_id": "2026-KY-21015-county-clerk", "name": "Justin Crigler",
+   "official_page": {"url": "https://boonecountyclerk.ky.gov/home/our-office/message-from-the-clerk/", "source": "Boone County Clerk's office, 'Message From Your County Clerk' (signed Justin Crigler, Boone County Clerk)", "verified": true},
+   "offices": [
+     {"office": "Boone County Clerk (appointed by Judge/Executive Gary Moore in March 2019 after the death of Clerk Kenny Brown)", "from": 2019, "to": "present", "source": "NKyTribune, 'Crigler appointed Boone County Clerk to fill position vacated by Kenny Brown's death; election in Nov.' (March 27, 2019), and the Boone County Clerk's office page, which he signs as Boone County Clerk", "url": "https://nkytribune.com/2019/03/crigler-appointed-boone-county-clerk-to-fill-position-vacated-by-kenny-browns-death-election-in-nov/", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+     {"what": "candidate in the Republican primary for Boone County Clerk (narrowly defeated by Kenny Brown)", "year": 2010, "party": "Republican", "source": "NKyTribune, March 27, 2019: 'Crigler ran against Brown in the 2010 Republican primary and was narrowly defeated'", "url": "https://nkytribune.com/2019/03/crigler-appointed-boone-county-clerk-to-fill-position-vacated-by-kenny-browns-death-election-in-nov/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21125-sheriff", "name": "John Root",
+   "offices": [
+     {"office": "Laurel County Sheriff (elected 2010)", "from": 2011, "to": null, "source": "WYMT, 'Laurel County Sheriff John Root awarded 2019 Sheriff of the Year' (Sep. 13, 2019): 'Sheriff Root was elected in 2010 and took office in January 2011'", "url": "https://www.wymt.com/content/news/Laurel-County-Sheriff-John-Root-awarded-2019-Sheriff-of-the-Year-560218291.html", "kind": "secondary", "verified": true}
+   ]}
+ ]
+}

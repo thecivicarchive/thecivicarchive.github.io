@@ -1,0 +1,51 @@
+{
+ "part": 40,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "30 candidates in this part. The session's shared web-search allowance was used up after five searches, so the rest was found by reading official county, city and court sites and the pages already linked from the record (party candidate lists, the two campaign sites). Many county sites did not resolve (Carroll, Marion, Mercer, Pulaski, Simpson, Clinton, Owsley, Breckinridge) and Louisville's Metro Council pages answer 403, so most constables, magistrates, the jailer, the coroner and the school board candidates are left blank. Looked at and not recorded: Danville's City Commission page does not list Stephen P. Ellis; no Hopkinsville ward page lists Angelita O. Atkins; Woodford County's directory does not name Amanda Centers; Nick Wilson (a sitting legislator) has no campaign site that could be found. Party candidate lists that do not say endorsed (Fayette County Democrats for Angela Evans, Daviess County Democrats for Rhondalyn Randolph, Hardin County Republicans for Brad Luebbert, the Republican Party of Kentucky for Nick Wilson) are already in ballot/lean/ky_endorsements.json and are not repeated as endorsements. No birth year is recorded for Angela Evans. Verifier: every url re-opened (several through the kit's patient fetcher after the router lost lookups); all findings confirmed; one staff-post remark about a person not in this part's findings was taken out of this note (a job, not an office).",
+ "removed": [],
+ "candidates": [
+  {"race_id": "2026-KY-21067-county-attorney", "name": "Angela Evans",
+   "website": {"url": "https://www.electangelaevans.com/", "how": "linked beside 'County Attorney - Angela Evans' on the Fayette County Democratic Party's 2026 Action Center page; the site's title reads 'Angela Evans for County Attorney | Elect Angela Evans | Lexington' and it speaks of the County Attorney's Office and Fayette County", "verified": true},
+   "official_page": {"url": "https://fayettecountyattorney.com/about/meet-angela-c-evans/", "source": "Office of the Fayette County Attorney, 'Meet Angela C. Evans'", "verified": true},
+   "offices": [
+    {"office": "Fayette County Attorney", "from": 2022, "to": "present", "source": "Office of the Fayette County Attorney, 'Meet Angela C. Evans' (sworn in in 2022)", "url": "https://fayettecountyattorney.com/about/meet-angela-c-evans/", "kind": "official", "verified": true},
+    {"office": "Member, Lexington-Fayette Urban County Council, 6th District (three elected terms)", "from": 2015, "to": null, "source": "Office of the Fayette County Attorney, 'Meet Angela C. Evans' ('Elected in 2015')", "url": "https://fayettecountyattorney.com/about/meet-angela-c-evans/", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Won the nomination for Fayette County Attorney in the primary election, over incumbent Democrat Larry Roberts", "year": 2022, "party": "Democratic", "source": "WEKU, 'Challenger Angela Evans wins Fayette County Attorney nomination from incumbent Larry Roberts in Primary Election' (May 17, 2022), photo captioned 'Angela Evans Democrat'", "url": "https://www.weku.org/politics/2022-05-17/challenger-angela-evans-wins-fayette-county-attorney-nomination-from-incumbent-larry-roberts-in-primary-election", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH13", "name": "Rhondalyn Randolph",
+   "website": {"url": "https://www.rhondalynrandolph.com/", "how": "linked from her BallotReady profile; the site reads 'Committee to Elect Rhondalyn Randolph KY State Rep, District 13' and says she 'is running for KY State Representative, District 13'", "verified": true},
+   "offices": [
+    {"office": "Commissioner, Kentucky Martin Luther King Jr. State Commission", "from": null, "to": null, "source": "Owensboro Times, 'Randolph announces bid for Kentucky House seat in District 13' (January 13, 2026)", "url": "https://www.owensborotimes.com/news/election-2026/2026/01/randolph-announces-bid-for-kentucky-house-seat-in-district-13/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-5", "name": "Donna Lyvette Purvis",
+   "offices": [
+    {"office": "Member, Louisville Metro Council, District 5", "from": 2018, "to": "present", "source": "Wikipedia, 'Louisville Metro Council', table of members (year elected 2018), citing LouisvilleKY.gov's Districts 1-26 page", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Elected to the Louisville Metro Council, District 5, and sits there as a Democrat", "year": 2018, "party": "Democratic", "source": "Wikipedia, 'Louisville Metro Council', table of members (political affiliation Democratic, year elected 2018), citing LouisvilleKY.gov", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21179-county-executive", "name": "Tim Hutchins",
+   "official_page": {"url": "https://nelsoncountyky.gov/fiscal-court-officials/", "source": "Nelson County Government, 'Fiscal Court Officials'", "verified": true},
+   "offices": [
+    {"office": "Nelson County Judge/Executive", "from": null, "to": "present", "source": "Nelson County Government, 'Fiscal Court Officials' ('Tim Hutchins, Judge Executive')", "url": "https://nelsoncountyky.gov/fiscal-court-officials/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21141-county-assessor", "name": "Timothy Rainwaters",
+   "official_page": {"url": "https://www.logancountyky.gov/directory.aspx?did=31", "source": "Logan County, Kentucky, staff directory: Property Valuation Administrator (PVA)", "verified": true},
+   "offices": [
+    {"office": "Logan County Property Valuation Administrator", "from": null, "to": "present", "source": "Logan County, Kentucky, staff directory ('Timothy Rainwaters, Property Valuation Administrator (PVA)')", "url": "https://www.logancountyky.gov/directory.aspx?did=31", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ4-1", "name": "David G. Massamore",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Hopkins.aspx", "source": "Kentucky Court of Justice, Hopkins County information page", "verified": true},
+   "offices": [
+    {"office": "District Judge, 4th Judicial District, Division 1", "from": null, "to": "present", "source": "Kentucky Court of Justice, Hopkins County information page ('David G. Massamore, Judge, District Court, 4th Judicial District, Division 1')", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Hopkins.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21127-county-executive", "name": "Rick Blackburn",
+   "offices": [
+    {"office": "Lawrence County Magistrate, District 4", "from": null, "to": null, "source": "Lawrence County, Kentucky, 'Elected Officials' ('Magistrates: ... District 4 - Rick Blackburn'; the page carries no date)", "url": "https://lawrencecounty.ky.gov/Pages/Elected-Officials.aspx", "kind": "official", "verified": true}
+   ]}
+ ]
+}

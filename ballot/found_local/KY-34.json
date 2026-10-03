@@ -1,0 +1,76 @@
+{
+ "part": 34,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after six searches for this part, so the rest was read from government pages a script can open (county, city, school and court sites, the Department of Revenue's PVA Directory). Left blank, because no page that could be read named them: Tim Meador, Nikki Anthony-Armes, Chris Flynn, Joel Shinkle, Aaron J Emmick, J. R. Stanley, James \"Woody\" Thomas, Glenn Gordon (Livingston County's site has an expired certificate), Kerry K. Howard, Joe Sorrell (Menifee's magistrates page does not list him), Brock Lisby, Bob G Temple (Trimble County's sheriff page names another sheriff), Ryan Scott, Tommy Burris, Aundra Lett Jackson, Paul K Bowling and Jonathan Talley (their boards' pages do not list them), and Josh Calloway (a sitting legislator; no campaign site found). The PVA Directory is a 41 MB PDF; the page numbers given are the PDF's.",
+ "removed": [
+  {"race_id": "2026-KY-M-48003-council-21", "name": "Betsy Ruhe", "what": "official_page (louisvilleky.gov 'About Betsy Ruhe')", "why": "answered 403 to both the kit's fetcher and WebFetch; not confirmed"}
+ ],
+ "candidates": [
+  {"race_id": "2026-KY-21015-county-commissioner-2", "name": "John Schickel",
+   "born": {"year": 1954, "date": null, "source": "Wikipedia, John Schickel", "url": "https://en.wikipedia.org/wiki/John_Schickel", "kind": "secondary", "verified": true},
+   "offices": [
+    {"office": "Boone County Jailer", "from": 1987, "to": 2001, "source": "Wikipedia, John Schickel", "url": "https://en.wikipedia.org/wiki/John_Schickel", "kind": "secondary", "verified": true},
+    {"office": "United States Marshal for the Eastern District of Kentucky", "from": 2002, "to": 2008, "source": "Wikipedia, John Schickel", "url": "https://en.wikipedia.org/wiki/John_Schickel", "kind": "secondary", "verified": true},
+    {"office": "Kentucky Senate, District 11", "from": 2009, "to": 2025, "source": "Wikipedia, John Schickel", "url": "https://en.wikipedia.org/wiki/John_Schickel", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Kentucky Senate, District 11, seat held as a Republican (2009 to 2025)", "year": 2009, "party": "Republican", "source": "Wikipedia, John Schickel (the article also records his November 18, 2025 announcement for the Boone County commission)", "url": "https://en.wikipedia.org/wiki/John_Schickel", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21041-county-assessor", "name": "Rob Robertson",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, Property Valuation Administrators Directory 2022-2026 (updated January 2026), page 33: Carroll County, 'Rob Robertson, PVA'", "verified": true},
+   "offices": [
+    {"office": "Carroll County Property Valuation Administrator", "from": 2006, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, page 33 ('PVA since December 2006')", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21053-county-assessor", "name": "Pat Campbell",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, Property Valuation Administrators Directory 2022-2026 (updated January 2026), page 39: Clinton County, 'Pat Campbell, PVA'", "verified": true},
+   "offices": [
+    {"office": "Clinton County Property Valuation Administrator", "from": 2010, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, page 39 ('PVA since December 2010')", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21113-magistrate-5", "name": "Adam Teater",
+   "official_page": {"url": "https://jessamineky.gov/jc-officials/adam-teater/", "source": "Jessamine County, 'Magistrate Adam Teater' (elected Magistrate for the Fifth District; District 5 information)", "verified": true},
+   "offices": [
+    {"office": "Jessamine County Magistrate, District 5 (Fiscal Court)", "from": null, "to": "present", "source": "Jessamine County's page for Magistrate Adam Teater", "url": "https://jessamineky.gov/jc-officials/adam-teater/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21177-sheriff", "name": "William E Ward",
+   "official_page": {"url": "https://muhlenbergcounty.ky.gov/elected/Pages/default.aspx", "source": "Muhlenberg County, Elected Officials: 'William Ward, Muhlenberg County Sheriff'", "verified": true},
+   "offices": [
+    {"office": "Muhlenberg County Sheriff", "from": null, "to": "present", "source": "Muhlenberg County, Elected Officials", "url": "https://muhlenbergcounty.ky.gov/elected/Pages/default.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21189-county-assessor", "name": "Mike Reynolds",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, Property Valuation Administrators Directory 2022-2026 (updated January 2026), page 107: Owsley County, 'Mike Reynolds, PVA'", "verified": true},
+   "offices": [
+    {"office": "Owsley County Property Valuation Administrator", "from": 2022, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, page 107 ('PVA since December 2022')", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21199-county-executive", "name": "Marshall Todd",
+   "official_page": {"url": "https://www.pulaskigov.com/county-government/", "source": "Pulaski County Government: 'Marshall Todd, Pulaski County Judge/Executive'", "verified": true},
+   "offices": [
+    {"office": "Pulaski County Judge/Executive", "from": 2023, "to": "present", "source": "WYMT, 'Marshall Todd wins Pulaski County Judge-Executive race' (May 19, 2022, after the primary: judge-executive elect, to be sworn in the next year); held today per Pulaski County's own page", "url": "https://www.wymt.com/2022/05/19/marshall-todd-wins-pulaski-county-judge-executive-race", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ35-2", "name": "Tommy \"T. J.\" May",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pike.aspx", "source": "Kentucky Court of Justice, Pike County information: 'Tommy R. May', Judge, 35th Judicial District, Division 2", "verified": true},
+   "offices": [
+    {"office": "District Judge, 35th Judicial District (Pike County), Division II", "from": null, "to": "present", "source": "Kentucky Court of Justice, Pike County information page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pike.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-17848-council", "name": "Tim Downing",
+   "official_page": {"url": "https://www.covingtonky.gov/government/mayor-and-commission", "source": "City of Covington, Mayor and Commission: 'Commissioner Tim Downing'", "verified": true},
+   "offices": [
+    {"office": "Covington City Commissioner (Board of Commissioners)", "from": null, "to": "present", "source": "City of Covington, Mayor and Commission", "url": "https://www.covingtonky.gov/government/mayor-and-commission", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-21", "name": "Betsy Ruhe",
+   "offices": [
+    {"office": "Louisville Metro Council, District 21", "from": 2023, "to": "present", "source": "Wikipedia, Louisville Metro Council, members table ('District 21: Betsy Ruhe, Democratic, 2022', the year she was elected; members take office in January)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Elected to Louisville Metro Council, District 21, a body whose members sit by party; listed as Democratic", "year": 2022, "party": "Democratic", "source": "Wikipedia, Louisville Metro Council, members table (members as of July 2026, cited)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-03990-school-board-4", "name": "Estle Swain",
+   "official_page": {"url": "https://www.mccreary.kyschools.us/board-of-education", "source": "McCreary County Schools, Board of Education: 'Estle Swain, Title: District #4 - Vice-Chairman'", "verified": true},
+   "offices": [
+    {"office": "McCreary County Board of Education, District 4 (vice-chairman)", "from": null, "to": "present", "source": "McCreary County Schools, Board of Education", "url": "https://www.mccreary.kyschools.us/board-of-education", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH79", "name": "Chad R. Aull",
+   "website": {"url": "https://www.chadaull.com/", "how": "campaign site headed 'Chad Aull for State Representative', describing Kentucky's 79th district", "verified": true}}
+ ]
+}

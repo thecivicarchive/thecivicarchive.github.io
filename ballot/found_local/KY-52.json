@@ -1,0 +1,46 @@
+{
+ "part": 52,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit's fetcher on 2026-10-03; each fact was found on its page as recorded and each candidate is tied to the race by the county or city and the office or district. One correction: Witt's office 'from' was 1999, a year the page does not state (it says she won election in 1998); set to null, with 'first elected 1998' kept in the office wording.",
+ "note": "30 candidates in this part. The session's shared web-search allowance was already used up when this part began, so no search was run: pages were read only from known official addresses and from the links on party pages already listed in ballot/lean/ky_endorsements.json, with the kit's own fetcher (states/net.py). Campaign sites were found for Johnson (linked from the Madison County Democratic Party's Vote page), Edwards (same page) and Witt (linked from the Fayette County Democratic Party's 2026 Action Center). Party listings that do not say endorsed are already in ky_endorsements.json and are not repeated here as endorsements. Checked and not found: Hopkinsville's council page (Ward 8 is held by another member, so Crisp is not an incumbent), Richmond's commission page (Edwards is not a sitting commissioner), Marion County's magistrates (District 3 is held by his opponent, so nothing for Larry Smith), Logan County District 6 (held by his opponent, Thomas Bouldin), Woodford District 4 (held by her opponent, Kelly Carl), Simpson County's fiscal court (West District held by Jeffery Burr), Henry County's officials (the PVA listed is Jason Scriber), Kenton County's constables (Turner not listed), Hardin County's directory (no surveyor listed). Sites that did not resolve or answered nothing usable: Lyndon, Bourbon County and Bourbon schools' board page (no names in the page text), Green County schools (self-signed certificate), Pendleton and Mercer county officials pages (names not in the page text), Crittenden County, Garrard County (certificate for another host). McPherson is a sitting legislator with a record page; no campaign site was found for him. Nothing could be read for the constables, Reik, Downey, Huddleston, Chad Duke, Popham, Marshel Davis, Ott, Crebessa, Strong, Allison Cox, Nelson or Buchanan, so they are left out.",
+ "candidates": [
+  {"race_id": "2026-KY-21005-magistrate-2", "name": "Mike Riley",
+   "official_page": {"url": "https://andersoncounty.ky.gov/government/Pages/Magistrates.aspx", "source": "Anderson County Fiscal Court, Magistrates page ('District 2 Mike Riley')", "verified": true},
+   "offices": [
+     {"office": "Anderson County Magistrate, District 2 (serving today)", "from": null, "to": null, "source": "Anderson County Fiscal Court, Magistrates page ('District 2 Mike Riley')", "url": "https://andersoncounty.ky.gov/government/Pages/Magistrates.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21067-sheriff", "name": "Kathy H. Witt",
+   "website": {"url": "https://sheriffkathywitt.com/", "how": "linked from the Fayette County Democratic Party's 2026 Action Center; the site is titled 'Sheriff Kathy Witt | Fayette County, KY — Re-Elect in 2026'", "verified": true},
+   "official_page": {"url": "https://www.fayettesheriff.com/", "source": "Fayette County Sheriff's Office home page, which names Kathy H. Witt as Fayette County Sheriff", "verified": true},
+   "offices": [
+     {"office": "Fayette County Sheriff (first elected 1998; holds the office today)", "from": null, "to": null, "source": "Re-elect Sheriff Kathy Witt campaign, About page ('winning election as Lexington's first female Sheriff in 1998'; 'Today she is one of only 3% of female sheriffs to hold this office')", "url": "https://sheriffkathywitt.com/about/", "kind": "campaign", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21167-magistrate-3", "name": "Julie Peyton Popplewell",
+   "offices": [
+     {"office": "Mercer County Magistrate, District 3 (seeking reelection in 2026)", "from": null, "to": null, "source": "Mercer County Kentucky Democrats, 'Meet The 2026 Democratic Candidates' ('the Democratic candidate for Mercer County Magistrate in District 3. She is seeking reelection to represent her district on the Fiscal Court')", "url": "https://www.mercerdemsky.org/2026-candidates", "kind": "party", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-24274-mayor", "name": "Jeff Gregory",
+   "official_page": {"url": "https://www.elizabethtownky.org/government/mayor_city_council/index.php", "source": "City of Elizabethtown, Mayor & City Council page ('Mayor Jeff Gregory, Mayor, City of Elizabethtown')", "verified": true},
+   "offices": [
+     {"office": "Mayor of Elizabethtown (term expires December 2026)", "from": 2019, "to": null, "source": "City of Elizabethtown, Mayor & City Council page ('Elected: January 2019 Term Expires: December 2026')", "url": "https://www.elizabethtownky.org/government/mayor_city_council/index.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-65226-council", "name": "Myron \"Mike\" Edwards",
+   "website": {"url": "https://www.votemedwardsrky.com/", "how": "linked from the Madison County Democratic Party's Vote page; titled 'Mike Edwards for Richmond City Commissioner', footer 'Campaign Fund of Myron \"Mike\" Edwards'", "verified": true},
+   "offices": [
+     {"office": "Member, Richmond Human Rights Commission (serving today)", "from": null, "to": null, "source": "Mike Edwards campaign, Meet Mike page ('I currently serve as a member of the Richmond Human Rights Commission')", "url": "https://www.votemedwardsrky.com/meet_mike", "kind": "campaign", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-04290-school-board-5", "name": "Ricky Pennington",
+   "official_page": {"url": "https://www.morgan.kyschools.us/board-of-education", "source": "Morgan County Schools, Board of Education page ('Ricky Pennington Title: Board Member ... District Serving: 5')", "verified": true},
+   "offices": [
+     {"office": "Morgan County Board of Education member, District 5 (term expiring December 2026)", "from": null, "to": null, "source": "Morgan County Schools, Board of Education page ('District Serving: 5'; 'Term Expiration: December 2026')", "url": "https://www.morgan.kyschools.us/board-of-education", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH91", "name": "David Johnson",
+   "website": {"url": "https://davidjohnsonky91.com", "how": "linked from the Madison County Democratic Party's Vote page beside 'David Johnson, Kentucky State House 91'; titled 'David Johnson for State Representative Campaign', 'HD 91st'", "verified": true},
+   "offices": [
+     {"office": "Member, Richmond Human Rights Commission (appointed by Mayor Robert Blythe; former)", "from": null, "to": null, "source": "David Johnson for State Representative campaign site ('As a former member, appointed to the Richmond Human Rights Commission by Mayor Robert Blythe')", "url": "https://davidjohnsonky91.com", "kind": "campaign", "verified": true}
+   ]}
+ ]
+}

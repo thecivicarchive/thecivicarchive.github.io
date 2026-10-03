@@ -1,0 +1,37 @@
+{
+ "part": 38,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was used up after four searches for this part, so the rest was read from official pages reached directly (the Legislative Research Commission, Kentucky Courts' county pages, county and city sites); many county sites did not resolve, and Radcliff's site refused the connection. Most of the 30 candidates (magistrates, constables, coroners, jailer, sheriffs, county judge/executives, school boards) were not found on any page that could be read and are left blank. Not the same person or not in office, so nothing recorded: Woodford County's County Attorney page names Alan J. George, not Carmine G. Iaccarino; Hopkinsville's Ward 1 page names Vance Smith, not Chance Andrew Tatum; Danville's Meet the Commission list does not include Jonah Cline. Party pages that list Gooch, Looney, Gary Ginn and John Bays without saying endorsed are already in ballot/lean/ky_endorsements.json and are not repeated here. Keisha Dorsey's age (33 at her swearing-in) does not settle one birth year, so none is recorded. Jim Gooch Jr. sits in the Legislature with a record page; only his official page and his earlier runs under the Democratic label are recorded. Verifier (2026-10-03): every url re-opened and every finding confirmed; Gooch's past-party wording and the source of Dorsey's council years corrected to what the pages say.",
+ "candidates": [
+  {"race_id": "2026-KY-SH12", "name": "Jim Gooch Jr.",
+   "official_page": {"url": "https://legislature.ky.gov/Legislators/Pages/Legislator-Profile.aspx?DistrictNumber=12", "source": "Kentucky General Assembly, Legislative Research Commission: Representative Jim Gooch Jr. (R), House 1995 - Present", "verified": true},
+   "past_party": [
+    {"what": "Kentucky House of Representatives, District 12: won the Democratic primary (as in every election from 1994 on); switched from the Democratic to the Republican Party in December 2015", "year": 2014, "party": "Democratic", "source": "Wikipedia, Jim Gooch Jr. (with citations)", "url": "https://en.wikipedia.org/wiki/Jim_Gooch_Jr.", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-3", "name": "Keisha Dorsey",
+   "offices": [
+    {"office": "Louisville Metro Council, District 3", "from": 2019, "to": 2023, "source": "Louisville Public Media: elected to the council in 2018 (article of 2022-04-25); re-elected in November 2022 and resigned January 4, 2023 to take a job in Mayor Craig Greenberg's administration (article of 2023-01-09)", "url": "https://lpm.org/news/2023-01-09/activist-former-louisville-mayoral-candidate-to-run-for-vacant-metro-council-seat", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Louisville Metro Council District 3, Democratic primary (as the incumbent)", "year": 2022, "party": "Democratic", "source": "Louisville Public Media (WFPL), 'Primary election 2022: Metro Council District 3'", "url": "https://www.lpm.org/news/2022-04-25/primary-election-2022-metro-council-district-3", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ38-2", "name": "Daniel Boling",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Ohio.aspx", "source": "Kentucky Court of Justice, Ohio County page: Daniel Boling, Judge, District Court, 38th Judicial District, Division 2", "verified": true},
+   "offices": [
+    {"office": "District Judge, 38th Judicial District, Division 2", "from": null, "to": "present", "source": "Kentucky Court of Justice, Ohio County page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Ohio.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21167-clerk-of-court-S", "name": "Jennifer B. Edwards",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Mercer.aspx", "source": "Kentucky Court of Justice, Mercer County page: Circuit Court Clerk: Jennifer Edwards", "verified": true},
+   "offices": [
+    {"office": "Mercer County Circuit Court Clerk", "from": null, "to": "present", "source": "Kentucky Court of Justice, Mercer County page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Mercer.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21179-county-clerk", "name": "Jeanette Hall Sidebottom",
+   "official_page": {"url": "https://nelson.kycountyclerk.us/", "source": "Nelson County Clerk's Office: 'Jeanette Hall Sidebottom – County Clerk' (linked from the Nelson County government site)", "verified": true},
+   "offices": [
+    {"office": "Nelson County Clerk", "from": null, "to": "present", "source": "Nelson County Clerk's Office website", "url": "https://nelson.kycountyclerk.us/", "kind": "official", "verified": true}
+   ]}
+ ]
+}

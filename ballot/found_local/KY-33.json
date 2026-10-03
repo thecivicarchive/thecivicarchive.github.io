@@ -1,0 +1,13 @@
+{"part": 33, "of": 117, "researched": "2026-10-03", "verified_on": "2026-10-03", "candidates": [
+  {"race_id": "2026-KY-DJ35-1", "name": "Robert F. Wright",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pike.aspx", "source": "Kentucky Court of Justice, Pike County court information (lists Robert F. Wright, Judge, District Court, 35th Judicial District, Division 1)", "verified": true},
+   "offices": [{"office": "District Judge, Division 1, 35th Judicial District (Pike County)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Pike County court information", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Pike.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-M-48003-council-19", "name": "Anthony Piagentini",
+   "offices": [{"office": "Louisville Metro Council member, District 19 (first elected 2018)", "from": 2018, "to": "present", "source": "The Courier Journal (via Yahoo News): the incumbent councilman for District 19, first elected in 2018, seeking reelection in 2026", "url": "https://www.yahoo.com/news/articles/see-whos-running-louisville-offices-100613917.html", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-KY-SH10", "name": "John B. Whipple",
+   "website": {"url": "https://whipple.run", "how": "The site is headed John Whipple, Kentucky House District 10; the candidate's own campaign site.", "verified": true},
+   "past_party": [{"what": "Candidate for State Representative, 10th Representative District (2024 general election; Josh Calloway won 15,702 to 7,047)", "year": 2024, "party": "Democratic Party", "source": "Kentucky State Board of Elections, 2024 General Election Certification as Amended on December 9th 2024", "url": "https://elect.ky.gov/results/2020-2029/Documents/2024%20General%20Election%20Certification%20as%20Amended%20on%20December%209th%202024.pdf", "kind": "official", "verified": true}]}
+],
+"removed": [
+  {"race_id": "2026-KY-DJ35-1", "name": "Robert F. Wright", "field": "review", "why": "Not a contradiction: the Kentucky rows never mark incumbency for court, county, city or school races (0 of 142 court candidacies are marked), so incumbent 0 means not recorded, not 'not the incumbent'. The court page itself is confirmed and kept under official_page and offices."}
+]}

@@ -1,0 +1,97 @@
+{
+ "rule": "Utah's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Utah elects no governor or other statewide executive officer in 2026: the Governor and Lieutenant Governor, Attorney General, State Auditor and State Treasurer were elected in 2024 and are next on the ballot in 2028. The state races voters choose in November are eight seats on the State Board of Education, the Legislature, and retention votes on judges (one justice of the Supreme Court and six judges of the Court of Appeals statewide). No poll of any of them by anyone was found, so no pollster in AAPOR's Transparency Initiative has published one and none is left out. The polls of Utah published this year were of the races for Congress (on the Congress pages) and of ballot questions, which are not contests between people.",
+ "races": {
+  "2026-UT-SCRET-POHLMAN": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_elections",
+    "checked": "2026-10-03",
+    "note": "Justice of the Supreme Court, retention vote on Jill M. Pohlman. No poll of this retention vote was found: Wikipedia's page on Utah's 2026 elections lists no poll of a state race (read 2026-10-03), and two news searches found reporting on the vote (the state Republican Party's call at its April convention to vote against retaining the justices) but no published poll. Justice Diana Hagen, who was also to stand for retention, resigned on May 8, 2026."
+   }
+  },
+  "2026-UT-SBOE1": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 1. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE2": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 2. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE4": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 4. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE5": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 5. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE7": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 7 (the rest of an unexpired term). No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE8": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 8. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE11": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 11. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  },
+  "2026-UT-SBOE14": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Utah_State_Board_of_Education_election",
+    "checked": "2026-10-03",
+    "note": "State Board of Education, District 14. No poll of this race by anyone was found: Wikipedia's page on the Board's 2026 elections has no polling section (read 2026-10-03), and a news search found none."
+   }
+  }
+ }
+}

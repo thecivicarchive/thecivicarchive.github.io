@@ -1,0 +1,291 @@
+{
+ "part": 51,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's web-search allowance was used up before this part began, so no searches were made; only government pages reachable at addresses linked from county, city and court home pages were read (WebFetch and the kit's own fetcher). Campaign websites, birth years, endorsements and party records could not be looked for without search and are left blank. Contact columns on the county pages were never recorded. Boone County Schools' board page does not list Linda Kunkel Schild; Richmond's commissioner page gives no start year for Mike Brewer; Hardin County's directory gives no start year for Keith Taul; Elizabethtown's council page did not name Titius Sublett; Johnson, Bourbon, Union, Woodford, Bullitt, Lee, Simpson, Nelson and Fayette pages tried did not name the candidates in this part.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21005-magistrate-1",
+   "name": "Rodney Durr",
+   "official_page": {
+    "url": "https://andersoncounty.ky.gov/government/Pages/Magistrates.aspx",
+    "source": "Anderson County, Magistrates page: 'District 1 Rodney Durr'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Anderson County Magistrate, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Anderson County, Magistrates page",
+     "url": "https://andersoncounty.ky.gov/government/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21043-constable-4",
+   "name": "Jhan B Jarrell",
+   "official_page": {
+    "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx",
+    "source": "Carter County, County Officials page: 'Constables ... District 4 - Jhan Jarrell'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carter County Constable, District 4",
+     "from": null,
+     "to": "present",
+     "source": "Carter County, County Officials page",
+     "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21079-magistrate-1",
+   "name": "Chris Davis",
+   "official_page": {
+    "url": "https://garrardcountyky.gov/elected-officials/",
+    "source": "Garrard County, Elected Officials page: 'Chris Davis, Magistrate, District 1'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Garrard County Magistrate, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Garrard County, Elected Officials page",
+     "url": "https://garrardcountyky.gov/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-county-executive",
+   "name": "Keith Taul",
+   "official_page": {
+    "url": "https://www.hardincountyky.gov/Directory.aspx?EID=39",
+    "source": "Hardin County staff directory: 'Keith Taul, Judge/Executive'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hardin County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Hardin County staff directory",
+     "url": "https://www.hardincountyky.gov/Directory.aspx?EID=39",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-coroner",
+   "name": "Michael L Paris",
+   "official_page": {
+    "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+    "source": "Henry County, Elected Officials page: 'Coroner Mike Paris'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Henry County Coroner",
+     "from": null,
+     "to": "present",
+     "source": "Henry County, Elected Officials page (listed as Mike Paris)",
+     "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21141-magistrate-5",
+   "name": "Anne Churchhill Crawford",
+   "official_page": {
+    "url": "https://logancounty.ky.gov/government/fiscal-court/district-5-magistrate/",
+    "source": "Logan County, District 5 Magistrate page: 'Anne Crawford, District 5 Magistrate'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Logan County Magistrate, District 5",
+     "from": null,
+     "to": "present",
+     "source": "Logan County, District 5 Magistrate page",
+     "url": "https://logancounty.ky.gov/government/fiscal-court/district-5-magistrate/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21155-magistrate-3",
+   "name": "Craig Allen Bishop",
+   "official_page": {
+    "url": "https://marioncounty.ky.gov/Elected-Officials/Pages/default.aspx",
+    "source": "Marion County, Magistrates page: 'Craig Bishop, Magistrate - District 3'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marion County Magistrate, District 3",
+     "from": null,
+     "to": "present",
+     "source": "Marion County, Magistrates page",
+     "url": "https://marioncounty.ky.gov/Elected-Officials/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21167-magistrate-2",
+   "name": "Tim Darland",
+   "official_page": {
+    "url": "https://mercercounty.ky.gov/fiscal-court/magistrates/",
+    "source": "Mercer County, Magistrates page: district 2, Tim Darland",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mercer County Magistrate, District 2",
+     "from": null,
+     "to": "present",
+     "source": "Mercer County, Magistrates page",
+     "url": "https://mercercounty.ky.gov/fiscal-court/magistrates/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21191-county-clerk",
+   "name": "Kinley Glahn Scott",
+   "official_page": {
+    "url": "http://pendletonwp.clerkinfo.net/",
+    "source": "Pendleton County Clerk's office site (linked from pendletoncounty.ky.gov): 'Kinley G. Scott, Pendleton County Clerk'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Pendleton County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Pendleton County Clerk's office site, linked from the county's official site",
+     "url": "http://pendletonwp.clerkinfo.net/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21201-magistrate-1",
+   "name": "Rita Goddard",
+   "official_page": {
+    "url": "https://robertsoncounty.ky.gov/elected/Pages/Magistrates.aspx",
+    "source": "Robertson County, County Magistrates page: 'Precinct #1: Rita Goddard'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Robertson County Magistrate, Precinct (District) 1",
+     "from": null,
+     "to": "present",
+     "source": "Robertson County, County Magistrates page",
+     "url": "https://robertsoncounty.ky.gov/elected/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ46-1",
+   "name": "Bradley S. Butler",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Breckinridge.aspx",
+    "source": "Kentucky Court of Justice, Breckinridge County information: 'Judge District Court 46th Judicial District Division 1'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 46th Judicial District, Division 1",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Breckinridge County information page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Breckinridge.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-37918-council-7",
+   "name": "Clayton Sumner",
+   "official_page": {
+    "url": "https://www.hopkinsvilleky.us/departments/city_council/ward7.php",
+    "source": "City of Hopkinsville, Ward 7 page: 'Councilmember Louis Clayton Sumner has served on City Council since 2025.'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hopkinsville City Council, Ward 7",
+     "from": 2025,
+     "to": "present",
+     "source": "City of Hopkinsville, Ward 7 page",
+     "url": "https://www.hopkinsvilleky.us/departments/city_council/ward7.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Hopkinsville/Christian County Emergency Communications Center Board",
+     "from": null,
+     "to": "present",
+     "source": "City of Hopkinsville, Ward 7 page",
+     "url": "https://www.hopkinsvilleky.us/departments/city_council/ward7.php",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Pennyrile Solid Waste Management Authority",
+     "from": null,
+     "to": "present",
+     "source": "City of Hopkinsville, Ward 7 page",
+     "url": "https://www.hopkinsvilleky.us/departments/city_council/ward7.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-65226-council",
+   "name": "Mike Brewer",
+   "official_page": {
+    "url": "https://richmondky.gov/government/board_of_commissioners.php",
+    "source": "City of Richmond, Board of Commissioners page: Mike Brewer, Commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Richmond City Commissioner",
+     "from": null,
+     "to": "present",
+     "source": "City of Richmond, Board of Commissioners page",
+     "url": "https://richmondky.gov/government/board_of_commissioners.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "corrections": [
+  "Mike Brewer: official_page moved from the commissioner detail page (which gives no title) to the Board of Commissioners page, which names him Commissioner."
+ ]
+}

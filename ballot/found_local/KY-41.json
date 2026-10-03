@@ -1,0 +1,74 @@
+{"part": 41, "of": 117, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened on 2026-10-03 through the kit's fetcher. Recap sheets: the contest totals were added up again precinct by precinct and agree with every figure recorded (Lamb 67,099 to 33,315; Larison 33,827 unopposed; Starks 1,391 to Dunn 1,336; Ross 5,426 unopposed; Rakes 4,120 unopposed; Strunk 3,135 unopposed; Fleming 638 to Carver 622; Keel 5,640 unopposed; DeRoche third of the Radcliff field with 2,305 in 2022 and fourth with 2,781 in the 2024 Hardin recap). Two corrections: Susan Lamb's council service is stated on the clerk's page as 8 years (4 terms) with no years, so the years 2015 to 2022 were taken out; Steve Keel's source no longer carries the unchecked remark about the 2024 recap and the city's council page, which this verification did not re-open.",
+ "note": "30 candidates in this part. The session's shared web-search allowance was already used up after four searches, so most of the work was reading the State Board of Elections' official recap sheets (elect.ky.gov, through the kit's patient fetcher) for the 2022 general election and the 2023 and 2024 general elections, plus official county, city and court pages. Many counties' 2022 and all 2018 recap sheets are scanned images with no text (Anderson, Breckinridge, Carroll, Clinton, Garrard, Johnson, Lawrence, Mercer, Nelson, Owsley, Union, Hopkins), so most constables, magistrates, the jailer, the coroner and the surveyor there are left blank. Looked at and not recorded: Josh Branscum's campaign address (joshbranscum.com, linked from a voter guide) answers with a CAPTCHA page, so it was not opened and no website is recorded; Susan Lamb's old council site (lambforcouncil.com) does not answer and was a council campaign, not this race; Steve Southerland ran for Danville City Commission in 2022 and did not win (no office recorded; the race is nonpartisan); Ray Barker, Nathan Myers, Jacqueline Renee Anthony, Donna Haynes and the three school board candidates do not appear in the readable 2022 or 2024 recaps of their counties; Boone County's elected-officials page lists no surveyor; Hopkinsville's council page lists Michael Velez Sr. for Ward 10, not Steve Keel. Louisville Metro Council races are printed without a party on the 2026 ballot (another part checked the 2026 primary recap), so the 'Nonpartisan office' on District 5 is not a review item. Chuck Fleming ran as a Democrat in 2022 and is on the 2026 list as a Republican; both are recorded as they stand. An office 'from 2023' means the term won in November 2022 (Kentucky terms begin in January); earlier terms were not checked because the 2018 recap sheets are scans.",
+ "candidates": [
+  {"race_id": "2026-KY-21067-county-clerk", "name": "Susan Lamb",
+   "official_page": {"url": "https://www.fayettecountyclerk.com/web/about/countyclerk.htm", "source": "Fayette County Clerk's Office, 'About the Clerk'", "verified": true},
+   "offices": [
+     {"office": "Fayette County Clerk", "from": 2023, "to": "present", "source": "Fayette County Clerk's Office, 'About the Clerk' ('In 2023, Susan made her mark in history as Lexington's first female County Clerk'; 'now serving as the Fayette County Clerk')", "url": "https://www.fayettecountyclerk.com/web/about/countyclerk.htm", "kind": "official", "verified": true},
+     {"office": "Member, Lexington-Fayette Urban County Council (8 years, 4 terms)", "from": null, "to": null, "source": "Fayette County Clerk's Office, 'About the Clerk' ('8 years (4 terms) on Lexington-Fayette Urban County Council'; years not stated)", "url": "https://www.fayettecountyclerk.com/web/about/countyclerk.htm", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "County Clerk (Unexpired Term), Fayette County general election, November 7, 2023; won", "year": 2023, "party": "Democratic", "source": "Kentucky State Board of Elections, 2023 General Election recap sheet, Fayette County (printed 'Susan LAMB DEM')", "url": "https://elect.ky.gov/results/2020-2029/2023ElectionReports/GeneralRecaps/Fayette.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21015-county-surveyor", "name": "Greg Larison",
+   "offices": [
+     {"office": "Boone County Surveyor", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Boone County: 'Gregory A. LARISON REP', the only candidate for County Surveyor (term from January 2023)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boone%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "County Surveyor, Boone County general election, November 8, 2022; unopposed, elected", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Boone County (printed 'Gregory A. LARISON REP')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boone%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21101-magistrate-5", "name": "Bill \"Stephens\" Starks",
+   "offices": [
+     {"office": "Henderson County Magistrate, 5th Magisterial District", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Henderson County: Magistrate 5th Magisterial District, Bill \"Stephens\" STARKS DEM 1,391, Timothy DUNN REP 1,336 (precinct totals added up; term from January 2023)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henderson%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Magistrate, 5th Magisterial District, Henderson County general election, November 8, 2022; won", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Henderson County (printed 'Bill \"Stephens\" STARKS DEM')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henderson%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21141-county-attorney", "name": "Joseph E Ross",
+   "offices": [
+     {"office": "Logan County Attorney", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Logan County: 'Joe ROSS DEM', the only candidate for County Attorney (the term won in November 2022, from January 2023; earlier terms not checked)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "County Attorney, Logan County general election, November 8, 2022; unopposed, elected", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Logan County (printed 'Joe ROSS DEM')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21155-county-assessor", "name": "Terry \"Catfish\" Rakes",
+   "offices": [
+     {"office": "Marion County Property Valuation Administrator", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Marion County: 'Terry \"Catfish\" RAKES DEM', the only candidate for Property Valuation Administrator (the term won in November 2022, from January 2023; earlier terms not checked)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Property Valuation Administrator, Marion County general election, November 8, 2022; unopposed, elected", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Marion County (printed 'Terry \"Catfish\" RAKES DEM')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21199-magistrate-5", "name": "Mike Strunk",
+   "offices": [
+     {"office": "Pulaski County Magistrate, 5th Magisterial District", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Pulaski County: 'Mike STRUNK REP', the only candidate for Magistrate 5th Magisterial District (the term won in November 2022, from January 2023; earlier terms not checked)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Pulaski%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Magistrate, 5th Magisterial District, Pulaski County general election, November 8, 2022; unopposed, elected", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Pulaski County (printed 'Mike STRUNK REP')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Pulaski%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21213-constable-west", "name": "Chuck Fleming",
+   "offices": [
+     {"office": "Simpson County Constable, West Magisterial District", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Simpson County: Constable West Magisterial District, Chuck FLEMING DEM 638, Darryl L. CARVER REP 622 (precinct totals added up; term from January 2023)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Simpson%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Constable, West Magisterial District, Simpson County general election, November 8, 2022; won", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Simpson County (printed 'Chuck FLEMING DEM')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Simpson%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-37918-council-10", "name": "Steve Keel",
+   "offices": [
+     {"office": "Hopkinsville City Council, Ward 10", "from": 2023, "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Christian County: 'Steve KEEL REP', the only candidate for City Council, City of Hopkinsville Ward 10 (term from January 2023; end year not stated in the record)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "City Council, City of Hopkinsville Ward 10, general election, November 8, 2022; unopposed, elected", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Christian County (printed 'Steve KEEL REP')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-63912-council", "name": "Pamela J. Deroche",
+   "official_page": {"url": "https://radcliff.org/your-government/", "source": "City of Radcliff, 'Your Government' (City Council members, listed as 'Pamela J. DeROCHE')", "verified": true},
+   "offices": [
+     {"office": "Member, Radcliff City Council", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Hardin County: City Council, City of Radcliff (vote for up to six), Pamela J. DeROCHE third with 2,305 (precinct totals added up); re-elected in 2024 (fourth of six seats, 2,781, 2024 General Election recap sheet, Hardin County); listed today on the City of Radcliff's 'Your Government' page", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ4-2", "name": "Kim Poe Gilliam",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Hopkins.aspx", "source": "Kentucky Court of Justice, Hopkins County court information (District Court: Kim Poe Gilliam, 4th Judicial District, Division 2)", "verified": true},
+   "offices": [
+     {"office": "District Judge, 4th Judicial District, Division 2", "from": null, "to": "present", "source": "Kentucky Court of Justice, Hopkins County court information (start year not stated)", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Hopkins.aspx", "kind": "official", "verified": true}
+   ]}
+ ]}

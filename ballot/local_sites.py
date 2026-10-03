@@ -45,7 +45,10 @@ and that the scope is the Secretary of State's own list (statewide, the General 
 votes), the Regional Transportation District's directors being a district board outside the rule. Kentucky (2026-10-03)
 has no website cell either and no statewide race; its "local_note" says what its November ballot holds and which
 contests the Secretary of State's list leaves unplaced, and its "place_codes" ties Louisville's consolidated city
-(48003) to the Census Bureau's row for its balance (48006), the only part of it among the file's places.
+(48003) to the Census Bureau's row for its balance (48006), the only part of it among the file's places. Utah
+(2026-10-03) has no website cell either, and no county, city or school rows yet; its "why_no_local" says when those
+offices are elected and that the scope is the Lieutenant Governor's certification (the State Board of Education, the
+Legislature and the judges' retention votes, justice courts included).
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -374,7 +377,23 @@ STATES = {"MN": {"name": "Minnesota"},
                                "so the November list carries the contests of six cities (Bartlesville, Clinton, El Reno, Lawton, Tulsa "
                                "and Yukon; Clinton, of about 8,400 people, is under the scope's 10,000) and no school board. The appellate judges' yes-or-no retention votes are printed on the list "
                                "without the judges' names and are not loaded. Fire protection district boards are outside the scope's "
-                               "rule and are not in it."}}
+                               "rule and are not in it."},
+          # Utah (2026-10-03): the Lieutenant Governor's General Election Certification (a signed scan with a text layer)
+          # and the Master Ballot Position List have no contact columns and no website cell, so its websites come from
+          # verified findings only. Its legislative races carry "House District N" or "Senate District N", the State Board
+          # of Education races their own district, and its retention votes the court's district, city or county, so the
+          # scope needs no district words. No county, city or school rows are loaded (each county clerk certifies those),
+          # so "why_no_local" says why the scope stops at the state's own list. No race for Governor is on the 2026 ballot
+          "UT": {"name": "Utah", "legislature": r"\butah (?:state )?(?:house(?: of representatives)?|senate|legislat\w+)",
+                 "school_names": {},
+                 "why_no_local": "Utah elects its city and town officers in November of odd-numbered years (Utah Code 20A-1-202; next "
+                                 "in 2027) and has no township governments. Its county officers and about half of each local school "
+                                 "board are elected on November 3, 2026 (Utah Code 17-66-202 and 20A-14-202), but each county clerk "
+                                 "certifies and posts those candidates for the county alone (Utah Code 20A-5a-210), and no county's "
+                                 "list is loaded yet, so the scope is the Lieutenant Governor's General Election Certification: the "
+                                 "State Board of Education (elected by district, with the statewide offices), the Legislature, and the "
+                                 "judges on a yes-or-no retention vote, each the one name in the race, the justice court judges of "
+                                 "cities and counties among them."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));

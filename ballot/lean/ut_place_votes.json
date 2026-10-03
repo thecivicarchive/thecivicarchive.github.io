@@ -1,0 +1,9168 @@
+{
+ "what": "How each Utah place voted in six contests of the 2020, 2022 and 2024 general elections: the votes for the Democratic ticket, the Republican ticket (and in 2022, when no Democrat was on the ballot for U.S. Senator, the unaffiliated candidate), every other candidate and all write-ins together and the total, from the Lieutenant Governor's official results (2024: each county's summary, and the precinct results added up by district) and the State Board of Canvassers' county canvass (2020 and 2022).",
+ "note": "What this is: how the people of a place voted in that election, in the official results: for 2024 the Lieutenant Governor's official results, each county's own summary, with the official precinct results added up here by state House and Senate district; for 2020 and 2022 the State Board of Canvassers' canvass, county by county, so those years are given for counties and judicial districts only. A judicial district is its counties added up. A district is given only where every precinct of it voted in that district alone: where a precinct lies in two districts the results give its votes whole, and they are never divided by estimate. A county puts a few ballots in no precinct's row (about 1 in 1,300 in 2024), and its federal-only ballots in a unit of their own: they are in the county's figures and in no district's. What this is not: it is not a prediction of any election; it says nothing about any candidate on a later ballot or about any voter; a nonpartisan office stays nonpartisan; and a place is not its lines for ever: where a district was drawn again, the figures are for the lines of that year. Utah elected its Governor in 2020 and 2024, and in 2022 no Democrat was on its ballot for U.S. Senator. The tickets are named, as the results name them, only to say which election this was. In a place with very few voters the split would come close to saying how particular people voted; those contests are listed in the place's too_few, and a page should leave the split out.",
+ "state": "UT",
+ "generated": "2026-10-03",
+ "method_version": "1.0",
+ "how_to_read": "Each place's votes are four counts for each contest: dem (the Democratic ticket), rep (the Republican ticket), other (every other candidate and all write-ins, together) and total (the votes for candidates and counted write-ins). For U.S. Senator in 2022, when no Democrat was on the ballot, the counts are una (Evan McMullin, printed on the ballot as unaffiliated), rep, other and total. Minnesota's file calls the first count dfl. A contest a place does not have was not counted on its lines: House and Senate districts are given for 2024 only, and only where no precinct of the district lies in another district too.",
+ "vote_keys": [
+  "dem",
+  "rep",
+  "una",
+  "other",
+  "total"
+ ],
+ "too_few": {
+  "fewer_than": 20,
+  "why": "A place's too_few lists the contests in which it had fewer than 20 votes, or in which every vote went the same way. There the split comes close to saying how particular people voted, so a page should leave it out. The counts are the official record all the same, and are kept here so that the sums can be checked."
+ },
+ "contests": [
+  {
+   "id": "2024-president",
+   "date": "2024-11-05",
+   "office": "President and Vice President of the United States",
+   "table": "ut-results-2024",
+   "kinds": [
+    "county",
+    "judicial",
+    "house",
+    "senate"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Harris and Walz",
+    "column": "the option KAMALA D. HARRIS / TIM WALZ"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Vance",
+    "column": "the option DONALD J. TRUMP / JD VANCE"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins"
+   },
+   "statewide": {
+    "dem": 562566,
+    "rep": 883818,
+    "other": 42110,
+    "total": 1488494
+   },
+   "official_source": "ut-results-2024"
+  },
+  {
+   "id": "2024-us-senate",
+   "date": "2024-11-05",
+   "office": "United States Senator",
+   "table": "ut-results-2024",
+   "kinds": [
+    "county",
+    "judicial",
+    "house",
+    "senate"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Gleich",
+    "column": "the option CAROLINE GLEICH"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Curtis",
+    "column": "the option JOHN CURTIS"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins"
+   },
+   "statewide": {
+    "dem": 464515,
+    "rep": 914700,
+    "other": 84294,
+    "total": 1463509
+   },
+   "official_source": "ut-results-2024"
+  },
+  {
+   "id": "2024-governor",
+   "date": "2024-11-05",
+   "office": "Governor and Lieutenant Governor",
+   "table": "ut-results-2024",
+   "kinds": [
+    "county",
+    "judicial",
+    "house",
+    "senate"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "King and Cummings",
+    "column": "the option BRIAN SMITH KING REBEKAH CUMMINGS"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Cox and Henderson",
+    "column": "the option SPENCER J. COX DEIDRE M. HENDERSON"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins; the signed canvass's column of invalid write-ins is left out"
+   },
+   "statewide": {
+    "dem": 420514,
+    "rep": 781431,
+    "other": 275512,
+    "total": 1477457
+   },
+   "official_source": "ut-results-2024"
+  },
+  {
+   "id": "2022-us-senate",
+   "date": "2022-11-08",
+   "office": "United States Senator",
+   "table": "ut-canvass-2022",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "rep": {
+    "party": "Republican",
+    "ticket": "Lee",
+    "column": "the column headed MIKE LEE (REP)"
+   },
+   "una": {
+    "party": "Unaffiliated",
+    "ticket": "McMullin",
+    "column": "the column headed EVAN MCMULLIN (UNA)"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins"
+   },
+   "statewide": {
+    "una": 459958,
+    "rep": 571974,
+    "other": 44136,
+    "total": 1076068
+   },
+   "official_source": "ut-canvass-2022"
+  },
+  {
+   "id": "2020-president",
+   "date": "2020-11-03",
+   "office": "President and Vice President of the United States",
+   "table": "ut-canvass-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Biden and Harris",
+    "column": "the column headed Joseph R. Biden, Kamala D. Harris (DEM)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Pence",
+    "column": "the column headed Donald J. Trump, Michael R. Pence (REP)"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins"
+   },
+   "statewide": {
+    "dem": 560282,
+    "rep": 865140,
+    "other": 62867,
+    "total": 1488289
+   },
+   "official_source": "ut-canvass-2020"
+  },
+  {
+   "id": "2020-governor",
+   "date": "2020-11-03",
+   "office": "Governor and Lieutenant Governor",
+   "table": "ut-canvass-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Peterson and Brown",
+    "column": "the column headed Chris Peterson, Karina Brown (DEM)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Cox and Henderson",
+    "column": "the column headed Spencer J. Cox, Deidre M. Henderson (REP)"
+   },
+   "other": {
+    "what": "every other candidate and all write-ins, together"
+   },
+   "total": {
+    "what": "the votes cast for candidates and counted write-ins"
+   },
+   "statewide": {
+    "dem": 442754,
+    "rep": 918754,
+    "other": 97370,
+    "total": 1458878
+   },
+   "official_source": "ut-canvass-2020"
+  }
+ ],
+ "kinds": {
+  "county": {
+   "what": "Counties",
+   "key": "five-digit county FIPS code, as sl_places kind county and the jurisdiction_id of our county races",
+   "places": 29,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate",
+    "2020-president",
+    "2020-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0
+  },
+  "judicial": {
+   "what": "Judicial districts, as whole counties (a district court's and a juvenile court's district are the same)",
+   "key": "JD and the district number (JD3), as the jurisdiction_id of our district and juvenile court races",
+   "places": 8,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor",
+    "2022-us-senate",
+    "2020-president",
+    "2020-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0
+  },
+  "house": {
+   "what": "State House districts of the plan first used in 2022",
+   "key": "district number, as the district of our House races",
+   "places": 75,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "House and Senate districts are given for 2024 only: the official results of 2020 and 2022 that a script can read are county by county. A Senate district missing from 2024 has a precinct that lies in it and in another district too, or one that neither the 2024 ballot nor the district plan places in a single district; most of the seats on the 2026 ballot are such districts.",
+   "rows": "A district's figures are its precincts' rows added up; the few ballots a county put in no precinct's row, and its federal-only ballots, are in no district's figures."
+  },
+  "senate": {
+   "what": "State Senate districts of the plan first used in 2022",
+   "key": "district number, as the district of our Senate races",
+   "places": 14,
+   "contests": [
+    "2024-president",
+    "2024-us-senate",
+    "2024-governor"
+   ],
+   "covers_the_state": false,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "House and Senate districts are given for 2024 only: the official results of 2020 and 2022 that a script can read are county by county. A Senate district missing from 2024 has a precinct that lies in it and in another district too, or one that neither the 2024 ballot nor the district plan places in a single district; most of the seats on the 2026 ballot are such districts.",
+   "note": "A Senate district is given only where every precinct of it voted in that district alone. Left out (2024: 15): districts 1, 5, 6, 7, 9, 11, 13, 14, 18, 19, 20, 21, 23, 26, 27, because a precinct of each lies in it and in another district too, or has a precinct that neither the 2024 ballot nor the district plan places in one Senate district.",
+   "left_out": {
+    "2024": [
+     1,
+     5,
+     6,
+     7,
+     9,
+     11,
+     13,
+     14,
+     18,
+     19,
+     20,
+     21,
+     23,
+     26,
+     27
+    ]
+   },
+   "rows": "A district's figures are its precincts' rows added up; the few ballots a county put in no precinct's row, and its federal-only ballots, are in no district's figures.",
+   "how": "A Senate district on the 2024 ballot is the precincts that voted in its contest; one not on that ballot is the precincts the Legislature's 2022 plan places in it: a precinct whose House, U.S. House and State School Board districts (as it voted) are found together in pieces of only one Senate district that was not on that ballot."
+  }
+ },
+ "control": {
+  "result": "equal",
+  "contests": {
+   "2024-president": {
+    "sum_of_counties": {
+     "dem": 562566,
+     "rep": 883818,
+     "other": 42110,
+     "total": 1488494
+    },
+    "official": {
+     "dem": 562566,
+     "rep": 883818,
+     "other": 42110,
+     "total": 1488494
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-results-2024",
+    "where": "the results system's statewide contest, its row for each county, and each county's own summary of the contest",
+    "precinct_rows": {
+     "precincts": 3073,
+     "sum": {
+      "dem": 562223,
+      "rep": 883082,
+      "other": 42074,
+      "total": 1487379
+     },
+     "in_no_precinct_row": {
+      "dem": 343,
+      "rep": 736,
+      "other": 36,
+      "total": 1115
+     },
+     "counties_with_votes_in_no_precinct_row": 22,
+     "by_county": {
+      "Cache County": 116,
+      "Carbon County": 7,
+      "Daggett County": 4,
+      "Davis County": 144,
+      "Duchesne County": 105,
+      "Garfield County": 2,
+      "Grand County": 3,
+      "Iron County": 11,
+      "Juab County": 5,
+      "Kane County": 10,
+      "Morgan County": 16,
+      "Rich County": 11,
+      "Salt Lake County": 335,
+      "San Juan County": 47,
+      "Summit County": 41,
+      "Tooele County": 30,
+      "Uintah County": 9,
+      "Utah County": 131,
+      "Wasatch County": 6,
+      "Washington County": 34,
+      "Wayne County": 2,
+      "Weber County": 46
+     }
+    },
+    "canvass": {
+     "compared": 29,
+     "equal": 29,
+     "page_of_pdf": 5,
+     "not_read": [],
+     "why_not_read": null
+    },
+    "clerk": {
+     "official": {
+      "dem": 562566,
+      "rep": 883818,
+      "other": 42110,
+      "total": 1488494
+     },
+     "equal": true,
+     "where": "Utah, page 68"
+    }
+   },
+   "2024-us-senate": {
+    "sum_of_counties": {
+     "dem": 464515,
+     "rep": 914700,
+     "other": 84294,
+     "total": 1463509
+    },
+    "official": {
+     "dem": 464515,
+     "rep": 914700,
+     "other": 84294,
+     "total": 1463509
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-results-2024",
+    "where": "the results system's statewide contest, its row for each county, and each county's own summary of the contest",
+    "precinct_rows": {
+     "precincts": 3073,
+     "sum": {
+      "dem": 464225,
+      "rep": 913975,
+      "other": 84225,
+      "total": 1462425
+     },
+     "in_no_precinct_row": {
+      "dem": 290,
+      "rep": 725,
+      "other": 69,
+      "total": 1084
+     },
+     "counties_with_votes_in_no_precinct_row": 22,
+     "by_county": {
+      "Cache County": 112,
+      "Carbon County": 6,
+      "Daggett County": 4,
+      "Davis County": 138,
+      "Duchesne County": 104,
+      "Garfield County": 2,
+      "Grand County": 3,
+      "Iron County": 11,
+      "Juab County": 5,
+      "Kane County": 10,
+      "Morgan County": 17,
+      "Rich County": 12,
+      "Salt Lake County": 325,
+      "San Juan County": 46,
+      "Summit County": 40,
+      "Tooele County": 31,
+      "Uintah County": 9,
+      "Utah County": 124,
+      "Wasatch County": 6,
+      "Washington County": 33,
+      "Wayne County": 2,
+      "Weber County": 44
+     }
+    },
+    "canvass": "its pages for this contest are pictures with no text layer, so they are not compared by script",
+    "clerk": {
+     "official": {
+      "dem": 464515,
+      "rep": 914700,
+      "other": 84294,
+      "total": 1463509
+     },
+     "equal": true,
+     "where": "Utah, page 68"
+    }
+   },
+   "2024-governor": {
+    "sum_of_counties": {
+     "dem": 420514,
+     "rep": 781431,
+     "other": 275512,
+     "total": 1477457
+    },
+    "official": {
+     "dem": 420514,
+     "rep": 781431,
+     "other": 275512,
+     "total": 1477457
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-results-2024",
+    "where": "the results system's statewide contest, its row for each county, and each county's own summary of the contest",
+    "precinct_rows": {
+     "precincts": 3073,
+     "sum": {
+      "dem": 420301,
+      "rep": 780866,
+      "other": 275275,
+      "total": 1476442
+     },
+     "in_no_precinct_row": {
+      "dem": 213,
+      "rep": 565,
+      "other": 237,
+      "total": 1015
+     },
+     "counties_with_votes_in_no_precinct_row": 17,
+     "by_county": {
+      "Cache County": 112,
+      "Daggett County": 4,
+      "Davis County": 141,
+      "Duchesne County": 101,
+      "Grand County": 3,
+      "Juab County": 5,
+      "Kane County": 10,
+      "Morgan County": 14,
+      "Rich County": 12,
+      "Salt Lake County": 292,
+      "San Juan County": 46,
+      "Summit County": 41,
+      "Tooele County": 31,
+      "Utah County": 119,
+      "Wasatch County": 6,
+      "Washington County": 33,
+      "Weber County": 45
+     }
+    },
+    "canvass": {
+     "compared": 29,
+     "equal": 29,
+     "page_of_pdf": 9,
+     "not_read": [],
+     "why_not_read": null
+    }
+   },
+   "2020-president": {
+    "sum_of_counties": {
+     "dem": 560282,
+     "rep": 865140,
+     "other": 62867,
+     "total": 1488289
+    },
+    "official": {
+     "dem": 560282,
+     "rep": 865140,
+     "other": 62867,
+     "total": 1488289
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-canvass-2020",
+    "where": "the President sheet of the workbook, its TOTAL row",
+    "clerk": {
+     "official": {
+      "dem": 560282,
+      "rep": 865140,
+      "other": 62867,
+      "total": 1488289
+     },
+     "equal": true,
+     "where": "Utah, page 66"
+    }
+   },
+   "2020-governor": {
+    "sum_of_counties": {
+     "dem": 442754,
+     "rep": 918754,
+     "other": 97370,
+     "total": 1458878
+    },
+    "official": {
+     "dem": 442754,
+     "rep": 918754,
+     "other": 97370,
+     "total": 1458878
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-canvass-2020",
+    "where": "the State Offices sheet of the workbook, its TOTAL row"
+   },
+   "2022-us-senate": {
+    "sum_of_counties": {
+     "una": 459958,
+     "rep": 571974,
+     "other": 44136,
+     "total": 1076068
+    },
+    "official": {
+     "una": 459958,
+     "rep": 571974,
+     "other": 44136,
+     "total": 1076068
+    },
+    "counties": {
+     "compared": 29,
+     "equal": 29
+    },
+    "equal": true,
+    "source": "ut-canvass-2022",
+    "where": "pages 3 and 4 of the signed scan, typed county by county; each column adds up to the scan's printed Total Votes Cast Per Candidate, and they to its Total Votes Cast in Contest",
+    "clerk": {
+     "official": {
+      "una": 459958,
+      "rep": 571974,
+      "other": 44136,
+      "total": 1076068
+     },
+     "equal": true,
+     "where": "Utah, page 47"
+    }
+   }
+  },
+  "precincts": {
+   "2024": 3073
+  },
+  "federal_only": {
+   "units": 32,
+   "counties": 26,
+   "votes": {
+    "2024-president": 506,
+    "2024-us-senate": 498
+   },
+   "what": "Each county reports the ballots of voters entitled to the federal contests alone (President, Senator and Representative in Congress) as a unit of its own, named Federal or FED. They are counted in the county, the judicial district and the state, and in no House or Senate district."
+  },
+  "kinds": {
+   "county": "equal",
+   "judicial": "equal",
+   "house": "the House districts given, the precincts of those left out, the federal-only units and the votes in no precinct's row add up to the statewide sum",
+   "senate": "the Senate districts given, the precincts of those left out, the federal-only units and the votes in no precinct's row add up to the statewide sum; the plan agrees with every precinct of a 2024 Senate contest"
+  },
+  "districts": {
+   "2024": {
+    "house_contests": 75,
+    "senate_contests": 15,
+    "senate_districts_on_the_ballot": [
+     2,
+     3,
+     4,
+     8,
+     10,
+     12,
+     15,
+     16,
+     17,
+     22,
+     24,
+     25,
+     26,
+     27,
+     29
+    ],
+    "house_districts_given": 75,
+    "house_districts_left_out": [],
+    "senate_districts_given": 14,
+    "senate_districts_left_out": [
+     1,
+     5,
+     6,
+     7,
+     9,
+     11,
+     13,
+     14,
+     18,
+     19,
+     20,
+     21,
+     23,
+     26,
+     27
+    ],
+    "precincts_in_more_than_one_house_district": [],
+    "precincts_in_more_than_one_senate_district": [
+     {
+      "county": "Kane County",
+      "precinct": "KA3",
+      "senate_districts": [
+       26,
+       27
+      ]
+     }
+    ],
+    "precincts_not_placed_in_a_senate_district": [
+     {
+      "county": "Davis County",
+      "precinct": "CE18:I-SA",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CE18:I-SB",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CE18:U-S-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF01:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF02:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF02:U-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF03:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF04:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF05:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF06:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF07:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF08:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF09:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF10:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF11:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF12:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF13:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF14:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF15:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF16:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF17:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF18:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF19:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF20:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF21:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF22:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF23:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CF24:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "CL22:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA24:U-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA24:UBC-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA25:U-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA25:UBCA",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA25:UBCB",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA25:UBCC",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "FA25:UBCD",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "HA01:U-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA29:I-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA29:IBC-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA30:I-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA30:IBCA",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA30:IBCB",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA31:I-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA31:IBC-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA36:I-C-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "KA36:IBC-",
+      "could_be": [
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA01:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA02:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA02:U-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA03:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA04:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA05:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA06:I-NA",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA06:I-NB",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA06:U-NA",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA06:U-NB",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA06:U-NC",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA07:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA08:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA09:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA10:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA10:U-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA11:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA12:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA13:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA14:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA15:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA16:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA17:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA18:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA19:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA20:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA21:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA22:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA30:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA31:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA32:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA33:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA34:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA35:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA36:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA37:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA38:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA39:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA40:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA41:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA42:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA43:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA55:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA56:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA57:I-N-",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "LA77:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SU01:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SU02:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SU03:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SU04:I-N-",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW01:I---",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW02:I---",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW02:IW--",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW02:IW-A",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW03:IW--",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW04:IW--",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW05:IW--",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW06:IW--",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW07:I---",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW08:I---",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW09:IW--",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW10:I---",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SW11:U---",
+      "could_be": [
+       5,
+       6,
+       7
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY01:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY02:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY03:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY04:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY05:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY06:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY07:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY09:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY10:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY11:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY12:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY13:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY14:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY16:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY17:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY18:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY19:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY20:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY21:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY22:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY23:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY24:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY25:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY26:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY27:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "SY28:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP08:IHN-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP09:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP10:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP11:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP12:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP13:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP14:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Davis County",
+      "precinct": "WP15:I-N-",
+      "could_be": [
+       5,
+       6
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "11-2",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "11-2-MC",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "2-1",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "2-1-S",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "3-1",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "3-1-S",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "4-1-S",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "5-1",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "5-1-S",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "6-3",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "7-3",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Morgan County",
+      "precinct": "8-3",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "ALT001",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "ALT002",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "CBL001",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "CBL002",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT022",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT023",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT024",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT031",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT032",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "COT035",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "EMG001",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER008",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER012",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER013",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER014",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER017",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER018",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER019",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER020",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER021",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER022",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER024",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER025",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER026",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER027",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER028",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER029",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER030",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER031",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER032",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER033",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER034",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER035",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER902",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER903",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HER904",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL008",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL009",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL010",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL012",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL017",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL018",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL020",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL023",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL026",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL029",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL030",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "HOL031",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "LTC001",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "LTC002",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "LTC003",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL001",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL002",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL012",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL013",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL014",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL017",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL019",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL026",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL027",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL030",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL031",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL033",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL034",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL035",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL039",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL040",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL042",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL043",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL044",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL045",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL047",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL049",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL050",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL051",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MIL901",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR001",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR002",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR003",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR004",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR005",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR006",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR007",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR008",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR009",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR010",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR011",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR012",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR013",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR014",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR015",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR020",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR021",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR022",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR025",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR026",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR027",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR028",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR034",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR035",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR036",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR038",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR042",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR043",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR047",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR048",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "MUR052",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "NRV910",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "NRV913",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "NRV916",
+      "could_be": [
+       14,
+       19
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "NRV917",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "NRV918",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "PCN001",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "RIV026",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "RIV027",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "RIV028",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "RIV029",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC051",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC052",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC053",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC060",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC061",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC062",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC063",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC064",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC065",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC066",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC067",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC068",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC069",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC070",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC071",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC072",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC073",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC074",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC075",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC076",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC077",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC078",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC079",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC080",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC081",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC082",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC083",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC084",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC085",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC086",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC087",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC088",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC089",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC090",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC091",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC092",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC093",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC094",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC095",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC096",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC097",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC098",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC099",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC100",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC101",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC102",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC103",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC104",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC105",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC106",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC107",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC108",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC109",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC110",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC111",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC112",
+      "could_be": [
+       9,
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC113",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC114",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC115",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC116",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC117",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC118",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC119",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC122",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC123",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC124",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC125",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC129",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC130",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC138",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC139",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC142",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SLC903",
+      "could_be": [
+       9,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL002",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL003",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL006",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL012",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL013",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SSL017",
+      "could_be": [
+       13,
+       14
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SWT001",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "SWT002",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "WVC005",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Salt Lake County",
+      "precinct": "WVC017",
+      "could_be": [
+       9,
+       13
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "ECOR46:10",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "ECOR46:50",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "PRM48:10",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "PRM48:N5A",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "PRM48:N5B",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Summit County",
+      "precinct": "SFCC57:10",
+      "could_be": [
+       5,
+       7,
+       20
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "DG01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "DG02",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC02:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC02:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC03:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC03:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC04:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC04:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "EC05",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV01:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV01:3U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV02:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV02:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV02:3",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV02:4",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV03",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV04:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV04:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV04:3U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV05",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV06",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV07",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV08",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV09",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "GV10",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "IB01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "LC01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "LP01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "LP01:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "LP02",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "RV01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "RV01:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP02",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP03:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP03:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP04:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP04:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP05",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP06",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP07",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP08",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP09:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP09:2",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP09:3",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "SP10",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST01:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST01:3U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST02:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST02:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "ST02:3U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC02",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC03:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC03:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC04",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC05",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC06",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC07",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC08",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC09",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC10",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC11",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC12",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC13",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC14",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC15",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC16",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC17",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC18",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC19",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC20",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC21",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TC22",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "TE01",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "VR01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "VR01:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "WE01:1",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "WE01:2U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Tooele County",
+      "precinct": "WE01:3U",
+      "could_be": [
+       1,
+       11
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF303",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF306",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF308",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF310",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF311",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF312",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF318",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF319",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF320",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF321",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF322",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF323",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AF324",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL302",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL303",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL304",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL305",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL306",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "AL308",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CF401",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH302",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH304",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH305",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH306",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "CH308",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "DR301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "DR302",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM401",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM402",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM403",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM406",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM407",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM408",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM409",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM410",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM411",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM418",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM419",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM420",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM421",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM422",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM423",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM424",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM425",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM426",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM428",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "EM429",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "FF401",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI302",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI304",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI305",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI306",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI308",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI309",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI310",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI311",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI312",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI313",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI314",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI315",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "HI316",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI305",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI306",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI307",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI308",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI309",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "LI310",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NAL306",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NCH308",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NLE307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NLE309",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NLE409",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "NSR409",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "OR303",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "OR328",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "OR329",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG302",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG303",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG304",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG306",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG307",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG308",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG309",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG310",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG311",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG312",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG313",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG314",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG316",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG317",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG318",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG319",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG320",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG321",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG322",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG323",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG324",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG325",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "PG326",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAF307",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAF308",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAF310",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAF323",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAF324",
+      "could_be": [
+       21,
+       23
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UAL301",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UCV401",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UFF401",
+      "could_be": [
+       11,
+       18
+      ]
+     },
+     {
+      "county": "Utah County",
+      "precinct": "UHI310",
+      "could_be": [
+       19,
+       21
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "CSU01",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "RIV03",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "RIV04",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG05",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG06",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG07",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG08",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG09",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG10",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "SOG11",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "UIN01",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "UIN02",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "WAT03",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "WAT04",
+      "could_be": [
+       5,
+       7
+      ]
+     },
+     {
+      "county": "Weber County",
+      "precinct": "WAT05",
+      "could_be": [
+       5,
+       7
+      ]
+     }
+    ],
+    "precincts_placed_by_house_district_alone": [
+     {
+      "county": "Wasatch County",
+      "precinct": "331 Park City"
+     }
+    ],
+    "contests_not_given_by_precinct": [
+     {
+      "county": "Beaver County",
+      "contest": "U.S. House 2",
+      "units": 9
+     },
+     {
+      "county": "Morgan County",
+      "contest": "U.S. House 1",
+      "units": 25
+     },
+     {
+      "county": "Uintah County",
+      "contest": "U.S. House 3",
+      "units": 30
+     },
+     {
+      "county": "Uintah County",
+      "contest": "State School Board 12 (Multi-County)",
+      "units": 29
+     },
+     {
+      "county": "Wayne County",
+      "contest": "U.S. House 2",
+      "units": 8
+     },
+     {
+      "county": "Wayne County",
+      "contest": "State School Board 15 (Multi-County)",
+      "units": 7
+     }
+    ],
+    "plan_disagreements": []
+   }
+  },
+  "notes": [
+   "The 2024 Governor's contest counts the write-in candidates the results system lists (Phil Lyman among them) with every other candidate.",
+   "The signed 2024 canvass's text layer is the scanner's reading of the page; a county line it garbles is named under not_read and checked by the results system's own county rows instead.",
+   "The 2022 U.S. Senate table was typed from the signed scan; its columns add up to the scan's printed totals and equal the Clerk of the House's statistics."
+  ]
+ },
+ "coverage": {
+  "not_given": "Cities and towns: a Utah precinct may lie partly inside and partly outside a city, the results give each precinct whole, and the 2024 ballot carried a citywide contest in only a handful of cities, so a city's votes cannot be added up without an estimate. County council and commission districts, school board, water and other districts are not added up here. House and Senate districts for 2020 and 2022: the state's results of those years are county by county.",
+  "no_2022_governor": "Utah elected its Governor in 2020 and 2024, not in 2022.",
+  "no_2020_senate": "Utah elected no United States senator in 2020.",
+  "no_democrat_2022_senate": "No Democrat was on Utah's 2022 ballot for U.S. Senator; Evan McMullin was printed as unaffiliated.",
+  "our_places": {
+   "county": {
+    "places": 29,
+    "with_votes": 29,
+    "without": []
+   },
+   "judicial": {
+    "places": 7,
+    "with_votes": 7,
+    "without": []
+   },
+   "house": {
+    "places": 75,
+    "with_votes": 75,
+    "without": []
+   },
+   "senate": {
+    "places": 15,
+    "with_votes": 2,
+    "without": [
+     "1",
+     "5",
+     "6",
+     "7",
+     "9",
+     "11",
+     "13",
+     "14",
+     "18",
+     "19",
+     "20",
+     "21",
+     "23"
+    ]
+   },
+   "not_given_kinds": {
+    "mcd": 30
+   },
+   "read": "sl_places and sl_races in ballot_local_2026.sqlite, opened read-only on 2026-10-03"
+  }
+ },
+ "sources": [
+  {
+   "id": "ut-results-2024",
+   "kind": "official results by precinct, with the county and statewide summaries",
+   "agency": "Utah Lieutenant Governor, Office of Elections",
+   "title": "2024 General Election, official results (electionresults.utah.gov), each county's contests precinct by precinct",
+   "url": "https://electionresults.utah.gov/results/public/Utah/elections/general11052024",
+   "fetched": "2026-10-03",
+   "results_last_updated": "2024-11-22",
+   "precincts": 3073,
+   "read": "Of each precinct row: the precinct's name and each option's name, party abbreviation, write-in mark and count, for President, U.S. Senator, Governor and every state House and Senate contest; nothing else."
+  },
+  {
+   "id": "ut-canvass-2024",
+   "kind": "official canvass, county by county (a control)",
+   "agency": "Utah State Board of Canvassers",
+   "title": "2024 General Election Statewide Canvass (signed)",
+   "url": "https://vote.utah.gov/wp-content/uploads/2025/02/2024-General-Election-Statewide-Canvass-2.pdf",
+   "listed_on": "https://vote.utah.gov/historical-election-results/",
+   "fetched": "2026-10-03",
+   "sha256": "82640e076c5bd4a37542ed04f8d23a2858f6b9d94f576889ddbc883e41fb4efe"
+  },
+  {
+   "id": "ugrc-district-combination-areas",
+   "kind": "the Legislature's district plan as the state's GIS office publishes it (used to place a precinct in a Senate district not on the 2024 ballot)",
+   "agency": "Utah Geospatial Resource Center",
+   "title": "Political District Combination Areas, 2022 (the plan the 2024 election was held on; every piece read, no shapes)",
+   "url": "https://gis.utah.gov/products/sgid/political/district-combination-areas/",
+   "fetched": "2026-10-03",
+   "pieces": 276,
+   "read": "Of each piece: its U.S. House, state Senate, state House and State School Board district; nothing else. Its county column names one county for pieces reaching into several, so it is not used."
+  },
+  {
+   "id": "ut-canvass-2020",
+   "kind": "official canvass, county by county",
+   "agency": "Utah State Board of Canvassers",
+   "title": "2020 General Election Statewide Canvass (workbook)",
+   "url": "https://vote.utah.gov/wp-content/uploads/2021/02/2020-General-Election-Statewide-Canvass.xlsx",
+   "listed_on": "https://vote.utah.gov/historical-election-results/",
+   "fetched": "2026-10-03",
+   "sha256": "d858cc0f3efb4df6da2b2f4018f270691fc47d581780a1fa53595b90b59f5d2b",
+   "read": "The county rows and the TOTAL row of the President sheet, and of the Governor columns of the State Offices sheet."
+  },
+  {
+   "id": "ut-canvass-2022",
+   "kind": "official canvass, county by county (a signed scan without text; its U.S. Senate table typed here)",
+   "agency": "Utah State Board of Canvassers",
+   "title": "2022 General Election State Canvass Certification (signed)",
+   "url": "https://vote.utah.gov/wp-content/uploads/2022/12/Signed-2022-General-Election-State-Canvass-Certification.pdf",
+   "listed_on": "https://vote.utah.gov/historical-election-results/",
+   "fetched": "2026-10-03",
+   "sha256": "daf3cbd84381efaeb7c4d7af1d6425f93aa18cc2307dc7294b166dcb26b245a1",
+   "read": "The U.S. Senate table on pages 3 and 4, county by county, typed from the scan."
+  },
+  {
+   "id": "clerk-statistics-2024",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 5, 2024",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf",
+   "fetched": "2026-10-03",
+   "sha256": "d4ba800fc17135b616ae556c92861080ab962d95916ace34b546c5aac824aec4",
+   "where": "Utah, page 68",
+   "read": "The Utah lines for presidential electors and United States Senator; its under and over votes are left out."
+  },
+  {
+   "id": "clerk-statistics-2022",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Congressional Election from Official Sources for the Election of November 8, 2022",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2022/statistics2022.pdf",
+   "fetched": "2026-10-03",
+   "sha256": "ef9b8cefcc44bebbdc4928bf346b50e00a72dd3bb54a71ed93ec60d4ebf47690",
+   "where": "Utah, page 47",
+   "read": "The Utah lines for presidential electors and United States Senator; its under and over votes are left out."
+  },
+  {
+   "id": "clerk-statistics-2020",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 3, 2020",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2020/statistics2020.pdf",
+   "fetched": "2026-10-03",
+   "sha256": "666b2a1f673f263087c141c4d44b0dce47cbddc8f4df27fbc8b415cf05842b76",
+   "where": "Utah, page 66",
+   "read": "The Utah lines for presidential electors and United States Senator; its under and over votes are left out."
+  },
+  {
+   "id": "ut-code-78a-1-102",
+   "kind": "statute, as the Legislature publishes it",
+   "agency": "Utah State Legislature, Utah Code",
+   "title": "Section 78A-1-102, Utah Code (Trial courts of record -- Geographical divisions), as the Legislature publishes it",
+   "url": "https://le.utah.gov/xcode/Title78A/Chapter1/78A-1-S102.html",
+   "fetched": "2026-10-03",
+   "sha256": "0672177e5bfe59e396e663e5ece796dd8069911803f72483f3904709b1540c36"
+  }
+ ],
+ "places": {
+  "county": {
+   "49001": {
+    "name": "Beaver County",
+    "votes": {
+     "2024-president": {
+      "dem": 394,
+      "rep": 2781,
+      "other": 37,
+      "total": 3212
+     },
+     "2024-us-senate": {
+      "dem": 327,
+      "rep": 2605,
+      "other": 214,
+      "total": 3146
+     },
+     "2024-governor": {
+      "dem": 251,
+      "rep": 2120,
+      "other": 758,
+      "total": 3129
+     },
+     "2022-us-senate": {
+      "una": 419,
+      "rep": 1971,
+      "other": 57,
+      "total": 2447
+     },
+     "2020-president": {
+      "dem": 357,
+      "rep": 2695,
+      "other": 48,
+      "total": 3100
+     },
+     "2020-governor": {
+      "dem": 291,
+      "rep": 2468,
+      "other": 205,
+      "total": 2964
+     }
+    }
+   },
+   "49003": {
+    "name": "Box Elder County",
+    "votes": {
+     "2024-president": {
+      "dem": 5274,
+      "rep": 22853,
+      "other": 793,
+      "total": 28920
+     },
+     "2024-us-senate": {
+      "dem": 4050,
+      "rep": 22803,
+      "other": 1798,
+      "total": 28651
+     },
+     "2024-governor": {
+      "dem": 3535,
+      "rep": 18423,
+      "other": 6694,
+      "total": 28652
+     },
+     "2022-us-senate": {
+      "una": 4725,
+      "rep": 14434,
+      "other": 744,
+      "total": 19903
+     },
+     "2020-president": {
+      "dem": 4473,
+      "rep": 21548,
+      "other": 1006,
+      "total": 27027
+     },
+     "2020-governor": {
+      "dem": 3507,
+      "rep": 20642,
+      "other": 2400,
+      "total": 26549
+     }
+    }
+   },
+   "49005": {
+    "name": "Cache County",
+    "votes": {
+     "2024-president": {
+      "dem": 18718,
+      "rep": 39457,
+      "other": 2083,
+      "total": 60258
+     },
+     "2024-us-senate": {
+      "dem": 15067,
+      "rep": 41451,
+      "other": 3414,
+      "total": 59932
+     },
+     "2024-governor": {
+      "dem": 13061,
+      "rep": 36185,
+      "other": 10789,
+      "total": 60035
+     },
+     "2022-us-senate": {
+      "una": 15580,
+      "rep": 24588,
+      "other": 1822,
+      "total": 41990
+     },
+     "2020-president": {
+      "dem": 16650,
+      "rep": 38032,
+      "other": 2889,
+      "total": 57571
+     },
+     "2020-governor": {
+      "dem": 12943,
+      "rep": 39952,
+      "other": 3665,
+      "total": 56560
+     }
+    }
+   },
+   "49007": {
+    "name": "Carbon County",
+    "votes": {
+     "2024-president": {
+      "dem": 2525,
+      "rep": 6719,
+      "other": 201,
+      "total": 9445
+     },
+     "2024-us-senate": {
+      "dem": 2140,
+      "rep": 6751,
+      "other": 435,
+      "total": 9326
+     },
+     "2024-governor": {
+      "dem": 2094,
+      "rep": 5710,
+      "other": 1509,
+      "total": 9313
+     },
+     "2022-us-senate": {
+      "una": 2114,
+      "rep": 4265,
+      "other": 350,
+      "total": 6729
+     },
+     "2020-president": {
+      "dem": 2392,
+      "rep": 6693,
+      "other": 284,
+      "total": 9369
+     },
+     "2020-governor": {
+      "dem": 2091,
+      "rep": 6506,
+      "other": 426,
+      "total": 9023
+     }
+    }
+   },
+   "49009": {
+    "name": "Daggett County",
+    "votes": {
+     "2024-president": {
+      "dem": 101,
+      "rep": 443,
+      "other": 6,
+      "total": 550
+     },
+     "2024-us-senate": {
+      "dem": 78,
+      "rep": 451,
+      "other": 13,
+      "total": 542
+     },
+     "2024-governor": {
+      "dem": 72,
+      "rep": 391,
+      "other": 74,
+      "total": 537
+     },
+     "2022-us-senate": {
+      "una": 109,
+      "rep": 377,
+      "other": 15,
+      "total": 501
+     },
+     "2020-president": {
+      "dem": 111,
+      "rep": 496,
+      "other": 12,
+      "total": 619
+     },
+     "2020-governor": {
+      "dem": 91,
+      "rep": 469,
+      "other": 31,
+      "total": 591
+     }
+    }
+   },
+   "49011": {
+    "name": "Davis County",
+    "votes": {
+     "2024-president": {
+      "dem": 59895,
+      "rep": 101293,
+      "other": 5382,
+      "total": 166570
+     },
+     "2024-us-senate": {
+      "dem": 45688,
+      "rep": 108083,
+      "other": 12099,
+      "total": 165870
+     },
+     "2024-governor": {
+      "dem": 40181,
+      "rep": 95679,
+      "other": 30160,
+      "total": 166020
+     },
+     "2022-us-senate": {
+      "una": 52806,
+      "rep": 66385,
+      "other": 4584,
+      "total": 123775
+     },
+     "2020-president": {
+      "dem": 57411,
+      "rep": 104135,
+      "other": 8349,
+      "total": 169895
+     },
+     "2020-governor": {
+      "dem": 41101,
+      "rep": 115501,
+      "other": 11751,
+      "total": 168353
+     }
+    }
+   },
+   "49013": {
+    "name": "Duchesne County",
+    "votes": {
+     "2024-president": {
+      "dem": 1009,
+      "rep": 7815,
+      "other": 144,
+      "total": 8968
+     },
+     "2024-us-senate": {
+      "dem": 790,
+      "rep": 7450,
+      "other": 601,
+      "total": 8841
+     },
+     "2024-governor": {
+      "dem": 728,
+      "rep": 5721,
+      "other": 2320,
+      "total": 8769
+     },
+     "2022-us-senate": {
+      "una": 912,
+      "rep": 5170,
+      "other": 201,
+      "total": 6283
+     },
+     "2020-president": {
+      "dem": 843,
+      "rep": 7513,
+      "other": 168,
+      "total": 8524
+     },
+     "2020-governor": {
+      "dem": 739,
+      "rep": 6096,
+      "other": 1411,
+      "total": 8246
+     }
+    }
+   },
+   "49015": {
+    "name": "Emery County",
+    "votes": {
+     "2024-president": {
+      "dem": 603,
+      "rep": 4341,
+      "other": 67,
+      "total": 5011
+     },
+     "2024-us-senate": {
+      "dem": 474,
+      "rep": 4200,
+      "other": 262,
+      "total": 4936
+     },
+     "2024-governor": {
+      "dem": 469,
+      "rep": 3256,
+      "other": 1205,
+      "total": 4930
+     },
+     "2022-us-senate": {
+      "una": 712,
+      "rep": 3269,
+      "other": 126,
+      "total": 4107
+     },
+     "2020-president": {
+      "dem": 572,
+      "rep": 4207,
+      "other": 86,
+      "total": 4865
+     },
+     "2020-governor": {
+      "dem": 489,
+      "rep": 3918,
+      "other": 324,
+      "total": 4731
+     }
+    }
+   },
+   "49017": {
+    "name": "Garfield County",
+    "votes": {
+     "2024-president": {
+      "dem": 541,
+      "rep": 2211,
+      "other": 59,
+      "total": 2811
+     },
+     "2024-us-senate": {
+      "dem": 463,
+      "rep": 2149,
+      "other": 145,
+      "total": 2757
+     },
+     "2024-governor": {
+      "dem": 393,
+      "rep": 1914,
+      "other": 448,
+      "total": 2755
+     },
+     "2022-us-senate": {
+      "una": 520,
+      "rep": 1795,
+      "other": 70,
+      "total": 2385
+     },
+     "2020-president": {
+      "dem": 514,
+      "rep": 2158,
+      "other": 60,
+      "total": 2732
+     },
+     "2020-governor": {
+      "dem": 428,
+      "rep": 2123,
+      "other": 94,
+      "total": 2645
+     }
+    }
+   },
+   "49019": {
+    "name": "Grand County",
+    "votes": {
+     "2024-president": {
+      "dem": 2828,
+      "rep": 2327,
+      "other": 145,
+      "total": 5300
+     },
+     "2024-us-senate": {
+      "dem": 2617,
+      "rep": 2472,
+      "other": 158,
+      "total": 5247
+     },
+     "2024-governor": {
+      "dem": 2433,
+      "rep": 2186,
+      "other": 387,
+      "total": 5006
+     },
+     "2022-us-senate": {
+      "una": 2421,
+      "rep": 1901,
+      "other": 321,
+      "total": 4643
+     },
+     "2020-president": {
+      "dem": 2806,
+      "rep": 2248,
+      "other": 131,
+      "total": 5185
+     },
+     "2020-governor": {
+      "dem": 2499,
+      "rep": 2303,
+      "other": 250,
+      "total": 5052
+     }
+    }
+   },
+   "49021": {
+    "name": "Iron County",
+    "votes": {
+     "2024-president": {
+      "dem": 5683,
+      "rep": 21571,
+      "other": 624,
+      "total": 27878
+     },
+     "2024-us-senate": {
+      "dem": 4757,
+      "rep": 20772,
+      "other": 1920,
+      "total": 27449
+     },
+     "2024-governor": {
+      "dem": 3967,
+      "rep": 16814,
+      "other": 6560,
+      "total": 27341
+     },
+     "2022-us-senate": {
+      "una": 3755,
+      "rep": 12923,
+      "other": 631,
+      "total": 17309
+     },
+     "2020-president": {
+      "dem": 4892,
+      "rep": 18989,
+      "other": 1009,
+      "total": 24890
+     },
+     "2020-governor": {
+      "dem": 3854,
+      "rep": 17650,
+      "other": 2612,
+      "total": 24116
+     }
+    }
+   },
+   "49023": {
+    "name": "Juab County",
+    "votes": {
+     "2024-president": {
+      "dem": 734,
+      "rep": 5671,
+      "other": 113,
+      "total": 6518
+     },
+     "2024-us-senate": {
+      "dem": 594,
+      "rep": 5222,
+      "other": 543,
+      "total": 6359
+     },
+     "2024-governor": {
+      "dem": 491,
+      "rep": 3821,
+      "other": 2080,
+      "total": 6392
+     },
+     "2022-us-senate": {
+      "una": 714,
+      "rep": 3886,
+      "other": 131,
+      "total": 4731
+     },
+     "2020-president": {
+      "dem": 645,
+      "rep": 5087,
+      "other": 134,
+      "total": 5866
+     },
+     "2020-governor": {
+      "dem": 470,
+      "rep": 4606,
+      "other": 660,
+      "total": 5736
+     }
+    }
+   },
+   "49025": {
+    "name": "Kane County",
+    "votes": {
+     "2024-president": {
+      "dem": 1137,
+      "rep": 3277,
+      "other": 74,
+      "total": 4488
+     },
+     "2024-us-senate": {
+      "dem": 1003,
+      "rep": 3143,
+      "other": 240,
+      "total": 4386
+     },
+     "2024-governor": {
+      "dem": 859,
+      "rep": 2628,
+      "other": 898,
+      "total": 4385
+     },
+     "2022-us-senate": {
+      "una": 946,
+      "rep": 2553,
+      "other": 160,
+      "total": 3659
+     },
+     "2020-president": {
+      "dem": 1083,
+      "rep": 2998,
+      "other": 99,
+      "total": 4180
+     },
+     "2020-governor": {
+      "dem": 918,
+      "rep": 2802,
+      "other": 300,
+      "total": 4020
+     }
+    }
+   },
+   "49027": {
+    "name": "Millard County",
+    "votes": {
+     "2024-president": {
+      "dem": 713,
+      "rep": 5558,
+      "other": 116,
+      "total": 6387
+     },
+     "2024-us-senate": {
+      "dem": 518,
+      "rep": 5309,
+      "other": 488,
+      "total": 6315
+     },
+     "2024-governor": {
+      "dem": 499,
+      "rep": 3708,
+      "other": 2099,
+      "total": 6306
+     },
+     "2022-us-senate": {
+      "una": 701,
+      "rep": 4279,
+      "other": 150,
+      "total": 5130
+     },
+     "2020-president": {
+      "dem": 624,
+      "rep": 5404,
+      "other": 132,
+      "total": 6160
+     },
+     "2020-governor": {
+      "dem": 519,
+      "rep": 4528,
+      "other": 945,
+      "total": 5992
+     }
+    }
+   },
+   "49029": {
+    "name": "Morgan County",
+    "votes": {
+     "2024-president": {
+      "dem": 1256,
+      "rep": 5300,
+      "other": 204,
+      "total": 6760
+     },
+     "2024-us-senate": {
+      "dem": 911,
+      "rep": 5506,
+      "other": 375,
+      "total": 6792
+     },
+     "2024-governor": {
+      "dem": 772,
+      "rep": 4293,
+      "other": 1738,
+      "total": 6803
+     },
+     "2022-us-senate": {
+      "una": 1358,
+      "rep": 3665,
+      "other": 134,
+      "total": 5157
+     },
+     "2020-president": {
+      "dem": 1086,
+      "rep": 5181,
+      "other": 245,
+      "total": 6512
+     },
+     "2020-governor": {
+      "dem": 770,
+      "rep": 5190,
+      "other": 440,
+      "total": 6400
+     }
+    }
+   },
+   "49031": {
+    "name": "Piute County",
+    "votes": {
+     "2024-president": {
+      "dem": 94,
+      "rep": 854,
+      "other": 15,
+      "total": 963
+     },
+     "2024-us-senate": {
+      "dem": 76,
+      "rep": 821,
+      "other": 54,
+      "total": 951
+     },
+     "2024-governor": {
+      "dem": 53,
+      "rep": 718,
+      "other": 173,
+      "total": 944
+     },
+     "2022-us-senate": {
+      "una": 82,
+      "rep": 692,
+      "other": 9,
+      "total": 783
+     },
+     "2020-president": {
+      "dem": 86,
+      "rep": 773,
+      "other": 12,
+      "total": 871
+     },
+     "2020-governor": {
+      "dem": 65,
+      "rep": 672,
+      "other": 93,
+      "total": 830
+     }
+    }
+   },
+   "49033": {
+    "name": "Rich County",
+    "votes": {
+     "2024-president": {
+      "dem": 214,
+      "rep": 1211,
+      "other": 22,
+      "total": 1447
+     },
+     "2024-us-senate": {
+      "dem": 160,
+      "rep": 1214,
+      "other": 59,
+      "total": 1433
+     },
+     "2024-governor": {
+      "dem": 132,
+      "rep": 1088,
+      "other": 207,
+      "total": 1427
+     },
+     "2022-us-senate": {
+      "una": 206,
+      "rep": 844,
+      "other": 23,
+      "total": 1073
+     },
+     "2020-president": {
+      "dem": 180,
+      "rep": 1157,
+      "other": 26,
+      "total": 1363
+     },
+     "2020-governor": {
+      "dem": 158,
+      "rep": 1081,
+      "other": 95,
+      "total": 1334
+     }
+    }
+   },
+   "49035": {
+    "name": "Salt Lake County",
+    "votes": {
+     "2024-president": {
+      "dem": 273658,
+      "rep": 221555,
+      "other": 14424,
+      "total": 509637
+     },
+     "2024-us-senate": {
+      "dem": 237322,
+      "rep": 238607,
+      "other": 19523,
+      "total": 495452
+     },
+     "2024-governor": {
+      "dem": 220368,
+      "rep": 222608,
+      "other": 62092,
+      "total": 505068
+     },
+     "2022-us-senate": {
+      "una": 218495,
+      "rep": 144931,
+      "other": 17769,
+      "total": 381195
+     },
+     "2020-president": {
+      "dem": 289906,
+      "rep": 230174,
+      "other": 21095,
+      "total": 541175
+     },
+     "2020-governor": {
+      "dem": 238249,
+      "rep": 266177,
+      "other": 24540,
+      "total": 528966
+     }
+    }
+   },
+   "49037": {
+    "name": "San Juan County",
+    "votes": {
+     "2024-president": {
+      "dem": 2581,
+      "rep": 3613,
+      "other": 135,
+      "total": 6329
+     },
+     "2024-us-senate": {
+      "dem": 2141,
+      "rep": 3694,
+      "other": 349,
+      "total": 6184
+     },
+     "2024-governor": {
+      "dem": 1994,
+      "rep": 2241,
+      "other": 2000,
+      "total": 6235
+     },
+     "2022-us-senate": {
+      "una": 1815,
+      "rep": 3118,
+      "other": 629,
+      "total": 5562
+     },
+     "2020-president": {
+      "dem": 3113,
+      "rep": 3535,
+      "other": 230,
+      "total": 6878
+     },
+     "2020-governor": {
+      "dem": 2642,
+      "rep": 3477,
+      "other": 461,
+      "total": 6580
+     }
+    }
+   },
+   "49039": {
+    "name": "Sanpete County",
+    "votes": {
+     "2024-president": {
+      "dem": 1906,
+      "rep": 10653,
+      "other": 385,
+      "total": 12944
+     },
+     "2024-us-senate": {
+      "dem": 1429,
+      "rep": 10173,
+      "other": 1168,
+      "total": 12770
+     },
+     "2024-governor": {
+      "dem": 1240,
+      "rep": 8052,
+      "other": 3529,
+      "total": 12821
+     },
+     "2022-us-senate": {
+      "una": 1912,
+      "rep": 7829,
+      "other": 268,
+      "total": 10009
+     },
+     "2020-president": {
+      "dem": 1794,
+      "rep": 10459,
+      "other": 378,
+      "total": 12631
+     },
+     "2020-governor": {
+      "dem": 1012,
+      "rep": 10326,
+      "other": 1116,
+      "total": 12454
+     }
+    }
+   },
+   "49041": {
+    "name": "Sevier County",
+    "votes": {
+     "2024-president": {
+      "dem": 1236,
+      "rep": 9526,
+      "other": 164,
+      "total": 10926
+     },
+     "2024-us-senate": {
+      "dem": 938,
+      "rep": 9103,
+      "other": 739,
+      "total": 10780
+     },
+     "2024-governor": {
+      "dem": 777,
+      "rep": 7341,
+      "other": 2668,
+      "total": 10786
+     },
+     "2022-us-senate": {
+      "una": 1152,
+      "rep": 6411,
+      "other": 212,
+      "total": 7775
+     },
+     "2020-president": {
+      "dem": 1084,
+      "rep": 9052,
+      "other": 227,
+      "total": 10363
+     },
+     "2020-governor": {
+      "dem": 882,
+      "rep": 8364,
+      "other": 901,
+      "total": 10147
+     }
+    }
+   },
+   "49043": {
+    "name": "Summit County",
+    "votes": {
+     "2024-president": {
+      "dem": 14612,
+      "rep": 10783,
+      "other": 481,
+      "total": 25876
+     },
+     "2024-us-senate": {
+      "dem": 13282,
+      "rep": 11399,
+      "other": 742,
+      "total": 25423
+     },
+     "2024-governor": {
+      "dem": 11435,
+      "rep": 11202,
+      "other": 2854,
+      "total": 25491
+     },
+     "2022-us-senate": {
+      "una": 12325,
+      "rep": 7305,
+      "other": 728,
+      "total": 20358
+     },
+     "2020-president": {
+      "dem": 15244,
+      "rep": 10252,
+      "other": 592,
+      "total": 26088
+     },
+     "2020-governor": {
+      "dem": 13066,
+      "rep": 11290,
+      "other": 945,
+      "total": 25301
+     }
+    }
+   },
+   "49045": {
+    "name": "Tooele County",
+    "votes": {
+     "2024-president": {
+      "dem": 9560,
+      "rep": 23484,
+      "other": 962,
+      "total": 34006
+     },
+     "2024-us-senate": {
+      "dem": 8140,
+      "rep": 22984,
+      "other": 2342,
+      "total": 33466
+     },
+     "2024-governor": {
+      "dem": 7104,
+      "rep": 19827,
+      "other": 6576,
+      "total": 33507
+     },
+     "2022-us-senate": {
+      "una": 7487,
+      "rep": 13371,
+      "other": 1216,
+      "total": 22074
+     },
+     "2020-president": {
+      "dem": 8943,
+      "rep": 21014,
+      "other": 1561,
+      "total": 31518
+     },
+     "2020-governor": {
+      "dem": 7058,
+      "rep": 21293,
+      "other": 2298,
+      "total": 30649
+     }
+    }
+   },
+   "49047": {
+    "name": "Uintah County",
+    "votes": {
+     "2024-president": {
+      "dem": 1952,
+      "rep": 13599,
+      "other": 281,
+      "total": 15832
+     },
+     "2024-us-senate": {
+      "dem": 1565,
+      "rep": 13077,
+      "other": 931,
+      "total": 15573
+     },
+     "2024-governor": {
+      "dem": 1428,
+      "rep": 10208,
+      "other": 3859,
+      "total": 15495
+     },
+     "2022-us-senate": {
+      "una": 1559,
+      "rep": 8905,
+      "other": 369,
+      "total": 10833
+     },
+     "2020-president": {
+      "dem": 1663,
+      "rep": 13261,
+      "other": 383,
+      "total": 15307
+     },
+     "2020-governor": {
+      "dem": 1482,
+      "rep": 10290,
+      "other": 3066,
+      "total": 14838
+     }
+    }
+   },
+   "49049": {
+    "name": "Utah County",
+    "votes": {
+     "2024-president": {
+      "dem": 84937,
+      "rep": 203476,
+      "other": 9730,
+      "total": 298143
+     },
+     "2024-us-senate": {
+      "dem": 60490,
+      "rep": 214605,
+      "other": 21489,
+      "total": 296584
+     },
+     "2024-governor": {
+      "dem": 54536,
+      "rep": 171100,
+      "other": 73224,
+      "total": 298860
+     },
+     "2022-us-senate": {
+      "una": 72238,
+      "rep": 127096,
+      "other": 6766,
+      "total": 206100
+     },
+     "2020-president": {
+      "dem": 76033,
+      "rep": 192812,
+      "other": 15635,
+      "total": 284480
+     },
+     "2020-governor": {
+      "dem": 52524,
+      "rep": 208514,
+      "other": 20460,
+      "total": 281498
+     }
+    }
+   },
+   "49051": {
+    "name": "Wasatch County",
+    "votes": {
+     "2024-president": {
+      "dem": 6459,
+      "rep": 11495,
+      "other": 400,
+      "total": 18354
+     },
+     "2024-us-senate": {
+      "dem": 5276,
+      "rep": 12004,
+      "other": 1043,
+      "total": 18323
+     },
+     "2024-governor": {
+      "dem": 4574,
+      "rep": 10043,
+      "other": 3686,
+      "total": 18303
+     },
+     "2022-us-senate": {
+      "una": 5429,
+      "rep": 7528,
+      "other": 507,
+      "total": 13464
+     },
+     "2020-president": {
+      "dem": 6187,
+      "rep": 10795,
+      "other": 599,
+      "total": 17581
+     },
+     "2020-governor": {
+      "dem": 4911,
+      "rep": 11472,
+      "other": 910,
+      "total": 17293
+     }
+    }
+   },
+   "49053": {
+    "name": "Washington County",
+    "votes": {
+     "2024-president": {
+      "dem": 22327,
+      "rep": 73165,
+      "other": 1764,
+      "total": 97256
+     },
+     "2024-us-senate": {
+      "dem": 18607,
+      "rep": 69743,
+      "other": 7103,
+      "total": 95453
+     },
+     "2024-governor": {
+      "dem": 15977,
+      "rep": 53786,
+      "other": 26147,
+      "total": 95910
+     },
+     "2022-us-senate": {
+      "una": 17786,
+      "rep": 49420,
+      "other": 2308,
+      "total": 69514
+     },
+     "2020-president": {
+      "dem": 20530,
+      "rep": 67294,
+      "other": 2652,
+      "total": 90476
+     },
+     "2020-governor": {
+      "dem": 16698,
+      "rep": 61125,
+      "other": 10039,
+      "total": 87862
+     }
+    }
+   },
+   "49055": {
+    "name": "Wayne County",
+    "votes": {
+     "2024-president": {
+      "dem": 381,
+      "rep": 1238,
+      "other": 32,
+      "total": 1651
+     },
+     "2024-us-senate": {
+      "dem": 326,
+      "rep": 1196,
+      "other": 97,
+      "total": 1619
+     },
+     "2024-governor": {
+      "dem": 287,
+      "rep": 925,
+      "other": 407,
+      "total": 1619
+     },
+     "2022-us-senate": {
+      "una": 415,
+      "rep": 1056,
+      "other": 43,
+      "total": 1514
+     },
+     "2020-president": {
+      "dem": 365,
+      "rep": 1229,
+      "other": 27,
+      "total": 1621
+     },
+     "2020-governor": {
+      "dem": 321,
+      "rep": 1115,
+      "other": 145,
+      "total": 1581
+     }
+    }
+   },
+   "49057": {
+    "name": "Weber County",
+    "votes": {
+     "2024-president": {
+      "dem": 41238,
+      "rep": 67549,
+      "other": 3267,
+      "total": 112054
+     },
+     "2024-us-senate": {
+      "dem": 35286,
+      "rep": 67713,
+      "other": 5950,
+      "total": 108949
+     },
+     "2024-governor": {
+      "dem": 30804,
+      "rep": 59443,
+      "other": 20371,
+      "total": 110618
+     },
+     "2022-us-senate": {
+      "una": 31265,
+      "rep": 42007,
+      "other": 3793,
+      "total": 77065
+     },
+     "2020-president": {
+      "dem": 40695,
+      "rep": 65949,
+      "other": 4798,
+      "total": 111442
+     },
+     "2020-governor": {
+      "dem": 32976,
+      "rep": 68804,
+      "other": 6787,
+      "total": 108567
+     }
+    }
+   }
+  },
+  "judicial": {
+   "JD1": {
+    "name": "First Judicial District",
+    "counties": [
+     "49003",
+     "49005",
+     "49033"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 24206,
+      "rep": 63521,
+      "other": 2898,
+      "total": 90625
+     },
+     "2024-us-senate": {
+      "dem": 19277,
+      "rep": 65468,
+      "other": 5271,
+      "total": 90016
+     },
+     "2024-governor": {
+      "dem": 16728,
+      "rep": 55696,
+      "other": 17690,
+      "total": 90114
+     },
+     "2022-us-senate": {
+      "una": 20511,
+      "rep": 39866,
+      "other": 2589,
+      "total": 62966
+     },
+     "2020-president": {
+      "dem": 21303,
+      "rep": 60737,
+      "other": 3921,
+      "total": 85961
+     },
+     "2020-governor": {
+      "dem": 16608,
+      "rep": 61675,
+      "other": 6160,
+      "total": 84443
+     }
+    }
+   },
+   "JD2": {
+    "name": "Second Judicial District",
+    "counties": [
+     "49057",
+     "49011",
+     "49029"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 102389,
+      "rep": 174142,
+      "other": 8853,
+      "total": 285384
+     },
+     "2024-us-senate": {
+      "dem": 81885,
+      "rep": 181302,
+      "other": 18424,
+      "total": 281611
+     },
+     "2024-governor": {
+      "dem": 71757,
+      "rep": 159415,
+      "other": 52269,
+      "total": 283441
+     },
+     "2022-us-senate": {
+      "una": 85429,
+      "rep": 112057,
+      "other": 8511,
+      "total": 205997
+     },
+     "2020-president": {
+      "dem": 99192,
+      "rep": 175265,
+      "other": 13392,
+      "total": 287849
+     },
+     "2020-governor": {
+      "dem": 74847,
+      "rep": 189495,
+      "other": 18978,
+      "total": 283320
+     }
+    }
+   },
+   "JD3": {
+    "name": "Third Judicial District",
+    "counties": [
+     "49035",
+     "49043",
+     "49045"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 297830,
+      "rep": 255822,
+      "other": 15867,
+      "total": 569519
+     },
+     "2024-us-senate": {
+      "dem": 258744,
+      "rep": 272990,
+      "other": 22607,
+      "total": 554341
+     },
+     "2024-governor": {
+      "dem": 238907,
+      "rep": 253637,
+      "other": 71522,
+      "total": 564066
+     },
+     "2022-us-senate": {
+      "una": 238307,
+      "rep": 165607,
+      "other": 19713,
+      "total": 423627
+     },
+     "2020-president": {
+      "dem": 314093,
+      "rep": 261440,
+      "other": 23248,
+      "total": 598781
+     },
+     "2020-governor": {
+      "dem": 258373,
+      "rep": 298760,
+      "other": 27783,
+      "total": 584916
+     }
+    }
+   },
+   "JD4": {
+    "name": "Fourth Judicial District",
+    "counties": [
+     "49049",
+     "49051",
+     "49023",
+     "49027"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 92843,
+      "rep": 226200,
+      "other": 10359,
+      "total": 329402
+     },
+     "2024-us-senate": {
+      "dem": 66878,
+      "rep": 237140,
+      "other": 23563,
+      "total": 327581
+     },
+     "2024-governor": {
+      "dem": 60100,
+      "rep": 188672,
+      "other": 81089,
+      "total": 329861
+     },
+     "2022-us-senate": {
+      "una": 79082,
+      "rep": 142789,
+      "other": 7554,
+      "total": 229425
+     },
+     "2020-president": {
+      "dem": 83489,
+      "rep": 214098,
+      "other": 16500,
+      "total": 314087
+     },
+     "2020-governor": {
+      "dem": 58424,
+      "rep": 229120,
+      "other": 22975,
+      "total": 310519
+     }
+    }
+   },
+   "JD5": {
+    "name": "Fifth Judicial District",
+    "counties": [
+     "49001",
+     "49021",
+     "49053"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 28404,
+      "rep": 97517,
+      "other": 2425,
+      "total": 128346
+     },
+     "2024-us-senate": {
+      "dem": 23691,
+      "rep": 93120,
+      "other": 9237,
+      "total": 126048
+     },
+     "2024-governor": {
+      "dem": 20195,
+      "rep": 72720,
+      "other": 33465,
+      "total": 126380
+     },
+     "2022-us-senate": {
+      "una": 21960,
+      "rep": 64314,
+      "other": 2996,
+      "total": 89270
+     },
+     "2020-president": {
+      "dem": 25779,
+      "rep": 88978,
+      "other": 3709,
+      "total": 118466
+     },
+     "2020-governor": {
+      "dem": 20843,
+      "rep": 81243,
+      "other": 12856,
+      "total": 114942
+     }
+    }
+   },
+   "JD6": {
+    "name": "Sixth Judicial District",
+    "counties": [
+     "49017",
+     "49025",
+     "49031",
+     "49039",
+     "49041",
+     "49055"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 5295,
+      "rep": 27759,
+      "other": 729,
+      "total": 33783
+     },
+     "2024-us-senate": {
+      "dem": 4235,
+      "rep": 26585,
+      "other": 2443,
+      "total": 33263
+     },
+     "2024-governor": {
+      "dem": 3609,
+      "rep": 21578,
+      "other": 8123,
+      "total": 33310
+     },
+     "2022-us-senate": {
+      "una": 5027,
+      "rep": 20336,
+      "other": 762,
+      "total": 26125
+     },
+     "2020-president": {
+      "dem": 4926,
+      "rep": 26669,
+      "other": 803,
+      "total": 32398
+     },
+     "2020-governor": {
+      "dem": 3626,
+      "rep": 25402,
+      "other": 2649,
+      "total": 31677
+     }
+    }
+   },
+   "JD7": {
+    "name": "Seventh Judicial District",
+    "counties": [
+     "49007",
+     "49015",
+     "49019",
+     "49037"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 8537,
+      "rep": 17000,
+      "other": 548,
+      "total": 26085
+     },
+     "2024-us-senate": {
+      "dem": 7372,
+      "rep": 17117,
+      "other": 1204,
+      "total": 25693
+     },
+     "2024-governor": {
+      "dem": 6990,
+      "rep": 13393,
+      "other": 5101,
+      "total": 25484
+     },
+     "2022-us-senate": {
+      "una": 7062,
+      "rep": 12553,
+      "other": 1426,
+      "total": 21041
+     },
+     "2020-president": {
+      "dem": 8883,
+      "rep": 16683,
+      "other": 731,
+      "total": 26297
+     },
+     "2020-governor": {
+      "dem": 7721,
+      "rep": 16204,
+      "other": 1461,
+      "total": 25386
+     }
+    }
+   },
+   "JD8": {
+    "name": "Eighth Judicial District",
+    "counties": [
+     "49009",
+     "49013",
+     "49047"
+    ],
+    "votes": {
+     "2024-president": {
+      "dem": 3062,
+      "rep": 21857,
+      "other": 431,
+      "total": 25350
+     },
+     "2024-us-senate": {
+      "dem": 2433,
+      "rep": 20978,
+      "other": 1545,
+      "total": 24956
+     },
+     "2024-governor": {
+      "dem": 2228,
+      "rep": 16320,
+      "other": 6253,
+      "total": 24801
+     },
+     "2022-us-senate": {
+      "una": 2580,
+      "rep": 14452,
+      "other": 585,
+      "total": 17617
+     },
+     "2020-president": {
+      "dem": 2617,
+      "rep": 21270,
+      "other": 563,
+      "total": 24450
+     },
+     "2020-governor": {
+      "dem": 2312,
+      "rep": 16855,
+      "other": 4508,
+      "total": 23675
+     }
+    }
+   }
+  },
+  "house": {
+   "1": {
+    "name": "House District 1",
+    "votes": {
+     "2024-president": {
+      "dem": 3615,
+      "rep": 17583,
+      "other": 560,
+      "total": 21758
+     },
+     "2024-us-senate": {
+      "dem": 2798,
+      "rep": 17360,
+      "other": 1359,
+      "total": 21517
+     },
+     "2024-governor": {
+      "dem": 2438,
+      "rep": 13893,
+      "other": 5200,
+      "total": 21531
+     }
+    }
+   },
+   "2": {
+    "name": "House District 2",
+    "votes": {
+     "2024-president": {
+      "dem": 6047,
+      "rep": 13592,
+      "other": 738,
+      "total": 20377
+     },
+     "2024-us-senate": {
+      "dem": 4663,
+      "rep": 14536,
+      "other": 1084,
+      "total": 20283
+     },
+     "2024-governor": {
+      "dem": 3989,
+      "rep": 12670,
+      "other": 3696,
+      "total": 20355
+     }
+    }
+   },
+   "3": {
+    "name": "House District 3",
+    "votes": {
+     "2024-president": {
+      "dem": 6972,
+      "rep": 8653,
+      "other": 622,
+      "total": 16247
+     },
+     "2024-us-senate": {
+      "dem": 5996,
+      "rep": 9188,
+      "other": 874,
+      "total": 16058
+     },
+     "2024-governor": {
+      "dem": 5291,
+      "rep": 8563,
+      "other": 2236,
+      "total": 16090
+     }
+    }
+   },
+   "4": {
+    "name": "House District 4",
+    "votes": {
+     "2024-president": {
+      "dem": 10585,
+      "rep": 14662,
+      "other": 539,
+      "total": 25786
+     },
+     "2024-us-senate": {
+      "dem": 9289,
+      "rep": 15101,
+      "other": 1016,
+      "total": 25406
+     },
+     "2024-governor": {
+      "dem": 8054,
+      "rep": 13300,
+      "other": 4218,
+      "total": 25572
+     }
+    }
+   },
+   "5": {
+    "name": "House District 5",
+    "votes": {
+     "2024-president": {
+      "dem": 5506,
+      "rep": 16188,
+      "other": 696,
+      "total": 22390
+     },
+     "2024-us-senate": {
+      "dem": 4258,
+      "rep": 16718,
+      "other": 1372,
+      "total": 22348
+     },
+     "2024-governor": {
+      "dem": 3659,
+      "rep": 14137,
+      "other": 4554,
+      "total": 22350
+     }
+    }
+   },
+   "6": {
+    "name": "House District 6",
+    "votes": {
+     "2024-president": {
+      "dem": 4896,
+      "rep": 15974,
+      "other": 579,
+      "total": 21449
+     },
+     "2024-us-senate": {
+      "dem": 3829,
+      "rep": 16053,
+      "other": 1205,
+      "total": 21087
+     },
+     "2024-governor": {
+      "dem": 3314,
+      "rep": 13355,
+      "other": 4606,
+      "total": 21275
+     }
+    }
+   },
+   "7": {
+    "name": "House District 7",
+    "votes": {
+     "2024-president": {
+      "dem": 6563,
+      "rep": 11000,
+      "other": 538,
+      "total": 18101
+     },
+     "2024-us-senate": {
+      "dem": 5508,
+      "rep": 11172,
+      "other": 949,
+      "total": 17629
+     },
+     "2024-governor": {
+      "dem": 4739,
+      "rep": 9958,
+      "other": 3244,
+      "total": 17941
+     }
+    }
+   },
+   "8": {
+    "name": "House District 8",
+    "votes": {
+     "2024-president": {
+      "dem": 8444,
+      "rep": 10989,
+      "other": 634,
+      "total": 20067
+     },
+     "2024-us-senate": {
+      "dem": 7349,
+      "rep": 11269,
+      "other": 970,
+      "total": 19588
+     },
+     "2024-governor": {
+      "dem": 6434,
+      "rep": 9999,
+      "other": 3381,
+      "total": 19814
+     }
+    }
+   },
+   "9": {
+    "name": "House District 9",
+    "votes": {
+     "2024-president": {
+      "dem": 6513,
+      "rep": 10064,
+      "other": 477,
+      "total": 17054
+     },
+     "2024-us-senate": {
+      "dem": 5706,
+      "rep": 9805,
+      "other": 943,
+      "total": 16454
+     },
+     "2024-governor": {
+      "dem": 5041,
+      "rep": 8717,
+      "other": 2977,
+      "total": 16735
+     }
+    }
+   },
+   "10": {
+    "name": "House District 10",
+    "votes": {
+     "2024-president": {
+      "dem": 7481,
+      "rep": 7938,
+      "other": 526,
+      "total": 15945
+     },
+     "2024-us-senate": {
+      "dem": 6602,
+      "rep": 8123,
+      "other": 778,
+      "total": 15503
+     },
+     "2024-governor": {
+      "dem": 5844,
+      "rep": 7508,
+      "other": 2358,
+      "total": 15710
+     }
+    }
+   },
+   "11": {
+    "name": "House District 11",
+    "votes": {
+     "2024-president": {
+      "dem": 6511,
+      "rep": 9909,
+      "other": 542,
+      "total": 16962
+     },
+     "2024-us-senate": {
+      "dem": 5407,
+      "rep": 10045,
+      "other": 1117,
+      "total": 16569
+     },
+     "2024-governor": {
+      "dem": 4704,
+      "rep": 8885,
+      "other": 3089,
+      "total": 16678
+     }
+    }
+   },
+   "12": {
+    "name": "House District 12",
+    "votes": {
+     "2024-president": {
+      "dem": 5484,
+      "rep": 14003,
+      "other": 529,
+      "total": 20016
+     },
+     "2024-us-senate": {
+      "dem": 4577,
+      "rep": 13637,
+      "other": 1234,
+      "total": 19448
+     },
+     "2024-governor": {
+      "dem": 3933,
+      "rep": 11553,
+      "other": 4281,
+      "total": 19767
+     }
+    }
+   },
+   "13": {
+    "name": "House District 13",
+    "votes": {
+     "2024-president": {
+      "dem": 5948,
+      "rep": 11820,
+      "other": 585,
+      "total": 18353
+     },
+     "2024-us-senate": {
+      "dem": 4736,
+      "rep": 11770,
+      "other": 1486,
+      "total": 17992
+     },
+     "2024-governor": {
+      "dem": 4140,
+      "rep": 10391,
+      "other": 3417,
+      "total": 17948
+     }
+    }
+   },
+   "14": {
+    "name": "House District 14",
+    "votes": {
+     "2024-president": {
+      "dem": 5810,
+      "rep": 11595,
+      "other": 587,
+      "total": 17992
+     },
+     "2024-us-senate": {
+      "dem": 4551,
+      "rep": 11533,
+      "other": 1589,
+      "total": 17673
+     },
+     "2024-governor": {
+      "dem": 3947,
+      "rep": 10025,
+      "other": 3775,
+      "total": 17747
+     }
+    }
+   },
+   "15": {
+    "name": "House District 15",
+    "votes": {
+     "2024-president": {
+      "dem": 6454,
+      "rep": 14287,
+      "other": 606,
+      "total": 21347
+     },
+     "2024-us-senate": {
+      "dem": 4682,
+      "rep": 15116,
+      "other": 1501,
+      "total": 21299
+     },
+     "2024-governor": {
+      "dem": 4163,
+      "rep": 12910,
+      "other": 4261,
+      "total": 21334
+     }
+    }
+   },
+   "16": {
+    "name": "House District 16",
+    "votes": {
+     "2024-president": {
+      "dem": 6913,
+      "rep": 11125,
+      "other": 565,
+      "total": 18603
+     },
+     "2024-us-senate": {
+      "dem": 5568,
+      "rep": 11481,
+      "other": 1365,
+      "total": 18414
+     },
+     "2024-governor": {
+      "dem": 4786,
+      "rep": 10284,
+      "other": 3297,
+      "total": 18367
+     }
+    }
+   },
+   "17": {
+    "name": "House District 17",
+    "votes": {
+     "2024-president": {
+      "dem": 7302,
+      "rep": 12527,
+      "other": 715,
+      "total": 20544
+     },
+     "2024-us-senate": {
+      "dem": 5300,
+      "rep": 13879,
+      "other": 1482,
+      "total": 20661
+     },
+     "2024-governor": {
+      "dem": 4608,
+      "rep": 12391,
+      "other": 3731,
+      "total": 20730
+     }
+    }
+   },
+   "18": {
+    "name": "House District 18",
+    "votes": {
+     "2024-president": {
+      "dem": 7868,
+      "rep": 12817,
+      "other": 669,
+      "total": 21354
+     },
+     "2024-us-senate": {
+      "dem": 5719,
+      "rep": 14516,
+      "other": 1336,
+      "total": 21571
+     },
+     "2024-governor": {
+      "dem": 4945,
+      "rep": 12956,
+      "other": 3695,
+      "total": 21596
+     }
+    }
+   },
+   "19": {
+    "name": "House District 19",
+    "votes": {
+     "2024-president": {
+      "dem": 8742,
+      "rep": 11811,
+      "other": 731,
+      "total": 21284
+     },
+     "2024-us-senate": {
+      "dem": 6408,
+      "rep": 13560,
+      "other": 1414,
+      "total": 21382
+     },
+     "2024-governor": {
+      "dem": 5768,
+      "rep": 12116,
+      "other": 3513,
+      "total": 21397
+     }
+    }
+   },
+   "20": {
+    "name": "House District 20",
+    "votes": {
+     "2024-president": {
+      "dem": 8212,
+      "rep": 9543,
+      "other": 651,
+      "total": 18406
+     },
+     "2024-us-senate": {
+      "dem": 6554,
+      "rep": 10624,
+      "other": 1211,
+      "total": 18389
+     },
+     "2024-governor": {
+      "dem": 5949,
+      "rep": 9689,
+      "other": 2784,
+      "total": 18422
+     }
+    }
+   },
+   "21": {
+    "name": "House District 21",
+    "votes": {
+     "2024-president": {
+      "dem": 8834,
+      "rep": 3635,
+      "other": 436,
+      "total": 12905
+     },
+     "2024-us-senate": {
+      "dem": 8248,
+      "rep": 3775,
+      "other": 414,
+      "total": 12437
+     },
+     "2024-governor": {
+      "dem": 7740,
+      "rep": 3935,
+      "other": 1012,
+      "total": 12687
+     }
+    }
+   },
+   "22": {
+    "name": "House District 22",
+    "votes": {
+     "2024-president": {
+      "dem": 16180,
+      "rep": 4002,
+      "other": 669,
+      "total": 20851
+     },
+     "2024-us-senate": {
+      "dem": 15103,
+      "rep": 4737,
+      "other": 386,
+      "total": 20226
+     },
+     "2024-governor": {
+      "dem": 14506,
+      "rep": 4988,
+      "other": 1052,
+      "total": 20546
+     }
+    }
+   },
+   "23": {
+    "name": "House District 23",
+    "votes": {
+     "2024-president": {
+      "dem": 19875,
+      "rep": 5097,
+      "other": 539,
+      "total": 25511
+     },
+     "2024-us-senate": {
+      "dem": 17682,
+      "rep": 6985,
+      "other": 380,
+      "total": 25047
+     },
+     "2024-governor": {
+      "dem": 17402,
+      "rep": 6974,
+      "other": 1068,
+      "total": 25444
+     }
+    }
+   },
+   "24": {
+    "name": "House District 24",
+    "votes": {
+     "2024-president": {
+      "dem": 16163,
+      "rep": 3296,
+      "other": 733,
+      "total": 20192
+     },
+     "2024-us-senate": {
+      "dem": 15470,
+      "rep": 3600,
+      "other": 435,
+      "total": 19505
+     },
+     "2024-governor": {
+      "dem": 14826,
+      "rep": 3907,
+      "other": 1059,
+      "total": 19792
+     }
+    }
+   },
+   "25": {
+    "name": "House District 25",
+    "votes": {
+     "2024-president": {
+      "dem": 5484,
+      "rep": 3539,
+      "other": 322,
+      "total": 9345
+     },
+     "2024-us-senate": {
+      "dem": 5189,
+      "rep": 3406,
+      "other": 400,
+      "total": 8995
+     },
+     "2024-governor": {
+      "dem": 4746,
+      "rep": 3473,
+      "other": 929,
+      "total": 9148
+     }
+    }
+   },
+   "26": {
+    "name": "House District 26",
+    "votes": {
+     "2024-president": {
+      "dem": 6757,
+      "rep": 6937,
+      "other": 440,
+      "total": 14134
+     },
+     "2024-us-senate": {
+      "dem": 5918,
+      "rep": 7061,
+      "other": 678,
+      "total": 13657
+     },
+     "2024-governor": {
+      "dem": 5363,
+      "rep": 6657,
+      "other": 1906,
+      "total": 13926
+     }
+    }
+   },
+   "27": {
+    "name": "House District 27",
+    "votes": {
+     "2024-president": {
+      "dem": 6898,
+      "rep": 7927,
+      "other": 477,
+      "total": 15302
+     },
+     "2024-us-senate": {
+      "dem": 6191,
+      "rep": 7792,
+      "other": 772,
+      "total": 14755
+     },
+     "2024-governor": {
+      "dem": 5496,
+      "rep": 7288,
+      "other": 2255,
+      "total": 15039
+     }
+    }
+   },
+   "28": {
+    "name": "House District 28",
+    "votes": {
+     "2024-president": {
+      "dem": 5858,
+      "rep": 11879,
+      "other": 534,
+      "total": 18271
+     },
+     "2024-us-senate": {
+      "dem": 5021,
+      "rep": 11729,
+      "other": 1230,
+      "total": 17980
+     },
+     "2024-governor": {
+      "dem": 4409,
+      "rep": 10457,
+      "other": 3174,
+      "total": 18040
+     }
+    }
+   },
+   "29": {
+    "name": "House District 29",
+    "votes": {
+     "2024-president": {
+      "dem": 4409,
+      "rep": 17217,
+      "other": 549,
+      "total": 22175
+     },
+     "2024-us-senate": {
+      "dem": 3628,
+      "rep": 16601,
+      "other": 1620,
+      "total": 21849
+     },
+     "2024-governor": {
+      "dem": 3197,
+      "rep": 13107,
+      "other": 5546,
+      "total": 21850
+     }
+    }
+   },
+   "30": {
+    "name": "House District 30",
+    "votes": {
+     "2024-president": {
+      "dem": 7208,
+      "rep": 6777,
+      "other": 442,
+      "total": 14427
+     },
+     "2024-us-senate": {
+      "dem": 6339,
+      "rep": 7006,
+      "other": 655,
+      "total": 14000
+     },
+     "2024-governor": {
+      "dem": 5736,
+      "rep": 6750,
+      "other": 1768,
+      "total": 14254
+     }
+    }
+   },
+   "31": {
+    "name": "House District 31",
+    "votes": {
+     "2024-president": {
+      "dem": 7202,
+      "rep": 5361,
+      "other": 386,
+      "total": 12949
+     },
+     "2024-us-senate": {
+      "dem": 6371,
+      "rep": 5496,
+      "other": 586,
+      "total": 12453
+     },
+     "2024-governor": {
+      "dem": 5769,
+      "rep": 5512,
+      "other": 1455,
+      "total": 12736
+     }
+    }
+   },
+   "32": {
+    "name": "House District 32",
+    "votes": {
+     "2024-president": {
+      "dem": 12690,
+      "rep": 4177,
+      "other": 525,
+      "total": 17392
+     },
+     "2024-us-senate": {
+      "dem": 11839,
+      "rep": 4617,
+      "other": 458,
+      "total": 16914
+     },
+     "2024-governor": {
+      "dem": 11232,
+      "rep": 4760,
+      "other": 1193,
+      "total": 17185
+     }
+    }
+   },
+   "33": {
+    "name": "House District 33",
+    "votes": {
+     "2024-president": {
+      "dem": 16647,
+      "rep": 7973,
+      "other": 625,
+      "total": 25245
+     },
+     "2024-us-senate": {
+      "dem": 14152,
+      "rep": 10057,
+      "other": 647,
+      "total": 24856
+     },
+     "2024-governor": {
+      "dem": 13586,
+      "rep": 9833,
+      "other": 1912,
+      "total": 25331
+     }
+    }
+   },
+   "34": {
+    "name": "House District 34",
+    "votes": {
+     "2024-president": {
+      "dem": 13315,
+      "rep": 7469,
+      "other": 536,
+      "total": 21320
+     },
+     "2024-us-senate": {
+      "dem": 11387,
+      "rep": 8786,
+      "other": 664,
+      "total": 20837
+     },
+     "2024-governor": {
+      "dem": 10764,
+      "rep": 8504,
+      "other": 1966,
+      "total": 21234
+     }
+    }
+   },
+   "35": {
+    "name": "House District 35",
+    "votes": {
+     "2024-president": {
+      "dem": 10399,
+      "rep": 7061,
+      "other": 506,
+      "total": 17966
+     },
+     "2024-us-senate": {
+      "dem": 9017,
+      "rep": 7809,
+      "other": 684,
+      "total": 17510
+     },
+     "2024-governor": {
+      "dem": 8348,
+      "rep": 7605,
+      "other": 1919,
+      "total": 17872
+     }
+    }
+   },
+   "36": {
+    "name": "House District 36",
+    "votes": {
+     "2024-president": {
+      "dem": 8673,
+      "rep": 9377,
+      "other": 516,
+      "total": 18566
+     },
+     "2024-us-senate": {
+      "dem": 7341,
+      "rep": 9849,
+      "other": 823,
+      "total": 18013
+     },
+     "2024-governor": {
+      "dem": 6584,
+      "rep": 9313,
+      "other": 2466,
+      "total": 18363
+     }
+    }
+   },
+   "37": {
+    "name": "House District 37",
+    "votes": {
+     "2024-president": {
+      "dem": 6174,
+      "rep": 5861,
+      "other": 411,
+      "total": 12446
+     },
+     "2024-us-senate": {
+      "dem": 5526,
+      "rep": 5895,
+      "other": 562,
+      "total": 11983
+     },
+     "2024-governor": {
+      "dem": 4925,
+      "rep": 5717,
+      "other": 1586,
+      "total": 12228
+     }
+    }
+   },
+   "38": {
+    "name": "House District 38",
+    "votes": {
+     "2024-president": {
+      "dem": 7335,
+      "rep": 9159,
+      "other": 449,
+      "total": 16943
+     },
+     "2024-us-senate": {
+      "dem": 6270,
+      "rep": 9346,
+      "other": 808,
+      "total": 16424
+     },
+     "2024-governor": {
+      "dem": 5508,
+      "rep": 8661,
+      "other": 2576,
+      "total": 16745
+     }
+    }
+   },
+   "39": {
+    "name": "House District 39",
+    "votes": {
+     "2024-president": {
+      "dem": 7758,
+      "rep": 8591,
+      "other": 592,
+      "total": 16941
+     },
+     "2024-us-senate": {
+      "dem": 6593,
+      "rep": 9103,
+      "other": 805,
+      "total": 16501
+     },
+     "2024-governor": {
+      "dem": 5936,
+      "rep": 8428,
+      "other": 2447,
+      "total": 16811
+     }
+    }
+   },
+   "40": {
+    "name": "House District 40",
+    "votes": {
+     "2024-president": {
+      "dem": 9303,
+      "rep": 6439,
+      "other": 462,
+      "total": 16204
+     },
+     "2024-us-senate": {
+      "dem": 8246,
+      "rep": 6736,
+      "other": 666,
+      "total": 15648
+     },
+     "2024-governor": {
+      "dem": 7661,
+      "rep": 6436,
+      "other": 1823,
+      "total": 15920
+     }
+    }
+   },
+   "41": {
+    "name": "House District 41",
+    "votes": {
+     "2024-president": {
+      "dem": 14938,
+      "rep": 9020,
+      "other": 588,
+      "total": 24546
+     },
+     "2024-us-senate": {
+      "dem": 12875,
+      "rep": 10423,
+      "other": 675,
+      "total": 23973
+     },
+     "2024-governor": {
+      "dem": 12006,
+      "rep": 10203,
+      "other": 2217,
+      "total": 24426
+     }
+    }
+   },
+   "42": {
+    "name": "House District 42",
+    "votes": {
+     "2024-president": {
+      "dem": 12698,
+      "rep": 12042,
+      "other": 623,
+      "total": 25363
+     },
+     "2024-us-senate": {
+      "dem": 10177,
+      "rep": 13734,
+      "other": 965,
+      "total": 24876
+     },
+     "2024-governor": {
+      "dem": 9409,
+      "rep": 12604,
+      "other": 3376,
+      "total": 25389
+     }
+    }
+   },
+   "43": {
+    "name": "House District 43",
+    "votes": {
+     "2024-president": {
+      "dem": 10771,
+      "rep": 9590,
+      "other": 592,
+      "total": 20953
+     },
+     "2024-us-senate": {
+      "dem": 9039,
+      "rep": 10433,
+      "other": 839,
+      "total": 20311
+     },
+     "2024-governor": {
+      "dem": 8331,
+      "rep": 9645,
+      "other": 2784,
+      "total": 20760
+     }
+    }
+   },
+   "44": {
+    "name": "House District 44",
+    "votes": {
+     "2024-president": {
+      "dem": 9649,
+      "rep": 12414,
+      "other": 644,
+      "total": 22707
+     },
+     "2024-us-senate": {
+      "dem": 7535,
+      "rep": 13726,
+      "other": 1004,
+      "total": 22265
+     },
+     "2024-governor": {
+      "dem": 6861,
+      "rep": 12362,
+      "other": 3455,
+      "total": 22678
+     }
+    }
+   },
+   "45": {
+    "name": "House District 45",
+    "votes": {
+     "2024-president": {
+      "dem": 8718,
+      "rep": 12272,
+      "other": 602,
+      "total": 21592
+     },
+     "2024-us-senate": {
+      "dem": 6794,
+      "rep": 13392,
+      "other": 944,
+      "total": 21130
+     },
+     "2024-governor": {
+      "dem": 6074,
+      "rep": 11950,
+      "other": 3552,
+      "total": 21576
+     }
+    }
+   },
+   "46": {
+    "name": "House District 46",
+    "votes": {
+     "2024-president": {
+      "dem": 8493,
+      "rep": 12920,
+      "other": 563,
+      "total": 21976
+     },
+     "2024-us-senate": {
+      "dem": 6735,
+      "rep": 13696,
+      "other": 943,
+      "total": 21374
+     },
+     "2024-governor": {
+      "dem": 6048,
+      "rep": 11915,
+      "other": 3891,
+      "total": 21854
+     }
+    }
+   },
+   "47": {
+    "name": "House District 47",
+    "votes": {
+     "2024-president": {
+      "dem": 7294,
+      "rep": 14122,
+      "other": 582,
+      "total": 21998
+     },
+     "2024-us-senate": {
+      "dem": 5766,
+      "rep": 14267,
+      "other": 1217,
+      "total": 21250
+     },
+     "2024-governor": {
+      "dem": 5163,
+      "rep": 12283,
+      "other": 4348,
+      "total": 21794
+     }
+    }
+   },
+   "48": {
+    "name": "House District 48",
+    "votes": {
+     "2024-president": {
+      "dem": 8240,
+      "rep": 12473,
+      "other": 640,
+      "total": 21353
+     },
+     "2024-us-senate": {
+      "dem": 6837,
+      "rep": 12855,
+      "other": 1012,
+      "total": 20704
+     },
+     "2024-governor": {
+      "dem": 6131,
+      "rep": 11279,
+      "other": 3709,
+      "total": 21119
+     }
+    }
+   },
+   "49": {
+    "name": "House District 49",
+    "votes": {
+     "2024-president": {
+      "dem": 6720,
+      "rep": 14085,
+      "other": 535,
+      "total": 21340
+     },
+     "2024-us-senate": {
+      "dem": 5404,
+      "rep": 14111,
+      "other": 1112,
+      "total": 20627
+     },
+     "2024-governor": {
+      "dem": 4899,
+      "rep": 11767,
+      "other": 4410,
+      "total": 21076
+     }
+    }
+   },
+   "50": {
+    "name": "House District 50",
+    "votes": {
+     "2024-president": {
+      "dem": 5206,
+      "rep": 16171,
+      "other": 723,
+      "total": 22100
+     },
+     "2024-us-senate": {
+      "dem": 4248,
+      "rep": 15620,
+      "other": 1842,
+      "total": 21710
+     },
+     "2024-governor": {
+      "dem": 3666,
+      "rep": 12031,
+      "other": 6174,
+      "total": 21871
+     }
+    }
+   },
+   "51": {
+    "name": "House District 51",
+    "votes": {
+     "2024-president": {
+      "dem": 7072,
+      "rep": 17084,
+      "other": 765,
+      "total": 24921
+     },
+     "2024-us-senate": {
+      "dem": 5396,
+      "rep": 17672,
+      "other": 1641,
+      "total": 24709
+     },
+     "2024-governor": {
+      "dem": 4755,
+      "rep": 14237,
+      "other": 5866,
+      "total": 24858
+     }
+    }
+   },
+   "52": {
+    "name": "House District 52",
+    "votes": {
+     "2024-president": {
+      "dem": 6453,
+      "rep": 14532,
+      "other": 702,
+      "total": 21687
+     },
+     "2024-us-senate": {
+      "dem": 4797,
+      "rep": 15317,
+      "other": 1341,
+      "total": 21455
+     },
+     "2024-governor": {
+      "dem": 4241,
+      "rep": 12245,
+      "other": 5200,
+      "total": 21686
+     }
+    }
+   },
+   "53": {
+    "name": "House District 53",
+    "votes": {
+     "2024-president": {
+      "dem": 5980,
+      "rep": 14231,
+      "other": 722,
+      "total": 20933
+     },
+     "2024-us-senate": {
+      "dem": 4037,
+      "rep": 15594,
+      "other": 1407,
+      "total": 21038
+     },
+     "2024-governor": {
+      "dem": 3592,
+      "rep": 12558,
+      "other": 5066,
+      "total": 21216
+     }
+    }
+   },
+   "54": {
+    "name": "House District 54",
+    "votes": {
+     "2024-president": {
+      "dem": 6021,
+      "rep": 17669,
+      "other": 702,
+      "total": 24392
+     },
+     "2024-us-senate": {
+      "dem": 3906,
+      "rep": 19307,
+      "other": 1492,
+      "total": 24705
+     },
+     "2024-governor": {
+      "dem": 3428,
+      "rep": 15258,
+      "other": 6183,
+      "total": 24869
+     }
+    }
+   },
+   "55": {
+    "name": "House District 55",
+    "votes": {
+     "2024-president": {
+      "dem": 5637,
+      "rep": 14343,
+      "other": 746,
+      "total": 20726
+     },
+     "2024-us-senate": {
+      "dem": 3850,
+      "rep": 15095,
+      "other": 1802,
+      "total": 20747
+     },
+     "2024-governor": {
+      "dem": 3510,
+      "rep": 11981,
+      "other": 5486,
+      "total": 20977
+     }
+    }
+   },
+   "56": {
+    "name": "House District 56",
+    "votes": {
+     "2024-president": {
+      "dem": 5523,
+      "rep": 9980,
+      "other": 510,
+      "total": 16013
+     },
+     "2024-us-senate": {
+      "dem": 4210,
+      "rep": 10434,
+      "other": 1209,
+      "total": 15853
+     },
+     "2024-governor": {
+      "dem": 3823,
+      "rep": 8445,
+      "other": 3724,
+      "total": 15992
+     }
+    }
+   },
+   "57": {
+    "name": "House District 57",
+    "votes": {
+     "2024-president": {
+      "dem": 6003,
+      "rep": 11663,
+      "other": 605,
+      "total": 18271
+     },
+     "2024-us-senate": {
+      "dem": 4381,
+      "rep": 12354,
+      "other": 1329,
+      "total": 18064
+     },
+     "2024-governor": {
+      "dem": 3996,
+      "rep": 9960,
+      "other": 4328,
+      "total": 18284
+     }
+    }
+   },
+   "58": {
+    "name": "House District 58",
+    "votes": {
+     "2024-president": {
+      "dem": 7210,
+      "rep": 14118,
+      "other": 749,
+      "total": 22077
+     },
+     "2024-us-senate": {
+      "dem": 4402,
+      "rep": 16345,
+      "other": 1644,
+      "total": 22391
+     },
+     "2024-governor": {
+      "dem": 4223,
+      "rep": 13225,
+      "other": 5101,
+      "total": 22549
+     }
+    }
+   },
+   "59": {
+    "name": "House District 59",
+    "votes": {
+     "2024-president": {
+      "dem": 10683,
+      "rep": 13357,
+      "other": 504,
+      "total": 24544
+     },
+     "2024-us-senate": {
+      "dem": 9176,
+      "rep": 14162,
+      "other": 1137,
+      "total": 24475
+     },
+     "2024-governor": {
+      "dem": 7896,
+      "rep": 12544,
+      "other": 4022,
+      "total": 24462
+     }
+    }
+   },
+   "60": {
+    "name": "House District 60",
+    "votes": {
+     "2024-president": {
+      "dem": 3536,
+      "rep": 4666,
+      "other": 408,
+      "total": 8610
+     },
+     "2024-us-senate": {
+      "dem": 2387,
+      "rep": 5636,
+      "other": 502,
+      "total": 8525
+     },
+     "2024-governor": {
+      "dem": 2241,
+      "rep": 4946,
+      "other": 1368,
+      "total": 8555
+     }
+    }
+   },
+   "61": {
+    "name": "House District 61",
+    "votes": {
+     "2024-president": {
+      "dem": 5392,
+      "rep": 9345,
+      "other": 549,
+      "total": 15286
+     },
+     "2024-us-senate": {
+      "dem": 3840,
+      "rep": 10201,
+      "other": 1132,
+      "total": 15173
+     },
+     "2024-governor": {
+      "dem": 3667,
+      "rep": 8275,
+      "other": 3402,
+      "total": 15344
+     }
+    }
+   },
+   "62": {
+    "name": "House District 62",
+    "votes": {
+     "2024-president": {
+      "dem": 5869,
+      "rep": 8580,
+      "other": 536,
+      "total": 14985
+     },
+     "2024-us-senate": {
+      "dem": 4415,
+      "rep": 9380,
+      "other": 1000,
+      "total": 14795
+     },
+     "2024-governor": {
+      "dem": 4133,
+      "rep": 7911,
+      "other": 2869,
+      "total": 14913
+     }
+    }
+   },
+   "63": {
+    "name": "House District 63",
+    "votes": {
+     "2024-president": {
+      "dem": 5959,
+      "rep": 17125,
+      "other": 748,
+      "total": 23832
+     },
+     "2024-us-senate": {
+      "dem": 4028,
+      "rep": 18101,
+      "other": 1678,
+      "total": 23807
+     },
+     "2024-governor": {
+      "dem": 3699,
+      "rep": 14579,
+      "other": 5713,
+      "total": 23991
+     }
+    }
+   },
+   "64": {
+    "name": "House District 64",
+    "votes": {
+     "2024-president": {
+      "dem": 4597,
+      "rep": 15964,
+      "other": 671,
+      "total": 21232
+     },
+     "2024-us-senate": {
+      "dem": 3286,
+      "rep": 16091,
+      "other": 1575,
+      "total": 20952
+     },
+     "2024-governor": {
+      "dem": 2867,
+      "rep": 12564,
+      "other": 5723,
+      "total": 21154
+     }
+    }
+   },
+   "65": {
+    "name": "House District 65",
+    "votes": {
+     "2024-president": {
+      "dem": 4120,
+      "rep": 17100,
+      "other": 562,
+      "total": 21782
+     },
+     "2024-us-senate": {
+      "dem": 3005,
+      "rep": 16627,
+      "other": 1787,
+      "total": 21419
+     },
+     "2024-governor": {
+      "dem": 2622,
+      "rep": 12384,
+      "other": 6654,
+      "total": 21660
+     }
+    }
+   },
+   "66": {
+    "name": "House District 66",
+    "votes": {
+     "2024-president": {
+      "dem": 2716,
+      "rep": 16972,
+      "other": 508,
+      "total": 20196
+     },
+     "2024-us-senate": {
+      "dem": 2081,
+      "rep": 15963,
+      "other": 1779,
+      "total": 19823
+     },
+     "2024-governor": {
+      "dem": 1782,
+      "rep": 12252,
+      "other": 5888,
+      "total": 19922
+     }
+    }
+   },
+   "67": {
+    "name": "House District 67",
+    "votes": {
+     "2024-president": {
+      "dem": 3717,
+      "rep": 15097,
+      "other": 358,
+      "total": 19172
+     },
+     "2024-us-senate": {
+      "dem": 3057,
+      "rep": 14818,
+      "other": 1050,
+      "total": 18925
+     },
+     "2024-governor": {
+      "dem": 2970,
+      "rep": 11997,
+      "other": 3891,
+      "total": 18858
+     }
+    }
+   },
+   "68": {
+    "name": "House District 68",
+    "votes": {
+     "2024-president": {
+      "dem": 2281,
+      "rep": 16549,
+      "other": 322,
+      "total": 19152
+     },
+     "2024-us-senate": {
+      "dem": 1833,
+      "rep": 15883,
+      "other": 1115,
+      "total": 18831
+     },
+     "2024-governor": {
+      "dem": 1670,
+      "rep": 12339,
+      "other": 4740,
+      "total": 18749
+     }
+    }
+   },
+   "69": {
+    "name": "House District 69",
+    "votes": {
+     "2024-president": {
+      "dem": 7623,
+      "rep": 13786,
+      "other": 463,
+      "total": 21872
+     },
+     "2024-us-senate": {
+      "dem": 6675,
+      "rep": 13734,
+      "other": 1060,
+      "total": 21469
+     },
+     "2024-governor": {
+      "dem": 6099,
+      "rep": 10759,
+      "other": 4415,
+      "total": 21273
+     }
+    }
+   },
+   "70": {
+    "name": "House District 70",
+    "votes": {
+     "2024-president": {
+      "dem": 2728,
+      "rep": 19256,
+      "other": 358,
+      "total": 22342
+     },
+     "2024-us-senate": {
+      "dem": 2148,
+      "rep": 18196,
+      "other": 1613,
+      "total": 21957
+     },
+     "2024-governor": {
+      "dem": 1788,
+      "rep": 14499,
+      "other": 5613,
+      "total": 21900
+     }
+    }
+   },
+   "71": {
+    "name": "House District 71",
+    "votes": {
+     "2024-president": {
+      "dem": 4671,
+      "rep": 15473,
+      "other": 482,
+      "total": 20626
+     },
+     "2024-us-senate": {
+      "dem": 3942,
+      "rep": 15102,
+      "other": 1314,
+      "total": 20358
+     },
+     "2024-governor": {
+      "dem": 3260,
+      "rep": 12494,
+      "other": 4546,
+      "total": 20300
+     }
+    }
+   },
+   "72": {
+    "name": "House District 72",
+    "votes": {
+     "2024-president": {
+      "dem": 5502,
+      "rep": 21996,
+      "other": 508,
+      "total": 28006
+     },
+     "2024-us-senate": {
+      "dem": 4600,
+      "rep": 20454,
+      "other": 2286,
+      "total": 27340
+     },
+     "2024-governor": {
+      "dem": 3974,
+      "rep": 15265,
+      "other": 8294,
+      "total": 27533
+     }
+    }
+   },
+   "73": {
+    "name": "House District 73",
+    "votes": {
+     "2024-president": {
+      "dem": 4829,
+      "rep": 17707,
+      "other": 392,
+      "total": 22928
+     },
+     "2024-us-senate": {
+      "dem": 3997,
+      "rep": 16879,
+      "other": 1640,
+      "total": 22516
+     },
+     "2024-governor": {
+      "dem": 3372,
+      "rep": 12700,
+      "other": 6574,
+      "total": 22646
+     }
+    }
+   },
+   "74": {
+    "name": "House District 74",
+    "votes": {
+     "2024-president": {
+      "dem": 7064,
+      "rep": 17930,
+      "other": 433,
+      "total": 25427
+     },
+     "2024-us-senate": {
+      "dem": 5896,
+      "rep": 17578,
+      "other": 1632,
+      "total": 25106
+     },
+     "2024-governor": {
+      "dem": 5080,
+      "rep": 14417,
+      "other": 5720,
+      "total": 25217
+     }
+    }
+   },
+   "75": {
+    "name": "House District 75",
+    "votes": {
+     "2024-president": {
+      "dem": 4889,
+      "rep": 15495,
+      "other": 429,
+      "total": 20813
+     },
+     "2024-us-senate": {
+      "dem": 4075,
+      "rep": 14802,
+      "other": 1536,
+      "total": 20413
+     },
+     "2024-governor": {
+      "dem": 3545,
+      "rep": 11388,
+      "other": 5548,
+      "total": 20481
+     }
+    }
+   }
+  },
+  "senate": {
+   "2": {
+    "name": "Senate District 2",
+    "votes": {
+     "2024-president": {
+      "dem": 16257,
+      "rep": 31198,
+      "other": 1749,
+      "total": 49204
+     },
+     "2024-us-senate": {
+      "dem": 13169,
+      "rep": 33114,
+      "other": 2636,
+      "total": 48919
+     },
+     "2024-governor": {
+      "dem": 11413,
+      "rep": 29353,
+      "other": 8221,
+      "total": 48987
+     }
+    }
+   },
+   "3": {
+    "name": "Senate District 3",
+    "votes": {
+     "2024-president": {
+      "dem": 20824,
+      "rep": 28566,
+      "other": 1451,
+      "total": 50841
+     },
+     "2024-us-senate": {
+      "dem": 18078,
+      "rep": 29060,
+      "other": 2389,
+      "total": 49527
+     },
+     "2024-governor": {
+      "dem": 15786,
+      "rep": 25846,
+      "other": 8565,
+      "total": 50197
+     }
+    }
+   },
+   "4": {
+    "name": "Senate District 4",
+    "votes": {
+     "2024-president": {
+      "dem": 15511,
+      "rep": 37652,
+      "other": 1471,
+      "total": 54634
+     },
+     "2024-us-senate": {
+      "dem": 12801,
+      "rep": 37038,
+      "other": 3400,
+      "total": 53239
+     },
+     "2024-governor": {
+      "dem": 11062,
+      "rep": 31673,
+      "other": 11152,
+      "total": 53887
+     }
+    }
+   },
+   "8": {
+    "name": "Senate District 8",
+    "votes": {
+     "2024-president": {
+      "dem": 25888,
+      "rep": 24616,
+      "other": 1763,
+      "total": 52267
+     },
+     "2024-us-senate": {
+      "dem": 21039,
+      "rep": 28099,
+      "other": 3004,
+      "total": 52142
+     },
+     "2024-governor": {
+      "dem": 19472,
+      "rep": 25689,
+      "other": 7237,
+      "total": 52398
+     }
+    }
+   },
+   "10": {
+    "name": "Senate District 10",
+    "votes": {
+     "2024-president": {
+      "dem": 15873,
+      "rep": 13286,
+      "other": 965,
+      "total": 30124
+     },
+     "2024-us-senate": {
+      "dem": 14336,
+      "rep": 13417,
+      "other": 1341,
+      "total": 29094
+     },
+     "2024-governor": {
+      "dem": 12993,
+      "rep": 12999,
+      "other": 3628,
+      "total": 29620
+     }
+    }
+   },
+   "12": {
+    "name": "Senate District 12",
+    "votes": {
+     "2024-president": {
+      "dem": 17349,
+      "rep": 15214,
+      "other": 1047,
+      "total": 33610
+     },
+     "2024-us-senate": {
+      "dem": 15398,
+      "rep": 15551,
+      "other": 1506,
+      "total": 32455
+     },
+     "2024-governor": {
+      "dem": 13920,
+      "rep": 15168,
+      "other": 4027,
+      "total": 33115
+     }
+    }
+   },
+   "15": {
+    "name": "Senate District 15",
+    "votes": {
+     "2024-president": {
+      "dem": 28225,
+      "rep": 19557,
+      "other": 1366,
+      "total": 49148
+     },
+     "2024-us-senate": {
+      "dem": 24573,
+      "rep": 21386,
+      "other": 1744,
+      "total": 47703
+     },
+     "2024-governor": {
+      "dem": 22765,
+      "rep": 20658,
+      "other": 5183,
+      "total": 48606
+     }
+    }
+   },
+   "16": {
+    "name": "Senate District 16",
+    "votes": {
+     "2024-president": {
+      "dem": 20991,
+      "rep": 23900,
+      "other": 1401,
+      "total": 46292
+     },
+     "2024-us-senate": {
+      "dem": 17858,
+      "rep": 24920,
+      "other": 2213,
+      "total": 44991
+     },
+     "2024-governor": {
+      "dem": 15891,
+      "rep": 23245,
+      "other": 6712,
+      "total": 45848
+     }
+    }
+   },
+   "17": {
+    "name": "Senate District 17",
+    "votes": {
+     "2024-president": {
+      "dem": 23423,
+      "rep": 32191,
+      "other": 1569,
+      "total": 57183
+     },
+     "2024-us-senate": {
+      "dem": 18578,
+      "rep": 34803,
+      "other": 2501,
+      "total": 55882
+     },
+     "2024-governor": {
+      "dem": 16700,
+      "rep": 31307,
+      "other": 9032,
+      "total": 57039
+     }
+    }
+   },
+   "22": {
+    "name": "Senate District 22",
+    "votes": {
+     "2024-president": {
+      "dem": 16775,
+      "rep": 37351,
+      "other": 1752,
+      "total": 55878
+     },
+     "2024-us-senate": {
+      "dem": 12846,
+      "rep": 38732,
+      "other": 3551,
+      "total": 55129
+     },
+     "2024-governor": {
+      "dem": 11324,
+      "rep": 31422,
+      "other": 12955,
+      "total": 55701
+     }
+    }
+   },
+   "24": {
+    "name": "Senate District 24",
+    "votes": {
+     "2024-president": {
+      "dem": 14234,
+      "rep": 22942,
+      "other": 1467,
+      "total": 38643
+     },
+     "2024-us-senate": {
+      "dem": 9374,
+      "rep": 26678,
+      "other": 2636,
+      "total": 38688
+     },
+     "2024-governor": {
+      "dem": 8965,
+      "rep": 22214,
+      "other": 7788,
+      "total": 38967
+     }
+    }
+   },
+   "25": {
+    "name": "Senate District 25",
+    "votes": {
+     "2024-president": {
+      "dem": 12339,
+      "rep": 37569,
+      "other": 1544,
+      "total": 51452
+     },
+     "2024-us-senate": {
+      "dem": 9040,
+      "rep": 37788,
+      "other": 3913,
+      "total": 50741
+     },
+     "2024-governor": {
+      "dem": 8093,
+      "rep": 29518,
+      "other": 13654,
+      "total": 51265
+     }
+    }
+   },
+   "28": {
+    "name": "Senate District 28",
+    "votes": {
+     "2024-president": {
+      "dem": 11307,
+      "rep": 44705,
+      "other": 1123,
+      "total": 57135
+     },
+     "2024-us-senate": {
+      "dem": 9477,
+      "rep": 42335,
+      "other": 4255,
+      "total": 56067
+     },
+     "2024-governor": {
+      "dem": 7977,
+      "rep": 33219,
+      "other": 14936,
+      "total": 56132
+     }
+    }
+   },
+   "29": {
+    "name": "Senate District 29",
+    "votes": {
+     "2024-president": {
+      "dem": 14449,
+      "rep": 42676,
+      "other": 1073,
+      "total": 58198
+     },
+     "2024-us-senate": {
+      "dem": 11982,
+      "rep": 41333,
+      "other": 3959,
+      "total": 57274
+     },
+     "2024-governor": {
+      "dem": 10312,
+      "rep": 32484,
+      "other": 14717,
+      "total": 57513
+     }
+    }
+   }
+  }
+ }
+}

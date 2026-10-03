@@ -1,0 +1,396 @@
+{
+  "part": 6,
+  "of": 9,
+  "researched": "2026-10-03",
+  "notes": [
+    "The session's web-search allowance ran out after a few searches, so most pages were opened directly: the Utah Courts' judge pages, the Lieutenant Governor's 2026 Voter Information Pamphlet (vote.utah.gov, official; its candidate rows print each campaign's website and its judicial retention pages print the Judicial Performance Evaluation Commission's evaluations), the Utah Republican Party's 2026 candidate page, county Democratic parties' candidate pages (to find a campaign address only), and the campaign sites themselves. A website is listed only where the campaign site itself was opened and names the candidate and the district.",
+    "Pairing a pamphlet row with its website: the pamphlet prints the website a line above or on the candidate's own row; a website a full row away belongs to the neighbouring candidate and was not used. No website is printed in the pamphlet for Brady Brammer, Mark A. Strong, Troy Shelley, Glenn D Webb or Jared Neal; their sites were found on the Utah Republican Party's page (Brammer, Strong, Shelley), the Washington County Democratic Party's page (Webb) and the Davis County Democratic Party's page (Neal), and then opened.",
+    "Refused the reader, so nothing was taken from it and nothing was worked around: carl.vote (Carl R. Albrecht's address in the pamphlet) answers with a SiteGround CAPTCHA redirect. ryanmahoney4utah.com does not exist; the Utah Republican Party's 'ryanmahoney4utah' is the godaddysites address the pamphlet prints.",
+    "Read and left out on purpose: jobs (deputy county attorney, chief deputy county attorney, law clerk, Special Assistant U.S. Attorney, guardian ad litem attorney, union treasurer and business agent, college and university posts), Kirk M. Morgan's 'Brigham City Attorney' (no years, and a small city's attorney is often a contracted practice: left for a person to judge), Sarah Reale's 'Salt Lake Library Board of Directors' (the site does not say which library or when), party posts (Ryan L. Mahoney's county delegate, precinct chair and Salt Lake County GOP regional chair), and Sarah Reale's endorsements by Democratic clubs and caucuses (not the party's own endorsement). No Utah party page names any of these candidates as endorsed (see ballot/lean/ut_endorsements.json), so there is no endorsed_by entry.",
+    "Cabot Nelson's site says this is his fifth campaign, with the United Utah Party and now the Forward Party; no official result page was opened for the earlier runs (no search allowance), so past_party is empty and only his own words are kept.",
+    "Privacy, for John's information: while pairing pamphlet rows with websites, the working output printed the campaign e-mail addresses that share a row with the website for Jim Alvey, Scott Troxel, Sarah Reale and Nelson Abbott, and a snippet of Kristina Robinson's campaign page that names the town she lives in. None of it is stored anywhere; the pamphlet's text was kept only in the session's scratch folder.",
+    "Nothing found beyond what they filed for Iva Williams's offices, Sergio Sotelo, Glenn D Webb, Jim Alvey, Scott Troxel and Brandon Young's offices; no birth year was found for anyone in this part."
+  ],
+  "candidates": [
+    {
+      "race_id": "2026-UT-DCRET2-NELSON",
+      "name": "Jason Craig Nelson",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/second-district-court/jason-c-nelson.html",
+        "source": "Utah State Courts, Judge Jason C. Nelson: Second District Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Second District Court (appointed by Governor Spencer Cox)",
+          "from": 2023,
+          "to": null,
+          "source": "Utah State Courts, Judge Jason C. Nelson: appointed to the Second District Court in January 2023 by Governor Spencer Cox; the 2026 Voter Information Pamphlet's evaluation page (p. 85) says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/second-district-court/jason-c-nelson.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-DCRET4-LOW",
+      "name": "Thomas Low",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fourth-district-court/thomas-low.html",
+        "source": "Utah State Courts, Judge Thomas Low: Fourth District Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Fourth District Court (appointed by Gov. Gary R. Herbert)",
+          "from": 2009,
+          "to": null,
+          "source": "Utah State Courts: 'appointed to the Fourth District Court in December 2009 by Gov. Gary R. Herbert'; the 2026 Voter Information Pamphlet (p. 78, 'Honorable Thomas L. Low') says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fourth-district-court/thomas-low.html",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Wasatch County Attorney",
+          "from": null,
+          "to": 2009,
+          "source": "Utah State Courts: 'Prior to his appointment to the bench, Judge Low served six years as the Wasatch County Attorney' (no years given beyond the December 2009 appointment)",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/district-courts/fourth-district-court/thomas-low.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-JCRET-013-LABRUM",
+      "name": "E. Jed Labrum",
+      "review": [
+        {
+          "shows": "E. Jed Labrum on the November 3, 2026 list for retention as Judge of the Duchesne County Justice Court",
+          "problem": "The Utah State Courts announced on August 19, 2026 a vacancy on the Duchesne County Justice Court: 'The successful candidate will replace Judge E. Jed Labrum following his resignation.' Worth asking the Lieutenant Governor's office whether the retention question is still on the ballot.",
+          "url": "https://legacy.utcourts.gov/utc/news/2026/08/19/justice-court-vacancy-announced-for-duchesne-county/",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-JCRET-20890-CARPENTER",
+      "name": "Jon R. Carpenter",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/seventh-district-justice-court/jon-carpenter.html",
+        "source": "Utah State Courts, Judge Jon Carpenter: Seventh District Justice Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, East Carbon City Justice Court",
+          "from": 2017,
+          "to": null,
+          "source": "Utah State Courts: appointed 'to the East Carbon Justice Court in January 2017'; the 2026 Voter Information Pamphlet (p. 58, 'Honorable Jon R. Carpenter') says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/seventh-district-justice-court/jon-carpenter.html",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Judge, Carbon County and Wellington City Justice Courts",
+          "from": 2014,
+          "to": null,
+          "source": "Utah State Courts: 'appointed to the Carbon County and Wellington City Justice Courts in May 2014'",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/seventh-district-justice-court/jon-carpenter.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-JCRET-55980-STUCKI",
+      "name": "Clay W. Stucki",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/clay-stucki.html",
+        "source": "Utah State Courts, Judge Clay W. Stucki: Second District Justice Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Ogden City Justice Court",
+          "from": 2017,
+          "to": null,
+          "source": "Utah State Courts: 'Judge Clay W. Stucki was appointed to the Ogden City Justice Court in March of 2017'; the 2026 Voter Information Pamphlet (p. 103, 'Honorable Clay Willard Stucki') says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/justice-courts/second-district-justice-court/clay-stucki.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-JVRET1-MORGAN",
+      "name": "Kirk Max Morgan",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/first-district-juvenile-court/kirk-m-morgan.html",
+        "source": "Utah State Courts, Judge Kirk M. Morgan: First District Juvenile Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, First District Juvenile Court (appointed by Governor Gary R. Herbert)",
+          "from": 2017,
+          "to": null,
+          "source": "Utah State Courts: 'appointed to the First District Juvenile Court in February 2017 by Governor Gary R. Herbert'; the 2026 Voter Information Pamphlet (p. 82) says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/first-district-juvenile-court/kirk-m-morgan.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-JVRET7-BUNNELL",
+      "name": "Craig Miles Bunnell",
+      "official_page": {
+        "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/seventh-district-juvenile-court/craig-m-bunnell.html",
+        "source": "Utah State Courts, Presiding Judge Craig M. Bunnell: Seventh District Juvenile Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Seventh District Juvenile Court (appointed by Governor Gary R. Herbert); presiding juvenile judge for Carbon, Emery, Grand and San Juan counties",
+          "from": 2016,
+          "to": null,
+          "source": "Utah State Courts: 'appointed by Governor Gary R. Herbert to serve as a Juvenile Court Judge for the Seventh Judicial District in July 2016' and 'the current Presiding Juvenile Court Judge for Carbon, Emery, Grand, and San Juan Counties'; the 2026 Voter Information Pamphlet (p. 57) says the same",
+          "url": "https://www.utcourts.gov/en/courts/other-court-info/judges-bios/juvenile-courts/seventh-district-juvenile-court/craig-m-bunnell.html",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-SBOE5",
+      "name": "Sarah Reale",
+      "website": {
+        "url": "https://votereale.com",
+        "how": "Printed on her row (State Board of Education District 5) in the Lieutenant Governor's 2026 Voter Information Pamphlet, p. 34; the site names Sarah Reale and 'State School Board District 5'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH10",
+      "name": "Jim Alvey",
+      "website": {
+        "url": "https://votejimalvey.com",
+        "how": "Printed on his row (House District 10) in the 2026 Voter Information Pamphlet, p. 28; the site reads 'Jim Alvey for Utah State House District 10'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH14",
+      "name": "Brandon Young",
+      "website": {
+        "url": "https://www.youngforhouse.com/",
+        "how": "Printed on his row (House District 14) in the 2026 Voter Information Pamphlet, p. 28, and on the Davis County Democratic Party's candidate page; the site reads 'Brandon Young for Utah House of Representatives' and 'House District 14'",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "Proudly liberal Democrat candidate in Syracuse, Utah",
+        "url": "https://www.youngforhouse.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH18",
+      "name": "Scott Troxel",
+      "website": {
+        "url": "https://troxelforutah.com",
+        "how": "Printed on his row (House District 18) in the 2026 Voter Information Pamphlet, p. 28; the site reads 'Scott Troxel for Utah State House District 18'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH23",
+      "name": "Cabot W Nelson",
+      "website": {
+        "url": "https://votecabotnelson.com/",
+        "how": "Printed on his row (House District 23) in the 2026 Voter Information Pamphlet, p. 29; the site reads 'Cabot Nelson for HD 23'",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "with the United Utah Party and now the Forward Party of Utah",
+        "url": "https://votecabotnelson.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH27",
+      "name": "Anthony Loubet",
+      "website": {
+        "url": "https://www.anthonyloubet.com",
+        "how": "Printed on his row (House District 27, 'Anthony E. Loubet') in the 2026 Voter Information Pamphlet, p. 29, and on the Utah Republican Party's 2026 candidate page; the site is titled 'Anthony Loubet for HD27' and says he is 'running for re-election' for House District 27",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH3",
+      "name": "Jason E. Thompson",
+      "website": {
+        "url": "https://www.electjasonthompson.com/",
+        "how": "Printed on his row (House District 3) in the 2026 Voter Information Pamphlet, p. 27, and on the Utah Republican Party's 2026 candidate page; the site's header reads 'JASON THOMPSON | STATE HOUSE DISTRICT 3'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH33",
+      "name": "Doug Owens",
+      "website": {
+        "url": "https://www.dougowens.com",
+        "how": "Printed on his row (House District 33) in the 2026 Voter Information Pamphlet, p. 30; the site is 'Owens for Utah' ('Paid for by Owens for Utah') and reads 'Vote Doug Owens for Utah House', with '2026 Priorities' and 'Legislative Successes'; it does not print the district number",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH38",
+      "name": "Sergio Sotelo",
+      "website": {
+        "url": "https://www.electsergiosotelo.com",
+        "how": "Printed on his row (House District 38) in the 2026 Voter Information Pamphlet, p. 30; the site reads 'Sergio Sotelo for State House District 38'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH42",
+      "name": "Iva Williams",
+      "website": {
+        "url": "https://electivawilliams.com",
+        "how": "Printed beside her row (House District 42) in the 2026 Voter Information Pamphlet, p. 31; the site names Iva Williams, running for the Utah State Legislature, 'HD 42'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH47",
+      "name": "Mark A. Strong",
+      "website": {
+        "url": "https://www.strong4utah.com",
+        "how": "Listed for him (House District 47) on the Utah Republican Party's 2026 candidate page (the pamphlet prints none); the site names Mark Strong and 'Utah House District 47'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH51",
+      "name": "Brett Nielsen",
+      "website": {
+        "url": "https://www.brettforutah.com",
+        "how": "Printed on his row (House District 51) in the 2026 Voter Information Pamphlet, p. 31; the site reads 'Brett Nielsen for Utah House District 51'",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "for years I was a proud Republican",
+        "url": "https://www.brettforutah.com",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH54",
+      "name": "Kristina Robinson",
+      "website": {
+        "url": "https://campaignkristina.com",
+        "how": "Printed on her row (House District 54) in the 2026 Voter Information Pamphlet, p. 32; the page (drawn by script, so read from its source) says 'My name is Kristina Robinson and I am running to represent Utah House District 54' and 'Paid for by Kristina Robinson for UT 54'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH59",
+      "name": "Celeste T. Johnson",
+      "website": {
+        "url": "https://www.celestejohnsonforutah.com",
+        "how": "Printed on her row (House District 59) in the 2026 Voter Information Pamphlet, p. 32; the site reads 'Celeste Johnson for Utah House District 59'",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Mayor of Midway (two terms)",
+          "from": null,
+          "to": null,
+          "source": "Her campaign site: 'former two-term mayor of Midway' and 'Two Terms as Mayor' (no years given)",
+          "url": "https://www.celestejohnsonforutah.com",
+          "kind": "campaign",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-UT-SH62",
+      "name": "Norm Thurston",
+      "website": {
+        "url": "https://www.normthurston.com",
+        "how": "Printed on his row (House District 62) in the 2026 Voter Information Pamphlet, p. 32, and on the Utah Republican Party's 2026 candidate page; the site reads 'Rep. Norm Thurston – Utah House District 62', with 2026 posts and 'Paid for by the Committee to Elect Norm Thurston'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH66",
+      "name": "Troy Shelley",
+      "website": {
+        "url": "https://www.utahhouse.org",
+        "how": "Listed for him (House District 66) on the Utah Republican Party's 2026 candidate page (the pamphlet prints none); the site is titled 'Representing Utah District 66 - Troy Shelley' and its footer reads 'Sponsored by troy shelley, representative district 66'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH73",
+      "name": "Glenn D Webb",
+      "website": {
+        "url": "https://webb4utah.com",
+        "how": "Listed for him (House District 73) on the Washington County Democratic Party's 2026 candidate page (the pamphlet prints none); the site names Glenn Webb and 'House District 73'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SH9",
+      "name": "Jake Sawyer",
+      "website": {
+        "url": "https://www.jakeforweber.com",
+        "how": "Printed on his row (House District 9) in the 2026 Voter Information Pamphlet, p. 28; the site says 'My name is Jake Sawyer, and I want to keep working for House District 9' (its copyright line reads 2024: the campaign's standing site)",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SS13",
+      "name": "Ryan L. Mahoney",
+      "website": {
+        "url": "https://ryanmahoney4utah.godaddysites.com",
+        "how": "Printed on his row (Senate District 13) in the 2026 Voter Information Pamphlet, p. 26; the site names Ryan Mahoney, 'Republican Nominee for Utah State Senate District 13'",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "Republican Nominee for Utah State Senate District 13",
+        "url": "https://ryanmahoney4utah.godaddysites.com",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SS21",
+      "name": "Brady Brammer",
+      "website": {
+        "url": "https://www.votebrammer.com",
+        "how": "Listed for him (Senate District 21) on the Utah Republican Party's 2026 candidate page (the pamphlet prints none); the site names Brady Brammer as the legislator for Northern Utah County and links a comparison of the Utah Senate District 21 candidates",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-UT-SS6",
+      "name": "Jared Neal",
+      "website": {
+        "url": "https://www.nealforutah.com",
+        "how": "Listed for him (Senate District 6) on the Davis County Democratic Party's candidate page (the pamphlet prints none); the site names Jared Neal, running for 'Utah Senate Dist. 6'",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "Utah Democrats are fighting for Utah - fighting for you!",
+        "url": "https://www.nealforutah.com",
+        "verified": true
+      }
+    }
+  ],
+  "verified_on": "2026-10-03",
+  "removed": [],
+  "verification_notes": [
+    "Every url re-opened on 2026-10-03; each page states the fact as recorded. Corrected: Doug Owens's website note (his site reads 'Vote Doug Owens for Utah House'; no link to the House's site was found on it), Brady Brammer's website note (wording as the site reads), and E. Jed Labrum's review item (cut to what the Courts' announcement states; the other claims were not re-checked). The Voter Information Pamphlet pairings were not re-opened; each kept website was confirmed on the site itself, which names the candidate and the 2026 office."
+  ]
+}
