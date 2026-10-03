@@ -533,7 +533,7 @@ window.GEOKIT = (function () {
       let spare = 100 - out.reduce((a, b) => a + b, 0);
       p.map((v, i) => [v - out[i], i]).sort((a, b) => b[0] - a[0] || a[1] - b[1]).forEach(([, i]) => { if (spare > 0) { out[i]++; spare--; } });
       return out; })();
-    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.mn || dataName("mcd", z.m), "mcd", z.m),
+    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.m ? z.mn || dataName("mcd", z.m) : !z.wh && /\bnames no place\b/i.test(String(((IDX || {}).notes || {}).places || "")) ? `None: the ${UNIT} lies outside every ${KW.mcd[1].toLowerCase()}` : "", z.m ? "mcd" : "", z.m),      // no place: said only where the files' own note says a piece in open country names none
       z.mo ? row("", (z.mon || dataName("mcd", z.mo)) + ` (${z.mn || dataName("mcd", z.m)} lies inside it: you are a voter of both)`, "mcd", z.mo) : "",
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", (d => /^\d/.test(d) ? "District " + d : d)(z.com.split("|")[1] || z.com), "com", z.com) : "",      // "District 3" where the files number it; their own words where they name it ("District 3" already, "Precinct 2")
@@ -541,7 +541,7 @@ window.GEOKIT = (function () {
       row(esc(ST.loT), z.hd ? "District " + z.hd : "", "house", z.hd), row(esc(ST.upT), z.sd ? "District " + z.sd : "", "senate", z.sd), row("Congress", z.cd ? (atLarge(z.cd) ? "At large: the whole state" : "District " + z.cd) : "", "cd", z.cd),
       row(esc(KW.judicial[1]), z.jd ? (z.jdn || dataName("judicial", z.jd)) : "", "judicial", z.jd), row(GW.swcd ? esc(capital(GW.swcd)) : "Soil and water", z.sw ? (z.swn || dataName("swcd", z.sw)) : "", "swcd", z.sw),
       ...(z.sw2 || []).map((i, n) => row("", ((z.sw2n || [])[n] || dataName("swcd", i)) + ` (it holds a smaller part of the ${UNIT})`, "swcd", i)),
-      ...((BOOT.geo || {}).says || []).map(([k, w]) => z.x && z.x[k] ? row(esc(capital(w)), (z.x[k + "_n"] || z.x[k]) + (z.x[k + "_area"] ? ", " + z.x[k + "_area"].join(" and ") : "") + (z.x[k + "_pct"] ? ` (about ${Math.round(z.x[k + "_pct"])}% of the ${UNIT} is inside it)` : "")) : ""),
+      ...((BOOT.geo || {}).says || []).map(([k, w]) => z.x && z.x[k] ? row(esc(capital(w)), (n => /^\d+$/.test(n) ? "District " + n : n)(z.x[k + "_n"] || z.x[k]) + (z.x[k + "_area"] ? ", " + z.x[k + "_area"].join(" and ") : "") + (z.x[k + "_pct"] ? ` (about ${Math.round(z.x[k + "_pct"])}% of the ${UNIT} is inside it)` : "")) : ""),
       row("Hospital district", z.ho ? (z.hon || dataName("hospital", z.ho)) : "", "hospital", z.ho), row("Park district", z.pk ? (z.pkn || dataName("park", z.pk)) : "", "park", z.pk)].join("");
     const edge = !z.in ? `Your spot is on a ${UNIT} line, as near as this map can tell. ${esc(z.pn)} is the nearest ${UNIT}${z.nb ? `; ${esc(z.nb)} is on the other side` : ""}.`
       : z.edge <= 30 ? `Your spot is about ${feet(z.edge)} feet from this ${UNIT}&rsquo;s line${z.nb ? ` with ${esc(z.nb)}` : ""}; a spot that close can fall on either side of it.` : "";
@@ -551,10 +551,13 @@ window.GEOKIT = (function () {
     const placed = z.mq ? `This ${UNIT} reaches more than one ${esc(KW.mcd[1].toLowerCase())}, and which one your spot is in could not be settled here; the one named holds most of the ${UNIT}.` : "";
     // where the map's smallest pieces are an earlier year's (the files say which, and whose): said beside the reader's own
     const old = G.old ? `This ${UNIT} is drawn and named as it stood in ${esc(G.old.y)}${z.unl ? `, and the state&rsquo;s ${esc(z.unl)} list no longer carries it under that name or code, so it has been redrawn or renamed since` : ""}. ${esc((G.old.t || []).slice(2).join(" "))}` : "";
+    // where the state's own pieces leave a gap and the files fill it with the whole precinct as last drawn: said plainly, because
+    // such a piece names only what its lines can tell (no city or town, ward or other local district of the state's own table)
+    const gap = z.wh ? `The state&rsquo;s own table of ${UNIT} parts does not cover your spot yet, so the map uses the whole ${UNIT} as its lines were last drawn${/^\d{4}$/.test(z.wh) ? ` (in ${esc(z.wh)})` : ""}. Its districts are worked out from those lines alone, so a city or town, a ward or a local district may be missing from your ballot here; your county&rsquo;s election office is the authority.` : "";
     return `<span class="kick">Where you are</span><h3>${esc(z.pn)}</h3>
       <p class="held">Your ${UNIT}${G.old ? ` (${esc(G.old.y)} lines)` : ""} and every district it is in, worked out on this device. Tap a name to see it on the map.</p>
       <dl class="zlist">${rows}</dl>
-      ${[old, edge, acc, placed, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
+      ${[old, gap, edge, acc, placed, school].filter(Boolean).map(t => `<p class="znote">${t}</p>`).join("")}
       ${pollHTML(z)}
       <p class="sidehint">${spot ? `The pin is your spot. The exact spot is used here and now and is not kept: after a reload your ${UNIT} stays marked in gold instead. A copy rounded to about half a mile stays on this device, for the site&rsquo;s other pages, until you tap &ldquo;Forget&rdquo;.` : `Your ${UNIT} is marked in gold. The exact spot was not kept; a copy rounded to about half a mile stays on this device until you tap &ldquo;Forget&rdquo;.`} &ldquo;Show streets&rdquo; draws the streets around it; OpenStreetMap&rsquo;s servers then see which map squares are asked for. <button type="button" class="linkbtn" data-zone="me">Go to my ${UNIT}</button></p>`;
   }
@@ -668,7 +671,8 @@ window.GEOKIT = (function () {
     // BOOT.geo.within): the spot's own place is the inner one, and the precinct's the one around it
     const W = (BOOT.geo || {}).within, kindOf = t => (/\b(\w+)$/.exec(String(t || "")) || ["", ""])[1].toLowerCase();
     const mo = W && r.mcd && r.mcd !== p.mcd && (p.mcd_all || []).includes(p.mcd) && kindOf(r.mcdName || nm("mcd", r.mcd)) === W[0] && kindOf(nm("mcd", p.mcd)) === W[1] ? p.mcd : "";
-    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {})};
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {}),
+      ...(p.whole ? {wh: String(p.as_of || "") || 1} : {})};      // a whole precinct the files add where the state's parts leave a gap, with the year of its lines
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
