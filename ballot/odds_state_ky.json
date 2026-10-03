@@ -1,0 +1,18 @@
+{
+ "2026-KY-M-48003-mayor": {
+  "polymarket": "2026-louisville-mayoral-election-winner-20260626001838911",
+  "kalshi": "KXLOUISVILLEMAYOR-26",
+  "checked": "2026-10-03",
+  "note": "Mayor, Louisville/Jefferson County Metro Government (a city race, not a statewide one, so the page holds it back until John says otherwise). Polymarket's event is titled \"2026 Louisville Mayoral Election Winner\" and resolves on the candidate who becomes the next mayor of Louisville as a result of this election; its two open outcomes are Craig Greenberg and Shameka Parrish-Wright (about $7,700 traded when checked: Greenberg 89.5 cents, Parrish-Wright 7.5). It also carries 27 placeholder outcomes (Person A to Person Z, Other) that are not active yet report a price of 0.5. Kalshi's event is titled \"Louisville Mayor Election winner?\" (In 2026), one market per candidate, Craig Greenberg (last price 93 cents, about 8,300 contracts) and Shameka Parrish-Wright (6 cents, about 6,500 contracts), open since May 21, 2026. REVIEW before showing: our list for this race (from the Candidate Filings with the County Clerk) names Bill Wells and Shameka L. Parrish-Wright and leaves out Craig Greenberg, the sitting mayor; the race's own note says the list has one more Jefferson County mayor candidate it does not tie to a contest. Wikipedia's page for the election (secondary, read 2026-10-03) says the May 19 nonpartisan primary advanced Greenberg and Parrish-Wright and that Bill Wells withdrew from the primary. The county clerk's list or sample ballot should settle it; until then the Greenberg rows would be dropped as not on the November list."
+ },
+ "2026-KY-M-46027-mayor": {
+  "polymarket": "2026-lexington-mayoral-election-winner-20260626001615088",
+  "kalshi": "KXLEXMAYOR-26",
+  "checked": "2026-10-03",
+  "note": "Mayor, Lexington-Fayette Urban County Government (a city race, not a statewide one, so the page holds it back until John says otherwise). Polymarket's event is titled \"2026 Lexington Mayoral Election Winner\" and resolves on the candidate who becomes the next mayor of Lexington as a result of this election; its two open outcomes are Linda Gorton and Raquel Carter, the two on our list (our list prints Raquel E. Carter), about $20,300 traded when checked (Gorton 77.5 cents, Carter 19). It also carries 27 placeholder outcomes (Person A to Person Z, Other) that are not active yet report prices (Person A 0.44, the rest 0.5). Kalshi's event is titled \"Lexington mayoral election winner?\" (In 2026), one market per candidate, Linda Gorton (last price 80 cents, about 2,850 contracts) and Raquel Carter (20 cents, about 680 contracts); it opened September 28, 2026 and is lightly traded."
+ },
+ "_none": {
+  "checked": "2026-10-03",
+  "note": "Not a race; odds.py passes over it. Kentucky has no statewide race in 2026. No market was found on control of the Kentucky House or Senate, on any single legislative seat, on the Supreme Court or Court of Appeals districts, or on any county office: Kalshi's full list of series (14,577 titles, read 2026-10-03) names for Kentucky only the U.S. Senate and House races, the 2027 governor's race, the primaries, and the Louisville and Lexington mayors; Polymarket's search for Kentucky, Louisville and Lexington lists the same federal races, a 2027 governor event and the two mayoral events, and the likely slugs for legislative control are empty."
+ }
+}

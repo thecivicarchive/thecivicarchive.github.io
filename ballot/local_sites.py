@@ -42,7 +42,10 @@ its "local_note" says the county, city and school rows are those of the 16 count
 school filings), and that judges are in the scope as the one name on a retention vote. Colorado (2026-10-02) has no
 website cell either, and no county, city or school rows yet; its "why_no_local" says when those offices are elected
 and that the scope is the Secretary of State's own list (statewide, the General Assembly and the judges' retention
-votes), the Regional Transportation District's directors being a district board outside the rule.
+votes), the Regional Transportation District's directors being a district board outside the rule. Kentucky (2026-10-03)
+has no website cell either and no statewide race; its "local_note" says what its November ballot holds and which
+contests the Secretary of State's list leaves unplaced, and its "place_codes" ties Louisville's consolidated city
+(48003) to the Census Bureau's row for its balance (48006), the only part of it among the file's places.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -326,7 +329,32 @@ STATES = {"MN": {"name": "Minnesota"},
                                  "is the Secretary of State's list: the statewide offices, the Regents and the State Board of "
                                  "Education (elected by district), the General Assembly, and the judges on a yes-or-no retention vote, "
                                  "each the one name in the race. The Regional Transportation District's directors (10 candidates) are "
-                                 "a district board, outside the scope's rule, and are not in it."}}
+                                 "a district board, outside the scope's rule, and are not in it."},
+          # Kentucky (2026-10-03): the Secretary of State's "Candidate Filings with the County Clerk" list has contact
+          # columns the list loader never reads and this module does not read either, and no website cell, so its
+          # websites come from verified findings only. Its legislative races carry "Senate District N" or "House District
+          # N" and its court races their own district or circuit as the jurisdiction, so the scope needs no district
+          # words; city races carry the Census place code as KY-M-<code>, and school districts the Census Bureau's own
+          # names. "place_codes": a race's place code the Bureau's file of places does not carry, and the row read in its
+          # stead: Louisville/Jefferson County Metro Government is a consolidated city (48003), and the file's places
+          # hold only its balance (48006), the county outside its other incorporated cities, read side by side 2026-10-03
+          "KY": {"name": "Kentucky", "legislature": r"\bkentucky (?:state )?(?:house|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "school_names": {}, "place_codes": {"KY-M-48003": "48006"},
+                 "local_note": "Kentucky elects no statewide officer in 2026 (the Governor and the other statewide officers are elected in "
+                               "2027). On November 3, 2026 it elects every county's officers (judge/executive, magistrates or "
+                               "commissioners, county clerk, county attorney, sheriff, jailer, coroner, surveyor, property valuation "
+                               "administrator and constables), its district judges, every city council and commission, the mayors and "
+                               "school board members whose four-year terms are ending, and soil and water conservation district "
+                               "supervisors (Kentucky State Board of Elections, Kentucky Election Schedule 2026-2036). Circuit judges, "
+                               "circuit court clerks and Commonwealth's attorneys are elected in 2030, so the few such seats on this "
+                               "ballot are filled for the time left until then. The county, city and school rows are those of the "
+                               "Secretary of State's list of candidates filed with the county clerks, which covers all 120 counties; "
+                               "where it files a candidate without naming the city or school district, the contest is not loaded "
+                               "(Owensboro's and Versailles's city races among them, so those cities are not in the scope), and in "
+                               "thirty-five contests where it still shows the May primary's field no name is loaded. Louisville's "
+                               "population figure is the Census Bureau's row for the Metro Government's balance, the county outside "
+                               "its other incorporated cities. Soil and water conservation district supervisors are outside the "
+                               "scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1457,8 +1485,11 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
         return {"races": len(entry["races"]), "candidates": sum(per_race[r] for r in entry["races"])}
 
     city_rows, school_rows, no_figure = [], [], []
+    aliases = STATES.get(state, {}).get("place_codes", {})      # Kentucky: a consolidated city read by its balance's row
     for code, c in sorted(cities.items()):
-        row, how = pop["place"].get(_place_code(code)), None
+        row, how = pop["place"].get(aliases.get(code) or _place_code(code)), None
+        if code in aliases and row:
+            how = f"the Census place code {_place_code(code)} is not among the file's places; read by {state}'s own table as {aliases[code]}"
         if row and _bare_place(row["name"]) != _bare_place(c["name"]):
             row = None
         if not row:      # a code the Census file has under another number or kind: the same name among the county's subdivisions
@@ -1512,7 +1543,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
             f"cities and school districts with at least {threshold:,} people in the Census Bureau's ACS 2020-2024 estimate (table B01003).")
     just_under = ([{"kind": "city", **c} for c in city_rows if NEAR <= c["population"] < threshold]
                   + [{"kind": "school district", **s} for s in school_rows if NEAR <= s["population"] < threshold])
-    big_quiet = sorted(v["name"] for code, v in pop["place"].items() if v["population"] >= threshold and code not in {_place_code(c) for c in cities})
+    big_quiet = sorted(v["name"] for code, v in pop["place"].items() if v["population"] >= threshold
+                       and code not in {aliases.get(c) or _place_code(c) for c in cities})
     other_city = collections.Counter(r["office"] for r in races.values() if r["level"] == "city" and r["office_kind"] not in FULL_CITY
                                      and pop["place"].get(_place_code(r["jurisdiction_id"]), {"population": 0})["population"] >= threshold)
     none_local = (None if state == "MN" or by_level["city"] or by_level["school"] or cities or schools else

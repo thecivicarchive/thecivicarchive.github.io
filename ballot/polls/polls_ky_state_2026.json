@@ -1,0 +1,29 @@
+{
+ "rule": "Kentucky's state and local races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Kentucky elects no statewide office in 2026: its Governor, Lieutenant Governor, Attorney General, Secretary of State, Auditor, Treasurer and Commissioner of Agriculture are next on the ballot in November 2027. Its Supreme Court and Court of Appeals are elected by district, and the General Assembly by district, so no race on this ballot is voted on by the whole state. The two races below are city races, listed because prediction markets run on them (ballot/odds_state_ky.json).",
+ "races": {
+  "2026-KY-M-46027-mayor": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Lake Research Partners (August 13-18, 2026, 400 likely voters, for Raquel E. Carter's campaign)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Lexington,_Kentucky_mayoral_election",
+    "checked": "2026-10-03",
+    "note": "Mayor, Lexington-Fayette Urban County Government (a city race, not a statewide one). Wikipedia's page lists one poll of November's race, the Carter campaign's own (read 2026-10-03). Lake Research Partners is not on AAPOR's list of Transparency Initiative members, so it is left out. A news search found no other published poll of this race."
+   }
+  },
+  "2026-KY-M-48003-mayor": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Louisville_mayoral_election",
+    "checked": "2026-10-03",
+    "note": "Mayor, Louisville/Jefferson County Metro Government (a city race, not a statewide one). No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and two news searches found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  }
+ }
+}

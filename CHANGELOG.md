@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.096 — 2026-10-03 — Colorado's campaign photos
+
+- Colorado's candidates now show a photo where one was plainly the candidate's own portrait on their own campaign site (16 of the 29 whose sites offered pictures); the others keep their initials. Each photo is credited and linked to the site it came from.
+
 ## v4.0.095 — 2026-10-02 — Colorado gets the same treatment
 
 - Colorado's ballot page now has the real map: 5,027 precinct pieces with the districts they sit in (county, city or town, House, Senate, Congress, judicial district, school district, the RTD transit district, and the seats of the University of Colorado regents and the State Board of Education), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, including only your own regent and board seat. The precinct lines are the Census Bureau's from 2020, cut by today's district and city lines; where a piece matches the Secretary of State's 2026 precinct numbers, the page says so.
