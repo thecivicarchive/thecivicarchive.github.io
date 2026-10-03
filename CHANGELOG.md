@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.095 — 2026-10-02 — Colorado gets the same treatment
+
+- Colorado's ballot page now has the real map: 5,027 precinct pieces with the districts they sit in (county, city or town, House, Senate, Congress, judicial district, school district, the RTD transit district, and the seats of the University of Colorado regents and the State Board of Education), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, including only your own regent and board seat. The precinct lines are the Census Bureau's from 2020, cut by today's district and city lines; where a piece matches the Secretary of State's 2026 precinct numbers, the page says so.
+- Colorado's candidates for Governor, the other statewide offices and boards and the Legislature show what the record holds: campaign websites of their own, official government pages, offices held and issue headings, each with where it comes from. Photos from campaign sites follow once they have been looked at.
+- "The record, not a label": endorsements only from party pages that themselves say "endorsed" (a county party's "do not retain" list on judges is not shown), earlier runs under a party label, and the candidate's own words. All 124 judges stand for retention, a yes-or-no question.
+- How each place voted, from the Secretary of State's precinct results: President 2024 and 2020, Senator 2022 and 2020, Governor 2022, for every county and judicial district, and for 2022 and 2024 every congressional, Senate and House district (two House districts are left out for 2022, where one precinct voted in both).
+- No pollster that publishes its methods has polled a Colorado state race. The Governor's and Secretary of State's races have prediction-market prices as a tab. No county clerk's local list is loaded yet, and the page says so. Colorado sells its statewide polling-place list, so polling places stay off the map and the page points to the state's own finder.
+
 ## v4.0.094 — 2026-10-02 — "Use my location" works in Alaska and Hawaii; lighter ballot pages
 
 - "Use my location" now works for readers in Alaska and Hawaii, on the state pages and the ballot pages alike. Until now a reader in Anchorage or Honolulu was told the spot was outside the state: the two states' district and county lines had been drawn in a different frame of the map from the one used to find a reader. They are now drawn in Alaska's and Hawaii's own corners of the map, as on the Congress pages, so the maps and the lookup agree.

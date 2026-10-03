@@ -1,0 +1,93 @@
+{"part": 6, "of": 12, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "removed": [
+   {"race_id": "2026-CO-SH40", "name": "Clinton Porter", "what": "website https://clintonporter.com/", "why": "the address forwards to a link-in-bio page (flow.page) that lists only social profiles and a contact card; it is not a campaign website under the rules"},
+   {"race_id": "2026-CO-GOV", "name": "Phil Weiser", "what": "born 1968 (Wikipedia)", "why": "the birth date in the Wikipedia article carries no citation; the rules allow Wikipedia only with a citation"}],
+ "candidates": [
+  {"race_id": "2026-CO-CCRET-08005-APOSTOLI", "name": "Christina Marie Apostoli",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/christina-apostoli-0", "source": "Colorado Judicial Branch: Christina Apostoli, County Court Judge, Arapahoe County", "verified": true},
+   "offices": [
+     {"office": "Judge, Arapahoe County Court (appointed by Governor Jared Polis to fill the vacancy left by Judge Chantel E. Contiguglia)", "from": "2024 (appointment announced January 4, 2024, effective immediately)", "to": "now", "source": "Governor's release 'Governor Polis Appoints Elizabeth J. McCarthy to the Denver Juvenile Court and Christina M. Apostoli to the Arapahoe County Court', January 4, 2024, as posted by the Colorado Judicial Branch", "url": "https://coloradojudicial.gov/sites/default/files/2024-01/JD02%20-%20McCarthy.pdf", "kind": "official", "verified": true},
+     {"office": "District Court Magistrate, 18th Judicial District", "from": "2011", "to": "2024", "source": "the same release: 'a position she has held since 2011'", "url": "https://coloradojudicial.gov/sites/default/files/2024-01/JD02%20-%20McCarthy.pdf", "kind": "official", "verified": true},
+     {"office": "District Court Magistrate, 17th Judicial District", "from": "2010", "to": "2011", "source": "the same release", "url": "https://coloradojudicial.gov/sites/default/files/2024-01/JD02%20-%20McCarthy.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08031-LOMBARDI", "name": "Kerri Lombardi",
+   "offices": [
+     {"office": "Presiding Judge, Denver County Court (appointed by Denver Mayor Mike Johnston)", "from": "2024 (effective February 1, 2024)", "to": "not stated", "source": "Colorado Politics, 'Denver mayor appoints a new presiding judge', Noah Festenstein, December 26, 2023", "url": "https://www.coloradopolitics.com/2023/12/26/denver-mayor-appoints-a-new-presiding-judge-90bdcb2f-e011-596e-bd54-b311445ec1dd/", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08045-POTOTSKY", "name": "Jonathan Bruce Pototsky",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/jonathan-b-pototsky", "source": "Colorado Judicial Branch: Jonathan B Pototsky, County Court Judge, Garfield County", "verified": true},
+   "offices": [
+     {"office": "Judge, Garfield County Court, Ninth Judicial District (appointed by Governor Bill Ritter Jr. by executive order)", "from": "2011 (effective January 11, 2011)", "to": "now", "source": "Executive order A 2010-233 appointing Jonathan Bruce Pototsky Garfield County Court Judge, Ninth Judicial District (signed September 15, 2010), in the Colorado State Publications Library", "url": "https://spl.cde.state.co.us/artemis/goserials/go4110internet/2010/go41102010233internet.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08077-BURRILL", "name": "Scott Joseph Burrill",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/scott-j-burrill", "source": "Colorado Judicial Branch: Scott J. Burrill, County Court Judge, Mesa County", "verified": true},
+   "offices": [
+     {"office": "Judge, Mesa County Court, 21st Judicial District", "from": "2024 (the court's biography: 'joined the 21st Bench in August 2024')", "to": "now", "source": "Colorado Judicial Branch, Scott J. Burrill, Bio", "url": "https://www.coloradojudicial.gov/contact/scott-j-burrill", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-COARET-FREYRE", "name": "Rebecca Rankin Freyre",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/rebecca-r-freyre", "source": "Colorado Judicial Branch: Rebecca R. Freyre, Court of Appeals Judge", "verified": true},
+   "born": {"year": 1959, "source": "Wikipedia, 'Rebecca R. Freyre' (the birth sentence cites her Colorado Judicial Branch biography)", "url": "https://en.wikipedia.org/wiki/Rebecca_R._Freyre", "kind": "secondary", "verified": true},
+   "offices": [
+     {"office": "Judge, Colorado Court of Appeals", "from": "2015 (date of judicial appointment September 18, 2015; investiture November 16, 2015)", "to": "now", "source": "Colorado Judicial Branch, Rebecca R. Freyre, Bio", "url": "https://www.coloradojudicial.gov/contact/rebecca-r-freyre", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD1-ZENISEK", "name": "Christopher C. Zenisek",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/christopher-zenisek", "source": "Colorado Judicial Branch: Christopher Zenisek, District Court Judge, Jefferson County", "verified": true},
+   "offices": [
+     {"office": "Judge, District Court, First Judicial District (appointed by Governor John Hickenlooper by executive order to fill the vacancy left by the resignation of Judge Brian Boatright)", "from": "2011 (effective immediately on the order of December 21, 2011)", "to": "now", "source": "Executive order A 2011 276 appointing Christopher Clayton Zenisek District Court Judge, First Judicial District, in the Colorado State Publications Library", "url": "https://spl.cde.state.co.us/artemis/goserials/go4210internet/2011/go42102011276internet.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD17-DATZ", "name": "Caryn A. Datz",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/caryn-datz", "source": "Colorado Judicial Branch: Caryn A. Datz, District Court Judge, Adams County", "verified": true},
+   "offices": [
+     {"office": "Judge, District Court, 17th Judicial District (appointed by Governor Hickenlooper)", "from": "2018 (August 2018)", "to": "now", "source": "Colorado Judicial Branch, Caryn A. Datz, Bio", "url": "https://www.coloradojudicial.gov/contact/caryn-datz", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD18-VAHLE", "name": "Darren L. Vahle",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/darren-vahle", "source": "Colorado Judicial Branch: Darren Vahle, District Court Judge, Arapahoe County", "verified": true},
+   "offices": [
+     {"office": "Judge, County Court (appointed by Governor William Ritter)", "from": "2008 (June 2008)", "to": "2018", "source": "Colorado Judicial Branch, Darren Vahle, Bio: 'After serving 10 years as a County Judge'", "url": "https://www.coloradojudicial.gov/contact/darren-vahle", "kind": "official", "verified": true},
+     {"office": "Judge, District Court, 18th Judicial District (appointed by Governor John Hickenlooper)", "from": "2018 (July 2018)", "to": "now", "source": "Colorado Judicial Branch, Darren Vahle, Bio", "url": "https://www.coloradojudicial.gov/contact/darren-vahle", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD20-SALOMONE", "name": "Nancy Woodruff Salomone",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/nancy-w-salomone", "source": "Colorado Judicial Branch: Nancy W. Salomone, District Court Chief Judge, Boulder County", "verified": true},
+   "offices": [
+     {"office": "Judge, District Court, 20th Judicial District", "from": "2017 (October 2017)", "to": "now", "source": "Colorado Judicial Branch, Nancy W. Salomone, Bio", "url": "https://www.coloradojudicial.gov/contact/nancy-w-salomone", "kind": "official", "verified": true},
+     {"office": "Chief Judge, 20th Judicial District", "from": "2025 (selected July 2025)", "to": "now", "source": "Colorado Judicial Branch, Nancy W. Salomone, Bio", "url": "https://www.coloradojudicial.gov/contact/nancy-w-salomone", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD4-GURNEY", "name": "Hilary Gurney",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/hilary-gurney", "source": "Colorado Judicial Branch: Hilary Gurney, District Court Judge, El Paso County", "verified": true},
+   "offices": [
+     {"office": "Judge, District Court, 4th Judicial District (appointed by Governor Polis to fill the vacancy left by the resignation of Judge Marla Prudek)", "from": "2024 (effective June 1, 2024)", "to": "now", "source": "Governor's release 'Governor Polis Makes Judicial Appointments', May 16, 2024, as posted by the Colorado Judicial Branch", "url": "https://coloradojudicial.gov/sites/default/files/2024-07/Governor%20Polis%20Makes%20Judicial%20Appointments.pdf", "kind": "official", "verified": true},
+     {"office": "District Court Magistrate, 4th Judicial District", "from": "2022", "to": "2024", "source": "the same release: 'a position she has held since 2022'", "url": "https://coloradojudicial.gov/sites/default/files/2024-07/Governor%20Polis%20Makes%20Judicial%20Appointments.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-GOV", "name": "Phil Weiser",
+   "website": {"url": "https://philforcolorado.com/", "how": "The home page names Phil Weiser and the office: 'Phil Weiser for Governor'; 'As your Governor he will continue to advance the rule of law'.", "verified": true},
+   "offices": [
+     {"office": "Attorney General of Colorado (elected 2018, re-elected 2022)", "from": "2019 (January 8, 2019)", "to": "now", "source": "Wikipedia, 'Phil Weiser'", "url": "https://en.wikipedia.org/wiki/Phil_Weiser", "kind": "secondary", "verified": true},
+     {"office": "Deputy Assistant Attorney General, Antitrust Division, U.S. Department of Justice (appointed by President Obama)", "from": "2009 (July 2009)", "to": "2010", "source": "Wikipedia, 'Phil Weiser' (citing the Obama White House Archives)", "url": "https://en.wikipedia.org/wiki/Phil_Weiser", "kind": "secondary", "verified": true},
+     {"office": "Senior Advisor for Technology and Innovation to the National Economic Council Director, the White House", "from": "2010", "to": "not stated", "source": "Wikipedia, 'Phil Weiser' (citing the Obama White House Archives)", "url": "https://en.wikipedia.org/wiki/Phil_Weiser", "kind": "secondary", "verified": true}],
+   "endorsed_by": [
+     {"party": "Democratic", "unit": "Clear Creek County Democrats (its page 'Democratic Candidates on the November Ballot' lists 'Governor: Phil Weiser'; the party's post 'Midterm Elections, November 3, 2026' says it has compiled its endorsements in the voter guide on that page)", "url": "https://www.clearcreekcoloradodemocraticparty.org/elections", "verified": true}],
+   "past_party": [
+     {"what": "Won the Democratic primary for Attorney General of Colorado (Phil Weiser 50.43%, Joe Salazar 49.57%), then the general election", "year": 2018, "party": "Democratic", "source": "Wikipedia, '2018 Colorado Attorney General election' (Democratic primary results table)", "url": "https://en.wikipedia.org/wiki/2018_Colorado_Attorney_General_election", "kind": "secondary", "verified": true},
+     {"what": "Unopposed in the Democratic primary for Attorney General of Colorado, as the incumbent", "year": 2022, "party": "Democratic", "source": "Wikipedia, '2022 Colorado Attorney General election' (Democratic primary results table)", "url": "https://en.wikipedia.org/wiki/2022_Colorado_Attorney_General_election", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-CO-REGENT-CD7", "name": "BetteRose Ryan"},
+  {"race_id": "2026-CO-SH1", "name": "Javier Mabrey",
+   "website": {"url": "https://javierforcolorado.com/", "how": "The home page reads 'Javier Mabrey is a progressive Democrat running for HD1' and is paid for by Javier Mabrey for Colorado.", "verified": true},
+   "own_words": {"quote": "Javier Mabrey is a progressive Democrat running for HD1", "url": "https://javierforcolorado.com/", "verified": true}},
+  {"race_id": "2026-CO-SH15", "name": "Pricella Tiegen"},
+  {"race_id": "2026-CO-SH19", "name": "Jillaire McMillan",
+   "website": {"url": "https://www.jillaireforcolorado.com/", "how": "The page title is 'Home | Jillaire McMillan for HD19' and the home page reads 'Vote for Jillaire for CO House District 19' and 'Now I'm running again'.", "verified": true},
+   "past_party": [
+     {"what": "Democratic nominee for State House District 19 (chosen by a vacancy committee after the primary winner, Jennifer Parenti, withdrew); lost the general election to Dan Woog, 28,420 to 28,310", "year": 2024, "party": "Democratic", "source": "Wikipedia, '2024 Colorado House of Representatives election' (District 19 notes and general election results table)", "url": "https://en.wikipedia.org/wiki/2024_Colorado_House_of_Representatives_election", "kind": "secondary", "verified": true}],
+   "own_words": {"quote": "I was the Democratic nominee for House District 19 in 2024", "url": "https://www.jillaireforcolorado.com/", "verified": true}},
+  {"race_id": "2026-CO-SH25", "name": "Mark Herzfeld",
+   "website": {"url": "https://www.herzfeldforcolorado.com/", "how": "The page title is 'HerzfeldforColorado | Jefferson County HD25' and the home page reads 'House District 25 deserves a representative who fights for ...'; paid for by Herzfeld for Colorado.", "verified": true}},
+  {"race_id": "2026-CO-SH30", "name": "William Tyler Switzer",
+   "website": {"url": "https://williamswitzerforcolorado.com/", "how": "The page title is 'William Switzer for Colorado House District 30'; paid for by the Committee to Elect William Switzer. (The address switzer4colorado.com forwards here.)", "verified": true}},
+  {"race_id": "2026-CO-SH36", "name": "Paul E. Nelson"},
+  {"race_id": "2026-CO-SH40", "name": "Clinton Porter"},
+  {"race_id": "2026-CO-SH46", "name": "Jonathan Post",
+   "website": {"url": "https://www.postforcolorado.com/", "how": "The page names Jonathan Post as running for Colorado State House District 46.", "verified": true}},
+  {"race_id": "2026-CO-SH50", "name": "Tommy Butler",
+   "website": {"url": "https://www.butlerforhd50.com/", "how": "The page title is 'Tommy Butler for House District 50 | Get Involved Today', about Colorado; paid for by Butler for HD50.", "verified": true}},
+  {"race_id": "2026-CO-SH56", "name": "Chris Richardson",
+   "website": {"url": "https://sites.google.com/richardson-hd56.com/richardson-for-hd56/home", "how": "The site is titled 'Re-Elect Chris Richardson | Colorado State Representative HD56' and describes his House District 56 and his 2026 re-election campaign.", "verified": true}},
+  {"race_id": "2026-CO-SH61", "name": "Scott Shamblin"},
+  {"race_id": "2026-CO-SH8", "name": "Lindsay Gilchrist"},
+  {"race_id": "2026-CO-SS11", "name": "Tony Exum Sr",
+   "website": {"url": "https://www.tonyexum.com/", "how": "The site 'Tony Exum | Service. Leadership. Results.' reads 'Tony Exum has served Colorado Springs—as a firefighter, Battalion Chief, State Representative, and now State Senator'; paid for by the Committee to Elect Thomas \"Tony\" Exum Sr.", "verified": true}},
+  {"race_id": "2026-CO-SS24", "name": "Kyle Mullica",
+   "website": {"url": "https://kylemullica.com/", "how": "The page title is 'Kyle Mullica for Colorado State Senate' and the page names State Senate District 24; paid for by Kyle Mullica for SD 24. The text reads as written after his 2022 election, not for 2026 specifically.", "verified": true}},
+  {"race_id": "2026-CO-SS30", "name": "Kevin Leung"},
+  {"race_id": "2026-CO-SS7", "name": "Janice Rich",
+   "website": {"url": "https://www.janicerichforcolorado.com/", "how": "The site 'Janice Rich for Colorado' reads 'Janice Rich, Colorado State Senator, SD7'; Citizens to Elect Janice Rich, Colorado State Senate.", "verified": true}}
+]}

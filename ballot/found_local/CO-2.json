@@ -1,0 +1,111 @@
+{"part": 2, "of": 12, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "removed": [
+   {"race_id": "2026-CO-AG", "name": "Michael J. Allen", "field": "born", "why": "Wikipedia gives 1972 with no citation; the rules accept Wikipedia only with a citation, and no official or campaign page giving the year was found"}],
+ "candidates": [
+  {"race_id": "2026-CO-AG", "name": "Michael J. Allen",
+   "website": {"url": "https://michaelallenforcolorado.com/", "how": "Linked as his campaign website from the Denver Republican Party's page; the site is titled 'Michael Allen for Colorado Attorney General' and is paid for by Michael Allen for Colorado", "verified": true},
+   "official_page": {"url": "https://da4colorado.gov/meet-the-district-attorney", "source": "Office of the District Attorney, 4th Judicial District: 'Meet the District Attorney'", "verified": true},
+   "offices": [{"office": "District Attorney, 4th Judicial District (El Paso and Teller counties)", "from": 2021, "to": null, "source": "Office of the District Attorney, 4th Judicial District: sworn in January 12, 2021", "url": "https://da4colorado.gov/meet-the-district-attorney", "kind": "official", "verified": true}],
+   "endorsed_by": [
+     {"party": "Republican", "unit": "Broomfield County Republican Central Committee ('BCRC Endorsed', The Red Book, 2026 voter guide)", "url": "https://www.broomfieldrepublicans.org/redbook.html", "verified": true},
+     {"party": "Republican", "unit": "Denver Republican Party (listed among its Republican nominees for statewide office)", "url": "https://denvergop.org/", "verified": true}],
+   "past_party": [{"what": "District Attorney, 4th Judicial District: Republican primary (won)", "year": 2020, "party": "Republican", "source": "Colorado Secretary of State, 2020 Primary Election Results, Republican Party Ballot ('Michael Allen (REP)')", "url": "https://coloradosos.gov/pubs/elections/Results/Abstract/2020/primary/republican/districtAttorney.html", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-CCRET-08027-HALPIN", "name": "Michael Patrick Halpin",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/michael-halpin", "source": "Colorado Judicial Branch: Michael Halpin, County Court Judge, Custer County", "verified": true},
+   "offices": [{"office": "Judge, Custer County Court (11th Judicial District), appointed by the Governor", "from": 2022, "to": null, "source": "Kiowa County Press: Governor Polis appoints Michael P. Halpin to the Custer County Court (effective November 9, 2022)", "url": "https://kiowacountypress.net/content/governor-polis-appoints-michael-p-halpin-custer-county-court", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-CO-CCRET-08041-CORD", "name": "Meredith Patrick Cord",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/meredith-patrick-cord", "source": "Colorado Judicial Branch: Meredith Patrick Cord, County Court Judge, El Paso County", "verified": true},
+   "offices": [{"office": "Judge, El Paso County Court", "from": null, "to": null, "source": "Colorado Judicial Branch: Meredith Patrick Cord, County Court Judge, El Paso County", "url": "https://www.coloradojudicial.gov/contact/meredith-patrick-cord", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-CCRET-08059-MELTON", "name": "Jennifer Lynn Melton",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/jennifer-melton", "source": "Colorado Judicial Branch: Jennifer Melton, County Court Judge, Jefferson Combined Court", "verified": true},
+   "offices": [{"office": "Judge, Jefferson County Court", "from": null, "to": null, "source": "Colorado Judicial Branch: Jennifer Melton, County Court Judge, Jefferson Combined Court", "url": "https://www.coloradojudicial.gov/contact/jennifer-melton", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-CCRET-08121-HANSEN", "name": "Kelly S. Hansen",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/kelly-s-hansen", "source": "Colorado Judicial Branch: Kelly S. Hansen, County Court Judge, Washington Combined Court", "verified": true},
+   "offices": [{"office": "Judge, Washington County Court", "from": null, "to": null, "source": "Colorado Judicial Branch: Kelly S. Hansen, County Court Judge, Washington Combined Court", "url": "https://www.coloradojudicial.gov/contact/kelly-s-hansen", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-DCRET-JD1-MILOUD", "name": "Meegan Miloud",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/meegan-miloud", "source": "Colorado Judicial Branch: Meegan A. Miloud, District Court Judge, Jefferson Combined Court", "verified": true},
+   "offices": [
+     {"office": "District Court Magistrate, 1st Judicial District", "from": 2020, "to": 2023, "source": "Kiowa County Press: Governor Polis appoints Meegan A. Miloud to the First Judicial District Court", "url": "https://kiowacountypress.net/content/governor-polis-appoints-meegan-miloud-first-judicial-district-court", "kind": "secondary", "verified": true},
+     {"office": "Judge, District Court, 1st Judicial District, appointed by the Governor", "from": 2023, "to": null, "source": "Kiowa County Press: Governor Polis appoints Meegan A. Miloud to the First Judicial District Court (effective March 1, 2023)", "url": "https://kiowacountypress.net/content/governor-polis-appoints-meegan-miloud-first-judicial-district-court", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-CO-DCRET-JD12-HOPKINS", "name": "Amanda C. Hopkins",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/amanda-c-hopkins", "source": "Colorado Judicial Branch: Amanda C. Hopkins, District Court Chief Judge (Alamosa, Conejos, Costilla, Mineral, Rio Grande and Saguache counties)", "verified": true},
+   "offices": [
+     {"office": "Judge, District Court, 12th Judicial District", "from": 2018, "to": null, "source": "Law Week Colorado: Judge Amanda Hopkins Appointed Chief Judge of 12th Judicial District ('appointed to the district court bench on July 10, 2018')", "url": "https://lawweekcolorado.com/article/judge-amanda-hopkins-appointed-chief-judge-of-12th-judicial-district", "kind": "secondary", "verified": true},
+     {"office": "Chief Judge, 12th Judicial District, appointed by the Chief Justice", "from": 2023, "to": null, "source": "Law Week Colorado: Judge Amanda Hopkins Appointed Chief Judge of 12th Judicial District (August 14, 2023)", "url": "https://lawweekcolorado.com/article/judge-amanda-hopkins-appointed-chief-judge-of-12th-judicial-district", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-CO-DCRET-JD18-JONES", "name": "Michelle Jones",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/michelle-jones", "source": "Colorado Judicial Branch: Michelle Jones, District Court Judge, Arapahoe County (earlier a Magistrate in Arapahoe County)", "verified": true},
+   "offices": [
+     {"office": "Magistrate, 18th Judicial District", "from": 2020, "to": 2023, "source": "Kiowa County Press: Governor Polis appoints two to 18th Judicial District Court (Michelle E. Jones)", "url": "https://kiowacountypress.net/content/governor-polis-appoints-two-18th%C2%A0judicial-district-court", "kind": "secondary", "verified": true},
+     {"office": "Judge, District Court, 18th Judicial District, appointed by the Governor", "from": 2023, "to": null, "source": "Kiowa County Press: Governor Polis appoints two to 18th Judicial District Court (effective January 10, 2023)", "url": "https://kiowacountypress.net/content/governor-polis-appoints-two-18th%C2%A0judicial-district-court", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-CO-DCRET-JD2-OLAFSON", "name": "Jon J. Olafson",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/jon-j-olafson", "source": "Colorado Judicial Branch: Jon J. Olafson, Judge, Denver District Court ('on the bench since 2023')", "verified": true},
+   "offices": [{"office": "Judge, District Court, 2nd Judicial District (Denver), appointed by the Governor", "from": 2023, "to": null, "source": "Kiowa County Press: Governor Polis Appoints Jon J. Olafson to the 2nd Judicial District Court (effective December 1, 2023)", "url": "https://kiowacountypress.net/content/governor-polis-appoints-jon-j-olafson-2nd-judicial-district-court", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-CO-DCRET-JD23-SLADE", "name": "Theresa Slade",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/theresa-slade", "source": "Colorado Judicial Branch: Theresa Slade, District Court Judge, Elbert County", "verified": true},
+   "offices": [{"office": "Judge, District Court, Elbert County", "from": null, "to": null, "source": "Colorado Judicial Branch: Theresa Slade, District Court Judge, Elbert County", "url": "https://www.coloradojudicial.gov/contact/theresa-slade", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-GOV", "name": "Eric Mulder",
+   "website": {"url": "https://www.mulderforgovernor.org/", "how": "The site is titled 'Eric Mulder for Colorado Governor', states he is the Libertarian nominee for Governor of Colorado, and is paid for by Vote Eric Mulder", "verified": true},
+   "own_words": {"quote": "Eric Mulder is the Libertarian nominee for Governor of Colorado.", "url": "https://www.mulderforgovernor.org/", "verified": true}},
+
+  {"race_id": "2026-CO-REGENT-CD2", "name": "Richard Friend"},
+
+  {"race_id": "2026-CO-SBE-CD7", "name": "Karla Esser",
+   "website": {"url": "https://www.karlaesser.com/", "how": "The site is titled 'Karla Esser For Colorado State Board of Education, District 7' and says she is running for the Board in Congressional District 7", "verified": true},
+   "official_page": {"url": "https://ed.cde.state.co.us/cdeboard", "source": "Colorado Department of Education, State Board of Education: 'Karla Esser (D) 7th Congressional District, Lakewood'", "verified": true},
+   "offices": [{"office": "Member, Colorado State Board of Education, 7th Congressional District", "from": 2021, "to": null, "source": "Colorado Secretary of State, 2020 General Election abstract: Karla Esser (DEM) 258,069, Nancy Pallozzi (REP) 156,890; the State Board's own page lists her as the member today", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2020/general/education.html", "kind": "official", "verified": true}],
+   "past_party": [{"what": "State Board of Education, Congressional District 7: Democratic nominee, elected", "year": 2020, "party": "Democratic", "source": "Colorado Secretary of State, 2020 General Election results ('Karla Esser (DEM)')", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2020/general/education.html", "kind": "official", "verified": true}],
+   "review": [{"shows": "Karla Esser is not marked as the incumbent in 2026-CO-SBE-CD7 (incumbent = 0)", "problem": "The State Board of Education's own page lists Karla Esser (D) as the member for the 7th Congressional District, and the Secretary of State's 2020 results show she won that seat", "url": "https://ed.cde.state.co.us/cdeboard", "verified": true}]},
+
+  {"race_id": "2026-CO-SH14", "name": "Ava Flanell",
+   "website": {"url": "https://www.avaforcolorado.com/", "how": "The site is titled 'Ava Flanell For Colorado', names House District 14, and is paid for by Ava for Colorado", "verified": true}},
+
+  {"race_id": "2026-CO-SH17", "name": "Sherrea Sterling"},
+
+  {"race_id": "2026-CO-SH23", "name": "Alexis Hoffkling",
+   "website": {"url": "https://www.alexisforcolorado.com/", "how": "The site is titled 'Alexis Hoffkling for Colorado' and says she is the candidate for Colorado House District 23", "verified": true}},
+
+  {"race_id": "2026-CO-SH29", "name": "Lori Goldstein",
+   "website": {"url": "https://www.loriforcolorado.com/", "how": "The site is titled 'Lori Goldstein for State Representative', its About page names House District 29, and it is paid for by Lori for Colorado", "verified": true}},
+
+  {"race_id": "2026-CO-SH34", "name": "Jenny Willford"},
+
+  {"race_id": "2026-CO-SH39", "name": "Christian Schilder",
+   "website": {"url": "https://www.christian4co.com/", "how": "The site is titled 'Christian Schilder for CO - HD39 | Colorado State House of Representatives'", "verified": true}},
+
+  {"race_id": "2026-CO-SH44", "name": "Richard Bowness",
+   "website": {"url": "https://www.bownessforhd44.com/", "how": "The site reads 'Why I'm Running for Colorado House District 44' and is paid for by Richard Bowness for HD44", "verified": true}},
+
+  {"race_id": "2026-CO-SH49", "name": "Michael Sheperek",
+   "website": {"url": "https://www.sheperekforcolorado.com/", "how": "The site reads 'Michael Sheperek for State House District 49' and is paid for by Sheperek for Colorado", "verified": true}},
+
+  {"race_id": "2026-CO-SH54", "name": "Mallory Martin",
+   "website": {"url": "https://malloryforcolorado.com/", "how": "The site is titled 'Mallory Martin - Colorado House District 54' and is paid for by Friends of Mallory Martin", "verified": true}},
+
+  {"race_id": "2026-CO-SH60", "name": "Kathryn Kester Green",
+   "past_party": [{"what": "State Representative, House District 60: Democratic nominee in the general election (lost)", "year": 2022, "party": "Democratic", "source": "Colorado Secretary of State, 2022 General Election results, State Representatives, District 60 ('Kathryn Green (DEM)')", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/stateRepresentatives.html", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-CO-SH7", "name": "Jeff Wilson"},
+
+  {"race_id": "2026-CO-SS1", "name": "Byron Pelton",
+   "website": {"url": "https://www.byronpelton.com/", "how": "The site is titled 'Senator Byron Pelton Colorado's 1st Senate District' and is paid for by Pelton for State Senate", "verified": true}},
+
+  {"race_id": "2026-CO-SS21", "name": "Frederick Alfred Jr",
+   "website": {"url": "https://www.fredforcolorado.com/", "how": "The site is titled 'Frederick Alfred Jr. for Colorado Senate District 21' and is paid for by Fred For SD21", "verified": true}},
+
+  {"race_id": "2026-CO-SS29", "name": "Robert McKenna"},
+
+  {"race_id": "2026-CO-SS35", "name": "Rod Pelton",
+   "website": {"url": "https://www.peltonforcolorado.com/", "how": "The site is titled 'Rod Pelton for Senate District 35' and is paid for by the Committee to Elect Rod Pelton", "verified": true}},
+
+  {"race_id": "2026-CO-TREAS", "name": "Marilee Langner Sturgis"}
+]}

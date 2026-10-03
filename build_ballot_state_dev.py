@@ -260,7 +260,7 @@ LEVEL_KINDS = {
               "court_of_appeals_retention", "appellate_court", "appellate_court_retention", "superior_court", "superior_court_retention",
               "workers_compensation_court", "workers_compensation_court_retention",
               "circuit_court", "circuit_court_retention", "common_pleas_court", "chancery_court", "trial_court", "district_court", "district_court_retention", "parish_court", "family_court",
-              "juvenile_court", "juvenile_court_retention", "county_court", "county_court_retention", "orphans_court", "district_magistrate", "magistrate", "magistrate_retention",
+              "juvenile_court", "juvenile_court_retention", "probate_court_retention", "county_court", "county_court_retention", "orphans_court", "district_magistrate", "magistrate", "magistrate_retention",
               "metropolitan_court", "metropolitan_court_retention", "municipal_court", "city_court", "district_attorney", "commonwealth_attorney",
               "city_marshal", "constable"]}
 KINDS = list(dict.fromkeys(k for lv in LEVELS for k in LEVEL_KINDS[lv]))      # every kind that is placed, level by level
@@ -282,7 +282,7 @@ COURTS = {"supreme_court": "the Supreme Court", "court_of_criminal_appeals": "th
           "court_of_civil_appeals": "the Court of Civil Appeals", "court_of_appeals": "the Court of Appeals", "appellate_court": "the Appellate Court",
           "superior_court": "the superior courts", "circuit_court": "the circuit courts", "common_pleas_court": "the courts of common pleas",
           "chancery_court": "the chancery courts", "trial_court": "the trial courts", "district_court": "the district courts", "family_court": "the family courts",
-          "parish_court": "the parish courts", "juvenile_court": "the juvenile courts", "county_court": "the county courts",
+          "parish_court": "the parish courts", "juvenile_court": "the juvenile courts", "probate_court": "the probate courts", "county_court": "the county courts",
           "workers_compensation_court": "the Workers&rsquo; Compensation Court", "orphans_court": "the orphans&rsquo; courts",
           "district_magistrate": "district magistrate judges", "magistrate": "magistrate judges", "metropolitan_court": "the Metropolitan Court",
           "municipal_court": "the municipal courts", "city_court": "the city courts", "district_attorney": "district attorneys",

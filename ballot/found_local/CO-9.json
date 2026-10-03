@@ -1,0 +1,76 @@
+{"part": 9, "of": 12, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_notes": [
+   "Every url re-opened. WebFetch could not resolve several hosts (the router's lost lookups); those pages were re-read through the kit's downloader and confirmed.",
+   "Corrected wording: the 'how' of Sarah Amelia Woodson's and Larry Don Suckla's websites now says only what the pages show (no 'paid for by' line was found on either; Suckla's page title is 'Sucklafor58')."],
+ "candidates": [
+  {"race_id": "2026-CO-CCRET-08013-BRODSKY", "name": "Elizabeth House Moulton Brodsky",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/elizabeth-brodsky", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "Judge, Boulder County Court", "from": 2015, "to": null, "source": "Colorado Judicial Branch", "url": "https://www.coloradojudicial.gov/contact/elizabeth-brodsky", "kind": "official", "verified": true},
+     {"office": "Magistrate, Boulder District Court", "from": 2011, "to": 2015, "source": "Colorado Judicial Branch", "url": "https://www.coloradojudicial.gov/contact/elizabeth-brodsky", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08031-THOMAS", "name": "Michelle Martinez-Thomas",
+   "official_page": {"url": "https://www.denvercountycourt.org/judicial-officers/", "source": "Denver County Court", "verified": true},
+   "offices": [
+     {"office": "Judge, Denver County Court", "from": 2020, "to": null, "source": "Denver County Court (appointed to the Denver County Court bench in March 2020)", "url": "https://www.denvercountycourt.org/judicial-officers/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08053-MCDONALD", "name": "James R. McDonald",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/james-r-mcdonald", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "Judge, Hinsdale County Court", "from": 2020, "to": null, "source": "Colorado Judicial Branch (sworn in May 29, 2020)", "url": "https://www.coloradojudicial.gov/contact/james-r-mcdonald", "kind": "official", "verified": true},
+     {"office": "Magistrate, Larimer County", "from": 2023, "to": null, "source": "Colorado Judicial Branch (sworn in June 1, 2023)", "url": "https://www.coloradojudicial.gov/contact/james-r-mcdonald", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-CCRET-08081-HESSON", "name": "James Hesson",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/james-hesson", "source": "Colorado Judicial Branch", "verified": true}},
+  {"race_id": "2026-CO-COARET-MOULTRIE", "name": "Pax Moultrie",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/pax-l-moultrie", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "Judge, Colorado Court of Appeals", "from": 2024, "to": null, "source": "Colorado Judicial Branch (date of judicial appointment January 1, 2024)", "url": "https://www.coloradojudicial.gov/contact/pax-l-moultrie", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD10-ERNST", "name": "Allison P. Ernst",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/allison-p-ernst", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "Judge (appointed to the bench December 2016; today District Court judge, Pueblo County)", "from": 2016, "to": null, "source": "Colorado Judicial Branch", "url": "https://www.coloradojudicial.gov/contact/allison-p-ernst", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD17-RUFF", "name": "Jeffrey Dean Ruff",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/jeffrey-ruff", "source": "Colorado Judicial Branch", "verified": true}},
+  {"race_id": "2026-CO-DCRET-JD19-KERNS", "name": "Timothy Gerard Kerns",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/timothy-kerns", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "County Court judge", "from": 2007, "to": 2011, "source": "Colorado Judicial Branch (appointed October 2007)", "url": "https://www.coloradojudicial.gov/contact/timothy-kerns", "kind": "official", "verified": true},
+     {"office": "District Court judge (Weld County)", "from": 2011, "to": null, "source": "Colorado Judicial Branch (appointed January 1, 2011)", "url": "https://www.coloradojudicial.gov/contact/timothy-kerns", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD21-LARSON", "name": "Gretchen B. Larson",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/gretchen-b-larson", "source": "Colorado Judicial Branch", "verified": true},
+   "offices": [
+     {"office": "Judge (appointed to the bench by Governor Owens, July 2006; today District Court judge, Mesa County)", "from": 2006, "to": null, "source": "Colorado Judicial Branch", "url": "https://www.coloradojudicial.gov/contact/gretchen-b-larson", "kind": "official", "verified": true}]},
+  {"race_id": "2026-CO-DCRET-JD4-SOKOL", "name": "Erin Lynn Sokol",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/erin-sokol", "source": "Colorado Judicial Branch", "verified": true}},
+  {"race_id": "2026-CO-JUVRET-08031-GOMEZ", "name": "Lisa Gomez",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/lisa-gomez", "source": "Colorado Judicial Branch", "verified": true}},
+  {"race_id": "2026-CO-SBE-CD1", "name": "Clayton Casciato",
+   "past_party": [
+     {"what": "Candidate for the Colorado House of Representatives, District 3", "year": 2022, "party": "Libertarian", "source": "Wikipedia, 2022 Colorado House of Representatives election (results table)", "url": "https://en.wikipedia.org/wiki/2022_Colorado_House_of_Representatives_election", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-CO-SH11", "name": "Karen McCormick",
+   "website": {"url": "https://karenforco.com", "how": "Campaign site; names Karen McCormick, State Representative for House District 11, running for re-election in November 2026; paid for by Karen for CO", "verified": true}},
+  {"race_id": "2026-CO-SH16", "name": "John C Hjersman",
+   "past_party": [
+     {"what": "Candidate for the Colorado House of Representatives, District 16", "year": 2016, "party": "Libertarian", "source": "Wikipedia, List of third-party and independent performances in Colorado state legislative elections", "url": "https://en.wikipedia.org/wiki/List_of_third-party_and_independent_performances_in_Colorado_state_legislative_elections", "kind": "secondary", "verified": true},
+     {"what": "Candidate for the Colorado House of Representatives, District 16", "year": 2022, "party": "Libertarian", "source": "Wikipedia, 2022 Colorado House of Representatives election (results table)", "url": "https://en.wikipedia.org/wiki/2022_Colorado_House_of_Representatives_election", "kind": "secondary", "verified": true},
+     {"what": "Candidate for the Colorado Senate, District 10", "year": 2024, "party": "Libertarian", "source": "Wikipedia, 2024 Colorado Senate election (results table)", "url": "https://en.wikipedia.org/wiki/2024_Colorado_Senate_election", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-CO-SH20", "name": "Jarvis Caldwell",
+   "website": {"url": "https://jarviscaldwell.com", "how": "Campaign site titled 'Jarvis Caldwell for House District 20 | Colorado House of Representatives'; announces his candidacy for House District 20; paid for by Elect Jarvis Caldwell", "verified": true}},
+  {"race_id": "2026-CO-SH26", "name": "Meghan Lukens",
+   "website": {"url": "https://www.meghanlukens.com", "how": "Campaign site 'Meghan Lukens for Colorado House of Representatives', House District 26; paid for by Meghan Lukens for Colorado", "verified": true}},
+  {"race_id": "2026-CO-SH42", "name": "Sarah Amelia Woodson",
+   "website": {"url": "https://www.woodsonforcolorado.com", "how": "Campaign site titled 'Sarah Woodson | Colorado House District 42'; says she is running for House District 42", "verified": true}},
+  {"race_id": "2026-CO-SH52", "name": "Steve Yurash",
+   "past_party": [
+     {"what": "Candidate for the Colorado House of Representatives, District 52", "year": 2024, "party": "Colorado Center Party", "source": "Wikipedia, 2024 Colorado House of Representatives election (results table)", "url": "https://en.wikipedia.org/wiki/2024_Colorado_House_of_Representatives_election", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-CO-SH58", "name": "Larry Don Suckla",
+   "website": {"url": "https://sucklafor58.com/", "how": "Campaign site 'Sucklafor58'; names Larry Don Suckla and House District 58", "verified": true}},
+  {"race_id": "2026-CO-SS32", "name": "Sydnnia Wulff",
+   "website": {"url": "https://wulff4colorado.com", "how": "Campaign site titled 'Sydnnia Wulff for Colorado State Senate — District 32 · 2026'; paid for by Wulff for the Colorado Senate; also linked as her campaign site from the Denver Republican Party's endorsed-candidates list", "verified": true},
+   "endorsed_by": [{"party": "Republican", "unit": "Denver Republican Party ('2026 Endorsed Candidates': Senate District 32, Sydnnia Wulff)", "url": "https://denvergop.org/", "verified": true}],
+   "own_words": {"quote": "Republican for Colorado", "url": "https://wulff4colorado.com", "verified": true}},
+  {"race_id": "2026-CO-SS9", "name": "Terri Carver",
+   "offices": [
+     {"office": "Member of the Colorado House of Representatives, District 20", "from": 2015, "to": 2023, "source": "Wikipedia, Terri Carver", "url": "https://en.wikipedia.org/wiki/Terri_Carver", "kind": "secondary", "verified": true}],
+   "past_party": [
+     {"what": "Member of the Colorado House of Representatives, District 20 (El Paso County)", "year": 2022, "party": "Republican", "source": "Colorado General Assembly, Representative Terri Carver (PARTY Republican)", "url": "https://leg.colorado.gov/legislators/terri-carver", "kind": "official", "verified": true}]}
+]}

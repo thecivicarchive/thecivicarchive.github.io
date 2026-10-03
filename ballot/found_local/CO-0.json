@@ -1,0 +1,517 @@
+{
+ "part": 0,
+ "of": 12,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "note": "WebFetch could not resolve host names in this session and the shared web search allowance ran out after about twenty searches, so pages were read with the kit's own fetcher (states/net.py, honest User-Agent). Past runs under a party label come from the Secretary of State's own elections database (historicalelectiondata.coloradosos.gov, contest pages citing the State Abstract of Votes Cast). Judges' official pages are the Colorado Judicial Branch's own pages for each judge (name, title, court, county); the Office of Judicial Performance Evaluation's site answered this tool with 403 and was not read, so no appointment years are given. Party lists that do not say 'endorsed' (Libertarian Party of Colorado's candidates page for Barr and Joss, the Colorado Center Party's page for Tim Martin, the Colorado GOP's candidates page, county voter guides) are support, not endorsements (see ballot/lean/co_endorsements.json), and are not recorded here; Joss's 'HD48 LPCO Website' sits on the party's own site and is not a campaign website. Ken deGraaf's campaign site answered 403 and reinforcolorado.com's About page answered 429, so deGraaf has no website here and David Rein's Lakewood City Council seat is not recorded (the council's own page names a David Rein, Ward 4, first elected November 2023, but no page read ties him to the House District 28 race). Sitting legislators (deGraaf, Hartsook, Slaugh, Sullivan) were checked for a website only. Blank means not found, not that nothing exists.",
+ "verifier_note": "Every url re-opened with the kit's fetcher (honest User-Agent). Corrected: Dayna L. Vise: from 2024 added from the official page's Bio; Jacob A. Edson: from 2023 added from the official page's Bio.",
+ "removed": [
+  {
+   "name": "Edie Hooton",
+   "race_id": "2026-CO-REGENT-CD2",
+   "field": "endorsed_by",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "why": "the page lists her among 'Democratic Candidates on the November Ballot' in its voter guide and never says the party endorses her: support, not an endorsement"
+  },
+  {
+   "name": "David Rein",
+   "race_id": "2026-CO-SH28",
+   "field": "website",
+   "url": "https://www.reinforcolorado.com/",
+   "why": "the site answered 429 Too Many Requests on every try (four, minutes apart); not confirmed"
+  },
+  {
+   "name": "James Wiley",
+   "race_id": "2026-CO-SOS",
+   "field": "past_party",
+   "url": "https://historicalelectiondata.coloradosos.gov/contest/26554",
+   "why": "the Secretary of State's 2024 CD3 contest page names a James Wiley, Libertarian, but nothing read ties that candidate to this race by a second anchor (his campaign site and Wikipedia say he led the Libertarian Party of Colorado in 2024, not that he ran for Congress); unsure, so left out"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-CO-ACCRET-08103-EDWARDS",
+   "name": "Jay A. Edwards",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/jay-edwards",
+    "source": "Colorado Judicial Branch, Jay Edwards, County Court Judge, Rio Blanco County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rio Blanco County Court Judge",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Jay Edwards, County Court Judge, Rio Blanco County (Rio Blanco Combined Court)",
+     "url": "https://www.coloradojudicial.gov/contact/jay-edwards",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-CCRET-08023-SULLIVAN",
+   "name": "Tamara McSherry Sullivan",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/tamara-sullivan",
+    "source": "Colorado Judicial Branch, Tamara Sullivan, County Court Judge (and Domestic Relations Acting District Court Judge), Costilla County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Costilla County Court Judge",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Tamara Sullivan, County Court Judge, Costilla County (Costilla Combined Court)",
+     "url": "https://www.coloradojudicial.gov/contact/tamara-sullivan",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-CCRET-08037-CAUSEY",
+   "name": "Inga Haagenson Causey",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/inga-h-causey",
+    "source": "Colorado Judicial Branch, Inga H. Causey, County Court Judge, Division 2, Eagle County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Eagle County Court Judge",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Inga H. Causey, County Court Judge, Eagle County",
+     "url": "https://www.coloradojudicial.gov/contact/inga-h-causey",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-CCRET-08059-GARRIDO",
+   "name": "Sara Garrido",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/sara-garrido",
+    "source": "Colorado Judicial Branch, Sara Garrido, County Court Judge, Division F, Jefferson County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jefferson County Court Judge",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Sara Garrido, County Court Judge, Jefferson County",
+     "url": "https://www.coloradojudicial.gov/contact/sara-garrido",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-CCRET-08099-PORTER",
+   "name": "Curtis Lane Porter",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/lane-porter",
+    "source": "Colorado Judicial Branch, Lane Porter, County Court Judge, Prowers County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Prowers County Court Judge",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Lane Porter, County Court Judge, Prowers County (Prowers County Combined Court)",
+     "url": "https://www.coloradojudicial.gov/contact/lane-porter",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD1-CONTIGUGLIA",
+   "name": "Chantel E. Contiguglia",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/chantel-contiguglia",
+    "source": "Colorado Judicial Branch, Chantel Contiguglia, District Court Judge, Division 9, Jefferson County (1st Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 1st Judicial District (Jefferson County)",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Chantel Contiguglia, District Court Judge, Jefferson County",
+     "url": "https://www.coloradojudicial.gov/contact/chantel-contiguglia",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD11-VISE",
+   "name": "Dayna L. Vise",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/dayna-vise",
+    "source": "Colorado Judicial Branch, Dayna Vise, District Court Judge, Division 2, Chaffee County (11th Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 11th Judicial District (Chaffee County)",
+     "from": "2024",
+     "to": "",
+     "source": "Colorado Judicial Branch, Dayna Vise, District Court Judge, Chaffee County; the page's Bio: appointed District Court Judge for the 11th Judicial District in 2024",
+     "url": "https://www.coloradojudicial.gov/contact/dayna-vise",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD18-EDSON",
+   "name": "Jacob A. Edson",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/jacob-edson",
+    "source": "Colorado Judicial Branch, Jacob Edson, District Court Judge, Division 309, Arapahoe County (18th Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 18th Judicial District (Arapahoe County)",
+     "from": "2023",
+     "to": "",
+     "source": "Colorado Judicial Branch, Jacob Edson, District Court Judge, Arapahoe County; the page's Bio: held since appointment by Governor Jared Polis in 2023",
+     "url": "https://www.coloradojudicial.gov/contact/jacob-edson",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD2-ELLIFF",
+   "name": "John Eric Elliff",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/j-eric-elliff",
+    "source": "Colorado Judicial Branch, J. Eric Elliff, District Court Judge, Courtroom 209, Denver District Court (2nd Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 2nd Judicial District (Denver District Court)",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, J. Eric Elliff, District Court Judge, Denver - District",
+     "url": "https://www.coloradojudicial.gov/contact/j-eric-elliff",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD23-BAUM",
+   "name": "Andrew Baum",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/andrew-baum",
+    "source": "Colorado Judicial Branch, Andrew Baum, District Court Judge, Division B, Douglas County (23rd Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 23rd Judicial District (Douglas County)",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Andrew Baum, District Court Judge, Douglas County",
+     "url": "https://www.coloradojudicial.gov/contact/andrew-baum",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD7-STARRITT",
+   "name": "Kellie L. Starritt",
+   "official_page": {
+    "url": "https://www.coloradojudicial.gov/contact/kellie-starritt",
+    "source": "Colorado Judicial Branch, Kellie Starritt, District Court Judge, Division 2, Delta, Gunnison, Hinsdale, Montrose, Ouray and San Miguel Counties (7th Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, 7th Judicial District",
+     "from": "",
+     "to": "",
+     "source": "Colorado Judicial Branch, Kellie Starritt, District Court Judge, the six counties of the 7th Judicial District",
+     "url": "https://www.coloradojudicial.gov/contact/kellie-starritt",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD2",
+   "name": "Edie Hooton",
+   "website": {
+    "url": "https://edieforcu.com/",
+    "how": "Wikipedia's article on Edie Hooton links it; the site, 'Edie Hooton For CU Regent', names her and the office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Colorado State Representative, House District 10",
+     "from": "2017",
+     "to": "2023",
+     "source": "Wikipedia, Edie Hooton (in office January 11, 2017 to January 9, 2023)",
+     "url": "https://en.wikipedia.org/wiki/Edie_Hooton",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Colorado State Representative (seat in the Colorado House, where members sit by party)",
+     "year": "2017-2023",
+     "party": "Democratic",
+     "source": "Colorado General Assembly, Representative Edie Hooton, PARTY: Democrat",
+     "url": "https://leg.colorado.gov/legislators/edie-hooton",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-SBE-CD3",
+   "name": "Barb Clementi",
+   "website": {
+    "url": "https://www.barbclementi.com/",
+    "how": "found by its address; the site is titled 'Barb Clementi for Colorado State Board of Education CD3'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Pueblo District 60 Board of Education (two terms; vice president two years, president two years)",
+     "from": "",
+     "to": "",
+     "source": "Barb Clementi's campaign site: 'Barb served two terms on the Pueblo District 60 Board of Education'",
+     "url": "https://www.barbclementi.com/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Meet Democrat Barb Clementi",
+    "url": "https://www.barbclementi.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CO-SH13",
+   "name": "Consuelo Redhorse",
+   "website": {
+    "url": "https://www.voteredhorse.com/",
+    "how": "named as VoteRedhorse.com in coverage of the race; the site, 'Vote Consuelo Redhorse for Colo HD 13', names her and the district",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.summitk12.org/about-ssd/board-of-education",
+    "source": "Summit School District, Board of Education page, listing Consuelo Redhorse, President, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Summit School District Board of Education (President)",
+     "from": "2019",
+     "to": "",
+     "source": "Consuelo Redhorse's campaign site, Meet Consuelo: elected in 2019, re-elected in 2023, now serves as President",
+     "url": "https://www.voteredhorse.com/meet-consuelo",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "I'm running as a Democrat to be your representative at the Capitol",
+    "url": "https://www.voteredhorse.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CO-SH17",
+   "name": "Laura Martin"
+  },
+  {
+   "race_id": "2026-CO-SH22",
+   "name": "Ken deGraaf"
+  },
+  {
+   "race_id": "2026-CO-SH28",
+   "name": "David Rein"
+  },
+  {
+   "race_id": "2026-CO-SH33",
+   "name": "Nate Jorgensen",
+   "website": {
+    "url": "https://nateforhd33.com/",
+    "how": "linked from the Broomfield County Republican Central Committee's Red Book; the site, 'Nate Jorgensen for HD33', names him and the district",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Broomfield County Republican Central Committee",
+     "url": "https://www.broomfieldrepublicans.org/redbook.html",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-SH38",
+   "name": "Tim Martin"
+  },
+  {
+   "race_id": "2026-CO-SH44",
+   "name": "Anthony Hartsook",
+   "website": {
+    "url": "https://anthonyhartsook.com/",
+    "how": "named in coverage of his 2024 race; the site reads 'RE-ELECT ANTHONY HARTSOOK' and says he was first elected to House District 44 in 2022",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CO-SH48",
+   "name": "Eric E. Joss",
+   "past_party": [
+    {
+     "what": "Candidate for State Representative, House District 48 (2022 general election)",
+     "year": "2022",
+     "party": "Libertarian",
+     "source": "Colorado Secretary of State elections database, 2022 Nov 8 General, State Representative District 48: Eric E. Joss, Libertarian (2021-2022 State Abstract of Votes Cast, page 137)",
+     "url": "https://historicalelectiondata.coloradosos.gov/contest/25656",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-SH53",
+   "name": "Daniel Frick"
+  },
+  {
+   "race_id": "2026-CO-SH6",
+   "name": "Iris Halpern"
+  },
+  {
+   "race_id": "2026-CO-SH64",
+   "name": "Scott L. Slaugh"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "James Wiley",
+   "website": {
+    "url": "https://wileyforcolorado.com/",
+    "how": "linked as his campaign site from the Denver Republican Party's endorsed candidates and from Wikipedia's 2026 Secretary of State election article; the site calls him the Republican nominee for Colorado Secretary of State",
+    "verified": true
+   },
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Broomfield County Republican Central Committee",
+     "url": "https://www.broomfieldrepublicans.org/redbook.html",
+     "verified": true
+    },
+    {
+     "party": "Republican",
+     "unit": "Denver Republican Party",
+     "url": "https://denvergop.org/",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "As the Republican nominee for Colorado Secretary of State",
+    "url": "https://wileyforcolorado.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CO-SS20",
+   "name": "Sheila Lieder",
+   "website": {
+    "url": "https://www.liederforcolorado.com/",
+    "how": "found by its address (sheilalieder.com shows the same site); the site, 'Lieder For Colorado', reads 'Sheila Lieder for Colorado State Senate District 20'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://leg.colorado.gov/legislators/sheila-lieder",
+    "source": "Colorado General Assembly, Representative Sheila Lieder, PARTY: Democrat",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Colorado State Representative, House District 28",
+     "from": "2023",
+     "to": "",
+     "source": "Wikipedia, Sheila Lieder (member of the Colorado House since January 9, 2023, representing the 28th district; cites the Jeffco Transcript)",
+     "url": "https://en.wikipedia.org/wiki/Sheila_Lieder",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Elected State Representative, House District 28 (2022 general election)",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Colorado Secretary of State elections database, 2022 Nov 8 General, State Representative District 28: Sheila Lieder, Democratic (2021-2022 State Abstract of Votes Cast, page 134)",
+     "url": "https://historicalelectiondata.coloradosos.gov/contest/25636",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Re-elected State Representative, House District 28 (2024 general election)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Colorado Secretary of State elections database, 2024 Nov 5 General, State Representative District 28: Sheila Lieder, Democratic (2023-2024 State Abstract of Votes Cast, page 124)",
+     "url": "https://historicalelectiondata.coloradosos.gov/contest/26712",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-SS27",
+   "name": "Tom Sullivan",
+   "website": {
+    "url": "https://www.sullivanforcolorado.com/",
+    "how": "found by its address; the site, 'Tom Sullivan For Colorado', reads 'Tom Sullivan - Colorado State Senator for SD27'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-CO-SS34",
+   "name": "Jennifer Qualteri",
+   "endorsed_by": [
+    {
+     "party": "Republican",
+     "unit": "Denver Republican Party",
+     "url": "https://denvergop.org/",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for U.S. Representative, Colorado's 1st Congressional District (Denver), 2022 general election",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Colorado Secretary of State elections database, 2022 Nov 8 General, U.S. Congressperson District 1: Jennifer Qualteri, Republican (2021-2022 State Abstract of Votes Cast, page 114)",
+     "url": "https://historicalelectiondata.coloradosos.gov/contest/25572",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Jodie Barr"
+  }
+ ]
+}

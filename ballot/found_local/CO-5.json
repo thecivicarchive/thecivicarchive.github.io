@@ -1,0 +1,88 @@
+{"part": 5, "of": 12, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "note": "The session's shared web-search allowance ran out early in this part, so most leads came from pages read directly: the Colorado Judicial Branch's own judge pages, the Secretary of State's 2022 Directory of Office Holders (district and county judges, with each judge's date of oath and term), the Denver County Court's Judicial Officers page, Law Week Colorado's appointment notices, and the parties' own candidate pages (used only to find campaign sites, which were then opened and checked). The Office of Judicial Performance Evaluation's site (judicialperformance.colorado.gov) answers 403 and was not used. Candidates with nothing found are listed with no findings.",
+ "verifier_note": "Every url re-opened on 2026-10-02 with the kit's User-Agent; all 22 pages answered. All 32 findings confirmed. One correction: Michael Clarkson's own_words quote was cut to its party statement, leaving out his line of work.",
+ "removed": [],
+ "candidates": [
+  {"race_id": "2026-CO-CCRET-08003-WALZL", "name": "Daniel Walzl",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/daniel-walzl", "source": "Colorado Judicial Branch: Daniel Walzl, County Court Judge, Alamosa Combined Court", "verified": true},
+   "offices": [
+    {"office": "Judge, Alamosa County Court (12th Judicial District)", "from": "2011", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Daniel A. Walzl, County, district 12, Alamosa, date of oath 12/5/2011, term 1/10/2023-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-CCRET-08031-FAY", "name": "Olympia Z. Fay",
+   "official_page": {"url": "https://www.denvercountycourt.org/judicial-officers/", "source": "Denver County Court, Judicial Officers: Honorable Olympia Fay, Judge ('appointed to the Denver County Court bench in January 2015')", "verified": true},
+   "offices": [
+    {"office": "Judge, Denver County Court", "from": "2015", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Olympia Z. Fay, County, district 2, Denver, date of oath 1/13/2015, term 1/10/2023-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-CCRET-08043-ROBAK", "name": "Alexandra Robak",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/alexandra-robak", "source": "Colorado Judicial Branch: Alexandra Robak, County Court Judge, Fremont Combined Court", "verified": true},
+   "offices": [
+    {"office": "Judge, Fremont County Court (11th Judicial District)", "from": "2019", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Alexandra Olsen Robak, County, district 11, Fremont, date of oath 1/8/2019, term 1/10/2023-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-CCRET-08069-ZEHE", "name": "Matthew R. Zehe",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/matthew-r-zehe", "source": "Colorado Judicial Branch: Matthew R. Zehe, County Court Judge, Loveland County Court (Larimer County)", "verified": true},
+   "offices": [
+    {"office": "Judge, Larimer County Court (8th Judicial District)", "from": "2022", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Matthew R. Zehe, County, district 8, Larimer, date of oath 11/14/2022, term 11/14/2022-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-CCRET-08123-NICHOLS", "name": "Dana Nichols",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/dana-nichols", "source": "Colorado Judicial Branch: Dana Nichols, County Court Judge, Weld County Courthouse", "verified": true},
+   "offices": [
+    {"office": "Judge, Weld County Court (19th Judicial District)", "from": "2007", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Dana Nichols, County, district 19, Weld, date of oath 9/7/2007, term 1/10/2023-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-DCRET-JD1-RUSSELL", "name": "Tamara S. Russell",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/tamara-s-russell", "source": "Colorado Judicial Branch: Tamara S. Russell, District Court Judge, Jefferson Combined Court", "verified": true},
+   "offices": [
+    {"office": "Judge, District Court, 1st Judicial District", "from": "2005", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Tamara S. Russell, District, district 1, Jefferson, date of oath 10/17/2005, term 1/12/2021-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-DCRET-JD15-JOHNSON", "name": "Tarryn L. Johnson",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/tarryn-l-johnson", "source": "Colorado Judicial Branch: Tarryn L. Johnson, District Court Chief Judge (Baca, Cheyenne, Kiowa and Prowers counties)", "verified": true},
+   "offices": [
+    {"office": "Judge, District Court, 15th Judicial District (chief judge today, by the Judicial Branch's page)", "from": "2023", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: Tarryn L. Johnson, District, district 15, Prowers, date of oath 1/10/2023, term 1/10/2023-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-DCRET-JD18-STRICKLIN", "name": "Natalie G. Stricklin",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/natalie-stricklin-0", "source": "Colorado Judicial Branch: Natalie Stricklin, District Court Judge, Arapahoe County Justice Center", "verified": true},
+   "offices": [
+    {"office": "Judge, District Court, 18th Judicial District", "from": "2023", "to": "present", "source": "Law Week Colorado, 'Gov. Polis Appoints Natalie Stricklin to the 18th Judicial District Court' (November 20, 2023): appointed November 17, effective December 1, to the vacancy left by Judge Patricia Herron's retirement", "url": "https://www.lawweekcolorado.com/article/gov-polis-appoints-natalie-stricklin-to-the-18th-judicial-district-court/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-CO-DCRET-JD20-LARSON", "name": "J. Chris Larson",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/j-chris-larson", "source": "Colorado Judicial Branch: J. Chris Larson, District Court Judge, Boulder County Combined Court", "verified": true},
+   "offices": [
+    {"office": "Judge, District Court, 20th Judicial District", "from": "2024", "to": "present", "source": "Law Week Colorado, 'Gov. Polis Appoints J. Chris Larson to 20th Judicial District Court' (April 9, 2024): appointed April 9, effective May 11, to the vacancy left by Judge Patrick Butler's retirement", "url": "https://www.lawweekcolorado.com/article/gov-polis-appoints-j-chris-larson-to-20th-judicial-district-court/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-CO-DCRET-JD4-BAIN", "name": "William B. Bain",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/william-bain", "source": "Colorado Judicial Branch: William Bain, District Court Judge, El Paso County Judicial Building", "verified": true},
+   "offices": [
+    {"office": "Judge, District Court, 4th Judicial District (listed as chief judge in 2022)", "from": "2011", "to": "present", "source": "Colorado Secretary of State, 2022 Directory of Office Holders, District and County Judges: William B. Bain, Chief, district 4, El Paso, date of oath 1/1/2011, term 1/12/2021-1/11/2027", "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/directory/districtCountyJudges.html", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-GOV", "name": "Jeff Peckman"},
+  {"race_id": "2026-CO-REGENT-CD6", "name": "Veanessa Burbage"},
+  {"race_id": "2026-CO-SCRET-HOOD", "name": "William W. Hood, III",
+   "official_page": {"url": "https://www.coloradojudicial.gov/contact/william-w-hood-iii", "source": "Colorado Judicial Branch: William W. Hood, III, Supreme Court Justice", "verified": true},
+   "offices": [
+    {"office": "Justice, Colorado Supreme Court", "from": "2014", "to": "present", "source": "Colorado Judicial Branch: 'sworn in as a member of the Colorado Supreme Court on January 13, 2014'", "url": "https://www.coloradojudicial.gov/contact/william-w-hood-iii", "kind": "official", "verified": true},
+    {"office": "Judge, Denver District Court", "from": "2007", "to": "2014", "source": "Colorado Judicial Branch: sworn in to the Supreme Court in January 2014 'following seven years as a judge on the Denver District Court'", "url": "https://www.coloradojudicial.gov/contact/william-w-hood-iii", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-CO-SH15", "name": "Jeff K. Livingston",
+   "website": {"url": "https://jefflivingstonforcolorado.com/", "how": "linked from the Colorado Democratic Party's Challengers page; the site is titled 'House District 15' and names Jeff Livingston", "verified": true}},
+  {"race_id": "2026-CO-SH19", "name": "Dan Woog"},
+  {"race_id": "2026-CO-SH24", "name": "Lisa Feret",
+   "website": {"url": "https://www.lisaforcolorado.com", "how": "linked from the Colorado Democratic Party's candidates page; the site reads 'LISA FERET CO House of Representatives District 24' and says she is running to continue as State Representative for House District 24", "verified": true}},
+  {"race_id": "2026-CO-SH30", "name": "Rebekah Stewart",
+   "website": {"url": "https://www.rebekahforcolorado.com/", "how": "linked from the Colorado Democratic Party's candidates page; the site, 'Rebekah Stewart for Colorado', names her as State Representative for House District 30", "verified": true}},
+  {"race_id": "2026-CO-SH36", "name": "Michael Carter",
+   "website": {"url": "https://www.carterforcolorado.com", "how": "linked from the Colorado Democratic Party's candidates page; the site, 'Carter for Colorado', is paid for by the committee to elect Michael Carter to Colorado State House District 36", "verified": true}},
+  {"race_id": "2026-CO-SH4", "name": "Ellwood Ervin",
+   "endorsed_by": [{"party": "Republican", "unit": "Denver Republican Party (its '2026 Endorsed Candidates' list: House District 4)", "url": "https://denvergop.org/", "verified": true}]},
+  {"race_id": "2026-CO-SH45", "name": "Michael Clarkson",
+   "website": {"url": "https://www.mikefor45.com/", "how": "linked from the Colorado Democratic Party's Challengers page; the site is 'Michael Clarkson for Colorado HD 45'", "verified": true},
+   "own_words": {"quote": "a proud Democrat ready to roll up my sleeves", "url": "https://www.mikefor45.com/", "verified": true}},
+  {"race_id": "2026-CO-SH50", "name": "Ryan Gonzalez"},
+  {"race_id": "2026-CO-SH56", "name": "Amy L. Lunde"},
+  {"race_id": "2026-CO-SH61", "name": "Kevin Gulbranson"},
+  {"race_id": "2026-CO-SH8", "name": "Jesse Lashawn Parris"},
+  {"race_id": "2026-CO-SS11", "name": "Levon Stilson"},
+  {"race_id": "2026-CO-SS24", "name": "Kevin Allen"},
+  {"race_id": "2026-CO-SS30", "name": "John Carson",
+   "website": {"url": "https://www.carsonforstatesenate.com/", "how": "linked from the Douglas County Republican Party's voter guide (Senate District 30, John Carson, incumbent); the site is 'Colorado Senator John Carson | Carson for Senate'", "verified": true}},
+  {"race_id": "2026-CO-SS4", "name": "Teddy Collins",
+   "website": {"url": "https://www.collinsforcolorado.com/", "how": "linked from the Douglas County Republican Party's voter guide; the site reads 'Teddy Collins for Colorado Senate District 4'", "verified": true}}
+ ]}

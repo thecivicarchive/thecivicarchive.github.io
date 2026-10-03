@@ -1,0 +1,1582 @@
+{
+ "state": "CO",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Colorado's November 3, 2026 ballot carries eight parties for state offices (Democratic, Republican, Libertarian, American Constitution, Approval Voting, Center, Forward, Unity); 'Unaffiliated' is not a party. Of Colorado's local contests only the retention votes for judges and the Regional Transportation District's directors are loaded; county, city and town contests are not, so a line about one of them is unmatched with that reason. Under 'endorsements' is only what a page itself calls an endorsement: the Broomfield County Republican Central Committee's Red Book ('BCRC Endorsed'; the committee's bylaws kept it neutral until the June 30 primary, and the page says it now endorses the Republican nominee in each race); the Denver Republican Party's '2026 Endorsed Candidates' (its home page, which also gives a 'Denver GOP Endorsement' in the City Council at-large vacancy election, a contest not loaded); the Clear Creek County Democrats' voter guide of 'Democratic Candidates on the November Ballot', which the party's own post 'Midterm Elections, November 3, 2026' says is where it has 'compiled their endorsements'; and the Forward Party's national list of 'our Forward endorsed candidates', which names Celeste Landry for Secretary of State. Every endorsement found is of a party's own nominee for an office the ballot prints with a party label; no party page read endorses a candidate in a nonpartisan race that is loaded. Under 'other_support', with the page's own words in 'kind' and never to be shown as an endorsement: the Libertarian Party of Colorado's 'Candidates 2026' (its nominees, chosen at its April 18 convention; the page does not use the word endorsed); the Colorado Republican Party's 'Candidates' page; the Colorado Democratic Party's 2026 Challengers class (campaign training and support for 18 legislative candidates in Republican-held districts); the Douglas County Republican Party's voter guide, which lists the party's nominees and municipal candidates and recommends 'Retain' for eleven judges; the Boulder County Democratic Party's voter guide, which lists the party's nominees and says of RTD District O 'Nonpartisan race. 2 Democrats running. Pick one.' (Audrey DeBarros and Jack Rosenthal); the Colorado Center Party's list of its candidates; and the national Constitution Party's 'Meet the Candidates' entry for its Colorado affiliate, the American Constitution Party. A line on a partisan office in such a list adds nothing to the party label on the ballot and is kept only so that each list is whole. Under 'recommended_against', a key of this file only: the Douglas County Republican Party's 'Do Not Retain' for Justice William W. Hood III and Judge Victoria E. Klingensmith. It is a party's published position on a nonpartisan retention vote but not support, so it is kept apart, and nothing in it is to be shown until John decides whether a party's 'do not retain' belongs on a judge's card. The Lieutenant Governor lines (Libertarian Wayne Harlos, American Constitution James Treibert) are unmatched because the official list names each ticket by its candidate for Governor. Lines matched although the page spells the name differently from the ballot keep the page's spelling in 'as_listed' (Michael Allen for Michael J. Allen, Fred for Frederick Espinoza, Thomas for Tom Cowhick, Jeff Livingston for Jeff K. Livingston, Desarai 'Dez' Packard for Dez Packard, Kathryn Green for Kathryn Kester Green, Mo Dower for Maureen (Mo) Dower, William Moses III for William Delano Moses III, Kevin L. Gulbranson, John C. Hjersman and John H. Sutton with or without the stop, Amanda Gonzales for Amanda Gonzalez, Stephen Hamilton for Stephen T. Hamilton, Timothy for Tim Martin, and judges with a middle initial the list leaves out). Two of the Democratic Challengers are not on the November list for their seats (Alec Lindeman, House District 58; Duane Gurule, Senate District 35): those lines are unmatched with the reason. Federal offices on these pages are outside this file, as are positions on ballot measures. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first; every page in 'lists' was opened a second time and a record is kept only if the page still showed the name. Facebook pages, which are all some county units have, are social media and were not read. County units' pages that only list the party's own nominees for partisan offices, with no word of endorsement and no nonpartisan race, were read but not transcribed; they are named in 'not_read'.",
+ "lists": [
+  {
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "title": "The Red Book: Your 2026 Voter Guide ('BCRC Endorsed')",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "title": "2026 Endorsed Candidates",
+   "url": "https://denvergop.org/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "title": "Clear Creek Democrats Voter Guide: Democratic Candidates on the November Ballot (the party's post of the same days calls this guide its endorsements)",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "title": "Midterm Elections, November 3, 2026 (says the voter guide holds the party's endorsements)",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/post/midtern-elections-november-3-2026",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Forward",
+   "unit": "Forward Party",
+   "title": "Forward Party Candidates ('our Forward endorsed candidates')",
+   "url": "https://www.forwardparty.com/candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "title": "Candidates 2026",
+   "url": "https://lpcolorado.org/candidates-2",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "title": "Candidates",
+   "url": "https://colorado.gop/candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "title": "Colorado Democratic Party Announces 2026 Challengers Class (August 12)",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "title": "Douglas County 2026 General Election Republican Voter Guide: Candidates",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "title": "2026 Voter Guide",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "title": "Candidates",
+   "url": "https://coloradocenterparty.org/candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "American Constitution",
+   "unit": "Constitution Party (national), its page for the American Constitution Party (Colorado)",
+   "title": "Meet the Candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Victor Marx",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: Governor of Colorado, Victor Marx"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "James Wiley",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: Secretary of State, James Wiley"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Kevin Grantham",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: State Treasurer, Kevin Grantham"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Michael J. Allen",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: Attorney General, Michael J. Allen"
+  },
+  {
+   "race_id": "2026-CO-SBE-CD7",
+   "name": "Steve Barton",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: State Board of Education, District 7, Steve Barton"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD7",
+   "name": "Paul Mueller",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: CU Board of Regents, District 7, Paul Mueller"
+  },
+  {
+   "race_id": "2026-CO-SS25",
+   "name": "Paul Kohlhoff",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: State Senate, SD 25, Paul Kohlhoff"
+  },
+  {
+   "race_id": "2026-CO-SH33",
+   "name": "Nate Jorgensen",
+   "party": "Republican",
+   "unit": "Broomfield County Republican Central Committee",
+   "url": "https://www.broomfieldrepublicans.org/redbook.html",
+   "as_listed": "BCRC Endorsed: State House, HD 33, Nate Jorgensen"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Victor Marx",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: Governor, Victor Marx"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Michael J. Allen",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: Attorney General, Michael Allen"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "James Wiley",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: Secretary of State, James Wiley"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Kevin Grantham",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: State Treasurer, Kevin Grantham"
+  },
+  {
+   "race_id": "2026-CO-SBE-CD1",
+   "name": "Frederick Espinoza",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: State Board of Education, CD1, Fred Espinoza"
+  },
+  {
+   "race_id": "2026-CO-SS32",
+   "name": "Sydnnia Wulff",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: Senate District 32, Sydnnia Wulff"
+  },
+  {
+   "race_id": "2026-CO-SS34",
+   "name": "Jennifer Qualteri",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: Senate District 34, Jennifer Qualteri"
+  },
+  {
+   "race_id": "2026-CO-SH1",
+   "name": "Joseph Montoya",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 1, Joseph Montoya"
+  },
+  {
+   "race_id": "2026-CO-SH2",
+   "name": "Carey Marin",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 2, Carey Marin"
+  },
+  {
+   "race_id": "2026-CO-SH3",
+   "name": "Rebecca Winegar",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 3, Rebecca Winegar"
+  },
+  {
+   "race_id": "2026-CO-SH4",
+   "name": "Ellwood Ervin",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 4, Ellwood Ervin"
+  },
+  {
+   "race_id": "2026-CO-SH5",
+   "name": "Johnnie W. Johnson",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 5, Johnnie W. Johnson"
+  },
+  {
+   "race_id": "2026-CO-SH6",
+   "name": "Kathleen Angel",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 6, Kathleen Angel"
+  },
+  {
+   "race_id": "2026-CO-SH8",
+   "name": "Carolyn Barnes",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 8, Carolyn Barnes"
+  },
+  {
+   "race_id": "2026-CO-SH9",
+   "name": "Tom Cowhick",
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "2026 Endorsed Candidates: House District 9, Thomas Cowhick"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Phil Weiser",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Governor, Phil Weiser"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Jena Griswold",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Attorney General, Jena Griswold"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "Amanda Gonzalez",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Secretary of State, Amanda Gonzalez"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Jeff Bridges",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: State Treasurer, Jeff Bridges"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD2",
+   "name": "Edie Hooton",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: University of Colorado Board of Regents, District 2, Edie Hooton"
+  },
+  {
+   "race_id": "2026-CO-SH49",
+   "name": "Lesley Smith",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: State House District 49, Lesley Smith"
+  },
+  {
+   "race_id": "2026-CO-SS8",
+   "name": "Dylan Roberts",
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: State Senate District 8, Dylan Roberts"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "Celeste Landry",
+   "party": "Forward",
+   "unit": "Forward Party",
+   "url": "https://www.forwardparty.com/candidates/",
+   "as_listed": "Here are our Forward endorsed candidates: Celeste Landry, Colorado | Secretary of State | Forward"
+  }
+ ],
+ "unmatched": 4,
+ "unmatched_listed": [
+  {
+   "party": "Republican",
+   "unit": "Denver Republican Party",
+   "url": "https://denvergop.org/",
+   "as_listed": "Denver GOP Endorsement: City Council, At-Large Vacancy, Raymon Anthony Doane",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Clear Creek County Commissioner, District I, Chris Gould",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Clear Creek County Treasurer and Public Trustee, Keith Vieweg",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Clear Creek County Democrats",
+   "url": "https://www.clearcreekcoloradodemocraticparty.org/elections",
+   "as_listed": "Democratic Candidates on the November Ballot: Clear Creek County Clerk and Recorder, Lisa Manifold",
+   "reason": "this county's contests are not loaded"
+  }
+ ],
+ "other_support": [
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Eric Mulder",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Governor – Eric Mulder",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "Sean Vadney",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Secretary of State – Sean Vadney",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Jodie Barr",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Treasurer – Jodie Barr",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SBE-CD1",
+   "name": "Clayton Casciato",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Board of Education District 1 – Clayton Casciato",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SBE-CD7",
+   "name": "Ross Klopf",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Board of Education District 7 – Ross Klopf",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD2",
+   "name": "Richard Friend",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "University of Colorado Board of Regents District 2 – Richard Friend",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD6",
+   "name": "Joe Johnson",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "University of Colorado Board of Regents District 6 – Joe Johnson",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD7",
+   "name": "BetteRose Ryan",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "University of Colorado Board of Regents District 7 – BetteRose Ryan",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS11",
+   "name": "Janet Turner",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Senate District 11 (Colorado Springs) – Janet Turner",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS27",
+   "name": "Michele Poague",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Senate District 27 (Arapahoe County) – Michele Poague",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS34",
+   "name": "Jacob Luria",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Senate District 34 (west and northwest Denver) – Jacob Luria",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS35",
+   "name": "Richard Graf",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State Senate District 35 (southeast Colorado) – Richard Graf",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH7",
+   "name": "Jeff Wilson",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 7 (northeast Denver) – Jeff Wilson",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH15",
+   "name": "Doug Jones",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 15 (Colorado Springs) – Doug Jones",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH16",
+   "name": "John C Hjersman",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 16 (Colorado Springs) – John C. Hjersman",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH17",
+   "name": "John Michael Angle",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 17 (Colorado Springs) – John Michael Angle",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH23",
+   "name": "Ross Metler",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 23 (Jefferson County) – Ross Metler",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH36",
+   "name": "Andrew Gibson",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 36 (Aurora) – Andrew Gibson",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH38",
+   "name": "Norm Olsen",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 38 (Littleton) – Norm Olsen",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH44",
+   "name": "John H Sutton",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 44 (Douglas County) – John H. Sutton",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH45",
+   "name": "Caryn Ann Harlos",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 45 (Douglas County) – Caryn Ann Harlos",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH48",
+   "name": "Eric E. Joss",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 48 (Adams/Weld Counties) – Eric E. Joss",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH56",
+   "name": "Amy L. Lunde",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 56 (east central plains) – Amy L. Lunde",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH61",
+   "name": "Kevin Gulbranson",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 61 (Arapahoe/Douglas Counties) – Kevin L. Gulbranson",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH62",
+   "name": "Donald Luke Vermillion",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "State House District 62 (Pueblo and San Luis Valley) – Donald Luke Vermillion",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Victor Marx",
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "url": "https://colorado.gop/candidates/",
+   "as_listed": "Candidate for Governor: Victor Marx",
+   "kind": "listed among the party's candidates (the page, 'Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "James Wiley",
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "url": "https://colorado.gop/candidates/",
+   "as_listed": "Candidate for Secretary of State: James Wiley",
+   "kind": "listed among the party's candidates (the page, 'Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Kevin Grantham",
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "url": "https://colorado.gop/candidates/",
+   "as_listed": "Candidate for Treasurer: Kevin Grantham",
+   "kind": "listed among the party's candidates (the page, 'Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Michael J. Allen",
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "url": "https://colorado.gop/candidates/",
+   "as_listed": "Candidate for Attorney General: Michael Allen",
+   "kind": "listed among the party's candidates (the page, 'Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH14",
+   "name": "Sarah Emery",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 14: Sarah Emery",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH15",
+   "name": "Jeff K. Livingston",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 15: Jeff Livingston",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH21",
+   "name": "Michelle Tweed",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 21: Michelle Tweed",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH22",
+   "name": "Michael Pierson",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 22: Michael Pierson",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH39",
+   "name": "Christian Schilder",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 39: Christian Schilder",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH44",
+   "name": "Richard Bowness",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 44: Richard Bowness",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH45",
+   "name": "Michael Clarkson",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 45: Michael Clarkson",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH47",
+   "name": "Vic Meyers",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 47: Vic Meyers",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH48",
+   "name": "Dez Packard",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 48: Desarai “Dez” Packard",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH54",
+   "name": "Mallory Martin",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 54: Mallory Martin",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH55",
+   "name": "Brittni Packard",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 55: Brittni Packard",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH60",
+   "name": "Kathryn Kester Green",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 60: Kathryn Green",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH64",
+   "name": "Maureen (Mo) Dower",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 64: Mo Dower",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS1",
+   "name": "Jamie Jeffery",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: Senate District 1: Jamie Jeffery",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS4",
+   "name": "Justin Kurth",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: Senate District 4: Justin Kurth",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS9",
+   "name": "William Delano Moses III",
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: Senate District 9: William Moses III",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Victor Marx",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Governor, Victor Marx, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "James Wiley",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Secretary of State, James Wiley, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Kevin Grantham",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: State Treasurer, Kevin Grantham, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Michael J. Allen",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Attorney General, Michael Allen, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS4",
+   "name": "Teddy Collins",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Senate District 4, Teddy Collins, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS27",
+   "name": "Danielle Lammon",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Senate District 27, Danielle Lammon, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS30",
+   "name": "John Carson",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: Senate District 30, John Carson, Republican, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH39",
+   "name": "Brandi Bradley",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: House District 39, Brandi Bradley, Republican, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH43",
+   "name": "Nate Marsh",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: House District 43, Nate Marsh, Republican",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH44",
+   "name": "Anthony Hartsook",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: House District 44, Anthony Hartsook, Republican, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH45",
+   "name": "Max Brooks",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Candidates, State Offices: House District 45, Max Brooks, Republican, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-COARET-FREYRE",
+   "name": "Rebecca Rankin Freyre",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Rebecca Rankin Freyre",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-COARET-HARRIS",
+   "name": "Elizabeth L. Harris",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Elizabeth L. Harris",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-COARET-LUM",
+   "name": "Katharine E. Lum",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Katharine E. Lum",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-COARET-MOULTRIE",
+   "name": "Pax Moultrie",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Pax L. Moultrie",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-COARET-SCHOCK",
+   "name": "Karl L. Schock",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Karl L. Schock",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-COARET-SULLIVAN",
+   "name": "Grant Sullivan",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Court of Appeals, Retain, Grant T. Sullivan",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD23-BAUM",
+   "name": "Andrew Baum",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: 23rd Judicial District Court, Retain, Andrew C. Baum",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD23-SLADE",
+   "name": "Theresa Slade",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: 23rd Judicial District Court, Retain, Theresa M. Slade",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD23-WARHOLA",
+   "name": "Daniel W. Warhola",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: 23rd Judicial District Court, Retain, Daniel W. Warhola",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-CCRET-08035-BOWLING",
+   "name": "Lawrence Bowling",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Douglas County Court, Retain, Lawrence R. Bowling",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-CCRET-08035-FIELDS",
+   "name": "Kolony L. Fields",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Douglas County Court, Retain, Kolony L. Fields",
+   "kind": "recommended: retain"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Phil Weiser",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "GOVERNOR: Phil Weiser",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "Amanda Gonzalez",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "SECRETARY OF STATE: Amanda Gonzales",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-TREAS",
+   "name": "Jeff Bridges",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE TREASURER: Jeff Bridges",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-AG",
+   "name": "Jena Griswold",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "ATTORNEY GENERAL: Jena Griswold",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-REGENT-CD2",
+   "name": "Edie Hooton",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "CU REGENT, CD2: Edie Hooton",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SS15",
+   "name": "Janice Marchman",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE SENATOR, DISTRICT 15: Janice Marchman",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH10",
+   "name": "Junie Joseph",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE REPRESENTATIVE, DISTRICT 10: Junie Joseph",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH11",
+   "name": "Karen McCormick",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE REPRESENTATIVE, DISTRICT 11: Karen McCormick",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH12",
+   "name": "Kyle Brown",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE REPRESENTATIVE, DISTRICT 12: Kyle Brown",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH19",
+   "name": "Jillaire McMillan",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE HOUSE REPRESENTATIVE, DISTRICT 19: Jillaire McMillan",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH49",
+   "name": "Lesley Smith",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "STATE HOUSE REPRESENTATIVE, DISTRICT 49: Lesley Smith",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-RTD-O-director",
+   "name": "Audrey DeBarros",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "RTD BOARD DIRECTOR, DISTRICT O (Nonpartisan race. 2 Democrats running. Pick one.): Audrey DeBarros | Jack Rosenthal",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-RTD-O-director",
+   "name": "Jack Rosenthal",
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "RTD BOARD DIRECTOR, DISTRICT O (Nonpartisan race. 2 Democrats running. Pick one.): Audrey DeBarros | Jack Rosenthal",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH52",
+   "name": "Steve Yurash",
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "url": "https://coloradocenterparty.org/candidates/",
+   "as_listed": "Candidates: Steve Yurash for State House District 52",
+   "kind": "listed among the party's candidates (the site's 'Candidates' list; it does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SH38",
+   "name": "Tim Martin",
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "url": "https://coloradocenterparty.org/candidates/",
+   "as_listed": "Candidates: Timothy Martin for State House 38",
+   "kind": "listed among the party's candidates (the site's 'Candidates' list; it does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-GOV",
+   "name": "Stephen T. Hamilton",
+   "party": "American Constitution",
+   "unit": "Constitution Party (national), its page for the American Constitution Party (Colorado)",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "American Constitution Party (Colorado), State: Governor, Stephen Hamilton",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-CO-SOS",
+   "name": "Amanda Campbell",
+   "party": "American Constitution",
+   "unit": "Constitution Party (national), its page for the American Constitution Party (Colorado)",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "American Constitution Party (Colorado), State: Secretary of State, Amanda Campbell",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)"
+  }
+ ],
+ "other_support_unmatched": 29,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Lieutenant Governor – Wayne Harlos",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)",
+   "reason": "the Lieutenant Governor is elected on one ticket with the Governor, and the official list names the ticket by its candidate for Governor"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Arapahoe County Treasurer – Bennett Rutledge",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Arapahoe County Assessor – Lee Ormiston",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Clear Creek County Commissioner (District #1) – Chris Hardman",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/candidates-2",
+   "as_listed": "Jefferson County Treasurer – Murl Hendrickson",
+   "kind": "listed among the party's candidates (the page, 'Candidates 2026', does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: House District 58: Alec Lindeman",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/press/f95j61jq7whez9fwp2z6ayw32g3x68",
+   "as_listed": "2026 Challengers class: Senate District 35: Duane Gurule",
+   "kind": "selected for the party's Challengers program of campaign training and support (the page does not say endorsed)",
+   "reason": "office and place fit 1 race(s), but no candidate there has this name"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: County Commissioner, District 1, Jake Bockenfeld",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Sheriff, Darren Weekly, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Clerk & Recorder, Sheri Davis, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Treasurer, Tim Dietz",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Assessor, Toby Damisch, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Coroner, Raeann Brown, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "County Offices: Surveyor, Darrell Roberts, Incumbent",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Municipal Offices: Mayor, Town of Castle Rock, Laura Cavey",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Municipal Offices: Town Council, Castle Rock District 3, Matt Smith",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Municipal Offices: Town Council, Castle Rock District 5, Mitchell Sawin",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Municipal Offices: Town Council, Town of Parker At-Large, Johnnie Turnidge",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Municipal Offices: Town Council, Town of Parker At-Large, Kristin Williams",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this city's or town's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY COMMISSIONER, DISTRICT 3: Ashley Stolzmann",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY CLERK: Molly Fitzpatrick",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY TREASURER: Rachel Friend",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY ASSESSOR: Cynthia Braddock",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY SHERIFF: Curtis Johnson",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY SURVEYOR: Kayce Kean",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boulder County Democratic Party",
+   "url": "https://www.bocodems.org/2026-voter-guide/",
+   "as_listed": "BOULDER COUNTY CORONER: Jeff Martin",
+   "kind": "listed among the party's candidates in its voter guide (the page does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "url": "https://coloradocenterparty.org/candidates/",
+   "as_listed": "Candidates: Enrique Guzman for Otero County Sheriff",
+   "kind": "listed among the party's candidates (the site's 'Candidates' list; it does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "url": "https://coloradocenterparty.org/candidates/",
+   "as_listed": "Candidates: Fowler for Larimer County Commissioner",
+   "kind": "listed among the party's candidates (the site's 'Candidates' list; it does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "American Constitution",
+   "unit": "Constitution Party (national), its page for the American Constitution Party (Colorado)",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "American Constitution Party (Colorado), State: Lieutenant Governor, James Treibert",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)",
+   "reason": "the Lieutenant Governor is elected on one ticket with the Governor, and the official list names the ticket by its candidate for Governor"
+  }
+ ],
+ "recommended_against": [
+  {
+   "race_id": "2026-CO-SCRET-HOOD",
+   "name": "William W. Hood, III",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: Colorado Supreme Court, Do Not Retain, William W. Hood III",
+   "kind": "recommended: do not retain"
+  },
+  {
+   "race_id": "2026-CO-DCRET-JD23-KLINGENSMITH",
+   "name": "Victoria E. Klingensmith",
+   "party": "Republican",
+   "unit": "Douglas County Republican Party",
+   "url": "https://www.dcgop.org/voter-guide/",
+   "as_listed": "Judicial retention: 23rd Judicial District Court, Do Not Retain, Victoria E. Klingensmith",
+   "kind": "recommended: do not retain"
+  }
+ ],
+ "recommended_against_unmatched_listed": [],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Colorado Democratic Party",
+   "url": "https://www.coloradodems.org/",
+   "why": "read (home, 'Help us win', '2026 Colorado County Comeback', 'A Stronger Colorado', 'Our Counties', the press page); apart from the Challengers class no page names a 2026 state or local candidate it supports; County Comeback's grants go to county parties, which are named, not to candidates"
+  },
+  {
+   "party": "Republican",
+   "unit": "Colorado Republican Party",
+   "url": "https://colorado.gop/press-releases/",
+   "why": "read (home, press releases, 'Find Your Local GOP'); apart from the 'Candidates' page no page names a 2026 state or local candidate it supports"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Mesa County Democratic Party",
+   "url": "https://www.mesacountydems.org/_files/ugd/b68c18_6b2223992c6f4fa998074c4078a7e348.pdf",
+   "why": "read; a two-page flyer headed 'The Mesa County Democratic Party urges you to support these candidates', but the candidates' names are drawn as pictures, not text, so none could be read by a program (SHA-256 831ae97080f33306ea42812f36a1f2f8f17a0efd7d84ce55c207f97393642822). A person can read it; its 'Our Candidates' page lists the party's nominees for partisan offices"
+  },
+  {
+   "party": "Republican",
+   "unit": "Adams County Republican Committee",
+   "url": "https://www.adamscountycogop.org/team-3",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Eagle County Republicans",
+   "url": "https://www.eaglegop.com/candidates-2026",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Elbert County Republicans",
+   "url": "https://www.elbertcountyrepublicans.com/voter_guide_2026",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot; its ballot measure recommendations are outside this file"
+  },
+  {
+   "party": "Republican",
+   "unit": "Archuleta County Republican Central Committee",
+   "url": "https://archuletarepublicans.org/wp-content/uploads/2026/09/2026archuletarepublicansvoterguide-1.pdf",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot (the voter guide is a picture, read by eye from its PNG copy, SHA-256 848e697c089814a2a6d64ceaf4d71351ad6a0e250fe3bfbab5d126ddc6e2ad99)"
+  },
+  {
+   "party": "Republican",
+   "unit": "La Plata County Republicans",
+   "url": "https://laplatacountyrepublicans.org/",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Montezuma County Republicans",
+   "url": "https://www.montezumagop.com/single-project",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://jeffcorepublicans.com/meet-your-2026-candidates/",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Republican",
+   "unit": "Weld County Republicans",
+   "url": "https://weldcountygop.com/voter-information/",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot; it also lists 'Weld County Republican Municipal Candidates' for town offices in some 15 towns, contests that are not loaded (several of those towns vote in April)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Las Animas County Republicans",
+   "url": "https://lacgop.org/2026-election-data",
+   "why": "read; a list of the Republican candidates in the June 30 primary, losers included, as information; no word of support"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Arapahoe County Democratic Party",
+   "url": "https://www.arapahoedems.org/election/candidates",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot; its ballot guides by House district are flyers kept on Google Drive, not read"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Alamosa County Democrats",
+   "url": "https://www.alamosadems.org/about-5",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot; its Endorsements page says the party does not endorse unless by an official resolution or announcement"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Montrose County Democratic Party",
+   "url": "https://montrosedemocrats.org/candidates",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Weld County Democrats",
+   "url": "https://www.weldcountydems.org/elections/",
+   "why": "read; a list of the party's own nominees for partisan offices (and county offices, which are not loaded), with no word of endorsement and no nonpartisan race that is loaded; not transcribed, since such a line adds nothing to the party label on the ballot"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Custer County Democrats",
+   "url": "https://www.custercountycoloradodemocrats.org/",
+   "why": "not read: the site's robots.txt asks every program not to read any page (User-agent: *, Disallow: /)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Denver Democratic Party",
+   "url": "https://www.denverdemocrats.org/",
+   "why": "the site refused this program (HTTP 429, three tries minutes apart, robots.txt included); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Eagle County Democrats",
+   "url": "https://www.eagledems.org/",
+   "why": "the site refused this program (HTTP 429, twice); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Pueblo County Democrats",
+   "url": "https://www.pueblodemocrats.com/",
+   "why": "the site refused this program (HTTP 429, twice); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Logan County Republicans",
+   "url": "https://www.loganctyrepublicans.org/",
+   "why": "the site refused this program (HTTP 429); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Pitkin County Republicans",
+   "url": "https://www.pitkingop.org/",
+   "why": "the site refused this program (HTTP 429); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Summit County Republicans",
+   "url": "https://thesummitgop.org/",
+   "why": "the site refused this program (HTTP 429); left alone"
+  },
+  {
+   "party": "Republican",
+   "unit": "Garfield County Republicans",
+   "url": "https://garfieldcountyrepublicans.com/",
+   "why": "the site's secure connection failed (TLS handshake failure); left alone"
+  },
+  {
+   "party": "American Constitution",
+   "unit": "American Constitution Party",
+   "url": "https://www.americanconstitutionparty.com/",
+   "why": "the site's secure connection failed (TLS internal error); its candidates were read from the national Constitution Party's page instead"
+  },
+  {
+   "party": "Approval Voting",
+   "unit": "Approval Voting Party",
+   "url": "https://approvalvotingparty.org/",
+   "why": "no connection (approvalvotingparty.org and approvalvoting.party both timed out); no other page of the party's own was found"
+  },
+  {
+   "party": "Unity",
+   "unit": "Unity Party of Colorado",
+   "url": "",
+   "why": "no website of the party's own was found by search"
+  },
+  {
+   "party": "Forward",
+   "unit": "Forward Party",
+   "url": "https://home.forwardparty.com/yurash_steve",
+   "why": "read; a profile page for Steve Yurash (Center Party candidate, House District 52) labelled 'Candidate' and 'Democrat', which the ballot does not print; he is not on the party's list of endorsed candidates; left out"
+  },
+  {
+   "party": "Center",
+   "unit": "Colorado Center Party",
+   "url": "https://coloradocenterparty.org/",
+   "why": "read (home, candidates and their pages, bylaws, platform); its one 'endorses' is for a federal office"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Colorado",
+   "url": "https://lpcolorado.org/",
+   "why": "read (home, news of August and September 2026, including the court order of September 4 that placed Sean Vadney on the ballot for Secretary of State after Alex Astley withdrew, as the loaded list shows); no county affiliate pages with 2026 candidates were found"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican county units with no candidate pages",
+   "url": "https://colorado.gop/find-your-local-gop/",
+   "why": "read (the home page and up to ten of its own pages about candidates, ballots, guides or elections); no endorsement and no list of 2026 candidates for a loaded race: Alamosa, Arapahoe (its ballot measure page only), Bent, Boulder, Broomfield (the Red Book is used), Custer, Douglas (the voter guide is used), El Paso (its page of primary candidates only), Fremont, Gilpin, Grand, Gunnison, Huerfano, Larimer, Lincoln, Mesa, Moffat, Montrose, Otero (ballot measures only), Ouray, Park, Pueblo, Rio Blanco, Routt, Teller, Yuma. Counties the state party lists with no website, or with only a person's e-mail address (not kept), were not read"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Democratic county units with no candidate pages",
+   "url": "https://www.coloradodems.org/ourcounties",
+   "why": "read (the home page and up to ten of its own pages about candidates, ballots, guides or elections); no endorsement and no list of 2026 candidates for a loaded race: Adams, Archuleta, the eastern plains counties' shared site (cd4demsco.org), Broomfield (its guide takes positions on ballot measures only), Chaffee, Delta, Douglas (ballot measures only), El Paso, Elbert, Garfield, Gilpin, Grand, Gunnison, Huerfano, Jefferson (ballot measures only), La Plata, Lake, Larimer, Montezuma, Ouray, Park, Pitkin, Routt, San Miguel, Summit. Conejos, Costilla, Fremont, Hinsdale, Las Animas, Logan, Moffat, Otero, Rio Grande, Saguache, Teller and Yuma have only Facebook pages, which are social media and were not read"
+  }
+ ]
+}

@@ -1,0 +1,505 @@
+{
+  "part": 4,
+  "of": 12,
+  "researched": "2026-10-02",
+  "notes": [
+    "The session's web-search allowance ran out early in this part, so most pages were opened directly with the kit's honest User-Agent: the Colorado Judicial Branch's judge pages, the Secretary of State's abstracts of votes, party pages and campaign sites. A few campaign addresses were tried by name; an address is listed only where the site itself was opened and names the candidate and the office.",
+    "Refused the reader, so nothing was taken from them and nothing was worked around: judicialperformance.colorado.gov (403: no judicial performance evaluations), colorado.gov/governor and governorsoffice.colorado.gov (403: the Governor's appointment releases), bioguide.congress.gov and congress.gov (403), carolynbarnes.com, danacharles4colorado.com and jeffcogop.org (429).",
+    "Joe Johnson (Libertarian, CU Regent CD6): a Joe Johnson ran as a Libertarian for State House District 63 in 2018 and 2020 and District 19 in 2022 (Secretary of State abstracts), but nothing ties that person to this race beyond the name and the party, so nothing was recorded. The Libertarian Party of Colorado links his name to a page on its own Canva account and Janet Turner's to a PDF on its own site; neither is a campaign website, and the party's page says 'Candidates 2026', not endorsed.",
+    "Judge LaQunya Latrese Baker-McKay: the Judicial Branch's page names her 'Laqunya Baker', District Court Judge in Arapahoe County (the 18th Judicial District is Arapahoe County alone since 2025); the given name, the court and the district tie her to this retention vote.",
+    "Eliza Hamrick's campaign site names her and 'Colorado House District 61' but carries a 2022 copyright line and no 2026 date: it is the campaign's standing site.",
+    "Nothing beyond what they filed for Kristopher Johnson, Justine Sandoval, Carolyn Barnes, Steve Harkess, Dana Charles, Janet Turner and Joe Johnson; no campaign site found for the sitting members Cecelia Espenoza (ceceliaespenoza.com shows only 'Coming Soon') and Rick Taggart.",
+    "Read and left out on purpose: jobs (deputy district attorney, assistant county attorney, public defender, law clerk, dispatcher, analyst), a party post (Doug Jones, Libertarian Party of Colorado vice chair, kept only inside his own words), Greg Lopez's 1992 Parker mayoral run 'as a Democrat' (a town election is nonpartisan, so it is not a party label on the record), and an NRA rating on Rebecca Winegar's site."
+  ],
+  "candidates": [
+    {
+      "race_id": "2026-CO-CCRET-08001-VIELMA",
+      "name": "MaryAnn \"Mariana\" Vielma",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/mariana-vielma",
+        "source": "Colorado Judicial Branch, Mariana Vielma: County Court Judge, Adams County, Division 4",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Adams County Court (17th Judicial District)",
+          "from": 2020,
+          "to": null,
+          "source": "Law Week Colorado, 'Polis Appoints Judges in 17th and 14th Districts' (July 27, 2020)",
+          "url": "https://www.lawweekcolorado.com/?p=70013",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "County Court and District Court Magistrate, 17th Judicial District",
+          "from": 2018,
+          "to": 2020,
+          "source": "Law Week Colorado, 'Polis Appoints Judges in 17th and 14th Districts' (July 27, 2020): magistrate 'since 2018' when appointed",
+          "url": "https://www.lawweekcolorado.com/?p=70013",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08031-EDDY",
+      "name": "Andrea Eddy",
+      "official_page": {
+        "url": "https://www.denvercountycourt.org/judicial-officers/",
+        "source": "Denver County Court, Judicial Officers: 'Honorable Andrea Eddy - Judge'",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Denver County Court",
+          "from": 2016,
+          "to": null,
+          "source": "Denver County Court, Judicial Officers: 'appointed as a judge on the Denver County Court bench in July 2016'",
+          "url": "https://www.denvercountycourt.org/judicial-officers/",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Magistrate, Denver County Court",
+          "from": null,
+          "to": 2016,
+          "source": "Denver County Court, Judicial Officers: 'having previously served as a full-time Magistrate for the court' (no start year given)",
+          "url": "https://www.denvercountycourt.org/judicial-officers/",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08041-ROTOLO",
+      "name": "Ann M. Rotolo",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/ann-rotolo",
+        "source": "Colorado Judicial Branch, Ann Rotolo: County Court Judge, El Paso County, Division G",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, El Paso County Court (Fourth Judicial District)",
+          "from": 2008,
+          "to": null,
+          "source": "Office of the Governor, Executive Order A 129 08 (May 8, 2008), appointing Ann Marie Rotolo El Paso County Court Judge effective July 1, 2008 (State Publications Library copy)",
+          "url": "https://spl.cde.state.co.us/artemis/goserials/go4110internet/2008/go41102008129internet.pdf",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08069-LYNCH",
+      "name": "Thomas L. Lynch",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/thomas-l-lynch",
+        "source": "Colorado Judicial Branch, Thomas L. Lynch: County Court Judge, Larimer County, Division 3D",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Larimer County Court",
+          "from": 2010,
+          "to": null,
+          "source": "Colorado Judicial Branch judge page: 'appointed as a Larimer County Court Judge by Governor Bill Ritter and took the bench in December 2010'",
+          "url": "https://www.coloradojudicial.gov/contact/thomas-l-lynch",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08123-MEYER",
+      "name": "Michele Lynn Meyer",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/michele-meyer",
+        "source": "Colorado Judicial Branch, Michele Meyer: County Court Judge, Weld County, Division 8 (Presiding County Court Judge)",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Weld County Court",
+          "from": 2007,
+          "to": null,
+          "source": "Colorado Judicial Branch judge page: 'appointed to the County Court bench in September of 2007. She is the Presiding County Court Judge'",
+          "url": "https://www.coloradojudicial.gov/contact/michele-meyer",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD1-RHAMEY",
+      "name": "Christopher Rhamey",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/christopher-b-rhamey",
+        "source": "Colorado Judicial Branch, Christopher B. Rhamey: District Court Judge, Jefferson County, Division 5",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, First Judicial District Court",
+          "from": 2023,
+          "to": null,
+          "source": "Governor's release 'Governor Polis Appoints Christopher B. Rhamey to the 1st Judicial District Court' (June 30, 2023; effective July 29, 2023), posted by the Colorado Judicial Branch",
+          "url": "https://coloradojudicial.gov/sites/default/files/2023-08/JD01%20-%20Rhamey.pdf",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD14-SCHNEIDER",
+      "name": "Brittany Schneider",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/brittany-schneider",
+        "source": "Colorado Judicial Branch, Brittany A. Schneider: Chief District Court Judge, Grand, Moffat and Routt counties",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Moffat County Court",
+          "from": 2020,
+          "to": 2023,
+          "source": "Colorado Judicial Branch release, 'Hon. Brittany A. Schneider appointed chief judge of the 14th Judicial District' (April 18, 2024): 'appointed in July 2020 as the Moffat County Court judge'",
+          "url": "https://www.coloradojudicial.gov/media/press-release/hon-brittany-schneider-appointed-chief-judge-14th-judicial-district",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Judge, District Court, 14th Judicial District",
+          "from": 2023,
+          "to": null,
+          "source": "Colorado Judicial Branch release (April 18, 2024): 'appointed to the District Court in November 2023'",
+          "url": "https://www.coloradojudicial.gov/media/press-release/hon-brittany-schneider-appointed-chief-judge-14th-judicial-district",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Chief Judge, 14th Judicial District",
+          "from": 2025,
+          "to": null,
+          "source": "Colorado Judicial Branch release (April 18, 2024): appointed chief judge by Chief Justice Brian D. Boatright, effective on the previous chief judge's retirement on January 14, 2025",
+          "url": "https://www.coloradojudicial.gov/media/press-release/hon-brittany-schneider-appointed-chief-judge-14th-judicial-district",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD18-MCKAY",
+      "name": "LaQunya Latrese Baker-McKay",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/laqunya-baker",
+        "source": "Colorado Judicial Branch, Laqunya Baker: District Court Judge, Arapahoe County, Division 402",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Arapahoe County Court",
+          "from": 2022,
+          "to": 2023,
+          "source": "Colorado Judicial Branch judge page: 'Governor Jared Polis appointed Judge Baker to the Arapahoe County Court bench on July 1, 2022'",
+          "url": "https://www.coloradojudicial.gov/contact/laqunya-baker",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Judge, Arapahoe County District Court",
+          "from": 2023,
+          "to": null,
+          "source": "Colorado Judicial Branch judge page: 'On July 28, 2023, Judge Baker was sworn in ... to the Arapahoe County District Court bench'",
+          "url": "https://www.coloradojudicial.gov/contact/laqunya-baker",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD20-KOTLARCZYK",
+      "name": "Michael Kotlarczyk",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/michael-kotlarczyk",
+        "source": "Colorado Judicial Branch, Michael Kotlarczyk: District Court Judge, Boulder County, Division 1",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Boulder District Court (20th Judicial District)",
+          "from": 2024,
+          "to": null,
+          "source": "Colorado Judicial Branch judge page: 'appointed to the Boulder District Court bench in October 2024'",
+          "url": "https://www.coloradojudicial.gov/contact/michael-kotlarczyk",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD3-FOWLER",
+      "name": "Pierce L. Fowler",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/pierce-l-fowler",
+        "source": "Colorado Judicial Branch, Pierce L. Fowler: District Judge, Huerfano and Las Animas counties",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, Las Animas County (3rd Judicial District)",
+          "from": 2023,
+          "to": null,
+          "source": "Colorado Judicial Branch judge page: 'sworn in as the District Court Judge for Las Animas County in January of 2023'",
+          "url": "https://www.coloradojudicial.gov/contact/pierce-l-fowler",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-GOV",
+      "name": "Greg Lopez",
+      "website": {
+        "url": "https://www.greglopez.co/",
+        "how": "The site is titled 'Greg Lopez for Colorado Governor' and says he is 'running for Governor'",
+        "verified": true
+      },
+      "born": {
+        "year": 1964,
+        "date": "",
+        "source": "Wikipedia, 'Greg Lopez' (birth date cited; cut to the year)",
+        "url": "https://en.wikipedia.org/wiki/Greg_Lopez",
+        "kind": "secondary",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "U.S. Representative, Colorado's 4th Congressional District",
+          "from": 2024,
+          "to": 2025,
+          "source": "Wikipedia, 'Greg Lopez' (in office June 25, 2024 to January 3, 2025, cited)",
+          "url": "https://en.wikipedia.org/wiki/Greg_Lopez",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "Colorado District Director, U.S. Small Business Administration",
+          "from": 2008,
+          "to": 2014,
+          "source": "Wikipedia, 'Greg Lopez' ('From 2008 to 2014, he served as the Small Business Administration's Colorado director', cited)",
+          "url": "https://en.wikipedia.org/wiki/Greg_Lopez",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "Mayor of Parker",
+          "from": 1992,
+          "to": 1996,
+          "source": "Wikipedia, 'Greg Lopez' (elected mayor of Parker in 1992, cited; infobox: December 1992 to December 1996)",
+          "url": "https://en.wikipedia.org/wiki/Greg_Lopez",
+          "kind": "secondary",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Candidate in the Republican primary for Governor",
+          "year": 2018,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, 2018 Primary Election results, Republican Party ballot, Governor: 'Greg Lopez (REP)'",
+          "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2018/primary/republican/governor.html",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Candidate in the Republican primary for Governor",
+          "year": 2022,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, 2022 Primary Election results, Republican Party ballot, Governor: 'Greg Lopez (REP)'",
+          "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/primary/republican/governor.html",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Elected U.S. Representative, 4th Congressional District vacancy election (June 25, 2024)",
+          "year": 2024,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, 2023-2024 Biennial Abstract of Votes Cast, '2024 4th Congressional District Vacancy Election Results': 'Greg Lopez (REP)', 100,095 of 171,402 votes",
+          "url": "https://www.coloradosos.gov/pubs/elections/Results/2024/2024BiennialAbstract.pdf",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-REGENT-CD6",
+      "name": "Joe Johnson"
+    },
+    {
+      "race_id": "2026-CO-SBE-CD7",
+      "name": "Steve Barton",
+      "website": {
+        "url": "https://www.stevebartoncampaignforcd7statesboardofeducation.com/",
+        "how": "Linked from the Broomfield County Republican Central Committee's Red Book; the site is titled 'Steve Barton Campaign for CD7 State Board of Education' and calls him the '2026 Republican Candidate for the Colorado State Board of Education, Congressional District 7 Seat'",
+        "verified": true
+      },
+      "endorsed_by": [
+        {
+          "party": "Republican",
+          "unit": "Broomfield County Republican Central Committee",
+          "url": "https://www.broomfieldrepublicans.org/redbook.html",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "2026 Republican Candidate for the Colorado State Board of Education",
+        "url": "https://www.stevebartoncampaignforcd7statesboardofeducation.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH15",
+      "name": "Doug Jones",
+      "website": {
+        "url": "https://www.dougjones4co.com/",
+        "how": "The site is titled 'Doug Jones for CO' and headed 'DOUG JONES for Colorado House District 15', with 2026 events for the District 15 race",
+        "verified": true
+      },
+      "own_words": {
+        "quote": "He is also currently serving as Libertarian Party of Colorado Vice Chair",
+        "url": "https://www.dougjones4co.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH18",
+      "name": "Amy T Paschal",
+      "website": {
+        "url": "https://amyforcolorado.com/",
+        "how": "The site is titled 'CO House District 18 | Amy For Colorado', names 'Amy Paschal, Colorado House District 18 Representative', says 'Re-election Nov. 2026!' and is paid for by the committee to elect Amy Paschal (its pages are also served at amyfor18.com)",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH24",
+      "name": "Kristopher Johnson"
+    },
+    {
+      "race_id": "2026-CO-SH3",
+      "name": "Rebecca Winegar",
+      "website": {
+        "url": "https://winegarforcolorado.com/",
+        "how": "Linked as 'Visit Campaign Site' from the Denver Republican Party's 2026 Endorsed Candidates page; the site is titled 'Rebecca Winegar for Colorado House District 3 | Republican Candidate 2026'",
+        "verified": true
+      },
+      "endorsed_by": [
+        {
+          "party": "Republican",
+          "unit": "Denver Republican Party",
+          "url": "https://denvergop.org/",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "Republican for Colorado State House",
+        "url": "https://winegarforcolorado.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH36",
+      "name": "Andrew Gibson",
+      "website": {
+        "url": "https://www.gibsonforcostatehouse36.com/",
+        "how": "The site is titled 'Andrew Gibson for Colorado State House District 36', says voters in House District 36 deserve an alternative, and is paid for by Andrew Gibson",
+        "verified": true
+      },
+      "past_party": [
+        {
+          "what": "Candidate for State Representative, House District 36",
+          "year": 2022,
+          "party": "Libertarian",
+          "source": "Colorado Secretary of State, 2022 General Election results, State Representatives, District 36: 'Andrew Gibson (LIB)'",
+          "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/stateRepresentatives.html",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "I was asked to run by the Libertarian Party of Colorado",
+        "url": "https://www.gibsonforcostatehouse36.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH4",
+      "name": "Cecelia Espenoza"
+    },
+    {
+      "race_id": "2026-CO-SH45",
+      "name": "Max Brooks",
+      "website": {
+        "url": "https://www.maxbrooksforcolorado.com/",
+        "how": "The site is titled 'Max Brooks for Colorado House District 45' and reads 'RE-ELECT MAX BROOKS' and 'Max Brooks Republican Candidate House District 45'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH5",
+      "name": "Justine Sandoval"
+    },
+    {
+      "race_id": "2026-CO-SH55",
+      "name": "Rick Taggart"
+    },
+    {
+      "race_id": "2026-CO-SH61",
+      "name": "Eliza Hamrick",
+      "website": {
+        "url": "https://elizaforcolorado.com/",
+        "how": "The site is headed 'Eliza Hamrick for Colorado House, District 61' and says 'I am running to be your Colorado State Representative in House District 61'. Its copyright line reads 2022: it is the campaign's standing site and nothing on it is dated 2026",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH8",
+      "name": "Carolyn Barnes",
+      "endorsed_by": [
+        {
+          "party": "Republican",
+          "unit": "Denver Republican Party",
+          "url": "https://denvergop.org/",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SS11",
+      "name": "Janet Turner"
+    },
+    {
+      "race_id": "2026-CO-SS22",
+      "name": "Steve Harkess"
+    },
+    {
+      "race_id": "2026-CO-SS3",
+      "name": "Dana Charles"
+    },
+    {
+      "race_id": "2026-CO-SS4",
+      "name": "Justin Kurth",
+      "website": {
+        "url": "https://www.kurthforcolorado.com/",
+        "how": "The site is titled 'Justin Kurth for Colorado', counts down to 'Polls Close Tue - Nov 3, 2026' and says 'Justin is running because SD4 deserves a senator who has lived these problems'",
+        "verified": true
+      }
+    }
+  ],
+  "verified_on": "2026-10-02",
+  "removed": [],
+  "verification_notes": [
+    "Every url re-opened on 2026-10-02 (campaign sites through the kit's downloader; the Governor's 2008 order, the 2023 release and the 2023-2024 Biennial Abstract read as PDFs). All findings confirmed; none removed.",
+    "Corrected: Brittany Schneider's chief judgeship starts 2025 (the release says effective January 14, 2025), not 2024; website descriptions for Max Brooks, Greg Lopez, Doug Jones and Andrew Gibson cut to what the sites themselves were seen to say (the 'linked from' and 'paid for' claims not re-seen were dropped)."
+  ]
+}

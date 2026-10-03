@@ -1,0 +1,537 @@
+{
+  "part": 3,
+  "of": 12,
+  "researched": "2026-10-02",
+  "note": "WebSearch budget ran out early in this part; several campaign websites could not be looked for and are left blank, not guessed. Past runs are from the Colorado Secretary of State's own election database (contest pages).",
+  "candidates": [
+    {
+      "race_id": "2026-CO-CCRET-08001-JIMENEZ",
+      "name": "Lara M. Jimenez",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/lara-jimenez-0",
+        "source": "Colorado Judicial Branch: Lara Jimenez, County Court Judge, Adams County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Adams County Court (17th Judicial District)",
+          "from": 2023,
+          "to": null,
+          "source": "Law Week Colorado: Gov. Polis appointed her on Aug. 5, 2022; her appointment begins Jan. 9, 2023",
+          "url": "https://lawweekcolorado.com/article/gov-polis-appoints-joshua-nowak-and-lara-jimenez-to-adams-county-court",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "Magistrate, 17th Judicial District",
+          "from": 2022,
+          "to": 2023,
+          "source": "Law Week Colorado (appointment announcement, Aug. 8, 2022)",
+          "url": "https://lawweekcolorado.com/article/gov-polis-appoints-joshua-nowak-and-lara-jimenez-to-adams-county-court",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "Magistrate, City and County of Denver",
+          "from": 2021,
+          "to": 2022,
+          "source": "Law Week Colorado (appointment announcement, Aug. 8, 2022)",
+          "url": "https://lawweekcolorado.com/article/gov-polis-appoints-joshua-nowak-and-lara-jimenez-to-adams-county-court",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08031-DEEN",
+      "name": "Isaam L. Shamsid-Deen",
+      "offices": [
+        {
+          "office": "Judge, Denver County Court",
+          "from": 2023,
+          "to": null,
+          "source": "Law Week Colorado: Mayor Michael Hancock announced his appointment to the Denver County Court on May 23, 2023",
+          "url": "https://www.lawweekcolorado.com/?p=98044",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08041-FRADY",
+      "name": "Marika Frady",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/marika-frady",
+        "source": "Colorado Judicial Branch: Marika Frady, County Court Judge, El Paso County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, El Paso County Court (4th Judicial District)",
+          "from": 2024,
+          "to": null,
+          "source": "Kiowa County Press (Governor's announcement, July 28, 2024): appointment effective immediately",
+          "url": "https://kiowacountypress.net/content/governor-polis-appoints-marika-frady-el-paso-county-court",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08069-ELLISON",
+      "name": "Katharine \"Jenny\" Ellison",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/katharine-jenny-ellison",
+        "source": "Colorado Judicial Branch: Katharine \"Jenny\" Ellison, County Court Judge, Larimer County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Larimer County Court (8th Judicial District)",
+          "from": 2020,
+          "to": null,
+          "source": "Colorado Judicial Branch biography: appointed to the Eighth Judicial County Court bench by Governor Jared Polis on February 27, 2020",
+          "url": "https://www.coloradojudicial.gov/contact/katharine-jenny-ellison",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-CCRET-08123-BRIGGS",
+      "name": "John J. Briggs",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/john-briggs",
+        "source": "Colorado Judicial Branch: John Briggs, County Court Judge, Weld County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, Weld County Court",
+          "from": 2011,
+          "to": null,
+          "source": "Colorado Judicial Branch biography: appointed to the County Court bench in December 2010 and sworn in on Jan. 24, 2011",
+          "url": "https://www.coloradojudicial.gov/contact/john-briggs",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD1-POLAND",
+      "name": "Andrew C. Poland",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/andrew-poland-0",
+        "source": "Colorado Judicial Branch: Andrew Poland, District Court Judge, Jefferson County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, 1st Judicial District",
+          "from": 2024,
+          "to": null,
+          "source": "Law Week Colorado: Gov. Polis on April 18 appointed Magistrate Judge Andrew Poland to the 1st Judicial District Court, effective June 1 (2024)",
+          "url": "https://www.lawweekcolorado.com/?p=114303",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "Magistrate, Jefferson County Court, 1st Judicial District",
+          "from": 2023,
+          "to": 2024,
+          "source": "Law Week Colorado (appointment announcement)",
+          "url": "https://www.lawweekcolorado.com/?p=114303",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD13-CHRISTIANSEN",
+      "name": "Dina M. Christiansen",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/dina-m-christiansen-0",
+        "source": "Colorado Judicial Branch: Dina M. Christiansen, District Court Judge (13th Judicial District counties)",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, 13th Judicial District",
+          "from": 2024,
+          "to": null,
+          "source": "Kiowa County Press (Governor's announcement): appointment effective October 2, 2024",
+          "url": "https://www.kiowacountypress.net/content/governor-polis-appoints-dina-m-christiansen-13th-judicial-district-court",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "office": "District Court Magistrate, 8th Judicial District",
+          "from": 2019,
+          "to": 2024,
+          "source": "Kiowa County Press (Governor's announcement)",
+          "url": "https://www.kiowacountypress.net/content/governor-polis-appoints-dina-m-christiansen-13th-judicial-district-court",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD18-KARPEL",
+      "name": "David N. Karpel",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/david-karpel",
+        "source": "Colorado Judicial Branch: David Karpel, District Court Judge, Arapahoe County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, 18th Judicial District",
+          "from": 2023,
+          "to": null,
+          "source": "Kiowa County Press (Governor's announcement, Sept. 19, 2022): appointed with Michelle E. Jones, effective January 2023",
+          "url": "https://kiowacountypress.net/content/governor-polis-appoints-two-18th%C2%A0judicial-district-court",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD2-WALLACE",
+      "name": "Sarah Block Wallace",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/sarah-b-wallace",
+        "source": "Colorado Judicial Branch: Sarah B. Wallace, District Court Judge, Denver District Court",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, 2nd Judicial District (Denver)",
+          "from": 2023,
+          "to": null,
+          "source": "Law Week Colorado: Gov. Polis on Aug. 18, 2022 appointed Mark Bailey and Sarah Wallace to the 2nd Judicial District Court (effective Jan. 2023)",
+          "url": "https://www.lawweekcolorado.com/?p=82310",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-DCRET-JD23-WARHOLA",
+      "name": "Daniel W. Warhola",
+      "official_page": {
+        "url": "https://www.coloradojudicial.gov/contact/daniel-warhola",
+        "source": "Colorado Judicial Branch: Daniel Warhola, District Court Judge, Douglas County",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Judge, District Court, 18th Judicial District (Douglas County, now the 23rd Judicial District)",
+          "from": 2024,
+          "to": null,
+          "source": "Kiowa County Press (Governor's announcement): appointment effective August 3, 2024",
+          "url": "https://kiowacountypress.net/content/daniel-w-warhola-appointed-18th-judicial-district-court",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-GOV",
+      "name": "Erik Underwood",
+      "past_party": [
+        {
+          "what": "Sought the Republican nomination for U.S. Senate at the Republican state convention (six votes)",
+          "year": 2016,
+          "party": "Republican",
+          "source": "Colorado Politics, April 10, 2017",
+          "url": "https://www.coloradopolitics.com/2017/04/10/erik-underwood-former-gop-senate-candidate-plans-to-run-for-colorado-governor-as-a-democrat",
+          "kind": "secondary",
+          "verified": true
+        },
+        {
+          "what": "Sought the Democratic nomination for U.S. Senate at the Colorado Democratic Party Assembly and Convention (April 18; did not gain enough support)",
+          "year": 2020,
+          "party": "Democratic",
+          "source": "5280 Magazine, Colorado 2020 Senate candidates",
+          "url": "https://5280.com/colorados-2020-senate-candidates-erik-underwood/",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-REGENT-CD6",
+      "name": "Ilana Spiegel",
+      "official_page": {
+        "url": "https://regents.cu.edu/meet-the-regents/ilana-dubin-spiegel",
+        "source": "University of Colorado Board of Regents: Ilana Dubin Spiegel, 6th Congressional District, Democrat, Current Term 2021-27",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Regent of the University of Colorado, 6th Congressional District",
+          "from": 2021,
+          "to": null,
+          "source": "University of Colorado Board of Regents: Current Term 2021-27",
+          "url": "https://regents.cu.edu/meet-the-regents/ilana-dubin-spiegel",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Elected Regent of the University of Colorado, District 6, as the Democratic nominee",
+          "year": 2020,
+          "party": "Democratic",
+          "source": "Colorado Secretary of State, election database: 2020 Nov 3 General, Regent of the University of Colorado District 6",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3506",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Candidate in the Democratic primary for State Board of Education, District 6",
+          "year": 2016,
+          "party": "Democratic",
+          "source": "Colorado Secretary of State, election database: 2016 Jun 28 Democratic Primary, State Board of Education District 6",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3971",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "review": [
+        {
+          "shows": "Our record marks Ilana Spiegel as not the incumbent (incumbent = 0) in 2026-CO-REGENT-CD6",
+          "problem": "The Board of Regents' own page lists Ilana Dubin Spiegel as the current Regent for the 6th Congressional District, term 2021-27",
+          "url": "https://regents.cu.edu/meet-the-regents/ilana-dubin-spiegel",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SBE-CD7",
+      "name": "Ross Klopf",
+      "past_party": [
+        {
+          "what": "Libertarian candidate for U.S. Representative, Congressional District 7",
+          "year": 2022,
+          "party": "Libertarian",
+          "source": "Colorado Secretary of State, election database: 2022 Nov 8 General, U.S. Congressperson District 7",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/25578",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Libertarian candidate for State Representative, House District 28",
+          "year": 2018,
+          "party": "Libertarian",
+          "source": "Colorado Secretary of State, election database: 2018 Nov 6 General, State Representative District 28",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3861",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SH14",
+      "name": "Sarah Emery"
+    },
+    {
+      "race_id": "2026-CO-SH18",
+      "name": "Adriana Cuva",
+      "past_party": [
+        {
+          "what": "Candidate in the Republican primary for State Senate, District 12",
+          "year": 2024,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, election database: 2024 Jun 25 Republican Primary, State Senate District 12",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/26035",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SH23",
+      "name": "Ross Metler",
+      "website": {
+        "url": "https://ross4co.com/",
+        "how": "the site is titled 'Ross Metler — Colorado HD23', speaks of the 2026 Colorado State House election and reads 'Paid for by Ross Metler for Colorado House District 23'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH3",
+      "name": "Gena Ozols"
+    },
+    {
+      "race_id": "2026-CO-SH35",
+      "name": "Lorena Garcia"
+    },
+    {
+      "race_id": "2026-CO-SH4",
+      "name": "Bill Hare"
+    },
+    {
+      "race_id": "2026-CO-SH45",
+      "name": "Caryn Ann Harlos",
+      "past_party": [
+        {
+          "what": "Libertarian candidate for State Representative, House District 45",
+          "year": 2020,
+          "party": "Libertarian",
+          "source": "Colorado Secretary of State, election database: 2020 Nov 3 General, State Representative District 45",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3550",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Libertarian candidate for State Senate, District 2",
+          "year": 2024,
+          "party": "Libertarian",
+          "source": "Colorado Secretary of State, election database: 2024 Nov 5 General, State Senate District 2",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/26662",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SH5",
+      "name": "Johnnie W. Johnson",
+      "website": {
+        "url": "https://www.johnniej4hd5co.com/",
+        "how": "linked as 'Visit Campaign Site' beside him on the Denver Republican Party's 2026 Endorsed Candidates; the site is titled 'Johnnie Johnson for House District 5' and speaks of the November 2026 race",
+        "verified": true
+      },
+      "endorsed_by": [
+        {
+          "party": "Republican",
+          "unit": "Denver Republican Party",
+          "url": "https://denvergop.org/",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Republican nominee for State Representative, House District 5",
+          "year": 2022,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, election database: 2022 Nov 8 General, State Representative District 5 (Johnnie Johnson)",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/25613",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Republican nominee for State Representative, House District 5",
+          "year": 2024,
+          "party": "Republican",
+          "source": "Colorado Secretary of State, election database: 2024 Nov 5 General, State Representative District 5 (Johnnie Wesley Johnson)",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/26637",
+          "kind": "official",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "Republican Johnnie W. Johnson versus Justine Sandoval - Democrat.",
+        "url": "https://www.johnniej4hd5co.com/",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-CO-SH55",
+      "name": "Brittni Packard"
+    },
+    {
+      "race_id": "2026-CO-SH60",
+      "name": "Matt Alexander"
+    },
+    {
+      "race_id": "2026-CO-SH7",
+      "name": "Jennifer Bacon"
+    },
+    {
+      "race_id": "2026-CO-SS1",
+      "name": "Jamie Jeffery"
+    },
+    {
+      "race_id": "2026-CO-SS22",
+      "name": "Monica Irasema Duran",
+      "official_page": {
+        "url": "https://leg.colorado.gov/legislators/monica-duran",
+        "source": "Colorado General Assembly: Representative Monica Duran, House District 23, Majority Leader",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "State Representative, House District 23",
+          "from": 2023,
+          "to": null,
+          "source": "Colorado Secretary of State, election database: elected 2022 and 2024 (2024 Nov 5 General, State Representative District 23); Colorado General Assembly page shows District 23",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/26709",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "State Representative, House District 24",
+          "from": 2019,
+          "to": 2023,
+          "source": "Colorado Secretary of State, election database: elected 2018 (2018 Nov 6 General, State Representative District 24) and 2020",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3857",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "office": "Member, Wheat Ridge City Council",
+          "from": null,
+          "to": null,
+          "source": "Wikipedia, 'Monica Duran' (cites Colorado Politics, May 30, 2018: 'Wheat Ridge council's Monica Duran to seek Colorado state House seat')",
+          "url": "https://en.wikipedia.org/wiki/Monica_Duran",
+          "kind": "secondary",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Won the Democratic primary for State Representative, House District 24",
+          "year": 2018,
+          "party": "Democratic",
+          "source": "Colorado Secretary of State, election database: 2018 Jun 26 Democratic Primary, State Representative District 24",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/3750",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-CO-SS3",
+      "name": "Aaron Gutierrez"
+    },
+    {
+      "race_id": "2026-CO-SS35",
+      "name": "Travis Star Nelson",
+      "past_party": [
+        {
+          "what": "Sole candidate in the Democratic primary for State Senate, District 35",
+          "year": 2022,
+          "party": "Democratic",
+          "source": "Colorado Secretary of State, election database: 2022 Jun 28 Democratic Primary, State Senate District 35",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/25514",
+          "kind": "official",
+          "verified": true
+        },
+        {
+          "what": "Democratic nominee for State Senate, District 35",
+          "year": 2022,
+          "party": "Democratic",
+          "source": "Colorado Secretary of State, election database: 2022 Nov 8 General, State Senate District 35",
+          "url": "https://historicalelectiondata.coloradosos.gov/contest/25608",
+          "kind": "official",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "verified_on": "2026-10-02",
+  "removed": [],
+  "verification_note": "Every url re-opened on 2026-10-02. Corrected: wording of four past_party entries (Spiegel 2016, Cuva 2024, Nelson 2022 primary and general) cut to what the Secretary of State's contest pages show, which list candidates but not who won; Metler's website 'how' restated from the site itself."
+}

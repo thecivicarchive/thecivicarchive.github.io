@@ -1102,6 +1102,15 @@ party committee's appointment): a news article calling someone a Democrat or a R
 `state-page-only` now takes an optional `notes` argument (what the data stage reported) and keeps five states' built
 data byte-identical.
 
+Alaska and Hawaii (v4.0.094): `AlbersUsa()` called directly chooses its part of the map by where a point lands in
+the lower-48 frame, so Alaska's and Hawaii's points stayed in that frame, while every page finds a reader with d3's
+rule (each part takes the points that land in its own box) and so puts them in the insets: "Use my location" failed
+in both states. `states/load_sld.py`, `states/load_counties.py` and the ballot builder's county lines now project
+with `AlbersUsa().by_state(code)`, as `load_districts.py` always did; Alaska's tolerance became 0.007 (its inset is
+drawn at 35 percent). Lower-48 output is unchanged. Use `by_state` for any new projection of one state's shapes.
+The ballot page shells are written through `slim_page()` (comments and spare whitespace out, token by token, after
+borrowing; a block whose tokens would change is kept whole): budgets 300 KB and 370 KB.
+
 Missouri (v4.0.090) taught these. Missouri sells its precinct results and publishes none, so past votes are by
 county only (from the Secretary of State's county results), and the page says why a city has none. Fifty of its court
 contests are retention votes: a retention race is one name and a yes-or-no question, on the card, the arena and the
