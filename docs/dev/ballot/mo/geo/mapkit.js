@@ -550,7 +550,7 @@ window.GEOKIT = (function () {
       : z.out ? `Part of this ${UNIT} lies in no ${esc(ST.schoolOne || "school district")}.` : "";
     const placed = z.mq ? `This ${UNIT} reaches more than one ${esc(KW.mcd[1].toLowerCase())}, and which one your spot is in could not be settled here; the one named holds most of the ${UNIT}.` : "";
     // where the map's smallest pieces are an earlier year's (the files say which, and whose): said beside the reader's own
-    const old = G.old ? `This ${UNIT} is drawn and named as it stood in ${esc(G.old.y)}${z.unl ? `, and the state&rsquo;s ${esc(z.unl)} list no longer carries it under that name or code, so it has been redrawn or renamed since` : ""}. ${esc((G.old.t || []).slice(2).join(" "))}` : "";
+    const old = G.old ? `This ${UNIT} is drawn and named as it stood in ${esc(G.old.y)}${z.unl ? `, and the state&rsquo;s ${esc(z.unl)} list no longer carries it under that name or code, so it has been redrawn or renamed since` : z.ls ? `; the state&rsquo;s ${esc(z.ls[0])} list has a ${UNIT} of the same number here, which it writes ${esc(z.ls[1])}` : ""}. ${esc((G.old.t || []).slice(2).join(" "))}` : "";
     // where the state's own pieces leave a gap and the files fill it with the whole precinct as last drawn: said plainly, because
     // such a piece names only what its lines can tell (no city or town, ward or other local district of the state's own table)
     const gap = z.wh ? `The state&rsquo;s own table of ${UNIT} parts does not cover your spot yet, so the map uses the whole ${UNIT} as its lines were last drawn${/^\d{4}$/.test(z.wh) ? ` (in ${esc(z.wh)})` : ""}. Its districts are worked out from those lines alone, so a city or town, a ward or a local district may be missing from your ballot here; your county&rsquo;s election office is the authority.` : "";
@@ -666,12 +666,14 @@ window.GEOKIT = (function () {
       if (p[k + "_area"]) x[k + "_area"] = sp[k + "_area"] ? Object.keys(sp[k + "_area"]) : [p[k + "_area"]];
       if (p[k + "_pct"]) x[k + "_pct"] = p[k + "_pct"]; });
     const gone = Object.keys(p).find(k => /^listed_\d{4}$/.test(k) && p[k] === false);      // the files say the state's list of that year no longer carries this piece
+    // ... or that it does, and how that list writes the piece's code (code_<year>_said), where the files give it
+    const said = Object.keys(p).find(k => /^code_\d{4}_said$/.test(k) && p[k] && p["listed_" + k.slice(5, 9)] === true);
     const jdn = nm("judicial", p.judicial);      // the files' own name for the court's district, where they give one
     // a place that lies inside another, where the files say a voter of the one is a voter of the other too (a village in its township,
     // BOOT.geo.within): the spot's own place is the inner one, and the precinct's the one around it
     const W = (BOOT.geo || {}).within, kindOf = t => (/\b(\w+)$/.exec(String(t || "")) || ["", ""])[1].toLowerCase();
     const mo = W && r.mcd && r.mcd !== p.mcd && (p.mcd_all || []).includes(p.mcd) && kindOf(r.mcdName || nm("mcd", r.mcd)) === W[0] && kindOf(nm("mcd", p.mcd)) === W[1] ? p.mcd : "";
-    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {}),
+    const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : said ? {ls: [said.slice(5, 9), String(p[said])]} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {}),
       ...(p.whole ? {wh: String(p.as_of || "") || 1} : {})};      // a whole precinct the files add where the state's parts leave a gap, with the year of its lines
     return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
