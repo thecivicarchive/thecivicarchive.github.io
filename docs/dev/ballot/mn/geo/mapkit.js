@@ -325,7 +325,7 @@ function BallotMap(el, opt) {
       // a precinct that reaches more than one city or township does not say which one a spot is in: the layer of those places answers that
       // for a point (a precinct its own table puts in a city keeps that city); where the layer cannot be had, the page says the place is the largest one
       const bp = best.geometry.properties, many = (bp.mcd_all || []).length > 1 && !bp.city;
-      const place = many && LAYER.mcd ? load(LAYER.mcd.file).then(lf => { const h = MNGeo.shapeAt(lf, "mcd", lon, lat);
+      const place = many && LAYER.mcd ? load(LAYER.mcd.file).then(lf => { const h = MNGeo.shapeAt(lf, "mcd", lon, lat); out.mcdLooked = true;      // looked: no shape at the spot means open country
         if (h && bp.mcd_all.indexOf(h.geometry.id) >= 0) { out.mcd = h.geometry.id; out.mcdName = (h.geometry.properties || {}).name || ""; } }).catch(() => {}) : Promise.resolve();
       if (many) out.mcdMany = true;
       return place.then(() => new Promise(res => {
@@ -533,7 +533,7 @@ window.GEOKIT = (function () {
       let spare = 100 - out.reduce((a, b) => a + b, 0);
       p.map((v, i) => [v - out[i], i]).sort((a, b) => b[0] - a[0] || a[1] - b[1]).forEach(([, i]) => { if (spare > 0) { out[i]++; spare--; } });
       return out; })();
-    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.m ? z.mn || dataName("mcd", z.m) : !z.wh && /\bnames no place\b/i.test(String(((IDX || {}).notes || {}).places || "")) ? `None: the ${UNIT} lies outside every ${KW.mcd[1].toLowerCase()}` : "", z.m ? "mcd" : "", z.m),      // no place: said only where the files' own note says a piece in open country names none
+    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.m ? z.mn || dataName("mcd", z.m) : z.mx ? `None: your spot lies outside every ${KW.mcd[1].toLowerCase()} the ${UNIT} reaches` : !z.wh && /\bnames no place\b/i.test(String(((IDX || {}).notes || {}).places || "")) ? `None: the ${UNIT} lies outside every ${KW.mcd[1].toLowerCase()}` : "", z.m ? "mcd" : "", z.m),      // no place: said only where the files' own note says a piece in open country names none
       z.mo ? row("", (z.mon || dataName("mcd", z.mo)) + ` (${z.mn || dataName("mcd", z.m)} lies inside it: you are a voter of both)`, "mcd", z.mo) : "",
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", (d => /^\d/.test(d) ? "District " + d : d)(z.com.split("|")[1] || z.com), "com", z.com) : "",      // "District 3" where the files number it; their own words where they name it ("District 3" already, "Precinct 2")
@@ -675,7 +675,7 @@ window.GEOKIT = (function () {
     const mo = W && r.mcd && r.mcd !== p.mcd && (p.mcd_all || []).includes(p.mcd) && kindOf(r.mcdName || nm("mcd", r.mcd)) === W[0] && kindOf(nm("mcd", p.mcd)) === W[1] ? p.mcd : "";
     const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : said ? {ls: [said.slice(5, 9), String(p[said])]} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {}),
       ...(p.whole ? {wh: String(p.as_of || "") || 1} : {})};      // a whole precinct the files add where the state's parts leave a gap, with the year of its lines
-    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
+    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd && r.mcdLooked && !p.mcd ? {mx: 1} : r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
       edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0), ...more};
