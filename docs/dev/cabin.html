@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Civic Archive</title>
 <meta name="description" content="The public record and who is on your ballot. Step into the cabin and pick a door: On The Ballot, or Legislation and Legislatures.">
-<meta name="version" content="4.0.093">
+<meta name="version" content="4.0.095">
 <meta name="theme-color" content="#1a120b">
 <style>
 :root{--ink:#f6ecd6;--dim:#d9c9a8;--chip:rgba(22,15,9,.72);--line:rgba(246,236,214,.28);--gold:#f0c060;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -86,7 +86,7 @@ body.flat .flatnote{display:block}
   <a class="back" id="back" href="./" hidden><b>Back to where you were</b><span id="backt"></span></a>
   <a class="plain" href="./" title="The same doors as a ring of cards, with no room to walk around">Plain view</a>
 </nav>
-<p class="foot" id="foot">v4.0.093</p>
+<p class="foot" id="foot">v4.0.095</p>
 <dialog class="credits" id="credits">
 <h2>What the room is made of</h2>
 <p>The materials, furniture and photographs in this room are free works, kept with the site and credited here.</p>
@@ -148,7 +148,7 @@ function leave(url){ if (leaving) return; leaving = true; if (calm) { location.h
 addEventListener("pageshow", () => { leaving = false; fade.classList.remove("on"); });      /* coming back with the Back button */
 function footer(){
   const words = {morning: "morning", afternoon: "afternoon", dusk: "dusk", night: "night"}[when] || when;
-  let s = `v4.0.093 · Outside it is ${words}, by your device’s clock. Nothing is sent anywhere.`;
+  let s = `v4.0.095 · Outside it is ${words}, by your device’s clock. Nothing is sent anywhere.`;
   if (view) s += ` The view is a National Park Service photograph` + (view.caption ? `: ${view.caption}` : "") + (view.shown ? "" : ` (shown for ${view.season}; there is no ${view.wanted} picture yet)`) + ".";
   foot.innerHTML = ""; foot.append(s + " "); const b = document.createElement("button"); b.type = "button"; b.textContent = "Credits"; b.addEventListener("click", () => $("#credits").showModal()); foot.append(b);
 }
@@ -175,7 +175,7 @@ try {
     setTimeout(() => { if (!load.classList.contains("gone")) load.classList.add("gone"); }, 40000);
   }
 } catch (e) { room = null; }
-if (!room) { document.body.classList.add("flat"); foot.textContent = "v4.0.093"; }
+if (!room) { document.body.classList.add("flat"); foot.textContent = "v4.0.095"; }
 </script>
 <noscript><style>#room,.hint,.load{display:none}html,body{overflow:auto}</style></noscript>
 </body>
