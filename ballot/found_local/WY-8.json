@@ -1,0 +1,441 @@
+{
+ "part": 8,
+ "of": 15,
+ "researched": "2026-10-02",
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every url was re-opened on 2026-10-02 (the official results workbooks were downloaded and the Statewide House sheets read). Corrected: Conrad and Niemiec office sources (write-in counts and a Wikipedia mention not re-checked, so taken out; Conrad's District 19 votes confirmed all cast in Uinta County), Posey's website note (the Legislature roster claim was not re-checked), and Bratten's website address (the old one forwards to the new).",
+ "note": "Past runs were read from the Wyoming Secretary of State's official results workbooks (general and primary, 2018, 2020, 2022 and 2024); they carry state and federal offices only, not county offices. R. Mark Armstrong (Albany County Clerk) shares his name with a 2020 Republican primary candidate for U.S. Senate (and a Mark Armstrong ran in the 2022 Republican primary for Secretary of State), but no source read ties that person to the Albany County race, so nothing is recorded. Hans Odde is listed as Park County's 1st Deputy Clerk on the county's page; that is a staff post, not an office, so it is not recorded. Campaign websites were found through BallotReady's candidate pages (only the link was taken) or by trying the plain domain; each site was opened and names the candidate and the office. The session's web search allowance ran out early in this part, so Mary Greene, Travis Grosz, Beau Fulton, Bernie E. Jensen, Gabriel Koerber, Matt Windley, Ali Dunford, Mike Laird, Adrian Keeler, Dale Davis, Shannon A. Brennan and Bob Davis were looked for only on their county, city or school district's own site and at plain domains; Goshen #1's and Park #1's sites did not answer, and Sweetwater #1's and Fremont #1's board lists are drawn by script. The Wyoming Legislature's site draws its member pages by script, so sitting members' official pages were not read (they have record pages already). The Wyoming party pages read for ballot/lean/wy_endorsements.json carry no endorsement for these races.",
+ "candidates": [
+  {
+   "race_id": "2026-WY-56001-county-clerk",
+   "name": "R. Mark Armstrong"
+  },
+  {
+   "race_id": "2026-WY-56003-county-commissioner",
+   "name": "Mike Laird"
+  },
+  {
+   "race_id": "2026-WY-56009-county-attorney",
+   "name": "Quentin Richardson",
+   "official_page": {
+    "url": "https://www.conversecountywy.gov/directory.aspx",
+    "source": "Converse County's staff directory lists Quentin Richardson, Converse County Attorney, under County Attorney",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Attorney, Converse County",
+     "from": null,
+     "to": "present",
+     "source": "Converse County's staff directory; it gives no start date",
+     "url": "https://www.conversecountywy.gov/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56011-sheriff",
+   "name": "Jeff Hodge",
+   "official_page": {
+    "url": "https://www.crookcounty.wy.gov/elected_officials/index.php",
+    "source": "Crook County's Elected Officials page lists Jeff Hodge under the Sheriff's Office",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, Crook County",
+     "from": null,
+     "to": "present",
+     "source": "Crook County's Elected Officials page; it gives no start date",
+     "url": "https://www.crookcounty.wy.gov/elected_officials/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56017-county-clerk",
+   "name": "Becky Kersten",
+   "official_page": {
+    "url": "https://hscounty.com/departments/clerk",
+    "source": "Hot Springs County's County Clerk page names Becky Kersten, Hot Springs County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Clerk, Hot Springs County",
+     "from": null,
+     "to": "present",
+     "source": "Hot Springs County's County Clerk page; it gives no start date",
+     "url": "https://hscounty.com/departments/clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56019-sheriff",
+   "name": "Adrian Keeler"
+  },
+  {
+   "race_id": "2026-WY-56025-coroner",
+   "name": "James L. Whipps",
+   "official_page": {
+    "url": "https://www.natronacounty-wy.gov/Directory.aspx",
+    "source": "Natrona County's staff directory lists \"James Whipps, Coroner\" under Coroner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Coroner, Natrona County",
+     "from": null,
+     "to": "present",
+     "source": "Natrona County's staff directory (lists him as James Whipps); it gives no start date",
+     "url": "https://www.natronacounty-wy.gov/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56029-county-clerk",
+   "name": "Hans Odde",
+   "website": {
+    "url": "https://hansoddeforclerk.com/",
+    "how": "The site is titled \"Hans Odde for Park County Clerk\" and asks to serve the people of Park County as County Clerk; paid for by Odde for Park County Clerk",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-56031-sheriff",
+   "name": "Anthony Krotz",
+   "official_page": {
+    "url": "https://www.plattecountywyoming.com/directory",
+    "source": "Platte County's directory lists \"Krotz, Anthony\" as Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, Platte County",
+     "from": null,
+     "to": "present",
+     "source": "Platte County's directory; it gives no start date",
+     "url": "https://www.plattecountywyoming.com/directory",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56037-county-clerk",
+   "name": "Dale Davis"
+  },
+  {
+   "race_id": "2026-WY-56039-county-commissioner",
+   "name": "Ali Dunford"
+  },
+  {
+   "race_id": "2026-WY-56041-county-commissioner",
+   "name": "Jon R Conrad",
+   "offices": [
+    {
+     "office": "Wyoming House of Representatives, District 19",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wyoming Secretary of State, official 2022 general election summary (Statewide House sheet): Jon R. Conrad (R) 1,748, Sarah Butters (D) 374, all votes cast in Uinta County, a term beginning in January 2023; the official 2024 primary summary shows him losing the Republican primary for District 19 to Joe Webb (792 to 1,019), so the term ended in January 2025. Uinta County is the county whose commission he seeks in 2026",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/General/2022_Wyoming_General_Results.zip",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Wyoming House District 19 (Republican primary, won with 1,078 votes to Karl Allred's 752 and Andy Stocks's 638)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2022 primary election summary, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/Primary/2022_Wyoming_Primary_Results.zip",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Elected to Wyoming House District 19 (general election, listed as Jon R. Conrad (R))",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2022 general election summary, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/General/2022_Wyoming_General_Results.zip",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Wyoming House District 19 (Republican primary, lost 792 to 1,019)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2024 primary results summaries, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2024/Results/Primary/2024_Wyoming_Primary_Results.zip",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-DCRET1-COOLEY",
+   "name": "Robin S. Cooley",
+   "official_page": {
+    "url": "https://www.wyocourts.gov/court/district-court-1st-judicial-district-laramie-county/",
+    "source": "Wyoming Judicial Branch, District Court, 1st Judicial District (Laramie County): \"Honorable Robin S. Cooley\", appointed March 2024, term expires January 2027, stands for retention November 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, First Judicial District (Laramie County)",
+     "from": "2024",
+     "to": "present",
+     "source": "Wyoming Judicial Branch's court page: appointed date March 2024; stands for retention November 2026",
+     "url": "https://www.wyocourts.gov/court/district-court-1st-judicial-district-laramie-county/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-13150-council-ward-3",
+   "name": "Brandy Haskins",
+   "official_page": {
+    "url": "https://www.casperwy.gov/government/city_council/index.php",
+    "source": "City of Casper's Mayor & City Council page: Ward III, \"Brandy Haskins, Councilor\", term expires 1/5/27",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Casper City Council, Ward III",
+     "from": null,
+     "to": "present (term expires 1/5/27)",
+     "source": "City of Casper's Mayor & City Council page; it gives no start date",
+     "url": "https://www.casperwy.gov/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-25620-council-ward-2",
+   "name": "Matt Windley"
+  },
+  {
+   "race_id": "2026-WY-M-40120-council",
+   "name": "Gabriel Koerber"
+  },
+  {
+   "race_id": "2026-WY-M-67235-council-ward-iii",
+   "name": "Daniel J. Pedri",
+   "official_page": {
+    "url": "https://www.rswy.net/government/city_council/index.php",
+    "source": "City of Rock Springs's City Council page lists Dan Pedri, City Council, Ward 3 (the photo caption names him Daniel Pedri)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Springs City Council, Ward 3",
+     "from": null,
+     "to": "present",
+     "source": "City of Rock Springs's City Council page; it gives no start date",
+     "url": "https://www.rswy.net/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S-013-1-school-board",
+   "name": "Mary Greene"
+  },
+  {
+   "race_id": "2026-WY-S-015-1-school-board-at-large",
+   "name": "Travis Grosz"
+  },
+  {
+   "race_id": "2026-WY-S-029-1-school-board",
+   "name": "Beau Fulton"
+  },
+  {
+   "race_id": "2026-WY-S-037-1-school-board-rock-springs-area-S",
+   "name": "Bernie E. Jensen"
+  },
+  {
+   "race_id": "2026-WY-S-041-1-school-board",
+   "name": "Jenny Welling",
+   "official_page": {
+    "url": "https://www.uinta1.com/en-US?orgId=c936cc91-6260-4f63-81fe-cc403df498c0",
+    "source": "Uinta County School District #1's School Board page lists Jenny Welling among the board's members (David Peterson is marked Chairman)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Uinta County School District #1 Board",
+     "from": null,
+     "to": "present",
+     "source": "Uinta County School District #1's School Board page; it gives no start date",
+     "url": "https://www.uinta1.com/en-US?orgId=c936cc91-6260-4f63-81fe-cc403df498c0",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-SH13",
+   "name": "Shane Swett",
+   "website": {
+    "url": "https://shaneswett.com/",
+    "how": "The site is titled \"Shane Swett for Wyoming State Representative — District 13 | Republican\" and campaigns for the November 3, 2026 general election",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Ran for Wyoming House District 13 (general election, lost 1,718 to Ken Chestek's 1,941; listed as Shane Swett (R))",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2024 general results summaries, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2024/Results/General/2024_Wyoming_General_Results.zip",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Wyoming House District 13 (Republican primary, unopposed, 484 votes)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2024 primary results summaries, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2024/Results/Primary/2024_Wyoming_Primary_Results.zip",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican for House District 13",
+    "url": "https://shaneswett.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH23",
+   "name": "Shannon A. Brennan"
+  },
+  {
+   "race_id": "2026-WY-SH33",
+   "name": "Ivan D. Posey",
+   "website": {
+    "url": "https://www.poseyforhd33.com/",
+    "how": "The site is titled \"Ivan Posey for House District 33\" and calls him \"Candidate for Wyoming House District 33\"; its dated items are from the 2024 campaign",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "A self-styled conservative Democrat",
+    "url": "https://www.poseyforhd33.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH42",
+   "name": "Jim VanDyke",
+   "website": {
+    "url": "https://vandyke4wyoming.com/",
+    "how": "The site is titled \"Jim VanDyke – For Wyoming House District 42\" and asks why he is a good candidate for House District 42",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH51",
+   "name": "Laurie Bratten",
+   "website": {
+    "url": "https://reelectlauriebratten.com/",
+    "how": "The site (www.laurieforwyoming.com now forwards here) is titled \"HOME | Re-Elect Laurie for Wyoming\" and asks to continue serving House District 51",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As a lifelong Republican",
+    "url": "https://reelectlauriebratten.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH60",
+   "name": "Tony Niemiec",
+   "website": {
+    "url": "https://tonyniemiecforwyoming.com/",
+    "how": "The site is titled \"Tony Niemiec for Wyoming House District 60\" and names the August 18, 2026 primary",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Wyoming House of Representatives, District 60",
+     "from": "2023",
+     "to": "2025",
+     "source": "Wyoming Secretary of State, official 2022 general election summary: Tony Niemiec (R) 2,178 votes, a term beginning in January 2023; the official 2024 primary summary shows him losing the Republican primary to Marlene Brady (520 to 566)",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/General/2022_Wyoming_General_Results.zip",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ran for Wyoming House District 60 (Republican primary, won 1,436 to Jennifer L. James's 465)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2022 primary election summary, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/Primary/2022_Wyoming_Primary_Results.zip",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Elected to Wyoming House District 60 (general election, listed as Tony Niemiec (R))",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2022 general election summary, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/Results/General/2022_Wyoming_General_Results.zip",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Ran for Wyoming House District 60 (Republican primary, lost 520 to Marlene Brady's 566)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Wyoming Secretary of State, official 2024 primary results summaries, Statewide House sheet",
+     "url": "https://sos.wyo.gov/Elections/Docs/2024/Results/Primary/2024_Wyoming_Primary_Results.zip",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "CONSERVATIVE REPUBLICAN",
+    "url": "https://tonyniemiecforwyoming.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SS11",
+   "name": "Bob Davis"
+  },
+  {
+   "race_id": "2026-WY-SS5",
+   "name": "Lauren Schoenfeld",
+   "website": {
+    "url": "https://laurenschoenfeld.com/",
+    "how": "The site is titled \"Lauren Schoenfeld for Senate District 5\": \"Candidate for Wyoming State Senate, Senate District 5\", © 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sweetwater County Commissioner",
+     "from": "2019",
+     "to": null,
+     "source": "Wyoming Tribune Eagle (wyomingnews.com), on her Senate District 5 run: served as Sweetwater County commissioner for four years, first appointed in 2019; her campaign site also calls her a former Sweetwater County Commissioner",
+     "url": "https://www.wyomingnews.com/news/local_news/schoenfeld-touts-diverse-experience-for-senate-district-5/article_b8533a6a-866d-4e21-9cd9-fb6c7360fd4f.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

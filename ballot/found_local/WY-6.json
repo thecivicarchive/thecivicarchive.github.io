@@ -1,0 +1,313 @@
+{
+ "part": 6,
+ "of": 15,
+ "researched": "2026-10-02",
+ "note": "The session's web search allowance was used up after the first eight searches of this part; the rest were looked up by opening official, campaign and news pages directly (county, city, court and school district sites, WyoFile's 2026 election guide, the Wyoming Legislature's and Secretary of State's own files), so a blank means not found that way, not that nothing exists. No Wyoming party page calls its list an endorsement (see ballot/lean/wy_endorsements.json), so endorsed_by is empty throughout. Left out on purpose: staff posts (Joel H. Defebaugh is listed by Albany County as a Deputy County Attorney, Brittnee Borgialli by Johnson County as the Treasurer's Chief Deputy), since those are jobs, not offices; Robin Cozad's only listed link is a social profile. Stan Blake: the Green River mayoral candidate is tied to the former House District 39 member by SweetwaterNOW's 2020 article (Stan Blake of Green River, Representative for District 39); the Legislature's list names him Stanley Blake, Sweetwater County, House 2007 to 2020, and the 2020 official summary prints Blake (D) in House District 39.",
+ "candidates": [
+  {
+   "race_id": "2026-WY-56001-county-attorney",
+   "name": "Joel H. Defebaugh"
+  },
+  {
+   "race_id": "2026-WY-56003-county-clerk",
+   "name": "Lori Smallwood",
+   "official_page": {
+    "url": "https://www.bighorncountywy.gov/departments/clerk",
+    "source": "Big Horn County, County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Big Horn County Clerk",
+     "to": "present",
+     "source": "Big Horn County, County Clerk",
+     "url": "https://www.bighorncountywy.gov/departments/clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56009-coroner",
+   "name": "Roscoe J. (Ross) Gorman"
+  },
+  {
+   "race_id": "2026-WY-56011-county-commissioner",
+   "name": "Keith Haiar"
+  },
+  {
+   "race_id": "2026-WY-56017-county-assessor",
+   "name": "Daniel Webber",
+   "official_page": {
+    "url": "https://www.hscounty.com/departments/assessor",
+    "source": "Hot Springs County, Assessor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hot Springs County Assessor",
+     "to": "present",
+     "source": "Hot Springs County, Assessor",
+     "url": "https://www.hscounty.com/departments/assessor",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56019-county-treasurer",
+   "name": "Brittnee Borgialli"
+  },
+  {
+   "race_id": "2026-WY-56021-sheriff",
+   "name": "Robin Cozad"
+  },
+  {
+   "race_id": "2026-WY-56029-county-assessor",
+   "name": "Terry Call",
+   "official_page": {
+    "url": "https://parkcounty-wy.gov/county-assessor/",
+    "source": "Park County, County Assessor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Park County Assessor",
+     "to": "present",
+     "source": "Park County, County Assessor",
+     "url": "https://parkcounty-wy.gov/county-assessor/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56031-county-commissioner",
+   "name": "Steve Shockley"
+  },
+  {
+   "race_id": "2026-WY-56037-county-assessor",
+   "name": "Marianne Stacey"
+  },
+  {
+   "race_id": "2026-WY-56039-county-clerk",
+   "name": "Maureen \"Mo\" Murphy",
+   "official_page": {
+    "url": "https://www.tetoncountywy.gov/Directory.aspx?did=13",
+    "source": "Teton County, staff directory: County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Teton County Clerk",
+     "to": "present",
+     "source": "Teton County, staff directory: County Clerk",
+     "url": "https://www.tetoncountywy.gov/Directory.aspx?did=13",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56041-county-clerk",
+   "name": "Amanda Hutchinson"
+  },
+  {
+   "race_id": "2026-WY-CCRET9-WEISMAN",
+   "name": "Erin E. Weisman",
+   "official_page": {
+    "url": "https://www.wyocourts.gov/court/circuit-court-of-the-9th-judicial-district-teton-county-state-of-wyoming-jackson/",
+    "source": "Wyoming Judicial Branch, Circuit Court of the Ninth Judicial District, Teton County",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Court Judge, Ninth Judicial District (Teton County); appointed August 2024, stands for retention November 2026",
+     "from": "2024",
+     "to": "present",
+     "source": "Wyoming Judicial Branch, Circuit Court of the Ninth Judicial District, Teton County",
+     "url": "https://www.wyocourts.gov/court/circuit-court-of-the-9th-judicial-district-teton-county-state-of-wyoming-jackson/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-13150-council-ward-2",
+   "name": "Michael Bond",
+   "official_page": {
+    "url": "https://www.casperwy.gov/government/city_council/index.php",
+    "source": "City of Casper, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Casper City Council, Ward II (term expires 1/5/27)",
+     "to": "present",
+     "source": "City of Casper, City Council",
+     "url": "https://www.casperwy.gov/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-25620-council-ward-1",
+   "name": "Joshua Rasnake"
+  },
+  {
+   "race_id": "2026-WY-M-33740-mayor",
+   "name": "Stan Blake",
+   "offices": [
+    {
+     "office": "Wyoming House of Representatives, House District 39 (Sweetwater County; listed as Blake, Stanley)",
+     "from": "2007",
+     "to": "2020",
+     "source": "Wyoming Legislature, legislator history list",
+     "url": "https://wyoleg.gov/LsoService/api/legislator",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Wyoming House of Representatives, House District 39 (\"served in the Legislature for the past 14 years\"; of Green River)",
+     "to": "2020",
+     "source": "Stan Blake's 2020 campaign, paid advertisement on SweetwaterNOW, 2 November 2020",
+     "url": "https://www.sweetwaternow.com/vote-stan-blake-for-wyoming-house-district-39/",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "General election, State Representative, House District 39 (printed as Blake (D))",
+     "year": 2020,
+     "party": "Democratic",
+     "source": "Wyoming Secretary of State, 2020 General Election Official Statewide House Candidates Summary",
+     "url": "https://sos.wyo.gov/Elections/Docs/2020/Results/General/2020_General_Statewide_House_Candidates_Summary.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-67235-council-ward-ii",
+   "name": "David A. Thompson",
+   "official_page": {
+    "url": "https://www.rswy.net/government/city_council/index.php",
+    "source": "City of Rock Springs, City Council (listed as David Thompson, Ward 2)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Springs City Council, Ward 2",
+     "to": "present",
+     "source": "City of Rock Springs, City Council",
+     "url": "https://www.rswy.net/government/city_council/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S-013-1-school-board",
+   "name": "Jeff Chapin"
+  },
+  {
+   "race_id": "2026-WY-S-015-1-school-board-at-large",
+   "name": "Sarah Chaires"
+  },
+  {
+   "race_id": "2026-WY-S-025-1-school-board",
+   "name": "Michael Stedillie",
+   "official_page": {
+    "url": "https://www.natronaschools.org/apps/pages/index.jsp?uREC_ID=2043111&type=d&pREC_ID=2114932",
+    "source": "Natrona County School District #1, Board of Trustees",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Natrona County School District #1 Board of Trustees, Trustee (Clerk)",
+     "to": "present",
+     "source": "Natrona County School District #1, Board of Trustees",
+     "url": "https://www.natronaschools.org/apps/pages/index.jsp?uREC_ID=2043111&type=d&pREC_ID=2114932",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S-037-1-school-board-rock-springs-area",
+   "name": "Leo Gray"
+  },
+  {
+   "race_id": "2026-WY-S-041-1-school-board",
+   "name": "Dauna D. Bruce"
+  },
+  {
+   "race_id": "2026-WY-SH12",
+   "name": "Clarence Styvar"
+  },
+  {
+   "race_id": "2026-WY-SH22",
+   "name": "Andrew Byron",
+   "website": {
+    "url": "https://www.abhd22.com",
+    "how": "Linked as his campaign website in WyoFile's 2026 election guide (projects.wyofile.com/election-guide-2026/candidates/byron-andrew/); the site names Andrew Byron and his service in the Wyoming House",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH31",
+   "name": "Douglas Moore"
+  },
+  {
+   "race_id": "2026-WY-SH41",
+   "name": "Erin Edwards"
+  },
+  {
+   "race_id": "2026-WY-SH50",
+   "name": "Carrie Satterwhite",
+   "past_party": [
+    {
+     "what": "General election, State Representative, House District 50",
+     "year": 2022,
+     "party": "Libertarian",
+     "source": "Wyoming Secretary of State, 2022 General Election Candidates",
+     "url": "https://sos.wyo.gov/Elections/Docs/2022/2022_WY_General_Election_Candidates.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-SH59",
+   "name": "Laurie Longtine"
+  },
+  {
+   "race_id": "2026-WY-SPI",
+   "name": "Steve Harshman",
+   "website": {
+    "url": "https://harshmanforwyoming.com",
+    "how": "Linked as his campaign website in WyoFile's 2026 election guide (projects.wyofile.com/election-guide-2026/candidates/harshman-steve/), which lists him for State Superintendent of Public Instruction; the site, Harshman for Wyoming, names Steve Harshman and his focus on Wyoming's students and schools (the office title is not in its static text); re-opened 2026-10-02: the home page names Steve Harshman, Wyoming and the Aug. 18 primary",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SS31",
+   "name": "Evie Brennan",
+   "website": {
+    "url": "https://eviebrennanforwyosenate.com",
+    "how": "Linked as her campaign website in WyoFile's 2026 election guide (projects.wyofile.com/election-guide-2026/candidates/brennan-evie/); the site names Evie Brennan and Senator District 31",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Evie Brennan Republican",
+    "url": "https://eviebrennanforwyosenate.com",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verifier_note": "Every url re-opened on 2026-10-02. One correction: the SweetwaterNOW piece of 2 November 2020 is marked on its page as a paid advertisement written by Stan Blake's campaign, so its kind is campaign, not secondary. Nothing removed."
+}

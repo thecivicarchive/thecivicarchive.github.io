@@ -1,0 +1,807 @@
+{
+ "state": "WY",
+ "gathered": "2026-10-02",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Wyoming has four parties on the 2026 November ballot for state and county offices (Republican, Democratic, Libertarian, Constitution); 'Independent' is not a party. No page read for this file calls anything an endorsement for a 2026 state or local race, so 'endorsements' is empty. Under 'other_support', with the page's own wording in 'kind' and never to be shown as an endorsement: the Wyoming Democratic Party's '2026 Candidates' (two pages: every card's name, office terms and counties; the cards' e-mail, blurbs and links were not read), the Albany County Democratic Party's '2026 Local Candidates' and '2026 State Candidates' (only each section heading and the name under it were read; the sections carry contact details), and the Constitution Party National Committee's 'Meet the Candidates', whose Wyoming section lists the Constitution Party of Wyoming's candidates. Each of these candidates is on the November ballot under that party's own label, so a line adds nothing to the party printed on the ballot; the lists are kept whole for the record. Lines matched although the page spells the name differently from the ballot keep the page's spelling in 'as_listed' (Dudley Case for Manna Dudley Case, Susan E. Schmid for Suzie Schmid, Ken for Kenneth R. Casner, Donald for Don VanMatre, Ben-David for Ben David, and names without the middle initial the ballot prints). Albany County's 'WYOMNG STATE SENATE: Rothfuss' gives no district; Chris Rothfuss is the only candidate of that name for the Senate on the November list (District 9). Federal offices on these pages are outside this file. Read on 2026-10-02 with the kit's honest User-Agent, each site's robots.txt checked first; every page in 'lists' was opened a second time and a record is kept only if the page still showed it (none was lost). Facebook pages are social media and were not read. What could not be read is under 'not_read', each with the reason; the Wyoming Republican Party's own pages are the main gap (see there). One thing for a person to look at: the Constitution Party's page lists Tony Perry and Cheryl Hulme for 'State Senate', District 10 and District 15, while the Secretary of State's November list has both as the party's candidates for State Representative in those district numbers; they are left unmatched rather than guessed.",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "title": "2026 Candidates",
+   "url": "https://wyodems.org/2026-candidates/",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "title": "2026 Candidates (page 2)",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "title": "2026 Local Candidates",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "title": "2026 State Candidates",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "read_on": "2026-10-02"
+  },
+  {
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "title": "Meet the Candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "read_on": "2026-10-02"
+  }
+ ],
+ "endorsements": [],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-WY-SH28",
+   "name": "Larry Alwin",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Larry Alwin: State Legislature, WY House, WY HD28 (Big Horn, Fremont, Hot Springs, Park)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-sheriff",
+   "name": "Aaron Appelhans",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Aaron Appelhans: County Office, County Sheriff (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH41",
+   "name": "Stacy Becker",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Stacy Becker: State Legislature, WY House, WY HD41 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-commissioner",
+   "name": "Merav Ben David",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Merav Ben David: County Office, County Commissioner (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-attorney",
+   "name": "Edward Kurt Britzius",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Edward Kurt Britzius: County Office, County Attorney (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56021-county-commissioner",
+   "name": "Barbara Cabot",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Barbara Cabot: County Office, County Commissioner (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-sheriff",
+   "name": "Matt Carr",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Matt Carr: County Office, County Sheriff (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56019-county-treasurer",
+   "name": "Manna Dudley Case",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Dudley Case: County Office, County Treasurer (Johnson)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-GOV",
+   "name": "Kenneth R. Casner",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Kenneth R. Casner: Statewide, WY Governor",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH13",
+   "name": "Ken Chestek",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Ken Chestek: State Legislature, WY House, WY HD13 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-county-commissioner",
+   "name": "Karyn Chin",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Karyn Chin: County Office, County Commissioner (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-coroner",
+   "name": "Katrina L. Clauson",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Katrina Clauson: County Office, County Coroner (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH57",
+   "name": "Luc Colgrove",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Luc Colgrove: State Legislature, WY House, WY HD57 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SPI",
+   "name": "Ana Cordova",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Ana Cordova: Statewide, State Superintendent of Public Instruction",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56021-sheriff",
+   "name": "Robin Cozad",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Robin Cozad: County Office, County Sheriff (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56021-county-commissioner",
+   "name": "Lynne K. Davis",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Lynne Davis: County Office, County Commissioner (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-county-commissioner",
+   "name": "Ali Dunford",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Ali Dunford: County Office, County Commissioner (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH37",
+   "name": "Betsy Erickson",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Betsy Erickson: State Legislature, WY House, WY HD37 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-treasurer",
+   "name": "Tracy Fletcher",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Tracy Fletcher: County Office, County Treasurer (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS17",
+   "name": "Mike Gierau",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Mike Gierau: State Legislature, WY Senate, WY SD17 (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-commissioner",
+   "name": "Pete Gosar",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Pete Gosar: County Office, County Commissioner (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS31",
+   "name": "Shifa Hamid",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Shifa Hamid: State Legislature, WY Senate, WY SD31 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS5",
+   "name": "Ted Hanlon",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Ted Hanlon: State Legislature, WY Senate, WY SD05 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56025-county-commissioner",
+   "name": "Lisa Jamieson",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Lisa Jamieson: County Office, County Commissioner (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-coroner",
+   "name": "Sally King",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Sally King: County Office, County Coroner (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH9",
+   "name": "Stephen D. Latham",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Stephen Latham: State Legislature, WY House, WY HD09 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS7",
+   "name": "Jim Lee",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Jim Lee: State Legislature, WY Senate, WY SD07 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH27",
+   "name": "Theresa Livingston",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Theresa Livingston: State Legislature, WY House, WY HD27 (Big Horn, Washakie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH7",
+   "name": "Gavin Lobmeyer",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Gavin Lobmeyer: State Legislature, WY House, WY HD07 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH59",
+   "name": "Laurie Longtine",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Laurie Longtine: State Legislature, WY House, WY HD59 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH8",
+   "name": "Brenda J Lyttle",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Brenda Lyttle: State Legislature, WY House, WY HD08 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56025-county-commissioner",
+   "name": "Candace Machado",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Candace Machado: County Office, County Commissioner (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-clerk-of-court",
+   "name": "Kayla Marroquin",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Kayla Marroquin: County Office, Clerk of District Court (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH36",
+   "name": "Stewart McAdoo",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Stewart McAdoo: State Legislature, WY House, WY HD36 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SOS",
+   "name": "Bryan McCarty",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Bryan McCarty: Statewide, Secretary of State",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH38",
+   "name": "Catherine McQueen",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Catherine McQueen: State Legislature, WY House, WY HD38 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH58",
+   "name": "Keenan Morgan",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Keenan Morgan: State Legislature, WY House, WY HD58 (Natrona)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-county-assessor",
+   "name": "Ashlee Nader",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Ashlee Nader: County Office, County Assessor (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH26",
+   "name": "Ralph Nieder-Westermann",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Ralph Nieder-Westermann: State Legislature, WY House, WY HD26 (Big Horn, Park)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH33",
+   "name": "Ivan D. Posey",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Ivan Posey: State Legislature, WY House, WY HD33 (Fremont)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-county-commissioner",
+   "name": "Luther Propst",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Luther Propst: County Office, County Commissioner (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH45",
+   "name": "Karlee Provenza",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Karlee Provenza: State Legislature, WY House, WY HD45 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH17",
+   "name": "Rah Reinholz",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Rah Reinholz: State Legislature, WY House, WY HD17 (Sweetwater)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS9",
+   "name": "Chris Rothfuss",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Chris Rothfuss: State Legislature, WY Senate, WY SD09 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH48",
+   "name": "Suzie Schmid",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Susan E. Schmid: State Legislature, WY House, WY HD48 (Sweetwater)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56037-county-commissioner",
+   "name": "Wayne Severson",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Wayne Severson: County Office, County Commissioner (Sweetwater)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH14",
+   "name": "Trey Sherwood",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Trey Sherwood: State Legislature, WY House, WY HD14 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH23",
+   "name": "Liz Storer",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Liz Storer: State Legislature, WY House, WY HD23 (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-county-attorney",
+   "name": "Richard \"Dick\" Stout",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Richard “Dick” Stout: County Office, County Attorney (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56039-clerk-of-court",
+   "name": "Anne Comeaux Sutton",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Anne Comeaux Sutton: County Office, Clerk of District Court (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH11",
+   "name": "Britney Tennant",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Britney Tennant: State Legislature, WY House, WY HD11 (Laramie)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH42",
+   "name": "Jim VanDyke",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Jim VanDyke: State Legislature, WY House, WY HD42 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-clerk",
+   "name": "Kayla White",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Kayla White: County Office, County Clerk (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH46",
+   "name": "Gary Wilken",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Gary Wilken: State Legislature, WY House, WY HD46 (Albany)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS11",
+   "name": "Jim Wilson",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Jim Wilson: State Legislature, WY Senate, WY SD11 (Carbon, Sweetwater)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH16",
+   "name": "Mike Yin",
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/?query-53-page=2",
+   "as_listed": "Mike Yin: State Legislature, WY House, WY HD16 (Teton)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-commissioner",
+   "name": "Merav Ben David",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY COMMISSIONER — Ben-David: Merav Ben-David",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-commissioner",
+   "name": "Pete Gosar",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY COMMISSIONER — Gosar: Pete Gosar",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-attorney",
+   "name": "Edward Kurt Britzius",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY ATTORNEY — Britzius: Edward \"Kurt\" Britzius",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-sheriff",
+   "name": "Aaron Appelhans",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY SHERIFF — Appelhans: Aaron Appelhans",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-coroner",
+   "name": "Sally King",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY CORONER — King: Sally King",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-clerk",
+   "name": "Kayla White",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY CLERK — White: Kayla White",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-county-treasurer",
+   "name": "Tracy Fletcher",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates COUNTY TREASURER — Fletcher: Tracy Fletcher",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-56001-clerk-of-court",
+   "name": "Kayla Marroquin",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-local-candidates",
+   "as_listed": "Albany County Candidates CLERK OF THE DISTRICT COURT — Marroquin: Kayla Marroquin",
+   "kind": "listed among the party's candidates (the page, 'Albany County Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH13",
+   "name": "Ken Chestek",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING HOUSE DISTRICT 13 — Chestek: Ken Chestek",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH14",
+   "name": "Trey Sherwood",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMNG HOUSE DISTRICT 14 — Sherwood: Trey Sherwood",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH45",
+   "name": "Karlee Provenza",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING HOUSE DISTRICT 45 — Provenza: Karlee Provenza",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SH46",
+   "name": "Gary Wilken",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING HOUSE DISTRICT 46 — Wilken: Gary Wilken",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS9",
+   "name": "Chris Rothfuss",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMNG STATE SENATE — Rothfuss: Chris Rothfuss",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-GOV",
+   "name": "Kenneth R. Casner",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING STATE GOVERNOR — Casner: Ken Casner",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SOS",
+   "name": "Bryan McCarty",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING SECRETARY OF STATE — McCarty: Bryan McCarty",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SPI",
+   "name": "Ana Cordova",
+   "party": "Democratic",
+   "unit": "Albany County Democratic Party",
+   "url": "https://albanycountywyodems.org/2026-state-candidates",
+   "as_listed": "State of Wyoming Candidates! WYOMING SUPERINTENDENT OF PUBLIC INSTRUCTION — Cordova: Ana Cordova",
+   "kind": "listed among the party's candidates (the page, 'State of Wyoming Candidates!', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-GOV",
+   "name": "Rebecca Bextel",
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "Constitution Party of Wyoming, STATE: Governor, Rebecca Bextel",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SOS",
+   "name": "Tamara Trujillo",
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "Constitution Party of Wyoming, STATE: Secretary of State, Tamara Trujillo",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-WY-SS11",
+   "name": "Don VanMatre",
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "Constitution Party of Wyoming, STATE: State Senate, District 11, Donald VanMatre",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)"
+  }
+ ],
+ "other_support_unmatched": 3,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Wyoming Democratic Party",
+   "url": "https://wyodems.org/2026-candidates/",
+   "as_listed": "Brenda Kirk: County Office, County Commissioner (Campbell)",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)",
+   "reason": "this county's contests are not loaded"
+  },
+  {
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "Constitution Party of Wyoming, STATE: State Senate, District 10, Tony Perry",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)",
+   "reason": "the page lists this name for State Senate, District 10; there is no Senate race of that number on the November list, and the November list has Tony Perry as the Constitution Party's candidate for State Representative, District 10; the office does not fit, so it is not matched"
+  },
+  {
+   "party": "Constitution",
+   "unit": "Constitution Party National Committee, listing the Constitution Party of Wyoming's candidates",
+   "url": "https://constitutionparty.com/elections/meet-the-candidates/",
+   "as_listed": "Constitution Party of Wyoming, STATE: State Senate, District 15, Cheryl Hulme",
+   "kind": "listed among the party's candidates (the page, 'Meet the Candidates', does not say endorsed)",
+   "reason": "the page lists this name for State Senate, District 15; the Senate District 15 race on the November list has no candidate of this name, and the November list has Cheryl Hulme as the Constitution Party's candidate for State Representative, District 15; the office does not fit, so it is not matched"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "Wyoming Republican Party",
+   "url": "https://wyoming.gop/news/wygop-platform-alignment-endorsements-2026",
+   "why": "not read. The party's site (wyoming.gop) sends every page as the same empty shell and loads the text by script from its /api/ path, which the site's robots.txt asks programs not to read; the pages themselves are allowed but hold no text (also tried for /candidates, /news/wygop-supports-homeowner-property-tax-initiative-and-candidate-campaigns and /news/chairmans-letter-united-for-november-2026). News reports say the party's State Central Committee endorsed Brent Bien (Governor), Rachel Rodriguez-Williams (Secretary of State), Scott Smith (Treasurer) and Tom Kelly (Superintendent) before the August 18 primary; all four lost that primary (the database's primary lists show them as 'lost'), and nothing is recorded from news reports. Reading the /api/ path, or the pages in a browser, is John's decision."
+  },
+  {
+   "party": "Republican",
+   "unit": "Wyoming Republican Party",
+   "url": "https://www.wygop.org/",
+   "why": "read (its sitemaps); the domain no longer belongs to the party (its posts since 2024 are unrelated advertising), so nothing there is used"
+  },
+  {
+   "party": "Republican",
+   "unit": "Laramie County Republican Party",
+   "url": "https://laramiecountygop.org/",
+   "why": "held, not read: the site's robots.txt asks every program to stay out (Disallow: /), so nothing on it was opened; whether it lists 2026 candidates is not known"
+  },
+  {
+   "party": "Republican",
+   "unit": "Park County Republican Party",
+   "url": "https://parkcountygop.org/",
+   "why": "not read: the address did not answer with a certificate for its own name, and later did not resolve; news reports describe the unit's first endorsements, made before the August primary, but no page of the party's own showing them was found"
+  },
+  {
+   "party": "Republican",
+   "unit": "the other county Republican parties",
+   "url": "https://wyoming.gop/counties",
+   "why": "the state party's county directory is part of the same script-loaded site and could not be read; searches found no other county Republican page listing 2026 endorsements (Goshen County's party said publicly it did not take part in endorsing)"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Wyoming",
+   "url": "https://lpwy.org/",
+   "why": "not read: the site answers with a self-signed certificate, and certificate checking is never turned off to get a page. News reports say its convention's nominations of Cale Case and Karlee Provenza were rejected by the Secretary of State; the four Libertarians on the November list (Ryan Shollenberger, Carrie Satterwhite, Holly M. Butler, Joseph Porambo) have no party page read here"
+  },
+  {
+   "party": "Constitution",
+   "unit": "Constitution Party of Wyoming",
+   "url": "https://wyomingconstitutionparty.com/",
+   "why": "not read: the address tried answered 503 (Service Unavailable) on both attempts, and no other site of the state party's own was found; its candidates are read from the national committee's page instead"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Laramie County Democrats",
+   "url": "https://www.laramiecountydemocrats.org/candidates",
+   "why": "read; its 2026 Candidates page names only the two federal candidates, which are outside this file"
+  },
+  {
+   "party": "Democratic",
+   "unit": "the other county Democratic parties",
+   "url": "https://wyodems.org/2026-candidates/",
+   "why": "no site of their own listing 2026 candidates was found (the state party's list covers their counties)"
+  }
+ ]
+}

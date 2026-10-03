@@ -1,0 +1,60 @@
+{
+ "rule": "Wyoming's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "Five statewide offices are on Wyoming's November ballot: Governor, Secretary of State, State Auditor, State Treasurer and Superintendent of Public Instruction. No pollster in AAPOR's Transparency Initiative has published a poll of any of them. Emerson College Polling's last Wyoming survey was in October 2023 (a news search and Emerson's own site, read 2026-10-02), and ActiVote has published none for this state.",
+ "races": {
+  "2026-WY-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Pulse Decision Science (the Republican primary, July 18-20, 2026, for Eric Barlow's campaign)",
+     "Cygnal (a memo on a possible Republican primary with Harriet Hageman, late January 2025; the other names asked about were not published)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wyoming_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race. Wikipedia's page lists one poll, the Barlow campaign's own (read 2026-10-02); the Cygnal memo was reported by Cowboy State Daily on February 3, 2025, before Harriet Hageman chose to run for the U.S. Senate instead. The Barlow campaign's statement also mentions an earlier survey of its own whose figures were not published, so it is not counted. No poll of November's three-way race (Eric Barlow, Kenneth R. Casner, Rebecca Bextel) was found."
+   }
+  },
+  "2026-WY-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wyoming_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "Secretary of State. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-02), and a news search found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-WY-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wyoming_State_Auditor_election",
+    "checked": "2026-10-02",
+    "note": "State Auditor. One candidate is on the November list, so no poll was to be expected; Wikipedia's page has no polling section (read 2026-10-02), and none was found."
+   }
+  },
+  "2026-WY-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wyoming_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "State Treasurer. One candidate is on the November list, so no poll was to be expected; Wikipedia's page has no polling section (read 2026-10-02), and no poll of the August primary was found either."
+   }
+  },
+  "2026-WY-SPI": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Wyoming_Superintendent_of_Public_Instruction_election",
+    "checked": "2026-10-02",
+    "note": "Superintendent of Public Instruction. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-02), and a news search found none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  }
+ }
+}

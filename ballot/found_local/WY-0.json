@@ -1,0 +1,343 @@
+{
+ "part": 0,
+ "of": 15,
+ "researched": "2026-10-02",
+ "note": "The session's shared web search allowance ran out after the first nineteen candidates were searched; the rest were looked up through official pages (county, city and court sites), the WyoFile 2026 election guide's candidate-website links and The Ballot Brief's campaign-site links; every campaign site was opened with the kit's User-Agent. Ages in the WyoFile guide were not turned into birth years (an age on Election Day fits two years). No party page read calls anything a 2026 endorsement (see ballot/lean/wy_endorsements.json), so no endorsed_by. Dwain Streeter is listed by Albany County as a deputy clerk of court (an employee, not an office), so no office is recorded. The city council and school board candidates in this part were not on their bodies' current member pages, and no campaign site was found for them.",
+ "candidates": [
+  {
+   "race_id": "2026-WY-56001-clerk-of-court",
+   "name": "Dwain Streeter"
+  },
+  {
+   "race_id": "2026-WY-56001-sheriff",
+   "name": "Aaron Appelhans",
+   "website": {
+    "url": "https://www.appelhansforsheriff.com",
+    "how": "Site titled 'Elect Aaron Appelhans for Albany County Wyoming Sheriff', dated 2026, paid for by Aaron Appelhans For Sheriff",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.albanycountywy.gov/m/directory/employee?eid=61",
+    "source": "Albany County staff directory: Aaron Appelhans, Sheriff",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Albany County Sheriff",
+     "from": "",
+     "to": "",
+     "source": "Albany County staff directory: Aaron Appelhans, Sheriff",
+     "url": "https://www.albanycountywy.gov/m/directory/employee?eid=61",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Albany County Sheriff, general election",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Laramie Reporter, Albany County 2022 general election results ('Democrat Aaron Appelhans: 6,549')",
+     "url": "https://laramiereporter.substack.com/p/albany-county-2022-general-election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56007-county-clerk",
+   "name": "Lisa M. Smith",
+   "official_page": {
+    "url": "https://carboncountywy.gov/938/County-Clerk",
+    "source": "Carbon County, County Clerk page: 'Lisa Smith is the Carbon County Clerk.'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carbon County Clerk",
+     "from": "",
+     "to": "",
+     "source": "Carbon County, County Clerk page",
+     "url": "https://carboncountywy.gov/938/County-Clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56011-clerk-of-court",
+   "name": "Julie Crawford",
+   "official_page": {
+    "url": "https://www.wyocourts.gov/court/district-court-6th-judicial-district-crook-county/",
+    "source": "Wyoming Judicial Branch, District Court, 6th Judicial District, Crook County: Clerk Julie Crawford",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crook County Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "Crook County, Elected Officials page: Clerk of District Court Julie Crawford",
+     "url": "https://www.crookcounty.wy.gov/elected_officials/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56015-county-commissioner",
+   "name": "Brent L Anderson"
+  },
+  {
+   "race_id": "2026-WY-56019-coroner",
+   "name": "Shawn M. Sullivan",
+   "official_page": {
+    "url": "https://www.johnsoncowy.gov/departments/coroner",
+    "source": "Johnson County, Coroner page: Shawn Sullivan, County Coroner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Johnson County Coroner",
+     "from": "",
+     "to": "",
+     "source": "Johnson County, Coroner page",
+     "url": "https://www.johnsoncowy.gov/departments/coroner",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56021-county-commissioner",
+   "name": "Jess E. Ketcham",
+   "website": {
+    "url": "https://www.ketchamforcommissioner.com",
+    "how": "Site titled 'Jess E. Ketcham for County Commissioner', naming Laramie County; paid for by Jess E. Ketcham",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trustee, Laramie County Community College Board of Trustees",
+     "from": "",
+     "to": "",
+     "source": "Wyoming Tribune Eagle, 'Jess Ketcham declares bid for Laramie County commissioner' (about a decade as an LCCC trustee)",
+     "url": "https://www.wyomingnews.com/news/local_news/jess-ketcham-declares-bid-for-laramie-county-commissioner/article_cbab879c-1773-42ad-bf3c-eff1c9fe91c0.html",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Laramie County Commissioner, primary election (REP County Commissioner)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Laramie County Clerk, 2024 primary election results",
+     "url": "https://laramiecountywy.gov/files/sharedassets/public/v/4/clerk/documents/election-results/2024primaryresults.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Republican 5th Generation Laramie County Resident",
+    "url": "https://www.ketchamforcommissioner.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-56025-county-commissioner",
+   "name": "Ray Pacheco"
+  },
+  {
+   "race_id": "2026-WY-56031-coroner",
+   "name": "Tiffany Gorman Dean"
+  },
+  {
+   "race_id": "2026-WY-56035-county-commissioner",
+   "name": "David M. \"Dave\" Smith"
+  },
+  {
+   "race_id": "2026-WY-56039-clerk-of-court",
+   "name": "Anne Comeaux Sutton",
+   "official_page": {
+    "url": "https://www.tetoncountywy.gov/204/Clerk-of-the-District-Court",
+    "source": "Teton County, Clerk of the District Court page: Anne C. Sutton, Clerk of the District Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Teton County Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "Teton County, Clerk of the District Court page",
+     "url": "https://www.tetoncountywy.gov/204/Clerk-of-the-District-Court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56039-sheriff",
+   "name": "Eric Snow"
+  },
+  {
+   "race_id": "2026-WY-CCRET3-PROKOS",
+   "name": "John R. Prokos",
+   "official_page": {
+    "url": "https://www.wyocourts.gov/court/circuit-court-of-the-3rd-judicial-district-sweetwater-county-state-of-wyoming-rock-springs/",
+    "source": "Wyoming Judicial Branch, Circuit Court of the 3rd Judicial District, Sweetwater County (Rock Springs): Honorable John Prokos, appointed June 2013, stands for retention November 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Court Judge, Third Judicial District (Sweetwater County)",
+     "from": 2013,
+     "to": "",
+     "source": "Wyoming Judicial Branch court page: appointed June 2013",
+     "url": "https://www.wyocourts.gov/court/circuit-court-of-the-3rd-judicial-district-sweetwater-county-state-of-wyoming-rock-springs/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-DCRET9-CONDER",
+   "name": "Jason M. Conder",
+   "official_page": {
+    "url": "https://www.wyocourts.gov/court/district-court-9th-judicial-district-fremont-county/",
+    "source": "Wyoming Judicial Branch, District Court, 9th Judicial District, Fremont County: Honorable Jason M. Conder, appointed July 2019, retained November 2020, stands for retention November 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Court Judge, Ninth Judicial District",
+     "from": 2019,
+     "to": "",
+     "source": "Wyoming Judicial Branch court page: appointed July 2019, retained November 2020",
+     "url": "https://www.wyocourts.gov/court/district-court-9th-judicial-district-fremont-county/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-13900-council-ward-2",
+   "name": "Lynn A Storey-Huylar"
+  },
+  {
+   "race_id": "2026-WY-M-33740-council-ward-i",
+   "name": "Tom Murphy"
+  },
+  {
+   "race_id": "2026-WY-M-45050-council-ward-3",
+   "name": "Brett Ralston"
+  },
+  {
+   "race_id": "2026-WY-S-001-1-school-board-area-a",
+   "name": "Jessica Taylor"
+  },
+  {
+   "race_id": "2026-WY-S-013-25-school-board",
+   "name": "Claire Manning"
+  },
+  {
+   "race_id": "2026-WY-S-021-1-school-board-area-3",
+   "name": "Henry \"Hank\" Bailey"
+  },
+  {
+   "race_id": "2026-WY-S-029-6-school-board",
+   "name": "Cathy Roes"
+  },
+  {
+   "race_id": "2026-WY-S-037-2-school-board-green-river-area",
+   "name": "Tom Wilson"
+  },
+  {
+   "race_id": "2026-WY-SH1",
+   "name": "Troy Claycomb",
+   "website": {
+    "url": "https://www.electtroyclaycomb.com",
+    "how": "Site titled 'Elect Troy Claycomb Wyoming House District 1'; linked as Candidate Website in WyoFile's 2026 election guide",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH17",
+   "name": "Rah Reinholz",
+   "website": {
+    "url": "https://wyorah.com/",
+    "how": "Site says 'I'm Rah Reinholz and I am running for House district 17'; paid for by Rah for HD17; linked from WyoFile's 2026 guide",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH28",
+   "name": "Allen Hogg",
+   "website": {
+    "url": "https://allenhoggforwyoming.com",
+    "how": "Site titled 'Allen Hogg for Wyoming House District 28'; linked from WyoFile's 2026 guide",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH37",
+   "name": "Brian Costello",
+   "website": {
+    "url": "https://www.costelloforcasper.com/",
+    "how": "Site reads 'Brian Costello for Wyoming House District 37'; linked from WyoFile's 2026 guide",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH46",
+   "name": "Gary Wilken",
+   "website": {
+    "url": "https://garywilkenhd46.com/",
+    "how": "Site titled 'Gary Wilken - Democrat For Wyoming HD46'; linked from WyoFile's 2026 guide",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Democrat For Wyoming HD46",
+    "url": "https://garywilkenhd46.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH57",
+   "name": "Julie Jarvis",
+   "website": {
+    "url": "https://www.jarviswyo.com",
+    "how": "Site 'JarvisWYO.com', 'WY House 57', paid for by Friends of Julie Jarvis; linked from WyoFile's 2026 guide",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH9",
+   "name": "Boyd O. Wiggam",
+   "website": {
+    "url": "https://wiggam4wyoming.com",
+    "how": "Site titled 'Wiggam House District 9 - Boyd O. Wiggam for Wyoming'; 'Wiggam House District 9: Boyd O. Wiggam's Campaign'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SS21",
+   "name": "Melissa Butcher",
+   "website": {
+    "url": "https://butcherforwyomingsenate.com",
+    "how": "Site says 'Melissa Butcher is running for Senate District 21'; paid for by Butcher for Wyoming, 2026; linked from WyoFile's 2026 guide",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [
+  {
+   "race_id": "2026-WY-56025-county-commissioner",
+   "name": "Ray Pacheco",
+   "what": "official_page and office (Casper Mayor, City Council Ward III)",
+   "why": "The City of Casper page shows a Ray Pacheco as mayor but nothing ties him to the 2026 Natrona County commissioner race; no second anchor was found, so left out."
+  }
+ ],
+ "verification_note": "Every url re-opened with the kit User-Agent on 2026-10-02; the Laramie County 2024 primary PDF shows JESS E. KETCHAM under REP COUNTY COMMISSIONER. Corrected: Wiggam website wording (only the title was confirmed); Sutton office source trimmed to the page re-opened."
+}

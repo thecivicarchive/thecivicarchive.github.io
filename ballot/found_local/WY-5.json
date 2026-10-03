@@ -1,0 +1,78 @@
+{"part": 5, "of": 15, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "note": "The session's web-search allowance ran out after the first few candidates; the rest were looked for only on official sites reachable directly (county, city and school district pages, the Secretary of State's 2020-2024 official results summaries, the Wyoming Judicial Branch). Candidates with nothing found are listed with no findings.",
+ "removed": [
+  {"race_id": "2026-WY-56003-county-attorney", "name": "Marcia E. Bean", "what": "offices: Big Horn County and Prosecuting Attorney from 2018 (Northern Wyoming News, wyodaily.com)", "why": "The story is behind a paywall; the visible lede says only that she was appointed Special County and Prosecuting Attorney for Big Horn County on April 23, 2018, which is not the office as recorded."},
+  {"race_id": "2026-WY-56003-county-attorney", "name": "Marcia E. Bean", "what": "past_party: Republican, 2018 appointment after Big Horn County Republican Party committee interviews", "why": "Behind the same paywall; nothing visible mentions a party committee."}
+ ],
+ "candidates": [
+  {"race_id": "2026-WY-56001-county-attorney", "name": "Edward Kurt Britzius",
+   "official_page": {"url": "https://www.albanycountywy.gov/214/Meet-the-County-Prosecuting-Attorney", "source": "Albany County, Wyoming: Meet the County & Prosecuting Attorney (Kurt Britzius)", "verified": true},
+   "offices": [
+    {"office": "Albany County and Prosecuting Attorney", "from": "2021", "to": "present", "source": "Albany County: appointed and sworn in May 24, 2021; sworn in again January 3, 2023 after the election", "url": "https://www.albanycountywy.gov/214/Meet-the-County-Prosecuting-Attorney", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Appointed Albany County and Prosecuting Attorney by the county commissioners from three names submitted by the Albany County Democrats after the previous county attorney resigned", "year": "2021", "party": "Democratic", "source": "Laramie Reporter, 'Kurt Britzius named Albany County & Prosecuting Attorney'", "url": "https://laramiereporter.substack.com/p/kurt-britzius-named-albany-county", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56003-county-attorney", "name": "Marcia E. Bean",
+   "official_page": {"url": "https://bighorncountywy.gov/departments/attorney", "source": "Big Horn County, Wyoming: County Attorney (Marcia Bean, County & Prosecuting Attorney)", "verified": true}},
+  {"race_id": "2026-WY-56009-clerk-of-court", "name": "Barbara Harris",
+   "official_page": {"url": "https://conversecountywy.gov/Directory.aspx?did=20", "source": "Converse County, Wyoming directory: Barbara Harris, Converse County Clerk of District Court", "verified": true},
+   "offices": [
+    {"office": "Converse County Clerk of District Court (appointed by the county commissioners)", "from": "2026", "to": "present", "source": "Douglas Budget, 'Commissioners tap Harris as clerk of district court' (April 15, 2026): the freely shown opening sentence states the appointment", "url": "https://www.douglas-budget.com/article/862,commissioners-tap-harris-as-clerk-of-district-court-slot", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56011-county-commissioner", "name": "Fred Devish",
+   "official_page": {"url": "https://www.crookcounty.wy.gov/elected_officials/commissioners/index.php", "source": "Crook County, Wyoming: County Commissioners (Fred M. Devish, Chairman)", "verified": true},
+   "offices": [
+    {"office": "Crook County Commissioner", "from": "2019", "to": "present", "source": "Moorcroft Leader, 'Duty calls' (Jan 10, 2019): Fred Devish begins a four-year tenure as County Commissioner", "url": "https://www.moorcroftleader.com/story/2019/01/10/social/duty-calls/139.html", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56017-coroner", "name": "Mark Mortimore",
+   "offices": [
+    {"office": "Hot Springs County Coroner", "from": null, "to": null, "source": "Thermopolis Independent Record (July 19, 2018): names County Coroner Mark Mortimore before the Hot Springs County commissioners; start year not stated", "url": "https://www.thermopir.com/story/2018/07/19/news/commissioners-coroner-discuss-the-bones-in-the-trunk/6325.html?m=true", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56019-county-commissioner", "name": "Jeff Shelley"},
+  {"race_id": "2026-WY-56021-sheriff", "name": "Brian Kozak",
+   "official_page": {"url": "https://www.laramiecountywy.gov/County-Government/Elected-Officials/Laramie-County-Sheriffs-Office/Brian-Kozak", "source": "Laramie County, Wyoming: Brian Kozak, Laramie County Sheriff", "verified": true},
+   "offices": [
+    {"office": "Laramie County Sheriff", "from": "2023", "to": "present", "source": "Laramie County Sheriff's Department news release, January 3, 2023: Sheriff Brian Kozak took his oath of office", "url": "https://www.laramiecountywy.gov/files/sharedassets/public/v/1/sheriff/documents/1-3-23-news-release-sheriff-kozak-and-admin-staff-sworn-in.pdf", "kind": "official", "verified": true},
+    {"office": "Chief of Police, City of Cheyenne", "from": null, "to": "2021", "source": "KOWB 1290 (Aug 17, 2022): longest-serving police chief in Cheyenne history, over a decade, not retained by the incoming mayor in January 2021; Laramie County's page gives 11 years", "url": "https://kowb1290.com/ixp/99/p/kozak-wins-gop-laramie-county-sheriff-primary-faces-barnes-fresquez/", "kind": "secondary", "verified": true},
+    {"office": "Chief of Police, Avon, Colorado", "from": null, "to": null, "source": "Laramie County's page: after 22 years with the Mesa, Arizona police he became police chief in Avon, Colorado, coming to Cheyenne four years later; years not stated", "url": "https://www.laramiecountywy.gov/County-Government/Elected-Officials/Laramie-County-Sheriffs-Office/Brian-Kozak", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Won the Republican primary for Laramie County Sheriff (9,370 votes)", "year": "2022", "party": "Republican", "source": "KOWB 1290, 'Kozak Wins GOP Laramie County Sheriff Primary, Faces Barnes, Fresquez' (Aug 17, 2022)", "url": "https://kowb1290.com/ixp/99/p/kozak-wins-gop-laramie-county-sheriff-primary-faces-barnes-fresquez/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56029-coroner", "name": "Cody W. Gortmaker",
+   "official_page": {"url": "https://parkcounty-wy.gov/county-coroner/", "source": "Park County, Wyoming: Park County Coroner's Office (Cody Gortmaker, CMDI, Park County Coroner)", "verified": true},
+   "offices": [
+    {"office": "Park County Coroner", "from": null, "to": "present", "source": "Park County Coroner's Office page; start year not stated", "url": "https://parkcounty-wy.gov/county-coroner/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-WY-56031-county-commissioner", "name": "Kayla Mantle"},
+  {"race_id": "2026-WY-56037-coroner", "name": "Travis R. Sanders"},
+  {"race_id": "2026-WY-56039-county-attorney", "name": "Richard \"Dick\" Stout"},
+  {"race_id": "2026-WY-56041-county-attorney", "name": "Loretta Howieson Kallas"},
+  {"race_id": "2026-WY-CCRET9-COOMBS", "name": "Jefferson Boone Coombs"},
+  {"race_id": "2026-WY-M-13150-council-ward-1", "name": "Jessie Bell"},
+  {"race_id": "2026-WY-M-15760-council-ward-3", "name": "Joseph Burrell"},
+  {"race_id": "2026-WY-M-33740-mayor", "name": "Phil Stanton"},
+  {"race_id": "2026-WY-M-67235-council-ward-i", "name": "Robert Godfrey"},
+  {"race_id": "2026-WY-S-013-1-school-board", "name": "Austin Shields"},
+  {"race_id": "2026-WY-S-015-1-school-board-at-large", "name": "Peter Kasperbauer"},
+  {"race_id": "2026-WY-S-025-1-school-board", "name": "Kevin Christopherson",
+   "official_page": {"url": "https://www.natronaschools.org/apps/pages/index.jsp?uREC_ID=2043111&type=d&pREC_ID=2114932", "source": "Natrona County School District 1: Board of Trustees (Trustee Kevin Christopherson, Chair, term expires 2026)", "verified": true},
+   "offices": [
+    {"office": "Trustee (Chair), Natrona County School District #1 Board of Trustees", "from": null, "to": "present (term expires 2026)", "source": "Natrona County School District 1, Board of Trustees page", "url": "https://www.natronaschools.org/apps/pages/index.jsp?uREC_ID=2043111&type=d&pREC_ID=2114932", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-WY-S-037-1-school-board-rock-springs-area", "name": "Laurel Gandy"},
+  {"race_id": "2026-WY-S-041-1-school-board", "name": "Caleb Guild",
+   "official_page": {"url": "https://www.uinta1.com/en-US?orgId=c936cc91-6260-4f63-81fe-cc403df498c0", "source": "Uinta County School District #1: School Board page, listing Caleb Guild among the board's members (David Peterson, Chairman)", "verified": true},
+   "offices": [
+    {"office": "Member, Uinta County School District #1 Board of Trustees", "from": null, "to": "present", "source": "Uinta County School District #1, School Board page; start year not stated", "url": "https://www.uinta1.com/en-US?orgId=c936cc91-6260-4f63-81fe-cc403df498c0", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-WY-SH11", "name": "Ryan Shollenberger"},
+  {"race_id": "2026-WY-SH21", "name": "McKay L. Erickson"},
+  {"race_id": "2026-WY-SH31", "name": "Dave Hardesty"},
+  {"race_id": "2026-WY-SH40", "name": "Marilyn Connolly"},
+  {"race_id": "2026-WY-SH5", "name": "Joe Speckner"},
+  {"race_id": "2026-WY-SH59", "name": "J.R. Riggins"},
+  {"race_id": "2026-WY-SPI", "name": "Ana Cordova"},
+  {"race_id": "2026-WY-SS3", "name": "Cheri E Steinmetz"}
+ ]}

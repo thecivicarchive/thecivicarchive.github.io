@@ -37,7 +37,9 @@ website cell either; its "local_note" says its cities and schools vote in April 
 the 13 election authorities read so far; its legislative races, whose jurisdiction is the state's own name, are named
 by district in the scope file, and the City of St. Louis Board of Education is tied to the Census Bureau's row by name. Montana (2026-10-02) has no
 website cell either; its "local_note" says the county rows are those of the nine county election offices read so far
-and that its cities vote in odd years and its school trustees in May.
+and that its cities vote in odd years and its school trustees in May. Wyoming (2026-10-02) has no website cell either;
+its "local_note" says the county, city and school rows are those of the 16 county clerks read so far (and Fremont's
+school filings), and that judges are in the scope as the one name on a retention vote.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -285,7 +287,26 @@ STATES = {"MN": {"name": "Minnesota"},
                                "seats in Red Lodge, a city under the scope's 10,000) and no school board. The two Public Service "
                                "Commission seats are elected by district and are in the scope with the statewide offices; a judge "
                                "nobody filed against is the one name in the race, on a yes-or-no retention vote (MCA 13-14-212). Conservation district supervisors are "
-                               "outside the scope's rule and are not in it."}}
+                               "outside the scope's rule and are not in it."},
+          # Wyoming (2026-10-02): the Secretary of State's candidate file has contact columns the list loader never reads
+          # and this module does not read either, and the county clerks' sample ballots and rosters have no website cell
+          # this module reads, so its websites come from verified findings only. Its legislative races carry "Senate
+          # District N" or "House District N" as their jurisdiction and its district and circuit court retention votes
+          # the judicial district, so the scope needs no district words; city and town races carry the Census place code
+          # as WY-M-<code>, and school districts the Census Bureau's own names once "#" is set aside. Wyoming elects no
+          # Lieutenant Governor, so a candidate for Governor runs alone ("no_ticket": the scope says nothing of a ticket)
+          "WY": {"name": "Wyoming", "legislature": r"\bwyoming (?:state )?(?:house|senate|legislat\w+)|\bhouse of representatives\b",
+                 "no_ticket": True, "school_names": {},
+                 "local_note": "Wyoming has no statewide list of county, city or school candidates: the county offices, mayors, city and "
+                               "town councils and school boards here are those on the sample ballots and candidate rosters of the 16 "
+                               "county clerks read so far (Albany, Big Horn, Carbon, Converse, Crook, Goshen, Hot Springs, Johnson, "
+                               "Laramie, Natrona, Park, Platte, Sublette, Sweetwater, Teton and Uinta), with Fremont County's list of "
+                               "school and special district filings, and the other counties' are not loaded yet (Campbell and Sheridan "
+                               "among them, so Gillette and Sheridan are not in the scope). A town that has chosen by charter ordinance to "
+                               "vote in May (W.S. 22-23-202) is not on this ballot. Judges do not run against anyone: each is in the "
+                               "scope as the one name on a yes-or-no retention vote. Community college trustees, conservation district "
+                               "supervisors and the boards of hospital, fire, cemetery and other special districts are outside the "
+                               "scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -1450,8 +1471,8 @@ def scope(con, say=print, out_dir=FOUND_DIR, threshold=THRESHOLD, state="MN"):
                 or (r["level"] == "city" and r["office_kind"] in FULL_CITY and r["jurisdiction_id"] in in_city)
                 or (r["level"] == "school" and r["jurisdiction_id"] in in_school)):
             office = office_words(r)
-            if r["office_kind"] == "governor":
-                office += " (one ticket: findings are about the candidate for Governor, who is named first)"
+            if r["office_kind"] == "governor" and not STATES.get(state, {}).get("no_ticket"):      # Wyoming has no Lieutenant Governor
+                office +=" (one ticket: findings are about the candidate for Governor, who is named first)"
             where = r["jurisdiction"]
             if where == words and state != "MN" and r["level"] == "legislature":      # Missouri's give the state's own name
                 where = ""

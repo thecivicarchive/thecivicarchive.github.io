@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.093 — 2026-10-02 — Wyoming gets the same treatment
+
+- Wyoming's ballot page now has the real map: 946 precinct pieces with the districts they sit in (county, city or town, House, Senate, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot. The precinct lines are the Census Bureau's from 2020; where a piece matches the Secretary of State's 2026 precinct list, the page gives the precinct as that list writes it. Wyoming publishes no statewide lines for its conservation, hospital, college and other special districts, so a reader placed by location is told those races cannot be placed from a location.
+- Wyoming's candidates for Governor, the other statewide offices, the Legislature, the courts and the counties, cities and school boards loaded so far show what the record holds: 120 have an official government page, 71 a campaign website of their own, offices held (163, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- "The record, not a label": earlier runs under a party label and the candidate's own words. No Wyoming party page uses the word "endorsed", so that part of the record is empty here.
+- How each place voted, from the Secretary of State's precinct results: President and Senator in 2024 and 2020, Governor in 2022, for all 23 counties and 9 judicial districts, and for the 33 House and 17 Senate districts whose precincts are whole; the rest are left out rather than estimated, and there are no figures for cities.
+- No pollster that publishes its methods has polled a Wyoming state race. The Governor's race has prediction-market prices as a tab. Wyoming elects no Lieutenant Governor, so its Governor's race is between single candidates. Polling places stay off the map; the page points to the state's own finder.
+
 ## v4.0.092 — 2026-10-02 — Montana gets the same treatment
 
 - Montana's ballot page now has the real map, drawn on the Montana State Library's 2026 precinct splits (current lines; in Carbon and Powell counties, where the splits are incomplete, whole precincts fill the gaps and the page says so), with the districts each precinct sits in (county, city or town, ward, House, Senate, Congress, judicial district, Public Service Commission district, school districts), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.

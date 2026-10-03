@@ -1,0 +1,90 @@
+{"part": 10, "of": 15, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "removed": [
+   {"race_id": "2026-WY-56029-county-commissioner", "name": "Lloyd E. Thiel", "what": "past_party (2018 Republican primary, Powell Tribune)", "why": "the Powell Tribune answered 403 on two tries; not confirmed"}],
+ "candidates": [
+  {"race_id": "2026-WY-56001-county-commissioner", "name": "Merav Ben David",
+   "born": {"year": 1959, "source": "Wikipedia, Merav Ben-David (cited to a University of Wyoming news article)", "url": "https://en.wikipedia.org/wiki/Merav_Ben-David", "kind": "secondary", "verified": true},
+   "past_party": [
+     {"what": "Democratic nominee for United States Senator, Wyoming", "year": 2020, "party": "Democratic", "source": "Wikipedia, Merav Ben-David", "url": "https://en.wikipedia.org/wiki/Merav_Ben-David", "kind": "secondary", "verified": true},
+     {"what": "Democratic nominee (unopposed in the Democratic primary) for Wyoming House of Representatives, District 46", "year": 2022, "party": "Democratic", "source": "Wikipedia, Merav Ben-David (election results tables)", "url": "https://en.wikipedia.org/wiki/Merav_Ben-David", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56015-coroner", "name": "Darin R Yates",
+   "official_page": {"url": "https://www.goshencountywy.gov/directory.aspx", "source": "Goshen County staff directory (lists Darin Yates, County Coroner)", "verified": true},
+   "offices": [{"office": "Goshen County Coroner", "from": null, "to": "present", "source": "Goshen County staff directory", "url": "https://www.goshencountywy.gov/directory.aspx", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-56017-county-commissioner", "name": "Phillip Scheel",
+   "offices": [{"office": "Hot Springs County Commissioner", "from": 2017, "to": null, "source": "Thermopolis Independent Record, 27 June 2024: 'elected to his first term as county commissioner in 2016' (Wyoming county terms begin in January)", "url": "https://thermopir.com/story/2024/06/27/news/scheel-announces-bid-for-re-election-as-county-commissioner/14769.html", "kind": "secondary", "verified": true}],
+   "past_party": [{"what": "Won the Republican primary for Hot Springs County Commissioner", "year": 2016, "party": "Republican", "source": "Thermopolis Independent Record, 18 August 2016", "url": "https://www.thermopir.com/story/2016/08/18/news/primary-voters-select-scheel-as-commissioner/2600.html", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56021-coroner", "name": "Rebecca Reid",
+   "official_page": {"url": "https://www.laramiecountywy.gov/County-Government/Elected-Officials/County-Coroner", "source": "Laramie County, Elected Officials, County Coroner", "verified": true},
+   "offices": [{"office": "Laramie County Coroner", "from": 2019, "to": "present", "source": "Wyoming Tribune Eagle, 22 August 2018: won the 2018 Republican primary for coroner, unopposed in November; the county's page names her coroner today", "url": "https://www.wyomingnews.com/news/local_news/reid-wins-coroner-s-race-sheriff-advances-clerk-keeps-seat/article_87a7fd2e-a5d3-11e8-a585-7b2fb06b1209.html", "kind": "secondary", "verified": true}],
+   "past_party": [{"what": "Won the Republican primary for Laramie County Coroner", "year": 2018, "party": "Republican", "source": "Wyoming Tribune Eagle, 22 August 2018", "url": "https://www.wyomingnews.com/news/local_news/reid-wins-coroner-s-race-sheriff-advances-clerk-keeps-seat/article_87a7fd2e-a5d3-11e8-a585-7b2fb06b1209.html", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56025-county-clerk", "name": "Tracy Good",
+   "official_page": {"url": "https://www.natronacounty-wy.gov/18/Clerk", "source": "Natrona County, Clerk (names Tracy Good, County Clerk)", "verified": true},
+   "offices": [{"office": "Natrona County Clerk", "from": null, "to": "present", "source": "Natrona County, Clerk page", "url": "https://www.natronacounty-wy.gov/18/Clerk", "kind": "official", "verified": true}],
+   "past_party": [{"what": "Elected Natrona County Clerk on the November 2022 general election ballot (printed 'REP TRACY GOOD')", "year": 2022, "party": "Republican", "source": "Natrona County official results, general election of 8 November 2022, election summary", "url": "https://www.natronacounty-wy.gov/DocumentCenter/View/7601/Official-Gen-2022-Natrona-County-Gen-Election-Summary-EL-45", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-56029-county-commissioner", "name": "Lloyd E. Thiel",
+   "official_page": {"url": "https://parkcounty-wy.gov/county-commissioners/", "source": "Park County Commissioners (Lloyd Thiel, Vice Chairman)", "verified": true},
+   "offices": [{"office": "Park County Commissioner (Vice Chairman)", "from": null, "to": "present", "source": "Park County Commissioners page", "url": "https://parkcounty-wy.gov/county-commissioners/", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-56035-coroner", "name": "Curt Covill",
+   "official_page": {"url": "https://stories.opengov.com/sublettecountywy/published/9dlK9qCm4l", "source": "Sublette County ('Curt Covill - Coroner')", "verified": true},
+   "offices": [{"office": "Sublette County Coroner", "from": 2015, "to": "present", "source": "Pinedale Online, 6 January 2015: listed among Sublette County's elected officials sworn in ('Curt Covill, Coroner'); the county's page names him coroner today", "url": "https://pinedaleonline.com/news/2015/01/SubletteCountyelecte.htm", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56037-county-commissioner", "name": "Keaton D. West",
+   "official_page": {"url": "https://www.sweetwatercountywy.gov/departments/board_of_county_commissioners/commissioner_profiles.php", "source": "Sweetwater County, Commissioner Profiles", "verified": true},
+   "offices": [
+     {"office": "Rock Springs City Council, Ward IV", "from": 2019, "to": 2023, "source": "SweetwaterNOW, 23 May 2022 (his statement on leaving the council after one term to run for the County Commission)", "url": "https://www.sweetwaternow.com/keaton-west-announces-candidacy-for-sweetwater-county-commission", "kind": "secondary", "verified": true},
+     {"office": "Sweetwater County Commissioner", "from": 2023, "to": "present", "source": "SweetwaterNOW, 13 May 2026: seeking a second term as county commissioner", "url": "https://www.sweetwaternow.com/west-seeks-2nd-term-as-county-commissioner/", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56039-county-commissioner", "name": "Luther Propst",
+   "official_page": {"url": "https://www.tetoncountywy.gov/246/Board-of-County-Commissioners", "source": "Teton County, Board of County Commissioners (Luther Propst, term 01/01/2023 - 12/31/2026)", "verified": true},
+   "offices": [{"office": "Teton County Commissioner", "from": 2019, "to": "present", "source": "Buckrail, 28 April 2026: initial election to the Board of County Commissioners in 2018; county page shows his current term 2023-2026", "url": "https://buckrail.com/commissioner-propst-announces-bid-for-third-term/", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-56041-sheriff", "name": "Andy Kopp",
+   "official_page": {"url": "https://uintacountywy.gov/25/County-Sheriff", "source": "Uinta County, County Sheriff (Sheriff Andy Kopp)", "verified": true},
+   "offices": [{"office": "Uinta County Sheriff", "from": null, "to": "present", "source": "Uinta County, List of All Elected Officials ('Andy Kopp, Sheriff', term expires 2027)", "url": "https://uintacountywy.gov/1084/List-of-All-Elected-Officials", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-DCRET3-ROBINSON", "name": "Suzannah G. Robinson",
+   "official_page": {"url": "https://www.wyocourts.gov/?p=6548", "source": "Wyoming Judicial Branch, District Court, 3rd Judicial District, Sweetwater County (appointed October 2019, retained November 2020, next retention November 2026)", "verified": true},
+   "offices": [{"office": "District Court Judge, Third Judicial District (Sweetwater County)", "from": 2019, "to": "present", "source": "Wyoming Judicial Branch court page (Appointed: October 2019; Retained: November 2020)", "url": "https://www.wyocourts.gov/?p=6548", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-M-25620-council-ward-3", "name": "David Don Welling",
+   "official_page": {"url": "https://www.evanstonwy.org/171/Government", "source": "City of Evanston, Government (Ward III Council Members: Evan Perkes, David Welling)", "verified": true},
+   "offices": [{"office": "Evanston City Council, Ward III", "from": null, "to": "present", "source": "City of Evanston, Government page", "url": "https://www.evanstonwy.org/171/Government", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-M-40120-council", "name": "Jonathan Schechter",
+   "official_page": {"url": "https://www.jacksonwy.gov/directory.aspx", "source": "Town of Jackson staff directory (Jonathan Schechter, Town Council Member)", "verified": true},
+   "offices": [
+     {"office": "Jackson Town Council", "from": 2018, "to": "present", "source": "Buckrail, 2 June 2026: 'Town Council from 2018 until present'", "url": "https://buckrail.com/jonathan-schechter-announces-bid-for-3rd-term-on-town-council/", "kind": "secondary", "verified": true},
+     {"office": "St. John's Health Board (two four-year terms)", "from": null, "to": null, "source": "Buckrail, 2 June 2026 ('serving two four-year terms on the St. John's Health Board and then Town Council')", "url": "https://buckrail.com/jonathan-schechter-announces-bid-for-3rd-term-on-town-council/", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-M-67235-mayor", "name": "Max Mickelson",
+   "official_page": {"url": "https://www.rswy.net/government/mayors_office/index.php", "source": "City of Rock Springs, Mayor's Office (Max Mickelson, Mayor)", "verified": true},
+   "offices": [
+     {"office": "Mayor of Rock Springs", "from": 2023, "to": "present", "source": "SweetwaterNOW, 9 March 2023: his first State of the City address as mayor; the city's page names him mayor today", "url": "https://www.sweetwaternow.com/mayor-mickelson-delivers-first-state-of-city-address/", "kind": "secondary", "verified": true},
+     {"office": "Wyoming State Board of Education (vice chair as of June 2022)", "from": null, "to": null, "source": "Rocket Miner, 19 June 2022 ('I'm the vice chair of the State Board of Education')", "url": "https://www.wyomingnews.com/rocketminer/rock-springs-mayoral-candidate-max-mickelson-discusses-importance-of-community-engagement/article_8f7a0211-b9ae-5331-9e33-85ae4cd3f5dd.html", "kind": "secondary", "verified": true},
+     {"office": "Sweetwater County School District No. 1 Board of Trustees (ten years as of June 2022)", "from": null, "to": null, "source": "Rocket Miner, 19 June 2022 ('I've been on the board now for 10 years')", "url": "https://www.wyomingnews.com/rocketminer/rock-springs-mayoral-candidate-max-mickelson-discusses-importance-of-community-engagement/article_8f7a0211-b9ae-5331-9e33-85ae4cd3f5dd.html", "kind": "secondary", "verified": true}]},
+
+  {"race_id": "2026-WY-S-021-1-school-board-area-1", "name": "Marilyn Burden",
+   "official_page": {"url": "https://www.laramie1.org/board-of-trustees", "source": "Laramie County School District 1, Board of Trustees (Area 1, South Triad: current trustee Marilyn Burden)", "verified": true},
+   "offices": [{"office": "Laramie County School District #1 Board of Trustees, Area 1", "from": null, "to": "present", "source": "LCSD1 Board of Trustees page", "url": "https://www.laramie1.org/board-of-trustees", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-WY-SH14", "name": "Trey Sherwood",
+   "website": {"url": "https://www.treysherwood.com", "how": "Linked as 'Candidate Website' in WyoFile's 2026 election guide; the site names Trey Sherwood and House District 14 (Albany County)", "verified": true}},
+
+  {"race_id": "2026-WY-SH25", "name": "John Wetzel",
+   "website": {"url": "https://wetzel4wyo.com", "how": "Linked as 'Candidate Website' in WyoFile's 2026 election guide; heading 'John Wetzel for Wyoming House District 25'", "verified": true},
+   "offices": [
+     {"office": "Mayor of Powell", "from": null, "to": null, "source": "His campaign site ('Powell mayor & city council')", "url": "https://wetzel4wyo.com", "kind": "campaign", "verified": true},
+     {"office": "Powell City Council", "from": null, "to": null, "source": "His campaign site ('Powell mayor & city council')", "url": "https://wetzel4wyo.com", "kind": "campaign", "verified": true}]},
+
+  {"race_id": "2026-WY-SH43", "name": "Jessica Crowder",
+   "website": {"url": "https://www.crowderforwyo.com", "how": "Linked as 'Candidate Website' in WyoFile's 2026 election guide; the site is headed 'Jessica Crowder for Wyoming House' and names House District 43", "verified": true}},
+
+  {"race_id": "2026-WY-SS11", "name": "Jim Wilson",
+   "website": {"url": "https://wilsonforwyoming.com", "how": "Linked as 'Candidate Website' in WyoFile's 2026 election guide; the site names James A. Wilson and Senate District 11 (its body text also mentions House District 47)", "verified": true}}
+]}

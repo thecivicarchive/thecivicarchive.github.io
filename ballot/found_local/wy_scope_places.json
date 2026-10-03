@@ -1,0 +1,451 @@
+{
+ "state": "WY",
+ "made": "2026-10-02",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "WY-M-13900",
+   "name": "Cheyenne city",
+   "census_name": "Cheyenne city",
+   "population": 65239,
+   "margin": 73,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "WY-M-13150",
+   "name": "Casper city",
+   "census_name": "Casper city",
+   "population": 58839,
+   "margin": 39,
+   "races": 3,
+   "candidates": 8
+  },
+  {
+   "id": "WY-M-45050",
+   "name": "Laramie city",
+   "census_name": "Laramie city",
+   "population": 32234,
+   "margin": 20,
+   "races": 3,
+   "candidates": 8
+  },
+  {
+   "id": "WY-M-67235",
+   "name": "Rock Springs city",
+   "census_name": "Rock Springs city",
+   "population": 23127,
+   "margin": 26,
+   "races": 5,
+   "candidates": 8
+  },
+  {
+   "id": "WY-M-25620",
+   "name": "Evanston city",
+   "census_name": "Evanston city",
+   "population": 11800,
+   "margin": 30,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "WY-M-33740",
+   "name": "Green River city",
+   "census_name": "Green River city",
+   "population": 11581,
+   "margin": 34,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "WY-M-40120",
+   "name": "Jackson town",
+   "census_name": "Jackson town",
+   "population": 10756,
+   "margin": 19,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "WY-M-15760",
+   "name": "Cody city",
+   "census_name": "Cody city",
+   "population": 10276,
+   "margin": 22,
+   "races": 3,
+   "candidates": 3
+  }
+ ],
+ "school_districts": [
+  {
+   "id": "WY-S-021-1",
+   "name": "Laramie County School District #1",
+   "census_name": "Laramie County School District 1",
+   "census_geo_id": "9700000US5601980",
+   "population": 94865,
+   "margin": 772,
+   "races": 4,
+   "candidates": 9
+  },
+  {
+   "id": "WY-S-025-1",
+   "name": "Natrona County School District #1",
+   "census_name": "Natrona County School District 1",
+   "census_geo_id": "9700000US5604510",
+   "population": 79977,
+   "margin": null,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "WY-S-001-1",
+   "name": "Albany County School District #1",
+   "census_name": "Albany County School District 1",
+   "census_geo_id": "9700000US5600730",
+   "population": 38249,
+   "margin": null,
+   "races": 4,
+   "candidates": 8
+  },
+  {
+   "id": "WY-S-037-1",
+   "name": "Sweetwater County School District #1",
+   "census_name": "Sweetwater County School District 1",
+   "census_geo_id": "9700000US5605302",
+   "population": 28775,
+   "margin": 384,
+   "races": 3,
+   "candidates": 10
+  },
+  {
+   "id": "WY-S-039-1",
+   "name": "Teton County School District #1",
+   "census_name": "Teton County School District 1",
+   "census_geo_id": "9700000US5605830",
+   "population": 23396,
+   "margin": null,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "WY-S-013-25",
+   "name": "Fremont County School District #25",
+   "census_name": "Fremont County School District 25",
+   "census_geo_id": "9700000US5605220",
+   "population": 17151,
+   "margin": 610,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "WY-S-029-6",
+   "name": "Park County School District #6",
+   "census_name": "Park County School District 6",
+   "census_geo_id": "9700000US5602070",
+   "population": 16708,
+   "margin": 624,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "WY-S-041-1",
+   "name": "Uinta County School District #1",
+   "census_name": "Uinta County School District 1",
+   "census_geo_id": "9700000US5602760",
+   "population": 14655,
+   "margin": 482,
+   "races": 1,
+   "candidates": 8
+  },
+  {
+   "id": "WY-S-037-2",
+   "name": "Sweetwater County School District #2",
+   "census_name": "Sweetwater County School District 2",
+   "census_geo_id": "9700000US5605762",
+   "population": 12618,
+   "margin": 387,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "WY-S-015-1",
+   "name": "Goshen County School District #1",
+   "census_name": "Goshen County School District 1",
+   "census_geo_id": "9700000US5602990",
+   "population": 12559,
+   "margin": 36,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "WY-S-029-1",
+   "name": "Park County School District #1",
+   "census_name": "Park County School District 1",
+   "census_geo_id": "9700000US5605160",
+   "population": 12395,
+   "margin": 557,
+   "races": 1,
+   "candidates": 6
+  },
+  {
+   "id": "WY-S-013-1",
+   "name": "Fremont County School District #1",
+   "census_name": "Fremont County School District 1",
+   "census_geo_id": "9700000US5602870",
+   "population": 11626,
+   "margin": 602,
+   "races": 2,
+   "candidates": 10
+  }
+ ],
+ "just_under": [
+  {
+   "kind": "school district",
+   "id": "WY-S-007-1",
+   "name": "Carbon County School District #1",
+   "census_name": "Carbon County School District 1",
+   "census_geo_id": "9700000US5601030",
+   "population": 9969,
+   "margin": 324,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "kind": "school district",
+   "id": "WY-S-009-1",
+   "name": "Converse County School District #1",
+   "census_name": "Converse County School District 1",
+   "census_geo_id": "9700000US5602140",
+   "population": 9289,
+   "margin": 423,
+   "races": 1,
+   "candidates": 3
+  }
+ ],
+ "no_population_figure": [
+  {
+   "kind": "school district",
+   "id": "WY-S-019-school-district",
+   "name": "School district (Johnson County)",
+   "races": 1,
+   "candidates": 4,
+   "note": "not in the Census file, whose school districts are those of an earlier school year"
+  }
+ ],
+ "cities_found_by_name_not_code": [],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Gillette city",
+  "Riverton city",
+  "Sheridan city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {},
+ "school_names_tied_after_setting_words_aside": [
+  {
+   "id": "WY-S-001-1",
+   "state_list": "Albany County School District #1",
+   "census": "Albany County School District 1"
+  },
+  {
+   "id": "WY-S-003-1",
+   "state_list": "Big Horn County School District #1",
+   "census": "Big Horn County School District 1"
+  },
+  {
+   "id": "WY-S-003-2",
+   "state_list": "Big Horn County School District #2",
+   "census": "Big Horn County School District 2"
+  },
+  {
+   "id": "WY-S-003-3",
+   "state_list": "Big Horn County School District #3",
+   "census": "Big Horn County School District 3"
+  },
+  {
+   "id": "WY-S-003-4",
+   "state_list": "Big Horn County School District #4",
+   "census": "Big Horn County School District 4"
+  },
+  {
+   "id": "WY-S-007-1",
+   "state_list": "Carbon County School District #1",
+   "census": "Carbon County School District 1"
+  },
+  {
+   "id": "WY-S-007-2",
+   "state_list": "Carbon County School District #2",
+   "census": "Carbon County School District 2"
+  },
+  {
+   "id": "WY-S-009-1",
+   "state_list": "Converse County School District #1",
+   "census": "Converse County School District 1"
+  },
+  {
+   "id": "WY-S-009-2",
+   "state_list": "Converse County School District #2",
+   "census": "Converse County School District 2"
+  },
+  {
+   "id": "WY-S-011-1",
+   "state_list": "Crook County School District #1",
+   "census": "Crook County School District 1"
+  },
+  {
+   "id": "WY-S-013-1",
+   "state_list": "Fremont County School District #1",
+   "census": "Fremont County School District 1"
+  },
+  {
+   "id": "WY-S-013-14",
+   "state_list": "Fremont County School District #14",
+   "census": "Fremont County School District 14"
+  },
+  {
+   "id": "WY-S-013-2",
+   "state_list": "Fremont County School District #2",
+   "census": "Fremont County School District 2"
+  },
+  {
+   "id": "WY-S-013-21",
+   "state_list": "Fremont County School District #21",
+   "census": "Fremont County School District 21"
+  },
+  {
+   "id": "WY-S-013-24",
+   "state_list": "Fremont County School District #24",
+   "census": "Fremont County School District 24"
+  },
+  {
+   "id": "WY-S-013-25",
+   "state_list": "Fremont County School District #25",
+   "census": "Fremont County School District 25"
+  },
+  {
+   "id": "WY-S-013-38",
+   "state_list": "Fremont County School District #38",
+   "census": "Fremont County School District 38"
+  },
+  {
+   "id": "WY-S-013-6",
+   "state_list": "Fremont County School District #6",
+   "census": "Fremont County School District 6"
+  },
+  {
+   "id": "WY-S-015-1",
+   "state_list": "Goshen County School District #1",
+   "census": "Goshen County School District 1"
+  },
+  {
+   "id": "WY-S-017-1",
+   "state_list": "Hot Springs County School District #1",
+   "census": "Hot Springs County School District 1"
+  },
+  {
+   "id": "WY-S-021-1",
+   "state_list": "Laramie County School District #1",
+   "census": "Laramie County School District 1"
+  },
+  {
+   "id": "WY-S-021-2",
+   "state_list": "Laramie County School District #2",
+   "census": "Laramie County School District 2"
+  },
+  {
+   "id": "WY-S-025-1",
+   "state_list": "Natrona County School District #1",
+   "census": "Natrona County School District 1"
+  },
+  {
+   "id": "WY-S-027-1",
+   "state_list": "Niobrara County School District #1",
+   "census": "Niobrara County School District 1"
+  },
+  {
+   "id": "WY-S-029-1",
+   "state_list": "Park County School District #1",
+   "census": "Park County School District 1"
+  },
+  {
+   "id": "WY-S-029-16",
+   "state_list": "Park County School District #16",
+   "census": "Park County School District 16"
+  },
+  {
+   "id": "WY-S-029-6",
+   "state_list": "Park County School District #6",
+   "census": "Park County School District 6"
+  },
+  {
+   "id": "WY-S-031-1",
+   "state_list": "Platte County School District #1",
+   "census": "Platte County School District 1"
+  },
+  {
+   "id": "WY-S-031-2",
+   "state_list": "Platte County School District #2",
+   "census": "Platte County School District 2"
+  },
+  {
+   "id": "WY-S-035-1",
+   "state_list": "Sublette County School District #1",
+   "census": "Sublette County School District 1"
+  },
+  {
+   "id": "WY-S-035-9",
+   "state_list": "Sublette County School District #9",
+   "census": "Sublette County School District 9"
+  },
+  {
+   "id": "WY-S-037-1",
+   "state_list": "Sweetwater County School District #1",
+   "census": "Sweetwater County School District 1"
+  },
+  {
+   "id": "WY-S-037-2",
+   "state_list": "Sweetwater County School District #2",
+   "census": "Sweetwater County School District 2"
+  },
+  {
+   "id": "WY-S-039-1",
+   "state_list": "Teton County School District #1",
+   "census": "Teton County School District 1"
+  },
+  {
+   "id": "WY-S-041-1",
+   "state_list": "Uinta County School District #1",
+   "census": "Uinta County School District 1"
+  },
+  {
+   "id": "WY-S-041-4",
+   "state_list": "Uinta County School District #4",
+   "census": "Uinta County School District 4"
+  },
+  {
+   "id": "WY-S-041-6",
+   "state_list": "Uinta County School District #6",
+   "census": "Uinta County School District 6"
+  }
+ ],
+ "note": "Wyoming has no statewide list of county, city or school candidates: the county offices, mayors, city and town councils and school boards here are those on the sample ballots and candidate rosters of the 16 county clerks read so far (Albany, Big Horn, Carbon, Converse, Crook, Goshen, Hot Springs, Johnson, Laramie, Natrona, Park, Platte, Sublette, Sweetwater, Teton and Uinta), with Fremont County's list of school and special district filings, and the other counties' are not loaded yet (Campbell and Sheridan among them, so Gillette and Sheridan are not in the scope). A town that has chosen by charter ordinance to vote in May (W.S. 22-23-202) is not on this ballot. Judges do not run against anyone: each is in the scope as the one name on a yes-or-no retention vote. Community college trustees, conservation district supervisors and the boards of hospital, fire, cemetery and other special districts are outside the scope's rule and are not in it."
+}

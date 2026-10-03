@@ -1,0 +1,33 @@
+{"part": 13, "of": 15, "researched": "2026-10-02", "verified_on": "2026-10-02",
+ "removed": [
+   {"race_id": "2026-WY-SS17", "name": "Mike Gierau", "field": "website", "url": "https://electmikegierau.com/", "why": "the site is his 2022 campaign site, not one for the 2026 race: footer (c)2022 and its Voter Info page gives the November 8, 2022 general election; no 2026 content found on its home, endorsements, news or voter pages"}
+ ],
+ "candidates": [
+  {"race_id": "2026-WY-CCRET1-FORWOOD", "name": "Timothy (TJ) Forwood",
+   "official_page": {"url": "https://www.wyocourts.gov/court/circuit-court-of-the-1st-judicial-district-laramie-county-state-of-wyoming-cheyenne/", "source": "Wyoming Judicial Branch: Circuit Court of the First Judicial District, Laramie County (lists Honorable Timothy J. Forwood, appointed January 2025, term expires January 2027, stands for retention November 2026)", "verified": true},
+   "offices": [{"office": "Circuit Court Judge, First Judicial District (Laramie County)", "from": "2025", "to": "present", "source": "Wyoming Judicial Branch court page (appointed date January 2025)", "url": "https://www.wyocourts.gov/court/circuit-court-of-the-1st-judicial-district-laramie-county-state-of-wyoming-cheyenne/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-WY-DCRET7-FORGEY", "name": "Daniel Forgey",
+   "official_page": {"url": "https://www.wyocourts.gov/court/district-court-7th-judicial-district-natrona-county/", "source": "Wyoming Judicial Branch: District Court, Seventh Judicial District, Natrona County (lists Honorable Dan Forgey, appointed August 2013, retained November 2020, term expires January 2027, stands for retention November 2026)", "verified": true},
+   "offices": [{"office": "District Court Judge, Seventh Judicial District (Natrona County)", "from": "2013", "to": "present", "source": "Wyoming Judicial Branch court page (appointed date August 2013, retained November 2020)", "url": "https://www.wyocourts.gov/court/district-court-7th-judicial-district-natrona-county/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-WY-SCRET-HILL", "name": "Bridget Hill",
+   "official_page": {"url": "https://www.wyocourts.gov/supreme-court/", "source": "Wyoming Supreme Court: Meet the Justices, Justice Bridget Hill (appointed May 2025, stands for retention November 2026)", "verified": true},
+   "offices": [
+     {"office": "Justice, Wyoming Supreme Court", "from": "2025", "to": "present", "source": "Office of the Governor news release, April 11, 2025 (appointment effective May 28, 2025)", "url": "https://content.govdelivery.com/accounts/WYGOV/bulletins/3db9a04", "kind": "official", "verified": true},
+     {"office": "Attorney General of Wyoming", "from": "2019", "to": "2025", "source": "Wyoming Supreme Court, Meet the Justices", "url": "https://www.wyocourts.gov/supreme-court/", "kind": "official", "verified": true},
+     {"office": "Director, Wyoming Office of State Lands and Investments", "from": "2013", "to": "2019", "source": "Wyoming Supreme Court, Meet the Justices (the Governor's release of April 11, 2025 gives 2013 to 2018)", "url": "https://www.wyocourts.gov/supreme-court/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-WY-SH16", "name": "Mike Yin",
+   "website": {"url": "https://electmikeyin.com/", "how": "Linked from the Wyoming Democratic Party's 2026 Candidates page; the site reads 'Mike Yin for WY HD-16 State Representative' and lists 2026 endorsements", "verified": true}},
+  {"race_id": "2026-WY-SH27", "name": "Martha Lawley",
+   "website": {"url": "https://lawleyforwyoming.com", "how": "Linked from WyoFile's 2026 election guide; the site reads 'Re-Elect Martha Lawley on Nov. 3th' and names House District 27", "verified": true}},
+  {"race_id": "2026-WY-SH36", "name": "Stewart McAdoo",
+   "website": {"url": "https://mcadoofordistrict36.com", "how": "Linked from WyoFile's 2026 election guide; the site reads 'Stewart McAdoo for House District 36' (copyright 2026)", "verified": true}},
+  {"race_id": "2026-WY-SH8", "name": "Brenda J Lyttle",
+   "website": {"url": "https://www.lyttlehouse.com", "how": "Linked from the Wyoming Democratic Party's 2026 Candidates page and WyoFile's 2026 election guide; the site reads 'Brenda Lyttle Running for HD 08', with posts dated 2026", "verified": true},
+   "offices": [{"office": "Trustee, Laramie County Community College Board of Trustees", "from": "2006", "to": "2022", "source": "Wyoming Tribune Eagle, 'Former LCCC Trustee Brenda Lyttle announces bid for House District 8', June 3, 2026", "url": "https://www.wyomingnews.com/news/local_news/former-lccc-trustee-brenda-lyttle-announces-bid-for-house-district-8/article_f1e93ee0-543c-45a7-97f4-e4fd676541b9.html", "kind": "secondary", "verified": true}],
+   "own_words": {"quote": "running to represent House District 8 as a proud Wyoming Democrat", "url": "https://www.lyttlehouse.com", "verified": true}},
+  {"race_id": "2026-WY-SH55", "name": "Carl Manning",
+   "offices": [{"office": "Trustee, Fremont County School District #25 Board of Trustees", "from": null, "to": "present", "source": "County 10, 'Manning announces candidacy for Wyoming House District 55', April 27, 2026 (a press release from the Manning campaign: 'served on the school board for more than three decades'; no start year given)", "url": "https://county10.com/manning-announces-candidacy-for-wyoming-house-district-55/", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-WY-SS17", "name": "Mike Gierau"},
+  {"race_id": "2026-WY-56021-county-commissioner", "name": "Barbara Cabot",
+   "website": {"url": "https://cabot4lc.com/", "how": "Linked from the Wyoming Democratic Party's 2026 Candidates page; the site reads 'Proven Leadership for Laramie County' and names Barbara Cabot (copyright 2026); it does not print the word commissioner", "verified": true}}
+]}

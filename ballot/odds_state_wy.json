@@ -1,0 +1,44 @@
+{
+ "2026-WY-GOV": {
+  "polymarket": "wyoming-governor-winner-2026",
+  "kalshi": "GOVPARTYWY-26",
+  "checked": "2026-10-02",
+  "note": "Governor. Polymarket's event is titled \"Wyoming Governor Election Winner\" and resolves on the winner of the 2026 Wyoming gubernatorial election; it offers Eric Barlow (R) and Kenneth Casner (D), about $11,600 traded when checked (Barlow 96.7 cents, Casner 2.7). It also carries eleven placeholder outcomes (Option A to Option J, Other) that are not open for trading and have no price; ballot/odds.py leaves them out for state races. Kalshi's event is titled \"Wyoming Governor winner?\" (In 2026); its two markets are by party, labelled Eric Barlow (last price 96 cents, about 1,660 contracts) and Kenneth Casner (3.8 cents, about 3,270 contracts). Neither offers the Constitution Party's candidate, Rebecca Bextel. Left out on purpose: Polymarket's margin-of-victory event and Kalshi's Republican nominee series for the August primary (KXGOVWYNOMR)."
+ },
+ "2026-WY-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATEWY-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"Wyoming Secretary of State winner?\" (in 2026), one market per candidate: Robert Short, Bryan McCarty and Tamara Trujillo, the three on our list. It opened September 13, 2026 and nobody had traded any of the three when checked (standing offers only: Short 85 to 95 cents), so there is no price at all: ballot/odds.py will give it no rows and name all three as quiet. Ask John before showing this market. Polymarket lists no market for this race (its search for Wyoming and two likely slugs, 2026-10-02)."
+ },
+ "2026-WY-AUD": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Auditor (one candidate on the list). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Wyoming auditor series, and the likely event ticker answered not found. Polymarket: its search for \"wyoming auditor\" returned no such event."
+ },
+ "2026-WY-TREAS": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Treasurer (one candidate on the list). No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Wyoming treasurer series, and the likely event ticker answered not found. Polymarket: its search for \"wyoming treasurer\" returned no such event and two likely slugs returned nothing."
+ },
+ "2026-WY-SPI": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Superintendent of Public Instruction. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Wyoming superintendent series, and the likely event ticker answered not found. Polymarket: its search for \"wyoming superintendent\" returned no such event and the likely slug returned nothing."
+ },
+ "2026-WY-SCRET-JAROSH": {
+  "polymarket": null,
+  "kalshi": "KXWYSUPREMECOURT-26NOV03",
+  "checked": "2026-10-02",
+  "note": "Justice of the Supreme Court, retention vote on Robert C. Jarosh (a court race voted on statewide, listed because Kalshi runs a market on it). Kalshi's event is titled \"Will Robert Jarosh be retained on the Wyoming Supreme Court?\" (In 2026), one Yes market resolving Yes if he is retained. Nobody had traded it when checked (standing offers 81 to 90 cents), so it has no price, and its one outcome is labelled \"Yes\", not a person: ballot/odds.py was written for candidate races. Ask John before showing this market. Kalshi has no market on the other justice's retention vote (2026-WY-SCRET-HILL), and Polymarket none on either."
+ },
+ "_other": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "Not races of the state page and left out on purpose: the U.S. Senate and House markets (on the Congress pages), Kalshi's Wyoming primary series (KXWYPRIMARY, KXSENATEWYR, KXSENATEWYD, all settled) and Polymarket's Senate turnout and margin events. Wyoming elects no attorney general (the office is appointed), and no market for one was found."
+ }
+}

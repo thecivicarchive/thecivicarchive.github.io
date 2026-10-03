@@ -1,0 +1,395 @@
+{
+ "part": 2,
+ "of": 15,
+ "researched": "2026-10-02",
+ "candidates": [
+  {
+   "race_id": "2026-WY-56001-coroner",
+   "name": "Ryan Hershey"
+  },
+  {
+   "race_id": "2026-WY-56003-clerk-of-court",
+   "name": "Serena K. Lipp",
+   "official_page": {
+    "url": "https://www.bighorncountywy.gov/departments/clerk-of-district-court",
+    "source": "Big Horn County, Clerk of District Court (names Serena Lipp, Clerk of District Court)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Big Horn County Clerk of District Court",
+     "from": "",
+     "to": "",
+     "source": "Big Horn County, Clerk of District Court page",
+     "url": "https://www.bighorncountywy.gov/departments/clerk-of-district-court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56007-county-commissioner",
+   "name": "Willing John Johnson",
+   "official_page": {
+    "url": "https://www.carbonwy.com/319/Commissioners",
+    "source": "Carbon County, Commissioners (John Johnson, term expires January 2027)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Carbon County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Carbon County, Commissioners page (term expires January 2027)",
+     "url": "https://www.carbonwy.com/319/Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56011-county-assessor",
+   "name": "Dan Thomas",
+   "official_page": {
+    "url": "https://www.crookcounty.wy.gov/elected_officials/assessor/index.php",
+    "source": "Crook County, Elected Officials, Assessor (Dan Thomas, Assessor)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crook County Assessor",
+     "from": "",
+     "to": "",
+     "source": "Crook County, Elected Officials, Assessor",
+     "url": "https://www.crookcounty.wy.gov/elected_officials/assessor/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56015-sheriff",
+   "name": "Diane Servantez"
+  },
+  {
+   "race_id": "2026-WY-56019-county-attorney",
+   "name": "Tucker J. Ruby",
+   "official_page": {
+    "url": "https://www.johnsoncowy.gov/departments/attorney",
+    "source": "Johnson County, Attorney (Tucker Ruby, Johnson County & Prosecuting Attorney)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Johnson County & Prosecuting Attorney",
+     "from": "",
+     "to": "",
+     "source": "Johnson County, Attorney page",
+     "url": "https://www.johnsoncowy.gov/departments/attorney",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56021-county-commissioner",
+   "name": "Troy Thompson",
+   "official_page": {
+    "url": "https://www.laramiecountywy.gov/County-Government/Elected-Officials/County-Commissioners",
+    "source": "Laramie County, County Commissioners (Troy Thompson, Vice Chairman)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Laramie County Commissioner",
+     "from": "",
+     "to": "",
+     "source": "Laramie County, County Commissioners page (Vice Chairman); elected November 8, 2022 per the county's official results",
+     "url": "https://www.laramiecountywy.gov/County-Government/Elected-Officials/County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Laramie County Commissioner, general election (printed REP)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Laramie County Clerk, Official Results, General Election November 8, 2022, City/County summary",
+     "url": "https://www.laramiecountywy.gov/files/sharedassets/public/v/1/clerk/documents/election-results/general-election-results-city-county-summary-2022.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Republican primary for Laramie County Commissioner",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Laramie County Clerk, Official Results, Primary Election August 16, 2022, City/County summary (REP COUNTY COMMISSIONER)",
+     "url": "https://www.laramiecountywy.gov/files/sharedassets/public/v/1/clerk/documents/election-results/primary-election-results-city-and-county-summary-2022.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-56025-district-attorney",
+   "name": "Daniel J Itzen"
+  },
+  {
+   "race_id": "2026-WY-56031-county-attorney",
+   "name": "Marel E. Bunker Roth"
+  },
+  {
+   "race_id": "2026-WY-56035-county-treasurer",
+   "name": "Emily D. Paravicini"
+  },
+  {
+   "race_id": "2026-WY-56039-coroner",
+   "name": "Katrina L. Clauson"
+  },
+  {
+   "race_id": "2026-WY-56041-clerk-of-court",
+   "name": "Kerri Wright"
+  },
+  {
+   "race_id": "2026-WY-CCRET7-SWEET",
+   "name": "Cynthia Sweet"
+  },
+  {
+   "race_id": "2026-WY-GOV",
+   "name": "Kenneth R. Casner",
+   "past_party": [
+    {
+     "what": "Democratic primary for Governor (Kenneth R. Casner, 1,213 votes)",
+     "year": "2018",
+     "party": "Democratic",
+     "source": "Wyoming Secretary of State, Wyoming Primary Election August 21, 2018, Statewide Candidates Official Summary",
+     "url": "https://sos.wyo.gov/Elections/Docs/2018/Results/Primary/2018_Statewide_Candidates_Summary.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-13900-council-ward-3",
+   "name": "Ken A. Esquibel",
+   "official_page": {
+    "url": "https://www.cheyennecity.org/Your-Government/City-Council/City-Council-Members/Ken-Esquibel-Ward-III",
+    "source": "City of Cheyenne, Ken Esquibel, Ward III Councilman",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Cheyenne City Council, Ward III",
+     "from": "2019",
+     "to": "",
+     "source": "City of Cheyenne, council member page (elected November 2018, sworn in January 7, 2019; reelected November 2022; Council President 2024)",
+     "url": "https://www.cheyennecity.org/Your-Government/City-Council/City-Council-Members/Ken-Esquibel-Ward-III",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-33740-council-ward-ii",
+   "name": "Michael Shane Shutran",
+   "official_page": {
+    "url": "https://www.cityofgreenriver.org/79/City-Council",
+    "source": "City of Green River, City Council (Mike Shutran, Ward II, term expires 12/31/2026)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Green River City Council, Ward II",
+     "from": "",
+     "to": "",
+     "source": "City of Green River, City Council page (Mike Shutran, Ward II, term expires 12/31/2026)",
+     "url": "https://www.cityofgreenriver.org/79/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-M-45050-council-ward-3",
+   "name": "Samuel Buckwalter"
+  },
+  {
+   "race_id": "2026-WY-S-001-1-school-board-area-a-S",
+   "name": "J. James Learned"
+  },
+  {
+   "race_id": "2026-WY-S-013-25-school-board",
+   "name": "Jody Ray",
+   "official_page": {
+    "url": "https://www.fremont25.org/o/fcsd-25/page/school-board-superintendent",
+    "source": "Fremont County School District #25, School Board (Treasurer: Jody Ray)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fremont County School District No. 25 Board of Trustees",
+     "from": "2013",
+     "to": "",
+     "source": "Fremont County School District #25, School Board page (began as an appointee in 2013; now in her second elected term; Treasurer)",
+     "url": "https://www.fremont25.org/o/fcsd-25/page/school-board-superintendent",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S-021-1-school-board-at-large",
+   "name": "Rene R. Hinkle",
+   "official_page": {
+    "url": "https://www.laramie1.org/board-of-trustees",
+    "source": "Laramie County School District #1, Board of Trustees (Rene Hinkle, at-large, Assistant Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Laramie County School District #1 Board of Trustees, at-large",
+     "from": "",
+     "to": "",
+     "source": "Laramie County School District #1, Board of Trustees page; elected at-large November 8, 2022 per Laramie County's official results",
+     "url": "https://www.laramie1.org/board-of-trustees",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-S-029-6-school-board",
+   "name": "Wesley Werbelow"
+  },
+  {
+   "race_id": "2026-WY-S-039-1-school-board",
+   "name": "Keith Gingery"
+  },
+  {
+   "race_id": "2026-WY-SH10",
+   "name": "Tony Perry"
+  },
+  {
+   "race_id": "2026-WY-SH19",
+   "name": "Chad Stephens"
+  },
+  {
+   "race_id": "2026-WY-SH29",
+   "name": "Myca Sturtevant",
+   "website": {
+    "url": "https://www.mycaforsheridan.com",
+    "how": "listed as Candidate Website in the WyoFile 2026 Election Guide; the site is titled 'Myca Sturtevant - Republican for WY House District 29'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As an independent Republican, I’m accountable to my neighbors in Sheridan",
+    "url": "https://www.mycaforsheridan.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH38",
+   "name": "Robert L. Hendry",
+   "offices": [
+    {
+     "office": "Natrona County Commissioner",
+     "from": "2006",
+     "to": "2022",
+     "source": "Cowboy State Daily, 2024-03-28 (Natrona County Commissioner from 2006 until 2022); the WyoFile 2026 Election Guide HD 38 page gives 16 years",
+     "url": "https://cowboystatedaily.com/2024/03/28/natrona-commissioner-runs-for-charlie-scotts-seat-in-wyoming-legislature",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Natrona County Fire Protection District board",
+     "from": "",
+     "to": "",
+     "source": "WyoFile 2026 Election Guide, Robert L. Hendry, WY House District 38 (candidate's own answer: 14 years)",
+     "url": "https://projects.wyofile.com/election-guide-2026/candidates/hendry-robert/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican primary for State Senator, Senate District 30 (ROBERT L. HENDRY, 1,179 votes)",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Natrona County Clerk, 2024 Primary Election Summary (REP STATE SENATOR 30)",
+     "url": "https://www.natronacounty-wy.gov/DocumentCenter/View/9954",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-WY-SH48",
+   "name": "James Wamsley",
+   "website": {
+    "url": "https://www.jameswamsleyforwyoming.com",
+    "how": "listed as Candidate Website in the WyoFile 2026 Election Guide; the site names James (Jim) Wamsley and House District 48",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rock Springs-Sweetwater County Airport Board of Directors",
+     "from": "",
+     "to": "",
+     "source": "SweetwaterNOW (13 years, including 10 as chair)",
+     "url": "https://www.sweetwaternow.com/james-wamsley-announces-candidacy-for-wyoming-house-district-48/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Sweetwater Combined Communications Board of Directors",
+     "from": "",
+     "to": "",
+     "source": "SweetwaterNOW (16 years, including five as chair)",
+     "url": "https://www.sweetwaternow.com/james-wamsley-announces-candidacy-for-wyoming-house-district-48/",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Wyoming State Emergency Response Commission",
+     "from": "",
+     "to": "",
+     "source": "SweetwaterNOW (seven years, including three as chair)",
+     "url": "https://www.sweetwaternow.com/james-wamsley-announces-candidacy-for-wyoming-house-district-48/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Conservative Republican and experienced Public Servant seeking office",
+    "url": "https://www.jameswamsleyforwyoming.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SH58",
+   "name": "Bill Allemand",
+   "website": {
+    "url": "https://www.billfor58.com",
+    "how": "listed as Candidate Website in the WyoFile 2026 Election Guide; the site, 'Bill Allemand for HD 58' (copyright 2026), asks for re-election in House District 58",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "As a true liberty-minded Republican",
+    "url": "https://www.billfor58.com",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-WY-SOS",
+   "name": "Bryan McCarty"
+  },
+  {
+   "race_id": "2026-WY-SS25",
+   "name": "Cale Case"
+  }
+ ],
+ "verified_on": "2026-10-02",
+ "removed": [],
+ "verify_note": "33 findings re-opened and confirmed; none removed; Shutran office corrected to name Ward II as the city page shows."
+}
