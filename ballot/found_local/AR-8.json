@@ -1,0 +1,285 @@
+{
+ "part": 8,
+ "of": 11,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out partway through this part, so the later candidates were looked for only on government sites that answered and on campaign addresses that were tried and then read in full (a site counts only when it names the candidate and the office or place). No Arkansas party page calls anything an endorsement for these races (see ballot/lean/ar_endorsements.json), so no endorsed_by is recorded; the Washington County Democrats' candidate list names Diane Bryant, Beth Coger and Mark Farrer, but it is a list, not an endorsement. Richard Womack's site (richardwomack.com) still shows the 2022 'Republican Primary May 24th' and names no 2026 office, so it is not recorded. Max Deitchler was 40 in May 2025 by Talk Business & Politics, which leaves 1984 or 1985, so no birth year. A 5NEWS report that the Democratic Party of Washington County named Deitchler to the Election Commission refused this machine (403), so no past_party is recorded from it. Jeremy Riddle (HD 42) is reported by directories to have served on the Greenbrier school board, but no page read tied that board member to the 2026 House race, so nothing is recorded. Evelyn Moorehead's site lists 'Special Judge, Pulaski County Circuit Court' without years; left out as unsure. Nothing was found for Mark Farrer, Diane Bryant, Wendy Howerton, Andrew Brink, Benny Johnson, Nara Smith, Mark Brannan or Isbac Ceja, nor a campaign site for Joey Carr, Zack Gramlich, Jeremiah Moore or David Ray.",
+ "candidates": [
+  {
+   "race_id": "2026-AR-05119-justice-of-the-peace-12",
+   "name": "Amber Nicole Govan",
+   "website": {
+    "url": "https://www.amberforjp.com/",
+    "how": "the site is titled 'Amber Govan for JP District 12', its heading reads 'Amber Govan for Justice of the Peace District 12', and it speaks of the Pulaski County Quorum Court and District 12",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-05143-constable-3",
+   "name": "Mark Farrer"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-10",
+   "name": "Council Member Diane Bryant"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-2",
+   "name": "Justice of the Peace David Wilson",
+   "official_page": {
+    "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+    "source": "Washington County, Arkansas, Quorum Court page: 'David Wilson District 2'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Washington County Quorum Court, District 2",
+     "from": null,
+     "to": null,
+     "source": "Washington County, Arkansas, Quorum Court page (current member; the page gives no start year)",
+     "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-9",
+   "name": "Justice of the Peace Beth Coger",
+   "official_page": {
+    "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+    "source": "Washington County, Arkansas, Quorum Court page: 'Beth Coger District 9'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Washington County Quorum Court, District 9",
+     "from": null,
+     "to": null,
+     "source": "Washington County, Arkansas, Quorum Court page (current member; the page gives no start year)",
+     "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-CC4-D2",
+   "name": "Wendy Howerton"
+  },
+  {
+   "race_id": "2026-AR-M-23290-council-ward-3-position-1",
+   "name": "Andrew Brink"
+  },
+  {
+   "race_id": "2026-AR-M-34750-council-ward-2-position-1",
+   "name": "Kevin McCleary",
+   "official_page": {
+    "url": "https://www.cityofjacksonville.net/Directory.aspx",
+    "source": "City of Jacksonville, Arkansas, staff directory: 'Kevin McCleary, Councilmember - Ward 2, Position 1'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jacksonville City Council, Ward 2, Position 1",
+     "from": null,
+     "to": null,
+     "source": "City of Jacksonville, Arkansas, staff directory (current member; no start year given)",
+     "url": "https://www.cityofjacksonville.net/Directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-41000-council-ward-1",
+   "name": "City Director Virgil L. Miller, Jr.",
+   "official_page": {
+    "url": "https://www.littlerock.gov/government/board-of-directors/meet-your-board-members/virgil-miller-jr/",
+    "source": "City of Little Rock, Board of Directors: Virgil Miller Jr., Ward 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Little Rock City Board of Directors, Ward 1 Director",
+     "from": "2021",
+     "to": null,
+     "source": "City of Little Rock: appointed to fill a vacancy in October 2021, elected to a four-year term in November 2022; current term January 1, 2023 to December 31, 2026",
+     "url": "https://www.littlerock.gov/government/board-of-directors/meet-your-board-members/virgil-miller-jr/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-41000-council-ward-7",
+   "name": "Benny \"Big Ben\" Johnson"
+  },
+  {
+   "race_id": "2026-AR-M-50450-council-ward-2-position-2",
+   "name": "Anna Beth Gorman",
+   "website": {
+    "url": "https://www.annabethgorman.com/",
+    "how": "the home page reads 'Vote Anna Beth Gorman for NLR City Council Ward 2' and is paid for by Anna Beth Gorman for North Little Rock",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Democratic nominee for Arkansas Secretary of State (won the Democratic primary; lost the general election)",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Wikipedia, 2022 Arkansas Secretary of State election (primary and general results tables); her campaign's 'Meet Anna Beth' page also says she 'was the 2022 Democratic nominee for Secretary of State' (https://www.annabethgorman.com/meet-anna-beth)",
+     "url": "https://en.wikipedia.org/wiki/2022_Arkansas_Secretary_of_State_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-63800-mayor",
+   "name": "Nara Smith"
+  },
+  {
+   "race_id": "2026-AR-PA11-West",
+   "name": "Evelyn Moorehead",
+   "website": {
+    "url": "https://www.evelynmoorehead.com/",
+    "how": "'the official campaign website of Evelyn Moorehead for Prosecutor of Jefferson and Lincoln Counties'; 'running for Prosecuting Attorney to serve Jefferson and Lincoln Counties in District 11'; '2026 by the Committee to Elect Evelyn Moorehead for Prosecuting Attorney in Jefferson and Lincoln Counties'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SH14",
+   "name": "State Representative Nick Burkes",
+   "website": {
+    "url": "https://www.nickburkes.com/",
+    "how": "the site names Nick Burkes, State Representative, 'Elected in 2024 to represent District 14', and is paid for by Nick Burkes for Arkansas",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SH20",
+   "name": "Max Deitchler",
+   "website": {
+    "url": "https://maxforarkansas.com/",
+    "how": "titled 'Max for Arkansas | Fayetteville State Rep.'; the home page reads 'Democrat For State Representative, District 20 (Fayetteville)'; named in Talk Business & Politics' announcement of his House District 20 run (https://talkbusiness.net/2025/05/fayetteville-attorney-max-deitchler-announces-for-house-district-20-seat/)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Washington County Election Commission",
+     "from": null,
+     "to": null,
+     "source": "his campaign's About page: 'Max spent more than a decade serving on the Washington County Election Commission' (years not given); Talk Business & Politics, May 21, 2025, calls him a 'former member of the Washington County Election Commission' (https://talkbusiness.net/2025/05/fayetteville-attorney-max-deitchler-announces-for-house-district-20-seat/)",
+     "url": "https://maxforarkansas.com/meet",
+     "kind": "campaign",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Democrat For State Representative, District 20 (Fayetteville)",
+    "url": "https://maxforarkansas.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SH28",
+   "name": "State Representative Bart Schulz",
+   "website": {
+    "url": "https://bartschulz.com/",
+    "how": "titled 'Bart Schulz - for Arkansas House of Representatives District 28'; the page carries April 2026 material",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SH34",
+   "name": "State Representative Joey L. Carr"
+  },
+  {
+   "race_id": "2026-AR-SH42",
+   "name": "Jeremy Riddle"
+  },
+  {
+   "race_id": "2026-AR-SH50",
+   "name": "State Representative Zack Gramlich"
+  },
+  {
+   "race_id": "2026-AR-SH56",
+   "name": "Mark Brannan"
+  },
+  {
+   "race_id": "2026-AR-SH61",
+   "name": "State Representative Jeremiah Moore"
+  },
+  {
+   "race_id": "2026-AR-SH69",
+   "name": "State Representative David Ray"
+  },
+  {
+   "race_id": "2026-AR-SH76",
+   "name": "Isbac Ceja"
+  },
+  {
+   "race_id": "2026-AR-SH81",
+   "name": "State Representative RJ Hawk",
+   "website": {
+    "url": "https://www.rjhawk.com/",
+    "how": "the site names RJ Hawk and District 81 ('If re-elected, I will keep working ... for families in District 81'), names the election of Tuesday, November 3, 2026, and is paid for by RJ Hawk for State Representative",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SH90",
+   "name": "Representative Richard Womack"
+  },
+  {
+   "race_id": "2026-AR-SOS",
+   "name": "Michael Pakko",
+   "website": {
+    "url": "https://pakko4ar.com/",
+    "how": "titled 'Pakko for Arkansas Secretary of State', paid for by Pakko for Arkansas",
+    "verified": true
+   },
+   "past_party": [
+    {
+     "what": "Libertarian nominee for Arkansas State Treasurer in the 2024 special election",
+     "year": "2024",
+     "party": "Libertarian",
+     "source": "Wikipedia, 2024 Arkansas State Treasurer special election (general election results table, Libertarian, 49,847 votes)",
+     "url": "https://en.wikipedia.org/wiki/2024_Arkansas_State_Treasurer_special_election",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Vote different. Vote Libertarian.",
+    "url": "https://pakko4ar.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SS16",
+   "name": "Joshua Irby",
+   "website": {
+    "url": "https://www.irbyforarkansas.com/",
+    "how": "titled 'Elect Joshua Irby | Irby for Arkansas', invites voters to events 'across District 16', paid for by Joshua Irby (checks payable to Citizens for Joshua Irby); the Benton Courier reports his Senate District 16 candidacy (https://www.bentoncourier.com/news/joshua-irby-announces-bid-for-arkansas-senate-district-16-seat/article_3164287a-c87c-4a8c-9323-ccb68a727a37.html)",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Running as a Democrat is the best path to serve with integrity",
+    "url": "https://www.irbyforarkansas.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-AR-SS35",
+   "name": "Senator Tyler Dees",
+   "website": {
+    "url": "https://www.tylerdees.com/",
+    "how": "titled 'Tyler Dees for State Senate', speaks of representing District 35 and of continuing to serve as Senator, paid for by Tyler Dees for State Senate",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened on 2026-10-03 (lost address lookups retried through the kit's fetcher). All 24 findings confirmed; five website 'how' lines corrected to the pages' own wording (no paid-for line found on Govan's or Schulz's home page; Hawk's site does not use 'Re-elect'; Moorehead's sponsor line; Pakko's Wikipedia mention not re-checked and dropped)."
+}

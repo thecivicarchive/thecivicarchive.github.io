@@ -1,0 +1,30 @@
+{
+ "2026-AR-GOV": {
+  "polymarket": "arkansas-governor-winner-2026",
+  "kalshi": "GOVPARTYAR-26",
+  "checked": "2026-10-03",
+  "note": "Governor. Polymarket's event is titled \"Arkansas Governor Election Winner\"; its two open outcomes are Sarah Huckabee Sanders (R) and Fredrick Love (D) (about $11,000 traded when checked: Sanders 96.8 cents, Love 2.7). It also carries eleven placeholder outcomes (Option A to Option J, Other) that are not active and report no price. Kalshi's event is titled \"Arkansas Governor winner?\" (In 2026), two markets by party labelled Sarah Huckabee Sanders and Fred Love (last prices 98.2 and 3.1 cents; about 2,900 and 3,500 contracts). Neither offers the Libertarian, Colt Shelby. Left out on purpose: Polymarket's margin-of-victory event and its settled Democratic primary event."
+ },
+ "2026-AR-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENAR-26",
+  "checked": "2026-10-03",
+  "note": "Attorney General. Kalshi's event is titled \"Arkansas Attorney General winner?\" (In 2026); its two markets resolve by party, one labelled Tim Griffin (Republican) and one \"Democratic party\" (last prices 97.9 and 2.5 cents; about 13,600 and 2,200 contracts). Tim Griffin is the only candidate on our list, so the Democratic market names nobody on the ballot. Ask John before showing this market. Polymarket lists no market for this race (its search for Arkansas and a likely slug, 2026-10-03)."
+ },
+ "2026-AR-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATEAR-26NOV03",
+  "checked": "2026-10-03",
+  "note": "Secretary of State. Kalshi's event is titled \"Arkansas Secretary of State winner?\" (in 2026), one market per candidate: Kim Hammer, Kelly Grappe and Michael Pakko, the three on our list. It opened September 13, 2026 and had never traded when checked (standing offers 90 to 98 cents for Hammer, 1 to 7 for Grappe and for Pakko), so ballot/odds.py's kalshi(traded_only=True) gives it no price row and names all three under \"quiet\". Ask John before showing this market. Polymarket lists no market for this race (its search for Arkansas and a likely slug, 2026-10-03)."
+ },
+ "2026-AR-LTG": {
+  "polymarket": null,
+  "kalshi": "KXLTGOVAR-26",
+  "checked": "2026-10-03",
+  "note": "Lieutenant Governor. Kalshi's event is titled \"Arkansas Lieutenant Governor winner?\" (In 2026); its two markets are labelled by party only (\"Republican party\", \"Libertarian party\"), not by candidate. It opened September 13, 2026 and had never traded when checked (standing offers 93 to 98 cents for the Republican, 1 to 6 for the Libertarian), so ballot/odds.py's kalshi(traded_only=True) gives it no price row and names both under \"quiet\". Ask John before showing this market. Polymarket lists no market for this race (its search for Arkansas and a likely slug, 2026-10-03)."
+ },
+ "_none": {
+  "checked": "2026-10-03",
+  "note": "Not a race; odds.py passes over it. No market was found for Arkansas's State Treasurer, Auditor of State or Commissioner of State Lands, the Legislature, the court runoffs, or any county or city office. Kalshi's full list of series (14,583 titles, read 2026-10-03) names for Arkansas's own offices only the governor (GOVPARTYAR), lieutenant governor (KXLTGOVAR), attorney general (KXATTYGENAR) and secretary of state (KXSECSTATEAR) races, plus primary markets settled in March (KXGOVARNOMD, KXARSOSRPRIMARY, KXARPRIMARY). Polymarket's search for Arkansas lists among state offices only the governor's winner, margin-of-victory and settled Democratic primary events; its noncitizen-voting ballot measure market is a question, not a race between people."
+ }
+}

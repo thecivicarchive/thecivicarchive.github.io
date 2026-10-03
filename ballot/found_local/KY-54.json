@@ -1,0 +1,95 @@
+{
+ "part": 54,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "30 candidates in this part. The session's web-search allowance was used up before this part began, and WebFetch could not resolve most Kentucky hosts, so pages were read with the kit's own fetcher (states/net.py). The main source is the State Board of Elections' official 2022 and 2024 general election recaps, county by county; the 2022 recaps for Anderson, Bourbon, Carter, Fayette, Fleming, Garrard, Greenup, LaRue, Lee, Mercer, Pendleton, Robertson and Spencer are scans with no text, so nothing was read from them. Party labels are recorded only from those recaps, never from the Wikipedia fiscal-court list. Lee County's PVA in the Department of Revenue's directory is another person, so nothing is recorded for Leeroy Douglas Brandenburg. Jamie Lynn Lienberger was on Hopkinsville's 2022 ballot for Ward 9, but the city's council page now lists another person for Ward 9, so no office is recorded for her. Adrielle Camuel is a sitting legislator with a record page; no campaign site could be reached for her. Nothing was found that could be read for the constables, the Bourbon and Pendleton jailers, the Crittenden write-in, the Robertson magistrate, the Erlanger and Lyndon council candidates, or the Greenup and Murray school-board candidates.",
+ "verifier_note": "Every url re-opened with states/net.py on 2026-10-03. Recaps are precinct by precinct, so winners and losers were checked by adding the precinct totals. Start years were corrected to what a page states: the PVA directory gives each PVA's start (Mattingly December 2022, Kiser Roseberry February 2014, Plummer December 2014); where a page shows only a 2022 election, the start year is left blank, since earlier service cannot be ruled out. Johnny Pennington's 'not elected' was dropped: the LaRue recap covers only part of the 24th District. Richmond 2022 confirmed from the Madison County 2022 recap as well (Cole third of four elected).",
+ "removed": [],
+ "candidates": [
+  {"race_id": "2026-KY-21005-magistrate-4", "name": "Dean Durr",
+   "offices": [
+     {"office": "Anderson County Magistrate, District 4 (listed as a current fiscal court member, elected 2022)", "from": null, "to": "present", "source": "Wikipedia, List of current members of the Kentucky Fiscal Courts", "url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_Kentucky_Fiscal_Courts", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21029-county-assessor", "name": "Clinton Mattingly",
+   "offices": [
+     {"office": "Bullitt County Property Valuation Administrator (PVA since December 2022, per the Department of Revenue's PVA Directory 2022-2026; sole candidate in the November 8, 2022 general election, printed as Clinton \"Clint\" Mattingly)", "from": "2022", "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County; Kentucky Department of Revenue, PVA Directory 2022-2026 (Bullitt County: Clint Mattingly, PVA)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Property Valuation Administrator, Bullitt County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21043-county-assessor", "name": "Leslie Kiser-Roseberry",
+   "offices": [
+     {"office": "Carter County Property Valuation Administrator (listed as Leslie Kiser Roseberry, PVA since February 2014, in the directory for the 2022-2026 term)", "from": "2014", "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Carter County", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21093-jailer", "name": "Robert Reynolds",
+   "past_party": [
+     {"what": "candidate for Jailer, Hardin County, 2022 general election, printed as Rob Reynolds (ballot prints REP; not elected)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21103-county-clerk", "name": "Shanda E Archer",
+   "official_page": {"url": "https://henrycountyclerk.ky.gov/", "source": "Henry County Clerk's office (names County Clerk Shanda Archer)", "verified": true},
+   "offices": [
+     {"office": "Henry County Clerk (sole candidate in the November 8, 2022 general election)", "from": null, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County; Henry County Clerk's office page", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "County Clerk, Henry County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21117-county-assessor", "name": "Darlene M. Plummer",
+   "offices": [
+     {"office": "Kenton County Property Valuation Administrator (PVA since December 2014, per the Department of Revenue's PVA Directory 2022-2026; sole candidate in the November 8, 2022 general election)", "from": "2014", "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County; Kentucky Department of Revenue, PVA Directory 2022-2026 (Kenton County: Darlene M. Plummer, PVA)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Property Valuation Administrator, Kenton County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21141-sheriff", "name": "Richard Dewayne Whittaker",
+   "past_party": [
+     {"what": "candidate for Sheriff, Logan County, 2022 general election, printed as Dewayne Whittaker (ballot prints REP; not elected)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21155-magistrate-5", "name": "Calab Buckman",
+   "offices": [
+     {"office": "Marion County Magistrate, 5th Magisterial District (won the November 8, 2022 general election)", "from": null, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Magistrate, 5th Magisterial District, Marion County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21167-magistrate-5", "name": "Kevin D. Hicks",
+   "offices": [
+     {"office": "Mercer County Magistrate, District 5 (listed as Kevin Hicks, a current fiscal court member, elected 2022)", "from": null, "to": "present", "source": "Wikipedia, List of current members of the Kentucky Fiscal Courts", "url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_Kentucky_Fiscal_Courts", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21079-magistrate-5", "name": "Oscar Wayne Day",
+   "offices": [
+     {"office": "Garrard County Magistrate, District 5 (listed as Wayne Day, a current fiscal court member, elected 2022)", "from": null, "to": "present", "source": "Wikipedia, List of current members of the Kentucky Fiscal Courts", "url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_Kentucky_Fiscal_Courts", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21239-magistrate-6", "name": "Larry Blackford",
+   "offices": [
+     {"office": "Woodford County Magistrate, 6th Magisterial District (won the November 8, 2022 general election as Larry G. Blackford)", "from": null, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Magistrate, 6th Magisterial District, Woodford County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ48-1", "name": "Kathy R. Mangeot",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Franklin.aspx", "source": "Kentucky Court of Justice, Franklin County page (Kathy R. Mangeot, Vice-Chief Regional District Judge, District Court, 48th Judicial District, Division 1)", "verified": true},
+   "offices": [
+     {"office": "District Judge, 48th Judicial District, Division 1 (Vice-Chief Regional District Judge)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Franklin County page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Franklin.aspx", "kind": "official", "verified": true},
+     {"office": "District Judge, 48th Judicial District, 1st Division (sole candidate in the November 8, 2022 general election)", "from": null, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Franklin County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Franklin%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-37918-council-9", "name": "Jamie Lynn Lienberger",
+   "past_party": [
+     {"what": "candidate for City Council, City of Hopkinsville Ward 9, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Christian County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-65226-council", "name": "Tammy W Cole",
+   "official_page": {"url": "https://www.richmond.ky.us/government/board_of_commissioners.php", "source": "City of Richmond, Board of Commissioners (Tammy Cole, Mayor Pro-Tem)", "verified": true},
+   "offices": [
+     {"office": "City Commissioner, City of Richmond (elected November 8, 2022, one of four; re-elected November 5, 2024)", "from": null, "to": "present", "source": "Kentucky State Board of Elections, official 2022 and 2024 general election results, Madison County", "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Madison.pdf", "kind": "official", "verified": true},
+     {"office": "Mayor Pro-Tem, City of Richmond", "from": null, "to": "present", "source": "City of Richmond, Board of Commissioners", "url": "https://www.richmond.ky.us/government/board_of_commissioners.php", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-00570-school-board", "name": "Frank Hampton Moore Jr",
+   "offices": [
+     {"office": "Member, Board of Education, Bowling Green Independent School District (elected November 8, 2022, one of two seats, printed as Frank Hampton Moore Jr.)", "from": null, "to": null, "source": "Kentucky State Board of Elections, official 2022 general election results, Warren County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH24", "name": "Johnny Pennington",
+   "past_party": [
+     {"what": "candidate for State Representative, 24th Representative District, 2024 general election (ballot prints DEM)", "year": 2024, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2024 general election results, LaRue County", "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/LaRue.pdf", "kind": "official", "verified": true}
+   ]}
+ ]
+}

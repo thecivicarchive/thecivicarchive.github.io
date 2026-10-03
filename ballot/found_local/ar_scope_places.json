@@ -1,0 +1,152 @@
+{
+ "state": "AR",
+ "made": "2026-10-03",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "AR-M-41000",
+   "name": "Little Rock city",
+   "census_name": "Little Rock city",
+   "population": 203436,
+   "margin": 54,
+   "races": 6,
+   "candidates": 16
+  },
+  {
+   "id": "AR-M-23290",
+   "name": "Fayetteville city",
+   "census_name": "Fayetteville city",
+   "population": 99319,
+   "margin": 53,
+   "races": 4,
+   "candidates": 9
+  },
+  {
+   "id": "AR-M-66080",
+   "name": "Springdale city",
+   "census_name": "Springdale city",
+   "population": 88160,
+   "margin": 94,
+   "races": 5,
+   "candidates": 10
+  },
+  {
+   "id": "AR-M-50450",
+   "name": "North Little Rock city",
+   "census_name": "North Little Rock city",
+   "population": 64538,
+   "margin": 45,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "AR-M-63800",
+   "name": "Sherwood city",
+   "census_name": "Sherwood city",
+   "population": 33070,
+   "margin": 44,
+   "races": 3,
+   "candidates": 8
+  },
+  {
+   "id": "AR-M-34750",
+   "name": "Jacksonville city",
+   "census_name": "Jacksonville city",
+   "population": 29221,
+   "margin": 33,
+   "races": 6,
+   "candidates": 16
+  },
+  {
+   "id": "AR-M-44600",
+   "name": "Maumelle city",
+   "census_name": "Maumelle city",
+   "population": 19373,
+   "margin": 30,
+   "races": 3,
+   "candidates": 6
+  }
+ ],
+ "school_districts": [],
+ "just_under": [
+  {
+   "kind": "city",
+   "id": "AR-M-23170",
+   "name": "Farmington city",
+   "census_name": "Farmington city",
+   "population": 9094,
+   "margin": 26,
+   "races": 4,
+   "candidates": 6
+  }
+ ],
+ "no_population_figure": [],
+ "cities_found_by_name_not_code": [],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Arkadelphia city",
+  "Batesville city",
+  "Bella Vista city",
+  "Benton city",
+  "Bentonville city",
+  "Blytheville city",
+  "Bryant city",
+  "Cabot city",
+  "Camden city",
+  "Centerton city",
+  "Conway city",
+  "El Dorado city",
+  "Forrest City city",
+  "Fort Smith city",
+  "Harrison city",
+  "Hot Springs Village CDP",
+  "Hot Springs city",
+  "Jonesboro city",
+  "Lowell city",
+  "Magnolia city",
+  "Malvern city",
+  "Marion city",
+  "Mountain Home city",
+  "Paragould city",
+  "Pine Bluff city",
+  "Rogers city",
+  "Russellville city",
+  "Searcy city",
+  "Siloam Springs city",
+  "Texarkana city",
+  "Van Buren city",
+  "West Memphis city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {
+  "City Clerk/Treasurer": 1,
+  "City Attorney": 2
+ },
+ "school_names_tied_after_setting_words_aside": [
+  {
+   "id": "AR-S-143-elkins-school-district-10",
+   "state_list": "Elkins School District #10",
+   "census": "Elkins School District"
+  }
+ ],
+ "note": "Arkansas has no statewide list of county, city or school candidates: those file with each county, and the county, city and school rows here are those of the two county election commissions read so far, Pulaski County's ballot position draw (contested contests only, so an office with one candidate there is not loaded) and Washington County's candidate list (its unopposed candidates included); the other 73 counties' are not loaded yet. School boards were elected at the annual school election on March 3, 2026, and circuit judges and prosecuting attorneys at the nonpartisan general election the same day, so only their runoffs are on the November ballot. Names are as filed for the ballot, and many carry a title (State Representative, Mayor, Councilman): the scope keeps each name as printed, and a finding is about the person named after the title. City offices are nonpartisan. City clerks, treasurers and attorneys, and the Beaver Water District's directors, are outside the scope's rule and are not in it."
+}

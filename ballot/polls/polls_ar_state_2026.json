@@ -1,0 +1,81 @@
+{
+ "rule": "Arkansas's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "No pollster in AAPOR's Transparency Initiative has published a poll of any Arkansas state race in 2026, so no race has a poll to show. The only poll found of November's state races is one Talk Business & Politics-Hendrix College survey (August 11-12, 2026, 1,217 likely voters, plus or minus 4.7 points), which asked the Governor's and the Secretary of State's races; Hendrix College is not on AAPOR's list. The University of Arkansas at Little Rock's Survey Research Center is a member, but no 2026 poll of a state race by it was found. Emerson College Polling's last Arkansas release found is from 2023.",
+ "races": {
+  "2026-AR-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Hendrix College (for Talk Business & Politics: Sarah Huckabee Sanders 45, Fred Love 40, Colt Shelby 7, undecided 8; August 11-12, 2026, 1,217 likely voters, plus or minus 4.7)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_gubernatorial_election",
+    "checked": "2026-10-03",
+    "note": "Governor. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll on Wikipedia's page (read 2026-10-03) is the Talk Business & Politics-Hendrix College survey, read in Talk Business & Politics' own report; Hendrix College is not a member. Wikipedia lists no poll of the March 3 Democratic primary and none was found. Pollsmax's page could not be reached (the lookup failed, 2026-10-03); a search summary of it credits the same 45-40 figures to J.L. Partners, whose August 14-18 Arkansas survey was reported for the U.S. Senate race, so that is not counted as a second poll. Emerson College Polling's last Arkansas release found is from 2023 (a search of its site, 2026-10-03)."
+   }
+  },
+  "2026-AR-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Hendrix College (for Talk Business & Politics: Kim Hammer 43, Kelly Grappe 40, Michael Pakko 5, undecided 12; August 11-12, 2026, 1,217 likely voters, plus or minus 4.7)"
+    ],
+    "found_in": "https://talkbusiness.net/2026/08/poll-hammer-has-slim-lead-in-secretary-of-states-race/",
+    "checked": "2026-10-03",
+    "note": "Secretary of State. No pollster in AAPOR's Transparency Initiative has published a poll of this race. Wikipedia's page has no polling section (read 2026-10-03); the one poll found is the Talk Business & Politics-Hendrix College survey, reported on Talk Business & Politics' own site, and Hendrix College is not a member. No poll of the March 3 Republican primary or the March 31 runoff was found. Emerson College Polling's last Arkansas release found is from 2023 (a search of its site, 2026-10-03)."
+   }
+  },
+  "2026-AR-LTG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_lieutenant_gubernatorial_election",
+    "checked": "2026-10-03",
+    "note": "Lieutenant Governor. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and the Talk Business & Politics-Hendrix College survey of August 11-12, 2026 reported none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out. Leslie Rutledge (Republican) faces Michael Kalagias (Libertarian)."
+   }
+  },
+  "2026-AR-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_Attorney_General_election",
+    "checked": "2026-10-03",
+    "note": "Attorney General. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and the Talk Business & Politics-Hendrix College survey of August 11-12, 2026 reported none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out. Tim Griffin is the only candidate on our list."
+   }
+  },
+  "2026-AR-LAND": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_Commissioner_of_State_Lands_election",
+    "checked": "2026-10-03",
+    "note": "Commissioner of State Lands. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and the Talk Business & Politics-Hendrix College survey of August 11-12, 2026 reported none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out. Cole Jester (Republican) faces Christopher Olson (Libertarian)."
+   }
+  },
+  "2026-AR-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_State_Treasurer_election",
+    "checked": "2026-10-03",
+    "note": "State Treasurer. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and the Talk Business & Politics-Hendrix College survey of August 11-12, 2026 reported none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out. John Thurston is the only candidate on our list."
+   }
+  },
+  "2026-AR-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Arkansas_State_Auditor_election",
+    "checked": "2026-10-03",
+    "note": "Auditor of State. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03), and the Talk Business & Politics-Hendrix College survey of August 11-12, 2026 reported none. So no pollster in AAPOR's Transparency Initiative has published one, and none is left out. Dennis Milligan is the only candidate on our list."
+   }
+  }
+ }
+}

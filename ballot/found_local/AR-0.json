@@ -1,0 +1,126 @@
+{"part": 0, "of": 11, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "removed": [],
+ "corrections": [
+  "Results-service links narrowed from the election's whole contest list to the single contest's official results (which show the county and the votes): Gilbert (2), Elliott, Rios Stafford (2), Ussery, Wooldridge, McGruder.",
+  "Fred Love's campaign address now points where the old one redirects (www.fredlove.com).",
+  "Jacob Allen's site names the state legislature and District 10, not the chamber; 'how' reworded."],
+ "candidates": [
+ {"race_id": "2026-AR-05119-constable-big-rock-township", "name": "Constable Frank Gilbert",
+  "offices": [
+   {"office": "Constable, Big Rock Township, Pulaski County (received the most votes in the November 5, 2024 general election: 43,861 to 31,134)", "from": 2025, "to": null,
+    "source": "Arkansas Secretary of State, official results of the 2024 General Election (contest 'Constable Big Rock Township', Pulaski County)",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1846&contestType=CTY&contestID=126", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Constable, Big Rock Township (Pulaski County), 2024 general election; printed on the record as 'LIB Frank Gilbert'", "year": 2024, "party": "Libertarian",
+    "source": "Arkansas Secretary of State, official results of the 2024 General Election",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1846&contestType=CTY&contestID=126", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-05119-justice-of-the-peace-14", "name": "Justice of the Peace Paul Elliott",
+  "official_page": {"url": "https://www.pulaskicounty.net/quorum-court", "source": "Pulaski County, Quorum Court members page", "verified": true},
+  "offices": [
+   {"office": "Justice of the Peace, District 14, Pulaski County Quorum Court (current term January 1, 2025 to December 31, 2026)", "from": 2011, "to": null,
+    "source": "Pulaski County, Quorum Court members page", "url": "https://www.pulaskicounty.net/quorum-court", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Republican preferential primary for Justice of the Peace, District 14, Pulaski County, 2014 (both candidates carry the Republican party id in the election's party list)", "year": 2014, "party": "Republican",
+    "source": "Arkansas Secretary of State, official results of the 2014 Preferential Primary",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1833&contestType=JUD&contestID=185", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-05143-justice-of-the-peace-12", "name": "Justice of the Peace Evelyn Rios Stafford",
+  "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "source": "Washington County, Arkansas, Quorum Court page (lists her for District 12)", "verified": true},
+  "offices": [
+   {"office": "Justice of the Peace, District 12, Washington County Quorum Court", "from": null, "to": null,
+    "source": "Washington County, Arkansas, Quorum Court page", "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Democratic primary for Justice of the Peace, District 12, Washington County, 2024 (contest printed 'DEM JUSTICE OF THE PEACE DISTRICT 12')", "year": 2024, "party": "Democratic",
+    "source": "Arkansas Secretary of State, official results of the 2024 Primary",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1845&contestType=JUD&contestID=169", "kind": "official", "verified": true},
+   {"what": "Justice of the Peace, District 12, Washington County, 2022 general election; printed 'DEM Justice of the Peace Evelyn Rios'", "year": 2022, "party": "Democratic",
+    "source": "Arkansas Secretary of State, official results of the 2022 General Election",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1844&contestType=JUD&contestID=424", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-05143-justice-of-the-peace-4", "name": "Wm Bill Ussery",
+  "past_party": [
+   {"what": "Republican primary for Justice of the Peace, District 4, Washington County, 2024 (contest printed 'REP JUSTICE OF THE PEACE DISTRICT 04', candidate 'Wm Bill Ussery')", "year": 2024, "party": "Republican",
+    "source": "Arkansas Secretary of State, official results of the 2024 Primary",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1845&contestType=JUD&contestID=166", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-GOV", "name": "State Senator Fred Love",
+  "website": {"url": "https://www.fredlove.com/", "how": "Campaign site titled 'Fred Love for Governor' (www.fredloveforarkansas.com redirects here); says he is running for governor of Arkansas", "verified": true},
+  "official_page": {"url": "https://senate.arkansas.gov/senators/fredrick-j-love", "source": "Arkansas Senate, member page (Senator Fredrick J. Love, District 15)", "verified": true},
+  "offices": [
+   {"office": "State Senator, Arkansas Senate District 15 (elected 2022, sworn in January 9, 2023)", "from": 2023, "to": null,
+    "source": "Arkansas Senate, member page", "url": "https://senate.arkansas.gov/senators/fredrick-j-love", "kind": "official", "verified": true},
+   {"office": "State Representative, Arkansas House of Representatives", "from": 2011, "to": 2022,
+    "source": "Arkansas Senate, member page ('served in the House of Representatives from 2011 through 2022')", "url": "https://senate.arkansas.gov/senators/fredrick-j-love", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Seat in the Arkansas Senate, District 15; the Senate's member page gives 'Party: Democrat'", "year": 2022, "party": "Democratic",
+    "source": "Arkansas Senate, member page", "url": "https://senate.arkansas.gov/senators/fredrick-j-love", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-M-23290-council-ward-4-position-1", "name": "Council Member Teresa A. Turk",
+  "official_page": {"url": "https://www.fayetteville-ar.gov/772/Ward-4-Position-1", "source": "City of Fayetteville, City Council, Ward 4, Position 1 page (Teresa Turk)", "verified": true},
+  "offices": [
+   {"office": "Member, Fayetteville City Council (Ward 4, Position 1 per the city's page)", "from": 2019, "to": null,
+    "source": "Northwest Arkansas Democrat-Gazette, November 10, 2022 ('each began service in 2019 and went unchallenged')",
+    "url": "https://www.nwaonline.com/news/2022/nov/10/sitting-fayetteville-council-members-reflect-on/", "kind": "secondary", "verified": true}]},
+
+ {"race_id": "2026-AR-M-41000-mayor", "name": "Little Rock City Director B.J. Brenda Wyrick",
+  "official_page": {"url": "https://littlerock.gov/government/board-of-directors/meet-your-board-members/b-j-brenda-wyrick/", "source": "City of Little Rock, Board of Directors member page (Vice-Mayor Brenda 'B.J.' Wyrick, Ward 7)", "verified": true},
+  "offices": [
+   {"office": "City Director, Ward 7, Little Rock Board of Directors (first elected November 1994; current term January 1, 2023 to December 31, 2026)", "from": 1995, "to": null,
+    "source": "City of Little Rock, Board of Directors member page", "url": "https://littlerock.gov/government/board-of-directors/meet-your-board-members/b-j-brenda-wyrick/", "kind": "official", "verified": true},
+   {"office": "Vice Mayor, City of Little Rock", "from": 2000, "to": 2001,
+    "source": "City of Little Rock, Board of Directors member page", "url": "https://littlerock.gov/government/board-of-directors/meet-your-board-members/b-j-brenda-wyrick/", "kind": "official", "verified": true},
+   {"office": "Vice Mayor, City of Little Rock (re-elected Vice-Mayor in 2025)", "from": 2025, "to": null,
+    "source": "City of Little Rock, Board of Directors member page", "url": "https://littlerock.gov/government/board-of-directors/meet-your-board-members/b-j-brenda-wyrick/", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-SH10", "name": "Jacob Allen",
+  "website": {"url": "https://www.allenforarkansas.com/", "how": "Campaign site 'Jacob Allen for Arkansas | Arkansas District 10' (the state legislature, District 10), paid for by The Friends of Jacob Allen", "verified": true}},
+
+ {"race_id": "2026-AR-SH51", "name": "State Representative Cindy Crawford",
+  "website": {"url": "https://www.cindyforarkansas.com/", "how": "Campaign site; says she filed for reelection to a fifth term as representative of District 51", "verified": true}},
+
+ {"race_id": "2026-AR-SH58", "name": "Jocelyn Fry",
+  "website": {"url": "https://jocelynforliberty.org/", "how": "Campaign site 'Jocelyn Fry for Arkansas House', about District 58, paid for by the committee to elect Jocelyn Fry", "verified": true}},
+
+ {"race_id": "2026-AR-SH63", "name": "State Representative Lincoln Barnett",
+  "website": {"url": "https://www.lincolnbarnettar.com/", "how": "Campaign site 'Mayor Lincoln Barnett for Arkansas', headed 'Democrat for District 63'; its banner still gives the 2024 election date (Nov 5th)", "verified": true},
+  "own_words": {"quote": "Democrat for District 63", "url": "https://www.lincolnbarnettar.com/", "verified": true}},
+
+ {"race_id": "2026-AR-SH70", "name": "Bo Renshaw",
+  "website": {"url": "https://borenshaw.com/", "how": "Campaign site 'Bo Renshaw for Arkansas State Representative - District 70'", "verified": true},
+  "past_party": [
+   {"what": "Special general election for State Representative District 70, March 3, 2026; printed on the record as 'REP Bo Renshaw' (results marked official)", "year": 2026, "party": "Republican",
+    "source": "Arkansas Secretary of State, official results of the 2026 Special General (March 3, 2026)",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=55355810-8dde-40ff-a1d2-5b8675226873", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-SH78", "name": "State Representative Keith Brooks",
+  "website": {"url": "https://www.keithforarkansas.com/", "how": "Campaign site 'Re-Elect Rep Keith Brooks'; 'Trusted leadership for District 78'", "verified": true}},
+
+ {"race_id": "2026-AR-SS1", "name": "School Board Director Harrell Wilson",
+  "offices": [
+   {"office": "President, Cleveland County School Board", "from": null, "to": null,
+    "source": "Pine Bluff Commercial, 'Rison businessman Harrell Wilson announces bid for vacant District 1 Senate seat'",
+    "url": "https://www.pbcommercial.com/rison-businessman-harrell-wilson-announces-bid-for-vacant-district-1-senate-seat/", "kind": "secondary", "verified": true}]},
+
+ {"race_id": "2026-AR-SS21", "name": "State Representative Jeremy Wooldridge",
+  "official_page": {"url": "https://www.arkansashouse.org/district/1", "source": "Arkansas House of Representatives, member page (Rep. Jeremy Wooldridge, District 1)", "verified": true},
+  "offices": [
+   {"office": "State Representative, Arkansas House District 1 (94th and 95th General Assemblies)", "from": 2023, "to": null,
+    "source": "Arkansas House of Representatives, member page", "url": "https://www.arkansashouse.org/district/1", "kind": "official", "verified": true},
+   {"office": "Justice of the Peace, Greene County, District 10", "from": null, "to": null,
+    "source": "Arkansas House of Representatives, member page ('Past Service')", "url": "https://www.arkansashouse.org/district/1", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Republican primary for State Representative District 01, 2022 (contest printed 'State Representative District 01 - REP')", "year": 2022, "party": "Republican",
+    "source": "Arkansas Secretary of State, official results of the 2022 Primary",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1843&contestType=REP&contestID=46", "kind": "official", "verified": true}]},
+
+ {"race_id": "2026-AR-SS9", "name": "State Representative Jessie McGruder",
+  "official_page": {"url": "https://www.arkansashouse.org/district/35", "source": "Arkansas House of Representatives, member page (Rep. Jessie McGruder, District 35)", "verified": true},
+  "offices": [
+   {"office": "State Representative, Arkansas House District 35 (95th General Assembly)", "from": 2025, "to": null,
+    "source": "Arkansas House of Representatives, member page", "url": "https://www.arkansashouse.org/district/35", "kind": "official", "verified": true}],
+  "past_party": [
+   {"what": "Democratic primary for State Representative District 35, 2024 (contest printed 'State Representative District 35 - DEM')", "year": 2024, "party": "Democratic",
+    "source": "Arkansas Secretary of State, official results of the 2024 Primary",
+    "url": "https://enr-results-api.totalresults.com/Contest/GetSingleContestResults?cId=arkansas&electionID=1845&contestType=REP&contestID=64", "kind": "official", "verified": true}]}
+]}

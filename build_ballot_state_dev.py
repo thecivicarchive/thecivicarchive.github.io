@@ -248,7 +248,7 @@ LEVEL_KINDS = {
                "judge_of_probate", "assistant_judge", "magistrate", "justice_of_the_peace", "constable", "county_engineer", "county_surveyor",
                "county_community_development_director", "county_elections_director", "county_school_superintendent", "county_school_trustee", "county_park"],
     "soil_water": ["soil_water"],
-    "city": ["mayor", "vice_mayor", "council", "city_recorder", "city_clerk", "city_treasurer", "city_clerk_treasurer", "police_chief", "city_prosecutor",
+    "city": ["mayor", "vice_mayor", "council", "city_recorder", "city_clerk", "city_treasurer", "city_clerk_treasurer", "police_chief", "city_prosecutor", "city_attorney",
              "justice_of_the_peace", "utility_board", "other"],
     "township": ["town_supervisor", "town_clerk", "town_treasurer", "town_clerk_treasurer", "justice_of_the_peace"],
     "school": ["school_superintendent", "school_board", "college_board"],
@@ -262,7 +262,7 @@ LEVEL_KINDS = {
               "workers_compensation_court", "workers_compensation_court_retention",
               "circuit_court", "circuit_court_retention", "common_pleas_court", "chancery_court", "trial_court", "district_court", "district_court_retention", "parish_court", "family_court",
               "juvenile_court", "juvenile_court_retention", "probate_court_retention", "county_court", "county_court_retention", "orphans_court", "district_magistrate", "magistrate", "magistrate_retention",
-              "metropolitan_court", "metropolitan_court_retention", "municipal_court", "city_court", "justice_court", "justice_court_retention", "district_attorney", "commonwealth_attorney",
+              "metropolitan_court", "metropolitan_court_retention", "municipal_court", "city_court", "justice_court", "justice_court_retention", "district_attorney", "prosecuting_attorney", "commonwealth_attorney",
               "city_marshal", "constable"]}
 KINDS = list(dict.fromkeys(k for lv in LEVELS for k in LEVEL_KINDS[lv]))      # every kind that is placed, level by level
 KIND_RANK = {k: i for i, k in enumerate(KINDS)}
@@ -287,7 +287,7 @@ COURTS = {"supreme_court": "the Supreme Court", "court_of_criminal_appeals": "th
           "workers_compensation_court": "the Workers&rsquo; Compensation Court", "orphans_court": "the orphans&rsquo; courts",
           "district_magistrate": "district magistrate judges", "magistrate": "magistrate judges", "metropolitan_court": "the Metropolitan Court",
           "municipal_court": "the municipal courts", "city_court": "the city courts", "justice_court": "the justice courts", "district_attorney": "district attorneys",
-          "commonwealth_attorney": "commonwealth&rsquo;s attorneys", "city_marshal": "city marshals"}
+          "prosecuting_attorney": "prosecuting attorneys", "commonwealth_attorney": "commonwealth&rsquo;s attorneys", "city_marshal": "city marshals"}
 
 # The local conventions of ballot/check_local.py: a city, town, village or township is <ST>-M-<key>, a school district
 # <ST>-S-<key>, a hospital district <ST>-H-<key>, any other district <ST>-X-<key>; a county is its five-digit code.
@@ -654,7 +654,15 @@ def race_said(geo, jid, kind=None, district=None, title=None):
     for k, v in sorted((geo.get("said") or {}).items()):
         if jid and jid in v["ids"]:
             return f"{k}:{jid}"
-    office = re.sub(r"_retention$", "", str(kind or "")).replace("_", " ").strip().casefold()
+    # a part of the contest's own county or place that the precincts name as <jurisdiction>|<part> (a constable's township:
+    # "05119|Big Rock" for the list's "Big Rock Township", the files' word for the part set aside)
+    part = str(district or "").strip()
+    for k, v in sorted((geo.get("said") or {}).items()):
+        bare = re.sub(rf"\s+{re.escape(v['word'])}$", "", part, flags=re.I).strip()
+        for i in dict.fromkeys((f"{jid}|{part}", f"{jid}|{bare}")) if jid and part else ():
+            if i in v["ids"]:
+                return f"{k}:{i}"
+    office =re.sub(r"_retention$", "", str(kind or "")).replace("_", " ").strip().casefold()
     named = " ".join(re.findall(r"[a-z0-9]+", str(title or "").casefold()))
     d = str(district or "").strip().casefold()
     fits = []
@@ -711,8 +719,13 @@ def geo_words(idx, shapes):
     # a kind of place that lies inside another, whose voters vote in both, where the files' own note on places says so
     # ("a voter in a village is a voter of the township too"): [the inner kind, the kind around it]
     inside = re.search(r"\ba voter (?:in|of) an? (\w+) is a voter (?:in|of) the (\w+) too\b", str((idx.get("notes") or {}).get("places") or ""), re.I)
+    # the county offices the board's districts (the com layer) elect, as the files' own account of that layer names them
+    # ("justice of the peace district (the county's quorum court)"; "magistrates and constables are elected by it"): a
+    # contest of such an office with a district the layer draws is placed in that district, not in the whole county
+    told = " ".join(str(x or "") for x in (said.get("com"), (idx.get("notes") or {}).get("com"))).casefold()
+    board = sorted(k for k in LEVEL_KINDS["county"] if told and re.search(rf"\b{re.escape(k.replace('_', ' '))}", told))
     return {"unit": unit, "words": words, "muni": [w for w in MUNI_WORDS if names.get(w)], "county_keys": keys,
-            "within": [inside.group(1).lower(), inside.group(2).lower()] if inside else None}
+            "within": [inside.group(1).lower(), inside.group(2).lower()] if inside else None, "board": board}
 
 
 def _own_id(S, layer, jid, code):
@@ -747,7 +760,10 @@ def race_shape(geo, code, level, kind, jid, jur, district, counties=None):
         # a court elected by a district the map draws under the contest's own jurisdiction id (a district court's
         # judicial district; a court of appeals district that is a group of counties)
         hit = ("judicial", _own_id(S, "judicial", jid, code) or jid)
-    elif kind in ("county_commissioner", "county_council"):      # the county's board, whatever the county calls it
+    elif kind in ("county_commissioner", "county_council") or (level == "county" and d and kind in (geo.get("board") or ())
+                                                                and f"{jid}|{d}" in S.get("com", {})):
+        # the county's board, whatever the county calls it (and any office the files say the board's districts elect: a
+        # justice of the peace on Arkansas's quorum court), where the layer draws the seat's own district
         # a board seat's own district; the whole county where the seat has no district (elected at large), or where the
         # map files' own account of the county's plan says its districts are where members must live and every voter
         # of the county elects each of them. A district the files have no lines for stays unplaced, and the page says so.
@@ -1510,6 +1526,10 @@ def build(db, code, lines, out_dir=None):
             # a statewide board's seat elected by a district (a public service commissioner's): the race is drawn as the
             # state, and where the precincts name their own district of that board a located reader sees only their own seat
             race.update(compact({"q": race_said(geo, None, kind, r["district"], r["office"])}))
+        elif geo and lv == "county" and d and str(race.get("g") or "").startswith("county:"):
+            # a county office elected by a part of the county no layer draws (a constable's township): drawn as the county,
+            # and where the precincts name that part a located reader sees only their own part's contest
+            race.update(compact({"q": race_said(geo, r["jurisdiction_id"], kind, r["district"], r["office"])}))
         raw_kind[rid] = (r["level"], kind)
         race["_sort"] = (LEVELS.index(lv), kind_rank(lv, kind), "" if kind in KIND_RANK else kind,
                          (race.get("j") or "").lower() if lv in LOCAL or lv in ("county", "soil_water") else "",
@@ -1893,13 +1913,20 @@ def extra_words(st, X, name, from_plain, local, has_courts, races):
                         "and uses no referral links."))
     if geo:
         # whose lines they are: every source but one the files quote for its words alone (a statute's passage, with no rows of lines)
+        # (nor one the files' own account says gave names alone, or was used only to check the others)
         agencies = list(dict.fromkeys(re.split(r"[;,]", plain_source(s.get("agency") or ""))[0].strip() for s in geo["index"].get("sources") or []
-                                      if s.get("agency") and not (s.get("words") and not s.get("rows"))))
+                                      if s.get("agency") and not (s.get("words") and not s.get("rows"))
+                                      and not re.match(r"(?:used only to check|the names of)\b", str(s.get("about") or ""), re.I)))
         # one agency named again within another's name ("Utah Geospatial Resource Center (UGRC)" beside "Utah Geospatial Resource
         # Center and Utah Lieutenant Governor's Office") is named once
         bare = lambda a: re.sub(r"\s*\([^)]*\)", "", a).strip().casefold()
         agencies = [a for a in agencies if not any(b != a and bare(a) != bare(b) and bare(a) in [p.strip() for p in re.split(r"\s+and\s+", bare(b))]
                                                    for b in agencies)]
+        # and one agency the files name twice, once with a credit line and once without, is named once, as first given
+        once = {}
+        for a in agencies:
+            once.setdefault(bare(a), a)
+        agencies = list(once.values())
         st["geoWho"] = and_list(["the " + a if not a.lower().startswith("the ") else a for a in agencies[:2]]) if agencies else ""
         st["geoSrc"] = [compact({"a": plain_source(s.get("agency")), "t": plain_source(s.get("title")), "u": web_url(s.get("url"))})
                         for s in geo["index"].get("sources") or [] if s.get("agency")]
@@ -2834,7 +2861,7 @@ window.GEOKIT = (function () {
   const words = k => KW[k] || [capital(k), capital(k)];
   const side = html => { const s = $("#gside"); if (s) s.innerHTML = html; };
   const feet = m => { const f = m * 3.2808; return f < 20 ? Math.max(5, Math.round(f / 5) * 5) : Math.round(f / 10) * 10; };
-  const schoolWho = () => { const s = ((IDX && IDX.sources) || []).find(x => /school/i.test((x.id || "") + " " + (x.title || ""))); return s ? String(s.agency || "").split(/[;,]/)[0].trim() : "the state's school district map"; };
+  const schoolWho = () => { const s = ((IDX && IDX.sources) || []).find(x => /school/i.test((x.id || "") + " " + (x.title || ""))); return s ? String(s.agency || "").split(/[;,]/)[0].replace(/\s*\([^)]*\)/g, "").trim() : "the state's school district map"; };      /* (a credit line in brackets is not the agency's name) */
   const finder = () => { const P = G.polls || {}; return P.finder ? `<a href="${esc(P.finder)}" target="_blank" rel="noopener">Open the ${ST.partial ? "state&rsquo;s official" : WHO} polling place finder</a>` : ""; };      // where the lists are the counties' own, the finder is still the state's
 
   /* what a shape is called, from what the page already holds (the map's own files say it first, where they are here) */
@@ -3436,7 +3463,9 @@ const plural = (n, one, many) => `${num(n)} ${n === 1 ? one : (many || one + "s"
 const firstOf = n => String(n).split(/\s+(?:and|&|\/)\s+/i)[0];      // a ticket's first name: "A and B", "A & B", or "A / B" as some lists write it
 const surname = n => firstOf(n).replace(/,?\s+(Jr\.?|Sr\.?|II|III|IV)$/i, "").trim().split(/\s+/).pop().toLowerCase();
 const inOrder = list => [...list].sort((a, b) => (a.o ?? 1e9) - (b.o ?? 1e9) || surname(a.n).localeCompare(surname(b.n)) || a.n.localeCompare(b.n));
-const initials = n => { const w = firstOf(n).replace(/["“”(].*?["“”)]/g, "").replace(/,?\s+(Jr|Sr|II|III|IV)\.?$/i, "").trim().split(/\s+/);
+/* a title a list prints before the name as filed ("State Senator Fred Love", "Justice of the Peace Luke McCoy"): kept on the card, left out of the initials */
+const TITLED = /^(?:\S+\s+){0,3}(?:Senator|Representative|Governor|General|State|Treasurer|Auditor|Justice|Peace|Judge|Mayor|Director|Sheriff|Assessor|Collector|Constable|Clerk|Commissioner|Coroner|Alderman|Alderwoman|Councilman|Councilwoman|Trustee)(?:[-\/][A-Za-z]+)?\s+(?=\S+\s+\S)/;
+const initials = n => { const w = firstOf(n).replace(TITLED, "").replace(/["“”(].*?["“”)]/g, "").replace(/,?\s+(Jr|Sr|II|III|IV)\.?$/i, "").trim().split(/\s+/);
   return (((w[0] || "")[0] || "") + ((w.length > 1 ? w[w.length - 1] : "")[0] || "")).toUpperCase(); };
 const natKey = d => { const m = String(d ?? "").match(/^(\d+)(.*)$/); return m ? [+m[1], m[2]] : [1e9, String(d ?? "")]; };
 const byDistrict = (a, b) => { const x = natKey(a), y = natKey(b); return x[0] - y[0] || x[1].localeCompare(y[1], undefined, {numeric: true}); };
@@ -3657,7 +3686,7 @@ function votePlace(r){      // whose past votes a contest's page shows: [file, k
   const g = r.g || r.gp || "", i = g.indexOf(":"), kind = g.slice(0, i), id = g.slice(i + 1), V = BOOT.votes, c0 = (r.c || [])[0];      // gp: the place a ward with no lines is a part of
   if (!V || !g) return null;
   if (kind === "state") return ["state", "", 0];
-  if (kind === "county" && c0 && V.files.includes("county")) return ["county", c0, 0];      // the county file is keyed as the page files a county
+  if (kind === "county" && c0 && V.files.includes("county")) return ["county", c0, r.q ? 1 : 0];      // the county file is keyed as the page files a county (wider than a part of it the contest is elected by)
   if (kind === "mcd") return c0 && V.mcd.includes(c0) ? ["mcd-" + c0, id, r.g ? 0 : 1] : [null, kind];
   if (V.files.includes(kind)) return [kind, id, 0];
   if ((kind === "swcd" || kind === "park") && c0 && V.files.includes("county")) return ["county", c0, kind === "swcd" && ((BOOT.geo || {}).swWhole || []).includes(id) ? 0 : 1];      // a conservation district that is the whole county: the county's own figures
@@ -4144,7 +4173,8 @@ function ballotHTML(m){
     const G = r => r.g || "", at = (kind, id) => id ? kind + ":" + id : "\u0000", LOOSE = "The map has no lines for the part of the place that elects this, so it is listed for everyone here; your county&rsquo;s sample ballot shows whether it is on yours.";
     /* districts with no lines at all: a location cannot place a reader in them, and that is said */ const unseen = r => !G(r) && !D.races.some(x => x.pk && x.pk === r.pk && x.g), NOLINES = list => { const n = new Set(list.map(r => r.pk || r.id)).size;
       return list.length ? `The map has no lines for ${n > 1 ? "these districts" : "this district"}, so your location cannot tell whether you live in ${n > 1 ? "one" : "it"}: ${n > 1 ? "each is" : "it is"} listed for everyone in the ${CO1}, and is on your ballot only if you live inside it.` : ""; };
-    const county = byLv("county").filter(r => inC(r) && (!G(r) || G(r) === at("county", z.gc || z.c) || G(r) === at("com", z.com) || G(r) === at("park", z.pk)));
+    const county = byLv("county").filter(r => inC(r) && (!G(r) || G(r) === at("county", z.gc || z.c) || G(r) === at("com", z.com) || G(r) === at("park", z.pk))
+      && !(r.q && z.x && z.x[r.q.split(":")[0]] && z.x[r.q.split(":")[0]] !== r.q.slice(r.q.indexOf(":") + 1)));      // a part of the county the precinct names as another (a constable's township)
     const looseC = county.filter(r => !G(r) && r.d);      // said of the seats it is about, by name: the rest of the county's list is the reader's
     out.push(county.length ? level(esc(cName(m.c)), county, looseC.length ? `${andList(looseC.map(r => esc(raceTitle(r))))}: ${LOOSE.replace(/^The map/, "the map").replace(/elects this, so it is/, looseC.length === 1 ? "elects this, so it is" : "elects these, so they are")}` : "") : countyGap(m.c));
     const soilAll = byLv("soil_water").filter(inC), soil = soilAll.filter(r => G(r) === at("swcd", z.sw) || (z.sw2 || []).some(i => G(r) === at("swcd", i))), soilLoose = soilAll.filter(r => !G(r));

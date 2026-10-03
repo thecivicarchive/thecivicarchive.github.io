@@ -1,0 +1,265 @@
+{
+ "part": 68,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after ten searches for this part, so the rest was read directly from county, city, court, school district and state sites with the kit's fetcher. Websites for the two sitting legislators were found through the links on Branch's nonpartisan guide and then opened on the campaign sites themselves. Checked and not holding the office: Rachel Myers (the State Board of Elections' county clerk list names another person as Hickman County Clerk), Leo Lewis Saylor (not on Grant County's elected officials or fiscal court pages), Megan Bailey (Warren County's fourth district magistrate is another person), Gregory Wayne Phelps (Butler County's fiscal court page names a different Phelps), Amy Stover Smitha (not among the six members on the City of Shelbyville's council page, though a candidate directory calls her an incumbent). Greg Steffen: a search summary said he was running for Independence's council, but the Kenton County Clerk's 2026 general ballot draw lists Greg Steffen under 'Independence Mayor', as our list does; he sits on the council today. Diana Niceley: the City of Erlanger's council page says 'Second Term of Two Years, Four Years of Service' while LINK nky (July 2025) wrote that 2025 was her fifth year on the council, so no start year is recorded. The Revenue Cabinet's PVA directory also prints each PVA's party; that is a directory line, not a ballot, so it is not recorded as past_party. Not reachable or not found: Fleming, Casey, Hickman, Spencer's and Marshall's ky.gov hosts did not resolve or timed out at times; Boyd, Marshall, Kenton, Monroe, Ballard and Cumberland county pages did not name the candidate; Bullitt and Owen school board pages draw their members by script; Madisonville's city site answered 429 and was left alone. Constables and the Ballard County write-in were not found on any official page.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21093-magistrate-8",
+   "name": "Kenny Muse",
+   "official_page": {
+    "url": "https://www.hcky.org/389/Elected-Officials",
+    "source": "Hardin County, Elected Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hardin County Magistrate, District 8",
+     "from": null,
+     "to": null,
+     "source": "Hardin County, Elected Officials page (Kenny Muse, District 8 Magistrate)",
+     "url": "https://www.hcky.org/389/Elected-Officials",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21131-county-assessor",
+   "name": "Jeff W. Boggs",
+   "official_page": {
+    "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+    "source": "Kentucky Department of Revenue, PVA Directory 2022-2026 (Leslie County)",
+    "verified": true
+   },
+   "born": {
+    "year": 1977,
+    "date": "1977-11-10",
+    "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Leslie County entry for Jeff Boggs, PVA ('Born November 10, 1977')",
+    "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Leslie County Property Valuation Administrator",
+     "from": 2018,
+     "to": null,
+     "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Leslie County entry ('Jeff Boggs, PVA' ... 'PVA since December 2018')",
+     "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21181-magistrate-2",
+   "name": "Matt Hughes",
+   "official_page": {
+    "url": "https://nicholascounty.ky.gov/FiscalCourt/Pages/default.aspx",
+    "source": "Nicholas County Fiscal Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicholas County Magistrate, District 2",
+     "from": null,
+     "to": null,
+     "source": "Nicholas County Fiscal Court page (Matt Hughes, District 2)",
+     "url": "https://nicholascounty.ky.gov/FiscalCourt/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21193-county-assessor",
+   "name": "Lonnie Douglas Adams",
+   "official_page": {
+    "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+    "source": "Kentucky Department of Revenue, PVA Directory 2022-2026 (Perry County)",
+    "verified": true
+   },
+   "born": {
+    "year": 1978,
+    "date": "1978-09-23",
+    "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Perry County entry for Lonnie Douglas Adams, PVA ('Born September 23, 1978')",
+    "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Perry County Property Valuation Administrator",
+     "from": 2022,
+     "to": null,
+     "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Perry County entry ('Lonnie Douglas Adams, PVA' ... 'PVA since December 2022')",
+     "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21203-jailer",
+   "name": "Nathan Carter",
+   "official_page": {
+    "url": "https://rockcastlecountyky.com/local-government",
+    "source": "Rockcastle County Industrial Development Authority, Local Government (Rockcastle County Detention Center, Jailer: Nathan Carter)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Rockcastle County Jailer",
+     "from": null,
+     "to": null,
+     "source": "Rockcastle County Industrial Development Authority, Local Government page (Rockcastle County Detention Center, Jailer: Nathan Carter); the page is the county development authority's, not the fiscal court's",
+     "url": "https://rockcastlecountyky.com/local-government",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21215-sheriff",
+   "name": "Andrew Ware",
+   "official_page": {
+    "url": "https://www.spencercountyky.gov/nav/county_government.php",
+    "source": "Spencer County, County Government",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Spencer County Sheriff",
+     "from": null,
+     "to": null,
+     "source": "Spencer County, County Government page (Spencer County Sheriff: Andrew Ware)",
+     "url": "https://www.spencercountyky.gov/nav/county_government.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-CJ6-1",
+   "name": "Bryce Caldwell",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Daviess.aspx",
+    "source": "Kentucky Court of Justice, Daviess County (Justice, Judges & Circuit Court Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Circuit Judge, 6th Judicial Circuit",
+     "from": null,
+     "to": null,
+     "source": "Kentucky Court of Justice, Daviess County page (Bryce Lowry Caldwell, Judge, Circuit Court, 6th Judicial Circuit)",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Daviess.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ55",
+   "name": "Jennifer Elizabeth Porter",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Bullitt.aspx",
+    "source": "Kentucky Court of Justice, Bullitt County (Justice, Judges & Circuit Court Clerk)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 55th Judicial District",
+     "from": null,
+     "to": null,
+     "source": "Kentucky Court of Justice, Bullitt County page (Jennifer E. Porter, Judge, District Court, 55th Judicial District)",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Bullitt.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-25300-mayor",
+   "name": "Diana Niceley",
+   "official_page": {
+    "url": "https://erlangerky.gov/about/city-council/",
+    "source": "City of Erlanger, City Council",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Erlanger City Council Member",
+     "from": null,
+     "to": null,
+     "source": "City of Erlanger, City Council page (Diana Niceley, Councilwoman; Number of Terms Served on City Council: Second Term of Two Years, Four Years of Service)",
+     "url": "https://erlangerky.gov/about/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-39142-mayor",
+   "name": "Greg Steffen",
+   "official_page": {
+    "url": "https://www.cityofindependence.org/308/Council-Members",
+    "source": "City of Independence, Council Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Independence City Council Member",
+     "from": null,
+     "to": null,
+     "source": "City of Independence, Council Members page (Current Council Members: Greg Steffen, Council Member); tied to this race by the Kenton County Clerk's 2026 General Ballot Draw, which lists Greg Steffen under 'Independence Mayor' (https://kentonkyclerk.gov/wp-content/uploads/2026/08/2026-GENERAL-BALLOT-DRAW.pdf)",
+     "url": "https://www.cityofindependence.org/308/Council-Members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-02640-school-board-5",
+   "name": "Thomas Hockensmith",
+   "official_page": {
+    "url": "https://www.hart.kyschools.us/page/board-members",
+    "source": "Hart County Schools, Board Members",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hart County Board of Education Member",
+     "from": null,
+     "to": null,
+     "source": "Hart County Schools, Board Members page (Thomas Hockensmith (Cub Run))",
+     "url": "https://www.hart.kyschools.us/page/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-SH31",
+   "name": "Susan Tyler Witten",
+   "website": {
+    "url": "https://susantylerwitten.com/",
+    "how": "The site is titled 'Susan Tyler Witten', reads 'A Strong Voice for Eastern Jefferson County' and carries 'Paid For By Susan Tyler Witten for State Representative'; linked from her Branch voter guide entry for the 2026 House District 31 race.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-SS12",
+   "name": "Amanda Mays Bledsoe",
+   "website": {
+    "url": "https://www.amandamaysbledsoe.com/",
+    "how": "The site is titled 'Amanda Mays Bledsoe for State Senate', names 'Senate District 12: Fayette (part), Woodford, Mercer and Boyle' and carries 'Paid for by Amanda Mays Bledsoe for State Senate'; linked from her Branch voter guide entry for the 2026 Senate District 12 race.",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened with the kit fetcher on 2026-10-03; each page names the candidate in the office recorded, and the race list ties each to the 2026 contest. PVA birth dates are on the Department of Revenue directory (official). Rockcastle jailer page is the county industrial development authority, as its source says. Nothing from the never-collected list is in any field."
+}

@@ -48,7 +48,11 @@ contests the Secretary of State's list leaves unplaced, and its "place_codes" ti
 (48003) to the Census Bureau's row for its balance (48006), the only part of it among the file's places. Utah
 (2026-10-03) has no website cell either, and no county, city or school rows yet; its "why_no_local" says when those
 offices are elected and that the scope is the Lieutenant Governor's certification (the State Board of Education, the
-Legislature and the judges' retention votes, justice courts included).
+Legislature and the judges' retention votes, justice courts included). Arkansas (2026-10-03) has no website cell
+either; its "local_note" says the county, city and school rows are those of Pulaski and Washington Counties so far.
+Its ballot names carry filed titles ("State Representative Jane Doe"), kept as printed: its "titles" pattern lets
+`_first_named` find the person behind the title for the family-name check and the issue-heading filter, and only for
+a state that has such a pattern, so every other state's names are read exactly as before.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -393,7 +397,35 @@ STATES = {"MN": {"name": "Minnesota"},
                                  "list is loaded yet, so the scope is the Lieutenant Governor's General Election Certification: the "
                                  "State Board of Education (elected by district, with the statewide offices), the Legislature, and the "
                                  "judges on a yes-or-no retention vote, each the one name in the race, the justice court judges of "
-                                 "cities and counties among them."}}
+                                 "cities and counties among them."},
+          # Arkansas (2026-10-03): the Secretary of State's Candidate Search, Pulaski County's ballot position draw and
+          # Washington County's candidate list give no website cell this module reads (Washington County's contact
+          # columns are never read by the list loader), so its websites come from verified findings only. Its legislative
+          # races give "Arkansas" as their jurisdiction, so the scope names the district (`scope`); its court races carry
+          # the judicial district, city races the Census place code as AR-M-<code>. Arkansas elects its Lieutenant
+          # Governor separately, so a candidate for Governor runs alone ("no_ticket"). Names are kept as filed for the
+          # ballot, and many carry a title ("State Representative", "Mayor", "Councilman"): "titles" is the pattern of
+          # those words, set aside where the module needs the person (the family name a site must show, and the given
+          # name an issue heading must not use); the name itself is never changed. A bare "Justice" is not in it, since
+          # it is also a given name. "school_names": the Washington County list writes the Elkins district with its
+          # number ("Elkins School District #10"), which the Census Bureau's row does not carry
+          "AR": {"name": "Arkansas", "legislature": r"\barkansas (?:state )?(?:house(?: of representatives)?|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "no_ticket": True,
+                 "titles": r"^(?:(?:state )?(?:senator|representative|treasurer)|rep\.|sen\.|governor|lieutenant governor|attorney general|"
+                           r"auditor of state|secretary of state|commissioner of state lands|justice of the peace|council ?(?:member|man|woman)|"
+                           r"alderman|alderwoman|director|mayor|sheriff|constable|coroner|assessor|(?:county |circuit )?(?:clerk|judge|collector)|"
+                           r"county treasurer|prosecuting attorney)\s+",
+                 "school_names": {"AR-S-143-elkins-school-district-10": "Elkins School District"},
+                 "local_note": "Arkansas has no statewide list of county, city or school candidates: those file with each county, and the "
+                               "county, city and school rows here are those of the two county election commissions read so far, Pulaski "
+                               "County's ballot position draw (contested contests only, so an office with one candidate there is not "
+                               "loaded) and Washington County's candidate list (its unopposed candidates included); the other 73 "
+                               "counties' are not loaded yet. School boards were elected at the annual school election on March 3, 2026, "
+                               "and circuit judges and prosecuting attorneys at the nonpartisan general election the same day, so only "
+                               "their runoffs are on the November ballot. Names are as filed for the ballot, and many carry a title "
+                               "(State Representative, Mayor, Councilman): the scope keeps each name as printed, and a finding is about "
+                               "the person named after the title. City offices are nonpartisan. City clerks, treasurers and attorneys, "
+                               "and the Beaver Water District's directors, are outside the scope's rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));
@@ -440,9 +472,15 @@ def _november(con, state=None):
     return {(r, n): m for r, n, m in con.execute(sql, NOVEMBER + ((state,) if state else ()))}
 
 
-def _first_named(name, office_kind):
-    """The person a site or a finding is about: on a ticket for Governor and Lieutenant Governor, the one named first."""
-    return re.split(r"\s+and\s+|\s+/\s+|\s+&\s+", name)[0] if office_kind == "governor" else name
+def _first_named(name, office_kind, state=None):
+    """The person a site or a finding is about: on a ticket for Governor and Lieutenant Governor, the one named first;
+    in a state whose names carry a filed title (Arkansas: "State Representative Jane Doe"), the name after the title."""
+    who = re.split(r"\s+and\s+|\s+/\s+|\s+&\s+", name)[0] if office_kind == "governor" else name
+    titles = STATES.get(state or "", {}).get("titles")
+    if titles:
+        bare = re.sub(titles, "", who, count=1, flags=re.I).strip()
+        who = bare if len(bare.split()) >= 2 else who      # never cut a name down to one word
+    return who
 
 
 def _family(name):
@@ -1126,7 +1164,7 @@ def reread_headings(con, say=print, state=None):
             if rid not in races:
                 continue
             had = json.loads(topics or "[]")
-            kept = _headings(topics, _first_named(name, races[rid]["office_kind"]))
+            kept = _headings(topics, _first_named(name, races[rid]["office_kind"], races[rid]["state"]))
             before, after = before + len(had), after + len(kept)
             if kept == had:
                 continue
@@ -1252,7 +1290,7 @@ def fetch(con, say=print, only=None, limit=None, again="", pause=0.5, state=None
             for ahead in todo[i - 1:i + 5]:      # this site's name and the next five, asked for early (see _tickle)
                 _tickle(ahead[2])
             person = f"{rid}|{name}"
-            who = _first_named(name, races[rid]["office_kind"])
+            who = _first_named(name, races[rid]["office_kind"], races[rid]["state"])
             family = _family(who)
             member = november[(rid, name)]      # a sitting member with a portrait on the state roster needs no campaign photo
             portrait = bool(member) and member in _roster(races[rid]["state"])["portraits"]

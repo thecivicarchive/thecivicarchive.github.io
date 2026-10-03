@@ -1,0 +1,31 @@
+{"part": 72, "of": 117, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "removed": [
+  {"race_id": "2026-KY-21193-county-executive", "name": "Denny Ray Noble", "what": "offices: Perry County Judge/Executive (WYMT article)", "why": "the page could not be opened after two tries (address lookup failed)"},
+  {"race_id": "2026-KY-21203-magistrate-4", "name": "Wendell Shane Thacker", "what": "offices: Rockcastle County Magistrate, District 4", "why": "the page could not be opened after two tries (address lookup failed); it is also an industrial development authority's page dated 2021, not plainly the county government's own page, and does not show the office is held today"}
+ ],
+ "candidates": [
+  {"race_id": "2026-KY-21031-county-attorney", "name": "Michele Duvall",
+   "official_page": {"url": "https://butlercounty.ky.gov/County-Government/Pages/County-Attorney.aspx", "source": "Butler County government, County Attorney page ('Michele Duvall')", "verified": true},
+   "offices": [{"office": "Butler County Attorney", "from": null, "to": "present", "source": "Butler County government, County Attorney page", "url": "https://butlercounty.ky.gov/County-Government/Pages/County-Attorney.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21057-county-clerk", "name": "Bryan Morgan",
+   "official_page": {"url": "https://cumberlandcounty.ky.gov/elected/Pages/officials.aspx", "source": "Cumberland County government, Elected Officials page ('County Clerk Bryan Morgan')", "verified": true},
+   "offices": [{"office": "Cumberland County Clerk", "from": null, "to": "present", "source": "Cumberland County government, Elected Officials page", "url": "https://cumberlandcounty.ky.gov/elected/Pages/officials.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21083-coroner", "name": "Brad Jones",
+   "official_page": {"url": "https://www.gravescountyky.gov/office-of-coroner/", "source": "Graves County Fiscal Court, Office of Coroner page ('Brad Jones, Coroner')", "verified": true},
+   "offices": [{"office": "Graves County Coroner", "from": null, "to": "present", "source": "Graves County Fiscal Court, Office of Coroner page", "url": "https://www.gravescountyky.gov/office-of-coroner/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21131-jailer", "name": "Danny L. Clark",
+   "official_page": {"url": "https://lesliecounty.ky.gov/Pages/elected-officials.aspx", "source": "Leslie County government, Elected Officials page ('County Jailer Danny Clark')", "verified": true},
+   "offices": [{"office": "Leslie County Jailer", "from": null, "to": "present", "source": "Leslie County government, Elected Officials page", "url": "https://lesliecounty.ky.gov/Pages/elected-officials.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21145-county-attorney", "name": "D. Cade Foster",
+   "official_page": {"url": "https://mccrackencountyky.gov/cade-foster-county-attorney/", "source": "McCracken County government, 'Cade Foster - County Attorney' page", "verified": true},
+   "offices": [{"office": "McCracken County Attorney", "from": null, "to": "present", "source": "McCracken County government, County Attorney page", "url": "https://mccrackencountyky.gov/cade-foster-county-attorney/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-21157-sheriff", "name": "Matt A Hilbrecht",
+   "official_page": {"url": "https://www.marshallcountyky.gov/Directory.aspx?DID=18", "source": "Marshall County government, staff directory, Sheriff ('Matt Hilbrecht, Sheriff')", "verified": true},
+   "offices": [{"office": "Marshall County Sheriff", "from": null, "to": "present", "source": "Marshall County government, staff directory", "url": "https://www.marshallcountyky.gov/Directory.aspx?DID=18", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-COA5-1", "name": "Will Moynahan",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/Court-of-Appeals/Pages/5th-Appellate-District-Division-1.aspx", "source": "Kentucky Court of Justice, Court of Appeals 5th Appellate District Division 1 page", "verified": true},
+   "offices": [{"office": "Judge, Kentucky Court of Appeals, 5th Appellate District, Division 1 (appointed by the Governor)", "from": "2025", "to": "present", "source": "Kentucky Court of Justice: 'appointed by Gov. Andy Beshear to the Kentucky Court of Appeals in April 2025'", "url": "https://www.kycourts.gov/Courts/Court-of-Appeals/Pages/5th-Appellate-District-Division-1.aspx", "kind": "official", "verified": true}]},
+  {"race_id": "2026-KY-S-02760-school-board-5", "name": "Lori Abney",
+   "official_page": {"url": "https://www.henry.kyschools.us/about-us/board-of-education", "source": "Henry County Public Schools, Board of Education page (lists Lori Abney among the board)", "verified": true},
+   "offices": [{"office": "Henry County Board of Education member", "from": null, "to": "present", "source": "Henry County Public Schools, Board of Education page", "url": "https://www.henry.kyschools.us/about-us/board-of-education", "kind": "official", "verified": true}]}
+]}

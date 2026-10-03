@@ -1,0 +1,35 @@
+{
+ "state": "AR",
+ "made": "2026-10-03",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 310,
+ "by_level": {
+  "statewide": 13,
+  "legislature": 164,
+  "court": 8,
+  "county": 56,
+  "city": 69,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 7,
+  "legislature": 118,
+  "court": 4,
+  "county": 33,
+  "city": 28,
+  "school": 0
+ },
+ "races": 190,
+ "on_the_november_list_in_all": 397,
+ "per_part": 30,
+ "parts": 11,
+ "cities_in": 7,
+ "city_candidates": 69,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 1,
+  "candidates": 6
+ },
+ "note": "Arkansas has no statewide list of county, city or school candidates: those file with each county, and the county, city and school rows here are those of the two county election commissions read so far, Pulaski County's ballot position draw (contested contests only, so an office with one candidate there is not loaded) and Washington County's candidate list (its unopposed candidates included); the other 73 counties' are not loaded yet. School boards were elected at the annual school election on March 3, 2026, and circuit judges and prosecuting attorneys at the nonpartisan general election the same day, so only their runoffs are on the November ballot. Names are as filed for the ballot, and many carry a title (State Representative, Mayor, Councilman): the scope keeps each name as printed, and a finding is about the person named after the title. City offices are nonpartisan. City clerks, treasurers and attorneys, and the Beaver Water District's directors, are outside the scope's rule and are not in it."
+}

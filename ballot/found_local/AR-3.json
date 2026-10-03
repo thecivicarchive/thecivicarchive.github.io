@@ -1,0 +1,63 @@
+{
+ "part": 3,
+ "of": 11,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened on 2026-10-03 (the kit's fetcher; the Byars site through WebFetch). All findings confirmed. Wording corrected: Griffen's circuit judgeship is in the Sixth Judicial District as the Encyclopedia words it, and the campaign About page cited beside the Encyclopedia was not re-checked, so those mentions were dropped from the source lines; Sylvester's page says he was elected in 2012 (the 2013 start is the January after); Rutledge's site is titled 'Leslie Rutledge for Lt. Governor' and paid for by that committee; Torres's site states the 2026 re-election as State Representative but does not print the district number.",
+ "note": "The session's shared web-search allowance ran out after the first few searches of this part, so the rest was read directly: campaign sites, county and city pages, and a nonpartisan guide's district pages used only to find campaign addresses (each site was then opened and checked to name the candidate and the office). Ballotpedia answered the kit's fetcher with an empty page. No campaign site was found for Ryan Intchauspe, Cody Rogers, Dwight Tosh, Lee Johnson, Mark W. Perry, Sonia E. Barker, Justin Boyd, Cheesa Williams, Joy Kinman, Tony Stanley Miller, Todd Hoover, Ashley Brodnax or Richard Duncan. Checked and not holding the office sought: Cheesa Williams (not on Jacksonville's council directory), Tony Stanley Miller (not on Little Rock's Board of Directors page), Todd Hoover (Maumelle's council page lists Chad Gardner in Ward 2 Position 2). Sherwood's and Springdale's council pages could not be read. The Gazaway and Vaught campaign sites carry older content (a 2023 session newsletter; a 2022 copyright) but name the candidate, the district and the office.",
+ "candidates": [
+  {"race_id": "2026-AR-05119-county-judge", "name": "Wendell Griffen",
+   "website": {"url": "https://www.griffen4pulaskicounty.org/", "how": "Campaign site titled 'Wendell Griffen For Pulaski County Judge'; 'Elect Wendell L. Griffen for Pulaski County Judge in 2026'", "verified": true},
+   "born": {"year": 1952, "date": null, "source": "Encyclopedia of Arkansas (Central Arkansas Library System), 'Wendell Griffen'", "url": "https://encyclopediaofarkansas.net/entries/wendell-griffen-15691/", "kind": "secondary", "verified": true},
+   "offices": [
+    {"office": "Chairman, Arkansas Workers' Compensation Commission (appointed by the Governor)", "from": 1985, "to": 1987, "source": "Encyclopedia of Arkansas: appointed April 15, 1985, held the post until February 1987", "url": "https://encyclopediaofarkansas.net/entries/wendell-griffen-15691/", "kind": "secondary", "verified": true},
+    {"office": "Judge, Arkansas Court of Appeals", "from": 1996, "to": 2008, "source": "Encyclopedia of Arkansas: appointed effective January 1, 1996, served on the Court of Appeals until 2008", "url": "https://encyclopediaofarkansas.net/entries/wendell-griffen-15691/", "kind": "secondary", "verified": true},
+    {"office": "Circuit Judge, Fifth Division, Sixth Judicial District", "from": 2011, "to": 2022, "source": "Encyclopedia of Arkansas: 'From 2011 to 2022, he served as Circuit Judge of the Fifth Division, Sixth Judicial District in Arkansas'", "url": "https://encyclopediaofarkansas.net/entries/wendell-griffen-15691/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-AR-05143-clerk-of-court", "name": "Circuit Clerk Kyle Sylvester",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials/circuit-clerk", "source": "Washington County, Arkansas: Elected Officials, Circuit Clerk Kyle Sylvester", "verified": true},
+   "offices": [
+    {"office": "Washington County Circuit Clerk", "from": 2013, "to": null, "source": "Washington County's Circuit Clerk page, in his own statement: 'I ran and was elected to the Office of Circuit Clerk in 2012' (the term began the following January)", "url": "https://www.washingtoncountyar.gov/government/elected-officials/circuit-clerk", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-05143-county-judge", "name": "Tim Shepard",
+   "website": {"url": "https://votetimshepard.com", "how": "Campaign site titled 'Tim Shepard for Washington County Judge'; 'Race Washington County Judge ... General Election November 3, 2026'", "verified": true}},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-14", "name": "Justice of the Peace Gary Ricker",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "source": "Washington County, Arkansas: Quorum Court (Gary Ricker, District 14)", "verified": true},
+   "offices": [
+    {"office": "Justice of the Peace, Washington County Quorum Court, District 14", "from": null, "to": null, "source": "Washington County's Quorum Court page lists Gary Ricker for District 14", "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-6", "name": "Lisa Ecke Justice of the Peace",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "source": "Washington County, Arkansas: Quorum Court (Lisa Ecke, District 6)", "verified": true},
+   "offices": [
+    {"office": "Justice of the Peace, Washington County Quorum Court, District 6", "from": null, "to": null, "source": "Washington County's Quorum Court page lists Lisa Ecke for District 6", "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-CC16-D2", "name": "Kara Byars",
+   "website": {"url": "https://www.byars4judge.com/", "how": "Campaign site 'Kara Byars for Circuit Judge, Division 2' in the 16th Judicial District (Cleburne, Fulton, Independence, Izard and Stone Counties), election November 3, 2026", "verified": true}},
+  {"race_id": "2026-AR-LTG", "name": "Lieutenant Governor Leslie Rutledge",
+   "website": {"url": "https://www.leslierutledge.com/", "how": "Campaign site titled 'Leslie Rutledge for Lt. Governor' ('Support our campaign'; paid for by Leslie Rutledge for Lt. Governor), naming her as Arkansas's Lieutenant Governor since 2023; the site does not print the year 2026", "verified": true}},
+  {"race_id": "2026-AR-M-34750-council-ward-5-position-1", "name": "Council Member Joy Kinman",
+   "official_page": {"url": "https://www.cityofjacksonville.net/directory.aspx", "source": "City of Jacksonville, Arkansas: staff directory (Joy Kinman, Councilmember - Ward 5, Position 1)", "verified": true},
+   "offices": [
+    {"office": "Jacksonville City Council, Ward 5, Position 1", "from": null, "to": null, "source": "City of Jacksonville directory lists Joy Kinman as Councilmember - Ward 5, Position 1", "url": "https://www.cityofjacksonville.net/directory.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-SH11", "name": "Rey Hernandez",
+   "website": {"url": "https://hernandezforarkansas.com/", "how": "Campaign site: 'My name is Rey Hernandez, and I'm running for Arkansas House Representative, District-11'", "verified": true}},
+  {"race_id": "2026-AR-SH17", "name": "Representative Randy Torres",
+   "website": {"url": "https://www.randyforarkansas.com/", "how": "Campaign site: 'Randy Torres is running for re-election as State Representative in 2026' (the district number is not printed)", "verified": true}},
+  {"race_id": "2026-AR-SH31", "name": "State Representative Jimmy Gazaway",
+   "website": {"url": "https://www.jimmygazaway.com/", "how": "Campaign site of Rep. Jimmy Gazaway, State Representative of District 31 (Greene County); content not updated since 2023", "verified": true}},
+  {"race_id": "2026-AR-SH53", "name": "State Representative Matt Duffield",
+   "website": {"url": "https://mattduffield.com/", "how": "Campaign site 'Matt Duffield State Rep District 53', paid for by Matt Duffield for State Representative, copyright 2026", "verified": true}},
+  {"race_id": "2026-AR-SH72", "name": "Talesha Dokes",
+   "website": {"url": "https://votedrdokes.com/", "how": "Campaign site 'Dr. Talesha Dokes for State Representative', Arkansas's District 72", "verified": true}},
+  {"race_id": "2026-AR-SH8", "name": "Kara Armas",
+   "website": {"url": "https://karaarmas.com", "how": "Campaign site 'Kara Armas | for State Representative', Arkansas House District 8", "verified": true},
+   "own_words": {"quote": "Kara Armas has been selected as the Republican nominee", "url": "https://karaarmas.com", "verified": true}},
+  {"race_id": "2026-AR-SH87", "name": "State Representative DeAnn Vaught",
+   "website": {"url": "https://www.deannvaught.com/", "how": "Campaign site 'DeAnn Vaught For District 87 State Representative'; copyright 2022", "verified": true}},
+  {"race_id": "2026-AR-SS13", "name": "Allison Grigsby Sweatman",
+   "website": {"url": "https://allisonforarkansas.com/", "how": "Campaign site: 'Allison Grigsby Sweatman The right choice for Arkansas Senate District 13'", "verified": true},
+   "own_words": {"quote": "Allison also served as President of the Young Democrats of Arkansas", "url": "https://allisonforarkansas.com/about-allison/", "verified": true}}
+ ]
+}

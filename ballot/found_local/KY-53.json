@@ -4,42 +4,322 @@
  "researched": "2026-10-03",
  "note": "30 candidates in this part. The session's web-search allowance was used up before this part began, and a search engine fetched directly showed a CAPTCHA (not pursued), so pages were read with the kit's own fetcher (states/net.py) from known official addresses: the State Board of Elections' 2022 general election county recaps, county and city websites, and the Court of Justice's county pages. The 2022 recaps of Anderson, Bourbon, Carter, Fleming, Garrard, Greenup, Lee, Letcher, Mercer, Pendleton and Robertson counties are scans with no text layer and were not read. Steve Riley and John Blanton are sitting legislators with record pages; the Republican Party of Kentucky's candidate page links blantonforkentucky.com (answers 404) and rileyforkentucky.com (does not resolve), so no website is recorded for either; the party listing is already in ballot/lean/ky_endorsements.json and is not repeated here. Lee County's elected officials page names a different coroner (not Kenneth R Lewis), so nothing is recorded for him. Kassidy Rae Dees was on the 2022 ballot as a Democrat and is on the 2026 list as a Republican; both are as the official records print them. Daniel L Alexander appears in the 2022 recap as 'Daniel ALEXANDER' for the same office (Warren County Constable, 2nd Magisterial District); county, office and name are the two anchors.",
  "candidates": [
-  {"race_id": "2026-KY-21029-coroner", "name": "David Eugene Billings",
-   "offices": [{"office": "Bullitt County Coroner (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County ('David E. BILLINGS REP', Coroner)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Coroner, Bullitt County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21043-coroner", "name": "George A Sparks",
-   "official_page": {"url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx", "source": "Carter County, County Officials page (lists 'Coroner George Sparks')"}},
-  {"race_id": "2026-KY-21055-county-clerk", "name": "Daryl K. Tabor",
-   "offices": [{"office": "Crittenden County Clerk (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Crittenden County ('Daryl K. TABOR REP', County Clerk)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "County Clerk, Crittenden County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Crittenden County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21093-jailer", "name": "Josh \"Big Josh\" Lindblom",
-   "offices": [{"office": "Hardin County Jailer (won the November 8, 2022 general election over Rob Reynolds; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County ('Joshua \"Big Josh\" LINDBLOM DEM', Jailer)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Jailer, Hardin County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21103-county-attorney", "name": "Kassidy Rae Dees",
-   "official_page": {"url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx", "source": "Henry County, Elected Officials page (lists 'County Attorney Kassidy Dees')"},
-   "offices": [{"office": "Henry County Attorney (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County ('Kassidy Rae DEES DEM', County Attorney)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "County Attorney, Henry County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21117-coroner", "name": "Amber Constantino",
-   "offices": [{"office": "Kenton County Coroner (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County ('CORONER Countywide', 'REP Amber CONSTANTINO')", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Coroner, Kenton County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21141-magistrate-6", "name": "Thomas P Bouldin",
-   "offices": [{"office": "Logan County Magistrate, 6th Magisterial District (won the November 8, 2022 general election over Nicholas Keith Scarbrough; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County ('Thomas P. BOULDIN DEM', Magistrate 6th Magisterial District)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Magistrate, 6th Magisterial District, Logan County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21155-magistrate-4", "name": "Jackie Fogle",
-   "official_page": {"url": "https://marioncounty.ky.gov/Elected-Officials/Pages/default.aspx", "source": "Marion County, Magistrates page (lists 'Jackie Fogle, Magistrate – District 4')"},
-   "offices": [{"office": "Marion County Magistrate, 4th Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County ('Jackie FOGLE DEM', Magistrate 4th Magisterial District)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Magistrate, 4th Magisterial District, Marion County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21181-constable-3", "name": "Nelson Dwayne Sewell",
-   "offices": [{"office": "Nicholas County Constable, 3rd Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Nicholas County ('Nelson Dwayne SEWELL DEM', Constable 3rd Magisterial District)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Constable, 3rd Magisterial District, Nicholas County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Nicholas County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21227-constable-2", "name": "Daniel L Alexander",
-   "offices": [{"office": "Warren County Constable, 2nd Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Warren County ('Daniel ALEXANDER DEM', Constable 2nd Magisterial District)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Constable, 2nd Magisterial District, Warren County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Warren County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-21239-magistrate-5", "name": "William Downey",
-   "offices": [{"office": "Woodford County Magistrate, 5th Magisterial District (won the November 8, 2022 general election over Heather English-Goode; term from January 2023)", "from": 2023, "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County ('William DOWNEY DEM', Magistrate 5th Magisterial District)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official"}],
-   "past_party": [{"what": "Magistrate, 5th Magisterial District, Woodford County, 2022 general election (ballot prints DEM)", "year": 2022, "party": "Democratic", "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official"}]},
-  {"race_id": "2026-KY-DJ47", "name": "J. \"Nick\" Whitaker",
-   "official_page": {"url": "https://kycourts.gov/Courts/County-Information/Pages/Letcher.aspx", "source": "Kentucky Court of Justice, Letcher County page (lists 'Nick Whitaker, Judge, District Court, 47th Judicial District')"},
-   "offices": [{"office": "District Judge, 47th Judicial District (Letcher County)", "from": null, "to": "present", "source": "Kentucky Court of Justice, Letcher County page", "url": "https://kycourts.gov/Courts/County-Information/Pages/Letcher.aspx", "kind": "official"}]}
- ]
+  {
+   "race_id": "2026-KY-21029-coroner",
+   "name": "David Eugene Billings",
+   "offices": [
+    {
+     "office": "Bullitt County Coroner (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County ('David E. BILLINGS REP', Coroner)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Coroner, Bullitt County, 2022 general election (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Bullitt County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21043-coroner",
+   "name": "George A Sparks",
+   "official_page": {
+    "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx",
+    "source": "Carter County, County Officials page (lists 'Coroner George Sparks')",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-21055-county-clerk",
+   "name": "Daryl K. Tabor",
+   "offices": [
+    {
+     "office": "Crittenden County Clerk (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Crittenden County ('Daryl K. TABOR REP', County Clerk)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "County Clerk, Crittenden County, 2022 general election (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Crittenden County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-jailer",
+   "name": "Josh \"Big Josh\" Lindblom",
+   "offices": [
+    {
+     "office": "Hardin County Jailer (won the November 8, 2022 general election over Rob Reynolds; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County ('Joshua \"Big Josh\" LINDBLOM DEM', Jailer)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Jailer, Hardin County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Hardin County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-county-attorney",
+   "name": "Kassidy Rae Dees",
+   "official_page": {
+    "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+    "source": "Henry County, Elected Officials page (lists 'County Attorney Kassidy Dees')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Henry County Attorney (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": "present",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County ('Kassidy Rae DEES DEM', County Attorney)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "County Attorney, Henry County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Henry County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21117-coroner",
+   "name": "Amber Constantino",
+   "offices": [
+    {
+     "office": "Kenton County Coroner (won the November 8, 2022 general election, the only candidate printed; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County ('CORONER Countywide', 'REP Amber CONSTANTINO')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Coroner, Kenton County, 2022 general election (ballot prints REP)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Kenton County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21141-magistrate-6",
+   "name": "Thomas P Bouldin",
+   "offices": [
+    {
+     "office": "Logan County Magistrate, 6th Magisterial District (won the November 8, 2022 general election over Nicholas Keith Scarbrough; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County ('Thomas P. BOULDIN DEM', Magistrate 6th Magisterial District)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 6th Magisterial District, Logan County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Logan County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Logan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21155-magistrate-4",
+   "name": "Jackie Fogle",
+   "official_page": {
+    "url": "https://marioncounty.ky.gov/Elected-Officials/Pages/default.aspx",
+    "source": "Marion County, Magistrates page (lists 'Jackie Fogle, Magistrate – District 4')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marion County Magistrate, 4th Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": "present",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County ('Jackie FOGLE DEM', Magistrate 4th Magisterial District)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 4th Magisterial District, Marion County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Marion County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Marion%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21181-constable-3",
+   "name": "Nelson Dwayne Sewell",
+   "offices": [
+    {
+     "office": "Nicholas County Constable, 3rd Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Nicholas County ('Nelson Dwayne SEWELL DEM', Constable 3rd Magisterial District)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Constable, 3rd Magisterial District, Nicholas County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Nicholas County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21227-constable-2",
+   "name": "Daniel L Alexander",
+   "offices": [
+    {
+     "office": "Warren County Constable, 2nd Magisterial District (won the November 8, 2022 general election, unopposed; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Warren County ('Daniel ALEXANDER DEM', Constable 2nd Magisterial District)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Constable, 2nd Magisterial District, Warren County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Warren County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21239-magistrate-5",
+   "name": "William Downey",
+   "offices": [
+    {
+     "office": "Woodford County Magistrate, 5th Magisterial District (won the November 8, 2022 general election over Heather English-Goode; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County ('William DOWNEY DEM', Magistrate 5th Magisterial District)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 5th Magisterial District, Woodford County, 2022 general election (ballot prints DEM)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official 2022 general election results, Woodford County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-48558-council",
+   "name": "Carla S. Nalley",
+   "offices": [
+    {
+     "office": "Member, Lyndon city legislative body (elected November 8, 2022, fourth of nine candidates for seven seats; term from January 2023)",
+     "from": 2023,
+     "to": null,
+     "source": "Jefferson County, official 2022 general election precinct summary results ('Carla S. NALLEY' in the Lyndon contest, 'Vote For 7', with Amy Lynn Stuber, Susan M. Barto, Elizabeth Kramer, Becky Baxter Ricketts, Mardy Sidebottom, Vicki Gammel Stanley, Camie Nalley Popham and Amadou Malick Diallo), as posted by the State Board of Elections",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ47",
+   "name": "J. \"Nick\" Whitaker",
+   "official_page": {
+    "url": "https://kycourts.gov/Courts/County-Information/Pages/Letcher.aspx",
+    "source": "Kentucky Court of Justice, Letcher County page (lists 'Nick Whitaker, Judge, District Court, 47th Judicial District')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 47th Judicial District (Letcher County)",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Letcher County page",
+     "url": "https://kycourts.gov/Courts/County-Information/Pages/Letcher.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened with the kit's fetcher. The 2022 recaps were read and each office's precinct totals summed: Billings 19,320 (sole), Tabor 2,632 (sole), Lindblom 17,741 to Reynolds 12,832, Dees 3,975 (sole), Constantino sole printed name (write-ins only), Bouldin 764 to Scarbrough 622, Fogle 848 (sole), Sewell 316 (sole), Alexander 1,837 (sole), Downey 590 to English-Goode 290; Lyndon council, vote for 7: Nalley fourth of nine (1,476). The county pages name Coroner George Sparks (Carter), County Attorney Kassidy Dees (Henry) and Jackie Fogle, Magistrate District 4 (Marion); the Court of Justice's Letcher page names Nick Whitaker, Judge, District Court, 47th Judicial District. Corrected: 'to' set to null where the only source is the 2022 result, which does not show the office is held today; Constantino's 'unopposed' reworded (write-in votes were cast). Nothing removed."
 }

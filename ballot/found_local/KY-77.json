@@ -1,0 +1,111 @@
+{
+ "part": 77,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance was used up before this part started, so nothing here comes from a search engine: county, city, school district, court and legislature sites were read directly with the kit's fetcher. Many hosts did not resolve or refused (Harlan, Knott, Taylor County's attorney page, Shelbyville, Jeffersontown's site reset every connection, Perry County answered 502 three times, McCracken's own site). Checked and not holding the office sought: Terry Neal Thomason (Butler County's jailer page names another person), Bige Maggard (not among Leslie County's magistrates), Kevin Lane (not on Caldwell County's school board page), Jeffrey R Whittaker (not on Florence's council page), David C. Perkins and Phillip J. Page (the Court of Justice's county pages for Hart, LaRue and Daviess name other district judges). Monroe County's page shows the surveyor's office as vacant. Eddie Jones is on the McCracken County Republican Party's list of 2026 candidates, a list and not an endorsement, already kept in ballot/lean/ky_endorsements.json. John F. Hodgson is a sitting legislator with a record page; no campaign website was found. Nothing was found for the constables, Woodrow Conley, Alex Killman, Johnny L Jackson, Felicia M \"Wooten\" Tamme, Tonya Fugate, Caleb Smith, Jimmy Lou Spencer, John D Bertram, Pam Ware, Joshua G Berkley or Michael Wieland French.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21007-magistrate-5",
+   "name": "Stonnie Dennis",
+   "official_page": {
+    "url": "https://ballardcounty.ky.gov/ElectedOfficials/Pages/default.aspx",
+    "source": "Ballard County, Elected Officials (lists Stonnie Dennis among the Fiscal Court magistrates; district not stated)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ballard County Magistrate (Fiscal Court)",
+     "from": null,
+     "to": null,
+     "source": "Ballard County, Elected Officials page",
+     "url": "https://ballardcounty.ky.gov/ElectedOfficials/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21229-county-attorney",
+   "name": "Tim Ash",
+   "official_page": {
+    "url": "https://www.washingtoncountyky.com/officials.html",
+    "source": "Washington County, KY Government, Elective Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Washington County Attorney",
+     "from": null,
+     "to": null,
+     "source": "Washington County, KY Government, Elective Officials page (County Attorney Tim Ash)",
+     "url": "https://www.washingtoncountyky.com/officials.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-49368-mayor",
+   "name": "Kevin Cotton",
+   "official_page": {
+    "url": "https://www.madisonvilleliving.com/mayor-kevin-cotton",
+    "source": "City of Madisonville, Mayor Kevin Cotton",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Madisonville",
+     "from": null,
+     "to": null,
+     "source": "City of Madisonville, Mayor Kevin Cotton page",
+     "url": "https://www.madisonvilleliving.com/mayor-kevin-cotton",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-02940-school-board-4",
+   "name": "Rhonda Allen",
+   "official_page": {
+    "url": "https://www.jackson.kyschools.us/page/board-of-education",
+    "source": "Jackson County Public Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jackson County Board of Education, Educational District 4",
+     "from": null,
+     "to": null,
+     "source": "Jackson County Public Schools, Board of Education page",
+     "url": "https://www.jackson.kyschools.us/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-04770-school-board-4",
+   "name": "Johnny Feltner",
+   "official_page": {
+    "url": "https://www.perry.kyschools.us/boardofeducation",
+    "source": "Perry County Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Perry County Board of Education, District 4",
+     "from": null,
+     "to": null,
+     "source": "Perry County Schools, Board of Education page",
+     "url": "https://www.perry.kyschools.us/boardofeducation",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "All five official pages re-opened with the kit fetcher on 2026-10-03; each names the person in the office recorded, in the county, city or school district of the race (Ballard magistrate district not stated on the page, so the office is kept without a district)."
+}

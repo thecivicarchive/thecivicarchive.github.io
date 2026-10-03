@@ -1,0 +1,182 @@
+{
+    "part":  85,
+    "of":  117,
+    "researched":  "2026-10-03",
+    "note":  "The session\u0027s web-search allowance was already spent, so this part was read directly from county, city, court, school district and state pages with the kit\u0027s fetcher. Many Kentucky county hosts did not resolve (Floyd\u0027s .ky.gov, Harlan, Knott, Rowan, Pike, Boyle, Grayson) or answered with a CAPTCHA page (Montgomery County, and the guessed nimakulkarni.com, which was left alone and is not tied to the candidate). Checked and not holding the office sought: William T Pogue Jr. (the Department of Revenue\u0027s PVA Directory names Rachel Pence Foster as Daviess County PVA), Cody Slone (Martin County\u0027s magistrates page names Victor Slone), Joseph James \"JJ\" Marcum (Taylor County\u0027s District 2 magistrate is Timmy Newton), Neil Seftor (JCPS names Taylor Everett for District 3), Allison Alessandro (not on Fort Thomas\u0027s Mayor and Council page), Donna Burke (not on Shepherdsville\u0027s council page), Belinda Barnett Lynn (not on Powell County Schools\u0027 board page). Hunter Harp and Deborah Bramblett Pollard: the Mount Washington and La Grange council pages carry no member names in their text. No campaign website was found for Nima Kulkarni or Jared K. Carpenter (both sitting legislators with record pages; the Legislative Research Commission profiles link none). Party pages are not recorded here: Ryan Norman, Jared K. Carpenter and William T Pogue Jr. appear on county party candidate lists already kept in ballot/lean/ky_endorsements.json, which are lists, not endorsements.",
+    "candidates":  [
+                       {
+                           "race_id":  "2026-KY-21009-county-assessor",
+                           "name":  "Kimberly D Shipley",
+                           "official_page":  {
+                                                 "url":  "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/default.aspx",
+                                                 "source":  "Barren County, Elected Officials",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "Barren County Property Valuation Administrator",
+                                               "from":  2018,
+                                               "to":  null,
+                                               "source":  "Kentucky Department of Revenue, PVA Directory 2022-2026, Barren County page (\u0027Kim Shipley, PVA\u0027, \u0027PVA since December 2018\u0027); also Barren County\u0027s Elected Officials page (Property Valuation Administrator (PVA): Kim Shipley)",
+                                               "url":  "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21033-constable-2",
+                           "name":  "Brian Hicks",
+                           "official_page":  {
+                                                 "url":  "https://caldwellcounty.ky.gov/elected-officials/Pages/Constables.aspx",
+                                                 "source":  "Caldwell County, Constables",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "Caldwell County Constable, District 2",
+                                               "from":  null,
+                                               "to":  null,
+                                               "source":  "Caldwell County, Constables page (District 2 Constable: Brian Hicks)",
+                                               "url":  "https://caldwellcounty.ky.gov/elected-officials/Pages/Constables.aspx",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21047-county-attorney",
+                           "name":  "Lincoln W. Foster",
+                           "official_page":  {
+                                                 "url":  "https://christiancountyky.gov/county-attorney",
+                                                 "source":  "Christian County, County Attorney",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "Christian County Attorney",
+                                               "from":  null,
+                                               "to":  null,
+                                               "source":  "Christian County, County Attorney page (names Lincoln Foster under the office)",
+                                               "url":  "https://christiancountyky.gov/county-attorney",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21071-county-executive",
+                           "name":  "Robbie Williams",
+                           "official_page":  {
+                                                 "url":  "https://www.floydcountyfiscalcourt.com/team-basic",
+                                                 "source":  "Floyd County Fiscal Court, Offices",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "Floyd County Judge/Executive",
+                                               "from":  2019,
+                                               "to":  null,
+                                               "source":  "Floyd County Fiscal Court, Offices page (\u0027Judge-Executive Robbie Williams\u0027, \u0027Served as Judge-Executive since 2019\u0027)",
+                                               "url":  "https://www.floydcountyfiscalcourt.com/team-basic",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21133-county-assessor",
+                           "name":  "Ricky Raymond Rose",
+                           "offices":  [
+                                           {
+                                               "office":  "Letcher County Property Valuation Administrator",
+                                               "from":  2018,
+                                               "to":  null,
+                                               "source":  "Kentucky Department of Revenue, PVA Directory 2022-2026, Letcher County page (\u0027Ricky R. Rose, PVA\u0027, \u0027PVA since December 2018\u0027)",
+                                               "url":  "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21145-sheriff",
+                           "name":  "Ryan Norman",
+                           "official_page":  {
+                                                 "url":  "https://mccrackencountyky.gov/ryan-norman-sheriff/",
+                                                 "source":  "McCracken County, Ryan Norman - Sheriff",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "McCracken County Sheriff",
+                                               "from":  2022,
+                                               "to":  null,
+                                               "source":  "McCracken County, Ryan Norman - Sheriff page (rose through the Sheriff\u0027s Office \u0027before becoming Sheriff in 2022\u0027)",
+                                               "url":  "https://mccrackencountyky.gov/ryan-norman-sheriff/",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21183-county-executive",
+                           "name":  "Tracy Beatty",
+                           "offices":  [
+                                           {
+                                               "office":  "Ohio County Sheriff",
+                                               "from":  null,
+                                               "to":  null,
+                                               "source":  "Ohio County, Elected Officials History page (lists Tracy Beatty among the county\u0027s Sheriffs, after Adam Wright; no years given)",
+                                               "url":  "https://ohiocounty.ky.gov/elected-officials/Pages/Elected-Officials-History.aspx",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-21229-magistrate-3",
+                           "name":  "Bobby L Russell",
+                           "official_page":  {
+                                                 "url":  "https://www.washingtoncountyky.com/officials.html",
+                                                 "source":  "Washington County, KY Government, Elected Officials",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "Washington County Magistrate, District 3",
+                                               "from":  null,
+                                               "to":  null,
+                                               "source":  "Washington County, KY Government, Elected Officials page (Magistrates: District 3 Bobby L. Russell)",
+                                               "url":  "https://www.washingtoncountyky.com/officials.html",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       },
+                       {
+                           "race_id":  "2026-KY-DJ14-1",
+                           "name":  "Bolton Bevins",
+                           "official_page":  {
+                                                 "url":  "https://www.kycourts.gov/Courts/County-Information/Pages/Scott.aspx",
+                                                 "source":  "Kentucky Court of Justice, Scott County information",
+                                                 "verified":  true
+                                             },
+                           "offices":  [
+                                           {
+                                               "office":  "District Judge, 14th Judicial District, Division 1",
+                                               "from":  null,
+                                               "to":  null,
+                                               "source":  "Kentucky Court of Justice, Scott (and Woodford) County information pages (\u0027Bolton Bevins, Judge, District Court, 14th Judicial District, Division 1\u0027)",
+                                               "url":  "https://www.kycourts.gov/Courts/County-Information/Pages/Scott.aspx",
+                                               "kind":  "official",
+                                               "verified":  true
+                                           }
+                                       ]
+                       }
+                   ],
+    "verified_on":  "2026-10-03",
+    "removed":  [
+
+                ]
+}

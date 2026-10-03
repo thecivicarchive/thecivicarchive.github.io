@@ -1,0 +1,289 @@
+{
+ "part": 60,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's web-search allowance ran out after a few searches, so this part went by fetching official pages directly with the kit's honest User-Agent (states/net.py): county and city sites, school district pages and the State Board of Elections' general election recaps (elect.ky.gov; 2022 files named '<County> County.pdf', 2024 files '<County>.pdf'), read with ballot/pdftext.py. The recaps print precinct pages only; where an outcome is given it is the sum of the Total column over every precinct page carrying the contest. Image-only recaps (no text layer): 2022 Ballard, Bourbon, Carter, Fleming, Grant, Lee, Marshall, Metcalfe, Perry, Spencer. Not reached: Bullitt County's site (a SiteGround CAPTCHA page; not worked around), Fleming, Rockcastle and Lyndon sites (did not resolve or 403), Newport Independent Schools (TLS error), Hardin County Schools' board page (drawn by script). Not holders today, by the official pages read: Brent Wilson (Bourbon's sheriff is Tony Asbury), Anthony Branham (Carter District 1 is Chris Huddle), Jerry Whitaker (Henry District 3 is Kevin McManis), Jeff Niceley (Kenton District 2 is Jon Draud), Kaitlyn Wells Lewis (Nicholas's clerk is Martha Moss), Michael Stump (the Spencer County Clerk's site shows Lynn Hesselbrock), Peter W. 'Pete' Whaley (the Grant County Attorney's site names Stephen L. Bates II), Ashley Renee Hampton (not among the 51st District's judges on the Court of Justice's Henderson page), Holly Anderson (not on Erlanger's council page), Charlie Brown (Ballard's page lists no constables). Lyon County: the 2022 recap shows a 'Jaime GREEN' (REP); a different name, so nothing is tied to Jaime Smith from it. Marshall County's directory labels Jason Darnall 'County Attorney (Republican)', which is not a ballot record, so no past_party is filed for him. Several found here hold the office they seek (Thomas, Clem, Brandenburg, Smith, Darnall, Yates, Wilhoit, Vogelpohl, Day) while our record's incumbent flag is 0; the county clerks' lists do not mark local incumbents, so this is noted rather than filed as a review item.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21029-magistrate-1",
+   "name": "Vera J Sanders",
+   "offices": [
+    {
+     "office": "Bullitt County Magistrate, 1st Magisterial District",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Bullitt County: 'Vera J. SANDERS REP' won the 1st Magisterial District contest (3,846 to 1,394 summed over its precinct pages); the county's own site could not be reached to confirm she holds it today",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Bullitt County Magistrate, 1st Magisterial District (general election, elected)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Bullitt County (ballot label REP)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21055-magistrate-4",
+   "name": "Chadwick Wayne Thomas",
+   "official_page": {
+    "url": "https://crittendencountyky.org/magistrates/index.php",
+    "source": "Crittenden County's own Magistrates page: 'Chad Thomas, Magistrate District 4'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Crittenden County Magistrate, District 4",
+     "from": 2023,
+     "to": "present",
+     "source": "Crittenden County Magistrates page ('Chad Thomas, Magistrate District 4'); the State Board of Elections' 2022 recap shows 'Chadwick Wayne THOMAS DEM' as the only candidate for the 4th Magisterial District",
+     "url": "https://crittendencountyky.org/magistrates/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Crittenden County Magistrate, 4th Magisterial District (general election, unopposed)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Crittenden County (ballot label DEM)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-4",
+   "name": "Fred Clem Jr.",
+   "official_page": {
+    "url": "https://www.hcky.org/Directory.aspx?did=21",
+    "source": "Hardin County Government staff directory, Magistrates: 'Fred Clem, Jr., District 4 Magistrate'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hardin County Magistrate, District 4",
+     "from": null,
+     "to": "present",
+     "source": "Hardin County Government directory, Magistrates ('Fred Clem, Jr., District 4 Magistrate'); he is not on the 2022 general election recap, so his start is not stated",
+     "url": "https://www.hcky.org/Directory.aspx?did=21",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21129-magistrate-1",
+   "name": "Timothy Brandenburg",
+   "official_page": {
+    "url": "https://leecounty.ky.gov/elected/Pages/magistrates.aspx",
+    "source": "Lee County's own Magistrates page: 'District 1, Tim Brandenburg'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lee County Magistrate, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Lee County government, Magistrates page ('District 1 ... Tim Brandenburg')",
+     "url": "https://leecounty.ky.gov/elected/Pages/magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21143-county-executive",
+   "name": "Jaime Smith",
+   "official_page": {
+    "url": "https://lyoncountyky.com/",
+    "source": "Lyon County's website (Judge Executive and Fiscal Court, with the court's meeting videos): 'Jaime Smith, Lyon County Judge Executive'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lyon County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Lyon County website, Fiscal Court section ('Jaime Smith, Lyon County Judge Executive')",
+     "url": "https://lyoncountyky.com/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21157-county-attorney",
+   "name": "Jason Franklin Darnall",
+   "official_page": {
+    "url": "https://www.marshallcountyky.gov/Directory.aspx?did=20",
+    "source": "Marshall County staff directory, County Attorney: 'Jason Darnall, County Attorney'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Marshall County Attorney",
+     "from": null,
+     "to": "present",
+     "source": "Marshall County Government directory, County Attorney ('Jason Darnall')",
+     "url": "https://www.marshallcountyky.gov/Directory.aspx?did=20",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21227-county-clerk",
+   "name": "Lynette Yates",
+   "official_page": {
+    "url": "https://www.warrencountyky.gov/county-clerk",
+    "source": "Warren County Government, County Clerk page: 'County Clerk: Lynette Yates'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Warren County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Warren County Government, County Clerk page ('County Clerk: Lynette Yates'); the 2022 recap shows her elected (26,452 to 11,682 summed over its precinct pages)",
+     "url": "https://www.warrencountyky.gov/county-clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Warren County Clerk (general election, elected)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Warren County (ballot label REP)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21239-sheriff",
+   "name": "John Wilhoit",
+   "official_page": {
+    "url": "https://www.woodfordcountyky.gov/Directory.aspx?did=16",
+    "source": "Woodford County staff directory, Sheriff's Office: 'John Wilhoit, Sheriff'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Woodford County Sheriff",
+     "from": null,
+     "to": "present",
+     "source": "Woodford County directory, Sheriff's Office ('John Wilhoit, Sheriff'); the 2022 recap shows him elected (7,516 to 3,585 summed over its precinct pages)",
+     "url": "https://www.woodfordcountyky.gov/Directory.aspx?did=16",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Woodford County Sheriff (general election, elected)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Woodford County (ballot label DEM)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-39142-council",
+   "name": "Chris Vogelpohl",
+   "official_page": {
+    "url": "https://www.cityofindependence.org/directory.aspx?EID=6",
+    "source": "City of Independence staff directory: 'Chris Vogelpohl, Council Member, City Council ... currently serving his second term on the council'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Independence City Council member",
+     "from": null,
+     "to": "present",
+     "source": "City of Independence directory ('Council Member ... currently serving his second term on the council')",
+     "url": "https://www.cityofindependence.org/directory.aspx?EID=6",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-67944-council",
+   "name": "Cathi Clark",
+   "offices": [
+    {
+     "office": "St. Matthews City Council member",
+     "from": 2019,
+     "to": 2022,
+     "source": "City of St. Matthews, Past Council Members ('Cathi Clark, January 1, 2019 - December 31, 2022, Council')",
+     "url": "https://www.stmatthewsky.gov/past-council-members/",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "St. Matthews City Council member",
+     "from": 2023,
+     "to": 2023,
+     "source": "City of St. Matthews, Past Council Members ('Cathi Clark, February 14, 2023 - December 31, 2023, Council')",
+     "url": "https://www.stmatthewsky.gov/past-council-members/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-00620-school-board-5",
+   "name": "Linda Day",
+   "official_page": {
+    "url": "https://www.boyd.kyschools.us/board-members",
+    "source": "Boyd County Public Schools, Board Members: 'Linda Day - Division 5'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Boyd County Board of Education member, Division 5 (board chair since 2019)",
+     "from": 2011,
+     "to": "present",
+     "source": "Boyd County Public Schools, Board Members ('Has served on the Board since 2011; Board Chair since 2019')",
+     "url": "https://www.boyd.kyschools.us/board-members",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-04440-school-board",
+   "name": "Sylvia Covington",
+   "offices": [
+    {
+     "office": "Newport Independent Board of Education member",
+     "from": 2023,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Campbell County: in the Newport Independent School District board contest (vote for two) 'Sylvia COVINGTON' placed second, 1,277 votes summed over its twelve precinct pages (C301-C311 and C416), ahead of 1,229 for the third; the district's own site could not be reached to confirm she holds the seat today",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Campbell%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened: the eight official pages show the name and office as recorded (Lyon County answered 429 once, then on the second try); the 2022 recaps for Bullitt, Crittenden, Warren, Woodford and Campbell were summed again and match (Sanders 3,846 to 1,394; Thomas 207 unopposed; Yates 26,452 to 11,682; Wilhoit 7,516 to 3,585; Covington 1,277, second of four for two seats). Corrected: Vogelpohl's source no longer cites the Kenton recaps, which were not re-opened."
+}

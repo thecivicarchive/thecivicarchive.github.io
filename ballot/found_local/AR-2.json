@@ -1,0 +1,76 @@
+{"part": 2, "of": 11, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "removed": [
+   {"race_id": "2026-AR-SH8", "name": "Justice Brian Armas", "what": "website https://brianarmas.com/", "why": "Read twice: the site names Brian Armas and his Justice of the Peace seat but never the office he seeks in 2026 (no State Representative, no House district), so it cannot be shown to be the campaign site for this race"}
+ ],
+ "candidates": [
+  {"race_id": "2026-AR-05119-county-judge", "name": "Michael Rushin",
+   "website": {"url": "https://rushintoserve.com/", "how": "Page title 'Michael Rushin for Pulaski County Judge | Rushin To Serve'", "verified": true}},
+  {"race_id": "2026-AR-05119-justice-of-the-peace-3", "name": "Reed Martin"},
+  {"race_id": "2026-AR-05143-county-judge", "name": "Dana D. Deree"},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-14", "name": "Jimm Garlock"},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-5", "name": "Stephanie Shufelt"},
+  {"race_id": "2026-AR-AUD", "name": "Auditor of State Dennis Milligan",
+   "website": {"url": "https://www.dennismilligan.com", "how": "Names Dennis Milligan and the office of Auditor of State; 'Paid for by Dennis Milligan for State Auditor'", "verified": true}},
+  {"race_id": "2026-AR-LAND", "name": "Secretary of State Cole Jester",
+   "website": {"url": "https://coleforcommissioner.com/", "how": "'Elect Cole Jester for Arkansas Land Commissioner'; 'Paid for by Cole for Commissioner'", "verified": true},
+   "official_page": {"url": "https://www.sos.arkansas.gov/", "source": "Arkansas Secretary of State's own site: 'Arkansas Secretary of State Cole Jester is a lifelong Arkansan and constitutional lawyer...'", "verified": true},
+   "offices": [
+     {"office": "Arkansas Secretary of State (appointed by the Governor)", "from": 2025, "to": null, "source": "Wikipedia, Cole Jester (took office in 2025 on the Governor's appointment; cited to KATV)", "url": "https://en.wikipedia.org/wiki/Cole_Jester", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-AR-M-23290-council-ward-4-position-1", "name": "Kyle Smith"},
+  {"race_id": "2026-AR-M-34750-council-ward-4-position-1", "name": "Kara Woller"},
+  {"race_id": "2026-AR-M-41000-council-ward-2", "name": "TaShan O'Neal"},
+  {"race_id": "2026-AR-M-44600-council-ward-2-position-2", "name": "Council Member Chad Gardner",
+   "official_page": {"url": "https://www.maumelle.gov/212/City-Council", "source": "City of Maumelle, City Council page: 'Chad Gardner - Term Ends 12/31/26, Ward 2 Position 2'", "verified": true},
+   "offices": [
+     {"office": "Maumelle City Council, Ward 2, Position 2", "from": null, "to": null, "source": "City of Maumelle's City Council page lists Chad Gardner in Ward 2 Position 2, term ending 12/31/26; no start year given", "url": "https://www.maumelle.gov/212/City-Council", "kind": "official", "verified": true}
+   ],
+   "review": [
+     {"shows": "sl_candidates marks Council Member Chad Gardner incumbent = 0 for Maumelle Council Ward 2, Position 2", "problem": "The City of Maumelle's own council page lists Chad Gardner as the member for Ward 2 Position 2 with a term ending 12/31/26, so he is the incumbent in this race", "url": "https://www.maumelle.gov/212/City-Council", "verified": true}
+   ]},
+  {"race_id": "2026-AR-M-63800-council-ward-1-position-1", "name": "Council Member April Ford Broderick",
+   "official_page": {"url": "https://www.sherwoodar.gov/page/april-broderick", "source": "City of Sherwood: 'April Broderick | City Of Sherwood', listed under the City Council menu", "verified": true},
+   "offices": [
+     {"office": "Sherwood City Council member", "from": null, "to": null, "source": "City of Sherwood's City Council page lists April Broderick among the council members; no ward or start year read from the page", "url": "https://www.sherwoodar.gov/page/city-council", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-M-66080-council-ward-2-position-2-S", "name": "Ray Dotson"},
+  {"race_id": "2026-AR-SH100", "name": "Representative Carol Dalby"},
+  {"race_id": "2026-AR-SH16", "name": "State Representative Kendon Underwood",
+   "website": {"url": "https://www.underwood4arkansas.com/", "how": "Names Kendon Underwood and District 16; 'Paid for by Underwood for House'", "verified": true},
+   "own_words": {"quote": "Conservative Republican", "url": "https://www.underwood4arkansas.com/", "verified": true}},
+  {"race_id": "2026-AR-SH24", "name": "Charlene Fite",
+   "offices": [
+     {"office": "Arkansas House of Representatives, District 80", "from": 2013, "to": 2023, "source": "Arkansas State Legislature member page, 2021 session: Representative Charlene Fite (R), District 80, first term House 2013", "url": "https://arkleg.state.ar.us/Legislators/Detail?member=C.+Fite&ddBienniumSession=2021%2F2021R", "kind": "official", "verified": true},
+     {"office": "Arkansas House of Representatives, District 24", "from": 2023, "to": 2025, "source": "Arkansas State Legislature member page, 2023 session: Representative Charlene Fite (R), District 24, first term House 2013 (marked inactive in the 2025 session)", "url": "https://arkleg.state.ar.us/Legislators/Detail?member=C.+Fite&ddBienniumSession=2023%2F2023R", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+     {"what": "Seat in the Arkansas House of Representatives, District 24 (2023 session)", "year": 2023, "party": "Republican", "source": "Arkansas State Legislature member page lists 'Representative Charlene Fite (R)'", "url": "https://arkleg.state.ar.us/Legislators/Detail?member=C.+Fite&ddBienniumSession=2023%2F2023R", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-AR-SH30", "name": "Josh Longmire",
+   "website": {"url": "https://www.joshlongmire.com/", "how": "Names Josh Longmire for State Representative and his aim to take his Craighead County experience to the Arkansas State Capitol; 'Paid for by Josh Longmire for State Representative'", "verified": true},
+   "offices": [
+     {"office": "Craighead County Justice of the Peace, District 9", "from": null, "to": null, "source": "Jonesboro Right Now (June 15, 2025): Craighead County District 9 Justice of the Peace Josh Longmire to seek the Republican nomination for the District 30 House seat", "url": "https://jonesbororightnow.com/?p=23883", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-AR-SH37", "name": "Representative Steve Hollowell"},
+  {"race_id": "2026-AR-SH46", "name": "Council Member Tonya Fletcher",
+   "website": {"url": "https://www.tonyafletcher.com/", "how": "Names Tonya Fletcher for State Representative and rural Arkansas; 'Paid for by Tonya Fletcher for State Representative'", "verified": true}},
+  {"race_id": "2026-AR-SH53", "name": "Jennifer Lewter"},
+  {"race_id": "2026-AR-SH59", "name": "Representative Jim Wooten"},
+  {"race_id": "2026-AR-SH65", "name": "Glenn Barnes"},
+  {"race_id": "2026-AR-SH71", "name": "Stephen Bright",
+   "website": {"url": "https://www.arkansasisbright.com/", "how": "Names Stephen Bright for State Representative, District 71; 'Paid for by Stephen Bright Campaign'", "verified": true},
+   "offices": [
+     {"office": "Arkansas House of Representatives", "from": null, "to": null, "source": "Campaign site: '25 years ago, you gave me the honor of serving in the Arkansas House of Representatives'", "url": "https://www.arkansasisbright.com/", "kind": "campaign", "verified": true},
+     {"office": "Mayor of Maumelle", "from": null, "to": null, "source": "Campaign site: 'I've also had the privilege of serving as Mayor and City Director of Maumelle'", "url": "https://www.arkansasisbright.com/", "kind": "campaign", "verified": true},
+     {"office": "Maumelle City Director", "from": null, "to": null, "source": "Campaign site: 'I've also had the privilege of serving as Mayor and City Director of Maumelle'", "url": "https://www.arkansasisbright.com/", "kind": "campaign", "verified": true}
+   ]},
+  {"race_id": "2026-AR-SH8", "name": "Justice Brian Armas",
+   "offices": [
+     {"office": "Benton County Justice of the Peace (Quorum Court), District 6", "from": 2021, "to": null, "source": "Armas For Arkansas site: 'currently serves as a Justice of the Peace for District 6 ... first elected to serve on the Quorum Court in 2020, winning reelection in 2022 and a third term in 2024'", "url": "https://brianarmas.com/", "kind": "campaign", "verified": true}
+   ]},
+  {"race_id": "2026-AR-SH86", "name": "State Representative John Maddox"},
+  {"race_id": "2026-AR-SH95", "name": "Representative Howard M. Beaty, Jr."},
+  {"race_id": "2026-AR-SS11", "name": "Senator Ricky Hill",
+   "website": {"url": "http://www.voterickyhill.com/", "how": "'Ricky Hill - Arkansas State Senator'; 'Paid for by Ricky Hill for State Senate'", "verified": true}},
+  {"race_id": "2026-AR-SS27", "name": "Eduardo Guzman"}
+]}

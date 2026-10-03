@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.099 — 2026-10-03 — Arkansas gets the same treatment
+
+- Arkansas's ballot page now has the real map: 2,915 precincts from the Arkansas GIS Office, cut where district lines split them, with every district each sits in (county, justice of the peace district, township, city, ward, House, Senate, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, down to your own justice of the peace and constable. The same rule now places any county board seat elected by district, in every state.
+- Arkansas lets a candidate file a title as part of the name printed on the ballot ("State Senator ..."); names are shown as printed, and a card's initials skip the title.
+- Arkansas's candidates for Governor, the other statewide offices, the Legislature, the courts and the Pulaski and Washington county and city races show what the record holds: 79 campaign websites of their own, 51 official government pages, offices held (90, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.
+- How each place voted, from the Secretary of State's official results: President 2024, Governor and Senator 2022, President and Senator 2020, for all 75 counties and 16 judicial districts and the legislative districts whose precincts are whole.
+- No pollster that publishes its methods has polled an Arkansas state race. The Governor's race has prediction-market prices as a tab. No readable Arkansas party page uses the word "endorsed". Polling places stay off the map; the page points to the state's own finder.
+
 ## v4.0.098 — 2026-10-03 — Utah gets the same treatment
 
 - Utah's ballot page now has the real map: 3,331 precincts from the state's own map agency and the Lieutenant Governor's office, with the districts each sits in (county, city or town, House, Senate, Congress on the 2026 map, judicial district, State Board of Education district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, including only your own State Board of Education seat.

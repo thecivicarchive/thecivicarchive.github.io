@@ -1,0 +1,97 @@
+{"part": 58, "of": 117, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "note": "The session's web-search allowance was used up before this part began, so it went by fetching official pages directly with the kit's honest User-Agent: county sites, school board pages, the Revenue Cabinet's PVA directory and the State Board of Elections' 2022 general election county recaps (elect.ky.gov). Many county recaps are image-only PDFs with no text layer (Anderson, Bourbon, Carter, Fleming, Grant, Greenup, Lee, Marshall, Metcalfe, Pendleton, Robertson, Spencer), and several county or city sites did not resolve (Lyon, Fleming, Bullitt, Lyndon, Newport Independent Schools' board page), so 18 of the 30 candidates are left blank. For contested 2022 races the recaps print precinct pages only; the outcome noted here (Hartlage, Guffey, Hardy, Blankenship) is the sum of the Total column across those pages and is confirmed by the official page that lists the person in the office today. Several candidates found here hold the office they seek today (Milam, Burton, Grimes, Hartlage, Pratt, Letcher, Hardy, Blankenship) while our record's incumbent flag is 0 for them; the county clerks' filing lists do not mark local incumbents, so this is noted rather than filed as a review item. Spencer County: the Revenue Cabinet's PVA directory names a Pam McClain only as an office contact, not as PVA, so nothing is recorded for Pamela McClain. Not holders today, by the official pages read: Sarah Froelich (Kenton District 1 is Beth Sewell), E. Spencer Keck (Hardin District 3 is Patsy Whitehead), Joshua D. Kight (Woodford District 8 is Jackie Brown), Remi Capps (Lee's Judge/Executive is Steve Mays Jr.), Jeff Aulick (Pendleton District 4 is Rick Mineer), Kenny Brockman (Robertson's sheriff is Randy Insko), LaKeysha Singleton (the 50th District's judge for Boyle County is Patrick Barsotti), Courtney Hundley (not on Erlanger's council page), Antonio Brown (not on St. Matthews' council page).",
+ "verifier_note": "Every url re-opened on 2026-10-03 with the kit's User-Agent (states/net.py); recap PDFs read with ballot/pdftext.py. Removed: Sarah Froelich's endorsed_by (the Kenton County Democratic Party's page is headed '2026 Democratic Candidates' and never says it endorses: a candidates list, not an endorsement). Corrected: Froelich's website 'how' (the site's own title and footer now carry it) and her office source (the recap shows her among Park Hills council candidates; 'with the most votes' was not confirmed and is dropped). Peyton Griffee: House District 26 is on Bullitt County's ballot (State Board of Elections' 2022 Bullitt recap lists the 26th Representative District), so the site's Bullitt County and State Representative are the two anchors.",
+ "removed": [
+  {"race_id": "2026-KY-21117-county-commissioner-1", "name": "Sarah Froelich", "field": "endorsed_by", "why": "the party's page is a list of its 2026 candidates and does not say it endorses them"}
+ ],
+ "candidates": [
+  {"race_id": "2026-KY-21005-sheriff", "name": "Joe Milam",
+   "official_page": {"url": "https://andersoncounty.ky.gov/government/Pages/Sheriff.aspx", "source": "Anderson County's own Sheriff page: 'Sheriff Joe Milam'", "verified": true},
+   "offices": [
+    {"office": "Anderson County Sheriff", "from": null, "to": "present", "source": "Anderson County government, Sheriff page ('Sheriff Joe Milam')", "url": "https://andersoncounty.ky.gov/government/Pages/Sheriff.aspx", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21043-county-executive", "name": "Brandon Burton",
+   "official_page": {"url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx", "source": "Carter County's own County Officials page: 'County Judge Executive Brandon Burton'", "verified": true},
+   "offices": [
+    {"office": "Carter County Judge/Executive", "from": null, "to": "present", "source": "Carter County government, County Officials page", "url": "https://cartercounty.ky.gov/Elected-Officials/Pages/County-Officials.aspx", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21055-magistrate-2", "name": "Matt Grimes",
+   "official_page": {"url": "https://crittendencountyky.org/magistrates/index.php", "source": "Crittenden County's own Magistrates page: 'Matthew Grimes, Magistrate District 2'", "verified": true},
+   "offices": [
+    {"office": "Crittenden County Magistrate, District 2", "from": null, "to": "present", "source": "Crittenden County government, Magistrates page ('Matthew Grimes, Magistrate District 2')", "url": "https://crittendencountyky.org/magistrates/index.php", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Magistrate, 2nd Magisterial District, Crittenden County (general election, unopposed)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap for Crittenden County (official results), page 17: 'MAGISTRATE 2nd Magisterial District ... Matt GRIMES REP'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21103-magistrate-2", "name": "Roger M Hartlage",
+   "official_page": {"url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx", "source": "Henry County's own Elected Officials page: 'Magistrate 2, Roger Hartlage'", "verified": true},
+   "offices": [
+    {"office": "Henry County Magistrate, District 2", "from": null, "to": "present", "source": "Henry County government, Elected Officials page (Magistrate 2: Roger Hartlage)", "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Magistrate, 2nd Magisterial District, Henry County (general election; won against the Democratic candidate)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap for Henry County (official results), pages 24, 31, 37: 'MAGISTRATE 2nd Magisterial District ... Roger M. HARTLAGE REP' against 'Sherman WILSON JR. DEM'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21117-county-commissioner-1", "name": "Sarah Froelich",
+   "website": {"url": "https://sarahforkentoncounty.com/", "how": "the site's title reads 'Sarah Froelich for Kenton County Commissioner' and its footer 'Paid for by the Campaign Fund for Sarah Froelich'", "verified": true},
+   "offices": [
+    {"office": "Park Hills City Council member (four terms)", "from": null, "to": null, "source": "Her campaign site: 'With four terms on Park Hills City Council, Sarah has built a record of practical, transparent leadership'; the State Board of Elections' 2022 general recap for Kenton County (page 487) also lists Sarah FROELICH among the City of Park Hills council candidates (vote for 6)", "url": "https://sarahforkentoncounty.com/", "kind": "campaign", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21143-county-attorney", "name": "Lee Wilson",
+   "offices": [
+    {"office": "Lyon County Attorney (elected unopposed, November 2022)", "from": "2023", "to": null, "source": "Kentucky State Board of Elections, 2022 General Election recap for Lyon County (official results), page 2: 'COUNTY ATTORNEY ... Lee WILSON REP 453 100.00%'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Lyon County Attorney (general election, unopposed)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap for Lyon County, page 2: 'COUNTY ATTORNEY - (Vote for One) ... Lee WILSON REP'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21157-coroner", "name": "Kenny Pratt",
+   "official_page": {"url": "https://marshallcountyky.gov/Directory.aspx", "source": "Marshall County's own staff directory: 'Kenny Pratt, County Coroner (Republican)'", "verified": true},
+   "offices": [
+    {"office": "Marshall County Coroner", "from": null, "to": "present", "source": "Marshall County government, staff directory ('Kenny Pratt', 'County Coroner (Republican)')", "url": "https://marshallcountyky.gov/Directory.aspx", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Marshall County Coroner, an office elected on Kentucky's partisan county ballot, listed by the county as 'County Coroner (Republican)'", "year": null, "party": "Republican", "source": "Marshall County government, staff directory", "url": "https://marshallcountyky.gov/Directory.aspx", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21181-county-attorney", "name": "Dawn Curran Letcher",
+   "official_page": {"url": "https://nicholascounty.ky.gov/elected/Attorney/Pages/default.aspx", "source": "Nicholas County's own County Attorney page: 'Dawn Curran Letcher, County Attorney'", "verified": true},
+   "offices": [
+    {"office": "Nicholas County Attorney", "from": null, "to": "present", "source": "Nicholas County government, County Attorney page", "url": "https://nicholascounty.ky.gov/elected/Attorney/Pages/default.aspx", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Nicholas County Attorney (general election, unopposed)", "year": "2022", "party": "Democratic", "source": "Kentucky State Board of Elections, 2022 General Election recap for Nicholas County (official results), page 2: 'COUNTY ATTORNEY ... Dawn Curran LETCHER DEM'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-21227-county-assessor", "name": "Joshua R Hardy",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Warren County entry (page 126): 'Joshua R. Hardy, PVA'", "verified": true},
+   "offices": [
+    {"office": "Warren County Property Valuation Administrator", "from": null, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026 (Warren County: 'Joshua R. Hardy, PVA')", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Warren County Property Valuation Administrator (general election; won against the Democratic candidate)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap for Warren County (official results), page 2 and following: 'PROPERTY VALUATION ADMINISTRATOR ... Joshua R. HARDY REP' against 'Susan Oliver LEWIS DEM'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-M-37918-mayor", "name": "Russ Guffey",
+   "official_page": {"url": "https://christiancountyky.gov/county-magistrates", "source": "Christian County's own Magistrates page: 'District Seven, Russ Guffey'. Tie to the 2026 race: Hoptown Chronicle, 'Magistrate Russ Guffey to challenge incumbent James R. Knight Jr. for Hopkinsville mayor' (Nov. 5, 2025): 'Christian County Magistrate Russ Guffey is running for mayor of Hopkinsville', https://hoptownchronicle.org/magistrate-russ-guffey-is-running-for-hopkinsville-mayor/", "verified": true},
+   "offices": [
+    {"office": "Christian County Magistrate, District 7", "from": null, "to": "present", "source": "Christian County government, Magistrates page ('District Seven ... Russ Guffey'); the Hoptown Chronicle (Nov. 5, 2025) names him as the Christian County magistrate running for Hopkinsville mayor", "url": "https://christiancountyky.gov/county-magistrates", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Candidate for Magistrate, 7th Magisterial District, Christian County (general election; won against the Democratic candidate)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, 2022 General Election recap for Christian County (official results), page 280 and following: 'MAGISTRATE 7th Magisterial District ... Russ GUFFEY REP' against 'David FERNANDEZ DEM'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-S-00620-school-board-2", "name": "Michael Blankenship",
+   "official_page": {"url": "https://www.boyd.kyschools.us/board-members", "source": "Boyd County Public Schools' own Board Members page: 'Mike Blankenship, Division 2', 'Has served on the Board since December 2022'", "verified": true},
+   "offices": [
+    {"office": "Boyd County Board of Education member, Division 2", "from": "2022", "to": "present", "source": "Boyd County Public Schools, Board Members page ('Has served on the Board since December 2022'); the State Board of Elections' 2022 general recap for Boyd County lists Mike BLANKENSHIP for 'MEMBER BOARD of EDUCATION 2nd Educational District'", "url": "https://www.boyd.kyschools.us/board-members", "kind": "official", "verified": true}
+   ]},
+
+  {"race_id": "2026-KY-SH26", "name": "Peyton Griffee",
+   "website": {"url": "https://peytongriffee.com", "how": "the site names 'Peyton Griffee', 'Conservative Republican for State Representative' and Bullitt County, and carries 'Paid For By Peyton Griffee for State Representative'", "verified": true},
+   "own_words": {"quote": "Conservative Republican for State Representative", "url": "https://peytongriffee.com", "verified": true}}
+ ]}

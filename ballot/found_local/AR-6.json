@@ -1,0 +1,311 @@
+{
+ "part": 6,
+ "of": 11,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [
+  "Justice of the Peace Bradley Bruns: offices 'Springdale City Council, Ward 3 Position 1' (the 2014 Springdale ballot ties the name only to the city, not to the 2026 race or the Quorum Court seat; one anchor)",
+  "Curtis Hitt: past_party 2022 Republican primary for State Senate District 21 (the source ties the name only to Arkansas, not to the 2026 circuit judge race; one anchor)"
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-AR-05119-justice-of-the-peace-11",
+   "name": "Justice of the Peace Aaron K. Robinson",
+   "official_page": {
+    "url": "https://pulaskicounty.net/quorum-court",
+    "source": "Pulaski County Quorum Court page: Aaron Robinson, District 11",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Pulaski County Quorum Court, District 11",
+     "from": "2015",
+     "to": null,
+     "source": "Pulaski County's Quorum Court page: 'Mr. Robinson began serving on the Quorum Court in 2015.' Current term January 1, 2025 to December 31, 2026",
+     "url": "https://pulaskicounty.net/quorum-court",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Justice of the Peace, District 11 (Pulaski County), general election; won",
+     "year": "2014",
+     "party": "Republican",
+     "source": "Arkansas Secretary of State, official results (2014 General), contest 494: 'ALDERMAN AARON ROBINSON' with the Republican party id (2096); Pulaski County's results show him the winner, 3,262 to 3,254",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1834",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-05143-constable-2",
+   "name": "Mark E. Miller"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-1",
+   "name": "Justice of the Peace Bradley Bruns",
+   "official_page": {
+    "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+    "source": "Washington County Quorum Court page: Bradley Bruns, District 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Washington County Quorum Court, District 1",
+     "from": "2025",
+     "to": null,
+     "source": "Elected November 5, 2024 (official results, 2024 General, contest 626: Bradley Bruns 5,732, Sarah Hampton 2,818); listed for District 1 on the county's Quorum Court page",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1846&contestType=JUD&locationId=05143",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Republican primary for Justice of the Peace, District 01 (Washington County); won",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Arkansas Secretary of State, official results (2024 Primary), contest 113: 'REP JUSTICE OF THE PEACE DISTRICT 01', Bradley Bruns 1,292, Ofelia Cypert 396",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1845",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-15",
+   "name": "Pat Flippo"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-7",
+   "name": "Justice of the Peace Charles T. Dean Jr.",
+   "official_page": {
+    "url": "https://www.washingtoncountyar.gov/government/elected-officials/quorum-court",
+    "source": "Washington County Quorum Court page: Charles Dean, District 7",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Justice of the Peace, Washington County Quorum Court, District 7",
+     "from": "2023",
+     "to": null,
+     "source": "Elected November 8, 2022 (official results, 2022 General, contest 542: 'REP Charles T. Dean' 2,985, 'DEM Sherry Main' 2,684); re-elected 2024 (2024 General, contest 233: 4,311 to 3,531); listed for District 7 on the county's Quorum Court page",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1844&contestType=JUD&locationId=05143",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Justice of the Peace, District 7 (Washington County), general election; won",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Arkansas Secretary of State, official results (2022 General), contest 542: printed 'REP Charles T. Dean'",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1844",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "what": "Republican primary for Justice of the Peace, District 07 (Washington County), unopposed",
+     "year": "2024",
+     "party": "Republican",
+     "source": "Arkansas Secretary of State, official results (2024 Primary), contest 52: 'REP JUSTICE OF THE PEACE DISTRICT 07', 'Justice of The Peace Charles Dean'",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1845",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-CC2-D4",
+   "name": "Curtis Hitt"
+  },
+  {
+   "race_id": "2026-AR-M-23290-council-ward-2-position-1",
+   "name": "Councilmember Sarah Moore",
+   "official_page": {
+    "url": "https://www.fayetteville-ar.gov/765/Ward-2-Position-1",
+    "source": "City of Fayetteville: City Council, Ward 2, Position 1, Sarah Moore",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Fayetteville City Council, Ward 2 Position 1",
+     "from": "2023",
+     "to": null,
+     "source": "Elected November 8, 2022 (official results, 2022 General, contest 1041: Sarah Moore 2,511, Council Member Mark Kinion 1,722); the city's council page lists her for Ward 2, Position 1, term ending 12/31/2026",
+     "url": "https://www.fayetteville-ar.gov/247/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-34750-council-ward-1-position-1",
+   "name": "Michael D. Dietz"
+  },
+  {
+   "race_id": "2026-AR-M-34750-mayor",
+   "name": "Kevin Cole"
+  },
+  {
+   "race_id": "2026-AR-M-41000-council-ward-6",
+   "name": "City Director Andrea Lewis",
+   "official_page": {
+    "url": "https://www.littlerock.gov/government/board-of-directors/meet-your-board-members/andrea-hogan-lewis/",
+    "source": "City of Little Rock: Andrea Hogan Lewis, Ward 6",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Little Rock City Director, Ward 6",
+     "from": "2023",
+     "to": null,
+     "source": "City of Little Rock: 'Current Term: January 1, 2023 to December 31, 2026'; elected November 8, 2022 (official results, 2022 General, contest 1210)",
+     "url": "https://www.littlerock.gov/government/board-of-directors/meet-your-board-members/andrea-hogan-lewis/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-44600-mayor",
+   "name": "Mayor Caleb Norris",
+   "official_page": {
+    "url": "https://www.maumelle.gov/203/Mayors-Office",
+    "source": "City of Maumelle: Mayor's Office, Caleb Norris, Mayor",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mayor of Maumelle",
+     "from": "2019",
+     "to": null,
+     "source": "Elected November 6, 2018 (official results, 2018 General, contest 704: Caleb Norris 4,077, two others); re-elected 2022 (contest 644: 4,608 to 2,615); the city's Mayor's Office page names him Mayor",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1838&contestType=JUD&locationId=05119",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Maumelle City Attorney",
+     "from": "2015",
+     "to": "2018",
+     "source": "Elected November 4, 2014 (official results, 2014 General, contest 928: 'ALDERMAN CALEB NORRIS' 3,767, Joseph E. Jess Sweere 2,949); the record does not give the year the post ended; he took office as Mayor in 2019",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1834&contestType=JUD&locationId=05119",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Maumelle City Council (alderman)",
+     "from": null,
+     "to": "2014",
+     "source": "On the 2012 ballot for Maumelle Alderman Ward 4 Position 1 (official results, 2012 General, contest 600: Caleb Norris and Steve Ibbotson); on the 2014 ballot as 'ALDERMAN CALEB NORRIS' (2014 General, contest 928); years not in the record",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1832",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-63800-mayor",
+   "name": "Mayor Mary Jo Heye-Townsell",
+   "offices": [
+    {
+     "office": "Mayor of Sherwood",
+     "from": "2023",
+     "to": null,
+     "source": "Elected November 8, 2022 (official results, 2022 General, contest 1072: 'Coun. Mbr Mary Jo Heye-Townsell' 5,271, Mayor Virginia Hillman Young 4,352, two others)",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1844&contestType=JUD&locationId=05119",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Sherwood City Council, Ward 2 Position 1",
+     "from": null,
+     "to": "2022",
+     "source": "Official results: re-elected 2014 as 'ALDERMAN MARY JO HEYE' (2014 General, contest 765: 1,507 to 739) and 2018 as 'Mary Jo Heye' (2018 General, contest 190: 1,411 to 1,183); on the 2022 mayoral ballot as 'Coun. Mbr'; start year not in the record",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestResults?cId=arkansas&electionID=1838&contestType=JUD&locationId=05119",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-M-66080-council-ward-4-position-1",
+   "name": "Mike Gilbert"
+  },
+  {
+   "race_id": "2026-AR-SH13",
+   "name": "Mitchell Smith"
+  },
+  {
+   "race_id": "2026-AR-SH19",
+   "name": "Representative Steve Unger"
+  },
+  {
+   "race_id": "2026-AR-SH26",
+   "name": "State Representative James Eaton"
+  },
+  {
+   "race_id": "2026-AR-SH33",
+   "name": "State Representative Jon Milligan"
+  },
+  {
+   "race_id": "2026-AR-SH40",
+   "name": "State Representative Shad Pearce"
+  },
+  {
+   "race_id": "2026-AR-SH49",
+   "name": "Rep. Jay Richardson"
+  },
+  {
+   "race_id": "2026-AR-SH55",
+   "name": "Cynthia Nations",
+   "past_party": [
+    {
+     "what": "State Representative District 55, general election",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Arkansas Secretary of State, official results (2024 General), contest 267: 'State Representative District 55', Cynthia Nations with the Democratic party id (2099) against State Representative Matt Brown (Republican, 2096)",
+     "url": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=1846",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-AR-SH60",
+   "name": "State Representative Roger Dale Lynch"
+  },
+  {
+   "race_id": "2026-AR-SH68",
+   "name": "State Representative Brian S. Evans"
+  },
+  {
+   "race_id": "2026-AR-SH75",
+   "name": "Hunter Sadler"
+  },
+  {
+   "race_id": "2026-AR-SH80",
+   "name": "State Representative Denise Ennett"
+  },
+  {
+   "race_id": "2026-AR-SH9",
+   "name": "Matt Goff"
+  },
+  {
+   "race_id": "2026-AR-SH99",
+   "name": "Beth Anne Rankin Baker"
+  },
+  {
+   "race_id": "2026-AR-SS14",
+   "name": "Senator Clarke Tucker"
+  },
+  {
+   "race_id": "2026-AR-SS31",
+   "name": "Senator Clint Penzo"
+  }
+ ]
+}

@@ -1,0 +1,478 @@
+{
+ "state": "AR",
+ "gathered": "2026-10-03",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Arkansas's parties nominate in the March 3 primary and March 31 runoff (Libertarians by convention, Feb 20-22); city offices, judges, prosecutors, school boards and water boards are printed without a party. No Arkansas party page that a program may read calls anything an endorsement for a 2026 state or local race, so 'endorsements' is empty. Under 'other_support', with the page's own wording in 'kind' and never to be shown as an endorsement: the Libertarian Party of Arkansas's '2026 Libertarian Candidates' (its convention nominees), the Republican Party of Arkansas's undated 'State Constitutional Office Republican Candidates' (the Treasurer only), and the Washington County Democrats' 'Current Washington County Democratic Candidates'. Every one of these candidates is on the ballot under that party's own label, so a line adds nothing to the party printed on the ballot; no party page read names a candidate for a judge, city, school or water board contest as its own. Names keep the page's spelling in 'as_listed' (Mark Foster for Mark S. Foster, Dana Deree for Dana D. Deree, Suki Highers for Suki Lin Highers, and names given without the title the ballot name carries, such as Fred Love for State Senator Fred Love). Federal lines on these pages are outside this file. Read on 2026-10-03 with the kit's honest User-Agent, each site's robots.txt checked first; every page in 'lists' was opened a second time and a line kept only if the page still showed it. Contact details on the Libertarian page were never stored. Things for a person to decide: whether John opens the Democratic Party of Arkansas's site in his own browser (see not_read), and whether the Libertarian page's 'Hunter Jackson' (House 48) is the ballot's Orion Jackson.",
+ "lists": [
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "title": "2026 Libertarian Candidates",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Arkansas",
+   "title": "State Constitutional Office Republican Candidates",
+   "url": "https://www.arkansasgop.org/constitutional-candidates.html",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "title": "Current Washington County Democratic Candidates (the menu's '2026 Candidates')",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "read_on": "2026-10-03"
+  }
+ ],
+ "endorsements": [],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-AR-GOV",
+   "name": "Colt Shelby",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Colt Shelby, Governor",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-LTG",
+   "name": "Michael Kalagias",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Michael Kalagias, Lieutenant Governor",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SOS",
+   "name": "Michael Pakko",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Michael Pakko, Secretary of State",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-LAND",
+   "name": "Christopher Olson",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Christopher Olson, Land Commissioner",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SS14",
+   "name": "Mark S. Foster",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Mark Foster, State Senate, District 14",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH58",
+   "name": "Jocelyn Fry",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Jocelyn Fry, State House, District 58",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH61",
+   "name": "Garrett Sheeks",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Garrett Sheeks, State House, District 61",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH80",
+   "name": "Daniel Stuckey",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Daniel Stuckey, State House, District 80",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05119-constable-big-rock-township",
+   "name": "Constable Frank Gilbert",
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Frank Gilbert, Constable, Pulaski County, Big Rock Township",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-TREAS",
+   "name": "State Treasurer John Thurston",
+   "party": "Republican",
+   "unit": "Republican Party of Arkansas",
+   "url": "https://www.arkansasgop.org/constitutional-candidates.html",
+   "as_listed": "Treasurer, John Thurston",
+   "kind": "listed among the party's candidates (the page, 'State Constitutional Office Republican Candidates', is undated, names only the Treasurer and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-GOV",
+   "name": "State Senator Fred Love",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State: Governor - Fred Love",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SOS",
+   "name": "Kelly Grappe",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State: Secretary of State - Kelly Grappe",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SS30",
+   "name": "Representative Denise Garner",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State Senate: 30 - Rep. Denise Garner",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH9",
+   "name": "Representative Diana Gonzales Worthen",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 9 - Rep. Diana Gonzales Worthen",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH11",
+   "name": "Rey Hernandez",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 11- Rey Hernandez",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH19",
+   "name": "Jamie Atkinson",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 19 - Jamie Atkinson",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH20",
+   "name": "Max Deitchler",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 20 - Max Deitchler",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH21",
+   "name": "Representative Nicole Clowney",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 21 - Rep. Nicole Clowney",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH22",
+   "name": "State Representative David Whitaker",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 22 - Rep. David Whitaker",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH24",
+   "name": "Ryan Intchauspe",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 24 - Ryan Intchauspe",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-SH25",
+   "name": "Courtney King",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "State House: 25 - Courtney King",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-county-judge",
+   "name": "Dana D. Deree",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "County: County Judge - Dana Deree",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-county-assessor",
+   "name": "Nathan Miller",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "County: Assessor - Nathan Miller",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-tax-collector",
+   "name": "Rachel Eubanks",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "County: Collector - Rachel Eubanks",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-county-treasurer",
+   "name": "William Chesser",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "County: Treasurer - William Chesser",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-1",
+   "name": "Lou Reed Sharp",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 1 Lou Reed Sharp",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-2",
+   "name": "Faith Laukon",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 2 Faith Laukon",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-4",
+   "name": "Justice of the Peace Vladimir Rivera Lopez",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 4 JP Vladimir Rivera Lopez",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-5",
+   "name": "Stephanie Shufelt",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 5 Stephanie Shufelt",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-6",
+   "name": "Lowell Taylor",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 6 Lowell Taylor",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-7",
+   "name": "AnneDella Hines",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 7 AnneDella Hines",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-8",
+   "name": "Justice of the Peace Shawndra Washington",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 8 JP Shawndra Washington",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-9",
+   "name": "Justice of the Peace Beth Coger",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 9 JP Beth Coger",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-10",
+   "name": "Council Member Diane Bryant",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 10 Diane Bryant",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-11",
+   "name": "Justice of the Peace Suki Lin Highers",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 11 JP Suki Highers",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-12",
+   "name": "Justice of the Peace Evelyn Rios Stafford",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 12 JP Evelyn Rios Stafford",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-14",
+   "name": "Jimm Garlock",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 14 Jimm Garlock",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-justice-of-the-peace-15",
+   "name": "Ashley Harvey",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Justice of the Peace: 15 Ashley Harvey",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-constable-1",
+   "name": "Michael John Belzner",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Constable: 1 Michael John Belzner",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-AR-05143-constable-3",
+   "name": "Mark Farrer",
+   "party": "Democratic",
+   "unit": "Washington County Democrats (Democratic Party of Washington County, Arkansas)",
+   "url": "https://www.washcodemocrats.com/copy-of-run-for-office-2024",
+   "as_listed": "Constable: 3 Mark Farrer",
+   "kind": "listed among the county party's current candidates (the page, 'Current Washington County Democratic Candidates', does not say endorsed)"
+  }
+ ],
+ "other_support_unmatched": 6,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Hunter Jackson, State House, District 48",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "the November list's Libertarian for House District 48 is Orion Jackson; the given name does not fit, so the line is not matched (a person can tell whether they are the same)"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Mark Simino, Izard County Judge",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "Izard County's local races are not loaded yet"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Debra Brown, Izard County Clerk",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "Izard County's local races are not loaded yet"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Cody Martin, Justice of the Peace, Benton County, Dist. 11",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "Benton County's local races are not loaded yet (its election commission's site refuses scripts)"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "Brian Leach, Justice of the Peace, Benton County, Dist. 15",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "Benton County's local races are not loaded yet (its election commission's site refuses scripts)"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Arkansas",
+   "url": "https://lpar.org/2026-libertarian-candidates/",
+   "as_listed": "John Fenley, Pine Bluff City Council, Ward 1",
+   "kind": "listed among the party's 2026 candidates, its convention nominees (the page, '2026 Libertarian Candidates', does not say endorsed)",
+   "reason": "Pine Bluff's (Jefferson County's) local races are not loaded yet"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Democratic Party of Arkansas",
+   "url": "https://www.arkdems.org/",
+   "why": "the site answers programs with a CAPTCHA page (SiteGround's, even for robots.txt), so it was left alone. A third-party voter guide found by search (not a party page, not opened) describes the state party as endorsing 2026 legislative candidates; John can open the party's own site in his own browser and save the page if it says so"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Arkansas",
+   "url": "https://www.arkansasgop.org/candidates.html",
+   "why": "read (home, candidates, constitutional, Senate and House candidate pages, press releases, news, county committees). Its 'State Senate Republican Candidates' and 'State House of Representatives Republican Candidates' pages are the 2024 lists (Senate District 1 shows Ben Gilmore; the 2026 Senate 1 contest is between Harrell Wilson and Tomeka Butler), so nothing was taken from them. No page says the party endorses anyone for a 2026 state or local race; its candidates page sends readers to the county clerks for local candidates. The county committees page names chairs and meeting places only (not recorded)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Washington County Democrats",
+   "url": "https://www.washcodemocrats.com/2024candidates",
+   "why": "read; the 2024 slate, not used. On the 2026 page, its 'Nonpartisan Judicial General Election Candidates' section names both candidates for Circuit Judge (Wendy Howerton, Kristin Pawlik) and for Fayetteville City Attorney (Blake Pennington, DJ Deutch) as information, not support, so those were not recorded; its federal lines are outside this file"
+  },
+  {
+   "party": "Democratic and Republican",
+   "unit": "Pulaski County party committees; Washington County Republican Committee",
+   "url": "",
+   "why": "no website of their own was found by search (only filings, results and news); Facebook pages are social media and were not read"
+  },
+  {
+   "party": "Green",
+   "unit": "Green Party of Arkansas",
+   "url": "https://www.arkansasgreenparty.org/",
+   "why": "the address now serves an unrelated betting page, not the party's; no Green candidate is on the November list for a state or local race in the record"
+  }
+ ]
+}

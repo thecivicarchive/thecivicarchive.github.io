@@ -1,0 +1,292 @@
+{
+ "part": 79,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [
+  {
+   "name": "Bud Blair",
+   "field": "website",
+   "url": "https://budblair.com/",
+   "why": "The site names Bud Blair and the Washington County Judge-Executive office, but its only election date is November 8th with early voting November 3rd to 5th, which is the 2022 general election; nothing on it ties it to the 2026 race, so it is not shown to be the campaign site for this race."
+  },
+  {
+   "name": "Shane Suttor",
+   "field": "offices[0].from",
+   "url": "https://www.shelbyvillekentucky.com/153/City-Council",
+   "why": "The city's page gives only the term's end (12/31/2026); the start year 2025 is not stated there, so it was taken out."
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-KY-21009-constable-3",
+   "name": "Josh Garmon",
+   "offices": [
+    {
+     "office": "Constable, 3rd Magisterial District, Barren County (won the 2022 general election; listed as Joshua Garmon)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, 2022 general election recapitulation sheet, Barren County (page 2, a scanned sheet)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Barren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21019-sheriff",
+   "name": "James \"Jamie\" Reihs",
+   "offices": [
+    {
+     "office": "Sheriff, Boyd County (won the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Boyd County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyd%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Sheriff, Boyd County (general election)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Boyd County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyd%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21031-magistrate-2",
+   "name": "Jason Shelby Elms"
+  },
+  {
+   "race_id": "2026-KY-21047-constable-5",
+   "name": "Mark A. Graham"
+  },
+  {
+   "race_id": "2026-KY-21057-sheriff",
+   "name": "Keaton L Williams"
+  },
+  {
+   "race_id": "2026-KY-21071-constable-4",
+   "name": "Eddie Case"
+  },
+  {
+   "race_id": "2026-KY-21083-county-commissioner-3",
+   "name": "Al Chandler"
+  },
+  {
+   "race_id": "2026-KY-21095-county-clerk",
+   "name": "Ashley \"Powell\" Sullivan"
+  },
+  {
+   "race_id": "2026-KY-21107-constable-3",
+   "name": "James C. Woodruff",
+   "offices": [
+    {
+     "office": "Constable, 3rd Magisterial District, Hopkins County (elected unopposed in the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Hopkins County (the county's cumulative results report, page 3)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hopkins%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Constable, 3rd Magisterial District, Hopkins County (general election, unopposed)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Hopkins County (page 3)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hopkins%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21119-county-clerk",
+   "name": "Jamie Hughes"
+  },
+  {
+   "race_id": "2026-KY-21133-constable-1",
+   "name": "Jordan Absher"
+  },
+  {
+   "race_id": "2026-KY-21145-county-executive",
+   "name": "Danielle Guminski"
+  },
+  {
+   "race_id": "2026-KY-21159-coroner",
+   "name": "Chris Todd"
+  },
+  {
+   "race_id": "2026-KY-21171-magistrate-1",
+   "name": "Thomas Chandler"
+  },
+  {
+   "race_id": "2026-KY-21183-constable-4",
+   "name": "Jeff Matthews"
+  },
+  {
+   "race_id": "2026-KY-21193-magistrate-2",
+   "name": "Glenn \"Buzzsaw\" Neace"
+  },
+  {
+   "race_id": "2026-KY-21205-county-assessor",
+   "name": "Carmen Eldridge Swim",
+   "offices": [
+    {
+     "office": "Property Valuation Administrator, Rowan County (elected unopposed in the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Rowan County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Rowan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Property Valuation Administrator, Rowan County (general election, unopposed)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Rowan County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Rowan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21217-county-executive",
+   "name": "Barry Thomas Smith",
+   "official_page": {
+    "url": "https://www.taylorcountyky.gov/fiscal-court",
+    "source": "Taylor County Fiscal Court page: Barry Smith, Judge Executive",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-21229-county-executive",
+   "name": "Bud Blair",
+   "own_words": {
+    "quote": "Conservative Republican",
+    "url": "https://budblair.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-DJ11-1",
+   "name": "Amy Sullivan Anderson",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Taylor.aspx",
+    "source": "Kentucky Court of Justice, Taylor County court information: Amy S. Anderson, 11th Judicial District, Division 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 11th Judicial District, Division 1 (elected unopposed in the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky Secretary of State, Official 2022 General Election Results (District Judge)",
+     "url": "https://elect.ky.gov/results/2020-2029/Documents/2022%20General%20Election%20Results.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ7",
+   "name": "Ken Williams",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Logan.aspx",
+    "source": "Kentucky Court of Justice, Logan County court information: Kenneth R. Williams Jr., District Court Judge, 7th Judicial District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 7th Judicial District (elected unopposed in the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky Secretary of State, Official 2022 General Election Results (District Judge)",
+     "url": "https://elect.ky.gov/results/2020-2029/Documents/2022%20General%20Election%20Results.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-27982-council",
+   "name": "Joe Clinton Berkshire"
+  },
+  {
+   "race_id": "2026-KY-M-40222-council",
+   "name": "Ray \"Chubby Ray\" Perkins"
+  },
+  {
+   "race_id": "2026-KY-M-54228-council",
+   "name": "Alex Wimsatt"
+  },
+  {
+   "race_id": "2026-KY-M-70050-mayor",
+   "name": "Shane Suttor",
+   "official_page": {
+    "url": "https://www.shelbyvillekentucky.com/153/City-Council",
+    "source": "City of Shelbyville, City Council page: Shane Suttor, Council Member, term to expire 12/31/2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "City Council Member, Shelbyville (term to expire 12/31/2026)",
+     "to": "2026",
+     "source": "City of Shelbyville, City Council page",
+     "url": "https://www.shelbyvillekentucky.com/153/City-Council",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-00870-school-board-1",
+   "name": "Jay Housden",
+   "official_page": {
+    "url": "https://www.calloway.kyschools.us/ccdist/board-members-and-meeting-dates",
+    "source": "Calloway County Schools, Board Members page: Jay Housden, Chair",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Calloway County Board of Education, 1st Educational District (elected unopposed in the 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Calloway County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Calloway%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-02990-school-board-1",
+   "name": "Jody Hurt"
+  },
+  {
+   "race_id": "2026-KY-S-04800-school-board-1",
+   "name": "Donald Thornsbury"
+  },
+  {
+   "race_id": "2026-KY-SH37",
+   "name": "Emily Myers Callaway"
+  },
+  {
+   "race_id": "2026-KY-SS24",
+   "name": "Shelley \"Funke\" Frommeyer"
+  }
+ ]
+}

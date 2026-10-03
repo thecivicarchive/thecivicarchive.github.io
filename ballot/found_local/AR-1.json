@@ -1,0 +1,46 @@
+{
+ "part": 1,
+ "of": 11,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's shared web-search allowance ran out after a few searches for this part, so the rest was read directly from county, city, campaign and Wikipedia pages with the kit's fetcher; Ballotpedia answered the kit's fetcher with an empty page. Not found or left out: John Thurston's listed site (votejohnthurston.com, linked from Wikipedia's 2026 Treasurer page) fails the certificate check for its own name, so it could not be read and is not recorded. Christopher Olson: Wikipedia and Talk Business show a Christopher Olson as the Libertarian nominee for Secretary of State in 2018, but no page read ties that run to the 2026 Land Commissioner nominee by a second anchor, so it is left out. Mindy McAlindon's YouTube channel (on Wikipedia) is social media, not recorded. kennethferguson.com does not say which Kenneth Ferguson it is; aaronpilkington.com returned an empty page; kendramoore.com answered 403; richardmcgrew.com failed its certificate check; none recorded. Willie Leming's Lincoln alderman service and Kyle Lyons's and Becky Lewallen's first elections are reported in Northwest Arkansas Democrat-Gazette articles behind a subscription wall, not used. No Arkansas party page calls anything an endorsement for these races (see ballot/lean/ar_endorsements.json). Brent Montgomery (House 52) is filed with the title 'Justice' but no page read says where he serves, so nothing is recorded.",
+ "removed": [
+  {"race_id": "2026-AR-M-41000-mayor", "name": "Mayor Frank Scott, Jr.", "what": "born 1983 (Wikipedia)", "why": "Wikipedia gives the birth date in the lead and infobox with no citation; a secondary finding needs Wikipedia with a citation."},
+  {"race_id": "2026-AR-M-41000-mayor", "name": "Mayor Frank Scott, Jr.", "what": "office: Arkansas State Highway Commission, member (Wikipedia)", "why": "The Wikipedia sentence carries no citation (the reference before it, the City of Little Rock's Mayor's Office page, supports the previous sentence and does not mention the Highway Commission)."}
+ ],
+ "candidates": [
+  {"race_id": "2026-AR-05119-justice-of-the-peace-3", "name": "Justice of the Peace Kathy Lewison",
+   "official_page": {"url": "https://pulaskicounty.net/quorum-court/", "source": "Pulaski County, Quorum Court", "verified": true},
+   "offices": [
+    {"office": "Pulaski County Quorum Court (Justice of the Peace)", "from": 2003, "to": 2006, "source": "Pulaski County, Quorum Court page: first served on the Quorum Court from 2003-2006", "url": "https://pulaskicounty.net/quorum-court/", "kind": "official", "verified": true},
+    {"office": "Pulaski County Justice of the Peace, District 3", "from": 2009, "to": null, "source": "Pulaski County, Quorum Court page: represents the 3rd District, began serving again in 2009", "url": "https://pulaskicounty.net/quorum-court/", "kind": "official", "verified": true}],
+   "past_party": [{"what": "Elected Justice of the Peace, District 3, Pulaski County (elected 11/5/2024, 2-year term ending 2026)", "year": 2024, "party": "Democratic", "source": "Pulaski County Election Commission, Elected Officials List (May 2025), party column", "url": "https://votepulaskiar.gov/wp-content/uploads/Elected-Officials-List_May-2025.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-AR-05143-county-clerk", "name": "County Clerk Becky Lewallen",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/departments-a-e/county-clerk", "source": "Washington County, Arkansas, County Clerk", "verified": true},
+   "offices": [{"office": "Washington County Clerk", "from": 2013, "to": null, "source": "Talk Business & Politics (2018): Washington County Clerk Becky Lewallen, Republican, took office in 2013", "url": "https://talkbusiness.net/2018/03/democrats-challenge-washington-county-seats-held-by-republicans/", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-13", "name": "Justice of the Peace Willie E. Leming",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials", "source": "Washington County, Arkansas, Elected Officials (Quorum Court, District 13)", "verified": true},
+   "offices": [{"office": "Washington County Justice of the Peace, District 13", "from": null, "to": null, "source": "Washington County, Elected Officials page (Willie Leming, District 13); won District 13 on November 8, 2022 per the county's official results", "url": "https://www.washingtoncountyar.gov/government/elected-officials", "kind": "official", "verified": true}],
+   "past_party": [{"what": "General election, Justice of the Peace District 13, Washington County (won, 3,936 votes, 78.33%)", "year": 2022, "party": "Republican", "source": "Washington County, Summary Results Report, General Election November 8, 2022, OFFICIAL RESULTS (printed REP)", "url": "https://washingtoncountyar.gov/home/showpublisheddocument/28703/638043804382330000", "kind": "official", "verified": true}]},
+  {"race_id": "2026-AR-05143-justice-of-the-peace-5", "name": "Justice of the Peace Kyle S Lyons",
+   "official_page": {"url": "https://www.washingtoncountyar.gov/government/elected-officials", "source": "Washington County, Arkansas, Elected Officials (Quorum Court, District 5)", "verified": true},
+   "offices": [{"office": "Washington County Justice of the Peace, District 5", "from": null, "to": null, "source": "Washington County official results: elected November 8, 2022 (2,745 votes, 68.15%); Elected Officials page lists Kyle Lyons, District 5", "url": "https://washingtoncountyar.gov/home/showpublisheddocument/28703/638043804382330000", "kind": "official", "verified": true}],
+   "past_party": [{"what": "General election, Justice of the Peace District 5, Washington County (won)", "year": 2022, "party": "Republican", "source": "Washington County, Summary Results Report, General Election November 8, 2022, OFFICIAL RESULTS (printed REP)", "url": "https://washingtoncountyar.gov/home/showpublisheddocument/28703/638043804382330000", "kind": "official", "verified": true}]},
+  {"race_id": "2026-AR-AG", "name": "Attorney General Tim Griffin",
+   "website": {"url": "https://timgriffinforag.com/", "how": "Linked as his official campaign website on Wikipedia's 2026 Arkansas Attorney General election page; the site is 'Tim Griffin for Attorney General' (paid for by Tim Griffin for Attorney General); its newest news posts date from his time as AG-elect", "verified": true}},
+  {"race_id": "2026-AR-M-34750-council-ward-4-position-1", "name": "City Clerk-Treasurer Susan Davitt",
+   "official_page": {"url": "https://www.cityofjacksonville.net/Directory.aspx?EID=7", "source": "City of Jacksonville, Arkansas, Staff Directory: Susan Davitt, City Clerk / Treasurer", "verified": true},
+   "offices": [{"office": "Jacksonville City Clerk/Treasurer", "from": null, "to": null, "source": "Pulaski County Election Commission, Elected Officials List (May 2025): elected 11/8/2022, 4-year term ending 2026", "url": "https://votepulaskiar.gov/wp-content/uploads/Elected-Officials-List_May-2025.pdf", "kind": "official", "verified": true}]},
+  {"race_id": "2026-AR-M-41000-mayor", "name": "Mayor Frank Scott, Jr.",
+   "website": {"url": "https://frankscottjr.com/", "how": "Site titled 'Re-Elect Little Rock Mayor Frank Scott Jr.', paid for by Neighbors for Frank Scott, Jr., with the October 2026 registration deadline", "verified": true},
+   "official_page": {"url": "https://www.littlerock.gov/city-administration/mayors-office/", "source": "City of Little Rock, Mayor's Office", "verified": true},
+   "offices": [
+    {"office": "Mayor of Little Rock", "from": 2019, "to": null, "source": "City of Little Rock, Mayor's Office: the city's 73rd mayor, began his second four-year term on Jan. 1, 2023", "url": "https://www.littlerock.gov/city-administration/mayors-office/", "kind": "official", "verified": true}]},
+  {"race_id": "2026-AR-SH10", "name": "State Representative Mindy McAlindon",
+   "website": {"url": "https://mindyforarkansas.com/", "how": "mindymcalindon.com forwards here; the site names Mindy McAlindon and House District 10 ('Delivering Results for House District 10')", "verified": true}},
+  {"race_id": "2026-AR-SH3", "name": "State Representative Stetson Painter",
+   "website": {"url": "https://www.stetsonpainter.com/", "how": "Site titled 'Stetson Painter', speaks of a State Representative who will fight for the area, paid for by Painter for Arkansas", "verified": true}},
+  {"race_id": "2026-AR-SH58", "name": "State Representative Les Eaves",
+   "website": {"url": "https://leseaves.com/", "how": "Site titled 'Les Eaves', 'White County values to the State Capitol', paid for by Les Eaves for State Representative", "verified": true}}
+ ]
+}

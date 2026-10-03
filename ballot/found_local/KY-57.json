@@ -4,78 +4,286 @@
  "researched": "2026-10-03",
  "note": "The session's shared web-search allowance was already spent when this part began, so it went by fetching official pages directly. The main source is the Kentucky State Board of Elections' official 2022 general election recap sheets (precinct by precinct; county totals here are this agent's sums of the precinct rows, and each winner's margin is wide enough that a missed precinct would not change it, except Hardin County's 2nd Magisterial District, 1,342 to 1,300). Recaps for Anderson, Bourbon, Carter, Fleming, Grant, Lee, Marshall, Mercer, Pendleton, Robertson, Spencer, Greenup, Nelson and Union counties are scans with no text layer, so the candidates there are left blank. Several county sites did not resolve or carry no names (Anderson, Bullitt, Crittenden, Fleming, Lyon, Marshall, Hardin, Lyndon). Pages read that do not name the candidate: Carter County's officials page names Mike Johnston as county clerk (not Debbie Johnston); Lee County's names Steve Mays, Jr. as judge/executive (not John Fike); Spencer County's names Danny Hilbert as coroner (not Bill Wood); Erlanger's council page does not list Corine Pitts; Hopkinsville's 2025-2026 council roster does not list Markeeta Oldham Wilkerson. Johnny Ray Turner (House 95): Wikipedia's 2026 Kentucky House election article calls him the former 29th District senator, but without a citation, and no cited or official page tying the 2026 candidate to the former senator could be reached (WYMT did not resolve for WebFetch), so nothing is recorded for him. Steve Bratcher is a sitting legislator with a record page; no campaign website was found and the party pages list him without endorsing (already in ky_endorsements.json). Several candidates found here hold the office they seek today while our record's incumbent flag is 0; the county clerks' filing lists do not mark local incumbents, so this is noted rather than filed as a review item. Kevin R Kirby won Warren County Coroner in 2022 as a Democrat and is on the 2026 list as a Republican; both are recorded as the record shows them. While exploring, the Revenue Cabinet's PVA directory printed two PVA office e-mail cells to this agent's output and Carter County's page an office street address; none of it is stored here.",
  "candidates": [
-  {"race_id": "2026-KY-21029-county-executive", "name": "Jerral \"Jerry\" Summers",
+  {
+   "race_id": "2026-KY-21029-county-executive",
+   "name": "Jerral \"Jerry\" Summers",
    "offices": [
-    {"office": "Bullitt County Judge/Executive (won the November 8, 2022 general election, unopposed)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Bullitt County: 'COUNTY JUDGE/EXECUTIVE ... Jerral \"Jerry\" SUMMERS REP'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official"}
+    {
+     "office": "Bullitt County Judge/Executive (won the November 8, 2022 general election, unopposed)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Bullitt County: 'COUNTY JUDGE/EXECUTIVE ... Jerral \"Jerry\" SUMMERS REP'",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Republican nominee for Bullitt County Judge/Executive, November 2022 general election (won)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Bullitt County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21093-magistrate-2", "name": "Kenny Saltsman",
+    {
+     "what": "Republican nominee for Bullitt County Judge/Executive, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Bullitt County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Bullitt%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-2",
+   "name": "Kenny Saltsman",
    "offices": [
-    {"office": "Hardin County Magistrate, 2nd Magisterial District (won the November 8, 2022 general election)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Hardin County: 'MAGISTRATE 2nd Magisterial District', Kenny SALTSMAN DEM 1,342, T. W. SHORTT REP 1,300 (precinct rows summed)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official"}
+    {
+     "office": "Hardin County Magistrate, 2nd Magisterial District (won the November 8, 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Hardin County: 'MAGISTRATE 2nd Magisterial District', Kenny SALTSMAN DEM 1,342, T. W. SHORTT REP 1,300 (precinct rows summed)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Democratic nominee for Hardin County Magistrate, 2nd Magisterial District, November 2022 general election (won)", "year": "2022", "party": "Democratic", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Hardin County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21103-magistrate-1", "name": "Ed Frederick",
-   "official_page": {"url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx", "source": "Henry County, Elected Officials: 'Magistrate 1 Ed Frederick'"},
+    {
+     "what": "Democratic nominee for Hardin County Magistrate, 2nd Magisterial District, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Hardin County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21103-magistrate-1",
+   "name": "Ed Frederick",
+   "official_page": {
+    "url": "https://henrycounty.ky.gov/Government/Pages/Elected%20Officials.aspx",
+    "source": "Henry County, Elected Officials: 'Magistrate 1 Ed Frederick'",
+    "verified": true
+   },
    "offices": [
-    {"office": "Henry County Magistrate, 1st Magisterial District (won the November 8, 2022 general election, unopposed)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Henry County: 'MAGISTRATE 1st Magisterial District', Ed FREDERICK REP", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official"}
+    {
+     "office": "Henry County Magistrate, 1st Magisterial District (won the November 8, 2022 general election, unopposed)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Henry County: 'MAGISTRATE 1st Magisterial District', Ed FREDERICK REP",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Republican nominee for Henry County Magistrate, 1st Magisterial District, November 2022 general election (won)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Henry County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21117-county-commissioner-1", "name": "Beth Sewell",
-   "official_page": {"url": "https://www.kentoncountyky.gov/346/Commissioner---District-1", "source": "Kenton County Fiscal Court, Commissioner - District 1 (Beth Sewell)"},
+    {
+     "what": "Republican nominee for Henry County Magistrate, 1st Magisterial District, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Henry County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henry%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21117-county-commissioner-1",
+   "name": "Beth Sewell",
+   "official_page": {
+    "url": "https://www.kentoncountyky.gov/346/Commissioner---District-1",
+    "source": "Kenton County Fiscal Court, Commissioner - District 1 (Beth Sewell)",
+    "verified": true
+   },
    "offices": [
-    {"office": "Kenton County Commissioner, 1st District (won the November 8, 2022 general election, unopposed)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Kenton County: 'COUNTY COMMISSIONER, 1st District Countywide', REP Beth SEWELL", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official"}
+    {
+     "office": "Kenton County Commissioner, 1st District (won the November 8, 2022 general election, unopposed on the ballot)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Kenton County: 'COUNTY COMMISSIONER, 1st District Countywide', REP Beth SEWELL",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Republican nominee for Kenton County Commissioner, 1st District, November 2022 general election (won)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Kenton County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21143-county-assessor", "name": "Christie Cruce",
+    {
+     "what": "Republican nominee for Kenton County Commissioner, 1st District, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Kenton County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21143-county-assessor",
+   "name": "Christie Cruce",
    "offices": [
-    {"office": "Lyon County Property Valuation Administrator (won the November 8, 2022 general election, unopposed)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Lyon County: 'PROPERTY VALUATION ADMINISTRATOR', Christie D. CRUCE REP; the Department of Revenue's PVA Directory 2022-2026 lists 'Lyon County, Christie D. Cruce, PVA'", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf", "kind": "official"}
+    {
+     "office": "Lyon County Property Valuation Administrator (won the November 8, 2022 general election, unopposed)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Lyon County: 'PROPERTY VALUATION ADMINISTRATOR', Christie D. CRUCE REP",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Republican nominee for Lyon County Property Valuation Administrator, November 2022 general election (won)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Lyon County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21181-county-assessor", "name": "Jackie Fredrick Earlywine",
+    {
+     "what": "Republican nominee for Lyon County Property Valuation Administrator, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Lyon County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lyon%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21181-county-assessor",
+   "name": "Jackie Fredrick Earlywine",
    "offices": [
-    {"office": "Nicholas County Property Valuation Administrator (won the November 8, 2022 general election)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Nicholas County: 'PROPERTY VALUATION ADMINISTRATOR', Jackie Fredrick EARLYWINE DEM 1,466, Todd T. GAUNCE REP 1,059 (precinct rows summed)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf", "kind": "official"}
+    {
+     "office": "Nicholas County Property Valuation Administrator (won the November 8, 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Nicholas County: 'PROPERTY VALUATION ADMINISTRATOR', Jackie Fredrick EARLYWINE DEM 1,466, Todd T. GAUNCE REP 1,059 (precinct rows summed)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Democratic nominee for Nicholas County Property Valuation Administrator, November 2022 general election (won)", "year": "2022", "party": "Democratic", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Nicholas County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21227-coroner", "name": "Kevin R Kirby",
-   "official_page": {"url": "https://www.warrencountyky.gov/departments/coroner/", "source": "Warren County, Coroner: 'Kevin Kirby, Warren County Coroner'"},
+    {
+     "what": "Democratic nominee for Nicholas County Property Valuation Administrator, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Nicholas County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21227-coroner",
+   "name": "Kevin R Kirby",
+   "official_page": {
+    "url": "https://www.warrencountyky.gov/departments/coroner/",
+    "source": "Warren County, Coroner department page: 'Kevin Kirby'",
+    "verified": true
+   },
    "offices": [
-    {"office": "Warren County Coroner (won the November 8, 2022 general election, unopposed)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Warren County: 'CORONER', Kevin R. KIRBY DEM", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official"}
+    {
+     "office": "Warren County Coroner (won the November 8, 2022 general election, unopposed)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Warren County: 'CORONER', Kevin R. KIRBY DEM",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Democratic nominee for Warren County Coroner, November 2022 general election (won)", "year": "2022", "party": "Democratic", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Warren County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-21239-magistrate-7", "name": "Mary Ann Gill",
+    {
+     "what": "Democratic nominee for Warren County Coroner, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Warren County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21239-magistrate-7",
+   "name": "Mary Ann Gill",
    "offices": [
-    {"office": "Woodford County Magistrate, 7th Magisterial District (won the November 8, 2022 general election)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Woodford County: 'MAGISTRATE 7th Magisterial District', Mary Ann GILL REP 1,357, Lonnie ESTES DEM 760 (precinct rows summed)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official"}
+    {
+     "office": "Woodford County Magistrate, 7th Magisterial District (won the November 8, 2022 general election)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Woodford County: 'MAGISTRATE 7th Magisterial District', Mary Ann GILL REP 1,357, Lonnie ESTES DEM 760 (precinct rows summed)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
    ],
    "past_party": [
-    {"what": "Republican nominee for Woodford County Magistrate, 7th Magisterial District, November 2022 general election (won)", "year": "2022", "party": "Republican", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Woodford County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-DJ5", "name": "Ben Leonard",
-   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Crittenden.aspx", "source": "Kentucky Court of Justice, Crittenden County information: District Judge 'Ben Leonard', '5th Judicial District'"},
+    {
+     "what": "Republican nominee for Woodford County Magistrate, 7th Magisterial District, November 2022 general election (won)",
+     "year": "2022",
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Woodford County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Woodford%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ5",
+   "name": "Ben Leonard",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Crittenden.aspx",
+    "source": "Kentucky Court of Justice, Crittenden County information: District Judge 'Ben Leonard', '5th Judicial District'",
+    "verified": true
+   },
    "offices": [
-    {"office": "District Judge, 5th Judicial District (won the November 8, 2022 nonpartisan general election over Charles A. Willson)", "from": "2023", "to": "2026", "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Crittenden County: 'DISTRICT JUDGE 5th Judicial District', Ben LEONARD 1,904, Charles A. WILLSON 539 (precinct rows summed; Webster County's recap: 2,858 to 684)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-M-37918-mayor", "name": "Markeeta Oldham Wilkerson",
+    {
+     "office": "District Judge, 5th Judicial District (won the November 8, 2022 nonpartisan general election over Charles A. Willson)",
+     "from": "2023",
+     "to": "2026",
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Crittenden County: 'DISTRICT JUDGE 5th Judicial District', Ben LEONARD 1,904, Charles A. WILLSON 539 (precinct rows summed; Webster County's recap: 2,858 to 684)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Crittenden%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-37918-mayor",
+   "name": "Markeeta Oldham Wilkerson",
    "past_party": [
-    {"what": "Democratic candidate for Hopkinsville City Council, Ward 1, November 2024 general election (lost to Vance Smith, Republican)", "year": "2024", "party": "Democratic", "source": "Kentucky State Board of Elections, official results of the November 5, 2024 general election, Christian County: 'CITY COUNCIL City of Hopkinsville Ward 1', Markeeta Oldham WILKERSON DEM", "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Christian.pdf", "kind": "official"}
-   ]},
-  {"race_id": "2026-KY-M-67944-council", "name": "Amy Olson",
-   "official_page": {"url": "https://www.stmatthewsky.gov/city-council-members-under-construction/", "source": "City of St. Matthews, City Council Members (Amy Olson listed among the eight members)"},
+    {
+     "what": "Democratic candidate for Hopkinsville City Council, Ward 1, November 2024 general election (lost to Vance Smith, Republican)",
+     "year": "2024",
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, official results of the November 5, 2024 general election, Christian County: 'CITY COUNCIL City of Hopkinsville Ward 1', Markeeta Oldham WILKERSON DEM",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Christian.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-67944-council",
+   "name": "Amy Olson",
+   "official_page": {
+    "url": "https://www.stmatthewsky.gov/city-council-members-under-construction/",
+    "source": "City of St. Matthews, City Council Members (Amy Olson listed among the eight members)",
+    "verified": true
+   },
    "offices": [
-    {"office": "St. Matthews City Council member (won a seat in the November 8, 2022 general election, eight elected)", "from": "2023", "to": null, "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Jefferson County: 'SAINT MATTHEWS COUNCILMEMBER SAINT MATTHEWS, Vote For 8', Amy OLSON second of thirteen (2,864 votes over the precinct pages summed; ninth place 2,266)", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf", "kind": "official"}
-   ]}
- ]
+    {
+     "office": "St. Matthews City Council member (won a seat in the November 8, 2022 general election, eight elected)",
+     "from": "2023",
+     "to": null,
+     "source": "Kentucky State Board of Elections, official results of the November 8, 2022 general election, Jefferson County: 'SAINT MATTHEWS COUNCILMEMBER SAINT MATTHEWS, Vote For 8', Amy OLSON second of thirteen (2,864 votes over the precinct pages summed; ninth place 2,280)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened and every figure re-summed from the precinct rows (Hardin 1,342 to 1,300; Nicholas 1,466 to 1,059; Woodford 1,357 to 760; Crittenden 1,904 to 539 and Webster 2,858 to 684; Hopkinsville Ward 1 in 2024: Vance Smith 6,226, Markeeta Oldham Wilkerson 4,423). Corrections: St. Matthews' 2022 ninth place was 2,280, not 2,266 (that was tenth); the Lyon County source no longer cites the PVA directory, which was not re-opened; Warren County's page wording; Kenton's 'unopposed on the ballot' (one write-in vote). While checking, the Henry County, Kenton County and St. Matthews pages printed office phone and e-mail cells to this agent's output; none of it is stored here."
 }
