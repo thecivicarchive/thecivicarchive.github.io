@@ -1,0 +1,154 @@
+{
+ "part": 7,
+ "of": 10,
+ "researched": "2026-10-03",
+ "note": "30 candidates (positions 7, 17, ... 297 of ok_scope.json). The session's shared web-search allowance ran out partway through this part, so Taylor Allen, Adam Ward, Buck Jones, Kyle N. Eastwood, Troy Austin Officer, Eddie Collins, Kiefer Perry and Orlando Lynn Bush were searched once each (or not at all for the last county names) and nothing tying a page to them and this race was found; they are left blank. Sitting legislators were searched for a campaign website only. NonDoc's 2026 SD 10 article links no campaign site for Bill Coleman, and NonDoc/news summaries say none was found for Carl Newton or Derrick R. Hildebrant; Tim Turner, Rick West, John George, Gerrid Kendrix and Eric Roberts: none found. The Oklahoma Democratic Party's 'Our 2026 Candidates' page lists Mattox, Menz, Clinton, Alonso and Newton but does not say endorsed (see ballot/lean/ok_endorsements.json), so no endorsed_by is recorded; no party page read endorses anyone in this part. Melissa Capps: Wikipedia and NonDoc say she won by default (the only filer), which agrees with our record (unopposed, not printed); her post as a deputy in the State Auditor's office is a staff job, not recorded as an office; her age (52) is given without a birth date, so no year is recorded. Pages read with the kit's honest fetcher (states/net.py) or WebFetch; no contact details were printed or kept.",
+ "candidates": [
+  {
+   "race_id": "2026-OK-40051-county-commissioner-3",
+   "name": "Kirk L. Painter",
+   "offices": [
+    {
+     "office": "Grady County Commissioner, District 2",
+     "from": 2017,
+     "to": 2025,
+     "source": "Southwest Ledger, 'In Grady County, Bingham wins GOP runoff vote' (Sept. 2024): Painter 'has represented District 2 on the commission for eight years' and was seeking a third term; his successor joins the commission Jan. 2, 2025 (from-year worked out from eight years of four-year terms); KSWO (April 2024) also calls him District 2 County Commissioner",
+     "url": "https://www.southwestledger.news/node/19470",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Grady County Commissioner, District 2: Republican primary runoff, as the incumbent (lost to Ruth Bingham)",
+     "year": 2024,
+     "party": "Republican",
+     "source": "Southwest Ledger, 'In Grady County, Bingham wins GOP runoff vote', reporting State Election Board results of the GOP primary runoff",
+     "url": "https://www.southwestledger.news/node/19470",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-40111-county-commissioner-1",
+   "name": "Barbarbra Cooks",
+   "past_party": [
+    {
+     "what": "Okmulgee County Commissioner, District 1 (unexpired term), special general election: Barbarbra Cooks (D), 261 votes, 21.71%, behind Ernie Ferreira (R)",
+     "year": 2025,
+     "party": "Democratic",
+     "source": "Okmulgee Times (yourokmulgee.com), election results published April 4, 2025",
+     "url": "https://www.yourokmulgee.com/2025/04/04/election-results-20250404-1314-327756/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-M-04450-council-ward-1",
+   "name": "Tim Sherrick",
+   "official_page": {
+    "url": "https://www.cityofbartlesville.org/city-government/city-council/",
+    "source": "City of Bartlesville, City Council page (lists Tim Sherrick, Ward 1)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bartlesville City Council, Ward 1",
+     "from": 2024,
+     "to": null,
+     "source": "City of Bartlesville, 'City Council term begins; councilors sworn in' (Dec. 3, 2024): 'Councilors Tim Sherrick of Ward 1 ... were elected during the general election held Nov. 5'",
+     "url": "https://www.cityofbartlesville.org/city-council-term-begins/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-SH10",
+   "name": "Isaac D Mattox",
+   "website": {
+    "url": "https://electisaac2026.com/",
+    "how": "linked on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site's title reads 'Isaac Mattox - Oklahoma House District 10' and its heading 'Isaac Mattox Democrat Running for State House District 10', with 'Elect Isaac 2026'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Isaac Mattox Democrat Running for State House District 10",
+    "url": "https://electisaac2026.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH45",
+   "name": "Annie Menz",
+   "website": {
+    "url": "https://anniemenz.com/",
+    "how": "annieforhouse.co (linked on 'Annie Menz' in the OU Daily's 2026 House District 45 Democratic primary article) now redirects here; the site's title is 'Annie Menz for State House', headings 'House district 45' and 'Menz wins 2026 Primary!'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH64",
+   "name": "Louis Jackson",
+   "website": {
+    "url": "https://votelouisjackson.com/",
+    "how": "linked as 'Jackson's website' in KSWO's Sept. 4, 2026 article on the House District 64 race in Lawton; the site's headings read 'LOUIS JACKSON', 'Republican for Oklahoma State House', 'LAWTON FIRST. OKLAHOMA FIRST.' and 'General Election: November 3, 2026'",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Republican for Oklahoma State House",
+    "url": "https://votelouisjackson.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH71",
+   "name": "Amanda Clinton",
+   "website": {
+    "url": "https://www.amandaforoklahoma.com/",
+    "how": "linked on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site's title is 'Amanda Clinton For Oklahoma HD 71' and it reads 'State Representative Amanda Clinton, Oklahoma House District 71' (its paid-for line still names the committee 'Amanda for Oklahoma 2025', from the 2025 special election)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH89",
+   "name": "Arturo Alonso",
+   "website": {
+    "url": "https://votealonso.com/",
+    "how": "linked on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site's title is 'Arturo Alonso for House District 89' and it reads 'I'm the Representative for House District 89 in the Oklahoma legislature'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS2",
+   "name": "Ally Seifried",
+   "website": {
+    "url": "https://allyseifried.com/",
+    "how": "linked on 'Ally Seifried' in NonDoc's June 14, 2026 SD 2 article; the site's headings read 'Ally Seifried for State Senate' and 'General Election November 3, 2026', and it speaks of 'real results for Senate District 2'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS32",
+   "name": "Booker T. Newton",
+   "website": {
+    "url": "https://www.bookertnewton.com/",
+    "how": "linked on the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside his District 32 line; the site's title is 'Booker T. Newton State Senate District 32'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS42",
+   "name": "Brenda Stanley",
+   "website": {
+    "url": "http://senatorbrendastanley.com",
+    "how": "linked on 'Stanley' in NonDoc's June 12, 2026 SD 42 article; the site's title is 'Brenda Stanley | for Oklahoma Senate' and it reads 'Brenda will represent Senate District 42's values', with an Election Day countdown",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened 2026-10-03 (kit fetcher, WebFetch where it got 429). All findings confirmed; one correction: Annie Menz's site address annieforhouse.co redirects (301) to anniemenz.com, recorded as the website. Kirk L. Painter: same person by Oklahoma, Grady County and the county commission (he held District 2, seeks District 3 in 2026; from-year 2017 worked out from 'eight years' with a successor on Jan. 2, 2025). Barbarbra Cooks: same name, Okmulgee County Commissioner District 1, (D) printed in the results. Nothing from the never-collected list in any field."
+}

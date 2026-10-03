@@ -1,0 +1,18 @@
+{
+ "part": 22,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was already spent when this part began, so research went only through pages that could be reached directly; WebFetch could not resolve most Kentucky government hosts, and the kit's fetcher reached only some (trimblecounty, wolfecounty, estillcounty, jessaminecounty, hancockcounty, laurelcounty, owencounty, gallatincounty, carlislecounty and glasgowky.com did not resolve; bellcounty answered 502; livingstoncounty and campbellsville.us failed certificate checks). Pages read without finding the candidate: muhlenbergcounty.ky.gov elected officials (Kevin Gunn not listed), jeffersondistrictcourt.com judges (no judge named Allen), paris.ky.gov Board of Commissioners (Cynthia Criswell not listed), shelbycounty.ky.gov, powellcounty.ky.gov, adaircounty.ky.gov, breathittcounty.ky.gov, claycounty.ky.gov, magoffincounty.ky.gov, hendersonky.gov, jessamineco.com, and the Franklin County Schools board page (members not in its text). Matthew R. Koch is a sitting legislator; the Republican Party of Kentucky's candidates page links kochforkentucky.com beside his name, but that site answered 500 to every request, so it is not recorded as his website. Party pages that list a candidate without saying endorsed (Fayette County Democrats for Raquel Carter, Shelby KY Democratic Party for Justin Barnes, the Republican Party of Kentucky for Matt Koch) are already in ballot/lean/ky_endorsements.json and are not repeated here.",
+ "verifier_note": "Re-opened all three addresses on 2026-10-03 with the kit's fetcher. The campaign site's title reads 'Raquel For Lexington Mayor' and its footer 'Paid for by Raquel E. Carter for Mayor'; the Fayette County Democratic Party's 2026 action page links that exact address beside 'Mayor - Raquel Carter'. The Menifee County Elected Officials page lists 'Menifee County Clerk Krystal Chapman' (no start year). The researcher's mention of a Solutions page was not re-confirmed, so the 'how' now cites the home and About pages instead.",
+ "candidates": [
+  {"race_id": "2026-KY-M-46027-mayor", "name": "Raquel E. Carter",
+   "website": {"url": "https://www.raquelforlexingtonmayor.com/", "how": "linked beside 'Mayor - Raquel Carter' on the Fayette County Democratic Party's 2026 Action page (https://fayettedemocrats.org/2026-action/); the site's title reads 'Raquel For Lexington Mayor' and its pages carry 'Paid for by Raquel E. Carter for Mayor'", "verified": true}},
+  {"race_id": "2026-KY-21165-county-clerk", "name": "Krystal \"Mullins\" Chapman",
+   "official_page": {"url": "https://menifeecounty.ky.gov/Elected-Officials/Pages/default.aspx", "source": "Menifee County, Elected Officials: 'Menifee County Clerk Krystal Chapman'", "verified": true},
+   "offices": [
+    {"office": "Menifee County Clerk", "from": null, "to": "present", "source": "Menifee County, Elected Officials page (lists 'Menifee County Clerk Krystal Chapman'; no start year given)", "url": "https://menifeecounty.ky.gov/Elected-Officials/Pages/default.aspx", "kind": "official", "verified": true}
+   ]}
+ ]
+}

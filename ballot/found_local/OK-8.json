@@ -1,0 +1,255 @@
+{
+ "part": 8,
+ "of": 10,
+ "researched": "2026-10-03",
+ "note": "Oklahoma Voice's 2026 general election guide (each legislative candidate was invited to send a campaign website link) was read for every legislative and statewide race in this part; it gave no site for Judd Strom, David Nelson, Leslie Hellebuyck, Carolyn Womack-Bielich, Clay Staires, Adam Martin, Melissa Provenzano, Tegan Malone or Chris Jones, and HD 59 is not on the ballot. The session's shared web-search allowance ran out partway through this part, so the county, judicial and Bartlesville candidates were looked for only on government sites that answered: okcounties.org has pages for Mayes County but none for Caddo, Grady, Okmulgee or Pushmataha. No Oklahoma party page calls anything an endorsement for these races (see ballot/lean/ok_endorsements.json), so no endorsed_by is recorded. Adam Martin (HD 72, Republican) shares a name with the 2024 HD 72 Democratic candidate and 2022 Democratic nominee for the 1st Congressional District, but no page tied the two, so nothing is recorded for him. Tegan Malone was the 2024 HD 95 Democratic nominee by secondary accounts, but the official results site refuses scripts, so no past_party is recorded.",
+ "candidates": [
+  {
+   "race_id": "2026-OK-40015-county-treasurer",
+   "name": "Cindy Campbell Anderson"
+  },
+  {
+   "race_id": "2026-OK-40051-county-commissioner-3",
+   "name": "Scott Nichols"
+  },
+  {
+   "race_id": "2026-OK-40097-county-commissioner-1",
+   "name": "Toby Graves"
+  },
+  {
+   "race_id": "2026-OK-40111-county-commissioner-1",
+   "name": "Ernie Ferreira"
+  },
+  {
+   "race_id": "2026-OK-40127-county-commissioner-3",
+   "name": "John Roberts"
+  },
+  {
+   "race_id": "2026-OK-ADJ-40075",
+   "name": "Ricky A. Marsh"
+  },
+  {
+   "race_id": "2026-OK-CC",
+   "name": "Brad Boles",
+   "website": {
+    "url": "https://bolesforok.com",
+    "how": "linked as 'Candidate Site' beside Brad Boles in Oklahoma Voice's 2026 general election guide (https://oklahomavoice.com/voter-guides/contests/corporation-commissioner-2026-general/); the site is titled 'Brad Boles for Corporation Commissioner' and is paid for by Friends of Brad Boles 2026",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.okhouse.gov/representatives/brad-boles",
+    "source": "Oklahoma House of Representatives, member page (District 51, Republican)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Oklahoma House of Representatives, District 51",
+     "from": 2018,
+     "to": "present",
+     "source": "Boles's campaign site ('Since 2018, Brad has represented Grady and Stephens Counties in the Oklahoma House of Representatives'); the House's own member page shows him serving District 51 today",
+     "url": "https://bolesforok.com",
+     "kind": "campaign",
+     "verified": true
+    },
+    {
+     "office": "Mayor of Marlow",
+     "from": 2014,
+     "to": 2018,
+     "source": "Oklahoma House of Representatives, member page ('served as mayor of Marlow from 2014-2018')",
+     "url": "https://www.okhouse.gov/representatives/brad-boles",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member, Marlow Public School Board of Education",
+     "from": null,
+     "to": null,
+     "source": "Oklahoma House of Representatives, member page",
+     "url": "https://www.okhouse.gov/representatives/brad-boles",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Seat in the Oklahoma House of Representatives, District 51, held as a Republican",
+     "year": 2026,
+     "party": "Republican",
+     "source": "Oklahoma House of Representatives, member page (members sit by party; the page marks him R)",
+     "url": "https://www.okhouse.gov/representatives/brad-boles",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-DC-4-2",
+   "name": "Eric Edwards"
+  },
+  {
+   "race_id": "2026-OK-GOV",
+   "name": "Robert E Brooks Sr",
+   "website": {
+    "url": "https://votewethepeople.com",
+    "how": "linked as 'Candidate Site' beside Robert E. Brooks Sr. (Independent) in Oklahoma Voice's 2026 general election guide (https://oklahomavoice.com/voter-guides/contests/governor-2026-general/); the site's 'Meet Robert Brooks' page (https://votewethepeople.com/about-robert-brooks/) speaks of 'his campaign for Governor' of Oklahoma",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-M-04450-council-ward-2",
+   "name": "Cameron Byers"
+  },
+  {
+   "race_id": "2026-OK-M-04450-council-ward-5",
+   "name": "Trevor D Dorsey",
+   "official_page": {
+    "url": "https://www.cityofbartlesville.org/city-government/city-council/",
+    "source": "City of Bartlesville, City Council page (lists Trevor Dorsey, Vice Mayor, Ward 5)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bartlesville City Council, Ward 5 (Vice Mayor)",
+     "from": null,
+     "to": "present",
+     "source": "City of Bartlesville, City Council page",
+     "url": "https://www.cityofbartlesville.org/city-government/city-council/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-SH10",
+   "name": "Judd Strom"
+  },
+  {
+   "race_id": "2026-OK-SH16",
+   "name": "David Nelson"
+  },
+  {
+   "race_id": "2026-OK-SH24",
+   "name": "Chris Banning",
+   "website": {
+    "url": "https://www.banningforoklahoma.com/",
+    "how": "linked as 'Candidate Site' beside Chris Banning (Republican, incumbent) in Oklahoma Voice's House District 24 general election guide (https://oklahomavoice.com/voter-guides/contests/state-representative-district-24-2026-general/); the site is titled 'Chris Banning State House' and is authorized and paid for by Banning for State House 2026 (the home page does not print the district number)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH3",
+   "name": "Steve Glinski",
+   "website": {
+    "url": "https://glinskiforhouse.com",
+    "how": "given as the candidate site for Steve Glinski (Democrat) in Oklahoma Voice's House District 3 general election guide (https://oklahomavoice.com/voter-guides/contests/state-representative-district-3-2026-general/); the site is titled 'Steve Glinski for State House', names House District 3 and is paid for by Steve Glinski for State House 2026",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Heavener Board of Education",
+     "from": null,
+     "to": null,
+     "source": "Glinski's campaign site ('serve 12 years on the Heavener Board of Education')",
+     "url": "https://glinskiforhouse.com",
+     "kind": "campaign",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-SH36",
+   "name": "Leslie Hellebuyck"
+  },
+  {
+   "race_id": "2026-OK-SH45",
+   "name": "Carolyn Womack-Bielich"
+  },
+  {
+   "race_id": "2026-OK-SH53",
+   "name": "Carroll Asséo",
+   "website": {
+    "url": "https://www.carrollasseo.com",
+    "how": "linked as 'Candidate Site' beside Carroll Asséo (Democrat) in Oklahoma Voice's House District 53 general election guide (https://oklahomavoice.com/voter-guides/contests/state-representative-district-53-2026-general/); the site reads 'Carroll Asseo for House', names Oklahoma House District 53 and is paid for by Asseo for House 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH59",
+   "name": "Mike Dobrinski"
+  },
+  {
+   "race_id": "2026-OK-SH66",
+   "name": "Clay Staires"
+  },
+  {
+   "race_id": "2026-OK-SH72",
+   "name": "Adam Martin"
+  },
+  {
+   "race_id": "2026-OK-SH79",
+   "name": "Melissa Provenzano"
+  },
+  {
+   "race_id": "2026-OK-SH84",
+   "name": "Jeffrey Perez",
+   "website": {
+    "url": "https://www.jeffreyforok.com",
+    "how": "linked as 'Candidate Site' beside Jeffrey Perez (Democrat) in Oklahoma Voice's House District 84 general election guide (https://oklahomavoice.com/voter-guides/contests/state-representative-district-84-2026-general/); the site is titled 'Jeffrey Perez For House District 84' and is paid for by Friends of Jeffrey Perez 2026 (it answered the kit's fetcher 429 and was read through WebFetch)",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH9",
+   "name": "Andrea Biscardi",
+   "website": {
+    "url": "https://www.biscardiforok.com",
+    "how": "linked as 'Candidate Site' beside Andrea Biscardi (Democrat) in Oklahoma Voice's House District 9 general election guide (https://oklahomavoice.com/voter-guides/contests/state-representative-district-9-2026-general/); the site reads 'Andrea Biscardi for House', names Oklahoma House District 9 and is paid for by Biscardi for Oklahoma 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH95",
+   "name": "Tegan Malone"
+  },
+  {
+   "race_id": "2026-OK-SS10",
+   "name": "Chayelynn Moore",
+   "website": {
+    "url": "https://www.moore4oksenate.com/",
+    "how": "linked from NonDoc's Senate District 10 article (https://nondoc.com/2026/06/14/sd-10-this-election-is-about-who-is-going-to-control-the-oklahoma-state-senate/); the site is titled 'Chayelynn Moore - Oklahoma State Senate District 10' and is paid for by Moore 4 OK Senate 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS2",
+   "name": "Randy Cowling",
+   "website": {
+    "url": "https://www.cowlingforok.com",
+    "how": "linked as 'Candidate Site' beside Randy Cowling (Democrat) in Oklahoma Voice's Senate District 2 general election guide (https://oklahomavoice.com/voter-guides/contests/state-senate-district-2-2026-general/); the site reads 'Randy Cowling for Senate' (the Oklahoma State Senate) and is paid for by Cowling for SD2 2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS32",
+   "name": "Curtis W. Erwin",
+   "website": {
+    "url": "https://curtiserwin.com",
+    "how": "linked from NonDoc's SD 32 primary cheat sheet (https://nondoc.com/2026/06/12/cheat-sheet-sd-32-incumbent-dusty-deevers-challenged-in-lawton-area-bellwether-primary/); the site is titled 'Curtis Erwin for State Senate', names District 32 and is paid for by Erwin for State Senate District 32 -2026",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS42",
+   "name": "Chris Jones"
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [
+  {
+   "race_id": "2026-OK-40097-county-commissioner-1",
+   "name": "Toby Graves",
+   "what": "official_page and office 'Mayes County Commissioner, District 1'",
+   "why": "Mayes County's Commissioner District 1 page names Alva Martin as the commissioner and lists Toby Graves as the district's Foreman, a county job, not a public office held"
+  }
+ ]
+}

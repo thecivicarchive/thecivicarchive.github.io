@@ -1,0 +1,29 @@
+{
+ "part": 25,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "All three urls re-opened. Wikipedia's members table shows 'District 11 | Kevin Kramer | Republican | 2002' and the Council Presidents list shows '2006-2007: Kevin Kramer (R)'; anchors: Louisville Metro Council, District 11 (the seat sought). Jessamine County's page names David K. West as Judge/Executive ('the third Judge/Executive'; the word 'County' corrected out of the quote), no years given; anchors: Jessamine County (21113) and the office sought. The Court of Justice's Floyd County page lists Jimmy R. Marcum, Chief District Judge, District Court, 31st Judicial District Division 1; anchors: the 31st district, Division 1 (the seat sought), and Kentucky. Nothing from the never-collected list is recorded (the Jessamine page's personal and business details were not taken).",
+ "note": "The session's shared web-search allowance was already spent when this part began, so research went only to pages that could be reached directly: official county, court, city and school sites, county party pages and Wikipedia. Louisville Metro Government's site (louisvilleky.gov) answers 403 to both fetchers, so Kevin Kramer's facts come from Wikipedia's Louisville Metro Council article, whose members table cites that official page. The Jefferson County Republican Party lists Kramer, the Republican Party of Kentucky lists David F. Charles, and the Franklin County Democratic Party lists Natalie Lile, none of them as an endorsement; that support is already in ballot/lean/ky_endorsements.json and is not repeated here. Worth a look by a person: our record files the Louisville Metro Council District 11 race as a 'Nonpartisan office', while the county Republican Party's page lists Kramer among its 'Louisville Metro Council Republican Candidates' and Wikipedia gives every member a party; no official page was reachable to settle it, so it is not entered as a review item. Campbellsville's, Martin County Schools' and Webster County Schools' pages carry no roster a script can read, and the Ashland Independent board page gave no names; Glasgow, Paris, Livingston, Trimble and Shelby county or city sites did not resolve at the addresses tried. The other candidates were left blank.",
+ "candidates": [
+  {"race_id": "2026-KY-M-48003-council-11", "name": "Kevin Kramer",
+   "offices": [
+    {"office": "Member, Louisville Metro Council, District 11 (year elected 2002)", "from": 2002, "to": "present", "source": "Wikipedia, Louisville Metro Council, members table (cites louisvilleky.gov, Districts 1-26)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true},
+    {"office": "President, Louisville Metro Council", "from": 2006, "to": 2007, "source": "Wikipedia, Louisville Metro Council, list of Council Presidents", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Seat on the Louisville Metro Council, District 11, listed with party Republican (Council President 2006-2007 listed as R)", "year": 2002, "party": "Republican", "source": "Wikipedia, Louisville Metro Council, members table, party column", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21113-county-executive", "name": "David K West",
+   "official_page": {"url": "https://jessamineky.gov/jc-officials/david-k-west/", "source": "Jessamine County government, officials page: David K. West, Judge/Executive ('the third Judge/Executive')", "verified": true},
+   "offices": [
+    {"office": "Jessamine County Judge/Executive", "from": null, "to": "present", "source": "Jessamine County government, officials page", "url": "https://jessamineky.gov/jc-officials/david-k-west/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ31-1", "name": "Jimmy \"Blue\" Marcum",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Floyd.aspx", "source": "Kentucky Court of Justice, Floyd County information: Jimmy R. Marcum, Chief District Judge, District Court, 31st Judicial District Division 1", "verified": true},
+   "offices": [
+    {"office": "Chief District Judge, District Court, 31st Judicial District, Division 1", "from": null, "to": "present", "source": "Kentucky Court of Justice, Floyd County information", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Floyd.aspx", "kind": "official", "verified": true}
+   ]}
+ ]
+}

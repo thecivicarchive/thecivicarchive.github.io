@@ -1,0 +1,1633 @@
+{
+ "state": "KY",
+ "made": "2026-10-03",
+ "threshold": 10000,
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "population_source": {
+  "agency": "U.S. Census Bureau",
+  "title": "American Community Survey 2020-2024 five-year estimates, table B01003 (total population), table-based summary file (acsdt5y2024-b01003.dat, with Geos20245YR.txt saying which row is which place)",
+  "fetched_without_a_key": true,
+  "files": [
+   {
+    "file": "Geos20245YR.txt",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/Geos20245YR.txt",
+    "sha256": "b87a1d1a4db9f826d0d133d20cbf7d011932f9ec2cfa74eacf8c9cf387aea344",
+    "on_disk_since": "2026-09-24"
+   },
+   {
+    "file": "acsdt5y2024-b01003.dat",
+    "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/acsdt5y2024-b01003.dat",
+    "sha256": "38d1a992bb058d184009b10b9b34987279aee575e4323165cfb5706c69b6ca90",
+    "on_disk_since": "2026-09-24"
+   }
+  ],
+  "note": "Estimates from a survey, each with the Bureau's 90 percent margin of error (margin; null where the Bureau gives none). A city is found by its Census place code, where the race carries one, and the two names must agree; a school district by its name."
+ },
+ "cities": [
+  {
+   "id": "KY-M-48003",
+   "name": "Louisville/Jefferson County metro government",
+   "census_name": "Louisville/Jefferson County metro government (balance)",
+   "population": 631818,
+   "margin": 200,
+   "races": 14,
+   "candidates": 25,
+   "note": "the Census place code 48003 is not among the file's places; read by KY's own table as 48006"
+  },
+  {
+   "id": "KY-M-46027",
+   "name": "Lexington-Fayette urban county",
+   "census_name": "Lexington-Fayette urban county",
+   "population": 323725,
+   "margin": null,
+   "races": 14,
+   "candidates": 26
+  },
+  {
+   "id": "KY-M-08902",
+   "name": "Bowling Green city",
+   "census_name": "Bowling Green city",
+   "population": 75388,
+   "margin": 62,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-M-17848",
+   "name": "Covington city",
+   "census_name": "Covington city",
+   "population": 41110,
+   "margin": 91,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-M-30700",
+   "name": "Georgetown city",
+   "census_name": "Georgetown city",
+   "population": 39117,
+   "margin": 30,
+   "races": 2,
+   "candidates": 16
+  },
+  {
+   "id": "KY-M-65226",
+   "name": "Richmond city",
+   "census_name": "Richmond city",
+   "population": 37111,
+   "margin": 32,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "KY-M-27982",
+   "name": "Florence city",
+   "census_name": "Florence city",
+   "population": 32803,
+   "margin": 37,
+   "races": 2,
+   "candidates": 14
+  },
+  {
+   "id": "KY-M-24274",
+   "name": "Elizabethtown city",
+   "census_name": "Elizabethtown city",
+   "population": 32576,
+   "margin": 35,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "KY-M-56136",
+   "name": "Nicholasville city",
+   "census_name": "Nicholasville city",
+   "population": 32197,
+   "margin": 64,
+   "races": 2,
+   "candidates": 11
+  },
+  {
+   "id": "KY-M-37918",
+   "name": "Hopkinsville city",
+   "census_name": "Hopkinsville city",
+   "population": 30906,
+   "margin": 62,
+   "races": 13,
+   "candidates": 21
+  },
+  {
+   "id": "KY-M-39142",
+   "name": "Independence city",
+   "census_name": "Independence city",
+   "population": 29392,
+   "margin": 88,
+   "races": 2,
+   "candidates": 11
+  },
+  {
+   "id": "KY-M-40222",
+   "name": "Jeffersontown city",
+   "census_name": "Jeffersontown city",
+   "population": 29199,
+   "margin": 97,
+   "races": 2,
+   "candidates": 15
+  },
+  {
+   "id": "KY-M-28900",
+   "name": "Frankfort city",
+   "census_name": "Frankfort city",
+   "population": 28503,
+   "margin": 57,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-M-35866",
+   "name": "Henderson city",
+   "census_name": "Henderson city",
+   "population": 27852,
+   "margin": 28,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "KY-M-58836",
+   "name": "Paducah city",
+   "census_name": "Paducah city",
+   "population": 26845,
+   "margin": 34,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "KY-M-63912",
+   "name": "Radcliff city",
+   "census_name": "Radcliff city",
+   "population": 22864,
+   "margin": 69,
+   "races": 2,
+   "candidates": 15
+  },
+  {
+   "id": "KY-M-02368",
+   "name": "Ashland city",
+   "census_name": "Ashland city",
+   "population": 21295,
+   "margin": 20,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-M-25300",
+   "name": "Erlanger city",
+   "census_name": "Erlanger city",
+   "population": 19875,
+   "margin": 35,
+   "races": 2,
+   "candidates": 17
+  },
+  {
+   "id": "KY-M-49368",
+   "name": "Madisonville city",
+   "census_name": "Madisonville city",
+   "population": 19515,
+   "margin": 37,
+   "races": 7,
+   "candidates": 11
+  },
+  {
+   "id": "KY-M-83676",
+   "name": "Winchester city",
+   "census_name": "Winchester city",
+   "population": 19213,
+   "margin": 32,
+   "races": 2,
+   "candidates": 9
+  },
+  {
+   "id": "KY-M-54228",
+   "name": "Mount Washington city",
+   "census_name": "Mount Washington city",
+   "population": 18480,
+   "margin": 30,
+   "races": 2,
+   "candidates": 20
+  },
+  {
+   "id": "KY-M-54642",
+   "name": "Murray city",
+   "census_name": "Murray city",
+   "population": 18080,
+   "margin": 32,
+   "races": 2,
+   "candidates": 18
+  },
+  {
+   "id": "KY-M-70050",
+   "name": "Shelbyville city",
+   "census_name": "Shelbyville city",
+   "population": 17668,
+   "margin": 42,
+   "races": 2,
+   "candidates": 13
+  },
+  {
+   "id": "KY-M-67944",
+   "name": "St. Matthews city",
+   "census_name": "St. Matthews city",
+   "population": 17577,
+   "margin": 39,
+   "races": 2,
+   "candidates": 11
+  },
+  {
+   "id": "KY-M-19882",
+   "name": "Danville city",
+   "census_name": "Danville city",
+   "population": 17327,
+   "margin": 34,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "KY-M-28594",
+   "name": "Fort Thomas city",
+   "census_name": "Fort Thomas city",
+   "population": 17169,
+   "margin": 60,
+   "races": 2,
+   "candidates": 13
+  },
+  {
+   "id": "KY-M-05842",
+   "name": "Berea city",
+   "census_name": "Berea city",
+   "population": 15786,
+   "margin": 59,
+   "races": 2,
+   "candidates": 16
+  },
+  {
+   "id": "KY-M-70284",
+   "name": "Shively city",
+   "census_name": "Shively city",
+   "population": 15638,
+   "margin": 48,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "KY-M-31114",
+   "name": "Glasgow city",
+   "census_name": "Glasgow city",
+   "population": 15197,
+   "margin": 36,
+   "races": 2,
+   "candidates": 19
+  },
+  {
+   "id": "KY-M-70086",
+   "name": "Shepherdsville city",
+   "census_name": "Shepherdsville city",
+   "population": 14533,
+   "margin": 37,
+   "races": 2,
+   "candidates": 18
+  },
+  {
+   "id": "KY-M-55884",
+   "name": "Newport city",
+   "census_name": "Newport city",
+   "population": 13967,
+   "margin": 55,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-M-03628",
+   "name": "Bardstown city",
+   "census_name": "Bardstown city",
+   "population": 13804,
+   "margin": 26,
+   "races": 2,
+   "candidates": 10
+  },
+  {
+   "id": "KY-M-71688",
+   "name": "Somerset city",
+   "census_name": "Somerset city",
+   "population": 12216,
+   "margin": 51,
+   "races": 11,
+   "candidates": 17
+  },
+  {
+   "id": "KY-M-44146",
+   "name": "Lawrenceburg city",
+   "census_name": "Lawrenceburg city",
+   "population": 11943,
+   "margin": 39,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "id": "KY-M-12160",
+   "name": "Campbellsville city",
+   "census_name": "Campbellsville city",
+   "population": 11622,
+   "margin": 28,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "id": "KY-M-48558",
+   "name": "Lyndon city",
+   "census_name": "Lyndon city",
+   "population": 11030,
+   "margin": 50,
+   "races": 2,
+   "candidates": 19
+  },
+  {
+   "id": "KY-M-00802",
+   "name": "Alexandria city",
+   "census_name": "Alexandria city",
+   "population": 10562,
+   "margin": 65,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "id": "KY-M-28918",
+   "name": "Franklin city",
+   "census_name": "Franklin city",
+   "population": 10360,
+   "margin": 20,
+   "races": 2,
+   "candidates": 15
+  },
+  {
+   "id": "KY-M-43480",
+   "name": "La Grange city",
+   "census_name": "La Grange city",
+   "population": 10311,
+   "margin": 39,
+   "races": 2,
+   "candidates": 17
+  },
+  {
+   "id": "KY-M-59196",
+   "name": "Paris city",
+   "census_name": "Paris city",
+   "population": 10160,
+   "margin": 28,
+   "races": 2,
+   "candidates": 10
+  }
+ ],
+ "school_districts": [
+  {
+   "id": "KY-S-02990",
+   "name": "Jefferson County School District",
+   "census_name": "Jefferson County School District",
+   "census_geo_id": "9700000US2102990",
+   "population": 780425,
+   "margin": 77,
+   "races": 5,
+   "candidates": 17
+  },
+  {
+   "id": "KY-S-01860",
+   "name": "Fayette County School District",
+   "census_name": "Fayette County School District",
+   "census_geo_id": "9700000US2101860",
+   "population": 323725,
+   "margin": null,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-00510",
+   "name": "Boone County School District",
+   "census_name": "Boone County School District",
+   "census_geo_id": "9700000US2100510",
+   "population": 132034,
+   "margin": 378,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "KY-S-05730",
+   "name": "Warren County School District",
+   "census_name": "Warren County School District",
+   "census_geo_id": "9700000US2105730",
+   "population": 112386,
+   "margin": 1485,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03090",
+   "name": "Kenton County School District",
+   "census_name": "Kenton County School District",
+   "census_geo_id": "9700000US2103090",
+   "population": 109975,
+   "margin": 1450,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-02490",
+   "name": "Hardin County School District",
+   "census_name": "Hardin County School District",
+   "census_geo_id": "9700000US2102490",
+   "population": 92649,
+   "margin": 1321,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-03720",
+   "name": "Madison County School District",
+   "census_name": "Madison County School District",
+   "census_geo_id": "9700000US2103720",
+   "population": 89429,
+   "margin": 628,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00750",
+   "name": "Bullitt County School District",
+   "census_name": "Bullitt County School District",
+   "census_geo_id": "9700000US2100750",
+   "population": 84027,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-01470",
+   "name": "Daviess County School District",
+   "census_name": "Daviess County School District",
+   "census_geo_id": "9700000US2101470",
+   "population": 73917,
+   "margin": 1402,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-04530",
+   "name": "Oldham County School District",
+   "census_name": "Oldham County School District",
+   "census_geo_id": "9700000US2104530",
+   "population": 69257,
+   "margin": null,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-03210",
+   "name": "Laurel County School District",
+   "census_name": "Laurel County School District",
+   "census_geo_id": "9700000US2103210",
+   "population": 61948,
+   "margin": 271,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-01150",
+   "name": "Christian County School District",
+   "census_name": "Christian County School District",
+   "census_geo_id": "9700000US2101150",
+   "population": 60713,
+   "margin": 653,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05260",
+   "name": "Scott County School District",
+   "census_name": "Scott County School District",
+   "census_geo_id": "9700000US2105260",
+   "population": 59536,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03030",
+   "name": "Jessamine County School District",
+   "census_name": "Jessamine County School District",
+   "census_geo_id": "9700000US2103030",
+   "population": 54588,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-04950",
+   "name": "Pulaski County School District",
+   "census_name": "Pulaski County School District",
+   "census_geo_id": "9700000US2104950",
+   "population": 53984,
+   "margin": 816,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-00900",
+   "name": "Campbell County School District",
+   "census_name": "Campbell County School District",
+   "census_geo_id": "9700000US2100900",
+   "population": 49785,
+   "margin": 506,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04800",
+   "name": "Pike County School District",
+   "census_name": "Pike County School District",
+   "census_geo_id": "9700000US2104800",
+   "population": 49404,
+   "margin": 134,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-05320",
+   "name": "Shelby County School District",
+   "census_name": "Shelby County School District",
+   "census_geo_id": "9700000US2105320",
+   "population": 49096,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-02010",
+   "name": "Franklin County School District",
+   "census_name": "Franklin County School District",
+   "census_geo_id": "9700000US2102010",
+   "population": 46444,
+   "margin": 695,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-03960",
+   "name": "McCracken County School District",
+   "census_name": "McCracken County School District",
+   "census_geo_id": "9700000US2103960",
+   "population": 46361,
+   "margin": 725,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-02710",
+   "name": "Henderson County School District",
+   "census_name": "Henderson County School District",
+   "census_geo_id": "9700000US2102710",
+   "population": 44280,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-02860",
+   "name": "Hopkins County School District",
+   "census_name": "Hopkins County School District",
+   "census_geo_id": "9700000US2102860",
+   "population": 43168,
+   "margin": 407,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01200",
+   "name": "Clark County School District",
+   "census_name": "Clark County School District",
+   "census_geo_id": "9700000US2101200",
+   "population": 37192,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-01950",
+   "name": "Floyd County School District",
+   "census_name": "Floyd County School District",
+   "census_geo_id": "9700000US2101950",
+   "population": 35224,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-04410",
+   "name": "Nelson County School District",
+   "census_name": "Nelson County School District",
+   "census_geo_id": "9700000US2104410",
+   "population": 34471,
+   "margin": 799,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-01350",
+   "name": "Covington Independent School District",
+   "census_name": "Covington Independent School District",
+   "census_geo_id": "9700000US2101350",
+   "population": 33325,
+   "margin": 948,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-03810",
+   "name": "Marshall County School District",
+   "census_name": "Marshall County School District",
+   "census_geo_id": "9700000US2103810",
+   "population": 31743,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00081",
+   "name": "Muhlenberg County School District",
+   "census_name": "Muhlenberg County School District",
+   "census_geo_id": "9700000US2100081",
+   "population": 30591,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00570",
+   "name": "Bowling Green Independent School District",
+   "census_name": "Bowling Green Independent School District",
+   "census_geo_id": "9700000US2100570",
+   "population": 28532,
+   "margin": 1485,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04250",
+   "name": "Montgomery County School District",
+   "census_name": "Montgomery County School District",
+   "census_geo_id": "9700000US2104250",
+   "population": 28395,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-00870",
+   "name": "Calloway County School District",
+   "census_name": "Calloway County School District",
+   "census_geo_id": "9700000US2100870",
+   "population": 27820,
+   "margin": 820,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00300",
+   "name": "Barren County School District",
+   "census_name": "Barren County School District",
+   "census_geo_id": "9700000US2100300",
+   "population": 27772,
+   "margin": 695,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-02280",
+   "name": "Graves County School District",
+   "census_name": "Graves County School District",
+   "census_geo_id": "9700000US2102280",
+   "population": 27046,
+   "margin": 199,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-02300",
+   "name": "Grayson County School District",
+   "census_name": "Grayson County School District",
+   "census_geo_id": "9700000US2102300",
+   "population": 26707,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04050",
+   "name": "Meade County School District",
+   "census_name": "Meade County School District",
+   "census_geo_id": "9700000US2104050",
+   "population": 26651,
+   "margin": 415,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-01020",
+   "name": "Carter County School District",
+   "census_name": "Carter County School District",
+   "census_geo_id": "9700000US2101020",
+   "population": 26341,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03150",
+   "name": "Knox County School District",
+   "census_name": "Knox County School District",
+   "census_geo_id": "9700000US2103150",
+   "population": 25744,
+   "margin": 354,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-05100",
+   "name": "Rowan County School District",
+   "census_name": "Rowan County School District",
+   "census_geo_id": "9700000US2105100",
+   "population": 24578,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-03480",
+   "name": "Lincoln County School District",
+   "census_name": "Lincoln County School District",
+   "census_geo_id": "9700000US2103480",
+   "population": 24504,
+   "margin": null,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-00120",
+   "name": "Anderson County School District",
+   "census_name": "Anderson County School District",
+   "census_geo_id": "9700000US2100120",
+   "population": 24353,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04500",
+   "name": "Ohio County School District",
+   "census_name": "Ohio County School District",
+   "census_geo_id": "9700000US2104500",
+   "population": 23735,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-04770",
+   "name": "Perry County School District",
+   "census_name": "Perry County School District",
+   "census_geo_id": "9700000US2104770",
+   "population": 23338,
+   "margin": 307,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-02540",
+   "name": "Harlan County School District",
+   "census_name": "Harlan County School District",
+   "census_geo_id": "9700000US2102540",
+   "population": 23147,
+   "margin": 432,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00620",
+   "name": "Boyd County School District",
+   "census_name": "Boyd County School District",
+   "census_geo_id": "9700000US2100620",
+   "population": 22335,
+   "margin": 834,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-03540",
+   "name": "Logan County School District",
+   "census_name": "Logan County School District",
+   "census_geo_id": "9700000US2103540",
+   "population": 21968,
+   "margin": 445,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-02250",
+   "name": "Grant County School District",
+   "census_name": "Grant County School District",
+   "census_geo_id": "9700000US2102250",
+   "population": 21805,
+   "margin": 172,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00150",
+   "name": "Ashland Independent School District",
+   "census_name": "Ashland Independent School District",
+   "census_geo_id": "9700000US2100150",
+   "population": 21710,
+   "margin": 541,
+   "races": 1,
+   "candidates": 7
+  },
+  {
+   "id": "KY-S-05880",
+   "name": "Whitley County School District",
+   "census_name": "Whitley County School District",
+   "census_geo_id": "9700000US2105880",
+   "population": 21693,
+   "margin": 708,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00070",
+   "name": "Allen County School District",
+   "census_name": "Allen County School District",
+   "census_geo_id": "9700000US2100070",
+   "population": 21293,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04650",
+   "name": "Paducah Independent School District",
+   "census_name": "Paducah Independent School District",
+   "census_geo_id": "9700000US2104650",
+   "population": 21203,
+   "margin": 725,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05490",
+   "name": "Spencer County School District",
+   "census_name": "Spencer County School District",
+   "census_geo_id": "9700000US2105490",
+   "population": 20193,
+   "margin": null,
+   "races": 4,
+   "candidates": 6
+  },
+  {
+   "id": "KY-S-04110",
+   "name": "Mercer County School District",
+   "census_name": "Mercer County School District",
+   "census_geo_id": "9700000US2104110",
+   "population": 20022,
+   "margin": 422,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05400",
+   "name": "Simpson County School District",
+   "census_name": "Simpson County School District",
+   "census_geo_id": "9700000US2105400",
+   "population": 19972,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-01230",
+   "name": "Clay County School District",
+   "census_name": "Clay County School District",
+   "census_geo_id": "9700000US2101230",
+   "population": 19921,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-03780",
+   "name": "Marion County School District",
+   "census_name": "Marion County School District",
+   "census_geo_id": "9700000US2103780",
+   "population": 19749,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-05790",
+   "name": "Wayne County School District",
+   "census_name": "Wayne County School District",
+   "census_geo_id": "9700000US2105790",
+   "population": 19602,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-00720",
+   "name": "Breckinridge County School District",
+   "census_name": "Breckinridge County School District",
+   "census_geo_id": "9700000US2100720",
+   "population": 19116,
+   "margin": 320,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00030",
+   "name": "Adair County School District",
+   "census_name": "Adair County School District",
+   "census_geo_id": "9700000US2100030",
+   "population": 19089,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03060",
+   "name": "Johnson County School District",
+   "census_name": "Johnson County School District",
+   "census_geo_id": "9700000US2103060",
+   "population": 19075,
+   "margin": 336,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03360",
+   "name": "Letcher County School District",
+   "census_name": "Letcher County School District",
+   "census_geo_id": "9700000US2103360",
+   "population": 18733,
+   "margin": 296,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-05160",
+   "name": "Russell County School District",
+   "census_name": "Russell County School District",
+   "census_geo_id": "9700000US2105160",
+   "population": 18221,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-02400",
+   "name": "Greenup County School District",
+   "census_name": "Greenup County School District",
+   "census_geo_id": "9700000US2102400",
+   "population": 17927,
+   "margin": 490,
+   "races": 4,
+   "candidates": 7
+  },
+  {
+   "id": "KY-S-02160",
+   "name": "Garrard County School District",
+   "census_name": "Garrard County School District",
+   "census_geo_id": "9700000US2102160",
+   "population": 17568,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-05520",
+   "name": "Taylor County School District",
+   "census_name": "Taylor County School District",
+   "census_geo_id": "9700000US2105520",
+   "population": 17436,
+   "margin": 726,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "KY-S-01740",
+   "name": "Erlanger-Elsmere Independent School District",
+   "census_name": "Erlanger-Elsmere Independent School District",
+   "census_geo_id": "9700000US2101740",
+   "population": 17399,
+   "margin": 878,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-02640",
+   "name": "Hart County School District",
+   "census_name": "Hart County School District",
+   "census_geo_id": "9700000US2102640",
+   "population": 17159,
+   "margin": 436,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-03870",
+   "name": "Mason County School District",
+   "census_name": "Mason County School District",
+   "census_geo_id": "9700000US2103870",
+   "population": 16956,
+   "margin": null,
+   "races": 3,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-03990",
+   "name": "McCreary County School District",
+   "census_name": "McCreary County School District",
+   "census_geo_id": "9700000US2103990",
+   "population": 16867,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00630",
+   "name": "Boyle County School District",
+   "census_name": "Boyle County School District",
+   "census_geo_id": "9700000US2100630",
+   "population": 16281,
+   "margin": 528,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-02040",
+   "name": "Fort Thomas Independent School District",
+   "census_name": "Fort Thomas Independent School District",
+   "census_geo_id": "9700000US2102040",
+   "population": 16236,
+   "margin": 305,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05070",
+   "name": "Rockcastle County School District",
+   "census_name": "Rockcastle County School District",
+   "census_geo_id": "9700000US2105070",
+   "population": 16163,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-03240",
+   "name": "Lawrence County School District",
+   "census_name": "Lawrence County School District",
+   "census_geo_id": "9700000US2103240",
+   "population": 16077,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01050",
+   "name": "Casey County School District",
+   "census_name": "Casey County School District",
+   "census_geo_id": "9700000US2101050",
+   "population": 15914,
+   "margin": null,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01920",
+   "name": "Fleming County School District",
+   "census_name": "Fleming County School District",
+   "census_geo_id": "9700000US2101920",
+   "population": 15323,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-00540",
+   "name": "Bourbon County School District",
+   "census_name": "Bourbon County School District",
+   "census_geo_id": "9700000US2100540",
+   "population": 15172,
+   "margin": 449,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-03180",
+   "name": "Larue County School District",
+   "census_name": "Larue County School District",
+   "census_geo_id": "9700000US2103180",
+   "population": 15107,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01440",
+   "name": "Danville Independent School District",
+   "census_name": "Danville Independent School District",
+   "census_geo_id": "9700000US2101440",
+   "population": 14660,
+   "margin": 528,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-05580",
+   "name": "Trigg County School District",
+   "census_name": "Trigg County School District",
+   "census_geo_id": "9700000US2105580",
+   "population": 14315,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04290",
+   "name": "Morgan County School District",
+   "census_name": "Morgan County School District",
+   "census_geo_id": "9700000US2104290",
+   "population": 14053,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01760",
+   "name": "Estill County School District",
+   "census_name": "Estill County School District",
+   "census_geo_id": "9700000US2101760",
+   "population": 14035,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04440",
+   "name": "Newport Independent School District",
+   "census_name": "Newport Independent School District",
+   "census_geo_id": "9700000US2104440",
+   "population": 13928,
+   "margin": 71,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03120",
+   "name": "Knott County School District",
+   "census_name": "Knott County School District",
+   "census_geo_id": "9700000US2103120",
+   "population": 13830,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-02220",
+   "name": "Glasgow Independent School District",
+   "census_name": "Glasgow Independent School District",
+   "census_geo_id": "9700000US2102220",
+   "population": 13662,
+   "margin": 478,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05130",
+   "name": "Russell Independent School District",
+   "census_name": "Russell Independent School District",
+   "census_geo_id": "9700000US2105130",
+   "population": 13327,
+   "margin": 361,
+   "races": 1,
+   "candidates": 5
+  },
+  {
+   "id": "KY-S-05640",
+   "name": "Union County School District",
+   "census_name": "Union County School District",
+   "census_geo_id": "9700000US2105640",
+   "population": 13260,
+   "margin": null,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00270",
+   "name": "Bardstown Independent School District",
+   "census_name": "Bardstown Independent School District",
+   "census_geo_id": "9700000US2100270",
+   "population": 13135,
+   "margin": 799,
+   "races": 1,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-02940",
+   "name": "Jackson County School District",
+   "census_name": "Jackson County School District",
+   "census_geo_id": "9700000US2102940",
+   "population": 13086,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04890",
+   "name": "Powell County School District",
+   "census_name": "Powell County School District",
+   "census_geo_id": "9700000US2104890",
+   "population": 13038,
+   "margin": null,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "id": "KY-S-03390",
+   "name": "Lewis County School District",
+   "census_name": "Lewis County School District",
+   "census_geo_id": "9700000US2103390",
+   "population": 12965,
+   "margin": null,
+   "races": 3,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-02760",
+   "name": "Henry County School District",
+   "census_name": "Henry County School District",
+   "census_geo_id": "9700000US2102760",
+   "population": 12889,
+   "margin": 131,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00330",
+   "name": "Bath County School District",
+   "census_name": "Bath County School District",
+   "census_geo_id": "9700000US2100330",
+   "population": 12851,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05820",
+   "name": "Webster County School District",
+   "census_name": "Webster County School District",
+   "census_geo_id": "9700000US2105820",
+   "population": 12842,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-01650",
+   "name": "Elizabethtown Independent School District",
+   "census_name": "Elizabethtown Independent School District",
+   "census_geo_id": "9700000US2101650",
+   "population": 12796,
+   "margin": 1102,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00840",
+   "name": "Caldwell County School District",
+   "census_name": "Caldwell County School District",
+   "census_geo_id": "9700000US2100840",
+   "population": 12618,
+   "margin": null,
+   "races": 3,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-05550",
+   "name": "Todd County School District",
+   "census_name": "Todd County School District",
+   "census_geo_id": "9700000US2105550",
+   "population": 12469,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00690",
+   "name": "Breathitt County School District",
+   "census_name": "Breathitt County School District",
+   "census_geo_id": "9700000US2100690",
+   "population": 12448,
+   "margin": 197,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00810",
+   "name": "Butler County School District",
+   "census_name": "Butler County School District",
+   "census_geo_id": "9700000US2100810",
+   "population": 12393,
+   "margin": null,
+   "races": 3,
+   "candidates": 6
+  },
+  {
+   "id": "KY-S-01620",
+   "name": "Edmonson County School District",
+   "census_name": "Edmonson County School District",
+   "census_geo_id": "9700000US2101620",
+   "population": 12355,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-05760",
+   "name": "Washington County School District",
+   "census_name": "Washington County School District",
+   "census_geo_id": "9700000US2105760",
+   "population": 12140,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-00390",
+   "name": "Bell County School District",
+   "census_name": "Bell County School District",
+   "census_geo_id": "9700000US2100390",
+   "population": 12129,
+   "margin": 461,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-02340",
+   "name": "Green County School District",
+   "census_name": "Green County School District",
+   "census_geo_id": "9700000US2102340",
+   "population": 11369,
+   "margin": null,
+   "races": 3,
+   "candidates": 9
+  },
+  {
+   "id": "KY-S-03750",
+   "name": "Magoffin County School District",
+   "census_name": "Magoffin County School District",
+   "census_geo_id": "9700000US2103750",
+   "population": 11348,
+   "margin": null,
+   "races": 1,
+   "candidates": 1
+  },
+  {
+   "id": "KY-S-04560",
+   "name": "Owen County School District",
+   "census_name": "Owen County School District",
+   "census_geo_id": "9700000US2104560",
+   "population": 11330,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-04200",
+   "name": "Monroe County School District",
+   "census_name": "Monroe County School District",
+   "census_geo_id": "9700000US2104200",
+   "population": 11269,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03840",
+   "name": "Martin County School District",
+   "census_name": "Martin County School District",
+   "census_geo_id": "9700000US2103840",
+   "population": 11027,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-00990",
+   "name": "Carroll County School District",
+   "census_name": "Carroll County School District",
+   "census_geo_id": "9700000US2100990",
+   "population": 10954,
+   "margin": null,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "id": "KY-S-01320",
+   "name": "Corbin Independent School District",
+   "census_name": "Corbin Independent School District",
+   "census_geo_id": "9700000US2101320",
+   "population": 10513,
+   "margin": 795,
+   "races": 1,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04140",
+   "name": "Metcalfe County School District",
+   "census_name": "Metcalfe County School District",
+   "census_geo_id": "9700000US2104140",
+   "population": 10425,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  },
+  {
+   "id": "KY-S-04380",
+   "name": "Murray Independent School District",
+   "census_name": "Murray Independent School District",
+   "census_geo_id": "9700000US2104380",
+   "population": 10404,
+   "margin": 820,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "id": "KY-S-03330",
+   "name": "Leslie County School District",
+   "census_name": "Leslie County School District",
+   "census_geo_id": "9700000US2103330",
+   "population": 10079,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  }
+ ],
+ "just_under": [
+  {
+   "kind": "city",
+   "id": "KY-M-50898",
+   "name": "Mayfield city",
+   "census_name": "Mayfield city",
+   "population": 9868,
+   "margin": 139,
+   "races": 2,
+   "candidates": 16
+  },
+  {
+   "kind": "city",
+   "id": "KY-M-51978",
+   "name": "Middletown city",
+   "census_name": "Middletown city",
+   "population": 9763,
+   "margin": 57,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-03900",
+   "name": "Mayfield Independent School District",
+   "census_name": "Mayfield Independent School District",
+   "census_geo_id": "9700000US2103900",
+   "population": 9584,
+   "margin": 199,
+   "races": 1,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-05430",
+   "name": "Somerset Independent School District",
+   "census_name": "Somerset Independent School District",
+   "census_geo_id": "9700000US2105430",
+   "population": 9507,
+   "margin": 600,
+   "races": 2,
+   "candidates": 4
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-04170",
+   "name": "Middlesboro Independent School District",
+   "census_name": "Middlesboro Independent School District",
+   "census_geo_id": "9700000US2104170",
+   "population": 9385,
+   "margin": 212,
+   "races": 2,
+   "candidates": 6
+  },
+  {
+   "kind": "city",
+   "id": "KY-M-34966",
+   "name": "Harrodsburg city",
+   "census_name": "Harrodsburg city",
+   "population": 9313,
+   "margin": 25,
+   "races": 2,
+   "candidates": 8
+  },
+  {
+   "kind": "city",
+   "id": "KY-M-24778",
+   "name": "Elsmere city",
+   "census_name": "Elsmere city",
+   "population": 9205,
+   "margin": 27,
+   "races": 2,
+   "candidates": 12
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-01260",
+   "name": "Clinton County School District",
+   "census_name": "Clinton County School District",
+   "census_geo_id": "9700000US2101260",
+   "population": 9202,
+   "margin": null,
+   "races": 2,
+   "candidates": 5
+  },
+  {
+   "kind": "city",
+   "id": "KY-M-51924",
+   "name": "Middlesborough city",
+   "census_name": "Middlesborough city",
+   "population": 9123,
+   "margin": 18,
+   "races": 2,
+   "candidates": 11
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-04020",
+   "name": "McLean County School District",
+   "census_name": "McLean County School District",
+   "census_geo_id": "9700000US2104020",
+   "population": 9114,
+   "margin": null,
+   "races": 2,
+   "candidates": 3
+  },
+  {
+   "kind": "school district",
+   "id": "KY-S-02460",
+   "name": "Hancock County School District",
+   "census_name": "Hancock County School District",
+   "census_geo_id": "9700000US2102460",
+   "population": 9034,
+   "margin": null,
+   "races": 2,
+   "candidates": 2
+  }
+ ],
+ "no_population_figure": [],
+ "cities_found_by_name_not_code": [
+  {
+   "id": "KY-M-48003",
+   "name": "Louisville/Jefferson County metro government",
+   "census_name": "Louisville/Jefferson County metro government (balance)",
+   "population": 631818,
+   "margin": 200,
+   "races": 14,
+   "candidates": 25,
+   "note": "the Census place code 48003 is not among the file's places; read by KY's own table as 48006"
+  }
+ ],
+ "cities_of_that_size_with_no_mayor_or_council_race_on_this_ballot": [
+  "Burlington CDP",
+  "Fort Campbell North CDP",
+  "Francisville CDP",
+  "Oakbrook CDP",
+  "Owensboro city",
+  "Versailles city"
+ ],
+ "other_city_offices_in_those_cities_left_out": {},
+ "school_names_tied_after_setting_words_aside": [],
+ "note": "Kentucky elects no statewide officer in 2026 (the Governor and the other statewide officers are elected in 2027). On November 3, 2026 it elects every county's officers (judge/executive, magistrates or commissioners, county clerk, county attorney, sheriff, jailer, coroner, surveyor, property valuation administrator and constables), its district judges, every city council and commission, the mayors and school board members whose four-year terms are ending, and soil and water conservation district supervisors (Kentucky State Board of Elections, Kentucky Election Schedule 2026-2036). Circuit judges, circuit court clerks and Commonwealth's attorneys are elected in 2030, so the few such seats on this ballot are filled for the time left until then. The county, city and school rows are those of the Secretary of State's list of candidates filed with the county clerks, which covers all 120 counties; where it files a candidate without naming the city or school district, the contest is not loaded (Owensboro's and Versailles's city races among them, so those cities are not in the scope), and in thirty-five contests where it still shows the May primary's field no name is loaded. Louisville's population figure is the Census Bureau's row for the Metro Government's balance, the county outside its other incorporated cities. Soil and water conservation district supervisors are outside the scope's rule and are not in it."
+}

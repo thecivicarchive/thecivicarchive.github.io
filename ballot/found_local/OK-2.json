@@ -1,0 +1,65 @@
+{"part": 2, "of": 10, "researched": "2026-10-03", "verified_on": "2026-10-03",
+ "removed": [],
+ "corrected": [
+   "Leah Longest: office wording cut to what her site says ('Oklahoma State Board of Cosmetology'; 'Grove School Board'), the added '(and Barbering)' and '(Pottawatomie County)' taken out",
+   "David Bullard: website 'how' now quotes the paid-for line 'Authorized & Paid for by David Bullard for Senate 2026'",
+   "Chris May: website 'how' no longer implies a paid-for line (the page shows none)",
+   "Mary B. Boren, John Haste: website 'how' says what the page names (Norman / Oklahoma State Senate, 2026 general) rather than a district number the page does not print"
+ ],
+ "candidates": [
+  {"race_id": "2026-OK-40109-county-assessor", "name": "Larry Stein",
+   "official_page": {"url": "https://www.oklahomacounty.org/Elected-Offices/Assessor", "source": "Oklahoma County: Elected Offices, Assessor ('Welcome to the webpage of Oklahoma County Assessor Larry Stein')", "verified": true},
+   "offices": [{"office": "Oklahoma County Assessor", "from": null, "to": null, "source": "Oklahoma County's Assessor page names Larry Stein as the Oklahoma County Assessor today; it gives no start year", "url": "https://www.oklahomacounty.org/Elected-Offices/Assessor", "kind": "official", "verified": true}],
+   "review": [{"shows": "sl_candidates marks Larry Stein incumbent = 0 for the 2026 Oklahoma County Assessor race", "problem": "Oklahoma County's own Assessor page names Larry Stein as the sitting Oklahoma County Assessor, so he is the incumbent in this race", "url": "https://www.oklahomacounty.org/Elected-Offices/Assessor", "verified": true}]},
+
+  {"race_id": "2026-OK-DC-8-1", "name": "Rob Davis",
+   "website": {"url": "https://www.robdavisfordistrictjudge.com/", "how": "Rob Davis for District Judge, 8th Judicial District; 'Authorized and paid for by Rob Davis for District Judge 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-LAB", "name": "Kevin West",
+   "website": {"url": "https://votekevinwest.com/", "how": "Titled 'Kevin West - Labor Commissioner'; 'Authorized & Paid for Kevin West for Labor Commissioner 2026'", "verified": true},
+   "official_page": {"url": "https://www.okhouse.gov/representatives/kevin-west", "source": "Oklahoma House of Representatives: Representative Kevin West, District 54", "verified": true},
+   "offices": [{"office": "Oklahoma House of Representatives, District 54", "from": 2016, "to": null, "source": "Oklahoma House of Representatives member page: Oklahoma's 54th District, Tenure '56th Legislature - Present' (the 56th Legislature was elected in November 2016)", "url": "https://www.okhouse.gov/representatives/kevin-west", "kind": "official", "verified": true}],
+   "past_party": [{"what": "Seat in the Oklahoma House of Representatives, District 54 (members sit by party)", "year": 2016, "party": "Republican", "source": "Oklahoma House of Representatives member page lists him as a Republican (R)", "url": "https://www.okhouse.gov/representatives/kevin-west", "kind": "official", "verified": true}]},
+
+  {"race_id": "2026-OK-SH12", "name": "Mark Chapman",
+   "website": {"url": "https://www.chapmanforok.com/", "how": "Titled 'Home | Mark Chapman'; State Representative for Oklahoma House District 12, seeking re-election; 'Authorized & Paid for by Friends of Mark Chapman 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH20", "name": "Chris May",
+   "website": {"url": "https://mayforok.com/", "how": "Titled 'Chris May for State House'; running for State Representative in Oklahoma House District 20", "verified": true}},
+
+  {"race_id": "2026-OK-SH26", "name": "Leah Longest",
+   "website": {"url": "https://leahforok.com/", "how": "Titled 'Leah Longest for Oklahoma State House District 26'; 'Authorized and Paid for by LEAH LONGEST FOR STATE HOUSE 2026'", "verified": true},
+   "offices": [
+     {"office": "Member, Oklahoma State Board of Cosmetology, appointed by Governor Kevin Stitt; chairman from 2022", "from": 2021, "to": null, "source": "Her campaign site: 'In 2021, Governor Kevin Stitt appointed Leah to the Oklahoma State Board of Cosmetology'; fellow board members elected her Chairman in 2022", "url": "https://leahforok.com/", "kind": "campaign", "verified": true},
+     {"office": "Member, Grove School Board", "from": 2021, "to": null, "source": "Her campaign site: 'Since 2021, Leah has served on the Grove School Board'", "url": "https://leahforok.com/", "kind": "campaign", "verified": true}]},
+
+  {"race_id": "2026-OK-SH4", "name": "Christopher Wier",
+   "website": {"url": "https://wierforok.com/", "how": "Titled 'Christopher Wier for Oklahoma House District 4'; 'Authorized and Paid for by Friends of Christopher Wier 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH55", "name": "Nick Archer",
+   "website": {"url": "https://www.archerforok.com/", "how": "Headed 'Nick Archer', Oklahoma House District 55; 'Authorized and Paid For By Nick Archer for HD55 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH62", "name": "Blake Munoz",
+   "website": {"url": "https://blakemunoz.com/", "how": "Titled 'Blake Munoz Oklahoma House District 62'; 'Authorized and Paid For By Blake Munoz 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH68", "name": "Mike Lay",
+   "website": {"url": "https://votemikelay.com/", "how": "Titled 'Mike Lay for State Representative'; State Representative, District 68; 'Authorized and Paid for by Friends of Mike Lay 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH75", "name": "Joe Watkins",
+   "website": {"url": "https://joewatkinsforok.com/", "how": "Titled 'Joe Watkins for Oklahoma House District 75'; 'Election Day - November 3, 2026'; 'Paid for by Joe Watkins for HD 75 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH81", "name": "Megan Hornbeek Allen",
+   "website": {"url": "https://meganforhouse.com/", "how": "Titled 'Megan Hornbeek Allen for House District 81'; 'Authorized and paid for by Friends of Megan Hornbeek Allen 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SH91", "name": "Chris Fowler",
+   "website": {"url": "https://fowlerforok.com/", "how": "Titled 'Chris Fowler: State Representative for Oklahoma House District 91'; 'Authorized and paid for by Chris Fowler for State Representative 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SS16", "name": "Mary B. Boren",
+   "website": {"url": "https://maryboren.com/", "how": "Titled 'Senator from Norman | Mary Boren Norman Oklahoma Senator' (Norman is Senate District 16); '(c) 2026 Approved and Paid for by Friends of Mary 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SS36", "name": "John Haste",
+   "website": {"url": "https://hasteforsenate.com/", "how": "Titled 'John Haste for State Senate'; Oklahoma State Senate, general election November 3, 2026; 'Authorized and Paid for by John Haste for State Senate 2026'", "verified": true}},
+
+  {"race_id": "2026-OK-SS6", "name": "David Bullard",
+   "website": {"url": "https://www.davidbullard.com/", "how": "Titled 'David Bullard For Senate 2026'; 'serve each of you across District 6 in the Oklahoma State Senate'; 'Authorized & Paid for by David Bullard for Senate 2026'", "verified": true}}
+]}

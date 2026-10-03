@@ -1,0 +1,24 @@
+{
+ "2026-OK-GOV": {
+  "polymarket": "oklahoma-governor-winner-2026",
+  "kalshi": "GOVPARTYOK-26",
+  "checked": "2026-10-03",
+  "note": "Governor. Polymarket's event is titled \"Oklahoma Governor Election Winner\" and resolves on the winner of the 2026 Oklahoma gubernatorial election; its two open outcomes are Cyndi Munson (D) and Mike Mazzei (R) (about $31,800 traded when checked: Mazzei 92.5 cents, Munson 7.5). It also carries eleven placeholder outcomes (Option A to Option J, Other) that are not active and report no price. Kalshi's event is titled \"Oklahoma Governor winner?\" (In 2026), two markets by party labelled Cyndi Munson and Mike Mazzei (last prices 8.3 and 92.9 cents; about 110,700 and 32,400 contracts). Neither offers the three independent candidates on our list (Jerry Griffin, Orlando Lynn Bush, Robert E Brooks Sr). Left out on purpose: Polymarket's margin-of-victory event."
+ },
+ "2026-OK-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENOK-26",
+  "checked": "2026-10-03",
+  "note": "Attorney General. Kalshi's event is titled \"Oklahoma Attorney General winner?\" (In 2026), one market each for Jon Echols and Nick Coffey, the two on our list; lightly traded (about 650 and 740 contracts when checked; last prices 98.3 and 4.6 cents, so they add to more than a dollar). Polymarket lists no market for this race (its search for Oklahoma and two likely slugs, 2026-10-03)."
+ },
+ "2026-OK-LTG": {
+  "polymarket": null,
+  "kalshi": "KXLTGOVOK-26",
+  "checked": "2026-10-03",
+  "note": "Lieutenant Governor. Kalshi's event is titled \"Oklahoma Lieutenant Governor winner?\" (In 2026); its two markets are labelled by party only (\"Republican party\", \"Democratic party\"), not by candidate. It opened September 13, 2026 and had never traded when checked (standing offers 93 to 98 cents for the Republican, 1 to 6 for the Democrat), so ballot/odds.py's kalshi(traded_only=True) gives it no price row and names both under \"quiet\". Ask John before showing this market. Polymarket lists no market for this race (its search for Oklahoma and a likely slug, 2026-10-03)."
+ },
+ "_none": {
+  "checked": "2026-10-03",
+  "note": "Not a race; odds.py passes over it. No market was found for Oklahoma's Superintendent of Public Instruction, Commissioner of Labor, Insurance Commissioner, State Treasurer or Corporation Commissioner in November, nor on the State Auditor and Inspector (one candidate, not on the ballot), the Legislature, judges or any county or city office. Kalshi's full list of series (14,577 titles, read 2026-10-03) names for Oklahoma's own offices only the governor (GOVPARTYOK), lieutenant governor (KXLTGOVOK) and attorney general (KXATTYGENOK) races and the Republican nominee markets for attorney general, lieutenant governor, superintendent, labor commissioner and insurance commissioner, all settled at the primaries; it also lists State Question 832, a ballot question, not a race between people. Polymarket's search for Oklahoma lists only the governor's winner and margin events among state offices."
+ }
+}

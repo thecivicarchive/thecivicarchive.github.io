@@ -1,0 +1,44 @@
+{
+ "part": 0,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened. sentinel-echo.com, franklinfavorite.com and richardmoloney.com did not resolve through WebFetch twice and were read with the kit's own fetcher; all three confirmed. Kelly Bush's source line no longer names an author, since the byline could not be confirmed. The Franklin County Democratic Party's page says it endorses the candidates it lists for 2026.",
+ "note": "The session's shared web-search allowance ran out after three searches for this part, and many county, PVA and school-district sites did not resolve, so most of the 30 candidates (constables, magistrates, jailer, coroner, county clerk, county attorney, PVAs, two school boards) were not found on any page that could be read and are left blank. Party pages that list a candidate without endorsing (Boone County Democrats for Tracey Reid, Madison County Democrats for Leah Van Winkle, Fayette County Democrats for Richard Moloney) are support, already in ballot/lean/ky_endorsements.json, and are not recorded here. Berea's council page and Newport's Board of Commissioners page do not list Leah Van Winkle or Jacob Harrod, so no office is recorded for them. Dwayne Depp's campaign site answered the kit's fetcher 403 and was read through WebFetch; it gives no year for his appointment as sheriff ('earlier this year'), so none is recorded.",
+ "candidates": [
+  {"race_id": "2026-KY-21073-sheriff", "name": "Dwayne Forrest Depp",
+   "website": {"url": "https://depp4sheriff.com/", "how": "linked beside 'Dwayne Depp, Sheriff' on the Franklin County Democratic Party's 2026 candidates page; the site's heading reads 'Dwayne Depp for Franklin County Sheriff, Experience Matters!'", "verified": true},
+   "offices": [
+    {"office": "Franklin County Sheriff (appointed to fill the unexpired term of Sheriff Chris Quire)", "from": null, "to": "present", "source": "Depp's campaign site, About page", "url": "https://depp4sheriff.com/about", "kind": "campaign", "verified": true},
+    {"office": "Member, Kentucky Parole Board", "from": null, "to": null, "source": "Depp's campaign site, About page", "url": "https://depp4sheriff.com/about", "kind": "campaign", "verified": true},
+    {"office": "Commissioner of Workplace Standards (Kentucky)", "from": null, "to": null, "source": "Depp's campaign site, About page", "url": "https://depp4sheriff.com/about", "kind": "campaign", "verified": true}
+   ],
+   "endorsed_by": [{"party": "Democratic", "unit": "Franklin County Democratic Party", "url": "https://franklincodemocrats.com/2026-democratic-candidates/", "verified": true}]},
+  {"race_id": "2026-KY-DJ27-1", "name": "W. \"Skip\" Hammons",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Laurel.aspx", "source": "Kentucky Court of Justice, Laurel County information: Wendell Lewis \"Skip\" Hammons Jr., Judge, District Court, 27th Judicial District, Division 1", "verified": true},
+   "offices": [
+    {"office": "District Judge, 27th Judicial District (Knox and Laurel counties), appointed by Governor Steve Beshear and sworn in August 2009", "from": "2009", "to": "present", "source": "The Sentinel-Echo (London, Ky.), 'Hammons sworn in as new district judge', Aug 31, 2009", "url": "https://www.sentinel-echo.com/news/hammons-sworn-in-as-new-district-judge/article_dfadfb1a-0797-5d66-9f68-8d9ff5b6ad83.html", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-28918-mayor", "name": "Kelly Bush",
+   "offices": [
+    {"office": "Franklin City Commissioner (Franklin, Ky.)", "from": null, "to": "present", "source": "Franklin Favorite, 'Bush files for Franklin mayor': 'current city commissioner Kelly Bush has formally entered the race for mayor'", "url": "https://www.franklinfavorite.com/news/article_6d551c5a-d11f-5bad-85b6-26019fc218fc.html", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-46027-council-11", "name": "Richard Moloney",
+   "website": {"url": "https://richardmoloney.com/", "how": "linked from his Branch voter-guide entry for this race; the site is titled 'Richard Moloney for 11th District' and speaks of the Lexington-Fayette Urban County Council's 11th District", "verified": true},
+   "offices": [
+    {"office": "Lexington-Fayette Urban County Council, District 11 (seven terms)", "from": null, "to": null, "source": "Moloney's campaign site", "url": "https://richardmoloney.com/", "kind": "campaign", "verified": true},
+    {"office": "Lexington-Fayette Urban County Council, at-large (two terms)", "from": null, "to": null, "source": "Moloney's campaign site", "url": "https://richardmoloney.com/", "kind": "campaign", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-71688-council-5", "name": "Margaret Dick",
+   "official_page": {"url": "https://www.cityofsomerset.com/?p=12416", "source": "City of Somerset, City Council page: Margaret Dick, 5, City Council", "verified": true},
+   "offices": [
+    {"office": "Somerset City Council, Ward 5", "from": null, "to": "present", "source": "City of Somerset, City Council page", "url": "https://www.cityofsomerset.com/?p=12416", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-01650-school-board", "name": "Guy Wallace",
+   "official_page": {"url": "https://www.etown.kyschools.us/boe", "source": "Elizabethtown Independent Schools, Board of Education page: Guy Wallace, Board Chair", "verified": true},
+   "offices": [
+    {"office": "Elizabethtown Independent Board of Education (Board Chair)", "from": null, "to": "present", "source": "Elizabethtown Independent Schools, Board of Education page", "url": "https://www.etown.kyschools.us/boe", "kind": "official", "verified": true}
+   ]}
+ ]
+}

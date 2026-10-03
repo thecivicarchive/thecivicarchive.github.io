@@ -354,7 +354,27 @@ STATES = {"MN": {"name": "Minnesota"},
                                "thirty-five contests where it still shows the May primary's field no name is loaded. Louisville's "
                                "population figure is the Census Bureau's row for the Metro Government's balance, the county outside "
                                "its other incorporated cities. Soil and water conservation district supervisors are outside the "
-                               "scope's rule and are not in it."}}
+                               "scope's rule and are not in it."},
+          # Oklahoma (2026-10-03): the State Election Board's November list and Candidate List Book have no contact columns
+          # and no website cell, so its websites come from verified findings only. Its legislative races give "Oklahoma" as
+          # their jurisdiction, so the scope names the district (`scope`); its court races carry the judicial district or
+          # the county, city races the Census place code as OK-M-<code>. Oklahoma elects its Lieutenant Governor
+          # separately, so a candidate for Governor runs alone ("no_ticket"). No school race is on the list
+          "OK": {"name": "Oklahoma", "legislature": r"\boklahoma (?:state )?(?:house(?: of representatives)?|senate|legislat\w+)",
+                 "no_ticket": True, "school_names": {},
+                 "local_note": "Oklahoma prints only contested races on its ballot (26 O.S. 6-102). A statewide or legislative candidate "
+                               "left alone once filing, withdrawals and contests closed is elected without being printed, and is in "
+                               "the scope all the same (from the State Election Board's Candidate List Book); county, city and judicial "
+                               "offices come from the Board's November 3, 2026 list, which prints contested races only, so a county "
+                               "officer with no opponent, or one settled in the June 16 primary or the August 25 runoff, is not loaded "
+                               "and is not in it. Every county elects its assessor, its treasurer and its commissioners for Districts 1 "
+                               "and 3 this year (19 O.S. 131); the county clerk, court clerk, sheriff and District 2 commissioner in "
+                               "2028, so the one sheriff's race here fills the rest of a term. Most cities and towns elect in April of "
+                               "odd-numbered years (11 O.S. 16-103) and school boards were elected on February 10 and April 7, 2026, "
+                               "so the November list carries the contests of six cities (Bartlesville, Clinton, El Reno, Lawton, Tulsa "
+                               "and Yukon; Clinton, of about 8,400 people, is under the scope's 10,000) and no school board. The appellate judges' yes-or-no retention votes are printed on the list "
+                               "without the judges' names and are not loaded. Fire protection district boards are outside the scope's "
+                               "rule and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));

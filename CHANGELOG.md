@@ -10,6 +10,16 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.097 — 2026-10-03 — Oklahoma gets the same treatment, with its official primary results
+
+- Oklahoma's ballot page now has the real map: 1,984 precincts from the State Election Board's own mapping contractor at the University of Oklahoma, with the districts each sits in (county, county commissioner district, city or town, ward, House, Senate, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot.
+- Oklahoma prints only contested races on its November ballot. A candidate with no opponent is shown as elected without a vote and not printed on the ballot, never as "on the ballot".
+- Oklahoma's official primary (June 16) and runoff (August 25) results are now loaded, from the State Election Board's own results files: the votes in every primary for Congress, the state offices, the Legislature and the county offices, and the winner of every seat the primary or runoff settled (23 House seats, 99 county seats and four district attorneys), each with when it was won.
+- Oklahoma's candidates show what the record holds: 110 campaign websites of their own, official government pages, offices held, issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site. No Oklahoma party page that could be read uses the word "endorsed".
+- How each place voted, from the Board's precinct results: President 2024 and 2020, Governor 2022 and both Senate races of 2022 and 2020, for all 77 counties, and for the legislative and commissioner districts whose precincts the results can place (Oklahoma and Tulsa counties count early and absentee votes countywide, so districts touching them are left out rather than estimated). Every county equals the Board's own county totals.
+- No pollster that publishes its methods has polled an Oklahoma state race. The Governor's and Attorney General's races have prediction-market prices as a tab. Polling places stay off the map; the page points to the state's own finder.
+- Kentucky's November list for Louisville and Jefferson County is now read from the County Clerk's own printed ballots, which put the sitting mayor on the Metro Mayor's race, where the state's list had left him out, and corrected several Metro Council, school board and small-city contests.
+
 ## v4.0.096 — 2026-10-03 — Colorado's campaign photos
 
 - Colorado's candidates now show a photo where one was plainly the candidate's own portrait on their own campaign site (16 of the 29 whose sites offered pictures); the others keep their initials. Each photo is credited and linked to the site it came from.

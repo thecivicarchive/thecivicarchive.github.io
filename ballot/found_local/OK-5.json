@@ -1,0 +1,53 @@
+{
+ "part": 5,
+ "of": 10,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verify_note": "Every url re-opened on 2026-10-03. The router lost several lookups; marshallforoklahoma.com, andyfugate.com and the Oklahoma Voice article were read through the kit's own fetcher (honest User-Agent) and confirmed. Jay Steagall's site names him, the office and House District 43 but carries no 2026 wording and a 2024 committee line; kept as his campaign site for this seat, with that said in 'how'. Nathan Brewer's quote is eleven words, on his own site.",
+ "note": "The session's shared web-search allowance ran out early in this part, so the rest was read from known pages (the Oklahoma Democratic Party's candidates page for campaign links, county pages on okcounties.org and creekcountyonline.com, the City of Yukon's and City of Bartlesville's own pages, Wikipedia) and a few likely campaign addresses tried directly. Blaine, McIntosh and Creek counties' pages show other people in the commissioner seats (Darryl Hicks, Loyal Dean Taylor, Jarrod Whitehouse), Pittsburg County's sheriff page shows Frankie McClendon, Alfalfa County's page shows Loren E. Angle as associate district judge and Bartlesville's council page shows Aaron Kirkpatrick in Ward 4, so no office is recorded for Mike Allen, Jeff Coleman, Justin Mann, Bobby Cox, Brian E. Mitchell or Joel Rabin. OSCN's judges page sits behind a verification page and was left alone (Loretta Radford, Brian E. Mitchell). T. W. Shannon's likely campaign site answered 403 and 520 and was left alone. Jerry Griffin (Governor) is left blank: news reports name a former Tulsa school board member Jerry Griffin running for state superintendent as an independent, and nothing read ties that person to the governor's race. Christie K. Miller's work in the county treasurer's office (NonDoc) is a job, not an office, and her and Jennettie Marshall's reported ages give no single birth year. Travis Headd's linked site (headd2026.com) shows 'Site paused or lapsed'. Steve Bashore's site (stevebashore.com) names neither the office nor the district and carries a 2024 committee line, so it is not recorded. The Oklahoma Democratic Party's and Tulsa County Republican Party's lists are support, not endorsements, and are already in ballot/lean/ok_endorsements.json.",
+ "candidates": [
+  {"race_id": "2026-OK-AG", "name": "Jon Echols",
+   "website": {"url": "https://jonechols.com/", "how": "titled 'Jon Echols – for Attorney General'; 'seeking the office of Attorney General'; 'Authorized and Paid for by Echols for Attorney General 2026'; lists Oklahoma county sheriffs' endorsements", "verified": true},
+   "born": {"year": 1979, "date": null, "source": "Wikipedia, 'Jon Echols' (birth date cited in the article)", "url": "https://en.wikipedia.org/wiki/Jon_Echols", "kind": "secondary", "verified": true},
+   "offices": [
+    {"office": "Oklahoma House of Representatives, District 90", "from": "2012", "to": "2024", "source": "Wikipedia, 'Jon Echols' (Nov 14, 2012 to Nov 20, 2024); his campaign's Meet Jon page says he served House District 90 for 12 years", "url": "https://en.wikipedia.org/wiki/Jon_Echols", "kind": "secondary", "verified": true},
+    {"office": "Majority Floor Leader, Oklahoma House of Representatives", "from": "2016", "to": "2024", "source": "Wikipedia, 'Jon Echols'; the campaign's Meet Jon page says 'After just 4 years in office, Jon was named House Majority Floor leader'", "url": "https://en.wikipedia.org/wiki/Jon_Echols", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [{"what": "Oklahoma House of Representatives, District 90 (a seat in a body whose members sit by party; Majority Floor Leader of the Republican majority)", "year": "2012-2024", "party": "Republican", "source": "Wikipedia, 'Jon Echols' (infobox party: Republican)", "url": "https://en.wikipedia.org/wiki/Jon_Echols", "kind": "secondary", "verified": true}]},
+  {"race_id": "2026-OK-LTG", "name": "T. W. Shannon",
+   "born": {"year": 1978, "date": null, "source": "Wikipedia, 'T. W. Shannon' (birth date cited in the opening paragraph)", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true},
+   "offices": [
+    {"office": "Oklahoma House of Representatives, District 62", "from": "2007", "to": "2015", "source": "Wikipedia, 'T. W. Shannon' (Jan 2, 2007 to Jan 5, 2015)", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true},
+    {"office": "Speaker of the Oklahoma House of Representatives", "from": "2013", "to": "2014", "source": "Wikipedia, 'T. W. Shannon' (Jan 8, 2013 to Feb 10, 2014)", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Oklahoma House of Representatives, District 62, and its Speaker (a seat in a body whose members sit by party)", "year": "2007-2015", "party": "Republican", "source": "Wikipedia, 'T. W. Shannon' (infobox party: Republican)", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true},
+    {"what": "Republican primary for U.S. Senate in Oklahoma (lost the nomination to James Lankford)", "year": "2014", "party": "Republican", "source": "Wikipedia, 'T. W. Shannon'", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true},
+    {"what": "Republican primary runoff for U.S. Senate in Oklahoma (lost to Markwayne Mullin)", "year": "2022", "party": "Republican", "source": "Wikipedia, 'T. W. Shannon'", "url": "https://en.wikipedia.org/wiki/T._W._Shannon", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-OK-SPI", "name": "Jennettie Marshall",
+   "website": {"url": "https://marshallforoklahoma.com/home", "how": "linked beside 'Jennettie Marshall, state Superintendent' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site says 'Dr. Jennettie Marshall is running for State Superintendent' and 'Authorized and paid for by Friends of Jennettie Marshall 2026'", "verified": true},
+   "offices": [
+    {"office": "Tulsa Public Schools Board of Education (eight years)", "from": null, "to": null, "source": "Oklahoma Voice, 'Meet the Democrats running for Oklahoma state superintendent', May 29, 2026: 'Marshall served for eight years on the board of education for Tulsa Public Schools'", "url": "https://oklahomavoice.com/2026/05/29/meet-the-democrats-running-for-oklahoma-state-superintendent/", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-OK-SS8", "name": "Nathan Brewer",
+   "website": {"url": "https://nathanbrewerforsenate.com/", "how": "linked beside 'Nathan Brewer district 8' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; titled 'Nathan Brewer For Senate – District 8'; 'running for Oklahoma Senate District 8'", "verified": true},
+   "own_words": {"quote": "He is running as the Democratic candidate for the Oklahoma State Senate", "url": "https://nathanbrewerforsenate.com/", "verified": true}},
+  {"race_id": "2026-OK-SS18", "name": "Meredith McGinnis",
+   "website": {"url": "https://www.mcginnisforok.com/", "how": "linked beside 'Merridith McGinnis District 18' under State Senate on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; titled 'Meredith McGinnis for Senate'; 'Paid for and Authorized by Meredith McGinnis for Senate 2026' (the page itself does not print the district number)", "verified": true}},
+  {"race_id": "2026-OK-SH28", "name": "Blake Cummings",
+   "website": {"url": "https://www.blakeforokhouse.com/", "how": "linked beside 'Blake Cummings District 28' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site reads 'Blake Cummings Candidate HD 28' and 'Authorized and paid for by Blake For OK House 2026'", "verified": true}},
+  {"race_id": "2026-OK-SH87", "name": "Ellyn Hefner",
+   "website": {"url": "https://ellynhefner.com/", "how": "linked beside 'Rep. Ellyn Hefner District 87' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; titled 'HOME | Ellyn Hefner HD 87'; 'Paid for and Authorized by Friends of Ellyn Hefner 2026'", "verified": true}},
+  {"race_id": "2026-OK-SH94", "name": "Andy Fugate",
+   "website": {"url": "https://andyfugate.com", "how": "linked beside 'Rep. Andy Fugate District 94' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; titled 'Rep. Andy Fugate, Oklahoma House District 94'; 'This November, Vote for Andy Fugate'", "verified": true}},
+  {"race_id": "2026-OK-SH43", "name": "Jay Steagall",
+   "website": {"url": "https://jaysteagall.com/", "how": "headed 'Jay Steagall for Oklahoma State Representative House District 43'; its paid-for line still names the 2024 committee ('Authorized & Paid for by Jay Steagall for House 2024') and the page does not mention 2026", "verified": true}},
+  {"race_id": "2026-OK-M-82950-council-ward-3-S", "name": "Brian Pillmore",
+   "official_page": {"url": "https://www.yukonok.gov/Directory.aspx", "source": "City of Yukon, Staff Directory: 'Brian Pillmore, Ward: III, Mayor, City Council / Municipal Authority'", "verified": true},
+   "offices": [
+    {"office": "Yukon City Council, Ward 3 (serving as Mayor)", "from": null, "to": "present", "source": "City of Yukon, Staff Directory", "url": "https://www.yukonok.gov/Directory.aspx", "kind": "official", "verified": true}
+   ]}
+ ]
+}

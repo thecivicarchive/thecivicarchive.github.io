@@ -1,0 +1,1251 @@
+{
+ "state": "OK",
+ "gathered": "2026-10-03",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Oklahoma's November 3, 2026 ballot prints only contested races (26 O.S. 6-102): a candidate with no opponent is elected without appearing on it, and its parties nominate in the June 16 primary and the August 25 runoff. The state and local contests carry the Republican, Democratic and Libertarian parties and independents; judges, city offices and fire protection district boards are printed without a party. No Oklahoma party page that a program may read calls anything an endorsement for a 2026 state or local race, so 'endorsements' is empty. Under 'other_support', with the page's own wording in 'kind' and never to be shown as an endorsement: the Oklahoma Democratic Party's 'Our 2026 Candidates' (statewide offices, State Senate and State House; its federal lines are outside this file), the Payne County Democrats' 'Voting Guide' (its list 'Oklahoma Democratic Candidates'; only names and offices were read, never the biographies), and the Tulsa County Republican Party's '2026 Oklahoma State Candidates' and 'Tulsa County Candidates' (the latter says its Republican nominees are now listed). Every one of these candidates is on the ballot under that party's own label, so a line adds nothing to the party printed on the ballot; no party page read names a candidate for a judge, city or fire district contest. 'election' appears only when the candidate is on a primary list and not on the November list (three Democrats whose seats were settled in the June 16 primary: Ron Stewart, Kristina Gabriel, Aletia Haynes Timmons). The page's 'District 17' for Ed Bolt is matched to the only Senate 17 contest on the November list, the unexpired term. Lines matched although the page spells the name differently keep the page's spelling in 'as_listed' (Merridith for Meredith McGinnis, Jonathon for Jonathan Morales, Jeffery for Jeffrey Perez, Rosie Lynch for Rose Rosie Lynch, Carroll Asseo, Chaunte Gilmore, Hildebrandt for Derrick R. Hildebrant, TJ Marti, and names given without a middle initial or a title such as Rep. or Senator). Read on 2026-10-03 with the kit's honest User-Agent, each site's robots.txt checked first; every page in 'lists' was opened a second time and a record kept only if the page still showed the name (none was lost; the Tulsa County Republican Party's site answered the second visit with 429, so its two pages were read again through the reading tool). Facebook and Threads pages are social media and were not read. The Oklahoma Republican Party's own site answers with a CAPTCHA page and was left alone; see not_read. Things for a person to decide: whether John opens the Oklahoma Republican Party's site in his own browser (news reports found by search, not opened, say its State Committee endorsed Mike Mazzei for Governor, James Taylor for Superintendent and Kevin West for Labor Commissioner before the August 25 runoff; Taylor is not on the November list).",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "title": "Our 2026 Candidates",
+   "url": "https://www.okdemocrats.org/candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "title": "Voting Guide",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "title": "2026 Oklahoma State Candidates",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "title": "Tulsa County Candidates",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "read_on": "2026-10-03"
+  }
+ ],
+ "endorsements": [],
+ "unmatched": 0,
+ "unmatched_listed": [],
+ "other_support": [
+  {
+   "race_id": "2026-OK-GOV",
+   "name": "Cyndi Munson",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Cyndi Munson, Governor",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-AG",
+   "name": "Nick Coffey",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Nick Coffey, Attorney General",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LTG",
+   "name": "Kelly Forbes",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Kelly Forbes, lt. governor",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-INS",
+   "name": "Craig Macintyre",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Craig MacIntyre, insurance commissioner",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LAB",
+   "name": "Kevin Dawson",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Kevin Dawson, Labor Commissioner",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-CC",
+   "name": "Rhonda Eastman",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Rhonda Eastman, COrporation commissioner",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SPI",
+   "name": "Jennettie Marshall",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: Statewide Office Candidates, Jennettie Marshall, state Superintendent",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS2",
+   "name": "Randy Cowling",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Randy Cowling, District 2",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS4",
+   "name": "Ellen Cuff",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Ellen Cuff, District 4",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS6",
+   "name": "Patrick Southerland",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Patrick Southerland, District 6",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS8",
+   "name": "Nathan Brewer",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Nathan Brewer, district 8",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS10",
+   "name": "Chayelynn Moore",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Chayelynn Moore, District 10",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS12",
+   "name": "Erica Watkins",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Erica Watkins, District 12",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS16",
+   "name": "Mary B. Boren",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Mary Boren, District 16",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS17-UNEXP",
+   "name": "Ed Bolt",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Ed Bolt, District 17",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS18",
+   "name": "Meredith McGinnis",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Merridith McGinnis, District 18",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS22",
+   "name": "Kenny Kemper",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Kenny Kemper, District 22",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS24",
+   "name": "Jonathan Morales",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Jonathon Morales, District 24",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS28",
+   "name": "Kevin M. Connor",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Kevin Connor, District 28",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS30",
+   "name": "Julia Kirt",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Julia Kirt, district 30",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS32",
+   "name": "Booker T. Newton",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Booker T. Newton, District 32",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS34",
+   "name": "Amy Hossain",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Amy Hossain, District 34",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS36",
+   "name": "Rick Larsen",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Rick Larsen, District 36",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS40",
+   "name": "Carri Hicks",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Carri Hicks, District 40",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS42",
+   "name": "Chris Jones",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Chris Jones, District 42",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS44",
+   "name": "Michael Brooks",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Michael Brooks, District 44",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS46",
+   "name": "Mark Mann",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Mark Mann, District 46",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS48",
+   "name": "Nikki Nice",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State Senate, Senator Nikki Nice, District 48",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH3",
+   "name": "Steve Glinski",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Steve Glinski, District 3",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH4",
+   "name": "Christopher Wier",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Christopher Wier, District 4",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH9",
+   "name": "Andrea Biscardi",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Andrea Biscardi, District 9",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH10",
+   "name": "Isaac D Mattox",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Isaac Mattox, District 10",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH12",
+   "name": "Tiffany Prater",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Tiffany Prater, District 12",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH14",
+   "name": "Jeremiah Gantz",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Jeremiah Gantz, District 14",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH16",
+   "name": "Rose Rosie Lynch",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rosie Lynch, District 16",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH20",
+   "name": "Chris May",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Chris May, District 20",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH23",
+   "name": "Catherine Peters",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Catherine Peters, District 23",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH26",
+   "name": "Chris Odneal",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Chris Odneal, District 26",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH27",
+   "name": "Memory Taylor",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Memory Taylor, District 27",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH28",
+   "name": "Blake Cummings",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Blake Cummings, District 28",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH30",
+   "name": "Sonya Amling",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Sonya Amling, District 30",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH33",
+   "name": "Max E. Burchett Jr",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Max Burchett, District 33",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH34",
+   "name": "Trish Ranson",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Trish Ranson, district 34",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH36",
+   "name": "Leslie Hellebuyck",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Leslie Hellebuyck, District 36",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH38",
+   "name": "Doyle Lewis",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Doyle Lewis, District 38",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH41",
+   "name": "Mike Bockus",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Mike Bockus, District 41",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH44",
+   "name": "Jared Deck",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Jared Deck, District 44",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH45",
+   "name": "Annie Menz",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Annie Menz, District 45",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH46",
+   "name": "Jacob Rosecrants",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Jacob Rosecrants, district 46",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH47",
+   "name": "Indigo Oliver",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Indigo Oliver, DISTRICt 47",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH49",
+   "name": "Dusty Jo Jones",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Dusty Jo Jones, district 49",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH53",
+   "name": "Carroll Asséo",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Carroll Asseo, District 53",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH54",
+   "name": "Crystal Abram-Garcia",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Crystal Abram-Garcia, District 54",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH56",
+   "name": "Linda Pedro",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Linda Pedro, District 56",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH58",
+   "name": "Albert Borrie",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Albert Borrie, District 58",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH60",
+   "name": "Sharon K Taylor",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Sharon Taylor, District 60",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH62",
+   "name": "Blake Munoz",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Blake Munoz, District 62",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH63",
+   "name": "Shykira Smith",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Shykira Smith, District 63",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH64",
+   "name": "Kathy Suttles",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Kathy Suttles, District 64",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH68",
+   "name": "Michelle Lafleur",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Michelle LaFleur, District 68",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH69",
+   "name": "Tyler Price",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Tyler Price, District 69",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH70",
+   "name": "Suzanne E. Schreiber",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Suzanne Schreiber, district 70",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH71",
+   "name": "Amanda Clinton",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Amanda Clinton, district 71",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH72",
+   "name": "Michelle McCane",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Michelle McCane, District 72",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH73",
+   "name": "Ron Stewart",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Ron Stewart, District 73",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)",
+   "election": "primary-DEM"
+  },
+  {
+   "race_id": "2026-OK-SH75",
+   "name": "Joe Watkins",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Joe Watkins, District 75",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH76",
+   "name": "Michael Tinsley",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Michael Tinsley, District 76",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH77",
+   "name": "Kristina Gabriel",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Kristina Gabriel, District 77",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)",
+   "election": "primary-DEM"
+  },
+  {
+   "race_id": "2026-OK-SH78",
+   "name": "Meloyde Blancett",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Meloyde Blancett, District 78",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH79",
+   "name": "Melissa Provenzano",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Melissa Provenzano, District 79",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH80",
+   "name": "Jeremy Founds",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Jeremy Founds, District 80",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH81",
+   "name": "Megan Hornbeek Allen",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Megan Hornbeek Allen, District 81",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH82",
+   "name": "Travis Headd",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Travis Headd, District 82",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH83",
+   "name": "Dalton Gau",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Dalton Gau, District 83",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH84",
+   "name": "Jeffrey Perez",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Jeffery Perez, District 84",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH85",
+   "name": "Chelsey Branham",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Chelsey Branham, District 85",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH86",
+   "name": "Hannah Cole",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Hannah Cole, District 86",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH87",
+   "name": "Ellyn Hefner",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Ellyn Hefner, District 87",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH88",
+   "name": "Ellen Pogemiller",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Ellen Pogemiller, district 88",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH89",
+   "name": "Arturo Alonso",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Arturo Alonso, District 89",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH90",
+   "name": "Kymberly Ward",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Kymberly Ward, District 90",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH91",
+   "name": "Chris Fowler",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Chris Fowler, District 91",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH93",
+   "name": "Mickey Dollens",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Mickey Dollens, District 93",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH94",
+   "name": "Andy Fugate",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Andy Fugate, District 94",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH95",
+   "name": "Tegan Malone",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Tegan Malone, District 95",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH96",
+   "name": "Ashtyn Smith",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Ashtyn Smith, District 96",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH97",
+   "name": "Aletia Haynes Timmons",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Aletia Timmons, District 97",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)",
+   "election": "primary-DEM"
+  },
+  {
+   "race_id": "2026-OK-SH98",
+   "name": "Cathy Smythe",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Cathy Smythe, District 98",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH99",
+   "name": "Herschel L. Brown",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Herschel Brown, District 99",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH100",
+   "name": "Chaunté Gilmore",
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Chaunte Gilmore, District 100",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-GOV",
+   "name": "Cyndi Munson",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Cyndi Munson, Governor",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LTG",
+   "name": "Kelly Forbes",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Kelly Forbes, Lt. Governor",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-AG",
+   "name": "Nick Coffey",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Nick Coffey, Attorney General",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH33",
+   "name": "Max E. Burchett Jr",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Max Burchett, House District 33",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH34",
+   "name": "Trish Ranson",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Trish Ranson, House District 34",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-INS",
+   "name": "Craig Macintyre",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Craig MacIntyre, Insurance commissioner",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LAB",
+   "name": "Kevin Dawson",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Kevin Dawson, Commissioner of labor",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-CC",
+   "name": "Rhonda Eastman",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Rhonda Eastman, Corporation Commissioner",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SPI",
+   "name": "Jennettie Marshall",
+   "party": "Democratic",
+   "unit": "Payne County Democrats",
+   "url": "https://www.paynecountydemocrats.org/voting-guide",
+   "as_listed": "Voting Guide, Oklahoma Democratic Candidates: Jennettie Marshall, State Superintendent",
+   "kind": "listed in the county party's voting guide under 'Oklahoma Democratic Candidates' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-GOV",
+   "name": "Mike Mazzei",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Mike Mazzei, Oklahoma Governor",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LTG",
+   "name": "T. W. Shannon",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: T.W. Shannon, Oklahoma Lt Governor",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-TREAS",
+   "name": "Cindy Byrd",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Cindy Byrd, Oklahoma Treasurer",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-AG",
+   "name": "Jon Echols",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Jon Echols, Oklahoma Attorney General",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SPI",
+   "name": "Robert Franklin",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Robert Franklin, Oklahoma Superintendent of Public Instruction",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-INS",
+   "name": "Bob Sullivan",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Bob Sullivan, Oklahoma Commissioner of Insurance",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-CC",
+   "name": "Brad Boles",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Brad Boles, Oklahoma Corporation Commissioner",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-LAB",
+   "name": "Kevin West",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "as_listed": "2026 Oklahoma State Candidates: Kevin West, Oklahoma Commissioner of Labor",
+   "kind": "listed among the party's candidates (the page, '2026 Oklahoma State Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS2",
+   "name": "Ally Seifried",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Ally Seifried, State Senate District 02",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS34",
+   "name": "Aaron Forst",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Aaron Forst, State Senate District 34",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS10",
+   "name": "Bill Coleman",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Bill Coleman, State Senate District 10",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS36",
+   "name": "John Haste",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: John Haste, State Senate District 36",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SS12",
+   "name": "Todd Gollihare",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Todd Gollihare, State Senate District 12",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH9",
+   "name": "Scotty Stokes",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Scotty Stokes, State Representative District 09",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH24",
+   "name": "Chris Banning",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Chris Banning, State Representative District 24",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH68",
+   "name": "Mike Lay",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Mike Lay, State Representative District 68",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH74",
+   "name": "Kevin W. Norwood",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Kevin Norwood, State Representative District 74",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH79",
+   "name": "Paul Hassink",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Paul Hassink, State Representative District 79",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH16",
+   "name": "David Nelson",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: David Nelson, State Representative District 16",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH30",
+   "name": "Mark Lawson",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Mark Lawson, State Representative District 30",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH69",
+   "name": "Sheila Dills",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Sheila Dills, State Representative District 69",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH75",
+   "name": "T.J. Marti",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: TJ Marti, State Representative District 75",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH80",
+   "name": "Stan May",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Stan May, State Representative District 80",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH23",
+   "name": "Derrick R. Hildebrant",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Derrick Hildebrandt, State Representative District 23",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH66",
+   "name": "Clay Staires",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Clay Staires, State Representative District 66",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH72",
+   "name": "Adam Martin",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Adam Martin, State Representative District 72",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH76",
+   "name": "Ross Ford",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Ross Ford, State Representative District 76",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-OK-SH98",
+   "name": "Gabe Woolley",
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Gabe Woolley, State Representative District 98",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)"
+  }
+ ],
+ "other_support_unmatched": 2,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/candidates",
+   "as_listed": "Our 2026 Candidates: State House, Rep. Sam Wargin Grimaldo, District 92",
+   "kind": "listed among the party's candidates (the page, 'Our 2026 Candidates', does not say endorsed)",
+   "reason": "House District 92 has two contests in the record (the regular term and the unexpired term), both between the same two Democrats and settled in the June 16 primary; the page does not say which, so the line is not matched"
+  },
+  {
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/tulsa-county-candidates",
+   "as_listed": "Tulsa County Candidates, On the Ballot in 2026: Stan Sallee, Tulsa County Board of Commissioners District 1",
+   "kind": "listed among the party's nominees (the page, 'Tulsa County Candidates', says 'Republican nominees ... are now listed' and does not say endorsed)",
+   "reason": "no Tulsa County commissioner contest is on the November list: Oklahoma prints only contested races (26 O.S. 6-102), so this seat was settled without a November contest and is not loaded"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Republican",
+   "unit": "Oklahoma Republican Party",
+   "url": "https://okgop.com/",
+   "why": "a CAPTCHA page (even for robots.txt); left alone. Search results (news reports, not opened) say the party's State Committee endorsed Mike Mazzei (Governor), James Taylor (Superintendent of Public Instruction) and Kevin West (Commissioner of Labor) before the August 25 runoff; Mazzei and West are on the November list, Taylor is not (Robert Franklin is the Republican nominee). John can open the party's site in his own browser and save the page if it says so"
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Oklahoma",
+   "url": "https://oklp.org/candidates",
+   "why": "read (home, news, press releases, the site map); the Candidates page answers with an empty page and no post is from 2025 or 2026, so nothing names its 2026 candidates (on the November list: Kiefer Perry, Treasurer; Mike Hall, Labor; Kenny Blevins, House 66; Adam Ward, Mayes County commissioner; Laura Beth Culp, Woodward County assessor)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Oklahoma County Republican Party",
+   "url": "https://www.okcogop.com/",
+   "why": "read (home, voter resources, news, both site maps); no 2026 candidate or endorsement page. Its footer says it 'is not endorsing any candidate in any race prior to the primary elections'"
+  },
+  {
+   "party": "Republican",
+   "unit": "Tulsa County Republican Party",
+   "url": "https://www.tulsacountygop.org/state-candidates",
+   "why": "the candidates' profile pages and the 'badges' the lists mention were not read (the site answered 429 to further requests); a 'Candidate Support Committee' interview transcript (PDF) was opened while looking for the badge note and holds no endorsement; nothing from it is recorded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Oklahoma Democratic Party",
+   "url": "https://www.okdemocrats.org/winners",
+   "why": "read; a list of primary winners as their races were called, not support, so not recorded. The party's news pages (site map) were read and none endorses a candidate for a 2026 state or local race. Its County Parties page was read only for the county parties' website links (it carries contact details)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "county Democratic parties",
+   "url": "https://www.okdemocrats.org/county-parties",
+   "why": "home pages (and site maps where offered) read for Oklahoma County (okcountydemocrats.org, its Election Info page too), Tulsa County (its '2026 Candidates' link goes to the state party's page), Cleveland County (ccdemsok.com, its Vote page too), Canadian County (posts announcing candidates speaking at meetings, not support), Garvin, McClain, Pottawatomie, Washington, Kingfisher, Payne (its Voting Guide is recorded), Adair, and the sites at ccokdems.com, scdpok.us, mcdemocrats.com, mayescountydemocrats.org, rogerscountydemocrats.com and gradycountydemocrats.com: no other candidate or endorsement page found. Jackson County's site refused the secure connection"
+  },
+  {
+   "party": "Republican",
+   "unit": "other county Republican parties",
+   "url": "",
+   "why": "not found: the session's web-search allowance was spent before they could be looked up, and their addresses are listed only on okgop.com (a CAPTCHA page). Not guessed further"
+  }
+ ]
+}

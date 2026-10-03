@@ -56,7 +56,19 @@ The local levels (county, city, school board, soil and water, and the trial cour
     party for a seat that has one (the May primary's field, never pruned), the contest is kept without names and listed
     as a gap. A city or school district two county clerks list is one contest, each candidate once.
   - Names: the list holds the family name in capitals; names are shown in ordinary capitals, given names first, with
-    Jr, Sr, II, III or IV after the family name. The list gives no ballot order, so none is stored.
+    Jr, Sr, II, III or IV after the family name. The list gives no ballot order, so none is stored from it.
+  - A county clerk's own official ballots (CLERK_BALLOTS, hand-checked; Jefferson County now): where a clerk publishes one
+    ballot for every ballot style, every one is read (one a second) and settles the county, city and school contests it
+    prints: names as printed, their order, and the party where one is printed (so whether the office is partisan). The
+    Secretary of State's list is the clerks' filings, not the ballot: in Jefferson County it kept a mayoral candidate who
+    withdrew before the May nonpartisan primary and two Metro Council candidates who are not on the ballot, all unmarked,
+    and filed the sitting mayor and two council candidates with no city named. A list name the ballot does not print is left
+    off and counted; a printed name the list files with no contest is found by name; declared write-ins are kept. The styles
+    come from the column headings of the clerk's official statements of votes cast: this year's primary for the precincts,
+    the 2024 general election for the parts of them that lie in a city (A123-ANC). A contest printed on several
+    ballots must print the same names in the same order on each, or the list's names are kept. Only the contests read go to
+    the cache (ballot_cache/ky/local/ky_2026_clerk_ballots_<fips>.json); the ballots are not kept. A ballot holds no address,
+    telephone or e-mail.
   - The trial courts: District Judge, Circuit Judge (two pages; the second is the family court seats) and Commonwealth's
     Attorney from the Secretary of State's own filings pages (Default.aspx?id=17, 16, 20, 13), read with the federal
     loader's filings(); the counties of each judicial district and circuit from KRS 24A.030 and 23A.020 as the
@@ -130,6 +142,38 @@ OFFICIAL = {      # the official lists read beside the candidate lists: file in 
     "circuits": ("krs_23A_020_judicial_circuits.pdf", "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=53357"),
     "schedule": ("ky_sbe_election_schedule_2026_2036.pdf", "https://elect.ky.gov/Resources/Documents/Election%20Schedule%202026-2036.pdf"),
 }
+# A county clerk's own official ballots, read where the clerk publishes one for every ballot style (hand-checked, never
+# guessed): county fips -> the clerk, the page that links them, the address of one style's ballot, and the clerk's official
+# results files whose column headings name the ballot styles. The precincts are this year's primary's; a precinct split by a
+# city's line has one style for each part (B173 and B173-HCK), and a city with no primary contest is split only on a
+# general election's ballots, so the city parts are those of the last general election with city contests (2024), kept
+# only for precincts that still exist. A style that is not published answers "not acceptable" and is listed.
+CLERK_BALLOTS = {
+    "21111": dict(county="Jefferson County", agency="Jefferson County Clerk",
+                  page="https://www.jeffersoncountyclerk.org/Voter-Info/Election-Results/Sample-Ballots",
+                  ballot="https://strap.jeffersoncountyclerk.org/WhereDoIVote/images/ballots/{style}.pdf",
+                  styles=[dict(url="https://www.jeffersoncountyclerk.org/files/assets/clerk/v/1/elections/documents/election-results/"
+                                   "2026pri_sovc.pdf",
+                               title="2026 Primary Election Results, official statement of votes cast (2026pri_sovc.pdf)",
+                               file="jefferson_2026_primary_statement_of_votes_cast.pdf", precincts=True),
+                          dict(url="https://www.jeffersoncountyclerk.org/files/assets/clerk/v/2/elections/documents/election-results/"
+                                   "general-election-results_sovc_2024.pdf",
+                               title="2024 General Election Results, official statement of votes cast (general-election-results_sovc_2024.pdf)",
+                               file="jefferson_2024_general_statement_of_votes_cast.pdf", precincts=False)]),
+}
+CLERK_FILE = "ky_2026_clerk_ballots_{fips}.json"          # in ballot_cache/ky/local/: the contests read, never the ballots
+BALLOT_PARTY = {"REP": "Republican Party", "DEM": "Democratic Party", "KEN": "Kentucky Party", "LIB": "Libertarian Party",
+                "IND": "Independent"}
+# Contests on a county's ballot that are not local (or are loaded from the Secretary of State's own pages): never settled here
+BALLOT_NOT_LOCAL = re.compile(r"^(?:STRAIGHT PARTY|UNITED STATES|STATE SENATOR|STATE REPRESENTATIVE|DISTRICT JUDGE|CIRCUIT JUDGE|"
+                              r"FAMILY COURT|JUSTICE OF THE SUPREME COURT|JUDGE OF THE COURT OF APPEALS|SUPREME COURT|COURT OF APPEALS|"
+                              r"COMMONWEALTHS ATTORNEY|CONSTITUTIONAL AMENDMENT|PUBLIC QUESTION|QUESTION)\b")
+BALLOT_COUNTY = {"COUNTY JUDGE EXECUTIVE": "county_executive", "COUNTY CLERK": "county_clerk", "COUNTY ATTORNEY": "county_attorney",
+                 "SHERIFF": "sheriff", "JAILER": "jailer", "CORONER": "coroner", "PROPERTY VALUATION ADMINISTRATOR": "county_assessor",
+                 "COUNTY SURVEYOR": "county_surveyor", "SURVEYOR": "county_surveyor", "CIRCUIT COURT CLERK": "clerk_of_court"}
+BALLOT_NOTE = ("The names, their order and any party are as the county clerk's official ballot prints them ({vote}); the family "
+               "name, printed there in capitals, is shown in ordinary capitals.")
+SRC_CLERK, SRC_STYLES = "ky-clerk-2026-ballots-{fips}", "ky-clerk-2026-ballot-styles-{fips}"
 SRC_COUNTY, SRC_COURT = "ky-sos-2026-county-clerk-filings", "ky-sos-2026-trial-court-filings"
 SRC_COUNTIES, SRC_PLACES, SRC_CONCITY = "ky-census-2024-counties", "ky-census-2020-places", "ky-census-2024-consolidated-cities"
 SRC_UNSD, SRC_ELSD = "ky-census-2024-unified-school-districts", "ky-census-2024-elementary-school-districts"
@@ -644,6 +688,247 @@ def court_filings(folder, say, max_age_days=2):
         json.dump(keep, fh, ensure_ascii=False, indent=1)
     os.replace(tmp, path)
     return path
+
+
+# ------------------------------------------------------------------------------- a county clerk's own official ballots
+# A ballot holds offices, how many to vote for, and each name with its party as printed: no address, telephone or e-mail.
+# Its contests are read into a JSON file in the cache; the ballots themselves are not kept.
+
+BALLOT_CODE = re.compile(r"^[A-Z]{2,4}$")
+BALLOT_FURNITURE = re.compile(r"^(?:OFFICIAL BALLOT|General Election|TURN BALLOT OVER|November \d+, \d{4}|.* County, KY|Directions:.*|"
+                              r"To cast a write-in.*|[A-Z]\d{3}(?: [A-Z]{3})?)$")
+
+
+def ballot_cells(rs, gap=6.0):
+    """A printed row's runs as cells (x0, x1, size, text): runs closer than `gap` points belong to one cell."""
+    cells, cur, end = [], [], None
+    for r in sorted(rs, key=lambda r: r[0]):
+        if end is not None and r[0] - end > gap:
+            cells.append(cur)
+            cur = []
+        cur.append(r)
+        end = max(end or r[4], r[4])
+    if cur:
+        cells.append(cur)
+    return [(c[0][0], max(x[4] for x in c), max(x[2] for x in c), P.join(c)) for c in cells]
+
+
+def ballot_contests(raw):
+    """(contests, the ballot's own heading lines, problems) of one official ballot: [{title, vote_for, cands: [[name as printed,
+    party code or ""]]}]. The ballot is printed in columns; a column's left edge is where its "Write-in" lines start. In a
+    column, the lines above "(Vote for ...)" are the office, the lines at the column's edge after it are the names (a party
+    code to their right), and "Write-in" ends them. The 6-point numbers in the margin are the scanner's marks, not text."""
+    pdf = P.PDF(raw)
+    contests, cur, pending, state, problems, heads = [], None, [], "title", [], []
+    for page, res in pdf.pages():
+        runs = [r for r in P.page_runs(pdf, page, res) if r[2] >= 7.5]
+        rows = []
+        for r in sorted(runs, key=lambda r: (-round(r[1], 1), r[0])):
+            if rows and abs(rows[-1][0] - r[1]) <= max(1.5, 0.35 * r[2]):
+                rows[-1][1].append(r)
+            else:
+                rows.append([r[1], [r]])
+        rows = [(y, ballot_cells(rs)) for y, rs in rows]
+        cols = []
+        for x in sorted({round(c[0]) for _y, cs in rows for c in cs if c[3] == "Write-in"}):
+            if not cols or x - cols[-1] > 20:
+                cols.append(x)
+        if not cols:
+            problems.append("a page with no write-in line")
+            continue
+        for k, left in enumerate(cols):
+            right = cols[k + 1] - 5 if k + 1 < len(cols) else 10_000
+            col = [[y, [c for c in cs if left - 15 <= c[0] < right]] for y, cs in rows]
+            col = [r for r in col if r[1]]
+
+            def code_only(cs, left=left):
+                return all(BALLOT_CODE.match(c[3]) and c[2] <= 8.5 and c[0] > left + 100 for c in cs)
+            for r in [r for r in col if code_only(r[1])]:      # a party code printed a little off its name's line
+                near = [o for o in col if o is not r and o[1] and not code_only(o[1]) and abs(o[1][0][0] - left) <= 3
+                        and abs(o[0] - r[0]) <= 8]
+                if near:
+                    o = min(near, key=lambda o: abs(o[0] - r[0]))
+                    o[1] = o[1] + r[1]
+                    r[1] = []
+            for _y, mine in [r for r in col if r[1]]:
+                text = " ".join(c[3] for c in mine)
+                first = mine[0]
+                if BALLOT_FURNITURE.match(text):
+                    heads.append(text)
+                    continue
+                if text.startswith("(Vote for"):
+                    cur = {"title": " ".join(pending), "vote_for": text.strip("() "), "cands": []}
+                    contests.append(cur)
+                    pending, state = [], "cands"
+                    continue
+                if first[3] == "Write-in":
+                    state = "writein" if state == "cands" else state
+                    continue
+                if state == "cands" and abs(first[0] - left) <= 3:
+                    codes = [c[3] for c in mine[1:] if BALLOT_CODE.match(c[3]) and c[2] <= 8.5]
+                    if len(codes) + 1 != len(mine):
+                        problems.append(f"a name line under {cur['title']!r} holds more than a name and a party")
+                    cur["cands"].append([first[3], codes[0] if codes else ""])
+                    continue
+                state = "title"
+                if max(c[2] for c in mine) >= 10.5 or re.fullmatch(r"(?:YES|NO)(?: (?:YES|NO))?", text):
+                    pending = []                               # a section heading, or the end of a question
+                    continue
+                pending = (pending + [text])[-3:]
+    return contests, heads, problems
+
+
+def style_codes(path):
+    """Every ballot style a statement of votes cast names in its column headings, in order, each once: a precinct ("A107"),
+    the part of a split precinct in a city ("G165 STM", written G165-STM), or the part outside any city ("B173 1", which is
+    the precinct's own code)."""
+    pdf = P.PDF(open(path, "rb").read())
+    out = {}
+    for page, res in pdf.pages():
+        for _y, rs in P.rows(pdf, page, res):
+            for code, tag in re.findall(r"\b([A-Z]\d{3})(?: ([A-Z]{3}|\d)\b)?", P.join(rs)):
+                out.setdefault(f"{code}-{tag}" if tag and not tag.isdigit() else code, None)
+    return list(out)
+
+
+def clerk_styles(folder, cfg, say):
+    """(every ballot style to read, [(styles file, path)]): the precincts of the file marked precincts=True, with each one's
+    city parts from every file (a city part only for a precinct that still exists)."""
+    precincts, parts, used = [], [], []
+    for s in cfg["styles"]:
+        path = os.path.join(folder, s["file"])
+        net.download(s["url"], path, max_age_days=30 if s["precincts"] else 365, say=say)
+        if not open(path, "rb").read(5).startswith(b"%PDF"):
+            raise OSError(f"{s['file']} is not a PDF")
+        got = style_codes(path)
+        used.append((s, path))
+        if s["precincts"]:
+            precincts += [g for g in got if g not in precincts]
+        parts += [g for g in got if "-" in g and g not in parts]
+    codes = {p.split("-")[0] for p in precincts}
+    return precincts + [p for p in parts if p not in precincts and p.split("-")[0] in codes], used
+
+
+def clerk_ballots(folder, fips, cfg, say, max_age_days=7):
+    """The contests of every official ballot a county clerk publishes, as JSON in the cache: {read, fips, page, styles_sha256,
+    styles: {style: sha256}, failed: {style: why}, heads, contests: [{title, vote_for, cands, n}], disagree: [titles],
+    problems}. A contest printed on several ballots must print the same names in the same order on each; one that does not
+    is listed under disagree. Returns the path, or None when nothing could be read."""
+    path = os.path.join(folder, CLERK_FILE.format(fips=fips))
+    if fresh(path, max_age_days):
+        return path
+    try:
+        styles, used = clerk_styles(folder, cfg, say)
+    except (HTTPError, OSError) as e:
+        say(f"      {cfg['agency']}: the list of ballot styles could not be read ({e})")
+        return path if os.path.exists(path) else None
+    if len(styles) < 20:
+        say(f"      {cfg['agency']}: only {len(styles)} ballot styles found; the clerk's ballots are not read")
+        return path if os.path.exists(path) else None
+    keep = {"read": dt.date.today().isoformat(), "fips": fips, "page": cfg["page"], "tried": len(styles),
+            "styles_files": [dict(title=s["title"], url=s["url"], file=s["file"], sha256=sha(p), fetched=mtime(p)) for s, p in used],
+            "styles": {}, "failed": {}, "split": [], "heads": [], "contests": [], "disagree": [], "problems": []}
+    seen = {}
+    say(f"      {cfg['agency']}: reading {len(styles)} official ballots, one a second")
+    for n, style in enumerate(styles, 1):
+        try:
+            raw = fetch(cfg["ballot"].format(style=style), accept="application/pdf", say=say)
+        except (HTTPError, OSError) as e:
+            keep["failed"][style] = str(getattr(e, "code", "") or type(e).__name__)
+            continue
+        finally:
+            time.sleep(1.0)
+        if not raw.startswith(b"%PDF"):
+            keep["failed"][style] = "not a PDF"
+            continue
+        try:
+            contests, heads, problems = ballot_contests(raw)
+        except Exception as e:  # noqa: BLE001  a ballot that cannot be read is listed, never guessed at
+            keep["failed"][style] = f"could not be read ({type(e).__name__})"
+            continue
+        if "General Election" not in heads or "November 3, 2026" not in heads:
+            keep["failed"][style] = "not the November 3, 2026 general election's ballot"
+            continue
+        keep["styles"][style] = hashlib.sha256(raw).hexdigest()
+        for h in heads:
+            if h not in keep["heads"]:
+                keep["heads"].append(h)
+        keep["problems"] += [f"{style}: {p}" for p in problems]
+        for c in contests:
+            k = seen.get(c["title"])
+            if k is None:
+                seen[c["title"]] = len(keep["contests"])
+                keep["contests"].append(dict(c, n=1))
+            else:
+                was = keep["contests"][k]
+                was["n"] += 1
+                if (was["cands"], was["vote_for"]) != (c["cands"], c["vote_for"]) and c["title"] not in keep["disagree"]:
+                    keep["disagree"].append(c["title"])
+        if n % 100 == 0:
+            say(f"        {n} of {len(styles)} ballots read")
+    for style in list(keep["failed"]):                # a precinct wholly divided into city parts has no ballot of its own
+        if "-" not in style and any(s.startswith(style + "-") for s in keep["styles"]):
+            keep["split"].append(style)
+            del keep["failed"][style]
+    if not keep["styles"]:
+        return path if os.path.exists(path) else None
+    tmp = path + ".part"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(keep, fh, ensure_ascii=False, indent=0)
+    os.replace(tmp, path)
+    return path
+
+
+def printed_name(text):
+    """A name as a ballot prints it (given names as typed, the family name in capitals) in ordinary capitals: Morgan McGARVEY
+    is Morgan McGarvey, Yvette DE LA GUARDIA is Yvette De La Guardia, William D. SCHROLL III. is William D. Schroll III."""
+    out, run = [], []
+
+    def flush():
+        if run:
+            out.append(proper(" ".join(run)))
+            run.clear()
+    for w in text.split():
+        if re.fullmatch(r"[IVX]{2,}\.?", w) and (out or run):
+            flush()
+            out.append(w.rstrip("."))
+        elif re.search(r"[A-Z]{2}", w) and all(p == p.upper() or re.fullmatch(r"Mc[A-Z]{2,}", p) for p in w.split("-")):
+            run.append(w.upper())                                   # BURTON-McBROOM: proper() puts the Mc back
+        else:
+            flush()
+            m = re.fullmatch(r"(Mc|Mac|de|De|La|Le|Van|van|von|Von|D'|O')([A-Z]{2,}[A-Z'-]*)", w)
+            out.append(m.group(1) + proper(m.group(2)) if m else w)
+    flush()
+    return re.sub(r"\s+", " ", " ".join(out)).strip()
+
+
+def ballot_family(text):
+    """(first initial, family name in letters) of a name as a ballot prints it: the words from the first one in capitals on,
+    Jr, Sr and numbers set aside; a nickname in quotes is not part of either."""
+    t = re.sub(r'"[^"]*"', " ", text)
+    ws = t.split()
+    k = next((i for i, w in enumerate(ws) if re.search(r"[A-Z]{2}", w) and i), len(ws) - 1)
+    fam = [w for w in ws[k:] if not re.fullmatch(r"(?:JR|SR|[IVX]+)\.?", w.upper())]
+    return (letters(ws[0])[:1] if ws else ""), letters(" ".join(fam))
+
+
+def row_family(r):
+    """(first initial, family name in letters) of a county list row."""
+    fam = " ".join(w for w in r["Last Name"].split() if not re.fullmatch(r"(?:JR|SR|[IVX]+)\.?", w.upper()))
+    return letters(r["First Name"])[:1], letters(fam)
+
+
+def same_family(a, b):
+    """Two (initial, family name) pairs that are one candidate in one contest: the same first initial, and the same family
+    name, or one a slip or two of spelling away when it is long (a clerk's typing), or the one inside the other (a second
+    family name one writing leaves out)."""
+    (ia, fa), (ib, fb) = a, b
+    if not ia or not fa or ia != ib:
+        return False
+    if fa == fb or (min(len(fa), len(fb)) >= 5 and osa(fa, fb, 1) <= 1) or (min(len(fa), len(fb)) >= 6 and osa(fa, fb, 2) <= 2):
+        return True
+    short, long_ = sorted((fa, fb), key=len)
+    return len(short) >= 3 and (long_.startswith(short) or long_.endswith(short))
 
 
 # --------------------------------------------------------------------------- official lists: counties, places, schools
@@ -1175,7 +1460,7 @@ def local_rows(cache, say):
     def lost(r, what, why):
         if r["_live"]:
             unplaced.append((r["fips"], what, why))
-        r["rid"] = None
+        r["rid"], r["_lost"] = None, (what, why)
 
     # ---- a row whose name cell held contact details has no name to show: it is set aside with the gaps
     office_what = {"MAYOR": "mayor candidates", "CITY LEGISLATIVE BODY": "city council or commission candidates",
@@ -1507,6 +1792,182 @@ def local_rows(cache, say):
                              why + " " + LIST_AUTHORITY, COUNTY_URL))
                 x["_cands"] = []
 
+    # ---- a county clerk's own official ballots, where they were read: they settle every local contest they print. The
+    # Secretary of State's list is the clerks' filings, not the ballot: it can keep a candidate who withdrew or lost a
+    # nonpartisan primary without marking it, and file a row with no city named. The ballot prints who is running.
+    stored_pre, unplaced_pre = sum(len(x["_cands"]) for x in races.values()), len(unplaced)
+    blanked_pre, emptied_pre = list(blanked), list(emptied)
+    clerk = {}
+    office_kinds = {"MAYOR": {"mayor"}, "CITY LEGISLATIVE BODY": {"council", "mayor"}, "SCHOOL BOARD MEMBER": {"school_board"},
+                    "SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR": {"soil_water"}}
+    office_kinds.update({o: {k} for o, (k, _s, _h) in COUNTY_OFFICES.items()})
+    for f, cfg in CLERK_BALLOTS.items():
+        bpath = clerk_ballots(folder, f, cfg, say)
+        if not bpath:
+            report.append(f"{cfg['agency']}'s official ballots could not be read; {county_name[f]}'s contests stay as the list has them")
+            continue
+        B = json.load(open(bpath, encoding="utf-8"))
+        st = clerk[f] = dict(cfg=cfg, B=B, path=bpath, settled=[], left_off=0, added=0, placed=0, created=0, unmapped=[], skipped=0,
+                             unknown_codes=collections.Counter(), not_printed=[], printed_gone=0)
+        cbase = words(re.sub(r" County$", "", county_name[f]))
+        indep = Finder({lea: s["written"] for lea, s in school_indep.items()}, SCHOOL_WORDS | set(INDEPENDENT_WORDS) | set(cbase))
+
+        def target(title, f=f, cbase=cbase, indep=indep):
+            """(race id, fields for a new contest) for a ballot contest's title; ("skip", None) for one that is not local;
+            (None, None) for one that cannot be told."""
+            t = words(title)
+            s = " ".join(t)
+            if BALLOT_NOT_LOCAL.match(s):
+                return "skip", None
+            county = dict(level="county", jurisdiction=county_name[f], jurisdiction_id=f, county_ids=json.dumps([f]), partisan=1)
+            if s in BALLOT_COUNTY:
+                kind = BALLOT_COUNTY[s]
+                return (f"2026-{STATE}-{f}-{kind.replace('_', '-')}" + ("-S" if kind == "clerk_of_court" else ""),
+                        dict(county, office_kind=kind, office=next(v[1] for v in COUNTY_OFFICES.values() if v[0] == kind)))
+            m = (re.fullmatch(r"(JUSTICE OF THE PEACE|MAGISTRATE|CONSTABLE|COUNTY COMMISSIONER) (?:DISTRICT )?(\d+)(?:ST|ND|RD|TH)?"
+                              r"(?: MAGISTERIAL| COMMISSIONER)?(?: DISTRICT)?", s)
+                 or re.fullmatch(r"(COUNTY COMMISSIONER) ([A-Z]) DISTRICT", s))
+            if m:
+                kind = {"JUSTICE OF THE PEACE": "magistrate", "MAGISTRATE": "magistrate", "CONSTABLE": "constable",
+                        "COUNTY COMMISSIONER": "county_commissioner"}[m.group(1)]
+                d = m.group(2)
+                return (f"2026-{STATE}-{f}-{kind.replace('_', '-')}-{slug(d)}",
+                        dict(county, office_kind=kind, office=next(v[1] for v in COUNTY_OFFICES.values() if v[0] == kind),
+                             district=d if d.isdigit() else f"District {d}"))
+            if s == "SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR":
+                return (f"2026-{STATE}-{f}-soil-water",
+                        dict(county, level="soil_water", office_kind="soil_water", office="Soil and Water Conservation District Supervisor",
+                             partisan=0))
+            if "SCHOOL" in t or "EDUCATION" in t:
+                d = re.search(r"\b(?:DISTRICT|DIVISION) (\d+)\b", s)
+                special = "UNEXPIRED" in t
+                if t[:len(cbase) + 1] == cbase + ["COUNTY"] and d:
+                    sc = school_county[f]
+                    return (f"2026-{STATE}-S-{sc['lea']}-school-board-{d.group(1)}" + ("-S" if special else ""),
+                            dict(level="school", office_kind="school_board", office="School Board Member", jurisdiction=sc["name"],
+                                 jurisdiction_id=f"{STATE}-S-{sc['lea']}", county_ids=None, partisan=0, district=d.group(1), special=int(special)))
+                lea, _how = indep.find(t)
+                if lea is None or d:
+                    return None, None
+                s_ = school_indep[lea]
+                return (f"2026-{STATE}-S-{lea}-school-board" + ("-S" if special else ""),
+                        dict(level="school", office_kind="school_board", office="School Board Member", jurisdiction=s_["name"],
+                             jurisdiction_id=f"{STATE}-S-{lea}", county_ids=None, partisan=0, special=int(special)))
+            mayor = t[-1] == "MAYOR"
+            body = next((i for i, w in enumerate(t) if w.startswith("COUNCIL") or w.startswith("COMMISSION") or w == "LEGISLATIVE"), None)
+            if not mayor and body is None:
+                return None, None
+            place = [w for w in t[:len(t) - 1 if mayor else body] if w not in ("CITY", "OF")]
+            code, how = city_finder(f).find(place) if place else (None, "generic")
+            if code is None or how not in ("exact", "part"):
+                return None, None
+            p = places[code]
+            city = dict(level="city", jurisdiction=p["name"], jurisdiction_id=f"{STATE}-M-{code}", county_ids=None, partisan=0)
+            if mayor:
+                return f"2026-{STATE}-M-{code}-mayor", dict(city, office_kind="mayor", office="Mayor")
+            office = MERGED_OFFICE.get(code) or ("City Commissioner" if t[body].startswith("COMMISSION") else
+                                                 "City Council Member" if t[body].startswith("COUNCIL") else "City Legislative Body Member")
+            d = re.search(r"\b(?:DISTRICT|WARD) (\d+)\b", s)
+            if d:
+                return f"2026-{STATE}-M-{code}-council-{d.group(1)}", dict(city, office_kind="council", office=office, district=d.group(1))
+            if "AT LARGE" in s:
+                return f"2026-{STATE}-M-{code}-council-at-large", dict(city, office_kind="council", office=office, seat="At Large")
+            return f"2026-{STATE}-M-{code}-council", dict(city, office_kind="council", office=office)
+
+        for c in B["contests"]:
+            rid, base = target(c["title"])
+            if rid == "skip":
+                st["skipped"] += 1
+                continue
+            if rid is None:
+                st["unmapped"].append(c["title"])
+                continue
+            if c["title"] in B["disagree"]:
+                report.append(f"{cfg['agency']}: the ballots do not all print the same names for {c['title']}; the list's names are kept")
+                continue
+            if rid not in races:                 # an unexpired term the list marks, or the plain seat the ballot names
+                alt = rid[:-2] if rid.endswith("-S") else rid + "-S"
+                rid = alt if alt in races else rid
+            if rid not in races:
+                x = race(rid, **{k: v for k, v in base.items() if k not in ("district", "seat", "special")})
+                x.update({k: base[k] for k in ("district", "seat", "special") if k in base})
+                x["_counties"], x["_cands"] = [f], []
+                if x["level"] == "city":
+                    used_places.add(x["jurisdiction_id"].split("-M-")[1])
+                elif x["level"] == "school":
+                    used_schools[x["jurisdiction_id"].split("-S-")[1]].add(f)
+                st["created"] += 1
+            x = races[rid]
+            printed = [(printed_name(n), code, ballot_family(n)) for n, code in c["cands"]]
+            partisan = int(any(code for _n, code, _k in printed)) if printed else x["partisan"]
+            old = x["_cands"]
+            fams = [row_family(o["_src"][0]) if o.get("_src") else ballot_family(o["name"]) for o in old]
+            hit = lambda fam: any(same_family(fam, k) for _n, _c, k in printed)  # noqa: E731
+            left = [o for o, fam in zip(old, fams) if not o["write_in"] and not hit(fam)]
+            keep_wi = [o for o, fam in zip(old, fams) if o["write_in"] and not hit(fam)]
+            new = []
+            for k, (name, code, fam) in enumerate(printed, 1):
+                if partisan:
+                    if code not in BALLOT_PARTY:
+                        st["unknown_codes"][code or "none"] += 1
+                    party = BALLOT_PARTY.get(code) or (code or "No party printed")
+                    pcode = party_code(party)
+                else:
+                    party, pcode = NONPARTISAN, "N"
+                # printed, though the list marks this person's every row for the office in this county withdrawn (or worse)
+                mine = [r for r in rows if r["fips"] == f and r["Last Name"] and x["office_kind"] in office_kinds.get(r["Office"], set())
+                        and (r.get("rid") in (rid, None) or races.get(r.get("rid"), {}).get("jurisdiction_id") == x["jurisdiction_id"])
+                        and same_family(fam, row_family(r))]
+                marks = sorted({m.lower() for r in mine for m in ("Withdrawn", "Disqualified", "Deceased") if r[m]})
+                note = (f"Printed on the ballot, but the Secretary of State's list marks this candidate {' and '.join(marks)}."
+                        if mine and marks and not any(r["_live"] for r in mine) else None)
+                st["printed_gone"] += bool(note)
+                new.append(dict(name=name, party=party, code=pcode, write_in=0, note=note, order=k, src=SRC_CLERK.format(fips=f), _fam=fam))
+                st["added"] += not any(same_family(fam, k_) for k_ in fams)
+            for o in keep_wi:                     # a declared write-in follows the office as the ballot shows it
+                if not partisan:
+                    o["party"], o["code"] = NONPARTISAN, "N"
+                elif o["party"] == NONPARTISAN:
+                    o["party"], o["code"] = "Write-In", party_code("Write-In")
+            x["_cands"] = new + keep_wi
+            x["partisan"] = partisan
+            st["left_off"] += len(left)
+            st["settled"].append(rid)
+            notes = [n for n in x["_notes"] if n not in (AT_LARGE_NOTE, SEATS_NOTE) and not n.startswith("The list shows no candidate")
+                     and not n.startswith("The Secretary of State's list still shows")]
+            notes = [SCHOOL_AT_LARGE_NOTE.split(" The list")[0] if n == SCHOOL_AT_LARGE_NOTE else n for n in notes]
+            notes.append(BALLOT_NOTE.format(vote=c["vote_for"].lower()) if printed else
+                         "The county clerk's official ballot prints this office with no candidate's name; only a write-in vote can be cast.")
+            x["_settled"] = True
+            if left:
+                notes.append(f"The Secretary of State's list also carries {len(left)} {'name' if len(left) == 1 else 'names'} for this "
+                             f"contest that the ballot does not print (withdrawn, or not nominated in the May primary); "
+                             f"{'it is' if len(left) == 1 else 'they are'} left off.")
+            x["_notes"] = notes
+            if rid in blanked:
+                blanked.remove(rid)
+                gaps[:] = [g for g in gaps if g[2] != rid]
+            if rid in emptied:
+                emptied.remove(rid)
+        # the list's rows that name no contest, found by name on a contest the ballots settle
+        for r in rows:
+            if r.get("_lost") and r["_live"] and r["fips"] == f and r["Last Name"]:
+                fam = row_family(r)
+                where = [rid for rid in st["settled"] if races[rid]["office_kind"] in office_kinds.get(r["Office"], set())
+                         and any(same_family(fam, c["_fam"]) for c in races[rid]["_cands"] if "_fam" in c)]
+                if len(where) == 1:
+                    r["_on_ballot"] = where[0]
+                    st["placed"] += 1
+        # the county's contests from the list that no ballot read prints
+        settled = set(st["settled"])
+        for rid, x in races.items():
+            if rid not in settled and x["level"] in ("county", "city", "school", "soil_water") and f in x["_counties"] and x["_cands"]:
+                if x["level"] in ("county", "soil_water") or len(x["_counties"]) == 1:
+                    st["not_printed"].append(rid)
+                    x["_notes"].append(f"The {cfg['agency']}'s official ballots read for this election do not print this contest; the names "
+                                       "are the Secretary of State's list's.")
+    unplaced[:] = [(r["fips"],) + r["_lost"] for r in rows if r.get("_lost") and r["_live"] and not r.get("_on_ballot")]
+
     # ---- what could not be placed, county by county
     per_gap = collections.defaultdict(collections.Counter)
     for f, what, why in unplaced:
@@ -1538,7 +1999,7 @@ def local_rows(cache, say):
         notes = list(x["_notes"])
         if kind == "clerk_of_court" and rid not in blanked:
             notes.append(CLERK_NOTE if confirmed("circuit court clerks") else UNEXPIRED_NOTE)
-        if x["level"] == "soil_water":
+        if x["level"] == "soil_water" and not x.get("_settled"):          # a clerk's ballot shows what is printed
             notes.append(SOIL_NOTE)
         if x["_cands"] and all(c["write_in"] for c in x["_cands"]):
             notes.append(ONLY_WRITE_INS)
@@ -1550,8 +2011,8 @@ def local_rows(cache, say):
         x["note"] = " ".join(notes) or None
         race_rows.append(tuple(x[c] for c in RACE_COLS))
         for c in x["_cands"]:
-            cands.append([rid, "general", GENERAL, c["name"], c["party"], c["code"], None, 0, c["write_in"], None, None, None, None, SRC_COUNTY,
-                          c["note"]])
+            cands.append([rid, "general", GENERAL, c["name"], c["party"], c["code"], c.get("order"), 0, c["write_in"], None, None, None, None,
+                          c.get("src", SRC_COUNTY), c["note"]])
 
     # ---- places: every county, and every city, school district and other district a contest here names
     place_rows = [("county", f, n, json.dumps([f]), SRC_COUNTIES) for f, n in sorted(county_name.items())]
@@ -1572,7 +2033,8 @@ def local_rows(cache, say):
                 unknown_party=unknown_party,
                 name_did=name_did, party_noise=party_noise, merged=merged, dropped=dropped, blanked=blanked, elsewhere=elsewhere,
                 emptied=emptied, sched_ok=sched_ok,
-                sched_bad=sched_bad, folder=folder, per_office=per_office, left_off=left_off)
+                sched_bad=sched_bad, folder=folder, per_office=per_office, left_off=left_off, clerk=clerk, stored_pre=stored_pre,
+                unplaced_pre=unplaced_pre, blanked_pre=blanked_pre, emptied_pre=emptied_pre)
 
 
 # ---------------------------------------------------------------------------------------------- the primary certification
@@ -1735,8 +2197,9 @@ def race_for(row):
 def local_sources(L, C):
     """(sl_sources rows, sl_notes rows) for the local levels, with the list's own totals reconciled in the first row's note."""
     listed, gone, unplaced, merged = L["listed"], L["gone"], L["unplaced"], L["merged"]
-    n_rows, n_live, stored = len(L["rows"]), len(L["live"]), len(L["cands"])
-    placed = n_live - len(unplaced)
+    n_rows, n_live, stored = len(L["rows"]), len(L["live"]), L["stored_pre"]      # the list's own arithmetic, before any clerk's ballots
+    placed = n_live - L["unplaced_pre"]
+    found = L["unplaced_pre"] - len(unplaced)
     repeats = merged["by two county clerks"] + merged["twice in one county's list"]
     if placed != stored + repeats + L["dropped"] + L["elsewhere"]:
         L["report"].append(f"{placed} rows were placed but {stored} candidates, {repeats} repeats and {L['dropped'] + L['elsewhere']} set "
@@ -1753,14 +2216,19 @@ def local_sources(L, C):
             f"Of {n_rows:,} rows, {L['left_off']} are marked withdrawn ({gone['Withdrawn']}), disqualified ({gone['Disqualified']}) or "
             f"deceased ({gone['Deceased']}) and left off; the page's own directory counts the other {n_live:,} office by office"
             + (", and every office's count matched. " if not any("own count" in x for x in L["report"]) else ", and not every count matched. ")
-            + f"{placed:,} rows are placed, each in one contest; {len(unplaced)} name no city, school district or district that can be "
-            f"told and are listed as gaps, county by county. Of the rows placed, {repeats} repeat a candidate already in the contest (a "
+            + f"{placed:,} rows are placed, each in one contest; {L['unplaced_pre']} name no city, school district or district that can "
+            "be told" + (f": {found} of them are found by name on a county clerk's official ballot (that source's note says how), and "
+                         f"the other {len(unplaced)} are listed as gaps, county by county. " if found else
+                         " and are listed as gaps, county by county. ")
+            + f"Of the rows placed, {repeats} repeat a candidate already in the contest (a "
             f"city or school district that two county clerks list, or one name twice) and count once; {L['elsewhere']} are left off "
             f"because the other county clerk's list marks the same candidate withdrawn; and {L['dropped']} belong to the "
-            f"{len(L['blanked'])} contests where the list still shows more than one candidate of a party for one seat, which are kept "
-            f"without names. That leaves {stored:,} candidates. {len(L['emptied'])} contests are kept with no name because everyone who "
+            f"{len(L['blanked_pre'])} contests where the list still shows more than one candidate of a party for one seat, which are kept "
+            f"without names. That leaves {stored:,} candidates. {len(L['emptied_pre'])} contests are kept with no name because everyone who "
             f"filed for them is marked withdrawn, disqualified or deceased. "
-            "The list holds each name in four columns, the family name in capitals; names are shown here in ordinary capitals, given "
+            + ("Where a county clerk's official ballots were read, they settle the contests they print, and the counts above are "
+               "before that (see that source). " if L["clerk"] else "")
+            + "The list holds each name in four columns, the family name in capitals; names are shown here in ordinary capitals, given "
             f"names first, with Jr, Sr, II, III or IV after the family name. A courtesy title in the Suffix column ({did['courtesy']} "
             f"rows) is left out; a nickname there ({did['nickname']} rows) is kept after the given names. The list gives no ballot order. "
             "Cities and school districts are named only in the free-text Office Description column, and a row is tied to one only when "
@@ -1786,6 +2254,41 @@ def local_sources(L, C):
                   f"{len(C['cands'])} candidates in {len(C['race_rows'])} contests; withdrawn, deceased or disqualified, left off: "
                   f"{counts['withdrawn']}; declared write-in candidates: {counts['write-ins']}. The list names only the seats someone filed "
                   "for and gives no ballot order. The sha256 here is of the pages' own hashes joined."))
+    for f, st in L["clerk"].items():
+        cfg, B = st["cfg"], st["B"]
+        read = len(B["styles"])
+        unpublished = sum(1 for w in B["failed"].values() if w == "406")
+        failed = len(B["failed"]) - unpublished
+        joined = hashlib.sha256("".join(B["styles"][s] for s in sorted(B["styles"])).encode()).hexdigest()
+        src.append((SRC_CLERK.format(fips=f), STATE, "official ballot", cfg["agency"],
+                    f"Official ballots, General Election, November 3, 2026, {cfg['county']}: one for each ballot style (precinct, or the part "
+                    "of a precinct in a city)", cfg["page"], "", B["read"], joined, read,
+                    f"Every ballot style's official ballot, as the clerk publishes it for voters to see before they vote: {read} read. The "
+                    "style names come from the column headings of the clerk's results files (the source rows that follow): this year's "
+                    "primary's precincts, and the city parts of those precincts from the last general election with city contests"
+                    + (f"; {len(B['split'])} precincts are published only as their city parts" if B.get("split") else "")
+                    + (f"; {unpublished} names from those files have no ballot this year" if unpublished else "")
+                    + (f"; {failed} could not be fetched or read" if failed else "") + ". A ballot prints offices, how many to vote for, "
+                    "and each name with its party where the office is partisan; nothing else is on it, and the ballots are not kept. "
+                    "A contest printed on several ballots must print the same names in the same order on each"
+                    + (", and every one did. " if not B["disagree"] else f"; {len(B['disagree'])} did not, and for those the list's names are kept. ")
+                    + f"The ballots settle the {len(st['settled'])} county, city and school contests they print"
+                    + (f" ({st['created']} of them contests the Secretary of State's list does not tie to a place)" if st["created"] else "")
+                    + f": the names, their order and any party are the ballot's. {st['left_off']} names the Secretary of State's list "
+                    "carries for those contests are not printed (a candidate who withdrew, or did not advance from a nonpartisan May "
+                    f"primary, can stay on that list unmarked) and are left off; {st['added']} printed names are not on the list's rows "
+                    f"for the contest, {st['placed']} of them names the list files without a city or district"
+                    + (f"; {st['printed_gone']} printed names are of candidates the list marks withdrawn, and each says so"
+                       if st["printed_gone"] else "") + ". Declared write-in "
+                    "candidates on the list are kept, since a ballot does not print them. Federal, state and judicial contests on the "
+                    "ballots are loaded from the Secretary of State's own pages and are not read here. The sha256 here is of the "
+                    "ballots' own hashes joined."))
+        for k, s in enumerate(B.get("styles_files") or [], 1):
+            src.append((SRC_STYLES.format(fips=f) + f"-{k}", STATE, "official results", cfg["agency"], s["title"], s["url"], "",
+                        s["fetched"], s["sha256"], B.get("tried"),
+                        "Read only for the names of the county's ballot styles, in its column headings"
+                        + (" (this year's precincts)" if k == 1 else " (the parts of precincts that lie in a city)")
+                        + ". No votes from it are stored."))
     p = L["paths"]
 
     def official(sid, key, kind, agency, title, published, rows, note):
@@ -1841,7 +2344,10 @@ def local_sources(L, C):
                 f"{n_unplaced} candidates the list files without a city, school district or district that can be told (gaps, county by "
                 f"county); the names in {n_blank} contests where the list still shows more than one candidate of a party for one seat; "
                 "ballot questions (Constitutional Amendment 1 and any local question); primaries. The list gives no ballot order, and a soil "
-                "and water contest with no more candidates than seats is not printed on the ballot.")
+                "and water contest with no more candidates than seats is not printed on the ballot."
+                + "".join(f" In {st['cfg']['county']} the county clerk's official ballots were read, and they settle the {len(st['settled'])} "
+                          "county, city and school contests they print: names, ballot order and party as printed."
+                          for st in L["clerk"].values()))
     notes = [(STATE, "local_calendar", calendar, "Kentucky State Board of Elections, Kentucky Election Schedule (2026-2036); KRS 262.240 for "
               "soil and water supervisors", OFFICIAL["schedule"][1]),
              (STATE, "local_coverage", coverage, "Kentucky Secretary of State, Candidate Filings (the county clerks' list and the Secretary's "
@@ -1869,6 +2375,24 @@ def local_report(L, C, say):
     say("      cities that elect by ward or district: " + "; ".join(f"{n} ({d} districts, {r} rows)" for n, d, r in sorted(L["ward_cities"])))
     if L["unknown_party"]:
         say("      party words not seen before (shown as printed): " + ", ".join(sorted(L["unknown_party"])))
+    for f, st in L["clerk"].items():
+        B = st["B"]
+        say(f"      {st['cfg']['agency']}: {len(B['styles'])} ballots read, {len(B.get('split') or [])} precincts only as city parts, "
+            f"{len(B['failed'])} not"
+            + (f" ({', '.join(f'{s} {w}' for s, w in list(B['failed'].items())[:12])}{' ...' if len(B['failed']) > 12 else ''})" if B["failed"] else "")
+            + f"; {len(B['contests'])} contests printed, {st['skipped']} federal, state or judicial; {len(st['settled'])} local contests "
+            f"settled ({st['created']} new), {st['left_off']} list names not printed and left off, {st['added']} printed names added, "
+            f"{st['placed']} of the list's rows with no contest found by name, {st['printed_gone']} printed names the list marks withdrawn")
+        for t in st["unmapped"]:
+            say(f"        a contest on the ballots this loader cannot tie to a place (read these): {t}")
+        for t in B["disagree"]:
+            say(f"        ballots that disagree (read these): {t}")
+        for t in B["problems"][:10]:
+            say(f"        ballot reading: {t}")
+        for rid in st["not_printed"]:
+            say(f"        on the list, on no ballot read (read these): {rid}")
+        if st["unknown_codes"]:
+            say("        party codes not seen before: " + ", ".join(f"{k} {v}" for k, v in st["unknown_codes"].items()))
     for line in L["report"]:
         say(f"      check: {line}")
 

@@ -1,0 +1,27 @@
+{
+ "part": 27,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was already spent when this part began, so no searches could be made; only pages whose addresses were known or could be reached from an official site were read. Many county and school sites did not resolve, answered 403 (louisvilleky.gov, cityofglasgow.org) or draw their content by script (Ashland, Fort Thomas, Mason and Webster county school sites; Webster's board page links only a contact-details document, which was not opened), so 27 of the 30 candidates are left blank. Dan Seum Jr is listed as the District 13 incumbent on the Jefferson County Republican Party's 2026 page, which does not say endorsed; that line is already in ballot/lean/ky_endorsements.json and is not repeated here. Wikipedia's members table gives 2022 as the year he was elected; no start year is recorded because the official council page could not be read to settle it. Jeff Forsyth is not on the Republican Party of Kentucky's candidates page or the Fayette County Republican pages, and no campaign site was found. Verifier: all three candidates' findings re-opened and confirmed; each tied to this race by its office and place (31st Judicial District Division 2; Paris city commission; Louisville Metro Council District 13).",
+ "candidates": [
+  {"race_id": "2026-KY-DJ31-2", "name": "Tyler Green",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Floyd.aspx", "source": "Kentucky Court of Justice, Floyd County information: Tyler Green, Judge, District Court, 31st Judicial District, Division 2", "verified": true},
+   "offices": [
+    {"office": "District Judge, 31st Judicial District, Division 2", "from": null, "to": "present", "source": "Kentucky Court of Justice, Floyd County information page", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Floyd.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-59196-council", "name": "Tim Gray",
+   "official_page": {"url": "https://www.paris.ky.gov/board-of-commissioners/", "source": "City of Paris, Kentucky, Board of Commissioners page: Tim Gray, Commissioner, Mayor Pro Tem, serving since January 1, 2023", "verified": true},
+   "offices": [
+    {"office": "Paris City Commissioner (Mayor Pro Tem)", "from": "2023", "to": "present", "source": "City of Paris, Kentucky, Board of Commissioners page", "url": "https://www.paris.ky.gov/board-of-commissioners/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-13", "name": "Dan Seum Jr",
+   "offices": [
+    {"office": "Louisville Metro Council, District 13", "from": null, "to": "present", "source": "Wikipedia, 'Louisville Metro Council', members table (District 13: Dan Seum Jr., Republican, elected 2022)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Seat on the Louisville Metro Council, District 13, held as one of the council's Republican members (the council organizes by party caucus)", "year": null, "party": "Republican", "source": "Wikipedia, 'Louisville Metro Council', members table", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]}
+ ]
+}

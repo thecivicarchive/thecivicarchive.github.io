@@ -1,0 +1,37 @@
+{
+ "part": 24,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's shared web-search allowance was already used up when this part began, so research went only through pages that could be reached directly (party candidate lists already gathered, county, city and school district sites). Many county and city sites did not resolve, refused the kit's fetcher (Louisville Metro's site answers 403; the Prosecutors Advisory Council's directory sits behind a login, not attempted) or draw their member lists by script (Franklin County Schools), so 25 of the 30 candidates are left blank. Daniel Konstantopoulos is listed (not endorsed) on the Republican Party of Kentucky's candidates page, already in ballot/lean/ky_endorsements.json; that page links his campaign site. For a person to look at, not a review item (no official source was read): our record marks every Louisville/Jefferson County Metro Council and mayor contest 'Nonpartisan office', while the Jefferson County Republican Party's 2026 candidates page lists Metro Council candidates by district as Republicans (https://louisvillegop.com/2026republicancandidates/) and Wikipedia's members table gives each member a party. Verifier: the Jefferson District Court Judges page lists Judge Tanisha A. Hickerson in Division 07, while the race she is filed in is Division 9; the office (a sitting Jefferson District Court judge) is kept, the division difference is for a person to look at.",
+ "removed": [],
+ "candidates": [
+  {"race_id": "2026-KY-DJ30-9", "name": "Tanisha Ann Hickerson",
+   "official_page": {"url": "https://www.jeffersondistrictcourt.com/districtcourtjudges", "source": "Jefferson County District Court, Judges page: 'Judge Tanisha A. Hickerson', Division 07", "verified": true},
+   "offices": [
+    {"office": "Judge, Jefferson County District Court (30th Judicial District), Division 7", "from": null, "to": "present", "source": "Jefferson County District Court, Judges page", "url": "https://www.jeffersondistrictcourt.com/districtcourtjudges", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21223-county-executive", "name": "John D. Ogburn Jr.",
+   "official_page": {"url": "https://trimblecountyky.gov/county-government/", "source": "Trimble County Government: 'John D. Ogburn Jr.', County Judge/Executive", "verified": true},
+   "offices": [
+    {"office": "Trimble County Judge/Executive", "from": null, "to": "present", "source": "Trimble County Government, county government page", "url": "https://trimblecountyky.gov/county-government/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-00120-school-board-4", "name": "Steve Carmichael",
+   "official_page": {"url": "https://www.anderson.kyschools.us/BoardofEducation.aspx", "source": "Anderson County Schools, Board of Education: 'Steve Carmichael, Board Member, District 4'", "verified": true},
+   "offices": [
+    {"office": "Member, Anderson County Board of Education, District 4", "from": null, "to": "present", "source": "Anderson County Schools, Board of Education page", "url": "https://www.anderson.kyschools.us/BoardofEducation.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-48003-council-1", "name": "Tammy Hawkins",
+   "offices": [
+    {"office": "Member, Louisville Metro Council, District 1", "from": 2022, "to": "present", "source": "Wikipedia, Louisville Metro Council, current members table (District 1: Tammy Hawkins, Democratic, 2022)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Louisville Metro Council, District 1 seat (members sit by party)", "year": 2022, "party": "Democratic", "source": "Wikipedia, Louisville Metro Council, current members table", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-SH73", "name": "Daniel Konstantopoulos",
+   "website": {"url": "https://electdanielk.com/", "how": "linked as 'Website' in his entry on the Republican Party of Kentucky's candidates page (State Representative, District 73); the site's title reads 'Daniel Konstantopoulos for State Representative' and its About page speaks of 'the 73rd District'", "verified": true},
+   "offices": [
+    {"office": "Clark County Magistrate (three terms)", "from": null, "to": null, "source": "Konstantopoulos's campaign site, About page: 'a three-term Clark County Magistrate'", "url": "https://electdanielk.com/about", "kind": "campaign", "verified": true}
+   ]}
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "part": 11,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [
+  "Notes on a Fayette County school board candidate's employment and a reported lawsuit taken out of the file note (employers and legal matters are never collected)."
+ ],
+ "corrections": [
+  "Brian Painter: the county's page says only that he was elected District 1 Commissioner in November 2010; the 2022 re-election is shown by the official 2022 recap, not by that page, so the office wording now says so.",
+  "Jennie Y. Haymond: the unlinked mention of an Attorney General release taken out of the office wording.",
+  "Anne Delahanty: the unlinked claim about the 2022 results taken out of the office wording.",
+  "Amy Beth Beasley and Matthew Lehman: the website 'how' now describes only what the campaign sites themselves show."
+ ],
+ "note": "The session's shared web-search allowance ran out at this part's first searches, so the rest was read from pages reached directly: county, city and school-district sites and the State Board of Elections' official 2022 general election recaps (elect.ky.gov, one PDF per county). The recaps for Greenup, Powell, Elliott, Scott, Bell, Fulton, Meade, Owen, Clay, Breathitt and Fayette gave no text to the kit's PDF reader, and the Bell, Whitley and Winchester sites did not answer, so those candidates rest on what other pages show. Party pages that list a candidate without endorsing (Campbell County Republicans for Brian Painter, Fayette County Democrats for Amy Beasley) are already in ballot/lean/ky_endorsements.json as support and are not recorded here. Fulton County's constables page names a James Bridges as Constable, District 4, but nothing ties him to the James Bridges running for jailer, so it is left out. Johnny Templin ran for Nicholasville City Commission in 2022 and was not elected (official recap), so no office is recorded.",
+ "candidates": [
+  {"race_id": "2026-KY-21001-county-executive", "name": "Bridget Compton"},
+  {"race_id": "2026-KY-21013-county-attorney", "name": "Chris Douglas"},
+  {"race_id": "2026-KY-21025-constable-4", "name": "Doyle Turner"},
+  {
+   "race_id": "2026-KY-21037-county-commissioner-1",
+   "name": "Brian Painter",
+   "official_page": {"url": "https://www.campbellcountyky.gov/officials", "source": "Campbell County, Kentucky, Elected Officials page (lists Commissioner Brian Painter)", "verified": true},
+   "offices": [
+    {"office": "Campbell County Commissioner, District 1 (the county's page: elected District 1 Commissioner November 2010)", "from": "2011", "to": "present", "source": "Campbell County, Kentucky, Elected Officials page", "url": "https://www.campbellcountyky.gov/officials", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "County Commissioner, 1st District, Campbell County, 2022 general election (ballot prints REP as \"Brian D. PAINTER\"; won)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Campbell County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Campbell%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21051-constable-6", "name": "J Rodney Bowling"},
+  {
+   "race_id": "2026-KY-21063-magistrate-4",
+   "name": "Brian Dillon",
+   "official_page": {"url": "https://elliottcounty.ky.gov/Pages/Elected-Officials.aspx", "source": "Elliott County, Kentucky, Elected Officials page (Elliott County Magistrates: Precinct 4, Brian Dillon)", "verified": true},
+   "offices": [
+    {"office": "Elliott County Magistrate, district 4 (listed as \"Precinct 4\" on the county's page)", "to": "present", "source": "Elliott County, Kentucky, Elected Officials page", "url": "https://elliottcounty.ky.gov/Pages/Elected-Officials.aspx", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21075-jailer", "name": "James Bridges"},
+  {
+   "race_id": "2026-KY-21089-county-executive",
+   "name": "Bobby Hall",
+   "official_page": {"url": "https://www.greenupcountyky.gov/elected-officials", "source": "Greenup County, Kentucky, Elected Officials page (Greenup County Judge Executive Bobby Hall)", "verified": true},
+   "offices": [
+    {"office": "Greenup County Judge/Executive", "to": "present", "source": "Greenup County, Kentucky, Elected Officials page", "url": "https://www.greenupcountyky.gov/elected-officials", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21099-county-executive", "name": "Asa L. T. Waggoner"},
+  {"race_id": "2026-KY-21111-magistrate-2", "name": "Gary Fields"},
+  {
+   "race_id": "2026-KY-21125-constable-1",
+   "name": "Justin Williams",
+   "offices": [
+    {"office": "Laurel County Constable, District 1 (won the November 8, 2022 general election as the only printed candidate, \"Justin A. WILLIAMS\"; term from January 2023)", "from": "2023", "source": "Kentucky State Board of Elections, official 2022 general election results, Laurel County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Laurel%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Constable, District 1, Laurel County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Laurel County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Laurel%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-21137-jailer",
+   "name": "Griffin D Harness",
+   "official_page": {"url": "https://lincolnky.com/departments/jailer.php", "source": "Lincoln County, Kentucky, Jailer page (Lincoln County Jailer Griffin Harness)", "verified": true},
+   "offices": [
+    {"office": "Lincoln County Jailer (won the November 8, 2022 general election; term from January 2023)", "from": "2023", "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Lincoln County; the county's Jailer page names him Jailer today", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lincoln%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Jailer, Lincoln County, 2022 general election (ballot prints REP as \"Griffin HARNESS\"; won)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Lincoln County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lincoln%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-21151-county-attorney",
+   "name": "Jennie Y. Haymond",
+   "offices": [
+    {"office": "Madison County Attorney (won the November 8, 2022 general election as the only printed candidate, \"Jennie HAYMOND\"; term from January 2023)", "from": "2023", "to": "present", "source": "Kentucky State Board of Elections, official 2022 general election results, Madison County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Madison%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "County Attorney, Madison County, 2022 general election (ballot prints REP)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Madison County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Madison%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21163-magistrate-6", "name": "Tom Hollis"},
+  {"race_id": "2026-KY-21177-constable-1", "name": "Bobby Joe Lewellen II"},
+  {"race_id": "2026-KY-21187-constable-2", "name": "Kevin Hudson"},
+  {
+   "race_id": "2026-KY-21197-county-executive",
+   "name": "James Dwain Anderson",
+   "official_page": {"url": "https://powellcounty.ky.gov/elected/Pages/judge.aspx", "source": "Powell County, Kentucky, Judge Executive page (names \"James D. Anderson, Jr.\")", "verified": true},
+   "offices": [
+    {"office": "Powell County Judge/Executive (the county's page names \"James D. Anderson, Jr.\")", "to": "present", "source": "Powell County, Kentucky, Judge Executive page", "url": "https://powellcounty.ky.gov/elected/Pages/judge.aspx", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-21209-magistrate-6",
+   "name": "Ryan Pratt",
+   "official_page": {"url": "https://scottky.gov/county-government/", "source": "Scott County Fiscal Court, County Government page (Ryan Pratt, District 6)", "verified": true},
+   "offices": [
+    {"office": "Scott County Magistrate, District 6", "to": "present", "source": "Scott County Fiscal Court, County Government page", "url": "https://scottky.gov/county-government/", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-21221-magistrate-5", "name": "Jonathan Paul Shemwell"},
+  {
+   "race_id": "2026-KY-21235-jailer",
+   "name": "Jason Wilson",
+   "offices": [
+    {"office": "Whitley County Jailer (won the November 8, 2022 general election, \"Jason WILSON\", over an independent; term from January 2023)", "from": "2023", "source": "Kentucky State Board of Elections, official 2022 general election results, Whitley County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Whitley%20County.pdf", "kind": "official", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Jailer, Whitley County, 2022 general election (ballot prints REP; won)", "year": 2022, "party": "Republican", "source": "Kentucky State Board of Elections, official 2022 general election results, Whitley County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Whitley%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ30-13",
+   "name": "Anne Delahanty",
+   "official_page": {"url": "https://kycourts.gov/Courts/County-Information/Jefferson/Pages/Jefferson.aspx", "source": "Kentucky Court of Justice, Jefferson County court information (Anne Delahanty, Judge, District Court, 30th Judicial District, Division 13)", "verified": true},
+   "offices": [
+    {"office": "District Judge, 30th Judicial District (Jefferson County), Division 13", "to": "present", "source": "Kentucky Court of Justice, Jefferson County court information", "url": "https://kycourts.gov/Courts/County-Information/Jefferson/Pages/Jefferson.aspx", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-08902-council",
+   "name": "Dana Beasley Brown",
+   "official_page": {"url": "https://www.bgky.org/city-commission/dana-beasley-brown", "source": "City of Bowling Green, Commissioner Dana Beasley-Brown", "verified": true},
+   "offices": [
+    {"office": "Bowling Green City Commissioner (the city's page: elected to the City Commission in November 2018; years served 2019 to present)", "from": "2019", "to": "present", "source": "City of Bowling Green, Commissioner Dana Beasley-Brown", "url": "https://www.bgky.org/city-commission/dana-beasley-brown", "kind": "official", "verified": true},
+    {"office": "Member, Barren River Health District Board (appointed as a City Commissioner)", "to": "present", "source": "City of Bowling Green, Commissioner Dana Beasley-Brown", "url": "https://www.bgky.org/city-commission/dana-beasley-brown", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-30700-council",
+   "name": "Tammy Lusby Mitchell",
+   "official_page": {"url": "https://www.georgetownky.gov/2148/City-Council", "source": "City of Georgetown, City Council page (Tammy Lusby Mitchell, City Councilmember)", "verified": true},
+   "offices": [
+    {"office": "Georgetown City Council member", "to": "present", "source": "City of Georgetown, City Council page", "url": "https://www.georgetownky.gov/2148/City-Council", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-8",
+   "name": "Amy Beth Beasley",
+   "website": {"url": "https://beasleyforlex.com/", "how": "the campaign's own site, Beasley For Lex, presents Councilmember Beasley of District 8 (Lexington) and asks for donations and volunteers", "verified": true},
+   "official_page": {"url": "https://www.lexingtonky.gov/council-district-8", "source": "City of Lexington, Council District 8, Amy Beasley", "verified": true},
+   "offices": [
+    {"office": "Lexington-Fayette Urban County Council, District 8 (the city's page: the first woman elected to represent District 8)", "to": "present", "source": "City of Lexington, Council District 8, Amy Beasley", "url": "https://www.lexingtonky.gov/council-district-8", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-M-56136-council", "name": "Johnny Templin"},
+  {
+   "race_id": "2026-KY-M-83676-council",
+   "name": "Kitty W Strode",
+   "offices": [
+    {"office": "Winchester City Commissioner (elected November 8, 2022, second of the four elected, \"Kitty W. STRODE\"; term from January 2023)", "from": "2023", "source": "Kentucky State Board of Elections, official 2022 general election results, Clark County", "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Clark%20County.pdf", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-01860-school-board-2",
+   "name": "Tyler Murphy",
+   "official_page": {"url": "https://www.fcps.net/about/board-of-education/board-members/board-district-2", "source": "Fayette County Public Schools, Board District 2, Tyler Murphy, chair", "verified": true},
+   "offices": [
+    {"office": "Fayette County Board of Education, District 2 (the district's page: elected in 2018 and 2022, term expires in 2026; elected board chair in 2021, 2023 and 2025)", "to": "present", "source": "Fayette County Public Schools, Board District 2", "url": "https://www.fcps.net/about/board-of-education/board-members/board-district-2", "kind": "official", "verified": true}
+   ]
+  },
+  {"race_id": "2026-KY-S-03480-school-board-4", "name": "Gloria J Sneed"},
+  {
+   "race_id": "2026-KY-S-05580-school-board-3",
+   "name": "Jamie Gapp",
+   "official_page": {"url": "https://www.trigg.kyschools.us/district/board-of-education", "source": "Trigg County Public Schools, Board of Education (Jamie Gapp, Board Member, District #3)", "verified": true},
+   "offices": [
+    {"office": "Trigg County Board of Education, District 3", "to": "present", "source": "Trigg County Public Schools, Board of Education", "url": "https://www.trigg.kyschools.us/district/board-of-education", "kind": "official", "verified": true}
+   ]
+  },
+  {
+   "race_id": "2026-KY-SH67",
+   "name": "Matthew Lehman",
+   "website": {"url": "https://www.lehman4kentucky.org/", "how": "the campaign's own site, paid for by Citizens for Matthew Lehman, names him as a candidate for Kentucky State Representative, 67th District, in Campbell County (its footer still reads 2024)", "verified": true}
+  }
+ ]
+}

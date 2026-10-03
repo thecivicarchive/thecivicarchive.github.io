@@ -1,0 +1,30 @@
+{
+ "part": 29,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was already used up when this part started, so research went by fetching known official pages only. Many county, city and school-district sites did not resolve or refused the kit's fetcher (Glasgow 403, louisvilleky.gov 403 after one answer, Laurel, Shelby, Pulaski and Paris did not resolve, Mason County Schools' certificate did not match its name), so most of the 30 candidates are left blank. Covington's Mayor and Commission page does not list Cari McMurtry Garriga; Jessamine County's pages do not list Jared Madison Cobb; Ashland Independent's board page names no members in its text. Louisville Metro Council: Wikipedia's members table lists Jennifer Chappell (District 15) as Democratic, and Metro Council races are partisan in Louisville, while our record files every Metro Council race as 'Nonpartisan office'; no official page confirming the ballot label could be read (louisvilleky.gov answered 403), so this is not filed as a review item, only noted here for a person to check. Anne Gay Donworth is a sitting legislator with a record page: only her campaign website is recorded.",
+ "verifier_note": "Every url re-opened on 2026-10-03 (the campaign site and the Whitley County Schools page through the kit's patient fetcher after two failed lookups). All seven findings confirmed; the website's 'how' was reworded to what the page says now.",
+ "candidates": [
+  {"race_id": "2026-KY-SH76", "name": "Anne Gay Donworth",
+   "website": {"url": "https://www.annegaydonworth.com/", "how": "the external link on her Wikipedia article (Kentucky House of Representatives, 76th district); the site is headed 'Anne Donworth for State Representative', speaks of her 'campaign for re-election as Kentucky State Representative for the 76th District' and being eager 'to serve a second term', and is 'Paid for by the Fund to Elect Anne Gay Donworth'", "verified": true}},
+  {"race_id": "2026-KY-M-48003-council-15", "name": "Jennifer Chappell",
+   "offices": [
+    {"office": "Louisville Metro Council, District 15 (first elected 2022)", "from": null, "to": "present", "source": "Wikipedia, Louisville Metro Council, members table ('15 | Jennifer Chappell | Democratic | 2022'), citing louisvilleky.gov/government/metro-council/districts-1-26", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ],
+   "past_party": [
+    {"what": "Elected to Louisville Metro Council, District 15", "year": "2022", "party": "Democratic", "source": "Wikipedia, Louisville Metro Council, members table (the council sits in majority and minority party caucuses)", "url": "https://en.wikipedia.org/wiki/Louisville_Metro_Council", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-DJ32-2", "name": "Devon E. Reams",
+   "official_page": {"url": "https://www.kycourts.gov/Courts/County-Information/Pages/Boyd.aspx", "source": "Kentucky Court of Justice, Boyd County court information: 'Devon E. Reams, Judge, District Court, 32nd Judicial District Division 2'", "verified": true},
+   "offices": [
+    {"office": "District Judge, 32nd Judicial District, Division 2", "from": null, "to": "present", "source": "Kentucky Court of Justice, Boyd County court information", "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Boyd.aspx", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-S-05880-school-board-2", "name": "Brenda S. Rose",
+   "official_page": {"url": "https://www.whitley.kyschools.us/board-members", "source": "Whitley County Schools, Board Members page (lists Brenda Rose among the five members)", "verified": true},
+   "offices": [
+    {"office": "Member, Whitley County Board of Education", "from": null, "to": "present", "source": "Whitley County Schools, Board Members page", "url": "https://www.whitley.kyschools.us/board-members", "kind": "official", "verified": true}
+   ]}
+ ]
+}

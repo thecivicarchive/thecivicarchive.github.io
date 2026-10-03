@@ -1,0 +1,3447 @@
+{
+ "state": "KY",
+ "gathered": "2026-10-03",
+ "note": "Built as ballot/lean/mn_endorsements.json is. Each record is one line of one party page, matched to one race and one candidate on the lists already loaded in ballot_local_2026.sqlite (office, place and name all fit, one fit only). Kentucky's November 3, 2026 state and local ballot carries the Republican and Democratic parties, the Kentucky Party (two candidates), independents and declared write-ins; there is no statewide executive race. Kentucky parties do not endorse in contested primaries (the Franklin County Democratic Party's page says so), and most party pages list their nominees without calling it an endorsement. Only two pages call their lists endorsements: the Franklin County Democratic Party's '2026 Democratic Candidates' ('We're excited to endorse these Democratic Candidates') and the Kenton County Democratic Party's '2026 Candidates', which its own 2026 Voter Guide presents as 'the candidates endorsed by the Kenton County Democratic Party for the General Election'; both include nonpartisan city and school contests. Everything else is under 'other_support', with the page's own wording in 'kind', never to be shown as an endorsement: the Republican Party of Kentucky's 'Elected Officials & Candidates' (its 2026 legislative candidates; names, office and district only were read, never the campaign addresses the cards carry), the Jefferson, Campbell, McCracken, Hardin and Jessamine county Republican pages, and the Fayette, Boone, Daviess, Bourbon, Jessamine, Mercer, Nelson, Shelby, McCracken and Madison county Democratic pages. A line on a partisan contest adds nothing to the party printed on the ballot; lines on nonpartisan contests (Louisville Metro Council, Lexington's mayor and council, other city councils, school boards, judges) are the ones that say something the ballot does not. The Hardin County Republican Party's page lists every candidate in each nonpartisan contest and marks some '(R)': only the marked names are recorded. Bourbon County's post (January 30), Shelby County's home page and Jessamine County Democrats' page were written for the May primary; a candidate there who is not on the November list carries 'election' when the primary list is loaded, and is otherwise unmatched. Lines matched although the page spells the name differently keep the page's spelling in 'as_listed' (Leese for Leesa Unger, Herrmann for Herrman, Salwaechter for Saalwaechter, Corneilson for Cornelison, O'Neill for Oneill, McNamara for Mc Namara, Christopher for the ballot's Chistopher McVey). Lines whose district on the page differs from the November list are left unmatched rather than guessed (see the reasons). Federal offices on these pages are outside this file. Read on 2026-10-03 with the kit's honest User-Agent, each site's robots.txt checked first; every page in 'lists' was opened a second time and a record is kept only if the page still showed it (none was lost), and the Kenton voter guide's endorsement sentence and Franklin's were found again. Facebook pages are social media and were not read. Things for a person to look at: the Franklin County Democratic Party's page puts Erika Hancock in House District 56 and David Graves in 57, the reverse of the November list; Boone County Democrats put Lianna Nguyen in Commissioner District 3 (the list says 2); the Republican Party of Kentucky's page puts Carrie Sanders McKeehan in House District 41 (the list and the Jefferson County party say 38); and the Franklin County page lists Eric Whisman for magistrate District 6, a contest the November list as loaded does not have.",
+ "lists": [
+  {
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "title": "2026 Democratic Candidates",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "title": "2026 Candidates",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "title": "2026 Candidates",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "title": "2026 Democratic Candidates",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "title": "Bourbon County Democrats Announce Candidates for the 2026 Election Season",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "title": "Candidates for Kentucky",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "title": "Meet The 2026 Democratic Candidates",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "title": "Candidates: Your Candidates",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Shelby KY Democratic Party",
+   "title": "Meet the Midterm Candidates (home page)",
+   "url": "https://www.ShelbyKYDems.com/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "McCracken County Democrats",
+   "title": "Our Candidates: Meet your Democratic Candidates",
+   "url": "https://mccrackencountydemocrats.org/1681-2/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "title": "Meet Your 2026 Democratic Nominees (Vote page)",
+   "url": "https://madisonkydems.com/vote",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "title": "2026 Action Center",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "title": "Elected Officials & Candidates",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "title": "Voting Info 2026",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "title": "Candidates: 2026 General Election Candidates",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "title": "2026 Candidates",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Jessamine County",
+   "title": "Candidate Information",
+   "url": "https://www.jessaminegop.com/electioninfo",
+   "read_on": "2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "title": "Elections & Candidates: General 2026 Candidates",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "read_on": "2026-10-03"
+  }
+ ],
+ "endorsements": [
+  {
+   "race_id": "2026-KY-SS20",
+   "name": "Stella R. Pollard",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: State Senate 20th District, Stella Pollard"
+  },
+  {
+   "race_id": "2026-KY-21073-county-executive",
+   "name": "Michael Mueller",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: County Judge-Executive, Michael Mueller"
+  },
+  {
+   "race_id": "2026-KY-21073-county-attorney",
+   "name": "Max H. Comley",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: County Attorney, Max Comley"
+  },
+  {
+   "race_id": "2026-KY-21073-county-clerk",
+   "name": "Jeff Hancock",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: County Clerk, Jeff Hancock"
+  },
+  {
+   "race_id": "2026-KY-21073-jailer",
+   "name": "Tracy Hopper",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: County Jailer, Tracy Hopper"
+  },
+  {
+   "race_id": "2026-KY-21073-coroner",
+   "name": "Will Harrod",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: Coroner, Will Harrod"
+  },
+  {
+   "race_id": "2026-KY-21073-county-assessor",
+   "name": "Wil Rhodes",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: PVA, Wil Rhodes"
+  },
+  {
+   "race_id": "2026-KY-21073-sheriff",
+   "name": "Dwayne Forrest Depp",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: Sheriff, Dwayne Depp"
+  },
+  {
+   "race_id": "2026-KY-21073-magistrate-1",
+   "name": "Sherry G Sebastian",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 1st District Magistrate, Sherry Sebastian"
+  },
+  {
+   "race_id": "2026-KY-21073-magistrate-2",
+   "name": "James Weir Blackburn II",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 2nd District Magistrate, James Blackburn"
+  },
+  {
+   "race_id": "2026-KY-21073-magistrate-3",
+   "name": "Kelly Lane Dycus",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 3rd District Magistrate, Kelly Dycus"
+  },
+  {
+   "race_id": "2026-KY-21073-magistrate-4",
+   "name": "Mike Harrod",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 4th District Magistrate, Mike Harrod"
+  },
+  {
+   "race_id": "2026-KY-21073-magistrate-5",
+   "name": "Richard Tanner",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 5th District Magistrate, Richard Tanner"
+  },
+  {
+   "race_id": "2026-KY-M-28900-council",
+   "name": "Katima Smith-Willis",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: City Commission- At Large (Non-Partisan Race Candidates), Katima Smith-Willis"
+  },
+  {
+   "race_id": "2026-KY-M-28900-council",
+   "name": "Kelly May",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: City Commission- At Large (Non-Partisan Race Candidates), Kelly May"
+  },
+  {
+   "race_id": "2026-KY-M-28900-council",
+   "name": "Leesa Unger",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: City Commission- At Large (Non-Partisan Race Candidates), Leese Unger"
+  },
+  {
+   "race_id": "2026-KY-S-02010-school-board-3",
+   "name": "Natalie Lile",
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: Franklin County School Board - 3rd District (Non-Partisan Race Candidates), Natalie Lile"
+  },
+  {
+   "race_id": "2026-KY-21117-county-commissioner-1",
+   "name": "Sarah Froelich",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Kenton County Commissioner, Commissioner District 1, Sarah Froelich"
+  },
+  {
+   "race_id": "2026-KY-21117-county-commissioner-2",
+   "name": "Benjamin Bach",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Kenton County Commissioner, Commissioner District 2, Ben Bach"
+  },
+  {
+   "race_id": "2026-KY-21117-county-commissioner-3",
+   "name": "Jordan T. Baldridge",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Kenton County Commissioner, Commissioner District 3, Jordan Baldridge"
+  },
+  {
+   "race_id": "2026-KY-21117-sheriff",
+   "name": "Tom Collins",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Kenton County Sheriff, Tom Collins"
+  },
+  {
+   "race_id": "2026-KY-21117-magistrate-1",
+   "name": "Stephen L J Hoffman",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Kenton County Magistrate, Magistrate District 1, Stephen Hoffman"
+  },
+  {
+   "race_id": "2026-KY-SH64",
+   "name": "William Nick Whalen",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 64th District, William Whalen"
+  },
+  {
+   "race_id": "2026-KY-SH65",
+   "name": "Aaron John Currin",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 65th District, Aaron Currin"
+  },
+  {
+   "race_id": "2026-KY-SH69",
+   "name": "Wilanne Stangel",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 69th District, Wilanne Stangel"
+  },
+  {
+   "race_id": "2026-KY-SS20",
+   "name": "Stella R. Pollard",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: KY State Senate, 20th District, Stella Pollard"
+  },
+  {
+   "race_id": "2026-KY-SS24",
+   "name": "Joshua Baker",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: KY State Senate, 24th District, Joshua Baker"
+  },
+  {
+   "race_id": "2026-KY-M-25300-council",
+   "name": "Courtney Hundley",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Erlanger City Council (2026 Nonpartisan Candidates), Courtney Hundley"
+  },
+  {
+   "race_id": "2026-KY-M-25300-council",
+   "name": "Chris Herrman",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Erlanger City Council (2026 Nonpartisan Candidates), Chris Herrmann"
+  },
+  {
+   "race_id": "2026-KY-M-43606-council",
+   "name": "John Busse",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Lakeside Park City Council (2026 Nonpartisan Candidates), John Busse"
+  },
+  {
+   "race_id": "2026-KY-M-48378-council",
+   "name": "Meagan Guthrie",
+   "party": "Democratic",
+   "unit": "Kenton County Democratic Party",
+   "url": "https://kentoncountydemocrats.org/2026-candidates",
+   "as_listed": "2026 Candidates: Ludlow City Council (2026 Nonpartisan Candidates), Meagan Guthrie"
+  }
+ ],
+ "unmatched": 3,
+ "unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: State Representative 56th District, Erika Hancock",
+   "reason": "the page lists Erika Hancock for State Representative, 56th District; the November list has her as the Democratic candidate in District 57 (and David Graves in District 56), so the district on the page does not fit and the line is not matched"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: State Representative 57th District, David Graves",
+   "reason": "the page lists David Graves for State Representative, 57th District; the November list has him as the Democratic candidate in District 56 (and Erika Hancock in District 57), so the district on the page does not fit and the line is not matched"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Franklin County Democratic Party",
+   "url": "https://franklincodemocrats.com/2026-democratic-candidates/",
+   "as_listed": "2026 Democratic Candidates: 6th District Magistrate, Eric Whisman",
+   "reason": "the November list as loaded has no Franklin County magistrate District 6 contest and no candidate of this name"
+  }
+ ],
+ "other_support": [
+  {
+   "race_id": "2026-KY-SS20",
+   "name": "Stella R. Pollard",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: KY State Senate, 20th District, Stella Pollard",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH60",
+   "name": "Tracey Reid",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 60th District, Tracey Reid",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH66",
+   "name": "Jason Ellis",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 66th District, Jason Ellis",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH69",
+   "name": "Wilanne Stangel",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: KY State House, 69th District, Wilanne Stangel",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21015-county-commissioner-1",
+   "name": "Debra Waller",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: Boone County Commissioner, Commissioner District 1, Debra Waller",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-S-00510-school-board-4",
+   "name": "Robin Shumate",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: Boone County School Board, School Board Division 4, Robin Shumate",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-27982-council",
+   "name": "Lesley Chambers",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: Florence City Council, Lesley Chambers",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-27982-council",
+   "name": "Shari Kilmer",
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: Florence City Council, Shari Kilmer",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS8",
+   "name": "Vicki Quisenberry",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Kentucky Senate, 8th District, Vicki Quisenberry",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH7",
+   "name": "Laurie C. Campbell",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Kentucky House, 7th District, Laurie C. Campbell",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH13",
+   "name": "Rhondalyn Randolph",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Kentucky House, 13th District, Rev. Rhondalyn Randolph",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH14",
+   "name": "Donna Haynes",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Kentucky House, 14th District, Donna Haynes",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21059-county-executive",
+   "name": "William Rod Kuegel Jr.",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: County Judge-Executive, Rod Kuegel",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21059-county-commissioner-east",
+   "name": "Sagan Storm",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Fiscal Court, East County Commissioner, Sagan Storm",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21059-county-assessor",
+   "name": "William T Pogue Jr.",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Property Valuation Administrator, William Pogue",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21059-magistrate-central",
+   "name": "Chris Saalwaechter",
+   "party": "Democratic",
+   "unit": "Daviess County Democratic Party",
+   "url": "https://www.daviesscountydemocrats.org/candidates",
+   "as_listed": "2026 Democratic Candidates: Justice of the Peace, Central, Chris Salwaechter",
+   "kind": "listed among the party's candidates (the page, 'Your 2026 Democratic candidates', lists the Democrats on the November ballot and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-county-executive",
+   "name": "Allison Cox",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: County Judge Executive, Allison Cox",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-county-attorney",
+   "name": "Gordon Davis Wilson",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: County Attorney, Gordon Davis Wilson",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-county-assessor",
+   "name": "John Andrew Sosby",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Property Valuation Administrator, John Andrew Sosby",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-sheriff",
+   "name": "Michael A Jones",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Sheriff, Michael A. Jones",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-magistrate-3",
+   "name": "Mark D Offutt",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Magistrate/Justice of the Peace, Clintonville, Mark D. Offutt",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-magistrate-2",
+   "name": "Eugene Chuck Kiser Jr",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Magistrate/Justice of the Peace, Flat Rock (on primary ballot), Eugene Chuck Kiser Jr.",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-constable-3",
+   "name": "Timothy W Sosby",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Constable, Clintonville, Timothy W. Sosby",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-constable-2",
+   "name": "Ralph Tobin",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Constable, Flat Rock, Ralph Tobin",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21017-constable-4",
+   "name": "Rebecca Sue Kelly",
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Constable, Millersburg, Rebecca Sue Kelly",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH39",
+   "name": "Ryan Stanford",
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "as_listed": "Candidates for Kentucky: KY House District 39 (Primary Candidates), Ryan Stanford",
+   "kind": "listed among the Democratic primary candidates (the page, 'Candidates for Kentucky', lists the primary field and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH45",
+   "name": "Adam Moore",
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "as_listed": "Candidates for Kentucky: KY House District 45 (Primary Candidates), Adam Moore",
+   "kind": "listed among the Democratic primary candidates (the page, 'Candidates for Kentucky', lists the primary field and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH55",
+   "name": "Nathan Saucedo",
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "as_listed": "Candidates for Kentucky: KY House District 55 (Primary Candidates), Nathan Saucedo",
+   "kind": "listed among the Democratic primary candidates (the page, 'Candidates for Kentucky', lists the primary field and does not say endorsed)",
+   "election": "primary-DEM"
+  },
+  {
+   "race_id": "2026-KY-SH55",
+   "name": "Katrina A. Sexton",
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "as_listed": "Candidates for Kentucky: KY House District 55 (Primary Candidates), Katrina Sexton",
+   "kind": "listed among the Democratic primary candidates (the page, 'Candidates for Kentucky', lists the primary field and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH56",
+   "name": "David Graves",
+   "party": "Democratic",
+   "unit": "Jessamine County Democrats",
+   "url": "https://jessaminedems.org/candidates-for-kentucky/",
+   "as_listed": "Candidates for Kentucky: KY House District 56 (Primary Candidates), David Graves",
+   "kind": "listed among the Democratic primary candidates (the page, 'Candidates for Kentucky', lists the primary field and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-county-executive",
+   "name": "Chris Walker",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Judge-Executive, Chris Walker",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-county-attorney",
+   "name": "Ted S. Dean",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Attorney, Ted Dean",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-county-clerk",
+   "name": "Chris Horn",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Clerk, Chris Horn",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-magistrate-3",
+   "name": "Julie Peyton Popplewell",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Magistrate in District 3, Julie Popplewell",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-34966-council",
+   "name": "Jack L. Coleman",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for Harrodsburg City Commissioner, Jack Coleman",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-34966-council",
+   "name": "Joseph Mason Hood",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for Harrodsburg City Commissioner, Joseph Hood",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-34966-council",
+   "name": "Roger Johnson",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for Harrodsburg City Commissioner, Roger Johnson",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-34966-council",
+   "name": "Tommy Shirley",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for Harrodsburg City Commissioner, Tommy Shirley",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-34966-council",
+   "name": "Kayla Walker",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for Harrodsburg City Commissioner, Kayla Walker",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-S-04110-school-board-3",
+   "name": "Billy G. Montgomery",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for the Mercer County Board of Education, Billy G. Montgomery",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-11044-council",
+   "name": "Melinda Wofford",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: candidate for the Burgin City Council, Melinda Wofford",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-constable-4",
+   "name": "Donald C. Smith Jr.",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Constable, Donald Smith",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21167-constable-1",
+   "name": "William McFerron",
+   "party": "Democratic",
+   "unit": "Mercer County Kentucky Democrats",
+   "url": "https://www.mercerdemsky.org/2026-candidates",
+   "as_listed": "Meet The 2026 Democratic Candidates: Democratic candidate for Mercer County Constable, William McFerron",
+   "kind": "listed among the party's candidates (the page, 'Meet The 2026 Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS14",
+   "name": "Carrie Gribbins Truitt",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: State Senate, Carrie Truitt",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21179-county-executive",
+   "name": "James Taylor \"JT\" Roby",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: County Judge Executive, J.T. Roby",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21179-sheriff",
+   "name": "Adrian \"Aj\" Lewis Jr",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: County Sheriff, A.J. Lewis",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21179-magistrate-1",
+   "name": "Ballard Keith Metcalfe",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: Magistrate District 1, Keith Metcalfe",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21179-magistrate-3",
+   "name": "Cameron Richards",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: Magistrate District 3, Cameron Richards",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21179-magistrate-4",
+   "name": "Frankie Cambron",
+   "party": "Democratic",
+   "unit": "Nelson County Democrats",
+   "url": "https://www.nelsonkydems.org/team-1",
+   "as_listed": "Candidates: Your Candidates: Magistrate District 4, Frankie Cambron",
+   "kind": "listed among the party's candidates (the page, 'Your Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH58",
+   "name": "Andrew Thomas Monarch",
+   "party": "Democratic",
+   "unit": "Shelby KY Democratic Party",
+   "url": "https://www.ShelbyKYDems.com/",
+   "as_listed": "Meet the Midterm Candidates (home page): State House of Representatives District 58, Andrew Thomas Monarch",
+   "kind": "listed among the party's candidates (the home page's 'Meet the Midterm Candidates', made for the May 19 primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21211-coroner",
+   "name": "Justin Barnes",
+   "party": "Democratic",
+   "unit": "Shelby KY Democratic Party",
+   "url": "https://www.ShelbyKYDems.com/",
+   "as_listed": "Meet the Midterm Candidates (home page): Justin Barnes for Coroner",
+   "kind": "listed among the party's candidates (the home page's 'Meet the Midterm Candidates', made for the May 19 primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21211-constable-1",
+   "name": "Wayne Ivers",
+   "party": "Democratic",
+   "unit": "Shelby KY Democratic Party",
+   "url": "https://www.ShelbyKYDems.com/",
+   "as_listed": "Meet the Midterm Candidates (home page): Wayne Ivers for Constable D1",
+   "kind": "listed among the party's candidates (the home page's 'Meet the Midterm Candidates', made for the May 19 primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21211-county-assessor",
+   "name": "Brad McDowell",
+   "party": "Democratic",
+   "unit": "Shelby KY Democratic Party",
+   "url": "https://www.ShelbyKYDems.com/",
+   "as_listed": "Meet the Midterm Candidates (home page): Brad McDowell for PVA",
+   "kind": "listed among the party's candidates (the home page's 'Meet the Midterm Candidates', made for the May 19 primary, does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-clerk",
+   "name": "Daronda Tyler",
+   "party": "Democratic",
+   "unit": "McCracken County Democrats",
+   "url": "https://mccrackencountydemocrats.org/1681-2/",
+   "as_listed": "Our Candidates: Meet your Democratic Candidates: Daronda Tyler for County Clerk",
+   "kind": "listed among the party's candidates (the page, 'Meet your Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH3",
+   "name": "Michael McVicker",
+   "party": "Democratic",
+   "unit": "McCracken County Democrats",
+   "url": "https://mccrackencountydemocrats.org/1681-2/",
+   "as_listed": "Our Candidates: Meet your Democratic Candidates: Michael McVicker for State Rep. (District 3)",
+   "kind": "listed among the party's candidates (the page, 'Meet your Democratic Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH81",
+   "name": "Anthony Looney",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Kentucky State House (page heading); the card links to looneyforky81.com, Anthony Looney",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS34",
+   "name": "Jessica D. McIntosh",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Kentucky State Senate 34 / House (card), Jessica McIntosh",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH91",
+   "name": "David Johnson",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Kentucky State House 91, David Johnson",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-COA5-1",
+   "name": "Will Moynahan",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Judiciary (25th Judicial District, Division 1 / Court of Appeals 5th Appellate District, Division 1), Will Moynahan",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-DJ25-1",
+   "name": "Tyler S. Frazier",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Judiciary (25th Judicial District, Division 1 / Court of Appeals 5th Appellate District, Division 1), Tyler Frazier",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21151-coroner",
+   "name": "Jimmy Cornelison",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): Madison County Coroner, Jimmy Corneilson",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-65226-mayor",
+   "name": "Robert R Blythe",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): City of Richmond, Robert Blythe",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-65226-council",
+   "name": "Stephen Delaney",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): City of Richmond, Stephen Delaney",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-65226-council",
+   "name": "Myron \"Mike\" Edwards",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): City of Berea / Richmond, Myron \"Mike\" Edwards",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-05842-council",
+   "name": "Leah Van Winkle",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): City of Berea / Richmond, Leah Van Winkle",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-05842-council",
+   "name": "Allison \"Ali\" Blair",
+   "party": "Democratic",
+   "unit": "Madison County Democratic Party",
+   "url": "https://madisonkydems.com/vote",
+   "as_listed": "Meet Your 2026 Democratic Nominees (Vote page): City of Berea / Richmond, Ali Blair",
+   "kind": "listed among the party's nominees (the page, 'Meet Your 2026 Democratic Nominees', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-mayor",
+   "name": "Raquel E. Carter",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Mayor, Raquel Carter",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-clerk",
+   "name": "Susan Lamb",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Clerk, Susan Lamb",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-executive",
+   "name": "Mary Diane McCord Hanna",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Judge Executive, Mary Diane McCord Hanna",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-assessor",
+   "name": "David Oneill",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: PVA, David O'Neill",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-attorney",
+   "name": "Angela Evans",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: County Attorney, Angela Evans",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-sheriff",
+   "name": "Kathy H. Witt",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Sheriff, Kathy Witt",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "Dan Wu",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council At-Large, Dan Wu",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "Herbert Lynn",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council At-Large, Herbert Lynn",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "James Brown",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council At-Large, James Brown",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "William Tate Ohmer",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council At-Large, William Tate Ohmer",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "Stephanie Aschmann Spires",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council At-Large, Stephanie Aschmann Spires",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-1",
+   "name": "Tyler Morton",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 1, Tyler Morton",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-2",
+   "name": "Shayla Lynch",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 2, Shayla Lynch",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-3",
+   "name": "Griffin Vanmeter",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 3, Griffin VanMeter",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-4",
+   "name": "Emma Curtis",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 4, Emma Curtis",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-5",
+   "name": "Stephenie Hoelscher",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 5, Stephenie Hoelscher",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-6",
+   "name": "Tina V. Bryson",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 6, Tina Bryson",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-8",
+   "name": "Amy Beth Beasley",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 8, Amy Beasley",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-9",
+   "name": "Whitney Elliott Baxter",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 9, Whitney Baxter",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-11",
+   "name": "Cassandra Vogl",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 11, Cassandra Vogl",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-11",
+   "name": "Richard Moloney",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: LFUCG Council 11, Richard Moloney",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-commissioner-1",
+   "name": "Perry Scott Gibson",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: County Commissioner 1, Perry Scott Gibson",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-commissioner-2",
+   "name": "Elizabeth Ann Hatfield",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: County Commissioner 2, Elizabeth Ann Hatfield",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-county-commissioner-3",
+   "name": "Chance M.E. Mc Namara",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: County Commissioner 3, Chance McNamara",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-coroner",
+   "name": "Gary Ginn",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Coroner, Gary Ginn",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-magistrate-1",
+   "name": "Rosalind Bryant",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Magistrate 1, Rosalind Bryant",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-magistrate-2",
+   "name": "Karen Summers",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Magistrate 2, Karen Summers",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-magistrate-3",
+   "name": "Chrysanthia Seals",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Magistrate 3, Chrysanthia Seals",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-constable-1",
+   "name": "Robert Miller",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Constable 1, Robert Miller",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-constable-2",
+   "name": "Jim T. McKenzie",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Constable 2, Jim McKenzie",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21067-constable-3",
+   "name": "Edward \"Eddie\" Sparks",
+   "party": "Democratic",
+   "unit": "Fayette County Democratic Party",
+   "url": "https://fayettedemocrats.org/2026-action/",
+   "as_listed": "2026 Action Center: Constable 3, Edward \"Eddie\" Sparks",
+   "kind": "listed among the party's candidates (the page, '2026 Action Center', says 'Kentucky Democrats have candidates up and down the ballot' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS36",
+   "name": "Julie Raque Adams",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 36, Julie Raque Adams",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH85",
+   "name": "R. Shane Baker",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 85, Shane Baker",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH28",
+   "name": "Jared A. Bauman",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 28, Jared Bauman",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH91",
+   "name": "Darrell Billings",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 91, Darrell Billings",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH24",
+   "name": "Ryan Dale Bivens",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 24, Ryan Bivens",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH92",
+   "name": "John Blanton",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 92, John Blanton",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS8",
+   "name": "Gary M. Boswell",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 8, Gary Boswell",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH87",
+   "name": "Adam Bowling",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 87, Adam Bowling",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH83",
+   "name": "Joshua Branscum",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 83, Josh Branscum",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH25",
+   "name": "Steve Bratcher",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 25, Steve Bratcher",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH71",
+   "name": "Josh Bray",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 71, Josh Bray",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH3",
+   "name": "Randy Bridges",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 3, Randy Bridges",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH37",
+   "name": "Emily Myers Callaway",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 37, Emily Callaway",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH10",
+   "name": "Josh Calloway",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 10, Josh Calloway",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS34",
+   "name": "Jared K. Carpenter",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 34, Jared Carpenter",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS2",
+   "name": "Danny Carroll",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 2, Danny Carroll",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH74",
+   "name": "David F. Charles",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 74, David Charles",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH68",
+   "name": "Mike Clines",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 68, Mike Clines",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS26",
+   "name": "Everett C. Corley",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 26, Everett Corley",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH63",
+   "name": "Cole Cuzick",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 63, Cole Cuzick",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH58",
+   "name": "Jennifer Henson Decker",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 58, Jennifer Decker",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS10",
+   "name": "Matt Deneen",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 10, Matthew Deneen",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH65",
+   "name": "Stephanie A. Dietz",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 65, Stephanie Dietz",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH69",
+   "name": "Steven Doan",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 69, Steven Doan",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH9",
+   "name": "Myron B. Dossett",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 9, Myron Dossett",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS22",
+   "name": "Donald R. Douglas",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 22, Donald Douglas",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH17",
+   "name": "Robert B. Duvall",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 17, Robert Duvall",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS28",
+   "name": "Greg Elkins",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 28, Greg Elkins",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH54",
+   "name": "Daniel B. Elliott",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 54, Daniel Elliott",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH70",
+   "name": "Mike Fisher",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 70, Mike Fisher",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH56",
+   "name": "Daniel A. Fister",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 56, Daniel Fister",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH96",
+   "name": "Patrick Flannery",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 96, Patrick Flannery",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH48",
+   "name": "Ken Fleming",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 48, Ken Fleming",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH6",
+   "name": "Chris Freeland",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 6, Chris Freeland",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS24",
+   "name": "Shelley \"Funke\" Frommeyer",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 24, Shelley “Funke” Frommeyer",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH84",
+   "name": "Chris Fugate",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 84, Chris Fugate",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH12",
+   "name": "Jim Gooch Jr.",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 12, Jim Gooch Jr.",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH81",
+   "name": "Deanna Frazier Gordon",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 81, Deanna Gordon",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH26",
+   "name": "Peyton Griffee",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 26, Peyton Griffee",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH77",
+   "name": "Jason Griffith",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 77, Jason Griffith",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH88",
+   "name": "Vanessa Grossl",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 88, Vanessa Grossl",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH62",
+   "name": "Tony Hampton",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 62, Tony Hampton",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH78",
+   "name": "Mark Hart",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 78, Mark Hart",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH67",
+   "name": "Terry Hatton",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 67, Terry Hatton",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH18",
+   "name": "Samara Heavrin",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 18, Samara Heavrin",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH95",
+   "name": "Tanner Hesterberg",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 95, Tanner Hesterberg",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH36",
+   "name": "John F. Hodgson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 36, John Hodgson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH2",
+   "name": "Kim Holloway",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 2, Kim Holloway",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH49",
+   "name": "Thomas Huff",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 49, Thomas Huff",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH5",
+   "name": "Mary Beth Imes",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 5, Mary Beth Imes",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH20",
+   "name": "Kevin Jackson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 20, Kevin Jackson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH13",
+   "name": "D. J. Johnson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 13, DJ Johnson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH52",
+   "name": "Kevin G. Jones",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 52, Kevin Jones",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH55",
+   "name": "Kim King",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 55, Kim King",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH72",
+   "name": "Matthew R. Koch",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 72, Matt Koch",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH73",
+   "name": "Daniel Konstantopoulos",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 73, Daniel Konstantopoulos",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH90",
+   "name": "Derek Lewis",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 90, Derek Lewis",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH29",
+   "name": "Chris Lewis",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 29, Chris Lewis",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH39",
+   "name": "Matt Lockett",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 39, Matt Lockett",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH61",
+   "name": "Savannah Maddox",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 61, Savannah Maddox",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH50",
+   "name": "Candy Massaroni",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 50, Candy Massaroni",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS12",
+   "name": "Amanda Mays Bledsoe",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 12, Amanda Mays Bledsoe",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH97",
+   "name": "Bobby W. McCool",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 97, Bobby McCool",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH22",
+   "name": "Shawn McPherson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 22, Shawn McPherson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH80",
+   "name": "David Meade",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 80, David Meade",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH19",
+   "name": "Michael Lee Meredith",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 19, Michael Meredith",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH7",
+   "name": "Suzanne Miles",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 7, Suzanne Miles",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS4",
+   "name": "Robert M. \"Robby\" Mills",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 4, Robby Mills",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH64",
+   "name": "Kimberly Poore Moser",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 64, Kim Moser",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS14",
+   "name": "Ben Mudd",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 14, Ben Mudd",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH21",
+   "name": "Amy Neighbors",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 21, Amy Neighbors",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS38",
+   "name": "Mike Nemes",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 38, Mike Nemes",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH33",
+   "name": "Jason Michael Nemes",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 33, Jason Nemes",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH86",
+   "name": "Tom O'Dell Smith",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 86, Tom O’Dell Smith",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH59",
+   "name": "David W. Osborne",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 59, David Osborne",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH14",
+   "name": "Wes Pate",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 14, Wes Pate",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH11",
+   "name": "J. T. Payne",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 11, JT Payne",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH16",
+   "name": "Jason Petrie",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 16, Jason Petrie",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH51",
+   "name": "Michael \"Sarge\" Pollock",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 51, Sarge Pollock",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH60",
+   "name": "Marianne Proctor",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 60, Marianne Proctor",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH47",
+   "name": "Felicia Rabourn",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 47, Felicia Rabourn",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH15",
+   "name": "Rebecca Raymer",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 15, Rebecca Raymer",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH27",
+   "name": "Joseph Redmon",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 27, Joseph Redmon",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH23",
+   "name": "Steve Riley",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 23, Steve Riley",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH93",
+   "name": "Hannah Beth Rivera",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 93, Hannah Rivera",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH66",
+   "name": "T. J. Roberts",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 66, TJ Roberts",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH1",
+   "name": "Steven Jack Rudy",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 1, Steven Rudy",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH100",
+   "name": "Scott Sharp",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 100, Scott Sharp",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH35",
+   "name": "Bret Shultz",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 35, Bret Shultz",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS30",
+   "name": "Brandon D. Smith",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 30, Brandon Smith",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH8",
+   "name": "Walker Wood Thomas",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 8, Walker Thomas",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH98",
+   "name": "Aaron Thompson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 98, Aaron Thompson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS6",
+   "name": "Lindsey Tichenor",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 6, Lindsey Tichenor",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH45",
+   "name": "Killian Timoney",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 45, Killian Timoney",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH53",
+   "name": "James Allen Tipton",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 53, James Tipton",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH89",
+   "name": "Timmy Truett",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 89, Timmy Truett",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS18",
+   "name": "Robin L. Webb",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 18, Robin Webb",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH94",
+   "name": "Mitchum Addison Whitaker",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 94, Mitch Whitaker",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH99",
+   "name": "Richard Lee White",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 99, Richard White",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS20",
+   "name": "Gex \"jay\" Williams",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 20, Gex “Jay” Williams",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH4",
+   "name": "D. Wade Williams",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 4, Wade Williams",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS32",
+   "name": "Mike Wilson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 32, Mike Wilson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH82",
+   "name": "Nick Wilson",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 82, Nick Wilson",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS16",
+   "name": "George Maxwell \"Max\" Wise",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Senator, 2026, State Senate District 16, Max Wise",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH31",
+   "name": "Susan Tyler Witten",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 31, Susan Witten",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH46",
+   "name": "Brad Woolridge",
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 46, Brad Woolridge",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-7",
+   "name": "Catherine \"Cat\" Timmerman",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 7, Catherine Timmerman",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-11",
+   "name": "Kevin Kramer",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 11 (Incumbent), Kevin Kramer",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-17",
+   "name": "Nancy-Lynne Walters",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 17, Nancy-Lynne Walters",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-13",
+   "name": "Dan Seum Jr",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 13 (Incumbent), Dan Seum Jr.",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-19",
+   "name": "Anthony Piagentini",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 19 (Incumbent), Anthony Piagentini",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-19",
+   "name": "Alex Feria",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 19, Alex Feria",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-M-48003-council-23",
+   "name": "Jeff Hudson",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 23 (Incumbent), Jeff Hudson",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21111-sheriff",
+   "name": "Alexander William Marson",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: County Sheriff (Jefferson County), Alex Marson",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH28",
+   "name": "Jared A. Bauman",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 28, Jared Bauman",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH29",
+   "name": "Chris Lewis",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 29, Chris Lewis",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH31",
+   "name": "Susan Tyler Witten",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 31, Susan Tyler Witten",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH33",
+   "name": "Jason Michael Nemes",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 33, Jason Nemes",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH36",
+   "name": "John F. Hodgson",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 36, John Hodgson",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH34",
+   "name": "Victoria Ligon",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 34, Victoria Ligon",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH35",
+   "name": "Bret Shultz",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 35, Bret Shultz",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH38",
+   "name": "Carrie Sanders McKeehan",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 38, Carrie Sanders McKeehan",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH46",
+   "name": "Brad Woolridge",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 46, Brad Woolridge",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH48",
+   "name": "Ken Fleming",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky House of Representatives Republican Candidates (Jefferson County), District 48, Ken Fleming",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS6",
+   "name": "Lindsey Tichenor",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky Senate Republican Candidates (Jefferson County), District 6, Lindsey Tichenor",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS10",
+   "name": "Matt Deneen",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky Senate Republican Candidates (Jefferson County), District 10, Matt Deneen",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS26",
+   "name": "Everett C. Corley",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky Senate Republican Candidates (Jefferson County), District 26, Everett C. Corley",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS36",
+   "name": "Julie Raque Adams",
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Kentucky Senate Republican Candidates (Jefferson County), District 36, Julie Raque Adams",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS24",
+   "name": "Shelley \"Funke\" Frommeyer",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Kentucky State Senate and Representatives: Senator Shelley Funke Frommeyer",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH68",
+   "name": "Mike Clines",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Kentucky State Senate and Representatives: Representative Mike Clines",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH78",
+   "name": "Mark Hart",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Kentucky State Senate and Representatives: Representative Mark Hart",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH67",
+   "name": "Terry Hatton",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Kentucky State Senate and Representatives: Representative Candidate Terry Hatton",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-assessor",
+   "name": "Fred A. Macke III",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: PVA, Fred Macke III",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-executive",
+   "name": "Andrew \"Andy\" Schabell",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Judge Executive, Andy Schabell",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-attorney",
+   "name": "Wil Schroder",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Attorney, Wil Schroder",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-clerk",
+   "name": "Jim Luersen",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Clerk, Jim Luersen",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-sheriff",
+   "name": "Mike Jansen",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Sheriff, Mike Jansen",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-jailer",
+   "name": "Ryan Grosser",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Jailer, Ryan Grosser",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-commissioner-1",
+   "name": "Brian Painter",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Commissioner, Brian Painter",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-commissioner-2",
+   "name": "Geoff Besecker",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Commissioner, Geoff Besecker",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-commissioner-3",
+   "name": "Tom Lampe",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Commissioner, Tom Lampe",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-coroner",
+   "name": "Mark Schweitzer",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Coroner, Mark Schweitzer",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-county-surveyor",
+   "name": "Ryan Hartig",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: County Surveyor, Ryan Hartig",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-magistrate-1",
+   "name": "Frank Meyer",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Justice of Peace, Frank Meyer",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-constable-1",
+   "name": "Sean Donelan",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Constable, Sean Donelan",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-constable-2",
+   "name": "Kevin Sell",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Constable, Kevin Sell",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21037-constable-3",
+   "name": "William J. Hunt",
+   "party": "Republican",
+   "unit": "Campbell County Republican Party",
+   "url": "https://www.campbellcountyrepublicanparty.org/candidates",
+   "as_listed": "Candidates: 2026 General Election Candidates: Campbell County Elections: Constable, William Hunt",
+   "kind": "listed among the party's candidates (the page says 'the candidates that are Republicans in November's General Election' and does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS2",
+   "name": "Danny Carroll",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 2nd District State Senator, Danny Carroll",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH1",
+   "name": "Steven Jack Rudy",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 1st District State Representative, Steven Rudy",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH2",
+   "name": "Kim Holloway",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 2nd District State Representative, Kim Holloway",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH3",
+   "name": "Randy Bridges",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 3rd District State Representative, Randy Bridges",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH6",
+   "name": "Chris Freeland",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 6th District Representative, Chris Freeland",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-executive",
+   "name": "Craig Zeiss Clymer",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Judge Executive, Craig Clymer",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-attorney",
+   "name": "D. Cade Foster",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: County Attorney, Cade Foster",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-commissioner-1",
+   "name": "J.W. \"Bill\" Bartleman",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 1st District Commissioner, Bill Bartleman",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-commissioner-2",
+   "name": "Jeff Parker",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 2nd District Commissioner, Jeff Parker",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-commissioner-3",
+   "name": "Eddie Jones",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 3rd District Commissioner, Eddie Jones",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-sheriff",
+   "name": "Ryan Norman",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Sheriff, Ryan Norman",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-jailer",
+   "name": "Stephen Carter",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Jailer, Stephen Carter",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-clerk",
+   "name": "Cara Ann Walker",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: County Clerk, Cara Walker",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-clerk-of-court-S",
+   "name": "Anita Turner",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Circuit Clerk, Anita Turner",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-assessor",
+   "name": "Bill Dunn",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: PVA, Bill Dunn",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-coroner",
+   "name": "Amanda G. Melton",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Coroner, Amanda Melton",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-constable-1",
+   "name": "Mark Hayden",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 1st District Constable, Mark Hayden",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-constable-2",
+   "name": "Eric Augustus",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: 2nd District Constable, Eric Augustus",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-magistrate-2",
+   "name": "Eric Allen",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: Justice of the Peace, District 2, Eric Allen",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21145-county-surveyor",
+   "name": "William Noel McElya",
+   "party": "Republican",
+   "unit": "McCracken County Republican Party",
+   "url": "https://www.mccrackengop.com/2026-candidates/",
+   "as_listed": "2026 Candidates: County Surveyor, William McElya",
+   "kind": "listed among the party's candidates (the page, 'a list of Republican candidates in the 2026 general election', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-S-03030-school-board-5",
+   "name": "Brandon Wides",
+   "party": "Republican",
+   "unit": "Republican Party of Jessamine County",
+   "url": "https://www.jessaminegop.com/electioninfo",
+   "as_listed": "Candidate Information: Jessamine County School Board, Brandon Wides",
+   "kind": "listed under the party's 'Candidate Information' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21113-county-attorney",
+   "name": "Anna Roberts-Smith",
+   "party": "Republican",
+   "unit": "Republican Party of Jessamine County",
+   "url": "https://www.jessaminegop.com/electioninfo",
+   "as_listed": "Candidate Information: County Attorney, Anna Roberts-Smith",
+   "kind": "listed under the party's 'Candidate Information' (the page does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SS10",
+   "name": "Matt Deneen",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Senate, #10, Matt Deneen",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH10",
+   "name": "Josh Calloway",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Representative, #10, Josh Calloway",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH18",
+   "name": "Samara Heavrin",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Representative, #18, Samara Heavrin",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH25",
+   "name": "Steve Bratcher",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Representative, #25, Steve Bratcher",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH26",
+   "name": "Peyton Griffee",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Representative, #26, Peyton Griffee",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-SH27",
+   "name": "Joseph Redmon",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: State Representative, #27, Joseph Redmon",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-county-assessor",
+   "name": "Casey Overstreet",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: PVA, Casey Overstreet",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-county-executive",
+   "name": "Keith Taul",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Judge Executive, Keith Taul",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-county-clerk",
+   "name": "Brian D. Smith",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: County Clerk, Brian D. Smith",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-county-attorney",
+   "name": "Donald C. Jones",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: County Attorney, Donald Jones",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-sheriff",
+   "name": "Willie Oden",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Sheriff, Willie Oden",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-jailer",
+   "name": "Robert Reynolds",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Jailer, Robert Reynolds",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-coroner",
+   "name": "Pat Elmore",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Coroner, Pat Elmore",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-county-surveyor",
+   "name": "Eric Spurrier",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Surveyor, Eric Spurrier",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-1",
+   "name": "Walter D. Meinhausen",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #1, Walt Meinhausen",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-3",
+   "name": "Patsy Whitehead",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #3, Patsy Whitehead",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-4",
+   "name": "Fred Clem Jr.",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #4, Fred Clem",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-5",
+   "name": "Aaron Pennington",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #5, Aaron Pennington",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-6",
+   "name": "William Jason Buckles",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #6, William Buckles",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-7",
+   "name": "Larry Allen Hicks",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #7, Larry Hicks",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-magistrate-8",
+   "name": "Kenny Muse",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Magistrates, #8, Kenny Muse",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-3",
+   "name": "John Bays",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #3, John Bays",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-4",
+   "name": "Brandon K. Curry",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #4, Brandon Curry",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-5",
+   "name": "Brad P Luebbert",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #5, Brad Luebbert",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-6",
+   "name": "Nathan Myers",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #6, Nathan Myers",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-7",
+   "name": "Stephen Drake",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #7, Stephen Drake",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-21093-constable-8",
+   "name": "Donald Parrett",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates: Constable, District #8, Donald Parrett",
+   "kind": "listed among the party's candidates (the page, 'General 2026 Candidates', does not say endorsed)"
+  },
+  {
+   "race_id": "2026-KY-DJ9-1",
+   "name": "Shelt Michael Lewis",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): 9th District Judge, NONPARTISAN: SHELT MICHAEL LEWIS #9 (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-63912-mayor",
+   "name": "Toshie Murrell",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): MAYOR CITY OF RADCLIFF: TOSHIE MURRELL (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-63912-council",
+   "name": "Pamela J. Deroche",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): RADCLIFF CITY COUNCIL: PAMELA J. DEROCHE (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-63912-council",
+   "name": "Robert \"Bob\" Mahanna",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): RADCLIFF CITY COUNCIL: ROBERT \"BOB\" MAHANNA (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-63912-council",
+   "name": "Jerry Brown",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): RADCLIFF CITY COUNCIL: JERRY BROWN (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-63912-council",
+   "name": "Steve Crum",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): RADCLIFF CITY COUNCIL: STEVE CRUM (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-79734-council",
+   "name": "Donna Spangenberger",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): VINE GROVE CITY COUNCIL: DONNA SPANGENBERGER (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-79734-council",
+   "name": "Kathleen \"Kathy\" Sisco",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): VINE GROVE CITY COUNCIL: KATHLEEN \"KATHY\" SISCO (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-79734-council",
+   "name": "Lonnie Dennis",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): VINE GROVE CITY COUNCIL: LONNIE DENNIS (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-24274-council",
+   "name": "Marty E. Fulkerson",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): ELIZABETHTOWN CITY COUNCIL: MARTY FULKERSON (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-24274-council",
+   "name": "E. Lamar Jones",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): ELIZABETHTOWN CITY COUNCIL: EDWARD LAMAR JONES (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-24274-council",
+   "name": "Tim Isaacs",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): ELIZABETHTOWN CITY COUNCIL: TIM ISAACS (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-24274-council",
+   "name": "Bryan \"Cheese\" Reesor",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): ELIZABETHTOWN CITY COUNCIL: BRYAN \"CHEESE\" REESOR (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-24274-council",
+   "name": "Logan T. Simmons",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): ELIZABETHTOWN CITY COUNCIL: LOGAN SIMMONS (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-mayor",
+   "name": "Richard A. Ciresi Sr.",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): MAYOR WEST POINT: RICHARD A. CIRESI SR. (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Kevin M. Duke",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: KEVIN M. DUKE (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Joseph R. Frost",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: JOSEPH R. FROST (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Donna Taylor",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: DONNA TAYLOR (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Jo Annette Sabol",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: JO ANNETTE SABOL (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Chistopher McVey",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: CHRISTOPHER MCVEY (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-81930-council",
+   "name": "Michael A. Bickel",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): WEST POINT CITY COUNCIL: MICHAEL A. BICKEL (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-71724-council",
+   "name": "Donald E. Washer",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): SONORA CITY COMMISSIONERS: DON WASHER (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-71724-council",
+   "name": "Nita Lee Logsdon",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): SONORA CITY COMMISSIONERS: NITA LEE LOGSDON (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-78672-council",
+   "name": "Trenton Oldham",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): UPTON CITY COMMISSIONERS: TRENTON OLDHAM (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-M-78672-council",
+   "name": "Thomas Aaron Brackett",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): UPTON CITY COMMISSIONERS: THOMAS AARON BRACKETT (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-S-02490-school-board-2",
+   "name": "Ben Sego",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): HARDIN COUNTY SCHOOL BOARD DIV #2: BEN SEGO (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  },
+  {
+   "race_id": "2026-KY-21093-soil-water",
+   "name": "J. Larry Thomas",
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): SOIL & WATER CONSERVATION SUPERVISOR: J. LARRY THOMAS (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)"
+  }
+ ],
+ "other_support_unmatched": 6,
+ "other_support_unmatched_listed": [
+  {
+   "party": "Democratic",
+   "unit": "Boone County Democrats",
+   "url": "http://www.boonedems.org/Home/2026-candidates",
+   "as_listed": "2026 Candidates: Boone County Commissioner, Commissioner District 3, Lianna Nguyen",
+   "kind": "listed among the party's candidates (the page, '2026 Candidates', does not say endorsed)",
+   "reason": "the page lists Lianna Nguyen for Boone County Commissioner, District 3; the November list has Lianna Simpson Nguyen in District 2, so the district on the page does not fit and the line is not matched"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Magistrate/Justice of the Peace, Flat Rock (on primary ballot), Randall \"Randy\" Taulbee",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)",
+   "reason": "listed for the May Democratic primary for magistrate (Flat Rock); not on the November list (Eugene Chuck Kiser Jr. is the Democrat there), and county primary lists are not loaded"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Bourbon County Democrats",
+   "url": "https://www.bourboncodemocrats.com/2026/01/30/bourbon-county-democrats-announce-candidates-for-the-2026-election-season/",
+   "as_listed": "Bourbon County Democrats Announce Candidates for the 2026 Election Season: Magistrate/Justice of the Peace, Flat Rock (on primary ballot), James Ronnie Johnson",
+   "kind": "listed among the party's candidates (the post of January 30, 2026, 'our list of candidates', made before the primary, does not say endorsed)",
+   "reason": "listed for the May Democratic primary for magistrate (Flat Rock); not on the November list (Eugene Chuck Kiser Jr. is the Democrat there), and county primary lists are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/elected-officials-candidates",
+   "as_listed": "Elected Officials & Candidates: Running For: State Representative, 2026, State House of Representatives District 41, Carrie Sanders McKeehan",
+   "kind": "listed among the party's candidates (the page, 'Elected Officials & Candidates', does not say endorsed)",
+   "reason": "the page lists Carrie Sanders McKeehan for State House District 41; the November list has her as the Republican candidate in District 38 (the Jefferson County Republican Party's page also says District 38), so the district on this page does not fit and the line is not matched"
+  },
+  {
+   "party": "Republican",
+   "unit": "Jefferson County Republican Party",
+   "url": "https://louisvillegop.com/2026republicancandidates/",
+   "as_listed": "Voting Info 2026: Louisville Metro Council Republican Candidates (Jefferson County), District 21, Lonnie Joseph",
+   "kind": "listed among the party's candidates (the page, 'Voting Info 2026', does not say endorsed)",
+   "reason": "Louisville Metro Council District 21's November contest has one candidate (Betsy Ruhe); the May nonpartisan primary lists for Louisville are not loaded"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "as_listed": "Elections & Candidates: General 2026 Candidates (nonpartisan contests): SONORA CITY COMMISSIONERS: KEVIN CODY PHILPOTT (R)",
+   "kind": "marked '(R)' in the page's list of every candidate for a nonpartisan contest (the page does not say endorsed; the other names in the contest are listed unmarked)",
+   "reason": "not on the November list for Sonora city commissioners (Donald E. Washer, Duane Manakee and Nita Lee Logsdon are)"
+  }
+ ],
+ "held_lists": [],
+ "held_for_john": [],
+ "not_read": [
+  {
+   "party": "Democratic",
+   "unit": "Kentucky Democratic Party",
+   "url": "https://kydemocrats.org/",
+   "why": "read (home, news, sitemap, elected officials); no candidate or endorsement page for 2026 state or local races. Its county pages (kydemocrats.org/counties/...) carry contact details: only their links to county party websites were read, and those sites were then read in turn."
+  },
+  {
+   "party": "Democratic",
+   "unit": "Kentucky Democratic Party",
+   "url": "https://primary.kydemocrats.org/",
+   "why": "read one county page; it is a guide to the May 19 primary ballot listing every Democrat who filed (and some nonpartisan contests), not a statement of support, so it is not used"
+  },
+  {
+   "party": "Republican",
+   "unit": "Republican Party of Kentucky",
+   "url": "https://rpk.org/press-releases/",
+   "why": "read (home and press release list); no endorsement for a 2026 state or local race. Its candidate list is used (see 'lists')."
+  },
+  {
+   "party": "Libertarian",
+   "unit": "Libertarian Party of Kentucky",
+   "url": "https://lpky.org/",
+   "why": "not reachable on 2026-10-03 (the address did not resolve; www.lpky.org answered HTTP 530). No Libertarian is on the November state or local list."
+  },
+  {
+   "party": "Kentucky Party",
+   "unit": "The Kentucky Party",
+   "url": "https://www.kentuckyparty.org/",
+   "why": "read; the site shows the party's officers and platform links but no candidate or endorsement list"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Warren County Democratic Party",
+   "url": "https://www.warrencountykydemocrats.com/",
+   "why": "not read: the site's robots.txt asks programs not to read it"
+  },
+  {
+   "party": "Republican",
+   "unit": "Washington County Republicans",
+   "url": "https://www.washingtoncountyrepublicans.com/",
+   "why": "the site refused this program (HTTP 403); left alone"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Trimble County Democrats",
+   "url": "https://trimbledems.org/",
+   "why": "did not answer (connection timed out)"
+  },
+  {
+   "party": "Republican",
+   "unit": "Bullitt, Carter, Breathitt, Breckinridge and Christian County Republican parties and the Kenton County Republican Party's older address",
+   "url": "http://bullittgop.com/ ; http://carter-gop.org/ ; http://www.breathittgop.org/ ; https://www.breckinridgegop.com/ ; http://www.christiancountyrepublicanparty.com/ ; https://kentongop.com/",
+   "why": "the addresses listed on the state party's Local GOP page did not resolve on 2026-10-03"
+  },
+  {
+   "party": "Republican",
+   "unit": "Spencer County and Union County Republican parties",
+   "url": "http://www.spencercountygop.com/ ; https://union-county-republican-committee.mailchimpsites.com/",
+   "why": "HTTP 404"
+  },
+  {
+   "party": "Republican",
+   "unit": "Adair County and Calloway County Republican parties",
+   "url": "http://www.adairkygop.org/candidates/2026-primary-candidates ; https://callowayrepublicans.org/",
+   "why": "read; each is a copy of the May primary ballot (every Republican who filed), not a statement of support, so neither is used; Adair's '2026 General Candidates' link goes to the county clerk"
+  },
+  {
+   "party": "Republican",
+   "unit": "Boone County Republican Party",
+   "url": "https://bcrpky.net/",
+   "why": "read (home and its search for 'endorse'); its only endorsement page is for 2022 judicial races; nothing for 2026"
+  },
+  {
+   "party": "Republican",
+   "unit": "Kenton, Fayette, Oldham, Boyle, Boyd, Franklin, Harrison, Logan, Marshall and Meade County Republican parties",
+   "url": "http://kcrp.org/ ; https://fayettegop.com/elections/ ; http://www.OldhamcountyGOP.org/ ; http://www.boylecountyrepublicans.org/ ; https://www.boydcountyrepublicanparty.org/ ; http://www.franklincogopky.com/ ; http://harrisonkygop.com/ ; https://lcrp-ky.org/ ; http://www.marshallcokygop.org/ ; https://meadegop.com/",
+   "why": "read; no 2026 candidate or endorsement list (elected officials, primary dates, events)"
+  },
+  {
+   "party": "Democratic",
+   "unit": "Campbell, Boyd, Boyle, Hart, Henry, Marshall, Oldham, Pendleton, Powell, Pulaski, Scott, Simpson, Woodford and Hardin County Democratic parties",
+   "url": "https://thecampbelldems.com/candidates ; https://www.boydcountydemocrats.com/ ; https://www.boylecodems.org/ ; https://www.hartcodems.com/home ; http://www.henrykydemocrat.com/ ; http://marshallkydems.com/ ; https://www.oldhamkydems.org/ ; https://pendletoncountydemocrats.com/ ; https://www.powellcountydemocrats.com/ ; https://pulaskidems.org/ ; https://www.scottcodemocrats.com/ ; https://www.simpsonkydems.org/ ; https://www.woodforddemocrats.org/ ; https://bit.ly/4oCAYFZ",
+   "why": "read; no 2026 candidate or endorsement list (Campbell's 'Candidates' page describes the offices only; Hart's shows the 2024 ballot; Hardin's link is a mailing-list form)"
+  },
+  {
+   "party": "Republican and Democratic",
+   "unit": "county parties with no website of their own",
+   "url": "",
+   "why": "most of Kentucky's 120 county parties publish only on Facebook, which is social media and is not read"
+  },
+  {
+   "party": "Republican and Democratic",
+   "unit": "legislative caucus campaign committees",
+   "url": "",
+   "why": "not party units; not read"
+  },
+  {
+   "party": "Republican",
+   "unit": "Hardin County Republican Party of Kentucky",
+   "url": "https://www.hardinkygop.org/candidates-elections",
+   "why": "left out on purpose: the names the page lists without an '(R)' in nonpartisan contests (it lists every candidate there), and the federal lines"
+  }
+ ]
+}

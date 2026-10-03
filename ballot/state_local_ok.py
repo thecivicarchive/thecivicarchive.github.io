@@ -28,10 +28,19 @@ Sources, all the Oklahoma State Election Board's own, the same ones the federal 
 Oklahoma leaves a seat off the November ballot when it was settled earlier, and the November list shows it: a seat
 with one candidate left once filing closed (stored as that candidate with outcome "unopposed" and a note, as the
 federal Florida loader does), and a seat for which only one party's candidates filed (settled in that party's June 16
-primary or August 25 runoff: the field is stored, with no winner, because the Board publishes results only on
-results.okelections.us, which refuses scripts with 403 Forbidden). No vote counts are loaded, and which primaries went
-to the August 25 runoff is not read. A primary field is two or more of a party's candidates on its June 16 ballot; the
-nominee is that party's candidate on the November list.
+primary or August 25 runoff: the field is stored, and the race's note says who won and when). A primary field is two
+or more of a party's candidates on its June 16 ballot; the nominee is that party's candidate on the November list.
+
+  The votes: the Board publishes results only on its results site, which refuses scripts with 403 Forbidden. The
+  official results of the June 16 primary and the August 25 runoff were saved through a browser from the site's own
+  Export menu on 2026-10-03 into ballot_cache/ok/results/<yyyymmdd>/ and are read from there by the federal loader's
+  reader (ballot/lists/ok.py: official_results, settle), by heading, downloading nothing. Each contest must pass its
+  checks (every precinct reporting, the votes' parts adding up, and the contest's total and each candidate's equal to
+  the sum of its county rows) or it is stored without votes and named. Names are paired with the names already loaded
+  (whose spelling is kept). A party primary: a majority nominates; without one the top two went to the runoff, stored
+  as its own election (runoff-REP, runoff-DEM, 2026-08-25). A nonpartisan judges' primary: without a majority the top
+  two go on to November. The winner the votes show must be the November list's nominee (for judges, the two on the
+  list). Without the files, the fields carry no votes and the settled seats say the winner is not shown.
 
 Judges: the November list names the district and associate district judge races still to be decided in November;
 only those are loaded (a judicial seat with one candidate, or decided by a majority in June, is not on the list and is
@@ -52,7 +61,20 @@ no addresses), so a fetched copy is kept whole in ballot_cache/ok/local/.
 
 Oklahoma prints only contested races (26 O.S. 6-102: an unopposed candidate's name is not printed on any ballot), so a
 county office with one candidate left, or one settled in the June 16 primary or the August 25 runoff, is not on the
-list and is not loaded; sl_notes and sl_gaps say so. Propositions and questions are counted, not loaded. A contest
+list. Propositions and questions are counted, not loaded.
+
+  From the official results of June 16 and August 25 (the same saved exports the state rows read; local_results): a
+  county contest is placed by the county that owns it in the results and its office and district, a district
+  attorney's by its district (the book's heading gives its counties), a city's by the Census place code of the city
+  the results name and its office and ward. The party primaries (and runoffs) of the county contests on the November
+  list are stored with their votes, the winner checked against the party's November candidate; a county seat the
+  November list does not print, with a primary of one party only, is a race of its own (level county) holding the
+  field, with a note saying who won and when; a district attorney's office the book shows one party's candidates for is
+  a race of its own (level court, 2026-OK-DA-<n>) the same way; the first round of a city contest on the November list
+  (Lawton, Tulsa) is stored as primary-NP, its top two checked against the November pair. City, town and school
+  contests decided before November are not loaded: the results do not say whether each was a city's primary or its
+  final election (its charter sets that), and a state gap names them. A county officer with no opponent at all is in
+  no list or result and is not shown; sl_notes and sl_gaps say so. A contest
 printed under several counties (a city that lies in two) must read the same in each; one that does not is left out and
 written to sl_gaps, as is an office or a section of a kind this loader has not been checked against, and a candidate
 line that does not read as a name (the line itself is never printed). None of that stops the state rows from loading.
@@ -180,8 +202,47 @@ NOT_CHECKED = ("The State Election Board's November list prints this contest, bu
 
 UNOPPOSED = ("Unopposed: the only candidate for this seat once withdrawals and contests of candidacy were settled, so the seat "
              "is not on the State Election Board's November 3 list and this name is not printed on the ballot.")
-RESULTS_REFUSED = ("The Board publishes who won only on its results site (results.okelections.us), which refuses scripts, so "
-                   "the winner is not shown here.")
+RESULTS_REFUSED = ("The State Election Board publishes who won only on its own results site, which does not let programs read it, "
+                   "so the winner is not shown here.")      # no web address in a note: the page's guard drops a note that holds one
+RESULTS_UNCHECKED = ("The State Election Board's official results for this primary did not pass this site's checks, so the winner "
+                     "is not shown here.")
+SRC_PRIMARY_RESULTS, SRC_RUNOFF_RESULTS = fed.SRC_PRIMARY_RESULTS, fed.SRC_RUNOFF_RESULTS
+
+
+def settled_words(party, winner, got):
+    """A seat settled before November, in words: who won and when, from the official results. The winner's name comes
+    before any date, so the page's guard against addresses never reads a date and a name as a street."""
+    seat = f"Not on the November 3 ballot: every candidate filed as a {party}, so the party's primary settled the seat. "
+    if got["majority"]:
+        return seat + f"By the State Election Board's official results, {winner} won it in the June 16, 2026 primary with a majority of the vote."
+    if got["walkover"]:
+        return seat + (f"By the State Election Board's official results, {winner} won it: no one had a majority in the June 16 "
+                       "primary, and the other of the top two withdrew afterwards, so no runoff was held.")
+    return seat + (f"By the State Election Board's official results, {winner} won it in the August 25, 2026 runoff, after no one had "
+                   "a majority in the June 16 primary.")
+
+
+def result_race(office, cmap):
+    """The race an office in the Board's official results names ("STATE REPRESENTATIVE DISTRICT 92 (UNEXPIRED TERM)");
+    None for an office this loader does not hold (Congress, district attorneys, county and city offices, questions)."""
+    h = re.sub(r"\s+", " ", office).strip().upper()
+    if h in STATEWIDE:
+        return race_of("SW", h)["race_id"]
+    m = re.fullmatch(r"STATE (SENATOR|REPRESENTATIVE) DISTRICT (\d+)( \(UNEXPIRED TERM\))?", h)
+    if m:
+        return race_of("SS" if m.group(1) == "SENATOR" else "SH", m.group(2), special=bool(m.group(3)))["race_id"]
+    m = re.fullmatch(r"DISTRICT JUDGE DISTRICT (\d+),? OFFICE (\d+)", h)
+    if m:
+        return race_of("DJ", m.group(1), m.group(2))["race_id"]
+    m = re.fullmatch(r"ASSOCIATE DISTRICT JUDGE ([A-Z .']+?) COUNTY(?:,? (?:- )?OFFICE (?:NO\. )?(\d+))?", h)
+    if m:
+        c = cmap.get(squash(m.group(1)))
+        if not c:
+            raise SystemExit(f"Oklahoma (state races): a county in the official results is not in the Census file ({m.group(1)})")
+        return race_of("ADJ", county=c, office_no=m.group(2))["race_id"]
+    if re.match(r"(STATE SENATOR|STATE REPRESENTATIVE|DISTRICT JUDGE|ASSOCIATE DISTRICT JUDGE)\b", h):
+        raise SystemExit(f"Oklahoma (state races): an office in the official results this loader does not read ({office!r})")
+    return None
 
 
 def ordinal(n):
@@ -191,6 +252,11 @@ def ordinal(n):
 
 def squash(name):
     return fold(name).replace(" ", "")
+
+
+def number_word(n):
+    words = "no one two three four five six seven eight nine ten".split()
+    return words[n] if 0 <= n < len(words) else f"{n:,}"
 
 
 # ---------- races: one key for both lists ----------
@@ -346,12 +412,13 @@ def counties_named(text, cmap, where):
     return sorted(set(out))
 
 
-def district_attorneys(data):
-    """{"districts", "one_candidate", "one_party", "more_parties"}: how the book's DISTRICT ATTORNEY section stood when
-    filing closed. Read: the section's district and party headings, and for each candidate line the five columns of
-    the filing number, to count it. No name is kept, and the city column is never placed into text."""
+def district_attorneys(data, cmap=None):
+    """{"districts", "one_candidate", "one_party", "more_parties", "by_district"}: how the book's DISTRICT ATTORNEY section
+    stood when filing closed, and for each district its counties (from its heading) and how many filed under each party.
+    Read: the section's district and party headings, and for each candidate line the five columns of the filing number,
+    to count it. No name is kept, and the city column is never placed into text."""
     pdf = PDF(data)
-    inside, done, district, party, count = False, False, None, None, {}
+    inside, done, district, party, count, where = False, False, None, None, {}, {}
     for page, res in pdf.pages():
         for _y, runs in pdf_rows(pdf, page, res):
             g = name_grid(runs)
@@ -373,15 +440,17 @@ def district_attorneys(data):
                 continue
             m = re.fullmatch(r"DISTRICT (\d+)( \(unexpired\))? - (.+)", heading)
             if m and COUNTY_LIST.fullmatch(m.group(3)):
-                district, party = m.group(1) + (" unexpired" if m.group(2) else ""), None
+                district, party = str(int(m.group(1))) + (" unexpired" if m.group(2) else ""), None
                 if district in count:
                     raise ValueError("a district with two headings")
                 count[district] = {}
+                where[district] = counties_named(m.group(3), cmap, f"district attorney {district}") if cmap else []
         if done and not inside:
             break
     if not count:
         raise ValueError("no DISTRICT ATTORNEY section")
-    out = {"districts": len(count), "one_candidate": 0, "one_party": 0, "more_parties": 0}
+    out = {"districts": len(count), "one_candidate": 0, "one_party": 0, "more_parties": 0,
+           "by_district": {d: {"counties": where[d], "parties": c} for d, c in count.items()}}
     for c in count.values():
         out["one_candidate" if sum(c.values()) == 1 else "one_party" if len(c) == 1 else "more_parties"] += 1
     return out
@@ -410,7 +479,7 @@ def get_book(extract_dir, cmap, say):
         raise SystemExit(f"Oklahoma (state races): {fed.BOOK_URL} did not return a PDF")
     rows, races = read_book(data, cmap)
     try:
-        da = district_attorneys(data)
+        da = district_attorneys(data, cmap)
     except Exception as e:  # noqa: BLE001  the count is one sentence of the coverage note; the races do not wait on it
         say(f"    CHECK Oklahoma (local races): the book's district attorney section could not be counted ({type(e).__name__})")
         da = None
@@ -853,6 +922,259 @@ def november_local(page, cmap, places):
             "cities": sorted({r[5] for r in races if r[2] == "city"})}
 
 
+# ---------- the official results for the county offices, district attorneys and cities ----------
+
+RESULT_PARTY = {"REP": "Republican", "DEM": "Democrat", "LIB": "Libertarian"}
+NUMBER_WORDS = {"ONE": "1", "TWO": "2", "THREE": "3", "FOUR": "4", "FIVE": "5", "SIX": "6", "SEVEN": "7", "EIGHT": "8", "NINE": "9",
+                "TEN": "10"}
+OFF_LIST = ("Not on the November 3 ballot: the State Election Board's November list does not print this office, and Oklahoma "
+            "prints only contested races, so the party's primary settled the seat. ")
+DA_OFF_LIST = ("Not on the November 3 ballot: the State Election Board's November list prints no district attorney, and every "
+               "candidate who filed for this office in April filed as a {party}, so the party's primary settled it. ")
+
+
+def won_words(winner, got):
+    """Who won and when, from the official results; the name comes before any date (see settled_words)."""
+    if got["majority"]:
+        return f"By the State Election Board's official results, {winner} won it in the June 16, 2026 primary with a majority of the vote."
+    return (f"By the State Election Board's official results, {winner} won it in the August 25, 2026 runoff, after no one had a "
+            "majority in the June 16 primary.")
+
+
+def ward_key(text):
+    """('ward', '2') for 'Ward Two', 'WARD NO. 2', 'WARD 2'; ('district', '1') for 'District 1'; None otherwise."""
+    m = re.search(r"\b(WARD|DISTRICT)\s+(?:NO\.\s*)?(\w+)", (text or "").upper())
+    if not m:
+        return None
+    n = NUMBER_WORDS.get(m.group(2), m.group(2))
+    return m.group(1).lower(), n.lstrip("0") or n
+
+
+def city_seat(office):
+    """(kind, ward key, unexpired) for a city or town office as the official results print it ("COUNCIL MEMBER WARD 2
+    (UNEXPIRED TERM)", "MAYOR", "WARD FIVE COMMISSIONER"); kind is mayor, council or other."""
+    h = re.sub(r"\s+", " ", office).strip().upper()
+    special = h.endswith(UNEXPIRED_MARK)
+    if special:
+        h = h[:-len(UNEXPIRED_MARK)].strip()
+    if h == "MAYOR":
+        return "mayor", None, special
+    if re.match(r"(COUNCIL ?MEMBER|COUNCILMAN|COUNCILWOMAN|COUNCILPERSON|COUNCILOR|COUNCIL)\b", h) and ward_key(h):
+        return "council", ward_key(h), special
+    return "other", ward_key(h), special
+
+
+def spelled(contest, loaded):
+    """{candidate number: name} for one contest of the results: the loaded spelling (the November list's) for a row it
+    pairs with alone, by the same letters or the same family name and a fitting given name; every other row's capitals
+    in ordinary capitals."""
+    out = {x["number"]: shown_local(x["name"]) for x in contest["cands"]}
+    for name in loaded:
+        hit = [x for x in contest["cands"] if fold(x["name"]) == fold(name)] or \
+              [x for x in contest["cands"] if fits(name_parts(name), name_parts(x["name"]))]
+        if len(hit) == 1:
+            out[hit[0]["number"]] = name
+    return out
+
+
+def local_results(res, loc, cmap, places, da, shown):
+    """What the official results of June 16 and August 25 add to the local rows and the district attorneys: votes for
+    the party primaries (and runoffs) of the county offices on the November list; a county seat the November list does
+    not print, settled in its party's primary or runoff, as a race of its own with the field and the winner; each
+    district attorney's office settled in a primary (the book shows only one party's candidates); and the first round
+    of a city contest whose top two are on the November list. A contest is placed only by its office, its county (the
+    results' county owner) or district or city, and its ward; names are paired with the November list's spelling.
+    City, town and school contests decided before November are listed, not loaded. Returns {"races", "cands", "court",
+    "checks", "elsewhere", "used", "stats"}."""
+    out = {"races": [], "cands": [], "court": [], "checks": [], "elsewhere": [], "used": {"primary": set(), "runoff": set()},
+           "stats": Counter(), "failed": []}
+    if not res.get("primary"):
+        return out
+    exact, bare = places
+    name_of = {geoid: full for geoid, full in cmap.values()}
+    held = {r[0]: r for r in loc["races"]}
+    nov = {}
+    for c in loc["cands"]:
+        if c[1] == "general":
+            nov.setdefault(c[0], []).append((c[3], c[4]))
+    check = out["checks"].append
+    st = out["stats"]
+
+    # every contest of both files, sorted: county offices (by the county that owns them), district attorneys, cities
+    county, das, city = {"primary": {}, "runoff": {}}, {"primary": {}, "runoff": {}}, {"primary": [], "runoff": []}
+    for k in ("primary", "runoff"):
+        for c in ((res.get(k) or {}).get("contests") or {}).values():
+            office = re.sub(r"^FOR\s+", "", c["desc"])
+            if c["owner"]:
+                g = cmap.get(squash(c["owner"]))
+                lo = local_office(LEG_SECTION, office)
+                if lo[0] == "question":
+                    continue
+                if not g or lo[0] != "county":
+                    check(f"a county contest in the official results ({fed.ELECTION_RESULTS[k][2]}) is not read: {c['owner']} County, {office}")
+                    continue
+                _, okind, title, district, special = lo
+                rid = f"2026-{STATE}-{g[0]}-{okind.replace('_', '-')}" + (f"-{slug(district)}" if district else "") + ("-S" if special else "")
+                if (rid, c["party"]) in county[k]:
+                    raise SystemExit(f"Oklahoma (local races): the official results hold two contests for {rid} ({c['party']})")
+                county[k][(rid, c["party"])] = (c, g[0], okind, title, district, special)
+            elif re.fullmatch(r"DISTRICT ATTORNEY DISTRICT (\d+)", office):
+                d = str(int(office.rsplit(" ", 1)[1]))
+                if (d, c["party"]) in das[k]:
+                    raise SystemExit(f"Oklahoma (local races): the official results hold two contests for district attorney {d}")
+                das[k][(d, c["party"])] = c
+            elif office.startswith(("PROPOSITION", "STATE QUESTION")):
+                continue
+            elif re.match(r"(CITY|TOWN) OF ", c["entity"]):
+                city[k].append(c)
+            elif "SCHOOL" in c["entity"]:
+                out["elsewhere"].append(("school", c["entity"], office, c["date"]))
+
+    def rows_for(rid, key_p, party, code, names, got, P, R, note_on=None):
+        """The field's rows: the primary (or first round) and, where there was one, the runoff."""
+        rows = []
+        for num, name in names.items():
+            if got:
+                v, pct, o = got["primary"][num]
+                note = (fed.RUNOFF_NOTE if got["to_runoff"] else note_on) if o == "advanced" and (got["to_runoff"] or note_on) else None
+            else:
+                v = pct = o = note = None
+            rows.append((rid, key_p, P["date"], name, party, code, None, 0, 0, v, pct, o, None, SRC_PRIMARY_RESULTS if P["kind"] == "primary"
+                         else SRC_RUNOFF_RESULTS, note))
+        if got and got["runoff"]:
+            for num, (v, pct, o) in got["runoff"].items():
+                rows.append((rid, key_p.replace("primary", "runoff"), R["date"], names[num], party, code, None, 0, 0, v, pct, o, None,
+                             SRC_RUNOFF_RESULTS, None))
+        return rows
+
+    # county offices: the November list's races get their primaries' votes; a seat it does not print is settled
+    settled = {}
+    for (rid, pc), (P, geoid, okind, title, district, special) in sorted(county["primary"].items()):
+        party = RESULT_PARTY.get(pc)
+        if not party:
+            check(f"{rid}: a county contest in the official results with a party this loader does not read ({pc or 'none'})")
+            continue
+        R = (county["runoff"].get((rid, pc)) or (None,))[0]
+        out["used"]["primary"].add(P["number"])
+        if R:
+            out["used"]["runoff"].add(R["number"])
+        nominee = [n for n, p in nov.get(rid, []) if p == party]
+        names = spelled(P, nominee)
+        got, probs = fed.settle(names, P, R)
+        if got and got["to_runoff"] and not res.get("runoff"):
+            probs.append("no majority, and the August 25 results are not saved")
+        if got and rid in held and nominee and got["winner"] is not None and names[got["winner"]] != nominee[0]:
+            probs.append("the winner the official votes show is not the party's candidate on the November list; votes not stored")
+            got = None
+        if probs:
+            check(f"{rid} {party}: official results: " + "; ".join(probs))
+        if not got:
+            out["failed"].append(f"{rid} {party}")
+        rows = rows_for(rid, f"primary-{pc}", party, party_code(party), names, got, P, R)
+        if rid in held:
+            if not nominee:
+                rows = [r[:14] + (" ".join(x for x in (r[14], f"The November list has no {party} candidate for this seat.") if x),) for r in rows]
+            out["cands"] += rows
+            st["county fields on the November list"] += 1
+            st["county runoffs"] += 1 if got and got["runoff"] else 0
+            continue
+        if rid in settled:
+            check(f"{rid}: primaries of more than one party for an office the November list does not print; not loaded")
+            out["cands"] = [r for r in out["cands"] if r[0] != rid]
+            out["races"] = [r for r in out["races"] if r[0] != rid]
+            continue
+        settled[rid] = party
+        if got and got["winner"] is not None:
+            note = OFF_LIST + won_words(names[got["winner"]], got)
+            st["county seats settled, " + ("runoff" if got["runoff"] else "primary")] += 1
+        else:
+            note = OFF_LIST + RESULTS_UNCHECKED
+            st["county seats settled, winner not shown"] += 1
+        if special:
+            note = f"{UNEXPIRED_NOTE} {note}"
+        out["races"].append((rid, STATE, "county", okind, title, name_of[geoid], geoid, json.dumps([geoid]), district, None,
+                             1 if special else 0, 1, None, None, None, GENERAL, note))
+        out["cands"] += rows
+        st["county runoffs"] += 1 if got and got["runoff"] else 0
+    for (rid, pc) in sorted(set(county["runoff"]) - set(county["primary"])):
+        check(f"{rid} {pc}: a county runoff in the official results with no June 16 primary; not loaded")
+
+    # district attorneys: an office the book shows one party's candidates for, settled in that party's primary
+    by_d = (da or {}).get("by_district") or {}
+    for (d, pc), P in sorted(das["primary"].items()):
+        party = RESULT_PARTY.get(pc)
+        book = by_d.get(d)
+        if not party or not book:
+            check(f"district attorney {d}: a contest in the official results the book's district attorney section does not match; not loaded")
+            continue
+        if set(book["parties"]) != {party}:
+            check(f"district attorney {d}: the book shows candidates of {sorted(book['parties'])}, yet no district attorney is on the November list; not loaded")
+            continue
+        if book["parties"][party] != len(P["cands"]):
+            check(f"district attorney {d}: {book['parties'][party]} filed in April, {len(P['cands'])} in the official results")
+        R = das["runoff"].get((d, pc))
+        out["used"]["primary"].add(P["number"])
+        if R:
+            out["used"]["runoff"].add(R["number"])
+        names = {x["number"]: shown(x["name"]) for x in P["cands"]}
+        got, probs = fed.settle(names, P, R)
+        if probs:
+            check(f"district attorney {d} {party}: official results: " + "; ".join(probs))
+        if not got:
+            out["failed"].append(f"district attorney {d} {party}")
+        rid = f"2026-{STATE}-DA-{d}"
+        note = DA_OFF_LIST.format(party=party) + (won_words(names[got["winner"]], got) if got and got["winner"] is not None else RESULTS_UNCHECKED)
+        out["court"].append((rid, STATE, "court", "district_attorney", "District Attorney", f"District Attorney District {d}",
+                             f"{STATE}-DA{d}", ",".join(book["counties"]) or None, d, None, 0, 1, None, None, None, GENERAL, note))
+        out["cands"] += rows_for(rid, f"primary-{pc}", party, party_code(party), names, got, P, R)
+        st["district attorneys settled"] += 1
+    for (d, pc) in sorted(set(das["runoff"]) - set(das["primary"])):
+        check(f"district attorney {d}: a runoff in the official results with no June 16 primary; not loaded")
+
+    # cities and towns: the first round of a contest whose top two are on the November list; the rest are listed
+    held_city = {}
+    for r in loc["races"]:
+        if r[2] == "city":
+            held_city[(r[6], r[3] if r[3] in ("mayor", "council") else "other", ward_key(r[8]), bool(r[10]))] = r
+    first = {}
+    for k in ("primary", "runoff"):
+        for c in city[k]:
+            word, bare_name = c["entity"].split(" OF ", 1)
+            word = word.lower()
+            hit = exact.get(squash(f"{bare_name} {word}"), [])
+            if len(hit) != 1:
+                hit = bare.get(squash(bare_name), [])
+            office = re.sub(r"^FOR\s+", "", c["desc"])
+            if office.endswith(" " + c["entity"]):
+                office = office[:-len(c["entity"]) - 1]
+            kind, wk, special = city_seat(office)
+            race = held_city.get((f"{STATE}-M-{hit[0][0]}" if len(hit) == 1 else None, kind, wk, special))
+            if race is None:
+                out["elsewhere"].append(("city", f"{shown_local(bare_name)} {word}", office, c["date"]))
+                continue
+            if race[0] in first:
+                check(f"{race[0]}: two contests in the official results; not loaded")
+                continue
+            first[race[0]] = (race, c)
+    for rid, (race, P) in sorted(first.items()):
+        out["used"][P["kind"]].add(P["number"])
+        two = [n for n, _p in nov.get(rid, [])]
+        names = spelled(P, two)
+        got, probs = fed.settle(names, P, None, two_go_on=True)
+        if got and (got["majority"] or {names[k] for k in got["on"]} != set(two)):
+            probs.append("the two the official votes send on are not the two on the November list; votes not stored")
+            got = None
+        if probs:
+            check(f"{rid}: official results: " + "; ".join(probs))
+        if not got:
+            out["failed"].append(rid)
+        day = dt.date.fromisoformat(P["date"])
+        out["cands"] += rows_for(rid, "primary-NP", NONPARTISAN, NP_CODE, names, got, P, None,
+                                 note_on=f"No candidate had a majority on {day:%B} {day.day}; the top two are on the November 3 ballot.")
+        st["city first rounds"] += 1
+    return out
+
+
 # ---------- withdrawals and contests of candidacy ----------
 
 def get_withdrawals(say):
@@ -978,6 +1300,10 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
     wd = get_withdrawals(say)
     ct = get_contests(extract_dir, say)
     checks = []
+    # the official results of the June 16 primary and the August 25 runoff, when their export files are saved
+    res = {k: fed.official_results(CACHE, k) for k in fed.ELECTION_RESULTS}
+    found = {k: fed.index_contests(res[k], lambda office: result_race(office, cmap)) for k in res}
+    handled, voted, settled_won = set(), Counter(), {}
 
     # who filed for each race the book lists (every legislative and statewide seat up this year; judges too)
     by_race = {}
@@ -1155,32 +1481,88 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
             if len(field) < (2 if pt else 3):
                 continue
             fields[r["office_kind"] if r["level"] != "statewide" else "statewide"] += 1
-            key = f"primary-{CODES[party]}" if pt else "primary-NP"
+            code = CODES[party] if pt else ""
+            key = f"primary-{code}" if pt else "primary-NP"
             if listed and pt:
                 pick = {nominee.get((rid, party))}
             elif listed:
                 pick = {f["number"] for _n, _p, _o, f in general[rid]}
             else:
                 pick = None
+            got = None
+            if res["primary"]:                          # the official votes, checked against the November list
+                handled.add((rid, code))
+                got, probs = fed.settle({f["number"]: f["name"] for f in field}, found["primary"].get((rid, code)),
+                                        found["runoff"].get((rid, code)) if pt and res["runoff"] else None, two_go_on=not pt,
+                                        withdrew={f["number"] for f in field if f.get("withdrew") and PRIMARY <= f["withdrew"] < RUNOFF})
+                if got and pt and got["to_runoff"] and not res["runoff"]:
+                    probs.append("no majority, and the August 25 results are not saved")
+                if got and pick is not None and pt and (rid, party) in nominee and got["winner"] is not None and got["winner"] not in pick:
+                    probs.append("the winner the official votes show is not the party's candidate on the November list; votes not stored")
+                    got = None
+                if got and pick is not None and not pt and (got["majority"] or set(got["on"]) != pick):
+                    probs.append("the two the official votes send on are not the two on the November list; votes not stored")
+                    got = None
+                if probs:
+                    checks.append(f"{rid} {party}: official results: " + "; ".join(probs))
+                if got:
+                    voted[key] += 1
             for f in field:
                 inc = inc_of(rid, f["name"])
                 note = []
                 if f.get("withdrew"):
                     note.append(f"Withdrew on {f['withdrew']}, after the June 16 primary.")
-                if pick is None:
-                    out = None
-                elif f["number"] in pick:
-                    out = "advanced"
+                if got:
+                    votes, pct, out = got["primary"][f["number"]]
+                    if out == "advanced" and got["to_runoff"]:
+                        note.insert(0, fed.RUNOFF_NOTE)
+                    elif out == "advanced" and got["walkover"]:
+                        note.insert(0, fed.WALKOVER_NOTE)
+                    src = SRC_PRIMARY_RESULTS
                 else:
-                    out = "lost"
+                    votes = pct = None
+                    out = None if pick is None else "advanced" if f["number"] in pick else "lost"
+                    src = SRC_BOOK
                 if pt and listed and (rid, party) not in nominee:
                     note.append(f"The November list has no {party} candidate for this seat.")
-                    out = None
+                    out = out if got else None
                 cand.append((rid, key, PRIMARY, shown(f["name"]), party, party_code(party) if pt else NP_CODE, None, 1 if inc else 0, 0,
-                             None, None, out, sitting[rid][1] if inc else None, SRC_BOOK, " ".join(note) or None))
+                             votes, pct, out, sitting[rid][1] if inc else None, src, " ".join(note) or None))
+            if got and got["runoff"]:
+                voted[f"runoff-{code}"] += 1
+                for f in field:
+                    if f["number"] in got["runoff"]:
+                        inc = inc_of(rid, f["name"])
+                        votes, pct, out = got["runoff"][f["number"]]
+                        cand.append((rid, f"runoff-{code}", RUNOFF, shown(f["name"]), party, party_code(party), None, 1 if inc else 0, 0,
+                                     votes, pct, out, sitting[rid][1] if inc else None, SRC_RUNOFF_RESULTS, None))
+            if status[rid] == "primary" and pt:         # settled before November: who won, and when
+                if got and got["winner"] is not None:
+                    winner = shown(next(f["name"] for f in field if f["number"] == got["winner"]))
+                    n_status[rid] = settled_words(party, winner, got)
+                    settled_won[rid] = "runoff" if got["runoff"] else "walkover" if got["walkover"] else "primary"
+                elif res["primary"]:
+                    n_status[rid] = (f"Not on the November 3 ballot: every candidate filed as a {party}, so the party's primary settled "
+                                     f"the seat. {RESULTS_UNCHECKED}")
             if not pt and listed:
                 n_extra.setdefault(rid, []).append("Three or more filed, so the June 16 ballot carried a nonpartisan primary; the two "
                                                    "on the November list went on.")
+
+    # every contest of the official results for a race loaded here is one of its fields
+    not_held = Counter()
+    for k in res:
+        for rid, code in sorted(set(found[k]) - handled):
+            if rid in race_info:
+                checks.append(f"{rid} {code or 'nonpartisan'}: a contest in the official results ({fed.ELECTION_RESULTS[k][2]}) for which "
+                              "the filings show no field")
+            else:
+                not_held[k] += 1
+
+    # the same results for the county offices, the district attorneys and the cities' November contests
+    lr = local_results(res, loc, cmap, place_lists[:2], da, shown)
+    loc["races"] += lr["races"]
+    loc["cands"] += lr["cands"]
+    loc["checks"] += lr["checks"]
 
     # every party with candidates on the primary ballot of a November race has its nominee there, unless one withdrew after it
     for (rid, party) in sorted({(f["race_id"], f["party"]) for f in filers if f["party"] in CODES and on_primary_ballot(f)}):
@@ -1201,6 +1583,9 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
                           r["district"], r["seat"], r["special"], r["partisan"], h["id"] if h else None, h["full"] if h else None,
                           h["party"] if h else None, GENERAL,
                           " ".join([x for x in (n_special.get(rid), n_status.get(rid), n_holder.get(rid)) if x] + n_extra.get(rid, [])) or None))
+    if {r[0] for r in lr["court"]} & set(race_info):
+        raise SystemExit("Oklahoma (state races): a district attorney's race id is also another race's; nothing was changed")
+    race_rows += lr["court"]
 
     county_rows = [("county", geoid, full, json.dumps([geoid]), SRC_COUNTIES) for geoid, full in sorted(cmap.values())]
     wd_before = [f for f in wd_state if f["withdrew"] < PRIMARY]
@@ -1227,7 +1612,14 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
                    if cities else ". Most ")
                 + "cities and towns elect in April of odd-numbered years (a city with its own charter may choose another date), and "
                   "school boards were elected on February 10 and April 7, 2026.")
-    if da and not da["more_parties"]:
+    lst = lr["stats"]
+    n_das = lst["district attorneys settled"]
+    if da and not da["more_parties"] and res["primary"]:
+        da_words = (f"; no district attorney is on the November list (of the {da['districts']} offices, {da['one_candidate']} had one "
+                    f"candidate when filing closed and {da['one_party']} had candidates of one party only; "
+                    + (f"the {number_word(n_das)} decided in the June 16 primary {'is' if n_das == 1 else 'are'} shown with "
+                       f"{'its winner' if n_das == 1 else 'their winners'})" if n_das else "none is shown)"))
+    elif da and not da["more_parties"]:
         da_words = (f"; that is why no district attorney appears (of the {da['districts']} offices, {da['one_candidate']} had one "
                     f"candidate when filing closed and {da['one_party']} had candidates of one party only)")
     elif da:
@@ -1236,24 +1628,62 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
         loc["checks"].append(f"{da['more_parties']} district attorney offices drew candidates of more than one party, yet none is on the November list")
     else:
         da_words = "; no district attorney is on the list"
-    coverage = ("From the State Election Board's November 3 list, read county by county for all 77 counties: every contest it prints "
-                f"for a county office, a city or town office or a fire protection district board ({ls['contests']} contests, "
-                f"{ls['candidates']} candidates, in {len(loc['counties'])} counties). Oklahoma prints only contested races: an office "
-                "with one candidate left, or one settled in the June 16 primary or the August 25 runoff, is not on the ballot and is "
-                f"not shown{da_words}. Not loaded: the {loc['questions']} local propositions and questions on the list.")
+    n_settled = sum(v for k, v in lst.items() if k.startswith("county seats settled"))
+    if res["primary"]:
+        coverage = ("From the State Election Board's November 3 list, read county by county for all 77 counties: every contest it "
+                    f"prints for a county office, a city or town office or a fire protection district board ({ls['contests']} contests, "
+                    f"{ls['candidates']} candidates, in {len(loc['counties'])} counties). Oklahoma prints only contested races. From "
+                    "the Board's official results of the June 16 primary and the August 25 runoff: the party primaries of the county "
+                    "contests on the November list" + (" and the first rounds of its city contests" if lst["city first rounds"] else "")
+                    + f", with their votes, and {number_word(n_settled)} county "
+                    f"{'seat' if n_settled == 1 else 'seats'} the November list does not print, settled in a primary or a runoff and "
+                    f"shown with {'its winner' if n_settled == 1 else 'their winners'}. An office with one candidate left appears in no "
+                    f"list or result and is not shown{da_words}. Not loaded: the {loc['questions']} local propositions and questions on "
+                    "the list.")
+    else:
+        coverage = ("From the State Election Board's November 3 list, read county by county for all 77 counties: every contest it prints "
+                    f"for a county office, a city or town office or a fire protection district board ({ls['contests']} contests, "
+                    f"{ls['candidates']} candidates, in {len(loc['counties'])} counties). Oklahoma prints only contested races: an office "
+                    "with one candidate left, or one settled in the June 16 primary or the August 25 runoff, is not on the ballot and is "
+                    f"not shown{da_words}. Not loaded: the {loc['questions']} local propositions and questions on the list.")
     note_rows = [
         (STATE, "local_calendar", calendar,
          "19 O.S. 131 (county officers) and 901.5 (fire protection districts); 11 O.S. 16-102 and 16-103 (cities and towns); "
          "Oklahoma State Election Board, 2026 Voter Information Calendar (school board election dates)", CALENDAR_URL),
         (STATE, "local_coverage", coverage,
          "Oklahoma State Election Board, NOVEMBER / 2026 List of Elections, and Candidates for Office 2026 (who filed for district "
-         "attorney); 26 O.S. 6-102 (an unopposed candidate is not printed on the ballot)", fed.LIST_URL),
+         "attorney)" + (", and its official results of the June 16, 2026 Primary Election and the August 25, 2026 Runoff Primary "
+                        "Election" if res["primary"] else "") + "; 26 O.S. 6-102 (an unopposed candidate is not printed on the ballot)",
+         fed.LIST_URL),
     ]
-    gap_rows = loc["gaps"] + [
-        (STATE, "state", STATE, NAME, "county officers elected without a November contest",
-         "Oklahoma leaves an office off the ballot when one candidate is left or a primary or runoff settled it, so those county "
-         "officers are not on the State Election Board's November list. Who filed and who won is published on the Board's filing "
-         "portal and results site, which refuse scripts, so they are not shown here.", FILING_URL)]
+    if res["primary"]:
+        gap_rows = loc["gaps"] + [
+            (STATE, "state", STATE, NAME, "county officers who had no opponent",
+             "Oklahoma leaves an office off the ballot when only one candidate is left. A county seat settled in the June 16 primary "
+             "or the August 25 runoff is shown with its winner, from the State Election Board's official results; a county officer "
+             "who had no opponent in the primary or in November appears in no list or result, and the Board's filing portal, which "
+             "lists who filed, refuses scripts, so those officers are not shown here.", FILING_URL)]
+    else:
+        gap_rows = loc["gaps"] + [
+            (STATE, "state", STATE, NAME, "county officers elected without a November contest",
+             "Oklahoma leaves an office off the ballot when one candidate is left or a primary or runoff settled it, so those county "
+             "officers are not on the State Election Board's November list. Who filed and who won is published on the Board's filing "
+             "portal and results site, which refuse scripts, so they are not shown here.", FILING_URL)]
+    if lr["elsewhere"]:
+        cities_e = sorted({w for kind, w, _o, _d in lr["elsewhere"] if kind == "city" and w.endswith(" city")})
+        towns_e = sorted({w for kind, w, _o, _d in lr["elsewhere"] if kind == "city" and w.endswith(" town")})
+        schools_e = sorted({w for kind, w, _o, _d in lr["elsewhere"] if kind == "school"})
+        who = [and_list([re.sub(r" city$", "", w) for w in cities_e])] if cities_e else []
+        who += [f"the town of {and_list([re.sub(r' town$', '', w) for w in towns_e])}"] if towns_e else []
+        who += [f"{number_word(len(schools_e))} school {'district' if len(schools_e) == 1 else 'districts'}"] if schools_e else []
+        n_e = len(lr["elsewhere"])
+        gap_rows.append(
+            (STATE, "state", STATE, NAME, "city, town and school offices voted on June 16 or August 25",
+             f"{and_list(who)} held {number_word(n_e)} {'contest' if n_e == 1 else 'contests'} for their own offices with the state's "
+             "June 16 or August 25, 2026 elections, and none of those seats is on the November 3 ballot. The State Election Board's official "
+             "results are read here only for a city contest whose top two are on the November ballot; whether each of these was a "
+             "city's primary or its final election is set by its own charter, which this site has not read, so they are not shown.",
+             fed.results_url(fed.ELECTION_RESULTS["runoff"][0])))
     made = re.search(r"created on:\s*(\d{1,2})/(\d{1,2})/(\d{4})", page, re.I)
     l_published = f"{made.group(3)}-{int(made.group(1)):02d}-{int(made.group(2)):02d}" if made else ""
     kinds = ", ".join(f"{k[5:].replace('_', ' ')} {v}" for k, v in sorted(ls.items()) if k.startswith("kind "))
@@ -1288,8 +1718,11 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
              f"Read from {b_how}: the filing number and name columns only, by character position; the city column beside each "
              "name is never read. Who filed for each seat and who was on each party's June 16 primary ballot (less withdrawals "
              "and strikes). A seat with one candidate left is stored with that candidate marked unopposed; a seat only one "
-             "party filed for was settled in its primary. Votes not loaded: the June 16 primary and August 25 runoff results "
-             f"are published only on the Board's results site ({fed.RESULTS_URL}), which refuses scripts (403 Forbidden)."),
+             "party filed for was settled in its primary. "
+             + ("The votes, who went to the runoff and who won a seat settled before November come from the Board's official "
+                "results (their own sources)." if res["primary"] else
+                "Votes not loaded: the June 16 primary and August 25 runoff results are published only on the Board's results "
+                "site, which refuses scripts (403 Forbidden), and their export files are not saved.")),
             (SRC_WD, STATE, "official candidate list", "Oklahoma State Election Board", "2026 Candidate Withdrawals", fed.WITHDRAWALS_URL,
              wd.get("modified", ""), wd.get("fetched", ""), "", len(wd_state),
              f"State-office withdrawals matched to the book by filing number: {len(wd_before)} before the June 16 primary (left off "
@@ -1329,6 +1762,31 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
              f"Bureau writes it; {sum(1 for p in loc['places'] if p[4] == SRC_PLACES)} are used. Read: name, code, type and "
              "counties; the file has no contact columns and is kept whole."),
         ]
+        for k, rr in res.items():                     # the official results, when their export files are saved
+            if not rr:
+                continue
+            mine = {key: c for key, c in found[k].items() if key in handled}
+            local_used = [rr["contests"][n] for n in sorted(lr["used"][k])]
+            bad = sorted(f"{rid} {code or 'nonpartisan'}" for (rid, code), c in mine.items() if not c["ok"]) + \
+                sorted(f"{c['desc'].title()} ({c['owner'].title() or c['entity'].title()})" for c in local_used if not c["ok"])
+            src.append((SRC_PRIMARY_RESULTS if k == "primary" else SRC_RUNOFF_RESULTS, STATE, "official results",
+                        "Oklahoma State Election Board",
+                        f"Official results, {rr['title']}: state officers, State Senator, State Representative, District Judge, "
+                        "Associate District Judge, District Attorney, county officers and city contests", rr["url"], "",
+                        mdate(rr["paths"][0]), rr["sha"][0],
+                        sum(len(c["cands"]) for c in mine.values()) + sum(len(c["cands"]) for c in local_used),
+                        f"The Board's results site marked these results Official when its two export files were saved through a "
+                        f"browser on {fed.RESULTS_SAVED} (the site refuses scripts): one row per candidate per contest, and the same "
+                        f"county by county (SHA-256 of the county file {rr['sha'][1]}). Read by heading: the office, party, the "
+                        f"county or city holding it, precincts, each candidate's name and votes. {len(mine)} contests for the state "
+                        f"races' primary fields and {len(local_used)} for county offices, district attorneys and the first rounds of "
+                        "city contests on the November list, each placed by its office, county, district or city and ward; checked: "
+                        "every precinct reporting, each candidate's absentee, early and election-day votes adding up to the total, and "
+                        "each contest's total and each candidate's equal to the sum of the county rows"
+                        + (f"; failed, so stored without votes: {', '.join(bad)}." if bad else " (all agree).")
+                        + " Names are printed in capitals and paired with the names already loaded, whose spelling is kept; other names "
+                          "are shown in ordinary capitals. Not loaded: the questions and propositions, and the city, town and school "
+                          "contests decided before November (see the gaps)."))
         con.executemany("INSERT INTO sl_sources VALUES (?,?,?,?,?,?,?,?,?,?,?)", src)
     con.close()
 
@@ -1358,6 +1816,19 @@ def load(db_path, say=print, extract_dir=os.path.join(CACHE, "ok"), local_dir=LO
     if skipped_courts:
         say(f"    Oklahoma (state races): judges' seats in the book not on the November list (not loaded): "
             + ", ".join(f"{v} {k}" for k, v in sorted(skipped_courts.items())))
+    if res["primary"]:
+        say(f"    Oklahoma (state races): official votes stored for {sum(v for k, v in voted.items() if k.startswith('primary'))} of "
+            f"{len(handled)} primary fields ("
+            + ", ".join(f"{k} {v}" for k, v in sorted(voted.items())) + f"); seats settled before November with the winner named: "
+            f"{len(settled_won)} of {sum(1 for s in status.values() if s == 'primary')} (" + ", ".join(
+                f"{v} {k}" for k, v in sorted(Counter(settled_won.values()).items())) + "); state-office contests in the files for "
+            f"races not loaded here: {not_held['primary']} on June 16, {not_held['runoff']} on August 25 (judges' seats decided in June)")
+        say("    Oklahoma (local races): from the official results: " + ", ".join(f"{k} {v}" for k, v in sorted(lr["stats"].items()))
+            + f"; contests used: {len(lr['used']['primary'])} of June 16, {len(lr['used']['runoff'])} of August 25; stored without votes: "
+            + (", ".join(lr["failed"]) or "none") + f"; city, town and school contests decided before November, listed as a gap: "
+            f"{len(lr['elsewhere'])}")
+    else:
+        say("    Oklahoma (state races): the official results' export files are not saved in ballot_cache/ok/results/; no votes loaded")
     flagged = sum(1 for r in race_rows if r[16] and contact_like(r[16], True))
     if flagged:
         checks.append(f"{flagged} race notes name a web site (the Board's results site): ballot/check_local.py fails on them and the "

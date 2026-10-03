@@ -110,6 +110,7 @@ spaces of its script and stylesheet (slim_page, after everything borrowed is in;
 import argparse
 import datetime as dt
 import hashlib
+import html
 import json
 import os
 import re
@@ -1296,7 +1297,11 @@ def geo_files(code, out_dir, geo):
             "bbox": idx.get("bbox"), "arc_kinds": idx.get("arc_kinds"), "tolerance_m": idx.get("tolerance_m"), "counts": idx.get("counts"),
             "counties": [{k: c[k] for k in ("id", "name", "bbox", "file", "bytes", "precincts") if k in c} for c in idx.get("counties") or []],
             "layers": [{k: L[k] for k in ("kind", "file", "bytes", "shapes", "good_to_zoom") if k in L} for L in idx.get("layers") or []],
-            "school": {"files": school.get("files", "school/<id>.json")}, "notes": idx.get("notes"), "sources": idx.get("sources")}
+            "school": {"files": school.get("files", "school/<id>.json")}, "notes": idx.get("notes"),
+            # a publisher's notice copied out of a web page can carry the page's own character codes (&quot;as is&quot;):
+            # the words it meant, since the page escapes every notice as it prints it
+            "sources": [{k: html.unescape(v) if isinstance(v, str) and "&" in v and k not in ("url", "service") else v for k, v in s.items()}
+                        if isinstance(s, dict) else s for s in idx.get("sources") or []] if idx.get("sources") is not None else None}
     text = json.dumps(slim, ensure_ascii=False, separators=(",", ":"))
     write_if_changed(os.path.join(dst, "index.json"), text)
     h.update(text.encode("utf-8"))
@@ -2659,7 +2664,7 @@ function BallotMap(el, opt) {
       // a precinct that reaches more than one city or township does not say which one a spot is in: the layer of those places answers that
       // for a point (a precinct its own table puts in a city keeps that city); where the layer cannot be had, the page says the place is the largest one
       const bp = best.geometry.properties, many = (bp.mcd_all || []).length > 1 && !bp.city;
-      const place = many && LAYER.mcd ? load(LAYER.mcd.file).then(lf => { const h = MNGeo.shapeAt(lf, "mcd", lon, lat);
+      const place = many && LAYER.mcd ? load(LAYER.mcd.file).then(lf => { const h = MNGeo.shapeAt(lf, "mcd", lon, lat); out.mcdLooked = true;      // looked: no shape at the spot means open country
         if (h && bp.mcd_all.indexOf(h.geometry.id) >= 0) { out.mcd = h.geometry.id; out.mcdName = (h.geometry.properties || {}).name || ""; } }).catch(() => {}) : Promise.resolve();
       if (many) out.mcdMany = true;
       return place.then(() => new Promise(res => {
@@ -2867,7 +2872,7 @@ window.GEOKIT = (function () {
       let spare = 100 - out.reduce((a, b) => a + b, 0);
       p.map((v, i) => [v - out[i], i]).sort((a, b) => b[0] - a[0] || a[1] - b[1]).forEach(([, i]) => { if (spare > 0) { out[i]++; spare--; } });
       return out; })();
-    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.m ? z.mn || dataName("mcd", z.m) : !z.wh && /\bnames no place\b/i.test(String(((IDX || {}).notes || {}).places || "")) ? `None: the ${UNIT} lies outside every ${KW.mcd[1].toLowerCase()}` : "", z.m ? "mcd" : "", z.m),      // no place: said only where the files' own note says a piece in open country names none
+    const rows =[row(esc(capital(UNIT)), z.pn), row(esc(capital(CO1)), cName(z.c), "county", z.c), row(esc(KW.mcd[1]), z.m ? z.mn || dataName("mcd", z.m) : z.mx ? `None: your spot lies outside every ${KW.mcd[1].toLowerCase()} the ${UNIT} reaches` : !z.wh && /\bnames no place\b/i.test(String(((IDX || {}).notes || {}).places || "")) ? `None: the ${UNIT} lies outside every ${KW.mcd[1].toLowerCase()}` : "", z.m ? "mcd" : "", z.m),      // no place: said only where the files' own note says a piece in open country names none
       z.mo ? row("", (z.mon || dataName("mcd", z.mo)) + ` (${z.mn || dataName("mcd", z.m)} lies inside it: you are a voter of both)`, "mcd", z.mo) : "",
       ...(z.w || []).map(w => row(GW.ward ? esc(capital(GW.ward)) : "City council", w.split("|")[1] || w, "ward", w)),
       z.com ? row(GW.com ? esc(capital(GW.com)) : "County commissioner", (d => /^\d/.test(d) ? "District " + d : d)(z.com.split("|")[1] || z.com), "com", z.com) : "",      // "District 3" where the files number it; their own words where they name it ("District 3" already, "Precinct 2")
@@ -3009,7 +3014,7 @@ window.GEOKIT = (function () {
     const mo = W && r.mcd && r.mcd !== p.mcd && (p.mcd_all || []).includes(p.mcd) && kindOf(r.mcdName || nm("mcd", r.mcd)) === W[0] && kindOf(nm("mcd", p.mcd)) === W[1] ? p.mcd : "";
     const more = {...(says.length ? {x} : {}), ...(sw2.length ? {sw2, sw2n: sw2.map(i => nm("swcd", i))} : {}), ...(gone ? {unl: gone.slice(7)} : said ? {ls: [said.slice(5, 9), String(p[said])]} : {}), ...(jdn ? {jdn} : {}), ...(mo ? {mo, mon: nm("mcd", mo)} : {}),
       ...(p.whole ? {wh: String(p.as_of || "") || 1} : {})};      // a whole precinct the files add where the state's parts leave a gap, with the year of its lines
-    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
+    return {p: r.precinct.id, pn: p.name, at: p.c, c: pk(p.county), ...(pk(p.county) !== p.county ? {gc: p.county} : {}), ...over, m: r.mcd || p.mcd, mn: r.mcd ? (r.mcdName || nm("mcd", r.mcd)) : nm("mcd", p.mcd), ...(r.mcdMany && !r.mcd && r.mcdLooked && !p.mcd ? {mx: 1} : r.mcdMany && !r.mcd ? {mq: 1} : {}), w: p.ward || [], com: p.com || "", hd: p.house || "", sd: p.senate || "", cd: p.cd || "", jd: p.judicial || "",
       sw: p.swcd || "", swn: nm("swcd", p.swcd), ho: p.hospital || "", hon: nm("hospital", p.hospital), pk: p.park || "", pkn: nm("park", p.park),
       sch, schn: Object.fromEntries(sch.map(i => [i, nm("school", i)])), s1: r.school || "", pct: (p.school || []).length === sch.length ? (p.school_pct || []) : [], out: p.school_out || 0,
       edge: Math.round(r.edge), in: r.inside ? 1 : 0, nb: r.near.length ? r.near[0].properties.name : "", acc: Math.round(acc || 0), ...more};
@@ -3479,6 +3484,7 @@ function seatState(r){
   if (!r || !r.h) return "vacant";
   const hs = holders(r), g = general(r);
   if (ST.noGeneral || (ST.partial && !g.length)) return "unknown";      // the November list for this race is not loaded: no claim either way
+  if (!g.length) return "none";      // the list is loaded and names nobody for this seat (settled before November, or nobody filed): not an open seat by any record here
   if (!hs.length) return g.some(c => c.inc) ? "running" : "open";      // a holder the list names without a roster id: its own incumbent mark
   return hs.every(id => g.some(c => c.m === id)) ? "running" : "open";      // two members, one not running: a seat is open
 }
@@ -3499,6 +3505,9 @@ function seatWords(r, link){
   const href = link && r.h[0] ? recordHref(r.h[0]) : "";
   const who = `Held today by <b>${href ? `<a href="${href}">${esc(r.h[1])}</a>` : esc(r.h[1])}</b>${r.h[2] ? ` (${esc(r.h[2])})` : ""}`;
   const is = / and /.test(r.h[1]) ? "are" : "is";      // a governor and lieutenant governor hold the office together
+  if (s === "none") return `${who}. No contest for this seat is on the November ballot.`;
+  // the only candidate, whose name a state does not print (Oklahoma, Louisiana, Florida): elected without a vote, never "on the ballot"
+  if (s === "running" && general(r).every(c => c.out === "unopposed")) return `${who}, the only candidate for it: elected without a vote, and not printed on the ballot.`;
   if (s === "running") return `${who}, who ${is} on the ballot again.`;
   const lost = primaries(r).find(k => (r.el[k] || []).some(c => c.m && c.m === r.h[0] && c.out === "lost"));
   const voted = lost && (r.el[lost] || []).some(c => c.v != null);
@@ -3583,7 +3592,7 @@ function card(c, r, k, n){      // k: its place among the cards shown; n: how ma
   const band2 = r.lv === "legislature" ? (r.k === "state_senate" ? `${ST.upAbbr} ${r.d}` : `${ST.loAbbr} ${r.d}`) : r.s ? seatWords2(r.s) : r.d ? (r.lv === "court" ? (/^court_of_appeals/.test(r.k) ? (raceWhere(r) !== ST.name ? raceWhere(r) : distWords(r.d)) : judicialName(r.d)) : distWords(r.d)) : (r.lv === "statewide" ? "Statewide" : "");
   const rec = href ? `<a class="rec" href="${href}" draggable="false">${sv ? "Their record" : L && L[0] === "official" ? `${esc(L[1])} today: their record` : L ? `Serves in the ${NM} ${esc(L[1])} today: their record` : "Their record"}</a>` : (sv ? `<span class="rec">Serves in this seat today</span>` : "");
   const many = general(r).length > 1;      // one name for the office: nothing to move or hide, so its card has no controls (the comparison's column has none either)
-  const order = isRet(r) ? ["On the ballot", "A yes or no question"] : ["Ballot order", c.o != null ? esc(String(c.o)) : "Not given"];
+  const order = isRet(r) ? ["On the ballot", "A yes or no question"] : ["Ballot order", c.o != null ? esc(String(c.o)) : c.out === "unopposed" ? "None: not printed" : "Not given"];
   const rows = r.f ? [["Age", age != null ? String(age) : (fAge(p.fb) || "Not on record")], ["In office now", officeNow(c, r)], order]
     : [["Party", r.pt ? esc(partyShort(c, r)) : "Nonpartisan"], order];
   return `<article class="bcard${c.wi ? " wi" : ""}${r.pt ? "" : " np"}${n === 1 ? " solo" : ""}" style="--pc:${pcVar(c)};--k:${k}" aria-label="${esc(c.n)}, ${esc(partyWords(c, r))}" data-k="${esc(c.k)}" draggable="true">
@@ -3668,6 +3677,7 @@ const NO_MARKET = `<p class="fnote nomarket">No prediction market lists this rac
 function tabsFor(r){      // polls and markets, on the statewide races of a state that has them: the tabs a race for Congress has
   // the sentence about a race no market lists: once, on a statewide or county office's page, and on no other
   if (!BOOT.mk || typeof raceTabs !== "function") return "";
+  const g = general(r); if (g.length && g.every(c => c.out === "unopposed")) return "";      // elected without a vote: nothing to poll or to bet on
   const held = (BOOT.mkHeld || []).includes(r.id);      // a market does list this race and it is held back (too thinly traded to show): nothing is said of markets
   if (r.lv === "county") return held ? "" : NO_MARKET;
   if (!wideRace(r)) return "";
@@ -3864,14 +3874,15 @@ function legPreview(r){
     <a class="rpgo" href="${hrefRace(r)}">Open the race &rsaquo;</a>`;
 }
 function legSummary(key){
-  const rs = Object.values(LEG[key]), n = {}; let open = 0, vac = 0, unk = 0;
-  rs.forEach(r => { const h = hcode(r); if (!h) { vac++; return; } n[h] = (n[h] || 0) + 1; const s = seatState(r); if (s === "open") open++; else if (s === "unknown") unk++; });
+  const rs = Object.values(LEG[key]), n = {}; let open = 0, vac = 0, unk = 0, none = 0;
+  rs.forEach(r => { const h = hcode(r); if (!h) { vac++; return; } n[h] = (n[h] || 0) + 1; const s = seatState(r); if (s === "open") open++; else if (s === "unknown") unk++; else if (s === "none") none++; });
   const split1 = rs.find(r => hcode(r) === "S");
   const rows = Object.entries(n).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<li><i style="background:${swatch(k, split1)}"></i>${num(v)} held by ${v === 1 ? ONE[k] : MANY[k]}</li>`);
   if (vac) rows.push(`<li><i style="background:var(--line-strong)"></i>${plural(vac, "seat")} with no member in the roster today</li>`);
   if ((ST.off || {})[key]) rows.push(`<li><i style="background:var(--line)"></i>${plural(ST.off[key], "district")} not on this year&rsquo;s ballot</li>`);
   if (unk) rows.push(`<li><i style="background:var(--surface);border:1px dashed var(--line-strong)"></i>${plural(unk, "district")} whose November candidates are not on the lists loaded yet, shown in the holder&rsquo;s colour</li>`);
-  if (unk < rs.length) rows.push(`<li><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px)"></i>${open ? `${plural(open, "open seat")}: the member who holds it is not on its November ballot` : unk ? "No open seat among the rest" : "No open seat: every member is on the ballot again"}</li>`);
+  if (none) rows.push(`<li><i style="background:var(--surface);border:1px solid var(--line-strong)"></i>${plural(none, "district")} with nobody on the November list, shown in the holder&rsquo;s colour</li>`);
+  if (unk + none < rs.length) rows.push(`<li><i style="background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px)"></i>${open ? `${plural(open, "open seat")}: the member who holds it is not on its November ballot` : unk || none ? "No open seat among the rest" : "No open seat: every member is on the ballot again"}</li>`);
   const hover = matchMedia("(hover: hover)").matches;
   return `<span class="kick">${NM} ${key === "upper" ? UP : LO}</span><h3>${plural(rs.length, "district")} on the ballot</h3>
     <ul class="tally">${rows.join("")}</ul><p class="sidehint">${hover ? "Point at a district to see who is running there; click to keep it here." : "Tap a district to see who is running there."}${ST.zoom ? ` Zoom in for ${esc(ST.zoom)}.` : ""}</p>`;
@@ -4070,7 +4081,12 @@ function ballotHTML(m){
   const districted = list => list.some(r => r.d || (OLDER && /\bward\b|\bdistrict\b/i.test(r.o || "")));      // elsewhere "District" in a title is the office's own name (Clerk of District Court)
   const DIST_NOTE = `Where an office is elected by district or ward, you vote only in your own; your ${CO1}&rsquo;s sample ballot shows which.`;
   /* a county with none of its own contests shown because its list could not be loaded: what is missing and why, in the loader's words, never an empty space */
-  const countyGap = f => { const gs = GAPS.county[f] || []; return gs.length ? note(esc(cName(f)), gs.map(g => `<b>Not here yet: ${esc(g.w)}.</b> ${esc(g.r)}`).join(" ")) : ""; };
+  const countyGap = f => { const gs = GAPS.county[f] || []; if (gs.length) return note(esc(cName(f)), gs.map(g => `<b>Not here yet: ${esc(g.w)}.</b> ${esc(g.r)}`).join(" "));
+    /* a state whose lists reach its counties, and this county's list has none of the reader's: said, never an empty space */
+    if (!ST.local || !f) return "";
+    const other = byLv("county").filter(inC);      // the county's contests in a commissioner district that is not the reader's
+    return other.length ? note(esc(cName(f)), `${plural(other.length, "contest")} for ${esc(cName(f))} ${other.length === 1 ? "is" : "are"} on the list, in ${other.length === 1 ? "a district" : "districts"} other than yours: ${other.map(r => `<a href="${hrefRace(r)}">${esc(raceTitle(r))}</a>`).join("; ")}.`)
+      : note(esc(cName(f)), `No ${esc(ST.countyWord || "county")} contest ${onList(LWHO, " for November 3", f)}.`); };
   const out = [];
   // a statewide board's seat elected by district, where a located reader's own precinct names its district of that board (r.q):
   // true, the reader's; false, another's, and it is left off; null, not known, and it is listed with the sentence that says so
@@ -4438,7 +4454,8 @@ function howTheyGotHere(r, prim){      // Minnesota's words as they were; elsewh
   const dates = [...new Set(prim.map(k => ((r.el[k] || [])[0] || {}).date).filter(Boolean))].sort().map(shortDate);
   const party = prim.some(k => k !== "primary-NP"), runoff = prim.some(k => /^runoff/.test(k));
   const two = (r.hs || []).length > 1 || /\b(two|2) seats\b|\belect 2\b/i.test(r.note || "");
-  return `Where more people ran${party ? " for a party" : ""} than it could send on, the ${runoff ? "primary and its runoff" : party ? "party&rsquo;s primary" : "primary"} on ${esc(andList(dates))} chose who went on to November. Everyone on that ballot is listed; ${two ? "those" : "the one"} on the November ballot ${two ? "are" : "is"} marked.`;
+  return `Where more people ran${party ? " for a party" : ""} than it could send on, the ${runoff ? "primary and its runoff" : party ? "party&rsquo;s primary" : "primary"} on ${esc(andList(dates))} chose who went on to November. Everyone on that ballot is listed; ${!general(r).length ? "nobody is on the November list for this seat."
+    : `${two ? "those" : "the one"} on the November ballot ${two ? "are" : "is"} marked.`}`;
 }
 /* <extras> */
 const SBOX = (who, what, tail) => `<div class="srcitem"><b>${who}</b>: ${what}<small>${tail}</small></div>`;

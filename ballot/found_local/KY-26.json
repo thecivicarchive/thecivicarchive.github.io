@@ -1,0 +1,33 @@
+{
+ "part": 26,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was used up before this part began, so the 30 candidates were researched only by opening known official pages directly. Glasgow's city site and Louisville Metro's site answered 403, the Gallatin and Henderson PVA office sites answered 403, Paris's city site and Geoff Young's listed campaign site (young4ky.com) did not resolve, Livingston County's listed site now serves an unrelated gambling page, and the Ashland and Fort Thomas school board pages load their members by script; those candidates are left blank. The Kentucky Party's own site lists Geoff Young as its treasurer (a party post, not recorded) and has no candidate list, so no endorsement is recorded. Wikipedia county infoboxes name Donnie Watson (Estill), Michael Williams (Livingston), Raymond Banks (Wolfe) and Dan Ison (Shelby) as judge-executives, so no office is recorded for Kelby Browning, Teris N Swanson, Michael Brand or Rob Rothenburger. The Kentucky Court of Justice's Floyd County page (31st Judicial District) does not name Ashley Tackett Laferty. Verifier: every url re-opened; the Wikipedia article names Young as the Kentucky Party candidate for the 75th district in 2026 (state and seat anchors) and cites each statement used; the Department of Revenue directory was read by its Gallatin and Henderson County pages (names only).",
+ "candidates": [
+  {"race_id": "2026-KY-SH75", "name": "Geoffrey M. \"Geoff\" Young",
+   "born": {"year": 1956, "date": null, "source": "Wikipedia, Geoff Young (cited; names him the Kentucky Party candidate for the 75th district in the 2026 Kentucky House election)", "url": "https://en.wikipedia.org/wiki/Geoff_Young", "kind": "secondary", "verified": true},
+   "past_party": [
+    {"what": "Kentucky Green Party candidate for state House District 45", "year": 2012, "party": "Green", "source": "Wikipedia, Geoff Young", "url": "https://en.wikipedia.org/wiki/Geoff_Young", "kind": "secondary", "verified": true},
+    {"what": "Republican primary, Kentucky's 6th congressional district (lost)", "year": 2020, "party": "Republican", "source": "Wikipedia, Geoff Young", "url": "https://en.wikipedia.org/wiki/Geoff_Young", "kind": "secondary", "verified": true},
+    {"what": "Won the Democratic nomination, Kentucky's 6th congressional district", "year": 2022, "party": "Democratic", "source": "Wikipedia, Geoff Young", "url": "https://en.wikipedia.org/wiki/Geoff_Young", "kind": "secondary", "verified": true},
+    {"what": "Democratic gubernatorial primary, Kentucky", "year": 2023, "party": "Democratic", "source": "Wikipedia, Geoff Young", "url": "https://en.wikipedia.org/wiki/Geoff_Young", "kind": "secondary", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-12160-mayor", "name": "Dennis L Benningfield",
+   "official_page": {"url": "https://campbellsville.us/city-hall/", "source": "City of Campbellsville, City Hall page: 'Dennis Benningfield, Mayor'", "verified": true},
+   "offices": [
+    {"office": "Mayor of Campbellsville", "from": null, "to": "present", "source": "City of Campbellsville, City Hall page", "url": "https://campbellsville.us/city-hall/", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21077-county-assessor", "name": "Sheryl L. Jones",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, Property Valuation Administrators Directory 2022-2026, Gallatin County page: 'Sheryl L. Jones, PVA'", "verified": true},
+   "offices": [
+    {"office": "Gallatin County Property Valuation Administrator", "from": null, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Gallatin County page", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-21101-county-assessor", "name": "Andrew M Powell",
+   "official_page": {"url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "source": "Kentucky Department of Revenue, Property Valuation Administrators Directory 2022-2026, Henderson County page: 'Andrew M. Powell, PVA'", "verified": true},
+   "offices": [
+    {"office": "Henderson County Property Valuation Administrator", "from": null, "to": "present", "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Henderson County page", "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf", "kind": "official", "verified": true}
+   ]}
+ ]
+}

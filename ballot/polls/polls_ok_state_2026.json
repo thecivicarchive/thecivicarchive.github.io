@@ -1,0 +1,120 @@
+{
+ "rule": "Oklahoma's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "note": "No pollster in AAPOR's Transparency Initiative has published a poll of any Oklahoma state race in 2026, so no race has a poll to show. Every poll found was by a firm outside the Initiative, nearly all of them of the Republican primaries and runoffs; the only polls of a November matchup are Cole Hargrave Snodgrass & Associates' August 3-6 survey of the Lieutenant Governor's and Attorney General's races. ActiVote's list of state polls could not be found from its home page (2026-10-03) and was not read.",
+ "races": {
+  "2026-OK-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 17,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (five: the Republican primary on February 10-15, May 5-9 and August 4-10, 2025 and January 26-30, 2026, and the Republican runoff on August 2-4, 2026)",
+     "Pulse Decision Science (four, for Club for Growth: the Republican primary on April 7-9 and May 26-28, 2026, and the runoff on June 21-23 and August 2-4, 2026)",
+     "Stratus Intelligence (two, the Republican primary, September and October 2025, for Charles McCall's campaign)",
+     "JMC Analytics (the Republican primary, June 2-3, 2026)",
+     "NonDoc Media and the Oklahoma Association of Broadcasters (the Republican primary, May 21-25, 2026, registered Republicans)",
+     "yes. every kid. (the Republican primary, October 29-31, 2025; the group's own poll)",
+     "co/efficient (the Republican primary, October 25-27, 2025)",
+     "Victory Insights (the Republican primary, February 23-25, 2025, for the Calvin Coolidge Project)",
+     "Cygnal (the Republican runoff, June 18-19, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_gubernatorial_election",
+    "checked": "2026-10-03",
+    "note": "Governor. Nobody has published a poll of November's contest between Mike Mazzei and Cyndi Munson: Wikipedia's page has no general-election polling section (read 2026-10-03), 270toWin's Oklahoma governor page lists only primary and runoff polls, and every poll found asked about the Republican nomination, settled in the August 25 runoff. The count is of separate surveys: 13 of the June 16 primary and 4 of the runoff; Wikipedia's extra table of primaries with Ryan Walters (who did not run) repeats Cole Hargrave Snodgrass surveys, one of which (May 5-9, 2025) appears only there. None of the nine pollsters is on AAPOR's list of Transparency Initiative members. Emerson College Polling's own site search for Oklahoma lists no release after its 2023 approval poll (read 2026-10-03)."
+   }
+  },
+  "2026-OK-LTG": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (three: the Republican primary on January 26-30 and April 26-29, 2026, and T. W. Shannon against Kelly Forbes on August 3-6, 2026, 500 registered voters)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_lieutenant_gubernatorial_election",
+    "checked": "2026-10-03",
+    "note": "Lieutenant Governor. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll of November's matchup on Wikipedia's page (read 2026-10-03) is by Cole Hargrave Snodgrass & Associates, which is not a member. Emerson College Polling's own site search for Oklahoma lists no release after its 2023 approval poll (read 2026-10-03)."
+   }
+  },
+  "2026-OK-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 2,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (two: the Republican primary on January 26-30, 2026, and Jon Echols against Nick Coffey on August 3-6, 2026, 500 registered voters)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_Attorney_General_election",
+    "checked": "2026-10-03",
+    "note": "Attorney General. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll of November's matchup on Wikipedia's page (read 2026-10-03) is by Cole Hargrave Snodgrass & Associates, which is not a member. Emerson College Polling's own site search for Oklahoma lists no release after its 2023 approval poll (read 2026-10-03)."
+   }
+  },
+  "2026-OK-SPI": {
+   "polls": [],
+   "left_out": {
+    "n": 3,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (two: the Republican primary on May 4-5, 2026, and the Republican runoff on August 3-6, 2026)",
+     "NonDoc Media and the Oklahoma Association of Broadcasters (the Republican primary, May 21-25, 2026, registered Republicans)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_Superintendent_of_Public_Instruction_election",
+    "checked": "2026-10-03",
+    "note": "Superintendent of Public Instruction. No pollster in AAPOR's Transparency Initiative has published a poll of this race. Every poll on Wikipedia's page (read 2026-10-03) asked about the Republican nomination; none asked November's contest between Robert Franklin and Jennettie Marshall."
+   }
+  },
+  "2026-OK-LAB": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (the Republican runoff, August 3-6, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_Labor_Commissioner_election",
+    "checked": "2026-10-03",
+    "note": "Commissioner of Labor. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll on Wikipedia's page (read 2026-10-03) asked the Republican runoff; none asked November's contest."
+   }
+  },
+  "2026-OK-INS": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (the Republican runoff, August 3-6, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_Insurance_Commissioner_election",
+    "checked": "2026-10-03",
+    "note": "Insurance Commissioner. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll on Wikipedia's page (read 2026-10-03) asked the Republican runoff; none asked November's contest."
+   }
+  },
+  "2026-OK-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Cole Hargrave Snodgrass & Associates (the Republican primary, April 26-29, 2026)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_State_Treasurer_election",
+    "checked": "2026-10-03",
+    "note": "State Treasurer. No pollster in AAPOR's Transparency Initiative has published a poll of this race. The one poll on Wikipedia's page (read 2026-10-03) asked the Republican primary; none asked November's contest."
+   }
+  },
+  "2026-OK-CC": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_Corporation_Commission_election",
+    "checked": "2026-10-03",
+    "note": "Corporation Commissioner. No poll of this race by anyone was found: Wikipedia's page has no polling section (read 2026-10-03). So no pollster in AAPOR's Transparency Initiative has published one, and none is left out."
+   }
+  },
+  "2026-OK-AUD": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Oklahoma_elections",
+    "checked": "2026-10-03",
+    "note": "State Auditor and Inspector. Not on the November 3 ballot: one candidate remained, and Oklahoma prints only contested races. No poll was to be expected, and none appears on Wikipedia's page on Oklahoma's 2026 elections (read 2026-10-03)."
+   }
+  }
+ }
+}

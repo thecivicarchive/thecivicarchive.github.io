@@ -1,0 +1,29 @@
+{
+ "part": 21,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "note": "The session's shared web-search allowance was already used up when this part began (200 of 200), so no candidate could be searched for by name. Only government pages reachable by their known addresses were read: Lexington's page about its mayor, Paducah's Board of Commissioners pages and the Jefferson District Court's list of judges. No campaign website was confirmed for anyone in this part; guessed addresses for Linda Gorton's campaign did not resolve, and none was recorded. Josh Bray (a sitting legislator) is already listed on the Republican Party of Kentucky's candidates page, which is in ballot/lean/ky_endorsements.json as a listing, not an endorsement, so nothing is added for him here. The county, constable, magistrate, school board and other city candidates in this part were not found on any page that could be read without a search and are left blank. The Jefferson District Court's page lists Megan McDonald among its sixteen judges but gives no division numbers (the 01 to 16 beside each name is only its place in the page's list), so her present division is not recorded. Verifier (2026-10-03): all three pages re-opened; every finding stated as recorded; each person tied to the race by state, place and the office held; names match our list exactly.",
+ "candidates": [
+  {"race_id": "2026-KY-DJ30-7", "name": "Megan McDonald",
+   "official_page": {"url": "https://www.jeffersondistrictcourt.com/districtcourtjudges", "source": "Jefferson District Court, District Court Judges: 'Judge Megan McDonald' among the sixteen judges (the 30th Judicial District is Jefferson County)", "verified": true},
+   "offices": [
+    {"office": "Judge, Jefferson District Court (30th Judicial District)", "from": null, "to": "present", "source": "Jefferson District Court, District Court Judges page", "url": "https://www.jeffersondistrictcourt.com/districtcourtjudges", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-46027-mayor", "name": "Linda Gorton",
+   "official_page": {"url": "https://www.lexingtonky.gov/government/mayors-office/about-mayor-linda-gorton", "source": "Lexington-Fayette Urban County Government, About Mayor Linda Gorton: 'serving her second term as Lexington Mayor', 're-elected on Nov. 8, 2022'", "verified": true},
+   "offices": [
+    {"office": "Mayor of Lexington (Lexington-Fayette Urban County Government); second term, re-elected Nov. 8, 2022", "from": null, "to": "present", "source": "Lexington-Fayette Urban County Government, About Mayor Linda Gorton", "url": "https://www.lexingtonky.gov/government/mayors-office/about-mayor-linda-gorton", "kind": "official", "verified": true},
+    {"office": "Member, Lexington-Fayette Urban County Council ('the longest continuously serving member')", "from": null, "to": null, "source": "Lexington-Fayette Urban County Government, About Mayor Linda Gorton", "url": "https://www.lexingtonky.gov/government/mayors-office/about-mayor-linda-gorton", "kind": "official", "verified": true}
+   ]},
+  {"race_id": "2026-KY-M-58836-council", "name": "Sandra Wilson",
+   "official_page": {"url": "https://www.paducahky.gov/departments/administration/sandra-wilson", "source": "City of Paducah, Mayor Pro Tem Sandra Wilson (linked from the Board of Commissioners list at https://www.paducahky.gov/elected-officials)", "verified": true},
+   "offices": [
+    {"office": "City Commissioner, Paducah (first elected November 2012; elected to a seventh term November 2024)", "from": 2012, "to": "present", "source": "City of Paducah, Mayor Pro Tem Sandra Wilson", "url": "https://www.paducahky.gov/departments/administration/sandra-wilson", "kind": "official", "verified": true},
+    {"office": "Mayor Pro Tem, Paducah", "from": null, "to": "present", "source": "City of Paducah, Mayor Pro Tem Sandra Wilson", "url": "https://www.paducahky.gov/departments/administration/sandra-wilson", "kind": "official", "verified": true},
+    {"office": "Member, Paducah Power Board (Electric Plant Board)", "from": null, "to": "present", "source": "City of Paducah, Mayor Pro Tem Sandra Wilson", "url": "https://www.paducahky.gov/departments/administration/sandra-wilson", "kind": "official", "verified": true},
+    {"office": "Member, Paducah Riverfront Development Advisory Board", "from": null, "to": "present", "source": "City of Paducah, Mayor Pro Tem Sandra Wilson", "url": "https://www.paducahky.gov/departments/administration/sandra-wilson", "kind": "official", "verified": true}
+   ]}
+ ]
+}

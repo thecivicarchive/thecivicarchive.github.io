@@ -1,0 +1,320 @@
+{
+ "state": "OK",
+ "part": 6,
+ "of": 10,
+ "researched": "2026-10-03",
+ "notes": [
+  "WebSearch ran out partway (the session's search budget was spent), so most pages were reached directly with the kit's honest User-Agent: the campaign links on the Oklahoma Democratic Party's 'Our 2026 Candidates' page (https://www.okdemocrats.org/candidates) and the Tulsa County Republican Party's '2026 Oklahoma State Candidates' page, each opened and kept only when the site itself names the candidate and the office or district; county, city and state government pages; and a few campaign addresses checked by name lookup and then opened. Candidates with no keys below are ones for whom no such page stated anything a card may show.",
+  "No endorsed_by anywhere: no Oklahoma party page read calls anything an endorsement for these 2026 races (see ballot/lean/ok_endorsements.json, whose 'other_support' already holds the party listings). The Oklahoma Republican Party's site shows a CAPTCHA and was not requested.",
+  "Birth dates on the Wikipedia articles of Mike Mazzei and Cindy Byrd carry no citation in the infobox, so 'born' is left out for both.",
+  "Two sitting members' sites still carry 2024 wording (Danny Williams: 'Vote in Oklahoma 2024'; Suzanne Schreiber: footer 'Suzanne Schreiber for State House 2024'); they are kept as the member's own campaign sites, and the verifier may decide. Catherine Peters's site names her and 'VOTE NOVEMBER 3, 2026' and lists the Tulsa County Democratic Party among its endorsements, but does not print the district number; the state party's page links it under District 23.",
+  "Ballotpedia answered the kit's User-Agent with an empty page and was not used. Not found: campaign sites for Robert Franklin, Stacy Jo Adams, Max Wolfley, Albert Borrie and every county, judicial and city candidate in this part; Meloyde Blancett's site was found by name lookup (the party page links only social media).",
+  "Verifier (2026-10-03): every url re-opened (campaign sites, Grady County, the State Auditor's pages, Wikipedia, the Oklahoma Democratic Party's candidates page). Kept 28 findings; removed the websites of Jared Deck and Carri Hicks (429 on two tries); corrected the wording of three 'how' lines. Schreiber's site still has a 2024 footer but is the site the state party links for 2026 and names her for State Representative, so it is kept."
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-OK-40015-county-assessor",
+   "name": "Ladonna Phillips"
+  },
+  {
+   "race_id": "2026-OK-40051-county-commissioner-3",
+   "name": "Gary Bray",
+   "official_page": {
+    "url": "https://www.gradycountyok.com/204/District-Three",
+    "source": "Grady County, Board of County Commissioners, District Three page",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Grady County Commissioner, District 3",
+     "from": null,
+     "to": "present",
+     "source": "Grady County, Board of County Commissioners page ('Gary Bray, Commissioner, District Three'); start year not stated",
+     "url": "https://www.gradycountyok.com/201/Board-of-County-Commissioners",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-OK-40091-county-commissioner-1",
+   "name": "Loyal Dean Taylor"
+  },
+  {
+   "race_id": "2026-OK-40109-county-treasurer",
+   "name": "Jessica Thompson"
+  },
+  {
+   "race_id": "2026-OK-40121-sheriff-S",
+   "name": "Frankie McClendon"
+  },
+  {
+   "race_id": "2026-OK-ADJ-40003",
+   "name": "Megan Hickman"
+  },
+  {
+   "race_id": "2026-OK-AG",
+   "name": "Nick Coffey",
+   "website": {
+    "url": "https://www.coffeyforok.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Nick Coffey, Attorney General'; the site is titled 'Nick Coffey For OK' and is 'Paid for and Authorized by Coffey for Attorney General'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-DC-23-2",
+   "name": "Joseph Costa"
+  },
+  {
+   "race_id": "2026-OK-GOV",
+   "name": "Mike Mazzei",
+   "website": {
+    "url": "https://mikeforok.com/",
+    "how": "the site is titled 'Mike Mazzei for Governor of Oklahoma | Republican Nominee' and reads 'REPUBLICAN NOMINEE FOR OKLAHOMA GOVERNOR'; also linked from the Tulsa County Republican Party's '2026 Oklahoma State Candidates' page and from Wikipedia",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Oklahoma State Senator, District 25",
+     "from": "2004",
+     "to": "2016",
+     "source": "Wikipedia, Mike Mazzei (the campaign's 'Why Mike' page also says he served twelve years in the Oklahoma Senate)",
+     "url": "https://en.wikipedia.org/wiki/Mike_Mazzei",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Oklahoma Secretary of Budget (appointed by Governor Kevin Stitt)",
+     "from": "2019",
+     "to": "2020",
+     "source": "Wikipedia, Mike Mazzei (the campaign's 'Why Mike' page also says he was appointed Secretary of Budget by Governor Kevin Stitt)",
+     "url": "https://en.wikipedia.org/wiki/Mike_Mazzei",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Oklahoma State Senator, District 25",
+     "year": "2004-2016",
+     "party": "Republican",
+     "source": "Wikipedia, Mike Mazzei (a seat in the Oklahoma Senate, whose members sit by party)",
+     "url": "https://en.wikipedia.org/wiki/Mike_Mazzei",
+     "kind": "secondary",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "REPUBLICAN NOMINEE FOR OKLAHOMA GOVERNOR",
+    "url": "https://mikeforok.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-M-04450-council-ward-1",
+   "name": "Michael Colaw"
+  },
+  {
+   "race_id": "2026-OK-M-04450-council-ward-5",
+   "name": "Angela Utley"
+  },
+  {
+   "race_id": "2026-OK-M-82950-council-ward-3-S",
+   "name": "Joe Phillips"
+  },
+  {
+   "race_id": "2026-OK-SH14",
+   "name": "Jeremiah Gantz",
+   "website": {
+    "url": "https://www.gantzforhouse.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Jeremiah Gantz, District 14'; the site is titled 'Jeremiah Gantz - Oklahoma House District 14' and says he is running for State Representative",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH23",
+   "name": "Catherine Peters",
+   "website": {
+    "url": "https://www.peters2026.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Catherine Peters, District 23'; the site names Catherine Peters (donations to 'catherine-peters') and 'VOTE NOVEMBER 3, 2026', with Tulsa County ties, but does not print the district number",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "ENDORSEMENTS ... Oklahoma Democratic Party ... Tulsa County Democratic Party",
+    "url": "https://www.peters2026.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH28",
+   "name": "Danny Williams",
+   "website": {
+    "url": "https://www.votedannywilliams.com/",
+    "how": "found by name lookup; the site is titled 'Support District 28: Vote Danny Williams Now!', says he serves in the Oklahoma House of Representatives for District 28 and is 'Authorized and Paid for by Friends of Danny Williams 2026' (some of its text still reads 'Vote in Oklahoma 2024')",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "Danny Williams, representing the Republican Party",
+    "url": "https://www.votedannywilliams.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH34",
+   "name": "Trish Ranson",
+   "website": {
+    "url": "https://www.ransonhouse34.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Rep. Trish Ranson'; the site's header reads 'Trish Ranson | House District 34 | Stillwater, Oklahoma', its footer names 'Friends of Trish Ranson 2026' and it offers 2026 campaign merchandise",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH44",
+   "name": "Jared Deck"
+  },
+  {
+   "race_id": "2026-OK-SH50",
+   "name": "Stacy Jo Adams"
+  },
+  {
+   "race_id": "2026-OK-SH58",
+   "name": "Albert Borrie"
+  },
+  {
+   "race_id": "2026-OK-SH64",
+   "name": "Kathy Suttles",
+   "website": {
+    "url": "https://www.suttlesfor64.com",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Kathy Suttles, District 64'; the site is titled 'Kathy Suttles | Oklahoma House District 64'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH70",
+   "name": "Suzanne E. Schreiber",
+   "website": {
+    "url": "https://suzanneforstaterep.com",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Rep. Suzanne Schreiber, district 70'; the site is titled 'Suzanne Schreiber for State Representative' (footer: 'Paid for by Suzanne Schreiber for State House 2024')",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH78",
+   "name": "Meloyde Blancett",
+   "website": {
+    "url": "https://www.blancettforhouse.com/",
+    "how": "found by name lookup; the site is titled 'Friends of Meloyde Blancett' and says she has served as State Representative for House District 78 for five terms",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH83",
+   "name": "Dalton Gau",
+   "website": {
+    "url": "https://www.daltonforhouse.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Dalton Gau, District 83'; the site is titled 'Dalton Gau for State House' and reads 'dalton gau for house district 83'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH88",
+   "name": "Ellen Pogemiller",
+   "website": {
+    "url": "https://www.ellenforok.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Rep. Ellen Pogemiller, district 88'; the site is titled 'Home | Ellen Pogemiller' and speaks of her work 'As your State Representative'",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SH95",
+   "name": "Max Wolfley"
+  },
+  {
+   "race_id": "2026-OK-SPI",
+   "name": "Robert Franklin"
+  },
+  {
+   "race_id": "2026-OK-SS18",
+   "name": "Tyler Herring",
+   "website": {
+    "url": "https://tylerherring.com/",
+    "how": "found by name lookup; the site reads 'TYLER HERRING FOR STATE SENATE', 'General Election: November 3' and names Senate District 18",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS30",
+   "name": "Julia Kirt",
+   "website": {
+    "url": "https://www.juliakirt.com/",
+    "how": "linked from the Oklahoma Democratic Party's 'Our 2026 Candidates' page beside 'Senator Julia Kirt, district 30'; the site is titled 'Julia Kirt For State Senate' and names Oklahoma Senate District 30",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "the current Democratic Minority Leader of the State Senate",
+    "url": "https://www.juliakirt.com/",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-OK-SS40",
+   "name": "Carri Hicks"
+  },
+  {
+   "race_id": "2026-OK-TREAS",
+   "name": "Cindy Byrd",
+   "website": {
+    "url": "https://www.cindybyrd.com/",
+    "how": "linked from the Tulsa County Republican Party's '2026 Oklahoma State Candidates' page; the site is titled 'Cindy Byrd for Oklahoma State Treasurer 2026'",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://www.sai.ok.gov/about-the-agency/meet-cindy-byrd/",
+    "source": "Oklahoma State Auditor & Inspector, 'Meet Cindy Byrd'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Oklahoma State Auditor and Inspector",
+     "from": "2019",
+     "to": "present",
+     "source": "Oklahoma State Auditor & Inspector, History ('Oklahoma State Auditors Past and Present': 'Cindy Byrd (R) 2019 – Present')",
+     "url": "https://www.sai.ok.gov/about-the-agency/history/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Oklahoma State Auditor and Inspector",
+     "year": "2019-present",
+     "party": "Republican",
+     "source": "Oklahoma State Auditor & Inspector, History, which lists each auditor with party ('Cindy Byrd (R) 2019 – Present')",
+     "url": "https://www.sai.ok.gov/about-the-agency/history/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "any statewide candidate on the Republican ballot",
+    "url": "https://www.cindybyrd.com/",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [
+  {
+   "name": "Jared Deck",
+   "race_id": "2026-OK-SH44",
+   "what": "website https://www.deckfornorman.com/",
+   "why": "the site answered 429 Too Many Requests to the kit's User-Agent on two tries (and the other route could not reach it), so the page could not be re-opened and confirmed"
+  },
+  {
+   "name": "Carri Hicks",
+   "race_id": "2026-OK-SS40",
+   "what": "website https://www.carrihicks.com/",
+   "why": "the site answered 429 Too Many Requests to the kit's User-Agent on two tries (and the other route could not reach it), so the page could not be re-opened and confirmed"
+  }
+ ]
+}

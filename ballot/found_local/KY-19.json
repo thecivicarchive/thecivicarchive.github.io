@@ -1,0 +1,339 @@
+{
+ "part": 19,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance was already spent when this part began, and many county, city and party sites did not resolve on this machine's network, so most findings come from the Kentucky State Board of Elections' official county recaps (2022 and 2024, read from the copies the kit keeps) and a few official pages fetched directly. The 2022 recaps of Bell, Breathitt, Clay, Estill, Gallatin, Livingston, Owen, Powell, Trimble, Wolfe, Barren, Fayette, Allen and Washington counties are scans with no text and could not be read. Stephanie Aschmann Spires is listed on the Fayette County Democratic Party's 2026 Action Center (already in ballot/lean/ky_endorsements.json as listed, not endorsed), but the page links her name to a LinkedIn profile, which is a social profile and not a campaign website, so no website is recorded. Hancock County's 2022 recap prints no party on the constable contest, so no past_party is recorded for Josh L Estes.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21099-magistrate-4",
+   "name": "Doug Wells",
+   "offices": [
+    {
+     "office": "Hart County Magistrate, 4th Magisterial District (the only candidate printed in the November 8, 2022 general election, 1,095 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Hart County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hart%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Hart County Magistrate, 4th Magisterial District, November 8, 2022 general election",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, Hart County 2022 general election official precinct results (printed 'Doug WELLS REP')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hart%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21125-county-attorney",
+   "name": "Jodi L. Albright",
+   "offices": [
+    {
+     "office": "Laurel County Attorney (the only candidate printed in the November 8, 2022 general election)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Laurel County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Laurel%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Laurel County Attorney, November 8, 2022 general election",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, Laurel County 2022 general election official precinct results (printed 'REP Jodi L. ALBRIGHT')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Laurel%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21151-magistrate-3",
+   "name": "Billy Ray Hughes",
+   "offices": [
+    {
+     "office": "Madison County Magistrate, 3rd Magisterial District (won the November 8, 2022 general election, 3,756 votes to John C. Tudor's 3,327)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Madison County 2022 general election official results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Madison%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Madison County Magistrate, 3rd Magisterial District, November 8, 2022 general election",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, Madison County 2022 general election official results (printed 'REP Billy Ray HUGHES')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Madison%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21165-county-assessor",
+   "name": "Jim Lawson",
+   "offices": [
+    {
+     "office": "Menifee County Property Valuation Administrator (the only candidate printed in the November 8, 2022 general election, 1,578 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Menifee County 2022 general election results report",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Menifee%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Menifee County Property Valuation Administrator, November 8, 2022 general election",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, Menifee County 2022 general election results report (printed 'DEM Jim LAWSON')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Menifee%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21177-county-assessor",
+   "name": "Belinda S McKinney",
+   "offices": [
+    {
+     "office": "Muhlenberg County Property Valuation Administrator (the only candidate printed in the November 8, 2022 general election, as Belinda S. McKinney, 6,244 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Muhlenberg County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Muhlenberg%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Muhlenberg County Property Valuation Administrator, November 8, 2022 general election",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, Muhlenberg County 2022 general election official precinct results (printed 'Belinda S. McKINNEY DEM')",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Muhlenberg%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21091-constable-2",
+   "name": "Josh L Estes",
+   "offices": [
+    {
+     "office": "Hancock County Constable, 2nd Magisterial District (won the November 8, 2022 general election as Josh Estes, 395 votes to Michael Carlson's 363)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Hancock County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hancock%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ30-6",
+   "name": "Lisa L. Langford",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Jefferson/Pages/Jefferson.aspx",
+    "source": "Kentucky Court of Justice, Jefferson County page: 'Lisa L. Langford, Judge, District Court, 30th Judicial District, Division 6'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Judge, Jefferson District Court (30th Judicial District), Division 6",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Jefferson County page",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Jefferson/Pages/Jefferson.aspx",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "District Court Judge, 6th Division, Jefferson County: won the November 8, 2022 general election (113,982 votes to Justin C. Brown's 79,999)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Jefferson County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-12160-council",
+   "name": "Heather H Wise",
+   "offices": [
+    {
+     "office": "Campbellsville City Council: elected November 5, 2024 as Heather Wise (fourth of 17 candidates for twelve seats, 1,843 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, Taylor County 2024 general election official results",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Taylor.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-58836-council",
+   "name": "Raynarldo Henderson",
+   "official_page": {
+    "url": "https://paducahky.gov/node/5510",
+    "source": "City of Paducah, Commissioner Raynarldo Henderson (linked from the city's Elected Officials page)",
+    "verified": true
+   },
+   "born": {
+    "year": 1962,
+    "date": "1962-01-28",
+    "source": "City of Paducah, Commissioner Raynarldo Henderson page",
+    "url": "https://paducahky.gov/node/5510",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Paducah City Commissioner ('began serving as Commissioner on January 1, 2021, and was elected to his third term in November 2024')",
+     "from": "2021",
+     "to": "present",
+     "source": "City of Paducah, Commissioner Raynarldo Henderson page",
+     "url": "https://paducahky.gov/node/5510",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Member of the Paducah Housing Authority board for 17 years, chairman for 16 of them",
+     "from": null,
+     "to": null,
+     "source": "City of Paducah, Commissioner Raynarldo Henderson page",
+     "url": "https://paducahky.gov/node/5510",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Paducah City Commissioner: elected November 8, 2022 (second of eight candidates for four seats, 3,629 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, McCracken County 2022 general election official precinct results",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Mccracken%20County.pdf",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Paducah City Commissioner: re-elected November 5, 2024 (second of six candidates for four seats, 4,945 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, McCracken County 2024 general election official results",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/McCracken.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21001-magistrate-3",
+   "name": "Todd Smith"
+  },
+  {
+   "race_id": "2026-KY-21013-magistrate-3",
+   "name": "Larry \"Apple\" Adkins"
+  },
+  {
+   "race_id": "2026-KY-21025-jailer",
+   "name": "Joel Gross"
+  },
+  {
+   "race_id": "2026-KY-21037-magistrate-3",
+   "name": "Mike Dutle"
+  },
+  {
+   "race_id": "2026-KY-21051-jailer",
+   "name": "Linda Smallwood"
+  },
+  {
+   "race_id": "2026-KY-21065-constable-3",
+   "name": "Billy Goosey"
+  },
+  {
+   "race_id": "2026-KY-21077-constable-1",
+   "name": "Ed Wilson"
+  },
+  {
+   "race_id": "2026-KY-21113-constable-5",
+   "name": "Todd Evans"
+  },
+  {
+   "race_id": "2026-KY-21139-constable-2",
+   "name": "Richard Nestle"
+  },
+  {
+   "race_id": "2026-KY-21187-county-executive",
+   "name": "Laurel P Stivers"
+  },
+  {
+   "race_id": "2026-KY-21197-magistrate-5",
+   "name": "Brian McKinney"
+  },
+  {
+   "race_id": "2026-KY-21211-constable-6",
+   "name": "Brent Bridgman"
+  },
+  {
+   "race_id": "2026-KY-21223-constable-4",
+   "name": "Timothy Poynter"
+  },
+  {
+   "race_id": "2026-KY-21237-constable-1",
+   "name": "Charles \"Maynard\" Hatton"
+  },
+  {
+   "race_id": "2026-KY-M-31114-council",
+   "name": "Beau Jones"
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-at-large",
+   "name": "Stephanie Aschmann Spires"
+  },
+  {
+   "race_id": "2026-KY-S-00070-school-board-1",
+   "name": "Brian Celsor"
+  },
+  {
+   "race_id": "2026-KY-S-01950-school-board-2",
+   "name": "Jordon Case"
+  },
+  {
+   "race_id": "2026-KY-S-03780-school-board-2",
+   "name": "Joey Lee II"
+  },
+  {
+   "race_id": "2026-KY-S-05760-school-board-2",
+   "name": "Gabrielle Thompson"
+  },
+  {
+   "race_id": "2026-KY-SH70",
+   "name": "Charlotte Harris"
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every recap URL was re-fetched from elect.ky.gov and matched the kit's cached copy byte for byte; contest, party label and totals re-added from the recaps (Jefferson 6th Division 113,982 to 79,999; Madison 3rd District 3,756 to 3,327; Hancock constable 2nd District 395 to 363; Hart 1,095; Menifee 1,578; Muhlenberg 6,244; Campbellsville fourth of 17 with 1,843; Paducah second with 3,629 in 2022 and 4,945 in 2024). The Paducah and Kentucky Court of Justice pages were re-opened and state what is recorded. Each finding is tied to the 2026 race by county or city and office."
+}

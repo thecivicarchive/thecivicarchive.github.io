@@ -1,0 +1,35 @@
+{
+ "state": "KY",
+ "made": "2026-10-03",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 3489,
+ "by_level": {
+  "statewide": 0,
+  "legislature": 181,
+  "court": 142,
+  "county": 2284,
+  "city": 516,
+  "school": 366
+ },
+ "races_by_level": {
+  "statewide": 0,
+  "legislature": 119,
+  "court": 125,
+  "county": 1875,
+  "city": 122,
+  "school": 234
+ },
+ "races": 2475,
+ "on_the_november_list_in_all": 6465,
+ "per_part": 30,
+ "parts": 117,
+ "cities_in": 40,
+ "city_candidates": 516,
+ "school_districts_in": 110,
+ "school_candidates": 366,
+ "just_under": {
+  "places": 11,
+  "candidates": 76
+ },
+ "note": "Kentucky elects no statewide officer in 2026 (the Governor and the other statewide officers are elected in 2027). On November 3, 2026 it elects every county's officers (judge/executive, magistrates or commissioners, county clerk, county attorney, sheriff, jailer, coroner, surveyor, property valuation administrator and constables), its district judges, every city council and commission, the mayors and school board members whose four-year terms are ending, and soil and water conservation district supervisors (Kentucky State Board of Elections, Kentucky Election Schedule 2026-2036). Circuit judges, circuit court clerks and Commonwealth's attorneys are elected in 2030, so the few such seats on this ballot are filled for the time left until then. The county, city and school rows are those of the Secretary of State's list of candidates filed with the county clerks, which covers all 120 counties; where it files a candidate without naming the city or school district, the contest is not loaded (Owensboro's and Versailles's city races among them, so those cities are not in the scope), and in thirty-five contests where it still shows the May primary's field no name is loaded. Louisville's population figure is the Census Bureau's row for the Metro Government's balance, the county outside its other incorporated cities. Soil and water conservation district supervisors are outside the scope's rule and are not in it."
+}

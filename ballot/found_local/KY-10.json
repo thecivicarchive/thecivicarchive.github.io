@@ -1,0 +1,258 @@
+{
+ "part": 10,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's web-search allowance was used up before this part began, so research went through official pages reached directly (county, city and school district sites) and the State Board of Elections' 2022 general election recap sheets (official, one PDF a county; party printed beside each partisan candidate). Bell, Breathitt, Clay, Elliott, Fulton, Greenup, Larue, Meade, Morgan, Owen, Powell, Scott and Fayette recaps carry no text layer. Nothing was found for the candidates not listed.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-SH66",
+   "name": "T. J. Roberts",
+   "website": {
+    "url": "https://votetjroberts.com/",
+    "how": "Page title reads 'TJ Roberts, Kentucky State Representative, District 66'; footer 'Paid for by TJ Roberts for State Representative'.",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-21037-county-clerk",
+   "name": "Jim Luersen",
+   "official_page": {
+    "url": "https://campbellcountyclerk.ky.gov/",
+    "source": "Campbell County Clerk's Office (home page names Jim Luersen)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Campbell County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Campbell County Clerk's Office",
+     "url": "https://campbellcountyclerk.ky.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for County Clerk, Campbell County, November 2022 general election",
+     "year": 2022,
+     "party": "Republican (printed REP)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Campbell County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Campbell%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21099-county-clerk",
+   "name": "Felicia Shelton",
+   "official_page": {
+    "url": "https://hartcountyclerk.ky.gov/",
+    "source": "Hart County Clerk's Office (home page: 'Felicia Shelton, County Clerk')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hart County Clerk",
+     "from": null,
+     "to": "present",
+     "source": "Hart County Clerk's Office",
+     "url": "https://hartcountyclerk.ky.gov/",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for County Clerk, Hart County, November 2022 general election",
+     "year": 2022,
+     "party": "Democratic (printed DEM)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Hart County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hart%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21111-magistrate-1",
+   "name": "Mera Kathryn Corlett",
+   "past_party": [
+    {
+     "what": "Candidate for Justice of the Peace, District 1, Jefferson County, November 2022 general election",
+     "year": 2022,
+     "party": "Democratic (printed DEM)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Jefferson County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21123-sheriff",
+   "name": "Brian D Smith",
+   "official_page": {
+    "url": "https://laruecountyky.gov/departments/sheriff/",
+    "source": "LaRue County government, Sheriff page ('Sheriff Brian Smith')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "LaRue County Sheriff",
+     "from": null,
+     "to": "present",
+     "source": "LaRue County government",
+     "url": "https://laruecountyky.gov/departments/sheriff/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21137-county-executive",
+   "name": "J. Woods Adams III",
+   "official_page": {
+    "url": "https://lincolnky.com/government/administration/judge_executive.php",
+    "source": "Lincoln County government, County Judge/Executive page ('Woods Adams')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lincoln County Judge/Executive",
+     "from": null,
+     "to": "present",
+     "source": "Lincoln County government",
+     "url": "https://lincolnky.com/government/administration/judge_executive.php",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Candidate for County Judge/Executive, Lincoln County, November 2022 general election",
+     "year": 2022,
+     "party": "Republican (printed REP)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Lincoln County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Lincoln%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21151-county-assessor",
+   "name": "Billy Ackerman",
+   "past_party": [
+    {
+     "what": "Candidate for Property Valuation Administrator, Madison County, November 2022 general election",
+     "year": 2022,
+     "party": "Republican (printed REP)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Madison County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Madison%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21235-county-executive",
+   "name": "Pat White Jr",
+   "past_party": [
+    {
+     "what": "Candidate for County Judge/Executive, Whitley County, November 2022 general election",
+     "year": 2022,
+     "party": "Republican (printed REP)",
+     "source": "Kentucky State Board of Elections, 2022 General Election recap sheet, Whitley County",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Whitley%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-08902-council",
+   "name": "Carlos D'angelo Bailey",
+   "official_page": {
+    "url": "https://www.bgky.org/city-commission/carlos-bailey",
+    "source": "City of Bowling Green, 'Commissioner Carlos Bailey'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Bowling Green City Commissioner",
+     "from": "2021",
+     "to": "present",
+     "source": "City of Bowling Green ('Years Served on City Commission: 2021 - Present')",
+     "url": "https://www.bgky.org/city-commission/carlos-bailey",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-46027-council-7",
+   "name": "Joseph Hale",
+   "official_page": {
+    "url": "https://www.lexingtonky.gov/council-district-7",
+    "source": "Lexington-Fayette Urban County Government, 'Council District 7, Joseph Hale'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Lexington-Fayette Urban County Council Member, District 7",
+     "from": null,
+     "to": "present",
+     "source": "Lexington-Fayette Urban County Government",
+     "url": "https://www.lexingtonky.gov/council-district-7",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-56136-council",
+   "name": "Charles Dexter Knight",
+   "official_page": {
+    "url": "https://nicholasville.org/city-commission/",
+    "source": "City of Nicholasville, City Commission page (lists 'Dexter Knight'); the 2022 Jessamine County recap prints him as Charles \"Dexter\" KNIGHT for Nicholasville city commissioner",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Nicholasville City Commissioner",
+     "from": null,
+     "to": "present",
+     "source": "City of Nicholasville",
+     "url": "https://nicholasville.org/city-commission/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-05580-school-board-1",
+   "name": "James P Mullen",
+   "official_page": {
+    "url": "https://www.trigg.kyschools.us/district/board-of-education",
+    "source": "Trigg County Schools, Board of Education page ('Jim Mullen, Board Member, District #1')",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Trigg County Board of Education Member, District 1",
+     "from": null,
+     "to": "present",
+     "source": "Trigg County Schools",
+     "url": "https://www.trigg.kyschools.us/district/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verifier_note": "Every url re-opened on 2026-10-03: campaign site, county, city and school pages, and the State Board of Elections 2022 general recap PDFs (Campbell, Hart, Jefferson, Lincoln, Madison, Whitley; Jessamine for the Nicholasville commission). Each fact found as recorded, each tied to the 2026 race by county or city and office."
+}

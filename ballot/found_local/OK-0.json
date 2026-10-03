@@ -1,0 +1,143 @@
+{
+  "part": 0,
+  "of": 10,
+  "researched": "2026-10-03",
+  "note": "30 candidates (scope positions 0, 10, 20 ... 290). The session's shared web-search allowance ran out partway through this part, so the county commissioners (Adair, Choctaw, Greer, Mayes, Osage), the Rogers County assessor, the Logan County associate district judge race and the two city council candidates were looked for only on NonDoc's own search and the counties' and cities' own sites; nothing that ties a fact to them by two anchors was found, and they are left blank. Bartlesville's council page lists Jim Curd, Jr. (not Ingard Curtiss) for Ward 3. El Reno's city site did not resolve. Sitting legislators (Stark, Grego, Johns, Hall, Gise, Stinson, Gollihare, Thompson, Mann): no campaign site was found for any except Mark Mann, whose site markmannforsenate.com is linked beside his name on the Oklahoma Democratic Party's 'Our 2026 Candidates' page but answered the kit's fetcher 429 three times and did not resolve for WebFetch, so it was not seen and is left out. No Oklahoma party page read calls anything an endorsement for these races (see ballot/lean/ok_endorsements.json); the Democratic Legislative Campaign Committee's page for Chelsey Branham calls HD 85 a 'Target Race' and does not say endorsed, so nothing is recorded under endorsed_by. Ages printed by NonDoc (Founds 45, Abram-Garcia 43, Brent 39, Galbraith 50) give no year and are not recorded. Sierra Pfeiffer's described post (OSBI deputy general counsel) is a job, not a public office, and is not recorded.",
+  "candidates": [
+    {
+      "race_id": "2026-OK-INS",
+      "name": "Craig Macintyre",
+      "website": {
+        "url": "https://craigforcommish26.com/",
+        "how": "linked beside 'Craig MacIntyre' under Statewide Office Candidates on the Oklahoma Democratic Party's 'Our 2026 Candidates' page (https://www.okdemocrats.org/candidates); the site's title reads 'Craig MacIntyre for Oklahoma Insurance Commissioner 2026'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-OK-DC-14-1",
+      "name": "Caroline Wall",
+      "official_page": {
+        "url": "https://tulsacountydistrictcourt.org/civil.html",
+        "source": "Tulsa County District Court, Civil Division page: 'District Judge Caroline Wall', Civil Docket G",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "District Judge, Tulsa County (14th Judicial District)",
+          "from": 2014,
+          "to": "present",
+          "source": "NonDoc, 'Tulsa County candidate filing: 6 elections set, 14 elected by default' (April 3, 2026): 'Wall has served as a district judge since 2014'",
+          "url": "https://nondoc.com/2026/04/03/tulsa-county-candidate-filing-6-elections-set-14-elected-by-default/",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-OK-DC-5-1",
+      "name": "Christine Galbraith",
+      "website": {
+        "url": "https://christinegalbraith.com",
+        "how": "linked as her website in NonDoc's District 5 judge cheat sheet (June 13, 2026); the site's title reads 'Christine Galbraith for District Judge | Lawton, OK'",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Special Judge, Comanche County District Court",
+          "from": 2023,
+          "to": "present",
+          "source": "NonDoc, 'Cheat sheet: Familiar faces, special judge seek district judge post in southwest Oklahoma' (June 13, 2026): 'has served as a special judge for Comanche County since her appointment in 2023'",
+          "url": "https://nondoc.com/2026/06/13/cheat-sheet-familiar-faces-special-judge-seek-district-judge-post-in-southwest-oklahoma/",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-OK-SH38",
+      "name": "Madison Bolay",
+      "website": {
+        "url": "https://madisonbolay.com/",
+        "how": "linked for Bolay in NonDoc's HD 38 cheat sheet (June 11, 2026); the site reads 'Vote Madison Bolay for State House – District 38', paid for by Friends of Madison Bolay 2026",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-OK-SH47",
+      "name": "Indigo Oliver",
+      "website": {
+        "url": "https://www.oliverforhouse.com/",
+        "how": "linked beside 'Indigo Oliver' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site reads 'Hi, I'm Indigo Oliver and I'm running for Oklahoma House District 47.'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-OK-SH54",
+      "name": "Crystal Abram-Garcia",
+      "website": {
+        "url": "https://www.crystalforhouse.com/",
+        "how": "linked beside 'Crystal Abram-Garcia' on the Oklahoma Democratic Party's 'Our 2026 Candidates' page; the site reads 'Crystal Abram-Garcia for State House 54 2026'",
+        "verified": true
+      }
+    },
+    {
+      "race_id": "2026-OK-SH85",
+      "name": "Chelsey Branham",
+      "website": {
+        "url": "https://branhamforoklahoma.com/",
+        "how": "linked as her campaign site on the Democratic Legislative Campaign Committee's page for her HD 85 race; the site says she will 'keep fighting for House District 85' and is paid for by Branham for Oklahoma 2026",
+        "verified": true
+      },
+      "offices": [
+        {
+          "office": "Member, Oklahoma House of Representatives, District 83",
+          "from": 2018,
+          "to": 2020,
+          "source": "Wikipedia, 'Chelsey Branham'",
+          "url": "https://en.wikipedia.org/wiki/Chelsey_Branham",
+          "kind": "secondary",
+          "verified": true
+        }
+      ],
+      "past_party": [
+        {
+          "what": "Elected to the Oklahoma House of Representatives, District 83, as a Democrat",
+          "year": 2018,
+          "party": "Democratic",
+          "source": "Wikipedia, 'Chelsey Branham' (party: Democratic; Oklahoma House District 83, 2018 to 2020)",
+          "url": "https://en.wikipedia.org/wiki/Chelsey_Branham",
+          "kind": "secondary",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "race_id": "2026-OK-SS34",
+      "name": "Aaron Forst",
+      "website": {
+        "url": "https://www.forstforok.com",
+        "how": "linked as his campaign website in NonDoc's SD 34 cheat sheet (June 13, 2026); the site reads 'Aaron Forst for OK Senate', 'Oklahoma State Senate', 'Republican District 34', paid for by Forst for OK",
+        "verified": true
+      },
+      "past_party": [
+        {
+          "what": "Ran in the Democratic primary for Oklahoma House District 72",
+          "year": 2018,
+          "party": "Democratic",
+          "source": "NonDoc, 'SD 34 cheat sheet: 3 challenge Sen. Dana Prieto in Owasso, east Tulsa' (June 13, 2026): 'Forst ran for House District 72 in 2018 as a Democrat, losing the primary to current Tulsa Mayor Monroe Nichols.'",
+          "url": "https://nondoc.com/2026/06/13/sd-34-cheat-sheet-3-challenge-sen-dana-prieto-in-owasso-east-tulsa/",
+          "kind": "secondary",
+          "verified": true
+        }
+      ],
+      "own_words": {
+        "quote": "Republican District 34 Officail Campaign Site",
+        "url": "https://www.forstforok.com",
+        "verified": true
+      }
+    }
+  ],
+  "verified_on": "2026-10-03",
+  "removed": [],
+  "verify_note": "Every url re-opened 2026-10-03 with the kit's fetcher (craigforcommish26.com and tulsacountydistrictcourt.org failed one lookup through another reader, then answered); each page states the fact as recorded and ties the person to the 2026 race by two anchors. Branham's Wikipedia office is tied by her campaign site's 'As a State Representative'. Forst's 2018 Democratic primary run is NonDoc's report of a party primary (secondary). Nothing from the never-collected list is in any field."
+}
