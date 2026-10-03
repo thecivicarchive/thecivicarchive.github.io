@@ -1,0 +1,26 @@
+{
+ "2026-CO-GOV": {
+  "polymarket": "colorado-governor-winner-2026",
+  "kalshi": "GOVPARTYCO-26",
+  "checked": "2026-10-02",
+  "note": "Governor and Lieutenant Governor. Polymarket's event is titled \"Colorado Governor Election Winner\" and resolves on the winner of the 2026 Colorado gubernatorial election; its open outcomes are Phil Weiser (D) and Victor Marx (R) (about $17,000 traded when checked). It also carries eleven placeholder outcomes (Option A to Option J, and Other) that are not active and have no price, and its rules say candidates other than the two nominees may be added later. Kalshi's event is titled \"Colorado Governor winner?\" (In 2026); its two markets are by party, labelled Phil Weiser and Victor Marx, and its rule turns on which party's representative is inaugurated (about 128,000 contracts when checked). Both name the candidates for governor without running mates, and neither offers the five other tickets on our list (Greg Lopez, unaffiliated; the Libertarian, Approval Voting, Unity and American Constitution candidates). Left out on purpose: Polymarket's margin-of-victory event, and Kalshi's primary, nomination and \"Polis out\" series (KXCOPRIMARY, KXAGNOMCOD, KXPOLISOUT)."
+ },
+ "2026-CO-AG": {
+  "polymarket": null,
+  "kalshi": "KXATTYGENCO-26",
+  "checked": "2026-10-02",
+  "note": "Attorney General. Kalshi's event is titled \"Colorado Attorney General winner?\" (In 2026), by party: it resolves on which party's representative is sworn in for the term beginning in 2027, and labels the outcomes Jena Griswold and Michael Allen (our list prints Michael J. Allen), the two on our list. Lightly traded: about 2,400 contracts when checked, so the two last prices added to 106 cents. Polymarket lists no market for this race (its search for Colorado lists only the Governor and U.S. Senate races among state offices, and its likely slug returned nothing, 2026-10-02)."
+ },
+ "2026-CO-SOS": {
+  "polymarket": null,
+  "kalshi": "KXSECSTATECO-26",
+  "checked": "2026-10-02",
+  "note": "Secretary of State. Kalshi's event is titled \"Colorado Secretary of State winner?\" (In 2026), by party (who is elected in 2026), opened July 20, 2026: Amanda Gonzalez and James Wiley (about 17,000 contracts between them when checked), and a market for Celeste Landry (Forward Party), added September 24, that had never traded, so ballot/odds.py's kalshi() names her under \"quiet\" rather than showing a price. The last prices of Gonzalez and Wiley added to 106 cents. Neither of the two other candidates on our list (American Constitution and Libertarian) is offered. Polymarket lists no market for this race (its search for Colorado and the likely slug, 2026-10-02)."
+ },
+ "2026-CO-TREAS": {
+  "polymarket": null,
+  "kalshi": null,
+  "checked": "2026-10-02",
+  "note": "State Treasurer. No market found. Kalshi: its list of every Elections and Politics series (4,512 titles, read 2026-10-02) has no Colorado treasurer series (it has Colorado's Governor, Attorney General, Secretary of State, U.S. Senate and primary series), and three likely event tickers answered not found. Polymarket: its search for \"colorado treasurer\" returned no such event and two likely slugs returned nothing. The same Kalshi list has no series for the University of Colorado's regents or the State Board of Education."
+ }
+}

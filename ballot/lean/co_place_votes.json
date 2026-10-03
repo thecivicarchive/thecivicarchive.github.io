@@ -1,0 +1,1186 @@
+{
+ "what": "How each Colorado place voted in five contests of the 2020, 2022 and 2024 general elections: the votes for the Democratic ticket, the Republican ticket, every other candidate together and the total, added up from the precinct results in the Colorado Secretary of State's Historical Elections Database.",
+ "note": "What this is: how the people of a place voted in that election, in the precinct results of the Secretary of State's Historical Elections Database, checked county by county against the Secretary's Abstract of Votes Cast, added up here by county and by judicial district and, for 2022 and 2024, by congressional, state Senate and state House district, on the lines in force at that election. A Colorado precinct lies in one district of each kind, so nothing is divided or estimated. What this is not: it is not a prediction of any election; it says nothing about any candidate on a later ballot or about any voter; a nonpartisan office stays nonpartisan; and a place is not its lines for ever: where a district was drawn again, the figures are for the lines of that year. Colorado elected no senator in 2024, and its Governor only in 2022. The tickets are named, as the Secretary's own results name them, only to say which election this was. In a place with very few voters the split would come close to saying how particular people voted; those contests are listed in the place's too_few, and a page should leave the split out.",
+ "state": "CO",
+ "generated": "2026-10-02",
+ "method_version": "1.0",
+ "how_to_read": "Each place's votes are four counts for each contest: dem (the Democratic ticket), rep (the Republican ticket), other (every other candidate, certified write-in candidates included) and total (the votes cast for candidates; Colorado counts a write-in only for a certified write-in candidate, and the results give no over or under votes). Minnesota's file calls the first count dfl. A contest a place does not have was not counted on its lines: congressional, Senate and House districts are given for 2022 and 2024 only.",
+ "vote_keys": [
+  "dem",
+  "rep",
+  "other",
+  "total"
+ ],
+ "too_few": {
+  "fewer_than": 20,
+  "why": "A place's too_few lists the contests in which it had fewer than 20 votes, or in which every vote went the same way. There the split comes close to saying how particular people voted, so a page should leave it out. The counts are the official record all the same, and are kept here so that the sums can be checked."
+ },
+ "contests": [
+  {
+   "id": "2024-president",
+   "date": "2024-11-05",
+   "office": "President and Vice President of the United States",
+   "table": "co-sos-elstats-2024",
+   "kinds": [
+    "county",
+    "judicial",
+    "congressional",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Harris and Walz",
+    "column": "the column headed Kamala D. Harris/ Tim Walz (Democratic)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Vance",
+    "column": "the column headed Donald J. Trump/ JD Vance (Republican)"
+   },
+   "other": {
+    "what": "every other candidate, certified write-in candidates included, together",
+    "columns": [
+     "Robert F. Kennedy, Jr/ Nicole Shanahan (Unaffiliated)",
+     "Chase Russell Oliver/ Mike Ter Maat (Libertarian)",
+     "Jill Stein/ Rudolph Ware (Green)",
+     "Cornel West/ Melina Abdullah (Unity Party of Colorado)",
+     "Randall Terry/ Stephen E. Broden (American Constitution)",
+     "Blake Huber/ Andrea Denault (Approval Voting)",
+     "Peter Sonski/ Lauren Onak (American Solidarity)",
+     "Claudia De la Cruz/ Karina Garcia (Socialist Labor)",
+     "Chris Garrity/ Cody Ballard (No Party Affiliation)",
+     "Shiva Ayyadurai/ Crystal Ellis (Independent)",
+     "Bill Frankel/ Steve Jenkins (Unaffiliated/Republican)",
+     "Brian Anthony Perry/ Mark Sbani (Democratic)"
+    ]
+   },
+   "total": {
+    "what": "the file's Total Votes Cast: the votes for all the candidates; the results give no over or under votes"
+   },
+   "statewide": {
+    "dem": 1728159,
+    "rep": 1377441,
+    "other": 87145,
+    "total": 3192745
+   },
+   "official_source": "co-sos-abstract-2024",
+   "database_contest": "26499"
+  },
+  {
+   "id": "2022-us-senate",
+   "date": "2022-11-08",
+   "office": "United States Senator",
+   "table": "co-sos-elstats-2022",
+   "kinds": [
+    "county",
+    "judicial",
+    "congressional",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Michael Bennet",
+    "column": "the column headed Michael Bennet (Democratic)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Joe O'Dea",
+    "column": "the column headed Joe O'Dea (Republican)"
+   },
+   "other": {
+    "what": "every other candidate, certified write-in candidates included, together",
+    "columns": [
+     "Brian Peotter (Libertarian)",
+     "T.J. Cole (Unity Party of Colorado)",
+     "Frank Atwood (Approval Voting)",
+     "Tom Harvey (Unaffiliated)",
+     "Joanne Rock (Unaffiliated)",
+     "John Carleton Rutledge (Libertarian)",
+     "Robert Messman (Unaffiliated)"
+    ]
+   },
+   "total": {
+    "what": "the file's Total Votes Cast: the votes for all the candidates; the results give no over or under votes"
+   },
+   "statewide": {
+    "dem": 1397170,
+    "rep": 1031693,
+    "other": 71338,
+    "total": 2500201
+   },
+   "official_source": "co-sos-abstract-2022",
+   "database_contest": "25990"
+  },
+  {
+   "id": "2022-governor",
+   "date": "2022-11-08",
+   "office": "Governor and Lieutenant Governor",
+   "table": "co-sos-elstats-2022",
+   "kinds": [
+    "county",
+    "judicial",
+    "congressional",
+    "senate",
+    "house"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Polis and Primavera",
+    "column": "the column headed Jared Polis/ Dianne Primavera (Democratic)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Ganahl and Moore",
+    "column": "the column headed Heidi Ganahl/ Danny Moore (Republican)"
+   },
+   "other": {
+    "what": "every other candidate, certified write-in candidates included, together",
+    "columns": [
+     "Kevin Ruskusky/ Michele Poague (Libertarian)",
+     "Danielle Neuschwanger/ Darryl Gibbs (American Constitution)",
+     "Paul Noel Fiorino (None/Unknown)",
+     "Zachary Varon/ Sean Hoyt (Unaffiliated)",
+     "Paul Willmon/ Kathren May (Unaffiliated)",
+     "Paul NoÃ«l Fiorino/ Cynthia Munhos de Aquino Sirianni (Unity Party of Colorado)"
+    ]
+   },
+   "total": {
+    "what": "the file's Total Votes Cast: the votes for all the candidates; the results give no over or under votes"
+   },
+   "statewide": {
+    "dem": 1468481,
+    "rep": 983040,
+    "other": 57309,
+    "total": 2508830
+   },
+   "official_source": "co-sos-abstract-2022",
+   "database_contest": "25580"
+  },
+  {
+   "id": "2020-president",
+   "date": "2020-11-03",
+   "office": "President and Vice President of the United States",
+   "table": "co-sos-elstats-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "Biden and Harris",
+    "column": "the column headed Joseph R. Biden/ Kamala D. Harris (Democratic)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Trump and Pence",
+    "column": "the column headed Donald J. Trump/ Michael R. Pence (Republican)"
+   },
+   "other": {
+    "what": "every other candidate, certified write-in candidates included, together",
+    "columns": [
+     "Jo Jorgensen/ Jeremy \"Spike\" Cohen (Libertarian)",
+     "Howie Hawkins/ Angela Nicole Walker (Green)",
+     "Kanye West/ Michelle Tidball (Unaffiliated)",
+     "Don Blankenship/ William Mohr (American Constitution)",
+     "Bill Hammons/ Eric Bodenstab (Unity Party of Colorado)",
+     "Brian Carroll/ Amar Patel (American Solidarity)",
+     "Mark Charles/ Adrian Wallace (Unaffiliated)",
+     "Gloria La Riva/ Sunil Freeman (Socialism/Liberation)",
+     "Kyle Kenley Kopitke/ Nathan R. Sorenson (Independent American)",
+     "Roque \"Rocky\" De La Fuente/ Darcy G. Richardson (Alliance)",
+     "Joe McHugh/ Elizabeth Storm (Unaffiliated)",
+     "Brock Pierce/ Karla Ballard (Unaffiliated)",
+     "Phil Collins/ Billy Joe Parker (Prohibition)",
+     "Princess Khadijah Maryam Jacob-Fambro/ Khadijah Maryam Jacob Sr. (Unaffiliated)",
+     "Dario Hunter/ Dawn Neptune Adams (Progressive)",
+     "Blake Huber/ Frank Atwood (Approval Voting)",
+     "Alyson Kennedy/ Malcolm Jarrett (Socialist Workers)",
+     "Joseph Kishore/ Norissa Santa Cruz (Socialist Equality)",
+     "Jordan \"Cancer\" Scott/ Jennifer Tepool (Unaffiliated)",
+     "Tom Hoefling/ Andy Prior (Unaffiliated/No Party Affiliation)",
+     "Todd Cella/ Timothy Bryan Cella (Independent)",
+     "Kasey Wells/ Rachel Wells (No Party Affiliation)"
+    ]
+   },
+   "total": {
+    "what": "the file's Total Votes Cast: the votes for all the candidates; the results give no over or under votes"
+   },
+   "statewide": {
+    "dem": 1804352,
+    "rep": 1364607,
+    "other": 88021,
+    "total": 3256980
+   },
+   "official_source": "co-sos-abstract-2020",
+   "database_contest": "3640"
+  },
+  {
+   "id": "2020-us-senate",
+   "date": "2020-11-03",
+   "office": "United States Senator",
+   "table": "co-sos-elstats-2020",
+   "kinds": [
+    "county",
+    "judicial"
+   ],
+   "dem": {
+    "party": "Democratic",
+    "ticket": "John W. Hickenlooper",
+    "column": "the column headed John W. Hickenlooper (Democratic)"
+   },
+   "rep": {
+    "party": "Republican",
+    "ticket": "Cory Gardner",
+    "column": "the column headed Cory Gardner (Republican)"
+   },
+   "other": {
+    "what": "every other candidate, certified write-in candidates included, together",
+    "columns": [
+     "Raymon Anthony Doane (Libertarian)",
+     "Daniel Doyle (Approval Voting)",
+     "Stephan \"Seku\" Evans (Unity Party of Colorado)",
+     "Bruce Lohmiller (Green)",
+     "Danny Skelly (Unaffiliated)",
+     "Michael Sanchez (Unaffiliated)"
+    ]
+   },
+   "total": {
+    "what": "the file's Total Votes Cast: the votes for all the candidates; the results give no over or under votes"
+   },
+   "statewide": {
+    "dem": 1731114,
+    "rep": 1429492,
+    "other": 75184,
+    "total": 3235790
+   },
+   "official_source": "co-sos-abstract-2020",
+   "database_contest": "3602"
+  }
+ ],
+ "kinds": {
+  "county": {
+   "what": "Counties",
+   "key": "five-digit county FIPS code, as sl_places kind county and the jurisdiction_id of our county races",
+   "places": 64,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor",
+    "2020-president",
+    "2020-us-senate"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0
+  },
+  "judicial": {
+   "what": "Judicial districts, as whole counties",
+   "key": "CO-JD and the district number (CO-JD18), as sl_places kind judicial",
+   "places": 23,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor",
+    "2020-president",
+    "2020-us-senate"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "note": "The counties of each district are those sections 13-5-102 to 13-5-123.1, C.R.S. list today. The 23rd (Douglas, Elbert and Lincoln) was part of the 18th until January 2025; every year's figures are today's districts' counties added up."
+  },
+  "congressional": {
+   "what": "Congressional districts of the plan first used in 2022",
+   "key": "CO-CD and the district number (CO-CD7), as the jurisdiction_id of our State Board of Education and Regent races",
+   "places": 8,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts of 2011 (seven congressional districts, and the Senate and House districts of that plan); the districts drawn after the 2020 census were first used in 2022, so 2020 is not given.",
+   "left_out": {
+    "2022": [],
+    "2024": []
+   },
+   "note": "A Colorado precinct is drawn inside one congressional, one Senate and one House district, and a district is the precincts that voted in its contest. Every district is given."
+  },
+  "senate": {
+   "what": "State Senate districts of the plan first used in 2022",
+   "key": "district number, as the district of our Senate races",
+   "places": 35,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor"
+   ],
+   "covers_the_state": true,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts of 2011 (seven congressional districts, and the Senate and House districts of that plan); the districts drawn after the 2020 census were first used in 2022, so 2020 is not given.",
+   "left_out": {
+    "2022": [],
+    "2024": []
+   },
+   "note": "A Colorado precinct is drawn inside one congressional, one Senate and one House district, and a district is the precincts that voted in its contest. Every district is given. Half the Senate is elected each time; a precinct whose Senate seat was not on the ballot that year is given the Senate district its ten-digit number names, after the number was found to name the district of every precinct whose seat was on the ballot, in 2022 and in 2024."
+  },
+  "house": {
+   "what": "State House districts of the plan first used in 2022",
+   "key": "district number, as the district of our House races",
+   "places": 65,
+   "contests": [
+    "2024-president",
+    "2022-us-senate",
+    "2022-governor"
+   ],
+   "covers_the_state": false,
+   "places_with_a_contest_too_few": 0,
+   "why_not_2020": "The 2020 election was held on the districts of 2011 (seven congressional districts, and the Senate and House districts of that plan); the districts drawn after the 2020 census were first used in 2022, so 2020 is not given.",
+   "left_out": {
+    "2022": [
+     28,
+     38
+    ],
+    "2024": []
+   },
+   "note": "A Colorado precinct is drawn inside one congressional, one Senate and one House district, and a district is the precincts that voted in its contest. Left out (2022: 2): districts 28, 38, because a precinct's voters were counted in two of them that year (control.districts names it), and the results give that precinct's other votes whole; nothing is divided or estimated."
+  }
+ },
+ "control": {
+  "result": "equal",
+  "statement": "For every contest each row's candidates add up to its Total Votes Cast, each county's precincts to the county's row and the counties to the Totals row of the database's file; the counties equal the Secretary of State's Abstract of Votes Cast county by county; for President and U.S. Senator the Democratic and Republican figures equal the Clerk of the House's statistics; in 2022 and 2024 every precinct that cast votes voted in the congressional and House contests, and the Senate contest where its seat was up, of the districts its number names (one precinct also in a second House contest, named in districts); and the counties, the judicial districts and the districts given, with the precincts of those left out, add up to the statewide sum.",
+  "precincts": {
+   "2020": 3205,
+   "2022": 3232,
+   "2024": 3199
+  },
+  "contests": {
+   "2024-president": {
+    "sum_of_precincts": {
+     "dem": 1728159,
+     "rep": 1377441,
+     "other": 87145,
+     "total": 3192745
+    },
+    "precincts": 3199,
+    "database": {
+     "counties_equal_their_precincts": true,
+     "totals_row_equal": true
+    },
+    "source": "co-sos-elstats-2024",
+    "abstract": {
+     "compared": "the Democratic ticket, the Republican ticket and the total, county by county and the Total row",
+     "counties": {
+      "compared": 64,
+      "equal": 64
+     },
+     "total_row_equal": true,
+     "official": {
+      "dem": 1728159,
+      "rep": 1377441,
+      "total": 3192745
+     },
+     "source": "co-sos-abstract-2024"
+    },
+    "clerk": {
+     "official": {
+      "dem": 1728159,
+      "rep": 1377441
+     },
+     "equal": true,
+     "where": "Colorado, page 10",
+     "compared": "the Democratic and Republican figures; the Clerk's page leaves out some certified write-in candidates (its lines add up to 3,192,745)"
+    },
+    "equal": true
+   },
+   "2022-us-senate": {
+    "sum_of_precincts": {
+     "dem": 1397170,
+     "rep": 1031693,
+     "other": 71338,
+     "total": 2500201
+    },
+    "precincts": 3232,
+    "database": {
+     "counties_equal_their_precincts": true,
+     "totals_row_equal": true
+    },
+    "source": "co-sos-elstats-2022",
+    "abstract": {
+     "compared": "the Democratic ticket, the Republican ticket and the total, county by county and the Total row",
+     "counties": {
+      "compared": 64,
+      "equal": 64
+     },
+     "total_row_equal": true,
+     "official": {
+      "dem": 1397170,
+      "rep": 1031693,
+      "total": 2500201
+     },
+     "source": "co-sos-abstract-2022"
+    },
+    "clerk": {
+     "official": {
+      "dem": 1397170,
+      "rep": 1031693
+     },
+     "equal": true,
+     "where": "Colorado, page 7",
+     "compared": "the Democratic and Republican figures; the Clerk's page leaves out some certified write-in candidates (its lines add up to 2,500,130)"
+    },
+    "equal": true
+   },
+   "2022-governor": {
+    "sum_of_precincts": {
+     "dem": 1468481,
+     "rep": 983040,
+     "other": 57309,
+     "total": 2508830
+    },
+    "precincts": 3232,
+    "database": {
+     "counties_equal_their_precincts": true,
+     "totals_row_equal": true
+    },
+    "source": "co-sos-elstats-2022",
+    "abstract": {
+     "compared": "the Democratic ticket, the Republican ticket and the total, county by county and the Total row",
+     "counties": {
+      "compared": 64,
+      "equal": 64
+     },
+     "total_row_equal": true,
+     "official": {
+      "dem": 1468481,
+      "rep": 983040,
+      "total": 2508830
+     },
+     "source": "co-sos-abstract-2022"
+    },
+    "equal": true
+   },
+   "2020-president": {
+    "sum_of_precincts": {
+     "dem": 1804352,
+     "rep": 1364607,
+     "other": 88021,
+     "total": 3256980
+    },
+    "precincts": 3205,
+    "database": {
+     "counties_equal_their_precincts": true,
+     "totals_row_equal": true
+    },
+    "source": "co-sos-elstats-2020",
+    "abstract": {
+     "compared": "the Democratic ticket, the Republican ticket and the total, county by county and the Total row",
+     "counties": {
+      "compared": 64,
+      "equal": 64
+     },
+     "total_row_equal": true,
+     "official": {
+      "dem": 1804352,
+      "rep": 1364607,
+      "total": 3256980
+     },
+     "source": "co-sos-abstract-2020"
+    },
+    "clerk": {
+     "official": {
+      "dem": 1804352,
+      "rep": 1364607
+     },
+     "equal": true,
+     "where": "Colorado, page 12",
+     "compared": "the Democratic and Republican figures; the Clerk's page leaves out some certified write-in candidates (its lines add up to 3,256,952)"
+    },
+    "equal": true
+   },
+   "2020-us-senate": {
+    "sum_of_precincts": {
+     "dem": 1731114,
+     "rep": 1429492,
+     "other": 75184,
+     "total": 3235790
+    },
+    "precincts": 3205,
+    "database": {
+     "counties_equal_their_precincts": true,
+     "totals_row_equal": true
+    },
+    "source": "co-sos-elstats-2020",
+    "abstract": {
+     "compared": "the Democratic ticket, the Republican ticket and the total, county by county and the Total row",
+     "counties": {
+      "compared": 64,
+      "equal": 64
+     },
+     "total_row_equal": true,
+     "official": {
+      "dem": 1731114,
+      "rep": 1429492,
+      "total": 3235790
+     },
+     "source": "co-sos-abstract-2020"
+    },
+    "clerk": {
+     "official": {
+      "dem": 1731114,
+      "rep": 1429492
+     },
+     "equal": true,
+     "where": "Colorado, page 12",
+     "compared": "the Democratic and Republican figures; the Clerk's page leaves out some certified write-in candidates (its lines add up to 3,235,659)"
+    },
+    "equal": true
+   }
+  },
+  "kinds": {
+   "county": "equal",
+   "judicial": "equal",
+   "congressional": "equal",
+   "senate": "equal",
+   "house": "not every district is given every year; the districts given and the precincts of those left out add up to the statewide sum"
+  },
+  "districts": {
+   "2022": {
+    "congressional_contests": 8,
+    "senate_contests": 17,
+    "house_contests": 65,
+    "precincts": 3232,
+    "precincts_with_no_votes": 50,
+    "precincts_whose_senate_seat_was_not_on_the_ballot_read_from_their_number": 1552,
+    "precincts_with_no_votes_left_out_of_a_contest_file_read_from_their_number": {
+     "senate": [
+      "7253362362"
+     ],
+     "house": [
+      "7253362362",
+      "8233362601"
+     ]
+    },
+    "precincts_in_two_districts_of_a_kind": [
+     {
+      "precinct": "6162830025",
+      "county": "Jefferson County",
+      "kind": "house",
+      "districts": [
+       28,
+       38
+      ],
+      "number_says": 28
+     }
+    ],
+    "districts_left_out": {
+     "house": [
+      28,
+      38
+     ]
+    }
+   },
+   "2024": {
+    "congressional_contests": 8,
+    "senate_contests": 18,
+    "house_contests": 65,
+    "precincts": 3199,
+    "precincts_with_no_votes": 36,
+    "precincts_whose_senate_seat_was_not_on_the_ballot_read_from_their_number": 1658,
+    "precincts_with_no_votes_left_out_of_a_contest_file_read_from_their_number": {},
+    "precincts_in_two_districts_of_a_kind": [],
+    "districts_left_out": {}
+   }
+  },
+  "notes": [
+   "The database's 2022 Governor file carries one minor ticket on two lines (Paul Noel Fiorino with no party, holding its votes, and the whole ticket under the Unity Party of Colorado with none); both lines are counted in other, and the totals equal the abstract's."
+  ]
+ },
+ "coverage": {
+  "not_given": "Cities and towns: a Colorado precinct's number names no city or town, and the results do not say which one it lies in. County commissioner districts, the Regional Transportation District's director districts, school, special and other districts: the results do not say which of them a precinct lies in, and a precinct can lie partly inside one.",
+  "no_2024_senate": "Colorado elected no United States senator in 2024.",
+  "governor": "Colorado elected its Governor in 2022, not in 2020 or 2024.",
+  "our_places": {
+   "county": {
+    "places": 64,
+    "with_votes": 64,
+    "without": []
+   },
+   "judicial": {
+    "places": 19,
+    "with_votes": 19,
+    "without": []
+   },
+   "congressional": {
+    "places": 5,
+    "with_votes": 5,
+    "without": []
+   },
+   "senate": {
+    "places": 21,
+    "with_votes": 21,
+    "without": []
+   },
+   "house": {
+    "places": 65,
+    "with_votes": 65,
+    "without": []
+   },
+   "not_given_kinds": {
+    "special": 7
+   },
+   "read": "sl_places and sl_races in ballot_local_2026.sqlite, opened read-only on 2026-10-02"
+  }
+ },
+ "sources": [
+  {
+   "id": "co-sos-elstats-2024",
+   "kind": "official results by precinct",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "State of Colorado Elections Database (Historical Elections Database), 2024 General Election, each contest's results download",
+   "url": "https://historicalelectiondata.coloradosos.gov/event/159",
+   "files": "https://co.elstats2.civera.com/eng/contests/download/<contest>/.csv",
+   "files_note": "The database serves its downloads from its own file host, the address its file links give.",
+   "contests": [
+    26499,
+    26500,
+    26501,
+    26502,
+    26503,
+    26507,
+    26508,
+    26509,
+    26510,
+    26511,
+    26512,
+    26513,
+    26514,
+    26515,
+    26516,
+    26517,
+    26518,
+    26519,
+    26520,
+    26554,
+    26557,
+    26558,
+    26561,
+    26562,
+    26563,
+    26564,
+    26565,
+    26566,
+    26567,
+    26568,
+    26569,
+    26570,
+    26571,
+    26572,
+    26589,
+    26592,
+    26599,
+    26601,
+    26602,
+    26603,
+    26604,
+    26605,
+    26606,
+    26607,
+    26615,
+    26616,
+    26625,
+    26626,
+    26627,
+    26632,
+    26633,
+    26634,
+    26635,
+    26636,
+    26637,
+    26638,
+    26639,
+    26640,
+    26662,
+    26663,
+    26664,
+    26665,
+    26666,
+    26669,
+    26670,
+    26671,
+    26673,
+    26674,
+    26675,
+    26676,
+    26677,
+    26678,
+    26679,
+    26680,
+    26681,
+    26682,
+    26709,
+    26710,
+    26711,
+    26712,
+    26713,
+    26724,
+    26725,
+    26726,
+    26727,
+    26728,
+    26729,
+    26730,
+    26733,
+    26735,
+    26743,
+    26753
+   ],
+   "fetched": "2026-10-02",
+   "sha256_of_the_files": "2e33a0eab6874517802d1482b392b65fd0516180c6d3f98e3900dc0350a57b5e",
+   "precincts": 3199,
+   "read": "Of each file: the candidates' names and parties in the heading (only to check which ticket a column is), the county and precinct labels and the counts. For the congressional, Senate and House contests only which precincts voted in them."
+  },
+  {
+   "id": "co-sos-elstats-2022",
+   "kind": "official results by precinct",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "State of Colorado Elections Database (Historical Elections Database), 2022 General Election, each contest's results download",
+   "url": "https://historicalelectiondata.coloradosos.gov/event/154",
+   "files": "https://co.elstats2.civera.com/eng/contests/download/<contest>/.csv",
+   "files_note": "The database serves its downloads from its own file host, the address its file links give.",
+   "contests": [
+    25572,
+    25573,
+    25574,
+    25575,
+    25576,
+    25577,
+    25578,
+    25579,
+    25580,
+    25592,
+    25593,
+    25594,
+    25595,
+    25596,
+    25597,
+    25598,
+    25599,
+    25600,
+    25601,
+    25602,
+    25603,
+    25604,
+    25605,
+    25606,
+    25607,
+    25608,
+    25609,
+    25610,
+    25611,
+    25612,
+    25613,
+    25614,
+    25615,
+    25616,
+    25617,
+    25618,
+    25619,
+    25620,
+    25621,
+    25622,
+    25623,
+    25624,
+    25625,
+    25626,
+    25627,
+    25628,
+    25629,
+    25630,
+    25631,
+    25632,
+    25633,
+    25634,
+    25635,
+    25636,
+    25637,
+    25638,
+    25639,
+    25640,
+    25641,
+    25642,
+    25643,
+    25644,
+    25645,
+    25646,
+    25647,
+    25648,
+    25649,
+    25650,
+    25651,
+    25652,
+    25653,
+    25654,
+    25655,
+    25656,
+    25657,
+    25658,
+    25659,
+    25660,
+    25661,
+    25662,
+    25663,
+    25664,
+    25665,
+    25666,
+    25667,
+    25668,
+    25669,
+    25670,
+    25671,
+    25672,
+    25673,
+    25990
+   ],
+   "fetched": "2026-10-02",
+   "sha256_of_the_files": "83570b791dff788e3c27450e8e54c0b5f1150ac051c7dcc3bf0c63d2b901bbf0",
+   "precincts": 3232,
+   "read": "Of each file: the candidates' names and parties in the heading (only to check which ticket a column is), the county and precinct labels and the counts. For the congressional, Senate and House contests only which precincts voted in them."
+  },
+  {
+   "id": "co-sos-elstats-2020",
+   "kind": "official results by precinct",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "State of Colorado Elections Database (Historical Elections Database), 2020 General Election, each contest's results download",
+   "url": "https://historicalelectiondata.coloradosos.gov/event/11",
+   "files": "https://co.elstats2.civera.com/eng/contests/download/<contest>/.csv",
+   "files_note": "The database serves its downloads from its own file host, the address its file links give.",
+   "contests": [
+    3602,
+    3640
+   ],
+   "fetched": "2026-10-02",
+   "sha256_of_the_files": "b7fc25dac46e175299478c77ab3af7237c4115ead1fdca2d113676c8e286b387",
+   "precincts": 3205,
+   "read": "Of each file: the candidates' names and parties in the heading (only to check which ticket a column is), the county and precinct labels and the counts. For the congressional, Senate and House contests only which precincts voted in them."
+  },
+  {
+   "id": "co-sos-abstract-2024",
+   "kind": "official results by county (the control)",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "2023 - 2024 Biennial Abstract of Votes Cast",
+   "url": "https://www.coloradosos.gov/pubs/elections/Results/2024/2024BiennialAbstract.pdf",
+   "listed_on": "https://www.coloradosos.gov/pubs/elections/Results/Archives.html",
+   "read_from": [
+    {
+     "url": "https://www.coloradosos.gov/pubs/elections/Results/2024/2024BiennialAbstract.pdf",
+     "pages": "106 to 110 of the PDF",
+     "fetched": "2026-10-02",
+     "sha256": "68f9513cced12bf82b651bae9bc641e594ac0b5441670306eb07b9a158ed23f5"
+    }
+   ],
+   "read": "Of each county's row and the Total row: the Democratic ticket, the Republican ticket and the total."
+  },
+  {
+   "id": "co-sos-abstract-2022",
+   "kind": "official results by county (the control)",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "2022 General Election Results (the Abstract of Votes Cast)",
+   "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/index.html",
+   "listed_on": "https://www.coloradosos.gov/pubs/elections/Results/Archives.html",
+   "read_from": [
+    {
+     "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/usSenator.html",
+     "fetched": "2026-10-02",
+     "sha256": "a4f3dd2f60502782bbe59350d6e2a7335ce90f4b81ebe81c55b5d6619aac1916"
+    },
+    {
+     "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/general/governor.html",
+     "fetched": "2026-10-02",
+     "sha256": "d08f5e7e90ecc04daa2b0a7c558026ec865de118a7be5df1b7c88034ebb496c6"
+    }
+   ],
+   "read": "Of each county's row and the Total row: the Democratic ticket, the Republican ticket and the total."
+  },
+  {
+   "id": "co-sos-abstract-2020",
+   "kind": "official results by county (the control)",
+   "agency": "Colorado Secretary of State, Elections Division",
+   "title": "2020 General Election Results (the Abstract of Votes Cast)",
+   "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2020/general/index.html",
+   "listed_on": "https://www.coloradosos.gov/pubs/elections/Results/Archives.html",
+   "read_from": [
+    {
+     "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2020/general/president.html",
+     "fetched": "2026-10-02",
+     "sha256": "8427396ccd15ce6c34cc54a66caab9d5e381895539b2b2dac2f490be0debd078"
+    },
+    {
+     "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2020/general/usSenator.html",
+     "fetched": "2026-10-02",
+     "sha256": "421c1b0e25dc760a43c6540d432b1ad28efb48d150e5ddc9bd1e72878b6121ad"
+    }
+   ],
+   "read": "Of each county's row and the Total row: the Democratic ticket, the Republican ticket and the total."
+  },
+  {
+   "id": "co-crs-2026-title-13-judicial-districts",
+   "kind": "statute, as the Office of Legislative Legal Services publishes it",
+   "agency": "Colorado General Assembly, Office of Legislative Legal Services",
+   "title": "Colorado Revised Statutes 2026, Title 13: sections 13-5-101 to 13-5-123.1, the judicial districts",
+   "url": "https://olls.info/crs/crs2026-title-13.htm",
+   "sha256": "ac3b30ab0591565bd6b6dcaf0110e64a27d37cd5c7b5f327a20970d35ff18839",
+   "fetched": "2026-10-01",
+   "read": "The one sentence of each section that names the district's counties, as ballot/state_local_co.py read and kept them."
+  },
+  {
+   "id": "jeffco-precinct-number-layout",
+   "kind": "official description (a county's own GIS archive), used as a check only",
+   "agency": "Jefferson County, Colorado, GIS",
+   "title": "County Precinct Archive: the ten-digit precinct code (congressional district, Senate district, House district, county, precinct)",
+   "url": "https://gisportal.jeffco.us/server/rest/services/County_Precinct_Archive_2010/FeatureServer",
+   "read": "Only the layout of the number; the districts themselves are read from the contests each precinct voted in."
+  },
+  {
+   "id": "clerk-statistics-2024",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 5, 2024",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "d4ba800fc17135b616ae556c92861080ab962d95916ace34b546c5aac824aec4",
+   "where": "Colorado, page 10",
+   "read": "The Colorado lines for presidential electors and United States Senator; its under and over votes are left out."
+  },
+  {
+   "id": "clerk-statistics-2022",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Congressional Election from Official Sources for the Election of November 8, 2022",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2022/statistics2022.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "ef9b8cefcc44bebbdc4928bf346b50e00a72dd3bb54a71ed93ec60d4ebf47690",
+   "where": "Colorado, page 7",
+   "read": "The Colorado lines for presidential electors and United States Senator; its under and over votes are left out."
+  },
+  {
+   "id": "clerk-statistics-2020",
+   "kind": "official federal compilation",
+   "agency": "Office of the Clerk, U.S. House of Representatives",
+   "title": "Statistics of the Presidential and Congressional Election from Official Sources for the Election of November 3, 2020",
+   "url": "https://clerk.house.gov/member_info/electionInfo/2020/statistics2020.pdf",
+   "fetched": "2026-10-02",
+   "sha256": "666b2a1f673f263087c141c4d44b0dce47cbddc8f4df27fbc8b415cf05842b76",
+   "where": "Colorado, page 12",
+   "read": "The Colorado lines for presidential electors and United States Senator; its under and over votes are left out."
+  }
+ ],
+ "places": {
+  "county": {
+   "08001": {"name":"Adams County","votes":{"2024-president":{"dem":124056,"rep":103024,"other":6411,"total":233491},"2022-us-senate":{"dem":90483,"rep":63586,"other":5219,"total":159288},"2022-governor":{"dem":99625,"rep":63960,"other":4039,"total":167624},"2020-president":{"dem":134202,"rep":95657,"other":6881,"total":236740},"2020-us-senate":{"dem":130409,"rep":98341,"other":6964,"total":235714}}},
+   "08003": {"name":"Alamosa County","votes":{"2024-president":{"dem":3244,"rep":4057,"other":228,"total":7529},"2022-us-senate":{"dem":2999,"rep":2734,"other":197,"total":5930},"2022-governor":{"dem":3022,"rep":2674,"other":225,"total":5921},"2020-president":{"dem":3759,"rep":3813,"other":236,"total":7808},"2020-us-senate":{"dem":3734,"rep":3800,"other":173,"total":7707}}},
+   "08005": {"name":"Arapahoe County","votes":{"2024-president":{"dem":190725,"rep":125311,"other":9595,"total":325631},"2022-us-senate":{"dem":154678,"rep":96033,"other":6609,"total":257320},"2022-governor":{"dem":162304,"rep":89656,"other":5166,"total":257126},"2020-president":{"dem":213607,"rep":127323,"other":9253,"total":350183},"2020-us-senate":{"dem":204054,"rep":136713,"other":7888,"total":348655}}},
+   "08007": {"name":"Archuleta County","votes":{"2024-president":{"dem":3904,"rep":5218,"other":235,"total":9357},"2022-us-senate":{"dem":3428,"rep":4099,"other":296,"total":7823},"2022-governor":{"dem":3641,"rep":3961,"other":208,"total":7810},"2020-president":{"dem":3738,"rep":5189,"other":217,"total":9144},"2020-us-senate":{"dem":3591,"rep":5225,"other":204,"total":9020}}},
+   "08009": {"name":"Baca County","votes":{"2024-president":{"dem":275,"rep":1686,"other":43,"total":2004},"2022-us-senate":{"dem":371,"rep":1303,"other":71,"total":1745},"2022-governor":{"dem":298,"rep":1103,"other":346,"total":1747},"2020-president":{"dem":317,"rep":1867,"other":41,"total":2225},"2020-us-senate":{"dem":329,"rep":1816,"other":51,"total":2196}}},
+   "08011": {"name":"Bent County","votes":{"2024-president":{"dem":645,"rep":1496,"other":48,"total":2189},"2022-us-senate":{"dem":640,"rep":1104,"other":66,"total":1810},"2022-governor":{"dem":627,"rep":1091,"other":112,"total":1830},"2020-president":{"dem":732,"rep":1503,"other":39,"total":2274},"2020-us-senate":{"dem":702,"rep":1488,"other":66,"total":2256}}},
+   "08013": {"name":"Boulder County","votes":{"2024-president":{"dem":150149,"rep":40758,"other":5397,"total":196304},"2022-us-senate":{"dem":128227,"rep":33858,"other":3349,"total":165434},"2022-governor":{"dem":132173,"rep":30454,"other":2450,"total":165077},"2020-president":{"dem":159089,"rep":42501,"other":4521,"total":206111},"2020-us-senate":{"dem":154552,"rep":47321,"other":3663,"total":205536}}},
+   "08014": {"name":"City and County of Broomfield","votes":{"2024-president":{"dem":29426,"rep":16071,"other":1351,"total":46848},"2022-us-senate":{"dem":23617,"rep":12975,"other":951,"total":37543},"2022-governor":{"dem":25006,"rep":11796,"other":678,"total":37480},"2020-president":{"dem":29077,"rep":16295,"other":1260,"total":46632},"2020-us-senate":{"dem":27447,"rep":17855,"other":894,"total":46196}}},
+   "08015": {"name":"Chaffee County","votes":{"2024-president":{"dem":7992,"rep":6034,"other":397,"total":14423},"2022-us-senate":{"dem":6607,"rep":4854,"other":340,"total":11801},"2022-governor":{"dem":6807,"rep":4646,"other":296,"total":11749},"2020-president":{"dem":7160,"rep":6222,"other":336,"total":13718},"2020-us-senate":{"dem":6948,"rep":6344,"other":286,"total":13578}}},
+   "08017": {"name":"Cheyenne County","votes":{"2024-president":{"dem":108,"rep":930,"other":17,"total":1055},"2022-us-senate":{"dem":120,"rep":763,"other":34,"total":917},"2022-governor":{"dem":115,"rep":758,"other":42,"total":915},"2020-president":{"dem":131,"rep":993,"other":12,"total":1136},"2020-us-senate":{"dem":119,"rep":995,"other":11,"total":1125}}},
+   "08019": {"name":"Clear Creek County","votes":{"2024-president":{"dem":3464,"rep":2452,"other":186,"total":6102},"2022-us-senate":{"dem":2966,"rep":2040,"other":183,"total":5189},"2022-governor":{"dem":3118,"rep":1919,"other":143,"total":5180},"2020-president":{"dem":3604,"rep":2754,"other":190,"total":6548},"2020-us-senate":{"dem":3494,"rep":2835,"other":148,"total":6477}}},
+   "08021": {"name":"Conejos County","votes":{"2024-president":{"dem":1627,"rep":2358,"other":120,"total":4105},"2022-us-senate":{"dem":1669,"rep":1704,"other":74,"total":3447},"2022-governor":{"dem":1659,"rep":1702,"other":89,"total":3450},"2020-president":{"dem":1959,"rep":2286,"other":88,"total":4333},"2020-us-senate":{"dem":1975,"rep":2243,"other":51,"total":4269}}},
+   "08023": {"name":"Costilla County","votes":{"2024-president":{"dem":1155,"rep":850,"other":75,"total":2080},"2022-us-senate":{"dem":1108,"rep":518,"other":60,"total":1686},"2022-governor":{"dem":1120,"rep":507,"other":49,"total":1676},"2020-president":{"dem":1311,"rep":741,"other":42,"total":2094},"2020-us-senate":{"dem":1313,"rep":713,"other":61,"total":2087}}},
+   "08025": {"name":"Crowley County","votes":{"2024-president":{"dem":422,"rep":1231,"other":53,"total":1706},"2022-us-senate":{"dem":432,"rep":849,"other":94,"total":1375},"2022-governor":{"dem":405,"rep":861,"other":112,"total":1378},"2020-president":{"dem":437,"rep":1271,"other":42,"total":1750},"2020-us-senate":{"dem":456,"rep":1230,"other":55,"total":1741}}},
+   "08027": {"name":"Custer County","votes":{"2024-president":{"dem":1188,"rep":2583,"other":96,"total":3867},"2022-us-senate":{"dem":1061,"rep":2112,"other":155,"total":3328},"2022-governor":{"dem":1140,"rep":2103,"other":98,"total":3341},"2020-president":{"dem":1112,"rep":2474,"other":49,"total":3635},"2020-us-senate":{"dem":1059,"rep":2456,"other":79,"total":3594}}},
+   "08029": {"name":"Delta County","votes":{"2024-president":{"dem":6030,"rep":12948,"other":500,"total":19478},"2022-us-senate":{"dem":5400,"rep":9901,"other":617,"total":15918},"2022-governor":{"dem":5651,"rep":9753,"other":513,"total":15917},"2020-president":{"dem":5887,"rep":13081,"other":402,"total":19370},"2020-us-senate":{"dem":5764,"rep":13118,"other":423,"total":19305}}},
+   "08031": {"name":"City and County of Denver","votes":{"2024-president":{"dem":278634,"rep":74765,"other":10120,"total":363519},"2022-us-senate":{"dem":228419,"rep":51582,"other":5130,"total":285131},"2022-governor":{"dem":234250,"rep":46046,"other":4128,"total":284424},"2020-president":{"dem":313293,"rep":71618,"other":8918,"total":393829},"2020-us-senate":{"dem":305602,"rep":80163,"other":7337,"total":393102}}},
+   "08033": {"name":"Dolores County","votes":{"2024-president":{"dem":325,"rep":1076,"other":18,"total":1419},"2022-us-senate":{"dem":353,"rep":873,"other":59,"total":1285},"2022-governor":{"dem":348,"rep":806,"other":145,"total":1299},"2020-president":{"dem":341,"rep":1089,"other":19,"total":1449},"2020-us-senate":{"dem":338,"rep":1064,"other":26,"total":1428}}},
+   "08035": {"name":"Douglas County","votes":{"2024-president":{"dem":110408,"rep":127451,"other":6033,"total":243892},"2022-us-senate":{"dem":85173,"rep":100978,"other":4762,"total":190913},"2022-governor":{"dem":93022,"rep":94312,"other":3356,"total":190690},"2020-president":{"dem":104653,"rep":121270,"other":5682,"total":231605},"2020-us-senate":{"dem":97553,"rep":130045,"other":3967,"total":231565}}},
+   "08037": {"name":"Eagle County","votes":{"2024-president":{"dem":16943,"rep":10148,"other":714,"total":27805},"2022-us-senate":{"dem":13960,"rep":7776,"other":459,"total":22195},"2022-governor":{"dem":15230,"rep":6661,"other":331,"total":22222},"2020-president":{"dem":18588,"rep":9892,"other":660,"total":29140},"2020-us-senate":{"dem":17902,"rep":10350,"other":496,"total":28748}}},
+   "08039": {"name":"Elbert County","votes":{"2024-president":{"dem":4768,"rep":15209,"other":445,"total":20422},"2022-us-senate":{"dem":3824,"rep":11897,"other":533,"total":16254},"2022-governor":{"dem":4118,"rep":11618,"other":541,"total":16277},"2020-president":{"dem":4490,"rep":14027,"other":466,"total":18983},"2020-us-senate":{"dem":4257,"rep":14340,"other":361,"total":18958}}},
+   "08041": {"name":"El Paso County","votes":{"2024-president":{"dem":166597,"rep":203933,"other":10456,"total":380986},"2022-us-senate":{"dem":124024,"rep":149995,"other":10300,"total":284319},"2022-governor":{"dem":133447,"rep":144384,"other":7196,"total":285027},"2020-president":{"dem":161941,"rep":202828,"other":14082,"total":378851},"2020-us-senate":{"dem":152126,"rep":212057,"other":12718,"total":376901}}},
+   "08043": {"name":"Fremont County","votes":{"2024-president":{"dem":7526,"rep":17313,"other":631,"total":25470},"2022-us-senate":{"dem":6802,"rep":12285,"other":901,"total":19988},"2022-governor":{"dem":7165,"rep":12087,"other":713,"total":19965},"2020-president":{"dem":7369,"rep":17517,"other":671,"total":25557},"2020-us-senate":{"dem":7201,"rep":17450,"other":713,"total":25364}}},
+   "08045": {"name":"Garfield County","votes":{"2024-president":{"dem":15128,"rep":14493,"other":755,"total":30376},"2022-us-senate":{"dem":12777,"rep":10924,"other":814,"total":24515},"2022-governor":{"dem":13443,"rep":10444,"other":651,"total":24538},"2020-president":{"dem":15427,"rep":14717,"other":760,"total":30904},"2020-us-senate":{"dem":14999,"rep":15027,"other":761,"total":30787}}},
+   "08047": {"name":"Gilpin County","votes":{"2024-president":{"dem":2254,"rep":1729,"other":147,"total":4130},"2022-us-senate":{"dem":1914,"rep":1385,"other":115,"total":3414},"2022-governor":{"dem":2023,"rep":1302,"other":92,"total":3417},"2020-president":{"dem":2223,"rep":1833,"other":130,"total":4186},"2020-us-senate":{"dem":2183,"rep":1867,"other":125,"total":4175}}},
+   "08049": {"name":"Grand County","votes":{"2024-president":{"dem":4743,"rep":4822,"other":319,"total":9884},"2022-us-senate":{"dem":3912,"rep":3824,"other":249,"total":7985},"2022-governor":{"dem":4162,"rep":3649,"other":195,"total":8006},"2020-president":{"dem":4710,"rep":4883,"other":277,"total":9870},"2020-us-senate":{"dem":4579,"rep":5075,"other":224,"total":9878}}},
+   "08051": {"name":"Gunnison County","votes":{"2024-president":{"dem":6887,"rep":3689,"other":366,"total":10942},"2022-us-senate":{"dem":5993,"rep":2905,"other":266,"total":9164},"2022-governor":{"dem":6184,"rep":2733,"other":218,"total":9135},"2020-president":{"dem":7132,"rep":3735,"other":323,"total":11190},"2020-us-senate":{"dem":6922,"rep":3978,"other":242,"total":11142}}},
+   "08053": {"name":"Hinsdale County","votes":{"2024-president":{"dem":257,"rep":332,"other":18,"total":607},"2022-us-senate":{"dem":223,"rep":272,"other":22,"total":517},"2022-governor":{"dem":246,"rep":251,"other":14,"total":511},"2020-president":{"dem":255,"rep":353,"other":24,"total":632},"2020-us-senate":{"dem":244,"rep":365,"other":11,"total":620}}},
+   "08055": {"name":"Huerfano County","votes":{"2024-president":{"dem":1965,"rep":2346,"other":131,"total":4442},"2022-us-senate":{"dem":2011,"rep":1705,"other":134,"total":3850},"2022-governor":{"dem":2102,"rep":1656,"other":101,"total":3859},"2020-president":{"dem":2076,"rep":2203,"other":127,"total":4406},"2020-us-senate":{"dem":2077,"rep":2160,"other":134,"total":4371}}},
+   "08057": {"name":"Jackson County","votes":{"2024-president":{"dem":173,"rep":634,"other":27,"total":834},"2022-us-senate":{"dem":151,"rep":496,"other":38,"total":685},"2022-governor":{"dem":140,"rep":526,"other":16,"total":682},"2020-president":{"dem":175,"rep":681,"other":20,"total":876},"2020-us-senate":{"dem":164,"rep":684,"other":19,"total":867}}},
+   "08059": {"name":"Jefferson County","votes":{"2024-president":{"dem":210875,"rep":140505,"other":10336,"total":361716},"2022-us-senate":{"dem":176378,"rep":115978,"other":8009,"total":300365},"2022-governor":{"dem":185398,"rep":108638,"other":6129,"total":300165},"2020-president":{"dem":218396,"rep":148417,"other":10545,"total":377358},"2020-us-senate":{"dem":210619,"rep":158276,"other":8080,"total":376975}}},
+   "08061": {"name":"Kiowa County","votes":{"2024-president":{"dem":102,"rep":744,"other":17,"total":863},"2022-us-senate":{"dem":120,"rep":602,"other":27,"total":749},"2022-governor":{"dem":99,"rep":562,"other":98,"total":759},"2020-president":{"dem":98,"rep":795,"other":10,"total":903},"2020-us-senate":{"dem":93,"rep":783,"other":14,"total":890}}},
+   "08063": {"name":"Kit Carson County","votes":{"2024-president":{"dem":556,"rep":3083,"other":59,"total":3698},"2022-us-senate":{"dem":531,"rep":2408,"other":89,"total":3028},"2022-governor":{"dem":475,"rep":2465,"other":86,"total":3026},"2020-president":{"dem":662,"rep":3144,"other":65,"total":3871},"2020-us-senate":{"dem":628,"rep":3138,"other":49,"total":3815}}},
+   "08065": {"name":"Lake County","votes":{"2024-president":{"dem":2199,"rep":1557,"other":157,"total":3913},"2022-us-senate":{"dem":1812,"rep":1067,"other":116,"total":2995},"2022-governor":{"dem":1899,"rep":991,"other":85,"total":2975},"2020-president":{"dem":2303,"rep":1497,"other":161,"total":3961},"2020-us-senate":{"dem":2297,"rep":1511,"other":146,"total":3954}}},
+   "08067": {"name":"La Plata County","votes":{"2024-president":{"dem":20677,"rep":14024,"other":991,"total":35692},"2022-us-senate":{"dem":17711,"rep":11231,"other":787,"total":29729},"2022-governor":{"dem":18350,"rep":10689,"other":665,"total":29704},"2020-president":{"dem":20548,"rep":14233,"other":886,"total":35667},"2020-us-senate":{"dem":19873,"rep":14776,"other":805,"total":35454}}},
+   "08069": {"name":"Larimer County","votes":{"2024-president":{"dem":129376,"rep":89680,"other":6598,"total":225654},"2022-us-senate":{"dem":100466,"rep":69573,"other":5244,"total":175283},"2022-governor":{"dem":105588,"rep":66749,"other":3991,"total":176328},"2020-president":{"dem":126120,"rep":91489,"other":6729,"total":224338},"2020-us-senate":{"dem":116419,"rep":94585,"other":4929,"total":215933}}},
+   "08071": {"name":"Las Animas County","votes":{"2024-president":{"dem":3276,"rep":4328,"other":189,"total":7793},"2022-us-senate":{"dem":3291,"rep":3166,"other":216,"total":6673},"2022-governor":{"dem":3411,"rep":3071,"other":209,"total":6691},"2020-president":{"dem":3497,"rep":4284,"other":180,"total":7961},"2020-us-senate":{"dem":3509,"rep":4217,"other":200,"total":7926}}},
+   "08073": {"name":"Lincoln County","votes":{"2024-president":{"dem":432,"rep":2090,"other":49,"total":2571},"2022-us-senate":{"dem":401,"rep":1624,"other":81,"total":2106},"2022-governor":{"dem":390,"rep":1608,"other":102,"total":2100},"2020-president":{"dem":470,"rep":2135,"other":46,"total":2651},"2020-us-senate":{"dem":434,"rep":2141,"other":61,"total":2636}}},
+   "08075": {"name":"Logan County","votes":{"2024-president":{"dem":2098,"rep":7855,"other":213,"total":10166},"2022-us-senate":{"dem":1954,"rep":5980,"other":329,"total":8263},"2022-governor":{"dem":1860,"rep":5925,"other":471,"total":8256},"2020-president":{"dem":2218,"rep":8087,"other":227,"total":10532},"2020-us-senate":{"dem":2117,"rep":8167,"other":197,"total":10481}}},
+   "08077": {"name":"Mesa County","votes":{"2024-president":{"dem":33573,"rep":55839,"other":2208,"total":91620},"2022-us-senate":{"dem":28732,"rep":41766,"other":2942,"total":73440},"2022-governor":{"dem":30571,"rep":40376,"other":2604,"total":73551},"2020-president":{"dem":31536,"rep":56894,"other":2193,"total":90623},"2020-us-senate":{"dem":29478,"rep":57236,"other":2488,"total":89202}}},
+   "08079": {"name":"Mineral County","votes":{"2024-president":{"dem":317,"rep":417,"other":19,"total":753},"2022-us-senate":{"dem":310,"rep":369,"other":30,"total":709},"2022-governor":{"dem":320,"rep":362,"other":26,"total":708},"2020-president":{"dem":317,"rep":427,"other":12,"total":756},"2020-us-senate":{"dem":302,"rep":437,"other":18,"total":757}}},
+   "08081": {"name":"Moffat County","votes":{"2024-president":{"dem":1167,"rep":5358,"other":146,"total":6671},"2022-us-senate":{"dem":1069,"rep":4150,"other":179,"total":5398},"2022-governor":{"dem":1058,"rep":4174,"other":186,"total":5418},"2020-president":{"dem":1203,"rep":5670,"other":153,"total":7026},"2020-us-senate":{"dem":1120,"rep":5544,"other":146,"total":6810}}},
+   "08083": {"name":"Montezuma County","votes":{"2024-president":{"dem":5793,"rep":8972,"other":374,"total":15139},"2022-us-senate":{"dem":5072,"rep":6960,"other":477,"total":12509},"2022-governor":{"dem":5187,"rep":6772,"other":561,"total":12520},"2020-president":{"dem":5836,"rep":9306,"other":358,"total":15500},"2020-us-senate":{"dem":5538,"rep":9273,"other":386,"total":15197}}},
+   "08085": {"name":"Montrose County","votes":{"2024-president":{"dem":8354,"rep":16704,"other":568,"total":25626},"2022-us-senate":{"dem":7255,"rep":12894,"other":683,"total":20832},"2022-governor":{"dem":7529,"rep":12835,"other":536,"total":20900},"2020-president":{"dem":7687,"rep":16770,"other":465,"total":24922},"2020-us-senate":{"dem":7321,"rep":16978,"other":557,"total":24856}}},
+   "08087": {"name":"Morgan County","votes":{"2024-president":{"dem":3291,"rep":9830,"other":344,"total":13465},"2022-us-senate":{"dem":2786,"rep":7000,"other":383,"total":10169},"2022-governor":{"dem":2679,"rep":7090,"other":385,"total":10154},"2020-president":{"dem":3876,"rep":9593,"other":275,"total":13744},"2020-us-senate":{"dem":3787,"rep":9544,"other":240,"total":13571}}},
+   "08089": {"name":"Otero County","votes":{"2024-president":{"dem":3164,"rep":5520,"other":242,"total":8926},"2022-us-senate":{"dem":3052,"rep":3958,"other":226,"total":7236},"2022-governor":{"dem":2951,"rep":4053,"other":242,"total":7246},"2020-president":{"dem":3605,"rep":5756,"other":215,"total":9576},"2020-us-senate":{"dem":3428,"rep":5731,"other":208,"total":9367}}},
+   "08091": {"name":"Ouray County","votes":{"2024-president":{"dem":2442,"rep":1573,"other":83,"total":4098},"2022-us-senate":{"dem":2160,"rep":1327,"other":79,"total":3566},"2022-governor":{"dem":2242,"rep":1255,"other":69,"total":3566},"2020-president":{"dem":2365,"rep":1577,"other":78,"total":4020},"2020-us-senate":{"dem":2291,"rep":1622,"other":76,"total":3989}}},
+   "08093": {"name":"Park County","votes":{"2024-president":{"dem":4841,"rep":6828,"other":380,"total":12049},"2022-us-senate":{"dem":4234,"rep":5390,"other":421,"total":10045},"2022-governor":{"dem":4463,"rep":5271,"other":316,"total":10050},"2020-president":{"dem":4903,"rep":6991,"other":397,"total":12291},"2020-us-senate":{"dem":4800,"rep":7100,"other":346,"total":12246}}},
+   "08095": {"name":"Phillips County","votes":{"2024-president":{"dem":412,"rep":1888,"other":55,"total":2355},"2022-us-senate":{"dem":400,"rep":1503,"other":78,"total":1981},"2022-governor":{"dem":384,"rep":1519,"other":66,"total":1969},"2020-president":{"dem":486,"rep":1958,"other":41,"total":2485},"2020-us-senate":{"dem":463,"rep":1980,"other":28,"total":2471}}},
+   "08097": {"name":"Pitkin County","votes":{"2024-president":{"dem":7932,"rep":2992,"other":245,"total":11169},"2022-us-senate":{"dem":7157,"rep":2281,"other":143,"total":9581},"2022-governor":{"dem":7565,"rep":1907,"other":104,"total":9576},"2020-president":{"dem":8989,"rep":2780,"other":188,"total":11957},"2020-us-senate":{"dem":8761,"rep":2935,"other":164,"total":11860}}},
+   "08099": {"name":"Prowers County","votes":{"2024-president":{"dem":1227,"rep":3833,"other":85,"total":5145},"2022-us-senate":{"dem":1172,"rep":2956,"other":149,"total":4277},"2022-governor":{"dem":1139,"rep":2847,"other":300,"total":4286},"2020-president":{"dem":1458,"rep":4008,"other":95,"total":5561},"2020-us-senate":{"dem":1435,"rep":3966,"other":99,"total":5500}}},
+   "08101": {"name":"Pueblo County","votes":{"2024-president":{"dem":39328,"rep":43688,"other":2104,"total":85120},"2022-us-senate":{"dem":35581,"rep":29493,"other":2278,"total":67352},"2022-governor":{"dem":36602,"rep":28645,"other":2265,"total":67512},"2020-president":{"dem":43772,"rep":42252,"other":2277,"total":88301},"2020-us-senate":{"dem":42791,"rep":42098,"other":2563,"total":87452}}},
+   "08103": {"name":"Rio Blanco County","votes":{"2024-president":{"dem":637,"rep":2988,"other":67,"total":3692},"2022-us-senate":{"dem":525,"rep":2391,"other":105,"total":3021},"2022-governor":{"dem":507,"rep":2408,"other":138,"total":3053},"2020-president":{"dem":561,"rep":3061,"other":69,"total":3691},"2020-us-senate":{"dem":529,"rep":3065,"other":61,"total":3655}}},
+   "08105": {"name":"Rio Grande County","votes":{"2024-president":{"dem":2306,"rep":3743,"other":145,"total":6194},"2022-us-senate":{"dem":2136,"rep":2625,"other":183,"total":4944},"2022-governor":{"dem":2140,"rep":2485,"other":330,"total":4955},"2020-president":{"dem":2495,"rep":3660,"other":150,"total":6305},"2020-us-senate":{"dem":2502,"rep":3635,"other":142,"total":6279}}},
+   "08107": {"name":"Routt County","votes":{"2024-president":{"dem":10208,"rep":5676,"other":451,"total":16335},"2022-us-senate":{"dem":8737,"rep":4836,"other":294,"total":13867},"2022-governor":{"dem":9238,"rep":4415,"other":220,"total":13873},"2020-president":{"dem":10582,"rep":5925,"other":369,"total":16876},"2020-us-senate":{"dem":10284,"rep":6256,"other":286,"total":16826}}},
+   "08109": {"name":"Saguache County","votes":{"2024-president":{"dem":1704,"rep":1577,"other":120,"total":3401},"2022-us-senate":{"dem":1577,"rep":1070,"other":124,"total":2771},"2022-governor":{"dem":1580,"rep":1061,"other":125,"total":2766},"2020-president":{"dem":1884,"rep":1413,"other":92,"total":3389},"2020-us-senate":{"dem":1887,"rep":1405,"other":87,"total":3379}}},
+   "08111": {"name":"San Juan County","votes":{"2024-president":{"dem":376,"rep":188,"other":25,"total":589},"2022-us-senate":{"dem":350,"rep":164,"other":24,"total":538},"2022-governor":{"dem":372,"rep":154,"other":14,"total":540},"2020-president":{"dem":342,"rep":202,"other":18,"total":562},"2020-us-senate":{"dem":328,"rep":207,"other":15,"total":550}}},
+   "08113": {"name":"San Miguel County","votes":{"2024-president":{"dem":3529,"rep":1154,"other":121,"total":4804},"2022-us-senate":{"dem":3110,"rep":888,"other":85,"total":4083},"2022-governor":{"dem":3199,"rep":815,"other":72,"total":4086},"2020-president":{"dem":3924,"rep":1136,"other":87,"total":5147},"2020-us-senate":{"dem":3808,"rep":1227,"other":86,"total":5121}}},
+   "08115": {"name":"Sedgwick County","votes":{"2024-president":{"dem":283,"rep":1048,"other":27,"total":1358},"2022-us-senate":{"dem":308,"rep":807,"other":47,"total":1162},"2022-governor":{"dem":312,"rep":807,"other":43,"total":1162},"2020-president":{"dem":301,"rep":1121,"other":24,"total":1446},"2020-us-senate":{"dem":320,"rep":1103,"other":24,"total":1447}}},
+   "08117": {"name":"Summit County","votes":{"2024-president":{"dem":11762,"rep":5244,"other":539,"total":17545},"2022-us-senate":{"dem":9710,"rep":4211,"other":323,"total":14244},"2022-governor":{"dem":10383,"rep":3650,"other":243,"total":14276},"2020-president":{"dem":12631,"rep":5322,"other":526,"total":18479},"2020-us-senate":{"dem":12175,"rep":5817,"other":415,"total":18407}}},
+   "08119": {"name":"Teller County","votes":{"2024-president":{"dem":5065,"rep":10856,"other":417,"total":16338},"2022-us-senate":{"dem":4515,"rep":8602,"other":440,"total":13557},"2022-governor":{"dem":4843,"rep":8430,"other":277,"total":13550},"2020-president":{"dem":5278,"rep":11241,"other":420,"total":16939},"2020-us-senate":{"dem":5039,"rep":11307,"other":419,"total":16765}}},
+   "08121": {"name":"Washington County","votes":{"2024-president":{"dem":329,"rep":2436,"other":41,"total":2806},"2022-us-senate":{"dem":347,"rep":1964,"other":91,"total":2402},"2022-governor":{"dem":314,"rep":1971,"other":104,"total":2389},"2020-president":{"dem":369,"rep":2595,"other":44,"total":3008},"2020-us-senate":{"dem":346,"rep":2617,"other":33,"total":2996}}},
+   "08123": {"name":"Weld County","votes":{"2024-president":{"dem":68752,"rep":106469,"other":4700,"total":179921},"2022-us-senate":{"dem":50129,"rep":74043,"other":4418,"total":128590},"2022-governor":{"dem":52186,"rep":72542,"other":3755,"total":128483},"2020-president":{"dem":66060,"rep":96145,"other":4769,"total":166974},"2020-us-senate":{"dem":63647,"rep":99424,"other":3613,"total":166684}}},
+   "08125": {"name":"Yuma County","votes":{"2024-president":{"dem":758,"rep":3807,"other":98,"total":4663},"2022-us-senate":{"dem":740,"rep":3086,"other":141,"total":3967},"2022-governor":{"dem":656,"rep":3079,"other":229,"total":3964},"2020-president":{"dem":785,"rep":4107,"other":89,"total":4981},"2020-us-senate":{"dem":652,"rep":4273,"other":52,"total":4977}}}
+  },
+  "judicial": {
+   "CO-JD1": {"name":"1st Judicial District","counties":["08047","08059"],"votes":{"2024-president":{"dem":213129,"rep":142234,"other":10483,"total":365846},"2022-us-senate":{"dem":178292,"rep":117363,"other":8124,"total":303779},"2022-governor":{"dem":187421,"rep":109940,"other":6221,"total":303582},"2020-president":{"dem":220619,"rep":150250,"other":10675,"total":381544},"2020-us-senate":{"dem":212802,"rep":160143,"other":8205,"total":381150}}},
+   "CO-JD2": {"name":"2nd Judicial District","counties":["08031"],"votes":{"2024-president":{"dem":278634,"rep":74765,"other":10120,"total":363519},"2022-us-senate":{"dem":228419,"rep":51582,"other":5130,"total":285131},"2022-governor":{"dem":234250,"rep":46046,"other":4128,"total":284424},"2020-president":{"dem":313293,"rep":71618,"other":8918,"total":393829},"2020-us-senate":{"dem":305602,"rep":80163,"other":7337,"total":393102}}},
+   "CO-JD3": {"name":"3rd Judicial District","counties":["08055","08071"],"votes":{"2024-president":{"dem":5241,"rep":6674,"other":320,"total":12235},"2022-us-senate":{"dem":5302,"rep":4871,"other":350,"total":10523},"2022-governor":{"dem":5513,"rep":4727,"other":310,"total":10550},"2020-president":{"dem":5573,"rep":6487,"other":307,"total":12367},"2020-us-senate":{"dem":5586,"rep":6377,"other":334,"total":12297}}},
+   "CO-JD4": {"name":"4th Judicial District","counties":["08041","08119"],"votes":{"2024-president":{"dem":171662,"rep":214789,"other":10873,"total":397324},"2022-us-senate":{"dem":128539,"rep":158597,"other":10740,"total":297876},"2022-governor":{"dem":138290,"rep":152814,"other":7473,"total":298577},"2020-president":{"dem":167219,"rep":214069,"other":14502,"total":395790},"2020-us-senate":{"dem":157165,"rep":223364,"other":13137,"total":393666}}},
+   "CO-JD5": {"name":"5th Judicial District","counties":["08019","08037","08065","08117"],"votes":{"2024-president":{"dem":34368,"rep":19401,"other":1596,"total":55365},"2022-us-senate":{"dem":28448,"rep":15094,"other":1081,"total":44623},"2022-governor":{"dem":30630,"rep":13221,"other":802,"total":44653},"2020-president":{"dem":37126,"rep":19465,"other":1537,"total":58128},"2020-us-senate":{"dem":35868,"rep":20513,"other":1205,"total":57586}}},
+   "CO-JD6": {"name":"6th Judicial District","counties":["08007","08067","08111"],"votes":{"2024-president":{"dem":24957,"rep":19430,"other":1251,"total":45638},"2022-us-senate":{"dem":21489,"rep":15494,"other":1107,"total":38090},"2022-governor":{"dem":22363,"rep":14804,"other":887,"total":38054},"2020-president":{"dem":24628,"rep":19624,"other":1121,"total":45373},"2020-us-senate":{"dem":23792,"rep":20208,"other":1024,"total":45024}}},
+   "CO-JD7": {"name":"7th Judicial District","counties":["08029","08051","08053","08085","08091","08113"],"votes":{"2024-president":{"dem":27499,"rep":36400,"other":1656,"total":65555},"2022-us-senate":{"dem":24141,"rep":28187,"other":1752,"total":54080},"2022-governor":{"dem":25051,"rep":27642,"other":1422,"total":54115},"2020-president":{"dem":27250,"rep":36652,"other":1379,"total":65281},"2020-us-senate":{"dem":26350,"rep":37288,"other":1395,"total":65033}}},
+   "CO-JD8": {"name":"8th Judicial District","counties":["08057","08069"],"votes":{"2024-president":{"dem":129549,"rep":90314,"other":6625,"total":226488},"2022-us-senate":{"dem":100617,"rep":70069,"other":5282,"total":175968},"2022-governor":{"dem":105728,"rep":67275,"other":4007,"total":177010},"2020-president":{"dem":126295,"rep":92170,"other":6749,"total":225214},"2020-us-senate":{"dem":116583,"rep":95269,"other":4948,"total":216800}}},
+   "CO-JD9": {"name":"9th Judicial District","counties":["08045","08097","08103"],"votes":{"2024-president":{"dem":23697,"rep":20473,"other":1067,"total":45237},"2022-us-senate":{"dem":20459,"rep":15596,"other":1062,"total":37117},"2022-governor":{"dem":21515,"rep":14759,"other":893,"total":37167},"2020-president":{"dem":24977,"rep":20558,"other":1017,"total":46552},"2020-us-senate":{"dem":24289,"rep":21027,"other":986,"total":46302}}},
+   "CO-JD10": {"name":"10th Judicial District","counties":["08101"],"votes":{"2024-president":{"dem":39328,"rep":43688,"other":2104,"total":85120},"2022-us-senate":{"dem":35581,"rep":29493,"other":2278,"total":67352},"2022-governor":{"dem":36602,"rep":28645,"other":2265,"total":67512},"2020-president":{"dem":43772,"rep":42252,"other":2277,"total":88301},"2020-us-senate":{"dem":42791,"rep":42098,"other":2563,"total":87452}}},
+   "CO-JD11": {"name":"11th Judicial District","counties":["08015","08027","08043","08093"],"votes":{"2024-president":{"dem":21547,"rep":32758,"other":1504,"total":55809},"2022-us-senate":{"dem":18704,"rep":24641,"other":1817,"total":45162},"2022-governor":{"dem":19575,"rep":24107,"other":1423,"total":45105},"2020-president":{"dem":20544,"rep":33204,"other":1453,"total":55201},"2020-us-senate":{"dem":20008,"rep":33350,"other":1424,"total":54782}}},
+   "CO-JD12": {"name":"12th Judicial District","counties":["08003","08021","08023","08079","08105","08109"],"votes":{"2024-president":{"dem":10353,"rep":13002,"other":707,"total":24062},"2022-us-senate":{"dem":9799,"rep":9020,"other":668,"total":19487},"2022-governor":{"dem":9841,"rep":8791,"other":844,"total":19476},"2020-president":{"dem":11725,"rep":12340,"other":620,"total":24685},"2020-us-senate":{"dem":11713,"rep":12233,"other":532,"total":24478}}},
+   "CO-JD13": {"name":"13th Judicial District","counties":["08063","08075","08087","08095","08115","08121","08125"],"votes":{"2024-president":{"dem":7727,"rep":29947,"other":837,"total":38511},"2022-us-senate":{"dem":7066,"rep":22748,"other":1158,"total":30972},"2022-governor":{"dem":6680,"rep":22856,"other":1384,"total":30920},"2020-president":{"dem":8697,"rep":30605,"other":765,"total":40067},"2020-us-senate":{"dem":8313,"rep":30822,"other":623,"total":39758}}},
+   "CO-JD14": {"name":"14th Judicial District","counties":["08049","08081","08107"],"votes":{"2024-president":{"dem":16118,"rep":15856,"other":916,"total":32890},"2022-us-senate":{"dem":13718,"rep":12810,"other":722,"total":27250},"2022-governor":{"dem":14458,"rep":12238,"other":601,"total":27297},"2020-president":{"dem":16495,"rep":16478,"other":799,"total":33772},"2020-us-senate":{"dem":15983,"rep":16875,"other":656,"total":33514}}},
+   "CO-JD15": {"name":"15th Judicial District","counties":["08009","08017","08061","08099"],"votes":{"2024-president":{"dem":1712,"rep":7193,"other":162,"total":9067},"2022-us-senate":{"dem":1783,"rep":5624,"other":281,"total":7688},"2022-governor":{"dem":1651,"rep":5270,"other":786,"total":7707},"2020-president":{"dem":2004,"rep":7663,"other":158,"total":9825},"2020-us-senate":{"dem":1976,"rep":7560,"other":175,"total":9711}}},
+   "CO-JD16": {"name":"16th Judicial District","counties":["08011","08025","08089"],"votes":{"2024-president":{"dem":4231,"rep":8247,"other":343,"total":12821},"2022-us-senate":{"dem":4124,"rep":5911,"other":386,"total":10421},"2022-governor":{"dem":3983,"rep":6005,"other":466,"total":10454},"2020-president":{"dem":4774,"rep":8530,"other":296,"total":13600},"2020-us-senate":{"dem":4586,"rep":8449,"other":329,"total":13364}}},
+   "CO-JD17": {"name":"17th Judicial District","counties":["08001","08014"],"votes":{"2024-president":{"dem":153482,"rep":119095,"other":7762,"total":280339},"2022-us-senate":{"dem":114100,"rep":76561,"other":6170,"total":196831},"2022-governor":{"dem":124631,"rep":75756,"other":4717,"total":205104},"2020-president":{"dem":163279,"rep":111952,"other":8141,"total":283372},"2020-us-senate":{"dem":157856,"rep":116196,"other":7858,"total":281910}}},
+   "CO-JD18": {"name":"18th Judicial District","counties":["08005"],"votes":{"2024-president":{"dem":190725,"rep":125311,"other":9595,"total":325631},"2022-us-senate":{"dem":154678,"rep":96033,"other":6609,"total":257320},"2022-governor":{"dem":162304,"rep":89656,"other":5166,"total":257126},"2020-president":{"dem":213607,"rep":127323,"other":9253,"total":350183},"2020-us-senate":{"dem":204054,"rep":136713,"other":7888,"total":348655}}},
+   "CO-JD19": {"name":"19th Judicial District","counties":["08123"],"votes":{"2024-president":{"dem":68752,"rep":106469,"other":4700,"total":179921},"2022-us-senate":{"dem":50129,"rep":74043,"other":4418,"total":128590},"2022-governor":{"dem":52186,"rep":72542,"other":3755,"total":128483},"2020-president":{"dem":66060,"rep":96145,"other":4769,"total":166974},"2020-us-senate":{"dem":63647,"rep":99424,"other":3613,"total":166684}}},
+   "CO-JD20": {"name":"20th Judicial District","counties":["08013"],"votes":{"2024-president":{"dem":150149,"rep":40758,"other":5397,"total":196304},"2022-us-senate":{"dem":128227,"rep":33858,"other":3349,"total":165434},"2022-governor":{"dem":132173,"rep":30454,"other":2450,"total":165077},"2020-president":{"dem":159089,"rep":42501,"other":4521,"total":206111},"2020-us-senate":{"dem":154552,"rep":47321,"other":3663,"total":205536}}},
+   "CO-JD21": {"name":"21st Judicial District","counties":["08077"],"votes":{"2024-president":{"dem":33573,"rep":55839,"other":2208,"total":91620},"2022-us-senate":{"dem":28732,"rep":41766,"other":2942,"total":73440},"2022-governor":{"dem":30571,"rep":40376,"other":2604,"total":73551},"2020-president":{"dem":31536,"rep":56894,"other":2193,"total":90623},"2020-us-senate":{"dem":29478,"rep":57236,"other":2488,"total":89202}}},
+   "CO-JD22": {"name":"22nd Judicial District","counties":["08033","08083"],"votes":{"2024-president":{"dem":6118,"rep":10048,"other":392,"total":16558},"2022-us-senate":{"dem":5425,"rep":7833,"other":536,"total":13794},"2022-governor":{"dem":5535,"rep":7578,"other":706,"total":13819},"2020-president":{"dem":6177,"rep":10395,"other":377,"total":16949},"2020-us-senate":{"dem":5876,"rep":10337,"other":412,"total":16625}}},
+   "CO-JD23": {"name":"23rd Judicial District","counties":["08035","08039","08073"],"votes":{"2024-president":{"dem":115608,"rep":144750,"other":6527,"total":266885},"2022-us-senate":{"dem":89398,"rep":114499,"other":5376,"total":209273},"2022-governor":{"dem":97530,"rep":107538,"other":3999,"total":209067},"2020-president":{"dem":109613,"rep":137432,"other":6194,"total":253239},"2020-us-senate":{"dem":102244,"rep":146526,"other":4389,"total":253159}}}
+  },
+  "congressional": {
+   "CO-CD1": {"name":"Congressional District 1","counties":["08005","08031","08059"],"votes":{"2024-president":{"dem":280661,"rep":75479,"other":10214,"total":366354},"2022-us-senate":{"dem":230091,"rep":52143,"other":5173,"total":287407},"2022-governor":{"dem":235969,"rep":46556,"other":4171,"total":286696}}},
+   "CO-CD2": {"name":"Congressional District 2","counties":["08013","08019","08037","08047","08049","08057","08059","08069","08107","08117","08123"],"votes":{"2024-president":{"dem":295692,"rep":123973,"other":12272,"total":431937},"2022-us-senate":{"dem":244068,"rep":100271,"other":8244,"total":352583},"2022-governor":{"dem":254254,"rep":92266,"other":6160,"total":352680}}},
+   "CO-CD3": {"name":"Congressional District 3","counties":["08003","08007","08021","08023","08029","08033","08037","08045","08051","08053","08055","08067","08071","08077","08079","08081","08083","08085","08089","08091","08097","08101","08103","08105","08109","08111","08113"],"votes":{"2024-president":{"dem":178501,"rep":218065,"other":10200,"total":406766},"2022-us-senate":{"dem":157938,"rep":161604,"other":11186,"total":330728},"2022-governor":{"dem":164056,"rep":156634,"other":10426,"total":331116}}},
+   "CO-CD4": {"name":"Congressional District 4","counties":["08001","08005","08009","08011","08017","08025","08035","08039","08041","08061","08063","08069","08073","08075","08087","08095","08099","08115","08121","08123","08125"],"votes":{"2024-president":{"dem":182901,"rep":267114,"other":11563,"total":461578},"2022-us-senate":{"dem":142367,"rep":205585,"other":10768,"total":358720},"2022-governor":{"dem":152607,"rep":196927,"other":9565,"total":359099}}},
+   "CO-CD5": {"name":"Congressional District 5","counties":["08041"],"votes":{"2024-president":{"dem":165522,"rep":199615,"other":10336,"total":375473},"2022-us-senate":{"dem":123070,"rep":146759,"other":10123,"total":279952},"2022-governor":{"dem":132452,"rep":141236,"other":6990,"total":280678}}},
+   "CO-CD6": {"name":"Congressional District 6","counties":["08001","08005","08031","08035","08059"],"votes":{"2024-president":{"dem":210533,"rep":139305,"other":10531,"total":360369},"2022-us-senate":{"dem":169842,"rep":107301,"other":7335,"total":284478},"2022-governor":{"dem":178467,"rep":100227,"other":5598,"total":284292}}},
+   "CO-CD7": {"name":"Congressional District 7","counties":["08001","08014","08015","08027","08041","08043","08059","08065","08093","08119","08123"],"votes":{"2024-president":{"dem":249924,"rep":183164,"other":12680,"total":445768},"2022-us-senate":{"dem":209002,"rep":147676,"other":10440,"total":367118},"2022-governor":{"dem":219617,"rep":139248,"other":7948,"total":366813}}},
+   "CO-CD8": {"name":"Congressional District 8","counties":["08001","08069","08123"],"votes":{"2024-president":{"dem":164425,"rep":170726,"other":9349,"total":344500},"2022-us-senate":{"dem":120792,"rep":110354,"other":8069,"total":239215},"2022-governor":{"dem":131059,"rep":109946,"other":6451,"total":247456}}}
+  },
+  "senate": {
+   "1": {"name":"Senate District 1","counties":["08075","08087","08095","08115","08121","08123","08125"],"votes":{"2024-president":{"dem":24263,"rep":64710,"other":2101,"total":91074},"2022-us-senate":{"dem":19374,"rep":47379,"other":2406,"total":69159},"2022-governor":{"dem":19480,"rep":47066,"other":2555,"total":69101}}},
+   "2": {"name":"Senate District 2","counties":["08035"],"votes":{"2024-president":{"dem":46383,"rep":61203,"other":2853,"total":110439},"2022-us-senate":{"dem":34908,"rep":46351,"other":2447,"total":83706},"2022-governor":{"dem":38173,"rep":43647,"other":1768,"total":83588}}},
+   "3": {"name":"Senate District 3","counties":["08101"],"votes":{"2024-president":{"dem":39328,"rep":43688,"other":2104,"total":85120},"2022-us-senate":{"dem":35581,"rep":29493,"other":2278,"total":67352},"2022-governor":{"dem":36602,"rep":28645,"other":2265,"total":67512}}},
+   "4": {"name":"Senate District 4","counties":["08015","08027","08035","08043","08059","08065","08093","08119"],"votes":{"2024-president":{"dem":45469,"rep":64945,"other":2998,"total":113412},"2022-us-senate":{"dem":39174,"rep":52224,"other":3142,"total":94540},"2022-governor":{"dem":41589,"rep":50491,"other":2364,"total":94444}}},
+   "5": {"name":"Senate District 5","counties":["08029","08037","08045","08051","08053","08085","08097"],"votes":{"2024-president":{"dem":44794,"rep":45544,"other":2342,"total":92680},"2022-us-senate":{"dem":38915,"rep":34637,"other":2340,"total":75892},"2022-governor":{"dem":40745,"rep":33347,"other":1846,"total":75938}}},
+   "6": {"name":"Senate District 6","counties":["08003","08007","08021","08023","08033","08067","08079","08083","08085","08091","08105","08109","08111","08113"],"votes":{"2024-president":{"dem":48002,"rep":47299,"other":2604,"total":97905},"2022-us-senate":{"dem":42530,"rep":36194,"other":2563,"total":81287},"2022-governor":{"dem":43759,"rep":34863,"other":2652,"total":81274}}},
+   "7": {"name":"Senate District 7","counties":["08029","08077"],"votes":{"2024-president":{"dem":34764,"rep":58417,"other":2295,"total":95476},"2022-us-senate":{"dem":29804,"rep":43895,"other":3050,"total":76749},"2022-governor":{"dem":31693,"rep":42475,"other":2688,"total":76856}}},
+   "8": {"name":"Senate District 8","counties":["08019","08037","08045","08047","08049","08057","08081","08103","08107","08117"],"votes":{"2024-president":{"dem":49351,"rep":39995,"other":2569,"total":91915},"2022-us-senate":{"dem":41215,"rep":31888,"other":1954,"total":75057},"2022-governor":{"dem":44031,"rep":29561,"other":1596,"total":75188}}},
+   "9": {"name":"Senate District 9","counties":["08041"],"votes":{"2024-president":{"dem":43911,"rep":59434,"other":2760,"total":106105},"2022-us-senate":{"dem":32264,"rep":48547,"other":2529,"total":83340},"2022-governor":{"dem":35553,"rep":46354,"other":1649,"total":83556}}},
+   "10": {"name":"Senate District 10","counties":["08041"],"votes":{"2024-president":{"dem":40662,"rep":49363,"other":2640,"total":92665},"2022-us-senate":{"dem":30043,"rep":36042,"other":2696,"total":68781},"2022-governor":{"dem":32222,"rep":35037,"other":1719,"total":68978}}},
+   "11": {"name":"Senate District 11","counties":["08041"],"votes":{"2024-president":{"dem":31266,"rep":28642,"other":1863,"total":61771},"2022-us-senate":{"dem":22343,"rep":17034,"other":1923,"total":41300},"2022-governor":{"dem":23547,"rep":16492,"other":1365,"total":41404}}},
+   "12": {"name":"Senate District 12","counties":["08041","08119"],"votes":{"2024-president":{"dem":39983,"rep":36798,"other":2248,"total":79029},"2022-us-senate":{"dem":31265,"rep":25973,"other":1964,"total":59202},"2022-governor":{"dem":33117,"rep":24749,"other":1456,"total":59322}}},
+   "13": {"name":"Senate District 13","counties":["08001","08123"],"votes":{"2024-president":{"dem":27528,"rep":34912,"other":1794,"total":64234},"2022-us-senate":{"dem":20010,"rep":21621,"other":1689,"total":43320},"2022-governor":{"dem":20918,"rep":21679,"other":1430,"total":44027}}},
+   "14": {"name":"Senate District 14","counties":["08069"],"votes":{"2024-president":{"dem":63595,"rep":24728,"other":2796,"total":91119},"2022-us-senate":{"dem":49513,"rep":19105,"other":1925,"total":70543},"2022-governor":{"dem":51320,"rep":17968,"other":1467,"total":70755}}},
+   "15": {"name":"Senate District 15","counties":["08013","08069"],"votes":{"2024-president":{"dem":56137,"rep":47874,"other":3105,"total":107116},"2022-us-senate":{"dem":45747,"rep":37913,"other":2722,"total":86382},"2022-governor":{"dem":48165,"rep":36721,"other":2111,"total":86997}}},
+   "16": {"name":"Senate District 16","counties":["08005","08059"],"votes":{"2024-president":{"dem":59267,"rep":45462,"other":2923,"total":107652},"2022-us-senate":{"dem":49546,"rep":39347,"other":2291,"total":91184},"2022-governor":{"dem":52735,"rep":36812,"other":1633,"total":91180}}},
+   "17": {"name":"Senate District 17","counties":["08013","08123"],"votes":{"2024-president":{"dem":68876,"rep":29006,"other":2707,"total":100589},"2022-us-senate":{"dem":55937,"rep":23208,"other":2059,"total":81204},"2022-governor":{"dem":58316,"rep":21331,"other":1460,"total":81107}}},
+   "18": {"name":"Senate District 18","counties":["08013"],"votes":{"2024-president":{"dem":77530,"rep":13714,"other":2572,"total":93816},"2022-us-senate":{"dem":67163,"rep":11494,"other":1254,"total":79911},"2022-governor":{"dem":68854,"rep":9895,"other":951,"total":79700}}},
+   "19": {"name":"Senate District 19","counties":["08001","08059"],"votes":{"2024-president":{"dem":59247,"rep":39792,"other":2826,"total":101865},"2022-us-senate":{"dem":49345,"rep":31807,"other":2379,"total":83531},"2022-governor":{"dem":51619,"rep":30179,"other":1757,"total":83555}}},
+   "20": {"name":"Senate District 20","counties":["08059"],"votes":{"2024-president":{"dem":62609,"rep":43718,"other":3078,"total":109405},"2022-us-senate":{"dem":52706,"rep":37967,"other":2215,"total":92888},"2022-governor":{"dem":55789,"rep":35157,"other":1790,"total":92736}}},
+   "21": {"name":"Senate District 21","counties":["08001","08005"],"votes":{"2024-president":{"dem":36219,"rep":33569,"other":1926,"total":71714},"2022-us-senate":{"dem":26109,"rep":19767,"other":1765,"total":47641},"2022-governor":{"dem":28508,"rep":19812,"other":1414,"total":49734}}},
+   "22": {"name":"Senate District 22","counties":["08059"],"votes":{"2024-president":{"dem":58010,"rep":28628,"other":2738,"total":89376},"2022-us-senate":{"dem":48239,"rep":21469,"other":2094,"total":71802},"2022-governor":{"dem":50082,"rep":20069,"other":1620,"total":71771}}},
+   "23": {"name":"Senate District 23","counties":["08069","08123"],"votes":{"2024-president":{"dem":46781,"rep":61297,"other":2996,"total":111074},"2022-us-senate":{"dem":34474,"rep":45147,"other":2578,"total":82199},"2022-governor":{"dem":36685,"rep":43616,"other":2011,"total":82312}}},
+   "24": {"name":"Senate District 24","counties":["08001"],"votes":{"2024-president":{"dem":40846,"rep":35556,"other":2094,"total":78496},"2022-us-senate":{"dem":30172,"rep":22467,"other":1688,"total":54327},"2022-governor":{"dem":33614,"rep":22752,"other":1313,"total":57679}}},
+   "25": {"name":"Senate District 25","counties":["08001","08014","08123"],"votes":{"2024-president":{"dem":56632,"rep":34862,"other":2705,"total":94199},"2022-us-senate":{"dem":44181,"rep":25622,"other":1914,"total":71717},"2022-governor":{"dem":47890,"rep":24493,"other":1364,"total":73747}}},
+   "26": {"name":"Senate District 26","counties":["08005","08031","08059"],"votes":{"2024-president":{"dem":52569,"rep":27697,"other":2312,"total":82578},"2022-us-senate":{"dem":43789,"rep":22299,"other":1400,"total":67488},"2022-governor":{"dem":45906,"rep":20334,"other":1108,"total":67348}}},
+   "27": {"name":"Senate District 27","counties":["08005","08035"],"votes":{"2024-president":{"dem":51636,"rep":40222,"other":2765,"total":94623},"2022-us-senate":{"dem":41072,"rep":31314,"other":1775,"total":74161},"2022-governor":{"dem":43626,"rep":29143,"other":1359,"total":74128}}},
+   "28": {"name":"Senate District 28","counties":["08001","08005"],"votes":{"2024-president":{"dem":36099,"rep":21032,"other":1776,"total":58907},"2022-us-senate":{"dem":26050,"rep":12002,"other":1279,"total":39331},"2022-governor":{"dem":26813,"rep":11524,"other":988,"total":39325}}},
+   "29": {"name":"Senate District 29","counties":["08005"],"votes":{"2024-president":{"dem":41826,"rep":23605,"other":2149,"total":67580},"2022-us-senate":{"dem":34328,"rep":16385,"other":1547,"total":52260},"2022-governor":{"dem":35365,"rep":15595,"other":1239,"total":52199}}},
+   "30": {"name":"Senate District 30","counties":["08035"],"votes":{"2024-president":{"dem":57320,"rep":54548,"other":2799,"total":114667},"2022-us-senate":{"dem":44762,"rep":44506,"other":1935,"total":91203},"2022-governor":{"dem":48818,"rep":40975,"other":1315,"total":91108}}},
+   "31": {"name":"Senate District 31","counties":["08031"],"votes":{"2024-president":{"dem":79788,"rep":16151,"other":2846,"total":98785},"2022-us-senate":{"dem":67259,"rep":13230,"other":1148,"total":81637},"2022-governor":{"dem":69213,"rep":11209,"other":963,"total":81385}}},
+   "32": {"name":"Senate District 32","counties":["08005","08031","08059"],"votes":{"2024-president":{"dem":55688,"rep":18973,"other":2256,"total":76917},"2022-us-senate":{"dem":46412,"rep":13886,"other":1333,"total":61631},"2022-governor":{"dem":47715,"rep":12759,"other":1046,"total":61520}}},
+   "33": {"name":"Senate District 33","counties":["08031"],"votes":{"2024-president":{"dem":58654,"rep":13274,"other":1832,"total":73760},"2022-us-senate":{"dem":47253,"rep":7310,"other":903,"total":55466},"2022-governor":{"dem":48083,"rep":6505,"other":727,"total":55315}}},
+   "34": {"name":"Senate District 34","counties":["08031"],"votes":{"2024-president":{"dem":65403,"rep":16585,"other":2450,"total":84438},"2022-us-senate":{"dem":51602,"rep":9431,"other":1245,"total":62278},"2022-governor":{"dem":52787,"rep":8335,"other":1022,"total":62144}}},
+   "35": {"name":"Senate District 35","counties":["08009","08011","08017","08025","08039","08041","08055","08061","08063","08071","08073","08089","08099"],"votes":{"2024-president":{"dem":27723,"rep":72198,"other":2323,"total":102244},"2022-us-senate":{"dem":24085,"rep":54739,"other":2908,"total":81732},"2022-governor":{"dem":25149,"rep":53450,"other":3298,"total":81897}}}
+  },
+  "house": {
+   "1": {"name":"House District 1","counties":["08031","08059"],"votes":{"2024-president":{"dem":23718,"rep":12706,"other":1070,"total":37494},"2022-us-senate":{"dem":19317,"rep":8473,"other":780,"total":28570},"2022-governor":{"dem":19862,"rep":8086,"other":582,"total":28530}}},
+   "2": {"name":"House District 2","counties":["08031"],"votes":{"2024-president":{"dem":43621,"rep":11388,"other":1478,"total":56487},"2022-us-senate":{"dem":36632,"rep":10402,"other":629,"total":47663},"2022-governor":{"dem":38233,"rep":8776,"other":511,"total":47520}}},
+   "3": {"name":"House District 3","counties":["08005","08031"],"votes":{"2024-president":{"dem":28389,"rep":13799,"other":1275,"total":43463},"2022-us-senate":{"dem":23218,"rep":10697,"other":837,"total":34752},"2022-governor":{"dem":24242,"rep":9774,"other":659,"total":34675}}},
+   "4": {"name":"House District 4","counties":["08031"],"votes":{"2024-president":{"dem":34826,"rep":8779,"other":1239,"total":44844},"2022-us-senate":{"dem":28778,"rep":5415,"other":654,"total":34847},"2022-governor":{"dem":29497,"rep":4721,"other":533,"total":34751}}},
+   "5": {"name":"House District 5","counties":["08031"],"votes":{"2024-president":{"dem":34373,"rep":8473,"other":1335,"total":44181},"2022-us-senate":{"dem":25549,"rep":4479,"other":621,"total":30649},"2022-governor":{"dem":26115,"rep":3951,"other":528,"total":30594}}},
+   "6": {"name":"House District 6","counties":["08031"],"votes":{"2024-president":{"dem":40397,"rep":6674,"other":1426,"total":48497},"2022-us-senate":{"dem":34268,"rep":5113,"other":648,"total":40029},"2022-governor":{"dem":34896,"rep":4503,"other":519,"total":39918}}},
+   "7": {"name":"House District 7","counties":["08031"],"votes":{"2024-president":{"dem":23343,"rep":8634,"other":779,"total":32756},"2022-us-senate":{"dem":17069,"rep":3870,"other":434,"total":21373},"2022-governor":{"dem":17353,"rep":3636,"other":337,"total":21326}}},
+   "8": {"name":"House District 8","counties":["08031"],"votes":{"2024-president":{"dem":43086,"rep":5784,"other":1389,"total":50259},"2022-us-senate":{"dem":36854,"rep":4180,"other":595,"total":41629},"2022-governor":{"dem":37458,"rep":3555,"other":504,"total":41517}}},
+   "9": {"name":"House District 9","counties":["08005","08031"],"votes":{"2024-president":{"dem":31258,"rep":10199,"other":1298,"total":42755},"2022-us-senate":{"dem":26885,"rep":7759,"other":664,"total":35308},"2022-governor":{"dem":27607,"rep":7060,"other":546,"total":35213}}},
+   "10": {"name":"House District 10","counties":["08013"],"votes":{"2024-president":{"dem":37556,"rep":5421,"other":1303,"total":44280},"2022-us-senate":{"dem":32392,"rep":3852,"other":607,"total":36851},"2022-governor":{"dem":32932,"rep":3304,"other":470,"total":36706}}},
+   "11": {"name":"House District 11","counties":["08013"],"votes":{"2024-president":{"dem":33297,"rep":13735,"other":1317,"total":48349},"2022-us-senate":{"dem":27632,"rep":10932,"other":1133,"total":39697},"2022-governor":{"dem":28672,"rep":10173,"other":817,"total":39662}}},
+   "12": {"name":"House District 12","counties":["08013"],"votes":{"2024-president":{"dem":43165,"rep":10898,"other":1445,"total":55508},"2022-us-senate":{"dem":37269,"rep":9709,"other":846,"total":47824},"2022-governor":{"dem":38607,"rep":8518,"other":613,"total":47738}}},
+   "13": {"name":"House District 13","counties":["08015","08049","08057","08065","08093","08117"],"votes":{"2024-president":{"dem":31094,"rep":24653,"other":1797,"total":57544},"2022-us-senate":{"dem":25875,"rep":19457,"other":1457,"total":46789},"2022-governor":{"dem":27281,"rep":18362,"other":1126,"total":46769}}},
+   "14": {"name":"House District 14","counties":["08041"],"votes":{"2024-president":{"dem":26181,"rep":32485,"other":1608,"total":60274},"2022-us-senate":{"dem":18844,"rep":26469,"other":1371,"total":46684},"2022-governor":{"dem":20709,"rep":25141,"other":919,"total":46769}}},
+   "15": {"name":"House District 15","counties":["08041"],"votes":{"2024-president":{"dem":20460,"rep":26928,"other":1265,"total":48653},"2022-us-senate":{"dem":13649,"rep":17272,"other":1337,"total":32258},"2022-governor":{"dem":14793,"rep":16661,"other":900,"total":32354}}},
+   "16": {"name":"House District 16","counties":["08041"],"votes":{"2024-president":{"dem":22610,"rep":19589,"other":1359,"total":43558},"2022-us-senate":{"dem":17979,"rep":14412,"other":1301,"total":33692},"2022-governor":{"dem":18887,"rep":14062,"other":817,"total":33766}}},
+   "17": {"name":"House District 17","counties":["08041"],"votes":{"2024-president":{"dem":15180,"rep":12083,"other":820,"total":28083},"2022-us-senate":{"dem":10815,"rep":6763,"other":889,"total":18467},"2022-governor":{"dem":11272,"rep":6563,"other":666,"total":18501}}},
+   "18": {"name":"House District 18","counties":["08041","08119"],"votes":{"2024-president":{"dem":26587,"rep":20962,"other":1358,"total":48907},"2022-us-senate":{"dem":21032,"rep":16923,"other":1137,"total":39092},"2022-governor":{"dem":22392,"rep":15990,"other":817,"total":39199}}},
+   "19": {"name":"House District 19","counties":["08013","08123"],"votes":{"2024-president":{"dem":31749,"rep":26538,"other":1657,"total":59944},"2022-us-senate":{"dem":23583,"rep":19899,"other":1305,"total":44787},"2022-governor":{"dem":24913,"rep":18855,"other":971,"total":44739}}},
+   "20": {"name":"House District 20","counties":["08041"],"votes":{"2024-president":{"dem":18924,"rep":38145,"other":1425,"total":58494},"2022-us-senate":{"dem":14124,"rep":30718,"other":1423,"total":46265},"2022-governor":{"dem":15813,"rep":29615,"other":976,"total":46404}}},
+   "21": {"name":"House District 21","counties":["08041"],"votes":{"2024-president":{"dem":13221,"rep":18062,"other":935,"total":32218},"2022-us-senate":{"dem":9430,"rep":10439,"other":897,"total":20766},"2022-governor":{"dem":10032,"rep":10053,"other":724,"total":20809}}},
+   "22": {"name":"House District 22","counties":["08041"],"votes":{"2024-president":{"dem":21004,"rep":26023,"other":1431,"total":48458},"2022-us-senate":{"dem":16051,"rep":19959,"other":1519,"total":37529},"2022-governor":{"dem":17303,"rep":19417,"other":946,"total":37666}}},
+   "23": {"name":"House District 23","counties":["08059"],"votes":{"2024-president":{"dem":33985,"rep":17923,"other":1603,"total":53511},"2022-us-senate":{"dem":28542,"rep":14368,"other":1275,"total":44185},"2022-governor":{"dem":29658,"rep":13485,"other":966,"total":44109}}},
+   "24": {"name":"House District 24","counties":["08001","08059"],"votes":{"2024-president":{"dem":32445,"rep":22211,"other":1581,"total":56237},"2022-us-senate":{"dem":27247,"rep":18296,"other":1337,"total":46880},"2022-governor":{"dem":28603,"rep":17341,"other":983,"total":46927}}},
+   "25": {"name":"House District 25","counties":["08059"],"votes":{"2024-president":{"dem":33689,"rep":27034,"other":1697,"total":62420},"2022-us-senate":{"dem":28103,"rep":24141,"other":1243,"total":53487},"2022-governor":{"dem":30157,"rep":22391,"other":905,"total":53453}}},
+   "26": {"name":"House District 26","counties":["08037","08081","08103","08107"],"votes":{"2024-president":{"dem":25710,"rep":22749,"other":1280,"total":49739},"2022-us-senate":{"dem":21536,"rep":18095,"other":959,"total":40590},"2022-governor":{"dem":23132,"rep":16731,"other":817,"total":40680}}},
+   "27": {"name":"House District 27","counties":["08059"],"votes":{"2024-president":{"dem":33306,"rep":20851,"other":1551,"total":55708},"2022-us-senate":{"dem":28162,"rep":17968,"other":1150,"total":47280},"2022-governor":{"dem":29701,"rep":16606,"other":943,"total":47250}}},
+   "28": {"name":"House District 28","counties":["08059"],"votes":{"2024-president":{"dem":29001,"rep":23216,"other":1567,"total":53784}}},
+   "29": {"name":"House District 29","counties":["08001","08059"],"votes":{"2024-president":{"dem":31530,"rep":19765,"other":1499,"total":52794},"2022-us-senate":{"dem":24781,"rep":14807,"other":1051,"total":40639},"2022-governor":{"dem":26748,"rep":14348,"other":798,"total":41894}}},
+   "30": {"name":"House District 30","counties":["08059"],"votes":{"2024-president":{"dem":28684,"rep":15423,"other":1337,"total":45444},"2022-us-senate":{"dem":23835,"rep":11223,"other":1051,"total":36109},"2022-governor":{"dem":24673,"rep":10576,"other":820,"total":36069}}},
+   "31": {"name":"House District 31","counties":["08001"],"votes":{"2024-president":{"dem":18371,"rep":14579,"other":910,"total":33860},"2022-us-senate":{"dem":13526,"rep":8142,"other":800,"total":22468},"2022-governor":{"dem":14950,"rep":8342,"other":606,"total":23898}}},
+   "32": {"name":"House District 32","counties":["08001"],"votes":{"2024-president":{"dem":19128,"rep":16542,"other":961,"total":36631},"2022-us-senate":{"dem":13150,"rep":8759,"other":816,"total":22725},"2022-governor":{"dem":14390,"rep":8830,"other":657,"total":23877}}},
+   "33": {"name":"House District 33","counties":["08001","08014","08123"],"votes":{"2024-president":{"dem":34578,"rep":21384,"other":1631,"total":57593},"2022-us-senate":{"dem":27184,"rep":16559,"other":1118,"total":44861},"2022-governor":{"dem":29080,"rep":15413,"other":821,"total":45314}}},
+   "34": {"name":"House District 34","counties":["08001"],"votes":{"2024-president":{"dem":23538,"rep":20085,"other":1262,"total":44885},"2022-us-senate":{"dem":17687,"rep":13147,"other":1002,"total":31836},"2022-governor":{"dem":19668,"rep":13277,"other":741,"total":33686}}},
+   "35": {"name":"House District 35","counties":["08001","08059"],"votes":{"2024-president":{"dem":20041,"rep":11826,"other":987,"total":32854},"2022-us-senate":{"dem":15258,"rep":6753,"other":851,"total":22862},"2022-governor":{"dem":16687,"rep":6774,"other":599,"total":24060}}},
+   "36": {"name":"House District 36","counties":["08001","08005"],"votes":{"2024-president":{"dem":21083,"rep":12733,"other":980,"total":34796},"2022-us-senate":{"dem":14299,"rep":7028,"other":755,"total":22082},"2022-governor":{"dem":14832,"rep":6720,"other":552,"total":22104}}},
+   "37": {"name":"House District 37","counties":["08005"],"votes":{"2024-president":{"dem":29998,"rep":20068,"other":1314,"total":51380},"2022-us-senate":{"dem":24845,"rep":17734,"other":759,"total":43338},"2022-governor":{"dem":26652,"rep":16050,"other":591,"total":43293}}},
+   "38": {"name":"House District 38","counties":["08005","08059"],"votes":{"2024-president":{"dem":32168,"rep":23081,"other":1573,"total":56822}}},
+   "39": {"name":"House District 39","counties":["08035"],"votes":{"2024-president":{"dem":29112,"rep":34712,"other":1527,"total":65351},"2022-us-senate":{"dem":21869,"rep":28030,"other":1179,"total":51078},"2022-governor":{"dem":23975,"rep":26202,"other":837,"total":51014}}},
+   "40": {"name":"House District 40","counties":["08005"],"votes":{"2024-president":{"dem":26191,"rep":17619,"other":1419,"total":45229},"2022-us-senate":{"dem":20919,"rep":12188,"other":1042,"total":34149},"2022-governor":{"dem":21752,"rep":11544,"other":840,"total":34136}}},
+   "41": {"name":"House District 41","counties":["08005"],"votes":{"2024-president":{"dem":24177,"rep":13020,"other":1268,"total":38465},"2022-us-senate":{"dem":20037,"rep":9303,"other":825,"total":30165},"2022-governor":{"dem":20683,"rep":8760,"other":678,"total":30121}}},
+   "42": {"name":"House District 42","counties":["08005"],"votes":{"2024-president":{"dem":16384,"rep":7688,"other":811,"total":24883},"2022-us-senate":{"dem":13003,"rep":4345,"other":529,"total":17877},"2022-governor":{"dem":13138,"rep":4260,"other":435,"total":17833}}},
+   "43": {"name":"House District 43","counties":["08035"],"votes":{"2024-president":{"dem":29818,"rep":25835,"other":1397,"total":57050},"2022-us-senate":{"dem":24395,"rep":21947,"other":982,"total":47324},"2022-governor":{"dem":26463,"rep":20177,"other":644,"total":47284}}},
+   "44": {"name":"House District 44","counties":["08035"],"votes":{"2024-president":{"dem":24741,"rep":30230,"other":1489,"total":56460},"2022-us-senate":{"dem":18608,"rep":22863,"other":1153,"total":42624},"2022-governor":{"dem":20264,"rep":21472,"other":858,"total":42594}}},
+   "45": {"name":"House District 45","counties":["08035"],"votes":{"2024-president":{"dem":24850,"rep":34959,"other":1545,"total":61354},"2022-us-senate":{"dem":18865,"rep":26728,"other":1399,"total":46992},"2022-governor":{"dem":20750,"rep":25173,"other":983,"total":46906}}},
+   "46": {"name":"House District 46","counties":["08101"],"votes":{"2024-president":{"dem":22758,"rep":23158,"other":1162,"total":47078},"2022-us-senate":{"dem":20886,"rep":16083,"other":1159,"total":38128},"2022-governor":{"dem":21393,"rep":15601,"other":1209,"total":38203}}},
+   "47": {"name":"House District 47","counties":["08009","08011","08025","08055","08061","08071","08089","08099","08101"],"votes":{"2024-president":{"dem":15602,"rep":29697,"other":1090,"total":46389},"2022-us-senate":{"dem":15009,"rep":21347,"other":1403,"total":37759},"2022-governor":{"dem":15122,"rep":20824,"other":1930,"total":37876}}},
+   "48": {"name":"House District 48","counties":["08001","08123"],"votes":{"2024-president":{"dem":16348,"rep":28471,"other":1140,"total":45959},"2022-us-senate":{"dem":12183,"rep":18730,"other":1199,"total":32112},"2022-governor":{"dem":13067,"rep":18732,"other":1122,"total":32921}}},
+   "49": {"name":"House District 49","counties":["08013","08019","08047","08069"],"votes":{"2024-president":{"dem":39960,"rep":19694,"other":1709,"total":61363},"2022-us-senate":{"dem":35088,"rep":17051,"other":1238,"total":53377},"2022-governor":{"dem":36352,"rep":16050,"other":977,"total":53379}}},
+   "50": {"name":"House District 50","counties":["08123"],"votes":{"2024-president":{"dem":12820,"rep":13726,"other":845,"total":27391},"2022-us-senate":{"dem":9075,"rep":8089,"other":755,"total":17919},"2022-governor":{"dem":9183,"rep":8128,"other":588,"total":17899}}},
+   "51": {"name":"House District 51","counties":["08069"],"votes":{"2024-president":{"dem":27772,"rep":27337,"other":1659,"total":56768},"2022-us-senate":{"dem":21347,"rep":20824,"other":1543,"total":43714},"2022-governor":{"dem":22789,"rep":20286,"other":1195,"total":44270}}},
+   "52": {"name":"House District 52","counties":["08069"],"votes":{"2024-president":{"dem":36300,"rep":17757,"other":1642,"total":55699},"2022-us-senate":{"dem":28535,"rep":14627,"other":1140,"total":44302},"2022-governor":{"dem":29860,"rep":13739,"other":861,"total":44460}}},
+   "53": {"name":"House District 53","counties":["08069"],"votes":{"2024-president":{"dem":34321,"rep":11156,"other":1509,"total":46986},"2022-us-senate":{"dem":26356,"rep":7797,"other":1008,"total":35161},"2022-governor":{"dem":27170,"rep":7339,"other":760,"total":35269}}},
+   "54": {"name":"House District 54","counties":["08029","08077"],"votes":{"2024-president":{"dem":15834,"rep":36921,"other":1171,"total":53926},"2022-us-senate":{"dem":13862,"rep":27385,"other":1801,"total":43048},"2022-governor":{"dem":14606,"rep":26897,"other":1587,"total":43090}}},
+   "55": {"name":"House District 55","counties":["08077"],"votes":{"2024-president":{"dem":21206,"rep":28550,"other":1306,"total":51062},"2022-us-senate":{"dem":17942,"rep":21684,"other":1587,"total":41213},"2022-governor":{"dem":19201,"rep":20697,"other":1380,"total":41278}}},
+   "56": {"name":"House District 56","counties":["08001","08005","08017","08039","08041","08063","08073"],"votes":{"2024-president":{"dem":14327,"rep":43112,"other":1260,"total":58699},"2022-us-senate":{"dem":11287,"rep":32590,"other":1643,"total":45520},"2022-governor":{"dem":11884,"rep":32041,"other":1654,"total":45579}}},
+   "57": {"name":"House District 57","counties":["08037","08045","08097"],"votes":{"2024-president":{"dem":26305,"rep":18906,"other":1098,"total":46309},"2022-us-senate":{"dem":22689,"rep":14263,"other":1035,"total":37987},"2022-governor":{"dem":23909,"rep":13278,"other":813,"total":38000}}},
+   "58": {"name":"House District 58","counties":["08029","08033","08051","08053","08083","08085","08091","08113"],"votes":{"2024-president":{"dem":25369,"rep":30659,"other":1488,"total":57516},"2022-us-senate":{"dem":22361,"rep":24004,"other":1489,"total":47854},"2022-governor":{"dem":23129,"rep":23403,"other":1396,"total":47928}}},
+   "59": {"name":"House District 59","counties":["08007","08067","08083","08111"],"votes":{"2024-president":{"dem":29738,"rep":25587,"other":1542,"total":56867},"2022-us-senate":{"dem":25622,"rep":20207,"other":1460,"total":47289},"2022-governor":{"dem":26584,"rep":19403,"other":1256,"total":47243}}},
+   "60": {"name":"House District 60","counties":["08015","08027","08043","08101","08119"],"votes":{"2024-president":{"dem":16989,"rep":36466,"other":1348,"total":54803},"2022-us-senate":{"dem":15291,"rep":27443,"other":1731,"total":44465},"2022-governor":{"dem":16300,"rep":26848,"other":1330,"total":44478}}},
+   "61": {"name":"House District 61","counties":["08005","08035"],"votes":{"2024-president":{"dem":28276,"rep":23840,"other":1566,"total":53682},"2022-us-senate":{"dem":22843,"rep":19039,"other":1010,"total":42892},"2022-governor":{"dem":24407,"rep":17710,"other":751,"total":42868}}},
+   "62": {"name":"House District 62","counties":["08003","08021","08023","08055","08079","08101","08105","08109"],"votes":{"2024-president":{"dem":19795,"rep":19765,"other":1185,"total":40745},"2022-us-senate":{"dem":18201,"rep":12662,"other":1162,"total":32025},"2022-governor":{"dem":18370,"rep":12393,"other":1273,"total":32036}}},
+   "63": {"name":"House District 63","counties":["08075","08087","08095","08115","08121","08123","08125"],"votes":{"2024-president":{"dem":9113,"rep":35239,"other":1003,"total":45355},"2022-us-senate":{"dem":8060,"rep":26480,"other":1320,"total":35860},"2022-governor":{"dem":7730,"rep":26502,"other":1583,"total":35815}}},
+   "64": {"name":"House District 64","counties":["08069","08123"],"votes":{"2024-president":{"dem":22332,"rep":34198,"other":1464,"total":57994},"2022-us-senate":{"dem":16627,"rep":24355,"other":1342,"total":42324},"2022-governor":{"dem":17398,"rep":23811,"other":1127,"total":42336}}},
+   "65": {"name":"House District 65","counties":["08069","08123"],"votes":{"2024-president":{"dem":26427,"rep":37711,"other":1760,"total":65898},"2022-us-senate":{"dem":19545,"rep":28112,"other":1534,"total":49191},"2022-governor":{"dem":20879,"rep":27236,"other":1165,"total":49280}}}
+  }
+ }
+}

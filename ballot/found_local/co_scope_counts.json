@@ -1,0 +1,35 @@
+{
+ "state": "CO",
+ "made": "2026-10-02",
+ "rule": "Every statewide, legislative and court race; every county-level race; and the mayor, city council and school board races of cities and school districts with at least 10,000 people in the Census Bureau's ACS 2020-2024 estimate (table B01003).",
+ "candidates": 339,
+ "by_level": {
+  "statewide": 35,
+  "legislature": 180,
+  "court": 124,
+  "county": 0,
+  "city": 0,
+  "school": 0
+ },
+ "races_by_level": {
+  "statewide": 10,
+  "legislature": 86,
+  "court": 124,
+  "county": 0,
+  "city": 0,
+  "school": 0
+ },
+ "races": 220,
+ "on_the_november_list_in_all": 349,
+ "per_part": 30,
+ "parts": 12,
+ "cities_in": 0,
+ "city_candidates": 0,
+ "school_districts_in": 0,
+ "school_candidates": 0,
+ "just_under": {
+  "places": 0,
+  "candidates": 0
+ },
+ "note": "No city or school board race is on Colorado's November 3, 2026 list in the database, so no place was picked by its population; the Census file is named so that the cities of 10,000 or more can be read from it. Colorado elects its school boards in November of odd-numbered years (C.R.S. 22-31-104; next in 2027); its towns regularly vote in April of even-numbered years and its cities in November of odd-numbered years (C.R.S. 31-10-109), unless a town's or city's voters have moved the election to November of even-numbered years. The county offices, and the town and city contests that do share this ballot, are on each county clerk and recorder's own list, and no county's list is loaded yet, so the scope is the Secretary of State's list: the statewide offices, the Regents and the State Board of Education (elected by district), the General Assembly, and the judges on a yes-or-no retention vote, each the one name in the race. The Regional Transportation District's directors (10 candidates) are a district board, outside the scope's rule, and are not in it."
+}

@@ -70,7 +70,7 @@ def main():
     ap.add_argument("--tolerance", type=float, default=0.006, help="simplification, in map pixels (one pixel is about 4.6 km)")
     args = ap.parse_args()
     P = place(args.place)
-    proj = AlbersUsa()
+    proj = AlbersUsa().by_state(P["code"])      # the state's own part of the map (Alaska and Hawaii are insets), as load_districts.py does
     result = {"q": Q, "counties": {}, "info": {}, "vintage": "", "source": {}}
     for year in YEARS:
         name = f"cb_{year}_us_county_500k.zip"

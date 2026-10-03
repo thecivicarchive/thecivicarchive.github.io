@@ -103,7 +103,8 @@ closed fold, a closed fold inside it for each kind of source) and the script of 
 the cards drawn in it, the comparison's frame, the controls) from build_ballot_dev.PAGE by the landmarks below. If
 a landmark can no longer be found, the build stops and names it; nothing is copied by hand. Every state's page is the same
 page: what differs (the state's name, its chambers, its election office, its primary date) is worked out here from the
-record and handed to the page as BOOT.st.
+record and handed to the page as BOOT.st. The finished page is written without the comments, indentation and spare
+spaces of its script and stylesheet (slim_page, after everything borrowed is in; the templates keep every comment).
 """
 
 import argparse
@@ -136,8 +137,12 @@ DB = os.path.join(HERE, "ballot_local_2026.sqlite")
 ROOT = os.path.join(HERE, "site", "dev", "ballot")
 FED_DB = os.path.join(HERE, "ballot_2026.sqlite")
 GENERAL_DATE = "2026-11-03"
-SHELL_LIMIT = 340_000      # the shell of a state that has its lists alone
-SHELL_LIMIT_EXTRAS = 415_000     # ... and of a state that has every extra, polls and markets included (the map's own script is a file beside it, fetched when a map opens)
+SHELL_LIMIT = 300_000      # the shell of a state that has its lists alone
+SHELL_LIMIT_EXTRAS = 370_000     # ... and of a state that has every extra, polls and markets included (the map's own script is a file beside it, fetched when a map opens)
+# Lowered on 2026-10-02 (from 340,000 and 415,000) when the shells began to be written without the comments, indentation
+# and spare spaces of their script and stylesheet (slim_page): every shell lost about 14 percent, a state with its lists
+# alone going from 332-336 KB to 285-288 KB and one with every extra from 401-412 KB to 346-356 KB (Michigan, the largest,
+# 411,721 to 356,214 bytes). The new lines sit about 12 and 14 KB above the largest, so that they again mean growth.
 # The history of the two: 300,000 and 345,000 until v4.0.087 and v4.0.088, then 320,000 and 380,000 (the general code
 # the finished states needed; the warning should mean growth, not the settled size). Both raised on 2026-10-02 (by
 # 20,000 and 25,000) for the race page's cards and comparison,
@@ -475,7 +480,7 @@ def county_lines(code):
             from albers_usa import AlbersUsa                      # the same projection every map on the site uses
             from states.load_counties import read_counties
             from states.load_sld import Q
-            proj = AlbersUsa()
+            proj = AlbersUsa().by_state(place(code)["code"])      # the state's own part of the map (Alaska and Hawaii are insets)
             shapes, info, points = read_counties(src, str(place(code)["fips"]), lambda lon, lat: proj(lon, lat), 0.006)
         except Exception as e:      # noqa: BLE001  no lines is not a failure: the page lists the counties
             print(f"  {code}: the county lines could not be made from {name} ({type(e).__name__}: {e}); the page lists the counties without a map")
@@ -2099,6 +2104,210 @@ def lines_file(path, code, local):
     text = json.dumps(body, separators=(",", ":"))
     write_if_changed(path, text)
     return hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
+
+
+# ---------- the finished page without its workings: the comments, indentation and spare spaces of its own script and
+# stylesheet (2026-10-02). They are for us, not for readers (pages do not show their workings), and they were about a
+# seventh of every shell. This runs on the finished page, after every borrowed part and page_extras are in, because the
+# landmarks the borrowing looks for are themselves comments in the templates; the templates keep every comment.
+# What is certainly a comment and nothing else is taken out: the script is read token by token (strings, regular
+# expressions and the text of templates are read whole and kept exactly as they are; the code inside a template's ${...}
+# is read as code), and the stylesheet the same way (strings and url(...) whole). A line break in the script stays wherever
+# one stood, except right after ; { , ( [ or right before ) ] } ; , where one can never end a statement; a space stays
+# wherever two tokens would otherwise run together. The script is then read again and must give the same tokens in the
+# same order, or that block is written as it was and the build says so.
+_JS_WS = re.compile(r"[ \t\x0b\x0c ﻿  -   　]+")
+_JS_LC = re.compile(r"//[^\r\n  ]*")
+_JS_BC = re.compile(r"/\*.*?\*/", re.S)
+_JS_STR = re.compile(r'"(?:[^"\\\r\n]|\\(?:\r\n|[\s\S]))*"' r"|'(?:[^'\\\r\n]|\\(?:\r\n|[\s\S]))*'")
+_JS_RE = re.compile(r"/(?![*/])(?:[^\\/\[\r\n  ]|\\[^\r\n  ]|\[(?:[^\]\\\r\n  ]|\\[^\r\n  ])*\])+/[A-Za-z]*")
+_JS_ID = re.compile(r"#?(?:[A-Za-z_$\u0080-￿\U00010000-\U0010ffff]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\})"
+                    r"(?:[\w$\u0080-￿\U00010000-\U0010ffff]|\\u[0-9a-fA-F]{4}|\\u\{[0-9a-fA-F]+\})*")
+_JS_NUM = re.compile(r"0[xXoObB][0-9a-fA-F_]+n?|(?:[0-9][0-9_]*(?:\.[0-9_]*)?|\.[0-9][0-9_]*)(?:[eE][+-]?[0-9][0-9_]*)?n?")
+_JS_PUNC = re.compile(r"\+\+|--|=>|\.\.\.|\?\.(?![0-9])|[{}()\[\];,<>+\-*%&|^!~?:=.@/]")
+_JS_TPL_TEXT = re.compile(r"(?:[^`\\$]|\\[\s\S]|\$(?!\{))*")
+_JS_NL = re.compile(r"[\r\n  ]")
+# after one of these words a slash begins a regular expression; after any other word, a number, a string, a template,
+# a closing bracket or ++/--, it divides
+_JS_RE_AFTER = {"return", "typeof", "instanceof", "in", "of", "new", "delete", "void", "throw", "case", "do", "else", "yield", "await"}
+_JS_OP = set("+-*/%=&|^<>!?~.:@")
+_CSS_TOK = re.compile(r"""(?P<bc>/\*.*?\*/)|(?P<str>"(?:[^"\\\n]|\\[\s\S])*"|'(?:[^'\\\n]|\\[\s\S])*')|(?P<url>(?i:url)\([^"'()]*\))"""
+                      r"""|(?P<ws>\s+)|(?P<word>[\w\-\u0080-￿]+)|(?P<ch>[\s\S])""", re.S)
+_CSS_TIGHT = set("{};")
+_BLOCK = re.compile(r"<(script|style)(\s[^>]*)?>", re.I)
+
+
+class SlimError(ValueError):
+    pass
+
+
+def _js_scan(s, i, stop, out):
+    """Reads script from i, each token as (kind, start, end) into out. A template is read as its pieces of text ("tpl",
+    each from the backtick or the } before it to the ${ or the backtick after it, kept as they are), with the code of
+    each ${...} read as code between them. With stop, this is the code inside a ${...}: it returns where the } that
+    closes it is; else it reads to the end."""
+    n, depth, prev = len(s), 0, None      # prev: the last token, for "does this slash divide?"
+    while i < n:
+        c = s[i]
+        m = _JS_WS.match(s, i) if (c in " \t\x0b\x0c ﻿" or c > "က") else None
+        if m:
+            kind, j = "ws", m.end()
+        elif c in "\r\n  ":
+            kind, j = "nl", i + 1
+        elif c == "/" and s.startswith("//", i):
+            kind, j = "lc", _JS_LC.match(s, i).end()
+        elif c == "/" and s.startswith("/*", i):
+            m = _JS_BC.match(s, i)
+            if not m:
+                raise SlimError(f"at {i}: a comment that never ends")
+            kind, j = "bc", m.end()
+        elif c in "\"'":
+            m = _JS_STR.match(s, i)
+            if not m:
+                raise SlimError(f"at {i}: a string that never ends")
+            kind, j = "str", m.end()
+        elif c == "`":
+            a = i
+            while True:
+                j = _JS_TPL_TEXT.match(s, a + 1).end()
+                if j >= n:
+                    raise SlimError(f"at {i}: a template that never ends")
+                if s[j] == "`":
+                    out.append(("tpl", a, j + 1))
+                    j += 1
+                    break
+                out.append(("tpl", a, j + 2))      # s[j:j + 2] is "${"
+                a = _js_scan(s, j + 2, True, out)      # the } that closes it
+            prev, i = ("tpl", "`"), j
+            continue
+        elif c == "/" and (prev is None or (prev[0] == "punc" and prev[1] not in (")", "]", "}", "++", "--"))
+                           or (prev[0] == "id" and prev[1] in _JS_RE_AFTER)):
+            m = _JS_RE.match(s, i)
+            if not m:
+                raise SlimError(f"at {i}: a regular expression that never ends")
+            kind, j = "re", m.end()
+        elif "0" <= c <= "9" or (c == "." and i + 1 < n and "0" <= s[i + 1] <= "9"):
+            kind, j = "num", _JS_NUM.match(s, i).end()
+        else:
+            m = _JS_ID.match(s, i)
+            if m:
+                kind, j = "id", m.end()
+            else:
+                m = _JS_PUNC.match(s, i)
+                if not m:
+                    raise SlimError(f"at {i}: a character it cannot read ({c!r})")
+                kind, j = "punc", m.end()
+                if m.group() == "{":
+                    depth += 1
+                elif m.group() == "}":
+                    if stop and depth == 0:
+                        return i
+                    depth -= 1
+        if kind not in ("ws", "nl", "lc", "bc"):
+            prev = (kind, s[i:j])
+        out.append((kind, i, j))
+        i = j
+    if stop:
+        raise SlimError("a template's ${ that never closes")
+    return i
+
+
+def _js_word(ch):
+    return ch.isalnum() or ch in "_$\\#" or ch >= "\u0080"
+
+
+def _js_space(s, a, b):
+    """Whether tokens a and b need a space between them to stay two tokens that mean the same: two words or numbers; two
+    operators (+ +, - -, / /, < !); a regular expression and a word (it would read as its flags); a number and a dot.
+    Beside a bracket, a comma, a semicolon, a quote or a backtick none is needed."""
+    x, y = s[a[2] - 1], s[b[1]]
+    if (a[0] == "re" and _js_word(y)) or (a[0] == "num" and y == ".") or (x == "." and "0" <= y <= "9"):
+        return True
+    return (_js_word(x) and _js_word(y)) or (x in _JS_OP and y in _JS_OP)
+
+
+def _js_tokens(s):
+    out = []
+    _js_scan(s, 0, False, out)
+    return out
+
+
+def slim_js(s):
+    """The script without its comments and the spaces and line breaks it does not need; every other token as it was."""
+    out, gap, last = [], "", None
+    for t in _js_tokens(s):
+        kind, a, b = t
+        if kind in ("ws", "lc"):
+            gap = gap or " "
+        elif kind == "nl":
+            gap = "\n"
+        elif kind == "bc":
+            gap = "\n" if _JS_NL.search(s, a, b) else (gap or " ")      # a comment over several lines counts as a line break
+        else:
+            if gap and last is not None:
+                if gap == "\n" and ((last[0] in ("punc", "tpl") and s[last[2] - 1] in ";{,([") or (kind in ("punc", "tpl") and s[a] in ")]};,")):
+                    gap = " "
+                if gap == "\n":
+                    out.append("\n")
+                elif _js_space(s, last, t):
+                    out.append(" ")
+            out.append(s[a:b])
+            gap, last = "", t
+    new = "".join(out)
+    if [new[a:b] for k, a, b in _js_tokens(new) if k not in ("ws", "nl", "lc", "bc")] != [s[a:b] for k, a, b in _js_tokens(s) if k not in ("ws", "nl", "lc", "bc")]:
+        raise SlimError("read again, its tokens were not the same")
+    return new
+
+
+def slim_css(s):
+    """The stylesheet without its comments, each run of spaces and line breaks made one space, and none beside { } or ;."""
+    toks = [(m.lastgroup, m.group()) for m in _CSS_TOK.finditer(s)]
+    if "".join(t for _, t in toks) != s:
+        raise SlimError("the stylesheet was not read whole")
+    out, gap = [], False
+    for k, (kind, t) in enumerate(toks):
+        if kind == "ch" and t == "/" and k + 1 < len(toks) and toks[k + 1][1].startswith("*"):
+            raise SlimError("a stylesheet comment that never ends")
+        if kind == "bc":
+            nxt = toks[k + 1][1] if k + 1 < len(toks) else ""
+            if gap or not out or out[-1][-1:] in _CSS_TIGHT or not nxt or nxt[0].isspace() or nxt[0] in _CSS_TIGHT:
+                continue      # beside a space, a brace or a semicolon a comment is nothing at all
+            out.append("/**/")      # between two things that would run together it stays, as the smallest comment
+            continue
+        if kind == "ws":
+            gap = True
+            continue
+        if gap and out and out[-1][-1:] not in _CSS_TIGHT and t[0] not in _CSS_TIGHT:
+            out.append(" ")
+        out.append(t)
+        gap = False
+    return "".join(out)
+
+
+def slim_page(html, name):
+    """The finished page with each inline script and stylesheet slimmed (a script with a type or a source is left
+    alone). A block that cannot be read for certain is written as it was, and the build names it."""
+    out, i, low = [], 0, html.lower()
+    while True:
+        m = _BLOCK.search(html, i)
+        if not m:
+            out.append(html[i:])
+            break
+        tag = m.group(1).lower()
+        end = low.find(f"</{tag}", m.end())
+        if end < 0:
+            print(f"  note: {name}: a <{tag}> that never closes, so the page was written with its comments")
+            return html
+        body = new = html[m.end():end]
+        if tag == "style" or not re.search(r"\b(type|src)\s*=", m.group(2) or "", re.I):
+            try:
+                new = slim_css(body) if tag == "style" else slim_js(body)
+            except SlimError as e:
+                print(f"  note: {name}: the <{tag}> at character {m.start():,} was written with its comments ({e})")
+                new = body
+        out += [html[i:m.end()], new]
+        i = end
+    return "".join(out)
 
 
 def write_if_changed(path, text):
@@ -4595,6 +4804,7 @@ def write_chooser(root, summaries, css, bcss, version):
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
     page = page_extras.add(page, root="../../", ballot="../", here="states")
+    page = slim_page(page, "the chooser")      # as each state's page: without the comments and spare spaces of its script and stylesheet
     write_if_changed(os.path.join(out_dir, "index.html"), page)
     page_extras.write_where(root)      # the states with a page of their own, for the bar
     copy_fonts(out_dir)
@@ -4667,6 +4877,8 @@ def build_state(code, db, out, site_root, parts, changelog, version):
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
     page = page_extras.add(page, root="../../", ballot="../", here=lc)
+    whole = len(page.encode("utf-8"))
+    page = slim_page(page, st["name"])      # the last step: its script and stylesheet without their comments and spare spaces
     write_if_changed(os.path.abspath(out), page)
 
     by_level = defaultdict(int)
@@ -4674,7 +4886,8 @@ def build_state(code, db, out, site_root, parts, changelog, version):
         by_level[r["lv"]] += 1
     prim = sum(len(v) for r in data["races"] for k, v in r["el"].items() if k != "general")
     shell = len(page.encode("utf-8"))
-    print(f"{st['name']}: wrote {os.path.relpath(os.path.abspath(out), HERE)}: shell {shell / 1e3:,.0f} KB, data/{lc}.json {len(body.encode('utf-8')) / 1e3:,.0f} KB")
+    print(f"{st['name']}: wrote {os.path.relpath(os.path.abspath(out), HERE)}: shell {shell / 1e3:,.0f} KB ({whole / 1e3:,.0f} KB before its comments and spare "
+          f"spaces were taken out), data/{lc}.json {len(body.encode('utf-8')) / 1e3:,.0f} KB")
     print(f"  {len(data['races']):,} races: " + ", ".join(f"{lv} {by_level[lv]:,}" for lv in LEVELS if by_level[lv]))
     print(f"  {n_cand:,} candidate rows ({prim:,} in primaries); "
           + (", ".join(f"places {k} {len(v):,}" for k, v in data["places"].items() if v) + f"; {len(data['counties'])} counties; " if st["local"] else "no county or local races; ")

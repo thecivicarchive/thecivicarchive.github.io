@@ -93,7 +93,9 @@ def main():
     P = place(args.place)
     if args.tolerance is None:
         args.tolerance = P.get("tolerance") or 0.006             # Alaska's fjords and islands would otherwise weigh 1.3 MB
-    proj = AlbersUsa()
+    # a state's own part of the map, as load_districts.py does: AlbersUsa()'s own choice reads Alaska's and Hawaii's
+    # points in the lower-48 frame, which the pages' location lookup (d3's rule) never does
+    proj = AlbersUsa().by_state(P["code"])
     result = {"q": Q, "upper": {}, "lower": {}, "names": {"upper": {}, "lower": {}}, "vintage": ""}
     for chamber, stem, field in (("upper", "sldu", "SLDUST"), ("lower", "sldl", "SLDLST")):
         if not P.get(chamber):

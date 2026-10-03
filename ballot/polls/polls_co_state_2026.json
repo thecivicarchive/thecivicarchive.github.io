@@ -1,0 +1,56 @@
+{
+ "rule": "Colorado's state races on the November 3, 2026 ballot, keyed by the race ids in ballot_local_2026.sqlite, by the same rule as the Congress pages (ballot/polls/polls_2026.json) and Minnesota's file (polls_mn_state_2026.json). Polls only from pollsters in AAPOR's Transparency Initiative (John, 2026-09-29): the latest from up to five of them, and our own average of the ten most recent, the arithmetic shown. Each poll's figures are checked against the pollster's own release; a list of polls (Wikipedia's, labelled as secondary) is used only to find them and to count the polls left out.",
+ "members": "ballot/polls/aapor_ti_members.json",
+ "races": {
+  "2026-CO-GOV": {
+   "polls": [],
+   "left_out": {
+    "n": 8,
+    "pollsters": [
+     "Public Policy Polling (two, the Democratic primary only, June 1-2 and June 24-25, 2026, for Fighting For Colorado PAC, which supported Phil Weiser)",
+     "Tavern Research (the Democratic primary only, May 31 to June 1, 2026, for Rocky Mountain Way PAC, which supported Michael Bennet)",
+     "Colorado Community Research (the Democratic primary only, May 22-28, 2026)",
+     "Keating Research (the Democratic primary only, January 26 to February 1, 2026, for the Colorado Professional Fire Fighters, who endorsed Michael Bennet)",
+     "Global Strategy Group (the Democratic primary only, June 9-11, 2025, for Michael Bennet's campaign)",
+     "Magellan Strategies (for Healthier Colorado, December 4-9, 2024: a hypothetical Democratic primary of four possible candidates)",
+     "Cygnal (the Republican primary only, May 7-8, 2026, for Freedom IEC, which supported Victor Marx)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Colorado_gubernatorial_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race, and no poll of any kind of the November matchup (Phil Weiser against Victor Marx) is listed on Wikipedia's page or on 270toWin's. Every poll found asked a party primary, settled on June 30. Emerson College Polling's own Colorado page lists nothing after October 2024 (read 2026-10-02). The Colorado Polling Institute's 2026 survey (New Bridge Strategies and Aspect Strategic) asked about candidates' favorability, not a vote, and is not counted."
+   }
+  },
+  "2026-CO-AG": {
+   "polls": [],
+   "left_out": {
+    "n": 1,
+    "pollsters": [
+     "Global Strategy Group (the Democratic primary only, June 9-11, 2025, for Jena Griswold's campaign)"
+    ],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Colorado_Attorney_General_election",
+    "checked": "2026-10-02",
+    "note": "No pollster in AAPOR's Transparency Initiative has published a poll of this race, and no poll of the November contest (Jena Griswold against Michael J. Allen) was found."
+   }
+  },
+  "2026-CO-SOS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Colorado_Secretary_of_State_election",
+    "checked": "2026-10-02",
+    "note": "No published poll of this race was found: Wikipedia's page has no polling section, and no pollster in AAPOR's Transparency Initiative has published one."
+   }
+  },
+  "2026-CO-TREAS": {
+   "polls": [],
+   "left_out": {
+    "n": 0,
+    "pollsters": [],
+    "found_in": "https://en.wikipedia.org/wiki/2026_Colorado_State_Treasurer_election",
+    "checked": "2026-10-02",
+    "note": "No published poll of this race was found: Wikipedia's page has no polling section, and no pollster in AAPOR's Transparency Initiative has published one."
+   }
+  }
+ }
+}

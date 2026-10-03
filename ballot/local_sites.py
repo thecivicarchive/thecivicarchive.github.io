@@ -39,7 +39,10 @@ by district in the scope file, and the City of St. Louis Board of Education is t
 website cell either; its "local_note" says the county rows are those of the nine county election offices read so far
 and that its cities vote in odd years and its school trustees in May. Wyoming (2026-10-02) has no website cell either;
 its "local_note" says the county, city and school rows are those of the 16 county clerks read so far (and Fremont's
-school filings), and that judges are in the scope as the one name on a retention vote.
+school filings), and that judges are in the scope as the one name on a retention vote. Colorado (2026-10-02) has no
+website cell either, and no county, city or school rows yet; its "why_no_local" says when those offices are elected
+and that the scope is the Secretary of State's own list (statewide, the General Assembly and the judges' retention
+votes), the Regional Transportation District's directors being a district board outside the rule.
 
     python run_ballot.py localfacts          files, found and choices (nothing is downloaded)
     python run_ballot.py localfetch          fetch and sheets
@@ -306,7 +309,24 @@ STATES = {"MN": {"name": "Minnesota"},
                                "vote in May (W.S. 22-23-202) is not on this ballot. Judges do not run against anyone: each is in the "
                                "scope as the one name on a yes-or-no retention vote. Community college trustees, conservation district "
                                "supervisors and the boards of hospital, fire, cemetery and other special districts are outside the "
-                               "scope's rule and are not in it."}}
+                               "scope's rule and are not in it."},
+          # Colorado (2026-10-02): the Secretary of State's Official Candidate List has no contact columns and no website
+          # cell, so its websites come from verified findings only. Its legislative races carry "House District N" or
+          # "Senate District N" as their jurisdiction and its retention votes the judicial district or the county, so the
+          # scope needs no district words. The list loader has no county, city or school rows yet (the county clerks'
+          # own lists are its 64 county gaps), so "why_no_local" says why the scope stops at the state's own list. Its
+          # Governor's race is a ticket, but the list names the candidate for Governor alone
+          "CO": {"name": "Colorado", "legislature": r"\bcolorado (?:state )?(?:house|senate|legislat\w+|general assembly)|\bgeneral assembly\b",
+                 "school_names": {},
+                 "why_no_local": "Colorado elects its school boards in November of odd-numbered years (C.R.S. 22-31-104; next in 2027); "
+                                 "its towns regularly vote in April of even-numbered years and its cities in November of odd-numbered "
+                                 "years (C.R.S. 31-10-109), unless a town's or city's voters have moved the election to November of "
+                                 "even-numbered years. The county offices, and the town and city contests that do share this ballot, "
+                                 "are on each county clerk and recorder's own list, and no county's list is loaded yet, so the scope "
+                                 "is the Secretary of State's list: the statewide offices, the Regents and the State Board of "
+                                 "Education (elected by district), the General Assembly, and the judges on a yes-or-no retention vote, "
+                                 "each the one name in the race. The Regional Transportation District's directors (10 candidates) are "
+                                 "a district board, outside the scope's rule, and are not in it."}}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS sl_websites (race_id TEXT NOT NULL, name TEXT NOT NULL, url TEXT NOT NULL, source TEXT, PRIMARY KEY (race_id, name));

@@ -611,7 +611,7 @@ PLACES = {
         "upper": {"name": "Senate", "title": "Senator", "short": "Sen.", "seats": 20, "term_years": 4},
         "lower": {"name": "House", "full": "House of Representatives", "title": "Representative", "short": "Rep.", "seats": 40, "term_years": 2, "next": 2026},
         "zooms": [{"name": "Anchorage", "box": [-150.10, 61.02, -149.60, 61.32]}, {"name": "Fairbanks", "box": [-147.95, 64.75, -147.55, 64.92]}],
-        "tolerance": 0.02,                                        # its coastline is drawn at about 250 m rather than 80 m, a fifth of the points
+        "tolerance": 0.007,                                       # its coastline is drawn at about 250 m rather than 80 m, a fifth of the points (0.02 until 2026-10-02, when Alaska's lines moved into its inset, drawn at 35 percent scale)
         "executive": "Governor",
         "parties": {"Democratic": ("D", "Democratic"), "Republican": ("R", "Republican"), "Independent": ("I", "Independent"), "Nonpartisan": ("I", "Nonpartisan"), "Undeclared": ("I", "Undeclared")},
         "money": None,
