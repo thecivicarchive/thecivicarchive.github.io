@@ -468,7 +468,7 @@ window.GEOKIT = (function () {
   const words = k => KW[k] || [capital(k), capital(k)];
   const side = html => { const s = $("#gside"); if (s) s.innerHTML = html; };
   const feet = m => { const f = m * 3.2808; return f < 20 ? Math.max(5, Math.round(f / 5) * 5) : Math.round(f / 10) * 10; };
-  const schoolWho = () => { const s = ((IDX && IDX.sources) || []).find(x => /school/i.test((x.id || "") + " " + (x.title || ""))); return s ? String(s.agency || "").split(/[;,]/)[0].trim() : "the state's school district map"; };
+  const schoolWho = () => { const s = ((IDX && IDX.sources) || []).find(x => /school/i.test((x.id || "") + " " + (x.title || ""))); return s ? String(s.agency || "").split(/[;,]/)[0].replace(/\s*\([^)]*\)/g, "").trim() : "the state's school district map"; };      /* (a credit line in brackets is not the agency's name) */
   const finder = () => { const P = G.polls || {}; return P.finder ? `<a href="${esc(P.finder)}" target="_blank" rel="noopener">Open the ${ST.partial ? "state&rsquo;s official" : WHO} polling place finder</a>` : ""; };      // where the lists are the counties' own, the finder is still the state's
 
   /* what a shape is called, from what the page already holds (the map's own files say it first, where they are here) */
