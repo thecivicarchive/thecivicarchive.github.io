@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>On The Ballot · The Civic Archive</title>
 <meta name="description" content="Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.">
-<meta name="version" content="4.0.100">
+<meta name="version" content="4.0.101">
 <meta name="theme-color" content="#0C0E12">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,7 +262,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
   <div class="chips" id="offmap"></div>
 </main>
 
-<footer><span>On The Ballot, from The Civic Archive v4.0.100. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 04, 2026</span></footer>
+<footer><span>On The Ballot, from The Civic Archive v4.0.101. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 04, 2026</span></footer>
 </div>
 
 <div class="turn" id="turn" hidden aria-live="polite">
@@ -276,7 +276,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
 <div class="scene" id="scene" hidden aria-hidden="true"></div>
 
 <script>
-const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.100","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
+const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.101","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
@@ -302,7 +302,7 @@ const LEVELS = DOOR.levels || [      // the On The Ballot door brings its own ca
     facts: [[(DOOR.states || []).filter(s => s.live).length, "open now"], [(DOOR.states || []).filter(s => !s.live && s.loaded.length).length, "being built"], [56, "planned"]], go: "Choose a state", view: "states", under: "The states"},
   DOOR.local && DOOR.local.live ? {key: "local", tag: "County and city", title: `${DOOR.local.name}'s counties`, text: `The local level is opening, ${DOOR.local.name} first: every county on one map, and who holds each county office as the official election results record it. Cities and school boards follow.`,
     facts: [[DOOR.local.counties, "counties"], [DOOR.local.officials, "county offices on file"]], go: "Step inside", url: DOOR.local.url, under: `${DOOR.local.name}'s counties`}
-  : {key: "local", tag: "County and city", title: "Closer to home", text: "County boards and city councils are not built yet. The ring has room for them.", facts: [], go: "Not built yet", soon: true}];
+  : {key: "local", tag: "County and city", title: "Closer to home", text: "Who holds your county and city offices, for every state: county boards, sheriffs, mayors, councils and school boards.", facts: [], go: "Coming soon", soon: true}];
 const ring = $("#ring"), stage = $("#stage"), dots = $("#dots"), N = LEVELS.length, STEP = 2 * Math.PI / N;
 ring.innerHTML = LEVELS.map((L, i) => `<button class="lv${L.soon ? " soon" : ""}" type="button" data-i="${i}" aria-label="${esc(L.tag)}: ${esc(L.title)}"${L.soon ? ' aria-disabled="true"' : ""}>
   <span class="tag">${esc(L.tag)}</span><h2>${esc(L.title)}</h2><p>${esc(L.text)}</p><span class="art">${ART[L.key] || ""}</span>
@@ -804,5 +804,6 @@ window.doorKick = () => { raf = 0; kick(); };      // for checking the ring in a
   });
 })();
 </script>
+<script type="module" src="../shell/rider.js" data-tca-rider></script>
 </body>
 </html>

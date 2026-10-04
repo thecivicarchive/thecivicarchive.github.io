@@ -291,6 +291,11 @@ p{margin:0}
 .tca-panel .x:hover{background:var(--surface-2);color:var(--ink)}
 .tca-panel .x:focus-visible{outline:var(--focus-w) solid var(--focus);outline-offset:1px}
 .tca-panel .x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+/* the page guide (guide.js): where you are, how to use it, where next */
+.tca-guide .tca-g-t{color:var(--ink);font-size:var(--fs-m);margin:0 0 8px}
+.tca-guide .tca-g-s{margin:0 0 10px;padding-left:1.3em;color:var(--ink);font-size:var(--fs-s);line-height:var(--lh-tight)}
+.tca-guide .tca-g-s li{margin:0 0 6px;padding-left:2px}
+.tca-guide .tca-g-n a{color:var(--verd-ink)}
 .tca-quick{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:6px}
 .tca-quick a,.tca-quick button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:52px;width:100%;padding:6px 10px 6px 6px;border-radius:var(--radius-m);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:650;font-size:var(--fs-s)}
 .tca-quick a:hover,.tca-quick button:hover{background:var(--surface-2)}
@@ -469,6 +474,9 @@ main{display:block}
 .tca-col li a{display:flex;flex-direction:column;justify-content:center;min-height:var(--hit);padding:6px 10px;margin:0 -10px;border-radius:var(--radius-s);text-decoration:none;color:var(--ink);font-weight:650;font-family:var(--font-ui);line-height:var(--lh-tight)}
 .tca-col li a small{font-weight:400;color:var(--ink-2);font-size:var(--fs-s)}
 .tca-col li a:hover{background:var(--surface-2)}
+/* a level that is not open yet: the same row, not a link (John, 2026-10-04: county and city officials, coming soon) */
+.tca-soon{display:flex;flex-direction:column;justify-content:center;min-height:var(--hit);padding:6px 10px;margin:0 -10px;color:var(--ink-2);font-weight:650;font-family:var(--font-ui);line-height:var(--lh-tight)}
+.tca-soon small{font-weight:400;font-size:var(--fs-s)}
 .tca-col details{margin-top:calc(var(--sp-unit) * 1.4)}
 .tca-col summary{cursor:pointer;min-height:var(--hit);display:flex;align-items:center;font-weight:650;font-family:var(--font-ui);border-radius:var(--radius-s)}
 .tca-col summary:focus-visible{outline:var(--focus-w) solid var(--focus);outline-offset:2px}
