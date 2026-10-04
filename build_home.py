@@ -369,13 +369,14 @@ def home_body(F, places, root="./"):
     counties = "".join(
         f'<li><a href="{c["url"]}">{esc(c["name"])}&rsquo;s counties<small>'
         + ("Every county on one map, and who holds each county office" if c["officials"] else "Every county on one map. Who holds each office is still to come")
-        + "</small></a></li>" for c in F["counties"])
+        + "</small></a></li>" for c in F["counties"]) or \
+        '<li><span class="tca-soon">County and city officials<small>Who holds each office, for every state. Coming soon</small></span></li>'
     state_links = "".join(f'<li><a href="{code}/">{esc(name)}</a></li>' for name, code in b["states"])
     sec_off = f"""<section class="tca-sec" id="officials" aria-labelledby="off-h">
 <div class="tca-wrap">
 <header>__CHUNK__<p class="tca-kick">Officials</p><h2 id="off-h">Who represents you</h2>
-{para("Start with Congress, your state legislature, or your county. Each page shows the record: time in office, committees, votes where they are loaded, and who funds the campaigns.",
-      "Start with Congress, your state, or your county. Each page shows what the official record says.")}</header>
+{para("Start with Congress or your state legislature. Each page shows the record: time in office, committees, votes where they are loaded, and who funds the campaigns. County and city officials are coming soon.",
+      "Start with Congress or your state. Each page shows what the official record says. County and city officials are coming soon.")}</header>
 <div class="tca-cols">
 <div class="tca-col"><h3>In Congress</h3><ul>
 <li><a href="us/#members">Your members<small>Service, committees, votes and money</small></a></li>

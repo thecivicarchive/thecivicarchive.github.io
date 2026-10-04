@@ -374,7 +374,7 @@ const LEVELS = DOOR.levels || [      // the On The Ballot door brings its own ca
     facts: [[(DOOR.states || []).filter(s => s.live).length, "open now"], [(DOOR.states || []).filter(s => !s.live && s.loaded.length).length, "being built"], [56, "planned"]], go: "Choose a state", view: "states", under: "The states"},
   DOOR.local && DOOR.local.live ? {key: "local", tag: "County and city", title: `${DOOR.local.name}'s counties`, text: `The local level is opening, ${DOOR.local.name} first: every county on one map, and who holds each county office as the official election results record it. Cities and school boards follow.`,
     facts: [[DOOR.local.counties, "counties"], [DOOR.local.officials, "county offices on file"]], go: "Step inside", url: DOOR.local.url, under: `${DOOR.local.name}'s counties`}
-  : {key: "local", tag: "County and city", title: "Closer to home", text: "County boards and city councils are not built yet. The ring has room for them.", facts: [], go: "Not built yet", soon: true}];
+  : {key: "local", tag: "County and city", title: "Closer to home", text: "Who holds your county and city offices, for every state: county boards, sheriffs, mayors, councils and school boards.", facts: [], go: "Coming soon", soon: true}];
 const ring = $("#ring"), stage = $("#stage"), dots = $("#dots"), N = LEVELS.length, STEP = 2 * Math.PI / N;
 ring.innerHTML = LEVELS.map((L, i) => `<button class="lv${L.soon ? " soon" : ""}" type="button" data-i="${i}" aria-label="${esc(L.tag)}: ${esc(L.title)}"${L.soon ? ' aria-disabled="true"' : ""}>
   <span class="tag">${esc(L.tag)}</span><h2>${esc(L.title)}</h2><p>${esc(L.text)}</p><span class="art">${ART[L.key] || ""}</span>
@@ -1032,6 +1032,8 @@ def main():
             os.remove(stale)
         import build_home      # the front door itself, and its Method and Access pages
         build_home.build(site_root, version=version, draft=args.draft)
+    import build_shell      # the companion and the page guide ride on the ring and the ballot door too (John, 2026-10-04)
+    build_shell.ride(os.path.dirname(site_root) if args.ballot else site_root)
     if args.ballot:
         print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}; "
               + (f"states: {L['states']} ({', '.join(L['codes'])}), {L['races']:,} races, {L['candidates']:,} candidates"

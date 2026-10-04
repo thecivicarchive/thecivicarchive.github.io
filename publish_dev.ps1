@@ -6,6 +6,7 @@ $env:PYTHONIOENCODING = 'utf-8'
 $log = "$env:TEMP\publish_dev.txt"
 function Say($t) { "$t $(Get-Date -Format s)" | Out-File $log -Append -Encoding utf8 }
 "start $(Get-Date -Format s)" | Out-File $log -Encoding utf8
+cmd /c ".venv\Scripts\python.exe build_shell.py --ride --root site\dev >> `"$log`" 2>&1"
 cmd /c ".venv\Scripts\python.exe quiet_pages.py site\dev >> `"$log`" 2>&1"
 if (-not (Test-Path docs\dev)) { New-Item -ItemType Directory docs\dev | Out-Null }
 robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP /XF _companion_lab.html companions.html | Out-Null

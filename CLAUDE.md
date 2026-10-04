@@ -1174,7 +1174,7 @@ agents in batches of about 10M tokens or less, read `get_usage` between batches,
 of the 5-hour window or 90 percent of the week, and stop at 99 percent of the week. Research at effort high and
 verification at medium cost about a third of max.
 
-## The home page and the shell (from v4.0.100, not yet published)
+## The home page and the shell (v4.0.100, published 2026-10-04)
 
 John's two documents (2026-10-03, in his Downloads folder): `CIVIC-ARCHIVE-SHELL-SPEC.md` (Shell Spec v1.3) and
 `companion-field-guide.md` (Companion Field Guide v0.1). His answers: build from the spec (no reference page exists);
@@ -1205,9 +1205,26 @@ root is not touched); the home first, then the shell on every page.
   without an account (CC0 or CC-BY, credited in `credits.json`); for six animals none qualified, so they are sculpted
   in code. Check frames in the unpublished lab, `site/dev/_companion_lab.html` (`window.__lab`), with a throwaway
   saver on 127.0.0.1:8799, because the Browser pane draws no animation while hidden. The lab is kept out of docs/dev.
-- Open questions for John before the home is published: how readers report a barrier (an e-mail address or GitHub
-  issues); the dock's flat branch or the chickadee's sculpted one. While the shell is rolled onto every page, no
-  state page agent runs, since both edit the same builders.
+- Open questions for John: how readers report a barrier (an e-mail address or GitHub issues; the Access page says a
+  way is coming); the dock's flat branch or the chickadee's sculpted one. While the shell is rolled onto every page,
+  no state page agent runs, since both edit the same builders.
+- The companion is a page guide (John, 2026-10-04: "can the content they are able to provide change based on whatever
+  page a person is on ... a guide/helper ... Each Companion would provide the same content"). `shell_src/guide.js` holds
+  one entry per page and route (`where(rel, hash)`: the folder below the draft's root and the part after #; entries
+  t/a/s/n: where you are, what it is, a few steps, where next), written in plain words with the pages' own button and
+  section names. Help's "On this page" shows it and follows `hashchange`. Change a page's controls, change its entry.
+- The pages that keep their own top bar (federal, every state, the ballot pages, the ring, the ballot door) carry the
+  companion and the guide through `shell/rider.js`: `build_shell.ride()` puts one tag before `</body>` on the pages
+  `RIDE` names; it runs at the end of every shell build and door build and in both publish scripts, so a page rebuilt
+  on its own gets it back. `shell_src/rider.js` reads the reader's companion setting, skin and motion (the page's own
+  Motion switch too), starts the same dock, and opens its own Help panel (`#tca-help`, styles in `rider.css`, scoped
+  to the dock, the bubble and the panel). It lifts the companion above anything fixed in the bottom-right corner (the
+  version label) and keeps the chickadee in the corner on these pages, since their bars have controls at the right.
+- The county officials level is held back (John, 2026-10-04: "exclude from publishing anything regarding the local
+  county level yet ... coming soon ... all states"): `LOCAL_OPEN = False` in `run_local.py` stops its site stage, the
+  Minnesota county pages were moved to `site/_held/mn_counties/` (not published, not in git), and the ring, the home
+  page and the Officials menu say "coming soon" for every state. Every link to them checks that the pages exist, so
+  they come back by themselves when the folder does. The ballot's county and local races are not part of this.
 
 ## Optional: rate more bills with the Claude API
 

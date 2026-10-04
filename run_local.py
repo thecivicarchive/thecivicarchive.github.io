@@ -27,6 +27,9 @@ sys.path.insert(0, HERE)
 from states.places import place          # noqa: E402
 
 STAGES = ["counties", "results", "check", "site"]
+# John, 2026-10-04: nothing of the county officials level is published yet; the ring, the home page and the menus say
+# "coming soon" for every state. While this is False the site stage writes no county pages into site/dev.
+LOCAL_OPEN = False
 
 
 def python():
@@ -103,6 +106,9 @@ def main():
             run("states.load_local_results", "--place", code, "--db", db)
         elif st == "check":
             check(code, P, db, lines)
+        elif st == "site" and not LOCAL_OPEN:
+            print("  Held back: the county officials pages are not published yet (John, 2026-10-04: the county and city level"
+                  " shows as \"coming soon\" for every state). Set LOCAL_OPEN in run_local.py when he says to open it.")
         elif st == "site":
             r = subprocess.run([python(), os.path.join(HERE, "build_local_dev.py"), "--place", code], cwd=HERE)
             if r.returncode:

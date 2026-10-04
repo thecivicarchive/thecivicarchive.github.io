@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.101 — 2026-10-04 — Your companion is now a guide, on every page
+
+- Help now starts with "On this page": what the page you are on is, how to use it in a few short steps, and where to go next. It changes as you move: open a bill and it explains the bill's tabs, its path and its rating bars; open the vote map and it explains how to step through votes. Every companion gives the same help.
+- The companion now comes along everywhere: Plain Congress, every state legislature, On The Ballot for Congress and for each state, the ring of cards and the ballot door. Click or tap it to open the guide. Each guide also lists the whole site and lets you choose your companion, still it or switch it off. With the companion off, a small Help button opens the same guide.
+- On these pages the companion stands in the bottom corner, above the version label, so it covers none of the page's own buttons.
+- County and city officials (who holds each county and city office) are now marked "coming soon" for every state, on the home page, in the menus and on the ring of cards. Minnesota's early county pages are no longer published. The county and local races on the November ballot are unchanged.
+
 ## v4.0.100 — 2026-10-04 — A new front door, and seven companions
 
 - The Civic Archive has a home page. It says in a few lines what the site holds, counts what is on file today, and opens five ways in: Plain Congress, On The Ballot, Officials, Method and Access. The ring of cards is still there under "All levels", and the log cabin under "Take a break".

@@ -4,6 +4,7 @@
    whose dock is fetched only after the page is drawn and never when the companion is off.
    Every setting is kept in this browser only (localStorage, each read and write guarded). Nothing is sent anywhere. */
 import { fillIcons } from "./icons.js";
+import { guideFor, guideHTML } from "./guide.js";
 
 const D = document, H = D.documentElement;
 const $ = (s, el = D) => el.querySelector(s), $$ = (s, el = D) => [...el.querySelectorAll(s)];
@@ -470,8 +471,17 @@ function wire() {
   if (D.fonts && D.fonts.ready) D.fonts.ready.then(retag);
   H.addEventListener("tca:axes", () => { retag(); companion(); });
   reducedOS.addEventListener && reducedOS.addEventListener("change", () => { retag(); companion(); sync(); });
-  /* the companion hops when the reader jumps to another part of the page */
-  addEventListener("hashchange", () => { if (dock && dock.cue) dock.cue("notice"); });
+  /* the companion hops when the reader jumps to another part of the page, and Help's guide follows */
+  fillGuide();
+  addEventListener("hashchange", () => { fillGuide(); if (dock && dock.cue) dock.cue("notice"); });
   afterFirstPaint(companion);
+}
+/* ---------- the page guide in Help: the same for every companion, chosen by where the reader is (guide.js) ---------- */
+function fillGuide() {
+  const box = D.getElementById("tca-guide"); if (!box) return;
+  const root = new URL("../", import.meta.url).pathname, p = location.pathname;
+  const rel = p.startsWith(root) ? decodeURIComponent(p.slice(root.length)) : "";
+  const depth = rel.split("/").length - 1;
+  try { box.innerHTML = guideHTML(guideFor(rel, location.hash), depth > 0 ? "../".repeat(depth) : "./"); } catch (e) {}
 }
 if (D.readyState === "loading") D.addEventListener("DOMContentLoaded", wire, {once: true}); else wire();

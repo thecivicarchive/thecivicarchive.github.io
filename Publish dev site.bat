@@ -12,6 +12,8 @@ if not exist "site\dev\index.html" (
 )
 if not exist "docs\dev" mkdir "docs\dev"
 rem The published pages carry no names of the kit's own files and programs: one last pass before the copy.
+rem The companion and the page guide ride on every page that keeps its own top bar.
+".venv\Scripts\python.exe" build_shell.py --ride --root "site\dev"
 ".venv\Scripts\python.exe" quiet_pages.py "site\dev"
 rem The companions' lab and test pages are for checking the animals here; they are never published.
 robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP /XF _companion_lab.html companions.html >nul

@@ -49,7 +49,12 @@ COMPANIONS = [
     {"id": "chipmunk", "name": "Eastern chipmunk", "latin": "Tamias striatus", "rests": "floor"},
     {"id": "snail", "name": "Garden snail", "latin": "Cornu aspersum", "rests": "floor"},
 ]
-HASHED = re.compile(r"^(shell|icons|dock)\.[0-9a-f]{10}\.(js|css)$")
+HASHED = re.compile(r"^(shell|icons|dock|guide|rider)\.[0-9a-f]{10}\.(js|css)$")
+# The pages that keep their own top bar get the companion and the page guide through shell/rider.js (John, 2026-10-04).
+# Paths from the draft's root; the home, Method and Access pages carry the whole shell, and the cabin, the share pages
+# and the test pages carry nothing.
+RIDE = re.compile(r"^(rooms\.html|us/index\.html|[a-z]{2}/index\.html|ballot/index\.html|ballot/us/index\.html|ballot/states/index\.html|ballot/[a-z]{2}/index\.html)$")
+RIDE_TAG = re.compile(r'<script type="module" src="[^"]*shell/rider\.js" data-tca-rider></script>\n?')
 esc = lambda s: html.escape(str(s), quote=True)
 
 
@@ -229,17 +234,33 @@ def build(dev_root, say=print, test=False, lab=False):
         if '"./companions/kit.js"' in dock_js:
             raise SystemExit("build_shell: the kit's name was not written into the dock; check shell_src/dock.js")
     dock_name = f"dock.{_h(dock_js)}.js"
+    guide_js = _read("guide.js")      # the page guide Help shows, the same for every companion
+    guide_name = f"guide.{_h(guide_js)}.js"
+    comps_json = json.dumps(public, ensure_ascii=False, separators=(",", ":"))
     shell_js = (_read("shell.js").replace('from "./icons.js"', f'from "./{icons_name}"').replace('import("./dock.js")', f'import("./{dock_name}")')
-                .replace("__COMPANIONS__", json.dumps(public, ensure_ascii=False, separators=(",", ":"))))
-    for token in ('"./icons.js"', '"./dock.js"', "__COMPANIONS__"):
+                .replace('from "./guide.js"', f'from "./{guide_name}"').replace("__COMPANIONS__", comps_json))
+    for token in ('"./icons.js"', '"./dock.js"', '"./guide.js"', "__COMPANIONS__"):
         if token in shell_js:
             raise SystemExit(f"build_shell: {token} was not replaced in the script; check shell_src/shell.js")
     shell_name = f"shell.{_h(shell_js)}.js"
     css = _read("shell.css")
     css_name = f"shell.{_h(css)}.css"
-    for name, body in ((icons_name, icons_js), (dock_name, dock_js), (shell_name, shell_js), (css_name, css)):
+    # the rider: the companion and the guide on pages with their own top bar; pages name only shell/rider.js, which
+    # imports the current copy
+    rider_css = _read("rider.css")
+    rider_css_name = f"rider.{_h(rider_css)}.css"
+    rider_js = (_read("rider.js").replace('from "./guide.js"', f'from "./{guide_name}"').replace('import("./dock.js")', f'import("./{dock_name}")')
+                .replace('"./rider.css"', f'"./{rider_css_name}"').replace("__COMPANIONS__", comps_json))
+    for token in ('"./guide.js"', '"./dock.js"', '"./rider.css"', "__COMPANIONS__"):
+        if token in rider_js:
+            raise SystemExit(f"build_shell: {token} was not replaced in the rider; check shell_src/rider.js")
+    rider_name = f"rider.{_h(rider_js)}.js"
+    for name, body in ((icons_name, icons_js), (dock_name, dock_js), (guide_name, guide_js), (shell_name, shell_js), (css_name, css),
+                       (rider_name, rider_js), (rider_css_name, rider_css)):
         wrote += _write(os.path.join(out_dir, name), body)
         keep.add(name)
+    wrote += _write(os.path.join(out_dir, "rider.js"), "/* The companion and the page guide, on pages that keep their own top bar. Written by the build: "
+                    f"it names the current copy. */\nimport \"./{rider_name}\";\n")
     # the type, with its licences, served from the site itself
     missing = []
     for f in FONTS:
@@ -274,6 +295,7 @@ def build(dev_root, say=print, test=False, lab=False):
             removed += 1
     test_page(dev_root, comps, test, say, kit_name)
     lab_page(dev_root, public, kit_name, lab, say)
+    ride(dev_root, say)
     perch = [c["id"] for c in public if c["rests"] == "perch"]
     boot = re.sub(r"/\*.*?\*/", "", _read("boot.js").replace("__PERCH__", json.dumps(perch)), flags=re.S)      # its comments stay in the source
     boot = "\n".join(line.rstrip() for line in boot.splitlines() if line.strip())
@@ -361,7 +383,8 @@ def top_bar(root, current=None, places=None, skip=True):
 <li><a href="{root}method/">Method<small>Sources, the rubric, and what the site refuses to do</small></a></li></ul>
 <p class="note">There is no corrections log yet.</p></div>
 </div></div>"""
-    counties = "".join(f'<li><a href="{root}{url}">{esc(name)}&rsquo;s counties<small>Who holds each county office</small></a></li>' for name, url in P["counties"])
+    counties = "".join(f'<li><a href="{root}{url}">{esc(name)}&rsquo;s counties<small>Who holds each county office</small></a></li>' for name, url in P["counties"]) or \
+        '<li><span class="tca-soon">County and city officials<small>Who holds each office, for every state. Coming soon</small></span></li>'
     officials = f"""<div class="tca-mega" id="tca-mega-officials" hidden>
 <div class="tca-wrap">
 <div><a class="lead-link" href="{root}us/#members">{icon("officials")}<span><b>Your members of Congress</b><br><small>Service, votes, and who funds them</small></span></a>
@@ -486,13 +509,14 @@ def help_panel(root, A, faq_html):
     return f"""<section class="tca-panel" id="tca-help" role="dialog" aria-modal="false" aria-labelledby="tca-help-h" hidden>
 <button class="x" type="button" aria-label="Close help">{X}</button>
 <h2 id="tca-help-h" tabindex="-1">Help</h2>
-<p>Five ways in, three plain answers, and your companion.</p>
+<h3>On this page</h3>
+<div class="tca-guide" id="tca-guide"></div>
 <h3>Quick actions</h3>
 <ul class="tca-quick">{items}</ul>
 <h3>Plain answers</h3>
 <div class="tca-faq">{faq_html}</div>
 <h3>Your companion</h3>
-<p>It is here only to open this panel. It never speaks on its own, and screen readers pass over it. Help stays in the top bar either way.</p>
+<p>It is here to open this guide, which changes with the page you are on. Every companion gives the same help. It never speaks on its own, and screen readers pass over it. Help stays in the top bar either way.</p>
 {seg("companion", "Companion", [("on", "On"), ("still", "Still"), ("off", "Off")], "Still draws it once. Off never loads it.", name="tca-ax-companion-help")}
 <ul class="tca-pickers" aria-label="Choose a companion">{pick}</ul>
 </section>"""
@@ -504,12 +528,50 @@ def panels(root, A, faq_html, inline_access=False):
             '\n<div id="tca-live" class="tca-sr" role="status" aria-live="polite"></div>')
 
 
+def ride(dev_root, say=print):
+    """Puts the companion and the page guide on every page that keeps its own top bar: one script tag, naming
+    shell/rider.js, just before </body>. Run at the end of every shell build and every door build, and before
+    publishing, so a page rebuilt on its own gets it back. A page that already has the tag is left as it is."""
+    dev_root = os.path.abspath(dev_root)
+    if not os.path.exists(os.path.join(dev_root, "shell", "rider.js")):
+        return 0
+    added = seen = 0
+    for dirpath, dirs, files in os.walk(dev_root):
+        rel_dir = os.path.relpath(dirpath, dev_root).replace(os.sep, "/")
+        depth = 0 if rel_dir == "." else rel_dir.count("/") + 1
+        if (depth == 1 and rel_dir != "ballot") or depth >= 2:
+            dirs[:] = []      # the pages sit at most one folder down, or two inside the ballot (never the share pages below)
+        for f in files:
+            rel = f if rel_dir == "." else f"{rel_dir}/{f}"
+            if not RIDE.match(rel):
+                continue
+            seen += 1
+            path = os.path.join(dirpath, f)
+            with open(path, encoding="utf-8") as fh:
+                page = fh.read()
+            tag = f'<script type="module" src="{"../" * rel.count("/")}shell/rider.js" data-tca-rider></script>\n'
+            if tag in page:
+                continue
+            page = RIDE_TAG.sub("", page)
+            i = page.rfind("</body>")
+            page = page[:i] + tag + page[i:] if i >= 0 else page + "\n" + tag
+            with open(path, "w", encoding="utf-8", newline="\n") as fh:
+                fh.write(page)
+            added += 1
+    say(f"Shell: the companion and the page guide ride on {seen} page(s) with their own top bar ({added} newly tagged)")
+    return added
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--root", default=os.path.join(HERE, "site", "dev"), help="the draft's root folder (default site/dev)")
     ap.add_argument("--test", action="store_true", help="also write the companions' side-by-side test page (never publish it)")
     ap.add_argument("--lab", action="store_true", help="also write the companions' still-frame lab, _companion_lab.html (never publish it)")
+    ap.add_argument("--ride", action="store_true", help="only put the companion and guide tag on the pages that keep their own top bar")
     a = ap.parse_args()
+    if a.ride:
+        ride(a.root)
+        return
     build(a.root, test=a.test, lab=a.lab)
 
 
