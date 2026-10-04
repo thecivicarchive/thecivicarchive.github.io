@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>On The Ballot · The Civic Archive</title>
 <meta name="description" content="Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.">
-<meta name="version" content="4.0.099">
+<meta name="version" content="4.0.100">
 <meta name="theme-color" content="#0C0E12">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,7 +232,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
 </div>
 <header class="top">
   <a class="brand" href="../" aria-label="The Civic Archive, front door"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span>The Civic Archive</span></a>
-  <a class="bsw on" id="bsw" href="../" aria-label="Legislation and Legislatures: back to the public record" title="Legislation and Legislatures: back to the public record"><span class="trk"><span class="knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4H4z"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/><path d="M3 20h18"/></svg></span><span class="lbl">Legislation &amp; Legislatures</span></span><span class="when" id="bwhen"></span></a>
+  <a class="bsw on" id="bsw" href="../rooms.html" aria-label="Legislation and Legislatures: back to the public record" title="Legislation and Legislatures: back to the public record"><span class="trk"><span class="knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4H4z"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/><path d="M3 20h18"/></svg></span><span class="lbl">Legislation &amp; Legislatures</span></span><span class="when" id="bwhen"></span></a>
   <div class="tools">
       <a class="tbreak" id="tbreak" href="../cabin.html" title="Take a break: step into the cabin for a while. A way back to this page waits there."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 11.6 12 4l9.2 7.6"/><path d="M5.4 9.6v10h13.2v-10"/><path d="M10 19.6v-5.2h4v5.2"/><path d="M16.6 7.7V4.6"/><path d="M7.4 12.6h1.4"/></svg><span>Take a break</span></a>
     <button class="tbtn" id="motion" type="button" aria-pressed="true" title="Spinning cards and the page-turn: on or off">Motion</button>
@@ -253,7 +253,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
 </main>
 
 <main id="states" class="states" hidden>
-  <button class="back" id="backdoor" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back to the front door</button>
+  <button class="back" id="backdoor" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back to all levels</button>
   <h1>Choose a state</h1>
   <p class="lead" id="stateslead"></p>
   <svg class="usmap" id="usmap" viewBox="0 0 975 610" role="img" aria-label="Map of the United States: states that are open are filled, states being built are hatched"><defs><pattern id="hatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="var(--surface)"/><rect width="3" height="7" fill="var(--accent)" opacity=".55"/></pattern></defs></svg>
@@ -262,7 +262,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
   <div class="chips" id="offmap"></div>
 </main>
 
-<footer><span>On The Ballot, from The Civic Archive v4.0.099. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 03, 2026</span></footer>
+<footer><span>On The Ballot, from The Civic Archive v4.0.100. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 04, 2026</span></footer>
 </div>
 
 <div class="turn" id="turn" hidden aria-live="polite">
@@ -276,7 +276,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
 <div class="scene" id="scene" hidden aria-hidden="true"></div>
 
 <script>
-const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.099","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
+const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.100","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
@@ -395,7 +395,7 @@ function openState(code){
   const card = $("#sc-" + code); if (card) card.scrollIntoView({block: "center", behavior: calm() ? "auto" : "smooth"});
 }
 $("#statecards").addEventListener("click", e => { const a = e.target.closest("a.open"); if (!a || calm()) return; e.preventDefault(); openState(a.dataset.state); });
-$("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("#door").hidden = false; history.replaceState(null, "", "./"); place(); kick(); });
+$("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("#door").hidden = false; history.replaceState(null, "", location.pathname + location.search); place(); kick(); });      // the ring keeps its own address (rooms.html)
 
 /* ---------- On The Ballot: the switch, the fireworks and the wormhole ---------- */
 const SW = $("#bsw"), sky = $("#sky"), skyfx = $("#skyfx");
