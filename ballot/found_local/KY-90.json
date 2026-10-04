@@ -1,0 +1,324 @@
+{
+ "part": 90,
+ "of": 117,
+ "researched": "2026-10-03",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21009-jailer",
+   "name": "James L Scott"
+  },
+  {
+   "race_id": "2026-KY-21021-county-clerk",
+   "name": "Casey McCoy",
+   "official_page": {
+    "url": "https://www.boylecountyky.gov/directory.aspx",
+    "source": "Boyle County government, staff directory: Casey McCoy, County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Clerk, Boyle County (won the 2022 general election, 5,986 votes to 4,264)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Boyle County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyle%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "County Clerk, Boyle County (general election)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Boyle County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyle%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21033-county-clerk",
+   "name": "Jennifer Watson Hale",
+   "official_page": {
+    "url": "https://caldwellcounty.ky.gov/elected-officials/Pages/county-clerk.aspx",
+    "source": "Caldwell County government, County Clerk page: County Court Clerk, Jennifer W. Hale",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "County Clerk, Caldwell County (listed as Jennifer W. Hale)",
+     "from": null,
+     "to": null,
+     "source": "Caldwell County government, County Clerk page (no years given)",
+     "url": "https://caldwellcounty.ky.gov/elected-officials/Pages/county-clerk.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21047-magistrate-1",
+   "name": "Magaline Ferguson",
+   "official_page": {
+    "url": "https://christiancountyky.gov/county-magistrates",
+    "source": "Christian County government, County Magistrates by District: District One, Magaline Ferguson",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, District 1, Christian County Fiscal Court (elected unopposed in the 2022 general election, 868 votes)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Christian County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 1st Magisterial District, Christian County (general election)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Christian County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21059-county-commissioner-east",
+   "name": "Joe Hagan"
+  },
+  {
+   "race_id": "2026-KY-21071-magistrate-2",
+   "name": "George Issac"
+  },
+  {
+   "race_id": "2026-KY-21085-county-assessor",
+   "name": "Ernie Perkins",
+   "born": {
+    "year": 1975,
+    "date": "1975-03-17",
+    "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Grayson County page (Ernie Perkins, PVA)",
+    "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+    "kind": "official",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Property Valuation Administrator, Grayson County",
+     "from": "2016",
+     "to": null,
+     "source": "Kentucky Department of Revenue, PVA Directory 2022-2026, Grayson County page: PVA since August 2016",
+     "url": "https://revenue.ky.gov/Property/Documents/PVA%20Directory%202022-2026.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Property Valuation Administrator, Grayson County (general election, unopposed)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Grayson County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Grayson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21095-magistrate-5",
+   "name": "Toby Short"
+  },
+  {
+   "race_id": "2026-KY-21107-magistrate-3",
+   "name": "Vicki Dickerson Thomison",
+   "official_page": {
+    "url": "https://hopkinscounty.ky.gov/index.php/hc-magistrates",
+    "source": "Hopkins County government, Magistrates page: Magistrate District Three, Vicki Dickerson Thomison",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, District 3, Hopkins County Fiscal Court",
+     "from": null,
+     "to": null,
+     "source": "Hopkins County government, Magistrates page (no years given)",
+     "url": "https://hopkinscounty.ky.gov/index.php/hc-magistrates",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21119-magistrate-4",
+   "name": "Calvin Waddles"
+  },
+  {
+   "race_id": "2026-KY-21133-county-executive",
+   "name": "Terry Adams"
+  },
+  {
+   "race_id": "2026-KY-21147-coroner",
+   "name": "Tim Corder"
+  },
+  {
+   "race_id": "2026-KY-21159-sheriff",
+   "name": "Tyler Lafferty"
+  },
+  {
+   "race_id": "2026-KY-21173-county-attorney",
+   "name": "Ronald Keith Craycraft"
+  },
+  {
+   "race_id": "2026-KY-21183-magistrate-2",
+   "name": "Robert Oakley Hicks"
+  },
+  {
+   "race_id": "2026-KY-21195-constable-6",
+   "name": "Jody W Bailey"
+  },
+  {
+   "race_id": "2026-KY-21205-magistrate-4",
+   "name": "Rob Hamm",
+   "offices": [
+    {
+     "office": "Magistrate, District 4, Rowan County Fiscal Court (won the 2022 general election, 819 votes to 632)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Rowan County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Rowan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Magistrate, 4th Magisterial District, Rowan County (general election)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Rowan County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Rowan%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21217-sheriff",
+   "name": "Robert Tyler Vancleave"
+  },
+  {
+   "race_id": "2026-KY-21229-sheriff",
+   "name": "Jerry Pinkston",
+   "official_page": {
+    "url": "https://washingtoncountyky.gov/officials.html",
+    "source": "Washington County government, Elected Officials page: Sheriff Jerry Pinkston",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Sheriff, Washington County",
+     "from": null,
+     "to": null,
+     "source": "Washington County government, Elected Officials page (no years given)",
+     "url": "https://washingtoncountyky.gov/officials.html",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ16-1",
+   "name": "Ann Ruttle",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Kenton.aspx",
+    "source": "Kentucky Court of Justice, Kenton County page: Ann Ruttle, Chief District Judge, District Court, 16th Judicial District, Division 1",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 16th Judicial District, Division 1 (Kenton County; elected unopposed in the 2022 general election)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap sheet, Kenton County (precinct summary results report headed Official Results)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Kenton%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-00802-council",
+   "name": "Stacey L. Graus",
+   "offices": [
+    {
+     "office": "City Council Member, Alexandria (elected in the 2024 general election, 3,322 votes, the most of seven candidates for six seats)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2024 general election recap sheet, Campbell County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Campbell.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-28594-council",
+   "name": "Frances A. Hoffman"
+  },
+  {
+   "race_id": "2026-KY-M-43480-council",
+   "name": "Kenneth Powell",
+   "offices": [
+    {
+     "office": "City Council Member, La Grange (elected in the 2024 general election, 1,450 votes, third of sixteen candidates for eight seats)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2024 general election recap sheet, Oldham County (precinct results report headed Official Results; precinct totals added up)",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Oldham.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-54228-council",
+   "name": "Rick Clements"
+  },
+  {
+   "race_id": "2026-KY-M-70086-council",
+   "name": "Lisa Smith Carter"
+  },
+  {
+   "race_id": "2026-KY-S-01050-school-board-2",
+   "name": "Paul Barlow"
+  },
+  {
+   "race_id": "2026-KY-S-02990-school-board-4",
+   "name": "Michelle E Patrick"
+  },
+  {
+   "race_id": "2026-KY-S-04950-school-board-4",
+   "name": "Calvin Roberts"
+  },
+  {
+   "race_id": "2026-KY-SH44",
+   "name": "Kenya Wade"
+  },
+  {
+   "race_id": "2026-KY-SS4",
+   "name": "Janyna Lynn Russelburg"
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "corrected": [
+  "Kenneth Powell, offices: the 2024 recap adds up to 1,450 votes, third of sixteen (Latasha Booker-Bishop 1,455 was first), not second"
+ ]
+}

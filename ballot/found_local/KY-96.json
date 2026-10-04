@@ -1,0 +1,241 @@
+{
+ "part": 96,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "30 candidates. The session's shared web-search allowance ran out partway through this part, so several county candidates (constables, a surveyor, a coroner, magistrate challengers, school board candidates) were checked only by one search or by their county's own officials page; blanks mean nothing was found under the rules, not that nothing exists. Many county hosts did not resolve on the first try and were read with the kit's own fetcher.",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21009-magistrate-5",
+   "name": "Marty Kinslow",
+   "official_page": {
+    "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/Magistrates.aspx",
+    "source": "Barren County government, Magistrates page: District 5, Marty Kinslow",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, District 5, Barren County Fiscal Court",
+     "from": null,
+     "to": "present",
+     "source": "Barren County government, Magistrates page",
+     "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21021-magistrate-3",
+   "name": "Barry Harmon",
+   "official_page": {
+    "url": "https://boylecountyky.gov/205/Fiscal-Court-Who-What-It-Is",
+    "source": "Boyle County government, Fiscal Court page: Magistrate District 3, Barry Harmon",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Magistrate, District 3, Boyle County Fiscal Court (sworn in December 30, 2022 as a new member of the court)",
+     "from": "2023",
+     "to": "present",
+     "source": "The Advocate-Messenger, 'New Fiscal Court and Judge Executive sworn in', December 30, 2022; Boyle County Fiscal Court page",
+     "url": "https://www.amnews.com/?p=95889",
+     "kind": "secondary",
+     "verified": true
+    },
+    {
+     "office": "Boyle County Jailer (named as jailer in December 2017; the 2022 article speaks of his previous experience as county jailer)",
+     "from": null,
+     "to": null,
+     "source": "The Advocate-Messenger, 'Boyle jail population lowest it's been in five years', December 22, 2017",
+     "url": "https://www.amnews.com/2017/12/22/boyle-jail-population-lowest-its-been-in-five-years/",
+     "kind": "secondary",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21033-magistrate-2",
+   "name": "Clint Joiner"
+  },
+  {
+   "race_id": "2026-KY-21047-magistrate-5",
+   "name": "James \"Jim\" Smith"
+  },
+  {
+   "race_id": "2026-KY-21059-magistrate-central",
+   "name": "Chris Saalwaechter"
+  },
+  {
+   "race_id": "2026-KY-21071-sheriff",
+   "name": "Christopher Shepherd"
+  },
+  {
+   "race_id": "2026-KY-21085-magistrate-2",
+   "name": "Phillip Darin Whitely"
+  },
+  {
+   "race_id": "2026-KY-21097-coroner",
+   "name": "Mary Beth Slade"
+  },
+  {
+   "race_id": "2026-KY-21107-magistrate-6",
+   "name": "Justin Lee Jones"
+  },
+  {
+   "race_id": "2026-KY-21121-constable-4",
+   "name": "Vencil Ray Phipps"
+  },
+  {
+   "race_id": "2026-KY-21133-magistrate-2",
+   "name": "Sherry K Sexton"
+  },
+  {
+   "race_id": "2026-KY-21147-county-surveyor",
+   "name": "Jimmy W Watters"
+  },
+  {
+   "race_id": "2026-KY-21161-county-assessor",
+   "name": "Troy Cracraft",
+   "official_page": {
+    "url": "https://www.qpublic.net/ky/mason/",
+    "source": "Mason County PVA office's own website (hosted by qPublic under agreement with the office): Mason County Property Valuation Administrator Troy Cracraft",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mason County Property Valuation Administrator",
+     "from": null,
+     "to": "present",
+     "source": "Mason County PVA office's website",
+     "url": "https://www.qpublic.net/ky/mason/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21173-county-commissioner-3",
+   "name": "Mark Terry"
+  },
+  {
+   "race_id": "2026-KY-21185-constable-1",
+   "name": "Jaye A Russo"
+  },
+  {
+   "race_id": "2026-KY-21195-county-executive",
+   "name": "Suzy Gibson Shearer"
+  },
+  {
+   "race_id": "2026-KY-21207-constable-5",
+   "name": "Richard Andrew Wooldridge"
+  },
+  {
+   "race_id": "2026-KY-21219-county-assessor",
+   "name": "Perry Stokes",
+   "official_page": {
+    "url": "https://toddcounty.ky.gov/elected-officials/Pages/County-Officials.aspx",
+    "source": "Todd County government, County Officials page: Todd County PVA Perry Stokes",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Todd County Property Valuation Administrator",
+     "from": null,
+     "to": "present",
+     "source": "Todd County government, County Officials page",
+     "url": "https://toddcounty.ky.gov/elected-officials/Pages/County-Officials.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21231-constable-4",
+   "name": "Dino Damico"
+  },
+  {
+   "race_id": "2026-KY-DJ18",
+   "name": "Gregory E. J. Coulson",
+   "website": {
+    "url": "https://www.keepjudgecoulson.com/",
+    "how": "the campaign committee's name (Committee to Keep Judge Coulson) taken as the address; the site's title reads 'Greg Coulson Campaign', it names Judge Greg Coulson and the 18th Judicial District (Harrison, Robertson, Nicholas and Pendleton counties) and asks voters to keep him on the bench",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://kycourts.gov/Courts/County-Information/Pages/Harrison.aspx",
+    "source": "Kentucky Court of Justice, Harrison County page: Gregory Coulson, Judge, District Court, 18th Judicial District",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 18th Judicial District (Harrison, Nicholas, Pendleton and Robertson counties)",
+     "from": null,
+     "to": "present",
+     "source": "Kentucky Court of Justice, Harrison County page",
+     "url": "https://kycourts.gov/Courts/County-Information/Pages/Harrison.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-02368-council",
+   "name": "Fred Unrue"
+  },
+  {
+   "race_id": "2026-KY-M-28594-mayor",
+   "name": "Sharon Macknight"
+  },
+  {
+   "race_id": "2026-KY-M-43480-council",
+   "name": "Mike Thompson"
+  },
+  {
+   "race_id": "2026-KY-M-54228-mayor",
+   "name": "Greg Gentry",
+   "official_page": {
+    "url": "https://www.mtwashingtonky.org/government/elected_officials/index.php",
+    "source": "City of Mt. Washington, Elected Officials page: Council Members, Councilman Greg Gentry",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Member, Mount Washington City Council",
+     "from": null,
+     "to": "present",
+     "source": "City of Mt. Washington, Elected Officials and City Council pages",
+     "url": "https://www.mtwashingtonky.org/government/city.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-70086-council",
+   "name": "William \"Willie\" Morris"
+  },
+  {
+   "race_id": "2026-KY-S-01150-school-board-5",
+   "name": "Whitney Holland"
+  },
+  {
+   "race_id": "2026-KY-S-03030-school-board-5",
+   "name": "Brandon Wides"
+  },
+  {
+   "race_id": "2026-KY-S-05130-school-board",
+   "name": "Brenda \"Bren\" Martin"
+  },
+  {
+   "race_id": "2026-KY-SH48",
+   "name": "Ken Fleming",
+   "website": {
+    "url": "https://www.flemingforkentucky.com/",
+    "how": "site titled 'Fleming for Kentucky'; its home page says he has served as State Representative of the 48th District and has filed to run for this seat again in November 2026",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": []
+}

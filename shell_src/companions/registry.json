@@ -1,0 +1,9 @@
+[
+  { "id": "penguin", "name": "Adélie penguin", "latin": "Pygoscelis adeliae", "rests": "floor", "default": true },
+  { "id": "chickadee", "name": "Black-capped chickadee", "latin": "Poecile atricapillus", "rests": "perch", "default": false },
+  { "id": "retriever", "name": "Golden retriever", "latin": "Canis familiaris", "rests": "floor", "default": false },
+  { "id": "cat", "name": "Tabby cat", "latin": "Felis catus", "rests": "floor", "default": false },
+  { "id": "squirrel", "name": "Eastern gray squirrel", "latin": "Sciurus carolinensis", "rests": "floor", "default": false },
+  { "id": "chipmunk", "name": "Eastern chipmunk", "latin": "Tamias striatus", "rests": "floor", "default": false },
+  { "id": "snail", "name": "Garden snail", "latin": "Cornu aspersum", "rests": "floor", "default": false }
+]

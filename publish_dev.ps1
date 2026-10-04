@@ -8,7 +8,7 @@ function Say($t) { "$t $(Get-Date -Format s)" | Out-File $log -Append -Encoding 
 "start $(Get-Date -Format s)" | Out-File $log -Encoding utf8
 cmd /c ".venv\Scripts\python.exe quiet_pages.py site\dev >> `"$log`" 2>&1"
 if (-not (Test-Path docs\dev)) { New-Item -ItemType Directory docs\dev | Out-Null }
-robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP | Out-Null
+robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP /XF _companion_lab.html companions.html | Out-Null
 Say "robocopy exit $LASTEXITCODE (below 8 is success)"
 if ($LASTEXITCODE -ge 8) { Say "STOPPED: the copy failed"; "done ok=False" | Out-File $log -Append -Encoding utf8; exit 1 }
 $staged = $false

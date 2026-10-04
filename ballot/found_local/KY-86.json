@@ -1,0 +1,185 @@
+{
+ "part": 86,
+ "of": 117,
+ "researched": "2026-10-03",
+ "note": "The session's shared web-search allowance was already used up when this part began, so every finding was read directly from county, city, court and school district sites with the kit's fetcher. Hosts that did not resolve or answer from this machine: the Floyd, Grayson, Harlan, Knott, McCreary, Montgomery, Pike and Rowan county sites tried, Alexandria (timed out) and Fort Thomas (its certificate chain did not verify; not bypassed); Ballotpedia returned empty pages. Checked and not holding the office sought: Joe Hamm (Caldwell County's District 2 constable is Brian Hicks), Kermit Howell (not among Martin County's magistrates), Ronnie W Huntsberger (Washington County's District 4 magistrate is another person), Jason Cantwell (not on Mount Washington's council page), James A Southern (not on Shepherdsville's council page), Jazmen Thorpe (not on Powell County's board page). Michael Watts: Letcher County's page names a Mike Watts as Circuit Court Clerk, not County Attorney; not tied to this race, left out. Party pages: Jessica D. McIntosh's card on the Madison County Democratic Party's Vote page lists nominees without saying endorsed (already kept in ballot/lean/ky_endorsements.json), so no endorsement is recorded; the card's link led to her campaign site. Mary Lou Marzian is a sitting legislator with a record page; no campaign site was found (Wikipedia's infobox gives none).",
+ "candidates": [
+  {
+   "race_id": "2026-KY-21009-county-attorney",
+   "name": "Mike Richardson",
+   "official_page": {
+    "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/default.aspx",
+    "source": "Barren County, Elected Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Barren County Attorney",
+     "from": null,
+     "to": null,
+     "source": "Barren County, Elected Officials page (names Mike Richardson as County Attorney)",
+     "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/default.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21021-coroner",
+   "name": "Eric Guerrant",
+   "official_page": {
+    "url": "https://www.boylecountyky.gov/directory.aspx",
+    "source": "Boyle County, Staff Directory (County Coroner)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Boyle County Coroner",
+     "from": null,
+     "to": null,
+     "source": "Boyle County Staff Directory (lists Eric Guerrant, MD, Coroner, under County Coroner)",
+     "url": "https://www.boylecountyky.gov/directory.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21047-county-clerk",
+   "name": "Melinda A. Humphries",
+   "official_page": {
+    "url": "https://christiancountyky.gov/county-clerk",
+    "source": "Christian County, County Clerk",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Christian County Clerk",
+     "from": null,
+     "to": null,
+     "source": "Christian County, County Clerk page (names Melinda A. Humphries)",
+     "url": "https://christiancountyky.gov/county-clerk",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21059-county-attorney",
+   "name": "John Burlew",
+   "official_page": {
+    "url": "https://www.daviessky.org/elected-officials/",
+    "source": "Daviess County, Elected Officials",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Daviess County Attorney",
+     "from": null,
+     "to": null,
+     "source": "Daviess County Elected Officials page (names John Burlew as County Attorney)",
+     "url": "https://www.daviessky.org/elected-officials/",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21107-jailer",
+   "name": "Mike Lewis",
+   "official_page": {
+    "url": "https://hopkinscounty.ky.gov/index.php/elected-officials/county-jailer",
+    "source": "Hopkins County, County Jailer",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hopkins County Jailer",
+     "from": null,
+     "to": null,
+     "source": "Hopkins County, County Jailer page (names Jailer Mike Lewis)",
+     "url": "https://hopkinscounty.ky.gov/index.php/elected-officials/county-jailer",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21217-magistrate-3",
+   "name": "Tommy Allen Corbin",
+   "official_page": {
+    "url": "https://taylorcountyky.gov/fiscal-court",
+    "source": "Taylor County, Fiscal Court",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Taylor County Magistrate, District 3",
+     "from": null,
+     "to": null,
+     "source": "Taylor County Fiscal Court page (names Tommy Corbin as District 3 Magistrate)",
+     "url": "https://taylorcountyky.gov/fiscal-court",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ14-2",
+   "name": "Sarah Hays Spedding",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Scott.aspx",
+    "source": "Kentucky Court of Justice, Scott County information (judges of the 14th Judicial District)",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 14th Judicial District, Division 2 (Bourbon, Scott and Woodford Counties)",
+     "from": null,
+     "to": null,
+     "source": "Kentucky Court of Justice county information page (Sarah Hays Spedding, Judge, District Court, 14th Judicial District Division 2)",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Scott.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-S-02990-school-board-3",
+   "name": "Taylor Everett",
+   "official_page": {
+    "url": "https://www.jefferson.kyschools.us/page/board-of-education",
+    "source": "Jefferson County Public Schools, Board of Education",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Jefferson County Board of Education, District 3",
+     "from": null,
+     "to": null,
+     "source": "Jefferson County Public Schools Board of Education page (District 3: Taylor Everett)",
+     "url": "https://www.jefferson.kyschools.us/page/board-of-education",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-SS34",
+   "name": "Jessica D. McIntosh",
+   "website": {
+    "url": "https://mcintoshky34.com/",
+    "how": "Jessica McIntosh for Kentucky Senate: says she is running for Kentucky Senate District 34 (Madison and Fayette Counties); linked from her card on the Madison County Democratic Party's Vote page",
+    "verified": true
+   },
+   "own_words": {
+    "quote": "I am a Democrat",
+    "url": "https://mcintoshky34.com/jessica-mcintosh/",
+    "verified": true
+   }
+  }
+ ],
+ "verified_on": "2026-10-03",
+ "removed": [],
+ "verification_note": "Every url re-opened with the kit's fetcher; each page names the person in the office recorded (county or district and office as in the race), and the campaign site names Jessica McIntosh, Kentucky Senate District 34 and carries the quoted sentence. Nothing removed."
+}

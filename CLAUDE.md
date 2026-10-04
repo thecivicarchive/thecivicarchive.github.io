@@ -1174,6 +1174,41 @@ agents in batches of about 10M tokens or less, read `get_usage` between batches,
 of the 5-hour window or 90 percent of the week, and stop at 99 percent of the week. Research at effort high and
 verification at medium cost about a third of max.
 
+## The home page and the shell (from v4.0.100, not yet published)
+
+John's two documents (2026-10-03, in his Downloads folder): `CIVIC-ARCHIVE-SHELL-SPEC.md` (Shell Spec v1.3) and
+`companion-field-guide.md` (Companion Field Guide v0.1). His answers: build from the spec (no reference page exists);
+the new home is the front door at /dev/ (the ring of cards becomes `rooms.html`, the cabin stays `cabin.html`; the live
+root is not touched); the home first, then the shell on every page.
+
+- `build_shell.py` copies `shell_src/` (boot.js, shell.css, shell.js, icons.js, dock.js, companions/) and the type
+  (Lexend, Atkinson Hyperlegible, Instrument Sans and Serif, each with its Open Font License) into `<root>/shell/`,
+  each file named by a hash of its contents, and gives page builders `head`, `top_bar`, `panels`, `tab_bar` and
+  `icon`. `build_home.py` writes the home, `method/` and `access/`, every number counted at build time, each main
+  paragraph with a plain-language twin checked at grade 7 or lower. `build_door.py` calls it on every door build.
+- Reading & access settings are data attributes on `<html>`, applied before the first frame and kept on the device
+  (`tca.a11y.v1`, `tca.companion.skin`, every read and write in try/catch). Chrome colours are brass #A8762E and
+  verdigris #2F6B5E; red and blue only for party data.
+- The companions (`shell_src/companions/<id>.js`, listed in `registry.json`): Adélie penguin (the default),
+  black-capped chickadee, golden retriever, tabby cat, eastern gray squirrel, eastern chipmunk, garden snail. Each is
+  a module with `build(THREE, kit)` returning an object with build, update, play and rest, and the clips arrive,
+  idleA, idleB, notice, react, talk, lookLeft, lookRight, rest and dance (John: a little dance on hover, keyboard focus
+  too, only with motion on), each ending exactly on the rest pose. Breathing, irregular blinks, attention to the
+  pointer; never unsolicited speech; decorative to assistive technology. Off loads nothing; Still and reduced motion
+  draw one frame. Colours: black, white, greys, browns, buff and the penguin's pink feet, never red or blue.
+- John then asked for them "hyper-realistic 3D fully animated ... popping off the screen", from real models and real
+  articulation, built with Fable 5.1 at max effort. `shell_src/companions/kit.js` is the shared realism kit (shell
+  fur and feathers, physical materials, wet eyes and lids, skinned rigs built in code, springs, model loading, the
+  pop-out presentation: an oversized transparent canvas with the hit target kept, key, fill and rim light, an
+  environment map, a contact shadow); `research/<id>.md` holds each animal's skeleton, joint ranges, gaits and
+  timings with sources and its dance. Licensed models only when free to use on a public website and downloadable
+  without an account (CC0 or CC-BY, credited in `credits.json`); for six animals none qualified, so they are sculpted
+  in code. Check frames in the unpublished lab, `site/dev/_companion_lab.html` (`window.__lab`), with a throwaway
+  saver on 127.0.0.1:8799, because the Browser pane draws no animation while hidden. The lab is kept out of docs/dev.
+- Open questions for John before the home is published: how readers report a barrier (an e-mail address or GitHub
+  issues); the dock's flat branch or the chickadee's sculpted one. While the shell is rolled onto every page, no
+  state page agent runs, since both edit the same builders.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

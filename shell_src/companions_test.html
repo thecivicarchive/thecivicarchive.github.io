@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Companions side by side</title>
+<meta name="description" content="A draft page for judging the seven companions: each at its real size and at three times that size, with every clip on a button.">
+<link rel="icon" href="data:,">
+<script>
+(function () {
+  var t = "light";
+  try { var s = localStorage.getItem("tca.companions.theme"); if (s === "dark" || s === "light") t = s; } catch (e) {}
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+<style>
+:root {
+  --bg: #F5F5F2; --surface: #FFFFFF; --ink: #15171B; --muted: #5C6169; --line: #E4E5E1; --line-strong: #C3C5BF;
+  --brass: #A8762E; --verd: #2F6B5E; --focus: #2F6B5E; --chip: #EEEDE8; --chip-on: #2F6B5E; --chip-on-ink: #FFFFFF;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --lh: 1.5; --dur: .15s;
+}
+:root[data-theme="dark"] {
+  --bg: #0F1114; --surface: #171A1F; --ink: #ECEDE9; --muted: #9BA1A9; --line: #272B32; --line-strong: #3D424B;
+  --brass: #C99A52; --verd: #6FB3A2; --focus: #8CCFBD; --chip: #1F242A; --chip-on: #6FB3A2; --chip-on-ink: #0F1114;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/var(--lh) var(--font); }
+.skip { position: absolute; left: 12px; top: -60px; padding: 10px 14px; background: var(--surface); color: var(--ink); border: 2px solid var(--focus); border-radius: 8px; z-index: 5; }
+.skip:focus { top: 12px; }
+header.top { padding: 28px 16px 8px; max-width: 1240px; margin: 0 auto; }
+h1 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -.01em; }
+.lede { margin: 0 0 4px; color: var(--muted); max-width: 70ch; }
+main { max-width: 1240px; margin: 0 auto; padding: 8px 16px 48px; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.bar .label { color: var(--muted); font-size: 13px; margin-right: 2px; }
+button { font: inherit; color: var(--ink); background: var(--chip); border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 14px; min-height: 44px; cursor: pointer; transition: background var(--dur), color var(--dur); }
+button:hover { border-color: var(--verd); }
+button[aria-pressed="true"] { background: var(--chip-on); color: var(--chip-on-ink); border-color: var(--chip-on); }
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; overflow: clip; }
+.card h2 { font-size: 18px; margin: 0; line-height: 1.25; }
+.latin { margin: 0; color: var(--muted); font-style: italic; }
+.meta { margin: 4px 0 12px; color: var(--muted); font-size: 13px; }
+.stage { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; background: var(--bg); border-radius: 10px; padding: 12px; }
+.view { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.view .cap { font-size: 12px; color: var(--muted); }
+.pet { padding: 0; border-radius: 10px; background: transparent; border: 1px dashed var(--line-strong); min-height: 0; line-height: 0; }
+.pet:hover { border-color: var(--line-strong); }
+.big { border: 1px dashed var(--line-strong); border-radius: 10px; line-height: 0; }
+canvas { display: block; }
+.clips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.clips button { padding: 6px 10px; min-height: 40px; font-size: 13px; }
+.err { color: var(--brass); }
+#report { margin: 0 0 18px; }
+#report:empty { display: none; }
+#report table { border-collapse: collapse; font-size: 13px; width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: clip; }
+#report th, #report td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+#report caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+.ok { color: var(--verd); font-weight: 600; }
+.bad { color: var(--brass); font-weight: 600; }
+footer { max-width: 1240px; margin: 0 auto; padding: 0 16px 40px; color: var(--muted); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <h1>Companions side by side</h1>
+  <p class="lede">Seven companions, drawn in code. Each one is shown at its real size in the corner of a page, and at three times that size. Hover over one, or move to it with the keyboard, and it dances. A click plays its greeting. The buttons play each clip.</p>
+  <p class="lede">This is a draft page for judging them. Nothing here is sent anywhere.</p>
+</header>
+<main id="main">
+  <div class="bar" role="group" aria-label="Settings">
+    <span class="label">Motion</span>
+    <button id="motion" aria-pressed="true">On</button>
+    <span class="label">Theme</span>
+    <button id="theme" aria-pressed="false">Dark</button>
+    <span class="label">Help</span>
+    <button id="help" aria-pressed="false">Open on every companion</button>
+    <button id="check">Check that every clip ends at rest</button>
+    <button id="cost">Measure the frame cost</button>
+  </div>
+  <div id="report" aria-live="polite"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>Drawn with three.js (MIT licence), kept with the site, on the companions' realism kit. Any model or texture a companion uses from elsewhere is credited in its credits file.</footer>
+<script type="module">
+import * as THREE from "./vendor/three.module.min.js";
+import { RoomEnvironment } from "./vendor/jsm/environments/RoomEnvironment.js";
+import { createKit } from "./shell/companions/kit.js";
+
+const DOCK = { w: 96, h: 108 }, BIG = { w: 288, h: 324 };
+const BASE = "./shell/companions/";
+const kit = createKit(THREE, { RoomEnvironment, gltf: () => import("./vendor/jsm/loaders/GLTFLoader.js") }, { tier: 2, base: new URL(BASE, location.href).href });
+let firstStage = null;
+const grid = document.getElementById("grid"), report = document.getElementById("report");
+const S = { motion: "on", help: false, idleSince: performance.now(), pointer: null, scrollUntil: 0 };
+const fine = matchMedia("(hover: hover) and (pointer: fine)");
+const items = [];
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x000000, 0);
+renderer.setScissorTest(true);
+let RW = 0, RH = 0;
+function ensure(w, h) { if (w > RW || h > RH) { RW = Math.max(RW, w); RH = Math.max(RH, h); renderer.setSize(RW, RH, false); } }
+
+function frameCamera(cam, fr) {
+  const cx = (fr.x[0] + fr.x[1]) / 2, cy = (fr.y[0] + fr.y[1]) / 2, hw = (fr.x[1] - fr.x[0]) / 2, hh = (fr.y[1] - fr.y[0]) / 2;
+  const t = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)), D = Math.max(hh, hw / cam.aspect) / t, tilt = 0.12;
+  cam.position.set(cx, cy + D * Math.sin(tilt), D * Math.cos(tilt));
+  cam.lookAt(cx, cy, 0);
+}
+function draw(it, canvas, css) {
+  const dpr = Math.min(2, window.devicePixelRatio || 1), w = Math.round(css.w * dpr), h = Math.round(css.h * dpr);
+  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; canvas.style.width = css.w + "px"; canvas.style.height = css.h + "px"; }
+  ensure(w, h);
+  renderer.setViewport(0, 0, w, h); renderer.setScissor(0, 0, w, h); renderer.clear();
+  it.stage.render(it.rig.root);
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, w, h);
+  ctx.drawImage(renderer.domElement, 0, RH - h, w, h, 0, 0, w, h);
+}
+function stateFor(it) {
+  let p = null;
+  if (S.pointer) {
+    const r = it.dock.getBoundingClientRect();
+    if (r.width) p = { x: ((S.pointer.x - r.left) / r.width) * 2 - 1, y: -(((S.pointer.y - r.top) / r.height) * 2 - 1) };
+  }
+  return { t: performance.now() / 1000, pointer: p, motion: S.motion, helpOpen: S.help || it.help, scrolling: performance.now() < S.scrollUntil, idleFor: (performance.now() - S.idleSince) / 1000 };
+}
+function poke() { S.idleSince = performance.now(); }
+addEventListener("pointermove", (e) => { S.pointer = { x: e.clientX, y: e.clientY }; poke(); }, { passive: true });
+addEventListener("pointerdown", poke, { passive: true });
+addEventListener("keydown", poke);
+addEventListener("scroll", () => { S.scrollUntil = performance.now() + 220; poke(); }, { passive: true });
+document.documentElement.addEventListener("pointerleave", () => { S.pointer = null; });
+
+function card(entry) {
+  const el = document.createElement("article");
+  el.className = "card"; el.id = "c-" + entry.id;
+  el.innerHTML = `<h2></h2><p class="latin"></p><p class="meta">Loading.</p>
+  <div class="stage">
+    <div class="view"><button class="pet" type="button" aria-label="Open help"><canvas aria-hidden="true"></canvas></button><span class="cap">Real size, ${DOCK.w} by ${DOCK.h}</span></div>
+    <div class="view"><div class="big"><canvas aria-hidden="true"></canvas></div><span class="cap">Three times</span></div>
+  </div>
+  <div class="clips" role="group" aria-label="Clips"></div>`;
+  el.querySelector("h2").textContent = entry.name;
+  el.querySelector(".latin").textContent = entry.latin;
+  grid.appendChild(el);
+  return el;
+}
+
+const CLIPS = ["arrive", "idleA", "idleB", "notice", "react", "talk", "lookLeft", "lookRight", "rest", "dance"];
+async function load() {
+  const list = await (await fetch(BASE + "registry.json", { cache: "no-store" })).json();
+  const v = new URL(location.href).searchParams.get("v") || Date.now();
+  for (const entry of list) {
+    const el = card(entry), meta = el.querySelector(".meta");
+    try {
+      const mod = (await import(BASE + entry.id + ".js?v=" + v)).default;
+      const t0 = performance.now();
+      let rig = mod.build(THREE, kit);
+      if (rig && typeof rig.then === "function") rig = await rig;
+      if (rig.perch) rig.perch.visible = true;      /* this page has no dock to draw the branch */
+      const ms = performance.now() - t0;
+      /* each companion on the kit's lit stage; the room's reflections are made once and shared */
+      const stage = kit.stage(renderer, { tier: 2, env: !firstStage });
+      if (firstStage) { stage.scene.environment = firstStage.scene.environment; stage.scene.environmentIntensity = firstStage.scene.environmentIntensity; }
+      else firstStage = stage;
+      stage.scene.add(rig.root);
+      stage.frame(rig.frame || { x: [-0.56, 0.56], y: [-0.05, 1.1] }, { W: DOCK.w, H: DOCK.h, dockW: DOCK.w, dockH: DOCK.h, pad: 0, perch: entry.rests === "perch" }, rig.fov);
+      stage.contact.visible = entry.rests !== "perch" && !rig.shadow;
+      let tris = 0;
+      rig.root.traverse((o) => { if (o.isMesh && o.geometry.index) tris += o.geometry.index.count / 3; });
+      const it = { id: entry.id, entry, mod, rig, stage, scene: stage.scene, cam: stage.camera, el, help: false, variant: 0,
+        dock: el.querySelector(".pet canvas"), big: el.querySelector(".big canvas"), ms, tris };
+      meta.textContent = `Rests ${entry.rests === "perch" ? "on a perch under the top bar" : "on the floor, bottom right"}. Built in ${Math.round(ms)} ms, ${Math.round(tris).toLocaleString()} triangles.`;
+      const pet = el.querySelector(".pet");
+      const dance = (e) => { if (S.motion === "on" && (!e || e.pointerType === "mouse" && fine.matches)) mod.play(rig, "dance"); };
+      pet.addEventListener("pointerenter", dance);
+      it.big.parentElement.addEventListener("pointerenter", dance);
+      pet.addEventListener("focus", () => { if (pet.matches(":focus-visible")) dance(); });
+      pet.addEventListener("click", () => {
+        if (S.motion === "on") mod.play(rig, "react");
+        it.help = !it.help;
+        pet.setAttribute("aria-label", it.help ? "Close help" : "Open help");
+      });
+      const box = el.querySelector(".clips");
+      for (const c of CLIPS) {
+        const b = document.createElement("button");
+        b.type = "button"; b.textContent = c;
+        b.addEventListener("click", () => {
+          if (S.motion !== "on") return;
+          if (c === "idleB") { mod.play(rig, c, it.variant); it.variant++; } else mod.play(rig, c);
+        });
+        box.appendChild(b);
+      }
+      items.push(it);
+      if (S.motion === "on") mod.play(rig, "arrive");
+    } catch (err) {
+      meta.innerHTML = '<span class="err"></span>';
+      meta.firstChild.textContent = "Not drawn yet: " + (err && err.message ? err.message : err);
+    }
+  }
+}
+
+let last = performance.now(), rafSeen = false, frames = 0;
+function step(now) {
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  for (const it of items) {
+    it.mod.update(it.rig, dt, stateFor(it));
+    draw(it, it.dock, DOCK);
+    draw(it, it.big, BIG);
+  }
+  frames++;
+}
+function loopRaf(now) { rafSeen = true; step(now); requestAnimationFrame(loopRaf); }
+requestAnimationFrame(loopRaf);
+(function watch() { if (!rafSeen) { step(performance.now()); setTimeout(watch, 33); } })();
+
+document.getElementById("motion").addEventListener("click", (e) => {
+  S.motion = S.motion === "on" ? "still" : "on";
+  e.currentTarget.setAttribute("aria-pressed", String(S.motion === "on"));
+  e.currentTarget.textContent = S.motion === "on" ? "On" : "Still";
+  if (S.motion === "on") for (const it of items) it.mod.rest(it.rig);
+});
+document.getElementById("theme").addEventListener("click", (e) => {
+  const dark = document.documentElement.getAttribute("data-theme") !== "dark";
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  e.currentTarget.setAttribute("aria-pressed", String(dark));
+  try { localStorage.setItem("tca.companions.theme", dark ? "dark" : "light"); } catch (err) {}
+});
+document.getElementById("theme").setAttribute("aria-pressed", String(document.documentElement.getAttribute("data-theme") === "dark"));
+document.getElementById("help").addEventListener("click", (e) => {
+  S.help = !S.help;
+  e.currentTarget.setAttribute("aria-pressed", String(S.help));
+});
+
+/* every clip, and every version of the fidget, must end exactly on the rest pose */
+function snapshot(rig) {
+  rig.root.updateMatrixWorld(true);
+  const out = [];
+  rig.root.traverse((o) => { for (const e of o.matrixWorld.elements) out.push(e); });
+  return out;
+}
+function check() {
+  const rows = [];
+  for (const it of items) {
+    const { rig, mod } = it;
+    rig.check = true;
+    mod.rest(rig);
+    const s0 = snapshot(rig);
+    for (const c of CLIPS) {
+      const nv = (rig.clips[c] && rig.clips[c].variants) || 1;
+      for (let v = 0; v < nv; v++) {
+        mod.rest(rig);
+        const d = mod.play(rig, c, v);
+        let t = 0, endSpeed = 0, prev = null;
+        while (t < d + 0.25) {
+          mod.update(rig, 1 / 60, { motion: "on", pointer: null, helpOpen: false, scrolling: false, idleFor: 0 });
+          t += 1 / 60;
+          if (t > d * 0.96 && t <= d) {
+            const s = snapshot(rig);
+            if (prev) { let m = 0; for (let i = 0; i < s.length; i++) m = Math.max(m, Math.abs(s[i] - prev[i])); endSpeed = Math.max(endSpeed, m * 60); }
+            prev = s;
+          }
+        }
+        const s1 = snapshot(rig);
+        let diff = 0;
+        for (let i = 0; i < s0.length; i++) diff = Math.max(diff, Math.abs(s1[i] - s0[i]));
+        rows.push({ id: it.entry.name, clip: c + (nv > 1 ? " " + (v + 1) + " of " + nv : ""), dur: d, diff, endSpeed });
+      }
+    }
+    rig.check = false;
+    mod.rest(rig);
+  }
+  const bad = rows.filter((r) => !(r.diff < 1e-6));
+  report.innerHTML = "";
+  const tbl = document.createElement("table");
+  tbl.innerHTML = `<caption></caption><thead><tr><th>Companion</th><th>Clip</th><th>Length</th><th>Distance from rest at the end</th><th>Still moving, last 4 percent</th></tr></thead><tbody></tbody>`;
+  tbl.querySelector("caption").textContent = bad.length ? `${bad.length} of ${rows.length} clips do not end at rest.` : `All ${rows.length} clips end exactly at rest.`;
+  const tb = tbl.querySelector("tbody");
+  for (const r of rows) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td></td><td></td><td></td><td></td><td></td>`;
+    tr.children[0].textContent = r.id; tr.children[1].textContent = r.clip; tr.children[2].textContent = r.dur.toFixed(2) + " s";
+    tr.children[3].innerHTML = r.diff < 1e-6 ? '<span class="ok">at rest</span> ' : '<span class="bad">off</span> ';
+    tr.children[3].append(r.diff.toExponential(1));
+    tr.children[4].textContent = r.endSpeed.toFixed(2);
+    tb.appendChild(tr);
+  }
+  report.appendChild(tbl);
+  window.__checkRows = rows;
+  return rows;
+}
+document.getElementById("check").addEventListener("click", check);
+
+/* what a frame costs: every companion updated and drawn at its real size */
+function cost(n = 150) {
+  const gl = renderer.getContext(), dpr = Math.min(2, window.devicePixelRatio || 1);
+  const per = items.map(() => 0), tris = items.map(() => 0);
+  for (const it of items) it.mod.play(it.rig, "dance");
+  const tAll0 = performance.now();
+  for (let f = 0; f < n; f++) {
+    items.forEach((it, i) => {
+      const a = performance.now();
+      it.mod.update(it.rig, 1 / 30, { motion: "on", pointer: { x: Math.sin(f / 9), y: 0.3 }, helpOpen: false, scrolling: false, idleFor: 0 });
+      draw(it, it.dock, DOCK);
+      per[i] += performance.now() - a;
+      tris[i] = renderer.info.render.triangles;
+    });
+    gl.finish();
+  }
+  const total = (performance.now() - tAll0) / n;
+  report.innerHTML = "";
+  const tbl = document.createElement("table");
+  tbl.innerHTML = `<caption></caption><thead><tr><th>Companion</th><th>Update and draw, real size</th><th>Triangles drawn</th></tr></thead><tbody></tbody>`;
+  tbl.querySelector("caption").textContent = `All seven together: ${total.toFixed(2)} ms a frame at ${dpr} device pixels per CSS pixel, over ${n} frames, waiting for the graphics card each frame.`;
+  items.forEach((it, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td></td><td></td><td></td>";
+    tr.children[0].textContent = it.entry.name; tr.children[1].textContent = (per[i] / n).toFixed(2) + " ms";
+    tr.children[2].textContent = Math.round(tris[i]).toLocaleString();
+    tbl.querySelector("tbody").appendChild(tr);
+  });
+  report.appendChild(tbl);
+  return { total, per: per.map((x) => x / n), tris };
+}
+document.getElementById("cost").addEventListener("click", () => cost());
+
+/* hooks for checking pictures without playing them */
+function grab(it, scale = 1) {
+  const w = Math.round(DOCK.w * scale), h = Math.round(DOCK.h * scale), cv = document.createElement("canvas");
+  cv.width = w; cv.height = h; ensure(w, h);
+  renderer.setViewport(0, 0, w, h); renderer.setScissor(0, 0, w, h); renderer.clear(); it.stage.render(it.rig.root);
+  const ctx = cv.getContext("2d");
+  ctx.fillStyle = getComputedStyle(document.body).backgroundColor; ctx.fillRect(0, 0, w, h);
+  ctx.drawImage(renderer.domElement, 0, RH - h, w, h, 0, 0, w, h);
+  return cv;
+}
+function join(cvs) {
+  const cv = document.createElement("canvas");
+  cv.width = cvs.reduce((a, b) => a + b.width, 0); cv.height = Math.max(...cvs.map((c) => c.height));
+  const ctx = cv.getContext("2d");
+  let x = 0;
+  for (const c of cvs) { ctx.drawImage(c, x, 0); x += c.width; }
+  return cv;
+}
+function clipFrames(it, clip, n, scale, variant) { /* n pictures across one clip, with breathing and blinking held still */
+  it.mod.rest(it.rig); it.rig.check = true;
+  const d = it.mod.play(it.rig, clip, variant), out = [];
+  for (let i = 0; i < n; i++) {
+    if (i === 0) it.mod.update(it.rig, 1e-4, { motion: "on" });
+    else for (let s = 0; s < 6; s++) it.mod.update(it.rig, d / (n - 1) / 6, { motion: "on" });
+    out.push(grab(it, scale));
+  }
+  it.rig.check = false; it.mod.rest(it.rig);
+  return join(out);
+}
+function turns(it, angles, scale) {
+  const out = [];
+  for (const a of angles) { it.mod.rest(it.rig); it.rig.root.rotation.y = a; out.push(grab(it, scale)); }
+  it.rig.root.rotation.y = 0; it.mod.rest(it.rig);
+  return join(out);
+}
+window.__companions = {
+  THREE, renderer, items, check, cost, grab, join, frames: clipFrames, turns, step: (dt) => step(last + dt * 1000),
+  sheet(scale = 1, opts = {}) { /* every companion side by side on the page's own colour, as a PNG */
+    const w = Math.round(DOCK.w * scale), h = Math.round(DOCK.h * scale), pad = Math.round(8 * scale);
+    const out = document.createElement("canvas");
+    out.width = items.length * (w + pad) + pad; out.height = h + 2 * pad;
+    const ctx = out.getContext("2d");
+    ctx.fillStyle = getComputedStyle(document.body).backgroundColor; ctx.fillRect(0, 0, out.width, out.height);
+    ensure(w, h);
+    items.forEach((it, i) => {
+      if (opts.pose) opts.pose(it);
+      renderer.setViewport(0, 0, w, h); renderer.setScissor(0, 0, w, h); renderer.clear();
+      it.stage.render(it.rig.root);
+      ctx.drawImage(renderer.domElement, 0, RH - h, w, h, pad + i * (w + pad), pad, w, h);
+    });
+    return out.toDataURL("image/png");
+  },
+};
+load().then(() => { window.__companionsReady = true; });
+</script>
+</body>
+</html>

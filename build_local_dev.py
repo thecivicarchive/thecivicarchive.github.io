@@ -100,7 +100,7 @@ PAGE = r"""<!DOCTYPE html>
 </div>
 <header class="top">
   <div class="wrap">
-    <a class="doorlink" href="../../" title="The front door: every level of government" aria-label="Back to the front door of The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
+    <a class="doorlink" href="../../rooms.html" title="Every level of government: the ring of cards" aria-label="All levels of government, the ring of cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l10-2v18"/><path d="M14 6h6v15"/><path d="M2 21h20"/><path d="M10.5 12.5v.01"/></svg><span>All levels</span></a>
     <a class="brand" href="#top" aria-label="The Civic Archive, __NAME__ counties, home"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="word">The Civic Archive</span><span class="sub">__NAME__ counties</span></a>
     <nav class="nav" aria-label="Sections">
       <a href="#top">Counties</a><a href="#map">County map</a><a href="../">__NAME__'s legislature</a><a href="#sources">Sources</a>

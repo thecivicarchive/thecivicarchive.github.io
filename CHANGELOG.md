@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.100 — 2026-10-04 — A new front door, and seven companions
+
+- The Civic Archive has a home page. It says in a few lines what the site holds, counts what is on file today, and opens five ways in: Plain Congress, On The Ballot, Officials, Method and Access. The ring of cards is still there under "All levels", and the log cabin under "Take a break".
+- A new top bar with two menus, Reading & access and Help, and on a phone a bar of the same five doors at the foot of the screen. The record and ballot pages keep their own bar for now; they move to the new one next.
+- Reading & access: type, size, spacing, contrast, motion and chart colours, in eight ready-made presets or eleven settings of your own, set once and kept on this device only. The Access page lists plainly what is done for readers with disabilities and what is not done yet.
+- A Method page: where each fact comes from, how bills are rated and checked, and what the site will not do.
+- A companion in the corner, if you want one: an Adélie penguin, a black-capped chickadee, a golden retriever, a tabby cat, an eastern gray squirrel, an eastern chipmunk or a garden snail, each drawn in 3D on your own device and sculpted from studies of how the real animal is built and moves. Point at it, with motion on, and it does a short dance made of the animal's own moves. It only opens Help; it never speaks or makes a sound, screen readers skip it, and Off loads nothing. Choose one under Help.
+
 ## v4.0.099 — 2026-10-03 — Arkansas gets the same treatment
 
 - Arkansas's ballot page now has the real map: 2,915 precincts from the Arkansas GIS Office, cut where district lines split them, with every district each sits in (county, justice of the peace district, township, city, ward, House, Senate, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. "Use my location" finds your precinct on your own device and shows your exact ballot, down to your own justice of the peace and constable. The same rule now places any county board seat elected by district, in every state.

@@ -1,0 +1,64 @@
+{
+  "about": "Every model, texture or other work the companions use that was not made here, with its licence and where it came from. A builder adds an entry for each file it puts under shell_src/companions/models/<id>/. Allowed: CC0; CC-BY (with the credit here and on the page); any other licence that plainly allows use on a public website. Never 'editorial only', never 'no redistribution'. Files must have been downloadable without an account, a login, a purchase, a paywall or a CAPTCHA, from the maker's or an archive's own page.",
+  "software": [
+    {
+      "work": "three.js r169 and its add-ons (GLTFLoader, RoomEnvironment)",
+      "author": "three.js authors",
+      "licence": "MIT",
+      "source": "https://github.com/mrdoob/three.js",
+      "where": "vendor/three.module.min.js, vendor/jsm/"
+    }
+  ],
+  "companions": {
+    "penguin": {
+      "built_from": "sculpted in code on the kit; no outside model or texture",
+      "works": []
+    },
+    "chickadee": {
+      "built_from": "sculpted in code on the kit from the measured animal (research/chickadee.md); no outside model or texture. No licensed model worth building on was found: the nearest, Tekano Bob's CC BY 3.0 low-poly Great Tit on poly.pizza, was not used or copied",
+      "works": []
+    },
+    "retriever": {
+      "built_from": "sculpted in code on the kit from the proportions, joint ranges and gaits in research/retriever.md; no outside model or texture (no model of a retriever exists under CC0 or CC-BY without a login)",
+      "works": []
+    },
+    "cat": {
+      "built_from": "sculpted in code on the kit; no outside model or texture (no anatomically true cat exists under CC0 or CC-BY without a login: see research/cat.md). Proportions from Day & Jayne 2007; poses and the drop-in landing read from Muybridge's Animal Locomotion plates 716 and 717 (1887, public domain, Wellcome Collection b20152619 and b20152620), used as reference only, nothing copied",
+      "works": []
+    },
+    "squirrel": {
+      "built_from": "sculpted in code on the kit from the research's measured proportions (research/squirrel.md: Hayssen 2008, Koprowski 1994, Fukushima 2021); no outside model or texture. No squirrel model exists under the rules: the archives hold only faceted toys and Blender-only files",
+      "works": []
+    },
+    "chipmunk": {
+      "built_from": "sculpted in code on the kit from the measurements and the colour sheet in research/chipmunk.md (Hayssen 2008; Jones & Suttkus 1978; ADW); no outside model or texture, nothing downloaded (every candidate model failed on anatomy, licence or access; see the research)",
+      "works": []
+    },
+    "snail": {
+      "built_from": "body, head and tentacles sculpted in code on the kit; the shell's shape and surface relief from TinyWorlds' CC0 photogrammetry scan (models/snail/shell.glb), its colour painted by the companion's own shader in Cornu aspersum's pattern",
+      "works": [
+        {
+          "work": "Snail 3D Model: a photogrammetry scan of a real land-snail shell (haus1_3k_smooth_UV; a banded helicid, shell only), 3,088 vertices, 6,069 triangles, with colour, normal and occlusion/roughness/metallic maps",
+          "author": "TinyWorlds",
+          "licence": "CC0 1.0",
+          "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "source": "https://opengameart.org/content/snail-3d-model",
+          "file": "models/snail/shell.glb",
+          "sha256": "a2562310cf287b9cd6151bd41299bad83d96f7c2930e945c70b72c206081bb19",
+          "bytes": 454984,
+          "source_sha256": "544e647c39d761f3b9601530ca65557da2c67e7c6e0f6d4a4b708881db768cbd",
+          "changes": "converted from ASCII FBX 6.1 to glTF 2.0 binary (every vertex and triangle kept); turned into its own frame (coiling axis +Y, apex up, aperture facing +Z and down, origin on the axis) and stretched 1.175x along the coiling axis to Cornu aspersum's proportions; the scan's colour map left out (the companion paints Cornu's pattern in its fragment shader from the surface's position and normal, since the scan's single UV island is stretched twenty-fold on its far side); the normal map kept at 1024 px and the occlusion/roughness/metallic map at 512 px, both as JPEG; the aperture's centre, normal and reach and the apex written into the file's extras (see research/snail.md and models/snail/README.md)",
+          "retrieved": "2026-10-03"
+        }
+      ]
+    }
+  },
+  "entry_shape": {
+    "work": "what it is",
+    "author": "who made it",
+    "licence": "CC0 1.0 | CC-BY 4.0 | ...",
+    "source": "the page it was downloaded from",
+    "file": "models/<id>/<file>",
+    "changes": "what was done to it (shrunk, re-skinned, recoloured)"
+  }
+}

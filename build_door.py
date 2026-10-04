@@ -5,7 +5,11 @@ level of government. The federal side lives under us/, each state under its own 
 
     python build_door.py --out site/dev/index.html
 
-The page is a ring of cards turning in 3D, one card per level of government (so a county or city level can be
+Asked for index.html, it writes the ring of cards as rooms.html beside it ("All levels"), the cabin as cabin.html, and
+then the front door itself: the home page, with its Method and Access pages, written by build_home.py on the shared
+shell (John, 2026-10-03).
+
+The ring is a ring of cards turning in 3D, one card per level of government (so a county or city level can be
 added later without redesign). Choosing a card turns the page like a book, three seconds, and opens that space.
 The State card opens a map of the country: finished states are lit, states being built say what is loaded so far.
 With Motion off (the same switch and the same saved choice as the rest of the site) nothing spins and the
@@ -321,7 +325,7 @@ __WIP__
 </main>
 
 <main id="states" class="states" hidden>
-  <button class="back" id="backdoor" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back to the front door</button>
+  <button class="back" id="backdoor" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back to all levels</button>
   <h1>Choose a state</h1>
   <p class="lead" id="stateslead"></p>
   <svg class="usmap" id="usmap" viewBox="0 0 975 610" role="img" aria-label="Map of the United States: states that are open are filled, states being built are hatched"><defs><pattern id="hatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="var(--surface)"/><rect width="3" height="7" fill="var(--accent)" opacity=".55"/></pattern></defs></svg>
@@ -463,7 +467,7 @@ function openState(code){
   const card = $("#sc-" + code); if (card) card.scrollIntoView({block: "center", behavior: calm() ? "auto" : "smooth"});
 }
 $("#statecards").addEventListener("click", e => { const a = e.target.closest("a.open"); if (!a || calm()) return; e.preventDefault(); openState(a.dataset.state); });
-$("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("#door").hidden = false; history.replaceState(null, "", "./"); place(); kick(); });
+$("#backdoor").addEventListener("click", () => { $("#states").hidden = true; $("#door").hidden = false; history.replaceState(null, "", location.pathname + location.search); place(); kick(); });      // the ring keeps its own address (rooms.html)
 
 /* ---------- On The Ballot: the switch, the fireworks and the wormhole ---------- */
 const SW = $("#bsw"), sky = $("#sky"), skyfx = $("#skyfx");
@@ -818,7 +822,9 @@ SKY_BACK = [[["LEGISLATION", RED], ["&", WHITE]], [["LEGISLATURES", BLUE]]]     
 
 
 TRANSIT_FILES = {"transit3d.js": "door_transit3d.js", "vendor/three.module.min.js": "vendor/three.module.min.js"}
-CABIN_FIRST = False      # John, 2026-10-01: the ring of cards stays the landing page until the realistic cabin is ready; the cabin is at cabin.html
+# John, 2026-10-03: the front door (index.html) is now the home page build_home.py writes, from his Shell Spec. The ring of
+# cards lives beside it as rooms.html ("All levels"), the cabin as cabin.html ("Take a break"); both are linked from it.
+RING_PAGE = "rooms.html"
 
 
 def copy_transit(dev_root):
@@ -841,7 +847,7 @@ def switch(on):
     """The switch at the top middle names where it goes (John, 2026-09-29): On The Ballot on the front door; on the
     ballot door, Legislation & Legislatures, the way back. Both set off fireworks after three seconds' rest."""
     if on:
-        href, label, text, icon = ("../doors.html" if CABIN_FIRST else "../"), "Legislation and Legislatures: back to the public record", "Legislation &amp; Legislatures", RECORD_ICON      # the ring of cards
+        href, label, text, icon = "../" + RING_PAGE, "Legislation and Legislatures: back to the public record", "Legislation &amp; Legislatures", RECORD_ICON      # the ring of cards
     else:
         href, label, text, icon = "ballot/", "On The Ballot: who is on the ballot, race by race", "On The Ballot", BALLOT_ICON
     return (f'<a class="bsw{" on" if on else ""}" id="bsw" href="{href}" aria-label="{label}" title="{label}"><span class="trk">'
@@ -1003,12 +1009,12 @@ def main():
         html = html.replace(key, value)
     html = html.replace("__VERSION__", version).replace("__WIP__", wip).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     os.makedirs(site_root, exist_ok=True)
-    # The cabin (John, 2026-10-01) is built whenever the front door is. While CABIN_FIRST is off, the ring of cards stays
-    # the landing page and the cabin sits beside it at its own address, cabin.html. When it is switched on, the cabin
-    # becomes the landing page and the ring is written beside it as doors.html ("Plain view", and the Legislation &
-    # Legislatures poster's way in).
+    # The front door (John, 2026-10-03) is the home page, written by build_home.py on the shared shell. Asked for index.html,
+    # this builder writes the ring of cards beside it as rooms.html, the cabin as cabin.html (built whenever the front door
+    # is, John 2026-10-01), and then the home page with its Method and Access pages. The ballot door's way back, the
+    # cabin's Legislation & Legislatures poster and its "Plain view" all lead to the ring.
     front = (not args.ballot) and os.path.basename(args.out).lower() == "index.html"
-    ring_out = os.path.join(site_root, "doors.html") if (front and CABIN_FIRST) else args.out
+    ring_out = os.path.join(site_root, RING_PAGE) if front else args.out
     import page_extras      # "Take a break" on both doors; the ballot door also carries the "Insights on my location" bar
     if args.ballot:
         html = page_extras.add(html, root="../", ballot="./", here="", words=640)
@@ -1020,13 +1026,12 @@ def main():
     copy_transit(os.path.dirname(site_root) if args.ballot else site_root)
     if front:
         import build_cabin
-        if CABIN_FIRST:
-            build_cabin.write(args.out, version=version, draft=args.draft, ring="doors.html")
-        else:
-            build_cabin.write(os.path.join(site_root, "cabin.html"), version=version, draft=args.draft, ring="./")
-            stale = os.path.join(site_root, "doors.html")
-            if os.path.exists(stale):
-                os.remove(stale)
+        build_cabin.write(os.path.join(site_root, "cabin.html"), version=version, draft=args.draft, ring=RING_PAGE)
+        stale = os.path.join(site_root, "doors.html")
+        if os.path.exists(stale):
+            os.remove(stale)
+        import build_home      # the front door itself, and its Method and Access pages
+        build_home.build(site_root, version=version, draft=args.draft)
     if args.ballot:
         print(f"Wrote {args.out}: the On The Ballot door, {len(html.encode('utf-8')) / 1e3:,.0f} KB; {ballot_facts() or 'no ballot database yet'}; "
               + (f"states: {L['states']} ({', '.join(L['codes'])}), {L['races']:,} races, {L['candidates']:,} candidates"

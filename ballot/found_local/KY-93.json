@@ -1,0 +1,322 @@
+{
+ "part": 93,
+ "of": 117,
+ "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "note": "The session's web-search allowance ran out after a few searches, so this part went mostly by fetching official pages directly with the kit's honest User-Agent (states/net.py): county, city, court and school pages and the State Board of Elections' general recaps (2022 files named '<County> County.pdf', 2024 '<County>.pdf'), read with ballot/pdftext.py; totals are sums of the Total column over every precinct page carrying the contest. Image-only 2022 recaps (no text): Barren, Caldwell, Hopkins, Knox, Letcher, McCreary, Mason, Montgomery, Pike, Russell, Todd, Wayne. Not reached (host did not resolve): the Grayson, Boyle, Christian, Floyd, Knox, McCreary, Mason, Pike, Russell and Harrison county sites; Fort Thomas's site (certificate error, not bypassed). Not holders by the official pages read: Rocky Wright (Letcher County's page names Brian Slone as jailer), Yolanda M. Robinson (Christian County Schools' District 3 member is Lindsey Clark), Kyle N. Killebrew (Jefferson County Public Schools lists Gail Logan Strange for District 5 after the 2026 redistricting). Mary Anne Brown was not on Fort Thomas's 2024 council ballot; Steven J. Ayling was not on Shepherdsville's. No campaign site could be confirmed for Al Gentry or Lindsey Tichenor (www.algentry.com answered 403, so nothing was tied to it). Several here hold the office they seek (Durham, Wofford, Barnett, Castlen, Tackett, Henderson, Parrish, Morphew, Blau) while our record's incumbent flag is 0; the county clerks' lists do not mark local incumbents, so this is noted rather than filed as a review item.",
+ "removed": [
+  {
+   "race_id": "2026-KY-21085-county-executive",
+   "name": "Kevin Henderson",
+   "field": "offices",
+   "what": "Chief of Police, Leitchfield Police Department",
+   "why": "a police department post is employment, not a public office under the rules (employers are never collected)"
+  }
+ ],
+ "candidates": [
+  {
+   "race_id": "2026-KY-21009-magistrate-3",
+   "name": "Tim Durham",
+   "official_page": {
+    "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/Magistrates.aspx",
+    "source": "Barren County's Magistrates page: 'District 3 Tim Durham'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Barren County Magistrate, District 3",
+     "from": null,
+     "to": null,
+     "source": "Barren County's Magistrates page lists 'District 3 Tim Durham' (start year not stated; the 2022 recap for Barren County is an image without text)",
+     "url": "https://barrencounty.ky.gov/About%20Us/Elected%20Officials/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21021-jailer",
+   "name": "Brian Wofford",
+   "offices": [
+    {
+     "office": "Boyle County Jailer",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Boyle County: 'Brian WOFFORD REP' the only candidate for JAILER (7,688 votes summed over the precinct pages); start year not taken from this record",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyle%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Boyle County Jailer, 2022 general election (elected, unopposed)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Boyle County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyle%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21047-magistrate-3",
+   "name": "George Barnett",
+   "offices": [
+    {
+     "office": "Christian County Magistrate, 3rd Magisterial District",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Christian County: 'George BARNETT REP' 1,386 to Mark E. Cansler (DEM) 1,088, summed over the contest's six precinct pages; start year not established",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Christian County Magistrate, 3rd Magisterial District, 2022 general election (elected)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Christian County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Christian%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21059-county-executive",
+   "name": "Charlie Castlen",
+   "website": {
+    "url": "https://www.charliecastlen.com/",
+    "how": "Titled 'Charlie Castlen for Daviess County Judge Executive'; asks for votes on November 3rd",
+    "verified": true
+   },
+   "official_page": {
+    "url": "https://daviessky.org/judge-executive",
+    "source": "Daviess County Fiscal Court, 'Charlie Castlen - Judge/Executive'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Daviess County Judge/Executive",
+     "from": 2023,
+     "to": null,
+     "source": "Daviess County's Judge/Executive page: 'In 2022, Charlie was elected ... as their County Judge/Executive'; State Board of Elections 2022 recap: Castlen (REP) 20,203 to Bruce Kunze (DEM) 12,533",
+     "url": "https://daviessky.org/judge-executive",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Daviess County Commissioner, Central Division",
+     "from": 2011,
+     "to": 2022,
+     "source": "Daviess County's Judge/Executive page: 'He served for 12 years (three terms) as the Central Division County Commissioner', before his 2022 election",
+     "url": "https://daviessky.org/judge-executive",
+     "kind": "official",
+     "verified": true
+    },
+    {
+     "office": "Owensboro City Commissioner (four years as Mayor Pro Tem)",
+     "from": null,
+     "to": null,
+     "source": "Daviess County's Judge/Executive page: 'served 10 years (five terms) over a 12-year period as an Owensboro City Commissioner, four of which were as Mayor Pro Tem' (years not given)",
+     "url": "https://daviessky.org/judge-executive",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Daviess County Judge/Executive, 2022 general election (elected)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Daviess County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Daviess%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "own_words": {
+    "quote": "Charlie is a Republican.",
+    "url": "https://www.charliecastlen.com/about.html",
+    "verified": true
+   }
+  },
+  {
+   "race_id": "2026-KY-21071-magistrate-3",
+   "name": "Mike Tackett",
+   "offices": [
+    {
+     "office": "Floyd County Magistrate, District 3",
+     "from": null,
+     "to": null,
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Floyd County: 'DEM Mike TACKETT' the only candidate for MAGISTRATE District 3 (2,021 votes summed over the precinct pages); start year not established",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Floyd%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Floyd County Magistrate, District 3, 2022 general election (elected, unopposed)",
+     "year": 2022,
+     "party": "Democratic",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Floyd County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Floyd%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21085-county-executive",
+   "name": "Kevin Henderson",
+   "offices": [
+    {
+     "office": "Grayson County Judge/Executive",
+     "from": 2017,
+     "to": null,
+     "source": "Kentucky Department for Local Government press release of 2017-08-22: Gov. Matt Bevin appointed Kevin Henderson, of Leitchfield, as Grayson County Judge/Executive (headline names him Michael Kevin Henderson); State Board of Elections 2022 recap for Grayson County: 'Kevin HENDERSON REP' the only candidate (6,818 votes)",
+     "url": "https://kydlgweb.ky.gov/Articles/16_articleView.cfm?NewsID=468",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Grayson County Judge/Executive, 2022 general election (elected, unopposed)",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Grayson County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Grayson%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21107-magistrate-5",
+   "name": "Billy N. Parrish",
+   "official_page": {
+    "url": "https://hopkinscounty.ky.gov/index.php/hc-magistrates",
+    "source": "Hopkins County's Magistrates page: 'Hopkins County Magistrate District Five Magistrate Billy N. Parrish'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Hopkins County Magistrate, District 5",
+     "from": null,
+     "to": null,
+     "source": "Hopkins County's Magistrates page (start year not stated; the 2022 recap for Hopkins County is an image without text)",
+     "url": "https://hopkinscounty.ky.gov/index.php/hc-magistrates",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-21183-magistrate-5",
+   "name": "Larry Wayne Morphew",
+   "official_page": {
+    "url": "https://ohiocounty.ky.gov/elected-officials/Pages/Magistrates.aspx",
+    "source": "Ohio County's Magistrates page: 'Magistrate District #5 Larry Morphew'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Ohio County Magistrate, 5th Magisterial District",
+     "from": null,
+     "to": null,
+     "source": "Ohio County's Magistrates page; State Board of Elections 2022 recap for Ohio County: 'Larry W. MORPHEW REP' the only candidate (1,295 votes); start year not established",
+     "url": "https://ohiocounty.ky.gov/elected-officials/Pages/Magistrates.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ],
+   "past_party": [
+    {
+     "what": "Ohio County Magistrate, 5th Magisterial District, 2022 general election (elected, unopposed; printed 'Larry W. MORPHEW')",
+     "year": 2022,
+     "party": "Republican",
+     "source": "Kentucky State Board of Elections, 2022 general election recap for Ohio County (party printed on the ballot)",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Ohio%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-DJ17-1",
+   "name": "Cameron J. Blau",
+   "official_page": {
+    "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Campbell.aspx",
+    "source": "Kentucky Court of Justice, Campbell County page: 'Cameron J. Blau, Judge, District Court, 17th Judicial District Division 1'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "District Judge, 17th Judicial District, Division 1",
+     "from": null,
+     "to": null,
+     "source": "Kentucky Court of Justice, Campbell County page; State Board of Elections 2022 recap for Campbell County: 'Cameron J. BLAU' the only candidate for DISTRICT JUDGE 17th Judicial District 1st Division (20,258 votes); start year not established",
+     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Campbell.aspx",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-02368-council",
+   "name": "Amanda Clark",
+   "offices": [
+    {
+     "office": "Ashland City Commissioner",
+     "from": 2023,
+     "to": 2024,
+     "source": "State Board of Elections recaps for Boyd County: 2022, 'Amanda CLARK' second of eight for four seats (2,604 votes summed over the precinct pages); 2024, fifth of seven for four seats (2,904), not re-elected. A mid-term appointment, if any, was not checked",
+     "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyd%20County.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-43480-council",
+   "name": "Latosha Booker-Bishop",
+   "offices": [
+    {
+     "office": "La Grange City Council Member",
+     "from": 2025,
+     "to": null,
+     "source": "State Board of Elections 2024 general election recap for Oldham County: 'Latasha BOOKER-BISHOP' first of sixteen for eight seats on the City of LaGrange council (1,455 votes summed over the precinct pages); the recap spells the given name Latasha. Not on the 2022 recap's ballot",
+     "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Oldham.pdf",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "race_id": "2026-KY-M-54228-council",
+   "name": "Sandra Hockenbury",
+   "official_page": {
+    "url": "https://www.mtwashingtonky.org/government/elected_officials/index.php",
+    "source": "City of Mount Washington, Elected Officials: 'Councilwoman Sandra Hockenbury'",
+    "verified": true
+   },
+   "offices": [
+    {
+     "office": "Mount Washington City Council Member",
+     "from": null,
+     "to": null,
+     "source": "City of Mount Washington's Elected Officials page; State Board of Elections recaps for Bullitt County: elected in 2022 (2,216 votes, among the top six) and 2024 (2,915, fifth of eleven for six seats); earlier terms not checked",
+     "url": "https://www.mtwashingtonky.org/government/elected_officials/index.php",
+     "kind": "official",
+     "verified": true
+    }
+   ]
+  }
+ ]
+}

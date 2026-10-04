@@ -10,8 +10,8 @@ materials, furniture and photographs kept in cabin_assets/ (CC0 textures and mod
 public-domain National Park Service photographs; credits.json there lists every one). All of it is copied beside the
 page, so nothing comes from another server. Two posters glow on the far wall, either side of a gable wall of windows on
 the Rocky Mountains, which show the visitor's own time of day and season (worked out on the device; nothing is sent
-anywhere): one poster opens On The Ballot, the other the ring of cards for Legislation & Legislatures (doors.html,
-written by build_door.py, which also calls this builder for the front door).
+anywhere): one poster opens On The Ballot, the other the ring of cards for Legislation & Legislatures (rooms.html,
+written by build_door.py, which also calls this builder whenever it builds the front door).
 
 The room is never the only way in: the same two doors are ordinary links at the foot of the page, with a "Plain view"
 link to the ring of cards. A device that cannot draw the room, and a visitor who has turned Motion off, get those links
@@ -36,7 +36,7 @@ POSTERS = [
     {"url": "ballot/", "look": "ballot", "kicker": "On The Ballot", "head": "Meet everyone asking for your vote.",
      "sub": "Every race, from Congress to your county, straight from the official lists.", "cta": "Step in", "foot": "November 3, 2026",
      "name": "On The Ballot", "line": "Meet everyone asking for your vote"},
-    {"url": "doors.html", "look": "record", "kicker": "Legislation & Legislatures", "head": "See what they did with the last one.",
+    {"url": "rooms.html", "look": "record", "kicker": "Legislation & Legislatures", "head": "See what they did with the last one.",
      "sub": "Every bill, every vote, every member. Congress and all fifty statehouses, on the record.", "cta": "Open the record",
      "foot": "Congress and the fifty states", "name": "Legislation & Legislatures", "line": "See what they did with the last one"},
 ]
@@ -265,10 +265,9 @@ def credits_html(credits, views):
     return "<ul>" + "\n".join(items) + "</ul>"
 
 
-def write(out, version=None, draft=False, ring="doors.html", say=print):
+def write(out, version=None, draft=False, ring="rooms.html", say=print):
     """Writes the cabin page to `out`, and beside it cabin3d.js, vendor/three.module.min.js and its add-ons, and the
-    room's assets. `ring` is where the ring of cards lives, seen from the cabin: "doors.html" when the cabin is the
-    landing page, "./" while the ring is."""
+    room's assets. `ring` is where the ring of cards lives, seen from the cabin: rooms.html, beside the front door."""
     out = os.path.abspath(out)
     root = os.path.dirname(out)
     version = version if version is not None else version_now()

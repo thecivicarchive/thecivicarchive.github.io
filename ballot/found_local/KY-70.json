@@ -2,6 +2,8 @@
  "part": 70,
  "of": 117,
  "researched": "2026-10-03",
+ "verified_on": "2026-10-03",
+ "removed": [],
  "candidates": [
   {
    "race_id": "2026-KY-21007-magistrate-1",
@@ -17,7 +19,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Boyd County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyd%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -27,7 +30,8 @@
      "party": "Republican",
      "source": "Kentucky State Board of Elections, Boyd County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Boyd%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -61,7 +65,8 @@
      "party": "Republican",
      "source": "Kentucky State Board of Elections, Hardin County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hardin%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -75,7 +80,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Hickman County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hickman%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -85,7 +91,8 @@
      "party": "Democratic",
      "source": "Kentucky State Board of Elections, Hickman County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Hickman%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -107,7 +114,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Mccracken County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Mccracken%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -117,7 +125,8 @@
      "party": "Republican",
      "source": "Kentucky State Board of Elections, Mccracken County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Mccracken%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -135,7 +144,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Monroe County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Monroe%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -145,7 +155,8 @@
      "party": "Republican",
      "source": "Kentucky State Board of Elections, Monroe County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Monroe%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -159,7 +170,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Nicholas County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -169,7 +181,8 @@
      "party": "Democratic",
      "source": "Kentucky State Board of Elections, Nicholas County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Nicholas%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -195,7 +208,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Warren County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ],
    "past_party": [
@@ -205,7 +219,8 @@
      "party": "Republican",
      "source": "Kentucky State Board of Elections, Warren County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Warren%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -214,7 +229,8 @@
    "name": "Greg Lay",
    "official_page": {
     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Laurel.aspx",
-    "source": "Kentucky Court of Justice, Laurel County court information (lists Gregory A. Lay, Chief Regional Circuit Judge, Circuit Court, 27th Judicial Circuit, Division 1)"
+    "source": "Kentucky Court of Justice, Laurel County court information (lists Gregory A. Lay, Chief Regional Circuit Judge, Circuit Court, 27th Judicial Circuit, Division 1)",
+    "verified": true
    },
    "offices": [
     {
@@ -223,7 +239,8 @@
      "to": "2030",
      "source": "Kentucky Secretary of State, Official 2022 General Election Results, Circuit Judge, 27th Judicial Circuit, 1st Division",
      "url": "https://elect.ky.gov/results/2020-2029/Documents/2022%20General%20Election%20Results.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -232,7 +249,8 @@
    "name": "Matt Schalk",
    "official_page": {
     "url": "https://www.kycourts.gov/Courts/County-Information/Pages/Trigg.aspx",
-    "source": "Kentucky Court of Justice, Trigg County court information (lists Matt Schalk, Judge, District Court, 56th Judicial District, Division 2)"
+    "source": "Kentucky Court of Justice, Trigg County court information (lists Matt Schalk, Judge, District Court, 56th Judicial District, Division 2)",
+    "verified": true
    },
    "offices": [
     {
@@ -241,7 +259,8 @@
      "to": "2026",
      "source": "Kentucky Secretary of State, Official 2022 General Election Results, District Judge, 56th Judicial District, 2nd Division",
      "url": "https://elect.ky.gov/results/2020-2029/Documents/2022%20General%20Election%20Results.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -259,7 +278,8 @@
      "to": "2024",
      "source": "Kentucky State Board of Elections, Jefferson County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Jefferson%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     },
     {
      "office": "Member, Jeffersontown City Council (re-elected in the 2024 general election, fourth of sixteen for eight seats)",
@@ -267,7 +287,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Jefferson County recap sheet of the November 5, 2024 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Jefferson.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -281,7 +302,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Hopkins County recap sheet of the November 5, 2024 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Hopkins.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -295,7 +317,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Shelby County recap sheet of the November 5, 2024 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Shelby.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -313,7 +336,8 @@
      "to": "2026",
      "source": "Kentucky State Board of Elections, Henderson County recap sheet of the November 8, 2022 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2022ElectionReports/GeneralRecaps/Henderson%20County.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   },
@@ -335,7 +359,8 @@
      "to": "2028",
      "source": "Kentucky State Board of Elections, Marion County recap sheet of the November 5, 2024 general election",
      "url": "https://elect.ky.gov/results/2020-2029/2024ElectionReports/GeneralRecaps/Marion.pdf",
-     "kind": "official"
+     "kind": "official",
+     "verified": true
     }
    ]
   }

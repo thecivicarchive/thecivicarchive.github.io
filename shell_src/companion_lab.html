@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Companion lab</title>
+<meta name="description" content="A still-frame lab for the companions: one frame of any clip at any moment, drawn the way the dock draws it, as a PNG. Not linked and never published.">
+<link rel="icon" href="data:,">
+<style>
+:root { --bg: #F5F5F2; --surface: #fff; --ink: #15171B; --muted: #5C6169; --line: #E4E5E1; --verd: #2F6B5E; --brass: #A8762E; }
+:root[data-theme="dark"] { --bg: #121417; --surface: #1A1D21; --ink: #EDEAE3; --muted: #A9ADB4; --line: #2C3036; }
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink); margin: 0; font: 15px/1.5 system-ui, sans-serif; }
+main { max-width: 1240px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 24px; margin: 0 0 6px; }
+.lede { color: var(--muted); margin: 0 0 14px; max-width: 72ch; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 0 14px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.bar label { color: var(--muted); font-size: 13px; display: inline-flex; gap: 6px; align-items: center; }
+button, select, input { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-height: 36px; }
+button { cursor: pointer; } button:hover { border-color: var(--verd); }
+#out { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+#out figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+#out figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+#out img { display: block; max-width: 100%; image-rendering: auto; }
+#gl { position: fixed; left: -9999px; top: 0; }
+#log { white-space: pre-wrap; font: 12px/1.4 ui-monospace, monospace; color: var(--muted); margin: 12px 0 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Companion lab</h1>
+<p class="lede">Still frames of each companion, drawn exactly as the dock draws them (the kit's stage, the oversized canvas around the dock's box, the quality tier). From the console: <code>__lab.still(id, clip, t, w, h)</code> returns a PNG data URL; <code>__lab.shot(name, id, clip, t)</code> also saves it through the local saver on port 8799. Nothing here is linked or published.</p>
+<div class="bar" role="group" aria-label="Controls">
+  <label>Companion <select id="who"></select></label>
+  <label>Clip <select id="clip"></select></label>
+  <label>t <input id="t" type="number" step="0.05" min="0" value="0.6" style="width:5.5em"></label>
+  <label>Tier <select id="tier"><option value="0">0 lean</option><option value="1">1 mid</option><option value="2" selected>2 full</option></select></label>
+  <label>Size <select id="size"><option value="202x168">dock (202 by 168)</option><option value="404x338" selected>2x (404 by 338)</option><option value="808x676">4x (808 by 676)</option></select></label>
+  <button id="draw" type="button">Draw a frame</button>
+  <button id="sheet" type="button">Sheet of every clip</button>
+  <button id="turn" type="button">Turntable</button>
+  <button id="cost" type="button">Frame cost</button>
+  <button id="check" type="button">Check clips end at rest</button>
+  <button id="theme" type="button">Dark page</button>
+  <button id="clear" type="button">Clear</button>
+</div>
+<div id="out" aria-live="polite"></div>
+<p id="log"></p>
+</main>
+<canvas id="gl" aria-hidden="true"></canvas>
+<script type="module">
+import * as THREE from "./vendor/three.module.min.js";
+import { RoomEnvironment } from "./vendor/jsm/environments/RoomEnvironment.js";
+import { createKit } from "./shell/companions/__KIT__";
+
+const COMPANIONS = __COMPANIONS__;
+const OVER = { w: 2.1, h: 1.56, pad: 0.14 };      /* the canvas around the dock: as in dock.js and shell.css */
+const DOCK = { w: 96, h: 108 };
+const CLIPS = ["arrive", "idleA", "idleB", "notice", "react", "talk", "lookLeft", "lookRight", "rest", "dance"];
+const SAVER = "http://127.0.0.1:8799/";
+const canvas = document.getElementById("gl"), out = document.getElementById("out"), log = document.getElementById("log");
+const say = (s) => { log.textContent = s; console.log("[lab]", s); };
+
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, preserveDrawingBuffer: true, premultipliedAlpha: true, powerPreference: "high-performance" });
+renderer.setClearColor(0x000000, 0);
+let tier = 2;
+const kit = createKit(THREE, { RoomEnvironment, gltf: () => import("./vendor/jsm/loaders/GLTFLoader.js") }, { tier, base: new URL("./shell/companions/", location.href).href, seed: 7 });
+const stage = kit.stage(renderer, { tier });
+const built = new Map();
+const STATE0 = { motion: "on", pointer: null, helpOpen: false, scrolling: false, idleFor: 0 };
+
+async function load(id) {
+  if (built.has(id)) return built.get(id);
+  const entry = COMPANIONS.find((c) => c.id === id);
+  if (!entry || !entry.file) throw new Error("no companion " + id);
+  const t0 = performance.now();
+  const mod = (await import("./shell/companions/" + entry.file)).default;
+  let rig = mod.build(THREE, kit);
+  if (rig && typeof rig.then === "function") rig = await rig;
+  const ms = performance.now() - t0;
+  rig.root.visible = false;
+  stage.scene.add(rig.root);
+  if (rig.perch) rig.perch.visible = true;
+  let tris = 0, meshes = 0;
+  rig.root.traverse((o) => { if (o.isMesh && o.visible !== false) { meshes++; tris += o.geometry.index ? o.geometry.index.count / 3 : o.geometry.attributes.position.count / 3; } });
+  const it = { id, entry, mod, rig, ms, tris, meshes };
+  built.set(id, it);
+  say(`${entry.name}: built in ${Math.round(ms)} ms, ${Math.round(tris).toLocaleString()} triangles in ${meshes} meshes (shells counted)`);
+  return it;
+}
+function show(it) { for (const x of built.values()) x.rig.root.visible = x === it; }
+function bg() { return document.documentElement.getAttribute("data-theme") === "dark" ? "#121417" : "#F5F5F2"; }
+function frameFor(it, w, h) {
+  const dW = w / OVER.w, dH = h / OVER.h, perch = it.entry.rests === "perch";
+  let f = it.rig.frame;
+  if (!(f && f.x && f.y)) { const box = new THREE.Box3().setFromObject(it.rig.root), s = new THREE.Vector3(); box.getSize(s); f = { x: [box.min.x, box.max.x], y: [Math.min(0, box.min.y), box.max.y + s.y * 0.3] }; }
+  renderer.setPixelRatio(1); renderer.setSize(w, h, false);
+  const v = stage.frame(f, { W: w, H: h, dockW: dW, dockH: dH, pad: OVER.pad * dH, perch }, it.rig.fov);
+  stage.contact.visible = !perch && !it.rig.shadow;
+  return { f, v, dW, dH, perch };
+}
+/* one frame, composed over the page colour, with the dock's box drawn as a dashed line and the page shadow under it */
+function compose(it, w, h, fr, o = {}) {
+  const m = it.rig.j && it.rig.j.mover ? it.rig.j.mover.position : { x: 0, y: 0, z: 0 };
+  if (stage.contact.visible) { stage.contact.position.x = m.x; stage.contact.position.z = m.z; const k = 1 / (1 + 3 * Math.max(0, m.y)); stage.contact.material.opacity = k * k; }
+  stage.render(it.rig.root);
+  const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
+  const g = cv.getContext("2d");
+  g.fillStyle = o.bg || bg(); g.fillRect(0, 0, w, h);
+  const dockLeft = (w - fr.dW) / 2, dockTop = h - OVER.pad * fr.dH - fr.dH;
+  if (o.box !== false) { g.save(); g.setLineDash([4, 4]); g.strokeStyle = "rgba(168,118,46,.55)"; g.lineWidth = 1; g.strokeRect(dockLeft + 0.5, dockTop + 0.5, fr.dW - 1, fr.dH - 1); g.restore(); }
+  if (!fr.perch && o.shade !== false) {      /* the shadow the dock puts on the page, as shell.css draws it */
+    const ppu = h / fr.v.V, cx = w / 2 + (m.x - (fr.f.x[0] + fr.f.x[1]) / 2) * ppu, cy = dockTop + fr.dH * 0.925, lift = Math.max(0, m.y), k = 1 / (1 + 3 * lift);
+    const rx = fr.dW * 0.37 * k, ry = fr.dH * 0.075 * k;
+    const grad = g.createRadialGradient(cx, cy, 0, cx, cy, rx);
+    const dark = (o.bg || bg()) === "#121417";
+    grad.addColorStop(0, dark ? "rgba(0,0,0,.6)" : "rgba(24,18,12,.42)"); grad.addColorStop(0.48, dark ? "rgba(0,0,0,.22)" : "rgba(24,18,12,.16)"); grad.addColorStop(0.74, "rgba(0,0,0,0)");
+    g.save(); g.filter = "blur(3px)"; g.globalAlpha = k * k * (dark ? 0.55 : 0.9); g.translate(cx, cy); g.scale(1, ry / rx); g.translate(-cx, -cy); g.fillStyle = grad; g.beginPath(); g.arc(cx, cy, rx, 0, Math.PI * 2); g.fill(); g.restore();
+  }
+  g.drawImage(renderer.domElement, 0, 0, w, h, 0, 0, w, h);
+  return cv;
+}
+function stepTo(it, clip, t, o = {}) {
+  const { mod, rig } = it;
+  mod.rest(rig); rig.check = !o.live; rig.noSprings = !!o.noSprings;
+  let d = 0;
+  if (clip) d = mod.play(rig, clip, o.variant);
+  const st = Object.assign({}, STATE0, o.state || {});
+  mod.update(rig, 1e-4, st);
+  const dt = 1 / 60;
+  for (let tt = 0; tt < t - 1e-9; tt += dt) mod.update(rig, Math.min(dt, t - tt), st);
+  return d;
+}
+/* --- the public hooks --- */
+async function still(id, clip, t = 0, w = 404, h = 338, o = {}) {
+  const it = await load(id); show(it);
+  stepTo(it, clip, t, o);
+  const fr = frameFor(it, w, h);
+  stage.setDark((o.bg || bg()) === "#121417");      /* a dark page gets the stronger rim the dock gives it */
+  stage.look(o.yaw || 0, o.pitch || 0);
+  const cv = compose(it, w, h, fr, o);
+  it.rig.check = false; it.rig.noSprings = false;
+  return cv.toDataURL("image/png");
+}
+async function frames(id, clip, n = 6, w = 202, h = 168, o = {}) {
+  const it = await load(id); show(it);
+  const d = stepTo(it, clip, 0, o), times = [];
+  for (let i = 0; i < n; i++) times.push(o.dur ? (o.dur * i) / (n - 1) : (d * i) / Math.max(1, n - 1));
+  const fr = frameFor(it, w, h); stage.look(0, 0);
+  const cvs = [];
+  let tt = 0;
+  const st = Object.assign({}, STATE0, o.state || {});
+  for (const T of times) {
+    while (tt < T - 1e-9) { const dt = Math.min(1 / 60, T - tt); it.mod.update(it.rig, dt, st); tt += dt; }
+    cvs.push({ t: T, cv: compose(it, w, h, fr, o) });
+  }
+  it.rig.check = false; it.rig.noSprings = false;
+  return { dur: d, frames: cvs };
+}
+function joinRows(rows, pad = 6, label = true) {
+  const w = Math.max(...rows.map((r) => r.cells.reduce((a, c) => a + c.cv.width + pad, pad)));
+  const rowH = rows[0].cells[0].cv.height + pad + (label ? 16 : 0);
+  const cv = document.createElement("canvas"); cv.width = w; cv.height = rows.length * rowH + pad;
+  const g = cv.getContext("2d"); g.fillStyle = bg(); g.fillRect(0, 0, cv.width, cv.height);
+  g.font = "11px system-ui, sans-serif"; g.textBaseline = "top";
+  rows.forEach((r, j) => {
+    let x = pad; const y = pad + j * rowH;
+    for (const c of r.cells) {
+      g.drawImage(c.cv, x, y + (label ? 14 : 0));
+      if (label) { g.fillStyle = "rgba(128,128,128,.9)"; g.fillText(c.label, x, y); }
+      x += c.cv.width + pad;
+    }
+  });
+  return cv;
+}
+async function sheet(id, clips = CLIPS, n = 6, w = 202, h = 168, o = {}) {
+  const rows = [];
+  for (const c of clips) {
+    const it = await load(id), nv = (it.rig.clips[c] && it.rig.clips[c].variants) || 1;
+    for (let v = 0; v < nv; v++) {
+      const r = await frames(id, c, n, w, h, Object.assign({ variant: v }, o));
+      rows.push({ cells: r.frames.map((f, i) => ({ cv: f.cv, label: `${c}${nv > 1 ? " " + (v + 1) : ""}  ${f.t.toFixed(2)}s${i === 0 ? ` of ${r.dur.toFixed(2)}` : ""}` })) });
+    }
+  }
+  return joinRows(rows).toDataURL("image/png");
+}
+async function turntable(id, n = 6, w = 202, h = 168, o = {}) {
+  const it = await load(id); show(it);
+  stepTo(it, null, 0, o);
+  const fr = frameFor(it, w, h); stage.look(0, 0);
+  const cells = [];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    it.rig.root.rotation.y = a; it.rig.root.updateMatrixWorld(true);
+    cells.push({ cv: compose(it, w, h, fr, o), label: Math.round((a * 180) / Math.PI) + " deg" });
+  }
+  it.rig.root.rotation.y = 0; it.rig.check = false;
+  return joinRows([{ cells }]).toDataURL("image/png");
+}
+/* what a frame costs at the dock's real size for a tier: CPU (update and the draw calls) and the whole frame with the
+   graphics card waited for, over n frames of the dance and the idles */
+async function cost(id, n = 90, t = tier, o = {}) {
+  const it = await load(id); show(it);
+  await setTier(t);
+  const c = kit.caps(), dpr = Math.min(c.dpr, o.dpr || 2);
+  const w = Math.round(DOCK.w * OVER.w), h = Math.round(DOCK.h * OVER.h);
+  const fr = frameFor(it, w, h); renderer.setPixelRatio(dpr); renderer.setSize(w, h, false);
+  stage.frame(fr.f, { W: w, H: h, dockW: fr.dW, dockH: fr.dH, pad: OVER.pad * fr.dH, perch: fr.perch }, it.rig.fov);
+  const gl = renderer.getContext();
+  it.mod.rest(it.rig); it.rig.check = false;
+  const st = Object.assign({}, STATE0, { pointer: { x: 0.3, y: 0.2 } });
+  it.mod.play(it.rig, "dance");
+  for (let i = 0; i < 10; i++) { it.mod.update(it.rig, 1 / 30, st); stage.render(it.rig.root); }      /* warm: shaders made */
+  gl.finish();
+  let cpu = 0, total = 0;
+  for (let i = 0; i < n; i++) {
+    if (i === Math.floor(n / 2)) it.mod.play(it.rig, "react");
+    const a = performance.now();
+    it.mod.update(it.rig, 1 / 30, st);
+    stage.render(it.rig.root);
+    const b = performance.now();
+    gl.finish();
+    const d = performance.now();
+    cpu += b - a; total += d - a;
+  }
+  const info = renderer.info.render;
+  const r = { id, tier: t, dpr, px: `${w * dpr}x${h * dpr}`, cpuMs: +(cpu / n).toFixed(2), frameMs: +(total / n).toFixed(2), calls: info.calls, triangles: info.triangles, shells: c.shells };
+  say(`${id} tier ${t}: ${r.cpuMs} ms CPU, ${r.frameMs} ms with the GPU waited for, ${r.calls} draw calls, ${r.triangles.toLocaleString()} triangles at ${r.px}`);
+  return r;
+}
+async function setTier(t) {
+  t = Math.max(0, Math.min(2, t | 0));
+  tier = t; kit.setTier(t); stage.setTier(t);
+  for (const it of built.values()) if (it.rig.shells) it.rig.shells();
+  document.getElementById("tier").value = String(t);
+  return t;
+}
+/* every clip (and every version of the fidget) must end exactly on the rest pose; springs are held for the check */
+function snapshot(rig) { rig.root.updateMatrixWorld(true); const o = []; rig.root.traverse((x) => { if (x.isBone || x === rig.j.mover || x === rig.j.pose) for (const e of x.matrixWorld.elements) o.push(e); }); return o; }
+async function check(id) {
+  const it = await load(id), { rig, mod } = it, rows = [];
+  rig.check = true; rig.noSprings = true; mod.rest(rig);
+  const s0 = snapshot(rig);
+  for (const c of CLIPS) {
+    if (!rig.clips[c]) { rows.push({ clip: c, missing: true }); continue; }
+    const nv = rig.clips[c].variants || 1;
+    for (let v = 0; v < nv; v++) {
+      mod.rest(rig);
+      const d = mod.play(rig, c, v);
+      let t = 0;
+      while (t < d + 0.25) { mod.update(rig, 1 / 60, STATE0); t += 1 / 60; }
+      const s1 = snapshot(rig);
+      let diff = 0;
+      for (let i = 0; i < s0.length; i++) diff = Math.max(diff, Math.abs(s1[i] - s0[i]));
+      rows.push({ clip: c + (nv > 1 ? " " + (v + 1) : ""), dur: +d.toFixed(2), diff: +diff.toExponential(2), ok: diff < 1e-6 });
+    }
+  }
+  rig.check = false; rig.noSprings = false; mod.rest(rig);
+  const bad = rows.filter((r) => r.missing || !r.ok);
+  say(bad.length ? `${id}: ${bad.length} clip(s) do not end at rest or are missing: ${bad.map((r) => r.clip).join(", ")}` : `${id}: all ${rows.length} clips end exactly at rest`);
+  return rows;
+}
+async function save(name, dataURL) {
+  const res = await fetch(SAVER + encodeURIComponent(name), { method: "POST", mode: "cors", headers: { "Content-Type": "text/plain" }, body: dataURL });
+  const j = await res.json().catch(() => ({}));
+  say(`saved ${name}: ${JSON.stringify(j)}`);
+  return j;
+}
+async function shot(name, id, clip, t, w, h, o) { const d = await still(id, clip, t, w, h, o); place(d, `${id} ${clip || "rest"} t=${t || 0}`); return save(name, d); }
+async function shotSheet(name, id, clips, n, w, h, o) { const d = await sheet(id, clips, n, w, h, o); place(d, `${id} sheet`); return save(name, d); }
+async function shotTurn(name, id, n, w, h, o) { const d = await turntable(id, n, w, h, o); place(d, `${id} turntable`); return save(name, d); }
+function place(dataURL, caption) {
+  const f = document.createElement("figure"), img = new Image(), cap = document.createElement("figcaption");
+  img.src = dataURL; img.alt = caption; cap.textContent = caption; f.append(img, cap); out.prepend(f);
+}
+window.__lab = { THREE, kit, stage, renderer, built, load, still, frames, sheet, turntable, cost, check, setTier, save, shot, shotSheet, shotTurn, place, CLIPS, COMPANIONS, get tier() { return tier; } };
+window.__labReady = true;
+
+/* --- the page's own controls --- */
+const who = document.getElementById("who"), clipSel = document.getElementById("clip");
+for (const c of COMPANIONS) { const op = document.createElement("option"); op.value = c.id; op.textContent = c.name + (c.file ? "" : " (not ready)"); op.disabled = !c.file; who.append(op); }
+for (const c of ["rest (no clip)", ...CLIPS]) { const op = document.createElement("option"); op.value = c === "rest (no clip)" ? "" : c; op.textContent = c; clipSel.append(op); }
+const size = () => document.getElementById("size").value.split("x").map(Number);
+document.getElementById("draw").addEventListener("click", async () => { const [w, h] = size(); const t = +document.getElementById("t").value || 0; place(await still(who.value, clipSel.value, t, w, h), `${who.value} ${clipSel.value || "rest"} t=${t} tier ${tier}`); });
+document.getElementById("sheet").addEventListener("click", async () => { place(await sheet(who.value), `${who.value} every clip, tier ${tier}`); });
+document.getElementById("turn").addEventListener("click", async () => { const [w, h] = size(); place(await turntable(who.value, 6, w / 2, h / 2), `${who.value} turntable`); });
+document.getElementById("cost").addEventListener("click", async () => { const r = await cost(who.value); say(JSON.stringify(r)); });
+document.getElementById("check").addEventListener("click", async () => { const rows = await check(who.value); console.table(rows); });
+document.getElementById("tier").addEventListener("change", (e) => setTier(+e.target.value));
+document.getElementById("theme").addEventListener("click", (e) => { const d = document.documentElement.getAttribute("data-theme") !== "dark"; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); e.target.textContent = d ? "Light page" : "Dark page"; });
+document.getElementById("clear").addEventListener("click", () => { out.innerHTML = ""; });
+</script>
+</body>
+</html>
