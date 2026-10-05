@@ -6,7 +6,7 @@
    guide; with the companion Off, a plain Help button opens it. Nothing is sent anywhere.
    build_shell.py copies it into shell/ under a hashed name and puts a small rider.js beside it that imports that name, so
    a page only ever names shell/rider.js. */
-import {guideFor, guideHTML, AROUND} from "./guide.5f8cc936f8.js";
+import {guideFor, guideHTML, AROUND} from "./guide.7e18d60b3a.js";
 
 const COMPANIONS = [{"id":"penguin","name":"Adélie penguin","latin":"Pygoscelis adeliae","rests":"floor","default":true,"file":"penguin.fc3508c0ff.js"},{"id":"chickadee","name":"Black-capped chickadee","latin":"Poecile atricapillus","rests":"perch","default":false,"file":"chickadee.f33156ba46.js"},{"id":"retriever","name":"Golden retriever","latin":"Canis familiaris","rests":"floor","default":false,"file":"retriever.1a310d8f2a.js"},{"id":"cat","name":"Tabby cat","latin":"Felis catus","rests":"floor","default":false,"file":"cat.455ca7cef4.js"},{"id":"squirrel","name":"Eastern gray squirrel","latin":"Sciurus carolinensis","rests":"floor","default":false,"file":"squirrel.72f0cacf7a.js"},{"id":"chipmunk","name":"Eastern chipmunk","latin":"Tamias striatus","rests":"floor","default":false,"file":"chipmunk.d1037c6838.js"},{"id":"snail","name":"Garden snail","latin":"Cornu aspersum","rests":"floor","default":false,"file":"snail.e7acf3fb32.js"}];
 const KEY = "tca.a11y.v1", SKIN = "tca.companion.skin", D = document, H = D.documentElement;

@@ -4,7 +4,7 @@
    whose dock is fetched only after the page is drawn and never when the companion is off.
    Every setting is kept in this browser only (localStorage, each read and write guarded). Nothing is sent anywhere. */
 import { fillIcons } from "./icons.5d0bf73479.js";
-import { guideFor, guideHTML } from "./guide.5f8cc936f8.js";
+import { guideFor, guideHTML } from "./guide.7e18d60b3a.js";
 
 const D = document, H = D.documentElement;
 const $ = (s, el = D) => el.querySelector(s), $$ = (s, el = D) => [...el.querySelectorAll(s)];
