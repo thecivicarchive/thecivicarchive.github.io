@@ -10,6 +10,15 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.102 — 2026-10-05 — Browse bills by topic, by how the vote went, and by what is new
+
+- Topic: four groups and 22 topics (Money & Work, People & Communities, Safety & the World, Land, Energy & Government), each built from the one subject the Library of Congress gives every bill. Pick a group, then a topic; each shows how many bills it holds. New bills the Library has not labelled yet have their own button. Every card now names its topic.
+- Votes: slide to how much of a chamber voted yes on the final vote to pass the bill, from any share to 50, 60, 70, 80, 90 or 95 percent or more, or every vote (100 percent). Pick the House, the Senate or either. Or find votes where both parties' majorities voted yes, party-line votes (most Democrats one way, most Republicans the other), close votes (10 points or less), and bills passed by voice vote or unanimous consent, where no one's vote is recorded. Every card with a final vote now shows it: the yes and no totals, the share, and each party's count.
+- What's new: bills newly introduced and sent to committee, newly approved by a committee, or new on the House or Senate floor, in the last 7, 30 or 90 days.
+- Coming up: bills on the House's posted weekly floor schedule, Senate bills with a cloture motion filed (a vote follows within days), and bills placed on a House or Senate calendar, ready for a vote but not scheduled. Only what the chambers publish; nothing is predicted. Right now the House has posted no schedule since the week of September 14, and the Senate is meeting in brief formal sessions; the page says so.
+- The record is refreshed through October 1: 16,815 measures and 613 recorded votes, member by member.
+- The Tax, Work and pay and Disability rating lenses moved into the Topic panel. The companion's guide explains the new filters.
+
 ## v4.0.101 — 2026-10-04 — Your companion is now a guide, on every page
 
 - Help now starts with "On this page": what the page you are on is, how to use it in a few short steps, and where to go next. It changes as you move: open a bill and it explains the bill's tabs, its path and its rating bars; open the vote map and it explains how to step through votes. Every companion gives the same help.

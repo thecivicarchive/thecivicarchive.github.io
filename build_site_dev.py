@@ -553,6 +553,57 @@ def committee_notes(con, key):
     return out
 
 
+PASSAGE = ("Passage", "Resolve differences")      # the votes that pass a measure's text in a chamber
+METHOD_CODE = {"Recorded vote": "r", "Voice vote": "v", "Unanimous consent": "u", "Deemed passed by rule": "d"}
+
+
+def final_passage(votes):
+    """{"H"|"S": [method, yeas, nays, party split, date, result]}: each chamber's last vote to pass the measure's text
+    (John, 2026-10-05: a bill's support is its final passage vote in each chamber). Voice votes, unanimous consent and
+    passage deemed by a rule have no tally; their method says so."""
+    out = {}
+    for v in votes:
+        if v["category"] in PASSAGE and v["chamber"] in ("House", "Senate"):
+            out[v["chamber"][0]] = [METHOD_CODE.get(v["method"], "o"), v["yeas"], v["nays"], v["split"] or "", v["date"] or "", v["result"] or ""]
+    return out
+
+
+def floor_news(con, key, status, cutoff_recent):
+    """When a measure last moved, for the Bills page's "What's new" and "Coming up" filters, from its own actions:
+    rp, the first day a committee ordered it reported or reported it; fl, its first day on either floor; cal, the
+    latest calendar it was placed on ([date, U(nion) | H(ouse) | S(enate)]); ready, a calendar placement with no floor
+    action in that chamber since ([lane, date]: eligible for a vote, not scheduled); clo, a Senate cloture motion filed
+    on or after cutoff_recent with no cloture vote since (the Senate's rules put that vote within days)."""
+    out = {}
+    rp = con.execute("SELECT MIN(action_date) FROM committee_actions WHERE bill_key = ? AND activity IN ('Ordered reported', 'Reported')", (key,)).fetchone()[0]
+    if rp:
+        out["rp"] = rp
+    fl = con.execute("SELECT MIN(action_date) FROM actions WHERE bill_key = ? AND action_type = 'Floor' AND source IN ('House floor actions', 'Senate')", (key,)).fetchone()[0]
+    if fl:
+        out["fl"] = fl
+    if status.startswith("Became law") or status.startswith("Failed") or status.startswith("Vetoed") or status.startswith("Presented"):
+        return out
+    cals = []
+    for d, text in con.execute("SELECT action_date, text FROM actions WHERE bill_key = ? AND action_type = 'Calendars' AND text LIKE 'Placed on %Calendar%' "
+                               "ORDER BY action_date", (key,)):
+        lane = "S" if "Senate" in text else ("U" if "Union" in text else "H")
+        cals.append((d, lane))
+    if cals:
+        out["cal"] = list(cals[-1])
+        d, lane = cals[-1]
+        src = "Senate" if lane == "S" else "House floor actions"
+        later = con.execute("SELECT 1 FROM actions WHERE bill_key = ? AND source = ? AND action_type = 'Floor' AND action_date >= ? LIMIT 1", (key, src, d)).fetchone()
+        if not later:
+            out["ready"] = ["S" if lane == "S" else "H", d]
+    clo = con.execute("SELECT MAX(action_date) FROM actions WHERE bill_key = ? AND source = 'Senate' AND text LIKE 'Cloture motion on % presented in Senate%'", (key,)).fetchone()[0]
+    if clo and clo >= cutoff_recent:
+        voted = con.execute("SELECT 1 FROM actions WHERE bill_key = ? AND source = 'Senate' AND action_date >= ? AND (text LIKE 'Cloture on %' "
+                            "OR text LIKE 'Cloture motion % withdrawn%' OR text LIKE 'Passed Senate%') LIMIT 1", (key, clo)).fetchone()
+        if not voted:
+            out["clo"] = clo
+    return out
+
+
 def compact_path(steps):
     """A path as stored: [kind, lane, date, quick count, extras], trailing blanks dropped. The page writes the words
     and files the measure's votes under its steps."""
@@ -600,6 +651,7 @@ def collect(db_path):
     full, lite, rated, years = [], [], 0, set()
     newest = con.execute("SELECT MAX(latest_action_date) FROM bills").fetchone()[0] or dt.date.today().isoformat()
     cutoff = (dt.date.fromisoformat(newest[:10]) - dt.timedelta(days=STALL_DAYS)).isoformat()
+    cutoff_recent = (dt.date.fromisoformat(newest[:10]) - dt.timedelta(days=14)).isoformat()      # a cloture motion older than this is not "coming up"
     for b in con.execute("SELECT * FROM bills ORDER BY congress DESC, bill_type, number"):
         key = b["bill_key"]
         if b["introduced_date"]:
@@ -668,7 +720,9 @@ def collect(db_path):
             "ratings": ratings or None, "review": review,
             "journey": {k: v for k, v in journey_for(con, b, cutoff).items() if k != "dates"},
             "path": compact_path(path_for(con, b, votes)), "cnotes": committee_notes(con, key) or None,
-            "lead_kind": lead_kind, "was": was, "rewritten_by": by, "nick": nicks.get(key)})
+            "lead_kind": lead_kind, "was": was, "rewritten_by": by, "nick": nicks.get(key),
+            "pv": final_passage(votes) or None,
+            "nw": (floor_news(con, key, b["status"] or "", cutoff_recent) if has("actions") and has("committee_actions") else None) or None})
 
     # position of every measure in the page's list (full records first, then compact rows)
     index = {r["key"]: i for i, r in enumerate(full)}
@@ -786,7 +840,30 @@ def collect(db_path):
             "states": state_paths(topo) if os.path.exists(topo) else {}, "districts": districts,
             "welcome": welcome, "stall_cutoff": cutoff, "profiles": profiles, "closest": closest, "money_members": money["members"], "money_kinds": money["kinds"],
             "money_master": money.get("master") or {}, "money_summary": money.get("summary") or {}, "shapes": shapes, "people": people,
-            "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"))}
+            "changelog": read_changelog(os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md")),
+            "newest": newest[:10], "schedule": floor_schedule({r["key"] for r in full} | {r[0] for r in lite})}
+
+
+def floor_schedule(keys, path=os.path.join(os.path.dirname(os.path.abspath(__file__)), "floor_schedule.json")):
+    """The chambers' own floor schedules as load_schedule.py last read them. The House's week counts as scheduled only
+    while it is this week or next; an older one is shown as the last posted, not as coming up."""
+    if not os.path.exists(path):
+        return None
+    try:
+        s = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return None
+    today = dt.date.today()
+    h, out = s.get("house") or {}, {"fetched": (s.get("fetched") or "")[:10]}
+    if h.get("week"):
+        wk = dt.date.fromisoformat(h["week"][:10])
+        out["house"] = {"week": h["week"][:10], "updated": h.get("updated", ""), "url": h.get("url", ""),
+                        "current": wk - dt.timedelta(days=7) <= today < wk + dt.timedelta(days=7),
+                        "items": [[i["num"], i["words"], i["key"] if i.get("key") in keys else ""] for i in h.get("items", [])]}
+    sn = s.get("senate") or {}
+    if sn.get("day"):
+        out["senate"] = {"day": sn["day"], "line": sn.get("line", ""), "url": sn.get("url", "")}
+    return out
 
 
 def vote_needs(category, action_text):
@@ -944,7 +1021,7 @@ def trim_lite(data, n_chars, n_subjects):
 
 LIST_FIELDS = ("key", "id", "congress", "title", "short_title", "kind", "introduced", "origin", "sponsor", "cosponsors",
                "bipartisan", "policy_area", "subjects", "status", "outcome", "law", "law_kind", "latest_action_date",
-               "latest_action", "lens", "review", "links", "lead_kind", "was", "rewritten_by", "nick")
+               "latest_action", "lens", "review", "links", "lead_kind", "was", "rewritten_by", "nick", "pv", "nw")
 
 
 def trim_text(text, n):
@@ -1026,7 +1103,7 @@ def boot_for(data, version, base_url=""):
             "state_names": {st: s["name"] for st, s in data["states"].items()}, "state_sites": state_sites(),
             "has_shapes": bool((data.get("shapes") or {}).get("districts")), "state_shapes": state_shapes(),
             "has_people": bool((data.get("people") or {}).get("districts")), "state_people": state_people(),
-            "stall_cutoff": data.get("stall_cutoff", ""), "inline": None}
+            "stall_cutoff": data.get("stall_cutoff", ""), "newest": data.get("newest", ""), "schedule": data.get("schedule"), "inline": None}
 
 
 def state_sites():
@@ -1765,6 +1842,30 @@ section.block{padding:72px 0;scroll-margin-top:72px}
 .chip:active{transform:scale(.97)}
 a.chip{text-decoration:none}
 .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap}
+/* browse: topics, votes, what's new, coming up */
+.bf-tabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0 2px}
+.bf-tab{height:34px;padding:0 14px;border-radius:999px;border:1px dashed var(--line-strong);background:transparent;color:var(--ink);font-size:13.5px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.bf-tab:hover{border-style:solid}
+.bf-tab[aria-expanded="true"]{border-style:solid;background:var(--surface);box-shadow:0 1px 0 var(--line)}
+.bf-tab.on{border-style:solid;border-color:var(--ink)}
+.bf-tab i{font-style:normal;color:var(--teal-ink,var(--ink))}
+.bf-tab::after{content:"";width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px;opacity:.6}
+.bf-tab[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+.bf-clear{height:34px;padding:0 12px;border:0;background:transparent;color:var(--muted);font-size:13.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.bf-panel{margin:8px 0 4px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.bf-help{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.bf-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}
+.bf-row.sub{padding-top:6px;border-top:1px solid var(--hair)}
+.bf-row.lens{padding-top:6px;border-top:1px solid var(--hair)}
+.bf-lab{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.bf-row .chip .n{font-variant-numeric:tabular-nums;opacity:.65;font-weight:500;margin-left:5px}
+.bf-range{display:flex;flex-direction:column;gap:4px;min-width:min(340px,100%);flex:1 1 260px;font-size:13.5px}
+.bf-range input{width:100%;accent-color:var(--ink)}
+.bf-note p{margin:6px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+.bf-note a{color:inherit}
+.pill.topic{background:transparent;color:var(--ink);border:1px solid var(--line-strong);font-weight:500}
+.card .vline,.card .upline{margin:8px 0 0;font-size:13px;line-height:1.45;color:var(--muted)}
+.card .upline{color:var(--ink);font-weight:600}
 .selwrap.compact{height:36px;font-size:13.5px;padding-right:30px}
 #count{font-size:14px}
 
@@ -2503,10 +2604,49 @@ html.calm .mtog .sw,html.calm .mtog .sw i{transition-duration:.25s!important}
         <button class="chip" data-f="rated">Rated</button>
         <button class="chip" data-f="law">Became law</button>
         <button class="chip" data-f="pending">Still moving</button>
-        <button class="chip" data-f="Tax">Tax</button>
-        <button class="chip" data-f="Employment">Work and pay</button>
-        <button class="chip" data-f="Disability">Disability</button>
         <button class="chip" data-f="119">2025 and later</button>
+      </div>
+      <!-- browse: topics, votes, what's new, coming up (John, 2026-10-05) -->
+      <div class="bf-tabs" id="bftabs" role="group" aria-label="More ways to browse">
+        <button type="button" class="bf-tab" data-bf="topic" aria-expanded="false" aria-controls="bf-topic">Topic<i></i></button>
+        <button type="button" class="bf-tab" data-bf="votes" aria-expanded="false" aria-controls="bf-votes">Votes<i></i></button>
+        <button type="button" class="bf-tab" data-bf="new" aria-expanded="false" aria-controls="bf-new">What&rsquo;s new<i></i></button>
+        <button type="button" class="bf-tab" data-bf="up" aria-expanded="false" aria-controls="bf-up">Coming up<i></i></button>
+        <button type="button" class="bf-clear" id="bfclear" hidden>Clear these filters</button>
+      </div>
+      <div class="bf-panel" id="bf-topic" hidden>
+        <p class="bf-help">Every bill carries one subject the Library of Congress assigns. Pick a group, then a topic.</p>
+        <div class="bf-row" id="bftop" role="group" aria-label="Topic groups"></div>
+        <div class="bf-row sub" id="bfsub" role="group" aria-label="Topics"></div>
+        <div class="bf-row lens" role="group" aria-label="Rating lenses"><span class="bf-lab">Rating lenses</span>
+          <button type="button" class="chip" data-lens="Tax" aria-pressed="false">Tax</button><button type="button" class="chip" data-lens="Employment" aria-pressed="false">Work and pay</button><button type="button" class="chip" data-lens="Disability" aria-pressed="false">Disability</button></div>
+      </div>
+      <div class="bf-panel" id="bf-votes" hidden>
+        <p class="bf-help">Each chamber&rsquo;s final vote to pass the bill, with every yes and no counted.</p>
+        <div class="bf-row"><label class="bf-range"><span>Voted yes: <b id="bfsupv">any share</b></span>
+          <input type="range" id="bfsup" min="0" max="7" step="1" value="0" aria-valuetext="any share" list="bfticks"></label>
+          <datalist id="bfticks"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option></datalist>
+          <label class="selwrap compact"><span>Chamber</span><select id="bfch"><option value="">Either</option><option value="H">House</option><option value="S">Senate</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label></div>
+        <div class="bf-row" role="group" aria-label="Kinds of vote">
+          <button type="button" class="chip" data-vk="both" aria-pressed="false" title="Most Democrats and most Republicans voted yes">Both parties for it</button>
+          <button type="button" class="chip" data-vk="party" aria-pressed="false" title="Most Democrats voted one way and most Republicans the other">Party-line</button>
+          <button type="button" class="chip" data-vk="close" aria-pressed="false" title="Decided by 10 points or less">Close: 10 points or less</button>
+          <button type="button" class="chip" data-vk="voice" aria-pressed="false" title="Passed by voice vote or unanimous consent: no one's vote was recorded">No tally: voice vote or unanimous consent</button></div>
+      </div>
+      <div class="bf-panel" id="bf-new" hidden>
+        <p class="bf-help" id="bfnewhelp">Counted back from the newest action on record.</p>
+        <div class="bf-row" role="group" aria-label="What happened">
+          <button type="button" class="chip" data-nk="intro" aria-pressed="false">Newly introduced, sent to committee</button>
+          <button type="button" class="chip" data-nk="rep" aria-pressed="false">Newly approved by a committee</button>
+          <button type="button" class="chip" data-nk="floor" aria-pressed="false">New on the House or Senate floor</button>
+          <label class="selwrap compact"><span>In the last</span><select id="bfwin"><option value="7">7 days</option><option value="30" selected>30 days</option><option value="90">90 days</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label></div>
+      </div>
+      <div class="bf-panel" id="bf-up" hidden>
+        <p class="bf-help">Only what the House and Senate have published. Nothing here is a prediction.</p>
+        <div class="bf-row" role="group" aria-label="Coming up">
+          <button type="button" class="chip" data-uk="sched" aria-pressed="false">Scheduled for a vote</button>
+          <button type="button" class="chip" data-uk="ready" aria-pressed="false">Ready for a vote, not scheduled</button></div>
+        <div class="bf-note" id="bfupnote"></div>
       </div>
     </div>
   </div>
@@ -3007,16 +3147,73 @@ function paneFor(b){
 }
 
 /* ---------- cards ---------- */
+/* ---------- browse: topics, votes, what's new, coming up (John, 2026-10-05) ----------
+   Topics: 4 groups and 22 topics, each a set of the policy areas the Library of Congress assigns to every bill (one per
+   bill), so nothing is guessed. Votes: each chamber's final vote to pass the text (b.pv: [method, yeas, nays, party
+   split, date, result]); a share is yes / (yes + no). What's new: introduced, first approved by a committee, first on
+   either floor (b.nw), counted back from the newest action on record. Coming up: the House's posted weekly floor
+   schedule while it is current, Senate cloture motions filed and not yet voted on, and bills placed on a calendar with
+   no floor action since. */
+const TOPICS = [
+  {id: "money", name: "Money & Work", subs: [["taxes", "Taxes", ["Taxation"]], ["budget", "Budget & the Economy", ["Economics and Public Finance"]],
+    ["finance", "Banking & Finance", ["Finance and Financial Sector"]], ["trade", "Business & Trade", ["Commerce", "Foreign Trade and International Finance"]],
+    ["jobs", "Jobs & Workers", ["Labor and Employment"]]]},
+  {id: "people", name: "People & Communities", subs: [["health", "Health", ["Health"]], ["education", "Education", ["Education"]],
+    ["housing", "Housing", ["Housing and Community Development"]], ["families", "Families & Social Services", ["Families", "Social Welfare"]],
+    ["rights", "Civil Rights", ["Civil Rights and Liberties, Minority Issues"]], ["culture", "Arts, Culture & Sports", ["Arts, Culture, Religion", "Sports and Recreation", "Social Sciences and History"]]]},
+  {id: "safety", name: "Safety & the World", subs: [["crime", "Crime, Courts & Policing", ["Crime and Law Enforcement", "Law"]], ["immigration", "Immigration", ["Immigration"]],
+    ["defense", "Defense & Veterans", ["Armed Forces and National Security"]], ["foreign", "Foreign Affairs", ["International Affairs"]],
+    ["disasters", "Disasters & Emergencies", ["Emergency Management"]]]},
+  {id: "land", name: "Land, Energy & Government", subs: [["energy", "Energy", ["Energy"]],
+    ["environment", "Environment & Public Lands", ["Environmental Protection", "Public Lands and Natural Resources", "Water Resources Development", "Animals"]],
+    ["farms", "Farms & Food", ["Agriculture and Food"]], ["transport", "Transportation & Technology", ["Transportation and Public Works", "Science, Technology, Communications"]],
+    ["government", "Government & Elections", ["Government Operations and Politics", "Congress"]], ["tribal", "Tribal Nations", ["Native Americans"]]]}];
+const TOPIC_OF = {}, SUB_NAME = {}, SUB_PARENT = {};
+TOPICS.forEach(t => t.subs.forEach(([id, name, areas]) => { SUB_NAME[id] = name; SUB_PARENT[id] = t.id; areas.forEach(a => { TOPIC_OF[a] = id; }); }));
+const topicOf = b => b._tp ?? (b._tp = b.policy_area ? (TOPIC_OF[b.policy_area] || "other") : "none");
+const SUP_STEPS = [0, 50, 60, 70, 80, 90, 95, 100];
+const LANE_NAME = {H: "House", S: "Senate"};
+function passVotes(b, ch){
+  const p = b.pv; if (!p) return [];
+  return (ch ? [ch] : ["H", "S"]).filter(c => p[c]).map(c => { const v = p[c]; return {c, m: v[0], y: v[1], n: v[2], split: v[3], d: v[4], res: v[5]}; });
+}
+const yesShare = v => v.m === "r" && (v.y + v.n) > 0 ? v.y / (v.y + v.n) * 100 : null;
+function partySides(split){ const o = {}; for (const m of String(split || "").matchAll(/\b([A-Z])\s+(\d+)-(\d+)/g)) o[m[1]] = [+m[2], +m[3]]; return o; }
+const isPartyLine = v => { const p = partySides(v.split); return !!(p.D && p.R) && (p.D[0] > p.D[1]) !== (p.R[0] > p.R[1]); };
+const isBothFor = v => { const p = partySides(v.split); return !!(p.D && p.R) && p.D[0] > p.D[1] && p.R[0] > p.R[1]; };
+const isClose = v => v.m === "r" && (v.y + v.n) > 0 && Math.abs(v.y - v.n) / (v.y + v.n) * 100 <= 10;
+const passedWord = v => /fail|reject|not agreed|not passed/i.test(v.res || "") ? "rejected it" : "passed it";
+function passLine(b){
+  const vs = passVotes(b); if (!vs.length) return "";
+  const one = v => {
+    if (v.m !== "r") return `${LANE_NAME[v.c]} ${passedWord(v)} by ${{v: "voice vote", u: "unanimous consent", d: "a rule that deemed it passed"}[v.m] || "a vote with no tally"}, with no one's vote recorded`;
+    const p = partySides(v.split), s = yesShare(v);
+    const sides = p.D && p.R ? `: Democrats ${p.D[0]}–${p.D[1]}, Republicans ${p.R[0]}–${p.R[1]}` : "";
+    return `${LANE_NAME[v.c]} ${passedWord(v)} ${v.y}–${v.n} (${s === 100 ? "every vote yes" : Math.round(s) + "% yes"})${sides}`;
+  };
+  return `<p class="vline">${vs.map(one).map(esc).join(" · ")}</p>`;
+}
+const SCHED = (() => { const h = BOOT.schedule && BOOT.schedule.house; return new Set(h && h.current ? h.items.map(i => i[2]).filter(Boolean) : []); })();
+function upBadges(b){
+  const out = [], nw = b.nw || {};
+  if (SCHED.has(b.key)) out.push(`On the House floor schedule for the week of ${fmtDate(BOOT.schedule.house.week)}`);
+  if (nw.clo) out.push(`Senate cloture motion filed ${fmtDate(nw.clo)}: a vote is due`);
+  if (nw.ready) out.push(`Ready for a ${LANE_NAME[nw.ready[0]]} vote: on its calendar since ${fmtDate(nw.ready[1])}`);
+  return out.length ? `<p class="upline">${out.map(esc).join(" · ")}</p>` : "";
+}
+const topicPill = b => { const t = topicOf(b); return SUB_NAME[t] ? `<span class="pill topic" title="${esc(b.policy_area)}">${esc(SUB_NAME[t])}</span>` : ""; };
+
 function cardHTML(b){
-  return `<article class="card" data-key="${esc(b.key)}"><div class="head"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${lensChips(b)}</div>
-  <div class="title">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${axes(b)}
+  return `<article class="card" data-key="${esc(b.key)}"><div class="head"><span class="pill id">${esc(b.id)}</span>${statusPill(b)}${b.law ? `<span class="pill intro">P.L. ${esc(b.law)}</span>` : ""}${topicPill(b)}${lensChips(b)}</div>
+  <div class="title">${esc(leadTitle(b))}</div>${akaHTML(b)}<p class="plain">${plainLine(b)}</p>${trackHTML(b, "slim")}${passLine(b)}${upBadges(b)}${axes(b)}
   <div class="meta"><span>Latest: <b>${esc(fmtDate(b.latest_action_date))}</b></span>${b.sponsor ? `<a class="spon" href="#member=${esc(b.sponsor.id)}" data-person="${esc(b.sponsor.id)}">${avatar(b.sponsor.id, b.sponsor.party, "sm")}<b>${esc(prettyStr(b.sponsor.name))}</b> ${esc((b.sponsor.name.match(/\[(.*?)\]/) || [,""])[1])}</a>` : ""}${b.cosponsors && b.cosponsors.total ? `<span><b>${b.cosponsors.total}</b> cosponsors${b.bipartisan ? ", both parties" : ""}</span>` : ""}</div>
   <div class="detail"><div></div></div>
   <div class="foot"><span class="status">${b.review ? esc(b.review) : (b.latest_action ? esc(b.latest_action.length > 90 ? b.latest_action.slice(0, 88).replace(/\s+\S*$/, "") + "…" : b.latest_action) : "Not rated yet")}</span><span class="acts"><button class="copylink sharebtn" aria-label="Share ${esc(b.id)}" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button><button class="more" aria-expanded="false">Details <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></span></div></article>`;
 }
 
-const grid = $("#grid"), state = { q: "", f: "all", sort: "recent", member: null, pin: null };
-const hay = b => b._hay ?? (b._hay = [b.id, b.title, b.short_title, b.nick ? b.nick.name : "", b.policy_area, (b.subjects || []).join(" "), b.sponsor ? b.sponsor.name : "", b.law ? "p.l. " + b.law : "", b.summary].join(" ").toLowerCase());
+const grid = $("#grid"), state = { q: "", f: "all", sort: "recent", member: null, pin: null,
+  topic: "", lens: "", sup: 0, ch: "", vk: "", nk: "", win: 30, uk: "" };      // the browse filters (topic is a group id or a topic id)
+const hay = b => b._hay ?? (b._hay = [b.id, b.title, b.short_title, b.nick ? b.nick.name : "", b.policy_area, SUB_NAME[topicOf(b)] || "", (b.subjects || []).join(" "), b.sponsor ? b.sponsor.name : "", b.law ? "p.l. " + b.law : "", b.summary].join(" ").toLowerCase());
 const statusText = b => statusPill(b).replace(/<[^>]+>/g, "");
 const prettyStr = s => String(s || "").replace(/\s*\[.*\]$/, "").replace(/^(Rep|Sen|Del|Res\. Comm)\.\s*/, "").replace(/^([^,]+),\s*(.+)$/, "$2 $1");
 const prettyName = m => prettyStr(m.name);
@@ -3389,10 +3586,37 @@ pop.add(PERSON_SEL, personPop);
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => { $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); }); watchTracks(root); };
 const roleOf = m => m.name.startsWith("Sen.") ? "Senator" : (m.chamber === "Senate" ? "Senator" : "Representative");
+const daysBack = n => { const d = new Date((BOOT.newest || new Date().toISOString().slice(0, 10)) + "T12:00:00"); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); };
+function browseOK(b){
+  if (state.topic) {
+    const t = topicOf(b);
+    if (state.topic === "none" ? t !== "none" : (SUB_NAME[state.topic] ? t !== state.topic : SUB_PARENT[t] !== state.topic)) return false;
+  }
+  if (state.lens && !(b.lens || []).some(l => l.startsWith(state.lens))) return false;
+  if (state.sup || state.vk) {
+    const min = SUP_STEPS[state.sup] || 0;
+    const ok = passVotes(b, state.ch).some(v => {
+      if (state.vk === "voice") return v.m !== "r";
+      if (v.m !== "r") return false;
+      const s = yesShare(v); if (s == null || (min === 100 ? v.n !== 0 : s < min)) return false;
+      return state.vk === "party" ? isPartyLine(v) : state.vk === "close" ? isClose(v) : state.vk === "both" ? isBothFor(v) : true;
+    });
+    if (!ok) return false;
+  } else if (state.ch && !passVotes(b, state.ch).length) return false;
+  if (state.nk) {
+    const since = daysBack(state.win), nw = b.nw || {};
+    const d = state.nk === "intro" ? b.introduced : state.nk === "rep" ? nw.rp : nw.fl;
+    if (!d || d < since) return false;
+  }
+  if (state.uk === "sched" && !(SCHED.has(b.key) || (b.nw && b.nw.clo))) return false;
+  if (state.uk === "ready" && !(b.nw && b.nw.ready)) return false;
+  return true;
+}
 function matches(b){
   const q = state.q.trim().toLowerCase();
   if (q && !hay(b).includes(q)) return false;
   if (state.member && !state.member.set.has(b._i)) return false;
+  if (!browseOK(b)) return false;
   switch (state.f) {
     case "rated": return isRated(b);
     case "law": return !!b.law;
@@ -3425,6 +3649,7 @@ function render(){
   $("#count").textContent = `${listed.length.toLocaleString()} of ${DATA.bills.length.toLocaleString()} measures${state.member ? " for " + prettyName(state.member) : ""}`;
   grid.innerHTML = listed.length ? "" : `<div class="empty">Nothing matches. Try fewer words, or clear the filters.</div>`;
   showMore();
+  try { moveChipInd(); } catch (e) {}      // the chosen chip's mark, once the list is laid out (it can be hidden at first)
 }
 function showMore(){
   const btn = $("#showmore"); if (btn) btn.remove();
@@ -3471,9 +3696,91 @@ $("#chips").addEventListener("click", e => {
 });
 addEventListener("resize", moveChipInd);
 
+/* ---------- browse panels: one open at a time; each tab shows how many of its filters are on ---------- */
+const BF = (() => {
+  const tabs = $$("#bftabs .bf-tab"), clear = $("#bfclear");
+  const active = {topic: () => !!(state.topic || state.lens), votes: () => !!(state.sup || state.ch || state.vk), new: () => !!state.nk, up: () => !!state.uk};
+  function marks(){
+    tabs.forEach(t => { const on = active[t.dataset.bf](); t.classList.toggle("on", on); $("i", t).textContent = on ? " •" : ""; });
+    clear.hidden = !Object.values(active).some(f => f());
+  }
+  function openTab(name){
+    tabs.forEach(t => { const me = t.dataset.bf === name && t.getAttribute("aria-expanded") !== "true"; t.setAttribute("aria-expanded", me); $("#" + t.getAttribute("aria-controls")).hidden = !me; });
+    if (name === "topic") catalogReady().then(drawTopics, () => {});
+  }
+  tabs.forEach(t => t.addEventListener("click", () => openTab(t.dataset.bf)));
+  /* topics: the four groups, then the chosen group's topics, each with how many bills it holds */
+  let counts = null;
+  function countTopics(){
+    if (counts) return counts;
+    counts = {};
+    for (const b of DATA.bills) { const t = topicOf(b); counts[t] = (counts[t] || 0) + 1; const p = SUB_PARENT[t]; if (p) counts[p] = (counts[p] || 0) + 1; }
+    return counts;
+  }
+  function drawTopics(){
+    const c = countTopics(), cur = state.topic, group = SUB_PARENT[cur] || (TOPICS.some(t => t.id === cur) ? cur : "");
+    const n = x => (c[x] || 0).toLocaleString();
+    $("#bftop").innerHTML = `<button type="button" class="chip" data-tp="" aria-pressed="${!cur}">All topics</button>` +
+      TOPICS.map(t => `<button type="button" class="chip" data-tp="${t.id}" aria-pressed="${cur === t.id}">${esc(t.name)} <span class="n">${n(t.id)}</span></button>`).join("") +
+      (c.none ? `<button type="button" class="chip" data-tp="none" aria-pressed="${cur === "none"}" title="New bills the Library of Congress has not given a subject yet">Not labelled yet <span class="n">${n("none")}</span></button>` : "");
+    const g = TOPICS.find(t => t.id === group);
+    $("#bfsub").innerHTML = g ? `<span class="bf-lab">${esc(g.name)}</span>` + g.subs.map(([id, name]) =>
+      `<button type="button" class="chip" data-tp="${id}" aria-pressed="${cur === id}">${esc(name)} <span class="n">${n(id)}</span></button>`).join("") : "";
+    $("#bfsub").hidden = !g;
+  }
+  $("#bf-topic").addEventListener("click", e => {
+    const c = e.target.closest("[data-tp]");
+    if (c) { const v = c.dataset.tp; state.topic = state.topic === v && v ? (SUB_PARENT[v] || "") : v; drawTopics(); marks(); render(); return; }
+    const l = e.target.closest("[data-lens]");
+    if (l) { state.lens = state.lens === l.dataset.lens ? "" : l.dataset.lens; $$("#bf-topic [data-lens]").forEach(x => x.setAttribute("aria-pressed", x.dataset.lens === state.lens)); marks(); render(); }
+  });
+  /* votes: the share that voted yes, the chamber, and one kind of vote at a time */
+  const sup = $("#bfsup"), supv = $("#bfsupv");
+  const supWords = i => i === 0 ? "any share" : (SUP_STEPS[i] === 100 ? "every vote (100%)" : `${SUP_STEPS[i]}% or more`);
+  function setSup(i){ state.sup = i; sup.value = i; supv.textContent = supWords(i); sup.setAttribute("aria-valuetext", supWords(i)); }
+  sup.addEventListener("input", () => { setSup(+sup.value); if (state.vk === "voice") setKind(""); marks(); render(); });
+  $("#bfch").addEventListener("change", e => { state.ch = e.target.value; marks(); render(); });
+  function setKind(k){ state.vk = k; $$("#bf-votes [data-vk]").forEach(x => x.setAttribute("aria-pressed", x.dataset.vk === k)); }
+  $("#bf-votes").addEventListener("click", e => {
+    const c = e.target.closest("[data-vk]"); if (!c) return;
+    const k = state.vk === c.dataset.vk ? "" : c.dataset.vk;
+    setKind(k); if (k === "voice") setSup(0);      // a voice vote has no share to set
+    marks(); render();
+  });
+  /* what's new, and the window it looks back over */
+  $("#bf-new").addEventListener("click", e => {
+    const c = e.target.closest("[data-nk]"); if (!c) return;
+    state.nk = state.nk === c.dataset.nk ? "" : c.dataset.nk;
+    $$("#bf-new [data-nk]").forEach(x => x.setAttribute("aria-pressed", x.dataset.nk === state.nk)); marks(); render();
+  });
+  $("#bfwin").addEventListener("change", e => { state.win = +e.target.value; if (state.nk) render(); });
+  if (BOOT.newest) $("#bfnewhelp").textContent = `Counted back from ${fmtDate(BOOT.newest)}, the newest action on record.`;
+  /* coming up */
+  $("#bf-up").addEventListener("click", e => {
+    const c = e.target.closest("[data-uk]"); if (!c) return;
+    state.uk = state.uk === c.dataset.uk ? "" : c.dataset.uk;
+    $$("#bf-up [data-uk]").forEach(x => x.setAttribute("aria-pressed", x.dataset.uk === state.uk)); marks(); render();
+  });
+  const S = BOOT.schedule || {}, h = S.house, sn = S.senate, note = [];
+  if (h) note.push(h.current
+    ? `<b>House:</b> ${h.items.length} measures on the floor schedule posted for the week of ${esc(fmtDate(h.week))}. <a href="${esc(h.url)}" target="_blank" rel="noopener">The schedule</a>`
+    : `<b>House:</b> no floor schedule is posted for this week. The latest posted was for the week of ${esc(fmtDate(h.week))}. <a href="${esc(h.url)}" target="_blank" rel="noopener">The schedule</a>`);
+  if (sn) note.push(`<b>Senate:</b> ${esc(sn.day)}: ${esc(sn.line)} <a href="${esc(sn.url)}" target="_blank" rel="noopener">Its floor schedule</a>`);
+  note.push(`Senate cloture motions and calendar placements come from each bill&rsquo;s own record, through ${esc(fmtDate(BOOT.newest || ""))}.${S.fetched ? ` Schedules read ${esc(fmtDate(S.fetched))}.` : ""}`);
+  $("#bfupnote").innerHTML = note.map(x => `<p>${x}</p>`).join("");
+  function clearAll(){
+    Object.assign(state, {topic: "", lens: "", sup: 0, ch: "", vk: "", nk: "", uk: ""});
+    setSup(0); setKind(""); $("#bfch").value = "";
+    $$("#bf-topic [data-lens], #bf-new [data-nk], #bf-up [data-uk]").forEach(x => x.setAttribute("aria-pressed", "false"));
+    if (counts) drawTopics(); marks();
+  }
+  clear.addEventListener("click", () => { clearAll(); render(); });
+  return {clearAll, marks};
+})();
+
 function openBill(key){
   if (!byKey[key]) return false;
-  state.q = ""; $("#q").value = ""; state.f = "all"; $$("#chips .chip").forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all")); moveChipInd();
+  state.q = ""; $("#q").value = ""; state.f = "all"; $$("#chips .chip").forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all")); moveChipInd(); BF.clearAll();
   state.member = null; $("#mpick").textContent = "Pick a member to filter the bill list above.";
   state.pin = key; render(); state.pin = null;
   pageview("/bill/" + key, byKey[key].id + ": " + (byKey[key].short_title || byKey[key].title));

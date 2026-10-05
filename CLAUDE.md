@@ -23,7 +23,7 @@ system-wide.
 | `python run_all.py smoke` | Offline test on 8 bundled bills | 10 s |
 | `python run_all.py` | Full build: check, roster, catalog, titles, actions, rollcalls, profiles, donors, photos, districts, ratings, build, verify | 30 to 60 min the first time |
 | `python run_all.py refresh` | Weekly update: re-downloads the catalog, then everything after it | 15 to 30 min |
-| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `actions`, `rollcalls`, `profiles`, `donors`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
+| `python run_all.py <stage>` | One stage: `roster`, `catalog`, `titles`, `actions`, `rollcalls`, `schedule`, `profiles`, `donors`, `photos`, `districts`, `ratings`, `build`, `verify` | varies |
 
 First run order: `check`, then `smoke`, then the full build. Run long stages in the foreground and let them finish;
 the catalog prints progress every 1,000 files and the roll-call loader every 50 roll calls. If anything stops
@@ -103,6 +103,7 @@ mostly procedural); `--skip-excel` skips the Excel workbook; `--db` picks a diff
 | `load_titles.py` | Reads every title the record carries (the popular title, and the short title at each stage) from the cached Bill Status files into a `titles` table; downloads nothing |
 | `load_actions.py` | Every action of every measure, in the order it happened, from the cached Bill Status files into an `actions` table (68,407 rows; nothing downloaded; 8 seconds). The draft builds each measure's path from it |
 | `nicknames.json` | Names in common use that are not in the record, kept by hand; the draft site shows only entries John has approved |
+| `load_schedule.py` | What the chambers have posted for their floors (stage `schedule`): the House's weekly floor schedule XML from docs.house.gov/floor/ and the Senate's next meeting from senate.gov's floor schedule page, into `floor_schedule.json`; nothing predicted |
 | `load_roll_calls.py` | Loads every linked House and Senate roll call, member by member, with a disk cache |
 | `load_profiles.py` | What the member cards say about who someone is: every term served, committee seats and official social accounts from the roster project, and the opening paragraph of their Wikipedia article (cached in `profile_cache/`, one polite request a second). The Wikipedia text is not a government record; the site fences it off, says so, credits it and links to it |
 | `load_donors.py` | Campaign money from the Federal Election Commission's public bulk files, 2016 through 2026 (about 170 MB, cached in `fec_cache/`, no key): which FEC candidate numbers belong to which member, each campaign's own totals, and every itemized payment by a committee to, for, or against a member. Organizations only; memo lines are left out, as the FEC's totals leave them out |
@@ -177,6 +178,19 @@ report, presented, signed, law without signature, vetoed, override, law), each s
 amendment), adds dashed steps still ahead, files the measure's key votes under their steps (`filedVotes`), and lists every
 step in plain words in the Votes and path tab. What each committee did (`cnotes`) rides in the fast site's bill files
 only; the one-file archive leaves it out to stay under its budget.
+
+Browsing the bills (John, 2026-10-05; his four answers in the conversation): a "Topic, Votes, What's new, Coming up"
+row under the status chips, one panel open at a time, filters combined. Topics are `TOPICS` in the page code: 4 groups,
+22 topics, each a set of the Library of Congress policy areas (`bills.policy_area`, one per bill); an unlabelled bill
+is "Not labelled yet". Votes read `pv` on each full record (`final_passage()`: each chamber's last Passage or Resolve
+differences vote, `[method r|v|u|d, yeas, nays, party split, date, result]`): a share slider (any, 50 to 95, 100 =
+every vote yes), a chamber choice, and one kind at a time: both parties' majorities yes, party-line (majorities on
+opposite sides), close (10 points or less), no tally (voice vote, unanimous consent, deemed). What's new and Coming up
+read `nw` (`floor_news()`: rp first committee approval, fl first floor action, cal latest calendar placement, ready a
+placement with no floor action in that chamber since, clo a Senate cloture motion within 14 days of the newest action
+with no cloture vote since) and `BOOT.schedule` (`floor_schedule()`: the House's posted week counts as scheduled only
+while it is this week or next). Windows count back from `BOOT.newest`, the newest action on record. Cards show the
+topic and a vote line (`passLine`; `voteLine` is the bill pane's own, older function: pick new names with a search).
 
 The fast site also carries share pages, written by `share_cards.py`: `b/<key>.html` for every bill with a full
 record, `v/<vote>.html` for every roll call and `m/<bioguide>.html` for every member, each with a 1200 by 630 preview image under `og/` drawn in the

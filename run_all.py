@@ -29,7 +29,7 @@ import time
 from urllib.request import Request, urlopen
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STAGES = ["check", "roster", "catalog", "titles", "actions", "rollcalls", "profiles", "donors", "photos", "districts", "ratings", "build", "verify"]
+STAGES = ["check", "roster", "catalog", "titles", "actions", "rollcalls", "schedule", "profiles", "donors", "photos", "districts", "ratings", "build", "verify"]
 UA = "Mozilla/5.0 (compatible; congress-catalog/1.0; personal legislative research)"
 LOG = None
 
@@ -183,6 +183,11 @@ def stage_titles(args):
 def stage_actions(args):
     banner("Stage: actions (every step of every measure, in order: referrals, passages, trips back with changes, signatures)")
     run("load_actions.py", "--db", args.db, "--cache", os.path.join(HERE, "billstatus_cache"))
+
+
+def stage_schedule(args):
+    banner("Stage: schedule (what the House and Senate have posted for their floors; nothing predicted)")
+    run("load_schedule.py", "--out", os.path.join(HERE, "floor_schedule.json"))
 
 
 def stage_rollcalls(args):
@@ -452,6 +457,7 @@ def main():
         stage_titles(args)
         stage_actions(args)
         stage_rollcalls(args)
+        stage_schedule(args)
         stage_profiles(args)
         stage_donors(args)
         stage_photos(args)
@@ -460,7 +466,7 @@ def main():
         stage_build(args)
         stage_verify(args)
     else:
-        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "titles": stage_titles, "actions": stage_actions, "rollcalls": stage_rollcalls, "profiles": stage_profiles, "donors": stage_donors, "photos": stage_photos, "districts": stage_districts,
+        {"check": stage_check, "roster": stage_roster, "catalog": stage_catalog, "titles": stage_titles, "actions": stage_actions, "rollcalls": stage_rollcalls, "schedule": stage_schedule, "profiles": stage_profiles, "donors": stage_donors, "photos": stage_photos, "districts": stage_districts,
          "ratings": stage_ratings, "build": stage_build, "verify": stage_verify}[args.stage](args)
     say(f"\nDone in {fmt_secs(time.time() - t0)}. Log: {LOG.name}")
 
