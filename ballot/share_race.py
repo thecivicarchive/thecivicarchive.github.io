@@ -90,7 +90,7 @@ def write(folder, boot, say=print):
         sub = "November 3, 2026" + (f" · held today by {holder[1]} ({code})" if holder else " · the seat is vacant")
         cands = [[c["n"], c.get("pc") or "O", c.get("p") or "", bool(c.get("inc"))] for c in g]
         kick = "On The Ballot · " + ("U.S. Senate" if r["o"] == "S" else "U.S. House") + (" · special election" if r.get("sp") else "")
-        inp = {"title": title, "sub": sub, "cands": cands, "kick": kick, "holder": code, "v": 3}
+        inp = {"title": title, "sub": sub, "cands": cands, "kick": kick, "holder": code, "v": 4}      # v4: parchment (2026-10-07)
         state_rings = sc.rings_of(boot["map"].get(st, ""))
         raw = (dist["states"].get(st) or {}).get(str(n)) if r["o"] == "H" else None
         dist_rings = state_rings if r["o"] == "S" or (r["o"] == "H" and n == 0 and st not in dist["states"]) else (decode(raw, dist.get("q", 50)) if raw else [])

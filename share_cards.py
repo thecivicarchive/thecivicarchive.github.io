@@ -31,11 +31,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")
 W, H = 1200, 630
 
-# the site's dark palette
-BG, INK, MUTED, SOFT, LINE = "#0C0E12", "#ECEDE9", "#9BA1A9", "#C9CDD2", "#262A31"
-ACCENT = "#4CC5B0"
-DEM, REP, IND, NOVOTE, EMPTY = "#7E9BFF", "#FF7B72", "#B49BF2", "#3A3F48", "#20242B"
-PASS_BG, PASS_INK, FAIL_BG, FAIL_INK = "#12302B", "#9FE3D6", "#44201D", "#FFB3AC"
+# the site's one look (brand.py, John 2026-10-07): parchment, ink, verdigris and brass; red and blue only for party data,
+# in the light pages' own party colours
+BG, INK, MUTED, SOFT, LINE = "#F6F3EC", "#1A1C20", "#545961", "#33373D", "#DDD7CA"
+ACCENT, BRASS = "#255A4E", "#C8963A"
+DEM, REP, IND, NOVOTE, EMPTY = "#2E5BE6", "#D8453A", "#7A5CC2", "#B9B2A3", "#E7E1D4"
+PASS_BG, PASS_INK, FAIL_BG, FAIL_INK = "#E2EDE8", "#255A4E", "#FBE7E5", "#8E2A22"
 SITE_LINE = "Every bill and every recorded vote, from the public record"
 SITE_HOST = "thecivicarchive.github.io"
 
@@ -116,21 +117,27 @@ def passed(result):
 
 
 def base_canvas():
+    """Parchment (flat, so thousands of cards stay small), a brass rule at the head and a verdigris band at the foot."""
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, W, 7), fill=ACCENT)
+    d.rectangle((0, 0, W, 9), fill=BRASS)
+    d.rectangle((0, H - 12, W, H), fill="#2F6B5E")
     return im, d
 
 
 def brand(d, y=46):
-    d.text((60, y), "The Civic Archive", font=font("serif", 34), fill=INK)
+    """The emblem (brand.py), small, beside the name."""
+    import brand as B
+    B.draw_emblem(d, 56, y - 8, 46, {"parch": "#2F6B5E", "brass": BRASS}, 1)
+    d.text((112, y), "The Civic Archive", font=font("serif", 34), fill=INK)
 
 
-def footer(d):
+def footer(d, line=SITE_LINE):
+    d.rectangle((60, H - 80, W - 60, H - 79), fill=BRASS)
     f = font("sans", 22)
-    d.text((60, H - 62), SITE_LINE, font=f, fill=MUTED)
-    tw = d.textlength(SITE_HOST, font=f)
-    d.text((W - 60 - tw, H - 62), SITE_HOST, font=f, fill=ACCENT)
+    d.text((60, H - 64), line, font=f, fill=MUTED)
+    tw = d.textlength(SITE_HOST, font=font("sans", 22, 600))
+    d.text((W - 60 - tw, H - 64), SITE_HOST, font=font("sans", 22, 600), fill=ACCENT)
 
 
 def pill(d, x, y, text, f, fill=None, ink=INK, outline=LINE, pad=(16, 8)):
@@ -532,7 +539,7 @@ def write_share_pages(folder, data, base_url, states, photo_bytes=None):
     card("og/site.png", {"stats": data["stats"], "v": 4}, lambda: draw_site(data["stats"]))      # v4: the brand's look (2026-10-07)
     for b in data["bills"]:
         inp = bill_inputs(b)
-        card(f"og/b/{b['key']}.png", dict(inp, v=3), lambda inp=inp: draw_bill(inp))
+        card(f"og/b/{b['key']}.png", dict(inp, v=4), lambda inp=inp: draw_bill(inp))      # v4: parchment (2026-10-07)
         url = f"{base}/b/{b['key']}.html"
         title = f"{b['id']}: {inp['title']}"
         body = (f"<h1>{html.escape(inp['title'])}</h1><p><b>{html.escape(b['id'])}</b> · {html.escape(inp['status'])}</p>"
@@ -544,7 +551,7 @@ def write_share_pages(folder, data, base_url, states, photo_bytes=None):
     for v in data.get("vote_meta") or []:
         inp = vote_inputs(v, mv, leg)
         sl = slug(v["vote_id"])
-        card(f"og/v/{sl}.png", dict(inp, v=4), lambda inp=inp: draw_vote(inp, states))
+        card(f"og/v/{sl}.png", dict(inp, v=5), lambda inp=inp: draw_vote(inp, states))
         url = f"{base}/v/{sl}.html"
         yes, no = v.get("yeas"), v.get("nays")
         title = f"{v['bill']}: {v['chamber']} {v.get('category', '').lower()}, {yes}–{no}"
@@ -557,7 +564,7 @@ def write_share_pages(folder, data, base_url, states, photo_bytes=None):
     profiles, photo_bytes, n_members = data.get("_profiles") or {}, photo_bytes or {}, 0
     for bio, L in (data.get("legislators") or {}).items():
         inp = member_inputs(bio, L, profiles.get(bio) or {}, (states.get(L.get("st")) or {}).get("name") or L.get("st") or "", bio in photo_bytes)
-        card(f"og/m/{bio}.png", dict(inp, v=1), lambda inp=inp, bio=bio: draw_member(inp, photo_bytes.get(bio)))
+        card(f"og/m/{bio}.png", dict(inp, v=2), lambda inp=inp, bio=bio: draw_member(inp, photo_bytes.get(bio)))
         url, title = f"{base}/m/{bio}.html", f"Get to know {inp['name']}"
         desc = " ".join(x for x in (inp["line"] + ".", member_sentence(inp), "Every recorded vote, from the public record.") if x)
         body = f"<h1>{html.escape(inp['name'])}</h1><p>{html.escape(inp['line'])}</p><p>{html.escape(desc)}</p>"

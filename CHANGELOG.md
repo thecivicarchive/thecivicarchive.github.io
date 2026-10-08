@@ -10,6 +10,10 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.104 — 2026-10-07 — Every shared card in the new look
+
+- The cards a shared link shows for a single bill, a single recorded vote, a member of Congress, a state legislator, each state legislature and each race on the ballot are now drawn in the same look as the rest: parchment, the emblem beside the site's name, a brass rule at the head and a verdigris band at the foot. Vote bars and maps keep red and blue for the parties, in the colours the light pages use.
+
 ## v4.0.103 — 2026-10-07 — One emblem for the tab, the bookmark and every shared link
 
 - The Civic Archive has an emblem: a civic hall whose columns are books standing on a plinth, under a brass pediment with a seal. The civic building that is also an archive. Its colours are the site's own: verdigris, the patina of civic bronze; brass, the plaque and the label on a spine; and parchment.

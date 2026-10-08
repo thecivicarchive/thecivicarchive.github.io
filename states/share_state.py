@@ -30,14 +30,11 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import share_cards as sc                     # noqa: E402
 
 W, H = sc.W, sc.H
-VACANT = "#2A2E36"
+VACANT = "#D9D3C6"      # a seat with no one in it, on the parchment cards
 
 
 def footer(d, line):
-    f = sc.font("sans", 22)
-    d.text((60, H - 62), line, font=f, fill=sc.MUTED)
-    tw = d.textlength(sc.SITE_HOST, font=f)
-    d.text((W - 60 - tw, H - 62), sc.SITE_HOST, font=f, fill=sc.ACCENT)
+    sc.footer(d, line)      # the brass hairline and the site's address, as on every card
 
 
 def decode(rings, q):
@@ -243,7 +240,7 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
     shape_mark = hashlib.sha1(json.dumps([districts.get("vintage"), len(districts.get("upper", {})), len(districts.get("lower", {}))]).encode()).hexdigest()[:8]
     fills = {"upper": party_fills(legislators, "Senate" if P.get("lower") else "Legislature"), "lower": party_fills(legislators, "House")}
     card("og/site.png", {"name": P["name"], "members": st["members"], "districts": st["districts"], "seats": sorted(seats.values()), "shapes": shape_mark,
-                         "money": bool(st.get("has_money")), "v": 1},
+                         "money": bool(st.get("has_money")), "v": 2},      # v2: parchment (2026-10-07)
          lambda: draw_site(P, st, districts, legislators))
     urls = [base + "/"]
     for bio, L in legislators.items():
@@ -252,7 +249,7 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
         inp = member_inputs(P, bio, L, prof, bool(blob))
         inp["has_money"] = bool(st.get("has_money"))
         chamber_mark = sorted(v for v in seats.values() if v[0] == L["ch"])
-        card(f"og/m/{bio}.png", dict(inp, shapes=shape_mark, chamber_seats=hashlib.sha1(json.dumps(chamber_mark).encode()).hexdigest()[:8], v=2),
+        card(f"og/m/{bio}.png", dict(inp, shapes=shape_mark, chamber_seats=hashlib.sha1(json.dumps(chamber_mark).encode()).hexdigest()[:8], v=3),
              lambda inp=inp, blob=blob: draw_member(inp, blob, districts, fills[inp["chamber"]], P["legislature"]))
         url, title = f"{base}/m/{bio}.html", f"Get to know {inp['name']}"
         desc = " ".join(x for x in (inp["line"] + ".", ("Committees: " + ", ".join(inp["committees"][:4]) + ".") if inp["committees"] else "",
@@ -269,7 +266,7 @@ def write_share_pages(folder, P, data, base_url, cache_dir):
                "committees": [], "money": "", "photo": bool(blob), "chamber": "upper", "district": "", "has_money": False, "official": True,
                "term": " ".join(x for x in (f"Runs to {month_year(O.get('until'))}." if O.get("until") else "",
                                             f"The office is next on the ballot in November {O['next']}." if O.get("next") else "") if x)}
-        card(f"og/m/{O['id']}.png", dict(inp, shapes=shape_mark, v=2), lambda inp=inp, blob=blob: draw_member(inp, blob, districts, {}, f"State of {P['name']}"))
+        card(f"og/m/{O['id']}.png", dict(inp, shapes=shape_mark, v=3), lambda inp=inp, blob=blob: draw_member(inp, blob, districts, {}, f"State of {P['name']}"))
         url, title = f"{base}/m/{O['id']}.html", f"{O['n']}, {O['office']} of {P['name']}"
         desc = f"{inp['line']}. The office, the term and the record, from public sources."
         body = f"<h1>{html.escape(O['n'])}</h1><p>{html.escape(inp['line'])}</p>"
