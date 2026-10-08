@@ -1176,14 +1176,13 @@ def write_split(folder, html, data, photo_bytes):
     put("manifest.webmanifest", json.dumps({
         "name": "The Civic Archive", "short_name": "Civic Archive",
         "description": "Every bill in Congress, in plain words. Every recorded vote, member by member.",
-        "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#0C0E12", "theme_color": "#0C0E12",
+        "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#F6F3EC", "theme_color": "#1E4A41",
         "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
                   {"src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}, indent=1))
     put("sw.js", SERVICE_WORKER.replace("__VERSION__", version))
-    import share_cards
-    for name, size, maskable in (("icon-192.png", 192, False), ("icon-512.png", 512, False), ("icon-512-maskable.png", 512, True)):
-        share_cards.draw_icon(size, maskable).save(os.path.join(folder, name), optimize=True)
+    import brand      # the one emblem: tab, bookmark and app icons (John, 2026-10-07)
+    brand.icon_files(folder)
     put("data/bills-list.json", dump({"bills": [list_record(b) for b in data["bills"]]}))
     for name, obj in bundles(data).items():
         put(f"data/{name}.json", dump(obj))
@@ -1269,10 +1268,11 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta name="twitter:description" content="Every bill in Congress with plain-language summaries, transparent ratings, and a state-by-state map of every recorded vote.">
 <meta name="twitter:image" content="__BASE__/og/site.png">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 __ANALYTICS__
-<meta name="theme-color" content="#0C0E12">
+<meta name="theme-color" content="#1E4A41">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

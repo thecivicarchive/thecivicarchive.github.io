@@ -49,6 +49,7 @@ PAGE = r"""<!doctype html>
 <title>The Civic Archive</title>
 <meta name="description" content="The public record and who is on your ballot. Step into the cabin and pick a door: On The Ballot, or Legislation and Legislatures.">
 <meta name="version" content="__VERSION__">
+__BRAND__
 <meta name="theme-color" content="#1a120b">
 <style>
 :root{--ink:#f6ecd6;--dim:#d9c9a8;--chip:rgba(22,15,9,.72);--line:rgba(246,236,214,.28);--gold:#f0c060;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -265,6 +266,15 @@ def credits_html(credits, views):
     return "<ul>" + "\n".join(items) + "</ul>"
 
 
+def _brand_tags():
+    """The tab icon and the share tags (brand.py); the cabin shares the home's card. Its own dark theme colour stays."""
+    import brand
+    from build_shell import BASE_URL
+    return brand.head_tags("./", BASE_URL, "The Civic Archive: the cabin",
+                           "Step into a log cabin in the Rockies and pick a door: On The Ballot, or Legislation and Legislatures.",
+                           f"{BASE_URL}/og/home.png", f"{BASE_URL}/cabin.html", theme=False)
+
+
 def write(out, version=None, draft=False, ring="rooms.html", say=print):
     """Writes the cabin page to `out`, and beside it cabin3d.js, vendor/three.module.min.js and its add-ons, and the
     room's assets. `ring` is where the ring of cards lives, seen from the cabin: rooms.html, beside the front door."""
@@ -280,7 +290,8 @@ def write(out, version=None, draft=False, ring="rooms.html", say=print):
     js = lambda v: json.dumps(v, ensure_ascii=False).replace("</", "<\\/")
     room_hash = hashlib.sha1(open(os.path.join(HERE, ROOM_JS), "rb").read()).hexdigest()[:10]      # a browser keeps the old room otherwise
     html = (PAGE.replace("__POSTERS__", js(posters)).replace("__VIEWS__", js(views)).replace("__CREDITS__", credits_html(credits, views))
-            .replace("__WAYS__", ways).replace("__WIP__", wip).replace("__RING__", ring).replace("__VERSION__", version).replace("__ROOMHASH__", room_hash))
+            .replace("__WAYS__", ways).replace("__WIP__", wip).replace("__RING__", ring).replace("__VERSION__", version).replace("__ROOMHASH__", room_hash)
+            .replace("__BRAND__", _brand_tags()))
     os.makedirs(root, exist_ok=True)
     with open(out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(html)

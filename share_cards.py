@@ -366,16 +366,11 @@ def draw_vote(inp, states):
 
 
 def draw_site(stats):
-    im, d = base_canvas()
-    brand(d)
-    tf = font("serif", 96)
-    d.text((60, 150), "Congress,", font=tf, fill=INK)
-    d.text((60, 250), "in plain words.", font=tf, fill=INK)
-    line = f"{stats.get('measures', 0):,} bills and every recorded vote of the {stats.get('congress_label', '119th Congress')}, member by member."
-    d.text((60, 400), line, font=font("sans", 30), fill=SOFT)
-    d.text((60, 448), "Facts from the record, ratings with their evidence. No ads, no donors.", font=font("sans", 26), fill=MUTED)
-    footer(d)
-    return im
+    """The federal side's card, in the site's one look (brand.py: the emblem on parchment)."""
+    import brand as B
+    line = (f"{stats.get('measures', 0):,} bills and every recorded vote of the {stats.get('congress_label', '119th Congress')}, "
+            "member by member. Facts from the record, ratings with their evidence.")
+    return B.site_card("Plain Congress", "Congress, in plain words.", line)
 
 
 # --- members ------------------------------------------------------------------
@@ -534,7 +529,7 @@ def write_share_pages(folder, data, base_url, states, photo_bytes=None):
         drawn += 1
 
     urls = [base + "/"]
-    card("og/site.png", {"stats": data["stats"], "v": 3}, lambda: draw_site(data["stats"]))
+    card("og/site.png", {"stats": data["stats"], "v": 4}, lambda: draw_site(data["stats"]))      # v4: the brand's look (2026-10-07)
     for b in data["bills"]:
         inp = bill_inputs(b)
         card(f"og/b/{b['key']}.png", dict(inp, v=3), lambda inp=inp: draw_bill(inp))

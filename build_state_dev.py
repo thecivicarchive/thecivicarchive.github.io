@@ -643,8 +643,8 @@ def write_site(folder, html, data):
         with open(os.path.join(folder, "photos", bio + ".webp"), "wb") as fh:
             fh.write(blob)
     try:
-        import share_cards
-        share_cards.draw_icon(192, False).save(os.path.join(folder, "icon-192.png"), optimize=True)
+        import brand      # the one emblem (John, 2026-10-07); the favicon and the vector icon are at the site's root
+        brand.draw_icon(192).save(os.path.join(folder, "icon-192.png"), optimize=True)
     except Exception as e:  # noqa: BLE001
         print(f"    (no tab icon: {e})")
     return sizes, n, donor_bytes, sum(len(b) for b in data["photos"].values())
@@ -756,9 +756,12 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta name="twitter:title" content="__NAME__, in plain words: The Civic Archive">
 <meta name="twitter:description" content="__DESC__">
 <meta name="twitter:image" content="__BASE__/og/site.png">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="icon" href="icon-192.png" type="image/png">
 __ANALYTICS__
-<meta name="theme-color" content="#0C0E12">
+<meta name="theme-color" content="#1E4A41">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

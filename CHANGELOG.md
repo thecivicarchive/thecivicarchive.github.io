@@ -10,6 +10,12 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.103 — 2026-10-07 — One emblem for the tab, the bookmark and every shared link
+
+- The Civic Archive has an emblem: a civic hall whose columns are books standing on a plinth, under a brass pediment with a seal. The civic building that is also an archive. Its colours are the site's own: verdigris, the patina of civic bronze; brass, the plaque and the label on a spine; and parchment.
+- It is now the icon in the browser tab and on the bookmark bar on every page, drawn for each size it is shown at, and the icon a phone shows when the site is added to the home screen.
+- Every page now has a share image in the same look: the emblem on parchment beside the page's own words. The home, Method and Access pages, the ring of cards, the cabin, On The Ballot's door, the Congress ballot page, the states' chooser and each state's own ballot page each have theirs; Plain Congress's card is redrawn to match. A pasted link to any of them shows the card.
+
 ## v4.0.102 — 2026-10-05 — Browse bills by topic, by how the vote went, and by what is new
 
 - Topic: four groups and 22 topics (Money & Work, People & Communities, Safety & the World, Land, Energy & Government), each built from the one subject the Library of Congress gives every bill. Pick a group, then a topic; each shows how many bills it holds. New bills the Library has not labelled yet have their own button. Every card now names its topic.

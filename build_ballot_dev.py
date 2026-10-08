@@ -397,8 +397,7 @@ PAGE = r"""<!DOCTYPE html>
 <title>On The Ballot: Congress · The Civic Archive</title>
 <meta name="description" content="Every House and Senate race on the November 3, 2026 ballot: who is running, from each state's official list, the primaries that chose them, and who funds them.">
 <meta name="version" content="__VERSION__">
-<meta name="theme-color" content="#0C0E12">
-<link rel="icon" href="../../us/icon-192.png" type="image/png">
+__BRAND__
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1811,6 +1810,14 @@ def main():
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    import brand      # the tab icon and the share card, in the site's one look (John, 2026-10-07)
+    from build_shell import BASE_URL
+    brand.save_card(brand.site_card("Who's running for Congress", "Every House and Senate race on the November ballot.",
+                                    "Each candidate from the state's own official list, the primaries that chose them, and the money behind them."),
+                    os.path.join(os.path.dirname(args.out), "og", "site.png"))
+    page = page.replace("__BRAND__", brand.head_tags("../../", BASE_URL, "On The Ballot: Congress · The Civic Archive",
+                                                     "Every House and Senate race on the November 3, 2026 ballot: who is running, from each state's official list, the primaries that chose them, and who funds them.",
+                                                     f"{BASE_URL}/ballot/us/og/site.png", f"{BASE_URL}/ballot/us/"))
     import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
     page = page_extras.add(page, root="../../", ballot="../", here="us")
     page_extras.write_where(os.path.join(site_root, "ballot"))

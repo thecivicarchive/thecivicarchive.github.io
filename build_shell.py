@@ -36,6 +36,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "shell_src")
+sys.path.insert(0, HERE)
+import brand      # noqa: E402  the one emblem (tab, bookmark and app icons) and the one look of the share cards
+BASE_URL = "https://thecivicarchive.github.io/dev"      # where the draft is published; share tags need absolute addresses
 FONTS = ["InstrumentSans-Variable.ttf", "InstrumentSerif-Regular.ttf", "InstrumentSerif-Italic.ttf", "Lexend-Variable.ttf",
          "AtkinsonHyperlegible-Regular.ttf", "AtkinsonHyperlegible-Bold.ttf", "AtkinsonHyperlegible-Italic.ttf", "AtkinsonHyperlegible-BoldItalic.ttf",
          "OFL-InstrumentSans.txt", "OFL-InstrumentSerif.txt", "OFL-Lexend.txt", "OFL-AtkinsonHyperlegible.txt"]
@@ -296,6 +299,8 @@ def build(dev_root, say=print, test=False, lab=False):
     test_page(dev_root, comps, test, say, kit_name)
     lab_page(dev_root, public, kit_name, lab, say)
     ride(dev_root, say)
+    icons = brand.icon_files(dev_root)      # the tab, bookmark and app icons at the site's root, one drawing for every page
+    say(f"Shell: the emblem drawn as {len(icons)} icon files at the root ({', '.join(icons)})")
     perch = [c["id"] for c in public if c["rests"] == "perch"]
     boot = re.sub(r"/\*.*?\*/", "", _read("boot.js").replace("__PERCH__", json.dumps(perch)), flags=re.S)      # its comments stay in the source
     boot = "\n".join(line.rstrip() for line in boot.splitlines() if line.strip())
@@ -318,12 +323,14 @@ SLIDERS = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path 
            '<path d="M15 4.6a2.4 2.4 0 1 1 0 4.8a2.4 2.4 0 1 1 0-4.8zM9 14.6a2.4 2.4 0 1 1 0 4.8a2.4 2.4 0 1 1 0-4.8z"/></svg>')
 
 
-def head(A, root, title, desc, version, extra=""):
+def head(A, root, title, desc, version, extra="", og_image=None, url=None):
     """Everything inside <head>: the settings are on <html> before the first frame; the stylesheet and the script come
-    from the site itself."""
+    from the site itself; the icons and the share tags come from the one emblem (brand.py). `og_image` and `url` are
+    absolute; a page without a card of its own shows the home's."""
+    tags = brand.head_tags(root, BASE_URL, title, desc, og_image or f"{BASE_URL}/og/home.png", url or f"{BASE_URL}/")
     return (f'<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
             f'<title>{esc(title)}</title>\n<meta name="description" content="{esc(desc)}">\n<meta name="version" content="{esc(version)}">\n'
-            f'<meta name="color-scheme" content="light dark">\n<link rel="icon" href="{root}us/icon-192.png">\n'
+            f'<meta name="color-scheme" content="light dark">\n{tags}\n'
             f'<script>{A["boot"]}</script>\n<link rel="stylesheet" href="{root}{A["css"]}">\n'
             f'<script type="module" src="{root}{A["js"]}"></script>\n{extra}')
 

@@ -3152,8 +3152,7 @@ PAGE = r"""<!DOCTYPE html>
 <title>On The Ballot: __NAME__ · The Civic Archive</title>
 <meta name="description" content="__DESC__">
 <meta name="version" content="__VERSION__">
-<meta name="theme-color" content="#0C0E12">
-<link rel="icon" href="../../us/icon-192.png" type="image/png">
+__BRAND__
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";var mo=localStorage.getItem("motion");if(mo==="off"||(!mo&&matchMedia("(prefers-reduced-motion: reduce)").matches))document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
 <style>
 @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/InstrumentSerif-Regular.ttf) format("truetype")}
@@ -4670,8 +4669,7 @@ STATES_PAGE = r"""<!DOCTYPE html>
 <title>On The Ballot: the states · The Civic Archive</title>
 <meta name="description" content="State races on the November 3, 2026 ballot, state by state, from each state's own official candidate lists: __NAMES__.__LOCAL_DESC__">
 <meta name="version" content="__VERSION__">
-<meta name="theme-color" content="#0C0E12">
-<link rel="icon" href="../../us/icon-192.png" type="image/png">
+__BRAND__
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light";var mo=localStorage.getItem("motion");if(mo==="off"||(!mo&&matchMedia("(prefers-reduced-motion: reduce)").matches))document.documentElement.classList.add("calm")}catch(e){document.documentElement.dataset.theme="light"}</script>
 <style>
 @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/InstrumentSerif-Regular.ttf) format("truetype")}
@@ -4882,6 +4880,14 @@ def write_chooser(root, summaries, css, bcss, version):
     page = page.replace("__CHIPS__", chips).replace("__COUNT__", f"{number_word(n).capitalize()} state{'s' if n != 1 else ''}")
     page = page.replace("__NAMES__", html_esc(and_list([s["name"] for s in sorted(summaries, key=lambda s: s["name"])])))
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
+    import brand      # the tab icon and the share card, in the site's one look (John, 2026-10-07)
+    from build_shell import BASE_URL
+    brand.save_card(brand.site_card("The states' ballots", "Governors, legislatures, courts, counties and towns.",
+                                    f"{number_word(n).capitalize()} state{'s' if n != 1 else ''} so far, each from its own official candidate lists, on the November 3, 2026 ballot."),
+                    os.path.join(out_dir, "og", "site.png"))
+    page = page.replace("__BRAND__", brand.head_tags("../../", BASE_URL, "On The Ballot: the states · The Civic Archive",
+                                                     "State races on the November 3, 2026 ballot, state by state, from each state's own official candidate lists.",
+                                                     f"{BASE_URL}/ballot/states/og/site.png", f"{BASE_URL}/ballot/states/"))
     import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
     page = page_extras.add(page, root="../../", ballot="../", here="states")
     page = slim_page(page, "the chooser")      # as each state's page: without the comments and spare spaces of its script and stylesheet
@@ -4954,6 +4960,14 @@ def build_state(code, db, out, site_root, parts, changelog, version):
     page = page.replace("__FOOT__", html_esc(st["foot"]).replace("&amp;rsquo;", "&rsquo;"))
     page = page.replace("__RECORD__", f' &middot; <a href="../../{lc}/">{html_esc(st["name"])}&rsquo;s Legislature on the record side</a>' if record else "")
     page = page.replace("__VERSION__", version).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))
+    import brand      # the tab icon and this state's share card, in the site's one look (John, 2026-10-07)
+    from build_shell import BASE_URL
+    brand.save_card(brand.site_card(f"{st['name']}'s ballot", "Everyone asking for your vote.",
+                                    f"Every state and local race on {st['name']}'s November 3, 2026 ballot, from the official candidate lists, "
+                                    "with what the record holds about each candidate."),
+                    os.path.join(out_dir, "og", "site.png"))
+    page = page.replace("__BRAND__", brand.head_tags("../../", BASE_URL, f"On The Ballot: {st['name']} · The Civic Archive", st["desc"],
+                                                     f"{BASE_URL}/ballot/{lc}/og/site.png", f"{BASE_URL}/ballot/{lc}/"))
     page = page.replace("__BOOT__", json.dumps(boot, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
     import page_extras      # "Take a break" in the header, and the "Insights on my location" bar every ballot page carries
     page = page_extras.add(page, root="../../", ballot="../", here=lc)

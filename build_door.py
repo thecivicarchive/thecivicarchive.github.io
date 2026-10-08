@@ -114,7 +114,7 @@ PAGE = r"""<!DOCTYPE html>
 <title>__TITLE__</title>
 <meta name="description" content="__DESC__">
 <meta name="version" content="__VERSION__">
-<meta name="theme-color" content="#0C0E12">
+__BRAND__
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -1005,6 +1005,19 @@ def main():
     wip = ('<div class="wip">WORK IN PROGRESS &mdash; this is a draft for feedback, not the real site. '
            '<a href="https://thecivicarchive.github.io/">Go to the live site</a></div>') if args.draft else ""
     html = PAGE.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
+    # the tab icon and the share card (brand.py): the ballot door gets its own card, the ring the home's words
+    import brand
+    from build_shell import BASE_URL
+    if args.ballot:
+        brand.save_card(brand.site_card("On The Ballot", "Meet everyone asking for your vote.",
+                                        "Every race for Congress and every state, county and local race on the November 3, 2026 ballot, from the official lists."),
+                        os.path.join(site_root, "og", "door.png"))
+        words["__BRAND__"] = brand.head_tags("../", BASE_URL, "On The Ballot: The Civic Archive", words["__DESC__"], f"{BASE_URL}/ballot/og/door.png", f"{BASE_URL}/ballot/")
+    else:
+        brand.save_card(brand.site_card("All levels of government", "Congress, your state, and closer to home.",
+                                        "One card for each level: every bill and vote in Congress, the fifty state legislatures, and the local level as it opens."),
+                        os.path.join(site_root, "og", "rooms.png"))
+        words["__BRAND__"] = brand.head_tags("./", BASE_URL, "The Civic Archive: all levels of government", words["__DESC__"], f"{BASE_URL}/og/rooms.png", f"{BASE_URL}/rooms.html")
     for key, value in words.items():
         html = html.replace(key, value)
     html = html.replace("__VERSION__", version).replace("__WIP__", wip).replace("__GENERATED__", dt.datetime.now().strftime("%B %d, %Y"))

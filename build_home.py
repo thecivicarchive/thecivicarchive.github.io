@@ -242,12 +242,12 @@ def nw(x, cap=False):
     return s[:1].upper() + s[1:] if cap else s
 
 
-def page(A, root, title, desc, version, body, current, places, faq, generated, draft, inline_access=False):
+def page(A, root, title, desc, version, body, current, places, faq, generated, draft, inline_access=False, og_image=None, url=None):
     wip = ('<aside class="tca-draft" aria-label="Draft">A draft for feedback, not the live site. <a href="https://thecivicarchive.github.io/">Go to the live site</a></aside>') if draft else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-{S.head(A, root, title, desc, version)}</head>
+{S.head(A, root, title, desc, version, og_image=og_image, url=url)}</head>
 <body>
 {S.SKIP}
 {wip}
@@ -676,16 +676,29 @@ def build(dev_root, version=None, draft=False, look=None, say=print, test=False,
     F = facts(look)
     faq = faq_html(F)
     out = {}
+    # each page's share card (brand.py: the emblem on parchment, the page's own words), written beside the icons
+    import brand
+    cards = {
+        "home": ("The Civic Archive", "The public record, for everyone.",
+                 "Every bill and recorded vote in Congress, the fifty state legislatures, and who is on your November ballot. From official sources, on one site."),
+        "method": ("How every page is made", "Where each fact comes from, and what this site will not do.",
+                   "Official records first. Facts and judgments kept apart. Bills are rated; people are not."),
+        "access": ("Read it your way", "Type, size, spacing, contrast and motion, set once.",
+                   "Eight presets and eleven settings, kept on your device. What is done for readers with disabilities, and what is not yet."),
+    }
+    for name, (t, lead, line) in cards.items():
+        brand.save_card(brand.site_card(t, lead, line), os.path.join(dev_root, "og", f"{name}.png"))
     pages = [
         ("index.html", "./", None, "The Civic Archive",
-         "The public record of Congress and the fifty state legislatures, and who is on your ballot. From official sources, on one site.", home_body(F, places), False),
+         "The public record of Congress and the fifty state legislatures, and who is on your ballot. From official sources, on one site.", home_body(F, places), False, "home", ""),
         (os.path.join("method", "index.html"), "../", "method", "Method: The Civic Archive",
-         "Where each fact comes from, how bills are rated, and what this site will not do.", method_body(F), False),
+         "Where each fact comes from, how bills are rated, and what this site will not do.", method_body(F), False, "method", "method/"),
         (os.path.join("access", "index.html"), "../", "access", "Access: The Civic Archive",
-         "Reading and access settings, and a plain list of what is done and what is not.", access_body(F, version, generated), True),
+         "Reading and access settings, and a plain list of what is done and what is not.", access_body(F, version, generated), True, "access", "access/"),
     ]
-    for rel, root, current, title, desc, body, inline in pages:
-        text = page(A, root, title, desc, version, body, current, places, faq.replace("__ROOT__", root), generated, draft, inline_access=inline)
+    for rel, root, current, title, desc, body, inline, card, path in pages:
+        text = page(A, root, title, desc, version, body, current, places, faq.replace("__ROOT__", root), generated, draft, inline_access=inline,
+                    og_image=f"{S.BASE_URL}/og/{card}.png", url=f"{S.BASE_URL}/{path}")
         if root != "./":      # the pages one folder down reach the rest of the site one level up (links only; a setting's value is left alone)
             text = re.sub(r'href="(?!https?:|#|\.\./|mailto:|data:)([^"]+)"', lambda m: f'href="../{m.group(1)}"', text)
         bad = re.findall(r"\b[a-z]+(?:_[a-z0-9]+)+\.py\b|\b[\w-]+\.sqlite\b|\brubric_v1\b|\bCHANGELOG\b", text)
