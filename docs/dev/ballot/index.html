@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>On The Ballot · The Civic Archive</title>
 <meta name="description" content="Who is on the ballot, race by race: every candidate the states have certified, the primaries that chose them, and who funds them.">
-<meta name="version" content="4.0.103">
+<meta name="version" content="4.0.104">
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -278,7 +278,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
   <div class="chips" id="offmap"></div>
 </main>
 
-<footer><span>On The Ballot, from The Civic Archive v4.0.103. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 07, 2026</span></footer>
+<footer><span>On The Ballot, from The Civic Archive v4.0.104. Candidate lists from each state&rsquo;s election office; campaign money from the Federal Election Commission.</span><span id="builton">Built October 07, 2026</span></footer>
 </div>
 
 <div class="turn" id="turn" hidden aria-live="polite">
@@ -292,7 +292,7 @@ body.arrive-soft .page{animation:soft .8s ease-out both}@keyframes soft{from{opa
 <div class="scene" id="scene" hidden aria-hidden="true"></div>
 
 <script>
-const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.103","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
+const DOOR = {"space":"ballot","election":"2026-11-03","version":"4.0.104","levels":[{"key":"federal","tag":"U.S. Congress","title":"The House and the Senate","text":"Every House and Senate race on the November 3 ballot: who is running, how they got there, and who funds them.","facts":[[470,"races"],[1128,"candidates listed"],[41,"states' official lists"]],"go":"Step inside","url":"us/","under":"On the ballot: Congress"},{"key":"state","tag":"State","title":"Governors and legislatures","text":"The governor and the other statewide offices, the legislature and the judges on each state's own official candidate list, state by state. More states follow one at a time.","facts":[[49,"states loaded"],[8943,"races"],[11978,"candidates listed"]],"go":"Choose a state","url":"states/","under":"On the ballot: the states"},{"key":"local","tag":"County and city","title":"Closer to home","text":"Sheriffs, county boards, mayors, councils and school boards on the November 3 ballot, county by county, from the official lists of 34 states so far. More states follow.","facts":[[34,"states"],[1668,"counties"],[22268,"contests"],[36986,"candidates"]],"go":"Choose a state","url":"states/#local","under":"On the ballot: counties and cities"}],"sky":[[["LEGISLATION","#FF3B3B"],["&","#FFFFFF"]],[["LEGISLATURES","#3D7BFF"]]],"skyStyle":"flag","whenText":"Back to the public record","transit":"bookshelf","root":"../"};
 const $ = (s, el) => (el || document).querySelector(s), $$ = (s, el) => [...(el || document).querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
