@@ -386,16 +386,20 @@ def practice_figures(code, doc, geo, live_root, say=print):
         return out
 
     long, rows = assemble(reported)
-    seq = 1
-    snap = os.path.join(live_root, "s", f"{seq:06d}")
+    # the practice snapshot folder the other practice builds use (night_common.practice_base), and now.json merged with
+    # theirs: this build changes only its own state's entry, so the US page's practice states stay
+    _seq, snap_base, snap, _old = N.practice_base(live_root)
     sizes = {name: N_write(os.path.join(snap, *name.split("/")), text) for name, text in files_of(long, rows).items()}
-    now = {"v": N.FORMAT_VERSION, "seq": seq, "at": "2026-11-04T03:50:00Z", "next": "2026-11-04T04:00:00Z", "run": "running", "rehearsal": False,
-           "practice": True, "label": PRACTICE_LABEL, "base": f"s/{seq:06d}/", "st": {code: {"s": "counting", "t": PRACTICE_AT, "f": f"{lc}.json", "by": "hand"}}}
-    sizes["now.json"] = N_write(os.path.join(live_root, "now.json"), json.dumps(now, separators=(",", ":")))
+    sizes["now.json"] = N.practice_now(live_root, {code: {"s": "counting", "t": PRACTICE_AT, "f": f"{lc}.json", "by": "hand"}},
+                                       "2026-11-04T03:50:00Z", "2026-11-04T04:00:00Z", PRACTICE_LABEL, say)
+    # its races for Congress and its statewide offices go into the practice us.json too, as the updater's us.json carries them
+    us_lv = {r["id"] for r in doc["races"] if r.get("lv") in N.US_LEVELS}
+    sizes["us.json"] = N.practice_us_merge(live_root, {rid: e for rid, e in long["r"].items() if rid in us_lv})
+    sizes["_base"] = snap_base
     # the files at their largest, every precinct in (measured, not written): the budgets must hold at the end of the night
     full = {name: len(text.encode("utf-8")) for name, text in files_of(*assemble(set(precincts))).items()}
     units = [len(reported), len(precincts)]
-    for label, sz in (("now", sizes), ("with every precinct in", full)):
+    for label, sz in (("now", {k: v for k, v in sizes.items() if k != "_base"}), ("with every precinct in", full)):
         cs = sorted((v, k) for k, v in sz.items() if "/c/" in k)
         say(f"  {'practice figures: ' + format(units[0], ',') + ' of ' + format(units[1], ',') + ' precincts in; ' + format(len(long['r']), ',') + ' races; ' if label == 'now' else ''}"
             f"{label}: state file {sz[f'{lc}.json'] / 1e3:,.0f} KB (budget {STATE_FILE_BUDGET / 1e3:,.0f}), county files {cs[0][0] / 1e3:,.0f} to {cs[-1][0] / 1e3:,.0f} KB "
@@ -492,13 +496,18 @@ const isPreview = () => /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && 
 const LV = {federal: "Congress", statewide: "Statewide offices", legislature: "The Legislature", court: "Judges", county: "County offices",
   soil_water: "Soil and water conservation", city: "Cities", township: "Townships", school: "School districts", hospital: "Hospital districts", other: "Other districts"};
 const ORDER = ["federal", "statewide", "legislature", "county", "soil_water", "city", "township", "school", "hospital", "other", "court"];      /* the ballot pages' order, Congress first */
-const cName = f => D.counties[f] ? `${D.counties[f]} County` : `County ${f}`;
+/* what the state calls the places below it: [one, many, a heading, inside a sentence, what follows a place's name] */
+const UW = ST.uw || ["county", "counties", "County by county", "county by county", " County"];
+const cName = f => D.counties[f] ? `${D.counties[f]}${UW[4]}` : `${capital(UW[0])} ${f}`;
 const counties = () => Object.keys(D.counties).sort((a, b) => D.counties[a].localeCompare(D.counties[b]));      /* (a code like "101" would otherwise come before "001": numeric keys go first in a script's objects) */
 const pShort = p => (D.pshort || {})[p] || p;
 const natural = d => { const m = /^(\d+)(\D*)$/.exec(String(d || "")); return m ? +m[1] * 100 + (m[2] ? m[2].charCodeAt(0) - 64 : 0) : 1e9; };
 const shortDay = iso => fmtDay(iso).replace(/, \d{4}$/, "");
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
-function raceTitle(r) {
+/* a party's primary (a rehearsal of a primary night) is a contest of its own, named for the race and the party */
+function raceTitle(r) { const t = raceTitle0(r); return r.pp != null ? `${t}: ${primaryName(r)}` : t; }
+const raceAt = id => R[id] || xRace(id);
+function raceTitle0(r) {
   if (r.lv === "federal") return r.k === "us_senate" ? "U.S. Senator" : `U.S. Representative, District ${r.d}`;
   if (r.lv === "legislature") return `${r.o}, ${r.j}`;
   let t = r.o;
@@ -515,7 +524,7 @@ function raceWhere(r) {
   return r.j || "";
 }
 const hrefRace = r => "#race=" + encodeURIComponent(r.id);
-const ballotHref = r => (r.lv === "federal" ? BOOT.links.ballotUS : BOOT.links.ballot) + "#race=" + encodeURIComponent(r.id);
+const ballotHref = r => (r.lv === "federal" ? BOOT.links.ballotUS : BOOT.links.ballot) + "#race=" + encodeURIComponent(r.base || r.id);
 const kindOf = r => r && r.g ? r.g.slice(0, r.g.indexOf(":")) : "";
 const idOf = r => r && r.g ? r.g.slice(r.g.indexOf(":") + 1) : "";
 
@@ -560,21 +569,28 @@ function linesHTML(r, e) {      // the marks (ahead, elected) only on the race's
     return `<div class="ln${x.wl ? " wl" : ""}"><span class="nm"><span class="nsw" style="--c:${x.c}" data-p="${x.p}" aria-hidden="true"></span>${esc(x.name)}${party}${badge ? " " + badge : ""}</span><span class="fig">${fig}</span>${L.total ? `<span class="nbar" aria-hidden="true"><i style="width:${share.toFixed(2)}%;--c:${x.c}" data-p="${x.p}"></i></span>` : ""}</div>`;
   }).join("")}</div>`;
 }
+/* a race with no figures of its own whose parties' primaries have them: each primary in its place */
+const primaries = r => r.pp == null && !E(r.id) ? partsOf(r.id, "party") : [];
 function resultHTML(r, o = {}) {
-  const e = E(r.id), n = seatsOf(r), unopp = r.cs.length <= n, where = raceWhere(r);
+  const pr = primaries(r);
+  if (pr.length) return pr.map(p => resultHTML(p, o)).join("");
+  const e = E(r.id), n = seatsOf(r), unopp = r.cs.length <= n && r.pp == null, where = raceWhere(r);
   const head = o.link === false ? esc(raceTitle(r)) : `<a href="${hrefRace(r)}">${esc(raceTitle(r))}</a>`;
-  const notes = [n > 1 ? `Voters choose ${num(n)}.` : "", unopp ? (r.cs.length === 1 ? "One candidate is on the ballot." : "As many candidates as seats are on the ballot.") : "", r.pt ? "" : "Nonpartisan office."].filter(Boolean).join(" ");
+  const notes = [n > 1 ? `Voters choose ${num(n)}.` : "", unopp ? (r.cs.length === 1 ? "One candidate is on the ballot." : "As many candidates as seats are on the ballot.") : "", r.pt || r.pp != null ? "" : "Nonpartisan office.",
+    r.pp != null ? "A party&rsquo;s primary, a contest of its own. Its candidates are shown as the state prints them." : ""].filter(Boolean).join(" ");
   return `<article class="res${o.small ? " small" : ""}" data-res="${esc(r.id)}" data-o="${esc(JSON.stringify(o))}"><h3>${head}</h3>${where && !o.noWhere ? `<p class="where">${esc(where)}</p>` : ""}
     <p class="nrep">${repHTML(r, e)}</p>${linesHTML(r, e)}${notes ? `<p class="one">${notes}</p>` : ""}
     ${LIVE.st && e ? `<p class="asof"><span class="tag fact">Fact</span> ${stampHTML(e)} ${finalHTML(r, e)}</p>` : ""}
     ${o.foot === false ? "" : `<div class="rfoot">${o.link === false ? "" : `<a href="${hrefRace(r)}">The map and every ${UNIT}</a>`}<a href="${esc(ballotHref(r))}">Who is running</a></div>`}</article>`;
 }
 function rowHTML(r, o = {}) {
+  const pr = primaries(r);
+  if (pr.length) return pr.map(p => rowHTML(p, o)).join("");
   const e = E(r.id), L = lines(r, e), nm = L.lines.filter(x => !x.wl), ah = aheadSet(r, L), n = seatsOf(r);
   const who = x => `<span class="nsw" style="--c:${x.c}" data-p="${x.p}" aria-hidden="true"></span><b>${esc(x.name)}</b>${r.pt && x.party ? ` (${esc(pShort(x.party))})` : ""} ${pct(x.votes, L.total)}`;
   let lead;
-  if (!L.total) lead = r.cs.length <= n ? `<small>${r.cs.length === 1 ? "One candidate on the ballot" : "As many candidates as seats"}${LIVE.st ? "; no votes yet" : ""}</small>` : `<small>No votes yet</small>`;
-  else if (r.cs.length <= n) lead = nm.filter(x => x.i < r.cs.length).map(who).join(", ") + `<small>${r.cs.length === 1 ? "the only candidate on the ballot" : "as many candidates as seats"}</small>`;
+  if (!L.total) lead = r.cs.length <= n && r.pp == null ? `<small>${r.cs.length === 1 ? "One candidate on the ballot" : "As many candidates as seats"}${LIVE.st ? "; no votes yet" : ""}</small>` : `<small>No votes yet</small>`;
+  else if (r.cs.length <= n && r.pp == null) lead = nm.filter(x => x.i < r.cs.length).map(who).join(", ") + `<small>${r.cs.length === 1 ? "the only candidate on the ballot" : "as many candidates as seats"}</small>`;
   else if (ah.size) lead = [...ah].map(who).join(", ") + `<small>ahead in the count so far</small>`;
   else lead = who(nm[0]) + `<small>${nm[1] && nm[1].votes === nm[0].votes ? "tied in the count so far" : "the count so far"}</small>`;
   const u = e && e.u && e.u[1] ? `${num(e.u[0])} of ${num(e.u[1])}<br>${UNIT}s in` : "";
@@ -770,7 +786,7 @@ const LOC_BTN = `<button type="button" class="locbtn" id="yloc">${PIN}Use my loc
 function yoursHTML() {
   return `<section class="bsec" id="yours"><h2>Your ballot&rsquo;s results</h2>
     <p class="sub">Use your location and this device finds your ${UNIT}, then shows every contest on your ballot with the count so far and your own ${UNIT}&rsquo;s figures. Your location stays on this device; nothing is sent anywhere.</p>
-    <div class="mybar">${LOC_BTN}<select class="pick" id="ycty" aria-label="Or pick your county"></select></div>
+    <div class="mybar">${LOC_BTN}<select class="pick" id="ycty" aria-label="Or pick your ${esc(UW[0])}"></select></div>
     <p class="ynote" id="ynote" aria-live="polite"></p><div id="yres"></div></section>`;
 }
 function readMine() { try { const m = JSON.parse(store.get(MKEY) || "null"); return m && m.p && m.c && D.counties[m.c] ? m : null; } catch (e) { return null; } }
@@ -815,7 +831,7 @@ function paintMine() {
 }
 function mountYours() {
   const sel = $("#ycty"), note = $("#ynote"), btn = $("#yloc"), fb = $("#yforget"); if (!sel) return;
-  sel.innerHTML = `<option value="">Or pick your county</option>` + counties().map(f => `<option value="${esc(f)}">${esc(cName(f))}</option>`).join("");
+  sel.innerHTML = `<option value="">Or pick your ${esc(UW[0])}</option>` + counties().map(f => `<option value="${esc(f)}">${esc(cName(f))}</option>`).join("");
   sel.addEventListener("change", () => { if (sel.value) location.hash = "county=" + sel.value; });
   fb.addEventListener("click", () => { [MKEY, "pin", "district", "sld:" + ST.lc, "ballot:" + ST.lc].forEach(k => store.del(k)); MINE = null;
     if (MAP) { MAP.setMine(null); MAP.setPin(null); MAP.whole(); }
@@ -885,7 +901,7 @@ function levelCards() {
   return [card("#statewide", "Statewide and Congress", `${plural(n("statewide"), "statewide office")} and ${plural(n("federal"), "race")} for Congress`),
     card("#legislature", "The Legislature", `${plural(n("legislature"), "race")}: every ${esc(ST.upT)} and ${esc(ST.loT)} district`),
     card("#courts", "Judges", `${plural(n("court"), "seat")} on the ${NM} courts`),
-    card("#counties", "County by county", `${plural(local, "county and local contest")}: county offices, cities, townships, school boards and more`)].join("");
+    card("#counties", esc(UW[2]), `${plural(local, UW[0] + " and local contest")}: ${esc(UW[0])} offices, cities, townships, school boards and more`)].join("");
 }
 function countyCards() {
   const c = {}; D.races.forEach(r => (r.c || []).forEach(f => { c[f] = (c[f] || 0) + 1; }));
@@ -901,7 +917,7 @@ function home(focus) {
     + `<section class="bsec" id="map"><h2>The map</h2><p class="sub">Who is ahead in the count so far, county by county, and ${UNIT} by ${UNIT} as you zoom in. Pick a race; tap a place for its own figures.</p>${mapHTML(mapChooser())}</section>`
     + `<section class="bsec" id="top"><h2>At the top of the ballot</h2><div class="rgrid2">${top.map(r => resultHTML(r, {small: true})).join("")}</div></section>`
     + `<section class="bsec" id="levels"><h2>Every level</h2><div class="lvgrid">${levelCards()}</div></section>`
-    + `<section class="bsec" id="counties"><h2>County by county</h2><p class="sub">Every county, city, township, school and other district contest, county by county.</p><div class="sgrid">${countyCards()}</div></section>`
+    + `<section class="bsec" id="counties"><h2>${esc(UW[2])}</h2><p class="sub">Every ${esc(UW[0])}, city, township, school and other district contest, ${esc(UW[3])}.</p><div class="sgrid">${countyCards()}</div></section>`
     + sourcesHTML();
   const m = /^(\w+):(.+)$/.exec(focus || "");
   const legAt = m && (m[1] === "house" || m[1] === "senate");
@@ -967,21 +983,21 @@ function countyPage(f) {
     return `<div class="nrows">${list.sort((a, b) => natural(a.d) - natural(b.d) || natural(a.s) - natural(b.s)).map(r => rowHTML(r, {where: lv !== "county"})).join("")}</div>`;
   };
   const t = topRace();
-  app.innerHTML = crumbs([`<a href="#counties">County by county</a>`, esc(cName(f))]) + heroHTML(`Election Night &middot; ${NM}`, esc(cName(f)), `${plural(rs.length, "contest")} reaching ${esc(cName(f))}, from the Legislature to the school boards.${countyLede(f)}`) + statusHTML()
+  app.innerHTML = crumbs([`<a href="#counties">${esc(UW[2])}</a>`, esc(cName(f))]) + heroHTML(`Election Night &middot; ${NM}`, esc(cName(f)), `${plural(rs.length, "contest")} reaching ${esc(cName(f))}, from the Legislature to the school boards.${countyLede(f)}`) + statusHTML()
     + `<section class="bsec"><h2>The map</h2><p class="sub">${esc(raceTitle(t))}, ${UNIT} by ${UNIT}. Pick another race on the home page&rsquo;s map.</p>${mapHTML(`<span class="kick">${esc(raceTitle(t))}</span>`)}</section>`
     + ORDER.filter(lv => by[lv]).map(lv => `<section class="bsec"><h2>${esc(LV[lv])}</h2>${group(lv, by[lv])}</section>`).join("") + sourcesHTML();
   wireMap();
   mountMap({race: t, county: f}).then(() => { if (MAP) MAP.focus("county", f).then(() => { if (!MAP) return; MAP.select(null); if (MAP.view().z < 11) MAP.zoomIn(); }, () => {}); refreshSources(); });
 }
 function racePage(id) {
-  const r = R[id];
+  const r = raceAt(id);
   if (!r) { app.innerHTML = crumbs([]) + `<p class="nempty">No race with that address is on this page. <a href="#">See every race</a>.</p>`; return; }
   document.title = `${raceTitle(r)}: Election Night, ${ST.name} · The Civic Archive`;
   const k = kindOf(r), wide = k === "state" || !r.c || r.c.length > 8;
   app.innerHTML = crumbs([esc(LV[r.lv] || ""), esc(raceTitle(r))]) + statusHTML()
     + `<section class="bsec">${resultHTML(r, {link: false})}</section>`
     + (r.g ? `<section class="bsec"><h2>The map</h2><p class="sub">${k === "state" ? "County by county; zoom in and each " + UNIT + " takes over." : `Each ${UNIT} of the contest&rsquo;s area, shaded by its own count.`}</p>${mapHTML(`<span class="kick">${esc(raceTitle(r))}</span>`)}</section>` : `<p class="nempty">The map has no lines for this contest&rsquo;s area.</p>`)
-    + `<section class="bsec"><h2>${wide ? "County by county" : `Every ${UNIT}`}</h2><div class="tblwrap" id="ntbl"><p class="held" style="padding:14px">Loading&hellip;</p></div></section>` + sourcesHTML();
+    + `<section class="bsec"><h2>${wide ? esc(UW[2]) : `Every ${UNIT}`}</h2><div class="tblwrap" id="ntbl"><p class="held" style="padding:14px">Loading&hellip;</p></div></section>` + sourcesHTML();
   if (r.g) { wireMap(); mountMap(raceSpec(r)).then(() => { if (k !== "state") focusOn(k, idOf(r), r.c); refreshSources(); }); }
   tableFor(r, wide);
 }
@@ -996,12 +1012,12 @@ function tableRows(r, wide) {
     .concat([{key: "t", label: "All votes", num: true, val: o => o.L ? o.L.total : null, html: o => o.L ? num(o.L.total) : ""},
       {key: "s", label: "Reported", val: o => o.in ? 1 : 0, html: o => o.in ? "Yes" : `<span class="muted">Not yet</span>`}]);
   if (wide) {
-    if (!e.c) return msg("The state&rsquo;s file gives no county figures for this race.");
+    if (!e.c) return msg(`The state&rsquo;s file gives no ${esc(UW[0])} figures for this race.`);
     const rows = counties().filter(f => !r.c || r.c.includes(f)).map(f => { const ce = e.c[f];
       return {id: f, f, name: cName(f), L: ce ? lines(r, entryOf(r, e, ce.v, ce.x, ce.w)) : null, in: !!(ce && ce.u && ce.u[0]), u: ce && ce.u}; });
-    const cols = cols0("County", o => o.name, o => `<a href="#county=${esc(o.f)}">${esc(o.name)}</a>`);
+    const cols = cols0(capital(UW[0]), o => o.name, o => `<a href="#county=${esc(o.f)}">${esc(o.name)}</a>`);
     cols[cols.length - 1] = {key: "s", label: `${capital(UNIT)}s in`, num: true, val: o => o.u && o.u[1] ? o.u[0] / o.u[1] : null, html: o => o.u ? `${num(o.u[0])} of ${num(o.u[1])}` : ""};
-    return Promise.resolve({rows, cols, opt: {page: 100, sort: [{key: "n", dir: "asc"}], count: rs => plural(rs.length, "county", "counties")}});
+    return Promise.resolve({rows, cols, opt: {page: 100, sort: [{key: "n", dir: "asc"}], count: rs => plural(rs.length, UW[0], UW[1])}});
   }
   return Promise.all([needIdx(), needKit()]).then(([idx]) => {
     const cs = (r.c || []).filter(c => idx.counties.some(x => x.id === c));
@@ -1075,8 +1091,8 @@ function refresh() {
   if (!D) return;
   if (LIVE.rehearsal) { const b = $("#nreh"); if (b) b.innerHTML = `<b>Rehearsal:</b> replayed figures from ${esc((LIVE.now && LIVE.now.label) || "a past election")}. Not 2026 results.`; }
   refreshStatus();
-  $$("[data-res]", app).forEach(el => { const r = R[el.dataset.res]; if (r && !el.closest("#nside")) swap(el, resultHTML(r, JSON.parse(el.dataset.o || "{}"))); });
-  $$("[data-row]", app).forEach(el => { const r = R[el.dataset.row]; if (r) swap(el, rowHTML(r, JSON.parse(el.dataset.o || "{}"))); });
+  $$("[data-res]", app).forEach(el => { const r = raceAt(el.dataset.res); if (r && !el.closest("#nside")) swap(el, resultHTML(r, JSON.parse(el.dataset.o || "{}"))); });
+  $$("[data-row]", app).forEach(el => { const r = raceAt(el.dataset.row); if (r) swap(el, rowHTML(r, JSON.parse(el.dataset.o || "{}"))); });
   $$("[data-crep]", app).forEach(el => { el.outerHTML = countyRep(el.dataset.crep); });
   $$("[data-clede]", app).forEach(el => { el.outerHTML = countyLede(el.dataset.clede); });
   const lg = $("#nlegend"); if (lg && SPEC) lg.innerHTML = legendHTML();
@@ -1198,7 +1214,7 @@ def build(dev_root, version=None, practice=None, say=print, code="MN"):
     record = os.path.exists(os.path.join(dev_root, lc, "index.html"))
     st = {"code": code, "lc": lc, "name": place(code)["name"], "agency": S["agency"], "results": S["results"],
           "polls": polls, "pollsNote": S.get("polls_note", ""), "cert": S["cert"], "rules": S["rules"], "hand": 1 if S.get("hand") else 0, "unit": S.get("unit", "precinct"),
-          "upT": words.get("upT") or "Senate", "loT": words.get("loT") or "House", "counting": registry_words(code)}
+          "upT": words.get("upT") or "Senate", "loT": words.get("loT") or "House", "counting": registry_words(code), "uw": N.unit_words(code)}
     boot = {"st": st, "data": f"data/races.json?v={N.sha10(races_text)}", "kit": f"mapkit.js?v={N.sha10(kit)}",
             "geo": {"base": geo_base, **g}, "live": {"base": live, "dir": f"{lc}/", "fips": str(place(code).get("fips") or "")}, "changelog": changelog,
             "links": {"night": night_home, "ballot": f"{prefix}ballot/{lc}/", "ballotUS": f"{prefix}ballot/us/", "record": f"{prefix}{lc}/" if record else "",
@@ -1221,8 +1237,11 @@ def build(dev_root, version=None, practice=None, say=print, code="MN"):
         f"data/races.json {written[os.path.join(out_dir, 'data', 'races.json')] / 1e3:,.0f} KB, mapkit.js {written[os.path.join(out_dir, 'mapkit.js')] / 1e3:,.0f} KB; "
         f"the map's lines from {geo_base} (cache key {g['v']})")
     if summary:
+        live_root = os.path.join(N.practice_root(dev_root), "night-live")
+        snap = os.path.join(live_root, *summary["sizes"]["_base"].strip("/").split("/"))
         for k, v in summary["sizes"].items():
-            written[os.path.join(N.practice_root(dev_root), "night-live", "s", "000001", k) if k != "now.json" else os.path.join(N.practice_root(dev_root), "night-live", k)] = v
+            if k != "_base":
+                written[os.path.join(snap, *k.split("/")) if k != "now.json" else os.path.join(live_root, k)] = v
     return written
 
 

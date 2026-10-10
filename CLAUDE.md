@@ -1241,6 +1241,37 @@ root is not touched); the home first, then the shell on every page.
   page and the Officials menu say "coming soon" for every state. Every link to them checks that the pages exist, so
   they come back by themselves when the folder does. The ballot's county and local races are not part of this.
 
+## Election Night (from version 4.0.107)
+
+John's idea (2026-10-09): a third space beside On The Ballot and Legislation & Legislatures, given over to results only:
+a US map that drills into each state and every level (Minnesota at every level; every state's statewide and
+congressional races wherever the state's own feed can be read), a live feed of news and official posts with a coverage
+leaderboard, and forecasts with the history of every run. The plan, its rules, the calendar to November 3 and who owns
+which file are in `election/ARCHITECTURE.md` (section 5.1 binds every change here); the scouting is in `election/scout/`.
+Sub-agents for this work run at or below Opus 5.5 max (John, 2026-10-09).
+
+- Code: `election/` (`store.py`; `source.py`, whose gate every request passes: it stops a host that answers with a
+  challenge page, a 403 or a 429, and never asks a `*.sos.mn.gov` results host or `cdn1.arizona.vote`; `readers/`, one per
+  results-system family; `crosswalk/<code>.json`, a state's contests tied to the ballot databases' race ids, every
+  untied contest listed; `registry/<code>.json`, how each state is read: live, care, hand or link; `feeds/`; `model/`),
+  `run_night.py` (the updater, run on John's computer: `check`, `discover`, replays, `Start Election Night.bat`),
+  `night_common.py`, `build_night_home.py`, `build_night_state.py`, `build_night_us.py`. Pages go in `site/dev/night/`;
+  practice builds (past official figures replayed, labelled "Practice", never published) in `site/practice/`.
+- Data: `election_2026.sqlite` (results), `election_model_2026.sqlite` (features, run inputs, every forecast run, which
+  must redo exactly), `night_feed_2026.sqlite` (outlets, official accounts, counts); downloads in `election_cache/`;
+  live snapshots in `election_live/` (both git-ignored).
+- John's answers (D1 to D12, 2026-10-10): live figures go to a second public repository (his step to create;
+  `election/publish.py` stays off until `LIVE_REPO` is set); Arizona, Kentucky and the walled states link out to their
+  own results pages; on the night John saves Minnesota's Media Files and Oklahoma's two Export files by hand and the
+  updater reads them from a folder; MEDSL's past results (labelled secondary) and the Census tables are allowed;
+  Minnesota's ballot order is rebuilt from the rotation rules and labelled an estimate; the updater starts Monday,
+  November 2, at 6 p.m. CT.
+- On the pages: results are "as reported, not final" until certified; a forecast is always labelled Analysis with a
+  range and its track record, is never 0 or 100 percent, is never made for an unopposed race, and is shown all through
+  Election Day, with "Polls are still open here" and the polling-place link where they are; feed posts are shown only
+  from news organizations, election offices and candidates' official accounts (two anchors each), and everyone else is
+  counted, never named; red and blue only for party data.
+
 ## Optional: rate more bills with the Claude API
 
 John runs this himself in a separate terminal where he has set `ANTHROPIC_API_KEY`, so the key never passes

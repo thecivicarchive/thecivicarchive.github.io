@@ -428,7 +428,8 @@ def discover(limit=None, only=None, say=print, src=None, recheck=False, retry_re
                 for href, relme in items[:4]:
                     try:
                         acc, why = VERIFY[plat](src, href, domain)
-                    except (Refused, SourceError, AttributeError, KeyError, TypeError) as e:  # noqa: PERF203
+                    except (Refused, SourceError, AttributeError, KeyError, TypeError, IndexError,
+                            ValueError) as e:  # noqa: PERF203  (IndexError: a YouTube link it could not split)
                         acc, why = None, type(e).__name__
                     if not acc:
                         rec["set_aside"] += 1

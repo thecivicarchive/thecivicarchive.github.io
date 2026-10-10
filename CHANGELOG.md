@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.109 — 2026-10-10 — Election Night: the feed, the forecasts page and forecasts for the other states
+
+- The feed is a new Election Night page about news coverage of the races. Each headline names its outlet and links to the story. Posts appear only from newsrooms, election offices and candidates' official accounts, and only once the site has its own contact address; everyone else is counted, never shown. A leaderboard ranks the races by coverage per 100,000 residents, the attention gap (coverage against how close a race is), momentum (the last hour against the hour before) and source breadth (how many outlets). It fills in once the night's updater is running.
+- The forecasts page gives each race's chances, a likely range of the vote, the trend across every run of the model, its inputs and three blind spots in plain words, with the track record and the method. Forecasts are not public yet: until they are, the page shows only how they are made and how the method did on past elections.
+- On election night Minnesota's forecasts are run again as each county reports. The other states' Congress, governor and statewide forecasts cover 40 states so far, tested on the 2022 and 2024 elections; seats on lines redrawn for 2026 have no forecast, and each page says why.
+- Results pages: Michigan is read in part (Oakland County's own figures, labelled as one county's); each state's own word for its places (parish, borough, locality, town, ward); primaries replayed for practice show as their own contests.
+
 ## v4.0.108 — 2026-10-10 — Election Night: every state's results readers, the US map, live updates and Minnesota's first forecasts
 
 - Election Night can now read the official results of 26 states and the District of Columbia straight from each state's own results system, each tested by replaying a past election and checked against its certified totals. The other states link to their own results pages.

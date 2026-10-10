@@ -4,7 +4,7 @@
     python -m election.model.runs --list [--state mn]       the runs on file
     python -m election.model.runs --redo <run id>          redo a stored run from its stored inputs and seed; exact or not
     python -m election.model.runs --check [--state mn]     no 0 or 100 anywhere, nothing for an unopposed race, every stored
-                                                           pre-election run redone exactly
+                                                           pre-election and election-night run redone exactly
     python -m election.model.runs --selftest               the store's arithmetic on a made-up run; touches no real table
 
 WHAT IS KEPT (election_model_2026.sqlite; the features and run_inputs tables are election/model/__init__.py's)
@@ -56,9 +56,12 @@ RUNS_METHOD = "runs-1.0"
 KINDS = ("pre", "live", "backtest", "replay")
 PUBLIC_KINDS = ("pre", "live")            # what the pages show; backtests and replays stay on #track
 # kind -> "module:function" taking (frame, seed, draws) and returning {"races": [race output, ...]}
-SIMULATORS = {"pre": "election.model.forecast:simulate"}
+# "live": the night's model (live_model.py builds the frame, simulate.py draws it; N17). A kept simulate.py imports only
+# runs.py, so a stored live run is redone exactly with the code it was made with.
+SIMULATORS = {"pre": "election.model.forecast:simulate", "live": "election.model.simulate:simulate"}
 MODEL_FILES = {"pre": ("forecast.py", "runs.py"), "backtest": ("backtest.py", "forecast.py", "runs.py"),
-               "replay": ("backtest.py", "forecast.py", "runs.py")}
+               "live": ("simulate.py", "live_model.py", "blindspots.py", "runs.py"),
+               "replay": ("blindspots.py", "live_model.py", "simulate.py", "backtest.py", "forecast.py", "runs.py")}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS runs (
@@ -409,13 +412,25 @@ FILE_KEY = {
     "t, m, k": "the race's own run time, method version and kind where they differ from the file's",
     "about": "the newest run's inputs and method in plain words (\"ran\": when the model last ran, though no race may have "
              "changed; \"t\" at the top: when the newest change was made)",
+    "st": "the count's state when the model ran, where it is not \"pre\": counting (some of the race's precincts in) or done "
+          "(every precinct in, the counties' last absentee ballots perhaps still to come); absent: none of the race's "
+          "precincts counted yet",
+    "k values": "pre: the forecast before results; live: the election-night model, from the votes counted so far",
 }
 
 
 def _tested_codes(texts):
+    """A short code for each distinct "tested" text: t1, t2 ... and u for the first "untested" one (u2, u3 ... for any
+    other: a race before results and the same kind of race on election night are described differently)."""
     codes, out = {}, {}
+    nt = nu = 0
     for t in sorted(t for t in texts if t):
-        k = "u" if t.startswith("untested") else f"t{len([c for c in codes.values() if c.startswith('t')]) + 1}"
+        if t.startswith("untested"):
+            nu += 1
+            k = "u" if nu == 1 else f"u{nu}"
+        else:
+            nt += 1
+            k = f"t{nt}"
         codes[t] = k
         out[k] = t
     return codes, out
@@ -556,9 +571,38 @@ def track_json(code, db=DB):
         params = get_blob(con, frame_sha) if frame_sha else None
         doc = {"v": 1, "state": code.upper(), "run": run, "method": method, "t": started, "measures": meas,
                "about": (params or {}).get("report", {})}
+        night = night_track(con, code)
+        if night:
+            doc["night"] = night
         return json.loads(scrub(canonical(doc)))
     finally:
         con.close()
+
+
+def night_track(con, code):
+    """The night model's replays (blindspots.calibrate, kind "replay"), for #track beside the backtest: how its 80 and 95
+    percent ranges held in each counting order and at each share counted, its Brier score, how often the candidate ahead
+    in the count was not the one who finished first, and how much an early lead meant ("lead": by share of the race
+    counted and size of the lead, how often the candidate ahead finished first, beside the model's average chance)."""
+    row = con.execute("SELECT run, method, started, frame_sha FROM runs WHERE state = ? AND kind = 'replay' AND ended IS NOT NULL "
+                      "ORDER BY started DESC, run DESC LIMIT 1", (code.upper(),)).fetchone()
+    if not row:
+        return None
+    run, method, started, frame_sha = row
+    doc = get_blob(con, frame_sha) or {}
+    rep = doc.get("report") or {}
+    prm = doc.get("params") or {}
+    return {"run": run, "method": method, "t": started, "summary": prm.get("summary"), "orders": rep.get("orders"),
+            "checkpoints": rep.get("checkpoints"),
+            "partisan": {"by_order": (rep.get("partisan") or {}).get("by_order"), "simulated": rep.get("partisan_simulated"),
+                         "lead": rep.get("partisan_lead")},
+            "nonpartisan": {"by_order": (rep.get("nonpartisan") or {}).get("by_order"), "all": (rep.get("nonpartisan") or {}).get("all"),
+                            "lead": rep.get("nonpartisan_lead")},
+            "what": ("The election-night model was replayed on Minnesota's 2022 and 2024 results, with the precincts revealed in "
+                     "four orders (random; small and rural first; whole counties with the largest metro counties last; each "
+                     "county's last absentee ballots held back), and scored at " +
+                     ", ".join(str(c) for c in (rep.get("checkpoints") or [])[:-1]) +
+                     (f" and {(rep.get('checkpoints') or [None])[-1]}" if rep.get("checkpoints") else "") + " percent counted.")}
 
 
 KIT_NAME = re.compile(r"\b[\w./\\-]+\.(?:py|sqlite|bat|ps1|js|json|md)\b")
@@ -784,7 +828,7 @@ def main(argv=None):
         print(f"    unopposed races carry no forecast: {u}")
         ok &= e["holds"] and u["holds"]
         for r in list_runs(a.db, a.state):
-            if r["kind"] == "pre" and not r["rehearsal"]:
+            if r["kind"] in SIMULATORS:
                 res = redo(r["run"], a.db)
                 ok &= res["exact"]
         sys.exit(0 if ok else 1)

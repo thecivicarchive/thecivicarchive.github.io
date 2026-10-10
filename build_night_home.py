@@ -187,7 +187,7 @@ def door(key, href, kick, title, std, plain, facts_, go, ready, extra=""):
     head = (f'<h3><a id="door-{key}" href="{href}" aria-labelledby="door-{key} door-{key}-go">{esc(title)}</a></h3>' if ready else
             f'<h3 id="door-{key}">{esc(title)}</h3>')
     go_ = (f'<span class="go" id="door-{key}-go" aria-hidden="true">{esc(go)} {H.ARROW}</span>' if ready else
-           '<p class="nh-soon">Opens before Election Day.</p>')
+           '<p class="nh-soon">Coming: this page opens before Election Day.</p>')
     return f"""<article class="tca-door{'' if ready else ' nh-wait'}" data-door="night-{key}">
 <div class="top">{tile(ICONS[key], "brass" if key in ("mn", "forecasts") else "verd")}<span class="kick">{esc(kick)}</span></div>
 {head}

@@ -14,6 +14,9 @@ What a snapshot folder holds (each file only when its section has something to s
                            carries: the state files' own short form (election.store.compact_page), without the county
                            figures, so that the US page needs one file. Long form:
                            {"v":1, "state":"US", "at": <newest figure's time>, "r": {race id: {"t", "p", "ch", "v", "off"}}}
+                           It also carries a partial source's contests ("2026-MI-S2@26125", level "partial": one
+                           county's own count of a statewide race, where the state publishes none), which the pages
+                           show as that county's part, never as the state's count.
   <code>.json              a state's figures (election.store.page_json)
   <code>/c/<county>.json, <code>/c/<county>-court.json   a county's precinct rows (election.store.county_json; names
                            from election.store.county_file), both files for every county with precincts
@@ -24,7 +27,10 @@ now.json (night_common.py's account, plus "fc" and "fd" from ARCHITECTURE.md 2.6
   {"v":1, "seq":184, "at":<when this pointer was written>, "next":<when the next is due, or null>,
    "run":"running"|"paused"|"stopped", "rehearsal":false, "practice":false, "label":<what a rehearsal replays, or null>,
    "base":"s/000184/", "st":{"MN":{"s":<status word>, "t":<time of the state's figures>, "f":"mn.json", "by":"hand"|"feed"},
-   "KY":{"s":"link"}, ...}, "fc":{"t":..., "m":...}, "fd":{"t":...}}
+   "KY":{"s":"link"}, "MI":{"s":"counting", "t":..., "f":"mi.json", "by":"feed", "pt":"26125"}, ...}, "fc":{"t":..., "m":...},
+   "fd":{"t":...}}
+  "pt" marks a state whose figures are one county's own (a partial source): the pages show them as that county's, and
+  the state as partly read.
 When nothing in the figures has changed since the last snapshot, no new folder is written: now.json is written again
 with the same "seq" and "base" and a new "at", so that pages know the updater is still running.
 
@@ -112,7 +118,7 @@ def results_files(con, codes):
                 out[store.county_file(code, cu, part)] = dumps(store.county_json(con, code, cu, part))
         levels = {rid: lv for rid, lv in con.execute("SELECT race_id, level FROM contests WHERE state=?", (code,))}
         for rid, e in long["r"].items():
-            if levels.get(rid) in FEDERAL_LEVELS or re.fullmatch(r"\d{4}-[A-Z]{2}-(H\d+|S\d)", rid):
+            if levels.get(rid) in FEDERAL_LEVELS or levels.get(rid) == "partial" or re.fullmatch(r"\d{4}-[A-Z]{2}-(H\d+|S\d)", rid):
                 us["r"][rid] = {k: v for k, v in e.items() if k != "k"}
                 if e.get("t") and (us["at"] is None or e["t"] > us["at"]):
                     us["at"] = e["t"]

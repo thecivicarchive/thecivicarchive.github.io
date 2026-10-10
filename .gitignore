@@ -49,3 +49,7 @@ election_cache/
 # and the status file the updater rewrites every few minutes
 election_live/
 election_night_status.md
+
+# Stray error output from a shell redirect that a Windows path broke (files named C or x at the root)
+/C
+/x

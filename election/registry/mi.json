@@ -113,10 +113,33 @@
  },
  "partial_sources": [
   {
+   "id": "oakland",
    "what": "Oakland County (Clarity), labelled partial",
+   "name": "Oakland County",
+   "county": "26125",
+   "family": "clarity",
+   "status": "live",
+   "approved": true,
    "host": "results.enr.clarityelections.com",
-   "status": "later",
-   "note": "EIDs from elections.oaklandcountymi.gov"
+   "cadence": {
+    "check_every_s": 120,
+    "signal": "https://results.enr.clarityelections.com/MI/Oakland/<EID>/current_ver.txt",
+    "data_on_change": true,
+    "from": "Michigan's first poll closing",
+    "hosts": [
+     "results.enr.clarityelections.com"
+    ]
+   },
+   "election": {
+    "nov3_id": null,
+    "how_to_find": "Oakland County's elections page (elections.oaklandcountymi.gov) links the Nov 3 Clarity EID in late October; the county's own elections.json list is empty. Put it here as nov3_id."
+   },
+   "results_page": {
+    "url": "https://results.enr.clarityelections.com/MI/Oakland/",
+    "label": "Oakland County's results"
+   },
+   "reads": "Federal and statewide contests only, each as '<race id>@26125' at level 'partial' and titled '(Oakland County only)': one county's own figures, shown as that county's part of the race, never as Michigan's count.",
+   "note": "EIDs from elections.oaklandcountymi.gov (127074 and 126183 linked on 2026-10-09); the reader is election/readers/clarity.py, which reads a partial source when its entry carries 'partial'. Added 2026-10-10 (N2c)."
   }
  ],
  "rehearsal": null,

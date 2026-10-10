@@ -6,6 +6,10 @@ ONE CYCLE
      address every 2 minutes (5 after 3 a.m. Central, 10 after 8 a.m.); before that once an hour, and whatever it
      carries then is a test: checked, never published. The data is fetched only when the version changed, kept raw
      (election_cache/<code>/<feed>/), read, checked and stored (election/store.py); a state's figures are never edited.
+     A partial source is read the same way: a link state whose registry entry names one county's own results in
+     "partial_sources" (Oakland County, Michigan; partial_source() says which qualify). Its reader is handed the entry
+     with "partial": {"county", "name"} and gives each contest the id "<race>@<county>" at level "partial", so that the
+     county's figures are kept as that county's part, never as the state's count; now.json marks the state with "pt".
   2. Hand-saved files (Minnesota; Oklahoma once its reader exists): each watched folder is looked at every 30 seconds;
      a changed folder is read once it has been quiet for 45 seconds (John saves several files in a row), the same way.
   3. The feed, the forecasts and the measures, each on its own clock, in a thread of their own, once their modules
@@ -87,6 +91,9 @@ WARM_UP = 30                 # minutes before a state's first poll closing when 
 STALE_AFTER = 3              # failures in a row before a state says its site has not answered
 PARTIAL = (".crdownload", ".part", ".tmp", ".download", ".partial")
 CENTRAL = "America/Chicago"
+# The kinds of state the cycle reads: the registry's live, care and hand, and "partial", a link state one of whose
+# counties publishes its own count (the registry's partial_sources), read as a labelled part of the state, never its count.
+READ_KINDS = ("live", "care", "hand", "partial")
 
 SECTIONS = {
     # name: (module, function, seconds between calls on election night, seconds in the day before)
@@ -248,6 +255,29 @@ def sha_files(files):
 def safe_name(s):
     s = re.sub(r"^https?://", "", str(s))
     return re.sub(r"[^A-Za-z0-9._-]+", "_", s)[-90:] or "file"
+
+
+def partial_source(entry):
+    """The one county's own results a link state's registry entry names as a labelled partial source, ready to read
+    (Oakland County, Michigan: a Clarity page, the state having no statewide count on the night), or None. It must name
+    its family, the county (five-digit FIPS) and its name, a cadence with hosts, be approved, and be live or care."""
+    for ps in (entry or {}).get("partial_sources") or []:
+        if not isinstance(ps, dict) or ps.get("status") not in ("live", "care") or not ps.get("approved"):
+            continue
+        if not re.fullmatch(r"[a-z0-9_]+", str(ps.get("family") or "")) or not re.fullmatch(r"\d{5}", str(ps.get("county") or "")):
+            continue
+        cad = ps.get("cadence") or {}
+        if ps.get("name") and cad.get("hosts") and cad.get("signal"):
+            return ps
+    return None
+
+
+def partial_entry(entry, ps):
+    """The registry entry a reader is handed for a partial source: the state's own, with the source's family, cadence and
+    election, and "partial": {"county", "name"}, which tells the reader to read the county's figures as a part (race ids
+    "<race>@<county>", level "partial"), never as the state's."""
+    return dict(entry, family=ps["family"], cadence=ps["cadence"], election=dict(entry.get("election") or {}, **(ps.get("election") or {})),
+                partial={"county": ps["county"], "name": ps["name"]}, partial_id=ps.get("id"))
 
 
 def hand_folder(entry):
@@ -419,6 +449,9 @@ class Night:
             if not e:
                 continue
             kind = e.get("status")
+            ps = partial_source(e) if kind == "link" else None
+            if ps:          # a link state with one county's own count read as a labelled part (Oakland County, Michigan)
+                kind, e = "partial", partial_entry(e, ps)
             ph = self.poll.get(code) or {}
             first = self.close_override.get(code) or parse(ph.get("first_close_utc")) or dt.datetime.combine(self.day, dt.time(2), UTC)
             last = self.close_override.get(code) or parse(ph.get("last_close_utc")) or first
@@ -427,13 +460,17 @@ class Night:
                  "fp_read": None, "last_version": None, "changed": False, "held_at": None, "mod": None, "mtime": None}
             if kind == "hand":
                 s["folder"] = self.hand_override.get(code) or hand_folder(e)
+            if kind == "partial":
+                s["part"] = {"county": ps["county"], "name": ps["name"]}
             self.st[code] = s
-            if kind in ("live", "care", "hand"):
+            if kind in READ_KINDS:
                 mod, why = self._reader(code)
                 s["why"] = why
                 s["feed"] = getattr(mod, "FEED", None) if mod else None
+            if kind == "partial":       # its own feed id, so that the county's snapshots never pass for the state's
+                s["feed"] = f"{code.lower()}-{e.get('partial_id') or ps['county']}"
             s["feed"] = s.get("feed") or f"{code.lower()}-{e.get('family') or 'none'}"
-            if kind in ("live", "care", "hand") and not s["why"]:
+            if kind in READ_KINDS and not s["why"]:
                 store.ensure_election(self.con, code, kind="general", date=self.day.isoformat(),
                                       certifying_body=(e.get("certify") or {}).get("body"),
                                       certified_on=None, note=None)
@@ -489,7 +526,7 @@ class Night:
         for code, saver in self.savers.items():
             self._tick_saver(code, saver, now)
         for code, s in self.st.items():
-            if s["kind"] not in ("live", "care", "hand"):
+            if s["kind"] not in READ_KINDS:
                 continue
             if not force and s["next"] and now < s["next"]:
                 continue
@@ -735,6 +772,8 @@ class Night:
             return "refused"
         if s["why"] and not summ:
             return "link"
+        if s["kind"] == "partial" and not summ:
+            return "link"           # the state's own count is not read here; its county's figures, once in, are counted below
         if s["kind"] != "hand" and s["fails"] >= STALE_AFTER:
             return "stale"
         last = self.con.execute("SELECT status FROM snapshots WHERE state=? AND feed_id=? AND status IN ('ok','held') "
@@ -771,6 +810,8 @@ class Night:
                 ent = {"s": w}
                 if code in summ:
                     ent.update(t=summ[code]["at"], f=f"{code.lower()}.json", by="hand" if self.st[code]["kind"] == "hand" else "feed")
+                if self.st[code].get("part"):
+                    ent["pt"] = self.st[code]["part"]["county"]      # the figures are one county's own, never the state's count
                 states[code] = ent
             nxt = None
             if run == "running" and self.next_snap:
@@ -798,8 +839,12 @@ class Night:
         for code in changed:
             self.st[code]["changed"] = False
             u = summ.get(code, {}).get("units")
-            unit = str(self.st[code]["entry"].get("units") or "unit").split()[0]
-            words = f"{u[0]:,} of {u[1]:,} {unit}s in" if u else "figures read"
+            part = self.st[code].get("part")
+            unit = "precinct" if part else str(self.st[code]["entry"].get("units") or "unit").split()[0]
+            many = {"county": "counties", "parish": "parishes", "locality": "localities"}.get(unit, unit + "s")
+            words = f"{u[0]:,} of {u[1]:,} {many} in" if u else "figures read"
+            if part:
+                words = f"{part['name']} only (one county's own count, not the state's): {words}"
             self.note(f"{code}: {words} (figures as of {clock_words(self.shown(parse(summ.get(code, {}).get('at'))))})", at=night)
         if publish and self.publisher is not None and self.publisher.enabled:
             if wait:
@@ -1040,7 +1085,8 @@ class Night:
             for rel, n, b in sn["over"][:6]:
                 L.append(f"  - over its size budget: {rel}, {n / 1e3:,.0f} KB (budget {b / 1e3:,.0f} KB)")
         L += ["", "## States", "", "| State | How it is read | Now | Figures as of | Reported | Note |", "| --- | --- | --- | --- | --- | --- |"]
-        how = {"live": "read live", "care": "read with care", "hand": "John saves the files", "link": "linked, not read"}
+        how = {"live": "read live", "care": "read with care", "hand": "John saves the files", "link": "linked, not read",
+               "partial": "linked; one county's own count read as a part"}
         words = {"wait": "polls open", "none": "no votes yet", "counting": "counting", "done": "every unit in", "official": "certified",
                  "held": "figures held", "stale": "site not answering", "link": "not read here", "refused": "site refused"}
         for code in self.codes:

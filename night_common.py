@@ -66,7 +66,16 @@ them", one polite announcement a snapshot. Updates count as paused when now.json
 when "next" is more than 20 minutes past by the reader's clock (25 minutes after "at" when there is no "next"); the
 updater sets "next" by its publishing cadence, so the pages need no rule of their own about it.
 
-The race ids are the ballot databases' own; a precinct id is the map's own (Minnesota: the VTDID).
+The race ids are the ballot databases' own; a precinct id is the map's own (Minnesota: the VTDID). Two other forms are a
+part of a race on the list, and normState makes each a contest of its own (xRace, partsOf): a party's primary in a
+rehearsal of a primary night, "2026-IA-H01~REP" (or "<race>/primary-REP"), shown with its lines as printed; and one
+county's own count read where the state publishes none (a partial source), "2026-MI-S2@26125", shown as that county's
+part, never as the state's count. now.json marks a state read that way with "pt": "<county>". The US page reads
+us.json through the same poller (NIGHTLIVE.start({get: () => liveGet("us.json")})).
+
+A practice build (site/practice/night-live/) writes into the folder the practice now.json already names and merges its
+own states into that now.json (practice_base, practice_now) and its races for Congress and statewide offices into us.json
+(practice_us_merge), so practice builds of different pages never take each other's figures out.
 check_state_live() and check_county_live() test the files against this account.
 """
 
@@ -243,6 +252,173 @@ def check_county_live(doc, lines=None, races=None):
         if not all(isinstance(v, int) and v >= 0 for v in entry[1]):
             out.append(f"{rid}: a figure that is not a whole number")
     return out
+
+
+# ============================================================ the words for a state's reporting places
+
+# What a state calls the places below the state that its count is given for (the level a map draws below a state):
+# counties, except where the state's own words differ. Louisiana has parishes; Alaska boroughs and census areas;
+# Virginia counties and independent cities, together "localities"; the New England states report by town; the District
+# by ward. Each: (one, many, a heading, the same words inside a sentence, what follows a place's name).
+UNIT_WORDS = {
+    "LA": ("parish", "parishes", "Parish by parish", "parish by parish", " Parish"),
+    "AK": ("borough or census area", "boroughs and census areas", "By borough and census area", "by borough and census area", ""),
+    "VA": ("locality", "localities", "Locality by locality", "locality by locality", ""),
+    "CT": ("town", "towns", "Town by town", "town by town", ""),
+    "VT": ("town", "towns", "Town by town", "town by town", ""),
+    "MA": ("town", "towns", "Town by town", "town by town", ""),
+    "RI": ("town", "towns", "Town by town", "town by town", ""),
+    "NH": ("town", "towns", "Town by town", "town by town", ""),
+    "ME": ("town", "towns", "Town by town", "town by town", ""),
+    "DC": ("ward", "wards", "Ward by ward", "ward by ward", ""),
+}
+UNIT_WORDS_DEFAULT = ("county", "counties", "County by county", "county by county", " County")
+
+
+def unit_words(code):
+    """A state's words for the places its count is given for, as a list a page carries: [one, many, a heading, inside a
+    sentence, what follows a place's name] ("county", "counties", "County by county", "county by county", " County")."""
+    return list(UNIT_WORDS.get(str(code or "").upper(), UNIT_WORDS_DEFAULT))
+
+
+# ============================================================ practice figures: one now.json for every practice build
+
+def practice_base(live_root):
+    """The snapshot folder every practice build writes into, and the practice now.json already there: (seq, base, folder,
+    old now.json or None). The folder named by the practice now.json already there is kept, so that a second practice
+    build adds its files beside the first's; else s/000001/."""
+    try:
+        with open(os.path.join(live_root, "now.json"), encoding="utf-8") as fh:
+            old = json.load(fh)
+    except (OSError, ValueError):
+        old = None
+    base = (old or {}).get("base") if isinstance(old, dict) and old.get("practice") else None
+    if not (isinstance(base, str) and re.fullmatch(r"s/\d{6}/", base)):
+        base = "s/000001/"
+    return int(base[2:8]), base, os.path.join(live_root, *base.strip("/").split("/")), old if isinstance(old, dict) else None
+
+
+def _write_text(path, text):
+    from build_ballot_state_dev import write_if_changed
+    write_if_changed(path, text)
+    return len(text.encode("utf-8"))
+
+
+def practice_now(live_root, entries, at, next_at, label, say=print):
+    """Writes the practice now.json, merged with the one already there: each state named in entries ({code: its entry})
+    takes its new entry, every other state keeps what an earlier practice build gave it (Minnesota's practice build no
+    longer takes the other states out, nor the US page's build Minnesota). Returns its size in bytes."""
+    seq, base, _folder, old = practice_base(live_root)
+    st = dict((old or {}).get("st") or {}) if (old or {}).get("practice") else {}
+    st.update(entries)
+    doc = {"v": FORMAT_VERSION, "seq": seq, "at": at, "next": next_at, "run": "running", "rehearsal": False, "practice": True,
+           "label": label, "base": base, "st": {k: st[k] for k in sorted(st)}}
+    n = _write_text(os.path.join(live_root, "now.json"), json.dumps(doc, ensure_ascii=False, separators=(",", ":")))
+    if n > 4000:
+        say(f"  WARNING: the practice now.json is {n:,} bytes, over its 4 KB budget")
+    return n
+
+
+US_LEVELS = ("federal", "congress", "statewide")
+
+
+def practice_us_merge(live_root, long_entries):
+    """Puts a state's practice figures for its races for Congress and its statewide offices ({race id: entry, the
+    store's long form}) into the practice us.json beside them, as the updater's us.json carries every state's (county
+    figures left out), keeping every other race already there. Returns its size in bytes."""
+    from election import store
+    _seq, _base, folder, _old = practice_base(live_root)
+    path = os.path.join(folder, "us.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            us = store.expand_page(json.load(fh))
+    except (OSError, ValueError):
+        us = {"v": FORMAT_VERSION, "state": "US", "at": None, "r": {}}
+    for rid, e in long_entries.items():
+        us["r"][rid] = {k: v for k, v in e.items() if k != "k"}
+    us["at"] = max([e["t"] for e in us["r"].values() if e.get("t")] + [us.get("at") or ""]) or None
+    return _write_text(path, json.dumps(store.compact_page(us), ensure_ascii=False, separators=(",", ":")))
+
+
+# ============================================================ the US map's files (shared by every Night page that draws it)
+
+US_STATES_TOPO = os.path.join(HERE, "us_states_albers.json")
+US_COUNTY_ZIP = os.path.join(HERE, "states_cache", "census", "cb_2024_us_county_500k.zip")
+US_COUNTY_URL = "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip"
+US_COUNTY_METHOD = "1"           # bump to redraw every county file
+
+
+def us_map_doc():
+    """The states' shapes (us-atlas, in the Albers frame every map of the site uses): {"v", "d": {code: path}, "b": {code:
+    box}}, written beside a page as data/map.json."""
+    from build_site_dev import state_paths
+    sp = state_paths(US_STATES_TOPO)
+    return {"v": 1, "d": {k: v["d"] for k, v in sorted(sp.items())}, "b": {k: v["bbox"] for k, v in sorted(sp.items())}}
+
+
+def us_county_counts():
+    """How many counties (or county equivalents) each state has in the Census Bureau's county file, by state code."""
+    from build_site_dev import FIPS
+    try:
+        import io
+        import zipfile
+        import shapefile                     # pyshp
+        z = zipfile.ZipFile(US_COUNTY_ZIP)
+        base = next(n[:-4] for n in z.namelist() if n.endswith(".dbf"))
+        rdr = shapefile.Reader(dbf=io.BytesIO(z.read(base + ".dbf")))
+        fields = [f[0] for f in rdr.fields[1:]]
+        i = fields.index("STATEFP")
+        n = {}
+        for rec in rdr.iterRecords():
+            st = FIPS.get(str(rec[i]))
+            if st:
+                n[st] = n.get(st, 0) + 1
+        return n
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def us_county_files(out_dir, codes, bbox, say=print):
+    """data/counties/<code>.json under out_dir for each state named: the Census Bureau's county lines, projected with the
+    state's own part of the Albers frame (Alaska and Hawaii are insets) and simplified to about half a pixel of a
+    1,000-pixel map of the state. A file is drawn again only when the Census file, the state's frame or the method
+    changes. Returns ({path: bytes}, {"keys": {code: cache key}, "sha": the Census file's SHA-256})."""
+    from albers_usa import AlbersUsa
+    from build_site_dev import FIPS
+    from states.load_counties import read_counties
+    from states.load_sld import Q
+    if not os.path.exists(US_COUNTY_ZIP):
+        say(f"  WARNING: no county lines: {os.path.relpath(US_COUNTY_ZIP, HERE)} is not on disk (the ballot pages fetch it once); "
+            "the states are drawn whole")
+        return {}, {}
+    sha = hashlib.sha256(open(US_COUNTY_ZIP, "rb").read()).hexdigest()
+    fips_of = {v: k for k, v in FIPS.items()}
+    written, keys, drawn = {}, {}, []
+    for code in codes:
+        b = bbox.get(code)
+        if not b:
+            continue
+        w = max(b[2] - b[0], (b[3] - b[1]) * 1.4)
+        tol = round(w / 1000, 5)
+        key = sha10(f"{sha}|{tol}|{US_COUNTY_METHOD}")
+        path = os.path.join(out_dir, "data", "counties", f"{code.lower()}.json")
+        try:
+            old = json.load(open(path, encoding="utf-8"))
+        except (OSError, ValueError):
+            old = None
+        if old and old.get("k") == key:
+            text = json.dumps(old, ensure_ascii=False, separators=(",", ":"))
+        else:
+            proj = AlbersUsa().by_state(code)
+            shapes, info, points = read_counties(US_COUNTY_ZIP, fips_of[code], lambda lon, lat: proj(lon, lat), tol)
+            doc = {"v": 1, "k": key, "q": Q, "c": shapes, "n": {c: (info[c].get("full") or info[c].get("name") or c) for c in sorted(shapes)}}
+            text = json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
+            drawn.append(f"{code} {len(shapes)} counties, {points:,} points")
+        written[path] = _write_text(path, text)
+        keys[code] = sha10(text)
+    if drawn:
+        say("  county lines drawn: " + "; ".join(drawn))
+    return written, {"keys": keys, "sha": sha}
 
 
 # ============================================================ the head, the top bar, the footer
@@ -539,7 +715,9 @@ const liveRoot = () => BOOT.live.base + (LIVE.rehearsal ? "rehearsal/" : "");
    hands back what it found without touching the page; liveCommit then makes it the page's. A failed request leaves the
    figures already shown as they are. liveFetch does both (the first load); liveReady turns the state's file into the
    page's own shape once the page has its races, and is run again by liveCommit for every new snapshot. */
-function liveGet() {
+/* name: a file of the snapshot to read instead of the state's own (the US page reads "us.json"); a snapshot without it
+   (a 404) has no figures for the page yet, which is not an error */
+function liveGet(name) {
   const root = liveRoot();
   return fetch(root + "now.json", {cache: "no-store"}).then(r => {
     if (!r.ok) throw new Error("now " + r.status);
@@ -549,12 +727,12 @@ function liveGet() {
     return r.json();
   }).then(now => {
     if (!now || typeof now !== "object" || now.v !== 1) throw new Error("now unreadable");
-    const s = (now.st || {})[CODE];
-    if (!s || !s.f || !now.base) return {now, raw: null, why: "nostate"};
+    const s = (now.st || {})[CODE], f = typeof name === "string" && name ? name : s && s.f;
+    if (!f || !now.base) return {now, raw: null, why: "nostate"};
     if (LIVE.raw && LIVE.seq === now.seq) return {now, same: true};
     const base = root + now.base;
-    return fetch(base + s.f, {cache: "force-cache"}).then(r => r.ok ? r.json() : Promise.reject(new Error("state " + r.status)))
-      .then(raw => ({now, raw, base, seq: now.seq}));
+    return fetch(base + f, {cache: "force-cache"}).then(r => r.ok ? r.json() : f === name && r.status === 404 ? null : Promise.reject(new Error("state " + r.status)))
+      .then(raw => raw ? {now, raw, base, seq: now.seq} : {now, raw: null, why: "nofig"});
   });
 }
 function liveCommit(g) {      // true when the page has new figures
@@ -568,8 +746,8 @@ function liveCommit(g) {      // true when the page has new figures
   (g.cty || []).forEach(([c, p, d]) => liveTakeCounty(c, p, d));      /* the counties the reader had open, from the same snapshot */
   return true;
 }
-function liveFetch() {
-  return liveGet().then(g => { liveCommit(g); return LIVE.raw; },
+function liveFetch(name) {
+  return liveGet(name).then(g => { liveCommit(g); return LIVE.raw; },
     e => { if (!LIVE.raw) LIVE.why = /^now /.test(String(e && e.message)) || e instanceof TypeError ? "nofile" : "broken"; return LIVE.raw; });
 }
 function liveReady(raceOf) { LIVE.raceOf = raceOf; LIVE.st = LIVE.raw ? normState(LIVE.raw, raceOf) : null; return LIVE.st; }
@@ -593,12 +771,39 @@ function foldLines(map, n, vals) {      // one count in the store's line order, 
   (vals || []).forEach((num, k) => { const m = map[k]; if (m === "w") w += num || 0; else if (m >= 0) v[m] += num || 0; else x.push(num || 0); });
   return {v, x, w};
 }
+/* ---------- contests that are part of a race on the page's list ----------
+   A party's primary, in a rehearsal of a primary night: "2026-IA-H01~REP" (or "2026-GA-S2/primary-REP"; "/primary" for a
+   primary with no party) is the Republican primary for the race 2026-IA-H01, a contest of its own, its lines as printed.
+   One county's own count of a statewide race, read where the state publishes none: "2026-MI-S2@26125" is Oakland
+   County's part of 2026-MI-S2, never the state's count. normState makes each such contest a race of its own, the race's
+   copy with its own id and base (the race's id), pp (the party's code, "" for none) or pa (the county), and keeps them in
+   the state's figures: xr {id: race} and parts {the race's id: [ids]}. xRace(id) and partsOf(id, kind) read them. */
+const PARTYN = {REP: "Republican", DEM: "Democratic", DFL: "Democratic-Farmer-Labor", LIB: "Libertarian", GRN: "Green", CON: "Constitution",
+  NP: "Nonpartisan", LMN: "Legal Marijuana Now", AFP: "America First", FWD: "Forward", UNI: "Unity", IND: "Independent"};
+function idParts(rid) {
+  const s = String(rid), m = /^(.+?)(?:~([A-Z]{1,6})|\/primary-([A-Z]{1,6})|(\/primary)|@(\d{5}))$/.exec(s);
+  return m ? {base: m[1], party: m[2] || m[3] || (m[4] ? "" : null), county: m[5] || null} : null;
+}
+function otherRace(rid, raceOf) {
+  const p = idParts(rid), b = p && raceOf(p.base);
+  if (!b) return null;
+  if (p.county) return Object.assign({}, b, {id: rid, base: b.id, pa: p.county});
+  return Object.assign({}, b, {id: rid, base: b.id, pp: p.party || "", cs: [], un: 0, nl: 0});      /* the November list is not the primary's: lines as printed */
+}
+const xRace = id => (LIVE.st && LIVE.st.xr && LIVE.st.xr[id]) || null;
+function partsOf(id, kind) {      // kind: "party" (its parties' primaries), "county" (counties' own counts), or both
+  return ((LIVE.st && LIVE.st.parts && LIVE.st.parts[id]) || []).map(xRace).filter(r => r && (kind === "party" ? r.pp != null : kind === "county" ? !!r.pa : true));
+}
+const primaryName = r => r && r.pp != null ? (r.pp ? `${PARTYN[r.pp] || r.pp} primary` : "Primary") : "";
 function normState(doc, raceOf) {
   if (!doc || !doc.r) return null;
-  const out = {v: doc.v, state: doc.state, t: doc.t || doc.at, saved: doc.saved || doc.at, s: doc.s, units: doc.units, r: {}};
+  const out = {v: doc.v, state: doc.state, t: doc.t || doc.at, saved: doc.saved || doc.at, s: doc.s, units: doc.units, r: {}, xr: {}, parts: {}};
   let widest = null;
   for (const [key, e] of Object.entries(doc.r)) {
-    const rid = (doc.pre || "") + key, r = raceOf(rid); if (!r) continue;      // a contest the page does not have: the updater lists it, the page leaves it out
+    const rid = (doc.pre || "") + key;
+    let r = raceOf(rid);
+    if (!r && (r = otherRace(rid, raceOf))) { out.xr[rid] = r; (out.parts[r.base] = out.parts[r.base] || []).push(rid); }
+    if (!r) continue;      // a contest the page does not have: the updater lists it, the page leaves it out
     if (!e.ch) { out.r[rid] = e; if (e.u && (!widest || e.u[1] > widest[1])) widest = e.u; continue; }      // already the page's own shape
     const map = choiceMap(r, e.ch), n = r.cs.length, wi = map.includes("w"), f = foldLines(map, n, e.v);
     const xs = e.ch.filter((c, k) => map[k] === -1);
@@ -746,8 +951,9 @@ const PPAT = {D: "", R: "hatch", I: "dots", L: "cross", G: "rows", O: "cols", W:
 function lines(r, e) {
   const v = (e && e.v) || [], out = r.cs.map((c, i) => ({i, name: c[0], party: c[1] || "", pc: c[2] || "O", votes: v[i] || 0}));
   ((e && e.x) || []).forEach((x, k) => out.push({i: r.cs.length + k, name: x[0], party: x[1] || "", pc: "O", votes: x[2] || 0, x: 1}));
-  out.forEach(L => { const k = r.pt ? (PCODE.includes(L.pc) ? L.pc : "O") : null;
-    L.c = r.pt ? `var(--p${k})` : `var(--n${L.i % 6 + 1})`; L.p = r.pt ? PPAT[k] : NPAT[L.i % NPAT.length]; });
+  const pt = r.pt && r.pp == null;      /* a party's primary: one party's candidates, told apart by neutral tones in ballot order */
+  out.forEach(L => { const k = pt ? (PCODE.includes(L.pc) ? L.pc : "O") : null;
+    L.c = pt ? `var(--p${k})` : `var(--n${L.i % 6 + 1})`; L.p = pt ? PPAT[k] : NPAT[L.i % NPAT.length]; });
   if (e && e.w) out.push({i: -1, name: "Write-in votes", party: "", votes: e.w, wl: 1, c: "var(--pW)", p: ""});
   const total = out.reduce((t, L) => t + L.votes, 0);
   if (total) out.sort((a, b) => (a.wl || 0) - (b.wl || 0) || b.votes - a.votes || a.i - b.i);
@@ -804,4 +1010,109 @@ window.NightKit = (function () {
   }
   return {STEPS, rgba, lead, paint};
 })();
+"""
+
+
+# ============================================================ the US map (an SVG of the states, a state's counties, the House districts)
+
+# What a page that draws the US map adds to its stylesheet (the US page; the feed's coverage map can take the same).
+USMAP_CSS = r"""
+.usmapgrid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:16px;align-items:start;margin-top:14px}
+@media (max-width:900px){.usmapgrid{grid-template-columns:1fr}}
+.usmapgrid .mapside{min-height:0}
+.usvg{width:100%;height:auto;display:block;user-select:none;-webkit-user-select:none}
+.usvg path.s{stroke:var(--surface);stroke-width:.8;cursor:pointer;vector-effect:non-scaling-stroke}
+.usvg path.s.nr{fill:var(--line);opacity:.6;cursor:default}
+.usvg path.s.tie{fill:var(--muted);fill-opacity:.55}
+.usvg path.s.un{fill:var(--line-strong)}
+.usvg path.s:hover,.usvg path.s.hl{filter:brightness(1.12) saturate(1.1)}
+.usvg path.s:focus{outline:none}.usvg path.s:focus-visible{stroke:var(--accent);stroke-width:3}
+.usvg path.ov{pointer-events:none;stroke:none}
+.usvg path.out{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke;pointer-events:none;opacity:.5}
+.usvg path.sel{fill:none;stroke:var(--ink);stroke-width:2.6;vector-effect:non-scaling-stroke;pointer-events:none}
+.usvg path.trouble{fill:none;stroke:var(--st-hold);stroke-width:2.4;stroke-dasharray:5 3;vector-effect:non-scaling-stroke;pointer-events:none}
+.usvg text{pointer-events:none;text-anchor:middle}
+.usvg text.dlab{font:700 12px var(--sans);fill:#fff;paint-order:stroke;stroke:rgba(10,12,18,.62);stroke-width:3px;stroke-linejoin:round}
+.usvg text.dlab.tiny{display:none}
+.usvg text.big{font:700 13px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.usbox{position:relative;border-radius:14px;overflow:hidden;background:var(--bg);touch-action:pan-y}
+.usbox.zoomed{touch-action:none;cursor:grab}.usbox.drag{cursor:grabbing}
+"""
+
+# The US map's script: the files (data/map.json from us_map_doc, the county files from us_county_files, the Congress
+# ballot page's district lines), their shapes as SVG paths, the patterns and fills, and pan and zoom. It needs the
+# site's borrowed GEO part (decodeRing) and NIGHT_JS (patterned) before it. It follows the ballot maps' rules: 12px type
+# scaled by a transform, no pointer capture, the window's listeners dropped through an AbortController's signal.
+USMAP_JS = r"""
+/* ---------- Election Night: the US map's parts ---------- */
+const USJSON = {};
+function usJSON(url) {      // one fetch an address, kept; a failure is asked again next time
+  return USJSON[url] || (USJSON[url] = fetch(url).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status)))).catch(e => { delete USJSON[url]; throw e; }));
+}
+function decodeD(rings, q) { return rings.map(rg => "M" + decodeRing(rg, q).map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join("L") + "Z").join(""); }
+const areaOf = r => { let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j][0] + r[i][0]) * (r[j][1] - r[i][1]); return Math.abs(a / 2); };
+function centroidOf(r) { let x = 0, y = 0, a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const f = r[j][0] * r[i][1] - r[i][0] * r[j][1]; a += f; x += (r[j][0] + r[i][0]) * f; y += (r[j][1] + r[i][1]) * f; }
+  if (!a) return r[0]; return [x / (3 * a), y / (3 * a)]; }
+const aspectOf = b => Math.min(1.75, Math.max(.8, (b[2] - b[0]) / Math.max(1, b[3] - b[1])));
+const fitBox = (b, aspect, pad) => { let w = (b[2] - b[0]) * pad, h = (b[3] - b[1]) * pad; if (w / h > aspect) h = w / aspect; else w = h * aspect; return [(b[0] + b[2]) / 2 - w / 2, (b[1] + b[3]) / 2 - h / 2, w, h]; };
+/* the House district lines (the Congress ballot page's file): d.paths[state][district] an SVG path, d.cent[state][district]
+   [the largest ring's centroid, the district's area] */
+function usDistricts(url) {
+  return usJSON(url).then(d => { if (d.paths) return d;
+    const q = d.q || 50, paths = {}, cent = {};
+    Object.entries(d.states || {}).forEach(([st, ds]) => { paths[st] = {}; cent[st] = {};
+      Object.entries(ds).forEach(([n, rings]) => { const pts = rings.map(rg => decodeRing(rg, q)); paths[st][n] = decodeD(rings, q);
+        const big = pts.reduce((m, r) => areaOf(r) > areaOf(m) ? r : m, pts[0]); cent[st][n] = [centroidOf(big), pts.reduce((t, r) => t + areaOf(r), 0)]; }); });
+    d.cent = cent; d.paths = paths; return d; });
+}
+/* a state's county lines (data/counties/<code>.json): d.paths[county] an SVG path, d.n[county] its name */
+function usCounties(url) {
+  return usJSON(url).then(d => { if (!d.paths) { const p = {}; Object.entries(d.c || {}).forEach(([c, rings]) => { p[c] = decodeD(rings, d.q || 400); }); d.paths = p; } return d; });
+}
+/* the map's patterns, w in the map's own units: wait (no votes yet), link (not read here), newl (new lines), care, hand,
+   part (one county's own figures read), and p-<pattern> drawn over a fill where the reader's settings ask for patterns */
+function defsHTML(id, w) {
+  const u = k => (k * w).toFixed(3);
+  const lines_ = (pid, ink, bg, ang, k) => `<pattern id="${id}-${pid}" patternUnits="userSpaceOnUse" width="${u(1)}" height="${u(1)}" patternTransform="rotate(${ang})">${bg ? `<rect width="${u(1)}" height="${u(1)}" style="fill:${bg}"/>` : ""}<rect width="${u(k || .3)}" height="${u(1)}" style="fill:${ink}"/></pattern>`;
+  const dots_ = (pid, ink, bg) => `<pattern id="${id}-${pid}" patternUnits="userSpaceOnUse" width="${u(1)}" height="${u(1)}">${bg ? `<rect width="${u(1)}" height="${u(1)}" style="fill:${bg}"/>` : ""}<circle cx="${u(.5)}" cy="${u(.5)}" r="${u(.2)}" style="fill:${ink}"/></pattern>`;
+  const cross_ = (pid, ink) => `<pattern id="${id}-${pid}" patternUnits="userSpaceOnUse" width="${u(1)}" height="${u(1)}" patternTransform="rotate(45)"><rect width="${u(.26)}" height="${u(1)}" style="fill:${ink}"/><rect width="${u(1)}" height="${u(.26)}" style="fill:${ink}"/></pattern>`;
+  const ov = "var(--nstripe)";
+  return `<defs>${lines_("wait", "var(--hatch-ink)", "var(--surface)", 45, .22)}${dots_("link", "var(--hatch-ink)", "var(--surface)")}${lines_("newl", "var(--line-strong)", "var(--surface)", 0, .14)}
+    ${dots_("care", ov, "var(--verd)")}${lines_("hand", ov, "var(--brass)", 45)}${lines_("part", "var(--verd)", "var(--surface)", 135, .34)}
+    ${lines_("p-hatch", ov, "", 45)}${lines_("p-back", ov, "", 135)}${cross_("p-cross", ov)}${dots_("p-dots", ov, "")}${lines_("p-rows", ov, "", 90)}${lines_("p-cols", ov, "", 0)}</defs>`;
+}
+/* one shape: f is {c, op, p} (a colour, its strength, the line's pattern), {f: a pattern's name}, or {cls: a class} */
+function shapeHTML(d, f, id, attrs) {
+  const style = f.c ? `fill:${f.c};fill-opacity:${f.op}` : f.f ? `fill:url(#${id}-${f.f})` : "";
+  let out = `<path class="s${f.cls ? " " + f.cls : ""}" d="${d}"${style ? ` style="${style}"` : ""} ${attrs || ""}/>`;
+  if (f.c && f.p && patterned()) out += `<path class="ov" d="${d}" style="fill:url(#${id}-p-${f.p})"/>`;
+  return out;
+}
+/* Pan and zoom an SVG map by its viewBox. vb0: the whole view; box: the element whose "zoomed" class lets a finger drag
+   the map; opt.onView(vb, units a pixel) after every change (labels rescale); opt.signal: the AbortSignal that drops the
+   window's listeners when the map goes; opt.buttons: an element holding buttons with data-z "in", "out" or "fit".
+   wasDrag() tells a click handler that the press was a drag (and forgets it). */
+function svgPanZoom(svg, box, vb0, opt) {
+  opt = opt || {};
+  let vb = vb0.slice(), drag = null, moved = false;
+  const upp = () => vb[2] / Math.max(1, svg.getBoundingClientRect().width || 640);
+  function set(v) { vb = v; svg.setAttribute("viewBox", v.map(x => x.toFixed(2)).join(" ")); if (box) box.classList.toggle("zoomed", v[2] < vb0[2] * .98); if (opt.onView) opt.onView(vb, upp()); }
+  const toUnits = e => { const b = svg.getBoundingClientRect(); return [vb[0] + (e.clientX - b.left) / b.width * vb[2], vb[1] + (e.clientY - b.top) / b.height * vb[3]]; };
+  const clamp = v => [Math.min(Math.max(v[0], vb0[0]), vb0[0] + vb0[2] - v[2]), Math.min(Math.max(v[1], vb0[1]), vb0[1] + vb0[3] - v[3]), v[2], v[3]];
+  function zoomAt(f, at) { const w = Math.min(vb0[2], Math.max(vb0[2] / 14, vb[2] / f)), k = w / vb[2], h = vb[3] * k, [px, py] = at || [vb[0] + vb[2] / 2, vb[1] + vb[3] / 2];
+    set(clamp([px - (px - vb[0]) * k, py - (py - vb[1]) * k, w, h])); }
+  const sig = opt.signal ? {signal: opt.signal} : undefined;
+  svg.addEventListener("dblclick", e => { e.preventDefault(); zoomAt(2, toUnits(e)); });
+  svg.addEventListener("pointerdown", e => { moved = false; if (!box || !box.classList.contains("zoomed") || e.button) return; drag = {x: e.clientX, y: e.clientY, vb: vb.slice()}; });
+  addEventListener("pointermove", e => {      /* no pointer capture: the map lets the page keep its clicks */
+    if (!drag || !svg.isConnected) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (!moved && Math.hypot(dx, dy) < 4) return;
+    moved = true; box.classList.add("drag"); const k = upp(); set(clamp([drag.vb[0] - dx * k, drag.vb[1] - dy * k, vb[2], vb[3]]));
+  }, sig);
+  addEventListener("pointerup", () => { if (drag) { drag = null; if (box) box.classList.remove("drag"); } }, sig);
+  addEventListener("resize", () => { if (svg.isConnected && opt.onView) opt.onView(vb, upp()); }, sig);
+  if (opt.buttons) [...opt.buttons.querySelectorAll("button[data-z]")].forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.z === "fit") set(vb0.slice()); else if (b.dataset.z === "in" || b.dataset.z === "out") zoomAt(b.dataset.z === "in" ? 1.8 : 1 / 1.8); }));
+  return {set, zoomAt, upp, fit: () => set(vb0.slice()), get vb() { return vb; }, wasDrag: () => { const m = moved; moved = false; return m; }};
+}
 """
