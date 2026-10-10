@@ -26,7 +26,8 @@ What it writes: index.html (the shell), data/fc/<code>.json (the forecasts, as r
 data/h/<code>/<0-f>.json (each race's run history, in 16 files a state), data/track/<code>.json (the backtest report),
 fonts/.
 
-FORECASTS_PUBLIC: the first public forecasts wait for John's yes (ARCHITECTURE.md 5.3, phase 5). Until it is set True, a
+FORECASTS_PUBLIC (in election/model/__init__.py, read by the updater too): the first public forecasts wait for John's yes
+(ARCHITECTURE.md 5.3, phase 5). Until it is set True, a
 build into site/dev writes the page with the method and the track record only, and removes any forecast files an earlier
 build left there; a practice build (site/practice, never published) always shows the forecasts.
 """
@@ -47,7 +48,7 @@ import night_common as N                                                  # noqa
 from states.places import place                                           # noqa: E402
 
 GENERAL = "2026-11-03"
-FORECASTS_PUBLIC = False         # John's yes turns this on (first public forecasts, Tue Oct 27 at the earliest)
+from election.model import FORECASTS_PUBLIC                                # noqa: E402  John's yes, kept in one place for this page and the updater
 SHELL_LIMIT = 380_000            # the page's own shell (index.html)
 FC_BUDGET = 300_000              # a state's forecasts file (ARCHITECTURE.md 2.6)
 STATIC_BUDGET = 25_000_000       # every Night static file together (ARCHITECTURE.md 2.6)
@@ -219,6 +220,54 @@ def races_of(code):
         pt = 1 if r.get("pt") else 0
         cs = [[c[0], (c[1] if pt and len(c) > 1 else ""), (c[2] if pt and len(c) > 2 else "")] for c in r.get("cs") or []]
         out[r["id"]] = {"lv": lv, "k": k, "title": title, "where": where, "pt": pt, "cs": cs, "seats": 1}
+    return out
+
+
+# ============================================================ races left out, and why
+
+def left_title(rid, filed):
+    """A left-out race's name as the page shows it: the ballot list's title, else read from its id."""
+    r = filed.get(rid)
+    if r:
+        return r["title"] + (f" ({r['where']})" if r.get("where") and r["lv"] not in ("federal", "statewide") else "")
+    m = re.fullmatch(r"\d{4}-[A-Z]{2}-H(\d+)", rid)
+    if m:
+        return "U.S. Representative, at large" if int(m.group(1)) == 0 else f"U.S. Representative, District {int(m.group(1))}"
+    if re.fullmatch(r"\d{4}-[A-Z]{2}-S\d*", rid):
+        return "U.S. Senator"
+    return re.sub(r"^\d{4}-[A-Z]{2}-", "", rid).replace("-", " ")
+
+
+def left_groups(left, filed):
+    """[[the reason, in plain words, [race titles]]], the commonest reason first (the model's own planning says why)."""
+    groups = {}
+    for rid, why in sorted(left.items()):
+        groups.setdefault(plain(why), []).append(left_title(rid, filed))
+    return [[w, sorted(ts, key=lambda s: [int(x) if x.isdigit() else x for x in re.split(r"(\d+)", s)])]
+            for w, ts in sorted(groups.items(), key=lambda kv: (-len(kv[1]), kv[0])) if w]
+
+
+def nothing_to_forecast(shown):
+    """The states the model planned and found nothing to forecast in: [{c, n, total, why: [[reason, races]]}]."""
+    path = os.path.join(HERE, "election_cache", "model", "us", "left_out.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            states = json.load(fh).get("states") or {}
+    except (OSError, ValueError):
+        return []
+    out = []
+    for code, v in sorted(states.items()):
+        left = (v or {}).get("left_out") or {}
+        if code in shown or not left or not re.fullmatch(r"[A-Z]{2}", code):
+            continue
+        if any(k.startswith("forecast") and n for k, n in ((v.get("counts") or {}).items())):
+            continue                  # it has races to forecast; its run is simply not on file yet
+        why = {}
+        for _rid, w in left.items():
+            w = plain(w)
+            why[w] = why.get(w, 0) + 1
+        out.append({"c": code, "n": place(code)["name"], "total": len(left),
+                    "why": [[w, n] for w, n in sorted(why.items(), key=lambda kv: (-kv[1], kv[0])) if w]})
     return out
 
 
@@ -396,12 +445,13 @@ __FONTS__
 .trend svg{display:block;width:100%;height:auto;overflow:visible}
 .trend .ax{stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
 .trend .seg{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 4;vector-effect:non-scaling-stroke;opacity:.7}
-.trend text{font:12px var(--sans);fill:var(--muted)}
+.trend text{font:var(--fs,12px) var(--sans);fill:var(--muted)}
 .trend text.sl{fill:var(--ink);font-weight:600}
 .trend .tl{fill:none;stroke-width:2.6;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
 .trend .tl.p-hatch{stroke-dasharray:7 3}.trend .tl.p-dots{stroke-dasharray:1.5 4}.trend .tl.p-cross{stroke-dasharray:10 3 2 3}.trend .tl.p-rows{stroke-dasharray:4 2}.trend .tl.p-cols{stroke-dasharray:12 5}.trend .tl.p-back{stroke-dasharray:2 2}
 .trend .lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);margin-top:8px}
 .trend .lg span{display:inline-flex;align-items:center;gap:6px}
+.trend .lg .mk{width:14px;height:14px;flex:none;overflow:visible}
 .ftbl{width:100%;min-width:560px;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
 .ftbl th,.ftbl td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
 .ftbl th:first-child,.ftbl td:first-child{text-align:left}
@@ -411,7 +461,7 @@ __FONTS__
 .calsvg .ax{stroke:var(--line);stroke-width:1}
 .calsvg .dg{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4}
 .calsvg circle{fill:var(--brass);stroke:var(--ink);stroke-width:.8}
-.calsvg text{font:11px var(--sans);fill:var(--muted)}
+.calsvg text{font:var(--fs,12px) var(--sans);fill:var(--muted)}
 .inlist{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;max-width:96ch}
 .inlist li{font-size:14px;line-height:1.45;border-bottom:1px dashed var(--line);padding-bottom:7px}
 .inlist small{display:block;color:var(--muted);font-size:12.5px}
@@ -463,11 +513,29 @@ const shareText = t => t == null ? "" : t <= 0 ? "under 0.1%" : t >= 1000 ? "ove
 const rangeText = (lo, hi) => `${shareText(lo)} to ${shareText(hi)}`;
 const stateOfRace = rid => (/^\d{4}-([A-Z]{2})-/.exec(rid) || [])[1] || "";
 const hbucket = rid => { let h = 0; for (let i = 0; i < rid.length; i++) h = (h * 31 + rid.charCodeAt(i)) >>> 0; return h % BOOT.buckets; };
-const round100 = n => Math.round(n / 100) * 100;
+/* a count of voters to two significant figures; an end of a range is rounded outward rather than onto the middle
+   estimate, so "about 200 (likely 100 to 200)" never happens unless the two really are equal */
+const sigStep = n => Math.pow(10, Math.max(0, Math.floor(Math.log10(Math.max(1, Math.abs(n)))) - 1));
+const sig2 = n => { const s = sigStep(n); return Math.round(n / s) * s; };
+function votersText(v) {
+  const mid = sig2(v[1]); let lo = sig2(v[0]), hi = sig2(v[2]);
+  if (lo >= mid && v[0] < v[1]) lo = Math.floor(v[0] / sigStep(v[0])) * sigStep(v[0]);
+  if (hi <= mid && v[2] > v[1]) hi = Math.ceil(v[2] / sigStep(v[2])) * sigStep(v[2]);
+  if (lo >= mid && v[0] < v[1]) lo = Math.floor(v[0]);
+  if (hi <= mid && v[2] > v[1]) hi = Math.ceil(v[2]);
+  return `The model expects about <b>${num(mid)}</b> people to vote in this race (likely ${num(lo)} to ${num(hi)}).`;
+}
+/* the races the model leaves out, and why, in folds by reason */
+function leftHTML(groups, c) {
+  if (!groups || !groups.length) return "";
+  const n = groups.reduce((a, g) => a + g[1].length, 0);
+  return `<details class="nfold"><summary>${plural(n, "race")} left out of the model, and why</summary>` + groups.map(([why, ts]) =>
+    `<p class="fp"><b>${esc(why)}</b></p><p class="fmeta">${ts.map(esc).join("; ")}.</p>`).join("") + `</details>`;
+}
 let TOKEN = 0, TRENDNOW = null, TRENDW = 0;
 /* the trend is drawn at the width it is shown at, so that its 12px type stays 12px on a phone */
-document.addEventListener("night:look", () => { const el = $("#ftrend"); if (el && TRENDNOW) el.innerHTML = trendHTML(TRENDNOW[0], TRENDNOW[1]); });
-addEventListener("resize", () => { clearTimeout(TRENDW); TRENDW = setTimeout(() => { const el = $("#ftrend"); if (el && TRENDNOW) el.innerHTML = trendHTML(TRENDNOW[0], TRENDNOW[1]); }, 200); });
+document.addEventListener("night:look", () => { const el = $("#ftrend"); if (el && TRENDNOW) el.innerHTML = trendHTML(TRENDNOW[0], TRENDNOW[1]); fitLabels(document); });
+addEventListener("resize", () => { clearTimeout(TRENDW); TRENDW = setTimeout(() => { const el = $("#ftrend"); if (el && TRENDNOW) el.innerHTML = trendHTML(TRENDNOW[0], TRENDNOW[1]); fitLabels(document); }, 200); });
 
 /* ---------- loading a state's forecasts (the live copy once the updater publishes one) ---------- */
 function loadState(c) {
@@ -601,6 +669,9 @@ function home() {
     const all = []; BOOT.states.forEach(s => raceIds(s.c).forEach(rid => { const X = cands(rid); const g = topGap(X); if (g < 99) all.push([g, rid]); }));
     all.sort((a, b) => a[0] - b[0] || a[1].localeCompare(b[1]));
     if (all.length) o += `<section class="fsec" aria-labelledby="fcl"><h2 id="fcl">The closest races in the model</h2><p class="sub">Races with one seat where the model&rsquo;s chances are nearest even. ${ANALYSIS}</p><div class="nrows" id="fclose">${all.slice(0, 12).map(x => rowHTML(x[1])).join("")}</div></section>`;
+    const none = BOOT.none || [];
+    if (none.length) o += `<section class="fsec" aria-labelledby="fno"><h2 id="fno">States with nothing to forecast yet</h2><p class="sub">The model planned every 2026 race in these states and found none it could forecast. Here is why.</p><ul class="inlist">` +
+      none.map(s => `<li><b>${esc(s.n)}</b>: ${s.why.map(([w, n]) => `${esc(w.replace(/\.$/, ""))} (${plural(n, "race")})`).join("; ")}.</li>`).join("") + `</ul></section>`;
     o += linksHTML();
     app.innerHTML = o;
   }, () => { if (tok === TOKEN) app.innerHTML = h + `<p class="nempty">The forecasts could not be loaded. Check your connection and open the page again.</p>`; });
@@ -614,7 +685,9 @@ function linksHTML(c) {
 const VIEW = {lv: "", q: "", sort: "office", shown: 60};
 function statePage(c) {
   const tok = ++TOKEN, s = SBY[c];
-  if (!s) { app.innerHTML = crumbs([["#", "Forecasts"]]) + `<p class="nempty">No forecasts for this state${BOOT.public ? "" : " are published yet"}.</p>` + linksHTML(); return; }
+  if (!s) { const z = (BOOT.none || []).find(x => x.c === c);
+    app.innerHTML = crumbs([["#", "Forecasts"]]) + (z ? `<p class="nempty">The model has nothing to forecast in ${esc(z.n)} yet: ${z.why.map(([w, n]) => `${esc(w.replace(/\.$/, ""))} (${plural(n, "race")})`).join("; ")}.</p>`
+      : `<p class="nempty">No forecasts for this state${BOOT.public ? "" : " are published yet"}.</p>`) + linksHTML(); return; }
   if (VIEW.c !== c) Object.assign(VIEW, {c, lv: "", q: "", sort: "office", shown: 60});
   app.innerHTML = crumbs([["#", "Forecasts"], ["", esc(s.n)]]) + `<p class="loading muted">Loading&hellip;</p>`;
   loadState(c).then(() => {
@@ -623,7 +696,7 @@ function statePage(c) {
     ids.forEach(rid => { const lv = metaOf(rid).lv; (byLv[lv] = byLv[lv] || []).push(rid); });
     const un = (META[c].unopposed || 0);
     let o = crumbs([["#", "Forecasts"], ["", esc(s.n)]]) + hero("Forecasts", esc(s.n), `${num(ids.length)} ${ids.length === 1 ? "race has" : "races have"} a forecast.${un ? ` ${num(un)} more ${un === 1 ? "has" : "have"} one name for each seat and get none.` : ""}`);
-    o += pollsBlock([c]) + aboxHTML(runLine(d)) + pausedHTML();
+    o += pollsBlock([c]) + aboxHTML(runLine(d)) + pausedHTML() + leftHTML(META[c].left, c);
     o += `<div class="fchips" role="group" aria-label="Which races">` + [["", "All", ids.length]].concat(LVO.filter(l => byLv[l]).map(l => [l, LVW[l], byLv[l].length]))
       .map(([l, w, n]) => `<button type="button" data-lv="${l}" aria-pressed="${VIEW.lv === l}">${esc(w)} <small>${num(n)}</small></button>`).join("") + `</div>`;
     o += `<div class="fbar"><label class="sr" for="fq">Find a race, a place or a candidate</label><input type="search" id="fq" placeholder="Find a race, a place or a candidate" value="${esc(VIEW.q)}" autocomplete="off">
@@ -675,7 +748,7 @@ function racePage(rid) {
       <span class="fig"><b>${chanceText(L.chance)}</b> chance</span><span class="nbar" aria-hidden="true"><i style="width:${chanceNum(L.chance)}%;--c:${L.c}" data-p="${L.p}"></i></span>
       <span class="rg">Likely ${rangeText(L.lo, L.hi)} of the vote; middle estimate ${shareText(L.med)}</span></div>`).join("") + `</div>`;
     o += `<p class="one">${ANALYSIS} Chances are whole percents and never 0 or 100 before the canvass. &ldquo;Likely&rdquo; is the middle 80% of the model&rsquo;s simulated elections: in about one race in five the result falls outside it.</p></div>`;
-    if (f.v) o += `<p class="fmeta">The model expects about <b>${num(round100(f.v[1]))}</b> people to vote in this race (likely ${num(round100(f.v[0]))} to ${num(round100(f.v[2]))}).</p>`;
+    if (f.v) o += `<p class="fmeta">${votersText(f.v)}</p>`;
     const tested = f.x && d.tested && d.tested[f.x];
     if (tested) o += `<p class="fmeta">${/^untested/.test(tested) ? "<b>Not tested.</b> " + esc(capital(plainW(tested.replace(/^untested:\s*/, "")))) + "." : "<b>Tested</b> " + esc(tested.replace(/^tested\s*/, "")) + ". See the track record."}</p>`;
     o += `</section>`;
@@ -696,7 +769,7 @@ function racePage(rid) {
     o += `</ul><p class="fmeta">Every run is kept with the fingerprints of its inputs, so any run can be made again exactly. <a href="#method">How the forecasts are made</a>.</p></section>`;
     o += `<div class="flinks">${s.res ? `<a href="${esc(s.res)}#race=${encodeURIComponent(rid)}">This race&rsquo;s results</a>` : ""}${s.ballot ? `<a href="${esc(m.lv === "federal" ? s.ballotUS : s.ballot)}#race=${encodeURIComponent(rid)}">Who is on the ballot</a>` : ""}<a href="#state=${c}">${esc(s.n)}&rsquo;s forecasts</a><a href="#track">The track record</a><a href="#method">How the forecasts are made</a></div>`;
     app.innerHTML = o;
-    const show = h => { if (tok !== TOKEN) return; TRENDNOW = [h, X]; $("#ftrend").innerHTML = trendHTML(h, X); };
+    const show = h => { if (tok !== TOKEN) return; TRENDNOW = [h, X]; $("#ftrend").innerHTML = trendHTML(h, X); fitLabels($("#ftrend")); };
     loadHistory(rid).then(show, () => show({p: [[f.t || d.t, f.m || d.m, f.k || d.k, f.sc || 0, X.L.map(L => [L.name, L.chance, L.med, L.lo, L.hi])]], segments: [[0, f.m || d.m]]}));
   }, () => { if (tok === TOKEN) app.innerHTML = `<p class="nempty">The forecasts could not be loaded. Check your connection and open the page again.</p>`; });
 }
@@ -706,6 +779,24 @@ function loadHistory(rid) {
     return (HIST[key] ? Promise.resolve(HIST[key]) : getJSON(`${s.h}${b}.json?v=${s.hv[b] || ""}`).then(d => (HIST[key] = d))).then(d => d[rid] || Promise.reject(new Error("none"))); };
   if (FCLIVE.used[c] && !NIGHTLIVE.off()) return getJSON(`${liveRoot()}h/${s.lc}/${encodeURIComponent(rid)}.json`).then(d => d && d.p ? d : Promise.reject(new Error("bad")), fromStatic);
   return fromStatic();
+}
+/* a point on the trend: in the patterned looks each candidate (in ballot order) has a shape of its own, so the chart never
+   rests on colour alone; a point that would sit on another's is drawn hollow and larger, so both stay in sight */
+function marker(shape, cx, cy, near, c) {
+  const s = 4.2 + 3 * near, st = near ? `fill:none;stroke:${c};stroke-width:2` : `fill:${c};stroke:var(--surface);stroke-width:1.5`, X = cx.toFixed(1), Y = cy.toFixed(1);
+  const poly = pts => `<polygon points="${pts.map(([a, b]) => (cx + a * s).toFixed(1) + "," + (cy + b * s).toFixed(1)).join(" ")}" style="${st}"/>`;
+  switch (shape % 5) {
+    case 1: return `<rect x="${(cx - s * .9).toFixed(1)}" y="${(cy - s * .9).toFixed(1)}" width="${(s * 1.8).toFixed(1)}" height="${(s * 1.8).toFixed(1)}" style="${st}"/>`;
+    case 2: return poly([[0, -1.2], [1.1, .8], [-1.1, .8]]);
+    case 3: return poly([[0, -1.25], [1.15, 0], [0, 1.25], [-1.15, 0]]);
+    case 4: return poly([[0, 1.2], [1.1, -.8], [-1.1, -.8]]);
+    default: return `<circle cx="${X}" cy="${Y}" r="${s.toFixed(1)}" style="${st}"/>`;
+  }
+}
+/* chart labels never smaller than 12 pixels: a chart drawn narrower than its viewBox gets its type scaled up to match */
+function fitLabels(root) {
+  $$("svg.calsvg, .trend > svg", root).forEach(svg => { const vb = svg.viewBox && svg.viewBox.baseVal, w = svg.getBoundingClientRect().width;
+    if (vb && vb.width && w) svg.style.setProperty("--fs", (w < vb.width ? 12 * vb.width / w : 12).toFixed(1) + "px"); });
 }
 /* the trend: each candidate's chance at each run, runs evenly spaced, a new method version marked */
 function trendHTML(h, X) {
@@ -717,11 +808,13 @@ function trendHTML(h, X) {
   [25, 50, 75].forEach(v => { svg += `<line class="ax" x1="${l}" x2="${W - r}" y1="${y(v)}" y2="${y(v)}"/><text x="${l - 6}" y="${y(v) + 4}" text-anchor="end">${v}%</text>`; });
   ((h.segments || []).slice(1)).forEach(([i, mth]) => { const xx = n === 1 ? x(0) : (x(i) + x(i - 1)) / 2;
     svg += `<line class="seg" x1="${xx}" x2="${xx}" y1="${t}" y2="${H - b}"/><text class="sl" x="${xx + 4}" y="${t + 12}">method ${esc(mth)}</text>`; });
-  names.forEach(L => { const pts = P.map((pt, i) => [x(i), val(pt, L)]).filter(q => q[1] != null);
+  const SEEN = {};
+  names.forEach((L, li) => { const pts = P.map((pt, i) => [x(i), val(pt, L)]).filter(q => q[1] != null);
     if (pts.length > 1) svg += `<polyline class="tl${patterned() && L.p ? " p-" + L.p : ""}" style="stroke:${L.c}" points="${pts.map(q => q[0].toFixed(1) + "," + y(q[1]).toFixed(1)).join(" ")}"/>`;
-    pts.forEach(q => { svg += `<circle cx="${q[0].toFixed(1)}" cy="${y(q[1]).toFixed(1)}" r="4" style="fill:${L.c}" stroke="var(--surface)" stroke-width="1.5"/>`; }); });
+    pts.forEach(q => { const k = q[0].toFixed(0), yy = y(q[1]), near = (SEEN[k] = SEEN[k] || []).filter(v => Math.abs(v - yy) < 7).length; SEEN[k].push(yy);
+      svg += marker(patterned() ? li : 0, q[0], yy, near, L.c); }); });
   svg += `<text x="${l}" y="${H - 10}">${esc(fmtTime(P[0][0], true))}</text>` + (n > 1 ? `<text x="${W - r}" y="${H - 10}" text-anchor="end">${esc(fmtTime(P[n - 1][0], true))}</text>` : "") + `</svg>`;
-  const lg = `<div class="lg">${names.map(L => `<span>${swatch(L)}${esc(L.name)}</span>`).join("")}${X.L.length > names.length ? `<span>and ${num(X.L.length - names.length)} more, in the table</span>` : ""}</div>`;
+  const lg = `<div class="lg">${names.map((L, li) => `<span>${patterned() ? `<svg class="mk" viewBox="-7 -7 14 14" aria-hidden="true">${marker(li, 0, 0, 0, L.c)}</svg>` : ""}${swatch(L)}${esc(L.name)}</span>`).join("")}${X.L.length > names.length ? `<span>and ${num(X.L.length - names.length)} more, in the table</span>` : ""}</div>`;
   const tbl = `<details class="nfold"><summary>Every run, as a table</summary><div class="tblwrap"><table class="ftbl"><thead><tr><th scope="col">Run</th><th scope="col">Method</th><th scope="col">Counted</th>${X.L.map(L => `<th scope="col">${esc(L.name)}</th>`).join("")}</tr></thead><tbody>` +
     P.map(pt => `<tr><td>${esc(fmtTime(pt[0], true))}<br><small>${esc(KINDW[pt[2]] || "")}</small></td><td>${esc(pt[1])}</td><td>${pt[3] ? Math.max(1, Math.round(pt[3] * 100)) + "%" : "&ndash;"}</td>${X.L.map(L => { const row = (pt[4] || []).find(rw => nameKey(rw[0]) === nameKey(L.name));
       return `<td>${row ? chanceText(row[1]) + `<br><small>${rangeText(row[3], row[4])}</small>` : "&ndash;"}</td>`; }).join("")}</tr>`).join("") + `</tbody></table></div></details>`;
@@ -731,7 +824,10 @@ function trendHTML(h, X) {
 /* ---------- the track record: the backtests on past elections ---------- */
 const GROUPW = {mnleg: "State House", mnsen: "State Senate", usrep: "U.S. House", statewide: "Statewide offices", all: "All", county: "County offices",
   judicial: "Judges", soil_water: "Soil and water"};
+/* the other states' backtest names its groups by office alone */
+const GROUPW1 = {all: "All races", usrep: "U.S. House", ussen: "U.S. Senate", governor: "Governor", other: "Other statewide offices"};
 function groupWords(g) {
+  if (GROUPW1[g]) return GROUPW1[g];
   let m = /^(partisan|nonpartisan|reference night model)\s*(\S*)\s*(\d{4})?\s*(\(.*\))?$/.exec(g);
   if (!m) return capital(g.replace(/_/g, " "));
   if (m[1] === "reference night model") return "All partisan races" + ((m[3] || m[2]) ? `, ${m[3] || m[2]}` : "");
@@ -748,7 +844,9 @@ const plainW = t => String(t || "").replace(/\s*\([^()]*\bJohn\b[^()]*\)/g, "").
 const pc0 = v => { if (v == null) return "&ndash;"; if (v >= 1) return "all"; if (v <= 0) return "none";
   const p = Math.round(v * 100); return p >= 100 ? "over 99%" : p <= 0 ? "under 1%" : `${p}%`; };
 const sc3 = v => v == null ? "&ndash;" : Number(v).toFixed(3);
-const mv = (G, k) => G && G[k] ? G[k][0] : null;
+/* a measure's value; an older backtest of the other states kept some under other names, read here as a fallback */
+const MVALIAS = {cover80: "range80_held", cover95: "range95_held", logloss: "log_loss"};
+const mv = (G, k) => !G ? null : G[k] ? G[k][0] : MVALIAS[k] && G[MVALIAS[k]] ? G[MVALIAS[k]][0] : k === "races" && G.brier ? G.brier[1] : null;
 function track() {
   const tok = ++TOKEN;
   let h = crumbs([["#", "Forecasts"], ["", "The track record"]]) + hero("Forecasts &middot; Analysis", "The track record", "How the method did on past elections, before the votes were counted and as they came in. After November 3 each 2026 forecast is scored here against the certified count.");
@@ -771,7 +869,7 @@ function track() {
         const gs = Object.keys(pre).filter(g => Object.keys(pre[g]).some(k => /^bin/.test(k)));
         if (gs.length) {
           o += `<h3 class="fsub">Were the chances right?</h3><p class="fp">Candidates grouped by the chance the method gave them, against how often candidates in that group came first. Points on the dashed line mean the chances were right; the size of each point is how many candidates it holds.</p>
-            <label class="sr" for="cal${s.c}">Which races</label><select class="pick" id="cal${s.c}" data-st="${s.c}">${gs.map(g => `<option value="${esc(g)}"${/^partisan all 2024$/.test(g) ? " selected" : ""}>${esc(groupWords(g))}</option>`).join("")}</select><div id="calbox${s.c}"></div>`;
+            <label class="sr" for="cal${s.c}">Which races</label><select class="pick" id="cal${s.c}" data-st="${s.c}">${gs.map(g => `<option value="${esc(g)}"${/^(partisan all 2024|all)$/.test(g) ? " selected" : ""}>${esc(groupWords(g))}</option>`).join("")}</select><div id="calbox${s.c}"></div>`;
         }
       }
       const oracle = M.oracle || {};
@@ -795,7 +893,7 @@ function track() {
       o += `<h3 class="fsub">The 2026 forecasts</h3><p class="fp">Scored here against the certified count once ${s.c === "US" ? "each state" : esc(s.n)} certifies its results, including how the forecasts did as the count went on.</p></section>`;
     });
     app.innerHTML = o + linksHTML();
-    $$("select[data-st]").forEach(sel => { const draw = () => { $("#calbox" + sel.dataset.st).innerHTML = calHTML((TRACK[sel.dataset.st].measures.pre || {})[sel.value]); }; sel.onchange = draw; draw(); });
+    $$("select[data-st]").forEach(sel => { const draw = () => { $("#calbox" + sel.dataset.st).innerHTML = calHTML((TRACK[sel.dataset.st].measures.pre || {})[sel.value]); fitLabels($("#calbox" + sel.dataset.st)); }; sel.onchange = draw; draw(); });
   }, () => { if (tok === TOKEN) app.innerHTML = h + `<p class="nempty">The track record could not be loaded. Check your connection and open the page again.</p>`; });
 }
 function calHTML(G) {
@@ -975,7 +1073,8 @@ def build(dev_root, version=None, practice=None, say=print):
                 key = rid[len(pre):] if pre and rid.startswith(pre) else rid
                 meta_r[key] = [r["lv"], r["title"], r["where"], r["pt"], r["cs"], ri, pi] + ([r["seats"]] if r["seats"] > 1 else [])
             un = ((doc.get("about") or {}).get("races") or {}).get("unopposed") or 0
-            meta = {"v": 1, "state": code, "pre": pre, "r": meta_r, "blind": blind, "inputs": run_inputs(db, code), "unopposed": un}
+            meta = {"v": 1, "state": code, "pre": pre, "r": meta_r, "blind": blind, "inputs": run_inputs(db, code), "unopposed": un,
+                    "left": left_groups((doc.get("about") or {}).get("left_out") or {}, filed)}
             fc_text, meta_text = dumps(doc), dumps(meta)
             for what, t in (("forecasts", fc_text), ("race list", meta_text)):
                 bad = N.kit_names(t)
@@ -1010,8 +1109,11 @@ def build(dev_root, version=None, practice=None, say=print):
                                 "h": f"data/h/{lc}/", "hv": hv, "res": res, "ballot": ballot or ballot_us, "ballotUS": ballot_us or ballot, "polls": pol})
             say(f"  {code}: {len(meta_r):,} races with a forecast ({un:,} with one name a seat get none); forecasts {n_fc / 1e3:,.0f} KB "
                 f"(budget {FC_BUDGET / 1e3:,.0f}), race list {n_meta / 1e3:,.0f} KB, run history {n_hist / 1e3:,.0f} KB in {BUCKETS} files")
+    none_boot = nothing_to_forecast({s["c"] for s in states_boot}) if show else []
+    for s in none_boot:
+        say(f"  {s['c']}: nothing to forecast ({s['total']:,} races left out; the page says why)")
     copy_fonts(out_dir)
-    boot = {"public": show, "election": GENERAL, "buckets": BUCKETS, "states": states_boot, "track": track_boot,
+    boot = {"public": show, "election": GENERAL, "buckets": BUCKETS, "states": states_boot, "none": none_boot, "track": track_boot,
             "trackStates": {}, "live": {"base": live, "dir": ""}, "changelog": changelog,
             "links": {"night": links["night"], "nass": NASS}}
     if practice:

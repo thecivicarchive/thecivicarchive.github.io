@@ -10,9 +10,10 @@ Read from them, and only these fields: the election's date, LastUpdated, Precinc
 ElectionResultsTypeName and IsRCV; each contest's number, name and IsRCV; each line's Contestant, PartyCode, Votes and
 TotalVotes. Over and under votes are lines in the file and are not candidates: they are left out.
 
-The District has no race on the ballot lists yet (the Congress and the state and local ballot databases hold none),
-so every contest is listed, not shown, until those lists carry the District. The reader reads and checks everything
-regardless, so the District's figures can be shown the day its races are listed.
+The District has no race on the ballot lists yet (the Congress and the state and local ballot databases hold none).
+Its crosswalk names two races by hand under "night_only" (the Delegate to the House and the Mayor, each with the
+pattern of its title in the Board's file), and those contests are tied to them; every other contest is listed, not
+shown, until the lists carry the District. The reader reads and checks everything regardless.
 """
 
 import json
@@ -142,10 +143,21 @@ def read_docs(info, city, entry, cw=None):
         R.problems.append("the contests file did not read")
         return R.done()
     pin, pall = (info or {}).get("PrecinctsCounted"), (info or {}).get("TotalPrecincts")
+    night = (R.cw or {}).get("night_only") or {}
     for num, title, rcv, lines, stated, _left in contests_of(city):
         s = sum(v for _n, _p, _w, v in lines)
         if stated is not None and s != stated:
             R.problems.append(f"{title}: the lines add to {s:,}, the file's total is {stated:,}")
+        fit = [rid for rid, e in sorted(night.items()) if e.get("titles") and re.search(e["titles"], C.squash(title), re.I)]
+        if fit:
+            if len(fit) > 1 or fit[0] in R.seen:
+                R.skip(num, title, "more than one contest or race fits; none is guessed")
+                continue
+            e = night[fit[0]]
+            R.seen[fit[0]] = title
+            race = {"level": e.get("level") or "statewide", "kind": e.get("kind") or "other", "district": None, "cands": {}}
+            R.add(fit[0], race, num, title, lines, "precinct", pin, pall, seats=int(e.get("seats") or 1), stated_total=stated, rcv=rcv)
+            continue
         if not R.cw.get("races"):
             R.skip(num, title, "the District of Columbia has no races on the ballot lists yet")
             continue
@@ -174,6 +186,17 @@ def selftest(say=print):
     dl = got.get("DELEGATE TO THE HOUSE OF REPRESENTATIVES FROM THE DISTRICT OF COLUMBIA") or []
     expect(("Eleanor Holmes Norton", "DEM", False, 251540) in dl, "the Delegate's lines read, the party code taken off the name")
     expect(not rd["problems"] and all(u["why"] for u in rd["unmatched"]), f"every contest adds up and is listed with a reason ({len(rd['unmatched'])})")
+    night = C.load_crosswalk("DC").get("night_only") or {}
+    tied = {c["race_id"]: c["office"] for c in rd["contests"]}
+    if night.get("2026-DC-DELEGATE"):
+        expect(tied.get("2026-DC-DELEGATE", "").startswith("DELEGATE TO THE HOUSE") and len(tied) == 1,
+               f"the Delegate's contest tied to its night-only race, and nothing else (the shadow seats stay listed): {sorted(tied)}")
+    if night.get("2026-DC-MAYOR"):
+        mayor = [{"ContestNumber": 2, "OfficeName": "MAYOR OF THE DISTRICT OF COLUMBIA",
+                  "ElectionData": [{"Contestant": "DEM A Person", "PartyCode": "DEM", "Votes": 3, "TotalVotes": 4},
+                                   {"Contestant": "Write-in", "PartyCode": "", "Votes": 1, "TotalVotes": 4}]}]
+        rm = read_docs(info, mayor, {"code": "DC"})
+        expect([c["race_id"] for c in rm["contests"]] == ["2026-DC-MAYOR"], "a Mayor's contest tied to its night-only race")
     st, _c, _p = C.store_roundtrip(rd)
     expect(st == "ok", f"the store takes the reading ({st})")
     return ok

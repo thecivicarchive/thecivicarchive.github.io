@@ -59,6 +59,15 @@ def sha10(text):
     return N.sha10(text)
 
 
+def forecasts_public():
+    """The forecasts page's own switch (John's yes): until it is on, the draft offers no race a link to its forecast."""
+    try:
+        import build_night_forecasts
+        return bool(build_night_forecasts.FORECASTS_PUBLIC)
+    except Exception:
+        return False
+
+
 # ============================================================ the static files
 
 def race_files(say=print):
@@ -349,7 +358,7 @@ function coverageMath(e, b, doc) {
 }
 function gapMath(e, b, doc) {
   if (!e || e.gap == null) return "";
-  const src = e.ms === "c" ? `the count so far${e.sc ? ` (${Math.round(e.sc * 100)}% of the expected vote counted)` : ""}` : "the forecast&rsquo;s median, before 20% of the expected vote is counted";
+  const src = e.ms === "c" ? `the count so far${e.sc ? ` (${Math.round(e.sc * 100)}% ${BOOT.fm ? "of the expected vote counted" : "of the reporting units in"})` : ""}` : "the forecast&rsquo;s median, before 20% of the expected vote is counted";
   const n = ((doc.boards || {})[b] || {}).ng;
   return `margin = ${f1(Math.abs(e.mg) * 100)} points of the top two&rsquo;s votes, from ${src}<br>closeness = 1 &minus; ${f2(Math.abs(e.mg))} = ${f2(1 - Math.abs(e.mg))}, the ${ord(e.pc)} percentile${n ? ` of the board&rsquo;s ${num(n)} races with a margin` : ""}<br>`
     + `coverage shown ${f2(e.cs || 0)}, the ${ord(e.pv)} percentile<br>gap = ${f1(e.pc)} &minus; ${f1(e.pv)} = <b>${sgn(e.gap)}</b>`;
@@ -458,7 +467,7 @@ function postsHTML(doc) {
 let MAPV = null;
 const NOFILL = "color-mix(in srgb,var(--ink) 7%,var(--surface))";      /* no items: a faint grey in every look (high contrast's --line is black) */
 function mapHTML() {
-  return `<section class="bsec" id="map"><h2>Coverage by state</h2><p class="sub">Each state shaded by its news items in the window for every 100,000 residents, counting items placed on its races or its places. Tap a state for its own boards and headlines.</p>
+  return `<section class="bsec" id="map"><h2>Coverage by state</h2><p class="sub">Each state shaded by its news items in the window for every 100,000 residents, counting items placed on its races or its places. Tap a state for its own boards and headlines.</p>${ANALYSIS}
     <div class="usmapgrid"><div class="mapcol"><div class="usbox"><svg class="usvg" id="feedmap" viewBox="0 0 975 610" role="group" aria-label="Map of the states: coverage per 100,000 residents" aria-describedby="feedmaphelp"></svg></div>
       <div class="nlegend" id="feedlegend"></div><p class="sr" id="feedmaphelp">The map is a picture of the list beside it and of the table of every state below it.</p></div>
       <aside class="mapside" id="feedside" aria-live="polite"></aside></div>
@@ -497,10 +506,24 @@ function drawMap(doc) {
 }
 
 /* ---------- the pages ---------- */
+function pollsAllHTML() {      /* the home's notice, across every state (ARCHITECTURE 4.6: on every Night page) */
+  const info = Object.entries(BOOT.polls || {}).map(([c, P]) => [c, pollsNow(P)]).filter(x => x[1]);
+  const find = `<a href="https://www.nass.org/can-I-vote" target="_blank" rel="noopener">find your polling place</a>`;
+  const open = info.filter(x => x[1].state === "open");
+  if (open.length) {
+    const dc = open.some(x => x[0] === "DC"), n = open.length - (dc ? 1 : 0), last = open.reduce((a, b) => b[1].close > a[1].close ? b : a);
+    const where = `${n ? `${n} ${n === 1 ? "state" : "states"}` : ""}${dc ? `${n ? " and " : ""}the District of Columbia` : ""}`;
+    return `<div class="pollsopen" role="note"><b>Polls are still open in ${where}. If you haven&rsquo;t voted, your vote still counts.</b>The last polls close at ${esc(fmtTime(last[1].close))}, in ${esc(SNAME(last[0]))}. Each state&rsquo;s page in the feed gives its own closing time, or ${find}.</div>`;
+  }
+  if (info.some(x => x[1].state === "today")) return `<div class="pollsopen" role="note"><b>Election Day is today.</b>Each state&rsquo;s page in the feed gives its own polling hours, or ${find}.</div>`;
+  return "";
+}
+const NOMAP = `<section class="bsec" id="map"><h2>Coverage by state</h2><p class="nempty">The map of coverage is drawn once the feed has figures.</p></section>`
+  + `<section class="bsec" id="boards"><h2>The leaderboard</h2><p class="nempty">The leaderboard fills in once the feed has figures.</p></section>`;
 function homeHTML(doc) {
   return heroHTML("Election Night", "The feed", "News headlines about the races, posts from official accounts, and a leaderboard of the races getting the most attention, and the least for how close they are.")
-    + pausedHTML() + (doc ? asOfHTML(doc) : noFiguresHTML())
-    + (doc ? mapHTML() + boardsHTML(doc) : "")
+    + pollsAllHTML() + pausedHTML() + (doc ? asOfHTML(doc) : noFiguresHTML())
+    + (doc ? mapHTML() + boardsHTML(doc) : NOMAP)
     + `<section class="bsec" id="heads"><h2>The newest headlines</h2><p class="sub">Placed on a race or a state by the words in the headline. Tap a race for its own figures.</p>${doc ? headsHTML(doc.h || [], doc) : `<p class="nempty">No headlines yet.</p>`}</section>`
     + `<section class="bsec" id="posts"><h2>Official posts</h2>${postsHTML(doc)}</section>`
     + `<p class="rlinks"><a href="#how">How the feed is counted</a><a href="${esc(BOOT.links.night)}">Election Night</a>${BOOT.links.us ? `<a href="${esc(BOOT.links.us)}">Results across the country</a>` : ""}</p>`;
@@ -560,7 +583,7 @@ function howHTML() {
     <p>N is the race&rsquo;s news items in the window. R is the board&rsquo;s own rate: all its races&rsquo; items per 100,000 of all their residents. Adding 100,000 residents at that rate keeps a school board of 5,000 people with two stories from scoring 40 and topping the board; its raw figure is printed beside it. A race is ranked once it has 3 or more items from 2 or more outlets. Residents come from the Census Bureau&rsquo;s American Community Survey, 2020 to 2024 (table B01003), for the race&rsquo;s own area: the state, the congressional district, the legislative district, the county, the city or township, the school district. Where a district has no figure of its own, the counties it lies in stand in and the page says so. Census figures describe places, never voters.</p>
     <h3>Attention gap</h3>
     <p class="formula">gap = percentile of closeness &minus; percentile of coverage, within the board (&minus;100 to +100)<br>closeness = 1 &minus; |margin|, margin = (first &minus; second) &divide; (first + second)</p>
-    <p>The margin is the count&rsquo;s once 20% of the expected vote is counted; before that it is the forecast&rsquo;s median. With neither, the race is not ranked. Where several seats are filled, the margin is between the last seat and the first name below it. Retention votes and races with one name a seat are left out, and so are races where the forecast finds nothing in the record to favour anyone. Close races with no coverage at all are included: that is the point. A positive gap means closer than its coverage suggests.</p>
+    <p>${BOOT.fm ? "The margin is the count&rsquo;s once 20% of the expected vote is counted; before that it is the forecast&rsquo;s median. With neither, the race is not ranked." : "The margin is the count&rsquo;s, once 20% of the race&rsquo;s precincts or other reporting units are in. Before that the race is not ranked."} Where several seats are filled, the margin is between the last seat and the first name below it. Retention votes and races with one name a seat are left out${BOOT.fm ? ", and so are races where the forecast finds nothing in the record to favour anyone" : ""}. Close races with no coverage at all are included: that is the point. A positive gap means closer than its coverage suggests.</p>
     <h3>Momentum</h3>
     <p class="formula">momentum = (last hour + 1) &divide; (hour before + 1)</p>
     <p>Each hour counts news items and the people who posted. A race is ranked once the two hours hold 10 or more. It is marked rising only when the last hour is above the 95% upper bound of the hour before: the rate at which a count as low as the hour before&rsquo;s has only a 5% chance (3 to 6 is ordinary; 30 to 60 is not).</p>
@@ -703,8 +726,8 @@ def build(dev_root, version=None, practice=None, say=print, sample_db=None, samp
     from election.feeds import measures as M
     boot = {"map": f"data/map.json?v={sha10(map_text)}", "races": "data/races/", "rv": rv, "live": {"base": live, "dir": ""},
             "changelog": changelog, "states": states, "boards": [list(b) for b in M.BOARDS], "polls": polls, "gdelt": GDELT,
-            "src": sources_boot(),
-            "links": {"night": links["night"], "us": links["night"] + "us/" if links["us"] else "", "fc": links["night"] + "forecasts/" if links["fc"] else "",
+            "src": sources_boot(), "fm": M.forecasts_public(),
+            "links": {"night": links["night"], "us": links["night"] + "us/" if links["us"] else "", "fc": links["night"] + "forecasts/" if links["fc"] and (practice or forecasts_public()) else "",
                       "mn": links["night"] + "mn/" if has_mn else "", "states": state_links, "nass": NASS}}
     if practice:
         boot["practice"] = {"label": PRACTICE_LABEL}

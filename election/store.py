@@ -81,7 +81,7 @@ def utcnow():
 
 
 def connect(path=DB):
-    con = sqlite3.connect(path)
+    con = sqlite3.connect(path, timeout=30)          # waits up to 30 s for another writer (a page build, a test) before "locked"
     con.execute("PRAGMA journal_mode=WAL") if path != ":memory:" else None
     con.executescript(SCHEMA)
     return con
@@ -135,12 +135,14 @@ def last_snapshot(con, state, feed_id, status=None):
     return con.execute(q + " ORDER BY snapshot_id DESC LIMIT 1", args).fetchone()
 
 
-def begin_snapshot(con, state, feed_id, sha256, raw_path=None, source_time=None, source_version=None, fetched_at=None, note=None, test=False):
+def begin_snapshot(con, state, feed_id, sha256, raw_path=None, source_time=None, source_version=None, fetched_at=None, note=None, test=False,
+                   again=False):
     """(snapshot id, status). When the SHA-256 equals the last snapshot's that was read (ok, held or test), the new
-    snapshot is 'same' and nothing more need be read."""
+    snapshot is 'same' and nothing more need be read; again=True reads it all the same (a held file, read once more with
+    a mended reader)."""
     prev = con.execute("SELECT sha256 FROM snapshots WHERE state=? AND feed_id=? AND status IN ('ok','held','test') "
                        "ORDER BY snapshot_id DESC LIMIT 1", (state, feed_id)).fetchone()
-    status = "same" if prev and prev[0] == sha256 else ("test" if test else "reading")
+    status = "same" if prev and prev[0] == sha256 and not again else ("test" if test else "reading")
     with con:
         cur = con.execute("INSERT INTO snapshots (state, feed_id, fetched_at, source_time, source_version, sha256, raw_path, status, rows, note) "
                           "VALUES (?,?,?,?,?,?,?,?,?,?)", (state, feed_id, fetched_at or utcnow(), source_time, source_version, sha256,

@@ -303,6 +303,7 @@ will on GitHub.
 | `status` | rewrites `election_night_status.md`: what is read, what waits on John, the last publish |
 | `scan` | the built pages and live files: contact-like text (`check_local.contact_like`), any social account not on the official list, any name of the kit's files |
 | `certify <code>` | loads a state's certified results after its canvass |
+| `forecast` | the day's pre-election forecast runs for every state (Minnesota included); `live` also runs them once a day before Nov 3, in the sections thread, never in the results cycle. Whether forecasts reach any page or the live folder is one switch, `FORECASTS_PUBLIC` in `election/model/__init__.py` (off until John says yes) |
 
 ### 3.2 One cycle
 

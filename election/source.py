@@ -25,6 +25,7 @@ the night's own code. The never lists apply in a replay too.
 import datetime as dt
 import fnmatch
 import glob
+import http.client
 import json
 import os
 import re
@@ -34,7 +35,7 @@ import time
 from dataclasses import dataclass, field
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if HERE not in sys.path:
@@ -54,6 +55,7 @@ NEVER = (
     "vrsws.sos.ky.gov",        # Kentucky's live results host: its Acceptable Use Policy limits scraping
     "api.gdeltproject.org",    # GDELT's search API answers this machine 429; the raw 15-minute files are used instead
     "miboecfr.nictusa.com",    # Michigan's old campaign-finance host, now a people-search site
+    "*.arizona.vote",          # Arizona's results site and its data host cdn1.arizona.vote: John said no (D2, 2026-10-10)
 )
 SPACING = 1.0                  # seconds between requests to one host
 SMALL_SPACING = 2.0            # for small state sites
@@ -186,6 +188,28 @@ def never_reason(url, extra=()):
     return None
 
 
+class _GatedRedirects(HTTPRedirectHandler):
+    """Follows a redirect only to an address the gate would ask itself: a never-listed host or one stopped for the night
+    is refused before the new request is sent, and every redirect is logged with the host it goes to. The gate (a
+    Source) rides on the request as `_gate`, and is handed on to each redirected request."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        gate = getattr(req, "_gate", None)
+        if gate is not None:
+            gate.log(f"-- redirect {code} {host_of(req.full_url)} -> {host_of(newurl)}{urlsplit(newurl).path or '/'}")
+            gate.check(newurl)                         # raises Refused: the redirect is never followed
+        new = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if new is not None:
+            new._gate = gate
+        return new
+
+
+def urlopen(req, timeout=None, context=None):
+    """urllib's urlopen with the gate's redirect check (the request carries its Source as `_gate`)."""
+    handlers = [HTTPSHandler(context=context)] if context is not None else []
+    return build_opener(*handlers, _GatedRedirects()).open(req, timeout=timeout)
+
+
 class FolderReplay:
     """Answers from a folder laid out as <root>/<host>/<path> (a query string becomes part of the file name, with
     unsafe characters replaced). A missing file is a 404. A `clock` callable may pick a subfolder per moment."""
@@ -210,11 +234,13 @@ class FolderReplay:
 
 
 class Source:
-    def __init__(self, replay=None, log=None, never_extra=None, stopped_file=STOPPED_FILE, small_hosts=(), now=None):
+    def __init__(self, replay=None, log=None, never_extra=None, stopped_file=STOPPED_FILE, small_hosts=(), now=None, timeout=60):
         """replay: None (live), a callable url -> (status, body, headers), or a folder (FolderReplay).
         log: a callable taking one line; default appends to logs/night_<date>.log.
         never_extra: more never patterns; default reads every registry file's "never" list.
-        stopped_file: where hosts stopped for the night are kept (None: in memory only)."""
+        stopped_file: where hosts stopped for the night are kept (None: in memory only).
+        timeout: seconds of silence before a request is given up (each of its two tries), unless a call names its own."""
+        self.timeout = timeout
         if isinstance(replay, str):
             replay = FolderReplay(replay)
         self.replay = replay
@@ -302,7 +328,7 @@ class Source:
 
     # ------------------------------------------------------------------ the request
 
-    def get(self, url, state=None, accept="*/*", conditional=False, small=False, timeout=60, expect_html=False):
+    def get(self, url, state=None, accept="*/*", conditional=False, small=False, timeout=None, expect_html=False):
         """One polite GET. Never raises for an HTTP status (the Response carries it); raises Refused before sending
         when the host may not be asked, and SourceError when no answer came."""
         self.check(url)
@@ -319,7 +345,7 @@ class Source:
             self._wait_turn(host, small)
             t0 = time.monotonic()
             try:
-                status, body, rh = self._send(url, headers, timeout)
+                status, body, rh = self._send(url, headers, timeout or self.timeout)
             finally:
                 self._last[host] = time.monotonic()
             elapsed = time.monotonic() - t0
@@ -372,12 +398,13 @@ class Source:
                 if getattr(reason, "verify_code", None) is not None and getattr(reason, "verify_code") != 20:
                     raise SourceError(f"certificate did not verify ({reason}); checking stays on") from e
                 last = e
-            except (TimeoutError, OSError) as e:
+            except (TimeoutError, OSError, http.client.HTTPException) as e:     # HTTPException: a file cut off midway (IncompleteRead)
                 last = e
             time.sleep(3 + 3 * attempt)
-        raise SourceError(f"no answer ({last})")
+        raise SourceError(f"no answer ({last.__class__.__name__}: {last})")
 
     def _open(self, req, timeout):
+        req._gate = self
         try:
             with urlopen(req, timeout=timeout) as r:
                 return r.status, r.read(), dict(r.headers)

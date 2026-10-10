@@ -70,7 +70,7 @@ if HERE not in sys.path:
 from election.model import DB, cache_dir, load_json, save_json, sha_file  # noqa: E402
 from election.model import runs as R  # noqa: E402
 
-METHOD = "pre-1.0"
+METHOD = "pre-1.1"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior, not "sole"
 DRAWS = 2000
 STATE = "MN"
 ELECTION_DAY = dt.date(2026, 11, 3)
@@ -1112,7 +1112,9 @@ def _sim_partisan(entry, frame, shared, rng, draws):
     sg = frame.get("state_grid")
     k_off = entry.get("k")                          # statewide: its place in the shared Gaussian (0: the environment itself)
     dsd = P["district_sd"].get(office, 0.14)
-    if two:
+    if two or len(idx_o) > 1:
+        # "sole" was sized on races with one other name beside one big party; drawn for each of several such names,
+        # their shares add up far past anything on record, so several minor names take the ordinary prior
         prior = P["minor"].get("statewide", P["minor"]["with_majors"]) if k_off is not None else P["minor"]["with_majors"]
     else:
         prior = P["minor"]["sole"]

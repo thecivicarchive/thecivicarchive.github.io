@@ -419,7 +419,8 @@ def load_final(final_dir):
     for root, _d, names in os.walk(final_dir):
         for n in names:
             p = os.path.join(root, n)
-            out[os.path.relpath(p, final_dir).replace(os.sep, "/")] = open(p, "rb").read()
+            with open(p, "rb") as fh:
+                out[os.path.relpath(p, final_dir).replace(os.sep, "/")] = fh.read()
     return out
 
 

@@ -217,7 +217,7 @@ def _ro(path):
 
 def build_crosswalk(code, keep=None):
     """The crosswalk document for one state, from the ballot databases (read only). keep: the old document, whose
-    hand-checked "contests" and "checked" records are kept."""
+    hand-checked "contests" and "checked" records, and its "night_only" races, are kept."""
     code = code.upper()
     races = {}
     con = _ro(BALLOT_DB)
@@ -245,7 +245,8 @@ def build_crosswalk(code, keep=None):
             counties[fold(name)] = pid
     lcon.close()
     keep = keep or {}
-    return {"v": 1, "state": code, "built": dt.date.today().isoformat(),
+    extra = {"night_only": keep["night_only"]} if keep.get("night_only") else {}      # races no ballot list carries (the District's), kept by hand
+    return {**extra, "v": 1, "state": code, "built": dt.date.today().isoformat(),
             "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
             "rule": ("A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. "
                      "A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name "

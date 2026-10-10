@@ -32,7 +32,8 @@ THE MEASURES (each race against the races of its own board, never all races toge
        closeness = 1 - |margin|, margin = (first - second) / (first + second)
      The margin is the count's once 20 percent of the expected vote is in (the forecast's expected total, else the
      share of units reported), before that the forecast's median margin (none when the two medians at the line are the
-     same); with neither, not ranked. Where several seats
+     same); with neither, not ranked. While forecasts are not public (John's yes, the forecasts page's switch) the
+     forecast is not read: the count's margin only, its share from the units reported. Where several seats
      are filled, the margin is between the last seat and the first name below it. Retention votes, races with one name a
      seat, and races where the forecast says the record favours nobody are left out. Close races with no coverage are
      included: that is the point. Positive: closer than its coverage suggests.
@@ -772,13 +773,27 @@ def read_posts(con, until):
 
 # ============================================================================================ margins: the count, else the forecast
 
-def margins(codes, rehearsal=False, results_db=None, model_db=None, say=print):
+def forecasts_public():
+    """John's yes for public forecasts (the forecasts page's FORECASTS_PUBLIC). Until it is given, no margin comes from a
+    forecast, so nothing the feed publishes is drawn from one."""
+    try:
+        import build_night_forecasts
+        return bool(build_night_forecasts.FORECASTS_PUBLIC)
+    except Exception:  # noqa: BLE001 - no switch to read: forecasts stay private
+        return False
+
+
+def margins(codes, rehearsal=False, results_db=None, model_db=None, say=print, use_forecasts=None):
     """{race id: (margin, source, share counted)} for the races of these states: the count's once 20 percent of the
-    expected vote is in, else the forecast's median; equal-chance races (the record favours nobody) left out."""
+    expected vote is in, else the forecast's median; equal-chance races (the record favours nobody) left out. While
+    forecasts are not public (use_forecasts None reads the switch), the forecasts are not read at all: the count's margin
+    only, its share counted from the units reported, and a race with no count yet is not ranked."""
     out = {}
     fc = {}
     try:
         from election.model import runs
+        if not (forecasts_public() if use_forecasts is None else use_forecasts):
+            codes = ()
         for code in codes:
             doc = runs.page_json(code, db=model_db or runs.DB, rehearsal=rehearsal) if hasattr(runs, "page_json") else None
             if not doc:

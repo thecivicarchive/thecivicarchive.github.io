@@ -10,6 +10,14 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.110 — 2026-10-10 — Election Night: four reviews and their fixes
+
+- Election Night was reviewed four ways (look and access, the privacy and wording rules, how the night's updater copes when something goes wrong, and the numbers) and what they found is fixed.
+- Minnesota's results page gains the page guide and the companion. Buttons are full size on phones, the small brass status labels are darker and easier to read, every race page has a heading for screen readers, and the forecast charts keep their labels readable on phones and give each candidate its own marker in the patterned looks.
+- The District of Columbia appears on the results across the country, with its races for Delegate and Mayor.
+- Forecasts: the track record shows its real counts and how well the chances held; a race with one major-party candidate and several smaller ones now gets sensible chances; small turnouts round sensibly; each state lists the races left out and why.
+- On the night, one state's trouble no longer stops the others, a results site that does not answer is given up on after 25 seconds and asked less often, and nothing about forecasts is published while they are not public.
+
 ## v4.0.109 — 2026-10-10 — Election Night: the feed, the forecasts page and forecasts for the other states
 
 - The feed is a new Election Night page about news coverage of the races. Each headline names its outlet and links to the story. Posts appear only from newsrooms, election offices and candidates' official accounts, and only once the site has its own contact address; everyone else is counted, never shown. A leaderboard ranks the races by coverage per 100,000 residents, the attention gap (coverage against how close a race is), momentum (the last hour against the hour before) and source breadth (how many outlets). It fills in once the night's updater is running.
@@ -19,15 +27,15 @@ when John signs off on a milestone. `Save this version.bat` commits and tags;
 
 ## v4.0.108 — 2026-10-10 — Election Night: every state's results readers, the US map, live updates and Minnesota's first forecasts
 
-- Election Night can now read the official results of 26 states and the District of Columbia straight from each state's own results system, each tested by replaying a past election and checked against its certified totals. The other states link to their own results pages.
+- Election Night can now read the official results of 25 states and the District of Columbia straight from each state's own results system. Most were tested by replaying a past election against its certified totals (California on its results service's test figures; Nebraska and the District of Columbia not yet). The other states link to their own results pages.
 - A results page updates itself while it is open: new figures appear in place, a table never re-sorts under your hands, and the page says plainly when updates are paused.
-- Minnesota's races have their first forecasts: a chance and a likely vote range for every contested race, labelled Analysis, tested against the 2022 and 2024 elections, with ballot position, roll-off and the order in which counties count built in.
+- Minnesota's first forecasts are built and tested against the 2022 and 2024 elections: a chance and a likely vote range for every contested race, labelled Analysis, with ballot position, roll-off and the order in which counties count built in. They appear once approved.
 
 ## v4.0.107 — 2026-10-10 — Election Night: the door and the first pages
 
 - A third space opens beside On The Ballot and Legislation & Legislatures: Election Night, for results only. Its door is on the home page and in the top bar ("Follow the count, race by race."), and on phones it is the "Results" tab.
 - Its home page lists when the polls close in every state, in your own time zone, and sends you to your state's own polling-place lookup.
-- Minnesota's results page is built, with every contest on the November ballot, from Congress down to school boards, on one map shaded by who is ahead, and your own ballot's results when you use your location. Until Election Day it shows a practice run of 2024's official figures, labelled as practice.
+- Minnesota's results page is built, with every contest on the November ballot, from Congress down to school boards, on one map shaded by who is ahead, and your own ballot's results when you use your location. Before Election Day it is tested on practice figures built from 2024's official results, which are never published.
 - The figures come only from official sources. Where a state's results site does not allow programs, the page links to the state's own results instead.
 
 ## v4.0.106 — 2026-10-10 — Search and filter a member's votes and bills

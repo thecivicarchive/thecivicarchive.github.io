@@ -67,7 +67,7 @@ COUNTIES_LIMIT = 3_000_000       # every county file together (Night's static fi
 COUNTY_METHOD = N.US_COUNTY_METHOD    # bump it there to redraw every county file
 COUNTY_UNITS = ("county", "parish", "precinct")     # a feed by these units can give a statewide race's figures county by county
 
-PRACTICE_LABEL = "Practice: replayed 2024 figures. Not 2026 results."
+PRACTICE_LABEL = "Practice: made-up figures built from 2024 county results. Not 2026 results."      # shares moved and progress invented: a replay of no count
 PRACTICE_NOW = "2026-11-04T03:52:00Z"       # 9:52 p.m. Central on election night, as on Minnesota's practice page
 PRACTICE_AT = "2026-11-04T03:50:00Z"
 PRACTICE_NEXT = "2026-11-04T04:00:00Z"
@@ -1375,12 +1375,12 @@ function statePage(st) {
   const opts = b.sen.concat(b.gov, b.sw).map(r => `<option value="${esc(r.id)}">${esc(raceTitle(r))}</option>`).join("") + (b.house.length ? `<option value="house">U.S. House: ${b.house.length === 1 ? "the seat" : "every district"}</option>` : "");
   const first = PICK[st] && (PICK[st] === "house" || R[PICK[st]]) ? PICK[st] : (b.sen[0] || b.gov[0] || b.sw[0] || {}).id || (b.house.length ? "house" : "");
   app.innerHTML = crumbs([esc(NM(st))]) + heroHTML("Election Night &middot; " + esc(NM(st)), esc(NM(st)),
-      rs.length ? `${b.sen.length + b.house.length ? plural(b.sen.length + b.house.length, "race") + " for Congress" : ""}${b.sen.length + b.house.length && b.gov.length + b.sw.length ? " and " : ""}${b.gov.length + b.sw.length ? plural(b.gov.length + b.sw.length, "statewide office") : ""}, counted as ${esc(S.o)} posts the figures.` : `No race for Congress, governor or a statewide office from ${esc(IN(st))} is on this page&rsquo;s lists.`)
+      rs.length ? `${b.sen.length + b.house.length ? plural(b.sen.length + b.house.length, "race") + " for Congress" : ""}${b.sen.length + b.house.length && b.gov.length + b.sw.length ? " and " : ""}${b.gov.length + b.sw.length ? (st === "DC" ? plural(b.gov.length + b.sw.length, "race for the District&rsquo;s offices", "races for the District&rsquo;s offices") : plural(b.gov.length + b.sw.length, "statewide office")) : ""}, counted as ${esc(S.o)} posts the figures.` : `No race for Congress, governor or a statewide office from ${esc(IN(st))} is on this page&rsquo;s lists.`)
     + (S.pg ? `<p class="rlinks"><a class="rpgo" href="${esc(BOOT.links.night + st.toLowerCase() + "/")}">Every race in ${esc(NM(st))}, down to the school boards &rsaquo;</a></p>` : "")
     + pollsStateHTML(st) + stateStatusHTML(st, true)
     + (rs.length ? `<section class="bsec" id="statemap"><h2>The map</h2><p class="sub">Pick a race. ${S.cf ? `A statewide race is drawn ${esc(UW(st)[3])} where the state&rsquo;s file gives ${esc(UW(st)[0])} figures.` : "The whole state is drawn by its total."} The House is drawn district by district where this year&rsquo;s lines are drawn.</p>${stMapHTML(st, rs.length ? `<select class="pick" id="stpick" aria-label="What the map shows">${opts}</select>` : "")}</section>` : "")
     + (b.sen.length ? `<section class="bsec"><h2>U.S. Senate</h2><div class="rgrid2">${b.sen.map(r => resultHTML(r, {where: false})).join("")}</div></section>` : "")
-    + (b.gov.length + b.sw.length ? `<section class="bsec"><h2>Governor and the statewide offices</h2><div class="rgrid2">${b.gov.concat(b.sw).map(r => resultHTML(r, {small: true, where: false})).join("")}</div></section>` : "")
+    + (b.gov.length + b.sw.length ? `<section class="bsec"><h2>${st === "DC" ? "The District&rsquo;s offices" : "Governor and the statewide offices"}</h2><div class="rgrid2">${b.gov.concat(b.sw).map(r => resultHTML(r, {small: true, where: false})).join("")}</div></section>` : "")
     + (b.house.length ? `<section class="bsec"><h2>U.S. House</h2><div class="nrows">${b.house.map(r => rowHTML(r)).join("")}</div></section>` : "")
     + sourcesHTML(st);
   const sel = $("#stpick");
@@ -1396,7 +1396,7 @@ function racePage(id) {
     S.url ? `<a href="${esc(S.url)}" target="_blank" rel="noopener">The state&rsquo;s own results</a>` : ""].filter(Boolean);
   const rules = [rule !== "plurality" ? RULE_WORDS[rule] : "", r.op && rule !== "open_primary" ? RULE_WORDS.open_primary : ""].filter(Boolean);
   const box = (rules.length ? `<b>How this race is decided.</b> ${rules.join(" ")} ` : "") + (S.hc ? `<b>How ${esc(IN(r.st))} counts.</b> ${esc(S.hc)}` : "");
-  app.innerHTML = crumbs([`<a href="#state=${r.st}">${esc(NM(r.st))}</a>`, esc(raceTitle(r))]) + `<div id="newfig"></div>` + pollsStateHTML(r.st)
+  app.innerHTML = crumbs([`<a href="#state=${r.st}">${esc(NM(r.st))}</a>`, esc(raceTitle(r))]) + `<h1 class="sr">${esc(raceTitle(r))}, ${esc(NM(r.st))}</h1>` + `<div id="newfig"></div>` + pollsStateHTML(r.st)
     + (["held", "stale"].includes(stWord(r.st)) ? stateStatusHTML(r.st, false) : "")
     + `<section class="bsec">${resultHTML(r, {link: false, foot: false})}${box ? `<div class="rulebox">${box}</div>` : ""}<p class="rlinks">${links.join("")}</p></section>`
     + `<section class="bsec"><h2>The map</h2>${stMapHTML(r.st, `<span class="kick">${esc(raceTitle(r))}</span>`)}</section>`

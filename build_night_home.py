@@ -78,12 +78,19 @@ def facts(dev_root):
     for path in glob.glob(os.path.join(HERE, "election", "registry", "*.json")):
         try:
             with open(path, encoding="utf-8") as fh:
-                st = (json.load(fh).get("status") or "").lower()
+                e = json.load(fh)
+            st = (e.get("status") or "").lower()
         except (OSError, ValueError, AttributeError):
             continue
         if st in ("live", "care", "hand", "link"):
             F["registry"] += 1
+            code = os.path.basename(path)[:-5].upper()
+            if code == "DC":      # the District of Columbia is not a state: counted apart, named in words
+                F["dc"] = st
+                continue
             F["states_" + st] += 1
+            if st == "hand":
+                F.setdefault("hand_names", []).append(e.get("name") or code)
     db = os.path.join(HERE, "night_feed_2026.sqlite")
     if os.path.exists(db):
         con = _ro(db)
@@ -277,7 +284,7 @@ def body(F, P, places):
     kpis = [(H.n(F["congress"]), "races for Congress"), (H.n(F["statewide"]), f"statewide races, in {H.n(F['statewide_states'])} states"),
             (H.n(F["mn_races"]), "Minnesota races, every level")]
     if F["registry"]:
-        kpis.append((H.n(F["states_live"]), "states whose live count is read here"))
+        kpis.append((H.n(F["states_live"]), "states whose live count is read here" + (", and the District of Columbia" if F.get("dc") == "live" else "")))
     kpi_dl = "".join(f"<div><dd>{v}</dd><dt>{esc(t)}</dt></div>" for v, t in kpis if v not in ("0", ""))
     notice = (f'<div class="nh-notice" id="nh-open" role="status" hidden><p>Polls are still open in some states. If you haven&rsquo;t voted, your vote still counts.</p>'
               f'<a href="#where-to-vote">Find your polling place</a></div>')
@@ -307,7 +314,7 @@ def body(F, P, places):
              "Every state's races for Congress, governor and the other statewide offices on one map, with each state's count as its election office posts it. Where a state publishes no live count, the page links to its own results.",
              "See every state's big races on one map. The numbers come from each state.",
              [(H.n(F["congress"]), "races for Congress"), (H.n(F["statewide"]), "statewide races"),
-              (H.n(F["states_live"]) if F["registry"] else None, "states read live")], "Open the results", pg["us"]),
+              (H.n(F["states_live"]) if F["registry"] else None, "states read live" + (", and DC" if F.get("dc") == "live" else ""))], "Open the results", pg["us"]),
         door("mn", "mn/", "Minnesota", "Minnesota at every level.",
              "Every race on Minnesota's ballot, precinct by precinct on one map: statewide, the Legislature, courts, counties, cities, townships and school districts. Use your location to see your own ballot's results.",
              "Every race in Minnesota, down to your precinct. Find your own ballot on the map.",
@@ -369,10 +376,18 @@ def body(F, P, places):
 </section>"""
 
     if F["registry"]:
-        how = (f"{H.nw(F['states_live'], cap=True)} states publish a live count this site reads as it comes in"
-               + (f", and {H.nw(F['states_care'])} more can be read with care" if F["states_care"] else "")
-               + (". Minnesota's figures come from the Secretary of State's results files, saved through the night" if F["states_hand"] else "")
-               + (f". For the other {H.nw(F['states_link'])}, the page links to the state's own results and adds the official totals when the state certifies them." if F["states_link"] else "."))
+        dc = lambda st: " and the District of Columbia" if F.get("dc") == st else ""      # noqa: E731 - DC is not a state
+        hand = F.get("hand_names") or []
+        others = [n for n in hand if n != "Minnesota"]
+        hand_words = ""
+        if hand:
+            hand_words = (". Minnesota's figures come from the Secretary of State's results files, saved through the night" if "Minnesota" in hand else
+                          f". {others.pop(0)}'s figures come from the results files its election office posts, saved by hand through the night")
+            hand_words += "".join(f", and {n}'s from the files its election office posts for export, saved by hand" for n in others)
+        how = (f"{H.nw(F['states_live'], cap=True)} states{dc('live')} publish a live count this site reads as it comes in"
+               + (f", and {H.nw(F['states_care'])} more{dc('care')} can be read with care" if F["states_care"] else "")
+               + hand_words
+               + (f". For the other {H.nw(F['states_link'])}{dc('link')}, the page links to the state's own results and adds the official totals when the state certifies them." if F["states_link"] else "."))
     else:
         how = ("Where a state publishes a live count that a program may read, this site reads it as it comes in. Minnesota's figures come from the Secretary of State's results files, saved through the night. "
                "Where a state publishes no such count, the page links to the state's own results and adds the official totals when the state certifies them.")

@@ -496,15 +496,15 @@ def generated():
 # tones --n1 to --n6 in ballot order. Under a colour-vision palette, Calm or high contrast, fills also carry patterns.
 NIGHT_CSS = r"""
 :root{--n1:#2F6B5E;--n2:#A8762E;--n3:#6B7A2E;--n4:#7A5A44;--n5:#3D9A7C;--n6:#B8964F;--nstripe:rgba(255,255,255,.62);--hatch-ink:#8A8F96;
-  --st-live:#2F6B5E;--st-hold:#A8762E;--brass:#A8762E;--brass-soft:#F3E8D3;--verd:#2F6B5E;--verd-soft:#E2EDE8}
+  --st-live:#2F6B5E;--st-hold:#A8762E;--st-hold-ink:#7E5719;--brass:#A8762E;--brass-soft:#F3E8D3;--verd:#2F6B5E;--verd-soft:#E2EDE8}
 :root[data-theme="dark"]{--n1:#6DBBA8;--n2:#D9A657;--n3:#A9BA62;--n4:#C29A7E;--n5:#5FD0AA;--n6:#E2C784;--nstripe:rgba(15,17,20,.55);--hatch-ink:#7B828C;
-  --st-live:#6DBBA8;--st-hold:#C9944A;--brass:#C9944A;--brass-soft:#2F2618;--verd:#6DBBA8;--verd-soft:#1B302B}
+  --st-live:#6DBBA8;--st-hold:#C9944A;--st-hold-ink:#C9944A;--brass:#C9944A;--brass-soft:#2F2618;--verd:#6DBBA8;--verd-soft:#1B302B}
 /* high contrast: the site's own tokens set to black on white (the shell's high-contrast look), the parties' colours deepened */
 :root[data-contrast="high"]{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--muted:#1F1F1F;--line:#000000;--line-strong:#000000;--hair:#000000;
   --accent:#000000;--accent-ink:#000000;--accent-soft:#FFFFFF;--accent-line:#000000;--gold:#000000;--gold-ink:#000000;
   --pD:#1238B8;--pR:#A51E16;--pI:#4F3594;--pL:#6B4E00;--pG:#14592A;--pO:#2E3238;--pW:#3B3F45;--pN:#2E3238;
   --n1:#174F44;--n2:#6E4A10;--n3:#3E4A10;--n4:#4A3324;--n5:#0F5F47;--n6:#6B5410;--nstripe:rgba(255,255,255,.75);--hatch-ink:#000000;
-  --st-live:#000000;--st-hold:#000000;--brass:#000000;--brass-soft:#FFFFFF;--verd:#000000;--verd-soft:#FFFFFF;color-scheme:light}
+  --st-live:#000000;--st-hold:#000000;--st-hold-ink:#000000;--brass:#000000;--brass-soft:#FFFFFF;--verd:#000000;--verd-soft:#FFFFFF;color-scheme:light}
 :root[data-contrast="high"] .top{border-bottom:2px solid #000}
 :root[data-contrast="high"] .ln .nbar{background:#fff;box-shadow:inset 0 0 0 1px #000}
 :root[data-contrast="high"] .res,:root[data-contrast="high"] .nrow,:root[data-contrast="high"] .mapcol,:root[data-contrast="high"] .mapside,
@@ -517,6 +517,11 @@ html,body{overflow-x:hidden}
   .top .nav{display:flex;order:9;flex:0 0 100%;min-width:0;margin:0 -4px;padding:0 0 7px;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .top .nav::-webkit-scrollbar{display:none}
   .top .nav a,.top .nav a.x{display:block;flex:0 0 auto;padding:7px 10px;font-size:14px}}
+/* between the phone row and the full bar the section links and the tools fit only without the wordmark */
+@media (min-width:761px) and (max-width:860px){.top .brand .wm{display:none}}
+/* phones: 44-pixel targets in the top bar (the borrowed bar is 34 high there); the map's zoom buttons below */
+@media (max-width:560px){.top .iconbtn,.top .doorlink{width:44px;height:44px;justify-content:center;padding:0}.top .mtog{height:44px}
+  .top .nav a,.top .nav a.x{min-height:44px;display:flex;align-items:center}}
 .bhero h1{overflow-wrap:break-word}
 /* practice and rehearsal figures say so on every page, before anything else */
 .nbanner{background:var(--brass-soft);color:var(--ink);border-bottom:2px solid var(--brass);padding:9px 16px;font:600 14px/1.4 var(--sans);text-align:center}
@@ -528,7 +533,7 @@ html,body{overflow-x:hidden}
 .stw{display:inline-flex;align-items:center;gap:7px;flex:none;font:700 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 11px;border:1px solid var(--line-strong);color:var(--muted)}
 .stw i{width:8px;height:8px;border-radius:50%;background:currentColor}
 .stw.counting{color:var(--st-live);border-color:var(--st-live)}.stw.done,.stw.official{color:var(--ink);border-color:var(--ink)}
-.stw.held,.stw.stale,.stw.refused{color:var(--st-hold);border-color:var(--st-hold)}
+.stw.held,.stw.stale,.stw.refused{color:var(--st-hold-ink);border-color:var(--st-hold)}
 :root:not(.calm) .stw.counting i{animation:npulse 2.4s ease-in-out infinite}
 @keyframes npulse{50%{opacity:.25}}
 /* polls still open (John's words): before anything else on the page */
@@ -612,6 +617,7 @@ details.nfold>summary:focus-visible{outline:2px solid var(--accent);outline-offs
 .zoom button{min-width:38px;height:38px}
 .zoom button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 .zoom button[hidden]{display:none}
+@media (max-width:560px){.zoom button{min-width:44px;width:44px;height:44px}}      /* phones: 44-pixel targets */
 .nlegend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 2px 0;font-size:12.5px;color:var(--muted);align-items:center}
 .nlegend span{display:inline-flex;align-items:center;gap:6px;min-width:0}
 .lgsw{display:inline-block;width:14px;height:14px;border-radius:4px;background:var(--c,var(--muted));flex:none;border:1px solid var(--line)}
@@ -1004,8 +1010,9 @@ window.NightKit = (function () {
     const hatch = kit.pattern(look.wait, "hatch"), seen = {};
     const n = kit.fill(kind, (id, p) => { const k = countOf(id, p); if (k == null) return null; if (k === "wait") return hatch;
       const L = lead(k.v); seen[id] = [L, k]; if (!L) return look.empty; if (L.tie) return look.tie; return rgba(k.cols[L.i] || look.tie, step(L.margin)); }, 1, look.edge);
+    /* the palest step (a narrow lead) is near white, where the light stripe cannot be seen: its pattern is drawn dark */
     if (look.patterned) kit.fill(kind, id => { const s = seen[id]; if (!s || !s[0] || s[0].tie) return null; const pat = (s[1].pats || [])[s[0].i];
-      return pat ? kit.pattern(look.overlay, pat) : null; }, 1);
+      return pat ? kit.pattern(s[0].margin < STEPS[0][0] ? (look.overlayPale || look.wait) : look.overlay, pat) : null; }, 1);
     return n;
   }
   return {STEPS, rgba, lead, paint};

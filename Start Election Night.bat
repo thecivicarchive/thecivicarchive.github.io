@@ -15,6 +15,13 @@ echo online and with its lid open. The computer is asked not to sleep while this
 echo none of its settings is changed.
 echo.
 ".venv\Scripts\python.exe" run_night.py live
+if errorlevel 2 if not errorlevel 3 (
+  echo.
+  echo The updater was already running in its own window, so this window did nothing. Use that window.
+  echo.
+  pause
+  exit /b 0
+)
 echo.
 echo Election Night's updater has stopped. Double-click "Start Election Night.bat" to start it again;
 echo it carries on from where it stopped.

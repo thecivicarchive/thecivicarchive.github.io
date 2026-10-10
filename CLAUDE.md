@@ -1268,7 +1268,9 @@ Sub-agents for this work run at or below Opus 5.5 max (John, 2026-10-09).
   November 2, at 6 p.m. CT.
 - On the pages: results are "as reported, not final" until certified; a forecast is always labelled Analysis with a
   range and its track record, is never 0 or 100 percent, is never made for an unopposed race, and is shown all through
-  Election Day, with "Polls are still open here" and the polling-place link where they are; feed posts are shown only
+  Election Day, with "Polls are still open here" and the polling-place link where they are. Forecasts reach no page and
+  no live file until John says yes: one switch, `FORECASTS_PUBLIC` in `election/model/__init__.py`, read by the forecasts
+  page, the feed's measures and the updater (`python run_night.py forecast` makes the day's runs either way); feed posts are shown only
   from news organizations, election offices and candidates' official accounts (two anchors each), and everyone else is
   counted, never named; red and blue only for party data.
 

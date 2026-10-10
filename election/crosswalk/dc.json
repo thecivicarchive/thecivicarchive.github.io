@@ -23,6 +23,26 @@
  ],
  "contests": {},
  "counties": {},
+ "night_only": {
+  "2026-DC-DELEGATE": {
+   "kind": "house",
+   "level": "federal",
+   "office": "Delegate to the U.S. House of Representatives",
+   "partisan": 1,
+   "seats": 1,
+   "titles": "^DELEGATE TO THE (U\\.? ?S\\.? )?HOUSE OF REPRESENTATIVES\\b",
+   "why": "No ballot list carries the District of Columbia; the Delegate's contest is tied by its title in the Board of Elections' own file."
+  },
+  "2026-DC-MAYOR": {
+   "kind": "mayor",
+   "level": "statewide",
+   "office": "Mayor of the District of Columbia",
+   "partisan": 1,
+   "seats": 1,
+   "titles": "^MAYOR( OF THE DISTRICT OF COLUMBIA)?$",
+   "why": "No ballot list carries the District of Columbia; the Mayor's contest is tied by its title in the Board of Elections' own file."
+  }
+ },
  "races": {},
  "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
  "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",

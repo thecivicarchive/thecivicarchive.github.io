@@ -20,6 +20,8 @@ run_night.py - Election Night's one command (ARCHITECTURE.md 3.1). John starts t
     python run_night.py preview                serves site/ at http://127.0.0.1:8791/ (the draft and the live figures
                                                side by side, as on GitHub)
     python run_night.py status                 rewrites election_night_status.md
+    python run_night.py forecast               the day's pre-election forecasts (Minnesota and the other states), each
+                                               stored as a version; the updater runs them once a day by itself
     python run_night.py scan                   the built pages and live files: contact-like text, social accounts not
                                                on the official list, names of the kit's files
     python run_night.py certify <code> [--folder <saved certified files>] [--date yyyy-mm-dd]
@@ -137,6 +139,13 @@ def cmd_check(a):
         line(ok, f"reader {name}: its self-test on its fixture" + (f" ({quiet[-1].strip()[:150]})" if quiet else ""))
     from election import store
     line(store.selftest(say=lambda *_: None), "the results store's self-test")
+    try:
+        from election.feeds import measures
+        got = []
+        line(bool(measures.selftest(say=got.append)), "the feed measures' self-test" +
+             ("" if not any("BAD" in g for g in got) else " (" + "; ".join(g.strip() for g in got if "BAD" in g)[:200] + ")"))
+    except ImportError as e:
+        say(f"  note the feed measures: not there yet ({e})")
     tmp = tempfile.mkdtemp(prefix="night_check_", dir=_tmp())
     try:
         from election import awake, publish, replay
@@ -419,17 +428,39 @@ def cmd_discover(a):
 def cmd_once(a):
     from election import live as L
     holder = L.Lock(L.WORK).holder()
-    if holder:
-        say(f"Election Night is running (since {L.clock_words(L.parse(holder.get('started')), day=True)}); it reads and publishes by itself. "
-            "Nothing was done.")
-        return 0
     states = [a.state.upper()] if a.state else None
-    night = L.Night(mode="once", states=states)
     if a.from_file:
         if not a.state:
             say("--from-file needs --state")
             return 2
-        return from_file(night, a.state.upper(), a.from_file)
+        if holder:
+            # the night is running: the mended reader is tested on a scratch copy of the figures, so the checks are
+            # reported and the live figures, the live folder and the publisher are never touched
+            from election import store
+            tmp = tempfile.mkdtemp(prefix=f"from_file_{a.state.lower()}_", dir=_tmp())
+            try:
+                db = os.path.join(tmp, "election_2026.sqlite")
+                src_con = store.connect(store.DB)
+                try:
+                    dst = __import__("sqlite3").connect(db)
+                    src_con.backup(dst)
+                    dst.close()
+                finally:
+                    src_con.close()
+                night = L.Night(mode="once", states=states, db=db, publisher=None, live_root=os.path.join(tmp, "live"),
+                                work=os.path.join(tmp, "work"), status_path=None, raw_dir=os.path.join(tmp, "raw"), sections=False)
+                say("Election Night is running: the mended reader is tested on a scratch copy of the figures (nothing live changes).")
+                code = from_file(night, a.state.upper(), a.from_file)
+                night.con.close()
+                return code
+            finally:
+                shutil.rmtree(tmp, ignore_errors=True)
+        return from_file(L.Night(mode="once", states=states), a.state.upper(), a.from_file)
+    if holder:
+        say(f"Election Night is running (since {L.clock_words(L.parse(holder.get('started')), day=True)}); it reads and publishes by itself. "
+            "Nothing was done.")
+        return 0
+    night = L.Night(mode="once", states=states)
     night.say = say
     snap = night.once(publish=a.publish)
     say(f"One cycle done: snapshot {snap['seq']} ({'new figures' if snap['new'] else 'figures unchanged'}), {snap['files']} files.")
@@ -674,6 +705,14 @@ def cmd_preview(a):
     return 0
 
 
+def cmd_forecast(a):
+    from election import live as L
+    say("Election Night: the day's pre-election forecasts (Analysis; stored as versions, published only once John says yes)")
+    got = L.run_pre_all(say=say, log=say)
+    say("Ran: " + ("; ".join(got) if got else "nothing (the forecast modules are not there)"))
+    return 0 if got else 1
+
+
 def cmd_status(a):
     from election import live as L
     from election import livejson
@@ -689,7 +728,8 @@ def cmd_status(a):
 
 
 SOCIAL = re.compile(r"(?:bsky\.app/profile/[A-Za-z0-9._:-]+|@[A-Za-z0-9_]{1,30}@[A-Za-z0-9.-]+\.[a-z]{2,}|"
-                    r"youtube\.com/(?:channel/[A-Za-z0-9_-]+|@[A-Za-z0-9._-]+)|[A-Za-z0-9.-]+\.bsky\.social)")
+                    r"youtube\.com/(?:channel/[A-Za-z0-9_-]+|@[A-Za-z0-9._-]+)|[A-Za-z0-9.-]+\.bsky\.social|"
+                    r"https?://[a-z0-9.-]+/@[A-Za-z0-9_]+)")
 LINK_KEYS = {"url", "u", "link", "href", "results", "finder", "page", "site", "source", "addr", "address_of_page"}
 
 
@@ -748,7 +788,10 @@ def cmd_scan(a):
                     findings["contact"].append(rel)
             for m in SOCIAL.finditer(text):
                 handle = m.group(0).lower().split("/")[-1].lstrip("@")
-                if handle not in official and not any(handle.startswith(o) for o in official if o):
+                mm = re.match(r"https?://([a-z0-9.-]+)/@([a-z0-9_]+)$", m.group(0).lower())
+                if mm and "youtube.com" not in mm.group(1):
+                    handle = f"{mm.group(2)}@{mm.group(1)}"           # a Mastodon profile link: user@server, as the list keeps it
+                if handle not in official:                        # an exact match only; a name that merely starts alike is not official
                     findings["social"].append(rel)
                     break
     say(f"Scanned {n_files} files in the Night pages and the live figures.")
@@ -891,6 +934,7 @@ def main(argv=None):
     p = sub.add_parser("preview")
     p.add_argument("--port", type=int, default=8791)
     sub.add_parser("status")
+    sub.add_parser("forecast")
     sub.add_parser("scan")
     p = sub.add_parser("certify")
     p.add_argument("code")
@@ -906,7 +950,7 @@ def main(argv=None):
         ap.print_help()
         return 2
     return {"check": cmd_check, "build": cmd_build, "discover": cmd_discover, "once": cmd_once, "live": cmd_live, "stop": cmd_stop,
-            "replay": cmd_replay, "preview": cmd_preview, "status": cmd_status, "scan": cmd_scan, "certify": cmd_certify,
+            "replay": cmd_replay, "preview": cmd_preview, "status": cmd_status, "forecast": cmd_forecast, "scan": cmd_scan, "certify": cmd_certify,
             "publish": cmd_publish, "folder": cmd_folder}[a.cmd](a)
 
 

@@ -59,8 +59,8 @@ from election.model import DB, load_json, save_json, sha_file  # noqa: E402
 from election.model import data_us as U  # noqa: E402
 from election.model import runs as R  # noqa: E402
 
-METHOD = "us-pre-1.0"
-BT_METHOD = "us-backtest-1.0"
+METHOD = "us-pre-1.1"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior
+BT_METHOD = "us-backtest-1.1"  # 1.1: the same, and the measures also stored under the Minnesota backtest's names
 DRAWS = 2000
 BT_DRAWS = 1000
 ELECTION_DAY = dt.date(2026, 11, 3)
@@ -1049,6 +1049,21 @@ def score(frames, truth, scenario, draws, seed_base):
             b = [r for r in rs if lo / 100 <= max(r[5], 1 - r[5]) < (lo + 10) / 100 or (lo == 90 and max(r[5], 1 - r[5]) >= 1)]
             if b and lo >= 50:
                 m[f"calibration_{lo}_{lo + 10}"] = (sum(1 for r in b if (r[5] >= 0.5) == bool(r[12])) / len(b), len(b))
+        # The same measures under the names the Minnesota backtest uses (backtest.measures), which the forecasts page's
+        # track record reads: races, cover80, cover95, logloss, the plain rules' Brier scores beside the model's on the
+        # same races, and the calibration bins (the Democrat's chance against how often the Democrat came first).
+        m.update({"races": (n, n), "cover80": (c80, n), "cover95": (c95, n), "logloss": (ll, n)})
+        for name, col in (("incumbent_wins", 13), ("last_time_repeats", 14)):
+            rr = [r for r in rs if r[col] is not None]
+            if rr:
+                m[f"{name}_brier"] = (sum(((0.99 if r[col] else 0.01) - r[12]) ** 2 for r in rr) / len(rr), len(rr))
+                m[f"{name}_races"] = (len(rr), len(rr))
+                m[f"model_brier_on_{name}_races"] = (sum((r[5] - r[12]) ** 2 for r in rr) / len(rr), len(rr))
+        for k in range(10):
+            b = [r for r in rs if min(int(r[5] * 10), 9) == k]
+            if b:
+                pred, obs = sum(r[5] for r in b) / len(b), sum(r[12] for r in b) / len(b)
+                m[f"bin{k * 10:02d}_{k * 10 + 10:02d}"] = (round(obs, 4), len(b), f"predicted {pred:.4f}, observed {obs:.4f}")
         meas[grp] = m
     return rows, meas
 
@@ -1159,8 +1174,8 @@ def backtest(say=say_default, db=DB, store=True, draws=BT_DRAWS):
                             [(run, *r) for r in rows])
             crow = []
             for (sc, g), m in meas.items():
-                for k, (v, n) in m.items():
-                    crow.append((run, sc, g, k, v, n, None))
+                for k, (v, n, *note) in m.items():
+                    crow.append((run, sc, g, k, v, n, note[0] if note else None))
             con.executemany("INSERT OR REPLACE INTO calibration (run, scenario, grp, measure, value, n, note) VALUES (?,?,?,?,?,?,?)", crow)
         say(f"    stored backtest {run} in {time.time() - t0:.0f} s")
         return {"run": run, "params": final, "measures": meas, "report": report}

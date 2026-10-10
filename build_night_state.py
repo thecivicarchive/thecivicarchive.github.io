@@ -32,7 +32,7 @@ site (/night-live/, written by the updater), as night_common.py's account of the
 --practice writes the same page to site/practice/night/<code>/ and practice figures to site/practice/night-live/: the
 2024 general election's official precinct results (the Secretary of State's own tables on the Minnesota Geospatial
 Commons, already on disk) replayed onto this year's races, part of the state reported. Every practice page says so at
-the top: "Practice: replayed 2024 figures. Not 2026 results." No publish script copies site/practice/.
+the top: "Practice: figures built from 2024's official results. Not 2026 results." No publish script copies site/practice/.
 """
 
 import argparse
@@ -52,6 +52,7 @@ from states.places import place                                           # noqa
 
 FED_DB = os.path.join(HERE, "ballot_2026.sqlite")
 GENERAL = "2026-11-03"
+RIDER = '<script type="module" src="../../shell/rider.js" data-tca-rider></script>\n'
 SHELL_LIMIT = 380_000          # the page's own shell (index.html); the races, the map and the figures are files of their own
 COUNTY_FILE_BUDGET = 150_000   # a county's precinct rows (ARCHITECTURE.md 2.6)
 STATE_FILE_BUDGET = 800_000    # a state's figures
@@ -77,7 +78,7 @@ STATES = {
     },
 }
 
-PRACTICE_LABEL = "Practice: replayed 2024 figures. Not 2026 results."
+PRACTICE_LABEL = "Practice: figures built from 2024's official results. Not 2026 results."
 PRACTICE_SOURCE = os.path.join(HERE, "states_cache", "mn_local", "sos_electionresults_2024.json")
 PRACTICE_AT = "2026-11-04T03:42:00Z"       # 9:42 p.m. Central on election night: the time the practice figures are said to be from
 PRACTICE_SAVED = "2026-11-04T03:44:00Z"
@@ -994,7 +995,7 @@ function racePage(id) {
   if (!r) { app.innerHTML = crumbs([]) + `<p class="nempty">No race with that address is on this page. <a href="#">See every race</a>.</p>`; return; }
   document.title = `${raceTitle(r)}: Election Night, ${ST.name} · The Civic Archive`;
   const k = kindOf(r), wide = k === "state" || !r.c || r.c.length > 8;
-  app.innerHTML = crumbs([esc(LV[r.lv] || ""), esc(raceTitle(r))]) + statusHTML()
+  app.innerHTML = crumbs([esc(LV[r.lv] || ""), esc(raceTitle(r))]) + `<h1 class="sr">${esc(raceTitle(r))}, ${esc(ST.name)}</h1>` + statusHTML()
     + `<section class="bsec">${resultHTML(r, {link: false})}</section>`
     + (r.g ? `<section class="bsec"><h2>The map</h2><p class="sub">${k === "state" ? "County by county; zoom in and each " + UNIT + " takes over." : `Each ${UNIT} of the contest&rsquo;s area, shaded by its own count.`}</p>${mapHTML(`<span class="kick">${esc(raceTitle(r))}</span>`)}</section>` : `<p class="nempty">The map has no lines for this contest&rsquo;s area.</p>`)
     + `<section class="bsec"><h2>${wide ? esc(UW[2]) : `Every ${UNIT}`}</h2><div class="tblwrap" id="ntbl"><p class="held" style="padding:14px">Loading&hellip;</p></div></section>` + sourcesHTML();
@@ -1231,6 +1232,9 @@ def build(dev_root, version=None, practice=None, say=print, code="MN"):
     page = slim_page(page, f"Election Night {code}")
     page = N.quiet(page)
     checks = N.page_checks(f"night/{lc}/index.html", page, SHELL_LIMIT, say)
+    if not practice and os.path.exists(os.path.join(dev_root, "shell", "rider.js")):
+        i = page.rfind("</body>")
+        page = page[:i] + RIDER + page[i:]      # the companion and the page guide, as build_shell.ride() puts them on every page with its own top bar
     write_if_changed(os.path.join(out_dir, "index.html"), page)
     written[os.path.join(out_dir, "index.html")] = checks["bytes"]
     say(f"  wrote index.html {checks['bytes'] / 1e3:,.0f} KB ({whole / 1e3:,.0f} KB before slimming; budget {SHELL_LIMIT / 1e3:,.0f} KB), "

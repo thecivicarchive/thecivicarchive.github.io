@@ -424,28 +424,35 @@ UNIT_ALL = {"id": "all", "kind": "race", "name": "the whole contest", "parent": 
 
 # ============================================================================================== the replay check
 
-def certified_primary(code):
+def certified_primary(code, write_ins=None):
     """{"<race>~<PARTY>": {folded name: votes}} and {race: source id} from the ballot databases' official primary figures
-    (canvassed or certified; the ballot pages store primary votes only when official)."""
+    (canvassed or certified; the ballot pages store primary votes only when official). write_ins, a set, is given each
+    "<race>~<PARTY>|<name>" the list marks as a declared write-in."""
     out, srcs = {}, {}
     party_of = lambda e: e.split("-", 1)[1] if "-" in e else e  # noqa: E731
-    for path, q in ((BALLOT_US, "SELECT race_id, election, name, votes, source_id FROM candidates WHERE race_id LIKE ? AND election LIKE "
+    for path, q in ((BALLOT_US, "SELECT race_id, election, name, votes, source_id, 0 FROM candidates WHERE race_id LIKE ? AND election LIKE "
                                 "'primary-%' AND votes IS NOT NULL"),
-                    (BALLOT_LOCAL, "SELECT c.race_id, c.election, c.name, c.votes, c.source_id FROM sl_candidates c JOIN sl_races r "
+                    (BALLOT_LOCAL, "SELECT c.race_id, c.election, c.name, c.votes, c.source_id, c.write_in FROM sl_candidates c JOIN sl_races r "
                                    "USING (race_id) WHERE c.race_id LIKE ? AND c.election LIKE 'primary-%' AND c.votes IS NOT NULL "
                                    "AND r.level IN ('statewide','legislature')")):
         con = _ro(path)
-        for rid, el, name, votes, sid in con.execute(q, (f"2026-{code}-%",)):
+        for rid, el, name, votes, sid, wi in con.execute(q, (f"2026-{code}-%",)):
             k = f"{rid}~{party_of(el)}"
             out.setdefault(k, {})[name] = int(votes)
             srcs[k] = sid
+            if wi and write_ins is not None:
+                write_ins.add(f"{k}|{name}")
     return out, srcs
 
 
 def compare_primary(code, reading, say=print, levels=("federal", "statewide", "legislature")):
     """Each primary contest of the reading (its 'all' unit) against the certified figures. Returns (equal, differ,
-    not_in_reading). A race is equal when every certified candidate's votes are found under the same name."""
-    cert, srcs = certified_primary(code)
+    not_in_reading). A race is equal when every certified candidate's votes are found under the same name. Two
+    differences are explained, not the reader's: a declared write-in the feed does not list by name (it counts write-ins
+    as one line, or not at all), and a certified figure from a recount (the feed holds the first count). A race whose
+    every difference is explained counts as equal, and each explanation is said."""
+    write_ins = set()
+    cert, srcs = certified_primary(code, write_ins)
     got = {}
     for c in reading.get("contests", []):
         if "~" not in c["race_id"] or c.get("level") not in levels:
@@ -465,13 +472,22 @@ def compare_primary(code, reading, say=print, levels=("federal", "statewide", "l
                 missing.append(k)
             continue
         have = got[k]
-        bad = []
+        bad, why = [], []
+        recount = "recount" in str(srcs.get(k) or "").lower()
         for name, v in want.items():
             hit = filed_name(name, list(have)) or next((h for h in have if fold(h) == fold(name)), None)
             if hit is None:
                 hit = next((h for h in have if filed_name(h, [name])), None)
             if hit is None or have[hit] != v:
-                bad.append(f"{name}: certified {v:,}, feed {have.get(hit, 'not found') if hit else 'not found'}")
+                line = f"{name}: certified {v:,}, feed {have.get(hit, 'not found') if hit else 'not found'}"
+                if hit is None and f"{k}|{name}" in write_ins:
+                    why.append(line + " (a declared write-in the feed does not list by name)")
+                elif hit is not None and recount and abs(have[hit] - v) <= max(25, v // 100):      # a recount moves a handful of votes, not a reader's mistake
+                    why.append(line + " (the certified figure is the recount's; the feed holds the first count)")
+                else:
+                    bad.append(line)
+        if why:
+            say(f"  EXPLAINED {k} ({srcs.get(k)}): " + "; ".join(why))
         (differ if bad else equal).append((k, srcs.get(k), bad))
     return equal, differ, missing
 

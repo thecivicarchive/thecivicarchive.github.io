@@ -403,7 +403,8 @@ class Publisher:
 
     def _seq_in_source(self):
         try:
-            with open(os.path.join(self.source, "now.json"), encoding="utf-8") as fh:
+            # the pointer this publisher stands for: rehearsal/now.json in a rehearsal, never the live one beside it
+            with open(os.path.join(self.source, *self.watch_path.split("/")), encoding="utf-8") as fh:
                 return json.load(fh).get("seq")
         except (OSError, ValueError):
             return None

@@ -26,6 +26,11 @@ HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
+# John's yes to the first public forecasts (ARCHITECTURE.md 5.3, phase 5; Tue Oct 27 at the earliest). One switch for both
+# the forecasts page (build_night_forecasts.py) and the updater's live folder (election/live.py): until it is True, no
+# forecast leaves this computer.
+FORECASTS_PUBLIC = False
+
 DB = os.path.join(HERE, "election_model_2026.sqlite")
 CACHE_ROOT = os.path.join(HERE, "election_cache", "model")
 

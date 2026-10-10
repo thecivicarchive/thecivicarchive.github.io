@@ -89,7 +89,10 @@ SETTLE = 45                  # a changed folder is read once it has been unchang
 PRE_CLOSE_EVERY = 3600       # a live state's "what's new" before its polls close (a test then)
 WARM_UP = 30                 # minutes before a state's first poll closing when the night's cadence starts
 STALE_AFTER = 3              # failures in a row before a state says its site has not answered
+BACKOFF_MAX = 600            # a state whose site did not answer is asked again after every x 2**failures, at most this
+RESULTS_TIMEOUT = 25         # seconds of silence before a results request is given up (the feed keeps the gate's 60)
 PARTIAL = (".crdownload", ".part", ".tmp", ".download", ".partial")
+PARTIAL_FRESH = 120          # a partial download changed within this many seconds is a save still under way
 CENTRAL = "America/Chicago"
 # The kinds of state the cycle reads: the registry's live, care and hand, and "partial", a link state one of whose
 # counties publishes its own count (the registry's partial_sources), read as a labelled part of the state, never its count.
@@ -222,6 +225,36 @@ def optional(name):
         raise
 
 
+def forecasts_public():
+    """John's yes to public forecasts (election/model/__init__.py's FORECASTS_PUBLIC; the forecasts page reads the same)."""
+    try:
+        return bool(getattr(importlib.import_module("election.model"), "FORECASTS_PUBLIC", False))
+    except Exception:  # noqa: BLE001 - when in doubt, nothing goes out
+        return False
+
+
+def run_pre_all(now=None, rehearsal=False, say=print, log=None):
+    """The day's pre-election forecasts: Minnesota's (election.model.forecast) and every other state's
+    (election.model.other_states), each stored as a version. Before Election Day's results only; run once a day by the
+    updater's sections thread (never the results cycle) and by `run_night.py forecast`. Returns what ran."""
+    log = log or (lambda *_: None)
+    called = []
+    for modname, words in (("election.model.forecast", "Minnesota"), ("election.model.other_states", "the other states")):
+        try:
+            mod = optional(modname)
+        except Exception as e:  # noqa: BLE001
+            log(f"pre-election forecast, {words}: did not load ({e.__class__.__name__}: {str(e)[:160]})")
+            continue
+        if mod is None or not hasattr(mod, "run_pre"):
+            continue
+        try:
+            mod.run_pre(now=now, say=say, rehearsal=rehearsal)
+            called.append(f"pre-election forecast, {words}")
+        except Exception as e:  # noqa: BLE001
+            log(f"pre-election forecast, {words}, failed: {e.__class__.__name__}: {str(e)[:200]}")
+    return called
+
+
 def pid_alive(pid):
     try:
         pid = int(pid)
@@ -243,6 +276,24 @@ def pid_alive(pid):
         return True
     except OSError:
         return False
+
+
+def proc_created(pid):
+    """When the program with this number started (Windows: its creation time, 100 ns units), or None where it cannot
+    be read. A number Windows hands to another program later comes with another creation time."""
+    if os.name != "nt":
+        return None
+    try:
+        k32 = ctypes.WinDLL("kernel32")
+        h = k32.OpenProcess(0x1000, False, int(pid))                     # query limited information
+        if not h:
+            return None
+        times = [ctypes.c_ulonglong(0) for _ in range(4)]
+        ok = k32.GetProcessTimes(h, *[ctypes.byref(x) for x in times])
+        k32.CloseHandle(h)
+        return int(times[0].value) if ok else None
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def sha_files(files):
@@ -319,7 +370,14 @@ class Lock:
             doc = json.load(open(self.path, encoding="utf-8"))
         except (OSError, ValueError):
             return None
-        return doc if pid_alive(doc.get("pid")) else None
+        if not pid_alive(doc.get("pid")):
+            return None
+        made = doc.get("created")
+        if made is not None:
+            now_made = proc_created(doc.get("pid"))
+            if now_made is not None and now_made != made:
+                return None          # the window was closed and Windows has since given its number to another program
+        return doc
 
     def take(self, mode, root):
         h = self.holder()
@@ -332,7 +390,7 @@ class Lock:
             except (OSError, ValueError):
                 prev = {}
         with open(self.path, "w", encoding="utf-8") as fh:
-            json.dump({"pid": os.getpid(), "started": iso(utcnow()), "mode": mode, "root": root}, fh)
+            json.dump({"pid": os.getpid(), "created": proc_created(os.getpid()), "started": iso(utcnow()), "mode": mode, "root": root}, fh)
         if os.path.exists(self.stop_path):
             os.remove(self.stop_path)
         return True, prev
@@ -360,7 +418,7 @@ class Night:
     def __init__(self, mode="live", db=None, live_root=LIVE_ROOT, publish_root=LIVE_ROOT, work=WORK, clock=None, states=None,
                  src=None, say=print, status_path=STATUS_MD, log_path=None, day=ELECTION_DAY, label=None, raw_dir=RAW,
                  hand_folders=None, closes=None, end=None, sections=True, remote=None, publisher="auto", savers=None, run=None,
-                 elections=None):
+                 elections=None, feed_src=None):
         from election import publish as P
         from election.replay import RealClock
         self.mode = mode
@@ -381,7 +439,11 @@ class Night:
         self.savers = savers or {}
         self.elections = elections or {}
         self.live = livejson.LiveRoot(live_root, log=self.log)
-        self.src = src or Source(log=self._source_log)
+        self.src = src or Source(log=self._source_log, timeout=RESULTS_TIMEOUT)
+        # The feed's collectors get a gate of their own, so that the RSS round never takes the results' host slots.
+        self.feed_src = feed_src or (src if src is not None else Source(log=self._source_log))
+        self.stop_check = lambda: False         # run() points this at the stop request, so a long step can end early
+        self._helper_sig = None
         self.sections_on = sections and mode in ("live", "once")
         if publisher == "auto":
             publisher = P.Publisher(source=publish_root, clone=P.CLONE if remote is None else os.path.join(work, "clone"),
@@ -501,24 +563,50 @@ class Night:
         if not os.path.exists(path):
             return None, "its reader is not written yet"
         mtime = os.path.getmtime(path)
+        hsig = self._helpers()
         mod = s.get("mod") if s else None
         try:
             if mod is None:
                 mod = importlib.import_module(f"election.readers.{fam}")
-            elif s.get("mtime") != mtime:
+            elif s.get("mtime") != mtime or s.get("hsig") != hsig:
                 mod = importlib.reload(mod)
                 self.note(f"{code}: its reader changed on disk and was read again")
+                if s.get("held_at"):
+                    # the file that was held is read again with the mended reader, even if the state posts nothing newer
+                    s["last_version"], s["fp_read"], s["reread"] = None, None, True
         except Exception as e:  # noqa: BLE001 - a broken reader holds its state, never the night
             if s is not None:
-                s["mtime"] = mtime
+                s["mtime"], s["hsig"] = mtime, hsig
             return None, f"its reader did not load ({e.__class__.__name__}: {str(e)[:160]})"
         if s is not None:
-            s["mod"], s["mtime"] = mod, mtime
+            s["mod"], s["mtime"], s["hsig"] = mod, mtime, hsig
         need = ("read_folder",) if kind == "hand" else ("check", "fetch", "read")
         missing = [f for f in need if not hasattr(mod, f)]
         if missing:
             return None, f"its reader does not offer {', '.join(missing)} yet"
         return mod, ""
+
+    def _helpers(self):
+        """The shared reader helpers (election/readers/_*.py) by their times on disk. When one changed, it is read again
+        here, once, before the readers that import it are (a mend made in a helper is picked up without a restart)."""
+        folder = os.path.join(HERE, "election", "readers")
+        try:
+            sig = tuple(sorted((n, os.path.getmtime(os.path.join(folder, n))) for n in os.listdir(folder)
+                               if n.startswith("_") and n.endswith(".py") and n != "__init__.py"))
+        except OSError:
+            return self._helper_sig
+        if self._helper_sig is not None and sig != self._helper_sig:
+            before = dict(self._helper_sig)
+            for n, m in sig:
+                name = f"election.readers.{n[:-3]}"
+                if before.get(n) != m and name in sys.modules:
+                    try:
+                        importlib.reload(sys.modules[name])
+                        self.note(f"the shared reader helper {n} changed on disk and was read again")
+                    except Exception as e:  # noqa: BLE001 - the readers that use it then fail to load, and say so
+                        self.note(f"the shared reader helper {n} changed on disk and did not load ({e.__class__.__name__})")
+        self._helper_sig = sig
+        return sig
 
     # ------------------------------------------------------------------ one look at everything that is due
     def step(self, force=False):
@@ -528,18 +616,46 @@ class Night:
         for code, s in self.st.items():
             if s["kind"] not in READ_KINDS:
                 continue
+            now = self.clock.now()
+            if self.stop_check():
+                return                                  # Stop Election Night.bat: the run publishes "paused" and ends
+            if not force and self.next_snap and self.clock.now() >= self.next_snap:
+                self.next_snap = next_snapshot(self.clock.now(), self.day)
+                self._safe_snapshot()                   # a slow state never holds the snapshot back
             if not force and s["next"] and now < s["next"]:
                 continue
-            if s["kind"] == "hand":
-                s["next"] = now + dt.timedelta(seconds=HAND_EVERY)
-                self.look_folder(code, now, force=force)
-            else:
-                warm = s["first_close"] - dt.timedelta(minutes=WARM_UP)
-                every = PRE_CLOSE_EVERY if now < warm else max(int((s["entry"].get("cadence") or {}).get("check_every_s") or 120),
-                                                              poll_floor(now, self.day))
-                s["next"] = min(now + dt.timedelta(seconds=every), warm) if now < warm else now + dt.timedelta(seconds=every)
-                if not s["refused"]:
-                    self.poll_state(code, now)
+            try:
+                if s["kind"] == "hand":
+                    s["next"] = now + dt.timedelta(seconds=HAND_EVERY)
+                    self.look_folder(code, now, force=force)
+                else:
+                    warm = s["first_close"] - dt.timedelta(minutes=WARM_UP)
+                    every = PRE_CLOSE_EVERY if now < warm else max(int((s["entry"].get("cadence") or {}).get("check_every_s") or 120),
+                                                                  poll_floor(now, self.day))
+                    if s["fails"]:                      # a site that did not answer is asked less often, up to every 10 minutes
+                        every = max(every, min(every * 2 ** s["fails"], BACKOFF_MAX))
+                    s["next"] = min(now + dt.timedelta(seconds=every), warm) if now < warm else now + dt.timedelta(seconds=every)
+                    if s["refused"] and not s.get("never"):
+                        hosts = (s["entry"].get("cadence") or {}).get("hosts") or []
+                        if hosts and not any(self.src.stopped(h) for h in hosts):
+                            s["refused"] = None         # the gate let the host go (18 hours on): it is asked again
+                            self.note(f"{code}: the state's site is asked again; the refusal earlier was more than a night ago")
+                    if not s["refused"]:
+                        self.poll_state(code, now)
+            except Exception as ex:  # noqa: BLE001 - one state's trouble (a locked database, a full disk) never ends the night
+                self.log(f"{code}: the cycle failed for this state ({ex.__class__.__name__}: {str(ex)[:200]})")
+                if not s.get("trouble"):                # said once on the console until the state reads again
+                    s["trouble"] = True
+                    self.note(f"{code}: this state could not be read this time ({ex.__class__.__name__}: {str(ex)[:120]}); "
+                              f"its last figures stay, and it is tried again next time")
+
+    def _safe_snapshot(self, run="running"):
+        try:
+            return self.snapshot(run)
+        except Exception as ex:  # noqa: BLE001 - written again at the next moment on the clock
+            self.note(f"the snapshot could not be written this time ({ex.__class__.__name__}: {str(ex)[:160]}); "
+                      f"it is tried again at the next moment on the clock")
+            return None
 
     def _tick_saver(self, code, saver, now):
         i = saver.due(now)
@@ -596,13 +712,14 @@ class Night:
         except Exception as ex:  # noqa: BLE001
             reading = {"state": code, "feed": s["feed"], "contests": [], "unmatched": [],
                        "problems": [f"the file did not read ({ex.__class__.__name__}: {str(ex)[:200]})"]}
-        status = self._store(code, reading, sha, raw, reading.get("source_time") or sig.get("time"), version, now)
+        status = self._store(code, reading, sha, raw, reading.get("source_time") or sig.get("time"), version, now, again=s.pop("reread", False))
         if status in ("ok", "same", "held", "test"):
             s["last_version"] = version
         return status
 
     def _answered(self, code):
         s = self.st[code]
+        s["trouble"] = False
         if s["fails"] >= STALE_AFTER:
             self.note(f"{code}: the state's site is answering again")
         s["fails"], s["fail_since"] = 0, None
@@ -625,6 +742,7 @@ class Night:
         store.failed_snapshot(self.con, code, s["feed"], "refused", str(ex)[:300])
         store.feed_outcome(self.con, code, s["feed"], False, f"refused: {why}"[:200])
         s["refused"] = why
+        s["never"] = str(why).startswith(("on the never list", "not a web address"))   # never asked again, whatever the clock
         self.note(f"{code}: the state's site refused this request ({why}); it is not asked again tonight, and its page links to the "
                   f"state's own results")
         return "refused"
@@ -648,9 +766,21 @@ class Night:
                      and n.lower() not in ("desktop.ini", "thumbs.db")]
         except OSError:
             return None
-        if any(n.lower().endswith(PARTIAL) for n in names):
+        partials = [n for n in names if n.lower().endswith(PARTIAL)]
+        names = [n for n in names if n not in partials]
+        fresh, old = [], []
+        for n in partials:
+            try:
+                (fresh if time.time() - os.path.getmtime(os.path.join(folder, n)) < PARTIAL_FRESH else old).append(n)
+            except OSError:
+                pass
+        if fresh:
             s["note"] = "a file is still being saved"
             return None
+        if old and s.get("old_partials") != sorted(old):
+            s["old_partials"] = sorted(old)
+            self.note(f"{code}: an unfinished download is left in the folder ({', '.join(sorted(old)[:3])}); it is not read. "
+                      f"Delete it, and save that file again if it was one of the results files")
         fp = []
         for n in sorted(names):
             try:
@@ -675,14 +805,16 @@ class Night:
         s["why"] = ""
         read_from = folder
         keep = newest_copies(folder, names)
-        if len(keep) < len(names):
-            # the same file saved more than once: read the newest copy of each, from a folder of their own
+        if len(keep) < len(names) or partials:
+            # the same file saved more than once (or a download left unfinished beside them): read the newest copy of
+            # each, from a folder of their own
             read_from = os.path.join(self.work, "stage", code.lower())
             shutil.rmtree(read_from, ignore_errors=True)
             os.makedirs(read_from, exist_ok=True)
             for n in keep:
                 shutil.copy2(os.path.join(folder, n), os.path.join(read_from, n))
-            self.log(f"{code}: {len(names) - len(keep)} older copies of files saved again are set aside; the newest of each is read")
+            if len(keep) < len(names):
+                self.log(f"{code}: {len(names) - len(keep)} older copies of files saved again are set aside; the newest of each is read")
         try:
             reading, info = reader.read_folder(read_from)
         except Exception as ex:  # noqa: BLE001
@@ -697,7 +829,7 @@ class Night:
         raw = self._keep_raw(code, s["feed"], files, info.get("sha256") or sha_files(files))
         for n in (info.get("notes") or [])[:5]:
             self.log(f"{code}: {n}")
-        return self._store(code, reading, info.get("sha256") or sha_files(files), raw, info.get("saved_at"), None, now)
+        return self._store(code, reading, info.get("sha256") or sha_files(files), raw, info.get("saved_at"), None, now, again=s.pop("reread", False))
 
     # ------------------------------------------------------------------ storing a reading
     def _keep_raw(self, code, feed, files, sha):
@@ -718,7 +850,7 @@ class Night:
             self.log(f"{code}: the raw files could not be kept ({e.__class__.__name__})")
         return folder
 
-    def _store(self, code, reading, sha, raw, source_time, version, now):
+    def _store(self, code, reading, sha, raw, source_time, version, now, again=False):
         s = self.st[code]
         test = now < s["first_close"] or bool(reading.get("test"))
         reading = dict(reading, state=code, feed=s["feed"])
@@ -735,7 +867,8 @@ class Night:
             s["note"] = f"a test file before the polls closed ({'it reads cleanly' if good else 'it does not read cleanly'}); never published"
             self.log(f"{code} test snapshot {sid}: version {version}; " + "; ".join(f"{n} {'ok' if p else 'FAIL'}" for n, p, _d in checks))
             return "test"
-        sid, status = store.begin_snapshot(self.con, code, s["feed"], sha, raw_path=raw, source_time=source_time, source_version=version)
+        sid, status = store.begin_snapshot(self.con, code, s["feed"], sha, raw_path=raw, source_time=source_time, source_version=version,
+                                           again=again)
         if status == "same":
             store.end_snapshot(self.con, sid, "same", rows=0)
             self._answered(code)
@@ -770,12 +903,14 @@ class Night:
         summ = self.summ.get(code)
         if s["refused"]:
             return "refused"
-        if s["why"] and not summ:
-            return "link"
         if s["kind"] == "partial" and not summ:
             return "link"           # the state's own count is not read here; its county's figures, once in, are counted below
         if s["kind"] != "hand" and s["fails"] >= STALE_AFTER:
             return "stale"
+        if s["why"] and not summ:
+            # its reader is missing or does not load: the state does publish a count, which this site is not reading
+            # just now; never "link", which tells readers the state publishes nothing this site may read
+            return "wait" if now < s["last_close"] else "stale"
         last = self.con.execute("SELECT status FROM snapshots WHERE state=? AND feed_id=? AND status IN ('ok','held') "
                                 "ORDER BY snapshot_id DESC LIMIT 1", (code, s["feed"])).fetchone()
         if (last and last[0] == "held") or (s["held_at"] and summ):
@@ -867,17 +1002,19 @@ class Night:
         """The forecasts' and the feed's files, history and pointers, from the sections that exist."""
         files, hist, fc, fd = {}, {}, None, None
         try:
-            runs = optional("election.model.runs")
+            # The forecasts go out only once John has said yes (election.model.FORECASTS_PUBLIC, which the forecasts page
+            # reads too); until then no forecast file, history or pointer is written into the live folder.
+            runs = optional("election.model.runs") if forecasts_public() else None
             if runs is not None:
                 for code in self.codes:
                     if hasattr(runs, "page_json"):
-                        doc = runs.page_json(code)
+                        doc = runs.page_json(code, rehearsal=self.rehearsal)
                         if doc:
                             files[f"fc/{code.lower()}.json"] = livejson.dumps(doc)
                     if hasattr(runs, "history"):
-                        for rid, d in (runs.history(code) or {}).items():
+                        for rid, d in (runs.history(code, rehearsal=self.rehearsal) or {}).items():
                             hist[f"{code.lower()}/{rid}.json"] = livejson.dumps(d)
-                fc = runs.newest() if hasattr(runs, "newest") else None
+                fc = runs.newest(rehearsal=self.rehearsal) if hasattr(runs, "newest") else None
             meas = optional("election.feeds.measures")
             if meas is not None and hasattr(meas, "page_json"):
                 for code in ["US"] + self.codes:
@@ -900,7 +1037,7 @@ class Night:
             self.note(f"the Bluesky collector did not load ({e.__class__.__name__}); the feed goes on without it")
         if bs is not None and hasattr(bs, "start"):
             try:
-                self._bluesky = bs.start(src=self.src, say=lambda t: self.note(t, console=False))
+                self._bluesky = bs.start(src=self.feed_src, say=lambda t: self.note(t, console=False))
                 self.sections_state["bluesky"] = "running"
             except Exception as e:  # noqa: BLE001
                 self.sections_state["bluesky"] = f"did not start ({e.__class__.__name__})"
@@ -942,7 +1079,7 @@ class Night:
                 self.sections_state[name] = "not there yet"
                 continue
             try:
-                out = getattr(mod, fn)(src=self.src, now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False))
+                out = getattr(mod, fn)(src=self.feed_src, now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False))
                 self.sections_state[name] = f"ran at {clock_words(utcnow())}"
                 self.log(f"{name}: {json.dumps(out)[:300] if out else 'done'}")
                 called.append(name)
@@ -969,13 +1106,9 @@ class Night:
                     self.sections_state["forecasts"] = f"{code} failed ({e.__class__.__name__})"
                     self.log(f"model {code} failed: {e.__class__.__name__}: {str(e)[:200]}")
         today = local(now).date()
-        if fm is not None and hasattr(fm, "run_pre") and not self.summ and self._pre_day != today:
+        if not self.summ and self._pre_day != today:
             self._pre_day = today
-            try:
-                fm.run_pre(now=now, say=lambda t: self.note(t, console=False))
-                called.append("pre-election forecast")
-            except Exception as e:  # noqa: BLE001
-                self.log(f"pre-election forecast failed: {e.__class__.__name__}: {str(e)[:200]}")
+            called += run_pre_all(now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False), log=self.log)
         return called
 
     # ------------------------------------------------------------------ the night
@@ -983,12 +1116,13 @@ class Night:
         """Cycles until a stop is asked for (Stop Election Night.bat, Ctrl+C) or a rehearsal's night ends."""
         from election.awake import Awake
         lock = lock or Lock(self.work)
+        self.stop_check = lock.stop_requested
         took, prev = lock.take(self.mode, self.live.root)
         if not took:
             self.say(f"Election Night is already running (since {clock_words(parse(prev.get('started')), day=True)}, program {prev.get('pid')}). "
                      "Use its window, or Stop Election Night.bat.")
             return 2
-        if prev and prev.get("pid") and not pid_alive(prev.get("pid")):
+        if prev and prev.get("pid") and int(prev.get("pid") or 0) != os.getpid():
             self.note("the last run ended without stopping (the window was closed or the computer stopped); resuming from the databases")
         awake = Awake("Election Night is reading and publishing results").start()
         self.awake = awake
@@ -1001,7 +1135,7 @@ class Night:
             self._start_sections()
             self.step(force=True)
             self.next_snap = next_snapshot(self.clock.now(), self.day)
-            self.snapshot("running")
+            self._safe_snapshot("running")
             while True:
                 if lock.stop_requested():
                     reason = "stop"
@@ -1011,9 +1145,9 @@ class Night:
                     reason = "end"
                     break
                 self.step()
-                if now >= self.next_snap:
-                    self.next_snap = next_snapshot(now, self.day)
-                    self.snapshot("running")
+                if self.clock.now() >= self.next_snap:
+                    self.next_snap = next_snapshot(self.clock.now(), self.day)
+                    self._safe_snapshot("running")
                 time.sleep(0.5 if getattr(self.clock, "speed", 1) > 1 else 1.0)
         except KeyboardInterrupt:
             reason = "stop"
